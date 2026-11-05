@@ -1,0 +1,90 @@
+{
+  "id": "panaque-cochliodon",
+  "scientificName": "Panaque cochliodon",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Panaque",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "rio-magdalena"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
+      "html": "<p>Colombia, Rio Magdalena.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
+      "html": "<p>Wood eaters of this size (more than 40 cm) need large aquariums with very high-performance filtration units, since substantial quantities of excrement are produced.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
+      "html": "<p>The vegetable part of the food should be high; cucumbers, potatoes, carrots and other vegetables are gladly eaten.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
+      "html": "<p>Breeding attempts would be interesting to secure the species' existence in aquariums. However, even in former years, when they were not so rare, no confirmed breeding reports are known.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/panaque_cochliodon_en/",
+      "html": "<p>December 2005: After years in which no Panaque cochliodon (Panaque suttoni, P. suttonorum) were imported, a few individuals are now reaching us again. Whether environmental problems or the civil war in parts of Colombia are responsible for their absence cannot be judged from a distance. It is good to see this species, not rare in former times, again. Their bright blue eyes on a black body are unique and are the special attraction of this species.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/aa110ca147bb2ba8.webp",
+      "width": 960,
+      "height": 617,
+      "licence": "CC BY-SA 2.0",
+      "author": "Sini Merikallio from Helsinki, Finland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panaque_cochliodon_-_Blue-eyed_plec_(5936849425).jpg",
+      "caption": "I named him Rambo. He came with the aquarium I bought when 10 years old or so, he was already big. When I was about 17 he died, shortly after which I sold my aquarium as he was 'the fish of my life'. ",
+      "thumb": "https://media.aquatome.com/commons/aa110ca147bb2ba8-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 200cm",
+        "bể cá 600 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng công suất lớn",
+        "lọc ngoài cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính ăn gỗ",
+        "thức ăn thực vật cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-05"
+}

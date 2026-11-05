@@ -1,0 +1,180 @@
+{
+  "id": "nannostomus-grandis",
+  "scientificName": "Nannostomus grandis",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Nannostomus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "para"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>The largest member of its genus at up to 46 mm, Nannostomus grandis is a pencilfish known only from commercial exports from Belém, Pará state, Brazil. Poorly known in the hobby, it arrives as bycatch, especially among N. beckfordi, which it closely resembles. The simplest difference is that N. grandis lacks pale white or bluish tips to the ventral fins, and it appears to have been traded as N. anomalus in the 1920s and 1930s.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>No precise details are known.</p><p>The type series was obtained via a commercial export to Germany from Belém, Pará state, eastern Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>Unreported, but related species tend to inhabit sluggish tributaries, small rivers and swampy areas, particularly in areas with dense growth of aquatic vegetation or submerged woody structures and leaf litter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>Base dimensions of at least 60 × 30 cm or equivalent are recommended (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>Should ideally be kept in a heavily-planted set-up, preferably with a dark substrate.</p><p>The broken lines of sight that exist in such a display allow it to display natural behaviour as well as helping to reduce skittishness.</p><p>Floating plants are a useful addition as are driftwood branches and dried leaf litter, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such microorganisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial.</p><p>Filtration need only be gentle with an air-powered sponge-style unit normally adequate, though a degree of water movement is acceptable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>A micropredator feeding on tiny invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Moina, grindal worm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>Relatively peaceful and will not compete well with very boisterous or much larger tankmates.</p><p>In a community it's best kept with similarly-sized, peaceful characids and smaller callichthyid or loricariid catfishes but sedate surface-dwellers such as hatchetfishes are best omitted, especially in smaller aquaria.</p><p>It also makes an ideal dither fish for Apistogramma spp. and other dwarf cichlids since it tends to inhabit the middle-to-upper regions of the tank, and does not often predate fry.</p><p>In a more general community set-up it can be combined with smaller rasboras, barbs, anabantoids, etc.</p><p>Buy as many as possible, ideally 10 or more, as when kept in larger groups any aggression is spread between individuals plus the fish are bolder and exhibit more natural behaviour.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>Mature females should be noticeably stockier than males, other differences are unreported.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<p>This species is poorly-known in the aquarium hobby but is sometimes exported as bycatch among shipments of other species, especially Nannostomus beckfordi to which it appears quite similar.</p><p>The easiest way to tell the two apart is that N. grandis lacks pale white or bluish tips to the ventral fins.</p><p>It can be further distinguished from all congeners by the following combination of characters: body size up to 46.2 mm, the largest in the genus; body relatively elongate, with depth fitting 4.66-5.35 times in SL; relatively small head fitting 4.39-4.50 times in SL; males with enlarged and thickened anal-fin rays; primary (central) lateral stripe very well-defined; no secondary or tertiary lateral stripe; 35-36 vertebrae; adipose-fin absent.</p><p>This description is similar to that of N. anomalus Steindachner, 1876, currently considered a synonym of N. beckfordi.</p><p>The type locality of N. anomalus is Óbidos in the middle Amazon, close to Santarém and in Steindachner's description the dark lateral stripe does not reach the caudal-fin and is bordered above and below by narrow silver stripes.</p><p>The upper part of the body is brownish, lower part yellowish.</p><p>In the description of N. grandis Zarske considered N. anomalus synonymous with N. beckfordi as he considered Steindachner's description of N. anomalus to be uninformative and lacking illustrations, plus the type specimens have been lost.</p><p>It appears that N. grandis may have been traded as N. anomalus in the 1920s and 1930s.</p><p>Don't worry if your fish look different when you switch on the aquarium lights after dark or in the morning as like most Nannostomus species it assumes a cryptic, vertically-barred colour pattern at night.</p><p>This diurnal rhythm has been shown to occur in blind specimens, suggesting it's an automatic response that the fish cannot control.</p><p>The family Lebiasinidae is included in the order Characiformes and sometimes split into the nominal subfamilies Lebiasininae and Pyrrhulininae, though there has not been a major review of the grouping in recent times.</p><p>All lebiasinid genera possess a relatively long, elongate body shape with 17-33 scales in the lateral series and laterosensory canal system absent or reduced to 7 scales or less.</p><p>Some species have an adipose-fin while others do not, and the anal-fin has a relatively short base of 13 scales or less.</p><p>In the majority of members males have an enlarged or otherwise well-developed anal-fin used in courtship and spawning.</p><p>The frontal/parietal fontanelle is always absent, the cheek well-covered by the orbital and opercular bones, the supraoccipital crest is absent, and the scales of the dorsal body begin over the parietal bones.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical and morphological diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and a research paper by Calcagnotto et al. published in 2005 revealed some interesting hypotheses.</p><p>Their results suggest that Lebiasinidae forms a trans-atlantic, monophyletic clade alongside the families Ctenoluciidae and Hepsetidae, this clade further forming a sister group to Alestidae.</p><p>Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "html": "<ul><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Weitzman, S. H. and J. S. Cobb (1975). A revision of the South American fishes of the genus Nannostomus Günther (family Lebiasinidae). Smithsonian Contributions to Zoology 186, i-iii + 1-36</li><li>Zarske, A. (2011). Nannostomus grandis spec. nov. -- ein neuer Ziersalmler aus Brasilien mit Bemerkungen zu N. beckfordi Günther, 1872, N. anomalus Steindachner, 1876 und N. aripirangensis Meinken, 1931 (Teleostei: Characiformes: Lebiasinidae). Vertebrate Zoology 61(3), 283-298</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/95e76a5fb763113d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/95e76a5fb763113d-480.webp",
+      "width": 864,
+      "height": 570,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-grandis",
+      "caption": "Adult pair of N. grandis, male at top.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh 60x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bọt khí sponge",
+        "lọc mút cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "trùng chỉ đông lạnh",
+        "thức ăn cá nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh thả nổi",
+        "cây thủy sinh bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

@@ -32,8 +32,10 @@
   "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }] },
   "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
-  // Readers' beacon events (worker/events.ts); every fish-ID request's outcome, tokens and cost (worker/fishid/log.ts).
-  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }],
+  // Readers' beacon events (worker/events.ts); every fish-ID request's outcome, tokens and cost (worker/fishid/log.ts); the
+  // iOS app's anonymous events and MetricKit summaries (worker/telemetry), whose raw reports wait 30 days in the private
+  // uploads bucket under diagnostics/ (a lifecycle rule deletes them).
+  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }, { "binding": "APP_EVENTS", "dataset": "aquatome_app" }],
   "triggers": { "crons": ["17 20 * * *"] },
   "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
   "vars": {

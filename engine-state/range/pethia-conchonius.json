@@ -1,0 +1,299 @@
+{
+  "id": "pethia-conchonius",
+  "native": {
+    "input": "b003a88c697a0a5f",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: India",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Wild-collected rosy barbs, originating from the vicinity of Calcutta (the type locality of Barbus conchonius), look completely different from the aquarium strains.",
+        "words": "Calcutta",
+        "ok": false,
+        "why": "\"Calcutta\" is not IN"
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Rosy barbs originate from northern India, specifically in the states of West Bengal and Assam.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "Feral populations have been established in Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "Feral populations have been established in Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "Feral populations have been established in Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "Feral populations have been established in Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Puerto Rico",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "Feral populations have been established in Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations exist in several countries, notably Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations exist in several countries, notably Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations exist in several countries, notably Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations exist in several countries, notably Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Puerto Rico",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations exist in several countries, notably Singapore, Australia, Mexico, Puerto Rico, and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kosi",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Ami",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Siwalik mountains",
+        "source": "seriouslyfish",
+        "quote": "For example, fish collected from the Darjeeling area in the Siwalik mountains, West Bengal are said to be particularly well-coloured with highly-reflective scales.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pethia conchonius",
+    "status": "ACCEPTED",
+    "taxonKey": 7572096,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        66
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        56
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        50
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        32
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        22
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        3
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        3
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "7b88be3f-ae5e-497d-bf56-0d549300d916",
+        2
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "a9576a23-3690-4c27-8d19-0db353957177",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        1
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "PK",
+      "NP",
+      "BD"
+    ],
+    "requests": 16,
+    "at": "2026-11-04T21:41:08.860Z"
+  }
+}

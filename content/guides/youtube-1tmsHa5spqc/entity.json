@@ -1,0 +1,74 @@
+{
+  "id": "youtube-1tmsHa5spqc",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=1tmsHa5spqc",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "1tmsHa5spqc",
+    "title": "HOW TO: aquarium water bridge",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 980,
+    "publishedAt": "2014-01-22",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbN03yoMmH3ioVkQVTJ3BwK",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/1tmsHa5spqc/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 505
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao chọn kính để làm cầu",
+        "moments": [
+          {
+            "t": 119,
+            "url": "https://media.aquatome.com/video/1tmsHa5spqc/t119.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Cầu nước làm từ kính trong đặt trên bàn, nhìn xuyên qua được."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/1tmsHa5spqc/p0-RFAyNDE5NTguanBn.webp",
+          "thumb": "https://media.aquatome.com/video/1tmsHa5spqc/p0-RFAyNDE5NTguanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "Tiffany Studios",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glass_Cutter_MET_DP241958.jpg",
+          "caption": "Dao cắt kính cầm tay cũ, dụng cụ đơn giản để cắt tấm kính mỏng."
+        }
+      },
+      {
+        "heading": "Thay nước và chạy lọc khi có cầu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/1tmsHa5spqc/p5-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/1tmsHa5spqc/p5-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt dưới tủ bể, bên cạnh xô và ống siphon dùng khi thay nước."
+        }
+      }
+    ]
+  }
+}

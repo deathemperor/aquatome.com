@@ -132,7 +132,7 @@ test('sources and photos: what each source gives the pages, and where photos com
   expect(stats.sources.youtube).toEqual({ name: 'YouTube', fish: 0, plant: 0, guide: 2 })
   expect(stats.photos.covered).toEqual({ fish: { with: 9, of: 9 }, plant: { with: 3, of: 4 }, breed: { with: 1, of: 2 } })
   expect(stats.photos.pages).toBe(14)
-  expect(stats.totals.photos).toEqual({ pages: 14, gallery: 21 })
+  expect(stats.totals.photos).toEqual({ pages: 14, gallery: 60 })
   expect(licenceFamily({ licence: 'CC BY-SA 3.0 de' })).toBe('CC BY-SA')
   expect(licenceFamily({ licence: 'dùng với sự cho phép', source: 'seriouslyfish' })).toBe('permission')
   expect(photoOrigin({ url: 'https://media.aquatome.com/commons/ab.webp' })).toBe('commons')

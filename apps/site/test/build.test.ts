@@ -140,8 +140,8 @@ test('a thin page (one dealer\'s note) stays out of search; a heading over a few
   expect(html).toMatch(/<meta name="robots" content="noindex/)
   expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/ca/ca-ong-tien/')
   // "Spawns on leaves." under its own heading becomes a line of the quick facts, with its source's mark; "Amazon basin."
-  // is left out, the quick facts already say it.
-  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts'])
+  // is left out, the quick facts already say it. Its range (where it lives in the wild) is a section of its own.
+  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts', 'range'])
   const facts = dom.querySelector('#muc-quickFacts')!
   expect(facts.querySelectorAll('li').map(li => li.text)).toEqual(['Sinh sản: Đẻ trứng trên lá.1'])
   expect(facts.querySelector('li strong')?.text).toBe('Sinh sản:')
@@ -301,6 +301,15 @@ test("a guide's photos go under the section they name, at their own size and cre
 test('a breed the guide names (engine mentions) lists the guide on its page', () => {
   expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
   expect(page('/ca/ca-dia/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
+})
+
+// 2026-11-05: the halfmoon betta's other names held the betta's ("Cá xiêm"), so every guide naming the betta was listed on
+// the halfmoon's page (a pea puffer video among them). A breed's names are its own (engine alt-names.ts cleanBreedAltNames).
+test("a guide naming only a breed's species is listed on the species' page, not the breed's", () => {
+  const guide = 'a[href="/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]' // "Cá đĩa hoang dã về ít…"
+  expect(page('/ca/ca-dia/').dom.querySelector(guide)).not.toBeNull()
+  expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector(guide)).toBeNull()
+  expect(page('/ca/ca-la-han/').dom.querySelector(guide)).toBeNull() // a hybrid the discus may be a parent of
 })
 
 describe('review fixes', () => {
@@ -610,13 +619,20 @@ describe('photo gallery', () => {
     const { dom } = page('/ca/ca-neon-vua/')
     const strip = dom.querySelector('section.strip')!
     expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
-    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh')
+    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 45 ảnh')
     const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
     expect(links[0]).toBe('/ca/ca-neon-vua/anh/#a1')
     expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)
     expect(strip.innerHTML).not.toContain('Neon3')
     const credits = dom.querySelector('#photo-credits')!.innerHTML
     for (const n of [1, 2, 4, 5, 6, 7]) expect(credits).toContain(`File:Neon${n}.jpg`)
+    // On a tall computer screen the photo column goes on with the gallery's next photos (`.more`), each at its own place
+    // on the gallery page and credited, up to 40 thumbnails, never the fish's own photo (#a19).
+    const more = [...strip.querySelectorAll('li.more a')].map(a => a.getAttribute('href'))
+    expect(links.slice(0, 8)).toEqual([1, 2, 3, 4, 5, 6, 7, 8].map(n => `/ca/ca-neon-vua/anh/#a${n}`))
+    expect(more).toEqual([...Array.from({ length: 33 }, (_, i) => i + 9).filter(n => n !== 19)].map(n => `/ca/ca-neon-vua/anh/#a${n}`))
+    expect(credits).toContain('File:NeonVua43.jpg')
+    expect(credits).not.toContain('File:NeonVua44.jpg')
   })
   test('a species with too few photos gets no strip and no gallery page', () => {
     expect(page('/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()
@@ -625,7 +641,7 @@ describe('photo gallery', () => {
   test('gallery page: every photo credited (author, licence, source), each tile its full photo for the viewer, ImageObject licence data, captions escaped', () => {
     const { html, dom } = page('/ca/ca-neon-vua/anh/')
     const items = [...dom.querySelectorAll('[data-gallery] a[data-i]')]
-    expect(items).toHaveLength(6)
+    expect(items).toHaveLength(45)
     expect(items[0]!.getAttribute('data-author')).toBe('Tác giả 1')
     expect(items[0]!.getAttribute('data-lic')).toBe('CC BY 2.0')
     expect(items[0]!.getAttribute('data-src')).toBe('https://commons.wikimedia.org/wiki/File:Neon1.jpg')
@@ -637,7 +653,7 @@ describe('photo gallery', () => {
     expect(html.lastIndexOf('<script')).toBeLessThan(html.indexOf('</html>'))
     const ld = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!)).flat()
     const g = ld.find((x: { '@type': string }) => x['@type'] === 'ImageGallery')
-    expect(g.image).toHaveLength(6)
+    expect(g.image).toHaveLength(45)
     expect(g.image[0]).toMatchObject({ '@type': 'ImageObject', creditText: 'Tác giả 1', license: 'https://creativecommons.org/licenses/by/2.0/', acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
     expect(g.image.find((x: { license?: string }) => x.license?.includes('publicdomain'))).toBeTruthy()
     expect(dom.querySelector('a[href="/ca/ca-neon-vua/"]')).toBeTruthy()

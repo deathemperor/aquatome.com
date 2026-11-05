@@ -14,7 +14,9 @@
     "ecuador",
     "napo",
     "colombia",
-    "caqueta"
+    "caqueta",
+    "itaya",
+    "solimoes"
   ],
   "dataCard": {
     "tempC": [
@@ -23,6 +25,13 @@
         "value": {
           "min": 22,
           "max": 25
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
         }
       }
     ],
@@ -33,12 +42,38 @@
           "min": 6,
           "max": 7.4
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 5.1
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -50,16 +85,46 @@
       "html": "<ul><li>Scientific name: Gastrodermus elegans (Steindachner, 1876)</li><li>Common name: Elegant Cory</li><li>Type locality: Amazon River at Tefé, Amazonas, Brazil</li><li>Temperament: peaceful, shoaling community fish</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>Max size: 55 mm SL. Temperature: 20–26°C. pH: 6.0–7.5. Hardness: 1–15 dGH.</p><p>The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil. Unlike most congeners it spends a fair amount of time away from the substrate, often forming groups in midwater.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
       "html": "<p>South America: Amazon basin, including the Middle Amazon (Solimões), Upper Amazon, Napo, Aguarico, Marañón, Ucayali, Tamaya, Ampiyacu, Nanay, Yavari and Japurá/Caquetá.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>This species is fairly widespread in the western Amazon basin and has been recorded in the Ríos Yavarí (Javary), Itaya, Nanay, Carahuayte, Tamaya, Ampiyacu, and Ucayali in Peru, the Ríos Aguarico and Napo in Ecuador, and the rio Solimões in Brazil.</p><p>Type locality is 'Amazon River at Tefé, Amazonas, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>Forested streams with substrates of sand, mud, leaf litter, and fallen branches.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
       "html": "<p>pH 6.0–7.4. Temperature 22–25°C (71.6–77°F). Water composition is not vital, but slightly softer water within these ranges will bring out the best colouration in the males.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -74,10 +139,22 @@
       "html": "<p>This species readily accepts all prepared foods that reach the bottom of the aquarium, such as tablets, granules and larger flakes. Live or frozen foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups for spawning.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
       "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>Peaceful, gregarious, and a popular inhabitant of the community set-up. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
       "key": "dimorphism",
@@ -86,10 +163,34 @@
       "html": "<p>Females grow larger and are more full-bodied, best observed from above. Males typically have more pointed rather than rounded fin tips as they mature.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid. Males possess a more intense colour pattern than females, with a greater proportion of dark markings on the body and dorsal-fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of 2 males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs are normally deposited on the aquarium glass, but it's recommended to provide alternatives in the form of fine-leaved vegetation or fine spawning mops.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger.</p><p>The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare-bottomed arrangement.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<p>This species is popular in the aquarium hobby and unlike the majority of congeners tends to spend a fair amount of time away from the substrate, often forming groups in midwater.</p><p>It has been placed in the unofficial 'C. elegans group', which contains a number of species exhibiting similarities in morphology and colour pattern, some of which remain unidentified in scientific terms. The group currently includes Gastrodermus elegans, G. bilineatus, G. gracilis, G. nanus, G. napoensis, G. nijsseni, and G. undulatus, plus fishes of uncertain taxonomic status which have been assigned the 'C' numbers C041, C088, C089, C123, C126, and C132, plus the 'CW' numbers CW008, CW018, CW019, CW022, CW029, CW033, CW044, CW048, CW056, CW064, and CW085, respectively.</p><p>Phylogenetic studies suggest that the species Aspidoras pauciradiatus may also turn out to belong in this assemblage.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Gastrodermus.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
       "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 141 [93].</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "html": "<ul><li>Steindachner, F. (1876). Ichthyologische Beiträge (V). Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), 49-240</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li></ul>"
     }
   ],
   "photos": [
@@ -104,6 +205,17 @@
       "caption": "Corydoras elegans"
     },
     {
+      "url": "https://media.aquatome.com/seriouslyfish/d9835fa2d3abcbb3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d9835fa2d3abcbb3-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/commons/eece3ec28edfbedb.webp",
       "thumb": "https://media.aquatome.com/commons/eece3ec28edfbedb-480.webp",
       "width": 960,
@@ -114,7 +226,32 @@
       "caption": "The Elegant corydoras (Corydoras elegans)."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kmEG6JVLB2k",
+      "title": "Corydoras elegans - Species Profile",
+      "durationSec": 764,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nBK1yhanplY",
+      "title": "Keltakorumonninen, Corydoras cf elegans #shorts",
+      "durationSec": 15,
+      "lang": "fi"
+    },
+    {
+      "youtubeId": "xCQK0P6B5k4",
+      "title": "Corydoras elegans",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kvuEDVgxtVA",
+      "title": "CORIDORA ELEGANS (CORYDORAS ELEGANS)",
+      "durationSec": 25,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -138,5 +275,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-04"
 }

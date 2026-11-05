@@ -71,6 +71,7 @@ struct AquaTomeApp: App {
       .onChange(of: phase) { if phase == .background { lights.leave() } else if phase == .active { lights.returned() } }
       // The page shots' dark run (PageShotsFlowTests): the runner's own appearance setting doesn't reach the app.
       .preferredColorScheme(Self.testScheme)
+      .appIconsForTests()
     }
   }
 
