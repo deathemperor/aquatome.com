@@ -1681,6 +1681,54 @@
       "\"root tab yang ditanam tepat di bawah tanaman\": 'inserted' is better rendered as \"dibenamkan/diselipkan\"; \"pupuk cair all-in-one yang bagus\" could be \"pupuk cair lengkap (all-in-one)\"."
     ]
   },
+  "nymphoides-hydrophylla": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Nymphoides hydrophylla 'Taiwan'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"daun yang mengapung di permukaan\": the English says \"surface leaves\" (leaves that reach the surface); \"mengapung\" is a slight interpretation. Consider \"daun yang sudah mencapai permukaan\".",
+      "\"helaian daun yang tua\": \"plates of old leaves\" means leaf blades. This is fine, but \"Tanaman baru tumbuh dari helaian daun tua\" would read more naturally.",
+      "\"hijau muda pekat dan transparan\": \"pekat\" (dense) next to \"hijau muda\" (light green) is contradictory. Use \"hijau muda cerah/intens\" for \"intense, light-green\".",
+      "\"banyaknya daun di bawah air\": consider the hobby term \"daun submerse\" (daun terendam)."
+    ]
+  },
+  "peperomia-emarginella": {
+    "at": "2026-11-05",
+    "from": "2026-11-02",
+    "name": "Peperomia emarginella",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"asal Amerika tropis\" is slightly awkward; \"dari wilayah tropis Amerika\" is more natural.",
+      "\"layout terrarium\" could be \"tata letak terarium\"; \"terrarium\" is usually spelled \"terarium\" in standard Indonesian, though both are common."
+    ]
+  },
+  "peperomia-prostrata": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Peperomia prostrata",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"berupa perpaduan garis-garis hijau muda\": English says \"markings\" (bercak/corak), not \"lines\"; \"garis-garis\" adds a detail that is not in the source. Use \"corak/bercak hijau muda\".",
+      "\"setup tropis\": consider \"aquascape/terarium tropis\" or \"set-up\"; \"setup\" is acceptable but slightly informal."
+    ]
+  },
+  "philodendron-sp-mini-midget": {
+    "at": "2026-11-05",
+    "from": "2026-11-03",
+    "name": "Philodendron Mini Midget",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ditanam dengan diikat pada kayu\" is awkward; use \"ditempelkan/diikat pada kayu\" (\"ditanam\" and \"diikat\" are redundant together).",
+      "\"greenhouse\" left in English; prefer \"rumah kaca\".",
+      "\"material hardscape\" is acceptable but \"bahan hardscape\" is more natural; \"hardscape\" could also be glossed as \"dekorasi/penataan keras\".",
+      "\"Hanya dalam kondisi yang sangat mendukung tingginya akan melebihi 20 cm\" is slightly stiff; consider \"Tinggi lebih dari 20 cm hanya tercapai pada kondisi yang sangat mendukung\"."
+    ]
+  },
   "pogostemon-helferi": {
     "at": "2026-10-30",
     "from": "2026-10-30",
