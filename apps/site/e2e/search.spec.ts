@@ -1,6 +1,6 @@
 import { expect, test } from './fixtures'
 
-// The fish list's search (/vi/ca/?q=…). The bug this guards: a search opened on 33 unfiltered breed cards, its
+// The fish list's search (/ca/?q=…). The bug this guards: a search opened on 33 unfiltered breed cards, its
 // results five phone screens below (2026-10-31).
 const fold = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/gi, 'd').toLowerCase()
 /** Every card on the page a reader can see, in reading order: breed cards, then the species list. */
@@ -8,7 +8,7 @@ const visibleCards = (page: import('@playwright/test').Page) =>
   page.$$eval('main .breeds li, main [data-slug]', els => els.filter(e => (e as HTMLElement).offsetParent !== null).map(e => ({ text: e.textContent ?? '', top: e.getBoundingClientRect().top + scrollY })))
 
 test('a name search shows only matching cards, and the first one near the top', async ({ page }) => {
-  await page.goto('/vi/ca/?q=neon')
+  await page.goto('/ca/?q=neon')
   await expect(page.locator('#species-count')).toHaveText(/\d+ loài phù hợp/)
   const cards = await visibleCards(page)
   expect(cards.length).toBeGreaterThan(0)
@@ -18,13 +18,13 @@ test('a name search shows only matching cards, and the first one near the top', 
 })
 
 test('a search with no match says so and shows no cards', async ({ page }) => {
-  await page.goto('/vi/ca/?q=khongcoloainao')
+  await page.goto('/ca/?q=khongcoloainao')
   await expect(page.locator('#species-count')).toHaveText(/Không có loài nào khớp/)
   expect(await visibleCards(page)).toEqual([])
 })
 
 test('typing a name and pressing Lọc filters the list and keeps the search in the address', async ({ page }) => {
-  await page.goto('/vi/ca/')
+  await page.goto('/ca/')
   // On a phone the filters start folded.
   const box = page.locator('#filter-box')
   if (!(await box.evaluate(d => (d as HTMLDetailsElement).open))) await box.locator('summary').click()
@@ -38,7 +38,7 @@ test('typing a name and pressing Lọc filters the list and keeps the search in 
   expect(cards.map(c => fold(c.text).includes('neon vua'))).toEqual(cards.map(() => true))
 })
 
-// The site search (/vi/tim-kiem/, Pagefind). The bugs these guard (design critique 2026-10-31, #6, #7, #18): excerpts
+// The site search (/tim-kiem/, Pagefind). The bugs these guard (design critique 2026-10-31, #6, #7, #18): excerpts
 // made of the accent-free alias list, redirect notes and the gallery's lightbox buttons; photo galleries outranking the
 // species they show; and a nonsense word reported as "4 kết quả" from fragments of authors' initials ("X.-Y.").
 /** A search's results, after "Xem thêm kết quả" has loaded them all, or its first `pages` pages of 10. */
@@ -51,9 +51,9 @@ async function siteSearch(page: import('@playwright/test').Page, path: string, p
 }
 
 test('a site search for a name lists that species first, without photo galleries', async ({ page, errors }) => {
-  const hits = await siteSearch(page, '/vi/tim-kiem/?q=neon', 3)
+  const hits = await siteSearch(page, '/tim-kiem/?q=neon', 3)
   expect(hits.length).toBeGreaterThan(1)
-  expect(hits[0]!.href, 'the first result').toMatch(/^\/vi\/ca\/ca-neon-[a-z-]+\/$/)
+  expect(hits[0]!.href, 'the first result').toMatch(/^\/ca\/ca-neon-[a-z-]+\/$/)
   for (const h of hits) expect(h.href, 'a gallery page among the results').not.toMatch(/\/(anh|foto|photos)\/$/)
   expect(errors).toEqual([])
 })
@@ -62,7 +62,7 @@ test('site search excerpts carry no alias lists, redirect notes or lightbox butt
   for (const q of ['neon', 'tetra', 'cardinal']) {
     // The first 30 results a word (one builder makes every excerpt): all of the live site's hundreds took the test past
     // its time as pages were added. The neon search below reads its first 30 too, where a gallery outranking its species shows.
-    for (const h of await siteSearch(page, `/vi/tim-kiem/?q=${q}`, 3)) {
+    for (const h of await siteSearch(page, `/tim-kiem/?q=${q}`, 3)) {
       // The alias list is the title without accents ("ca neon vua cardinal tetra"): the page's real text has them.
       if (fold(h.title) !== h.title.toLowerCase()) expect(h.text, `excerpt of ${h.href}`).not.toContain(fold(h.title))
       expect(h.text, `excerpt of ${h.href}`).not.toMatch(/Chuyển hướng từ|[‹›×]/)
@@ -71,11 +71,11 @@ test('site search excerpts carry no alias lists, redirect notes or lightbox butt
 })
 
 test('a site search by scientific name finds the species first', async ({ page }) => {
-  const hits = await siteSearch(page, '/vi/tim-kiem/?q=Paracheirodon+axelrodi', 1)
-  expect(hits[0]?.href).toBe('/vi/ca/ca-neon-vua/')
+  const hits = await siteSearch(page, '/tim-kiem/?q=Paracheirodon+axelrodi', 1)
+  expect(hits[0]?.href).toBe('/ca/ca-neon-vua/')
 })
 
-for (const [path, all] of [['/vi/tim-kiem/', '/vi/ca/'], ['/id/cari/', '/id/ikan/'], ['/th/search/', '/th/fish/']] as const) {
+for (const [path, all] of [['/tim-kiem/', '/ca/'], ['/id/cari/', '/id/ikan/'], ['/th/search/', '/th/fish/']] as const) {
   test(`a nonsense word says there is nothing, with a way on (${path})`, async ({ page, errors }) => {
     await page.goto(`${path}?q=xyzzyq`)
     await expect(page.locator('[data-none]')).toBeVisible()
@@ -85,7 +85,7 @@ for (const [path, all] of [['/vi/tim-kiem/', '/vi/ca/'], ['/id/cari/', '/id/ikan
     await expect(link).toHaveAttribute('href', all)
     expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44)
     // The Latin-name example is a search that finds something (the test content has species in Vietnamese only).
-    if (path === '/vi/tim-kiem/') {
+    if (path === '/tim-kiem/') {
       await page.locator('[data-none] a.sci').click()
       await expect(page.locator('[data-hits] li').first()).toBeVisible()
     }
@@ -95,16 +95,18 @@ for (const [path, all] of [['/vi/tim-kiem/', '/vi/ca/'], ['/id/cari/', '/id/ikan
 
 test('a search of several words far apart on a page still lists it (only one place shows in its excerpt)', async ({ page }) => {
   for (const q of ['betta bể nhỏ', 'cá neon bể nhỏ', 'cá neon nước mềm']) {
-    await page.goto(`/vi/tim-kiem/?q=${encodeURIComponent(q)}`)
+    await page.goto(`/tim-kiem/?q=${encodeURIComponent(q)}`)
     await expect(page.locator('[data-hits] li').first(), q).toBeVisible()
     await expect(page.locator('[data-none]'), q).toBeHidden()
   }
 })
 
 test('tapping "Xem thêm kết quả" twice quickly loads the next page once', async ({ page }) => {
-  await page.goto('/vi/tim-kiem/?q=c')
+  await page.goto('/tim-kiem/?q=c')
   const more = page.locator('[data-more]')
-  await expect(more).toBeVisible()
+  // One letter gives the fixture build more than one page of results. On aquatome.com it matches ~3,500 pages, and a
+  // fresh page takes 6–7 s to rank them (Pagefind's index for "c…"), past the 5 s default: the live check failed on it.
+  await expect(more).toBeVisible({ timeout: 20_000 })
   await more.evaluate(b => { (b as HTMLButtonElement).click(); (b as HTMLButtonElement).click() })
   await expect(page.locator('[data-hits] li')).not.toHaveCount(10)
   const hrefs = await page.$$eval('[data-hits] li a', as => as.map(a => a.getAttribute('href')))
@@ -112,7 +114,7 @@ test('tapping "Xem thêm kết quả" twice quickly loads the next page once', a
 })
 
 test('an empty site search shows the field and a hint, not a count or a no-results message', async ({ page }) => {
-  await page.goto('/vi/tim-kiem/')
+  await page.goto('/tim-kiem/')
   await expect(page.locator('input[type=search]')).toBeFocused()
   await expect(page.locator('[data-hint]')).toBeVisible()
   await expect(page.locator('[data-none]')).toBeHidden()

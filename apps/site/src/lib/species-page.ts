@@ -1,20 +1,22 @@
 import type { Content, Localized, SectionKey, SpeciesEntity } from '@aq/schema'
 import { breedsOf } from './breeds'
 import { companionsOf } from './companions'
-import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
+import { GALLERY_COLUMN, GALLERY_MIN, GALLERY_STRIP } from './gallery'
 import { served, translator, type Lang } from './i18n'
 import { guidesMentioning } from './mentions'
-import { distinctPhotos, pagePictures, takeEach } from './pictures'
+import { distinctPhotos, morePhotos, pagePictures, takeEach } from './pictures'
 import { foldNearEmpty } from './sections'
 import { approvedSummary } from './summaries'
 
 const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
 
 /**
- * What a species' page shows, put together once for the page (pages/vi/ca/[slug].astro) and for the app's copy of it
+ * What a species' page shows, put together once for the page (pages/ca/[slug].astro) and for the app's copy of it
  * (lib/app-page.ts), so the two can't differ: its country, summary, gallery strip, photos between the sections, breeds,
  * tank mates, videos and the guides that name it. Every picture is chosen here in page order, none twice
- * (lib/pictures.ts): the photo, the gallery's first photos, the photos between the sections, the breeds' cards.
+ * (lib/pictures.ts): the photo, the gallery's first photos, the photos between the sections, the breeds' cards. Then the
+ * gallery's next photos, which fill the photo column on a tall computer screen: chosen last, so they never take a photo
+ * from the parts the app's copy shares (it shows the strip alone).
  */
 export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesEntity>) {
   const t = translator(lang)
@@ -34,6 +36,7 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
   const breeds = breedsOf(lang, c, s.id)
   const breedPhotos = takeEach(pics, breeds, b => b.photos)
+  const more = strip.some(Boolean) ? morePhotos(pics, gallery, strip, GALLERY_COLUMN) : []
   const mates = await companionsOf(lang, c, s.id)
   const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
   const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
@@ -47,7 +50,7 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   ]
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   return {
-    country, firstSource, summary, gallery, galleryPath, strip, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,
+    country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,
     guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video),
   }
 }

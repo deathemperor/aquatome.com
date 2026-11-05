@@ -1,0 +1,69 @@
+---
+import type { Series } from '@aq/schema'
+import Browse from '../../layouts/Browse.astro'
+import { getContent } from '../../lib/content'
+import { creditsFor } from '../../lib/credits'
+import { smallSrc } from '../../lib/img'
+import { seriesParts } from '../../lib/series-page'
+import { i18n, langOf } from '../../lib/i18n'
+
+export async function getStaticPaths({ routePattern }: { routePattern: string }) {
+  const c = await getContent(langOf(routePattern))
+  return c.series.map(s => ({ params: { slug: s.vi.slug }, props: { s } }))
+}
+const { s } = Astro.props as { s: Series }
+const { t, lang } = i18n(Astro.url)
+const c = await getContent(lang)
+const p = seriesParts(lang, c, s)
+const guides = p.guides.map(x => x.g)
+const site = Astro.site!
+const jsonld = [{
+  '@context': 'https://schema.org', '@type': 'ItemList', name: s.vi.name,
+  itemListElement: guides.map((g, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(`/vi/huong-dan/${g.t.slug}/`, site).href, name: g.t.name })),
+}]
+const indexable = guides.some(g => g.t.quality.indexable)
+---
+<Browse title={s.vi.name} heading={s.vi.name} intro={s.vi.intro} crumbs={[['/vi/video/', t('Video')]]} noindex={!indexable} jsonld={jsonld}
+  image={p.guides[0]?.photo?.url} credits={creditsFor(p.guides.map(x => x.photo))}>
+  <p class="meta">{p.line.map(r => (typeof r === 'string' ? r : <a href={r.href} rel="noopener">{r.text}</a>))}</p>
+  <ol class="parts">
+    {p.guides.map(({ g, photo: ph, about, length }, i) => {
+      return (
+        <li>
+          <a href={`/vi/huong-dan/${g.t.slug}/`}>
+            <span class="n">{i + 1}</span>
+            <span class="img">{ph && <img src={smallSrc(ph)} width="480" height="270" alt="" loading={i < 4 ? 'eager' : 'lazy'} />}{g.t.cover && <span class="cover">{g.t.cover}</span>}<span class="dur">{length}</span></span>
+            <span class="txt">
+              <strong>{g.t.name}</strong>
+              <small>{about}</small>
+              {g.t.summary?.[0] && <span class="first">{g.t.summary[0]}</span>}
+            </span>
+          </a>
+        </li>
+      )
+    })}
+  </ol>
+</Browse>
+<style>
+  .meta { font-size: 0.9rem; color: var(--c-ink-faint); max-width: var(--measure); margin: 0 0 var(--space-5); }
+  .meta a { color: var(--c-ink-soft); }
+  .parts { list-style: none; margin: 0; padding: 0; max-width: 60rem; border-top: 2px solid var(--c-ink); }
+  .parts li { border-bottom: 1px solid var(--c-rule); }
+  .parts a { display: grid; grid-template-columns: 2.2rem 13rem minmax(0, 1fr); gap: var(--space-4); align-items: start; padding: var(--space-4) 0; color: inherit; text-decoration: none; }
+  .parts a:hover strong { color: var(--c-moss); }
+  .n { font: 600 var(--step-2) var(--f-display); color: var(--c-ink-faint); line-height: 1; padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .img { position: relative; display: block; }
+  .img img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+  .cover { position: absolute; left: 0; top: 8px; max-width: 88%; background: var(--c-paper); color: var(--c-ink); font: 600 0.85rem/1.2 var(--f-display); padding: 4px 8px; border-left: 3px solid var(--c-cardinal); }
+  .dur { position: absolute; right: 6px; bottom: 6px; background: rgb(0 0 0 / 0.78); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 2px 6px; font-variant-numeric: tabular-nums; }
+  .txt { display: grid; gap: var(--space-1); }
+  strong { font: 600 var(--step-1) var(--f-display); line-height: 1.25; }
+  small { font-size: 0.8rem; color: var(--c-moss); }
+  .first { font-size: 0.95rem; color: var(--c-ink-soft); line-height: 1.55; }
+  @media (max-width: 640px) {
+    .parts a { grid-template-columns: 1.6rem minmax(0, 1fr); }
+    .img { grid-column: 2; }
+    .txt { grid-column: 2; }
+    .first { display: none; }
+  }
+</style>

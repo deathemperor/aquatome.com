@@ -6,13 +6,18 @@
   "genus": "Xyliphius",
   "group": "catfish",
   "places": [
-    "south-america"
+    "south-america",
+    "venezuela"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 13.2
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ]
   },
@@ -24,16 +29,34 @@
       "html": "<ul><li><strong>Scientific name:</strong> Xyliphius lepturus Orcés, 1962</li><li><strong>Common name:</strong> Banjo Catfish</li><li><strong>Type locality:</strong> Desembocadura del rio Pucayacu en el Bobonaza, Río Magdalena system, Amazon system, Colombia.</li><li><strong>Etymology:</strong> From the Greek xyliphion, meaning a piece of wood; in reference to the overall appearance.</li><li><strong>Size:</strong> 132 mm (5.2\") SL.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/xyliphius-cf-lepturus/",
+      "html": "<p>This extremely odd species of banjo catfish was imported for the first time. The eyes are reduced to very small, black spots, which hints either at a strictly nocturnal way of life or at fish that live buried. The specimens came from Venezuela. They most probably belong to the species X. lepturus, but this is not certain (hence \"cf.\").</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
       "html": "<p>South America: upper Amazon and Orinoco River basins.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/xyliphius-cf-lepturus/",
+      "html": "<p>The specimens were obtained from Venezuela.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1040",
       "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/xyliphius-cf-lepturus/",
+      "html": "<p>The genus Xyliphius was established in 1912 by Carl Eigenmann for the species X. magdalenae from Colombia. Unfortunately, Eigenmann used two different spellings for the new genus simultaneously, Xiliphius and Xyliphius, which led to some confusion among later workers. Currently the spelling Xyliphius is the accepted one.</p><p>There are 7 described species in the genus. They are represented in the world's museum collections by only quite few specimens. The maximum length reported for members of the genus is between 8 and 15 cm. This means the 5 specimens, which already measure 8-10 cm, should be adult. For the first time, the behaviour of these unusual fish can be studied.</p>"
     },
     {
       "key": "references",
@@ -92,5 +115,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-05"
 }

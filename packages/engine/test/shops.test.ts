@@ -78,6 +78,9 @@ test('shop names: sure ones only, at most two a page, never a name shops give tw
     item('Pleco L134', 'Boraras brigittae', 0.9, 'Cá pleco'),
     item('Pleco L397', 'Danio margaritatus', 0.3, 'Cá pleco'), // the same name for another fish, even unsure
     item('Neon', 'Paracheirodon innesi', 0.95, 'Cá Paracheirodon'), // the genus alone
+    item('Cardinal', 'Paracheirodon axelrodi', 0.99, 'Cá Cardinal Tetra'), // its name already, written another way
+    item('Cacatuoides', 'Apistogramma cacatuoides', 0.9, 'Apistogramma Cacatuoides'), // its scientific name
+    item('Ram', 'Mikrogeophagus ramirezi', 0.9, 'Cá La Hán'), // a breed page's name ("Cá La Hán (Flowerhorn)"): the sweep would take it off
   ])
   const added = await addShopNames(root, 'vi')
   expect(added).toEqual(['paracheirodon-axelrodi: Cá neon tim, Cá neon hoàng đế'])
@@ -85,6 +88,8 @@ test('shop names: sure ones only, at most two a page, never a name shops give tw
   expect(await names(root, 'paracheirodon-innesi')).toEqual(['Neon tetra'])
   expect(await names(root, 'boraras-brigittae')).toEqual(['Chili rasbora'])
   expect(await names(root, 'symphysodon-aequifasciatus')).toEqual(['Discus'])
+  expect(await names(root, 'apistogramma-cacatuoides')).toEqual(['Cockatoo cichlid'])
+  expect(await names(root, 'mikrogeophagus-ramirezi')).toEqual(['Ram cichlid'])
   expect(await addShopNames(root, 'id')).toEqual([]) // no Indonesian list
 })
 

@@ -42,8 +42,9 @@ What the app asks of Tuya: a token (`/v1.0/token`, kept until a minute before it
 get a new one and the request is asked once more, nothing else is retried), the devices of the linked account
 (`/v1.0/iot-01/associated-users/devices`, page by page; each carries its status), the names the reader gave the
 outlets in Smart Life (`/v1.0/devices/{id}/multiple-names`), and for a switch, one command
-(`/v1.0/iot-03/devices/{id}/commands`) and the outlet read back (`/v1.0/iot-03/devices/{id}/status`). Requests are
-signed with HMAC-SHA256 as https://developer.tuya.com/en/docs/iot/new-singnature says.
+(`/v1.0/iot-03/devices/{id}/commands`) and the outlet read back (`/v1.0/iot-03/devices/{id}/status`), and the timers
+set on a strip in Smart Life (`/v1.0/devices/{id}/timers`, read only, below). Requests are signed with HMAC-SHA256 as
+https://developer.tuya.com/en/docs/iot/new-singnature says.
 
 **eWeLink** (Sonoff): coming later. OAuth on eWeLink's page, on its free developer tier with a monthly call limit;
 the developer account's review is pending.
@@ -83,16 +84,38 @@ A plug switches mains power to a CO2 solenoid, a heater or a filter. So:
   which way is dangerous depends on the tank and the hour. So does an outlet with no role, or one the app doesn't
   know: it could be either.
 - **The strips' own timers are left alone.** They keep running when AquaTome or the maker's cloud is down,
-  which is the failure to want. AquaTome doesn't read or write them yet.
+  which is the failure to want. AquaTome reads them (below) but never writes or changes one.
 - Offline plugs are shown as offline; a command to one is refused (Tuya's 2001, or listed offline), not queued.
 
 ## Staying within the makers' limits
 
 Tuya's trial has a call quota per project, so per reader: the app asks for the list when a tank's screen opens or is
 pulled to refresh, never on a timer (a list is one token while it lasts, a page of devices, and one call per strip for
-its outlets' names; a switch is one command and up to five reads), and gives Tuya 8 seconds before calling it
+its outlets' names; a switch is one command and up to five reads; a light's card, one read of its outlet's strip's
+timers), and gives Tuya 8 seconds before calling it
 unreachable. Calls used up show as such, not as broken. eWeLink's free tier allows 50,000 calls a month per region,
 at most one call per 500 ms.
+
+## A light's outlet and its timers
+
+A Chihiros light keeps no time without power: a power cut resets its clock to zero
+(docs/research/aquarium-device-control.md), and its own schedule then never reaches its on-time. A strip's timer that
+switches the light's outlet off (off at 00:00, on at 18:00) does exactly that, every day. So the light's card says so.
+
+- **Which outlet powers the light** is the reader's pick, made once on the light's card from the outlets of the Tuya
+  plugs on the light's tank (the timers the app can read), and kept on the light's record (`powerOutlet`: the plug's
+  record `plugId` and the outlet's `code`), synced with the rest of "Bể của tôi". An outlet named for a light ("đèn" or
+  "light", ignoring case and accents, or given the light role) is offered first, never picked for the reader. A pick
+  whose plug has left the tank counts as none. "Bỏ chọn ổ" takes the pick back.
+- **Not on a smart plug:** the reader can say so instead, and the card stops asking for that light, on this phone only
+  (it is not on the record): a quiet "Chọn ổ cắm của đèn" stays, to pick after all.
+- **The timers** of that strip are read once each time the light's card opens, never again while it stays open, and
+  never kept (`OutletTimers`). Each one that is turned on and switches the picked outlet off, on any days or once, is a
+  warning beside the light's clock, with its time and days as the strip keeps them (its zone named when it isn't the
+  phone's), and what to do: turn the outlet's timer off in Smart Life so the light runs its own schedule. A timer that ran
+  once, on a day before today in its own zone, is left out. With none, the card says it found none in Smart Life (a
+  strip's own modes, Circulate or Random, may not be listed there); a read that fails says why, as the tank's plugs do.
+- Without keys on the phone, or no Tuya plug on the light's tank, the card shows nothing of this.
 
 ## Plugs on a tank
 

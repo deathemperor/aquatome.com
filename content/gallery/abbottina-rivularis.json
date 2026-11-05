@@ -2,6 +2,30 @@
   "id": "abbottina-rivularis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/502137765.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/502137765-480.webp",
+      "width": 1008,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Michael, Antoni and Nihat Hinczewski",
+      "sourceUrl": "https://www.inaturalist.org/photos/502137765",
+      "caption": "Cá Abbottina rivularis nằm trên nền cát đáy ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/47681523.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/47681523-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Daniel J. Layton",
+      "sourceUrl": "https://www.inaturalist.org/photos/47681523",
+      "caption": "Cá Abbottina rivularis bơi sát đáy cát ở suối nước nông",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/4d64fdc0876bd773.webp",
       "thumb": "https://media.aquatome.com/commons/4d64fdc0876bd773-480.webp",
       "width": 1200,
@@ -52,6 +76,7 @@
       "caption": "Cá gudgeon giả Trung Quốc bơi trên gỗ trong bể trồng cây"
     }
   ],
-  "seen": 20,
-  "updatedAt": "2026-10-29"
+  "seen": 30,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

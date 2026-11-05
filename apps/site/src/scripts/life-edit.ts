@@ -1,5 +1,5 @@
 import type { Tank, UnlistedEntry } from '@aq/schema'
-import { ct } from './ct'
+import { ct, siteHref } from './ct'
 import type { Guessed } from './life-photo'
 import { msg } from '../i18n/msg'
 import { esc, type IndexItem } from './my-tanks'
@@ -65,7 +65,7 @@ export function initLife(root: HTMLElement, o: {
     `<label class="qty"><input type="number" inputmode="numeric" min="1" max="9999" value="${n ?? ''}" data-${what}-count="${i}" aria-label="${esc(ct('Số con {name}', { name: label }))}" /><span aria-hidden="true">${ct('con')}</span></label>`
   const remove = (what: string, i: number, label: string) => `<button type="button" class="quiet rm" data-rm="${what}:${i}" aria-label="${esc(ct('Bỏ {name}', { name: label }))}">${ct('Bỏ')}</button>`
   const pageName = (id: string) => byId.get(id)?.name ?? id.replace(/-/g, ' ')
-  const linked = (id: string) => { const p = byId.get(id); return p?.path ? `<a href="${esc(p.path)}">${esc(p.name)}</a>` : `<span>${esc(pageName(id))}</span>` }
+  const linked = (id: string) => { const p = byId.get(id); return p?.path ? `<a href="${esc(siteHref(p.path))}">${esc(p.name)}</a>` : `<span>${esc(pageName(id))}</span>` }
 
   /** The rows: fish with their counts, plants, then what has no page (marked, or shown as the page that has its name). */
   function draw() {
@@ -74,7 +74,7 @@ export function initLife(root: HTMLElement, o: {
       ...life.plants.map((p, i) => `<li><span class="nm">${linked(p.id)}</span>${remove('plants', i, pageName(p.id))}</li>`),
       ...life.unlisted.map((u, i) => {
         const p = o.match(u)
-        const nm = p ? `<a href="${esc(p.path)}">${esc(p.name)}</a>` : `<span>${esc(u.name)}</span> <span class="tag">${ct('chưa có trang')}</span>`
+        const nm = p ? `<a href="${esc(siteHref(p.path))}">${esc(p.name)}</a>` : `<span>${esc(u.name)}</span> <span class="tag">${ct('chưa có trang')}</span>`
         const sci = u.sci && !p ? ` <i class="sci">${esc(u.sci)}</i>` : ''
         return `<li><span class="nm">${nm}${sci}</span>${u.kind === 'plant' ? '' : countBox(i, u.count, u.name, 'unlisted')}${remove('unlisted', i, p?.name ?? u.name)}</li>`
       }),

@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { safeEqual } from '../dashboard'
 import { affiliatePage, areas, hiddenPage, log, overviewPage, todos, type Overview } from '../admin/pages'
-import { chip, lastDays } from '../admin/chart'
+import { chipHtml, chipOf, lastDays } from '../admin/chart'
 import type { ContentStats, Snapshot, Totals } from '../admin/content'
 import { contentPage, perDay } from '../admin/content-page'
 import { loginPage, unset } from '../admin/shell'
@@ -17,7 +17,7 @@ const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Tot
 /** content.json as the home page reads it: the items, and the engine's queue. */
 const stats = (needsHuman: { source: string; since: string }[] = []) => ({
   inventory: { fish: { total: 100, id: 0, th: 0 }, plant: { total: 20, id: 0, th: 0 }, guide: { total: 5, id: 0, th: 0 } },
-  engine: { needsHuman, sources: [{ id: '2hraquarist', name: '2Hr Aquarist' }], videos: { waiting: 40, perDay: lastDays(NOW, 14).map((day, i) => ({ day, n: i === 13 ? 3 : 1 })) } },
+  engine: { needsHuman, sources: [{ id: '2hraquarist', name: '2Hr Aquarist' }], videos: { waiting: 40, writtenAt: lastDays(NOW, 14).flatMap((day, i) => Array<string>(i === 13 ? 3 : 1).fill(`${day}T02:00:00.000Z`)) } },
 }) as unknown as ContentStats
 /** Every part loaded: no keys resting, nothing waiting, no days counted. */
 const well = (): Overview => {
@@ -29,7 +29,7 @@ const well = (): Overview => {
     periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none } }
   return {
     now: NOW, readers: [], clicks: { days, clicks: [...zeros] }, fish, photos: 3, hidden: {},
-    keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'ok', calls: 0, answered: 0 }], bad: 0, today: 0, model: 'm' },
+    keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'ok', calls: 0, answered: 0 }], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 },
     waiting: { comments: 0, photos: 0, oldest: null }, wanted: { names: [], more: false }, content: stats(), snapshots: [],
     accounts: { days: lastDays(NOW, 30), users: 5, newUsers: zeros.slice(1), synced: 2, openSessions: 1, credentials: [], comments: [], newComments: zeros.slice(1) },
   }
@@ -37,7 +37,7 @@ const well = (): Overview => {
 
 test('overview: what needs the owner comes first, each with the one place to deal with it', () => {
   const o = { ...well(), fish: { failed: 'x' } }
-  o.keys = { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit', until: '2026-11-03T08:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok', calls: 9, answered: 9 }], bad: 1, today: 12, model: 'm' }
+  o.keys = { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit', until: '2026-11-03T08:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok', calls: 9, answered: 9 }], bad: 1, today: 12, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 }
   o.waiting = { comments: 2, photos: 1, oldest: '2026-11-01T02:00:00.000Z' } // 32 hours before NOW: a night was missed
   const t = todos(o)
   expect(t.map(x => x.title)).toEqual(['1 key Anthropic đang nghỉ', '1 dòng trong ANTHROPIC_KEYS không đọc được', 'Kiểm duyệt đêm chưa chạy', 'Không tải được nhật ký nhận diện cá'])
@@ -65,17 +65,18 @@ test('overview: a source behind a browser check is the owner\'s to pass; the con
   // The 7 whole days to yesterday: +10 seven days back and +10 yesterday (it carries the days not kept); today's +2 waits.
   expect(a[1]).toMatchObject({ name: 'Nội dung', fig: '20', sub: 'bài mới · 7 ngày · tổng 125 bài' })
   expect(a[1]!.spark).toHaveLength(30)
-  expect(a[1]!.chip).toContain('+20<')
+  expect(a[1]!.chip).toEqual({ text: '+20', tone: 'good', vs: '7 ngày trước đó' })
   expect(a[2]).toMatchObject({ name: 'Engine', fig: '40', sub: 'video chờ viết · 7 bài từ video trong 7 ngày', warn: true })
   expect(a[2]!.spark).toHaveLength(30)
   // One night kept: the total, nothing to compare yet.
   expect(areas({ ...well(), snapshots: [snaps[3]!] })[1]).toMatchObject({ fig: '125', sub: 'bài · mỗi đêm lưu tổng số một lần, chưa đủ ngày để so' })
   // The log says what each day added.
-  expect(log({ ...o, snapshots: snaps })[0]!.items[0]).toEqual({ text: '2 bài mới', small: '2 cá' })
+  expect(log({ ...o, snapshots: snaps })[0]!.items[0]).toEqual({ text: '2 bài mới', small: '2 cá', section: 'noi-dung' })
   // Indonesian and Thai pages that night, apart: the Vietnamese count says nothing of them.
   const translated: Snapshot[] = [{ day: days[7]!, totals: totals(100, 20, 5, 10, 12) }, { day: days[8]!, totals: totals(100, 20, 5, 30, 32) }]
-  expect(log({ ...o, snapshots: translated })[0]!.items[0]).toEqual({ text: '20 bài tiếng Indonesia, 20 bài tiếng Thái mới' })
-  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([0, 10, 0, 0, 0, 0, 0, 8, 2])
+  expect(log({ ...o, snapshots: translated })[0]!.items[0]).toEqual({ text: '20 bài tiếng Indonesia, 20 bài tiếng Thái mới', section: 'noi-dung' })
+  // A day not kept, or with nothing kept before it, is unknown rather than 0.
+  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([null, 10, null, null, null, null, null, 8, 2])
 })
 
 test('overview areas: the last 7 whole days against the 7 before, the 30 whole days drawn; today left out', () => {
@@ -84,12 +85,13 @@ test('overview areas: the last 7 whole days against the 7 before, the 30 whole d
   const a = areas({ ...well(), readers })
   expect(a[0]).toMatchObject({ name: 'Người đọc', fig: '21', sub: 'người đọc · 7 ngày · 70 phiên' })
   expect(a[0]!.spark).toHaveLength(30)
-  expect(a[0]!.chip).toContain('+50%')
-  expect(a[0]!.chip).toContain('chip good')
+  expect(a[0]!.chip).toEqual({ text: '+50%', tone: 'good', vs: '7 ngày trước đó' })
+  expect(overviewPage({ ...well(), readers })).toContain('<span class="chip good">+50%<span class="vh"> so với 7 ngày trước đó</span></span>')
   // Small counts say the difference, not a percentage; nothing on either side says nothing.
-  expect(chip(4, 1, 'x')).toContain('+3<')
-  expect(chip(1, 4, 'x', 'up')).toContain('chip bad')
-  expect(chip(0, 0, 'x')).toBe('')
+  expect(chipOf(4, 1, 'x')).toEqual({ text: '+3', tone: 'plain', vs: 'x' })
+  expect(chipHtml(chipOf(1, 4, 'x', 'up'))).toBe('<span class="chip bad">−3<span class="vh"> so với x</span></span>')
+  expect(chipOf(0, 0, 'x')).toBeUndefined()
+  expect(chipHtml(undefined)).toBe('')
   // A part that didn't load keeps its row, marked, saying why.
   expect(areas({ ...well(), clicks: { failed: 'D1 down' } })[3]).toMatchObject({ name: 'Affiliate', fig: '—', sub: 'Không tải được: D1 down', warn: true })
 })
@@ -99,12 +101,12 @@ test('overview log: the last three days in words, today first; a quiet day says 
   const days = lastDays(NOW, 31)
   ;(o.clicks as { clicks: number[] }).clicks.splice(28, 3, 2, 0, 4)
   o.wanted = { names: [{ kind: 'fish', name: 'Cá A', readers: 2, sources: {}, first: days[29]!, last: days[30]! }], more: false }
-  o.hidden = { '/vi/ca/x/': { at: '2026-11-02T03:00:00.000Z' } }
+  o.hidden = { '/ca/x/': { at: '2026-11-02T03:00:00.000Z' } }
   const l = log(o)
   expect(l.map(d => d.label)).toEqual(['Hôm nay · 02/11', 'Hôm qua · 01/11', 'Thứ Bảy · 31/10'])
-  expect(l[0]!.items).toEqual([{ text: '4 lượt bấm sang sàn' }, { text: 'Ẩn 1 trang', small: '/vi/ca/x/' }])
-  expect(l[1]!.items).toEqual([{ text: '1 tên mới bạn đọc muốn có', small: 'Cá A' }])
-  expect(l[2]!.items).toEqual([{ text: '2 lượt bấm sang sàn' }])
+  expect(l[0]!.items).toEqual([{ text: '4 lượt bấm sang sàn', section: 'affiliate' }, { text: 'Ẩn 1 trang', small: '/ca/x/', section: 'an-trang' }])
+  expect(l[1]!.items).toEqual([{ text: '1 tên mới bạn đọc muốn có', small: 'Cá A', section: 'muon-co' }])
+  expect(l[2]!.items).toEqual([{ text: '2 lượt bấm sang sàn', section: 'affiliate' }])
   const html = overviewPage({ ...well() })
   expect(html).toContain('Không có gì mới.')
   expect(html).toContain('chưa hết ngày')
@@ -114,7 +116,7 @@ test('dashboard: no A/B table any more, noindex; the sign-in page too', () => {
   expect(html).not.toContain('Đáy sâu')
   expect(html).toContain('noindex')
   expect(loginPage()).toContain('noindex')
-  expect(loginPage()).toContain('href="/vi/cong-cu/be-cua-toi/#tai-khoan"')
+  expect(loginPage()).toContain('href="/cong-cu/be-cua-toi/#tai-khoan"')
   expect(loginPage(true)).toContain('không phải tài khoản chủ trang')
 })
 
@@ -132,10 +134,10 @@ test('dashboard affiliate section summarises clicks and catalog health', async (
 })
 
 test('dashboard: hide form and the hidden list with an unhide button per page', () => {
-  const html = hiddenPage({ '/vi/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
+  const html = hiddenPage({ '/ca/x/': { at: '2026-10-29T10:00:00.000Z', note: '<b>sai</b>' } })
   expect(html).toContain('action="/_ab/hidden"')
   expect(html).toContain('value="hide"')
-  expect(html).toContain('<a href="/vi/ca/x/">/vi/ca/x/</a>')
+  expect(html).toContain('<a href="/ca/x/">/ca/x/</a>')
   expect(html).toContain('&lt;b&gt;sai&lt;/b&gt;')
   expect(html).toContain('value="unhide"')
 })

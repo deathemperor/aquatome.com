@@ -1,0 +1,199 @@
+{
+  "id": "parosphromenus-harveyi",
+  "scientificName": "Parosphromenus harveyi",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Parosphromenus",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "malaysia",
+    "selangor"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>Parosphromenus harveyi is a liquorice gourami from the north Selangor peat swamp forest in Peninsular Malaysia, with one population in Perak. Its type description was a hobbyist-magazine announcement with limited diagnostic information. Males have plain blue pelvic fins with a filamentous tip longer than the fin itself and a notably wide black subdistal band in the caudal fin. Much of its habitat has been lost and it is considered in danger of extinction.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>Type locality is 'Batu Arang, western side of Peninsula Malaysia' which corresponds to the coal-mining town of Batu Arang in Selangor state.</p><p>Additional localities all lie within the north Selangor peat swamp forest with at least one population known from the Tanjong Malim area in neighbouring Perak state.</p><p>A great deal of its original habitat has been lost via deforestation and other human alterations and it is considered in danger of extinction.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>A stenotypic inhabitant of peat swamp forests and associated blackwater streams.</p><p>In unaltered habitats the dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic materials, the dissolved mineral content generally negligible and pH as low as 3.0 or 4.0.</p><p>Unfortunately in some cases it now survives only in remnants of heavily-modified peat swamps such as irrigation ditches and roadside canals.</p><p>In the north Selangor habitats sympatric fish species include Betta hipposideros, B. livida, 'Puntius' hexazona, Rasbora kalochroma, Neohomaloptera johorensis, Mystus bimaculatus and Channa bankanensis.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>Standard length: 35 mm SL. Aquarium base: 40 × 20 cm. Volume: about 16 litres.</p><p>An aquarium with base dimensions of 40 × 20 cm or equivalent is sufficient for a pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, and clay plant pots, lengths of piping or even plastic camera-film containers can be included to provide further shelter and potential spawning sites.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>Like others in the genus this species does best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne species, while floating vegetation, especially Ceratopteris species, is also useful.</p><p>Filtration need not be too strong, with an air-powered sponge filter or similar adequate, and since this species tends to be maintained in pairs a filter may not be required at all provided the fish are not overfed and maintenance is stringent.</p><p>Maintenance must include small weekly water changes of 5–10 % of the aquarium volume, with irregular or larger changes not recommended.</p><p>All Parosphromenus species require acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>These fishes are sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 3.0–6.5</li><li>Hardness: 1–4 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>This species is chiefly a small predator feeding on tiny aquatic invertebrates, therefore in the aquarium it must be offered a variety of small live foods such as Artemia nauplii, Daphnia, Moina, mosquito larvae, micro worm, etc.</p><p>Frozen foods are sometimes accepted but not considered sufficiently nutritious while the majority of dried products are normally refused.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>Not recommended for the general community aquarium for reasons already touched upon.</p><p>Its care requirements, disposition, and especially conservation status dictate that it should be maintained alone or alongside a group of small, peaceful cyprinids such as Boraras or Sundadanio species.</p><p>Likewise, different Parosphromenus species should not be kept together since the females of many are very difficult to tell apart and some are undoubtedly capable of hybridising.</p><p>A mixed-sex group can be maintained if you wish although most breeders prefer to maintain it in sexed pairs since some fry may survive alongside their parents but not usually if other adults are present.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>In males the dorsal, anal and caudal fins have a black subdistal band bordered on either side by bluish iridescent bands, with the inner one significantly thicker.</p><p>The pelvic fins are iridescent blue with a long filamentous tip, while the pectoral fins are hyaline.</p><p>Nuptial males exhibit an overall more intense colour pattern.</p><p>Females are far less colourful and lack the colourful blue bands in the dorsal, anal and caudal fins.</p><p>Nuptial females lose the majority of their markings and take on a pale, yellowish colour pattern plus both nuptial males and females exhibit an oblique dark bar running through the eye.</p><p>Both sexes are also capable of rapidly changing colour depending on mood and become significantly darker when aggressive, for example.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>Normally spawns in small caves or among leaf litter and forms temporary pair bonds with the male solely responsible for egg and brood-care.</p><p>Parosphromenus species have been grouped arbitrarily based on courtship behaviour in males which adopt a 'head-down', 'head-up', or 'horizontal' position depending on species.</p><p>P. harveyi belongs to the former, more speciose, assemblage in which the male assumes a near-vertical position with the head lowermost and fins splayed during nuptial displays.</p><p>Sexually-active males form small territories at the centre of which is a small cave normally formed from leaf litter in nature, although in aquaria any suitable structure may be chosen (see Maintenance).</p><p>They then attempt to attract females in the vicinity to enter the cave via spectacular displays as described above.</p><p>Eggs and milt are released in batches during a series of embraces in which the male wraps its body around that of the female.</p><p>Some males construct a rudimentary bubble nest inside the cave while others do not, but either way both male and female attempt to attach the eggs to the ceiling after they are released.</p><p>Subsequent spawning embraces may dislodge eggs from the roof of the cave, and inexperienced adults sometimes simply eat them so a degree of patience may be required until the fish get things right.</p><p>Following a successful spawn the female leaves the cave and proceeds to defend the surrounding area while the male tends to the brood.</p><p>Incubation is normally 24–36 hours with the fry mobile around 4–6 days later.</p><p>They initially swim without direction and the male will collect and return them to the 'nest' but after 3–5 additional days are fully free-swimming and leave the cave at which point parental care ceases.</p><p>They may require Paramecium, rotifers or similar as a first food but are quickly able to accept Artemia nauplii and suchlike.</p><p>If the aquarium is well-structured they can often be raised alongside the parents but in more basic set-ups should be removed and grown on elsewhere.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<p>This species is not available on a commercial basis in the aquarium hobby but is occasionally collected and distributed by private aquarists.</p><p>Its type description consists of an announcement published in a hobbyist magazine which by design contains only limited diagnostic information, and the full description was never published.</p><p>A lectotype was designated by Kottelat and Ng (2005) and they also noted that in males the filamentous tip of the pelvic fin is longer than the fin itself, the posterior dorsal-fin rays reach the caudal fin, the black subdistal band in the caudal fin is notably wide and the pelvic fins are plain blue in colour.</p><p>In addition it possesses 11–13 spinous and 5–7 soft dorsal-fin rays, 11–13 spinous and 8–11 soft anal-fin rays, and the caudal fin is rounded.</p><p>Aquarists often refer to Parosphromenus species collectively as 'liquorice/licorice gouramis' or 'paros'.</p><p>The genus occurs in southern (peninsular) Thailand, Peninsular Malaysia, Sumatra (Indonesia, including the islands of Bintan, Bangka and the Riau Archipelago), and Borneo (Malaysia and Indonesia).</p><p>All members are small-growing inhabitants of freshwater swamps and associated streams, and the grouping was considered to be monotypic, containing only P. deissneri (Bleeker, 1859), for almost a century.</p><p>Additional taxa have been described on a sporadic basis since the 1950s and there currently exist 20 recognised members with more likely to follow.</p><p>Despite the generic name the results of phylogenetic analyses by Rüber et al. (2006) suggest that Parosphromenus is most closely related to Betta or Trichopsis in an evolutionary sense.</p><p>All three of these are sometimes included in the putative subfamily Macropodusinae alongside Macropodus, Pseudosphromenus and Malpulutta.</p><p>Like others in the suborder Anabantoidei members possess an accessory breathing organ known as the labyrinth organ, formed by a modification of the first gill arch and consisting of many highly vascularised, folded flaps of skin.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>The structure of the organ varies in complexity between species tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p><p>While some labyrinth fishes can be observed taking regular gulps of air from the surface others, including Parosphromenus species, do so less often.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-harveyi",
+      "html": "<ul><li>Kottelat, M. and P. K. L. Ng (2005). Diagnoses of six new species of Parosphromenus (Teleostei: Osphronemidae) from Malay Peninsula and Borneo, with notes on other species. Raffles Bulletin of Zoology Supplement 13, 101-113</li><li>Schindler, I. and H. Linke (2012). Two new species of the genus Parosphomenus (Teleostei: Osphonemidae) from Sumatra. Vertebrate Zoology 62(3), 399-406</li><li>Finke, P. (ed.) The Parosphromenus Project. World Wide Web electronic publication, http://www.parosphromenus-project.org, Accessed on 13.02.10</li><li>Rüber, L, R. Britz and R. Zardoya (2006). Molecular phylogenetics and evolutionary diversification of labyrinth fishes (Perciformes: Anabantoidei). Systematic Biology 55(3), 374-397</li><li>Brown, B. (1987). Two new anabantoid species. The Aquarist and Pondkeeper 52(3), 34</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9deb9da8913227bd.webp",
+      "width": 852,
+      "height": 1127,
+      "licence": "CC BY-SA 3.0",
+      "author": "Martin Fischer Parostoteles",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_harveyi_1.jpg",
+      "caption": "Parosphromenus harveyi in typical courtship display",
+      "thumb": "https://media.aquatome.com/commons/9deb9da8913227bd-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1d55b5f6d5105440.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "Martin Fischer Parostoteles",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_harveyi_2.jpg",
+      "caption": "Male Parosphromenus harveyi in aggressive colouring - comment fighting",
+      "thumb": "https://media.aquatome.com/commons/1d55b5f6d5105440-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f18d5f0a0646ad49.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Rai.zira",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_harveyi_Tanjong_Malim.jpg",
+      "caption": "Parosphromenus harveyi from Tanjong Malim",
+      "thumb": "https://media.aquatome.com/commons/f18d5f0a0646ad49-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40x20 cm",
+        "bể cá mini 16 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút sủi khí",
+        "lọc sponge cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia nauplii",
+        "bo bo sống",
+        "trùng chỉ nhỏ"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH",
+        "test KH GH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

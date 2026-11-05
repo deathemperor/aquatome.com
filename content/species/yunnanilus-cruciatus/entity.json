@@ -50,6 +50,15 @@
         "source": "aquariumbreeder",
         "value": 3
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      }
     ]
   },
   "sections": [

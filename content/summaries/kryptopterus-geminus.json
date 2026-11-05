@@ -1,10 +1,15 @@
 {
   "id": "kryptopterus-geminus",
-  "summary": "Cá trê thủy tinh Kryptopterus geminus hợp với người có bể cỡ lớn, vì cá lớn tới 20 cm. Thân thấp và thon, hai bên ánh bạc xanh rất rõ. Hồ sơ chưa ghi nhiệt độ, pH hay độ cứng nước, nên phần này cần tìm thêm trước khi mua. Điểm khó nhất là cá bán ra còn nhỏ, nhìn thì tưởng vừa bể nhỏ nhưng sẽ lớn hơn nhiều.",
+  "summary": "Cá trê thủy tinh Kryptopterus geminus hợp người có bể cỡ lớn, vì cá dài tới 20 cm. Nước giữ ở 24–28 °C, pH 6–8. Cá ăn cá, tôm, côn trùng và ấu trùng côn trùng, nên khó nhất là chọn bạn cùng bể.",
   "mistakes": [
-    "Nhầm với K. vitreolus, loài cá trèn thủy tinh phổ biến hơn, rồi nuôi bể nhỏ; nên chuẩn bị bể cỡ lớn ngay từ đầu vì K. geminus lớn tới 20 cm."
+    "Thả chung với cá nhỏ hoặc tôm: loài này ăn cá và tôm, nên chọn bạn cùng bể là cá đủ lớn.",
+    "Coi nó như cá trê thủy tinh Kryptopterus vitreolus nhỏ phổ biến rồi nuôi bể nhỏ: K. geminus dài tới 20 cm, nên chuẩn bị bể cỡ lớn từ đầu."
   ],
-  "speciesUpdatedAt": "2026-11-03",
-  "generatedAt": "2026-11-03T10:43:49.890Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-04",
+  "generatedAt": "2026-11-04T09:05:14.174Z",
+  "review": "pending",
+  "problems": [
+    "\"nên khó nhất là chọn bạn cùng bể\": the page never says tank mates are the hardest part. It only lists the diet (fish, shrimp, insects), so this is an inference stated as fact.",
+    "\"chọn bạn cùng bể là cá đủ lớn\": the page gives no tank-mate advice and no size at which fish are safe from it, so this fix is invented."
+  ]
 }

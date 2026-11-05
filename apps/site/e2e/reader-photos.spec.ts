@@ -13,7 +13,7 @@ const PHOTOS = [
 const svg = (i: number) => `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900"><rect width="1200" height="900" fill="#2f6b4f"/><text x="600" y="500" font-size="200" text-anchor="middle" fill="#e6efec">${i}</text></svg>`
 
 test('a reader photo opens in the viewer on the page, not in a new tab; Back closes it', async ({ page, errors }) => {
-  const fish = sourcePages().find(p => /^\/vi\/ca\/[^/]+\/$/.test(p))!
+  const fish = sourcePages().find(p => /^\/ca\/[^/]+\/$/.test(p))!
   await page.route(url => url.pathname === '/_p' && url.searchParams.has('e'), route => route.fulfill({ json: { photos: PHOTOS, sitekey: 'x', verification: 'phone' } }))
   await page.route(url => url.pathname.startsWith('/_e2e/'), route => route.fulfill({ contentType: 'image/svg+xml', body: svg(Number(/(\d+)\.svg$/.exec(route.request().url())![1])) }))
   await page.goto(fish)
@@ -44,5 +44,46 @@ test('a reader photo opens in the viewer on the page, not in a new tab; Back clo
   await expect(viewer).toBeHidden()
   await expect(page).toHaveURL(new RegExp(`${fish}$`))
   await expect(tiles.nth(2)).toBeFocused()
+  expect(errors).toEqual([])
+})
+
+// After sending, the photo just sent stays in view, and its take-back link is text to keep, never a link: tapped, it
+// opened the page that removes the photo, which the owner took for "see my photo". The Worker and Turnstile are
+// stand-ins, so the journey holds on the fixture build and on aquatome.com without sending anything.
+test('a photo just sent stays in view; its take-back link is text to keep with a copy button, not a link', async ({ page, context, errors }, info) => {
+  const fish = sourcePages().find(p => /^\/ca\/[^/]+\/$/.test(p))!
+  const LINK = '/_p/xoa/?id=00000000-0000-0000-0000-000000000000&t=e2e'
+  await page.route(url => url.pathname === '/_p', route => route.request().method() === 'POST'
+    ? route.fulfill({ status: 201, json: { status: 'pending', id: 'e2e', deleteUrl: LINK } })
+    : route.fulfill({ json: { photos: [], sitekey: 'x', verification: 'none' } }))
+  await page.route(/challenges\.cloudflare\.com\/turnstile/, route => route.fulfill({ contentType: 'text/javascript', body: 'window.turnstile = { render(el, o) { setTimeout(() => o.callback("tok"), 10); return "w" }, reset() {} }' }))
+  if (info.project.name !== 'phone') await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+  await page.goto(fish)
+  const section = page.locator('[data-reader-photos]')
+  await section.locator('summary').click()
+  // A small PNG the browser drew itself: something it decodes and shrinks.
+  const png = Buffer.from(await page.evaluate(() => new Promise<number[]>(done => {
+    const c = Object.assign(document.createElement('canvas'), { width: 40, height: 30 })
+    c.getContext('2d')!.fillRect(0, 0, 40, 30)
+    c.toBlob(b => void b!.arrayBuffer().then(a => done([...new Uint8Array(a)])), 'image/png')
+  })))
+  await section.locator('input[type=file]').setInputFiles({ name: 'ca.png', mimeType: 'image/png', buffer: png })
+  await section.locator('input[name=name]').fill('Lộc')
+  await section.locator('input[name=consent]').check()
+  await section.locator('button[type=submit]').click()
+  await expect(section.locator('[data-msg]')).toContainText('Đã nhận ảnh')
+  const sent = section.locator('[data-sent]')
+  await expect(sent).toBeVisible()
+  await expect(sent.locator('img')).toHaveAttribute('alt', 'Ảnh của Lộc')
+  expect(await sent.locator('img').evaluate(i => (i as HTMLImageElement).naturalWidth)).toBeGreaterThan(0)
+  await expect(section.locator('a[href*="/_p/xoa/"]')).toHaveCount(0)
+  const field = sent.locator('input')
+  await expect(field).toHaveValue(new URL(LINK, page.url()).href)
+  await expect(field).toHaveAttribute('readonly', '')
+  if (info.project.name !== 'phone') {
+    await sent.locator('button').click()
+    await expect(sent.locator('button')).toHaveText('Đã chép')
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(new URL(LINK, page.url()).href)
+  }
   expect(errors).toEqual([])
 })

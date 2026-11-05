@@ -10,6 +10,69 @@
     "sri-lanka",
     "kelani"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Kelani",
+        "Nilwala"
+      ],
+      "sources": [
+        "glaser",
+        "sprucepets",
+        "seriouslyfish"
+      ]
+    },
+    "records": {
+      "taxonKey": 2364223,
+      "total": 84,
+      "fetched": "2026-11-04",
+      "countries": [
+        [
+          "LK",
+          83
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -43.59375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          78.75,
+          5.625,
+          12,
+          12
+        ],
+        [
+          78.75,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          5.625,
+          47,
+          47
+        ],
+        [
+          80.15625,
+          7.03125,
+          22,
+          22
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -87,6 +150,15 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "sprucepets",
+        "value": {
+          "min": 4,
+          "max": 6
+        }
       }
     ]
   },

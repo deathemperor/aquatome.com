@@ -3,16 +3,16 @@ import { aeSql, num } from './ae'
 
 /**
  * The fish-ID log (worker/fishid/log.ts, dataset aquatome_fishid) for the dashboard: three bounded queries, run side by
- * side. Days are UTC, as the key table's KV day and the affiliate clicks are. Counts and sums go through
+ * side. Days are the viewer's (admin/time.ts): the query buckets them in that zone. Counts and sums go through
  * _sample_interval. Aliases stay clear of SQL words (day, key, from), and IF() branches are one type.
  */
 type N = number | string
 export type DayRow = { d: string; outcome: string; n: N; called: N; tin: N; tout: N; usd: N; guessed: N; linked: N }
 export type UnmatchedRow = { sci: string; n: N; conf: N }
-export type CallRow = { t: string; outcome: string; model: string; kh: string; verdict: string; sci: string; page: string; lang: string; src: string; cc: string; tin: N; tout: N; usd: N; ms: N; attempts: N; conf: N; guesses: N }
+export type CallRow = { t: string; outcome: string; model: string; kh: string; verdict: string; sci: string; page: string; lang: string; src: string; cc: string; tin: N; tout: N; usd: N; ms: N; attempts: N; conf: N; guesses: N; turns?: N; tools?: N; refs?: N; stopped?: string }
 
-/** Per day and outcome, 62 days back: enough for 30 days and the 30 before, and this month against the last. */
-export const DAYS_SQL = `SELECT formatDateTime(timestamp, '%Y-%m-%d', 'Etc/UTC') AS d, blob1 AS outcome, SUM(_sample_interval) AS n,
+/** Per day (in `tz`, a zone validZone passed) and outcome, 62 days back: enough for 30 days and the 30 before, and this month against the last. */
+export const DAYS_SQL = (tz: string) => `SELECT formatDateTime(timestamp, '%Y-%m-%d', '${tz}') AS d, blob1 AS outcome, SUM(_sample_interval) AS n,
   SUM(IF(double5 > 0, _sample_interval, 0)) AS called, SUM(_sample_interval * double1) AS tin, SUM(_sample_interval * double2) AS tout,
   SUM(_sample_interval * double3) AS usd, SUM(IF(double7 > 0, _sample_interval, 0)) AS guessed, SUM(IF(blob6 != '', _sample_interval, 0)) AS linked
 FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '62' DAY GROUP BY d, outcome FORMAT JSON`
@@ -20,7 +20,8 @@ FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '62' DAY GROUP BY d, out
 export const UNMATCHED_SQL = `SELECT blob5 AS sci, SUM(_sample_interval) AS n, SUM(_sample_interval * double6) AS conf
 FROM aquatome_fishid WHERE blob1 = 'ok' AND blob5 != '' AND blob6 = '' AND timestamp > NOW() - INTERVAL '30' DAY GROUP BY sci FORMAT JSON`
 export const RECENT_SQL = `SELECT timestamp AS t, blob1 AS outcome, blob2 AS model, blob3 AS kh, blob4 AS verdict, blob5 AS sci, blob6 AS page, blob7 AS lang,
-  blob8 AS src, blob9 AS cc, double1 AS tin, double2 AS tout, double3 AS usd, double4 AS ms, double5 AS attempts, double6 AS conf, double7 AS guesses
+  blob8 AS src, blob9 AS cc, double1 AS tin, double2 AS tout, double3 AS usd, double4 AS ms, double5 AS attempts, double6 AS conf, double7 AS guesses,
+  double8 AS turns, double9 AS tools, double10 AS refs, blob10 AS stopped
 FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '31' DAY ORDER BY t DESC LIMIT 100 FORMAT JSON`
 
 /**
@@ -29,7 +30,8 @@ FROM aquatome_fishid WHERE timestamp > NOW() - INTERVAL '31' DAY ORDER BY t DESC
  * guessed / linked: answers with a guess, and those whose top guess has a page.
  */
 export type Totals = { requests: number; calls: number; ok: number; none: number; blocked: number; tin: number; tout: number; usd: number; guessed: number; linked: number }
-export type Call = { t: string; outcome: string; model: string; key: string; verdict: string; sci: string; page: string; lang: string; from: string; country: string; tin: number; tout: number; usd: number; ms: number; attempts: number; conf: number; guesses: number }
+/** turns, tools, refs, stopped: the agent's calls to Claude, tool calls, reference photos and why it stopped (fishid/log.ts); 0 and '' before it. */
+export type Call = { t: string; outcome: string; model: string; key: string; verdict: string; sci: string; page: string; lang: string; from: string; country: string; tin: number; tout: number; usd: number; ms: number; attempts: number; conf: number; guesses: number; turns: number; tools: number; refs: number; stopped: string }
 export type FishIdStats = {
   /** The chart days: 30, ending today (today not over yet). */
   days: string[]
@@ -58,7 +60,8 @@ function add(t: Totals, r: DayRow): void {
 }
 const iso = (ms: number) => new Date(ms).toISOString().slice(0, 10)
 
-export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recent: CallRow[], now: Date): FishIdStats {
+/** `rows`' days are `tz`'s, and so are today, the weeks and the month. */
+export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recent: CallRow[], now: Date, tz = 'UTC'): FishIdStats {
   const byDay = new Map<string, Totals>()
   for (const r of rows) {
     const t = byDay.get(r.d) ?? zero()
@@ -70,15 +73,13 @@ export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recen
     if (t) for (const k of Object.keys(acc) as (keyof Totals)[]) acc[k] += t[k]
     return acc
   }, zero())
-  const back = lastDays(now, 61) // back[60] is today
+  const back = lastDays(now, 61, tz) // back[60] is today
   const span = (from: number, to: number) => back.slice(60 - from, 61 - to) // days ago, `from` ≥ `to`
-  const y = now.getUTCFullYear()
-  const m = now.getUTCMonth()
-  const dom = now.getUTCDate()
+  const [y, m, dom] = back[60]!.split('-').map((x, i) => Number(x) - (i === 1 ? 1 : 0)) as [number, number, number]
   const prevMonthDays = new Date(Date.UTC(y, m, 0)).getUTCDate()
   const mtdPrev = Array.from({ length: Math.min(dom, prevMonthDays) }, (_, i) => iso(Date.UTC(y, m - 1, i + 1)))
 
-  const days = lastDays(now, 30)
+  const days = lastDays(now, 30, tz)
   const per = days.map(d => byDay.get(d) ?? zero())
   return {
     days,
@@ -94,19 +95,20 @@ export function summariseFishId(rows: DayRow[], unmatched: UnmatchedRow[], recen
     recent: recent.map(r => ({
       t: r.t, outcome: r.outcome, model: r.model, key: r.kh, verdict: r.verdict, sci: r.sci, page: r.page, lang: r.lang, from: r.src, country: r.cc,
       tin: num(r.tin), tout: num(r.tout), usd: num(r.usd), ms: num(r.ms), attempts: num(r.attempts), conf: num(r.conf), guesses: num(r.guesses),
+      turns: num(r.turns ?? 0), tools: num(r.tools ?? 0), refs: num(r.refs ?? 0), stopped: r.stopped ?? '',
     })),
   }
 }
 
-export async function queryFishId(accountId: string, token: string, now: Date): Promise<FishIdStats> {
+export async function queryFishId(accountId: string, token: string, now: Date, tz = 'UTC'): Promise<FishIdStats> {
   const [rows, unmatched, recent] = await Promise.all([
-    aeSql<DayRow>(accountId, token, DAYS_SQL),
+    aeSql<DayRow>(accountId, token, DAYS_SQL(tz)),
     aeSql<UnmatchedRow>(accountId, token, UNMATCHED_SQL),
     aeSql<CallRow>(accountId, token, RECENT_SQL),
   ])
-  return summariseFishId(rows, unmatched, recent, now)
+  return summariseFishId(rows, unmatched, recent, now, tz)
 }
 /** The overview's share: the per-day query only. */
-export async function queryFishIdDays(accountId: string, token: string, now: Date): Promise<FishIdStats> {
-  return summariseFishId(await aeSql<DayRow>(accountId, token, DAYS_SQL), [], [], now)
+export async function queryFishIdDays(accountId: string, token: string, now: Date, tz = 'UTC'): Promise<FishIdStats> {
+  return summariseFishId(await aeSql<DayRow>(accountId, token, DAYS_SQL(tz)), [], [], now, tz)
 }

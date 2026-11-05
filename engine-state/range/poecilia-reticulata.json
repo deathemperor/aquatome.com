@@ -1,0 +1,718 @@
+{
+  "id": "poecilia-reticulata",
+  "native": {
+    "input": "3f5f90a667a5742c",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
+        "code": "BB",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "Barbados",
+        "ok": true
+      },
+      {
+        "code": "AG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "Antigua and Barbuda",
+        "ok": true
+      },
+      {
+        "code": "GB",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced or feral populations also exist in around fifty other countries across the globe, including the UK.",
+        "words": "UK",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BB",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
+        "words": "Barbados",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Guayre River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Guayre River, Caracas, Venezuela'.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Poecilia reticulata",
+    "status": "ACCEPTED",
+    "taxonKey": 2350050,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1613
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        909
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        869
+      ],
+      [
+        "9cc67633-537a-4acc-8d37-92feeaddb2cd",
+        542
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        360
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        360
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        311
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        274
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        249
+      ],
+      [
+        "092c3e3f-a7d3-4e23-b343-839829f4d1b3",
+        158
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        112
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        111
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        103
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        97
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        97
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        92
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        88
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        88
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        78
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        77
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        73
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        72
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        67
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        66
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        56
+      ],
+      [
+        "e7e019c6-5582-47ee-ae97-32e4cd66d4c6",
+        53
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        50
+      ],
+      [
+        "872b0fcc-d7dc-44c8-8175-f5bf18cc28a1",
+        50
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        48
+      ],
+      [
+        "97255e25-4983-4e2b-bf18-2127d29e12a9",
+        46
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        44
+      ],
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        43
+      ],
+      [
+        "640ae8b7-14b9-4188-894a-a2bc3821c752",
+        42
+      ],
+      [
+        "5b7d4716-3ee7-4abb-a770-365e33c8b82c",
+        39
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        37
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        36
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        34
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        33
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        32
+      ],
+      [
+        "c2914e4b-381d-4814-8a34-66a7d949fd44",
+        32
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        31
+      ],
+      [
+        "0160cea6-4ff3-46a1-880d-de8c3a48f1e9",
+        29
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        27
+      ],
+      [
+        "ff98132c-b720-4304-a68c-390968b991f7",
+        26
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        25
+      ],
+      [
+        "01f5d83c-91b1-4473-a67c-c86b35705d4d",
+        23
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        23
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        22
+      ],
+      [
+        "3601a96a-c1aa-4cf3-ae65-1c0cccdf342f",
+        20
+      ],
+      [
+        "a9576a23-3690-4c27-8d19-0db353957177",
+        20
+      ],
+      [
+        "2da4d785-ad98-40bd-9cd9-2285c19285e9",
+        19
+      ],
+      [
+        "c5b513a4-45a6-4564-88b0-111015ea1c41",
+        19
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        18
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        18
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        15
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        14
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        14
+      ],
+      [
+        "0c0258d8-e503-4d57-9734-92aad4072dd2",
+        13
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        13
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        13
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        13
+      ],
+      [
+        "e30b2ef2-8923-4682-8f1c-1cf41a459f68",
+        13
+      ],
+      [
+        "29b5289f-109b-4d45-b84f-2870c6590344",
+        12
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        12
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        12
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        12
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        11
+      ],
+      [
+        "71d8eb5a-f762-11e1-a439-00145eb45e9a",
+        10
+      ],
+      [
+        "7f6f33a0-f762-11e1-a439-00145eb45e9a",
+        10
+      ],
+      [
+        "a12db2f2-60a3-40f8-902d-df58eee770c0",
+        10
+      ],
+      [
+        "ebab8ef5-b3b3-440e-a79f-cc4cf8a5180c",
+        10
+      ],
+      [
+        "7f962910-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        8
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        8
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        8
+      ],
+      [
+        "0d055e8f-d1be-43dd-be4b-f44b53605554",
+        7
+      ],
+      [
+        "7fc7f94a-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "a2254f58-8bbf-41e6-ac4e-03d1683e0ce5",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        6
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        6
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        5
+      ],
+      [
+        "80cdb1cc-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        5
+      ],
+      [
+        "e2807119-02f5-4c4c-b08b-ead05f38d146",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "77f88e2e-77a5-48eb-8e90-14d0945c0188",
+        4
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        4
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        3
+      ],
+      [
+        "b211f32f-326b-43d3-8012-2fbce0cc6dcc",
+        3
+      ],
+      [
+        "e5687c66-55a2-4f5f-82aa-1838d9e67470",
+        3
+      ],
+      [
+        "0a56a02d-d561-4f3f-bb18-b8b1389415fc",
+        2
+      ],
+      [
+        "1e78dfef-d315-4347-8e25-53550cdce5fe",
+        2
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "3dbd76b0-31c9-4402-aa41-2f1102d74d45",
+        2
+      ],
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        2
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        2
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "aa6c5ee6-d4d7-4a65-a04f-379cffbf4842",
+        2
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "c2b6a9e7-e2a4-4172-b089-08e92fd1c9d4",
+        2
+      ],
+      [
+        "f5c13912-4f12-4fd0-b1c2-0d74564a5374",
+        2
+      ],
+      [
+        "fb6939d1-0b75-497e-a54b-2a38a907bf05",
+        2
+      ],
+      [
+        "038b9c13-f1ad-49e0-aeea-4458e0b6dcbe",
+        1
+      ],
+      [
+        "16c3a9d0-89ca-48dc-9a43-cdd80a3c355a",
+        1
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        1
+      ],
+      [
+        "22615daa-7f09-4a71-8cdf-d168170e67dd",
+        1
+      ],
+      [
+        "28965184-3e9f-432f-8898-780e9183d526",
+        1
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "2b3a8ad6-c040-4105-9eae-cfdf0003cf88",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        1
+      ],
+      [
+        "3c965d17-9d2d-426a-8780-215b005bd037",
+        1
+      ],
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        1
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        1
+      ],
+      [
+        "55164b42-8df2-4302-9823-153d51bb5b0e",
+        1
+      ],
+      [
+        "5da288d0-94ca-4355-a438-11890b726f5b",
+        1
+      ],
+      [
+        "6995b180-5755-499d-bf3e-1c8d83b42ac3",
+        1
+      ],
+      [
+        "6a3aa184-0a82-41f1-bdef-dfb9eea5310e",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "707b24b9-3ad8-4031-ad1d-2b81d76fef0c",
+        1
+      ],
+      [
+        "7f6b3fe8-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "7ff09cba-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8129ab94-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        1
+      ],
+      [
+        "8d455dd5-0640-4211-acd1-8e88b171cfda",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        1
+      ],
+      [
+        "a22ace4f-cc03-4cd3-8c0c-c37f8ee73fda",
+        1
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        1
+      ],
+      [
+        "d37631a4-f113-42bf-abd6-10f034777748",
+        1
+      ],
+      [
+        "dc878d3c-ebc2-4b95-824b-2209fb3f38f4",
+        1
+      ],
+      [
+        "e56a116e-0cfc-4382-a772-162ac2a44a7c",
+        1
+      ],
+      [
+        "e8dd97e5-0bd4-4da8-8f88-3ab91325a12c",
+        1
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ],
+      [
+        "ea920870-10cc-4c5a-8c68-761383c7e497",
+        1
+      ],
+      [
+        "ee21cfcd-9f34-47f0-ab46-9b21e9db5c5a",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "GY",
+      "SR",
+      "GF",
+      "TT",
+      "BB",
+      "AG"
+    ],
+    "requests": 18,
+    "at": "2026-11-04T21:41:08.860Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-05T03:39:17.391Z",
+    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
+  }
+}

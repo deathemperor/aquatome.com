@@ -1,0 +1,240 @@
+{
+  "id": "corydoras-britskii",
+  "scientificName": "Corydoras britskii",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "mato-grosso",
+    "paraguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/brochis_britskii_and_brochis_cf_splendens_cw_35_en/",
+      "html": "<p>Two features distinguish the species of Brochis from those of Corydoras: firstly, the enormous size (up to 12 cm) and secondly, the high number of rays in the dorsal fin. While Corydoras have 7-8 rays in the dorsal fin, in Brochis this fin has 10-18 rays. Besides this both genera are distinguished by some externally invisible characters.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>The giant brochis, Brochis britskii, long known as Corydoras britskii, is an armoured catfish restricted to the upper rio Paraguay in Mato Grosso state, Brazil. It grows to around 90 mm SL and can be told from B. splendens and B. multiradiata, the other two species long kept in Brochis, by its 15 to 18 dorsal-fin rays. It forms aggregations in smaller tributaries and still waters such as backwaters, oxbows and marginal lakes.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/brochis_britskii_and_brochis_cf_splendens_cw_35_en/",
+      "html": "<p>The species of Brochis that is most difficult to obtain is B. britskii from Mato Grosso in Brazil. Thus it is quite expensive. And as it can be observed in many expensive fishes, several myths are applied to that species by aquarists. One of these myths says that the species can be recognized by the reddish colour of the fins and the belly. However, that myth overlooks the fact that there is a second species of Brochis found in the Mato Grosso, which is – technically speaking – belonging to B. splendens, but imitates B. britskii perfectly regarding coloration.</p><p>Both species can be told apart by the shape of the dorsal fin. In B. britskii, the spine and the first two rays of the dorsal fin form a kind of a hook. The posterior part of that fin looks like if it would have been cut with a scissor. In the imitating B. splendens, which has been given the code CW 35 by hobbyists, the dorsal fin looks quite “normal”. To be sure one can count also the finrays of the dorsal fin: in B. britskii there are 15-18 rays, in B. cf. splendens CW 35 10-12 rays (like in B. splendens).</p><p>Available size: 8-10 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/brochis_britskii_and_brochis_cf_splendens_cw_35_en/",
+      "html": "<p>Brazil (Mato Grosso).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>Restricted to the upper rio Paraguay in Mato Grosso state, Brazil.</p><p>Type locality is 'Lagoas Marginais, rodovia Transpantaneira, Poconé, 16°15'S, 56°37'W, Mato Grosso State, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>This species tends to form aggregations in smaller tributaries and still bodies of water such as backwaters, oxbows and marginal lakes.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>Minimum base dimensions of 120 × 45 cm or equivalent are recommended (volume about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/brochis_britskii_and_brochis_cf_splendens_cw_35_en/",
+      "html": "<p>Keeping these beautiful Brochis is not difficult at all. They look most colourful when kept at relatively high temperatures (26-28°C).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it is kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 6-8 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/brochis_britskii_and_brochis_cf_splendens_cw_35_en/",
+      "html": "<p>The sexes can be told apart as in Corydoras, e.g. males can be recognized by the larger ventral fins.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>Adult females are noticeably rounder, higher-bodied, and grow slightly larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/brochis_britskii_and_brochis_cf_splendens_cw_35_en/",
+      "html": "<p>It seems to be necessary to imitate a dry season and low temperatures (around 20°C) to stimulate the fish for breeding.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/brochis_britskii_and_brochis_cf_splendens_cw_35_en/",
+      "html": "<p>Lexicon: Brochis: ancient Greek, means “noose”, referring to an anatomical structure at the barbels. splendens: Latin, means “splendid”. britskii: dedication name for H. Britski, ichthyologist at Sao Paulo, Brazil.</p><p>Suggestion of common names: Brochis britskii: Britski's catfish (cá da trơn Britski). Brochis cf. splendens CW 35: Mato-Grosso Emerald catfish (cá chuột ngọc lục bảo Mato Grosso).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<p>This species was formerly classified in the genus Brochis and is sometimes referred to as 'Britski's catfish'.</p><p>B. britskii can be told apart from other ex-Brochis species by possession of 15-18, normally 15, dorsal-fin rays (vs. 10-12 in B. splendens and normally 17-18 in B. multiradiata). All other members of the genus Corydoras, as well as the closely-related Aspidoras and Scleromystax, possess 6-8 dorsal-fin rays.</p><p>Brochis was first synonymised with Corydoras by Britto (2003), since the latter genus cannot be considered monophyletic if the former is accepted as valid. This decision has been supported in subsequent phylogenetic studies by Shimabukuro-Dias et al. (2004) and Alexandrou et al. (2011), although the name Brochis is still common in aquarium literature. It is likely that the genus will be revalidated and expanded in the future following a required taxonomic review of the subfamily Corydoradinae as suggested by Alexandrou and Taylor (2011).</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body. Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them. It's thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "html": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Alexandrou, M. A. and M. I. Taylor (2011). Evolution, Ecology and Taxonomy of the Corydoradinae Revisited. In: Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 101-114</li><li>Alexandrou, M. A., C. Oliveira, M. Maillard, R. A. R. McGill, J. Newton, S. Creer, and M. I. Taylor (2011). Competition and phylogeny determine community structure in Müllerian co-mimics. Nature 469, 84-89</li><li>Britto, M. R. (2003). Phylogeny of the subfamily Corydoradinae Hoedeman, 1952 (Siluriformes: Callichthyidae), with a definition of its genera. Proceedings of the Academy of Natural Sciences of Philadelphia, 153, 118-154</li><li>Hoedeman, J. J. (1952). Notes on the Ichthyology of Surinam (Dutch Guiana). The Catfish genera Hoplosternum and Callichthys, with key to the genera and groups of the family Callichthyidae. Beaufortia 1(12), 1-11</li><li>Reis, R. E. (1998). Anatomy and phylogenetic analysis of the neotropical callichthyid catfishes (Ostariophysi, Siluriformes). Zoological Journal of the Linnean Society 124(2), 105-168</li><li>Shimabukuro-Dias, C. K., C. Oliveira, R. E. Reis and F. Foresti (2004). Molecular phylogeny of the armored catfish family Callichthyidae (Ostariophysi, Siluriformes). Molecular Phylogenetics and Evolution 32(1), 152-163</li><li>Nijssen, H. and I. J. H. Isbrücker (1983). Brochis britskii, a new species of plated catfish from the Upper Rio Paraguai system, Brazil (Pisces, Siluriformes, Callichthyidae). Bulletin Zoölogisch Museum, Universiteit van Amsterdam 9(20), 177-186</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bcc5bf65f5f4c158.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bcc5bf65f5f4c158-480.webp",
+      "width": 800,
+      "height": 532,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-britskii",
+      "caption": "Specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "cPd9dH6q0MI",
+      "title": "Brochis britskii 428.mp4",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá chuột",
+        "thức ăn cá đáy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi điều chỉnh nhiệt độ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

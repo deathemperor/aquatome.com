@@ -1,0 +1,8 @@
+event: step
+data: {"kind":"search","query":"Paracheirodon"}
+
+: ping
+
+event: error
+data: {"error":"failed"}
+

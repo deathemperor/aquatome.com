@@ -2,6 +2,18 @@
   "id": "super-red-arowana",
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/f7bd5d2c20d9a00b.webp",
+      "thumb": "https://media.aquatome.com/commons/f7bd5d2c20d9a00b-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 2.0",
+      "author": "Cheng-en Cheng",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_at_Taipei_Zoo_2007-07-11.jpg",
+      "caption": "Cá rồng Huyết Long đỏ cam rực rỡ bơi trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/38ccce4c480fc134.webp",
       "thumb": "https://media.aquatome.com/commons/38ccce4c480fc134-480.webp",
       "width": 1200,
@@ -60,8 +72,21 @@
       "author": "Muhammad Erril",
       "sourceUrl": "https://unsplash.com/photos/a-fish-with-a-long-tail-adLY94l-33c?utm_source=aquatome&utm_medium=referral",
       "caption": "Cá rồng Huyết Long cận cảnh đầu và thân trong bể nước xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/882693881008ce4d.webp",
+      "thumb": "https://media.aquatome.com/commons/882693881008ce4d-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "Public domain",
+      "author": "Pacific Southwest Region USFWS from Sacramento, US",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arowana_fish_(37090442524).jpg",
+      "caption": "Cá rồng huyết long ánh đỏ trong bể nuôi cùng cá khác",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 61,
-  "updatedAt": "2026-10-30"
+  "seen": 81,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

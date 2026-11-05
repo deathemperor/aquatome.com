@@ -64,11 +64,14 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
   expect(s.unmatched).toEqual([{ sci: 'Trigonostigma heteromorpha', n: 5, conf: 0.8 }, { sci: 'Betta <script>', n: 2, conf: 0.6 }])
   expect(s.recent[0]).toMatchObject({ key: 'a1b2c3d4', from: 'tank', tin: 1500, usd: 0.0084, conf: 0.92 })
   const html = fishIdPage({ now: NOW, stats: s, keys: undefined, pages: new Map([['paracheirodon-innesi', '/vi/ca/ca-neon-xanh/']]) })
-  expect(html).toContain('<a href="/vi/ca/ca-neon-xanh/"><i class="sci">Paracheirodon innesi</i></a>')
-  expect(html).toContain('<th>02/11 09:58</th>')
+  expect(html).toContain('<a href="/ca/ca-neon-xanh/"><i class="sci">Paracheirodon innesi</i></a>')
+  // The log's UTC moment, in the viewer's time (Vietnam's by default).
+  expect(html).toContain('<th><time datetime="2026-11-02T09:58:01.000Z">02/11 16:58</time></th>')
   expect(html).toContain('Bể của tôi')
   expect(html).toContain('không qua kiểm tra chống spam')
-  expect(html).not.toContain('<script>')
+  // The page's one script is its own clock; a name never becomes one.
+  expect(html.match(/<script>/g)).toHaveLength(1)
+  expect(html).not.toContain('Betta <script>')
   expect(html).not.toContain('<img src=x>')
   expect(html).toContain('Betta &lt;script&gt;')
   // A page id the catalog doesn't know: shown as text, never turned into an address.
@@ -78,9 +81,34 @@ test('unmatched guesses most first with their mean confidence; the last calls wi
 })
 
 test('no query sorts or groups by a column it renamed: Analytics Engine refuses that ("unable to find type of column")', () => {
-  for (const sql of [DAYS_SQL, UNMATCHED_SQL, RECENT_SQL]) {
+  for (const sql of [DAYS_SQL('Asia/Ho_Chi_Minh'), UNMATCHED_SQL, RECENT_SQL]) {
     const renamed = [...sql.matchAll(/\b(timestamp|blob\d+|double\d+)\s+AS\s+\w+/gi)].map(m => m[1]!.toLowerCase())
     const after = (sql.match(/\b(?:ORDER|GROUP)\s+BY\s+([\s\S]*?)(?:\bLIMIT\b|\bFORMAT\b|$)/gi) ?? []).join(' ').toLowerCase()
     for (const col of renamed) expect(after, sql).not.toMatch(new RegExp(`\\b${col}\\b`))
   }
+})
+
+test('days are the viewer\'s: the query buckets in its zone, and today, the weeks and the month follow it', () => {
+  expect(DAYS_SQL('Asia/Ho_Chi_Minh')).toContain("formatDateTime(timestamp, '%Y-%m-%d', 'Asia/Ho_Chi_Minh')")
+  // 2026-11-01T23:30Z is already 2 November in Vietnam: the query's day says so, and so do the periods.
+  const late = new Date('2026-11-01T23:30:00Z')
+  const s = summariseFishId([row('2026-11-02', 'ok', 4, 4), row('2026-11-01', 'ok', 1, 1)], [], [], late, 'Asia/Ho_Chi_Minh')
+  expect(s.days.at(-1)).toBe('2026-11-02')
+  expect(s.periods.today.calls).toBe(4)
+  expect(s.periods.yesterday.calls).toBe(1)
+  expect(s.periods.mtd.calls).toBe(5) // November so far, its 1st and 2nd
+  expect(s.periods.mtdPrev.calls).toBe(0)
+  // The same moment in UTC is still the 1st.
+  expect(summariseFishId([row('2026-11-01', 'ok', 1, 1)], [], [], late).periods.today.calls).toBe(1)
+})
+
+test('the agent\'s identifications: its calls to Claude, tool calls and photos, and why it stopped; cost per identification beside each period\'s total', () => {
+  const s = summariseFishId(ROWS, [], [{ ...CALL, turns: '3', tools: '3', refs: '2', stopped: 'answer' }, { ...CALL, outcome: 'retry', attempts: 0 }], NOW)
+  expect(s.recent.map(c => [c.turns, c.tools, c.refs, c.stopped])).toEqual([[3, 3, 2, 'answer'], [0, 0, 0, '']])
+  const html = fishIdPage({ now: NOW, stats: s, keys: undefined, pages: new Map() })
+  expect(html).toContain('<td class="l">3 · 3 · 2 <span class="muted">tự trả lời</span></td>')
+  expect(html).toContain('gửi lại, trả kết quả đã có')
+  // Today: 3 identifications reached Claude for 3 × $0.0084.
+  expect(html).toContain('<th>Mỗi lượt</th>')
+  expect(html).toMatch(/\$0[.,]0084/)
 })

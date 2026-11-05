@@ -1,0 +1,220 @@
+{
+  "id": "mystus-mysticetus",
+  "scientificName": "Mystus mysticetus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Mystus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "laos",
+    "thailand",
+    "cambodia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>Mystus mysticetus is a peaceful bagrid catfish from rivers of Laos, Thailand and Cambodia. It migrates into flooded forest in the wet season and is apparently often seen living and feeding in large shoals with its congener M. multiradiatus. The only Mystus with laterally positioned eyes, it makes a good bottom dweller for communities of larger peaceful fish, though it will probably eat small fish when adult.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>Laos, Thailand, Cambodia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>It lives in rivers, migrating into flooded areas of forests during the wet season. It tends to occur in shoals around submerged logs, rocks and other objects.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>Standard length: 130 mm SL.</p><p>Aquarium base: 120 × 30 cm.</p><p>Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>The decor used is not critical but the fish must be provided with some hiding places. Driftwood pieces would simulate its natural habitat. You will see it more often if the surface is covered in floating plants to cut down the light reaching the substrate.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<ul><li>Temperature: 22–27 °C</li><li>pH: 6.0–7.0</li><li>Hardness: 3–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>Like most other Mystus, M. mysticetus is an unfussy feeder accepting most small live, frozen and dried foods. Try to keep the diet varied.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>A peaceful and gregarious species but it will probably eat small fish when adult. It makes a good bottom dweller for communities of larger peaceful fish, such as larger rasboras, barbs, anabantoids and peaceful cichlids. It can be kept in a small group in a suitably large tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>Males possess quite a long genital papilla located just in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>Not thought to have been achieved in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/mystus-mysticetus",
+      "html": "<p>Apparently this species is often seen living and feeding with a congener, M. multiradiatus in large shoals. It is the only species of Mystus to possess laterally positioned eyes, all the others having their eyes in a dorsolateral position. It is an ideal peaceful catfish for larger communities and, as with many other bagrids, is somewhat underrated in the hobby.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/5742d0cd8eef70bc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5742d0cd8eef70bc-480.webp",
+      "width": 500,
+      "height": 255,
+      "licence": "dùng với sự cho phép",
+      "author": "Ian Morgan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_mysticetus.htm",
+      "caption": "Mystus mysticetus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ca21254195cf415e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ca21254195cf415e-480.webp",
+      "width": 500,
+      "height": 260,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_mysticetus.htm",
+      "caption": "Mystus mysticetus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4a7cf0f41b58afb8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4a7cf0f41b58afb8-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_mysticetus.htm",
+      "caption": "Mystus mysticetus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b73ea57df59e6195.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b73ea57df59e6195-480.webp",
+      "width": 500,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_mysticetus.htm",
+      "caption": "Mystus mysticetus: showing the lateral placed eyes",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "6yToJjXTECs",
+      "title": "ត្រីកញ្ចុះឆ្នុត Mystus​ mysticetus",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VgJ9nbnsVh8",
+      "title": "ត្រីកញ្ចុះឆ្នូត | Mystus mysticetus |#shortvideo",
+      "durationSec": 59,
+      "lang": "en-US"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 120x30x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc ngoài cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "thức ăn cá lăng"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "lũa thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

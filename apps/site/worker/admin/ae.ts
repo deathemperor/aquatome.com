@@ -4,19 +4,18 @@ export async function aeSql<T>(accountId: string, token: string, query: string):
   if (!r.ok) throw new Error(`analytics engine sql ${r.status}: ${(await r.text()).slice(0, 200)}`)
   return ((await r.json()) as { data: T[] }).data
 }
-/**
- * The readers' beacon (binding EVENTS). It wrote to thuysinh_events until the move to aquatome_events on 2026-11-04;
- * Analytics Engine keeps three months, so until OLD_EVENTS_UNTIL a query reads both.
- */
+/** The readers' beacon (binding EVENTS). It wrote to thuysinh_events until the move to aquatome_events on 2026-11-04. */
 export const EVENTS = 'aquatome_events'
-const OLD_EVENTS = 'thuysinh_events'
-const OLD_EVENTS_UNTIL = Date.parse('2027-02-05T00:00:00Z')
+/**
+ * Readers count from this moment (UTC). The owner reset the count on 2026-11-05: the rows before it were the site's own
+ * checks, the owner and the owner's agents, from before the beacon left them out. The old dataset has nothing after it.
+ */
+export const READERS_FROM = '2026-11-05T03:10:00Z'
+/** Every beacon query's condition: no row from before the reset. */
+export const COUNTED = `timestamp >= toDateTime('${READERS_FROM.slice(0, 19).replace('T', ' ')}')`
 
-/** The beacon's rows for a query (`sql` names its table): the dataset's, then the old one's while it still has any. */
-export async function eventsSql<T>(accountId: string, token: string, sql: (table: string) => string, now = Date.now()): Promise<T[]> {
-  const tables = now < OLD_EVENTS_UNTIL ? [EVENTS, OLD_EVENTS] : [EVENTS]
-  return (await Promise.all(tables.map(t => aeSql<T>(accountId, token, sql(t))))).flat()
-}
+/** The beacon's rows for a query (`sql` names its table). */
+export const eventsSql = <T>(accountId: string, token: string, sql: (table: string) => string) => aeSql<T>(accountId, token, sql(EVENTS))
 
 /** A number from a row: AE sends 64-bit counts as strings. */
 export const num = (x: number | string | null | undefined) => Number(x) || 0

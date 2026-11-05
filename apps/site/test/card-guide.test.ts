@@ -5,7 +5,7 @@ import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, LEVEL_WORDS, NEED_LABELS, N
 import { FIELD_LABELS, FIELD_ORDER } from '../src/lib/format'
 import { page } from './dist'
 
-const GUIDE = { vi: '/vi/gioi-thieu/bang-du-lieu/', id: '/id/tentang/tabel-data/', th: '/th/about/data-table/' }
+const GUIDE = { vi: '/gioi-thieu/bang-du-lieu/', id: '/id/tentang/tabel-data/', th: '/th/about/data-table/' }
 const ANCHORS = [...Object.values(FIELD_ANCHORS), CONFLICT_ANCHOR, NEEDS_ANCHOR]
 
 test('the data card\'s explainer page is built in each language, with a section for every card field and for sources that disagree', () => {
@@ -18,7 +18,7 @@ test('the data card\'s explainer page is built in each language, with a section 
     expect(dom.querySelectorAll('.fields a').map(a => a.getAttribute('href')), path).toEqual([...FIELD_ORDER.map(f => `#${FIELD_ANCHORS[f]}`), `#${CONFLICT_ANCHOR}`])
   }
   // It is linked from the about page and listed in the sitemap, in every language.
-  expect(page('/vi/gioi-thieu/').dom.querySelector(`a[href="${GUIDE.vi}"]`)).not.toBeNull()
+  expect(page('/gioi-thieu/').dom.querySelector(`a[href="${GUIDE.vi}"]`)).not.toBeNull()
   const xml = readFileSync(new URL('../dist/sitemap.xml', import.meta.url), 'utf8')
   for (const path of Object.values(GUIDE)) expect(xml).toContain(path)
 })
@@ -46,7 +46,7 @@ test('the page quotes the needs\' thresholds the panel uses (NEED_RULES), as fig
 })
 
 test('each data card label leads to its section of the explainer, with what the figure means on hover or tap', () => {
-  const { dom } = page('/vi/ca/ca-neon-vua/')
+  const { dom } = page('/ca/ca-neon-vua/')
   const guide = page(GUIDE.vi).dom
   const cells = dom.querySelectorAll('.facts .card > div')
   expect(cells.length).toBeGreaterThanOrEqual(6)
@@ -65,7 +65,7 @@ test('each data card label leads to its section of the explainer, with what the 
 
 test('"Vì sao?" on the difficulty: each need with its level and the figure it comes from', () => {
   // Cardinal tetra: 60 cm and 5 cm, pH 4–6 and 1–6 dGH, the sources' shared 24–27 °C, peaceful, a school of 8.
-  const { dom } = page('/vi/ca/ca-neon-vua/')
+  const { dom } = page('/ca/ca-neon-vua/')
   const why = dom.querySelector('.card [data-field="difficulty"] details.why')!
   expect(why.querySelector('summary')?.text).toContain('3/8')
   const needs = why.querySelectorAll('li')
@@ -84,10 +84,10 @@ test('"Vì sao?" on the difficulty: each need with its level and the figure it c
 
 test('a need without its figures is left out, not shown as easy; a card with no difficulty has no panel', () => {
   // Discus: no traits file, so no temperament or social need.
-  const discus = page('/vi/ca/ca-dia/').dom.querySelectorAll('.card [data-field="difficulty"] details.why li')
+  const discus = page('/ca/ca-dia/').dom.querySelectorAll('.card [data-field="difficulty"] details.why li')
   expect(discus.map(n => [n.getAttribute('data-need'), n.getAttribute('data-level')])).toEqual([['space', 'hard'], ['water', 'hard'], ['temperature', 'hard']])
   // Angelfish: a size and nothing else, no difficulty.
-  const angel = page('/vi/ca/ca-ong-tien/').dom
+  const angel = page('/ca/ca-ong-tien/').dom
   expect(angel.querySelector('.card [data-field="difficulty"]')).toBeNull()
   expect(angel.querySelector('details.why')).toBeNull()
 })

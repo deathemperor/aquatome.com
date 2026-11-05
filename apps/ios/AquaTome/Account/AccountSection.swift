@@ -119,9 +119,9 @@ struct SignInHint: View {
   }
 }
 
-/// Sign in with Apple, with a passkey added on aquatome.com, and with a code sent by email when the server offers them
-/// (the address used on aquatome.com, or with Google there, opens that account). Also where a reader posts to a page.
-/// In a list, each row's separator starts at the row's leading edge, not where a centred title starts.
+/// Sign in with Apple, with Google, with a passkey added on aquatome.com, and with a code sent by email when the server
+/// offers them (the address used on aquatome.com, or with Google there, opens that account). Also where a reader posts to
+/// a page. In a list, each row's separator starts at the row's leading edge, not where a centred title starts.
 struct SignInButton: View {
   @Environment(AccountModel.self) private var account
   @State private var email = false
@@ -131,6 +131,7 @@ struct SignInButton: View {
       .disabled(account.working || !account.canSync)
       .opacity(account.working ? 0.5 : 1)
       .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
+    if account.offersGoogle { GoogleButton().alignmentGuide(.listRowSeparatorLeading) { _ in 0 } }
     if account.offersPasskey {
       Button("Đăng nhập bằng passkey") { Task { await account.signInWithPasskey() } }
         .frame(maxWidth: .infinity, minHeight: 44)

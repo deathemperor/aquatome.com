@@ -5,13 +5,28 @@
   "family": "Bagridae",
   "genus": "Mystus",
   "group": "catfish",
-  "places": [],
+  "places": [
+    "asia",
+    "india",
+    "ganges",
+    "bangladesh",
+    "myanmar",
+    "indonesia",
+    "java"
+  ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
         "value": {
           "min": 22,
+          "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
           "max": 27
         }
       }
@@ -23,12 +38,23 @@
           "min": 6,
           "max": 7.8
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 40
       }
     ]
   },
@@ -46,6 +72,18 @@
       "html": "<p>Primarily Asia but a handful of species in Africa (genus Mystus).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "html": "<p>Asia: estuaries and lower portions of rivers of India, Bangladesh, Myanmar and Java. Type locality: higher parts of the Gangetic estuaries, where the water is not very salty.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "html": "<p>Originally described from \"Higher parts of Gangetic estuaries\", this species lives in fresh and brackish waters. In freshwater, adults occur mainly in larger water bodies (rivers and streams) with mud or clay substrates, and are rarely found in smaller streams. They form schools of 10 to 25 individuals. Diurnal.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
@@ -58,58 +96,104 @@
       "html": "<p>Easily adapts to a wide variety of frozen and prepared food in the aquarium. May eat very small fish.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "html": "<p>Sometimes when young it can exhibit pale stripes along the body. It is easily differentiated from other species by the combination of its green to greyish colour and small adipose fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
       "html": "<p>There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "html": "<p>Oviparous, with distinct pairing, possibly like other members of the same family.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1032",
       "html": "<p>Fishes of the genus Mystus Scopoli are small to medium-sized bagrid catfishes occurring in South Asia. Roberts (1994) recognized Mystus to have an elongate cranial fontanel reaching up to the base of the occipital process, long maxillary barbel, very long adipose fin, 11–30 gill rakers on the first gill arch and 37–46 total vertebrae, about equally divided between abdominal and caudal regions. He included only eight species under the genus. Jayaram &amp; Sanyal (2003) and Ferraris (2007) respectively listed 44 and 33 species of Mystus as valid.</p><p>Etymology: The generic name is probably derived from the Latin mystax, meaning moustache, in reference to the long barbels. It was first used by Scopoli in 1777.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "html": "<p>Etymology: the genus name Mystus comes from \"Mystax\", meaning whiskered (hair on the upper lip); Mystus was first used by Belon in 1553 to describe all fish with whiskers. The specific name gulio is a Latinisation of Guli, the local Bengali name for this species in India.</p><p>IUCN Red List: despite being targeted in artisan fisheries, being sometimes harvested as an ornamental fish and showing population declines in parts of its range, the level of exploitation is not deemed high enough to threaten the long-term survival of this species, which is still considered relatively abundant. Other threats include pollution, and it is known to be used in aquaculture, but more information on the effects and scale of these threats is required. The species is therefore assessed as Least Concern. However, there are taxonomic problems surrounding the identity of this species, and what is currently classified as Mystus gulio may consist of several species with more geographically restricted distributions. If so, it may be necessary to reassess this species in the near future (IUCN 2019).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (11/2010).</li><li>Grant, Steven. ScotCat Article: The striped catfishes of the genus Mystus Scopoli, 1777 (Siluriformes: Bagridae).</li><li>Ng, H.H., de Alwis Goonatilake, S., Fernado, M. &amp; Kotagama, O. 2019. Mystus gulio. The IUCN Red List of Threatened Species 2019.</li><li>Pethiyagoda, R., 1991. Freshwater fishes of Sri Lanka. The Wildlife Heritage Trust of Sri Lanka, Colombo. 362 p.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/f715ef527dedcf8c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f715ef527dedcf8c-480.webp",
+      "width": 500,
+      "height": 232,
+      "licence": "dùng với sự cho phép",
+      "author": "Robin Warne / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "caption": "Mystus gulio",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/de7bb43074e63597.webp",
+      "thumb": "https://media.aquatome.com/scotcat/de7bb43074e63597-480.webp",
+      "width": 500,
+      "height": 216,
+      "licence": "dùng với sự cho phép",
+      "author": "Robin Warne / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_gulio.htm",
+      "caption": "Mystus gulio",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/7be24c506651d719.webp",
+      "thumb": "https://media.aquatome.com/commons/7be24c506651d719-480.webp",
       "width": 960,
       "height": 533,
       "licence": "CC BY-SA 4.0",
       "author": "Abu Hamas",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mystusgulio_2.jpg",
-      "caption": "Mystus gulio, from Jawa Tengah, Indonesia",
-      "thumb": "https://media.aquatome.com/commons/7be24c506651d719-480.webp"
+      "caption": "Mystus gulio, from Jawa Tengah, Indonesia"
     },
     {
       "url": "https://media.aquatome.com/commons/a4d50f2984a3fff5.webp",
+      "thumb": "https://media.aquatome.com/commons/a4d50f2984a3fff5-480.webp",
       "width": 960,
       "height": 743,
       "licence": "Public domain",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrones_gulio_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ14600067.tif",
-      "caption": "Mystus gulio syn. Macrones gulio",
-      "thumb": "https://media.aquatome.com/commons/a4d50f2984a3fff5-480.webp"
+      "caption": "Mystus gulio syn. Macrones gulio"
     },
     {
       "url": "https://media.aquatome.com/commons/d0d3d20d1617abf7.webp",
+      "thumb": "https://media.aquatome.com/commons/d0d3d20d1617abf7-480.webp",
       "width": 960,
       "height": 437,
       "licence": "Public domain",
       "author": "Francis Day",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrones_gulio_Day_99.jpg",
-      "caption": "Mystus gulio syn. Macrones gulioThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Macrones gulio",
-      "thumb": "https://media.aquatome.com/commons/d0d3d20d1617abf7-480.webp"
+      "caption": "Mystus gulio syn. Macrones gulioThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Macrones gulio"
     },
     {
       "url": "https://media.aquatome.com/commons/ceef7dc31d620c3d.webp",
+      "thumb": "https://media.aquatome.com/commons/ceef7dc31d620c3d-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Abu Hamas",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mystusgulio_3.jpg",
-      "caption": "Mystus gulio, from Jawa Tengah, Indonesia",
-      "thumb": "https://media.aquatome.com/commons/ceef7dc31d620c3d-480.webp"
+      "caption": "Mystus gulio, from Jawa Tengah, Indonesia"
     }
   ],
   "videos": [],
@@ -134,5 +218,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-04"
 }

@@ -14,6 +14,7 @@ import { ADSENSE_CLIENT } from '../lib/site'
 import { OWNER_SCRIPT } from '../../worker/owner'
 import type { Credit } from '../lib/credits'
 import { i18n, LANGS, localizePath, OG_LOCALE, served, toVi, type Lang } from '../lib/i18n'
+import { VI_SECTIONS } from '../../worker/paths'
 import CLIENT from '../i18n/client.json'
 
 interface Props {
@@ -46,6 +47,10 @@ const langs = LANGS.flatMap(l => {
 const xDefault = langs.find(([l]) => l === 'vi')?.[1] ?? canonical
 // For the language menu in the header (Nav renders inside the header slot, after this runs).
 Astro.locals.langs = langs
+// The pages of this page's language: Vietnamese ones are the home page and its sections, the others under /id/, /th/.
+const own = { href_matches: lang === 'vi' ? ['/', ...VI_SECTIONS.map(s => `/${s}/*`)] : `/${lang}/*` }
+const where = { and: [own, { not: { selector_matches: '[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]' } }] }
+const speculation = JSON.stringify({ prefetch: [{ where, eagerness: 'eager' }], prerender: [{ where, eagerness: 'moderate' }] })
 ---
 <!doctype html>
 <html lang={lang}>
@@ -57,7 +62,7 @@ Astro.locals.langs = langs
     {/* Again when a preloaded page is shown: the reader may have toggled since. */}
     <script is:inline>(function(){var a=function(){try{var t=localStorage.getItem('aq_theme'),d=document.documentElement;t==='dark'||t==='light'?d.setAttribute('data-theme',t):d.removeAttribute('data-theme')}catch(e){}};a();document.prerendering&&document.addEventListener('prerenderingchange',a,{once:true})})()</script>
     {/* Hovering (or touching) a link loads that page in the background (Chrome, Edge, Samsung Internet), so the click is instant. Its HTML is fetched sooner still (10 ms hover; on phones, a link in view), since a page's first request can take ~0.5 s. Site pages only; never affiliate, outbound or admin links. */}
-    <script is:inline type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/vi/*"},{"not":{"selector_matches":"[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]"}}]},"eagerness":"eager"}],"prerender":[{"where":{"and":[{"href_matches":"/vi/*"},{"not":{"selector_matches":"[rel~=nofollow],[rel~=sponsored],[target=_blank],[download]"}}]},"eagerness":"moderate"}]}</script>
+    <script is:inline type="speculationrules" set:html={speculation} />
     <title>{title}</title>
     {description && <meta name="description" content={description} data-pagefind-meta="description[content]" />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}

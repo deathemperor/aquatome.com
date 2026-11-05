@@ -3,7 +3,7 @@ import Foundation
 import Observation
 import Tanks
 
-/// Signing in to aquatome.com (Apple, a code sent by email, or a passkey), adding a passkey, and syncing "Bể của tôi" with
+/// Signing in to aquatome.com (Apple, Google, a code sent by email, or a passkey), adding a passkey, and syncing "Bể của tôi" with
 /// the account (protocols/accounts.openapi.json), as the
 /// site's page does: right after signing in (the whole store, so tanks made before join the account), when the app
 /// comes to the front, a moment after each change, and on "Đồng bộ ngay". Optional: signed out, tanks stay on the phone.
@@ -32,6 +32,7 @@ final class AccountModel {
   /// The server offers email sign-in (it can send mail and check Turnstile).
   private(set) var offersEmail = false
   private(set) var offersPasskey = false
+  private(set) var offersGoogle = false
   /// An email sign-in waiting for its code: the address it was sent to.
   private(set) var codeSentTo: String?
   /// "Thêm passkey" long after signing in on this phone: the server wants a sign-in first, and one to this account adds
@@ -44,6 +45,7 @@ final class AccountModel {
   @ObservationIgnored private let tanks: TanksModel
   @ObservationIgnored private let api: AccountsClient
   @ObservationIgnored private let apple: AppleSignIn
+  @ObservationIgnored private let google: GoogleSignIn
   @ObservationIgnored private let passkey: PasskeySignIn
   @ObservationIgnored private let keychain: TokenStore
   /// The UI tests' stand-in for the Turnstile check (no web page, a new token each time).
@@ -58,10 +60,11 @@ final class AccountModel {
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
   @ObservationIgnored private var synced: TankStore?
 
-  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
+  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), google: GoogleSignIn = SystemGoogleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
     self.tanks = tanks
     self.api = api
     self.apple = apple
+    self.google = google
     self.passkey = passkey
     self.keychain = keychain
     self.fakeChecks = fakeChecks
@@ -121,7 +124,7 @@ final class AccountModel {
       unreached = false
       // Signed in, out, or deleted meanwhile: the answer is about a session that has gone.
       guard token == asked, !working else { return }
-      if case .on(let p, _, _) = answer { offersEmail = p.email; offersPasskey = p.passkey }
+      if case .on(let p, _, _) = answer { offersEmail = p.email; offersPasskey = p.passkey; offersGoogle = p.google }
       switch answer {
       case .off:
         state = .off
@@ -150,6 +153,32 @@ final class AccountModel {
       let a = try await apple.authorize(nonceHash: sha256Hex(nonce))
       try await took(api.signInWithApple(idToken: a.idToken, nonce: nonce, replacing: token))
     } catch is AppleSignInCancelled {
+    } catch {
+      say(problem(error), bad: true)
+    }
+  }
+
+  /// Signs in with Google: its page in a browser sheet, then the code it sends back exchanged for an ID token. Declining
+  /// on Google's page is closing it: nothing to say.
+  func signInWithGoogle() async {
+    guard !working else { return }
+    working = true
+    defer { working = false }
+    message = nil
+    do {
+      let nonce = try await api.nonce()
+      let g = GoogleOAuth(nonce: nonce)
+      let code = try g.code(from: try await google.open(g.url))
+      let idToken = try await g.idToken(code: code, send: google.send)
+      try await took(api.signInWithGoogle(idToken: idToken, nonce: nonce, replacing: token))
+    } catch is GoogleSignInCancelled, GoogleError.refused("access_denied") {
+    } catch AccountError.refused("provider_off") {
+      // Turned off on the server since the app asked: the button goes.
+      offersGoogle = false
+      say(String(localized: "Đăng nhập bằng Google đang tắt: đăng nhập cách khác."), bad: true)
+    } catch is GoogleError, AccountError.refused("bad_token"), AccountError.refused("bad_nonce") {
+      // Another sign-in's answer, Google saying no, or a token or nonce the server won't take (one left 10 minutes).
+      say(String(localized: "Google chưa xác nhận được: thử lại."), bad: true)
     } catch {
       say(problem(error), bad: true)
     }

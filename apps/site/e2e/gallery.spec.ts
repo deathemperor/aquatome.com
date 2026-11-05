@@ -5,7 +5,7 @@ import { sourcePages } from './pages'
 // A photo gallery, from the fish's or plant's page: the strip's link opens the gallery page, a photo opens in the viewer
 // with its author and licence, the arrow keys step through, Escape closes. The pages come from the build (or, live, the
 // sitemap), so the journey holds on aquatome.com's real galleries too.
-const galleryOf = (section: string) => sourcePages().find(p => new RegExp(`^/vi/${section}/[^/]+/anh/$`).test(p))
+const galleryOf = (section: string) => sourcePages().find(p => new RegExp(`^/${section}/[^/]+/anh/$`).test(p))
 
 for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
   test(`${what} gallery: from the page's strip to the gallery, then through the photos in the viewer`, async ({ page, errors }) => {
@@ -104,5 +104,29 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
   await swipe(page, stage, -0.6, touch)
   await expect(by).toContainText(`2/${n}`)
+  expect(errors).toEqual([])
+})
+
+// With a mouse, the magnifier cursor means what it says: one click on the photo zooms in there, the next zooms back
+// out, and a double click out of habit still leaves it zoomed in.
+test('gallery viewer: one click zooms in with a mouse, the next zooms out; a double click zooms in', async ({ page, errors }, info) => {
+  const gallery = galleryOf('ca')
+  test.skip(!gallery, 'no fish gallery in this build')
+  test.skip(info.project.name === 'phone', 'a finger zooms with a double tap or a pinch')
+  await page.goto(`${gallery}#a1`)
+  const viewer = page.locator('dialog.lb')
+  const stage = viewer.locator('.pv-stage')
+  await expect(viewer).toHaveAttribute('data-zoom', 'out')
+  const b = (await stage.boundingBox())!
+  const x = b.x + b.width / 2, y = b.y + b.height / 2
+  await page.mouse.click(x, y)
+  await expect(viewer).toHaveAttribute('data-zoom', 'in')
+  await page.waitForTimeout(400) // a separate click, not the second of a double click
+  await page.mouse.click(x, y)
+  await expect(viewer).toHaveAttribute('data-zoom', 'out')
+  await page.waitForTimeout(400)
+  await page.mouse.dblclick(x, y)
+  await expect(viewer).toHaveAttribute('data-zoom', 'in')
+  await expect(viewer).toBeVisible()
   expect(errors).toEqual([])
 })

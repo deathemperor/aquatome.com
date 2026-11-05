@@ -476,7 +476,8 @@ test('every path in the API contract (protocols/accounts.openapi.json) is served
     for (const method of Object.keys(ops)) {
       const { token } = await google('g-1', { client: 'app' })
       const r = await call(method.toUpperCase(), path.replace('{id}', '00000000-0000-4000-8000-000000000000'), { bearer: token, origin: null, ...(method === 'post' ? { body: { client: 'app' } } : {}) })
-      expect(r.status === 404 && path !== '/api/v1/account/methods/{id}', `${method} ${path}: ${r.status}`).toBe(false)
+      // A made-up id is not found where the path names one thing of the account's.
+      expect(r.status === 404 && !['/api/v1/account/methods/{id}', '/api/v1/fish-id/photos/{id}'].includes(path), `${method} ${path}: ${r.status}`).toBe(false)
     }
   }
   // The app signs out with its token alone.
@@ -513,6 +514,10 @@ test('deleting an account that signs in with Apple: a fresh Apple sign-in first,
   expect(calls.some(c => c.redirectUri === 'https://evil.test/')).toBe(false)
   expect(await still()).toBe(true)
 
+  // The Vietnamese tanks page by the address Apple's Services ID lists (worker/paths.ts APPLE_RETURN); its root one is
+  // taken too, for when Apple lists it.
+  expect((await del({ code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: `${ORIGIN}/ca/` })).json.error).toBe('bad_redirect')
+  expect((await del({ code: 'expired', clientId: 'com.aquatome.web', redirectUri: `${ORIGIN}/cong-cu/be-cua-toi/` })).status).toBe(502) // asked of Apple
   const page = `${ORIGIN}/vi/cong-cu/be-cua-toi/`
   expect((await del({ code: 'good-apple-1', clientId: 'com.aquatome.web', redirectUri: page })).status).toBe(204)
   expect(calls.at(-1)).toEqual({ clientId: 'com.aquatome.web', code: 'good-apple-1', redirectUri: page })

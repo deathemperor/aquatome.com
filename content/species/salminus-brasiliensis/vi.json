@@ -3,21 +3,31 @@
   "name": "Cá dorado",
   "altNames": [
     "Cá hồi vàng Nam Mỹ",
-    "Dorado",
     "Golden dorado",
     "Cá tetra săn mồi Salminus"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Chi Salminus hiện có bốn loài. Đây là những loài tetra có thể lớn rất to. Loài nhiều màu sắc nhất trong chi là S. brasiliensis, còn có tên gọi \"Dorado\". Loài này có thể dài tới một mét.</p>",
     "distribution:glaser": "<p>Những con cá non nói đến ở đây có xuất xứ từ Paraguay, dài 7–10 cm.</p>",
-    "notes:glaser": "<p>Khi về già, cá lên màu vàng óng khắp thân, đẹp đến nghẹt thở. Loài này còn có một tên cũ là S. maxillosus, nhưng tên này nay không còn hợp lệ.</p>"
+    "notes:glaser": "<p>Khi về già, cá lên màu vàng óng khắp thân, đẹp đến nghẹt thở. Loài này còn có một tên cũ là S. maxillosus, nhưng tên này nay không còn hợp lệ.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá dorado (Salminus brasiliensis) là một loài characid cỡ lớn, phân bố ở Brazil, Bolivia, Paraguay, Uruguay và Argentina. Cá có thể dài tới 100 cm SL. Ở một số vùng nước bản địa, dorado là loài cá câu thể thao rất được săn đón. Cá con thỉnh thoảng có bán ở vài cửa hàng thủy sinh, nhưng loài này không hợp với đời sống trong bể ở bất kỳ khía cạnh nào. Gần như không người chơi nào đủ điều kiện nuôi một con dorado đến hết đời.</p><ul><li>Cần bể dài ít nhất 2 m</li></ul>",
+    "distribution:seriouslyfish": "<p>Brazil, Bolivia, Paraguay, Uruguay, Argentina.</p>",
+    "habitat:seriouslyfish": "<p>Cá chủ yếu sống ở sông, nhưng người ta cũng gặp chúng ở hồ và ao.</p>",
+    "aquariumSize:seriouslyfish": "<p>Một con dorado trưởng thành cần bể (hoặc hồ) thật sự khổng lồ. Đây là loài săn mồi hiếu động và bơi cực nhanh. Kích thước khoảng 6 m x 1,2 m x 1,2 m mới chỉ là mức tối thiểu. Bể cỡ đó chứa hơn 9000 lít nước!</p>",
+    "maintenance:seriouslyfish": "<p>Giả sử có ai nuôi thì trang trí bể cũng không quan trọng lắm. Điều chắc chắn là bạn cần một hệ thống lọc khổng lồ, vì loài cá này thải ra rất nhiều chất thải. Bể cũng phải có dòng chảy khá mạnh.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 22–28°C</li><li>pH: 6,0–7,5</li><li>Độ cứng: 2–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, dorado gần như chỉ ăn cá. Cá con nuôi trong bể từng được ghi nhận là chịu ăn tôm, cá lance và những loại tương tự. Cá trưởng thành sẽ cần rất nhiều cá làm mồi, chẳng hạn cá hồi trout nguyên con. Khoản này tốn kém lắm!</p>",
+    "behaviour:seriouslyfish": "<p>Dorado chỉ tha những con không lọt vừa miệng nó. Vấn đề là loài đủ to để nó không nuốt được thì chẳng còn bao nhiêu, nên rất khó tìm bạn cùng bể lâu dài. Người ta từng thấy cá non sống chung với các loài cỡ lớn như Cichla sp., cá rồng và những loài cá quá khổ khác.</p>",
+    "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
+    "reproduction:seriouslyfish": "<p>Không thể cho sinh sản trong bể nuôi tại nhà. Chuyện này đừng nên tính đến.</p>",
+    "notes:seriouslyfish": "<p>Tên thường gọi của loài này bắt nguồn từ chữ dourado trong tiếng Bồ Đào Nha, ý chỉ màu vàng óng rất đẹp của cá. Sở dĩ phải nhắc đến loài này là vì số cá con bày bán ở một số cửa hàng thủy sinh, và từ đó lọt vào bể của người chơi, đang nhiều đến mức đáng báo động. Dorado không hợp với đời sống trong bể ở bất kỳ khía cạnh nào. Cá đẹp thật, không ai chối được. Nhưng nếu thấy chúng được bán, xin bạn đừng xiêu lòng mà mua. Người chơi cá có trách nhiệm phải nghĩ đến sức khỏe lâu dài của mọi con cá mình mua về. Gần như không người chơi nào đủ điều kiện nuôi một con dorado đến hết đời. Đáng buồn là hiện nay nuôi loài này và những loài tương tự có vẻ đang thành mốt. Một số người chơi còn coi chúng như thứ để khẳng định đẳng cấp. Mong rằng tình trạng này sẽ sớm thay đổi, vì những con nuôi trong bể như vậy chắc chắn đều sẽ chết yểu. Ở một số vùng nước bản địa, dorado là loài cá câu thể thao rất được săn đón.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "seriouslyfish": 0.9
+    }
   }
 }

@@ -19,25 +19,141 @@ struct HandbookView: View {
         } else {
           Section {
             ForEach(handbook.results) { item in Row(item: item) }
+            // The kind picked has none but others have some: said under the chips, as a row the list scrolls. Laid over
+            // the list, at the largest text it covered the chips, and with the keyboard up its button was under it.
+            if handbook.results.isEmpty, let kind = handbook.kind, handbook.counts[nil, default: 0] > 0 {
+              NoneOfKind(kind: kind).listRowBackground(Color.clear)
+            }
+          } header: {
+            // The kinds found, under the search field and right above their results, as the reader types (and none
+            // before: the home shows then, which a kind doesn't change). In the list, not a bar over it: a bar's
+            // scroll view reaches up under the navigation bar, and iOS 26 drew none of its chips.
+            KindChips().padding(.bottom, 4).listRowInsets(EdgeInsets()).textCase(nil)
+          } footer: {
+            // More found than listed (a search lists its best 200): says so, under chips that count them all.
+            if handbook.left > 0 { MoreResults() }
           }
         }
       }
       .listStyle(.insetGrouped)
+      // The chips right under the search field, not a section's space below it; the home keeps its own.
+      .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
       .searchable(text: $handbook.query, prompt: Text("Tìm loài cá, cây, hướng dẫn"))
-      // Shown once the reader types: before that, the home shows, which a scope doesn't change.
-      .searchScopes($handbook.kind, activation: .onTextEntry) {
-        Text("Tất cả").tag(HandbookIndex.Kind?.none)
-        ForEach(HandbookIndex.Kind.allCases, id: \.self) { k in Text(k.title).tag(Optional(k)) }
-      }
       .navigationTitle("Tìm")
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
-        else if handbook.results.isEmpty && !handbook.query.isEmpty { ContentUnavailableView.search(text: handbook.query) }
+        // Nothing found of any kind (none of one, with others found, is a row: NoneOfKind).
+        else if !handbook.query.isEmpty && handbook.counts[nil, default: 0] == 0 { ContentUnavailableView.search(text: handbook.query) }
       }
+      #if DEBUG
+      // UI tests (`-watch-tank-searches`): how many times what the tanks tab searches has changed (HandbookModel).
+      .overlay(alignment: .bottomLeading) {
+        if let n = handbook.tankSearchChanges { Text(verbatim: "\(n)").font(.caption2).accessibilityIdentifier("tank-search-changes") }
+      }
+      #endif
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
+    }
+  }
+}
+
+/// The kinds a search finds, under the search field, each with how many it finds: picking one narrows the results to
+/// it. A kind with nothing found has no chip, except the one picked, so there's always a way back to the others.
+private struct KindChips: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let counts = handbook.counts
+    let kinds = [nil] + HandbookIndex.Kind.allCases.filter { counts[$0, default: 0] > 0 || $0 == handbook.kind }
+    ScrollViewReader { proxy in
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack(spacing: 8) {
+          ForEach(kinds, id: \.self) { k in
+            KindChip(title: k?.title ?? String(localized: "Tất cả"), count: counts[k, default: 0], picked: handbook.kind == k) { handbook.kind = k }
+              .id(k)
+              .accessibilityIdentifier("kind-\(k?.rawValue ?? "all")")
+          }
+        }
+      }
+      // Lined up with the results' edge, and running on to the screen's.
+      .scrollClipDisabled()
+      // The chip picked stays in view, as kinds come and go while the reader types and when one is picked at the edge.
+      .onChange(of: kinds) { withAnimation { proxy.scrollTo(handbook.kind) } }
+      .onChange(of: handbook.kind) { withAnimation { proxy.scrollTo(handbook.kind) } }
+    }
+    .accessibilityElement(children: .contain)
+    .accessibilityLabel("Lọc kết quả")
+    .accessibilityIdentifier("kinds")
+  }
+}
+
+private struct KindChip: View {
+  let title: String
+  let count: Int
+  let picked: Bool
+  let pick: () -> Void
+
+  var body: some View {
+    Button(action: pick) {
+      HStack(spacing: 6) {
+        Text(title)
+        // Faded only off the picked chip (faded on its green, the count falls under 4.5:1), and less than the system's
+        // secondary there, which measured 3.1:1 on the chip's fill.
+        Text(count, format: .number).monospacedDigit().opacity(picked ? 1 : 0.6)
+      }
+      .font(.subheadline.weight(.medium))
+      .lineLimit(1)
+      // White on the light look's dark green, black on the dark look's light green: the contrast each needs.
+      .foregroundStyle(picked ? Color(.systemBackground) : Color.primary)
+      .padding(.horizontal, 14)
+      .padding(.vertical, 8)
+      .background(Capsule().fill(picked ? Color.accentColor : Color(.tertiarySystemFill)))
+      // 44 points to tap, the space above and below the capsule too.
+      .frame(minHeight: 44)
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .accessibilityLabel(title)
+    .accessibilityValue(Text(count, format: .number))
+    .accessibilityAddTraits(picked ? .isSelected : [])
+  }
+}
+
+/// Under results that stop short of what the kind picked finds: how many show, and a page more, as the site's search
+/// page has it. A page more is the next part of what the search ranked (SearchState): no search.
+private struct MoreResults: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let shown = handbook.results.count
+    VStack(alignment: .leading, spacing: 4) {
+      Text("Đang hiện \(shown.formatted()) trong \((shown + handbook.left).formatted()) kết quả. Gõ thêm để thu hẹp.")
+        // As the chips' counts: the footer's secondary measured 3.3:1 on the light look's background.
+        .foregroundStyle(Color.primary.opacity(0.6))
+        .accessibilityIdentifier("more-note")
+      Button("Xem thêm kết quả") { handbook.showMore() }
+        .font(.subheadline.weight(.medium))
+        .frame(minHeight: 44)
+        .accessibilityIdentifier("more")
+    }
+  }
+}
+
+/// The kind picked finds nothing the search finds elsewhere: which kinds have some, and a way to all of them.
+private struct NoneOfKind: View {
+  let kind: HandbookIndex.Kind
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let found = HandbookIndex.Kind.allCases.compactMap { k in handbook.counts[k].map { "\(k.title) (\($0.formatted()))" } }
+    ContentUnavailableView {
+      Label("Không có kết quả trong “\(kind.title)”", systemImage: "magnifyingglass")
+    } description: {
+      Text("“\(handbook.query)” có kết quả trong \(found.formatted(.list(type: .and))).")
+    } actions: {
+      Button("Xem tất cả") { handbook.kind = nil }.accessibilityIdentifier("see-all")
     }
   }
 }
@@ -94,7 +210,11 @@ struct ItemRow: View {
       AsyncImage(url: item.img.flatMap(URL.init(string:))) { image in
         image.resizable().scaledToFill()
       } placeholder: {
-        Image(systemName: item.kind.symbol).foregroundStyle(.secondary)
+        // No photo, or not yet: the kind's glyph in the square a photo fills, so the names beside them line up.
+        ZStack {
+          Color(.tertiarySystemFill)
+          Image(systemName: item.kind.symbol).font(.system(size: 22)).foregroundStyle(.secondary)
+        }
       }
       .frame(width: 56, height: 56)
       .clipShape(RoundedRectangle(cornerRadius: 8))

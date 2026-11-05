@@ -1,25 +1,36 @@
 {
   "slug": "ca-ro-phi-van",
-  "name": "Cá rô phi vằn",
+  "name": "Cá rô phi",
   "altNames": [
-    "Cá rô phi",
     "Cá rô phi sông Nile",
     "Nile Mouthbrooder",
     "Nile tilapia",
-    "Tilapia"
+    "Tilapia",
+    "Cá rô phi vằn"
   ],
   "sections": {
     "quickFacts:glaser": "<ul><li>Thành thục khi dài 6-8 cm</li><li>Cá cái ấp trứng bằng miệng</li><li>Ăn tạp, thực vật chiếm một phần lớn trong khẩu phần</li></ul>",
     "notes:glaser": "<p>Nhiều khả năng không có loài cá nào vừa được yêu nhiều lại vừa bị ghét nhiều như cá rô phi sông Nile (Nile Mouthbrooder), thường gọi gọn là \"Tilapia\". Đây là loài cá thực phẩm ăn tạp, trong đó thực vật chiếm một phần lớn khẩu phần. Nhờ vậy, ngay cả những nước nghèo nhất vùng nhiệt đới cũng nuôi được nó. Ở những nơi đó, cá rô phi biến những thứ chẳng có giá trị gì thành nguồn đạm cá quý giá. Mặt trái là những con thoát ra ngoài tự nhiên hoặc bị người ta thả ra đã trở thành loài cá nước ngọt ngoại lai gây hại nghiêm trọng nhất trên toàn thế giới.</p><p>Người chơi cá cảnh rất hiếm khi nuôi Oreochromis niloticus trong bể ở nhà. Cá có thể dài tối đa khoảng 50 cm, nhưng mới dài 6-8 cm là đã thành thục. Ở loài này, cá cái là con ấp trứng bằng miệng.</p>",
     "reproduction:glaser": "<p>Cá cái ấp trứng bằng miệng. Cá thành thục từ rất sớm, khi mới dài 6-8 cm.</p>",
-    "diet:glaser": "<p>Cá ăn tạp. Thực vật chiếm một phần lớn trong khẩu phần của chúng.</p>"
+    "diet:glaser": "<p>Cá ăn tạp. Thực vật chiếm một phần lớn trong khẩu phần của chúng.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá rô phi vằn (Nile tilapia, Oreochromis niloticus) là một loài cichlid có vùng phân bố tự nhiên rất rộng ở châu Phi, trải từ Senegal sang phía đông tới Ai Cập và Uganda. Người ta nuôi loài này với số lượng khổng lồ để làm cá thực phẩm và đã đưa nó vào hơn 70 quốc gia khác. Nó là một trong những loài cá xâm hại nhất thế giới. Cá có thể dài tới 60 cm, dù thường chỉ khoảng 35 cm. Chúng đẻ rất dễ, ăn ở rất bẩn và không hợp để nuôi bể cảnh.</p>",
+    "distribution:seriouslyfish": "<p>O. n. niloticus có vùng phân bố tự nhiên rất rộng. Đây là loài bản địa của các nước sau (xếp theo thứ tự bảng chữ cái tiếng Anh): Burkina Faso, Cameroon, Chad, Ai Cập, Ethiopia, Gambia, Ghana, Guinea, Israel, Bờ Biển Ngà, Liberia, Mali, Niger, Nigeria, Senegal, Sierra Leone, Sudan, Togo và Uganda. Người ta còn đưa loài này vào hơn 70 quốc gia khác để nuôi làm thực phẩm. Ở nhiều nước trong số đó, cá thoát ra ngoài hoặc bị thả ra và nay đã thành quần thể ngoài tự nhiên.</p>",
+    "habitat:seriouslyfish": "<p>Đây là loài khỏe và rất dễ thích nghi. Cá sống ở nhiều kiểu môi trường khác nhau: sông, suối, ao, hồ và vùng đồng bằng ven biển. Chúng có mặt cả ở nước ngọt lẫn nước lợ, và thường ở vùng nước nông.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn (SL): 60 cm. Đáy bể: 210 × 60 cm. Dung tích: ~756 lít.</p><p>Cá trưởng thành cần bể 210 × 60 × 60 cm, tức khoảng 756 lít. Cá con thì có thể nuôi lớn dần trong bể nhỏ hơn.</p>",
+    "maintenance:seriouslyfish": "<p>Loài này không kén bể. Nền cát là tốt nhất. Đừng trồng cây vì cá sẽ ăn hết. Bể bắt buộc phải có hệ thống lọc lớn và lọc khỏe, vì loài này xả thải rất nhiều. Còn lại thì bạn cứ bày trí theo ý thích.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 21–27°C, dù ngoài tự nhiên cá vẫn sống được ở mức nhiệt khắc nghiệt hơn nhiều.</li><li>pH: 6,2–8,5</li><li>Độ cứng: 10–30 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Cá rất dễ ăn, cho gì cũng ăn gần hết. Khẩu phần nên có thêm một ít thức ăn thực vật.</p>",
+    "behaviour:seriouslyfish": "<p>Đây là loài rất khỏe và dạn. Cá giữ lãnh thổ khi vào mùa sinh sản, còn ngoài lúc đó thì khá hiền. Muốn nuôi chung với cá khác thì dĩ nhiên bạn phải có bể thật lớn. Cá sống chung ổn với các loài cichlid lớn của châu Phi và Trung Mỹ, cá họ Loricariidae, Synodontis sp. và những loài tương tự. Cá nhỏ thì sẽ bị ăn thịt. Nếu nuôi nhiều con cùng loài, chúng sẽ hay gây gổ với nhau nhưng hiếm khi làm nhau bị thương thật sự, trừ khi có cặp bắt đầu đẻ.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực có vây lưng và vây hậu môn nhọn, còn cá cái có hai vây này tròn.</p>",
+    "reproduction:seriouslyfish": "<p>Loài này đẻ dễ. Cá cái là con ngậm trứng trong miệng. Cách nên làm là mua 5–6 con non rồi để chúng tự bắt cặp. Dĩ nhiên bạn cần bể thật lớn, còn thông số nước thì không quan trọng lắm. Cứ giữ nhiệt độ khoảng 24°C và pH quanh 7,0 là ổn. Nền cát là tốt nhất.</p><p>Cá đực là con khởi động việc sinh sản. Nó đào một cái hố trên nền để làm chỗ đẻ. Sau đó nó canh giữ khu vực này rất hung dữ và tìm cách dụ cá cái đến giao phối. Cá cái nào chịu thì sẽ đẻ trứng thẳng xuống nền trong hố, chờ cá đực thụ tinh xong rồi ngậm trứng vào miệng. Từ lúc này cá đực không chăm con nữa, và cá cái cũng rời khỏi lãnh thổ của nó.</p><p>Cá cái ngậm trứng và cá con khoảng 5–7 ngày rồi mới nhả cá bột ra khi chúng đã tự bơi được. Trong thời gian này cá cái thường nhịn ăn. Bạn dễ nhận ra nó nhờ khoang miệng phồng to. Sau khi nhả cá bột, cá mẹ còn trông con thêm 2–3 tuần nữa. Hễ bị đe dọa hay hoảng sợ, cá bột lại chui vào miệng mẹ để trốn. Cá bột lớn cực nhanh và chỉ 6 tháng tuổi đã thành thục sinh dục. Ngay từ ngày cá bột tự bơi, bạn có thể cho ăn Artemia nauplii mới nở hoặc thức ăn dạng vảy nghiền mịn.</p>",
+    "notes:seriouslyfish": "<p>O. niloticus là một trong những loài cá xâm hại nhất thế giới, nhưng cũng là một trong những loài có giá trị kinh tế lớn nhất. Nhiều quốc gia nuôi loài này với số lượng khổng lồ để làm thực phẩm. Người ta thường lai nó với các loài Oreochromis khác để tạo màu, cho cá trông bắt mắt hơn với người mua.</p><p>O. niloticus gây hại nặng cho các hệ sinh thái mà nó thoát ra hoặc bị thả vào, chủ yếu là do nó thích nghi quá giỏi. Loài này từng được ghi nhận ở nhiệt độ từ 15,5 đến 43,5°C, trong nước từ ngọt hoàn toàn cho tới nước biển hoàn toàn. Người ta hay gọi nó là \"thùng rác dưới nước\" vì nó ăn gần như mọi thứ. Nó cũng đẻ được trong gần như mọi điều kiện, kể cả khi thiếu thức ăn. Mỗi lứa có tới vài trăm con, và một cá cái có thể đẻ 3–4 lứa mỗi năm. Cá con chỉ vài tháng tuổi đã thành thục sinh dục.</p><p>O. niloticus không phổ biến lắm trong giới chơi cá cảnh. Dù rất khỏe, nó vẫn không phải loài hợp để nuôi bể. Cá lớn quá cỡ, ăn ở bẩn, không đẹp gì đặc biệt và cũng chẳng có tập tính nào thật sự thú vị. Cá đẻ quá dễ, mỗi lứa lại đông và lớn rất nhanh, nên dễ thành rắc rối. Lý do là cá con gần như không ai muốn nhận, cả cửa hàng lẫn người chơi khác.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "seriouslyfish": 0.88
+    }
   }
 }

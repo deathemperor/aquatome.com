@@ -11,10 +11,11 @@ import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
 import { galleryNote } from './gallery'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
-import { isVietnamese, localizeLinks, localizePath, served, translator, type Lang, type T } from './i18n'
+import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
 import { htmlBlocks } from './page-blocks'
 import { plantParts } from './plant-page'
+import type { RangeParts } from './range'
 import { OFF_LABELS, sectionParts, type SectionProps } from './section-parts'
 import { QUESTION_LABELS } from './sections'
 import { seriesParts } from './series-page'
@@ -40,7 +41,7 @@ const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = fa
     ? { src: small ? smallSrc(p) : p.url, w: Math.round(p.width), h: Math.round(p.height), ...(alt ? { alt } : {}), credit: photoCredit(lang, p) }
     : undefined
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
-const linked = (lang: Lang, text: string, viPath: string): Inline => (served(lang, viPath) ? { text, href: localizePath(lang, viPath) } : text)
+const linked = (lang: Lang, text: string, viPath: string): Inline => (served(lang, viPath) ? { text, href: appPath(lang, viPath) } : text)
 
 /** "Theo Aquarium Breeder", "AquaTome tổng hợp từ 4 nguồn rồi tự viết": the line under a guide's title (SourceCredit). */
 function credit(t: ReturnType<typeof translator>, c: Content, g: Localized<GuideEntity>, refs: GuideEntity['refs']): Inline[] {
@@ -50,11 +51,11 @@ function credit(t: ReturnType<typeof translator>, c: Content, g: Localized<Guide
 }
 
 /** A page's text as blocks, its links as this language's page has them: to its own pages, none to a page it lacks. */
-export const proseBlocks = (lang: Lang, html: string) => htmlBlocks(localizeLinks(html, lang, ORIGIN))
+export const proseBlocks = (lang: Lang, html: string) => htmlBlocks(appLinks(html, lang, ORIGIN))
 
 /** "Other pages" (GuideLinks, VideoGuideGrid): those the page shows, the first `max`, that the app index lists. */
 function pagesBlock(lang: Lang, listed: Set<string>, title: string, viPaths: string[], max: number): Block[] {
-  const paths = viPaths.slice(0, max).map(p => localizePath(lang, p)).filter(p => listed.has(p))
+  const paths = viPaths.slice(0, max).map(p => appPath(lang, p)).filter(p => listed.has(p))
   return paths.length ? [{ t: 'pages', title, paths }] : []
 }
 
@@ -66,12 +67,27 @@ function pagesBlock(lang: Lang, listed: Set<string>, title: string, viPaths: str
 export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { blocks: Block[]; unknown: string[] } {
   const t = translator(lang)
   const { range } = fmt(lang)
-  const { groups, refs, figAfter } = sectionParts(lang, c, props)
+  const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, c, props)
   const fig = (field: string, v: Range | number) => (field === 'tempC' ? `${range(v)}°C` : field === 'sizeCm' || field === 'tankCm' ? `${range(v)} cm` : field === 'gh' ? `${range(v)} dGH` : range(v))
   const blocks: Block[] = []
   const unknown = new Set<string>()
   const prose = (html: string) => { const r = proseBlocks(lang, html); r.unknown.forEach(u => unknown.add(u)); blocks.push(...r.blocks) }
+  // "Phân bố tự nhiên" (RangeBlock.astro): its words, its sources' sentences, its records in words, then the map as a picture.
+  const wildBlocks = (w: RangeParts) => {
+    blocks.push({ t: 'h', text: w.title, id: 'muc-range' })
+    prose(w.words)
+    if (w.said) { blocks.push({ t: 'p', c: [{ text: w.said.title, b: true }] }); prose(w.said.html) }
+    if (w.records) prose(w.records)
+    if (w.map && w.credit) {
+      blocks.push({
+        t: 'figure',
+        img: { src: `${ORIGIN}${w.map.file}`, w: w.map.w, h: w.map.h, alt: w.map.alt, credit: { text: w.credit.text, licence: w.credit.licence, url: w.credit.url } },
+        caption: [`${w.map.caption} ${w.credit.base}.`],
+      })
+    }
+  }
   groups.forEach((sec, i) => {
+    if (wild && i === wildAt) wildBlocks(wild)
     blocks.push({ t: 'h', text: t(QUESTION_LABELS[sec.key]), id: `muc-${sec.key}` })
     for (const b of sec.blocks) {
       if (b.off.length) {
@@ -83,6 +99,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
     const f = figAfter.get(i)
     if (f) prose(figureHtml(lang, f))
   })
+  if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
     blocks.push({
       t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })),
@@ -108,7 +125,7 @@ function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>
   return [{
     t: 'gallery', title: t('Ảnh {name}', { name }), note: galleryNote(t, gallery, sources), photos,
     strip: strip.flatMap(p => (p && at.has(p.url) ? [at.get(p.url)!] : [])),
-    ...(served(lang, viPath) ? { href: localizePath(lang, viPath) } : {}),
+    ...(served(lang, viPath) ? { href: appPath(lang, viPath) } : {}),
   }]
 }
 
@@ -148,15 +165,15 @@ function climateBlock(t: T, card: SpeciesEntity['dataCard']): Block[] {
   }]
 }
 
-/** A species' copy (pages/vi/ca/[slug].astro, from the same parts); `listed` is the app index's paths (listedPaths). */
+/** A species' copy (pages/ca/[slug].astro, from the same parts); `listed` is the app index's paths (listedPaths). */
 export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity>, listed: Set<string>): Promise<PageDoc> {
   const t = translator(lang)
   const { num } = fmt(lang)
-  const at = (viPath: string) => localizePath(lang, viPath)
+  const at = (viPath: string) => appPath(lang, viPath)
   const p = await speciesParts(lang, c, s)
   const lead = image(lang, s.photos[0], `${s.t.name}, ${s.scientificName}`)
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range } })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
   const why = avoidWhy(t, p.mates.self.name)
   const mate = (x: Localized<SpeciesEntity>) => { const img = image(lang, cleanPhoto(x.photos), undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, ...(img ? { img } : {}) } }
@@ -211,7 +228,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
 }
 
 /**
- * A plant's copy (pages/vi/cay/[slug].astro, from the same parts). Its care (difficulty, light, CO₂, growth, place) is
+ * A plant's copy (pages/cay/[slug].astro, from the same parts). Its care (difficulty, light, CO₂, growth, place) is
  * the app index's (`plant`), so it isn't repeated here.
  */
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
@@ -222,7 +239,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
   return {
     v: PAGE_VERSION,
     kind: 'plant',
-    path: localizePath(lang, `/vi/cay/${p.t.slug}/`),
+    path: appPath(lang, `/vi/cay/${p.t.slug}/`),
     title: p.t.name,
     sub: p.scientificName,
     ...(lead ? { lead } : {}),
@@ -236,13 +253,13 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
   }
 }
 
-/** A glossary term's copy (pages/vi/thuat-ngu/[slug].astro): its English (and Latin) name, then its definition. */
+/** A glossary term's copy (pages/thuat-ngu/[slug].astro): its English (and Latin) name, then its definition. */
 export function glossaryDoc(lang: Lang, g: Localized<GlossaryEntity>): PageDoc {
   const t = translator(lang)
   return {
     v: PAGE_VERSION,
     kind: 'glossary',
-    path: localizePath(lang, `/vi/thuat-ngu/${g.t.slug}/`),
+    path: appPath(lang, `/vi/thuat-ngu/${g.t.slug}/`),
     title: g.t.name,
     blocks: [
       { t: 'p', c: g.latin ? [`${t('Tiếng Anh:')} ${g.en}, `, { text: g.latin, i: true }] : [`${t('Tiếng Anh:')} ${g.en}`] },
@@ -252,14 +269,14 @@ export function glossaryDoc(lang: Lang, g: Localized<GlossaryEntity>): PageDoc {
 }
 
 /**
- * A video series' copy (pages/vi/video/[slug].astro, from the same parts): the page's one line (its counts, the playlist
+ * A video series' copy (pages/video/[slug].astro, from the same parts): the page's one line (its counts, the playlist
  * and channel it follows) as its credit, its intro, then every guide as the page lists them, in its order, as cards: each
  * one's subject, parts and length under its name, its picture credited. A card for a guide the index doesn't list opens
  * on the web. The page has no heading over its list: the cards' title is its crumb's word.
  */
 export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   const t = translator(lang)
-  const at = (viPath: string) => localizePath(lang, viPath)
+  const at = (viPath: string) => appPath(lang, viPath)
   const p = seriesParts(lang, c, s)
   return {
     v: PAGE_VERSION,
@@ -283,7 +300,7 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
 /** A guide's copy; `listed` is the app index's paths (listedPaths). */
 export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
-  const at = (viPath: string) => localizePath(lang, viPath)
+  const at = (viPath: string) => appPath(lang, viPath)
   const p = guideParts(lang, c, g)
   const v = g.video
   // As the page's header: its subject, the video's length, the reading time, the part of a series.

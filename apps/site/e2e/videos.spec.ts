@@ -9,7 +9,7 @@ import { sourcePages } from './pages'
 const inline = (src: string | null) => new URL(src!).searchParams.get('playsinline')
 
 async function speciesWithVideo(request: APIRequestContext): Promise<string> {
-  const species = sourcePages().filter(p => /^\/vi\/ca\/[^/]+\/$/.test(p))
+  const species = sourcePages().filter(p => /^\/ca\/[^/]+\/$/.test(p))
   // Twenty at a time: one at a time took 18 s of the test's 30 on aquatome.com, where the first with a video was the 12th.
   for (let i = 0; i < species.length; i += 20) {
     const batch = species.slice(i, i + 20)
@@ -31,8 +31,8 @@ test("a species page's video plays where it was tapped", async ({ page, request,
 })
 
 test("a guide's video plays where it was tapped, also when YouTube's control script can't load", async ({ page, errors }) => {
-  await page.goto('/vi/video/')
-  await page.locator('section[aria-labelledby="new-h"] a[href^="/vi/huong-dan/"]').first().click()
+  await page.goto('/video/')
+  await page.locator('section[aria-labelledby="new-h"] a[href^="/huong-dan/"]').first().click()
   await page.locator('.vp .facade').click()
   // Offline, YouTube's control script fails, so this is the plain embed the page falls back to.
   const frame = page.locator('.vp .frame iframe')

@@ -114,6 +114,30 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   let s = HandbookSearch(many)
   #expect(s.find("", kind: .fish).count == 700)
   #expect(s.find("ca").count == 200) // a search still stops at its best 200
+  #expect(s.findAndCount("ca").counts == [nil: 700, .fish: 700], "the count stopped where the list does")
+}
+
+@Test func aSearchCountsWhatEachKindFinds() throws {
+  let s = HandbookSearch(try JSONDecoder().decode(HandbookIndex.self, from: sample).items)
+  let neon = s.findAndCount("NEON ").counts
+  // In all under nil, and each kind it finds: none for the others.
+  #expect(neon == [nil: 3, .fish: 2, .guide: 1])
+  // What a search narrowed to each kind lists, whichever kind the counting search was narrowed to.
+  for k in [nil] + HandbookIndex.Kind.allCases {
+    let (items, counts) = s.findAndCount("neon", kind: k)
+    #expect(counts == neon && items == s.find("neon", kind: k) && neon[k, default: 0] == items.count, "\(String(describing: k))")
+  }
+  #expect(s.findAndCount("van ngua").counts == [nil: 1, .fish: 1])
+  #expect(s.findAndCount("khong co").counts.isEmpty)
+}
+
+@Test func aVideoGuideCountsAsAGuideAndAsAVideo() {
+  let s = HandbookSearch([
+    .init(kind: .video, name: "Rêu hại từ A đến Z", sub: "MJ Aquascaping", path: "/vi/video/reu/", parts: 14),
+    .init(kind: .guide, name: "Cách hạn chế rêu hại", path: "/vi/huong-dan/reu-video/", video: 1755),
+    .init(kind: .guide, name: "Rêu hại và cách trị", path: "/vi/huong-dan/reu/"),
+  ])
+  #expect(s.findAndCount("reu").counts == [nil: 3, .guide: 2, .video: 2])
 }
 
 @Test func aLoadReplacedByAnotherIsNotAFailure() {
@@ -182,14 +206,15 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
 @Test func readsAFishsFiguresAndBehaviourUnderTheToolsNames() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[
-   {"kind":"fish","id":"paracheirodon-axelrodi","name":"Cá neon đỏ","path":"/vi/ca/ca-neon-do/","tempC":{"min":23,"max":27},"ph":{"min":4,"max":6},"gh":{"min":1,"max":6},"sizeCm":5,"tankCm":60,"temperament":"peaceful","schoolMin":8,"difficulty":3},
+   {"kind":"fish","id":"paracheirodon-axelrodi","name":"Cá neon đỏ","path":"/vi/ca/ca-neon-do/","tempC":{"min":23,"max":27},"ph":{"min":4,"max":6},"gh":{"min":1,"max":6},"sizeCm":5,"tankCm":60,"temperament":"peaceful","schoolMin":8,"difficulty":3,"lifeYears":{"min":5,"max":10}},
    {"kind":"fish","id":"puntigrus-tetrazona","name":"Cá xăng-đá","path":"/vi/ca/ca-xang-da/","sizeCm":7,"temperament":"shy","finNipper":true},
-   {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/","sizeCm":"5 cm","ph":{"min":6},"tankCm":60},
+   {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/","sizeCm":"5 cm","ph":{"min":6},"tankCm":60,"lifeYears":"3 năm"},
    {"kind":"guide","name":"Nuôi cá neon trong bể nhỏ","path":"/vi/huong-dan/nuoi-ca-neon/"}
   ]}
   """#.utf8))
   #expect(ix.items.count == 4)
-  #expect(ix.items[0].facts == .init(tempC: .init(min: 23, max: 27), ph: .init(min: 4, max: 6), gh: .init(min: 1, max: 6), sizeCm: 5, tankCm: 60, temperament: "peaceful", schoolMin: 8, difficulty: 3))
+  #expect(ix.items[0].facts == .init(tempC: .init(min: 23, max: 27), ph: .init(min: 4, max: 6), gh: .init(min: 1, max: 6), sizeCm: 5, tankCm: 60, temperament: "peaceful", schoolMin: 8, difficulty: 3,
+                                  lifeYears: .init(min: 5, max: 10)))
   // A temperament this app doesn't know yet is kept as the site wrote it.
   #expect(ix.items[1].facts == .init(sizeCm: 7, temperament: "shy", finNipper: true))
   // A figure it can't read is left out, not the fish.
@@ -260,8 +285,11 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(F.number(1200, vi) == "1.200" && F.number(1200, th) == "1,200") // thousands grouped, as the site groups them
   // The site's three steps of its 1–8 scale.
   #expect([1, 3, 4, 5, 6, 8].map { F.level($0) } == [.easy, .easy, .mid, .mid, .hard, .hard])
-  #expect(!F().any && !F(temperament: "shy").any)
-  #expect(F(temperament: "predator").any && F(difficulty: 2).any)
+  // The card holds the site's data card's figures: a temperament alone (shown with the tank-mates) is nothing to show.
+  #expect(!F().any && !F(temperament: "shy").any && !F(temperament: "predator").any)
+  #expect(F(difficulty: 2).any && F(lifeYears: .init(min: 1.5, max: 1.5)).any)
+  // A lifespan in months is a fraction of a year, written as the site writes it.
+  #expect(F.range(.init(min: 1.5, max: 1.5), vi) == "1,5" && F.range(.init(min: 3, max: 8), vi) == "3–8")
 }
 
 @Test func guidesAboutATanksFishTheMostOfThemFirst() {

@@ -5,9 +5,13 @@ import { fishIdStatus, type FishIdDeps } from '../fishid/api'
 import { keyHash, loadKeys, parseKeys } from '../fishid/keys'
 import { fishIdPage } from '../admin/pages'
 import { unset } from '../admin/shell'
-import { createSession, type Client } from '../accounts/session'
+import { COOKIE, createSession, type Client } from '../accounts/session'
 import { contract } from './contract'
 import { testD1 } from './d1'
+import { deleteUser } from '../accounts/users'
+import { KEEP_DAYS, stripJpeg, sweepKept } from '../fishid/kept'
+import { memoryR2 } from './r2'
+import { memoryLedger } from './ledger'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -67,6 +71,7 @@ function kv() {
 type Point = { blobs: string[]; doubles: number[]; indexes: string[] }
 function env(extra: Record<string, unknown> = {}) {
   const store = kv()
+  const ledger = memoryLedger()
   // Every test writes the Analytics Engine log, so a branch that throws while logging fails its own test.
   const points: Point[] = []
   const e = {
@@ -76,9 +81,10 @@ function env(extra: Record<string, unknown> = {}) {
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'site-key', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
     ANTHROPIC_KEYS: KEYS,
     DB: testD1(),
+    FISHID_LEDGER: ledger.ns,
     ...extra,
   } as unknown as Env
-  return { e, kv: store.m, points }
+  return { e, kv: store.m, points, ledger }
 }
 /** A data point by name, as worker/fishid/log.ts lays it out. */
 const fields = (p: Point) => {
@@ -134,7 +140,7 @@ test('the keys file: one key per line, its workspace beside it; comments, blank 
 })
 
 test('happy path: the photo goes to Claude with the workspace header for an organisation\'s key; guesses come back with the handbook\'s pages', async () => {
-  const { e, kv } = env()
+  const { e, ledger } = env()
   const fake = claude({})
   const d = deps(fake.fetch)
   const r = await run(post(), e, d)
@@ -161,8 +167,12 @@ test('happy path: the photo goes to Claude with the workspace header for an orga
   const logged = JSON.stringify(d.lines)
   for (const secret of [A, 'wrkspc_orgA', '203.0.113.7', btoa(String.fromCharCode(...JPEG))]) expect(logged).not.toContain(secret)
   expect(d.lines[0]).toMatchObject({ fishId: 'ok', in: 1500, out: 120, attempts: [{ key: await keyHash(A) }] })
-  // Counted: the reader's day and the site's, with the key's call.
-  expect(JSON.parse(kv.get(`fishid:day:${new Date().toISOString().slice(0, 10)}`)!.v)).toEqual({ calls: 1, keys: { [await keyHash(A)]: 1 }, ok: { [await keyHash(A)]: 1 } })
+  // Counted in the ledger: the reader's day and the site's, with the key's call and its cost at list price (1,500 in and
+  // 120 out on Opus 5.5); the run settled, its reservation given back.
+  const day = ledger.day()!
+  expect(day).toMatchObject({ calls: 1, keys: { [await keyHash(A)]: 1 }, ok: { [await keyHash(A)]: 1 }, runs: {}, refunds: {} })
+  expect(Object.values(day.readers)).toEqual([1])
+  expect(day.usd).toBeCloseTo(0.0084, 10)
 })
 
 test('a fish Claude is fairly sure of with no page counts as a reader\'s request; a matched, unsure or owner\'s one does not', async () => {
@@ -339,7 +349,7 @@ test('rotation: overloaded tries the next key without setting the first aside; a
 })
 
 test('every key set aside: no call, the tool rests (GET says so too); keys found dead in one request rest it as well', async () => {
-  const { e, kv } = env()
+  const { e, kv, ledger } = env()
   const until = Date.now() + 3_600_000
   for (const k of [A, B, C]) kv.set(`fishid:key:${await keyHash(k)}`, { v: JSON.stringify({ until, why: 'credit' }) })
   const fake = claude({})
@@ -349,7 +359,7 @@ test('every key set aside: no call, the tool rests (GET says so too); keys found
   expect(fake.calls).toHaveLength(0)
   expect(await (await run(new Request('https://x.test/api/fish-id'), e, deps(fake.fetch))).json()).toEqual({ on: true, sitekey: 'site-key', resting: true, perIp: 10, perAccount: 10 })
   // Resting isn't a reader's use: nothing counted.
-  expect([...kv.keys()].some(k => k.startsWith('fishid:ip:'))).toBe(false)
+  expect(ledger.day()?.readers ?? {}).toEqual({})
   // A mark whose time is past is no mark.
   kv.set(`fishid:key:${await keyHash(C)}`, { v: JSON.stringify({ until: Date.now() - 1, why: 'rate' }) })
   expect((await run(post(), e, deps(fake.fetch))).status).toBe(200)
@@ -379,7 +389,7 @@ test('limits: a reader\'s 11th of the day and the site\'s day are refused before
 
 test('the app: its live session stands in for Origin and Turnstile, and its day is counted per account, not per address', async () => {
   const db = testD1()
-  const { e, kv } = env({ DB: db, FISH_ID_PER_ACCOUNT: '2' })
+  const { e, ledger } = env({ DB: db, FISH_ID_PER_ACCOUNT: '2' })
   const fake = claude({})
   let verified = 0
   const d = deps(fake.fetch, { siteverify: async () => { verified++; return true } })
@@ -389,11 +399,11 @@ test('the app: its live session stands in for Origin and Turnstile, and its day 
   expect(await r.json()).toMatchObject({ verdict: 'fish', model: 'claude-opus-5-5' })
   expect(verified).toBe(0)
   // Counted under the account (by HMAC, never its id), and not under the address.
-  const keys = () => [...kv.keys()]
-  expect(keys().filter(k => k.startsWith('fishid:acct:'))).toHaveLength(1)
-  expect(keys().filter(k => k.startsWith('fishid:ip:'))).toEqual([])
-  expect(keys().join(' ')).not.toContain(me.id)
-  expect(kv.get(keys().find(k => k.startsWith('fishid:acct:'))!)).toEqual({ v: '1', ttl: 86_400 })
+  const readers = ledger.day()!.readers
+  expect(Object.keys(readers).filter(k => k.startsWith('fishid:acct:'))).toHaveLength(1)
+  expect(Object.keys(readers).filter(k => k.startsWith('fishid:ip:'))).toEqual([])
+  expect(JSON.stringify(ledger.day())).not.toContain(me.id)
+  expect(Object.values(readers)).toEqual([1])
   // The same form the page sends works too, without its token.
   expect((await run(post(undefined, { lang: 'vi' }, { authorization: `Bearer ${me.token}`, origin: '' }), e, d)).status).toBe(200)
   const third = await run(appPost(me.token), e, d)
@@ -554,9 +564,106 @@ test('the owner\'s dashboard: each key by number and hash, its state and today\'
   expect(status.today).toBe(1)
   const html = fishIdPage({ now: new Date(), stats: unset('AE'), keys: status, pages: new Map() })
   expect(html).toContain('hết credit')
-  expect(html).toContain('Lần gọi API hôm nay')
+  // The tool counts by UTC day: the column says when that day began, in the viewer's time (07:00 in Vietnam).
+  expect(html).toMatch(/Lần gọi API từ 07:00 hôm (nay|qua)/)
   expect(html).toContain('Claude trả lời')
   expect(html).toContain(await keyHash(A))
   for (const k of [A, B, C, 'wrkspc_orgA']) expect(html).not.toContain(k)
   expect(kv.size).toBeGreaterThan(0)
+})
+
+// A JPEG as a phone might send it: JFIF, Exif with a GPS position, IPTC, a comment, a table, then the scan.
+const seg = (marker: number, body: number[]) => [0xff, marker, (body.length + 2) >> 8, (body.length + 2) & 0xff, ...body]
+const ascii = (t: string) => [...new TextEncoder().encode(t)]
+const SCAN = [0xff, 0xda, 0, 4, 1, 2, 9, 9, 9, 0xff, 0xd9]
+const PHONE_JPEG = new Uint8Array([0xff, 0xd8, ...seg(0xe0, ascii('JFIF\0')), ...seg(0xe1, ascii('Exif\0\0GPS 10.77N 106.70E')), ...seg(0xed, ascii('Photoshop 3.0\0IPTC')), ...seg(0xfe, ascii('my tank')), ...seg(0xdb, [0, 1, 2, 3]), ...SCAN])
+const accounts = contract('accounts.openapi.json')
+const keepEnv = async () => {
+  const db = testD1()
+  const r2 = memoryR2()
+  return { db, r2, ...env({ DB: db, UPLOADS: r2.bucket, ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'a' }) }
+}
+const appJson = (token: string | undefined, extra: Record<string, unknown> = {}, image = PHONE_JPEG) => new Request('https://x.test/api/fish-id', {
+  method: 'POST',
+  headers: { ...(token ? { authorization: `Bearer ${token}` } : {}), 'content-type': 'application/json', 'cf-connecting-ip': '203.0.113.7', ...READER },
+  body: JSON.stringify({ image: btoa(String.fromCharCode(...image)), lang: 'vi', token: 't', ...extra }),
+})
+
+test('a kept JPEG loses its Exif, XMP, IPTC and comments and keeps its image; anything else is not walked', () => {
+  const out = stripJpeg(PHONE_JPEG)!
+  const text = new TextDecoder().decode(out)
+  expect(text).toContain('JFIF')
+  for (const gone of ['GPS', 'Exif', 'IPTC', 'my tank']) expect(text).not.toContain(gone)
+  expect([...out.slice(out.length - SCAN.length)]).toEqual(SCAN)
+  expect(out.length).toBe(PHONE_JPEG.length - 3 * 4 - ascii('Exif\0\0GPS 10.77N 106.70E').length - ascii('Photoshop 3.0\0IPTC').length - ascii('my tank').length)
+  expect(stripJpeg(new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a]))).toBeNull()
+  expect(stripJpeg(PHONE_JPEG.slice(0, 12))).toBeNull()
+})
+
+test('keeping: a ticked photo is kept under the app\'s account with its result, its metadata cut; listed and deleted with the bearer; unticked, nothing is', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const me = await signIn(db)
+  // Unticked: nothing stored, and no `kept` in the answer.
+  expect(await (await run(appJson(me.token), e, d)).json()).not.toHaveProperty('kept')
+  expect(r2.m.size).toBe(0)
+  expect(await (await run(appJson(me.token, { keep: true }), e, d)).json()).toMatchObject({ verdict: 'fish', kept: true })
+  const [key, o] = [...r2.m][0]!
+  expect(key).toMatch(new RegExp(`^fish-id/${me.id}/[0-9a-f-]{36}$`))
+  expect(new TextDecoder().decode(o.bytes)).not.toContain('GPS')
+  expect(o.customMetadata).toEqual({ created: expect.any(String), verdict: 'fish', guesses: expect.any(String), model: 'claude-opus-5-5', lang: 'vi' })
+  expect(JSON.parse(o.customMetadata!.guesses!).map((g: { scientificName: string }) => g.scientificName)).toEqual(['Paracheirodon innesi', 'Hyphessobrycon amandae', 'Paracheirodon simulans'])
+  expect(JSON.stringify([...r2.m.keys(), o.customMetadata])).not.toContain('203.0.113.7')
+  // The account's list: the date and the result, never the image.
+  const bearer = { authorization: `Bearer ${me.token}` }
+  const list = await accounts.answer('/api/v1/fish-id/photos', 'get', await run(new Request('https://x.test/api/v1/fish-id/photos', { headers: bearer }), e, d)) as { photos: { id: string; verdict: string; guesses: unknown[] }[] }
+  expect(list.photos).toEqual([{ id: key.split('/')[2], created: o.customMetadata!.created, verdict: 'fish', guesses: JSON.parse(o.customMetadata!.guesses!) }])
+  // In the account's export too.
+  expect(await (await run(new Request('https://x.test/api/v1/account/export', { headers: bearer }), e, d)).json()).toMatchObject({ fishIdPhotos: list.photos })
+  // Another account can't delete it, nor anyone signed out; its own bearer does, once.
+  const other = await signIn(db)
+  const del = (h: Record<string, string>) => run(new Request(`https://x.test/api/v1/fish-id/photos/${list.photos[0]!.id}`, { method: 'DELETE', headers: h }), e, d)
+  expect((await accounts.answer('/api/v1/fish-id/photos/{id}', 'delete', await del({ authorization: `Bearer ${other.token}` }))).error).toBe('not_found')
+  expect((await accounts.answer('/api/v1/fish-id/photos', 'get', await run(new Request('https://x.test/api/v1/fish-id/photos'), e, d))).error).toBe('signed_out')
+  expect((await del(bearer)).status).toBe(204)
+  expect(r2.m.size).toBe(0)
+  expect((await del(bearer)).status).toBe(404)
+})
+
+test('keeping on the page: under the signed-in reader\'s cookie, or signed out tied to no one; a PNG is not kept but still identified', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const reader = await signIn(db, 'web')
+  const page = (fields: Record<string, string>, headers: Record<string, string> = {}, file = new Blob([PHONE_JPEG])) => post(file, { token: 't', lang: 'vi', ...fields }, headers)
+  expect(await (await run(page({ keep: '1' }, { cookie: `${COOKIE}=${reader.token}` }), e, d)).json()).toMatchObject({ kept: true })
+  expect(await (await run(page({ keep: '1' }), e, d)).json()).toMatchObject({ kept: true })
+  const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0, 0, 0, 0])
+  expect(await (await run(page({ keep: '1' }, {}, new Blob([PNG])), e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
+  expect([...r2.m.keys()].map(k => k.split('/').slice(0, 2).join('/')).sort()).toEqual(['fish-id/anon', `fish-id/${reader.id}`].sort())
+  // Without the bucket: identified, not kept.
+  const bare = env({ DB: db })
+  expect(await (await run(page({ keep: '1' }), bare.e, d)).json()).toMatchObject({ verdict: 'fish', kept: false })
+  // A refusal is kept too, as unclear.
+  expect(await (await run(page({ keep: '1' }), e, deps(claude({ [A]: () => message('{}', 'refusal') }).fetch))).json()).toMatchObject({ refused: true, kept: true })
+})
+
+test('kept photos go with their account, and from everyone 6 months on (the daily cron)', async () => {
+  const { e, db, r2 } = await keepEnv()
+  const d = deps(claude({}).fetch)
+  const [a, b] = [await signIn(db), await signIn(db)]
+  const now = Date.now()
+  r2.setNow(() => new Date(now - KEEP_DAYS * 86_400_000 - 60_000))
+  await run(appJson(a.token, { keep: true }), e, d)
+  r2.setNow(() => new Date(now - 10 * 86_400_000))
+  await run(appJson(b.token, { keep: true }), e, d)
+  await run(appJson(a.token, { keep: true }), e, d)
+  expect(r2.m.size).toBe(3)
+  expect(await sweepKept(r2.bucket, new Date(now))).toBe(1)
+  expect(r2.m.size).toBe(2)
+  await deleteUser(db, a.id, { UPLOADS: r2.bucket })
+  expect([...r2.m.keys()].every(k => k.startsWith(`fish-id/${b.id}/`))).toBe(true)
+  // Across R2's pages of a listing.
+  const paged = memoryR2(2)
+  for (let i = 0; i < 5; i++) await paged.bucket.put(`fish-id/anon/${crypto.randomUUID()}`, PHONE_JPEG)
+  expect(await sweepKept(paged.bucket, new Date(now + (KEEP_DAYS + 1) * 86_400_000))).toBe(5)
 })

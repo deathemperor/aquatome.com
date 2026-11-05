@@ -7,7 +7,14 @@
   "compatibility_date": "2026-10-28",
   "assets": {
     "directory": "./dist", "binding": "ASSETS", "not_found_handling": "404-page", "html_handling": "force-trailing-slash",
-    "run_worker_first": ["/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi/*", "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"]
+    // The Worker runs first on every Vietnamese page (the root and each section, worker/paths.ts VI_SECTIONS; a test keeps
+    // them equal) and on the old /vi/ addresses, which it 301s to the root.
+    "run_worker_first": [
+      "/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi", "/vi/*",
+      "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
+      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/video/*",
+      "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"
+    ]
   },
   // The owner's dashboard (/_ab/) opens only to the owner's account signed in on the site: secret OWNER_ACCOUNTS, the
   // account ids, comma-separated. Secret AB_DASH_TOKEN is the build's and scripts' bearer token (/_ab/hidden.json and the
@@ -21,12 +28,15 @@
   "d1_databases": [{ "binding": "DB", "database_name": "aquatome", "database_id": "ffebf861-d781-47a9-a77d-e7a3506af189", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "aquatome-media" }],
-  // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong location.
-  "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }] },
-  "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }],
+  // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong
+  // location. Its readers' and the site's counts and spend sit in one ledger (worker/fishid/ledger.ts): without it, fish ID is off.
+  "durable_objects": { "bindings": [{ "name": "FISHID_RELAY", "class_name": "FishIdRelay" }, { "name": "FISHID_LEDGER", "class_name": "FishIdLedger" }] },
+  "migrations": [{ "tag": "v1-fishid-relay", "new_sqlite_classes": ["FishIdRelay"] }, { "tag": "v2-fishid-ledger", "new_sqlite_classes": ["FishIdLedger"] }],
   "kv_namespaces": [{ "binding": "AB", "id": "0f352d52c0634b6ba6b88dffa9b45ae3" }],
-  // Readers' beacon events (worker/events.ts); every fish-ID request's outcome, tokens and cost (worker/fishid/log.ts).
-  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }],
+  // Readers' beacon events (worker/events.ts); every fish-ID request's outcome, tokens and cost (worker/fishid/log.ts); the
+  // iOS app's anonymous events and MetricKit summaries (worker/telemetry), whose raw reports wait 30 days in the private
+  // uploads bucket under diagnostics/ (a lifecycle rule deletes them).
+  "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }, { "binding": "APP_EVENTS", "dataset": "aquatome_app" }],
   "triggers": { "crons": ["17 20 * * *"] },
   "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
   "vars": {

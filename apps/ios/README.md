@@ -4,11 +4,11 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Four tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
 guides by subject, the video series and video guides, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
-light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed on the Tài khoản tab to let back),
+light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed on the Tài khoản tab to let back),
 kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a group named in a page opens the app's shelf of that group; a part it can't draw opens the web page, and a page of the site it can't draw, the web page in the app),
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; videos
-and the pages they link to become native the same way, tools stay web pages until rebuilt), a fish's facts under its name (size, temperature, pH, hardness, the shortest tank,
-temperament, difficulty) and a plant's care (difficulty, light, CO₂, growth, where it goes), from the index on the phone, so offline too, and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
+and the pages they link to become native the same way, tools stay web pages until rebuilt), a fish's facts under its name as the site's data card has them (temperature, pH, hardness, size, lifespan, the shortest tank,
+difficulty as the site's coloured word and its "6/8"; the sources behind each and whose text it is under them; its temperament and smallest school under its tank-mates) and a plant's care (difficulty, light, CO₂, growth, where it goes), from the index on the phone, so offline too, and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does); **Tài khoản** is the aquatome.com account (below) and the posters blocked on
@@ -16,24 +16,29 @@ this phone, saying so when the server offers no accounts or can't be reached (th
 as last seen), its tab marked while the account has a problem to tell (a sync that failed, a session that ended); an
 empty Bể của tôi offers a hint that opens it. A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
-kept in the Keychain, and no AquaTome account (docs/smart-plugs.md).
+kept in the Keychain, and no AquaTome account (docs/smart-plugs.md). A light's card warns when the outlet the reader
+picked for it has a Smart Life timer that cuts its power, which stops the light's clock.
 
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
 just saved.
 
-Signing in on the Tài khoản tab (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an
-aquatome.com account, as the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one
-made on the phone, as on the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one
-to the same account carries on. An account that has a passkey is told so, and still offered one for this phone
-("Thêm passkey cho máy này"): its passkey may be another device's, and the server refuses a second for the same phone. The email sign-in's
+Signing in on the Tài khoản tab (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an
+aquatome.com account, as the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no
+Google SDK (the size budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth
+2.0 for installed apps, a code with PKCE), the app exchanges the code at Google for the ID token (an iOS client has no
+secret), and the server checks that token as it checks Apple's (`GoogleOAuth`). "Thêm passkey" adds one made on the
+phone, as on the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one to the same
+account carries on. An account that has a passkey is told so, and still offered one for this phone ("Thêm passkey cho
+máy này"): its passkey may be another device's, and the server refuses a second for the same phone. The email sign-in's
 Turnstile check runs in a web view on the site's page for it (`/api/v1/auth/email/turnstile`), since Turnstile runs
 only in a web page on the site's host. Passkeys are aquatome.com's, shared with the app through its webcredentials
 association (`Config/AquaTome.entitlements` and the site's `/.well-known/apple-app-site-association`); only a signed
 build on an iPhone can use them, so the simulator never runs the real passkey sheet.
-A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, passkey sheet and
-Turnstile check inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
+A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, Google page and token
+endpoint (`FakeGoogle`; `-fake-google cancel` closes the page), passkey sheet and Turnstile check inside the app instead
+(`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
 every emailed code is `123456`; `-seed-passkey` gives an account the stand-in's passkey; `-fake-offline` answers nothing, as with no network; a session kept from an earlier
 launch counts as signed in long ago), so no test reaches
 aquatome.com; `-real-accounts` tries the real server from the simulator.
@@ -61,10 +66,15 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 
   The lights flows (`AquaTomeUITests/LightFlowTests`) follow the site's Chihiros page; the fake light's launch arguments
   (a slow or lost clock, old firmware, a drop, no Bluetooth…) are listed on `FakeRadio` (`AquaTome/Lights/Radio.swift`).
+  The photo viewer's flows (`AquaTomeUITests/PhotoViewerFlowTests`) use stand-in photos (`-fixed-pictures`), a gallery's
+  full photos held back 20 s (`-slow-pictures`), pictures that don't come (`-fail-pictures <part of their address>`)
+  and a gallery of 28 (`-large-gallery`); in debug builds the viewer shows the tests which full photos it fetched and
+  which it stopped on their way (with `-slow-pictures`; `PictureLog`), and the size of the picture it shows.
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
   `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
-  job `handbook` uploads them as the `ios-page-shots` artifact. Locally:
+  job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
+  request whose change can reach the pages, or labelled `ios-full`. Locally:
 
   ```sh
   xcodebuild test -project AquaTome.xcodeproj -scheme AquaTome -destination 'platform=iOS Simulator,name=iPhone 17' \
@@ -121,16 +131,89 @@ they're sent. The App Review contact is entered on the App Store Connect website
 ## Performance budgets
 
 `AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
-(`-large-handbook`: the app's CPU time and peak memory). Job `app` runs them on the CI simulator, archives the app
+(`-large-handbook`: the app's CPU time and peak memory). Job `perf` runs them on a GitHub-hosted Mac's simulator, archives the app
 unsigned for its size, and `scripts/check-perf.py` checks each median against `perf-budgets.json`; a budgeted measurement
 that's missing or reads 0 fails. The simulator reports no scroll hitches, so the list is budgeted by the CPU time it
 costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instructions as 0.
 Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
 `.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
 
+The app icons a reader chooses (`AppIconPicker`, drawn by `scripts/app-icons.py`) are most of the app's size: 32
+alternates at home-screen sizes only (iPhone 60 pt @2x/@3x, iPad 76 and 83.5 pt @2x; iOS scales them down for
+Spotlight, Settings and notifications), measured on one Mac, 2026-11-03 (the previews 2026-11-04):
+
+| Icons | Archive (all devices) | One iPhone (phone @3x)* |
+| --- | --- | --- |
+| 23 fish | 3,921.7 kB | 924.0 kB |
+| 6 seasonal | 882.4 kB | 207.6 kB |
+| 3 earlier designs | 58.5 kB | 13.5 kB |
+| Their previews in the picker (33, with the default's) | 297.5 kB | 183.1 kB |
+| The app without them | 3,078.1 kB | 3,052.7 kB |
+| The app with them | 8,229.9 kB | 4,395.5 kB |
+
+\* An estimate: `assetutil` thinning of the archive's `Assets.car` for an iPhone at @3x, the rest as archived (the
+binary is arm64 only). Not an App Store export's thinning report, which needs signing. The size budget is on the
+archive. Each icon costs about 150 kB there and 40 kB on one iPhone: its gradients barely compress (CoreUI keeps each
+size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29 and 20 pt sizes too the archive was
+10,625 kB. An icon set doesn't load as an image, so the picker shows each icon from a preview at its 64 points, @2x and
+@3x, stored lossy: 308 kB for the 33 by actool alone, where lossless pictures are 1,178 kB and SVG 2,233 kB (actool keeps
+three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
+
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
 Debug builds, so they don't see it.
+
+## The flows on CI
+
+`ios.yml` runs the UI flows in two tiers:
+
+- **A pull request** runs the smoke set, ten flows across the app's main journeys (the app starts and its tabs open, a
+  search opens a page the app draws, a fish's facts, a tank made and a fish put on it, the tank-mates check, the fake
+  light connected and a preset written, a sign-in on the stand-in server, a shelf kept for offline: about 6 minutes
+  after the build), and the flows its change can reach. `scripts/flows-to-run.py` maps the app's folders and files to
+  them, and its `--test` fails when a flow it names is renamed. A class it reaches whole runs in its own job; a few of a
+  class's tests run in `app`, beside the smoke set. What every screen sits in (the project, `Config/`, the flows' shared
+  helpers) runs the smoke set alone. The app's start (`AquaTomeApp.swift`), `ios.yml`, `flows-to-run.py` and the
+  scripts the flow jobs run run every flow, and so does a path under `apps/ios/` the script has no rule for. Jobs `kit`
+  and `perf` (with the translations) run on every ready pull request.
+- **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: each change was
+  measured by its pull request's run), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull
+  request labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
+  with every flow, any other label as a push would. A main run that started is never cancelled; of those waiting for
+  it, only the newest is kept (a merge, the nightly run or one by hand), and it covers every merge since the last run
+  (a full run for each merge held the own Mac for hours when several merged at once). So a run by hand on main that is
+  still waiting is dropped when a merge lands, and a break main's run catches may come from any merge since its last
+  run.
+
+A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
+the pull request that broke it, give `flows-to-run.py` the rule that would have run it.
+
+## CI's own Mac
+
+Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
+`aquatome`) for main (after merges, the nightly run and a run by hand) and for pull requests its owner opens from this
+repository's own branches. GitHub's Macs keep everything else: a fork's or a bot's pull request (the automatic fixes'),
+and job `perf` (its budgets are GitHub's Macs' readings). The Mac has two runners, `aquatome-mac-1` and
+`aquatome-mac-2`, each running one job at a time, so the jobs take turns two at a time.
+
+The runners run as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
+the workflows, which can name the label. What keeps others' code off the Mac is each runner's job-started hook
+(`ACTIONS_RUNNER_HOOK_JOB_STARTED` in its `.env`, a script outside the repository): any job but one of main's (a push,
+the nightly run, a run by hand) or a pull request from the owner off one of this repository's branches fails before its
+first step. Approving an outside contributor's run (required for every one, by the repository's Actions setting) runs
+their workflows, on GitHub's Macs if the hook holds; read them first.
+
+- Off, when the Mac is away or asleep: `gh variable set IOS_LOCAL_RUNNER --body off`. New runs then go to GitHub's Macs;
+  runs already queued for the Mac wait for it. "Re-run failed jobs" keeps where the jobs ran: re-run all jobs instead.
+  `--body on` brings them back.
+- The runners: each in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
+  (`./svc.sh install && ./svc.sh start`), their hook in `~/actions-runner/hooks/`. The Mac must not sleep. They build
+  with that Mac's own Xcode, which can be newer than GitHub's.
+- Their simulators: one each, `aquatome-ci-1` for `aquatome-mac-1` and `aquatome-ci-2` for `aquatome-mac-2`, made with
+  `xcrun simctl create aquatome-ci-<n> "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its id in that
+  runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first, points
+  xcodebuild at it, and shuts it down after. Two runners never share one (each would erase the other's mid-test), and
+  nothing else on that Mac may use a simulator named `aquatome-ci-*`.
 
 ## AquaTomeKit
 
@@ -141,11 +224,11 @@ Debug builds, so they don't see it.
 | `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), the timeline's rules as the site's light page has them (`Plan.swift`: handles kept apart, ramps that fit, the day's curve, the day preview's pace; `Colour.swift`: the colour a mix shows, a tank lit by it, the looks), `LightSession` (the order and pace the light accepts, and going back to the schedule after levels set by hand), `FakeLight` (tests, simulator) |
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
-| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`) |
+| `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
-| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator) |
-| `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; Google's sign-in without its SDK (`GoogleOAuth`: its page, its answer, the code exchanged with PKCE); `FakeAccounts`, the server in process, and `FakeGoogle`, Google's page and token endpoint in process (tests, simulator) |
+| `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
 cd apps/ios/AquaTomeKit

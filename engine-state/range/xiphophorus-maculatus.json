@@ -1,0 +1,487 @@
+{
+  "id": "xiphophorus-maculatus",
+  "native": {
+    "input": "372e7967a9d7b57f",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This platy originates from the Mexican state of Tabasco, where this population was first found by Dutch ornamental fish enthusiasts and brought to Europe.",
+        "words": "Mexican",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Xiphophorus maculatus is native to Mexico (from southern Tamaulipas to northern Veracruz), Belize, and Guatemala (Petén district, Alta Verapaz).",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Xiphophorus maculatus is native to Mexico (from southern Tamaulipas to northern Veracruz), Belize, and Guatemala (Petén district, Alta Verapaz).",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Xiphophorus maculatus is native to Mexico (from southern Tamaulipas to northern Veracruz), Belize, and Guatemala (Petén district, Alta Verapaz).",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "MG",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "MU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Mauritius",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "SA",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Saudi Arabia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "AT",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Austria",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "BS",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Bahamas",
+        "ok": true
+      },
+      {
+        "code": "CA",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Canada",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "JM",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Jamaica",
+        "ok": true
+      },
+      {
+        "code": "PW",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Palau",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus maculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2350164,
+    "datasets": [
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        599
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        101
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        54
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        48
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        41
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        35
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        34
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        31
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        30
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        29
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        28
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        25
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        23
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        23
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        21
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        20
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        19
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        17
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        15
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        13
+      ],
+      [
+        "29b5289f-109b-4d45-b84f-2870c6590344",
+        9
+      ],
+      [
+        "8049bed0-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        7
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        6
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        5
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "36a3db3b-b0dd-4e6a-8c8b-c75e8261aaad",
+        4
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "7817af75-45c3-4050-a4f8-9a10c3da91c5",
+        4
+      ],
+      [
+        "9a0983a1-55dc-4492-bd6c-4085a36dcddc",
+        4
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "e7e019c6-5582-47ee-ae97-32e4cd66d4c6",
+        4
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        3
+      ],
+      [
+        "7f6f33a0-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        3
+      ],
+      [
+        "ebab8ef5-b3b3-440e-a79f-cc4cf8a5180c",
+        3
+      ],
+      [
+        "0160cea6-4ff3-46a1-880d-de8c3a48f1e9",
+        2
+      ],
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        2
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        2
+      ],
+      [
+        "80cdb1cc-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "872b0fcc-d7dc-44c8-8175-f5bf18cc28a1",
+        2
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        2
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        2
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        2
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7247dc2e-b862-4555-b533-7701d183271b",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "bb3ce407-964b-411a-90ce-d42b394dd646",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "MX",
+      "NI",
+      "GT",
+      "BZ"
+    ],
+    "requests": 17,
+    "at": "2026-11-04T21:41:08.860Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-05T03:39:17.391Z",
+    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
+  }
+}

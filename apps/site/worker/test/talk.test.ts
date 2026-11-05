@@ -2,6 +2,7 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { createSession, randomToken, COOKIE } from '../accounts/session'
 import { purgeRemoved } from '../comments/api'
 import { handle, type Env } from '../index'
+import { WHY } from '../photos'
 import { contract, type Op } from './contract'
 import { testD1 } from './d1'
 
@@ -32,12 +33,14 @@ const fakeR2 = () => {
     get: async (k: string) => (m.has(k) ? { body: m.get(k), httpMetadata: { contentType: 'image/jpeg' }, arrayBuffer: async () => m.get(k)!.slice().buffer } : null),
     head: async (k: string) => (m.has(k) ? {} : null),
     delete: async (k: string | string[]) => { for (const x of [k].flat()) m.delete(x) },
+    list: async ({ prefix = '' }: { prefix?: string } = {}) => ({ objects: [...m.keys()].filter(k => k.startsWith(prefix)).map(key => ({ key, uploaded: new Date() })), truncated: false }),
   } as unknown as R2Bucket
   return { m, bucket }
 }
 
 const ORIGIN = 'https://x.test'
 const PAGE = 'species:paracheirodon-innesi'
+const GOLDFISH = 'species:carassius-auratus'
 type Who = { bearer?: string; auth?: string; origin?: string; ip?: string; cookie?: string }
 
 function setup(over: Record<string, string> = {}) {
@@ -47,7 +50,7 @@ function setup(over: Record<string, string> = {}) {
   const db = testD1()
   const env = {
     ASSETS: { fetch: async () => new Response('x') },
-    AB: { get: async (k: string) => kv.get(k) ?? null, put: async (k: string, v: string) => { kv.set(k, v) } },
+    AB: { get: async (k: string) => kv.get(k) ?? null, put: async (k: string, v: string) => { kv.set(k, v) }, delete: async (k: string) => { kv.delete(k) } },
     DB: db, UPLOADS: uploads.bucket, MEDIA: media.bucket,
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: 'tok',
     ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'a'.repeat(32), ...over,
@@ -419,4 +422,193 @@ test('reports go when what they report goes: a purged comment\'s, a removed phot
   await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'remove', reason: 'not this fish' }]) })
   expect(await purgeRemoved(t.db, new Date(T0 + 31 * 86_400_000))).toBe(1)
   expect((await t.db.prepare(`SELECT kind, item_id FROM reports`).all()).results).toEqual([{ kind: 'comment', item_id: stays.id }])
+})
+
+/** A reader's own photos (/api/v1/talk/photos/mine): the answer checked against the contract's for its status, its body. */
+async function own(method: 'get' | 'delete', path: '/api/v1/talk/photos/mine' | '/api/v1/talk/photos/mine/{id}', res: Response): Promise<Record<string, unknown> | undefined> {
+  const r = (api.paths[path][method] as Op).responses[String(res.status)]
+  expect(r, `${method.toUpperCase()} ${path} → ${res.status} is not in the contract`).toBeDefined()
+  if (res.status === 204) { expect(await res.text()).toBe(''); return undefined }
+  const body = (await res.json()) as Record<string, unknown>
+  expect(misfits(body, r!.content['application/json'].schema), `${method.toUpperCase()} ${path} → ${res.status}`).toEqual([])
+  if (res.status >= 400) expect(r!.description.replace(/^Error: /, '').split(' | ').map(c => c.replace(/ \(.*\)$/, ''))).toContain(body.error)
+  return body
+}
+type Mine = { photos: { id: string; e: string; status: string; why?: string; movedFrom?: string; url?: string; decidedAt?: string }[] }
+const mine = async (t: T, o: Who) => (await own('get', '/api/v1/talk/photos/mine', await handle(new Request(`${ORIGIN}/api/v1/talk/photos/mine`, { headers: t.headers(o) }), t.env))) as Mine
+const takeBack = async (t: T, id: string, o: Who) =>
+  own('delete', '/api/v1/talk/photos/mine/{id}', await handle(new Request(`${ORIGIN}/api/v1/talk/photos/mine/${id}`, { method: 'DELETE', headers: t.headers(o) }), t.env))
+const sent = async (t: T, o: Who) => ((await (await t.photo(o, o.bearer ? {} : { token: 't' })).json()) as { id: string; deleteUrl: string })
+
+test('a reader lists the photos they sent from the app: waiting, shown, turned down with its code, moved to the right fish', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  const t = setup()
+  const a = await t.signIn()
+  const b = await t.signIn()
+  at(0); const waiting = await sent(t, { bearer: a.token })
+  at(1); const shownHere = await sent(t, { bearer: a.token })
+  at(2); const wrongFish = await sent(t, { bearer: a.token })
+  at(3); const moved = await sent(t, { bearer: a.token })
+  at(4); const unknownCode = await sent(t, { bearer: a.token })
+  // From other addresses: an address has 5 a day.
+  at(5); const theirs = await sent(t, { bearer: b.token, ip: '198.51.100.7' })
+  await sent(t, { origin: ORIGIN, ip: '198.51.100.8' }) // the page's: no account
+  at(10)
+  await publish(t, shownHere.id)
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${moved.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  expect(await (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([
+    { id: wrongFish.id, action: 'remove', reason: 'a goldfish, not a neon', why: 'species' },
+    { id: moved.id, action: 'approve', reason: 'a betta', width: 1200, height: 900, entity: 'species:betta-splendens' },
+    { id: unknownCode.id, action: 'remove', reason: 'odd', why: 'blurry-ish' },
+  ]) })).json()).toEqual({ applied: 3, ignored: 0 })
+
+  const list = await mine(t, { bearer: a.token })
+  expect(list.photos.map(p => p.id)).toEqual([unknownCode.id, moved.id, wrongFish.id, shownHere.id, waiting.id])
+  const [odd, movedRow, wrong, shownRow, waitingRow] = list.photos
+  expect(waitingRow).toEqual({ id: waiting.id, e: PAGE, name: 'Lộc', status: 'pending', createdAt: new Date(T0).toISOString() })
+  expect(shownRow).toMatchObject({ status: 'approved', e: PAGE, url: `https://media.aquatome.com/readers/${shownHere.id}.webp`, thumb: `https://media.aquatome.com/readers/${shownHere.id}-480.webp`, width: 1200, height: 800, decidedAt: new Date(T0 + 600_000).toISOString() })
+  expect(shownRow).not.toHaveProperty('why')
+  expect(wrong).toMatchObject({ status: 'removed', why: 'species', e: PAGE })
+  expect(wrong).not.toHaveProperty('url')
+  expect(movedRow).toMatchObject({ status: 'approved', e: 'species:betta-splendens', movedFrom: PAGE, width: 1200, height: 900 })
+  expect(odd).toMatchObject({ status: 'removed', why: 'other' })
+  // The moved photo shows on the right fish's page, not on the one it was sent for.
+  const onPage = async (e: string) => ((await (await handle(new Request(`${ORIGIN}/_p?e=${e}`), t.env)).json()) as Listed).photos!.map(p => p.id)
+  expect(await onPage(PAGE)).toEqual([shownHere.id])
+  expect(await onPage('species:betta-splendens')).toEqual([moved.id])
+  // Another account sees only its own; the page's photo is no one's.
+  expect((await mine(t, { bearer: b.token })).photos.map(p => p.id)).toEqual([theirs.id])
+})
+
+test('a move goes to a species\' page only, and an approval that names none stays on its page', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  const approve = (entity?: unknown) => asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'approve', reason: 'ok', width: 10, height: 10, ...(entity === undefined ? {} : { entity }) }]) })
+  for (const bad of ['breed:betta-halfmoon', 'species:', 'SPECIES:x', 7, '']) expect(await (await approve(bad)).json(), JSON.stringify(bad)).toEqual({ applied: 0, ignored: 1 })
+  expect(await (await approve()).json()).toEqual({ applied: 1, ignored: 0 })
+  const [row] = (await mine(t, { bearer: a.token })).photos
+  expect(row).toMatchObject({ e: PAGE, status: 'approved' })
+  expect(row).not.toHaveProperty('movedFrom')
+})
+
+test('a reader takes back their own photo from the app, waiting, shown or turned down; never another\'s', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const b = await t.signIn()
+  const waiting = await sent(t, { bearer: a.token })
+  const shownHere = await sent(t, { bearer: a.token })
+  const turnedDown = await sent(t, { bearer: a.token })
+  const viaLink = await sent(t, { bearer: a.token })
+  const theirs = await sent(t, { bearer: b.token })
+  await publish(t, shownHere.id)
+  await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: turnedDown.id, action: 'remove', reason: 'a person at the edge', why: 'face' }]) })
+
+  expect(await takeBack(t, waiting.id, { bearer: a.token })).toBeUndefined()
+  expect(t.uploads.has(`pending/${waiting.id}`)).toBe(false)
+  expect(await takeBack(t, shownHere.id, { bearer: a.token })).toBeUndefined()
+  expect(t.media.size).toBe(0)
+  expect(((await listed(t, '/_p')).photos ?? []).map(p => p.id)).toEqual([])
+  expect(await takeBack(t, turnedDown.id, { bearer: a.token })).toBeUndefined()
+  // The moderator's words stay for the dashboard; the reader's list no longer has it.
+  expect(await t.db.prepare(`SELECT status, reason, why FROM photos WHERE id = ?`).bind(turnedDown.id).first()).toEqual({ status: 'removed', reason: 'a person at the edge', why: 'withdrawn' })
+  // Its delete link does the same.
+  const link = new URL(viaLink.deleteUrl, ORIGIN)
+  const form = new FormData()
+  form.set('id', link.searchParams.get('id')!); form.set('t', link.searchParams.get('t')!)
+  expect((await handle(new Request(`${ORIGIN}/_p/xoa/`, { method: 'POST', body: form }), t.env)).status).toBe(200)
+  expect((await mine(t, { bearer: a.token })).photos).toEqual([])
+
+  // Already taken back, another account's, not an id: not found, and the other reader's photo stays.
+  for (const id of [waiting.id, theirs.id, 'x', crypto.randomUUID()]) expect(await takeBack(t, id, { bearer: a.token }), id).toEqual({ error: 'not_found' })
+  expect((await mine(t, { bearer: b.token })).photos.map(p => [p.id, p.status])).toEqual([[theirs.id, 'pending']])
+  expect(t.uploads.has(`pending/${theirs.id}`)).toBe(true)
+})
+
+test('the reader\'s own photos need the app\'s bearer: none, a bad one or a browser\'s session cookie is 401 session; photos off is 503', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  const web = await t.signIn('web')
+  for (const o of [{}, { bearer: randomToken() }, { auth: 'Bearer ' }, { cookie: `${COOKIE}=${web.token}` }, { bearer: web.token }] as Who[]) {
+    expect(await mine(t, o), JSON.stringify(o)).toEqual({ error: 'session' })
+    expect(await takeBack(t, p.id, o), JSON.stringify(o)).toEqual({ error: 'session' })
+  }
+  expect((await mine(t, { bearer: a.token })).photos.map(x => x.status)).toEqual(['pending'])
+  const off = { ...t, env: { ...t.env, MEDIA: undefined } as unknown as Env }
+  expect(await mine(off, { bearer: a.token })).toEqual({ error: 'photos_off' })
+  expect(await takeBack(off, p.id, { bearer: a.token })).toEqual({ error: 'photos_off' })
+})
+
+test('a photo moved again keeps the page it was sent for, and forgets it when moved back; the queue says which moved', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  expect(await photoQueue(t)).toMatchObject([{ id: p.id, moved_from: null }])
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  const moveTo = async (entity: string) => (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'approve', reason: 'ok', width: 10, height: 10, entity }]) })).json()
+  const row = async () => (await mine(t, { bearer: a.token })).photos[0]!
+  expect(await moveTo('species:betta-splendens')).toEqual({ applied: 1, ignored: 0 })
+  expect(await moveTo('species:carassius-auratus')).toEqual({ applied: 1, ignored: 0 })
+  expect(await row()).toMatchObject({ e: 'species:carassius-auratus', movedFrom: PAGE })
+  // Reported, it is off the page and back in the queue with the page it was sent for; the pass publishes its files again.
+  await report(t, { kind: 'photo', id: p.id, reason: 'không phải cá vàng' }, { bearer: (await t.signIn()).token })
+  expect(await photoQueue(t)).toMatchObject([{ id: p.id, moved_from: PAGE }])
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  expect(await moveTo(PAGE)).toEqual({ applied: 1, ignored: 0 })
+  expect(await row()).toMatchObject({ e: PAGE })
+  expect(await row()).not.toHaveProperty('movedFrom')
+})
+
+test('the codes the Worker keeps for a turned-down photo are the contract\'s Why, as the engine\'s are', () => {
+  expect([...WHY]).toEqual(api.components.schemas.Why.enum)
+})
+
+// A photo already shown, reported by a reader who isn't signed in: it stays shown, and the pass judges it again. Found to
+// be another fish the handbook has, it moves as the engine decides it (packages/engine/src/reader-photos.ts).
+test('a photo already shown, reported as another fish, moves to that fish\'s page: its sender, both pages and the owner\'s dashboard (page and app) say so', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  at(0)
+  const t = setup({ OWNER_ACCOUNTS: 'owner-1' })
+  await t.db.prepare(`INSERT INTO users (id, created_at) VALUES ('owner-1', ?)`).bind(new Date().toISOString()).run()
+  const owner = { web: await createSession(t.db, 'owner-1', 'web', new Date()), app: await createSession(t.db, 'owner-1', 'app', new Date()) }
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  at(10); await publish(t, p.id)
+  at(20); expect((await report(t, { kind: 'photo', id: p.id, reason: 'đây là cá vàng' }, { ip: '198.51.100.20' })).status).toBe(202)
+  expect(await photoQueue(t)).toMatchObject([{ id: p.id, entity_ref: PAGE, moved_from: null, reports: ['đây là cá vàng'] }])
+  const onPage = async (e: string) => ((await (await handle(new Request(`${ORIGIN}/_p?e=${e}`), t.env)).json()) as Listed).photos!.map(x => x.id)
+  expect(await onPage(PAGE)).toEqual([p.id]) // shown until the pass looks
+
+  at(30)
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  expect(await (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'approve', reason: 'a goldfish', width: 1200, height: 800, entity: GOLDFISH }]) })).json()).toEqual({ applied: 1, ignored: 0 })
+  expect(await onPage(PAGE)).toEqual([])
+  expect(await onPage(GOLDFISH)).toEqual([p.id])
+  expect(await photoQueue(t)).toEqual([]) // judged since its report
+  const [row] = (await mine(t, { bearer: a.token })).photos
+  expect(row).toMatchObject({ id: p.id, status: 'approved', e: GOLDFISH, movedFrom: PAGE, decidedAt: new Date(T0 + 30 * 60_000).toISOString() })
+  expect(row).not.toHaveProperty('why')
+
+  // The owner's dashboard: under the goldfish's page, saying where it was sent, on the page and in the app's blocks.
+  const moved = `Kiểm duyệt chuyển từ ${PAGE}`
+  const html = await (await handle(new Request(`${ORIGIN}/_ab/anh-ban-doc/`, { headers: { cookie: `${COOKIE}=${owner.web}` } }), t.env)).text()
+  const tr = html.split('<tr').find(r => r.includes(`value="${p.id}"`))!
+  expect(tr).toContain(`<br>${GOLDFISH}<br><span class="muted">${moved}</span>`)
+  const section = (await (await handle(new Request(`${ORIGIN}/api/owner/sections/anh-ban-doc`, { headers: { authorization: `Bearer ${owner.app}` } }), t.env)).json()) as { blocks: { kind: string; items?: { id: string; meta: string[] }[] }[] }
+  const item = section.blocks.flatMap(b => (b.kind === 'photos' ? b.items! : [])).find(x => x.id === p.id)!
+  expect(item.meta.slice(0, 2)).toEqual([GOLDFISH, moved])
+})
+
+test('a photo taken back while the nightly pass looks at it: the files the pass publishes are deleted, the approval ignored', async () => {
+  const t = setup()
+  const a = await t.signIn()
+  const p = await sent(t, { bearer: a.token })
+  expect(await takeBack(t, p.id, { bearer: a.token })).toBeUndefined()
+  for (const kind of ['full', 'thumb']) await asOwner(t, `/_p/admin/file/${p.id}?kind=${kind}`, { method: 'PUT', body: WEBP })
+  expect(t.media.size).toBe(2)
+  expect(await (await asOwner(t, '/_p/admin/decisions', { method: 'POST', body: JSON.stringify([{ id: p.id, action: 'approve', reason: 'ok', width: 10, height: 10 }]) })).json()).toEqual({ applied: 0, ignored: 1 })
+  expect(t.media.size).toBe(0)
+  expect(await t.db.prepare(`SELECT status, why FROM photos WHERE id = ?`).bind(p.id).first()).toEqual({ status: 'removed', why: 'withdrawn' })
 })
