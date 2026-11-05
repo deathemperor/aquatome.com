@@ -158,6 +158,12 @@
                 },
                 "url": {
                   "type": "string"
+                },
+                "authorUrl": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
                 }
               },
               "required": [
@@ -528,6 +534,12 @@
                     },
                     "url": {
                       "type": "string"
+                    },
+                    "authorUrl": {
+                      "type": "string"
+                    },
+                    "author": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -650,6 +662,12 @@
                             "type": "string"
                           },
                           "url": {
+                            "type": "string"
+                          },
+                          "authorUrl": {
+                            "type": "string"
+                          },
+                          "author": {
                             "type": "string"
                           }
                         },
@@ -887,6 +905,12 @@
                       },
                       "url": {
                         "type": "string"
+                      },
+                      "authorUrl": {
+                        "type": "string"
+                      },
+                      "author": {
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -1034,6 +1058,12 @@
                               },
                               "url": {
                                 "type": "string"
+                              },
+                              "authorUrl": {
+                                "type": "string"
+                              },
+                              "author": {
+                                "type": "string"
                               }
                             },
                             "required": [
@@ -1110,6 +1140,12 @@
                                 "type": "string"
                               },
                               "url": {
+                                "type": "string"
+                              },
+                              "authorUrl": {
+                                "type": "string"
+                              },
+                              "author": {
                                 "type": "string"
                               }
                             },
@@ -1262,6 +1298,12 @@
                             "type": "string"
                           },
                           "url": {
+                            "type": "string"
+                          },
+                          "authorUrl": {
+                            "type": "string"
+                          },
+                          "author": {
                             "type": "string"
                           }
                         },

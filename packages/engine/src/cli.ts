@@ -51,7 +51,7 @@ import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
 import { VI_WRITE } from './vi-rewrite'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } from './video-discovery'
 import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps, type Vet } from './gallery'
-import { englishName, unsplashPhotos } from './unsplash'
+import { englishName, unsplashCredits, unsplashPhotos, type UnsplashApi } from './unsplash'
 import { breedPhotos, localizeBreed, makeBreed } from './breeds'
 import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
@@ -482,14 +482,20 @@ if (cmd === 'run' || cmd === 'card-fill') {
   console.log(`breed-photos: ${r.done.length} breeds, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'unsplash') {
-  // Unsplash photos for the galleries of the staples, breeds and popular species: pnpm engine unsplash [--limit N]
+  // Unsplash photos for the galleries of the staples, breeds and popular species, after linking the photographer's page of
+  // those stored without one: pnpm engine unsplash [--limit N]
   const key = process.env.UNSPLASH_ACCESS_KEY || (() => { try { return readFileSync(join(homedir(), '.config/aquatome/unsplash-key'), 'utf8').trim() } catch { return '' } })()
   if (!key) { console.log('unsplash: no UNSPLASH_ACCESS_KEY, skipped'); process.exit(0) }
-  const r = await unsplashPhotos(ROOT, async url => {
+  const api: UnsplashApi = async url => {
     const res = await fetch(url, { headers: { authorization: `Client-ID ${key}`, 'accept-version': 'v1' } })
     if (!res.ok) throw new Error(`Unsplash HTTP ${res.status}`)
     return { json: await res.json(), remaining: Number(res.headers.get('x-ratelimit-remaining') ?? Infinity) }
-  }, galleryDeps(), { limit: values.limit ? Number(values.limit) : 6 })
+  }
+  // First the photographer's page for photos stored without one (their credit links it), then the searches with what the hour has left.
+  const c = await unsplashCredits(ROOT, api)
+  console.log(`unsplash credits: ${c.filled} photos linked to their photographer, ${c.left} left, ${c.failed.length} failed${c.stopped ? ` (stopped: ${c.stopped})` : ''}`)
+  for (const x of c.failed) console.log(x)
+  const r = await unsplashPhotos(ROOT, api, galleryDeps(), { limit: values.limit ? Number(values.limit) : 6, remaining: c.remaining })
   console.log(`unsplash: ${r.done.length} galleries, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'facebook') {

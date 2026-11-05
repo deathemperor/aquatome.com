@@ -142,7 +142,8 @@ if part photos; then
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
-  # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms).
+  # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms). First
+  # it links each stored photo's credit to its photographer's page, a request a photo, as many as the hour allows.
   pnpm engine unsplash --limit "${UNSPLASH_LIMIT:-6}" || log "unsplash: failed"
 fi
 if part pages sf photos; then
