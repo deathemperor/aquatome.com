@@ -1,10 +1,11 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { CHIHIROS_LINES, chihirosLine, controlOf, modelWords, ProductSchema, slugify, toMetric, TranslationSchema, type ProductEntity, type Translation } from '@aq/schema'
+import { CHIHIROS_LINES, chihirosLine, controlOf, modelWords, nameKey, PLUG_FAMILIES, ProductSchema, slugify, toMetric, TranslationSchema, type ProductEntity, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { claimsControl, namesSource } from './content-rules'
 import { makeProduct, type ProductAsk } from './products'
+import { fixNames, has, words } from './review-names'
 import { unescapePlain } from './sanitize'
 import type { Found } from './video-discovery'
 import { readKit } from './video-items'
@@ -23,8 +24,6 @@ const MIN_TRANSCRIPT = 1500
 export type ReviewTarget = { brand: string; model: string; queries?: string[]; titleWords?: string[][] }
 export const reviewQueries = (t: ReviewTarget) => t.queries ?? [`${t.brand} ${t.model} review`, `đánh giá ${t.brand} ${t.model}`]
 
-const words = (s: string) => modelWords(s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/gi, 'd'))
-const has = (hay: string[], needle: string[]) => hay.some((_, i) => needle.every((w, j) => hay[i + j] === w))
 /** Words that make a title another product of the line: "WRGB 2 Pro" isn't the WRGB II page's. */
 const VARIANT = new Set(['slim', 'pro', 'rgb', 'vivid', 'plus', 'mini', 'max', 'tiny', 'neo'])
 /** The title names this product: its model's words in a row (no variant word after them), or a family's words. */
@@ -183,8 +182,8 @@ export async function extractFindings(llm: Llm, v: ReviewVideo, t: ReviewTarget,
   return clean.findings.length || clean.measured.length ? clean : null
 }
 
-/** One review as the writer gets it: no title, channel or address, so none can reach the page. */
-export type ReviewInput = { url: string; findings: Finding[]; measured: Measured[] }
+/** One review. The writer gets its findings only (inputFor): no title, channel or address, so none can reach the page. */
+export type ReviewInput = { url: string; title: string; description: string; findings: Finding[]; measured: Measured[] }
 export type TestFact = { fact: string; testedOn: string }
 const inputFor = (reviews: ReviewInput[], tests: TestFact[]) => ({
   reviews: reviews.map((r, i) => ({ id: `R${i + 1}`, findings: r.findings.map((f, j) => ({ id: `R${i + 1}.${j + 1}`, kind: f.kind, text: f.text })), measured: r.measured.map((m, j) => ({ id: `R${i + 1}.m${j + 1}`, what: m.what, value: `${m.value} ${m.unit}`.trim(), how: m.how })) })),
@@ -214,18 +213,22 @@ export function figureOf(value: string): string {
   return `${word}${figure}`
 }
 
-export type Merged = { reviews?: NonNullable<Translation['reviews']>; tested: NonNullable<Translation['tested']>; problems: string[] }
+export type NameCatalog = { names: string; genera: ReadonlySet<string> }
+export type Merged = { reviews?: NonNullable<Translation['reviews']>; tested: NonNullable<Translation['tested']>; problems: string[]; renamed: string[] }
 const emptyReviews = (r: NonNullable<Translation['reviews']>) => !r.agree.length && !r.differ.length && !r.single.length && !r.measured.length
 
 /**
  * The writer's answer as the page's, by rule, holding it to its findings: each point's refs must exist and be of its kind;
  * "agree" needs two reviews, else it is one review's point; "differ" needs two reviews on its sides, else its sides are
  * each one review's; a figure must be in the findings it cites; no channel, no talk of the video, no score, no claim that
- * AquaTome controls a product it doesn't. A point that fails is left out and listed in `problems` (the writer gets one more
- * go with them). Each point cites each of its reviews once, at the first moment it cites.
+ * AquaTome controls a product it doesn't; a product or brand name as its reviews' titles and descriptions or our catalog
+ * spell it (review-names.ts: a near-miss takes that spelling, and is listed in `renamed`). A point that fails is left out and
+ * listed in `problems` (the writer gets one more go with them). Each point cites each of its reviews once, at the first
+ * moment it cites.
  */
-export function mergeWritten(w: Written, reviews: ReviewInput[], tests: TestFact[], o: { channels: string[]; controlled: boolean; testUrl?: string; name?: string }): Merged {
+export function mergeWritten(w: Written, reviews: ReviewInput[], tests: TestFact[], o: { channels: string[]; controlled: boolean; testUrl?: string; name?: string; catalog?: NameCatalog }): Merged {
   const problems: string[] = []
+  const renamed: string[] = []
   const finding = new Map<string, { review: number; url: string; t: number; text: string }>()
   reviews.forEach((r, i) => {
     r.findings.forEach((f, j) => finding.set(`R${i + 1}.${j + 1}`, { review: i, url: r.url, t: f.t, text: f.text }))
@@ -244,15 +247,26 @@ export function mergeWritten(w: Written, reviews: ReviewInput[], tests: TestFact
     if (missing.length) { problems.push(`"${text}": ${missing.join(', ')} is in none of its findings`); return false }
     return true
   }
+  const catalog = `${o.name ?? ''} ${o.catalog?.names ?? ''}`
+  /** Where a text about these reviews may take its names from, closest first. */
+  const namesFrom = (rs: number[]) => [rs.map(i => reviews[i]!.title).join(' '), catalog, rs.map(i => reviews[i]!.description).join(' ')]
+  /** A text as it may publish, its names spelled by `names`. Rules first: a channel is reported as a channel, not an unknown name. */
+  const published = (raw: string, names: string[], source: string): string | null => {
+    const n = fixNames(raw, names, o.catalog?.genera)
+    if (!speaks(n.text, source)) return null
+    if (n.unknown.length) { problems.push(`"${n.text}" names ${n.unknown.join(', ')}: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name ("một đèn khác")`); return null }
+    renamed.push(...n.renamed)
+    return n.text
+  }
   /** A point's reviews, with its first moment in each; refs that don't exist are noted and dropped. */
   const cited = (p: Point) => {
     const hits = p.refs.flatMap(r => { const f = finding.get(r); if (!f) problems.push(`"${clean(p.text)}" cites ${r}, which doesn't exist`); return f ? [f] : [] })
     return { hits, reviews: [...new Set(hits.map(h => h.review))] }
   }
   const toPoint = (p: Point) => {
-    const text = clean(p.text)
     const { hits, reviews: rs } = cited(p)
-    if (!hits.length || !speaks(text, hits.map(h => h.text).join(' '))) return null
+    const text = hits.length ? published(clean(p.text), namesFrom(rs), hits.map(h => h.text).join(' ')) : null
+    if (!text) return null
     return { reviews: rs, point: { text: toMetric(text, 'vi'), cites: rs.map(i => { const h = hits.find(x => x.review === i)!; return { url: h.url, t: h.t } }) } }
   }
   const single: NonNullable<Translation['reviews']>['single'] = (w.single ?? []).flatMap(p => { const x = toPoint(p); return x ? [x.point] : [] })
@@ -261,8 +275,9 @@ export function mergeWritten(w: Written, reviews: ReviewInput[], tests: TestFact
   const differ: NonNullable<Translation['reviews']>['differ'] = []
   for (const d of w.differ ?? []) {
     const sides = d.sides.flatMap(p => { const x = toPoint(p); return x ? [x] : [] })
-    const topic = clean(d.topic)
-    if (sides.length >= 2 && new Set(sides.flatMap(s => s.reviews)).size >= 2 && topic && !namesSource(topic, o.channels).length) differ.push({ topic: toMetric(topic, 'vi'), sides: sides.map(s => s.point) })
+    const on = [...new Set(sides.flatMap(s => s.reviews))]
+    const topic = sides.length >= 2 && on.length >= 2 ? published(clean(d.topic), namesFrom(on), sides.map(s => s.point.text).join(' ')) : null
+    if (topic) differ.push({ topic: toMetric(topic, 'vi'), sides: sides.map(s => s.point) })
     else single.push(...sides.map(s => s.point))
   }
   const measured: NonNullable<Translation['reviews']>['measured'] = []
@@ -273,21 +288,25 @@ export function mergeWritten(w: Written, reviews: ReviewInput[], tests: TestFact
     const how = clean(label?.how ?? '')
     const source = `${m.what} ${m.how}`
     if (!what) { problems.push(`no Vietnamese label for ${ref} (${m.what})`); return }
-    if (!speaks(what, source) || (how && !speaks(how, source))) return
-    measured.push({ what: toMetric(what, 'vi'), value: toMetric(`${figureOf(m.value)} ${m.unit}`.trim(), 'vi'), how: toMetric(how, 'vi'), cite: { url: r.url, t: m.t } })
+    const whatText = published(what, namesFrom([i]), source)
+    const howText = how ? published(how, namesFrom([i]), source) : ''
+    if (whatText === null || howText === null) return
+    measured.push({ what: toMetric(whatText, 'vi'), value: toMetric(`${figureOf(m.value)} ${m.unit}`.trim(), 'vi'), how: toMetric(howText, 'vi'), cite: { url: r.url, t: m.t } })
   }))
   const tested: Merged['tested'] = !o.testUrl ? [] : (w.tested ?? []).flatMap(p => {
     const text = clean(p.text)
     const facts = p.refs.flatMap(r => { const f = /^T(\d+)$/.exec(r); const x = f && tests[Number(f[1]) - 1]; return x ? [x] : [] })
     if (!facts.length) { if (text) problems.push(`"${text}" cites no test note`); return [] }
-    return speaks(text, facts.map(f => `${f.fact} ${f.testedOn}`).join(' ')) ? [{ text: toMetric(text, 'vi'), cites: [{ url: o.testUrl! }] }] : []
+    const notes = facts.map(f => `${f.fact} ${f.testedOn}`).join(' ')
+    const ok = published(text, [notes, catalog], notes)
+    return ok ? [{ text: toMetric(ok, 'vi'), cites: [{ url: o.testUrl! }] }] : []
   })
   const r = { agree, differ, single, measured }
-  return { ...(emptyReviews(r) ? {} : { reviews: r }), tested, problems }
+  return { ...(emptyReviews(r) ? {} : { reviews: r }), tested, problems, renamed }
 }
 
 /** The one writing call (a second only when the first breaks a rule). */
-export async function writeReviews(llm: Llm, t: ReviewTarget, reviews: ReviewInput[], tests: TestFact[], options: { channels: string[]; controlled: boolean; testUrl?: string; model?: string }): Promise<Merged & { calls: number }> {
+export async function writeReviews(llm: Llm, t: ReviewTarget, reviews: ReviewInput[], tests: TestFact[], options: { channels: string[]; controlled: boolean; testUrl?: string; catalog?: NameCatalog; model?: string }): Promise<Merged & { calls: number }> {
   const o = { ...options, name: `${t.brand} ${t.model}` }
   const call = (notes?: string[]) => llm<Written>({
     system: 'Bạn viết phần tóm tắt các bài review sản phẩm bằng tiếng Việt, chỉ từ dữ kiện được đưa. Chỉ trả lời bằng JSON.', schema: WRITE_SCHEMA, model: o.model ?? 'opus',
@@ -324,7 +343,7 @@ export function sourcesWith(e: ProductEntity, videos: { url: string; title: stri
   return [...base, ...videos.filter(v => !known.has(v.url)).map(v => ({ ...v, kind: 'video' as const, at })), ...(notes && !known.has(notes.url) ? [{ ...notes, kind: 'test' as const, at }] : [])]
 }
 
-export type ReviewReport = { id: string; videos: string[]; dropped: { id: string; why: string }[]; calls: number; written: boolean; note?: string; problems: string[]; reviews?: Translation['reviews']; tested?: Translation['tested'] }
+export type ReviewReport = { id: string; videos: string[]; dropped: { id: string; why: string }[]; calls: number; written: boolean; note?: string; problems: string[]; renamed?: string[]; reviews?: Translation['reviews']; tested?: Translation['tested'] }
 
 /**
  * A product page's review summary, from what YouTube has: 1 vet, 1 extraction a review, 1 writing call (2 when the first
@@ -341,17 +360,17 @@ export async function reviewProduct(contentRoot: string, d: ReviewDeps & { now: 
   for (const v of found.videos) {
     const x = await extractFindings(d.llm, v, t, o.extractModel)
     calls++
-    if (x) used.push({ v, input: { url: watchUrl(v.id), ...x } }); else dropped.push({ id: v.id, why: 'nothing it found, once read' })
+    if (x) used.push({ v, input: { url: watchUrl(v.id), title: v.title, description: v.description, ...x } }); else dropped.push({ id: v.id, why: 'nothing it found, once read' })
   }
   const tests = testsFor(entity.brand, entity.model)
   const report = { id, videos: used.map(u => u.v.id), dropped, calls }
   if (!used.length && !tests.length) return { ...report, written: false, note: 'no reviews with findings', problems: [] }
   const m = await writeReviews(d.llm, t, used.map(u => u.input), tests, {
     channels: used.map(u => u.v.channel).filter(c => c.trim().toLowerCase() !== entity.brand.trim().toLowerCase()),
-    controlled: !!controlOf(entity.brand, entity.model), ...(tests.length ? { testUrl: TEST_NOTES.url } : {}), ...(o.writeModel ? { model: o.writeModel } : {}),
+    controlled: !!controlOf(entity.brand, entity.model), catalog: await nameCatalog(contentRoot), ...(tests.length ? { testUrl: TEST_NOTES.url } : {}), ...(o.writeModel ? { model: o.writeModel } : {}),
   })
   calls += m.calls
-  const out = { ...report, calls, problems: m.problems, ...(m.reviews ? { reviews: m.reviews } : {}), ...(m.tested.length ? { tested: m.tested } : {}) }
+  const out = { ...report, calls, problems: m.problems, renamed: m.renamed, ...(m.reviews ? { reviews: m.reviews } : {}), ...(m.tested.length ? { tested: m.tested } : {}) }
   if (!m.reviews && !m.tested.length) return { ...out, written: false, note: 'nothing passed its checks' }
   if (o.dryRun) return { ...out, written: false, note: 'dry run' }
 
@@ -373,6 +392,35 @@ export async function reviewProduct(contentRoot: string, d: ReviewDeps & { now: 
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(next, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(nextVi, null, 2)}\n`)
   return { ...out, written: true }
+}
+
+/**
+ * The names we spell ourselves, for the name check: our product pages, the lights and plugs the app controls, and the brands
+ * our video guides record as gear. Those are read from captions too, so a brand counts only once two guides give it. With
+ * the genera of our fish and plants, whose names aren't products'.
+ */
+export async function nameCatalog(contentRoot: string): Promise<NameCatalog> {
+  const list = async (kind: string) => readdir(join(contentRoot, kind)).catch(() => [] as string[])
+  const names = [...CHIHIROS_LINES.map(l => `Chihiros ${l}`), ...PLUG_FAMILIES.flatMap(f => [f.name, ...f.brands])]
+  for (const id of await list('products')) { const e = await readJson<ProductEntity>(join(contentRoot, 'products', id, 'entity.json')); if (e) names.push(`${e.brand} ${e.model}`) }
+  const brands = new Map<string, { spellings: Set<string>; guides: Set<string> }>()
+  for (const id of await list('guides')) {
+    const v = (await readJson<{ video?: { gear?: { brand?: string }[] } }>(join(contentRoot, 'guides', id, 'entity.json')))?.video
+    for (const { brand } of v?.gear ?? []) {
+      if (!brand) continue
+      const b = brands.get(nameKey(brand)) ?? { spellings: new Set<string>(), guides: new Set<string>() }
+      b.spellings.add(brand)
+      b.guides.add(id)
+      brands.set(nameKey(brand), b)
+    }
+  }
+  for (const b of brands.values()) if (b.guides.size >= 2) names.push(...b.spellings)
+  const genera = new Set<string>()
+  for (const kind of ['species', 'plants']) for (const id of await list(kind)) {
+    const genus = (await readJson<{ scientificName?: string }>(join(contentRoot, kind, id, 'entity.json')))?.scientificName?.split(' ')[0]
+    if (genus) genera.add(nameKey(genus))
+  }
+  return { names: names.join(', '), genera }
 }
 
 /** What a candidate needs to get a page, and to find its reviews. */

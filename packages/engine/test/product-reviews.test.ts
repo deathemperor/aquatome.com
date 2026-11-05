@@ -5,7 +5,7 @@ import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
-import { CHIHIROS_TESTS, cleanExtracted, figureOf, findReviews, isDue, mergeWritten, namesProduct, productCandidates, productReviews, reviewProduct, secondOf, sourcesWith, TEST_NOTES, testsFor, unusable, watchUrl, type ReviewInput, type Written } from '../src/product-reviews'
+import { CHIHIROS_TESTS, cleanExtracted, figureOf, findReviews, isDue, mergeWritten, nameCatalog, namesProduct, productCandidates, productReviews, reviewProduct, secondOf, sourcesWith, TEST_NOTES, testsFor, unusable, watchUrl, type ReviewInput, type Written } from '../src/product-reviews'
 import type { VideoMeta, YouTube } from '../src/youtube'
 
 const meta = (id: string, o: Partial<VideoMeta> = {}): VideoMeta => ({ id, title: 'Chihiros WRGB II review', channel: 'Example Scapes', channelUrl: 'https://youtube.example/c', durationSec: 700, chapters: [], embeddable: true, description: 'A review of the Chihiros light.', thumb: { url: 'https://i.ytimg.com/x.jpg', width: 1280, height: 720 }, captions: true, lang: 'en', ...o })
@@ -115,8 +115,8 @@ test('extraction: a claim the transcript doesn\'t hold, or a figure not said nea
 const A = watchUrl('aaaaaaaaaaa')
 const B = watchUrl('bbbbbbbbbbb')
 const two: ReviewInput[] = [
-  { url: A, findings: [{ kind: 'strength', text: 'Bright enough for easy plants at 30 cm.', t: 95 }, { kind: 'strength', text: 'Fan almost silent.', t: 310 }], measured: [{ what: 'Noise at 1 m', value: '41', unit: 'dB', how: 'phone app', t: 430 }] },
-  { url: B, findings: [{ kind: 'strength', text: 'Good growth for easy plants at 30 cm.', t: 212 }, { kind: 'weakness', text: 'Fan audible at full power.', t: 402 }], measured: [] },
+  { url: A, title: 'Chihiros WRGB II review', description: '', findings: [{ kind: 'strength', text: 'Bright enough for easy plants at 30 cm.', t: 95 }, { kind: 'strength', text: 'Fan almost silent.', t: 310 }], measured: [{ what: 'Noise at 1 m', value: '41', unit: 'dB', how: 'phone app', t: 430 }] },
+  { url: B, title: 'Đánh giá đèn Chihiros WRGB 2', description: '', findings: [{ kind: 'strength', text: 'Good growth for easy plants at 30 cm.', t: 212 }, { kind: 'weakness', text: 'Fan audible at full power.', t: 402 }], measured: [] },
 ]
 const none: Written = { agree: [], differ: [], single: [], measured: [], tested: [] }
 const merge = (w: Partial<Written>, o: Partial<Parameters<typeof mergeWritten>[3]> = {}, reviews = two) => mergeWritten({ ...none, ...w }, reviews, CHIHIROS_TESTS, { channels: ['Example Scapes'], controlled: false, ...o })
@@ -170,6 +170,54 @@ test('merge: a product AquaTome does control may say so; it still may not name t
   expect(merge({ single: [{ text: 'Bạn điều khiển được đèn này bằng AquaTome.', refs: ['R1.2'] }] }, { controlled: true }).reviews!.single).toHaveLength(1)
 })
 
+test('merge: a name the captions misheard takes the spelling in the title of the review it cites, wherever the writer put it', () => {
+  const reviews: ReviewInput[] = [{ ...two[0]!, title: 'Review đèn Chihiros WRGB 2 và so sánh với đèn Nala' }, two[1]!]
+  const m = merge({
+    single: [{ text: 'Một bài review thấy đèn Nana êm hơn.', refs: ['R1.2'] }],
+    differ: [{ topic: 'So với Nana', sides: [{ text: 'Một bài review thấy đèn Nana dịu hơn.', refs: ['R1.1'] }, { text: 'Một bài review khác thấy quạt ồn.', refs: ['R2.2'] }] }],
+    measured: [{ ref: 'R1.m1', what: 'Độ ồn của đèn Nana', how: '' }],
+  }, {}, reviews)
+  expect(m.problems).toEqual([])
+  expect(m.reviews!.single[0]!.text).toBe('Một bài review thấy đèn Nala êm hơn.')
+  expect(m.reviews!.differ[0]).toMatchObject({ topic: 'So với Nala', sides: [{ text: 'Một bài review thấy đèn Nala dịu hơn.' }, {}] })
+  expect(m.reviews!.measured[0]!.what).toBe('Độ ồn của đèn Nala')
+  expect(JSON.stringify(m.reviews)).not.toContain('Nana')
+  expect(m.renamed).toContain('Nana → Nala')
+})
+
+const unmeasured: ReviewInput[] = two.map(r => ({ ...r, measured: [] }))
+
+test('merge: a name that matches nothing leaves the page, and the writer hears why', () => {
+  const m = merge({ single: [{ text: 'Một bài review thấy đèn Zorblax sáng hơn.', refs: ['R1.1'] }, { text: 'Một bài review thấy quạt êm.', refs: ['R1.2'] }] }, {}, unmeasured)
+  expect(m.reviews!.single.map(p => p.text)).toEqual(['Một bài review thấy quạt êm.'])
+  expect(m.problems).toEqual([expect.stringContaining('Zorblax')])
+})
+
+test('merge: a title vouches only for the points citing its review', () => {
+  const reviews: ReviewInput[] = [{ ...unmeasured[0]!, title: 'Chihiros WRGB II vs Zorblax' }, unmeasured[1]!]
+  const m = merge({ single: [{ text: 'Một bài review thấy đèn Zorblax sáng hơn.', refs: ['R1.1'] }, { text: 'Một bài review khác thấy đèn Zorblax tối hơn.', refs: ['R2.1'] }] }, {}, reviews)
+  expect(m.reviews!.single.map(p => p.text)).toEqual(['Một bài review thấy đèn Zorblax sáng hơn.'])
+  expect(m.problems).toEqual([expect.stringContaining('Một bài review khác')])
+})
+
+test('merge: names may come from a cited review\'s description or our catalog; our notes spell their own light', () => {
+  const reviews: ReviewInput[] = [{ ...unmeasured[0]!, description: 'I compare it with a Fluval Plant.' }, unmeasured[1]!]
+  const m = merge({
+    single: [{ text: 'Một bài review thấy đèn Fluval tốt hơn.', refs: ['R1.1'] }, { text: 'Một bài review khác thấy đèn Twinstar đẹp hơn.', refs: ['R2.1'] }],
+    tested: [{ text: 'AquaTome thử trên Chihiros WRGB II Slim thấy lịch mới thay lịch cũ.', refs: ['T4'] }],
+  }, { catalog: { names: 'Twinstar', genera: new Set() }, testUrl: TEST_NOTES.url }, reviews)
+  expect(m.problems).toEqual([])
+  expect(m.reviews!.single).toHaveLength(2)
+  expect(m.tested).toHaveLength(1)
+})
+
+test('merge: a spelling fixed into a channel\'s name still may not publish', () => {
+  const reviews: ReviewInput[] = [{ ...unmeasured[0]!, title: 'Chihiros WRGB II review - Exemplar Scapes' }, unmeasured[1]!]
+  const m = merge({ single: [{ text: 'Theo Exemplor Scapes, đèn sáng.', refs: ['R1.1'] }] }, { channels: ['Exemplar Scapes'] }, reviews)
+  expect(m.reviews?.single ?? []).toEqual([])
+  expect(m.problems).toEqual([expect.stringContaining('names its source')])
+})
+
 test('merge: a measured row needs its Vietnamese label; the value is the extraction\'s, never the writer\'s', () => {
   const m = merge({ single: [{ text: 'Quạt êm.', refs: ['R1.2'] }] })
   expect(m.reviews!.measured).toEqual([])
@@ -186,12 +234,12 @@ test('a reading in the page\'s words: how close it is said in Vietnamese, the fi
   expect(figureOf('~1.5')).toBe('khoảng 1.5')
   expect(figureOf('over 50')).toBe('trên 50')
   expect(figureOf('less than 5')).toBe('dưới 5')
-  const m = merge({ measured: [{ ref: 'R1.m1', what: 'Nhiệt độ đèn', how: '' }] }, {}, [{ url: A, findings: [], measured: [{ what: 'Light temperature', value: 'almost 50', unit: '°C', how: '', t: 10 }] }])
+  const m = merge({ measured: [{ ref: 'R1.m1', what: 'Nhiệt độ đèn', how: '' }] }, {}, [{ url: A, title: '', description: '', findings: [], measured: [{ what: 'Light temperature', value: 'almost 50', unit: '°C', how: '', t: 10 }] }])
   expect(m.reviews!.measured[0]!.value).toBe('khoảng 50 °C')
 })
 
 test('merge: imperial figures come out metric', () => {
-  const inch = [{ url: A, findings: [{ kind: 'strength' as const, text: 'Bright at 12 inches.', t: 95 }], measured: [] }]
+  const inch = [{ url: A, title: '', description: '', findings: [{ kind: 'strength' as const, text: 'Bright at 12 inches.', t: 95 }], measured: [] }]
   const m = merge({ single: [{ text: 'Đèn đủ sáng ở độ sâu 12 inch.', refs: ['R1.1'] }] }, {}, inch)
   expect(m.reviews!.single[0]!.text).toContain('30 cm')
 })
@@ -286,6 +334,39 @@ test('a slip gets one rewrite, with its notes, and no more', async () => {
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
   expect(vi.reviews.single).toEqual([])
   expect(JSON.stringify(vi)).not.toMatch(/Example Scapes|Trong video/)
+})
+
+test('a name that matches nothing gets the one rewrite, and the page takes its spellings from the videos and our catalog', async () => {
+  const { contentRoot, dir } = await store()
+  await mkdir(join(contentRoot, 'guides/g1'), { recursive: true })
+  await mkdir(join(contentRoot, 'guides/g2'), { recursive: true })
+  await writeFile(join(contentRoot, 'guides/g1/entity.json'), JSON.stringify({ video: { gear: [{ brand: 'Twinstar' }, { brand: 'Misheard' }] } }))
+  await writeFile(join(contentRoot, 'guides/g2/entity.json'), JSON.stringify({ video: { gear: [{ brand: 'Twinstar' }] } }))
+  const metas = { aaaaaaaaaaa: meta('aaaaaaaaaaa', { title: 'Chihiros WRGB II vs Nala' }), bbbbbbbbbbb: meta('bbbbbbbbbbb', { title: 'Đánh giá đèn Chihiros WRGB 2', channel: 'Kênh Ví Dụ', lang: 'vi' }) }
+  const point = (text: string) => ({ text, refs: ['R2.1'] }) // R2 reads second: the English one, after the Vietnamese
+  const first = { ...written, single: [point('Một bài review thấy đèn Nana dịu hơn.'), point('Một bài review thấy đèn Misheard rẻ hơn.'), point('Một bài review thấy đèn Twinstar đắt hơn.')] }
+  const { llm, calls, prompts } = modelFor(n => (n === 1 ? first : { ...first, single: [point('Một bài review thấy đèn Nana dịu hơn.'), point('Một bài review thấy đèn Twinstar đắt hơn.')] }))
+  const r = await reviewProduct(contentRoot, deps(llm, metas), 'chihiros-wrgb-ii', WRGB)
+  expect(calls.write).toBe(2)
+  expect(prompts[1]).toContain('Misheard')
+  expect(prompts[0]).not.toContain('Nala') // the writer still never sees a title
+  expect(r).toMatchObject({ written: true, problems: [], renamed: expect.arrayContaining(['Nana → Nala']) })
+  const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
+  expect(vi.reviews.single.map((p: { text: string }) => p.text)).toEqual(['Một bài review thấy đèn Nala dịu hơn.', 'Một bài review thấy đèn Twinstar đắt hơn.'])
+})
+
+test('the catalog: our product pages, what the app controls, and brands two guides give', async () => {
+  const { contentRoot } = await store()
+  for (const [id, brand] of [['g1', 'Twinstar'], ['g2', 'TwinStar'], ['g3', 'Misheard']]) {
+    await mkdir(join(contentRoot, 'guides', id!), { recursive: true })
+    await writeFile(join(contentRoot, 'guides', id!, 'entity.json'), JSON.stringify({ video: { gear: [{ brand }, { brand }] } }))
+  }
+  await mkdir(join(contentRoot, 'plants/anubias-barteri-var-nana'), { recursive: true })
+  await writeFile(join(contentRoot, 'plants/anubias-barteri-var-nana/entity.json'), JSON.stringify({ scientificName: 'Anubias barteri var. nana' }))
+  const { names, genera } = await nameCatalog(contentRoot)
+  for (const name of ['Chihiros WRGB II', 'Chihiros WRGB II Slim', 'Chihiros Commander 4', 'Tuya', 'Smart Life', 'Twinstar', 'TwinStar']) expect(names, name).toContain(name)
+  expect(names).not.toContain('Misheard')
+  expect([...genera]).toEqual(['anubias'])
 })
 
 test('a refresh that finds no reviews keeps the ones the page has; a dry run writes nothing', async () => {
