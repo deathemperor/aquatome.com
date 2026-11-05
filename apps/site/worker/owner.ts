@@ -10,6 +10,8 @@ import { SITE_HOST, VI_SECTIONS } from './paths'
 export const OWNER_COOKIE = 'aq_owner=1; Path=/; Max-Age=2592000; Secure; SameSite=Strict'
 /** The flag as the dashboard's own host sets it: for the site's pages, where the bar and the checks for the owner's own visits read it. */
 export const SITE_OWNER_COOKIE = `${OWNER_COOKIE}; Domain=${SITE_HOST}`
+/** The owner's own visit, by that flag: not a reader, not a shop click. */
+export const isOwnerVisit = (req: Request) => /(?:^|;\s*)aq_owner=1/.test(req.headers.get('cookie') ?? '')
 
 /** A page of any language: the Vietnamese home page and its sections, and the pages under the other languages' prefixes (/id/, /th/). */
 const PAGE = `^\\/(?:(?:${SEGMENTS}|${VI_SECTIONS.join('|')})\\/|$)`

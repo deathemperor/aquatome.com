@@ -31,8 +31,8 @@ export const APPLE_RETURN = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium
 export const SITE_HOST = 'aquatome.com'
 export const DASHBOARD_HOST = `dashboard.${SITE_HOST}`
 /**
- * A dashboard page's address on its host: "/_ab/" → "/", "/_ab/doc-gia/?x=1#y" → "/doc-gia/?x=1#y". Any other path stays as
- * it is, the rest of /_ab/ (the pages' forms, images and fonts) included. Inside the Worker a page is still /_ab/<key>/.
+ * A dashboard page's address for a link from outside the dashboard (mail, reports, JSON, docs): "/_ab/doc-gia/#x" →
+ * "https://aquatome.com/_ab/doc-gia/#x". It is the page itself, or once Cloudflare Access guards the dashboard's own host,
+ * a 301 to it (dashboard.ts), so a link sent before the move still opens. Every printed dashboard address comes from here.
  */
-export const dashboardPath = (path: string) => path.replace(/^\/_ab(?:\/([a-z0-9-]+))?\/(?=[?#]|$)/, (_, key?: string) => (key ? `/${key}/` : '/'))
-export const dashboardUrl = (path = '/_ab/') => `https://${DASHBOARD_HOST}${dashboardPath(path)}`
+export const dashboardUrl = (path = '/_ab/') => `https://${SITE_HOST}${path}`

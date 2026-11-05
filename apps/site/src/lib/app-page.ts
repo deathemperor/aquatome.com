@@ -103,7 +103,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
   if (refs.length) {
     blocks.push({
       t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })),
-      note: t('Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó.'),
+      note: t('Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.'),
     })
   }
   return { blocks, unknown: [...unknown].sort() }

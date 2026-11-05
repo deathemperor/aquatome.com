@@ -93,6 +93,10 @@ struct AquaTomeApp: App {
   private func open(_ screen: AppScreen) {
     switch screen {
     case .lights: tab = .lights
+    case .fishId:
+      // A tool of the handbook's: on the Tìm tab, where the pages its guesses lead to open too.
+      tab = .handbook
+      handbookPath.append(FishIdRoute())
     case .tanks(let id):
       var path = NavigationPath()
       if let id, tanks.tanks.contains(where: { $0.id == id }) { path.append(id) }

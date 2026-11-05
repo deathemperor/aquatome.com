@@ -159,9 +159,10 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(all.isSelected, "not every kind to begin with")
     // Each kind whole, and how many it finds: all of them for “Tất cả”, as many as the rows.
     XCTAssertEqual(all.label, "Tất cả")
-    XCTAssertEqual(all.value as? String, "7")
-    XCTAssertEqual(rows(app), 7)
-    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 1)] {
+    // The tools: "Bể của tôi" (its words say "bể cá") and fish ID ("Đây là cá gì?").
+    XCTAssertEqual(all.value as? String, "8")
+    XCTAssertEqual(rows(app), 8)
+    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 2)] {
       let c = chip(app, kind)
       XCTAssertTrue(c.exists, "no \(title)")
       XCTAssertEqual(c.label, title)
@@ -201,7 +202,7 @@ final class HandbookFlowTests: XCTestCase {
     // The next search starts with every kind, not the one picked for the last.
     field.typeText("ca")
     XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5) && chip(app, "all").isSelected, "still narrowed to the guides")
-    XCTAssertEqual(rows(app), 7)
+    XCTAssertEqual(rows(app), 8)
   }
 
   // "c" counted 2,183 over the 200 rows a search lists, with nothing saying so. Three to a page here (`-search-page`),
@@ -212,20 +213,20 @@ final class HandbookFlowTests: XCTestCase {
     search(app, "ca\n")
     let note = app.staticTexts["more-note"]
     XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
-    XCTAssertEqual(note.label, "Đang hiện 3 trong 7 kết quả. Gõ thêm để thu hẹp.")
-    XCTAssertEqual(chip(app, "all").value as? String, "7")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 8 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(chip(app, "all").value as? String, "8")
     app.buttons["more"].tap()
-    XCTAssertEqual(note.label, "Đang hiện 6 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(note.label, "Đang hiện 6 trong 8 kết quả. Gõ thêm để thu hẹp.")
     app.buttons["more"].tap()
     XCTAssertFalse(note.waitForExistence(timeout: 1), "still short, with all of it listed")
-    XCTAssertEqual(rows(app), 7)
+    XCTAssertEqual(rows(app), 8)
     chip(app, "fish").tap()
     XCTAssertFalse(note.waitForExistence(timeout: 1), "short of a kind that has only 3")
     XCTAssertEqual(rows(app), 3)
     // Another kind picked lists its best 3 again, not as many as the last one had.
     chip(app, "all").tap()
-    XCTAssertTrue(note.waitForExistence(timeout: 5), "all 7 listed again, not the best 3")
-    XCTAssertEqual(note.label, "Đang hiện 3 trong 7 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "all 8 listed again, not the best 3")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 8 kết quả. Gõ thêm để thu hẹp.")
     XCTAssertEqual(rows(app), 3)
   }
 
@@ -311,9 +312,9 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
     search(app, "ca")
     XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5))
-    XCTAssertEqual(chip(app, "all").value as? String, "7")
+    XCTAssertEqual(chip(app, "all").value as? String, "8")
     let seen = screens(app)
-    XCTAssertEqual(Self.count(seen), 7, "\(seen)")
+    XCTAssertEqual(Self.count(seen), 8, "\(seen)")
   }
 
   // Counting each name once, a row listed twice counted as one.

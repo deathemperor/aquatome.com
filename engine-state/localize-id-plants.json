@@ -1729,17 +1729,54 @@
       "\"Hanya dalam kondisi yang sangat mendukung tingginya akan melebihi 20 cm\" is slightly stiff; consider \"Tinggi lebih dari 20 cm hanya tercapai pada kondisi yang sangat mendukung\"."
     ]
   },
-  "pogostemon-helferi": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "Pogostemon helferi",
+  "phyllanthus-fluitans": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Phyllanthus fluitans",
     "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"menolak air\" is a literal rendering of \"water-repellent\"; more natural: \"bersifat hidrofobik\" or \"anti air/tidak basah oleh air\".",
+      "\"differing only in the single-leaf structure on each node\": \"struktur satu daun di setiap ruas\" is a bit awkward; better \"hanya berbeda karena setiap ruas hanya memiliki satu daun\".",
+      "\"mengeluarkan bunga\": \"menghasilkan bunga\" or \"berbunga\" is more natural."
+    ]
+  },
+  "plagiomnium-sp-thyme-moss": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Thyme Moss",
+    "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "\"siput mystery (keong emas)\": mystery snail (Pomacea bridgesii) is not the same as keong emas (Pomacea canaliculata, a pest). Use \"siput mystery\" only, or \"mystery snail\".",
-      "\"Disukai hewan\" for \"Palatable\" is slightly vague. Something like \"Mudah dimakan\" or \"Disukai pemakan tanaman\" is clearer.",
-      "\"memberi kesempatan tanaman muda untuk mapan\": \"mapan\" sounds stiff for plants. Use \"tumbuh mantap\" or \"beradaptasi\".",
-      "\"menjalankan siklus pada substrat\" for \"cycles the substrate\" is unclear. Use \"mematangkan substrat\" or similar."
+      "\"woodland-like atmosphere\" rendered as \"suasana seperti hutan\" is fine; no major issues. Minor: \"layout\" could be \"tata letak/aquascape\" but acceptable."
+    ]
+  },
+  "pogostemon-deccanensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Pogostemon erectus",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Origin: Asia\" is rendered \"Asal: Asia\"; \"Asal\" works, but \"Asal daerah\" or \"Asal usul\" would be more natural (minor).",
+      "\"akarnya tumbuh kuat\" is fine, but \"Pertumbuhannya sedang\" could be \"laju pertumbuhan sedang\" (minor)."
+    ]
+  },
+  "pogostemon-helferi": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Pogostemon helferi",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 9: \"Front cichlids\" is the Cichlasoma/Amphilophus frontosa-type 'Front' ... translated as \"Frontosa\" — Cyphotilapia frontosa is a different fish (Lake Tanganyika, not a plant eater); the original likely means Flowerhorn/'Front cichlid' (Cichlasoma). Fix the fish identity/name.",
+      "Item 9: \"Angelfish\" translated as \"Manfish\" — wrong name; use \"ikan angelfish\" or \"manfish\" is a rare term; prefer \"angelfish\".",
+      "Item 9: \"Texas cichlid\" is fine, but \"crayfish\" as \"lobster air tawar\" is OK; \"mystery snails\" as \"siput mystery\" is OK — however \"Bettas\" -> \"cupang\" fine. No change needed there.",
+      "Item 9: \"Disukai hewan\" for \"Palatable\" is vague; use \"Dimakan hewan\" or \"Enak dimakan\"; \"cari tahu dulu sebelumnya\" is redundant (\"dulu\" + \"sebelumnya\").",
+      "Item 5: \"menyiklus substrat\" is unnatural; use \"mematangkan substrat\" or \"menyiapkan siklus nitrogen substrat\". \"plastik wrap\" should be \"plastik pembungkus (cling wrap)\".",
+      "Item 7: \"akuarium yang sudah melewati siklus nitrogen dan benar-benar matang sangat penting\" awkward; also \"peka ... melting\" mixed English — consider \"meleleh/rontok (melting)\".",
+      "Item 8: \"daun yang sehat dan tebal\" for \"fleshy foliage\" and \"rakus nutrisi\" for \"heavy feeder\" are acceptable but \"lembek\" for \"flaccid\" fine; \"sistem CO2 bertekanan (tabung)\" adds \"(tabung)\" not in source.",
+      "Item 10: \"Burma\" retained; fine. Item 11 references untranslated is fine."
     ]
   },
   "proserpinaca-palustris": {

@@ -35,3 +35,14 @@ test('a buying guide is translated with its photos and type matching kept; Vietn
   // Done: skipped next time.
   expect((await localizeEquipment(root, llm, 'id')).skipped).toEqual(['loc'])
 })
+
+test('--limit: a cycle makes that many guides, the rest wait for the next', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-eq-'))
+  await mkdir(join(root, 'content/equipment'), { recursive: true })
+  for (const c of ['a', 'b', 'c']) await writeFile(join(root, `content/equipment/${c}.json`), JSON.stringify({ ...vi, category: c }))
+  const llm = (async ({ schema }: { schema: { required: string[] } }) => (schema.required.includes('score') ? { score: 0.9, notes: [] } : written('<p>Untuk akuarium mulai 60 cm.</p>'))) as unknown as Llm
+  expect((await localizeEquipment(root, llm, 'ms', { limit: 2 })).done).toHaveLength(2)
+  const next = await localizeEquipment(root, llm, 'ms', { limit: 2 })
+  expect(next.skipped).toEqual(['a', 'b'])
+  expect(next.done).toHaveLength(1)
+})

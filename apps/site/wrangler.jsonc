@@ -16,8 +16,9 @@
       "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*",
       // The dashboard's own host (worker/dashboard-host.ts) has its pages at /<key>/: "/*/" is every address ending in a
       // slash, so a page added to the dashboard needs no line here. Without it the 404 page answers, the Worker never asked.
-      // The Indonesian and Thai pages stay without the Worker, as they were; there, public/_headers marks them noindex.
-      "/*/", "!/id/*", "!/th/*", "/robots.txt"
+      // The Indonesian and Thai pages stay without the Worker, as they were; there, public/_headers marks them noindex. A
+      // page's JSON form there ends in .json, so each needs its line (a test lists the ones the host answers).
+      "/*/", "!/id/*", "!/th/*", "/robots.txt", "/thanh-cong.json"
     ]
   },
   // The owner's dashboard (/_ab/) opens only to the owner's account signed in on the site: secret OWNER_ACCOUNTS, the
@@ -43,7 +44,9 @@
   // uploads bucket under diagnostics/ (a lifecycle rule deletes them).
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }, { "binding": "APP_EVENTS", "dataset": "aquatome_app" }],
   "triggers": { "crons": ["17 20 * * *"] },
-  "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
+  // Sign-in codes, and the daily report (worker/daily, POST /_ab/report), which goes to the secret REPORT_TO. Without that
+  // secret the report is kept on the dashboard, marked not sent.
+  "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com", "bao-cao@aquatome.com"] }],
   "vars": {
     "CANONICAL_HOST": "aquatome.com",
     "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df",

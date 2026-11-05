@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { LANGS, POPULAR, slugify, type Lang } from '@aq/schema'
+import { LANGS, POPULAR, slugify, type WrittenLang } from '@aq/schema'
 import { altKey, breedNames, keptOf } from './alt-names'
 import type { Llm } from './claude'
 
@@ -10,7 +10,7 @@ import type { Llm } from './claude'
  * species each language covers first (speciesOrder, galleries, new pages) and the names shops use (addShopNames). Private:
  * shops and prices never reach the site, only the species' common names.
  */
-export type ShopLang = Lang
+export type ShopLang = WrittenLang
 /** Fish (with shrimp and snails), or plants: plant lists rank the plants' galleries (engine-state/shop-lists/plants-<lang>.json). */
 export type ShopGoods = 'fish' | 'plants'
 export type ShopItem = { trade: string; name: string | null; scientificName: string | null; confidence: number; evidence: string }
@@ -21,6 +21,7 @@ const COUNTRY: Record<ShopLang, { country: string; lang: string; nameForm: strin
   vi: { country: 'Vietnam', lang: 'Vietnamese', nameForm: ', starting with "Cá", "Tép" or "Ốc" ("Cá cánh buồm", "Cá mún", "Tép đỏ")', plantNameForm: ' ("Cây ráy", "Rêu Java", "Trân châu Nhật")' },
   id: { country: 'Indonesia', lang: 'Indonesian', nameForm: ' (often "Ikan …" or the trade name alone, e.g. "Neon Tetra", "Cupang")', plantNameForm: ' (often the trade name alone, e.g. "Anubias Nana", "Moss Java")' },
   th: { country: 'Thailand', lang: 'Thai', nameForm: ' in Thai script (e.g. "ปลาหางนกยูง")', plantNameForm: ' in Thai script where shops use one (e.g. "อนูเบียส")' },
+  ms: { country: 'Malaysia', lang: 'Malay', nameForm: ' (often "Ikan …" or the trade name alone, e.g. "Ikan Laga", "Guppy")', plantNameForm: ' (often the trade name alone, e.g. "Anubias Nana", "Java Moss")' },
 }
 /** What a list covers, and what it leaves out, in the prompt's words. */
 const GOODS: Record<ShopGoods, { shops: string; sell: string; leaveOut: string }> = {
@@ -90,7 +91,7 @@ export async function shopScientific(root: string, langs: ShopLang[], min = RANK
 /** Their page ids, in the same order. */
 export const shopIds = async (root: string, langs: ShopLang[], goods: ShopGoods = 'fish') => (await shopScientific(root, langs, RANK_MIN, goods)).map(slugify)
 
-/** What the engine fetches new pages for first (wanted.ts): every country's shop species, then the most-kept fish. */
+/** What the engine fetches new pages for first (wanted.ts): the shop species of every country the site serves, then the most-kept fish. */
 export const popularFirst = async (root: string) => [...new Set([...await shopScientific(root, [...LANGS], QUEUE_MIN), ...POPULAR])]
 
 /**

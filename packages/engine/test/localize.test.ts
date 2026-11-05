@@ -1,8 +1,9 @@
-import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo, speciesOrder } from '../src/localize'
+import { STAPLE_SPECIES } from '@aq/schema'
+import { localizeGlossary, localizePlaces, localizeSpecies, nativeTo, speciesOrder, TARGETS } from '../src/localize'
 
 /** The fixture site, its sources allowed to be translated except `deny`. */
 async function site(deny: string[] = []) {
@@ -192,4 +193,50 @@ test('translation order: staples and most-kept fish, then pages the other langua
   expect(id.slice(0, 2)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
   expect(id.slice(-3)).toEqual(['zzz-elsewhere', 'aaa-native', 'apistogramma-cacatuoides'])
   expect((await speciesOrder(root, 'th')).slice(-3)).toEqual(['aaa-native', 'apistogramma-cacatuoides', 'zzz-elsewhere'])
+})
+
+test("Malay's style is Malaysia's: its words, its number marks and money, and nothing asked in Indonesian's words", () => {
+  const { style } = TARGETS.ms
+  for (const word of ['tumbuhan akuatik', 'ikan hiasan', 'akuarium', 'kerana', 'wang', 'penapis', 'tukar air', '1.5', '1,000', 'RM25', 'ikan laga', 'sarang buih']) expect(style, word).toContain(word)
+  // Each Indonesian word appears only where the style forbids it: after "never".
+  const asked = style.replace(/never[^.:]*/g, ' ')
+  for (const word of ['pakan', 'tanaman air', 'ikan hias ', 'ganti air', 'siklus', 'karantina', 'kesadahan', 'uang', 'karena', 'cupang', 'sarang busa']) expect(asked, word).not.toContain(word)
+  expect(TARGETS.id.style).toContain('Decimal comma (1,5)') // the two differ here, on purpose
+})
+
+test("Malay pages: addressed by their names as Indonesian's are, kept apart from the served languages' order", async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort().find(x => x !== 'apistogramma-cacatuoides')!
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    expect(a.prompt).toContain('hobbyists in Malaysia')
+    expect(a.prompt).toContain('tumbuhan akuatik')
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'Ikan Laga', altNames: ['Ikan Pelaga'], nameConfidence: 'high', parts: ids.map(i => ({ id: i, text: '<p>Suhu 68 °F, 1 gelen.</p>' })) } as T
+  }
+  await localizeSpecies(root, llm, 'ms', [id], { now })
+  const t = JSON.parse(await readFile(join(root, 'content/species', id, 'ms.json'), 'utf8'))
+  expect(t).toMatchObject({ slug: 'ikan-laga', name: 'Ikan Laga', altNames: ['Ikan Pelaga'] })
+  expect(Object.values(t.sections)[0]).toBe('<p>Suhu 20 °C, 3.8 liter.</p>')
+  // The state file is its own: localize-ms.json, not another language's.
+  expect(JSON.parse(await readFile(join(root, 'engine-state/localize-ms.json'), 'utf8'))[id]).toMatchObject({ name: 'Ikan Laga' })
+  // A page only Malay has doesn't count as a page "another site language already has" for a served language…
+  const th = await speciesOrder(root, 'th')
+  await rm(join(root, 'content/species', id, 'ms.json'))
+  expect(await speciesOrder(root, 'th')).toEqual(th)
+  // …and Malay itself starts from the staples.
+  expect(STAPLE_SPECIES).toContain((await speciesOrder(root, 'ms'))[0])
+})
+
+test('two Malay glossary terms under one address: the second takes its word for "term"', async () => {
+  const root = await site()
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { terms: ids.map(id => ({ id, name: 'Takrif', altNames: [], definition: 'Takrif.' })) } as T
+  }
+  const r = await localizeGlossary(root, llm, 'ms', { only: ['gh', 'chu-trinh-nito'] })
+  expect(r.done).toHaveLength(2)
+  const slug = async (id: string) => JSON.parse(await readFile(join(root, 'content/glossary', id, 'ms.json'), 'utf8')).slug as string
+  expect([await slug('chu-trinh-nito'), await slug('gh')].sort()).toEqual(['takrif', 'takrif-istilah'])
 })

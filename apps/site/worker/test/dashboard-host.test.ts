@@ -3,10 +3,11 @@ import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
 import { createSession } from '../accounts/session'
-import { ADMIN_PAGES } from '../dashboard'
+import { hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
+import { putReport } from '../daily/log'
 import { handle, type Env } from '../index'
 import { OWNER_SCRIPT } from '../owner'
-import { DASHBOARD_HOST, dashboardPath, dashboardUrl, SITE_HOST } from '../paths'
+import { DASHBOARD_HOST, dashboardUrl, SITE_HOST } from '../paths'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
 
@@ -58,9 +59,14 @@ const PAGE = '<!doctype html><html lang="vi"><head><title>public page</title></h
 function env(over: Partial<Env> = {}) {
   const seen: string[] = []
   const store = new Map<string, string>()
+  const meta = new Map<string, unknown>()
   const e = {
     ASSETS: { fetch: async (r: Request) => { seen.push(new URL(r.url).pathname); return new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) } },
-    AB: { get: async (k: string, o?: unknown) => { const v = store.get(k); return v === undefined ? null : o ? JSON.parse(v) : v }, put: async (k: string, v: string) => { store.set(k, v) } },
+    AB: {
+      get: async (k: string, o?: unknown) => { const v = store.get(k); return v === undefined ? null : o ? JSON.parse(v) : v },
+      put: async (k: string, v: string, o?: { metadata?: unknown }) => { store.set(k, v); meta.set(k, o?.metadata) },
+      list: async ({ prefix = '' }: { prefix?: string } = {}) => ({ keys: [...store.keys()].filter(k => k.startsWith(prefix)).map(name => ({ name, metadata: meta.get(name) })), list_complete: true }),
+    },
     AB_DASH_TOKEN: 'tok', OWNER_ACCOUNTS: 'owner-1', ...CONFIG, ...over,
   } as unknown as Env
   return { e, seen, store }
@@ -85,14 +91,15 @@ const isDashboard = (html: string) => html.includes('Các mục quản trị')
 
 // ---- The token ----
 
-test('a valid token opens the dashboard: the overview at /, each page at /<key>/, with no site session', async () => {
+test('a valid token opens the dashboard: the overview at /, each page at /<key>/ (the web-only ones too), with no site session', async () => {
   const { e } = env()
   const home = await dash('/', {}, e)
   expect(home.status).toBe(200)
   const html = await home.text()
   expect(isDashboard(html)).toBe(true)
   expect(html).toContain('href="/" aria-current="page"')
-  for (const p of ADMIN_PAGES.filter(x => x !== '/_ab/')) {
+  expect(WEB_PAGES).toEqual(expect.arrayContaining([SCOREBOARD_PATH, REPORT_PATH]))
+  for (const p of WEB_PAGES.filter(x => x !== '/_ab/')) {
     const key = p.slice('/_ab'.length)
     const r = await dash(key, {}, e)
     expect(r.status, key).toBe(200)
@@ -100,12 +107,45 @@ test('a valid token opens the dashboard: the overview at /, each page at /<key>/
   }
 })
 
-test('a page added under /_ab/<key>/ needs nothing else: the mapping reads the dashboard\'s own list', () => {
-  expect(dashboardPath('/_ab/bao-cao/')).toBe('/bao-cao/')
-  expect(dashboardUrl('/_ab/thanh-cong/?x=1')).toBe(`${DASH}/thanh-cong/?x=1`)
-  expect(dashboardUrl()).toBe(`${DASH}/`)
-  // The rest of /_ab/ (actions, images, fonts, JSON) stays where it is, on both hosts.
-  for (const p of ['/_ab/hidden', '/_ab/hidden.json', '/_ab/anh/abc', '/_ab/fonts/a.woff2', '/_ab/anh-nhan-dien/anh/x/y', '/ca/x/', '/']) expect(dashboardPath(p), p).toBe(p)
+test('a page added under /_ab/<key>/ needs nothing else: the mapping reads the dashboard\'s own list of its pages', () => {
+  for (const [inner, host] of [['/_ab/', '/'], ['/_ab/doc-gia/', '/doc-gia/'], ['/_ab/thanh-cong/', '/thanh-cong/'], ['/_ab/thanh-cong.json', '/thanh-cong.json'], ['/_ab/bao-cao/', '/bao-cao/'], ['/_ab/bao-cao/1003/', '/bao-cao/1003/']] as const) {
+    expect([inner, hostPath(inner)]).toEqual([inner, host])
+    expect([host, innerPath(host)]).toEqual([host, inner])
+  }
+  expect(hostPath('/_ab/nhan-dien-ca/?x=1#key')).toBe('/nhan-dien-ca/?x=1#key')
+  // The rest of /_ab/ (actions, images, fonts, the build's JSON) stays where it is, on both hosts.
+  for (const p of ['/_ab/hidden', '/_ab/hidden.json', '/_ab/content.json', '/_ab/photos', '/_ab/report', '/_ab/anh/abc', '/_ab/fonts/a.woff2', '/_ab/anh-nhan-dien/anh/x/y', '/_ab/anh-nhan-dien/xoa', '/_ab/khong-co/', '/ca/x/', '/']) expect(hostPath(p), p).toBe(p)
+  for (const p of ['/hidden', '/hidden.json', '/fonts/', '/anh/', '/report', '/khong-co/', '/doc-gia', '/ca/x/', '/doc-gia/../hidden', '/DOC-GIA/']) expect(innerPath(p), p).toBeUndefined()
+})
+
+test('one address is printed for a dashboard page outside it, the site\'s, which opens before and after the move', () => {
+  expect(dashboardUrl()).toBe(`${SITE}/_ab/`)
+  expect(dashboardUrl('/_ab/nhan-dien-ca/#key')).toBe(`${SITE}/_ab/nhan-dien-ca/#key`)
+})
+
+test('the web-only pages on the host: the scoreboard, its JSON, the report log and one report, with their links', async () => {
+  const { e } = env()
+  await putReport(e.AB, '1003', { when: '2026-11-05T00:00:00.000Z', subject: 'AquaTome · 5/11', sent: true, care: 0, text: 't', html: '<p>mail</p>' })
+  const score = await dash('/thanh-cong/', {}, e)
+  expect(score.status).toBe(200)
+  expect(await score.text()).toContain('href="/thanh-cong/" aria-current="page"')
+  const json = await dash('/thanh-cong.json', {}, e)
+  expect([json.status, json.headers.get('content-type'), json.headers.get('x-robots-tag'), json.headers.get('cache-control')]).toEqual([200, 'application/json', 'noindex, nofollow', 'no-store'])
+  expect(await json.json()).toMatchObject({ page: `${SITE}/_ab/thanh-cong/` })
+  const log = await (await dash('/bao-cao/', {}, e)).text()
+  expect(log).toContain('href="/bao-cao/" aria-current="page"')
+  expect(log).toContain('href="/bao-cao/1003/"')
+  const one = await dash('/bao-cao/1003/', {}, e)
+  expect(one.status).toBe(200)
+  const html = await one.text()
+  expect(html).toContain('<p>mail</p>')
+  expect(html).toContain('href="/bao-cao/"')
+  expect((await dash('/bao-cao/999/', {}, e)).status).toBe(404)
+  // From before the move, the same page here.
+  for (const [from, to] of [['/_ab/thanh-cong/', '/thanh-cong/'], ['/_ab/thanh-cong.json', '/thanh-cong.json'], ['/_ab/bao-cao/1003/', '/bao-cao/1003/'], ['/_ab/bao-cao', '/bao-cao/']] as const) {
+    expect((await dash(from, {}, e)).headers.get('location'), from).toBe(to)
+  }
+  for (const p of ['/thanh-cong/', '/thanh-cong.json', '/bao-cao/', '/bao-cao/1003/']) expect((await dash(p, { token: null }, e)).status, p).toBe(403)
 })
 
 const refusedTokens: [string, () => Promise<string | null>][] = [
@@ -257,7 +297,7 @@ test('unconfigured: /_ab/ on the site is exactly today\'s, with no redirect: the
 test('configured: a browser\'s GET of a dashboard page on the site 301s to the same page on the host, and the owner bar\'s links arrive there', async () => {
   const { db, owner } = await accounts()
   const { e } = env({ DB: db } as Partial<Env>)
-  for (const p of ADMIN_PAGES) {
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`]) {
     for (const [headers, method] of [[browser, 'GET'], [{ ...browser, cookie: owner }, 'GET'], [browser, 'HEAD']] as const) {
       const r = await site(p, e, headers, { method })
       expect([p, r.status, r.headers.get('location')]).toEqual([p, 301, `${DASH}${p.slice('/_ab'.length)}`])
@@ -293,7 +333,7 @@ test('configured: what isn\'t a browser asking for a page stays on the site, unc
   }
   // Every machine endpoint: answered, not moved.
   const post = (body: unknown) => ({ method: 'POST', body: JSON.stringify(body) })
-  for (const [path, init] of [['/_c/admin/queue', {}], ['/_c/admin/decisions', post([])], ['/_aff/products', post([])], ['/_p/admin/queue', {}]] as [string, RequestInit][]) {
+  for (const [path, init] of [['/_c/admin/queue', {}], ['/_c/admin/decisions', post([])], ['/_aff/products', post([])], ['/_p/admin/queue', {}], ['/_ab/report', post({})], ['/_ab/thanh-cong.json', {}]] as [string, RequestInit][]) {
     expect((await site(path, e, dashToken, init)).status, path).not.toBe(404)
     expect((await site(path, e, browser, init)).status, path).toBe(404)
   }
@@ -320,6 +360,11 @@ test('the machine endpoints are not on the host: without a token 403, and with o
     expect((await dash(path, { token: null, headers: { authorization: 'Bearer tok' } }, e)).status, path).toBe(403)
     expect((await dash(path, { headers: { authorization: 'Bearer tok' } }, e)).status, path).toBe(404)
   }
+  // The daily report's post (daily-report.yml): its route is the site's, so on the host it's nothing.
+  const report = { method: 'POST', body: '{}', headers: { authorization: 'Bearer tok', 'sec-fetch-site': 'same-origin', 'content-type': 'application/json' } }
+  expect((await dash('/_ab/report', { ...report, token: null }, e)).status).toBe(403)
+  expect((await dash('/_ab/report', report, e)).status).toBe(404)
+  expect((await dash('/report', report, e)).status).toBe(404)
 })
 
 // ---- The host's routes ----
@@ -383,15 +428,14 @@ async function hiddenPage() {
 
 test('a page\'s links: its own by address on the host, the site\'s pages back on the site, forms, images and fonts where they are', async () => {
   const { html } = await hiddenPage()
-  for (const p of ADMIN_PAGES) expect(html, p).toContain(`href="${p.slice('/_ab'.length)}"`)
+  for (const p of WEB_PAGES) expect(html, p).toContain(`href="${hostPath(p)}"`)
   expect(html).not.toMatch(/href="\/_ab\/(?:[a-z0-9-]+\/)?["?#]/)
   expect(html).toContain('class="brand" href="/"')
   // A hidden page's link is the public page's address, not a 404 on this host.
   expect(html).toContain(`<a href="${SITE}${hiddenPath}">`)
   // No root-relative link is left that this host wouldn't answer.
   const own = [...html.matchAll(/\b(?:href|src|action)="(\/[^"]*)"/g)].map(m => m[1]!)
-  const pages = ADMIN_PAGES.map(p => p.slice('/_ab'.length))
-  for (const link of own) expect(link.startsWith('/_ab/') || link.startsWith('/cdn-cgi/access/') || pages.includes(link.replace(/[?#].*$/, '')), link).toBe(true)
+  for (const link of own) expect(link.startsWith('/_ab/') || link.startsWith('/cdn-cgi/access/') || !!innerPath(link.replace(/[?#].*$/, '')), link).toBe(true)
   expect(html).toContain('action="/_ab/hidden"')
   expect(html).toContain('url(/_ab/fonts/')
   expect(html).toContain('Ghi chú &lt;b&gt;') // escaped text comes through untouched
@@ -399,11 +443,12 @@ test('a page\'s links: its own by address on the host, the site\'s pages back on
 
 test('on every page, no root-relative link is left that this host wouldn\'t answer', async () => {
   const { e } = env()
-  const pages = ADMIN_PAGES.map(p => p.slice('/_ab'.length))
-  for (const p of pages) {
+  await putReport(e.AB, '1003', { when: '2026-11-05T00:00:00.000Z', subject: 's', sent: true, care: 0, text: 't', html: '<p>mail</p>' })
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`].map(hostPath)) {
     const html = await (await dash(p, {}, e)).text()
+    expect(isDashboard(html), p).toBe(true)
     for (const [, link] of html.matchAll(/\b(?:href|src|action)="(\/[^"]*)"/g)) {
-      expect(link!.startsWith('/_ab/') || link!.startsWith('/cdn-cgi/access/') || pages.includes(link!.replace(/[?#].*$/, '')), `${p}: ${link}`).toBe(true)
+      expect(link!.startsWith('/_ab/') || link!.startsWith('/cdn-cgi/access/') || !!innerPath(link!.replace(/[?#].*$/, '')), `${p}: ${link}`).toBe(true)
     }
     expect(html, p).not.toMatch(/href="\/_ab\/(?:[a-z0-9-]+\/)?["?#]/)
   }
@@ -483,8 +528,17 @@ test('the deploy creates the host, on the site\'s zone, and the vars are there t
 
 test('the Worker runs first on each dashboard page, any key to come, or the 404 page would answer without it', () => {
   expect(config.assets.not_found_handling).toBe('404-page')
-  for (const p of ADMIN_PAGES) expect(workerFirst(p.slice('/_ab'.length)), p).toBe(true)
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`]) expect(workerFirst(hostPath(p)), p).toBe(true)
   for (const p of ['/bao-cao/', '/thanh-cong/', '/robots.txt', '/_ab/hidden', '/_ab/anh/x', '/_ab/fonts/x.woff2', '/ca/x/', '/ca/x']) expect(workerFirst(p), p).toBe(true)
+})
+
+test('a page\'s JSON form the host answers runs the Worker first there too (it ends in .json, not a slash)', async () => {
+  const { e } = env()
+  const keys = WEB_PAGES.filter(p => p !== '/_ab/').map(p => p.slice('/_ab/'.length, -1))
+  const served = []
+  for (const key of keys) if ((await dash(`/${key}.json`, {}, e)).status !== 404) served.push(`/${key}.json`)
+  expect(served).toContain('/thanh-cong.json')
+  for (const p of served) expect(workerFirst(p), p).toBe(true)
 })
 
 test('assets and the Indonesian and Thai pages stay as they were: no Worker before them, on either host', () => {

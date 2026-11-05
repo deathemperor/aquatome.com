@@ -12,6 +12,146 @@
     "malaysia",
     "peninsular-malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Danau Sentarum",
+        "Batang Hari"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', and work by Ng and Kottelat published in 2007 (see 'Notes') confirmed that contrary to much of the published information this species does not occur in Indochina and is restricted to Borneo, Sumatra and possibly Peninsular Malaysia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A pelagic species primarily occurring in rivers but also natural lakes such as the Danau Sentarum system.",
+          "countries": [],
+          "regions": [
+            "Danau Sentarum"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "For example it is now thought extirpated from the Batang Hari river drainage, Sumatra, and in the Danau Sentarum National Park, Borneo, numbers have been declining steadily since 1975.",
+          "countries": [],
+          "regions": [
+            "Batang Hari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363816,
+      "total": 21,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          10
+        ],
+        [
+          "BD",
+          4
+        ],
+        [
+          "MY",
+          4
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "EE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          23.90625,
+          59.0625,
+          1,
+          0
+        ],
+        [
+          90,
+          22.5,
+          4,
+          0
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -101,14 +101,55 @@ public enum Readers {
 
   /// A photo as the app sends it, as the site's form does (apps/site/src/scripts/reader-photos.ts): at most `maxSide`
   /// pixels, upright, a JPEG written anew, so none of the original's data (its GPS position, the camera) goes with it.
-  public static func shrink(_ photo: Data, maxSide: Int = 2000) -> Data? {
-    guard let source = CGImageSourceCreateWithData(photo as CFData, nil),
-          let image = CGImageSourceCreateThumbnailAtIndex(source, 0, [kCGImageSourceCreateThumbnailFromImageAlways: true,
-            kCGImageSourceCreateThumbnailWithTransform: true, kCGImageSourceThumbnailMaxPixelSize: maxSide] as CFDictionary) else { return nil }
+  /// With `region` (0…1 of the upright photo), only that part, cut from the photo at full size and then shrunk, as the
+  /// site's fish-ID tool cuts the fish a reader boxed.
+  public static func shrink(_ photo: Data, maxSide: Int = 2000, quality: Double = 0.88, region: CGRect? = nil) -> Data? {
+    guard let source = CGImageSourceCreateWithData(photo as CFData, nil) else { return nil }
+    var size = maxSide
+    let part = region?.intersection(CGRect(x: 0, y: 0, width: 1, height: 1))
+    if let part {
+      // Read only as large as the part needs, not a phone's tens of megapixels.
+      guard !part.isEmpty, let (w, h) = uprightSize(source) else { return nil }
+      let long = max(part.width * w, part.height * h, 1)
+      size = Int((max(w, h) * min(1, Double(maxSide) / long)).rounded(.up))
+    }
+    guard var image = CGImageSourceCreateThumbnailAtIndex(source, 0, [kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceCreateThumbnailWithTransform: true, kCGImageSourceThumbnailMaxPixelSize: size] as CFDictionary) else { return nil }
+    if let part {
+      let w = Double(image.width), h = Double(image.height)
+      let cut = CGRect(x: part.minX * w, y: part.minY * h, width: part.width * w, height: part.height * h).integral
+        .intersection(CGRect(x: 0, y: 0, width: w, height: h))
+      guard let piece = image.cropping(to: cut) else { return nil }
+      image = piece
+      // Rounding can leave it a pixel or two over.
+      if max(image.width, image.height) > maxSide {
+        guard let fitted = fit(image, maxSide) else { return nil }
+        image = fitted
+      }
+    }
     let out = NSMutableData()
     guard let dest = CGImageDestinationCreateWithData(out, UTType.jpeg.identifier as CFString, 1, nil) else { return nil }
-    CGImageDestinationAddImage(dest, image, [kCGImageDestinationLossyCompressionQuality: 0.88] as CFDictionary)
+    CGImageDestinationAddImage(dest, image, [kCGImageDestinationLossyCompressionQuality: quality] as CFDictionary)
     return CGImageDestinationFinalize(dest) ? out as Data : nil
+  }
+
+  /// The photo's width and height as it shows, turned by its orientation.
+  private static func uprightSize(_ source: CGImageSource) -> (Double, Double)? {
+    guard let p = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any],
+          let w = (p[kCGImagePropertyPixelWidth] as? NSNumber)?.doubleValue, let h = (p[kCGImagePropertyPixelHeight] as? NSNumber)?.doubleValue
+    else { return nil }
+    // Orientations 5 to 8 turn it a quarter.
+    return ((p[kCGImagePropertyOrientation] as? NSNumber)?.intValue ?? 1) >= 5 ? (h, w) : (w, h)
+  }
+
+  private static func fit(_ image: CGImage, _ maxSide: Int) -> CGImage? {
+    let k = Double(maxSide) / Double(max(image.width, image.height))
+    let w = max(1, Int((Double(image.width) * k).rounded())), h = max(1, Int((Double(image.height) * k).rounded()))
+    guard let ctx = CGContext(data: nil, width: w, height: h, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                              bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else { return nil }
+    ctx.interpolationQuality = .high
+    ctx.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h))
+    return ctx.makeImage()
   }
 
   private static func posting(_ url: URL, token: String, version: String) -> URLRequest {
