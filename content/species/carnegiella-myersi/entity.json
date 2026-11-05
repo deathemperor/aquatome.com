@@ -1,0 +1,180 @@
+{
+  "id": "carnegiella-myersi",
+  "scientificName": "Carnegiella myersi",
+  "order": "Characiformes",
+  "family": "Gasteropelecidae",
+  "genus": "Carnegiella",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru",
+    "huallaga",
+    "bolivia",
+    "beni"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 50
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>The pygmy hatchetfish, Carnegiella myersi, is a tiny freshwater hatchetfish from the Peruvian Amazon basin, with a second population in Bolivia. The smallest and most delicate of the nominal hatchetfishes, it has a shallower, rounded keel that gives it an elongate profile. It lives in small, shaded, shallow forest streams and must be kept in a group of at least six, away from active tankmates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>Peruvian Amazon basin; the type locality is a creek near Yurimaguas, Peru. A second population is known from Bolivia, which according to Gery (1977) is deeper bodied than the Peruvian Amazon population.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>Found in small, shaded and shallow woodland streams in the forest.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>Standard length: 25 mm SL. Aquarium base: 50 × 30 cm. Volume: ~45 litres.</p><p>An aquarium with a surface area measuring at least 50 × 30 cm is required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>This species requires a well-matured aquarium with floating plants but providing some clear surface for swimming. Water movement should be minimal so the fish can easily remain motionless in still water. Lighting should not be bright. The top must be well covered; like all hatchetfish in the genus, this one will readily jump whether through play or interaction within the group, fright from other fish below, or if disturbed even by sliding the cover open for feeding.</p><p>Driftwood branches and dried leaf litter can also be added, the latter in particular driving establishment of microbe colonies as decomposition occurs.</p><p>Such micro-organisms can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves are also thought beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–6 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>Insectivore by nature, eating small insects on the water surface, it will usually accept most prepared foods that float such as flake and micro pellet, small dried insects and bloodworms. Wingless fruit flies are ideal as a live treat.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>Very peaceful but due to its small size and rather timid nature it is not a fish for the general community tank. In a community it's best kept with similarly-sized, peaceful characids and smaller callichthyid or loricariid catfishes; should not have active tankmates. This species will co-habit with the others in the genus.</p><p>Must be maintained in a group; six should be the minimum with more if possible.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>Presumably females will be rounder especially when viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>Not recorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<p>The smallest and most delicate of the nominal hatchetfishes. The rounded keel is shallower than related species, giving this fish a distinctive elongate profile.</p><p>Gasteropelecids are commonly referred to as 'freshwater hatchetfishes' due to their heavily-keeled body shape, which has evolved due to an enlarged, heavily-muscled pectoral girdle and resembles the shape of a hatchet head.</p><p>They are sometimes said to be capable of propelled flight above the water surface by beating their pectoral fins, but this was disproven by Wiest (1995) using high speed video photography: the pectoral fins are used in leaving the water but not while the fish is in the air. The action is more accurately described as a powerful jump and is a modified threat response which appears to be used only in extreme circumstances.</p><p>However, leaving the tank cover open during darkness is likely to result in one or more hatchetfish on the floor by morning, so clearly they do jump.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "html": "<ul><li>Javonillo, R., L. R. Malabarba, S. H. Weitzman and J. R. Burns (2010). Relationships among major lineages of characid fishes (Teleostei: Ostariophysi: Characiformes), based on molecular sequence data. Molecular Phylogenetics and Evolution 54(2), 498-511</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Wiest, F. C. (1995). The specialized locomotory apparatus of the freshwater hatchetfish family Gasteropelecidae. Journal of Zoology 236(4), 571-592</li><li>Piggott, M. P., N. L. Chao and L. B. Beheregaray (2011). Three fishes in one: cryptic species in an Amazonian floodplain forest specialist. Biological Journal of the Linnean Society 102(2), 391-403</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5c9dd3b53b4ed4ea.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5c9dd3b53b4ed4ea-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/carnegiella-myersi",
+      "caption": "This species was described from the rio Huallaga basin, in the vicinity of Yurimaguas, Loreto region, northern Peru.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50 cm",
+        "bể thủy sinh nhỏ có nắp"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn nổi cho cá nhỏ",
+        "vi viên cho cá nhỏ",
+        "ruồi giấm không cánh"
+      ]
+    },
+    {
+      "category": "den",
+      "keywords": [
+        "đèn led ánh sáng dịu"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh thả nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

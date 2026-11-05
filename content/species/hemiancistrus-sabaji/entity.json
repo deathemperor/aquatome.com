@@ -1,0 +1,85 @@
+{
+  "id": "hemiancistrus-sabaji",
+  "scientificName": "Hemiancistrus sabaji",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hemiancistrus",
+  "group": "catfish",
+  "lNumber": "L124",
+  "places": [
+    "south-america",
+    "brazil",
+    "guyana"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistomus_sabaji_l124_big_spot__en/",
+      "html": "<p>Ancistomus sabaji is also known under the L numbers L 75, L 124, L 301 and LDA 2. They can grow larger than 20 cm. They are omnivores with little aggression and are very well suited to community tanks.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistomus_sabaji_l124_big_spot__en/",
+      "html": "<p>Brazil, Guyana. The area of origin is large and numerous deviating colour forms exist.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistomus_sabaji_l124_big_spot__en/",
+      "html": "<p>They can get larger than 20 cm and therefore need roomy aquariums.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistomus_sabaji_l124_big_spot__en/",
+      "html": "<p>A fish with many names: Ancistomus sabaji, also placed in Hypostomus or Peckoltia. There is hardly another L number catfish where the confusion regarding the nomenclature is as large as with this species. This is a result of the generous allocation of numbers (L 75, L 124, L 301 and LDA 2) for this fish. One reason is the large area of origin where numerous deviating colour forms exist. For the hobbyist this should be no real problem, since all varieties are attractive and can be easily kept.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ab128479b91f2c71.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loricariidae_Peckoltia_sabaji_2.jpg",
+      "caption": "Peckoltia sabaji. Sea Life Hannover.",
+      "thumb": "https://media.aquatome.com/commons/ab128479b91f2c71-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kính"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-05"
+}

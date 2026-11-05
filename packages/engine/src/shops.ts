@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { POPULAR, slugify } from '@aq/schema'
+import { altKey, breedNames, keptOf } from './alt-names'
 import type { Llm } from './claude'
 
 /**
@@ -109,14 +110,18 @@ export async function addShopNames(root: string, lang: ShopLang): Promise<string
     if (t) for (const name of [t.name, ...t.altNames]) own(name, `${kind}:${id}`)
   }
   const added: string[] = []
+  const breeds = await breedNames(join(root, 'content'), lang)
   const byId = new Map<string, string[]>()
   for (const i of [...sure].sort((a, b) => b.confidence - a.confidence)) byId.set(slugify(i.scientificName), [...(byId.get(slugify(i.scientificName)) ?? []), i.name])
   for (const [id, names] of byId) {
     const f = join(root, 'content/species', id, `${lang}.json`)
     const t = JSON.parse(await readFile(f, 'utf8').catch(() => 'null')) as { name: string; altNames: string[] } | null
     if (!t) continue
-    const seen = new Set([t.name, ...t.altNames].map(key))
-    const add = [...new Set(names)].filter(n => !seen.has(key(n)) && [...owners.get(key(n))!].every(o => o === `species:${id}`)).slice(0, MAX_NEW)
+    // One name written another way is the page's already ("Cá Tiger Oscar" for "Tiger Oscar"), as the sweep keeps it.
+    const seen = new Set([t.name, ...t.altNames].map(altKey))
+    const sci = (JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { scientificName?: string }).scientificName ?? ''
+    const fresh = [...new Set(names)].filter(n => !seen.has(altKey(n)) && [...owners.get(key(n))!].every(o => o === `species:${id}`) && !!seen.add(altKey(n)))
+    const add = keptOf({ name: t.name, sci, altNames: t.altNames }, breeds, fresh).slice(0, MAX_NEW)
     if (!add.length) continue
     await writeFile(f, `${JSON.stringify({ ...t, altNames: [...t.altNames, ...add] }, null, 2)}\n`)
     added.push(`${id}: ${add.join(', ')}`)

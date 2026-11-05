@@ -1,0 +1,66 @@
+{
+  "id": "cephalosilurus-apurensis",
+  "scientificName": "Cephalosilurus apurensis",
+  "order": "Siluriformes",
+  "family": "Pseudopimelodidae",
+  "genus": "Cephalosilurus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cephalosilurus-apurensis/",
+      "html": "<p>Cephalosilurus apurensis attains a maximum length of about 30 cm. It is a large, predatory catfish and a much sought-after species among fans of such fish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cephalosilurus-apurensis/",
+      "html": "<p>A few specimens of this rarity were imported again. The fish are 20–25 cm long and almost fully grown. They are available in very small numbers only.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/cephalosilurus-apurensis/",
+      "html": "<p>The species appears to be endemic to Venezuela, meaning its distribution is restricted to that country.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "lọc cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "thức ăn cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-05"
+}

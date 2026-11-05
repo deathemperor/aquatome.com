@@ -1,0 +1,117 @@
+{
+  "id": "nematabramis-everetti",
+  "scientificName": "Nematabramis everetti",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Nematabramis",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "malaysia",
+    "sarawak",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<p>Nematabramis everetti is a cyprinid endemic to Borneo, known from Sarawak and Sabah plus East and North Kalimantan. It has a distinctive dark, vertically-elongate humeral marking, more prominent than in other Nematabramis species. Juveniles and subadults appear to favour fast-moving water, while adults are found in deeper, slower stretches of minor tributaries.</p><p>Max size: 105 mm SL (10.5 cm SL).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<p>Endemic to Borneo, where it is known from the Malaysian states of Sarawak and Sabah, plus the Indonesian provinces East Kalimantan (Kalimantan Timur) and North Kalimantan (Kalimantan Utara).</p><p>Type locality is 'Bongon River, Sarawak state, Borneo, East Malaysia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<p>Nematabramis species are found in a variety of habitat types, from swiftly-flowing affluent streams to pools, lakes, and degraded swamps. Based on the available collection records, juveniles and subadults of N. everetti display a preference for fast-moving water whereas adults are found in deeper, slower stretches of minor tributaries.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<p>Feeds chiefly on terrestrial and aquatic invertebrates taken near the water surface.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<p>Mature females are likely to be deeper-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<p>Apparently prefers to spawn in warm, shallow water.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<p>This species can be distinguished from congeners by the following combination of characters: barbels longer than head and extending to or beyond the centre of the pectoral-fin; body relatively deep, depth fits 2.5-3.5 times in SL; 9-11 scale rows between dorsal-fin origin and anal-fin origin; 8-13 branched dorsal-fin rays; 15-20 branched anal-fin rays.</p><p>It also possesses a distinctive dark, vertically-elongate, humeral marking which is much more prominent than in other Nematabramis species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "html": "<ul><li>Boulenger, G. A. (1894). Descriptions of new freshwater fishes from Borneo. Annals and Magazine of Natural History (Series 6) v. 13 (no. 75), 245-251</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Martin-Smith, K. M. and H. H. Tan (1998). Diversity of freshwater fishes from eastern Sabah: annotated checklist for Danum Valley and a consideration of inter- and intra-catchment variability. Raffles Bulletin of Zoology 46(2), 573-604</li><li>Riehl, R. and H.A. Baensch (1997). Aquarium Atlas. Volume 1, 6th Edition. Microcosm, 1-992</li><li>Inger, R. F. and P. K. Chin (1962). The fresh-water fishes of North Borneo. Fieldiana Zoology v.45, 1-268</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9847b2f145e542ff.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9847b2f145e542ff-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-everetti",
+      "caption": "The Brantian River in eastern Sabah state, Malaysian Borneo, is a natural habitat of this species.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài cho cá đàn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nổi mặt nước",
+        "thức ăn khô cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

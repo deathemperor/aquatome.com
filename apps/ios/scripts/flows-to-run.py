@@ -73,6 +73,8 @@ HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testL
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages']
+# The app's icon picker: its flows, and its screenshots (the whole class, run by `handbook (1)`, which keeps them).
+ICONS = ['AppIconFlowTests', 'PageShotsFlowTests']
 # The light flows that start from a tank or keep a light on one.
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
@@ -87,6 +89,8 @@ REACH = {
     'apps/ios/scripts/shots.py': ALL,
     # What every screen sits in, or builds the app and its flows: the smoke set.
     APP + 'OwnCopy.swift': [], APP + 'Assets.xcassets/': [], 'apps/ios/AquaTome.xcodeproj/': [], 'apps/ios/Config/': [],
+    # The icons a reader chooses: the picker, the icon sets and their previews (app-icons.py writes them).
+    APP + 'AppIcon/': ICONS, APP + 'Assets.xcassets/AppIcon': ICONS, 'apps/ios/scripts/app-icons.py': NONE,
     KIT + 'Package.swift': [], f'apps/ios/{UI}/': [],
     # The Bluetooth module is built into the app, but the simulator has none: FakeRadio stands in for it in every flow.
     KIT + 'Sources/ChihirosBLE/': [],

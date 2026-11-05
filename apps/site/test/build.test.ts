@@ -140,8 +140,8 @@ test('a thin page (one dealer\'s note) stays out of search; a heading over a few
   expect(html).toMatch(/<meta name="robots" content="noindex/)
   expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/ca/ca-ong-tien/')
   // "Spawns on leaves." under its own heading becomes a line of the quick facts, with its source's mark; "Amazon basin."
-  // is left out, the quick facts already say it.
-  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts'])
+  // is left out, the quick facts already say it. Its range (where it lives in the wild) is a section of its own.
+  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts', 'range'])
   const facts = dom.querySelector('#muc-quickFacts')!
   expect(facts.querySelectorAll('li').map(li => li.text)).toEqual(['Sinh sản: Đẻ trứng trên lá.1'])
   expect(facts.querySelector('li strong')?.text).toBe('Sinh sản:')
@@ -301,6 +301,15 @@ test("a guide's photos go under the section they name, at their own size and cre
 test('a breed the guide names (engine mentions) lists the guide on its page', () => {
   expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
   expect(page('/ca/ca-dia/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
+})
+
+// 2026-11-05: the halfmoon betta's other names held the betta's ("Cá xiêm"), so every guide naming the betta was listed on
+// the halfmoon's page (a pea puffer video among them). A breed's names are its own (engine alt-names.ts cleanBreedAltNames).
+test("a guide naming only a breed's species is listed on the species' page, not the breed's", () => {
+  const guide = 'a[href="/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]' // "Cá đĩa hoang dã về ít…"
+  expect(page('/ca/ca-dia/').dom.querySelector(guide)).not.toBeNull()
+  expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector(guide)).toBeNull()
+  expect(page('/ca/ca-la-han/').dom.querySelector(guide)).toBeNull() // a hybrid the discus may be a parent of
 })
 
 describe('review fixes', () => {
