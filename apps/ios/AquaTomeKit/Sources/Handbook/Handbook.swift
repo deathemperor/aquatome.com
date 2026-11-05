@@ -49,19 +49,27 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public let parts: Int?
     /// A tool page's own title, the line under its heading and its description: found by search, not shown.
     public let words: [String]
+    /// A breed that is a form of a species: the species' content id. A tank's check counts the breed as that species, so
+    /// it has no `facts` of its own.
+    public var of: String? { breed?.of }
+    /// A breed's own figures, as its page's data card shows them: what its facts card shows.
+    public var card: Facts? { breed?.card }
+    /// `of` and `card`, behind one reference: only breeds have them, and every item is copied as a list scrolls, so
+    /// held in each item they cost a fling through the fish about 2 MB (perf-budgets.json).
+    private let breed: Breed?
     public var id: String { path }
 
     /// Of `kind`, as a search narrowed to it or a list of it takes it: a video guide is a guide, and a video too.
     public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
 
-    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words }
+    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words, of, card }
 
     public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil,
                 facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
-                video: Int? = nil, parts: Int? = nil, words: [String] = []) {
+                video: Int? = nil, parts: Int? = nil, words: [String] = [], of: String? = nil, card: Facts? = nil) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
       self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
-      self.video = video; self.parts = parts; self.words = words
+      self.video = video; self.parts = parts; self.words = words; self.breed = Breed(of: of, card: card)
     }
 
     public init(from decoder: any Decoder) throws {
@@ -82,6 +90,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       video = (try? c.decodeIfPresent(Int.self, forKey: .video)) ?? nil
       parts = (try? c.decodeIfPresent(Int.self, forKey: .parts)) ?? nil
       words = ((try? c.decodeIfPresent([String].self, forKey: .words)) ?? nil) ?? []
+      breed = Breed(of: (try? c.decodeIfPresent(String.self, forKey: .of)) ?? nil,
+                    card: (try? c.decodeIfPresent(Facts.self, forKey: .card)) ?? nil)
     }
 
     public func encode(to encoder: any Encoder) throws {
@@ -100,7 +110,23 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       try c.encodeIfPresent(video, forKey: .video)
       try c.encodeIfPresent(parts, forKey: .parts)
       if !words.isEmpty { try c.encode(words, forKey: .words) }
+      try c.encodeIfPresent(of, forKey: .of)
+      try c.encodeIfPresent(card, forKey: .card)
       try facts.encode(to: encoder)
+    }
+
+    /// What a breed's item has that others don't: none for an item with neither.
+    final class Breed: Sendable, Hashable {
+      let of: String?
+      let card: Facts?
+
+      init?(of: String?, card: Facts?) {
+        guard of != nil || card != nil else { return nil }
+        self.of = of; self.card = card
+      }
+
+      static func == (a: Breed, b: Breed) -> Bool { a.of == b.of && a.card == b.card }
+      func hash(into h: inout Hasher) { h.combine(of); h.combine(card) }
     }
   }
 

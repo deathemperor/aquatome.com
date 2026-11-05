@@ -59,11 +59,11 @@ for (const path of pages) {
     expect(broken, 'links to missing pages').toEqual([])
 
     // Indonesian and Thai pages show no Vietnamese. Left out: a quoted Vietnamese title (lang="vi") and the photo credits
-    // (people's names, which can be Vietnamese on any page).
+    // (people's names, which can be Vietnamese on any page): the list, and an Unsplash photo's line under it (.pic-by).
     if (/^\/(id|th)\//.test(path)) {
       const text = await page.evaluate(() => {
         const body = document.body.cloneNode(true) as HTMLElement
-        body.querySelectorAll('[lang="vi"], #photo-credits, script, style, template').forEach(el => el.remove())
+        body.querySelectorAll('[lang="vi"], #photo-credits, .pic-by, script, style, template').forEach(el => el.remove())
         return body.textContent ?? ''
       })
       const plain = VIETNAMESE_ALLOWED.reduce((t, re) => t.replace(re, ''), text)

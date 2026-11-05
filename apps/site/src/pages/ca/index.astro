@@ -53,11 +53,11 @@ const first = species.slice(0, PAGE), firstPhotos = photos.slice(0, PAGE)
     // A species past the first page becomes a card the first time it shows.
     build: buildCard,
     onRun: p => {
-      // A search leads with its results: the breed cards above the list stay only when they match it.
+      // A search leads with its results: the breed cards above the list stay only when they match it, figures and all.
       if (!breeds) return
       const q = queryFromParams(p)
       let n = 0
-      breeds.querySelectorAll('li').forEach(li => { li.hidden = !keepBreed(li.querySelector('.n')!.textContent!, q); if (!li.hidden) n++ })
+      breeds.querySelectorAll('li').forEach(li => { const c = li.querySelector<HTMLElement>('.sc')!; li.hidden = !keepBreed(c.querySelector('.n')!.textContent!, JSON.parse(c.dataset.fig ?? '{}'), q); if (!li.hidden) n++ })
       breeds.hidden = n === 0
     },
   })

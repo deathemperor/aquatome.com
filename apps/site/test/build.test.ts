@@ -720,12 +720,23 @@ describe('man-made fish (breeds)', () => {
     const { dom } = page('/ca/ca-dia/')
     const names = [...dom.querySelectorAll('section.breeds .n')].map(x => x.textContent)
     expect(names).toEqual(['Cá đĩa Pigeon Blood', 'Cá La Hán (Flowerhorn)'])
-    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed1.jpg')
+    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('photos/a-red-discus-fish-Pb1Fixture1')
     expect(page('/ca/').dom.querySelector('section.breeds a[href="/ca/ca-la-han/"]')).toBeTruthy()
+  })
+  // The owner (2026-11-06): a breed's card shows its figures as a species' card does, from its own care card.
+  test("a breed's card shows its temperature and pH as a species' does, or says it has none", () => {
+    const cards = [...page('/ca/').dom.querySelectorAll('section.breeds .sc')]
+    const pigeon = cards.find(c => c.querySelector('.n')!.textContent === 'Cá đĩa Pigeon Blood')!
+    expect(pigeon.querySelector('.label dt')!.textContent).toBe('Nhiệt độ')
+    expect(pigeon.querySelector('.label dd')!.getAttribute('data-c')).toMatch(/^\d+,\d+$/)
+    expect(JSON.parse(pigeon.getAttribute('data-fig')!).tempC).toEqual({ min: Number(pigeon.querySelector('.label dd')!.getAttribute('data-c')!.split(',')[0]), max: Number(pigeon.querySelector('.label dd')!.getAttribute('data-c')!.split(',')[1]) })
+    const flowerhorn = cards.find(c => c.querySelector('.n')!.textContent === 'Cá La Hán (Flowerhorn)')!
+    expect(flowerhorn.querySelector('.label.none')!.textContent).toBe('Chưa có số liệu')
+    expect(JSON.parse(flowerhorn.getAttribute('data-fig')!)).toEqual({})
   })
   test('on the species list the breed cards lead the page: small pictures, loaded at once', () => {
     const img = page('/ca/').dom.querySelector('section.breeds img')!
-    expect(img.getAttribute('src')).toContain('/500px-')
+    expect(img.getAttribute('src')).toContain('&w=480&') // the lead's small copy: Unsplash's, at 480 px
     expect(img.getAttribute('loading')).toBe('eager')
     expect(page('/ca/ca-dia/').dom.querySelector('section.breeds img')!.getAttribute('loading')).toBe('lazy')
   })

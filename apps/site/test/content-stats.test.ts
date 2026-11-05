@@ -137,15 +137,16 @@ test('sources and photos: what each source gives the pages, and where photos com
   expect(licenceFamily({ licence: 'dùng với sự cho phép', source: 'seriouslyfish' })).toBe('permission')
   expect(photoOrigin({ url: 'https://media.aquatome.com/commons/ab.webp' })).toBe('commons')
   expect(photoOrigin({ url: 'https://media.aquatome.com/x.webp', source: 'scotcat' })).toBe('scotcat')
-  // The fixture's photos are on Wikimedia's own host, which a public build leaves out until they are mirrored.
-  expect(stats.photos.waitingMirror).toBe(13)
+  // The fixture's photos are on Wikimedia's own host, which a public build leaves out until they are mirrored; the Pigeon
+  // Blood discus's own photo is Unsplash's, hot-linked as Unsplash asks, never mirrored.
+  expect(stats.photos.waitingMirror).toBe(12)
   // A public build shows only sources with permission: the fixture's are all held back but YouTube, so no fish or plant
-  // page is left, and the breeds' two Commons photos wait for our media host.
+  // page is left; of the breeds' photos, the Commons one waits for our media host and the Unsplash one shows.
   const pub = computeContentStats({ contentRoot: CONTENT, publicBuild: true, now: NOW })
   expect(Object.keys(pub.sources)).toEqual(['youtube'])
-  expect(pub.photos.covered).toEqual({ fish: { with: 0, of: 0 }, plant: { with: 0, of: 0 }, breed: { with: 0, of: 2 } })
+  expect(pub.photos.covered).toEqual({ fish: { with: 0, of: 0 }, plant: { with: 0, of: 0 }, breed: { with: 1, of: 2 } })
   expect(pub.gaps.fish!.noSummary!.n).toBe(0)
-  expect(pub.photos.waitingMirror).toBe(2)
+  expect(pub.photos.waitingMirror).toBe(1)
 })
 
 test('backfill: each past day\'s totals from the last commit of the day, as entries for wrangler kv bulk put', () => {
