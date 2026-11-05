@@ -421,10 +421,13 @@ const COUNTRY_HEAD = ['Nước', 'Người đọc']
 function readersParts(now: Date, r: Readers, tz: string) {
   const days = lastDays(now, r.days, tz)
   const d = alignDaily(days, r.daily)
+  // Days before the count's reset weren't counted: no value, not 0.
+  const from = r.from ? localDay(r.from, tz) : ''
+  const counted = (vals: number[]) => days.map((day, i) => (day < from ? null : vals[i]!))
   return {
-    lede: `${r.days} ngày gần nhất · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết, các lượt kiểm tra tự động của AquaTome và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây. ${zoneNote(tz, now)}`,
+    lede: `${r.days} ngày gần nhất${r.from ? ` (đếm lại từ ${timeTag(r.from, tz, now)})` : ''} · đếm từ trình duyệt chạy JavaScript của trang (bỏ bot đã biết, các lượt kiểm tra tự động của AquaTome và lượt của chủ trang) · <b>người đọc</b> = phiên cuộn ≥ 50% trang hoặc ở lại ≥ 30 giây. ${zoneNote(tz, now)}`,
     tiles: [{ label: 'Phiên', value: fmt(r.sessions) }, { label: 'Người đọc', value: fmt(r.readers), meter: r.sessions ? r.readers / r.sessions : undefined, sub: `${fmt(r.sessions ? (100 * r.readers) / r.sessions : 0, 1)}% số phiên (tỉ lệ người đọc)` }] as Tile[],
-    chart: { id: 'r-daily', title: 'Phiên và người đọc mỗi ngày', days, series: [{ label: 'Người đọc', values: d.readers }], whole: { label: 'Phiên', values: d.sessions }, partialLast: true, empty: 'Chưa có phiên nào.' } as DayChart,
+    chart: { id: 'r-daily', title: 'Phiên và người đọc mỗi ngày', days, series: [{ label: 'Người đọc', values: counted(d.readers) }], whole: { label: 'Phiên', values: counted(d.sessions) }, partialLast: true, empty: 'Chưa có phiên nào.', ...(from ? { missing: `chưa đếm: số đếm bắt đầu lại từ ${dayText(from, now, tz)}` } : {}) } as DayChart,
     sources: r.sources.map(x => ({ label: esc(x.source), value: x.sessions, part: x.readers, cells: [fmt(x.readers)] })) as Ranked[],
     pages: r.pages.map(x => ({ label: pageLink(x.path), value: x.views })) as Ranked[],
     countries: r.countries.map(x => ({ label: esc(x.cc), value: x.readers })) as Ranked[],
