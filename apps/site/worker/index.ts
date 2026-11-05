@@ -6,6 +6,7 @@ import { applyDecisions, listComments, moderationQueue, postComment, purgeRemove
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
+import { dailyReportRoute } from './daily/api'
 import { ownerApi } from './owner-api'
 import { isOwnerVisit } from './owner'
 import { recordSnapshot } from './admin/content'
@@ -50,6 +51,8 @@ export interface Env {
   /** Reader photos: raw uploads (private) and the public media bucket (media.aquatome.com) the screened copies go to. */
   UPLOADS?: R2Bucket
   MEDIA?: R2Bucket
+  /** Who the daily report goes to (a secret, worker/daily): never logged, stored or answered. */
+  REPORT_TO?: string
 }
 type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & FishIdEnv
 const MAX_EVENT_BYTES = 4096
@@ -222,6 +225,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/_p') return finish(req.method === 'POST' ? await postPhoto(req, env, new Date()) : req.method === 'GET' ? await listPhotos(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname === '/_p/xoa/' || url.pathname === '/_p/xoa') return finish(await deleteRoute(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
+  // The daily report's GitHub half, from daily-report.yml (worker/daily): the dashboard token only.
+  if (url.pathname === '/_ab/report') return dailyReportRoute(req, url, env)
   // The owner's dashboard (worker/dashboard.ts): every /_ab path, each behind the token.
   if (url.pathname === '/_ab' || url.pathname.startsWith('/_ab/')) return adminRoute(req, url, env)
 

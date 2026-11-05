@@ -12,7 +12,7 @@ import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
 import { inLang, items as itemCount, KIND as PAGE_KIND, LANG_VI, MAIN, perDay, writtenPerDay } from './content-page'
 import type { Call, FishIdStats, Totals } from './fishid'
-import { failedBox, ICON, isFailed, page, SCOREBOARD_PATH, type Soft } from './shell'
+import { failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, SCOREBOARD_PATH, type Soft } from './shell'
 import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zoneName } from './time'
 
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
@@ -30,7 +30,7 @@ const dayText = (day: string, now: Date, tz: string) => `${day.slice(8, 10)}/${d
 const zoneNote = (tz: string, now: Date) => `Ngày và giờ theo giờ của bạn (${zoneName(tz, now)}).`
 /** The sum of `vals` (one per day, the last is today) from `from` to `to` days ago. */
 const ago = (vals: number[], from: number, to: number) => vals.slice(vals.length - 1 - from, vals.length - to).reduce((a, b) => a + b, 0)
-const alignDaily = (days: string[], daily: Readers['daily']) => {
+export const alignDaily = (days: string[], daily: Readers['daily']) => {
   const m = new Map(daily.map(d => [d.day, d]))
   return { sessions: days.map(d => m.get(d)?.sessions ?? 0), readers: days.map(d => m.get(d)?.readers ?? 0) }
 }
@@ -61,18 +61,24 @@ const VS = '7 ngày trước đó'
 const MODERATION_RUNS = 'https://github.com/deathemperor/aquatome.com/actions/workflows/moderate.yml'
 const WEEKDAY = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
 /** The last value of each list is today's: the value `back` days before it. */
-const at = (vals: number[], back: number) => vals[vals.length - 1 - back] ?? 0
+export const at = (vals: number[], back: number) => vals[vals.length - 1 - back] ?? 0
 const waitingText = (w: Waiting) => [w.comments ? `${fmt(w.comments)} bình luận` : '', w.photos ? `${fmt(w.photos)} ảnh` : ''].filter(Boolean).join(', ')
+const plural = (n: number, one: string, many = `${one}s`) => `${fmt(n)} ${n === 1 ? one : many}`
+/** What's waiting in English, for the daily report (daily/compose.ts). */
+export const waitingEn = (w: Waiting) => [w.comments ? plural(w.comments, 'comment') : '', w.photos ? plural(w.photos, 'photo') : ''].filter(Boolean).join(', ')
+/** Waiting this long, the moderation missed a night. */
+export const MODERATION_MISSED_MS = 30 * 3_600_000
 
-/** Each part of the overview, by what it is to the owner and where its page is. */
-const parts = (o: Overview): [string, Soft<unknown>, string][] => [
-  ['người đọc', o.readers, '/_ab/doc-gia/'], ['lượt bấm affiliate', o.clicks, '/_ab/affiliate/'], ['nhật ký nhận diện cá', o.fish, '/_ab/nhan-dien-ca/'],
-  ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/tai-khoan/'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/'],
-  ['danh sách bạn đọc muốn có', o.wanted, '/_ab/muon-co/'], ['danh sách trang ẩn', o.hidden, '/_ab/an-trang/'],
-  ['số liệu nội dung', o.content, '/_ab/noi-dung/'], ['số liệu nội dung từng ngày', o.snapshots, '/_ab/noi-dung/'],
+/** Each part of the overview, by what it is to the owner (in Vietnamese, and in English for the daily report) and where its page is. */
+const parts = (o: Overview): [string, Soft<unknown>, string, string][] => [
+  ['người đọc', o.readers, '/_ab/doc-gia/', 'readers'], ['lượt bấm affiliate', o.clicks, '/_ab/affiliate/', 'affiliate clicks'], ['nhật ký nhận diện cá', o.fish, '/_ab/nhan-dien-ca/', 'the fish ID log'],
+  ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/', 'comments and accounts'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/tai-khoan/', 'the moderation queues'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/', 'reader photos'],
+  ['danh sách bạn đọc muốn có', o.wanted, '/_ab/muon-co/', 'the wanted names'], ['danh sách trang ẩn', o.hidden, '/_ab/an-trang/', 'the hidden pages'],
+  ['số liệu nội dung', o.content, '/_ab/noi-dung/', 'the content totals'], ['số liệu nội dung từng ngày', o.snapshots, '/_ab/noi-dung/', 'the daily content totals'],
 ]
 
-export type Todo = { title: string; text: string; href: string; action: string }
+/** `en`: the same to-do for the daily report, in English and with no error text. Beside the Vietnamese, so a new to-do can't reach the page without it; the app's JSON (overviewJson) never reads it. */
+export type Todo = { title: string; text: string; href: string; action: string; en: { title: string; text: string } }
 /** What needs the owner, each with the one place to deal with it: the fish-ID keys, a moderation that stopped, a part that won't load. */
 export function todos(o: Overview): Todo[] {
   const out: Todo[] = []
@@ -80,29 +86,33 @@ export function todos(o: Overview): Todo[] {
   // In the viewer's time, as the bar shows it: 2026-11-03T21:05Z → 04/11 04:05 in Vietnam.
   const short = (iso: string) => clock(iso, tz, o.now)
   const key = { href: '/_ab/nhan-dien-ca/#key', action: 'Xem key' }
-  if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key })
-  else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key })
+  if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key, en: { title: 'Could not read the Anthropic keys\' state', text: 'The fish ID page has the error.' } })
+  else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key, en: { title: 'Fish ID is off', text: 'ANTHROPIC_KEYS holds no key.' } })
   else {
     const off = o.keys.rows.filter(r => r.state !== 'ok')
     if (off.length) {
       const all = off.length === o.keys.rows.length
-      out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key })
+      out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
+        en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · ') } })
     }
-    if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key })
+    if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key, en: { title: `${plural(o.keys.bad, 'line')} of ANTHROPIC_KEYS can't be read`, text: 'The tool skips them: fix the ANTHROPIC_KEYS secret.' } })
   }
   // The moderation runs at 21:00 UTC each night (moderate.yml): anything still waiting after 30 hours means a night was missed.
-  if (!isFailed(o.waiting) && o.waiting.oldest && o.now.getTime() - Date.parse(o.waiting.oldest) > 30 * 3_600_000) {
-    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi ngày lúc ${hourMinute('2026-01-01T21:00:00Z', tz)}.`, href: MODERATION_RUNS, action: 'Xem lần chạy' })
+  if (!isFailed(o.waiting) && o.waiting.oldest && o.now.getTime() - Date.parse(o.waiting.oldest) > MODERATION_MISSED_MS) {
+    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi ngày lúc ${hourMinute('2026-01-01T21:00:00Z', tz)}.`, href: MODERATION_RUNS, action: 'Xem lần chạy',
+      en: { title: 'Moderation has not run', text: `${waitingEn(o.waiting)} waiting since ${short(o.waiting.oldest)}.` } })
   }
   // A source behind a browser check stops until the owner passes it in the engine's Chrome profile.
   const engine = isFailed(o.content) ? null : o.content.engine
   const human = engine?.needsHuman ?? []
   if (human.length) {
     const name = (id: string) => engine!.sources.find(r => r.id === id)?.name ?? id
-    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, href: '/_ab/noi-dung/#engine', action: 'Xem engine' })
+    const stopped = human.map(h => `${name(h.source)} (since ${short(h.since)})`).join(', ')
+    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, href: '/_ab/noi-dung/#engine', action: 'Xem engine',
+      en: { title: human.length > 1 ? `${fmt(human.length)} sources need you to pass a browser check` : `${name(human[0]!.source)} needs you to pass a browser check`, text: `The engine stopped fetching from ${stopped}. Open the source in the engine's Chrome profile.` } })
   }
-  for (const [label, part, href] of parts(o)) {
-    if (isFailed(part)) out.push({ title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở' })
+  for (const [label, part, href, en] of parts(o)) {
+    if (isFailed(part)) out.push({ title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở', en: { title: `Could not load ${en}`, text: 'Its dashboard page has the error.' } })
   }
   return out
 }
@@ -227,7 +237,7 @@ export function overviewPage(o: Overview): string {
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
 <p class="note"><a href="${SCOREBOARD_PATH}">Thành công</a>: chỉ số sản phẩm theo tuần, tuần này so với tuần trước.</p>
 <section aria-labelledby="h-areas"><h2 id="h-areas">Các mục</h2><ul class="areas">${rows}</ul><p class="note">${areasNote(o)}</p></section>
-</div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">${LOG_TITLE}</h2><div class="log">${days}</div></section></div></div>`, o.now, o.tz ?? HOME_TZ)
+</div><div class="side"><section aria-labelledby="h-log"><h2 id="h-log">${LOG_TITLE}</h2><div class="log">${days}</div></section><p class="note"><a href="${REPORT_PATH}">${REPORT_NAME}</a>: bản đã gửi mỗi sáng.</p></div></div>`, o.now, o.tz ?? HOME_TZ)
 }
 
 const LOG_TITLE = 'Mấy ngày qua'
@@ -315,6 +325,7 @@ const STOPPED: Record<string, string> = { answer: 'tự trả lời', calls: 'h�
 const VERDICT: Record<string, string> = { fish: 'động vật', plant: 'cây', other: 'không có', unclear: 'chưa rõ' }
 const FROM: Record<string, string> = { page: 'trang nhận diện', tank: 'Bể của tôi' }
 const KEY_STATE: Record<FishIdStatus['rows'][number]['state'], string> = { ok: 'đang dùng', credit: 'hết credit', auth: 'key bị từ chối', rate: 'bị giới hạn tốc độ' }
+const KEY_STATE_EN: typeof KEY_STATE = { ok: 'in use', credit: 'out of credit', auth: 'key refused', rate: 'rate limited' }
 
 export type FishPage = { now: Date; stats: Soft<FishIdStats>; keys: Soft<FishIdStatus | undefined>; pages: Map<string, string>; /** The viewer's time zone (admin/time.ts). */ tz?: string }
 
