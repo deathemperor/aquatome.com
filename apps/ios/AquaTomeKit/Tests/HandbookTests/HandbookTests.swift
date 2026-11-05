@@ -167,6 +167,27 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(route("about:blank", newWindow: true) == .none)
 }
 
+// The site's pages about itself open in the browser, not the app's web view (the owner's call): about, with its data
+// table, contact and privacy, in each language, the Vietnamese under "/vi/" or at the root.
+@Test func theSitesPagesAboutItselfOpenInTheBrowser() {
+  let site = URL(string: "https://aquatome.com")!
+  func route(_ s: String) -> PageRoute { PageRoute.of(URL(string: s)!, site: site, mainFrame: true, newWindow: false) }
+  for s in ["https://aquatome.com/vi/gioi-thieu/", "https://aquatome.com/vi/gioi-thieu/bang-du-lieu/",
+            "https://aquatome.com/vi/lien-he/", "https://www.aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan",
+            "https://aquatome.com/lien-he/", "https://aquatome.com/gioi-thieu",
+            "https://aquatome.com/id/tentang/", "https://aquatome.com/id/tentang/tabel-data/", "https://aquatome.com/id/kontak/",
+            "https://aquatome.com/id/kebijakan-privasi/#tai-khoan", "https://aquatome.com/th/about/",
+            "https://aquatome.com/th/about/data-table/", "https://aquatome.com/th/contact/", "https://aquatome.com/th/privacy/"] {
+    #expect(route(s) == .outside, "\(s)")
+  }
+  // The handbook stays: the home page, a page whose slug starts as one does, one language's words in another's.
+  for s in ["https://aquatome.com/vi/", "https://aquatome.com/", "https://aquatome.com/vi/huong-dan/lien-he-nguon-nuoc/",
+            "https://aquatome.com/vi/gioi-thieu-ca-canh/", "https://aquatome.com/vi/about/", "https://aquatome.com/id/contact/",
+            "https://aquatome.com/about/"] {
+    #expect(route(s) == .app, "\(s)")
+  }
+}
+
 @Test func shopLinksAreTheSitesGoPaths() {
   let site = URL(string: "https://aquatome.com/vi/ca/ca-neon/")!
   #expect(ShopLink.is(URL(string: "https://aquatome.com/go/shopee/?k=ca-neon")!, site: site))

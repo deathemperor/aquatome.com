@@ -327,7 +327,8 @@ public func isInterruption(_ error: any Error) -> Bool {
 public enum PageRoute: Equatable, Sendable {
   /// Stays in the app: the site's own pages, and anything inside a page (embeds).
   case app
-  /// Opens in the browser or the app that handles it: other sites, links that ask for a new window, mail and phone.
+  /// Opens in the browser or the app that handles it: other sites, links that ask for a new window, mail and phone, and
+  /// the site's pages about itself (AboutTheSite).
   case outside
   /// Not followed: a new blank window.
   case none
@@ -338,13 +339,31 @@ public enum PageRoute: Equatable, Sendable {
     let scheme = url.scheme?.lowercased() ?? ""
     if ["about", "data", "blob"].contains(scheme) { return newWindow ? .none : .app }
     if !newWindow && !mainFrame { return .app }
-    if !newWindow && ["http", "https"].contains(scheme) && bare(url.host) == bare(site.host) { return .app }
+    if !newWindow && ["http", "https"].contains(scheme) && bare(url.host) == bare(site.host) {
+      return AboutTheSite.is(url) ? .outside : .app
+    }
     return .outside
   }
 
   private static func bare(_ host: String?) -> String? {
     guard let h = host?.lowercased() else { return nil }
     return h.hasPrefix("www.") ? String(h.dropFirst(4)) : h
+  }
+}
+
+/// The site's pages about itself: what it is (with its data table), how to reach it, its privacy policy. The app opens
+/// them in the browser, not in its web view (the owner's call, 2026-11-02): they aren't the handbook.
+enum AboutTheSite {
+  /// apps/site/src/lib/i18n.ts: each one's segment in each language.
+  static let sections = ["vi": ["gioi-thieu", "lien-he", "chinh-sach-bao-mat"], "id": ["tentang", "kontak", "kebijakan-privasi"],
+                         "th": ["about", "contact", "privacy"]]
+
+  /// `url` is one of them or a page below one ("/th/privacy/", "/vi/gioi-thieu/bang-du-lieu/"), the Vietnamese under
+  /// "/vi/" or at the root ("/lien-he/").
+  static func `is`(_ url: URL) -> Bool {
+    var parts = url.path(percentEncoded: false).split(separator: "/").map(String.init)
+    let lang = ["vi", "id", "th"].contains(parts.first ?? "") ? parts.removeFirst() : "vi"
+    return parts.first.map { sections[lang]?.contains($0) == true } ?? false
   }
 }
 
