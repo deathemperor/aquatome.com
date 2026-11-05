@@ -697,6 +697,8 @@ private struct ReadersPart: View {
   @State private var managing = false
   #if DEBUG
   /// This page's read has ended (answered, or failed): only then can a UI test say the page shows none (debug builds).
+  /// Each time the page shows, it reads again and this is false until that read ends. It says nothing of the section
+  /// shown for posting: that one shows whenever accounts are open, read or not.
   @State private var answered = false
   #endif
 
@@ -762,6 +764,9 @@ private struct ReadersPart: View {
     #endif
     .task(id: talk) {
       // Read again each time the page shows; one that fails (offline, or left before it came) keeps what was shown.
+      #if DEBUG
+      answered = false
+      #endif
       let (c, p) = await handbook.readers(talk)
       guard !Task.isCancelled else { return }
       if let c { comments = c }

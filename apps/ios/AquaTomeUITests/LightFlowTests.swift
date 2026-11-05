@@ -134,10 +134,14 @@ final class LightFlowTests: XCTestCase {
     // On Đèn: the tap has done what it does, and a second connection would be looking for the light by now.
     let lightsTab = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: app.tabBars.buttons["Đèn"])
     XCTAssertEqual(XCTWaiter().wait(for: [lightsTab], timeout: 5), .completed, "the light didn't open on the Đèn tab")
+    // A second connection clears the notice before its first wait (LightsModel's connect(saved:)), and the tap's task has
+    // run by the time the tab shows: the first connection's "Đã kết nối", still there at once, means none started.
+    let notice = element(app, "notice")
+    let said = notice.exists ? notice.label : "nothing"
+    XCTAssertTrue(said.contains("Đã kết nối"), "a second connection started: the notice says \(said)")
     let looking = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Đang tìm'")).firstMatch
     XCTAssertFalse(looking.exists, "a second connection started")
     XCTAssertEqual(element(app, "frames").label, written, "a second connection started")
-    expect(app, "notice", contains: "Đã kết nối")
     XCTAssertTrue(element(app, "disconnect").exists, "the light was let go")
   }
 
