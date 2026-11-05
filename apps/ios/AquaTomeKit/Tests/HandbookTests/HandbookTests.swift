@@ -64,8 +64,9 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
     .init(kind: .glossary, name: "Dung tích thực của bể", aka: ["Thể tích bể"], path: "/vi/thuat-ngu/dung-tich/"),
     .init(kind: .guide, name: "Tính thể tích bể", path: "/vi/huong-dan/tinh-the-tich-be/"),
   ])
-  // The name, then another name, then the page's own words.
-  #expect(names(s.find("the tich be")) == ["Tính thể tích bể", "Dung tích thực của bể", "Bể bao nhiêu lít?"])
+  // The name, then another name, then the page's own words ("the tich be" would be the glossary's other name whole,
+  // and a page named what was searched for comes first).
+  #expect(names(s.find("the tich")) == ["Tính thể tích bể", "Dung tích thực của bể", "Bể bao nhiêu lít?"])
   #expect(names(s.find("gallon")) == ["Bể bao nhiêu lít?"])
   #expect(names(s.find("gallon kinh", kind: .tool)) == ["Bể bao nhiêu lít?"])
   #expect(s.find("gallon", kind: .guide).isEmpty)
