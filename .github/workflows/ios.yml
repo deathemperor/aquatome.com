@@ -43,6 +43,8 @@ jobs:
     outputs:
       ready: ${{ steps.pick.outputs.ready }}
       app: ${{ steps.pick.outputs.app }}
+      app_1: ${{ steps.pick.outputs.app_1 }}
+      app_2: ${{ steps.pick.outputs.app_2 }}
       handbook: ${{ steps.pick.outputs.handbook }}
       handbook_1: ${{ steps.pick.outputs.handbook_1 }}
       handbook_2: ${{ steps.pick.outputs.handbook_2 }}
@@ -66,7 +68,7 @@ jobs:
         run: |
           python3 apps/ios/scripts/flows-to-run.py --test
           if [ "$GITHUB_EVENT_NAME" = pull_request ] && [ "$DRAFT" = true ]; then
-            printf 'ready=false\napp=\nhandbook=[]\nlights=[]\n' | tee -a "$GITHUB_OUTPUT"
+            printf 'ready=false\napp=[]\nhandbook=[]\nlights=[]\n' | tee -a "$GITHUB_OUTPUT"
             echo "::notice title=Draft::the iOS jobs run once this pull request is marked ready"
           elif [ "$GITHUB_EVENT_NAME" != pull_request ] || [ "$FULL" = true ]; then
             echo ready=true | tee -a "$GITHUB_OUTPUT"
@@ -109,21 +111,27 @@ jobs:
       # run by hand against a real light), then the tests run.
       - run: swift build && swift test
         working-directory: apps/ios/AquaTomeKit
+  # In two halves, as `handbook` and `lights` are (APP_FIRST in flows-to-run.py): on GitHub's Macs the whole job takes
+  # about a minute a test, and #553's run of it was stopped at its hour with 42 of 56 passed and none failed
+  # (2026-11-05). A pull request's smoke set runs in the first half.
   app:
+    # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: other flows"
     needs: changes
-    if: needs.changes.outputs.app != ''
+    if: needs.changes.outputs.app != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    # A stopgap until this job is split in two halves, as `handbook` and `lights` are: on GitHub's Macs its full suite
-    # takes about a minute a test, and #553's run was stopped at 60 minutes with 42 passed and none failed. Main runs it
-    # in full after every merge and each night, so at 60 each of those runs would end red (2026-11-05).
-    timeout-minutes: 120
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        half: ${{ fromJSON(needs.changes.outputs.app) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
       # The full suite: the main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights'
       # (job `lights`), the performance tests (job `perf`), and the App Store's screenshots (app-store.yml), which read
       # the live site. A pull request: the smoke set, and the classes of the flow files it edits that are none of those.
+      # Each half runs its share.
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
@@ -131,7 +139,7 @@ jobs:
       # shell, it was left running with no parent when that shell died, still driving the simulator and writing its
       # result bundle into the next job's checkout (2026-11-04, the runner's log; wait-for-simulator.sh).
       - env:
-          TESTS: ${{ needs.changes.outputs.app }}
+          TESTS: ${{ needs.changes.outputs[format('app_{0}', matrix.half)] }}
         run: >-
           exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
@@ -148,7 +156,7 @@ jobs:
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: ios-ui-tests
+          name: ios-ui-tests-${{ matrix.half }}
           path: build/ui.xcresult
           if-no-files-found: ignore
   # What the app costs a reader (apps/ios/perf-budgets.json): launch, the work and memory of a long list, its size. On
