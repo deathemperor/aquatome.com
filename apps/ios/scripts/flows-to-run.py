@@ -2,7 +2,7 @@
 """Which simulator flows each flow job of ios.yml runs (`app`, and `handbook` and `lights` in two halves each), as
 xcodebuild's -only-testing and -skip-testing arguments.
 
-`--full`: every flow, as main runs them (after each merge, nightly and by hand) and a pull request labelled `ios-full`.
+`--full`: every flow, as main runs them (after merges, nightly and by hand) and a pull request labelled `ios-full`.
 Otherwise the changed paths of a pull request come on stdin, one a line: it runs the smoke set (SMOKE, a few flows
 across the app's main journeys, in job `app`) and the flows its change can reach (REACH): a whole class in its own job,
 a few of a class's tests in `app`, beside the smoke set, so they add no build. Prints `app=`,

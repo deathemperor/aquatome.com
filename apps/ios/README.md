@@ -163,10 +163,14 @@ Debug builds, so they don't see it.
   helpers) runs the smoke set alone. The app's start (`AquaTomeApp.swift`), `ios.yml`, `flows-to-run.py` and the
   scripts the flow jobs run run every flow, and so does a path under `apps/ios/` the script has no rule for. Jobs `kit`
   and `perf` (with the translations) run on every ready pull request.
-- **Every flow** runs after each merge to main, every night at 02:30 Vietnam time on main (without `perf`: the merge's
-  run measured the same code), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull request
-  labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full` with
-  every flow, any other label as a push would. Main's runs are never cancelled: each merge's run finishes.
+- **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: each change was
+  measured by its pull request's run), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull
+  request labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
+  with every flow, any other label as a push would. A main run that started is never cancelled; of those waiting for
+  it, only the newest is kept (a merge, the nightly run or one by hand), and it covers every merge since the last run
+  (a full run for each merge held the own Mac for hours when several merged at once). So a run by hand on main that is
+  still waiting is dropped when a merge lands, and a break main's run catches may come from any merge since its last
+  run.
 
 A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
 the pull request that broke it, give `flows-to-run.py` the rule that would have run it.
@@ -174,7 +178,7 @@ the pull request that broke it, give `flows-to-run.py` the rule that would have 
 ## CI's own Mac
 
 Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
-`aquatome`) for main (each merge, the nightly run and a run by hand) and for pull requests its owner opens from this
+`aquatome`) for main (after merges, the nightly run and a run by hand) and for pull requests its owner opens from this
 repository's own branches. GitHub's Macs keep everything else: a fork's or a bot's pull request (the automatic fixes'),
 and job `perf` (its budgets are GitHub's Macs' readings). The Mac has two runners, `aquatome-mac-1` and
 `aquatome-mac-2`, each running one job at a time, so the jobs take turns two at a time.
