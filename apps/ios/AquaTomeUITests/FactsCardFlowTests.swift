@@ -93,6 +93,16 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertTrue(facts.contains("pH, 4,5–6,5"), "\(facts)")
   }
 
+  /// A breed checked as its species (`of`) keeps its own figures, as its page's data card gives them (`card`).
+  func testABreedShowsItsOwnFigures() {
+    let app = launch(more: "-breeds")
+    open(app, "Pigeon")
+    let card = app.descendants(matching: .any)["facts-card"]
+    XCTAssertTrue(card.waitForExistence(timeout: 5), "no facts card")
+    let facts = card.descendants(matching: .any).matching(identifier: "fact").allElementsBoundByIndex.map { $0.label }
+    XCTAssertEqual(facts, ["Nhiệt độ, 28–30°C", "pH, 5,5–7", "Kích thước, 15 cm", "Bể tối thiểu, 120 cm", "Độ khó 7/8: khó"])
+  }
+
   /// A plant's care, as its page lists it, in the index's words: not the temperature the fixed index also has for it.
   func testAPlantShowsItsCareNotAFishsFigures() {
     let app = launch()

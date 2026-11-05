@@ -231,6 +231,25 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(item)) == item)
 }
 
+@Test func readsABreedsSpeciesAndItsOwnFiguresApart() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"fish","id":"halfmoon-betta","name":"Cá betta Halfmoon","path":"/vi/ca/ca-betta-halfmoon/","of":"betta-splendens","card":{"tempC":{"min":24,"max":28},"sizeCm":6,"lifeYears":{"min":2,"max":3}}},
+   {"kind":"fish","id":"flowerhorn-cichlid","name":"Cá La Hán","path":"/vi/ca/ca-la-han/","sizeCm":30,"card":{"sizeCm":30}},
+   {"kind":"fish","id":"x","name":"X","path":"/vi/ca/x/","of":7,"card":"warm"}
+  ]}
+  """#.utf8))
+  // A form of a species: the species it is checked as, no figures of its own in `facts`, its card's figures apart.
+  #expect(ix.items[0].of == "betta-splendens" && !ix.items[0].facts.any)
+  #expect(ix.items[0].card == .init(tempC: .init(min: 24, max: 28), sizeCm: 6, lifeYears: .init(min: 2, max: 3)))
+  // A hybrid: a fish of its own.
+  #expect(ix.items[1].of == nil && ix.items[1].facts == .init(sizeCm: 30))
+  // What this app can't read is left out, not the fish.
+  #expect(ix.items.count == 3 && ix.items[2].of == nil && ix.items[2].card == nil)
+  // Kept on the phone as read.
+  #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(ix.items[0])) == ix.items[0])
+}
+
 @Test func readsAGuidesSubjectAndTheFishItNames() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[
