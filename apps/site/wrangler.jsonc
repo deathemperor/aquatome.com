@@ -48,7 +48,10 @@
     "APPLE_TEAM_ID": "Q783W6B4FA",
     "APPLE_SIGNIN_KEY_ID": "YK437QPP8B",
     "ACCOUNTS": "on",
-    "PASSKEYS": "on"
+    "PASSKEYS": "on",
+    // Fish ID as an agent (worker/fishid/agent.ts): on since it passed the design's rule on the leak-checked 200 photos
+    // (docs/review/fish-id-accuracy.md): top-1 53.5% → 62.5%, median 9.1 s, $30.87 per 1,000. "0" or removed: today's call.
+    "FISH_ID_AGENT": "1"
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
