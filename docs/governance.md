@@ -96,6 +96,17 @@ that would have caught it).
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
     bad zone cookie).
+  - The owner's dashboard on its own host, dashboard.aquatome.com (`apps/site/worker/dashboard-host.ts`, `access.ts`,
+    `worker/test/dashboard-host.test.ts`):
+    - Cloudflare Access's token on every request (RS256 by the team's certs, audience, issuer, expiry); missing or wrong
+      in any way, 403, with nothing read. The host refuses everything while `ACCESS_TEAM_DOMAIN` or `ACCESS_AUD` is empty.
+    - Until both are set, `/_ab/` on the site is the dashboard as it was. Then a browser's GET of a page there is a 301 to
+      the host, and everything else stays on the site: the machine endpoints, the owner bar's `POST /_ab/hidden`, the iOS
+      owner API. They aren't on the host, where Access would stop them.
+    - Each page's links reach what the host answers (a public page's goes back to the site), its forms post only from
+      the page, and every answer is noindex and never stored. A page added to the dashboard is on the host with no other
+      change (`/*/` in `run_worker_first`: without it the 404 page answers and the Worker is never asked); files that skip the
+      Worker carry noindex from `public/_headers`.
   - The owner's dashboard as JSON for the iOS app (`apps/site/worker/owner-api.ts`), against
     `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
     session, 401; another account's, 404; nothing changes for either); each section's blocks say what its page shows
@@ -107,7 +118,8 @@ that would have caught it).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools), and the owner's dashboard: a chart's day read by a tap, the pointer or the keys, and times following a
-    device set to another zone (`dashboard-charts.spec.ts`, local only).
+    device set to another zone (`dashboard-charts.spec.ts`, local only); moving around it on its own host, a form's real
+    headers, the owner flag reaching the site (`dashboard-host.spec.ts`, local; live, that a stranger gets nothing).
   - **Page checks** on one or two pages of every kind, found from the build (a new kind of page is covered from its first
     build):
     - status 200 and a title

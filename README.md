@@ -41,6 +41,9 @@ A pull request runs `ci.yml`. A squash merge to `main` runs `deploy.yml`, which 
 ([governance](docs/governance.md)). The engine (`engine.yml`, every 3 h) pushes content the same way. A manual deploy:
 `CLOUDFLARE_API_TOKEN="$(cat ~/.config/aquatome/cf-token)" ./scripts/deploy.sh`.
 
+The owner's dashboard is at `https://aquatome.com/_ab/`, which goes to `https://dashboard.aquatome.com/` once Cloudflare
+Access guards that host ([governance](docs/governance.md)).
+
 ## Content rules
 
 - Every source in `content/sources.json` starts with `"publish": false`. It turns `true` only once its written permission

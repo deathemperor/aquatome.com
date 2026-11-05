@@ -47,10 +47,11 @@ a:hover{text-decoration-color:currentColor;color:var(--moss)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
 .num,td,.v,.fig{font-variant-numeric:tabular-nums}
 .masthead{background:var(--water);color:var(--on-dark);display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px max(16px,env(safe-area-inset-left)) 12px}
-.brand{font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:.005em}
+.brand{font-weight:600;color:var(--on-dark);text-decoration:none;letter-spacing:.005em;margin-right:auto}
 .brand span{color:var(--on-dark-soft);font-weight:500}
 .brand span:before{content:'·';margin:0 .4em}
 .masthead time{color:var(--on-dark-soft);font-size:13px;white-space:nowrap}
+.masthead .out{color:var(--on-dark-soft);font-size:13px;white-space:nowrap;padding:14px 0;margin:-14px 0}
 .masthead :focus-visible{outline-color:#6fd6be}
 .frame{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr)}
 .rail{border-bottom:1px solid var(--rule);background:var(--plate)}
@@ -260,12 +261,13 @@ export const ICON = {
 }
 
 /**
- * The page's clock (admin/time.ts): the device's time zone kept in the aq_tz cookie for the next page; times rewritten in
+ * The page's clock (admin/time.ts): the device's time zone kept in the aq_tz cookie for the next page (at /, where the
+ * dashboard's own host has its pages; the one kept at /_ab before cleared); times rewritten in
  * it when this page was put together in another; then one reload, so the days follow it as well.
  */
 const TIME_JS = `(()=>{const d=document.documentElement,z=Intl.DateTimeFormat().resolvedOptions().timeZone
 if(!z)return
-const c='aq_tz='+encodeURIComponent(z);document.cookie=c+'; Path=/_ab; Max-Age=31536000; SameSite=Lax; Secure'
+const c='aq_tz='+encodeURIComponent(z);document.cookie='aq_tz=; Path=/_ab; Max-Age=0; SameSite=Lax; Secure';document.cookie=c+'; Path=/; Max-Age=31536000; SameSite=Lax; Secure'
 if(z===d.dataset.tz)return
 const f=new Intl.DateTimeFormat('en-GB',{timeZone:z,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'}),p=t=>Object.fromEntries(f.formatToParts(t).map(x=>[x.type,x.value])),y=p(new Date()).year,W={Sun:'Chủ nhật',Mon:'Thứ Hai',Tue:'Thứ Ba',Wed:'Thứ Tư',Thu:'Thứ Năm',Fri:'Thứ Sáu',Sat:'Thứ Bảy'}
 for(const t of document.querySelectorAll('time[datetime]')){const q=p(new Date(t.dateTime)),hm=q.hour+':'+q.minute
