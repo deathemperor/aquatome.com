@@ -10,12 +10,15 @@ export const MAX_BODY = 64 * 1024
 export const MAX_EVENTS = 100
 export const ACTIONS = ['light.connect', 'light.write', 'plug.switch', 'fishid', 'tank.add', 'post.comment', 'post.photo'] as const
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+// The sections the app's contract names (protocols/app-telemetry.openapi.json, Path): the page offering the app isn't a
+// handbook page, and an event naming it has no page.
+const SECTIONS = VI_SECTIONS.filter(s => s !== 'ung-dung')
 /**
  * A handbook page's path (protocols/app-telemetry.openapi.json "Path"): a Vietnamese page at the root or under the old
  * /vi/ the app index still gives, or another language's. Built from the Vietnamese sections, so nothing else at the
  * root (/app/, /go/, /api/…) passes; the contract's pattern is this one's source (a test keeps them equal).
  */
-export const PAGE_PATH = new RegExp(`^/(?:(?:vi/)?(?:(?:${VI_SECTIONS.join('|')})/(?:[A-Za-z0-9_-]+/)*)?|(?:${SEGMENTS})/(?:[A-Za-z0-9_-]+/)*)$`)
+export const PAGE_PATH = new RegExp(`^/(?:(?:vi/)?(?:(?:${SECTIONS.join('|')})/(?:[A-Za-z0-9_-]+/)*)?|(?:${SEGMENTS})/(?:[A-Za-z0-9_-]+/)*)$`)
 /** Stored as the site's address, a Vietnamese page by its root path, so a page's views join across the app's switch. */
 const pageOf = (v: unknown) => (typeof v === 'string' && v.length <= 200 && PAGE_PATH.test(v) ? withoutVi(v) : '')
 const SCREEN = /^[a-z][a-z0-9-]{0,23}$/

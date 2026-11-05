@@ -13,6 +13,7 @@ import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
 import { isViPage, withoutVi } from './paths'
+import { appPageClosed } from './app-switch'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, minePhotos, photosAdmin, postPhoto } from './photos'
@@ -162,6 +163,11 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
   if (url.pathname === '/vi' || url.pathname.startsWith('/vi/')) return finish(await fromVi(url, env), env)
+  // The app's page before the store launch: the owner's only (app-switch.ts). Anyone else gets the site's 404 page.
+  if (appPageClosed(url.pathname, req.headers.get('cookie'))) {
+    const page = await env.ASSETS.fetch(new Request(new URL('/404/', url)))
+    return finish(new Response(page.body, { status: 404, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'private, max-age=0' } }), env)
+  }
   // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike (see isHidden for how soon).
   if (isPage(url.pathname)) {
     const p = pagePath(url.pathname)

@@ -1,5 +1,6 @@
 ---
 import Browse from '../../layouts/Browse.astro'
+import AppProductInvite from '../../components/AppProductInvite.astro'
 import GearList from '../../components/GearList.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import VideoFacade from '../../components/VideoFacade.astro'
@@ -148,6 +149,7 @@ const jsonld = [
   ) : null}
 
   <GearList rows={buy} heading={t('Mua ở đâu')} entity={`product:${p.id}`} />
+  <AppProductInvite product={p} />
   <VideoGuideGrid guides={vids} heading={t('Có trong video hướng dẫn')} />
 
   <section class="sources" aria-labelledby="src-h" data-pagefind-ignore>
