@@ -77,6 +77,8 @@ export const WANTED: { names: Wanted[]; more: boolean } = {
   more: false,
 }
 
+/** A phone's APNs device token, as the app sends it (lowercase hex). */
+export const PUSH_TOKEN = '3b9a7c2e5d4f6a8b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b'
 export const PHOTO_WAITING = 'a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d'
 export const PHOTO_APPROVED = 'b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e'
 export const PHOTO_LIVE = 'c3d4e5f6-a7b8-4c9d-8e0f-2a3b4c5d6e7f'

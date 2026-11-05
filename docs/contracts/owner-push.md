@@ -26,6 +26,18 @@ Both answer only the owner's live app session (`Authorization: Bearer <token>`),
 `unavailable` when the server can't read or write its storage. Every reply is `cache-control: no-store` and
 `x-robots-tag: noindex, nofollow`.
 
+`protocols/owner-dashboard-vectors.json` already has the Worker's own replies for both paths, in order on one server:
+
+- "register a phone", then "register the same phone again";
+- the three refusals;
+- "signed out: register a phone" and "not the owner: register a phone";
+- "unregister a phone";
+- "turn the report's notification on" and "a report setting that isn't true or false".
+
+Until the contract lists the paths, the site's test holds those replies to this file: an error is the contract's
+`Error`, and a 200 is `{ok: true, changed}`. Once the contract has the paths, take them out of `PENDING` in
+`apps/site/worker/test/owner-api.test.ts`, so the replies are checked against the contract like every other.
+
 ### `POST /api/owner/report-settings`
 
 What the `bao-cao` section's buttons send. One switch or both:
