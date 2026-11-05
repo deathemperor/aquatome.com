@@ -353,6 +353,32 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(item(app, "Đệm pH").exists)
   }
 
+  // What's new, as the site's list has it (HandbookIndex.fixtureLatest): from the home's last rows, each page with the
+  // day it was added or updated and its source, newest first (a page the index doesn't have left out, the neon there
+  // twice), the rest of the list on the web; a page opens from it.
+  func testWhatsNewListsTheSitesLatestPagesAndOpensThem() {
+    let app = launch()
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
+    let all = app.descendants(matching: .any)["all-latest"]
+    for _ in 0..<6 where !(all.exists && all.isHittable) { app.swipeUp() }
+    XCTAssertTrue(all.label.hasSuffix("4"), all.label)
+    all.tap()
+    XCTAssertTrue(app.navigationBars["Mới cập nhật"].waitForExistence(timeout: 5))
+    let rows = app.descendants(matching: .any).matching(identifier: "latest")
+    XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 5))
+    let expected = [("Cá neon", "28/10/2026 · Cập nhật · Seriously Fish"), ("Nuôi cá neon trong bể nhỏ", "27/10/2026 · Mới · 2Hr Aquarist"),
+                    ("Rotala đỏ", "20/10/2026 · Mới · Tropica"), ("Cá neon", "12/10/2026 · Mới · Seriously Fish")]
+    XCTAssertEqual(rows.count, expected.count, rows.allElementsBoundByIndex.map { $0.label }.joined(separator: " | "))
+    for (i, (name, change)) in expected.enumerated() {
+      let label = rows.element(boundBy: i).label
+      XCTAssertTrue(label.hasPrefix(name) && label.contains(change), "\(i): \(label)")
+    }
+    XCTAssertTrue(app.descendants(matching: .any)["latest-web"].exists, "no link to the whole list")
+    rows.element(boundBy: 2).tap()
+    XCTAssertTrue(app.navigationBars["Rotala đỏ"].waitForExistence(timeout: 5))
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
+  }
+
   func testTheChihirosToolOpensTheLightsTab() {
     let app = launch()
     search(app, "chihiros")

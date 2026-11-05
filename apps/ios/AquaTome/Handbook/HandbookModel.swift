@@ -35,6 +35,11 @@ final class HandbookModel {
   private var matcher = PageMatcher([])
   /// Every page by its path: what the reading list keeps.
   private var byPath: [String: HandbookIndex.Item] = [:]
+  /// What's new on the site (Latest), each entry with its page, newest first: none until read, and none from a site
+  /// without it (the index names no file).
+  private(set) var latest: [Latest.Row] = []
+  /// The whole of what's new, on the web.
+  private(set) var latestWeb: URL?
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
   /// The reader's own comments shown at once, by page key, until the site's list has them (`readers`).
@@ -283,11 +288,16 @@ final class HandbookModel {
         return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels), .ready)
       }
       #endif
-      return use(ix, .ready)
+      use(ix, .ready)
+      #if DEBUG
+      if ix.latest != nil { useLatest(HandbookIndex.fixtureLatest) }
+      #endif
+      return
     }
     let file = Self.cacheFile(lang)
     if count == 0, let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) {
       use(ix, .offline)
+      keptLatest(ix)
     }
     do {
       let (data, response) = try await URLSession.shared.data(from: site.appendingPathComponent("app/\(lang).json"))
@@ -296,11 +306,37 @@ final class HandbookModel {
       try? data.write(to: file, options: .atomic)
       use(ix, .ready)
       fetched = true
+      await fetchLatest(ix)
     } catch {
       // Left for another tab or page: tried again when the tab shows next, nothing to report.
       if isInterruption(error) { return }
       if count == 0 { status = .failed }
     }
+  }
+
+  /// What's new as last read, kept on the phone as the index is: shown with the kept index.
+  private func keptLatest(_ ix: HandbookIndex) {
+    guard ix.latest != nil, let data = try? Data(contentsOf: Self.cacheFile("latest-\(lang)")),
+          let l = try? JSONDecoder().decode(Latest.self, from: data) else { return }
+    useLatest(l)
+  }
+
+  /// What's new as the site's index names it now: none when it names none, what was shown when it can't be read.
+  private func fetchLatest(_ ix: HandbookIndex) async {
+    guard let path = ix.latest, let url = URL(string: path, relativeTo: site)?.absoluteURL else {
+      latest = []
+      latestWeb = nil
+      return
+    }
+    guard let (data, response) = try? await URLSession.shared.data(from: url), (response as? HTTPURLResponse)?.statusCode == 200,
+          let l = try? JSONDecoder().decode(Latest.self, from: data) else { return }
+    try? data.write(to: Self.cacheFile("latest-\(lang)"), options: .atomic)
+    useLatest(l)
+  }
+
+  private func useLatest(_ l: Latest) {
+    latest = l.rows { byPath[$0] }
+    latestWeb = URL(string: l.web, relativeTo: site)?.absoluteURL
   }
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
@@ -412,7 +448,17 @@ extension HandbookIndex {
     "co2": ["none": "Không cần", "optional": "Tùy chọn", "required": "Bắt buộc"],
     "growth": ["slow": "Chậm", "medium": "Vừa", "fast": "Nhanh"],
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
-  ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
+  ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1], latest: "/app/latest/vi.json")
+
+  /// UI tests' what's new, as the site writes it: newest first, a page the index doesn't have (left out), the neon there
+  /// twice, updated then new.
+  static let fixtureLatest = Latest(lang: "vi", entries: [
+    .init(date: "2026-10-28", path: "/vi/ca/ca-neon/", action: "updated", source: "Seriously Fish"),
+    .init(date: "2026-10-27", path: "/vi/huong-dan/nuoi-ca-neon/", action: "new", source: "2Hr Aquarist"),
+    .init(date: "2026-10-27", path: "/vi/ca/khong-co/", action: "new", source: "Aquarium Glaser"),
+    .init(date: "2026-10-20", path: "/vi/cay/rotala-do/", action: "new", source: "Tropica"),
+    .init(date: "2026-10-12", path: "/vi/ca/ca-neon/", action: "new", source: "Seriously Fish"),
+  ], web: "/vi/moi-cap-nhat/")
 
   /// UI tests' breeds (`-breeds`): a form of the discus, as the site lists one: the species it's a form of, its own
   /// figures as its page's data card gives them, and none of the tank-mates figures (a tank check counts it as the discus).
