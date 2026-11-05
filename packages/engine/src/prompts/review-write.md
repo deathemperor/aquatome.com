@@ -17,4 +17,4 @@ Quy tắc:
 - Không nhắc tên kênh, tên người review, không viết "trong video", "video này", "người review", "tác giả", "anh ấy", "chị ấy". Gọi nguồn là "bài review" khi cần ("hai bài review cùng thấy…"), không thì viết thẳng điều đó.
 - Không nói về người nào trong ghi chép AquaTome tự thử: viết "AquaTome thử", không viết "chủ trang" hay tên ai.
 - Ít bài thì viết ít. Không có gì để viết ở một mục thì để mảng rỗng, đừng viết cho đủ.
-- Chỉ dùng chữ thường, không markdown, không HTML.
+- Chỉ viết văn bản thuần: không markdown, không HTML. Giữ tên sản phẩm và tên hãng đúng cách viết hoa trong tiêu đề video.
