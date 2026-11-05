@@ -1,0 +1,77 @@
+{
+  "id": "cyprinus-rubrofuscus",
+  "native": {
+    "input": "e6436defe1c86d81",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyprinus rubrofuscus",
+    "status": "ACCEPTED",
+    "taxonKey": 2367196,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        578
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        26
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        11
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "b1a45d42-f677-473b-93d1-f93b117efe1e",
+        2
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        2
+      ],
+      [
+        "6cb64442-84fe-4f9f-be21-0ab7ff7cd06c",
+        1
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        1
+      ],
+      [
+        "c9198eaf-f909-4502-9bcd-4e83452fb245",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "corydoras-panda",
+  "native": {
+    "input": "150badf64057c8ef",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The panda cory from the Rio Ucayali in Peru belongs to the most popular species of the genus.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Rio Ucayali, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the upper Amazon in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Ucayali",
+        "source": "glaser",
+        "quote": "Rio Ucayali, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the upper Amazon in Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras panda",
+    "status": "ACCEPTED",
+    "taxonKey": 2342738,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

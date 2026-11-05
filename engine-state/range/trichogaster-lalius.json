@@ -1,0 +1,277 @@
+{
+  "id": "trichogaster-lalius",
+  "native": {
+    "input": "c1ccdd7f715c4d4e",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf gourami, Trichogaster lalius, is a labyrinth fish from Pakistan, northern India and Bangladesh.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf gourami, Trichogaster lalius, is a labyrinth fish from Pakistan, northern India and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dwarf gourami, Trichogaster lalius, is a labyrinth fish from Pakistan, northern India and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurences in Nepal and Myanmar are now thought to be as a result of misidentification.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurences in Nepal and Myanmar are now thought to be as a result of misidentification.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations also exist in a handful of countries, including Singapore, the USA and Colombia.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations also exist in a handful of countries, including Singapore, the USA and Colombia.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations also exist in a handful of countries, including Singapore, the USA and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: India (West Bengal, Assam) and Bangladesh",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: India (West Bengal, Assam) and Bangladesh",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "In recent years it has also become established, through intentional releases and accidental escapes, in Australia, Colombia and the United States.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "In recent years it has also become established, through intentional releases and accidental escapes, in Australia, Colombia and the United States.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "In recent years it has also become established, through intentional releases and accidental escapes, in Australia, Colombia and the United States.",
+        "words": "United States",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Koshi",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "country": "NP",
+        "ok": false,
+        "why": "in NP, which a source calls introduced or doubtful"
+      },
+      {
+        "name": "Narayani",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "country": "NP",
+        "ok": false,
+        "why": "in NP, which a source calls introduced or doubtful"
+      },
+      {
+        "name": "Karnali",
+        "source": "aquariumbreeder",
+        "quote": "It is widely distributed in Nepal (Koshi, Narayani and Karnali rivers), India (West Bengal), Pakistan, Myanmar and Bangladesh.",
+        "country": "NP",
+        "ok": false,
+        "why": "in NP, which a source calls introduced or doubtful"
+      }
+    ],
+    "disputed": [
+      "NP",
+      "MM"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NP",
+        "MM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichogaster lalius",
+    "status": "ACCEPTED",
+    "taxonKey": 5211200,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "a9576a23-3690-4c27-8d19-0db353957177",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "IN",
+      "BD"
+    ],
+    "requests": 14,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

@@ -1573,6 +1573,53 @@
       "\"เป็นไม้น้ำที่... เป็นไม้น้ำที่เหมาะสำหรับมือใหม่\": 'เป็นไม้น้ำที่' is repeated in consecutive sentences. Shorten the last one to 'เหมาะสำหรับมือใหม่'."
     ]
   },
+  "myriophyllum-sp-guyana": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Myriophyllum 'Guyana'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"มักต้องตัดแต่งอยู่เสมอ\" (often/always) is slightly off from \"often necessary\"; use \"มักจำเป็นต้องตัดแต่ง\". \"maintain the access\" is also loosely rendered; better \"เพื่อให้ต้นได้รับแสงและการไหลเวียนของน้ำอย่างทั่วถึง\".",
+      "Item 3: \"แตกแขนงได้ง่าย\" is fine, but \"เป็นพุ่ม\" for \"lush\" is slightly loose; \"เขียวชอุ่ม\" would be more faithful.",
+      "Item 3: \"ไม้น้ำจากการเพาะเลี้ยงเนื้อเยื่อในถ้วยปิด\" is acceptable, but the hobby term \"ไม้น้ำเนื้อเยื่อ/ถ้วย\" is more common among Thai hobbyists."
+    ]
+  },
+  "najas-guadalupensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "กัปปี้กราส",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ลำต้นและใบที่ละเอียดและโปร่ง\" adds 'stem and leaves'; the English only says 'fine, porous structure'. Minor, and the meaning is intact.",
+      "\"ขยายพันธุ์ได้เองโดยไม่ต้องทำอะไรมาก\" is a loose, wordy rendering of 'propagates effortlessly'. Consider \"ขยายพันธุ์ง่าย\".",
+      "\"วัสดุปลูก\" is acceptable, but hobbyists often say \"พื้นตู้\" or \"ทราย/ซับสเตรท\" for the substrate.",
+      "\"Najas guadalupensis\" in sentence 3 is a bare Latin name with no Thai common name. Fine, but \"สาหร่ายเขี้ยวกุ้ง\" is not the right plant, so keep the Latin name. It could be written more smoothly in the sentence."
+    ]
+  },
+  "nymphaea-lotus": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "บัวเสือ",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"ตู้ปลาแบบเปิดฝา\" is slightly awkward; \"ตู้เปิด\" or \"ตู้ไม้น้ำแบบเปิด\" is more natural.",
+      "Item 2: \"พื้นตู้ที่มีธาตุอาหารสมบูรณ์\" - hobbyists usually say \"วัสดุปลูกที่มีธาตุอาหารสูง\" (nutrient-rich substrate).",
+      "Item 2: \"ดอกที่สวยงามและมีกลิ่นหอมจะชื่นชมได้เต็มที่\" reads like a literal translation. Try \"สามารถเพลิดเพลินกับดอกสวยหอมได้เต็มที่\".",
+      "Item 3: \"สายพันธุ์สีแดงและสีเขียว\" - \"variety\" is better rendered as \"แบบ\" or \"วาไรตี้\", not \"สายพันธุ์\".",
+      "Item 3: \"จุดสีม่วงจำนวนมากน้อยแตกต่างกันไป\" - the English \"varying numbers\" is fine, but the wording is slightly clumsy. \"มีจุดสีม่วงมากน้อยต่างกัน\" is smoother."
+    ]
+  },
+  "nymphaea-stellata": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "บัวแคระ",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",
     "from": "2026-10-29",
