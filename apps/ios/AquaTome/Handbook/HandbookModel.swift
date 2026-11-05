@@ -14,15 +14,20 @@ final class HandbookModel {
   let site = URL(string: "https://aquatome.com")!
   private(set) var status = Status.loading
   private(set) var count = 0
-  /// Cleared, the kind goes back to all: the next search starts with every kind, not one picked for the last.
-  var query = "" { didSet { if query != oldValue { if query.isEmpty { kind = nil }; refresh() } } }
-  var kind: HandbookIndex.Kind? { didSet { if kind != oldValue { refresh() } } }
-  /// What the list shows for the query and kind: worked out when they or the index change, not on every redraw.
-  private(set) var results: [HandbookIndex.Item] = []
-  /// How many pages the query finds of each kind, and in all under nil: what the chips above the results say. Counted
-  /// in the search that finds the results, so a keystroke costs no more.
-  private(set) var counts: [HandbookIndex.Kind?: Int] = [:]
+  /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
+  private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
+  var query: String { get { searching.query } set { searching.query = newValue } }
+  var kind: HandbookIndex.Kind? { get { searching.kind } set { searching.kind = newValue } }
+  var results: [HandbookIndex.Item] { searching.results }
+  /// How many pages the query finds of each kind, and in all under nil: what the chips above the results say.
+  var counts: [HandbookIndex.Kind?: Int] { searching.counts }
+  /// How many the kind picked finds past the rows listed: a page more of them for "Xem thêm kết quả".
+  var left: Int { searching.left }
+  func showMore() { searching.showMore() }
 
+  /// The index searched, for the tanks tab's guides and fish picker: a copy of the one in `searching`, set with it, so
+  /// what they read changes with the index, not with each letter typed in the Tìm tab, which would redraw them and
+  /// search again for them.
   private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
   private var pages: [String: HandbookIndex.Item] = [:]
@@ -77,7 +82,24 @@ final class HandbookModel {
     kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
     keptCounts = UserDefaults.standard.dictionary(forKey: "handbook.kept.counts.\(lang)") as? [String: Int] ?? [:]
     drawn = Self.pageCache(source, site: site)
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    #endif
   }
+
+  #if DEBUG
+  /// UI tests (`-watch-tank-searches`): how many times what the tanks tab's guides and fish picker search has changed
+  /// (each change redraws them and searches again), shown in the Tìm tab. Nil unless watched.
+  private(set) var tankSearchChanges: Int?
+  private func watchTankSearches() {
+    withObservationTracking { _ = guides(about: []); _ = life("") } onChange: { [weak self] in
+      Task { @MainActor in
+        self?.tankSearchChanges? += 1
+        self?.watchTankSearches()
+      }
+    }
+  }
+  #endif
 
   /// Whether the app draws this page itself: the site publishes its kind as blocks.
   func drawsItself(_ item: HandbookIndex.Item) -> Bool { shardCounts[item.kind.rawValue] != nil }
@@ -283,6 +305,7 @@ final class HandbookModel {
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
+    searching.search = search
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     matcher = PageMatcher(index: ix.items)
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
@@ -292,10 +315,17 @@ final class HandbookModel {
     labels = ix.labels
     count = ix.items.count
     status = s
-    refresh()
   }
 
-  private func refresh() { (results, counts) = search.findAndCount(query, kind: kind) }
+  /// How many of its best a search lists at first, and then a page more: 200, except in UI tests (`-search-page N`),
+  /// whose small index lists a few to see "Xem thêm kết quả" without scrolling through 200 rows.
+  private static func searchPage() -> Int {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-search-page"), i + 1 < args.count, let n = Int(args[i + 1]) { return n }
+    #endif
+    return 200
+  }
 
   /// The site, except in UI tests (`-fixed-handbook`), which use a small fixed index: no network, same answers each run.
   /// Performance tests use `-large-handbook`: as many fish as the site has, still without the network.

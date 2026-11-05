@@ -3329,6 +3329,22 @@
         }
       }
     },
+    "Không có kết quả trong “%@”": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada hasil di “%@”"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่มีผลลัพธ์ใน “%@”"
+          }
+        }
+      }
+    },
     "Không có loài nào khớp. Thử nới điều kiện lọc.": {
       "localizations": {
         "id": {
@@ -6273,6 +6289,22 @@
         }
       }
     },
+    "Xem thêm kết quả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat hasil lainnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูผลลัพธ์เพิ่มเติม"
+          }
+        }
+      }
+    },
     "Xem thử cả ngày": {
       "localizations": {
         "id": {
@@ -6317,6 +6349,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูในตู้ของฉัน →"
+          }
+        }
+      }
+    },
+    "Xem tất cả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat semua"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูทั้งหมด"
           }
         }
       }
@@ -6893,6 +6941,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังส่ง…"
+          }
+        }
+      }
+    },
+    "Đang hiện %@ trong %@ kết quả. Gõ thêm để thu hẹp.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menampilkan %1$@ dari %2$@ hasil. Ketik lagi untuk mempersempit."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสดง %1$@ จาก %2$@ ผลลัพธ์ พิมพ์เพิ่มเพื่อให้แคบลง"
           }
         }
       }
@@ -8525,6 +8589,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ที่หน้า Overview ของโปรเจกต์ คัดลอก Access ID และ Access Secret มาใส่ช่องด้านล่าง"
+          }
+        }
+      }
+    },
+    "“%@” có kết quả trong %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” punya hasil di %2$@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” มีผลลัพธ์ใน %2$@"
           }
         }
       }
