@@ -1,12 +1,13 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { filterPlants, filterSpecies, unsurePlants, unsureSpecies, type PlantIndexItem, type PlantQuery, type SpeciesIndexItem, type SpeciesQuery } from '../src/scripts/filter'
+import { filterPlants, filterSpecies, keepBreed, unsurePlants, unsureSpecies, type BreedFigures, type PlantIndexItem, type PlantQuery, type SpeciesIndexItem, type SpeciesQuery } from '../src/scripts/filter'
 
 // Shared with the iOS app's tests, which run the app's own filters on the same cases.
 type Case<Q> = { note: string; query: Q; fit: string[]; unsure: string[] }
 type Vectors = {
   species: (Partial<SpeciesIndexItem> & { name: string })[]; speciesCases: Case<SpeciesQuery>[]
   plants: (Omit<PlantIndexItem, 'slug'> & { name: string })[]; plantCases: Case<PlantQuery>[]
+  breeds: (BreedFigures & { name: string })[]; breedCases: { note: string; query: SpeciesQuery; kept: string[] }[]
 }
 const v: Vectors = JSON.parse(readFileSync(new URL('../../../protocols/filter-vectors.json', import.meta.url), 'utf8'))
 
@@ -26,4 +27,9 @@ test('the plant list\'s filters answer each shared case', () => {
     expect(filterPlants(items, c.query).map(i => (i as typeof items[number]).name), c.note).toEqual(c.fit)
     expect(unsurePlants(items, c.query).map(i => (i as typeof items[number]).name), c.note).toEqual(c.unsure)
   }
+})
+
+test('the fish list keeps a breed card under each shared case by its name and its own figures', () => {
+  expect(v.breedCases.length).toBeGreaterThan(5)
+  for (const c of v.breedCases) expect(v.breeds.filter(({ name, ...fig }) => keepBreed(name, fig, c.query)).map(b => b.name), c.note).toEqual(c.kept)
 })
