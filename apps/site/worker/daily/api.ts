@@ -3,7 +3,7 @@ import { queryAppDay } from '../admin/app'
 import { soft, unset } from '../admin/shell'
 import { HOME_TZ } from '../admin/time'
 import { readCapped } from '../comments/api'
-import { ae, bearerOk, loadOverview, type AdminEnv } from '../dashboard'
+import { ae, bearerOk, liveOwnerApps, loadOverview, type AdminEnv } from '../dashboard'
 import { compose, type Composed } from './compose'
 import { parseGitHubSide, type GitHubSide } from './github'
 import { getReport, putReport, type Report } from './log'
@@ -100,7 +100,7 @@ export async function dailyReportRoute(req: Request, url: URL, env: DailyEnv, no
       : { when: now.toISOString(), ...(await composeNow(env, url, now, gh)) }
     const mail = kept?.sent ? { sent: true } : mailDue ? await deliver(env, report) : { sent: false, why: 'email_off' }
     mailed = mailDue && mail.sent
-    const push: PushOutcome = pushedBefore ? kept!.push! : pushDue ? await pushReport(env, env.AB, report, id, now) : { sent: 0, why: 'push_off' }
+    const push: PushOutcome = pushedBefore ? kept!.push! : pushDue ? await pushReport(env, env.AB, report, id, now, ids => liveOwnerApps(env, ids, now)) : { sent: 0, why: 'push_off' }
     pushed = pushDue && push.sent > 0
     const done = { ...report, ...mail, push }
     await putReport(env.AB, id, done)

@@ -694,11 +694,14 @@ test('the report\'s delivery from the app: the section\'s buttons set it as the 
 
 test('a phone registers for the report\'s notification: kept once with its environment and the last time it said so; DELETE removes it; a bad token is refused', async () => {
   const w = await worker()
-  const tokens = () => JSON.parse(w.ab.m.get('push-tokens')?.value ?? '{}') as Record<string, { environment: string; seen: string }>
+  const tokens = () => JSON.parse(w.ab.m.get('push-tokens')?.value ?? '{}') as Record<string, { environment: string; seen: string; session: string }>
   const send = (method: string, body: unknown) => call(w.e, method, '/api/owner/push-token', bearer(w.ownerApp), body)
   expect(await (await send('POST', { token: TOKEN_A, environment: 'production' })).json()).toEqual({ ok: true, changed: true })
   const first = tokens()[TOKEN_A]!
-  expect(first).toEqual({ environment: 'production', seen: expect.stringMatching(/^\d{4}-\d\d-\d\dT/) })
+  // Tied to the session it came in: its id (the bearer's hash), never the bearer.
+  const { sha256 } = await import('../accounts/session')
+  expect(first).toEqual({ environment: 'production', seen: expect.stringMatching(/^\d{4}-\d\d-\d\dT/), session: await sha256(w.ownerApp) })
+  expect(JSON.stringify(tokens())).not.toContain(w.ownerApp)
   // Each launch posts it again: the time moves, no second copy.
   await new Promise(r => setTimeout(r, 5))
   expect(await (await send('POST', { token: TOKEN_A, environment: 'production' })).json()).toEqual({ ok: true, changed: false })

@@ -5,8 +5,10 @@ import { dashboardUrl } from '../paths'
 /**
  * The daily report as a notification on the owner's phones, through Apple's push service (APNs). The app registers each
  * phone (POST /api/owner/push-token, the owner's app session only); the tokens live in KV `AB` under one key with the
- * environment the app was built for and the last time the phone said so. APNs answering 410, or 400 BadDeviceToken,
- * drops a token.
+ * environment the app was built for, the last time the phone said so, and the session it said so in (sessions.id, the
+ * bearer's hash, never the bearer). A session can end without the app saying so (it expires, it's signed out on the
+ * web, the phone is offline at sign-out), so each report first drops the phones whose session isn't the owner's live
+ * app session any more, as /api/owner/* would judge it. APNs answering 410, or 400 BadDeviceToken, drops one too.
  *
  * Sent from the Worker's fetch. APNs takes HTTP/2 only, and workerd has no HTTP/2 client, but in production a Worker's
  * subrequest goes through Cloudflare's proxy, which speaks HTTP/2 to the origin (workerd issue #4841, from the runtime's
@@ -19,9 +21,15 @@ import { dashboardUrl } from '../paths'
  */
 export type PushEnv = { APNS_KEY?: string; APNS_KEY_ID?: string; APPLE_TEAM_ID?: string }
 export type Environment = 'sandbox' | 'production'
-export type Device = { environment: Environment; seen: string }
-/** What a report's push did: how many phones took it, and why not (or why not all) when that's so. */
-export type PushOutcome = { sent: number; why?: string }
+/** `session`: the id (sessions.id) of the app session that registered it last. */
+export type Device = { environment: Environment; seen: string; session: string }
+/**
+ * What a report's push did: how many phones took it; how many were dropped (their session ended, or APNs no longer knows
+ * them), which isn't a refusal; and why not (or why not all) when that's so.
+ */
+export type PushOutcome = { sent: number; dropped?: number; why?: string }
+/** Which of these sessions are still the owner's live app sessions (dashboard.ts liveOwnerApps). */
+export type LiveSessions = (ids: string[]) => Promise<Set<string>>
 type ApnsKeys = { teamId: string; keyId: string; key: string }
 
 export const TOKENS_KEY = 'push-tokens'
@@ -51,13 +59,15 @@ export function tokenBody(body: unknown, withEnvironment: boolean): { token: str
 }
 
 /**
- * A phone's token, as the app sends it at each launch while its row is on: kept with the time, once. `changed`: a token
- * new here, or its environment changed; false when only the time moved.
+ * A phone's token, as the app sends it at each launch while its row is on: kept once, with the time and the session it
+ * came in (a new session's post moves it there). `changed`: a token new here, or its environment or session changed;
+ * false when only the time moved.
  */
-export async function addDevice(kv: KVNamespace, token: string, environment: Environment, now: Date): Promise<boolean> {
+export async function addDevice(kv: KVNamespace, token: string, environment: Environment, session: string, now: Date): Promise<boolean> {
   const all = await devices(kv)
-  const changed = all[token]?.environment !== environment
-  all[token] = { environment, seen: now.toISOString() }
+  const was = all[token]
+  const changed = was?.environment !== environment || was.session !== session
+  all[token] = { environment, seen: now.toISOString(), session }
   const kept = Object.entries(all).sort((a, b) => b[1].seen.localeCompare(a[1].seen)).slice(0, MAX_DEVICES)
   await kv.put(TOKENS_KEY, JSON.stringify(Object.fromEntries(kept)))
   return changed
@@ -96,14 +106,25 @@ const reasonOf = (reason: unknown, status: number) => (typeof reason === 'string
 type Fetch = (url: string, init: RequestInit) => Promise<Response>
 
 /**
- * Sends one alert to each phone registered. `id`: the report's, which also collapses a second send of it into the first.
- * Phones APNs no longer knows are dropped and don't count as refused.
+ * Sends one alert to each phone registered in a live session of the owner's. `id`: the report's, which also collapses a
+ * second send of it into the first. Phones whose session ended, and those APNs no longer knows, are dropped and counted
+ * so, not as refused.
  */
-export async function pushReport(env: PushEnv, kv: KVNamespace, r: { subject: string; first?: string }, id: string, now: Date, fetcher: Fetch = (u, i) => fetch(u, i)): Promise<PushOutcome> {
+export async function pushReport(env: PushEnv, kv: KVNamespace, r: { subject: string; first?: string }, id: string, now: Date, live: LiveSessions, fetcher: Fetch = (u, i) => fetch(u, i)): Promise<PushOutcome> {
   const keys = apnsKeys(env)
   if (!keys) return { sent: 0, why: 'no_apns_key' }
-  const phones = Object.entries(await devices(kv))
-  if (!phones.length) return { sent: 0, why: 'no_device' }
+  const all = Object.entries(await devices(kv))
+  if (!all.length) return { sent: 0, why: 'no_device' }
+  let alive: Set<string>
+  try {
+    alive = await live([...new Set(all.map(([, d]) => d.session).filter(Boolean))])
+  } catch {
+    console.error('daily report push: the sessions could not be read')
+    return { sent: 0, why: 'sessions_unread' }
+  }
+  const ended = all.filter(([, d]) => !alive.has(d.session)).map(([t]) => t)
+  const phones = all.filter(([, d]) => alive.has(d.session))
+  if (!phones.length) return finish(kv, 0, ended, [], 'no_device')
   let jwt: string
   try {
     jwt = await providerToken(keys, now)
@@ -125,14 +146,16 @@ export async function pushReport(env: PushEnv, kv: KVNamespace, r: { subject: st
       return { token, ok: false, why: 'network' }
     }
   }))
-  const gone = results.filter(x => x.gone).map(x => x.token)
-  // Sent is sent: a token not dropped now is dropped by the next report's answer.
-  if (gone.length) await removeDevices(kv, gone).catch(() => console.error('daily report push: tokens APNs dropped not removed'))
   const sent = results.filter(x => x.ok).length
   const refused = results.filter(x => !x.ok && !x.gone)
-  if (refused.length) {
-    console.error('daily report push refused:', refused.map(x => x.why).join(', '))
-    return { sent, why: refused[0]!.why }
-  }
-  return sent ? { sent } : { sent: 0, why: 'no_device' }
+  if (refused.length) console.error('daily report push refused:', refused.map(x => x.why).join(', '))
+  return finish(kv, sent, ended, results.filter(x => x.gone).map(x => x.token), refused[0]?.why ?? (sent ? undefined : 'no_device'))
+}
+
+/** Drops the phones whose session ended or APNs no longer knows, and says what the push did. */
+async function finish(kv: KVNamespace, sent: number, ended: string[], gone: string[], why: string | undefined): Promise<PushOutcome> {
+  const dropped = [...ended, ...gone]
+  // Sent is sent: a token not dropped now is dropped by the next report.
+  if (dropped.length) await removeDevices(kv, dropped).catch(() => console.error('daily report push: dropped phones not removed'))
+  return { sent, ...(dropped.length ? { dropped: dropped.length } : {}), ...(why ? { why } : {}) }
 }

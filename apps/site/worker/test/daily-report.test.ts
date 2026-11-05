@@ -1,5 +1,6 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { createSession } from '../accounts/session'
+import { createSession, sha256 } from '../accounts/session'
+import { deleteUser } from '../accounts/users'
 import { ADMIN_PAGES, SECTIONS } from '../dashboard'
 import { LOG_PREFIX, LOG_TTL, type Report } from '../daily/log'
 import { addDevice, TOKENS_KEY } from '../daily/push'
@@ -235,14 +236,19 @@ async function p8() {
   const der = Buffer.from(await crypto.subtle.exportKey('pkcs8', pair.privateKey)).toString('base64')
   return `-----BEGIN PRIVATE KEY-----\n${der.match(/.{1,64}/g)!.join('\n')}\n-----END PRIVATE KEY-----\n`
 }
-/** A world with push on (and email as given), two phones and the APNs key; APNs answers with `answer`. */
+/** The owner's app registering a phone, as it does at each launch (owner-api.ts), with its session's bearer. */
+const register = (e: Env, bearer: string, token: string, environment = 'production') => handle(new Request('https://x.test/api/owner/push-token', {
+  method: 'POST', headers: { authorization: `Bearer ${bearer}`, 'content-type': 'application/json' }, body: JSON.stringify({ token, environment }),
+}), e)
+/** A world with push on (and email as given), the APNs key, and two phones the owner's app registered in its session `app`; APNs answers with `answer`. */
 async function pushing(answer: (url: string) => Response, email = true) {
   const w = world({ APNS_KEY: await p8(), APNS_KEY_ID: 'KEY1234567', APPLE_TEAM_ID: 'TEAM123456' })
   w.ab.m.set(SETTINGS_KEY, { value: JSON.stringify({ email, push: true }) })
-  await addDevice(w.ab.ns, PHONE_A, 'production', new Date())
-  await addDevice(w.ab.ns, PHONE_B, 'sandbox', new Date())
+  await w.db.prepare('INSERT OR IGNORE INTO users (id, created_at) VALUES (?, ?)').bind('owner-1', '2026-11-01T00:00:00Z').run()
+  const app = await createSession(w.db, 'owner-1', 'app', new Date())
+  for (const [token, environment] of [[PHONE_A, 'production'], [PHONE_B, 'sandbox']] as const) expect((await register(w.e, app, token, environment)).status).toBe(200)
   const apns = vi.spyOn(globalThis, 'fetch').mockImplementation(async u => answer(String(u)))
-  return { ...w, apns }
+  return { ...w, apns, app }
 }
 
 test('email off: the report is kept, not mailed, and the answer and the log say so; the job is fine', async () => {
@@ -277,7 +283,7 @@ test('push on: one alert to each phone, the subject and the first thing that nee
 test('push on with no APNs key, or no phone: skipped, said why, the mail still goes and the job is fine', async () => {
   const noKey = world()
   noKey.ab.m.set(SETTINGS_KEY, { value: JSON.stringify({ email: true, push: true }) })
-  await addDevice(noKey.ab.ns, PHONE_A, 'production', new Date())
+  await addDevice(noKey.ab.ns, PHONE_A, 'production', 'a-session', new Date())
   expect(await (await post(noKey.e)).json()).toEqual({ ok: true, id: '1001', sent: true, push: { sent: 0, why: 'no_apns_key' } })
   const noPhone = await pushing(() => new Response(null, { status: 200 }))
   noPhone.ab.m.delete(TOKENS_KEY)
@@ -288,6 +294,38 @@ test('push on with no APNs key, or no phone: skipped, said why, the mail still g
   nothingOut.ab.m.set(SETTINGS_KEY, { value: JSON.stringify({ email: false, push: true }) })
   const r = await post(nothingOut.e)
   expect([r.status, await r.json()]).toEqual([200, { ok: true, id: '1001', sent: false, why: 'email_off', push: { sent: 0, why: 'no_apns_key' } }])
+})
+
+/** How an app session ends without the app getting to say so. */
+const ENDINGS: [string, (w: Awaited<ReturnType<typeof pushing>>) => Promise<unknown>][] = [
+  ['signed out (its row gone, as signing out leaves it)', async w => w.db.prepare('DELETE FROM sessions WHERE id = ?').bind(await sha256(w.app)).run()],
+  ['expired', async w => w.db.prepare('UPDATE sessions SET expires_at = ?').bind('2026-01-01T00:00:00.000Z').run()],
+  ['its account deleted', async w => deleteUser(w.db, 'owner-1')],
+  ['its account no longer the owner\'s', async w => { (w.e as unknown as { OWNER_ACCOUNTS: string }).OWNER_ACCOUNTS = 'someone-else' }],
+]
+for (const [how, end] of ENDINGS) {
+  test(`a phone whose session ended, ${how}: no push, and it is dropped, counted as dropped and not refused`, async () => {
+    const w = await pushing(() => new Response(null, { status: 200 }))
+    await end(w)
+    const r = await post(w.e)
+    expect([r.status, await r.json()]).toEqual([200, { ok: true, id: '1001', sent: true, push: { sent: 0, dropped: 2, why: 'no_device' } }])
+    expect(w.apns).not.toHaveBeenCalled()
+    expect(JSON.parse(w.ab.m.get(TOKENS_KEY)!.value)).toEqual({})
+  })
+}
+
+test('a phone registered again in a new session keeps getting the report after the old session ends; the other is dropped', async () => {
+  const w = await pushing(() => new Response(null, { status: 200 }))
+  const second = await createSession(w.db, 'owner-1', 'app', new Date())
+  expect(await (await register(w.e, second, PHONE_A)).json()).toEqual({ ok: true, changed: true })
+  await w.db.prepare('DELETE FROM sessions WHERE id = ?').bind(await sha256(w.app)).run()
+  expect(await (await post(w.e)).json()).toEqual({ ok: true, id: '1001', sent: true, push: { sent: 1, dropped: 1 } })
+  expect(w.apns.mock.calls.map(([u]) => String(u))).toEqual([`https://api.push.apple.com/3/device/${PHONE_A}`])
+  const kept = JSON.parse(w.ab.m.get(TOKENS_KEY)!.value) as Record<string, { session: string }>
+  expect(Object.keys(kept)).toEqual([PHONE_A])
+  // The session's id (the bearer's hash), never the bearer.
+  expect(kept[PHONE_A]!.session).toBe(await sha256(second))
+  expect(JSON.stringify(kept)).not.toContain(second)
 })
 
 test('push refused with nothing else out: the job fails and the next try pushes; refused beside a mail sent: kept as said, the job fine', async () => {
@@ -381,12 +419,14 @@ test('the log says what went out: the mail, the phones notified, or neither and 
   keep(w, '2002', { when: '2026-11-05T00:00:00.000Z', sent: false, why: 'email_off', push: { sent: 0, why: 'no_apns_key' } })
   keep(w, '2003', { when: '2026-11-04T00:00:00.000Z', sent: false, why: 'email_off', push: { sent: 0, why: 'push_off' } })
   keep(w, '2004', { when: '2026-11-03T00:00:00.000Z', sent: true, push: { sent: 1, why: 'TooManyRequests' } })
+  keep(w, '2005', { when: '2026-11-02T00:00:00.000Z', sent: true, push: { sent: 1, dropped: 2 } })
   const rows = (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<ul class="areas">')[1]!.split('</li>')
   expect(rows[0]).toContain('<span class="chip good">Đã gửi email</span> · <span class="chip good">Đã gửi 2 thông báo</span>')
   expect(rows[1]).toContain('<span class="chip bad">Chưa gửi thông báo</span>: chưa có khóa APNs')
   expect(rows[1]).not.toContain('email')
   expect(rows[2]).toContain('<span class="chip">Không gửi</span>: email và thông báo đều đang tắt')
   expect(rows[3]).toContain('Đã gửi 1 thông báo</span>: <code>TooManyRequests</code>')
+  expect(rows[4]).toContain('Đã gửi 1 thông báo</span> · <span class="chip">Bỏ 2 điện thoại</span>: đã đăng xuất hoặc không còn nhận thông báo')
   expect(await (await open(w.e, '/_ab/bao-cao/2002/', c)).text()).toContain('Chưa gửi thông báo</span>: chưa có khóa APNs')
 })
 

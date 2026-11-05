@@ -1,6 +1,6 @@
 import { HOME_TZ, validZone } from './admin/time'
 import { overviewJson } from './admin/pages'
-import { appVisitor, loadOverview, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
+import { appSession, loadOverview, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
 import { addDevice, removeDevices, tokenBody } from './daily/push'
 import { setSettings, settingsChange } from './daily/settings'
 import { deleteKept } from './fishid/kept'
@@ -44,7 +44,7 @@ export async function ownerApi(req: Request, url: URL, env: AdminEnv, now = new 
 }
 
 async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<Response> {
-  const who = await appVisitor(req, env, now)
+  const { who, session } = await appSession(req, env, now)
   if (who === 'none') return fail(401, 'signed_out')
   if (who !== 'owner') return notFound()
   const path = url.pathname
@@ -86,12 +86,13 @@ async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<
     return reply({ ok: true, changed, ...settings })
   }
   if (path === '/api/owner/push-token') {
-    // POST at each launch while the app's row is on (the time moves, no second copy); DELETE when it's turned off or the owner signs out.
+    // POST at each launch while the app's row is on (the time moves, no second copy), tied to this session: a report goes
+    // only to a phone whose session is still live. DELETE when the row is turned off or the owner signs out.
     if (req.method !== 'POST' && req.method !== 'DELETE') return method('POST, DELETE')
     const adding = req.method === 'POST'
     const t = tokenBody(await json(req), adding)
     if (!t) return fail(400, 'bad_request', adding ? 'token (hex chữ thường), environment ("sandbox" hoặc "production").' : 'token (hex chữ thường).')
-    const changed = adding ? await addDevice(env.AB, t.token, t.environment!, now) : await removeDevices(env.AB, [t.token])
+    const changed = adding ? await addDevice(env.AB, t.token, t.environment!, session!.id, now) : await removeDevices(env.AB, [t.token])
     return reply({ ok: true, changed })
   }
   const shot = SHOT.exec(path)

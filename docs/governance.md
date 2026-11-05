@@ -152,7 +152,8 @@ that would have caught it).
     needs care, the highlights, the app with no data yet, and no address, picture or link to another site in a report
     (`daily-compose.test.ts`). `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
     id even at the same moment, and the recipient in nothing but the send; email off, push on (with no key, no phone, a
-    refusal alone or beside a mail sent), neither sent twice; the log page, each row saying what went out; the page's
+    refusal alone or beside a mail sent), neither sent twice; a phone whose session ended (signed out, expired, the
+    account deleted or no longer the owner's) dropped unsent, one registered again in a new session kept; the log page, each row saying what went out; the page's
     form, the owner's alone (`daily-report.test.ts`), on the dashboard's host too, behind Access and from the page only
     (`dashboard-host.test.ts`). The push: the settings, the phones kept and capped, the APNs token
     (ES256, the key's id, the team) checked against a generated key, the alert, each host, and APNs' answers (410 and

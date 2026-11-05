@@ -3,7 +3,7 @@ import { esc, fmt } from '../admin/chart'
 import { failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, soft, type Soft } from '../admin/shell'
 import { HOME_TZ, timeTag, timeText } from '../admin/time'
 import { getReport, listReports, type ReportMeta } from './log'
-import { apnsKeys, devices, type PushEnv } from './push'
+import { apnsKeys, devices, type LiveSessions, type PushEnv } from './push'
 import { getSettings, type ReportSettings } from './settings'
 
 /**
@@ -20,13 +20,18 @@ const NO_REPORTS = 'Chưa có báo cáo nào. Báo cáo đầu tiên đến lúc
 const HOW = 'Nhận báo cáo'
 const LIST = 'Các báo cáo'
 
-/** `phones`: how many phones the app registered; `keyed`: the APNs key is set. */
+/** `phones`: how many phones the app registered in a session still live; `keyed`: the APNs key is set. */
 export type Delivery = { settings: ReportSettings; phones: number; keyed: boolean }
 export type ReportsData = { now: Date; tz: string; delivery: Soft<Delivery>; xs: Soft<(ReportMeta & { id: string })[]> }
 
-export async function loadReports(env: PushEnv & { AB: KVNamespace }, now: Date, tz: string): Promise<ReportsData> {
+export async function loadReports(env: PushEnv & { AB: KVNamespace }, now: Date, tz: string, live: LiveSessions): Promise<ReportsData> {
+  const phones = async () => {
+    const d = Object.values(await devices(env.AB))
+    const alive = await live([...new Set(d.map(x => x.session))])
+    return d.filter(x => alive.has(x.session)).length
+  }
   const [delivery, xs] = await Promise.all([
-    soft('report settings', Promise.all([getSettings(env.AB), devices(env.AB)]).then(([settings, d]) => ({ settings, phones: Object.keys(d).length, keyed: Boolean(apnsKeys(env)) }))),
+    soft('report settings', Promise.all([getSettings(env.AB), phones()]).then(([settings, n]) => ({ settings, phones: n, keyed: Boolean(apnsKeys(env)) }))),
     soft('daily reports', listReports(env.AB)),
   ])
   return { now, tz, delivery, xs }
@@ -51,12 +56,13 @@ export const deliveryActions = (s: ReportSettings): Action[] => [
 const WHY: Record<string, string> = {
   no_recipient: 'chưa có người nhận', no_binding: 'chưa có binding EMAIL',
   no_apns_key: 'chưa có khóa APNs', no_device: 'chưa có điện thoại nào đăng ký', bad_apns_key: 'khóa APNs không đọc được',
-  all_off: 'email và thông báo đều đang tắt',
+  all_off: 'email và thông báo đều đang tắt', sessions_unread: 'không đọc được phiên đăng nhập',
+  dropped: 'đã đăng xuất hoặc không còn nhận thông báo',
 }
 type Part = { text: string; tone: 'good' | 'bad' | 'plain'; why?: string }
 /**
- * What went out: the mail and the phones' notification, each sent or why not. A channel the owner turned off is said only
- * when nothing went out. A report from before push says the mail alone.
+ * What went out: the mail and the phones' notification, each sent or why not, and the phones dropped (not a failure). A
+ * channel the owner turned off is said only when nothing went out. A report from before push says the mail alone.
  */
 function parts(r: Pick<ReportMeta, 'sent' | 'why' | 'push'>): Part[] {
   const out: Part[] = []
@@ -65,6 +71,7 @@ function parts(r: Pick<ReportMeta, 'sent' | 'why' | 'push'>): Part[] {
   const p = r.push
   if (p?.sent) out.push({ text: `Đã gửi ${fmt(p.sent)} thông báo`, tone: 'good', ...(p.why ? { why: p.why } : {}) })
   else if (p && p.why !== 'push_off') out.push({ text: 'Chưa gửi thông báo', tone: 'bad', ...(p.why ? { why: p.why } : {}) })
+  if (p?.dropped) out.push({ text: `Bỏ ${fmt(p.dropped)} điện thoại`, tone: 'plain', why: 'dropped' })
   return out.length ? out : [{ text: 'Không gửi', tone: 'plain', why: 'all_off' }]
 }
 const statusHtml = (r: Pick<ReportMeta, 'sent' | 'why' | 'push'>) => parts(r)

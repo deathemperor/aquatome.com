@@ -1,5 +1,5 @@
 import { accessOn, type AccessEnv } from './access'
-import { sessionOf, tokenOf } from './accounts/session'
+import { sessionOf, tokenOf, type Session } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { deleteKept, keptImage, recentKept } from './fishid/kept'
 import { loadHidden, updateHidden } from './hidden'
@@ -61,10 +61,25 @@ export async function visitor(req: Request, env: AdminEnv, now: Date): Promise<'
  * that ended, a web session's token, the dashboard token, a cookie). Never the cookie.
  */
 export async function appVisitor(req: Request, env: AdminEnv, now: Date): Promise<'owner' | 'other' | 'none'> {
-  if (!env.DB || tokenOf(req)?.via !== 'bearer') return 'none'
+  return (await appSession(req, env, now)).who
+}
+/** The same, with the owner's session: what a phone registered for the daily report is tied to (daily/push.ts). */
+export async function appSession(req: Request, env: AdminEnv, now: Date): Promise<{ who: 'owner' | 'other' | 'none'; session?: Session }> {
+  if (!env.DB || tokenOf(req)?.via !== 'bearer') return { who: 'none' }
   const session = await sessionOf(req, env.DB, now)
-  if (!session) return 'none'
-  return owners(env).includes(session.userId) ? 'owner' : 'other'
+  if (!session) return { who: 'none' }
+  return owners(env).includes(session.userId) ? { who: 'owner', session } : { who: 'other' }
+}
+/**
+ * Which of these sessions (sessions.id) appVisitor would still call the owner's, with no request to read them from: an
+ * app session, not signed out (its row is gone then), not expired, of an account that exists and OWNER_ACCOUNTS names.
+ */
+export async function liveOwnerApps(env: AdminEnv, ids: string[], now: Date): Promise<Set<string>> {
+  if (!env.DB || !ids.length) return new Set()
+  const { results } = await env.DB.prepare(`SELECT s.id, s.user_id FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.client = 'app' AND s.expires_at > ? AND s.id IN (${ids.map(() => '?').join(', ')})`)
+    .bind(now.toISOString(), ...ids).all<{ id: string; user_id: string }>()
+  const o = owners(env)
+  return new Set(results.filter(r => o.includes(r.user_id)).map(r => r.id))
 }
 /** The token cookie the dashboard used to set (Path=/_ab): cleared when the owner signs in the new way. */
 const OLD_TOKEN_COOKIE = 'ab_token=; Path=/_ab; Max-Age=0; HttpOnly; Secure; SameSite=Strict'
@@ -237,7 +252,7 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/an-trang/': view(async (env, _url, now, tz) => ({ now, tz, h: await soft('hidden', loadHidden(env.AB, true)) }), d => hiddenPage(d.h, d.now, d.tz), d => hiddenSection(d.h, d.now, d.tz)),
   '/_ab/tai-khoan/': view(async (env, _url, now, tz) => ({ now, tz, a: env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1') }),
     d => accountsPage(d.a, d.now, d.tz), d => accountsSection(d.a, d.now, d.tz)),
-  '/_ab/bao-cao/': view((env, _url, now, tz) => loadReports(env, now, tz), reportsPage, reportsSection),
+  '/_ab/bao-cao/': view((env, _url, now, tz) => loadReports(env, now, tz, ids => liveOwnerApps(env, ids, now)), reportsPage, reportsSection),
 }
 export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (keyof typeof PAGES)[])]
 

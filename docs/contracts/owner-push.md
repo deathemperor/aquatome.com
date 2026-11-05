@@ -93,8 +93,8 @@ It is an upsert. The same token again moves its last-seen time and makes no seco
 { "ok": true, "changed": true }
 ```
 
-`changed` on POST: the token is new here or its environment changed (false when only the time moved). On DELETE: the
-token was there.
+`changed` on POST: the token is new here, its environment changed, or it moved to this session (false when only the time
+moved). On DELETE: the token was there.
 
 | Status | `error` | When |
 | --- | --- | --- |
@@ -104,8 +104,19 @@ token was there.
 | 405 | `method` | not POST or DELETE (`allow: POST, DELETE`) |
 | 503 | `unavailable` | storage down |
 
-The server keeps the 10 phones seen last. It drops a token when APNs answers 410, or 400 `BadDeviceToken`. An app that
-posts at each launch puts a dropped phone back.
+The server keeps the 10 phones seen last. Each token is tied to the app session that posted it last. The server stores
+the session's id (the bearer's hash), never the bearer, and a POST in a new session moves the token there.
+
+Before each report, the server drops every token whose session is no longer live, checked the way every `/api/owner/*`
+call checks one:
+- signed out;
+- expired;
+- the account deleted, or no longer the owner's.
+
+So a phone whose session ended without its DELETE (offline at sign-out, signed out on the web, expired) gets nothing.
+
+It also drops a token when APNs answers 410, or 400 `BadDeviceToken`. An app that posts at each launch, signed in, puts
+a dropped phone back.
 
 ## The notification
 
@@ -135,7 +146,8 @@ The log row on `/_ab/bao-cao/` (and the section's table) says what went out: the
 or why not:
 
 - "chưa có khóa APNs": the APNs key isn't set;
-- "chưa có điện thoại nào đăng ký": no phone is registered;
+- "chưa có điện thoại nào đăng ký": no phone is registered in a live session;
+- "Bỏ n điện thoại": phones dropped (their session ended, or APNs no longer knows them), not a failure;
 - APNs' reason, such as `InvalidProviderToken`, when APNs refused.
 
 ## The site's secrets
