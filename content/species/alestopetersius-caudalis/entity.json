@@ -11,6 +11,152 @@
     "congo",
     "republic-of-the-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo",
+        "Lake Tumba",
+        "Pool Malebo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Boma, Lower Congo River, Democratic Republic of Congo', and this species has been recorded throughout much of the lower Congo region and upriver beyond Pool Malebo (Stanley Pool) at least as far as the Irebu channel, the principal outflow of Lake Tumba in the Middle Congo, Équateur province, northwestern Democratic Republic of the Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Congo",
+            "Lake Tumba",
+            "Pool Malebo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356114,
+      "total": 104,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "CD",
+          82
+        ],
+        [
+          "CG",
+          18
+        ],
+        [
+          "CF",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -7.03125,
+          17,
+          17
+        ],
+        [
+          12.65625,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          14.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          14.0625,
+          0,
+          8,
+          0
+        ],
+        [
+          15.46875,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          18.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          5.625,
+          4,
+          0
+        ],
+        [
+          22.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          22.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          35,
+          35
+        ],
+        [
+          23.90625,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          25.3125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          26.71875,
+          0,
+          5,
+          5
+        ],
+        [
+          26.71875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          28.125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

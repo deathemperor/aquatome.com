@@ -72,7 +72,7 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   expect(refs?.items.map(r => [r.title, r.url]) ?? [], d.path).toEqual(li.map(l => [txt(l.querySelector('a')), l.querySelector('a')!.getAttribute('href')]))
   if (refs) expect(refs.note, d.path).toBe(txt(dom.querySelector('.body .refs .note')))
   expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite, .body #muc-range a.cite').length)
-  for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch với sự cho phép của nguồn$/)
+  for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch từ nguồn$/)
   // The sections under their questions, with the ids the page's jump row links.
   expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
 }
@@ -261,7 +261,8 @@ test('a fish\'s copy: its blocks in page order, every one credited and sourced',
   const breeds = await fishDoc('vi', c, c.species.find(x => x.id === 'symphysodon-aequifasciatus')!, listedPaths('vi', c))
   expect(one(breeds, 'cards')).toEqual({
     t: 'cards', title: 'Các dòng và cá lai từ Cá đĩa', items: [
-      { path: '/vi/ca/ca-dia-pigeon-blood/', name: 'Cá đĩa Pigeon Blood', sub: 'Dòng cá cảnh', img: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed1.jpg/500px-Breed1.jpg', w: 1280, h: 960, credit: { text: 'Ảnh: Người chụp 1', licence: 'CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Breed1.jpg' } } },
+      // An Unsplash photo: its line, and its photographer's page for the app to link (lib/unsplash.ts).
+      { path: '/vi/ca/ca-dia-pigeon-blood/', name: 'Cá đĩa Pigeon Blood', sub: 'Dòng cá cảnh', img: { src: 'https://images.unsplash.com/photo-1000000000001-pigeonblood1?ixid=fixture&w=480&q=80&fm=jpg&fit=max', w: 1280, h: 960, credit: { text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: 'https://unsplash.com/photos/a-red-discus-fish-Pb1Fixture1?utm_source=aquatome&utm_medium=referral', authorUrl: 'https://unsplash.com/@mailin?utm_source=aquatome&utm_medium=referral', author: 'Mai Lin' } } },
       // No photo of it yet: the page shows its card without one, and so does the copy.
       { path: '/vi/ca/ca-la-han/', name: 'Cá La Hán (Flowerhorn)', sub: 'Cá lai' },
     ],

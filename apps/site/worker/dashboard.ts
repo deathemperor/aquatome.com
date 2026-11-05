@@ -5,7 +5,9 @@ import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE } from './owner'
 import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, waitingUpload, type PhotosEnv } from './photos'
 import { queryReaderDays, queryReaders } from './readers'
+import { queryAsks } from './lang-ask'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
+import { queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
 import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
 import { contentPage, contentSection } from './admin/content-page'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
@@ -15,8 +17,9 @@ import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview,
 } from './admin/pages'
-import { isFailed, loginPage, NAV, soft, unset, type AdminPath, type Soft } from './admin/shell'
-import { viewerZone } from './admin/time'
+import { isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { HOME_TZ, localDay, viewerZone } from './admin/time'
+import { reportPage, reportsPage } from './daily/page'
 
 /**
  * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each open only to the owner signed in to the site,
@@ -103,7 +106,7 @@ const SIGN_IN_HEADERS = { 'content-type': 'text/html; charset=utf-8', 'cache-con
  * dashboard page's place, so the owner signs in here and lands back on it (the panel's data-next, scripts/sync.ts
  * nextPath). The old page that points to "Bể của tôi" when this build can't serve it.
  */
-async function signInPage(env: AdminEnv, url: URL, key: AdminPath, other: boolean): Promise<Response> {
+async function signInPage(env: AdminEnv, url: URL, key: WebPath, other: boolean): Promise<Response> {
   const status = other ? 403 : 200
   const res = await env.ASSETS?.fetch(new Request(new URL(SIGN_IN, url))).catch(() => undefined)
   const html = res?.ok && res.headers.get('content-type')?.includes('text/html') ? await res.text() : ''
@@ -122,7 +125,7 @@ const contentOf = async (env: AdminEnv, origin: string) => {
   const s = await soft('content', loadContentStats(env.ASSETS, origin))
   return s === undefined ? { failed: 'Bản build này chưa có content.json.' } : s
 }
-const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
+export const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
 type Load<T> = (env: AdminEnv, url: URL, now: Date, tz: string) => Promise<T>
 /** A dashboard section: its HTML page, and the same page as blocks for the app, both from one load. */
@@ -153,6 +156,32 @@ export const loadOverview: Load<Overview> = async (env, url, now, tz) => {
 }
 
 const overviewHtml: Load<string> = async (...a) => overviewPage(await loadOverview(...a))
+
+/**
+ * The scoreboard's data (admin/scoreboard.ts), each part failing on its own, its weeks Vietnam's whoever asks: the page,
+ * /_ab/thanh-cong.json and the daily report all read this.
+ */
+export async function loadScoreboard(env: AdminEnv, url: URL, now: Date): Promise<Scoreboard> {
+  const a = ae(env)
+  const db = env.DB
+  const from = windowStart(now)
+  // clicks_daily keeps days, so as many as the window has, today included.
+  const clickDays = Math.round((Date.parse(`${localDay(now, HOME_TZ)}T00:00:00Z`) - Date.parse(`${weeksTo(now)[0]}T00:00:00Z`)) / 86_400_000) + 1
+  const [beacon, app, community, clicks, content, snapshots, checks] = await Promise.all([
+    a ? soft('scoreboard beacon', queryBeacon(a.account, a.token, from)) : unset(NO_AE),
+    a ? soft('scoreboard app', queryAppWeeks(a.account, a.token, from)) : unset(NO_AE),
+    db ? soft('scoreboard community', queryCommunity(db, from)) : unset('D1'),
+    db ? soft('scoreboard clicks', clicksByDay(db, now, clickDays)) : unset('D1'),
+    contentOf(env, url.origin),
+    soft('snapshots', listSnapshots(env.AB)),
+    soft('scoreboard checks', queryChecks(from)),
+  ])
+  return summariseScoreboard({ now, owners: owners(env), beacon, app, community, clicks, content, snapshots, checks })
+}
+const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage(await loadScoreboard(env, url, now), tz)
+/** The daily report's log and one report (daily/page.ts): pages of the web dashboard alone, so not in PAGES or NAV, which the app's section list follows. */
+const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(?:(\\d{1,20})/)?$`)
+const reportHtml = (id: string | undefined): Load<string | undefined> => (env, _url, now, tz) => (id ? reportPage(env.AB, id, now, tz) : reportsPage(env.AB, now, tz))
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
@@ -168,8 +197,9 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   }, contentPage, contentSection),
   '/_ab/doc-gia/': view(async (env, _url, now, tz) => {
     const a = ae(env)
-    return { now, tz, r: a ? await soft('readers', queryReaders(a.account, a.token, 14, tz)) : undefined }
-  }, d => readersPage(d.now, d.r, d.tz), d => readersSection(d.now, d.r, d.tz)),
+    const [r, asks] = a ? await Promise.all([soft('readers', queryReaders(a.account, a.token, 14, tz)), soft('language asks', queryAsks(a.account, a.token, 14))]) : []
+    return { now, tz, r, asks }
+  }, d => readersPage(d.now, d.r, d.tz, d.asks), d => readersSection(d.now, d.r, d.tz, d.asks)),
   '/_ab/ung-dung/': view(async (env, url, now, tz) => {
     const a = ae(env)
     const test = url.searchParams.get('test') === '1'
@@ -234,6 +264,11 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
     return Response.json(await loadHidden(env.AB, true), { headers: { 'cache-control': 'no-store' } })
   }
+  if (path === '/_ab/thanh-cong.json') {
+    // The scoreboard as data, for the site lead (Bearer token) as for the owner; only its counts, nobody's details.
+    if (req.method !== 'GET' || (!bearerOk(req, env.AB_DASH_TOKEN) && !(await owner()))) return notFound()
+    return Response.json(await loadScoreboard(env, url, now), { headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
+  }
   // The owner's alone (the page's cookie or the app's bearer, never the dashboard token), never stored, and only while it
   // waits: the upload is private until published.
   const photo = WAITING_PHOTO.exec(path)
@@ -277,8 +312,9 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     return see('/_ab/an-trang/')
   }
 
-  const key = (path.endsWith('/') ? path : `${path}/`) as AdminPath
-  const render = key === '/_ab/' ? overviewHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : undefined
+  const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
+  const report = REPORT_PAGE.exec(key)
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   const who = await visitor(req, env, now)
@@ -287,5 +323,6 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts), and drops the old token cookie.
   const headers = new Headers(HTML)
   for (const c of [OWNER_COOKIE, OLD_TOKEN_COOKIE]) headers.append('set-cookie', c)
-  return new Response(req.method === 'HEAD' ? null : await render(env, url, now, viewerZone(req)), { headers })
+  const html = req.method === 'HEAD' ? null : await render(env, url, now, viewerZone(req))
+  return html === undefined ? notFound() : new Response(html, { headers })
 }

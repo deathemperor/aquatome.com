@@ -12,7 +12,7 @@
     "run_worker_first": [
       "/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi", "/vi/*",
       "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
-      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/video/*",
+      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/ung-dung/*", "/video/*", "/id/aplikasi/*", "/th/mobile-app/*",
       "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"
     ]
   },
@@ -38,7 +38,9 @@
   // uploads bucket under diagnostics/ (a lifecycle rule deletes them).
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }, { "binding": "APP_EVENTS", "dataset": "aquatome_app" }],
   "triggers": { "crons": ["17 20 * * *"] },
-  "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
+  // Sign-in codes, and the daily report (worker/daily, POST /_ab/report), which goes to the secret REPORT_TO. Without that
+  // secret the report is kept on the dashboard, marked not sent.
+  "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com", "bao-cao@aquatome.com"] }],
   "vars": {
     "CANONICAL_HOST": "aquatome.com",
     "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df",
@@ -48,7 +50,10 @@
     "APPLE_TEAM_ID": "Q783W6B4FA",
     "APPLE_SIGNIN_KEY_ID": "YK437QPP8B",
     "ACCOUNTS": "on",
-    "PASSKEYS": "on"
+    "PASSKEYS": "on",
+    // Fish ID as an agent (worker/fishid/agent.ts): on since it passed the design's rule on the leak-checked 200 photos
+    // (docs/review/fish-id-accuracy.md): top-1 53.5% → 62.5%, median 9.1 s, $30.87 per 1,000. "0" or removed: today's call.
+    "FISH_ID_AGENT": "1"
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },

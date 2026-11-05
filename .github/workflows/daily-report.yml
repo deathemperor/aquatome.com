@@ -1,0 +1,30 @@
+name: Daily report to the owner
+# Every morning: what needs care, highlights, what was built, and the site's and the app's numbers, mailed to the owner and
+# kept on the dashboard (/_ab/bao-cao/). This job reads the last 24 hours from GitHub with its read-only token
+# (scripts/daily-report.mjs); the Worker adds the rest, stores the report and sends it (apps/site/worker/daily).
+on:
+  schedule:
+    - cron: '0 0 * * *' # 07:00 in Vietnam
+  workflow_dispatch:
+concurrency:
+  group: daily-report
+  cancel-in-progress: false
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+  issues: read
+jobs:
+  report:
+    name: Collect the last 24 hours and post them to the site
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Collect and post
+        run: node scripts/daily-report.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}

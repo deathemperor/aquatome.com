@@ -12,6 +12,121 @@
     "vietnam",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mae Klong",
+        "Sai Buri River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Vietnam",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It is known from Thailand, Cambodia, and Vietnam.",
+          "countries": [
+            "TH",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional records are not extensive but it seemingly occurs throughout the Mae Klong and Chao Phraya river basins and has been recorded in both Vietnam and Cambodia where one notable population inhabits the moats and ponds of the Angkor Wat temple complex near Siem Reap.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a freshwater swamp associated with the Sai Buri River in Pattani province, southern (peninsular) Thailand but currently considered to range throughout much of southern and central parts of the country, with the province of Narathiwat on the border with Peninsular Malaysia appearing to represent the southern limit of its range.",
+          "countries": [],
+          "regions": [
+            "Sai Buri River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366593,
+      "total": 10,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TH",
+          7
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

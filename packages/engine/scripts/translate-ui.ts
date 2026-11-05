@@ -4,20 +4,27 @@
  *
  *   I18N_MISSING_OUT=/tmp/missing.json pnpm --filter site build   # then:
  *   pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/missing.json
+ *
+ * A language the site doesn't serve yet has no build to say what it misses: --unserved [--limit N] takes the strings a
+ * served language has and it lacks, at most N a language (a cycle's share), until it has them all.
  */
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { claudeCli } from '../src/claude'
 import { TARGETS, type TargetLang } from '../src/localize'
+import { unservedMissing } from '../src/ui-text'
 
 const DICT_DIR = join(import.meta.dirname, '../../../apps/site/src/i18n')
-const missing = JSON.parse(await readFile(process.argv[2]!, 'utf8')) as Partial<Record<TargetLang, string[]>>
+const arg = (name: string) => { const i = process.argv.indexOf(name); return i < 0 ? undefined : process.argv[i + 1] }
+const missing = (process.argv.includes('--unserved')
+  ? await unservedMissing(DICT_DIR, Number(arg('--limit') ?? Infinity))
+  : JSON.parse(await readFile(process.argv[2]!, 'utf8'))) as Partial<Record<TargetLang, string[]>>
 const marks = (s: string) => [...s.matchAll(/\{\w+\}|\[[A-Z_]+\]|<\/?[a-z][a-z0-9]*/gi)].map(m => m[0]).sort().join(' ')
 const SCHEMA = { type: 'object', required: ['items'], properties: { items: { type: 'array', items: { type: 'object', required: ['vi', 'out'], properties: { vi: { type: 'string' }, out: { type: 'string' } } } } } }
 
 for (const [lang, strings] of Object.entries(missing) as [TargetLang, string[]][]) {
   const file = join(DICT_DIR, `${lang}.json`)
-  const dict = JSON.parse(await readFile(file, 'utf8')) as Record<string, string>
+  const dict = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
   let todo = strings.filter(s => !(s in dict))
   for (let round = 0; round < 3 && todo.length; round++) {
     for (let i = 0; i < todo.length; i += 60) {

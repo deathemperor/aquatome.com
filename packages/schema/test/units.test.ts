@@ -138,6 +138,15 @@ test('guides: a change of temperature, and the middle of a decade of °F', () =>
   expect(th('ปลาเขตร้อนส่วนใหญ่ทนน้ำราว 50 ปลาย ๆ ถึง 60 ต้น ๆ °F ได้หลายชั่วโมง')).toBe('ปลาเขตร้อนส่วนใหญ่ทนน้ำราว 14–17 °C ได้หลายชั่วโมง')
   expect(id('tahan suhu di kisaran 60-an °F bawah atau 50-an °F atas selama beberapa jam')).toBe('tahan suhu di kisaran 14–17 °C selama beberapa jam')
   expect(id('Betta liar tahan suhu pertengahan 80-an °F untuk sementara waktu')).toBe('Betta liar tahan suhu sekitar 29 °C untuk sementara waktu')
+  // English decades a translator kept ("low 60s °F"), Indonesian high and low after the decade ("tinggi", "rendah"), and
+  // a decade alone ("60-an °F": all of it). The summer and winter care guide in Indonesian had each, 2026-11-05.
+  expect(id('Sebagian besar ikan tropis tahan di low 60s °F, bahkan high 50s °F, selama beberapa jam.'))
+    .toBe('Sebagian besar ikan tropis tahan di sekitar 17 °C, bahkan sekitar 14 °C, selama beberapa jam.')
+  expect(id('sering tahan di kisaran high 80s sampai low 90s °F selama sehari')).toBe('sering tahan di kisaran 31–33 °C selama sehari')
+  expect(id('kisaran 80-an °F tinggi sampai 90-an °F rendah')).toBe('kisaran 31–33 °C')
+  expect(id('tahan di 60-an °F, bahkan 50-an °F')).toBe('tahan di 16–21 °C, bahkan 10–15 °C')
+  expect(id('tahan di sekitar 60-an °F rendah')).toBe('tahan di sekitar 17 °C')
+  expect(vi('chịu được nhiệt độ xuống tới mid-60s °F')).toBe('chịu được nhiệt độ xuống tới khoảng 18 °C')
   // Two sources' figures, not one figure twice: the second is converted, not dropped.
   expect(th('บางแหล่งแนะนำ 32–33 °C หรือ 86–88 °F')).toBe('บางแหล่งแนะนำ 32–33 °C หรือ 30–31 °C')
   expect(vi('Chúng thích nước mát hơn (khoảng 21°C, tức 70°F), nhưng')).toBe('Chúng thích nước mát hơn (khoảng 21°C), nhưng')
@@ -197,7 +206,7 @@ test('guides: inch and foot marks, numbers in words, sides', () => {
   // A "kaki" is a leg too: a foot only after a length word.
   expect(id('menyarankan kedalaman minimal 3–4 kaki, terutama')).toBe('menyarankan kedalaman minimal 0,9–1,2 m, terutama')
   expect(id('Udang punya 10 kaki.')).toBe('Udang punya 10 kaki.')
-  for (const s of ['84” x 27” x 28”', 'kedalaman 3 kaki', 'kisaran 60-an °F bawah', '600 GPH', '10 ตารางฟุต', 'bốn feet', '50 ปลาย ๆ ถึง 60 ต้น ๆ °F']) expect(imperialLeft(s), s).not.toEqual([])
+  for (const s of ['84” x 27” x 28”', 'kedalaman 3 kaki', 'kisaran 60-an °F bawah', '600 GPH', '10 ตารางฟุต', 'bốn feet', '50 ปลาย ๆ ถึง 60 ต้น ๆ °F', 'low 60s °F', 'high 80s sampai low 90s °F']) expect(imperialLeft(s), s).not.toEqual([])
 })
 
 test('guides: a weight in grams, kg from 1,000 g', () => {
@@ -224,4 +233,52 @@ test('guides: quoted labels with their metric, names, a bottle\'s ounces and fig
   expect(imperialLeft(left.join(' '))).toEqual([])
   // A quoted rule with no metric after it is converted whole.
   expect(th('กฎ "1 แกลลอนต่อปลา 1 นิ้ว" เป็นแค่แนวทาง')).toBe('กฎ "3.8 ลิตรต่อปลา 2.5 ซม." เป็นแค่แนวทาง')
+})
+
+// Malay marks its numbers as Thai does (1,000.5), not as Indonesian (1.000,5), and has its own words for a gallon and a pound.
+const ms = (s: string) => toMetric(s, 'ms')
+test('Malay: a decimal point and a comma for thousands, read and written', () => {
+  expect(ms('akuarium 20 gelen')).toBe('akuarium 76 liter')
+  expect(ms('1 gelen')).toBe('3.8 liter')
+  expect(ms('1,000 gelen')).toBe('3,800 liter')
+  expect(ms('2.5 inci')).toBe('6.5 cm')
+  expect(ms('pam 300 gelen sejam')).toBe('pam 1,100 liter/jam')
+  // Indonesian keeps its own marks.
+  expect(toMetric('1 galon', 'id')).toBe('3,8 liter')
+  expect(toMetric('1.000 galon', 'id')).toBe('3.800 liter')
+})
+
+test('every language writes a decimal as its locale does', async () => {
+  const { LANG, WRITTEN_LANGS } = await import('../src/langs')
+  for (const lang of WRITTEN_LANGS) {
+    const mark = new Intl.NumberFormat(LANG[lang].locale).format(1.5).replace(/\d/g, '')
+    expect(toMetric('1 gallon', lang), lang).toContain(`3${mark}8`)
+  }
+})
+
+test("Malay's words: gelen, paun, auns, kaki after a tank, iaitu, lebih kurang", () => {
+  expect(ms('10 hingga 20 inci')).toBe('25 hingga 51 cm')
+  expect(ms('10 sehingga 20 gelen')).toBe('38 sehingga 76 liter')
+  expect(ms('10 ke 20 inci')).toBe('25 ke 51 cm')
+  expect(ms('5 inci (lebih kurang 12.7 cm)')).toBe('12.7 cm')
+  expect(ms('20 °C (68 °F)')).toBe('20 °C')
+  expect(ms('kira-kira 20 °C, iaitu 68 °F')).toBe('kira-kira 20 °C')
+  expect(ms('2 paun')).toBe('910 g')
+  expect(ms('8 auns')).toBe('230 g')
+  expect(ms('botol 8 auns')).toBe('botol 8 auns')
+  expect(ms('satu gelen air')).toBe('3.8 liter air')
+  expect(ms('10 gelen UK')).toBe('45 liter')
+  expect(ms('10 gelen Inggeris')).toBe('45 liter')
+  expect(ms('paip PVC ¾ inci')).toBe('paip PVC 27 mm')
+  // How Malaysian shops size a tank.
+  expect(ms('akuarium 3 kaki')).toBe('akuarium 91 cm')
+  expect(ms('tangki 1.5 kaki')).toBe('tangki 46 cm')
+  expect(ms('akuarium 4 x 2 x 2 kaki')).toBe('akuarium 122 x 61 x 61 cm')
+  // A leg, and a product's name.
+  expect(ms('katak mempunyai 4 kaki')).toBe('katak mempunyai 4 kaki')
+  expect(ms('Fluval 10 Gelen dijual')).toBe('Fluval 10 Gelen dijual')
+  // The test on the real content reads these words too.
+  expect(imperialLeft('akuarium 10 gelen')).toHaveLength(1)
+  expect(imperialLeft('seberat 2 paun')).toHaveLength(1)
+  expect(imperialLeft(ms('akuarium 10 gelen, seberat 2 paun, 68 °F'))).toEqual([])
 })

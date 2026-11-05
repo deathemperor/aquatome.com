@@ -1,0 +1,63 @@
+{
+  "id": "danio-choprae",
+  "native": {
+    "input": "159905786b37995b",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from 'small rocky streams' of the Mogaung Chaung river system close to the towns of 'Kamaing' (often referred to as Kar Maing) and Namma (Nanmati?) in Myitkyina District, Kachin State, northern Myanmar, and the species appears restricted to this tributary of the much larger Ayeyarwaddy drainage.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mogaung Chaung",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from 'small rocky streams' of the Mogaung Chaung river system close to the towns of 'Kamaing' (often referred to as Kar Maing) and Namma (Nanmati?) in Myitkyina District, Kachin State, northern Myanmar, and the species appears restricted to this tributary of the much larger Ayeyarwaddy drainage.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Ayeyarwaddy",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from 'small rocky streams' of the Mogaung Chaung river system close to the towns of 'Kamaing' (often referred to as Kar Maing) and Namma (Nanmati?) in Myitkyina District, Kachin State, northern Myanmar, and the species appears restricted to this tributary of the much larger Ayeyarwaddy drainage.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio choprae",
+    "status": "ACCEPTED",
+    "taxonKey": 2362712,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

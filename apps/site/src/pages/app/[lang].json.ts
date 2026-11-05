@@ -13,5 +13,7 @@ export const GET: APIRoute = async ({ params }) => {
   const lang = params.lang as Lang
   const c = await getContent(lang)
   // Every species' group, for breeds whose species has no page in this language.
-  return Response.json({ ...appIndex(lang, c, await getTraits(), (await getContent('vi')).species), ...indexedShards(shardsOf(await appPages(lang, c)).counts) })
+  // telemetry: the app may send its anonymous events and iOS's reports (protocols/app-telemetry.openapi.json), on since the
+  // owner approved the privacy page's text for them (2026-11-06).
+  return Response.json({ ...appIndex(lang, c, await getTraits(), (await getContent('vi')).species), ...indexedShards(shardsOf(await appPages(lang, c)).counts), telemetry: true })
 }

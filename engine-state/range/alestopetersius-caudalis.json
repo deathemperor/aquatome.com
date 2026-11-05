@@ -1,0 +1,82 @@
+{
+  "id": "alestopetersius-caudalis",
+  "native": {
+    "input": "831934e873697e9c",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Boma, Lower Congo River, Democratic Republic of Congo', and this species has been recorded throughout much of the lower Congo region and upriver beyond Pool Malebo (Stanley Pool) at least as far as the Irebu channel, the principal outflow of Lake Tumba in the Middle Congo, Équateur province, northwestern Democratic Republic of the Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Boma, Lower Congo River, Democratic Republic of Congo', and this species has been recorded throughout much of the lower Congo region and upriver beyond Pool Malebo (Stanley Pool) at least as far as the Irebu channel, the principal outflow of Lake Tumba in the Middle Congo, Équateur province, northwestern Democratic Republic of the Congo.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Lake Tumba",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Boma, Lower Congo River, Democratic Republic of Congo', and this species has been recorded throughout much of the lower Congo region and upriver beyond Pool Malebo (Stanley Pool) at least as far as the Irebu channel, the principal outflow of Lake Tumba in the Middle Congo, Équateur province, northwestern Democratic Republic of the Congo.",
+        "ok": true
+      },
+      {
+        "name": "Pool Malebo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Boma, Lower Congo River, Democratic Republic of Congo', and this species has been recorded throughout much of the lower Congo region and upriver beyond Pool Malebo (Stanley Pool) at least as far as the Irebu channel, the principal outflow of Lake Tumba in the Middle Congo, Équateur province, northwestern Democratic Republic of the Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Alestopetersius caudalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2356114,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        88
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

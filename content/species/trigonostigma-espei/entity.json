@@ -14,6 +14,70 @@
     "vietnam",
     "phu-quoc"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Prek Tuk Sap",
+        "Phu Quoc"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The lambchop rasbora, Trigonostigma espei, is a small cyprinid from southwestern and southeastern Thailand, reaching into southwestern Cambodia.",
+          "countries": [
+            "TH",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "More recently a population has been discovered on the nearby island of Phu Quoc, Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Phu Quoc"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its range is known to extend at least as far as the Prek Tuk Sap river basin near the coastal town of Sihanoukville in southwestern Cambodia while reports from Laos probably represent cases of mistaken identity.",
+          "countries": [],
+          "regions": [
+            "Prek Tuk Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367616,
+      "total": 12,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "VN",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          9.84375,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

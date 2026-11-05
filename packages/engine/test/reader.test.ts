@@ -1,9 +1,9 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import type { Page } from '../src/pages'
+import { loadPages, type Page } from '../src/pages'
 import { canRewrite, duePages, keepFindings, pageKey, readerReport, readerText, readPages, rewritePart, type ReaderState } from '../src/reader'
 
 const page = (o: Partial<Page>): Page => ({ lang: 'vi', kind: 'guides', id: 'g', title: 'Cá ăn gì', path: '/vi/huong-dan/g/', fields: [], lines: [], captions: [], latinNames: [], card: [], ...o })
@@ -191,4 +191,14 @@ test('the backfill: the most-read pages first, Vietnamese first, then the reader
   const rank = (p: Page) => (p.kind === 'species' && order.includes(p.id) ? order.indexOf(p.id) : order.length)
   expect(duePages(pages, {}, rank).map(pageKey)).toEqual(['vi/species/betta', 'vi/species/rare', 'vi/guides/g1', 'id/species/betta'])
   expect(duePages(pages, {}).map(pageKey)).toEqual(['vi/guides/g1', 'vi/species/betta', 'vi/species/rare', 'id/species/betta'])
+})
+
+test("the reader's pages are the served languages': a language the site doesn't serve yet costs it no reading", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-reader-ms-'))
+  await cp(new URL('../../../apps/site/test/fixture-content', import.meta.url), root, { recursive: true })
+  expect(await readFile(join(root, 'species/apistogramma-cacatuoides/ms.json'), 'utf8')).toContain('Ikan Uji Melayu') // the fixture has one
+  const pages = await loadPages(root)
+  expect(pages.length).toBeGreaterThan(0)
+  expect(new Set(pages.map(p => p.lang))).toEqual(new Set(['vi']))
+  expect(pages.filter(p => p.title.includes('Melayu'))).toEqual([])
 })

@@ -12,8 +12,15 @@ import { checkTankmates, verdictOf, type TankmateReport, type Verdict } from './
  * tanks; protocols/tankmates-vectors.json holds both to it.
  */
 
-/** A fish on the tank: its name and tank-mates figures (the app index's facts), and how many, when the tank says. */
-export type TankFish = Pick<SpeciesIndexItem, 'name' | 'tempC' | 'ph' | 'gh' | 'sizeCm' | 'tankCm' | 'temperament' | 'finNipper' | 'schoolMin'> & { count?: number }
+/**
+ * A row of the tank: its name and tank-mates figures (the app index's facts), how many, when the tank says, and `key`, what
+ * the check counts it as: the page's content id, or for a breed that is a form of a species, the species' (the app index's
+ * `of ?? id`; the row then carries the species' figures, and its name as `species`). Rows with one key are one fish
+ * (oneFishEach); a row with none is a fish of its own.
+ */
+export type TankFish = Pick<SpeciesIndexItem, 'name' | 'tempC' | 'ph' | 'gh' | 'sizeCm' | 'tankCm' | 'temperament' | 'finNipper' | 'schoolMin'> & {
+  count?: number; key?: string; species?: string
+}
 /** The tank's inside size (cm) and its own litres figure, either or both when known. */
 export type TankSize = { dims?: { l: number; w: number; h: number }; litres?: number }
 
@@ -53,11 +60,32 @@ export const stockingNotes = (s: ReturnType<typeof stocking>, ct: T, fmt: (n: nu
 const unsizedNote = (names: string[], ct: T, esc: Esc = same) => ct('Chưa có kích thước của {names}: chưa tính vào mật độ.', { names: names.map(esc).join(', ') })
 
 /**
+ * A tank's rows as the fish the check counts: one for each key, where the first of its rows is, with that row's figures.
+ * Its name: what the reader added, when its rows all name one fish (a tank with only halfmoon bettas names the
+ * halfmoon, once or twice); when they name more, the species' (the first row's `species`, else its name). Its count: every row's added up; with a row that gives none,
+ * read as the school size ("a school, the number not given"), at least the school size (one, without one), so adding a
+ * row never lowers it; with none given, none (the check reads it as the school size, once).
+ */
+export function oneFishEach(rows: TankFish[]): TankFish[] {
+  const groups = new Map<string | number, TankFish[]>()
+  rows.forEach((r, i) => groups.set(r.key ?? i, [...(groups.get(r.key ?? i) ?? []), r]))
+  return [...groups.values()].map(group => {
+    const { key: _key, count: _count, species, ...fish } = group[0]!
+    if (new Set(group.map(r => r.name)).size > 1) fish.name = species ?? fish.name
+    const given = group.flatMap(r => (r.count === undefined ? [] : [r.count]))
+    const sum = given.reduce((a, b) => a + b, 0)
+    const count = !given.length ? undefined : given.length === group.length ? sum : Math.max(sum, fish.schoolMin ?? 1)
+    return count === undefined ? fish : { ...fish, count }
+  })
+}
+
+/**
  * `fmt`: numbers as the page writes them in its language (Intl.NumberFormat, at most `d` decimals). `unlisted`: the names
  * of the tank's fish without a page (`unlisted` in the tank model): no figures to check them by, so they're left out of
  * every check and named in `unchecked`.
  */
-export function tankCheck(fish: TankFish[], size: TankSize, ct: T, fmt: (n: number, d?: number) => string, unlisted: string[] = []): TankCheck {
+export function tankCheck(rows: TankFish[], size: TankSize, ct: T, fmt: (n: number, d?: number) => string, unlisted: string[] = []): TankCheck {
+  const fish = oneFishEach(rows)
   // The tool's checks read only these fields.
   const mates = fish as SpeciesIndexItem[]
   const r = checkTankmates(mates, ct)

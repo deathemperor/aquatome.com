@@ -4,7 +4,7 @@ import { careNeeds, NEED_ORDER, NEED_RULES, rangeSpan, type Need, type NeedKey, 
 import { FACTS, type AppIndex, type Facts } from '../src/lib/app-index'
 import { guideLink, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { fmt } from '../src/lib/format'
-import { appPath, LANGS, localizePath, missing, translator, type Lang } from '../src/lib/i18n'
+import { appPath, LANGS, localizePath, missing, OTHER_LANGS, translator, type Lang } from '../src/lib/i18n'
 import { appPage, DIST } from './dist'
 
 // Shared with the iOS app, which reads the "Vì sao?" panel's needs from a fish's index entry with its own port of
@@ -93,7 +93,7 @@ test('protocols/care-needs-vectors.json is careNeeds\' answers, the panel\'s lin
   if (process.env.UPDATE_VECTORS === '1') writeFileSync(FILE, next)
   expect(readFileSync(FILE, 'utf8'), 'run UPDATE_VECTORS=1 pnpm --filter site test').toBe(next)
   // Every Indonesian and Thai word is the site's translation, none the Vietnamese left in its place.
-  for (const lang of ['id', 'th'] as const) expect([...(missing.get(lang) ?? [])], lang).toEqual([])
+  for (const lang of OTHER_LANGS) expect([...(missing.get(lang) ?? [])], lang).toEqual([])
 })
 
 test('careNeeds gives each case\'s needs, in NEED_ORDER, from the entry as the app index has it', () => {

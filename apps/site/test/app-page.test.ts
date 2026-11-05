@@ -82,7 +82,7 @@ test('every guide converts as its page shows it (links, photos, a video\'s pictu
 test('a guide\'s header line, credit and lead photo read as its built page\'s', async () => {
   const c = await getContent('vi')
   const listed = listedPaths('vi', c)
-  let leads = 0
+  let leads = 0, named = 0
   for (const g of appGuides('vi', c)) {
     const d = guideDoc('vi', c, g, listed)
     const { dom } = appPage(d.path)
@@ -96,10 +96,14 @@ test('a guide\'s header line, credit and lead photo read as its built page\'s', 
     if (d.lead) {
       leads++
       expect(d.lead.credit?.text, d.path).toMatch(/^Ảnh: \S/)
-      expect(d.lead.credit?.licence, d.path).toBeTruthy()
+      // Its licence by name; none for a photo a source let us use (stored with the permission note as its licence).
+      const photo = guideParts('vi', c, g).lead!
+      expect(d.lead.credit?.licence, d.path).toBe(photo.licence === 'dùng với sự cho phép' ? '' : photo.licence)
+      if (d.lead.credit?.licence) named++
     }
   }
   expect(leads).toBeGreaterThan(0)
+  expect(named).toBeGreaterThan(0)
 })
 
 // The fixture's guides have no summary, FAQ or sources: one with all three.
@@ -152,6 +156,12 @@ test('a page the app index leaves out is in no "pages" block; a link to it in th
   const block = (id: string) => pagesOf(guideDoc('vi', c, appGuides('vi', c).find(x => x.id === id)!, listed))
   expect(block('sprucepets-low-maintenance-freshwater-fish-4770223')).toContain('/vi/ca/ca-boraras-do/')
   expect(block('loc-cho-be-nano')).toContain('/vi/huong-dan/thay-nuoc-dung-cach/')
+})
+
+// The owner approved the privacy page's text for the app's anonymous statistics (2026-11-06): every language's index
+// lets the app send them (protocols/app-telemetry.openapi.json; a reader can still turn them off in the app).
+test('every language\'s index turns the app\'s anonymous statistics on', () => {
+  for (const lang of LANGS) expect((JSON.parse(readFileSync(`${DIST}/app/${lang}.json`, 'utf8')) as { telemetry?: boolean }).telemetry, lang).toBe(true)
 })
 
 test('each page of each kind is in the shard its path names, the shards hold nothing else, and every page they name is listed', async () => {

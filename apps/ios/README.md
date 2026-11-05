@@ -19,10 +19,18 @@ picked for it has a Smart Life timer that cuts its power, which stops the light'
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
-just saved.
+just saved. The fish-ID tool is the app's own screen too (`FishIdView`): a photo from the library or the camera, one fish
+boxed on it if the reader likes, shrunk and stripped as the site's page sends it, and sent as the reader's aquatome.com
+account (`protocols/fishid.openapi.json`: a bearer in place of the page's Turnstile check, counted per account); the
+guesses as the site shows them, each page opening in the app. Signed out, the sign-in comes first. Claude has up to
+25 s on the Worker, so the request waits 65 s and the screen says so after the first seconds; meanwhile the photo can't
+be changed, so its guesses come in under it.
 
-Signing in (Sign in with Apple, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
-the site's page does: the token is in the Keychain, on this phone only. "Thêm passkey" adds one made on the phone, as on
+Signing in (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
+the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no Google SDK (the size
+budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth 2.0 for installed
+apps, a code with PKCE), the app exchanges the code at Google for the ID token (an iOS client has no secret), and the
+server checks that token as it checks Apple's (`GoogleOAuth`). "Thêm passkey" adds one made on the phone, as on
 the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one to the same account
 carries on. The email sign-in's
 Turnstile check runs in a web view on the site's page for it (`/api/v1/auth/email/turnstile`), since Turnstile runs
@@ -35,8 +43,9 @@ The site's owner signed in sees one more row in "Bể của tôi", **Bảng đi�
 session: the overview's to-dos, area cards and "Mấy ngày qua", and each section's charts, tables, photos and buttons,
 its form and switch. The server drives it, so a new section, block or button needs no app release. Only the account the
 overview answers 200 sees the row; its photos stay in memory, never on the phone's storage.
-A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, passkey sheet and
-Turnstile check inside the app instead (`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
+A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, Google page and token
+endpoint (`FakeGoogle`; `-fake-google cancel` closes the page), passkey sheet and Turnstile check inside the app instead
+(`AquaTome/Account/FakeServer.swift`; accounts on with `-fake-accounts on`;
 every emailed code is `123456`; `-seed-passkey` gives an account the stand-in's passkey; a session kept from an earlier
 launch counts as signed in long ago; `-fake-owner <account>` serves the owner's dashboard from
 `protocols/owner-dashboard-vectors.json` to that account (`ui-apple` is the stand-in Apple sheet's), `-owner-session-ends`
@@ -72,8 +81,8 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
   which it stopped on their way (with `-slow-pictures`; `PictureLog`), and the size of the picture it shows.
 
   A change to how a screen looks shows it before and after (`docs/governance.md`, Mobile apps rule 6):
-  `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant and a guide top to bottom, light and dark, and CI's
-  job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
+  `AquaTomeUITests/PageShotsFlowTests` screenshots a fish, a plant, a guide and the fish-ID screen top to bottom, light
+  and dark, and CI's job `handbook (1)` uploads them as the `ios-page-shots` artifact whenever it runs them: every run on main, and a pull
   request whose change can reach the pages, or labelled `ios-full`. Locally:
 
   ```sh
@@ -170,12 +179,16 @@ Debug builds, so they don't see it.
 - **A pull request** runs the smoke set, ten flows across the app's main journeys (the app starts and its tabs open, a
   search opens a page the app draws, a fish's facts, a tank made and a fish put on it, the tank-mates check, the fake
   light connected and a preset written, a sign-in on the stand-in server, a shelf kept for offline: about 6 minutes
-  after the build), and the flows its change can reach. `scripts/flows-to-run.py` maps the app's folders and files to
-  them, and its `--test` fails when a flow it names is renamed. A class it reaches whole runs in its own job; a few of a
-  class's tests run in `app`, beside the smoke set. What every screen sits in (the project, `Config/`, the flows' shared
-  helpers) runs the smoke set alone. The app's start (`AquaTomeApp.swift`), `ios.yml`, `flows-to-run.py` and the
-  scripts the flow jobs run run every flow, and so does a path under `apps/ios/` the script has no rule for. Jobs `kit`
-  and `perf` (with the translations) run on every ready pull request.
+  after the build), when its change can reach any flow. With it: the whole class of each flow file it edits, in that
+  class's job, so a check added or changed is seen to pass; and the page shots, when its change can reach the pages
+  (governance rule 6). The other flows its change can reach run on main after the merge: `scripts/flows-to-run.py`
+  maps the app's folders and files to them, and the job "which flows this change needs" names their classes in a
+  notice. Label the pull request `ios-full` to run them on it, as on a change to a model many flows share
+  (LightsModel, HandbookModel's fixture, AccountModel). `ios.yml`, `flows-to-run.py`, the scripts the flow jobs run
+  and the flows' shared code (a file in `AquaTomeUITests` that isn't a class's own) run every flow. The script's
+  `--test` fails when a flow it names is renamed. Jobs `kit` and `perf` (with the translations) run on every ready
+  pull request. Until 2026-11-05 a pull request also ran every flow its change could reach, one to two and a half
+  hours of GitHub's Macs: the owner chose this instead.
 - **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: each change was
   measured by its pull request's run), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull
   request labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
@@ -185,8 +198,10 @@ Debug builds, so they don't see it.
   still waiting is dropped when a merge lands, and a break main's run catches may come from any merge since its last
   run.
 
-A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
-the pull request that broke it, give `flows-to-run.py` the rule that would have run it.
+A failed job on main's run opens an issue labelled `ios-main-red` (job `report`), or comments on the one open; main's
+next run with every job passed closes it. A break that only main's run catches is fixed forward first, in a pull request
+of its own. If the notice on the pull request that broke it didn't name the flow, give `flows-to-run.py` the rule that
+would have.
 
 ## CI's own Mac
 
@@ -225,9 +240,9 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`) |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore) |
-| `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code |
-| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; `FakeAccounts`, the server in process (tests, simulator). The owner's dashboard (`protocols/owner-dashboard.openapi.json`): `Owner`, its replies read leniently; `OwnerClient`, its requests with the account's session; `OwnerAccess`, who sees it (200 the owner, the Worker's 404 not, 401 signed out) and what is kept; `FakeOwner`, its replies on the stand-in server |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a page named what was searched for first (by its name, scientific name or another name, as the site's search ranks it: "bảy màu" finds Cá bảy màu before Bảy màu Koi), a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore); the fish-ID tool's request and answers (`FishId`) |
+| `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code. A breed that is a form of a species (`of` in the index) goes to it as that species, and the check makes a species and its breeds one fish |
+| `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; Google's sign-in without its SDK (`GoogleOAuth`: its page, its answer, the code exchanged with PKCE); `FakeAccounts`, the server in process, and `FakeGoogle`, Google's page and token endpoint in process (tests, simulator), the fish-ID tool's too. The owner's dashboard (`protocols/owner-dashboard.openapi.json`): `Owner`, its replies read leniently; `OwnerClient`, its requests with the account's session; `OwnerAccess`, who sees it (200 the owner, the Worker's 404 not, 401 signed out) and what is kept; `FakeOwner`, its replies on the stand-in server |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh
@@ -240,8 +255,9 @@ and `TUYA_ACCESS_SECRET` set, `swift test --filter liveListRead`. It reads the l
 counts only.
 
 The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`, `protocols/tankmates-vectors.json`,
-`protocols/filter-vectors.json`, `protocols/page-vectors.json` and `protocols/unlisted-vectors.json`, the same vectors as
-the site's tests. A protocol or schema change updates the vectors and both implementations together.
+`protocols/filter-vectors.json`, `protocols/search-vectors.json`, `protocols/page-vectors.json` and
+`protocols/unlisted-vectors.json`, the same vectors as the site's tests. A protocol or schema change updates the vectors
+and both implementations together.
 
 ## Testing on a real light
 

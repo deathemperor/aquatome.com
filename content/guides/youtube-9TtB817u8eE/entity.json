@@ -1,0 +1,81 @@
+{
+  "id": "youtube-9TtB817u8eE",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=9TtB817u8eE",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "9TtB817u8eE",
+    "title": "HOW TO: Build an aquarium into a wall",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 851,
+    "publishedAt": "2012-05-04",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 26
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/9TtB817u8eE/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 61
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Làm sao biết phía sau tường có gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/9TtB817u8eE/p1-RldGVjdG9yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/9TtB817u8eE/p1-RldGVjdG9yLmpwZw-480.webp",
+          "width": 960,
+          "height": 785,
+          "licence": "CC BY 3.0",
+          "author": "Tilt u",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mitsutomo_Intelligent_Multidetector.jpg",
+          "caption": "Máy dò khung xương màu đỏ dùng để tìm thanh đứng sau tường thạch cao."
+        }
+      },
+      {
+        "heading": "Vạch khung và dời dây điện",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/9TtB817u8eE/p2-aWNfd2lyZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/9TtB817u8eE/p2-aWNfd2lyZXMuanBn-480.webp",
+          "width": 881,
+          "height": 956,
+          "licence": "CC0",
+          "author": "Tomwsulcer",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wall_almost_finished_to_hold_electric_wires.jpg",
+          "caption": "Khung tường gỗ với dây điện lộ ra, cần dời trước khi đặt bể."
+        }
+      },
+      {
+        "heading": "Đóng nẹp khung cho bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/9TtB817u8eE/p4-LTc0LUEtMjEudGlm.webp",
+          "thumb": "https://media.aquatome.com/video/9TtB817u8eE/p4-LTc0LUEtMjEudGlm-480.webp",
+          "width": 960,
+          "height": 775,
+          "licence": "Public domain",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:First_floor,_west_wall,_detail_of_molding_trim_-_Veterans_Administration_Center,_Officers_Duplex_Quarters,_5302_East_Kellogg_(Legal_Address);_5500_East_Kellogg_(Common_Address),_HABS_KS-74-A-21.tif",
+          "caption": "Nẹp gỗ ốp chân tường ghép khít ở góc, giống cách đóng nẹp khung bể."
+        }
+      }
+    ]
+  }
+}

@@ -9,6 +9,332 @@
     "south-america",
     "guyana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The current state of affairs is (fide Zarske, 2014) that the rosy tetra is in fact identical to H. rosaceus, a species described from Guyana in 1909 and to which H. ornatus is a synonym.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354579,
+      "total": 184,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          69
+        ],
+        [
+          "SR",
+          65
+        ],
+        [
+          "PE",
+          20
+        ],
+        [
+          "GY",
+          14
+        ],
+        [
+          "BO",
+          11
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -73.125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -5.625,
+          3,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          5,
+          0
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          12,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          3,
+          0
+        ],
+        [
+          -63.28125,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -7.03125,
+          6,
+          0
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          1.40625,
+          5,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          8,
+          4
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          1.40625,
+          8,
+          1
+        ],
+        [
+          -57.65625,
+          2.8125,
+          9,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          13,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          30,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          5,
+          0
+        ],
+        [
+          8.4375,
+          49.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -34,26 +360,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_rosaceus_(31473).png",
       "caption": "The jeweled tetra, Hyphessobrycon rosaceus (Durbin 1909). Live shot, not cataloged, side view, male.",
       "thumb": "https://media.aquatome.com/commons/21b8fc8fd884dc91-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2cc98205851f778c.webp",
-      "width": 960,
-      "height": 736,
-      "licence": "CC0",
-      "author": "Trustees of the Natural History Museum of London",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_rosaceus_(1911.10.31.410-411_B).tif",
-      "caption": "Hyphessobrycon rosaceus, preserved in the collection of the Natural History Museum of London.",
-      "thumb": "https://media.aquatome.com/commons/2cc98205851f778c-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/4e7bac394b8ca01d.webp",
-      "width": 960,
-      "height": 646,
-      "licence": "CC0",
-      "author": "Trustees of the Natural History Museum of London",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_rosaceus_(1911.10.31.410-411_A).tif",
-      "caption": "Hyphessobrycon rosaceus, preserved in the collection of the Natural History Museum of London.",
-      "thumb": "https://media.aquatome.com/commons/4e7bac394b8ca01d-480.webp"
     }
   ],
   "videos": [

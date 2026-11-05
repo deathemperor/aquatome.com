@@ -5,7 +5,7 @@ import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
 import { appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { getContent } from '../src/lib/content'
-import { appPath, LANGS, localizePath } from '../src/lib/i18n'
+import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
 
 // The native app searches these files and opens each item's page: every item must lead to a page that was built.
@@ -114,7 +114,7 @@ test('the index lists every glossary term the glossary list shows, a page out of
   expect(index('vi').items.find(i => i.path === path)).toMatchObject({ kind: 'glossary', name: 'GH' })
   // The fixture has no Indonesian or Thai term: its Vietnamese ones, listed as those languages' glossary lists them.
   const c = await getContent('vi')
-  for (const lang of ['id', 'th'] as const) expect(appIndex(lang, c).items.filter(i => i.kind === 'glossary').map(slugOf), lang).toEqual(c.glossary.map(g => g.t.slug))
+  for (const lang of OTHER_LANGS) expect(appIndex(lang, c).items.filter(i => i.kind === 'glossary').map(slugOf), lang).toEqual(c.glossary.map(g => g.t.slug))
 })
 
 test('a plant or a species whose translation scored low is still listed, as the site\'s lists show it', async () => {
@@ -277,7 +277,7 @@ test('a video series is an item (Vietnamese only, as its page is), and a video g
   expect(series.map(i => i.path)).toEqual(['/vi/video/reu-hai-tu-a-den-z/'])
   expect(series[0]).toMatchObject({ name: 'Rêu hại từ A đến Z', sub: 'MJ Aquascaping', parts: 1 })
   expect(series[0]!.img).toMatch(/^https:\/\//)
-  for (const lang of ['id', 'th']) expect(index(lang).items.some(i => i.kind === 'video'), lang).toBe(false)
+  for (const lang of OTHER_LANGS) expect(index(lang).items.some(i => i.kind === 'video'), lang).toBe(false)
   const guides = index('vi').items.filter(i => i.kind === 'guide')
   expect(guides.find(g => g.path === '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/')?.video).toBe(1755)
   expect(guides.find(g => g.path === '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')).not.toHaveProperty('video')

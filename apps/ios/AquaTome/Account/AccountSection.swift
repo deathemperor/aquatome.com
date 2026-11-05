@@ -107,8 +107,9 @@ struct AccountSignIn: View {
   }
 }
 
-/// Sign in with Apple, with a passkey added on aquatome.com, and with a code sent by email when the server offers them
-/// (the address used on aquatome.com, or with Google there, opens that account). Also where a reader posts to a page.
+/// Sign in with Apple, with Google, with a passkey added on aquatome.com, and with a code sent by email when the server
+/// offers them (the address used on aquatome.com, or with Google there, opens that account). Also where a reader posts to
+/// a page.
 struct SignInButton: View {
   @Environment(AccountModel.self) private var account
   @State private var email = false
@@ -117,6 +118,7 @@ struct SignInButton: View {
       .frame(height: 44)
       .disabled(account.working || !account.canSync)
       .opacity(account.working ? 0.5 : 1)
+    if account.offersGoogle { GoogleButton() }
     if account.offersPasskey {
       Button("Đăng nhập bằng passkey") { Task { await account.signInWithPasskey() } }
         .frame(maxWidth: .infinity, minHeight: 44)

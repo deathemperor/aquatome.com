@@ -177,7 +177,7 @@ final class StoreShotsFlowTests: XCTestCase {
   private func launch(_ l: Lang, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(\(l.code))", "-AppleLocale", l.locale, "-reset-defaults"] + args
-    app.launch()
+    app.launchForFlow()
     return app
   }
 

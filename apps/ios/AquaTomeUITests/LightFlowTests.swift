@@ -659,6 +659,14 @@ final class LightFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "outlet-warning").exists, "warned of a timer turned off")
   }
 
+  // A phone in another zone than the plug's (its owner abroad): the plug keeps its own time, so the warning says whose.
+  func testAnOutletsTimerInAnotherZoneSaysWhose() {
+    let app = launch("-seed-tanks", "plug", "-seed-tuya-keys", "-stand-in-timer", "enabled", zone: "Europe/Berlin")
+    connect(app)
+    pickOutlet(app, "Đèn · Ổ cắm bể 60 (gợi ý)")
+    expect(app, "outlet-warning", contains: "Ổ “Đèn” tự tắt lúc 00:00 mỗi ngày (giờ Asia/Ho_Chi_Minh).")
+  }
+
   func testTakingTheOutletBackAsksAgainAndDropsTheWarning() {
     var app = launch("-seed-tanks", "plug", "-seed-tuya-keys", "-stand-in-timer", "enabled")
     connect(app)
@@ -698,11 +706,15 @@ final class LightFlowTests: XCTestCase {
   // MARK: Helpers
 
   /// The app on its Đèn tab, in Vietnamese or in Indonesian (whose words run longer).
-  private func launch(_ args: String..., reset: Bool = true, indonesian: Bool = false) -> XCUIApplication {
+  /// `zone`: the phone's time zone, Vietnam's unless a flow says otherwise. GitHub's simulators run in UTC, the own
+  /// Mac's in Vietnam time; the stand-in plug keeps Vietnam's, and a time shown in a zone not the phone's says whose.
+  private func launch(_ args: String..., reset: Bool = true, indonesian: Bool = false,
+                      zone: String = "Asia/Ho_Chi_Minh") -> XCUIApplication {
     let app = XCUIApplication()
+    app.launchEnvironment["TZ"] = zone
     let (language, locale, tab) = indonesian ? ("id", "id_ID", "Lampu") : ("vi", "vi_VN", "Đèn")
     app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale, "-fixed-handbook"] + (reset ? ["-reset-defaults"] : []) + args
-    app.launch()
+    app.launchForFlow()
     app.openTab(tab)
     return app
   }

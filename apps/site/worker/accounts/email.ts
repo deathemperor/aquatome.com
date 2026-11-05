@@ -1,3 +1,4 @@
+import type { Lang } from '@aq/schema/langs'
 import { hmac, randomToken, sha256 } from './session'
 
 /**
@@ -12,7 +13,7 @@ export const CODE_MINUTES = 15
 export const MAX_ATTEMPTS = 5
 export type Mail = { to: string; subject: string; text: string }
 export type SendMail = (mail: Mail) => Promise<boolean>
-export type Lang = 'vi' | 'id' | 'th'
+export type { Lang }
 
 /** The "Bể của tôi" page in each language (apps/site/src/lib/i18n.ts: a test keeps them equal). */
 export const TANKS_PAGE: Record<Lang, string> = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' }
