@@ -1,5 +1,6 @@
 import { aeSql, num } from './ae'
-import { esc, fmt, rankTable } from './chart'
+import { esc, fmt, rankTable, type Ranked } from './chart'
+import { cellOf, failedNote, heading, note, rankBlock, table, textOf, type Block, type Cell, type RankRow, type Section } from './blocks'
 import { pageLink } from './pages'
 import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ } from './time'
@@ -102,38 +103,89 @@ export const ACTION_NAME: Record<string, string> = {
   'light.connect': 'Kết nối đèn', 'light.write': 'Ghi lịch đèn', 'plug.switch': 'Bật, tắt ổ cắm', fishid: 'Nhận diện cá',
   'tank.add': 'Thêm bể', 'post.comment': 'Gửi bình luận', 'post.photo': 'Gửi ảnh',
 }
+/** An action by its name in words, with its code under it; the page shows the code after it. */
+const actionCell = (name: string): Cell => ({ text: ACTION_NAME[name] ?? name, sub: name })
 const action = (name: string) => `${esc(ACTION_NAME[name] ?? name)} <code>${esc(name)}</code>`
 const percent = (part: number, whole: number) => (whole ? `${fmt((100 * part) / whole, 1)}%` : '—')
 const ms = (p?: Pct) => (p ? [`${fmt(p.p50)} ms`, `${fmt(p.p90)} ms`] : ['—', '—'])
 const mb = (p?: Pct) => (p ? [`${fmt(p.p50)} MB`, `${fmt(p.p90)} MB`] : ['—', '—'])
 
+const ACTIONS_HEAD = ['Thao tác', 'Phiên bản', 'Lượt', 'Thành công', 'Lỗi']
+const VERSIONS_HEAD = ['Phiên bản', 'Báo cáo hằng ngày', 'Crash', 'Treo', 'Thoát bất thường', 'Mở app p50', 'Mở app p90', 'Bộ nhớ đỉnh p50', 'Bộ nhớ đỉnh p90']
+const NO_REPORTS = 'Chưa có báo cáo nào.'
+/** Each row's cells as HTML, the page's and the app's alike. */
+const actionCells = (a: AppStats['actions'][number]) => [action(a.name), esc(a.version), fmt(a.n), percent(a.ok, a.n), percent(a.n - a.ok, a.n)]
+const versionCells = (v: Version) => [esc(v.version), fmt(v.reports), fmt(v.crashes), fmt(v.hangs), fmt(v.exits), ...ms(v.launch), ...mb(v.memory)]
+
 function actionsTable(xs: AppStats['actions']): string {
-  const rows = xs.map(a => `<tr><th>${action(a.name)}</th><td class="l">${esc(a.version)}</td><td>${fmt(a.n)}</td><td>${percent(a.ok, a.n)}</td><td>${percent(a.n - a.ok, a.n)}</td></tr>`).join('')
-  return `<div class="scroll"><table class="wide"><thead><tr><th>Thao tác</th><th>Phiên bản</th><th>Lượt</th><th>Thành công</th><th>Lỗi</th></tr></thead><tbody>${rows || '<tr><td colspan="5" class="none">Chưa có.</td></tr>'}</tbody></table></div>`
+  const rows = xs.map(actionCells).map(c => `<tr><th>${c[0]}</th><td class="l">${c[1]}</td>${c.slice(2).map(x => `<td>${x}</td>`).join('')}</tr>`).join('')
+  return `<div class="scroll"><table class="wide"><thead><tr>${ACTIONS_HEAD.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || '<tr><td colspan="5" class="none">Chưa có.</td></tr>'}</tbody></table></div>`
 }
 
 function versionsTable(xs: Version[]): string {
-  const rows = xs.map(v => `<tr><th>${esc(v.version)}</th><td>${fmt(v.reports)}</td><td>${fmt(v.crashes)}</td><td>${fmt(v.hangs)}</td><td>${fmt(v.exits)}</td>${[...ms(v.launch), ...mb(v.memory)].map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
-  return `<div class="scroll"><table class="wide"><thead><tr><th>Phiên bản</th><th>Báo cáo hằng ngày</th><th>Crash</th><th>Treo</th><th>Thoát bất thường</th><th>Mở app p50</th><th>Mở app p90</th><th>Bộ nhớ đỉnh p50</th><th>Bộ nhớ đỉnh p90</th></tr></thead><tbody>${rows || '<tr><td colspan="9" class="none">Chưa có báo cáo nào.</td></tr>'}</tbody></table></div>`
+  const rows = xs.map(versionCells).map(c => `<tr><th>${c[0]}</th>${c.slice(1).map(x => `<td>${x}</td>`).join('')}</tr>`).join('')
+  return `<div class="scroll"><table class="wide"><thead><tr>${VERSIONS_HEAD.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="9" class="none">${NO_REPORTS}</td></tr>`}</tbody></table></div>`
 }
 
+const APP_LEDE = '30 ngày gần nhất · sự kiện ẩn danh và báo cáo lỗi, hiệu năng iOS thu thập (MetricKit), ứng dụng chỉ gửi khi cờ <code>telemetry</code> trong /app/&lt;lang&gt;.json bật và người dùng không tắt. Không gắn với tài khoản. Analytics Engine giữ khoảng 3 tháng; báo cáo gốc nằm trong bucket riêng tư aquatome-uploads (diagnostics/), xóa sau 30 ngày.'
+/** Which builds the page counts, and the link to the others. */
+const which = (test: boolean) => test
+  ? { text: '<b>Đang xem các bản thử</b> (bản debug, TestFlight).', href: '/_ab/ung-dung/', link: 'Xem bản App Store' }
+  : { text: 'Không tính các bản thử (bản debug, TestFlight).', href: '/_ab/ung-dung/?test=1', link: 'Xem các bản thử' }
+const appEmpty = (test: boolean) => `Chưa có gì: ${test ? 'chưa bản thử nào gửi sự kiện hay báo cáo.' : 'ứng dụng chưa gửi sự kiện hay báo cáo nào (cờ telemetry chưa bật, hoặc chưa ai mở bản có cờ).'}`
+const APP_NOTE = `Crash, treo: số báo cáo chẩn đoán iOS gửi, mỗi lần một báo cáo, tính cho phiên bản đã gặp lỗi. Thoát bất thường: số lần ứng dụng đang mở bị thoát không bình thường, iOS đếm trong báo cáo hằng ngày. Mở app: thời gian tới khung hình đầu tiên (trung vị trong mỗi báo cáo hằng ngày); bộ nhớ đỉnh: MB. p50, p90 tính trên ${fmt(PERF_ROWS)} báo cáo hằng ngày mới nhất.`
+const PAGES_HEAD = ['Trang', 'Lượt xem']
+const SCREENS_HEAD = ['Màn hình', 'Lượt xem']
+const ERRORS_HEAD = ['Thao tác · lý do', 'Lượt']
+const SHOPS_HEAD = ['Sàn', 'Lượt bấm']
+const SHOP_PAGES_HEAD = ['Trang', 'Lượt bấm']
+/** The page's rankings, built once for its HTML and its blocks. */
+const appRanks = (s: AppStats) => ({
+  pages: s.pages.map(x => ({ label: pageLink(x.path), value: x.views })) as Ranked[],
+  screens: s.screens.map(x => ({ label: `<code>${esc(x.screen)}</code>`, value: x.views })) as Ranked[],
+  errors: s.errors.map((e): RankRow => {
+    const kind = e.kind || '(không ghi)'
+    return { cell: { ...actionCell(e.name), sub: `${e.name} · ${kind}` }, label: `${action(e.name)} · <code>${esc(kind)}</code>`, value: e.n }
+  }),
+  shops: s.shops.map(x => ({ label: esc(x.shop), value: x.taps })) as Ranked[],
+  shopPages: s.shopPages.map(x => ({ label: pageLink(x.path), value: x.taps })) as Ranked[],
+})
+const isEmpty = (s: AppStats) => !s.pages.length && !s.screens.length && !s.actions.length && !s.shops.length && !s.versions.length
+
 export function appPage(now: Date, test: boolean, s: Soft<AppStats>, tz = HOME_TZ): string {
-  const which = test
-    ? '<p><b>Đang xem các bản thử</b> (bản debug, TestFlight). <a href="/_ab/ung-dung/">Xem bản App Store</a></p>'
-    : '<p>Không tính các bản thử (bản debug, TestFlight). <a href="/_ab/ung-dung/?test=1">Xem các bản thử</a></p>'
-  let body = `<h1>Ứng dụng iPhone</h1><p class="lede">30 ngày gần nhất · sự kiện ẩn danh và báo cáo lỗi, hiệu năng iOS thu thập (MetricKit), ứng dụng chỉ gửi khi cờ <code>telemetry</code> trong /app/&lt;lang&gt;.json bật và người dùng không tắt. Không gắn với tài khoản. Analytics Engine giữ khoảng 3 tháng; báo cáo gốc nằm trong bucket riêng tư aquatome-uploads (diagnostics/), xóa sau 30 ngày.</p>${which}`
+  const w = which(test)
+  let body = `<h1>Ứng dụng iPhone</h1><p class="lede">${APP_LEDE}</p><p>${w.text} <a href="${w.href}">${w.link}</a></p>`
   if (isFailed(s)) body += failedBox('số liệu ứng dụng (Analytics Engine)', s)
   else {
-    const empty = !s.pages.length && !s.screens.length && !s.actions.length && !s.shops.length && !s.versions.length
-    if (empty) body += `<p class="muted">Chưa có gì: ${test ? 'chưa bản thử nào gửi sự kiện hay báo cáo.' : 'ứng dụng chưa gửi sự kiện hay báo cáo nào (cờ telemetry chưa bật, hoặc chưa ai mở bản có cờ).'}</p>`
-    body += `<h2>Lượt xem</h2><div class="split"><section><h3 class="sub-h">Trang trong cẩm nang</h3>${rankTable(s.pages.map(x => ({ label: pageLink(x.path), value: x.views })), ['Trang', 'Lượt xem'])}</section>
-<section><h3 class="sub-h">Màn hình của ứng dụng</h3>${rankTable(s.screens.map(x => ({ label: `<code>${esc(x.screen)}</code>`, value: x.views })), ['Màn hình', 'Lượt xem'])}</section></div>
+    if (isEmpty(s)) body += `<p class="muted">${appEmpty(test)}</p>`
+    const r = appRanks(s)
+    body += `<h2>Lượt xem</h2><div class="split"><section><h3 class="sub-h">Trang trong cẩm nang</h3>${rankTable(r.pages, PAGES_HEAD)}</section>
+<section><h3 class="sub-h">Màn hình của ứng dụng</h3>${rankTable(r.screens, SCREENS_HEAD)}</section></div>
 <h2>Thao tác</h2>${actionsTable(s.actions)}
-<h3 class="sub-h">Lỗi hay gặp</h3>${rankTable(s.errors.map(e => ({ label: `${action(e.name)} · <code>${esc(e.kind || '(không ghi)')}</code>`, value: e.n })), ['Thao tác · lý do', 'Lượt'])}
-<h2>Bấm sang sàn</h2><div class="split"><section><h3 class="sub-h">Theo sàn</h3>${rankTable(s.shops.map(x => ({ label: esc(x.shop), value: x.taps })), ['Sàn', 'Lượt bấm'])}</section>
-<section><h3 class="sub-h">Theo trang</h3>${rankTable(s.shopPages.map(x => ({ label: pageLink(x.path), value: x.taps })), ['Trang', 'Lượt bấm'])}</section></div>
+<h3 class="sub-h">Lỗi hay gặp</h3>${rankTable(r.errors, ERRORS_HEAD)}
+<h2>Bấm sang sàn</h2><div class="split"><section><h3 class="sub-h">Theo sàn</h3>${rankTable(r.shops, SHOPS_HEAD)}</section>
+<section><h3 class="sub-h">Theo trang</h3>${rankTable(r.shopPages, SHOP_PAGES_HEAD)}</section></div>
 <h2>Ổn định và hiệu năng theo phiên bản</h2>${versionsTable(s.versions)}
-<p class="note">Crash, treo: số báo cáo chẩn đoán iOS gửi, mỗi lần một báo cáo, tính cho phiên bản đã gặp lỗi. Thoát bất thường: số lần ứng dụng đang mở bị thoát không bình thường, iOS đếm trong báo cáo hằng ngày. Mở app: thời gian tới khung hình đầu tiên (trung vị trong mỗi báo cáo hằng ngày); bộ nhớ đỉnh: MB. p50, p90 tính trên ${fmt(PERF_ROWS)} báo cáo hằng ngày mới nhất.</p>`
+<p class="note">${APP_NOTE}</p>`
   }
   return page('/_ab/ung-dung/', 'Ứng dụng', body, now, tz)
+}
+
+export function appSection(test: boolean, s: Soft<AppStats>): Section {
+  // The page's link to the other builds, as a switch: on, only our test builds.
+  const builds: Block = { kind: 'switch', label: 'Chỉ các bản thử (bản debug, TestFlight)', on: test, href: `/api/owner/sections/ung-dung${test ? '' : '?test=1'}` }
+  const blocks: Block[] = [note(textOf(APP_LEDE)), builds]
+  if (isFailed(s)) blocks.push(failedNote('số liệu ứng dụng (Analytics Engine)', s))
+  else {
+    if (isEmpty(s)) blocks.push(note(appEmpty(test), 'muted'))
+    const r = appRanks(s)
+    blocks.push(
+      heading('Lượt xem'), heading('Trang trong cẩm nang', 3), rankBlock(r.pages, PAGES_HEAD), heading('Màn hình của ứng dụng', 3), rankBlock(r.screens, SCREENS_HEAD),
+      heading('Thao tác'), table(ACTIONS_HEAD, s.actions.map(a => [actionCell(a.name), ...actionCells(a).slice(1).map(c => cellOf(c))]), { empty: 'Chưa có.' }),
+      heading('Lỗi hay gặp', 3), rankBlock(r.errors, ERRORS_HEAD),
+      heading('Bấm sang sàn'), heading('Theo sàn', 3), rankBlock(r.shops, SHOPS_HEAD), heading('Theo trang', 3), rankBlock(r.shopPages, SHOP_PAGES_HEAD),
+      heading('Ổn định và hiệu năng theo phiên bản'), table(VERSIONS_HEAD, s.versions.map(v => versionCells(v).map(c => cellOf(c))), { empty: NO_REPORTS }), note(APP_NOTE),
+    )
+  }
+  return { title: 'Ứng dụng iPhone', blocks }
 }

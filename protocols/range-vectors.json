@@ -1,0 +1,385 @@
+{
+  "$comment": "Where a fish lives in the wild, as a species page will show it (no block is drawn yet: web and iOS come after the owner's review), and the words the app names its countries with. The content's `range` (packages/schema/src/schemas.ts RangeSchema; written by the engine, packages/engine/src/range.ts) becomes a fish's app index entry's `range` through appRange (apps/site/src/lib/range.ts); the app reads that entry as it is and never sees the content. apps/site/test/range-vectors.test.ts holds this file to the site: each case's `entry` is appRange's for its `range`; a `species` case's range is the fixture content's (apps/site/test/fixture-content) and its entry the fixture build's app index's; `countries` is that index's names for the real cases' countries; `names` is each country's name in vi, id, th and en from Intl.DisplayNames. UPDATE_VECTORS=1 pnpm --filter site test rewrites the file: edit only the notes, the made-up ranges and the `species` ids. `range` (content): `native`, present when the species' sources name where it lives: `countries`, ISO 3166-1 alpha-2 codes in the order the sources name them, each from a sentence of a cited source that names the country (kept in engine-state/range/<id>.json), none a source calls introduced or doubtful; `regions`, river systems, lakes, islands and wider natural regions as the sources write them, at most 6; `sources`, the source ids they come from. `records`, present once fetched: the species' wild records on GBIF (taxon `taxonKey`; occurrence status present, coordinates without geospatial issues, no living or fossil specimens, licence CC0 or CC BY 4.0, never NC) counted on `fetched` (YYYY-MM-DD): `total`; `countries`, [code, records] by GBIF's country field, most first then by code (a record at sea or with no country is in `total` only); `cells`, [west, south, records] or, when there are native countries, [west, south, records, of them in a native country]: the 1.40625° squares of GBIF's map that hold any, edges in degrees (a cell on a border can hold both). The cells add up to `total` and their inside counts to the native countries' records. `entry` (the index, AppItem.range): none when the range has neither part. `native`, the codes, when there are any; `regions`, each in the page's language where the site has a place of that name (its river or region page's name), else as written; `records`: `total`, `taxonKey`, `fetched`, and, only when there are native countries, `inside` (the native countries' records) and `outside` (the 5 other countries with the most records, [code, records], most first then by code; [] when none). No cells: the map that will draw them reads the content. Each code in an entry is named in the index's `countries` ({code: {name, place?}}, A to Z, only codes some entry names): the site's country page's name in that language where it has one, with `place`, its origin page's id among the index's `places`, else Intl.DisplayNames' name. The credit for records reads \"GBIF.org, <total> records, CC BY 4.0\", with the day they were counted.",
+  "cases": [
+    {"note": "no range yet: no entry", "range": {}},
+    {
+      "note": "native countries and a basin, no records yet",
+      "range": {"native": {"countries": ["TH"], "regions": ["Chao Phraya"], "sources": ["seriouslyfish"]}},
+      "entry": {"native": ["TH"], "regions": ["Chao Phraya"]}
+    },
+    {
+      "note": "a lake its sources name, no country: regions only, and records with no inside or outside",
+      "range": {
+        "native": {"countries": [], "regions": ["Lake Malawi"], "sources": ["seriouslyfish"]},
+        "records": {
+          "taxonKey": 5207,
+          "total": 5,
+          "fetched": "2026-11-04",
+          "countries": [["MW", 3], ["MZ", 2]],
+          "cells": [[33.75, -12.65625, 5]]
+        }
+      },
+      "entry": {"regions": ["Lake Malawi"], "records": {"total": 5, "taxonKey": 5207, "fetched": "2026-11-04"}}
+    },
+    {
+      "note": "records, and no source that says where it lives: the total only",
+      "range": {
+        "records": {
+          "taxonKey": 2350,
+          "total": 3,
+          "fetched": "2026-11-04",
+          "countries": [["BR", 3]],
+          "cells": [[-61.875, -4.21875, 3]]
+        }
+      },
+      "entry": {"records": {"total": 3, "taxonKey": 2350, "fetched": "2026-11-04"}}
+    },
+    {
+      "note": "a cell on the Thai-Malay border: its 6 records in Thailand inside, 4 in Malaysia outside",
+      "range": {
+        "native": {"countries": ["TH"], "regions": [], "sources": ["seriouslyfish"]},
+        "records": {
+          "taxonKey": 2393998,
+          "total": 10,
+          "fetched": "2026-11-04",
+          "countries": [["TH", 6], ["MY", 4]],
+          "cells": [[99.84375, 5.625, 10, 6]]
+        }
+      },
+      "entry": {
+        "native": ["TH"],
+        "records": {"total": 10, "inside": 6, "outside": [["MY", 4]], "taxonKey": 2393998, "fetched": "2026-11-04"}
+      }
+    },
+    {
+      "note": "six countries outside: the five with the most, Japan before the US on the same count",
+      "range": {
+        "native": {
+          "countries": ["VE", "GY", "SR", "TT"],
+          "regions": ["Orinoco"],
+          "sources": ["seriouslyfish", "sprucepets"]
+        },
+        "records": {
+          "taxonKey": 2350050,
+          "total": 88,
+          "fetched": "2026-11-04",
+          "countries": [["TT", 50], ["JP", 9], ["US", 9], ["AU", 7], ["TW", 7], ["BR", 3], ["GY", 2], ["SG", 1]],
+          "cells": [[-61.875, 9.84375, 52, 52], [139.21875, 35.15625, 36, 0]]
+        }
+      },
+      "entry": {
+        "native": ["VE", "GY", "SR", "TT"],
+        "regions": ["Orinoco"],
+        "records": {
+          "total": 88,
+          "inside": 52,
+          "outside": [["JP", 9], ["US", 9], ["AU", 7], ["TW", 7], ["BR", 3]],
+          "taxonKey": 2350050,
+          "fetched": "2026-11-04"
+        }
+      }
+    },
+    {
+      "note": "no open records: a total of 0, nothing inside or outside",
+      "range": {
+        "native": {"countries": ["BR"], "regions": ["Rio Negro"], "sources": ["seriouslyfish"]},
+        "records": {"taxonKey": 2353, "total": 0, "fetched": "2026-11-04", "countries": [], "cells": []}
+      },
+      "entry": {
+        "native": ["BR"],
+        "regions": ["Rio Negro"],
+        "records": {"total": 0, "inside": 0, "outside": [], "taxonKey": 2353, "fetched": "2026-11-04"}
+      }
+    },
+    {
+      "note": "a native country with no records: none inside, all outside",
+      "range": {
+        "native": {"countries": ["VN"], "regions": [], "sources": ["sprucepets"]},
+        "records": {
+          "taxonKey": 5211,
+          "total": 2,
+          "fetched": "2026-11-04",
+          "countries": [["TH", 2]],
+          "cells": [[99.84375, 12.65625, 2, 0]]
+        }
+      },
+      "entry": {
+        "native": ["VN"],
+        "records": {"total": 2, "inside": 0, "outside": [["TH", 2]], "taxonKey": 5211, "fetched": "2026-11-04"}
+      }
+    },
+    {
+      "note": "a record at sea: in the total and its cell, in no country",
+      "range": {
+        "native": {"countries": ["ID"], "regions": ["Java"], "sources": ["glaser"]},
+        "records": {
+          "taxonKey": 2394,
+          "total": 3,
+          "fetched": "2026-11-04",
+          "countries": [["ID", 2]],
+          "cells": [[105.46875, -7.03125, 3, 2]]
+        }
+      },
+      "entry": {
+        "native": ["ID"],
+        "regions": ["Java"],
+        "records": {"total": 3, "inside": 2, "outside": [], "taxonKey": 2394, "fetched": "2026-11-04"}
+      }
+    },
+    {
+      "note": "neon tetra (real): its sources' countries and basins, and its records",
+      "species": "paracheirodon-innesi",
+      "range": {
+        "native": {
+          "countries": ["CO", "PE", "BR", "EC"],
+          "regions": ["Amazon", "Orinoco", "Purus", "Putumayo", "Solimões", "Napo"],
+          "sources": ["sprucepets", "seriouslyfish"]
+        },
+        "records": {
+          "taxonKey": 2353909,
+          "total": 39,
+          "fetched": "2026-11-04",
+          "countries": [["BR", 12], ["PE", 12], ["VE", 12], ["CO", 3]],
+          "cells": [
+            [-74.53125, -7.03125, 2, 2],
+            [-74.53125, -5.625, 3, 3],
+            [-74.53125, -4.21875, 1, 1],
+            [-73.125, -8.4375, 2, 2],
+            [-73.125, -4.21875, 6, 6],
+            [-71.71875, -4.21875, 1, 1],
+            [-70.3125, -5.625, 3, 3],
+            [-70.3125, -4.21875, 4, 4],
+            [-67.5, 2.8125, 12, 0],
+            [-64.6875, -7.03125, 2, 2],
+            [-63.28125, -5.625, 1, 1],
+            [-60.46875, -4.21875, 1, 1],
+            [-49.21875, -2.8125, 1, 1]
+          ]
+        }
+      },
+      "entry": {
+        "native": ["CO", "PE", "BR", "EC"],
+        "regions": ["Amazon", "Orinoco", "Purus", "Putumayo", "Solimões", "Napo"],
+        "records": {"total": 39, "inside": 27, "outside": [["VE", 12]], "taxonKey": 2353909, "fetched": "2026-11-04"}
+      }
+    },
+    {
+      "note": "angelfish (real)",
+      "species": "pterophyllum-scalare",
+      "range": {
+        "native": {
+          "countries": ["BR", "CO", "GY", "SR", "GF", "PE"],
+          "regions": ["Amazon", "Essequibo", "Oyapock", "Rio Negro", "Ucayali", "Solimões"],
+          "sources": ["glaser", "seriouslyfish"]
+        },
+        "records": {
+          "taxonKey": 5208518,
+          "total": 310,
+          "fetched": "2026-11-04",
+          "countries": [
+            ["BR", 186],
+            ["PE", 89],
+            ["GY", 8],
+            ["CA", 7],
+            ["CO", 6],
+            ["SR", 4],
+            ["GF", 3],
+            ["NA", 3],
+            ["BS", 1],
+            ["IN", 1],
+            ["NO", 1],
+            ["US", 1]
+          ],
+          "cells": [
+            [-118.125, 33.75, 1, 0],
+            [-98.4375, 56.25, 7, 0],
+            [-77.34375, 23.90625, 1, 0],
+            [-75.9375, -8.4375, 12, 12],
+            [-75.9375, -7.03125, 3, 3],
+            [-75.9375, -5.625, 3, 3],
+            [-75.9375, 0, 1, 1],
+            [-74.53125, -7.03125, 2, 2],
+            [-74.53125, -5.625, 10, 10],
+            [-74.53125, -4.21875, 37, 37],
+            [-73.125, -5.625, 2, 2],
+            [-73.125, -4.21875, 18, 18],
+            [-71.71875, -4.21875, 3, 3],
+            [-70.3125, -5.625, 3, 3],
+            [-70.3125, -4.21875, 4, 4],
+            [-68.90625, -7.03125, 1, 1],
+            [-67.5, -4.21875, 1, 1],
+            [-67.5, -2.8125, 3, 3],
+            [-66.09375, -4.21875, 10, 10],
+            [-66.09375, -2.8125, 1, 1],
+            [-64.6875, -8.4375, 1, 1],
+            [-64.6875, -7.03125, 1, 1],
+            [-64.6875, -2.8125, 2, 2],
+            [-64.6875, -1.40625, 2, 2],
+            [-63.28125, -8.4375, 3, 3],
+            [-63.28125, -2.8125, 2, 2],
+            [-63.28125, -1.40625, 1, 1],
+            [-61.875, -5.625, 4, 4],
+            [-61.875, -4.21875, 7, 7],
+            [-61.875, -2.8125, 2, 2],
+            [-61.875, -1.40625, 1, 1],
+            [-61.875, 1.40625, 8, 8],
+            [-61.875, 2.8125, 1, 1],
+            [-60.46875, -5.625, 1, 1],
+            [-60.46875, -4.21875, 68, 68],
+            [-60.46875, -2.8125, 1, 1],
+            [-60.46875, 2.8125, 2, 2],
+            [-59.0625, 4.21875, 3, 3],
+            [-59.0625, 5.625, 3, 3],
+            [-57.65625, -2.8125, 4, 4],
+            [-57.65625, -1.40625, 1, 1],
+            [-56.25, -4.21875, 1, 1],
+            [-56.25, -2.8125, 10, 10],
+            [-56.25, 4.21875, 4, 4],
+            [-54.84375, -2.8125, 16, 16],
+            [-53.4375, -25.3125, 1, 1],
+            [-53.4375, -4.21875, 1, 1],
+            [-53.4375, -2.8125, 2, 2],
+            [-53.4375, -1.40625, 4, 4],
+            [-53.4375, 2.8125, 3, 3],
+            [-52.03125, -15.46875, 1, 1],
+            [-52.03125, -2.8125, 1, 1],
+            [-52.03125, -1.40625, 1, 1],
+            [-52.03125, 0, 6, 6],
+            [-52.03125, 2.8125, 4, 4],
+            [-50.625, -5.625, 1, 1],
+            [-50.625, -4.21875, 2, 2],
+            [-50.625, -2.8125, 1, 1],
+            [-49.21875, -2.8125, 1, 1],
+            [-49.21875, -1.40625, 2, 2],
+            [-43.59375, -21.09375, 2, 2],
+            [12.65625, -26.71875, 2, 0],
+            [12.65625, -25.3125, 1, 0],
+            [18.28125, 68.90625, 1, 0],
+            [71.71875, 18.28125, 1, 0]
+          ]
+        }
+      },
+      "entry": {
+        "native": ["BR", "CO", "GY", "SR", "GF", "PE"],
+        "regions": ["Amazon", "Essequibo", "Oyapock", "Rio Negro", "Ucayali", "Solimões"],
+        "records": {
+          "total": 310,
+          "inside": 296,
+          "outside": [["CA", 7], ["NA", 3], ["BS", 1], ["IN", 1], ["NO", 1]],
+          "taxonKey": 5208518,
+          "fetched": "2026-11-04"
+        }
+      }
+    },
+    {
+      "note": "cherry shrimp (real): no source says where it lives",
+      "species": "neocaridina-davidi",
+      "range": {
+        "records": {
+          "taxonKey": 11689892,
+          "total": 212,
+          "fetched": "2026-11-04",
+          "countries": [
+            ["TW", 90],
+            ["JP", 76],
+            ["US", 17],
+            ["CA", 7],
+            ["PL", 7],
+            ["DE", 4],
+            ["CN", 3],
+            ["FR", 3],
+            ["RE", 2],
+            ["KR", 1],
+            ["PT", 1],
+            ["UA", 1]
+          ],
+          "cells": [
+            [-160.3125, 21.09375, 4],
+            [-158.90625, 21.09375, 12],
+            [-133.59375, 59.0625, 7],
+            [-82.96875, 26.71875, 1],
+            [-9.84375, 37.96875, 1],
+            [2.8125, 43.59375, 3],
+            [5.625, 50.625, 4],
+            [14.0625, 52.03125, 7],
+            [35.15625, 49.21875, 1],
+            [54.84375, -21.09375, 2],
+            [115.3125, 39.375, 2],
+            [119.53125, 21.09375, 1],
+            [119.53125, 22.5, 7],
+            [119.53125, 23.90625, 53],
+            [120.9375, 22.5, 2],
+            [120.9375, 23.90625, 27],
+            [120.9375, 36.5625, 1],
+            [127.96875, 33.75, 1],
+            [130.78125, 33.75, 4],
+            [132.1875, 33.75, 11],
+            [132.1875, 35.15625, 23],
+            [133.59375, 33.75, 4],
+            [136.40625, 33.75, 23],
+            [136.40625, 36.5625, 4],
+            [139.21875, 35.15625, 1],
+            [139.21875, 36.5625, 1],
+            [139.21875, 39.375, 5]
+          ]
+        }
+      },
+      "entry": {"records": {"total": 212, "taxonKey": 11689892, "fetched": "2026-11-04"}}
+    }
+  ],
+  "countries": {
+    "BR": {"name": "Brazil", "place": "brazil"},
+    "BS": {"name": "Bahamas"},
+    "CA": {"name": "Canada"},
+    "CO": {"name": "Colombia", "place": "colombia"},
+    "EC": {"name": "Ecuador"},
+    "GF": {"name": "Guiana thuộc Pháp"},
+    "GY": {"name": "Guyana"},
+    "IN": {"name": "Ấn Độ"},
+    "NA": {"name": "Namibia"},
+    "NO": {"name": "Na Uy"},
+    "PE": {"name": "Peru", "place": "peru"},
+    "SR": {"name": "Suriname"},
+    "VE": {"name": "Venezuela", "place": "venezuela"}
+  },
+  "names": {
+    "AU": {"vi": "Úc", "id": "Australia", "th": "ออสเตรเลีย", "en": "Australia"},
+    "BR": {"vi": "Brazil", "id": "Brasil", "th": "บราซิล", "en": "Brazil"},
+    "BS": {"vi": "Bahamas", "id": "Bahama", "th": "บาฮามาส", "en": "Bahamas"},
+    "CA": {"vi": "Canada", "id": "Kanada", "th": "แคนาดา", "en": "Canada"},
+    "CN": {"vi": "Trung Quốc", "id": "Tiongkok", "th": "จีน", "en": "China"},
+    "CO": {"vi": "Colombia", "id": "Kolombia", "th": "โคลอมเบีย", "en": "Colombia"},
+    "DE": {"vi": "Đức", "id": "Jerman", "th": "เยอรมนี", "en": "Germany"},
+    "EC": {"vi": "Ecuador", "id": "Ekuador", "th": "เอกวาดอร์", "en": "Ecuador"},
+    "FR": {"vi": "Pháp", "id": "Prancis", "th": "ฝรั่งเศส", "en": "France"},
+    "GF": {"vi": "Guiana thuộc Pháp", "id": "Guyana Prancis", "th": "เฟรนช์เกียนา", "en": "French Guiana"},
+    "GY": {"vi": "Guyana", "id": "Guyana", "th": "กายอานา", "en": "Guyana"},
+    "ID": {"vi": "Indonesia", "id": "Indonesia", "th": "อินโดนีเซีย", "en": "Indonesia"},
+    "IN": {"vi": "Ấn Độ", "id": "India", "th": "อินเดีย", "en": "India"},
+    "JP": {"vi": "Nhật Bản", "id": "Jepang", "th": "ญี่ปุ่น", "en": "Japan"},
+    "KR": {"vi": "Hàn Quốc", "id": "Korea Selatan", "th": "เกาหลีใต้", "en": "South Korea"},
+    "MW": {"vi": "Malawi", "id": "Malawi", "th": "มาลาวี", "en": "Malawi"},
+    "MY": {"vi": "Malaysia", "id": "Malaysia", "th": "มาเลเซีย", "en": "Malaysia"},
+    "MZ": {"vi": "Mozambique", "id": "Mozambik", "th": "โมซัมบิก", "en": "Mozambique"},
+    "NA": {"vi": "Namibia", "id": "Namibia", "th": "นามิเบีย", "en": "Namibia"},
+    "NO": {"vi": "Na Uy", "id": "Norwegia", "th": "นอร์เวย์", "en": "Norway"},
+    "PE": {"vi": "Peru", "id": "Peru", "th": "เปรู", "en": "Peru"},
+    "PL": {"vi": "Ba Lan", "id": "Polandia", "th": "โปแลนด์", "en": "Poland"},
+    "PT": {"vi": "Bồ Đào Nha", "id": "Portugal", "th": "โปรตุเกส", "en": "Portugal"},
+    "RE": {"vi": "Réunion", "id": "Réunion", "th": "เรอูนียง", "en": "Réunion"},
+    "SG": {"vi": "Singapore", "id": "Singapura", "th": "สิงคโปร์", "en": "Singapore"},
+    "SR": {"vi": "Suriname", "id": "Suriname", "th": "ซูรินาเม", "en": "Suriname"},
+    "TH": {"vi": "Thái Lan", "id": "Thailand", "th": "ไทย", "en": "Thailand"},
+    "TT": {
+      "vi": "Trinidad và Tobago",
+      "id": "Trinidad dan Tobago",
+      "th": "ตรินิแดดและโตเบโก",
+      "en": "Trinidad & Tobago"
+    },
+    "TW": {"vi": "Đài Loan", "id": "Taiwan", "th": "ไต้หวัน", "en": "Taiwan"},
+    "UA": {"vi": "Ukraina", "id": "Ukraina", "th": "ยูเครน", "en": "Ukraine"},
+    "US": {"vi": "Hoa Kỳ", "id": "Amerika Serikat", "th": "สหรัฐอเมริกา", "en": "United States"},
+    "VE": {"vi": "Venezuela", "id": "Venezuela", "th": "เวเนซุเอลา", "en": "Venezuela"},
+    "VN": {"vi": "Việt Nam", "id": "Vietnam", "th": "เวียดนาม", "en": "Vietnam"}
+  }
+}

@@ -9,22 +9,23 @@ import { speciesLists } from '../../lib/list-data'
 import { PAGE } from '../../scripts/filter-list'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesWhere } from '../../lib/alternates'
-import { RANKS, TAXON_INTRO } from '../../lib/taxa-places'
+import { RANKS, TAXON_INTRO, taxonRanks } from '../../lib/taxa-places'
 
-type Node = { path: string[]; name: string; species: Localized<SpeciesEntity>[] }
+/** `level`: the rank in RANKS (1 order, 2 family, 3 genus), not the depth: a family whose species have no order sits at depth 1. */
+type Node = { path: string[]; name: string; level: number; species: Localized<SpeciesEntity>[] }
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const lang = langOf(routePattern)
   const c = await getContent(lang)
   const lists = speciesLists(lang, c)
   // The index always exists (a language with no species yet still has the page its menus link to). Each taxon's
   // species are its list's (lib/list-data.ts), in the fish list's order.
-  const nodes = new Map<string, Node>([['', { path: [], name: 'Phân loại', species: [] }]])
+  const nodes = new Map<string, Node>([['', { path: [], name: 'Phân loại', level: 0, species: [] }]])
   for (const s of c.species) {
-    const names = [s.order, s.family, s.genus]
-    const path = names.map(x => x.toLowerCase())
-    for (let i = 1; i <= 3; i++) {
+    const ranks = taxonRanks(s)
+    const path = ranks.map(r => r.slug)
+    for (let i = 1; i <= ranks.length; i++) {
       const k = path.slice(0, i).join('/')
-      if (!nodes.has(k)) nodes.set(k, { path: path.slice(0, i), name: names[i - 1]!, species: lists.get(`phan-loai/${k}`)! })
+      if (!nodes.has(k)) nodes.set(k, { path: path.slice(0, i), name: ranks[i - 1]!.name, level: ranks[i - 1]!.level, species: lists.get(`phan-loai/${k}`)! })
     }
   }
   // The ranks under a taxon: most species first, then A–Z by name in plain character order (Latin, ASCII), a rule the
@@ -38,20 +39,20 @@ const { node, kids } = Astro.props as { node: Node; kids: Node[] }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // The same taxon in another language: some species of it has a page there.
-const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => node.path.every((x, i) => x === [s.order, s.family, s.genus][i]!.toLowerCase())))
-const level = t(RANKS[node.path.length]!)
+const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.some(s => node.path.every((x, i) => x === taxonRanks(s)[i]?.slug)))
+const level = t(RANKS[node.level]!)
 const first = node.species[0]
-const crumbNames = [first?.order, first?.family]
+const crumbNames = first ? taxonRanks(first).map(r => r.name) : []
 const crumbs: [string, string][] = node.path.length
   ? [['/vi/phan-loai/', t(RANKS[0])], ...node.path.slice(0, -1).map((_, i): [string, string] => [`/vi/phan-loai/${node.path.slice(0, i + 1).join('/')}/`, crumbNames[i]!])]
   : []
 ---
 <Browse title={node.path.length ? `${level} ${node.name}` : t(RANKS[0])} heading={node.path.length ? node.name : t(RANKS[0])} crumbs={crumbs} credits={creditsFor(gridPhotos(c, node.species.slice(0, PAGE)).map(p => p ?? undefined))} creditsLater={node.species.length > PAGE} intro={node.path.length ? t(TAXON_INTRO, { level, name: node.name, n: node.species.length }) : t('Duyệt loài theo bộ, họ và chi.')} alternates={alternates}>
   {/* Always fill the slot: a conditional one leaves the h1 empty when false. A genus is italic, higher ranks are not. */}
-  <span slot="heading" class:list={{ sci: node.path.length === 3 }}>{node.path.length ? node.name : t(RANKS[0])}</span>
+  <span slot="heading" class:list={{ sci: node.level === 3 }}>{node.path.length ? node.name : t(RANKS[0])}</span>
   {kids.length > 0 && (
     <ul class="kids">
-      {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.path.length === 3 }}>{k.name}</a> <span>{t('{n} loài', { n: k.species.length })}</span></li>)}
+      {kids.map(k => <li><a href={`/vi/phan-loai/${k.path.join('/')}/`} class:list={{ sci: k.level === 3 }}>{k.level > node.level + 1 ? `${t(RANKS[k.level]!)} ${k.name}` : k.name}</a> <span>{t('{n} loài', { n: k.species.length })}</span></li>)}
     </ul>
   )}
   {node.path.length > 0 && <PagedSpecies species={node.species} list={`phan-loai/${node.path.join('/')}`} heading={t('Danh sách loài')} />}
