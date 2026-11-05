@@ -18,11 +18,14 @@ export const NAV = [
 ] as const
 export type AdminPath = (typeof NAV)[number][0]
 /**
- * The scoreboard is on the web dashboard only, outside NAV: NAV is also the section list the iOS app draws
- * (dashboard.ts SECTIONS, protocols/owner-dashboard*.json), which belongs to the app's contract.
+ * The scoreboard and the daily report's log (worker/daily) are on the web dashboard only, outside NAV: NAV is also the
+ * section list the iOS app draws (dashboard.ts SECTIONS, protocols/owner-dashboard*.json), which belongs to the app's
+ * contract. The rail adds them.
  */
 export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
-export type WebPath = AdminPath | typeof SCOREBOARD_PATH
+export const REPORT_PATH = '/_ab/bao-cao/'
+export const REPORT_NAME = 'Báo cáo hằng ngày'
+export type WebPath = AdminPath | typeof SCOREBOARD_PATH | typeof REPORT_PATH
 
 /** Where the dashboard lives, for anything that links to it from outside its pages: this line alone moves it to another host. */
 const DASHBOARD_BASE = 'https://aquatome.com/_ab/'
@@ -272,6 +275,8 @@ button.go,a.go{background:var(--ink);border-color:var(--ink);color:var(--paper);
 button.go:hover,a.go:hover{background:var(--moss);border-color:var(--moss);color:var(--paper)}
 a.go{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border-radius:9px;text-decoration:none}
 .thumb{display:block;width:96px;height:auto;border-radius:8px}
+/* A report as it was mailed: its own colours, inline, on the white a mail reads on */
+.mail{background:#fff;color:#1d2a22;border:1px solid var(--rule);border-radius:var(--r);overflow-x:auto;margin:16px 0}
 i.sci{font-style:italic}
 @media (min-width:1000px){
 .frame{grid-template-columns:232px minmax(0,1fr);gap:0 8px}
@@ -330,7 +335,7 @@ if(i===null)return;e.preventDefault();pick(i)})}})()`
 
 /** An admin page: the bar, the areas (a rail on a computer, chips on a phone), then the page's own content. */
 export function page(current: WebPath, title: string, body: string, now = new Date(), tz = HOME_TZ): string {
-  const nav = [NAV[0], [SCOREBOARD_PATH, 'Thành công'] as const, ...NAV.slice(1)].map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
+  const nav = [NAV[0], [SCOREBOARD_PATH, 'Thành công'] as const, ...NAV.slice(1), [REPORT_PATH, REPORT_NAME] as const].map(([href, label]) => `<li><a href="${href}"${href === current ? ' aria-current="page"' : ''}>${esc(label)}</a></li>`).join('')
   const script = body.includes('data-plot') ? `<script>${CHART_JS}</script>` : ''
   return `${HEAD(title, tz)}<body${current === '/_ab/' ? ' class="home"' : ''}><header class="masthead"><a class="brand" href="/_ab/">AquaTome<span>Quản trị</span></a>${stamp(now, tz)}</header><div class="frame"><nav class="rail" aria-label="Các mục quản trị"><ul>${nav}</ul></nav><main>${body}</main></div><script>${TIME_JS}</script>${script}</body></html>`
 }

@@ -17,8 +17,9 @@ import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview,
 } from './admin/pages'
-import { isFailed, loginPage, NAV, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
+import { reportPage, reportsPage } from './daily/page'
 
 /**
  * The owner's dashboard, /_ab/: one page per part (admin/pages.ts), each open only to the owner signed in to the site,
@@ -124,7 +125,7 @@ const contentOf = async (env: AdminEnv, origin: string) => {
   const s = await soft('content', loadContentStats(env.ASSETS, origin))
   return s === undefined ? { failed: 'Bản build này chưa có content.json.' } : s
 }
-const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
+export const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
 type Load<T> = (env: AdminEnv, url: URL, now: Date, tz: string) => Promise<T>
 /** A dashboard section: its HTML page, and the same page as blocks for the app, both from one load. */
@@ -178,6 +179,9 @@ export async function loadScoreboard(env: AdminEnv, url: URL, now: Date): Promis
   return summariseScoreboard({ now, owners: owners(env), beacon, app, community, clicks, content, snapshots, checks })
 }
 const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage(await loadScoreboard(env, url, now), tz)
+/** The daily report's log and one report (daily/page.ts): pages of the web dashboard alone, so not in PAGES or NAV, which the app's section list follows. */
+const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(?:(\\d{1,20})/)?$`)
+const reportHtml = (id: string | undefined): Load<string | undefined> => (env, _url, now, tz) => (id ? reportPage(env.AB, id, now, tz) : reportsPage(env.AB, now, tz))
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
@@ -309,7 +313,8 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   }
 
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
-  const render = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : undefined
+  const report = REPORT_PAGE.exec(key)
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   const who = await visitor(req, env, now)
@@ -318,5 +323,6 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   // Refreshes the owner flag so the on-page hide button keeps showing (see owner.ts), and drops the old token cookie.
   const headers = new Headers(HTML)
   for (const c of [OWNER_COOKIE, OLD_TOKEN_COOKIE]) headers.append('set-cookie', c)
-  return new Response(req.method === 'HEAD' ? null : await render(env, url, now, viewerZone(req)), { headers })
+  const html = req.method === 'HEAD' ? null : await render(env, url, now, viewerZone(req))
+  return html === undefined ? notFound() : new Response(html, { headers })
 }
