@@ -65,3 +65,51 @@ public struct Latest: Codable, Sendable, Equatable {
     entries.enumerated().compactMap { i, e in item(e.path).map { Row(entry: e, item: $0, id: i) } }
   }
 }
+
+/// What's new as the site's index names it, kept on the phone as the index is: shown offline, read again with each fresh
+/// index.
+public struct LatestFile: Sendable {
+  public typealias Fetch = @Sendable (URL) async throws -> Data
+
+  /// What reading it came to.
+  public enum Reading: Sendable, Equatable {
+    /// The site's index names none: the site has no such list here.
+    case noList
+    case read(Latest)
+    /// Not read (offline, a bad answer, a format this app can't read): what's shown stays, and the kept copy.
+    case failed
+    /// Left for another tab or page before it came: to read again when the tab shows.
+    case interrupted
+  }
+
+  private let file: URL
+  private let site: URL
+  private let fetch: Fetch
+
+  /// `file` holds the kept copy; `fetch` reads a file from the site, throwing on any answer but its content.
+  public init(file: URL, site: URL, fetch: @escaping Fetch) {
+    self.file = file; self.site = site; self.fetch = fetch
+  }
+
+  /// The copy on the phone, if there is one this app can read.
+  public func kept() -> Latest? {
+    guard let data = try? Data(contentsOf: file) else { return nil }
+    return try? JSONDecoder().decode(Latest.self, from: data)
+  }
+
+  /// The file at `path` (`HandbookIndex.latest`), read from the site and kept.
+  public func read(_ path: String?) async -> Reading {
+    guard let path, let url = URL(string: path, relativeTo: site)?.absoluteURL else {
+      try? FileManager.default.removeItem(at: file)
+      return .noList
+    }
+    do {
+      let data = try await fetch(url)
+      guard let latest = try? JSONDecoder().decode(Latest.self, from: data) else { return .failed }
+      try? data.write(to: file, options: .atomic)
+      return .read(latest)
+    } catch {
+      return isInterruption(error) ? .interrupted : .failed
+    }
+  }
+}

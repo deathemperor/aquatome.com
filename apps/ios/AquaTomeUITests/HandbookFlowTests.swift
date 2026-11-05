@@ -357,7 +357,7 @@ final class HandbookFlowTests: XCTestCase {
   // day it was added or updated and its source, newest first (a page the index doesn't have left out, the neon there
   // twice), the rest of the list on the web; a page opens from it.
   func testWhatsNewListsTheSitesLatestPagesAndOpensThem() {
-    let app = launch()
+    let app = launch("-whats-new")
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let all = app.descendants(matching: .any)["all-latest"]
     for _ in 0..<6 where !(all.exists && all.isHittable) { app.swipeUp() }
@@ -377,6 +377,16 @@ final class HandbookFlowTests: XCTestCase {
     rows.element(boundBy: 2).tap()
     XCTAssertTrue(app.navigationBars["Rotala đỏ"].waitForExistence(timeout: 5))
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
+  }
+
+  // A site whose index names no what's new (the other languages'): no row for it on the home.
+  func testNoWhatsNewOnTheHomeOfASiteWithoutIt() {
+    let app = launch()
+    XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
+    let contact = app.descendants(matching: .any)["contact"]
+    for _ in 0..<12 where !(contact.exists && contact.isHittable) { app.swipeUp() }
+    XCTAssertTrue(contact.exists, "not at the home's end")
+    XCTAssertFalse(app.descendants(matching: .any)["all-latest"].exists)
   }
 
   func testTheChihirosToolOpensTheLightsTab() {

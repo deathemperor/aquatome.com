@@ -54,3 +54,76 @@ let latestJSON = Data(#"""
   #expect(try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"id","items":[]}"#.utf8)).latest == nil)
   #expect(try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[],"latest":7}"#.utf8)).latest == nil)
 }
+
+/// The site as the file sees it: what it answers, and what was asked.
+private actor LatestSite {
+  var answer: Result<Data, any Error>
+  var asked: [String] = []
+  init(_ answer: Result<Data, any Error>) { self.answer = answer }
+  func set(_ a: Result<Data, any Error>) { answer = a }
+  func get(_ url: URL) throws -> Data {
+    asked.append(url.absoluteString)
+    return try answer.get()
+  }
+}
+private func latestFile(_ dir: URL, _ s: LatestSite) -> LatestFile {
+  LatestFile(file: dir.appending(path: "latest-vi"), site: URL(string: "https://aquatome.com")!, fetch: { try await s.get($0) })
+}
+private func latestDir() throws -> URL {
+  let dir = FileManager.default.temporaryDirectory.appending(path: "latest-\(UUID().uuidString)")
+  try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+  return dir
+}
+private let path = "/app/latest/vi.json"
+
+// Read where the index says, and kept: the next launch shows it offline, and no failed read loses it.
+@Test func whatsNewIsKeptSoItShowsOffline() async throws {
+  let dir = try latestDir()
+  let want = try JSONDecoder().decode(Latest.self, from: latestJSON)
+  let online = LatestSite(.success(latestJSON))
+  #expect(latestFile(dir, online).kept() == nil)
+  #expect(await latestFile(dir, online).read(path) == .read(want))
+  #expect(await online.asked == ["https://aquatome.com/app/latest/vi.json"])
+  let offline = LatestSite(.failure(URLError(.notConnectedToInternet)))
+  #expect(latestFile(dir, offline).kept() == want)
+  #expect(await latestFile(dir, offline).read(path) == .failed)
+  #expect(latestFile(dir, offline).kept() == want)
+}
+
+// An answer this app can't read (a newer format, an error page) reads as failed and leaves the kept copy as it was.
+@Test func whatsNewUnreadableLeavesTheKeptCopy() async throws {
+  let dir = try latestDir()
+  let want = try JSONDecoder().decode(Latest.self, from: latestJSON)
+  let site = LatestSite(.success(latestJSON))
+  _ = await latestFile(dir, site).read(path)
+  let v2 = Data(String(decoding: latestJSON, as: UTF8.self).replacingOccurrences(of: #""version":1"#, with: #""version":2"#).utf8)
+  for answer in [v2, Data("<html>".utf8)] {
+    await site.set(.success(answer))
+    #expect(await latestFile(dir, site).read(path) == .failed)
+    #expect(latestFile(dir, site).kept() == want)
+  }
+}
+
+// An index naming none: the site has no such list, so nothing is asked and nothing kept.
+@Test func anIndexNamingNoWhatsNewEndsTheList() async throws {
+  let dir = try latestDir()
+  let site = LatestSite(.success(latestJSON))
+  _ = await latestFile(dir, site).read(path)
+  #expect(latestFile(dir, site).kept() != nil)
+  let asked = await site.asked.count
+  #expect(await latestFile(dir, site).read(nil) == .noList)
+  #expect(await site.asked.count == asked)
+  #expect(latestFile(dir, site).kept() == nil)
+}
+
+// Left for another tab before it came: told apart from a failure, so the tab reads it again when it shows.
+@Test func whatsNewCutOffIsToBeReadAgain() async throws {
+  let dir = try latestDir()
+  let site = LatestSite(.success(latestJSON))
+  _ = await latestFile(dir, site).read(path)
+  for cut in [URLError(.cancelled), CancellationError()] as [any Error] {
+    await site.set(.failure(cut))
+    #expect(await latestFile(dir, site).read(path) == .interrupted)
+    #expect(latestFile(dir, site).kept() != nil)
+  }
+}

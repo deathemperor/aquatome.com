@@ -35,11 +35,12 @@ final class HandbookModel {
   private var matcher = PageMatcher([])
   /// Every page by its path: what the reading list keeps.
   private var byPath: [String: HandbookIndex.Item] = [:]
-  /// What's new on the site (Latest), each entry with its page, newest first: none until read, and none from a site
-  /// without it (the index names no file).
-  private(set) var latest: [Latest.Row] = []
+  /// What's new on the site as last read: none until read, and none from a site without it (the index names no file).
+  private var whatsNew: Latest?
+  /// Its entries with their pages in the index shown now, newest first.
+  var latest: [Latest.Row] { whatsNew?.rows { byPath[$0] } ?? [] }
   /// The whole of what's new, on the web.
-  private(set) var latestWeb: URL?
+  var latestWeb: URL? { whatsNew.flatMap { URL(string: $0.web, relativeTo: site)?.absoluteURL } }
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
   /// The reader's own comments shown at once, by page key, until the site's list has them (`readers`).
@@ -290,14 +291,14 @@ final class HandbookModel {
       #endif
       use(ix, .ready)
       #if DEBUG
-      if ix.latest != nil { useLatest(HandbookIndex.fixtureLatest) }
+      if ix.latest != nil { whatsNew = HandbookIndex.fixtureLatest }
       #endif
       return
     }
     let file = Self.cacheFile(lang)
     if count == 0, let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) {
       use(ix, .offline)
-      keptLatest(ix)
+      if ix.latest != nil { whatsNew = latestFile.kept() }
     }
     do {
       let (data, response) = try await URLSession.shared.data(from: site.appendingPathComponent("app/\(lang).json"))
@@ -306,7 +307,12 @@ final class HandbookModel {
       try? data.write(to: file, options: .atomic)
       use(ix, .ready)
       // What's new after it, the index shown without waiting; left for another tab, both are read again when it shows.
-      guard await fetchLatest(ix) else { return }
+      switch await latestFile.read(ix.latest) {
+      case .noList: whatsNew = nil
+      case .read(let l): whatsNew = l
+      case .failed: break
+      case .interrupted: return
+      }
       fetched = true
     } catch {
       // Left for another tab or page: tried again when the tab shows next, nothing to report.
@@ -315,36 +321,7 @@ final class HandbookModel {
     }
   }
 
-  /// What's new as last read, kept on the phone as the index is: shown with the kept index.
-  private func keptLatest(_ ix: HandbookIndex) {
-    guard ix.latest != nil, let data = try? Data(contentsOf: Self.cacheFile("latest-\(lang)")),
-          let l = try? JSONDecoder().decode(Latest.self, from: data) else { return }
-    useLatest(l)
-  }
-
-  /// What's new as the site's index names it now: none when it names none, what was shown when it can't be read. False
-  /// when left for another tab or page before it came.
-  private func fetchLatest(_ ix: HandbookIndex) async -> Bool {
-    guard let path = ix.latest, let url = URL(string: path, relativeTo: site)?.absoluteURL else {
-      latest = []
-      latestWeb = nil
-      return true
-    }
-    do {
-      let (data, response) = try await URLSession.shared.data(from: url)
-      guard (response as? HTTPURLResponse)?.statusCode == 200, let l = try? JSONDecoder().decode(Latest.self, from: data) else { return true }
-      try? data.write(to: Self.cacheFile("latest-\(lang)"), options: .atomic)
-      useLatest(l)
-      return true
-    } catch {
-      return !isInterruption(error)
-    }
-  }
-
-  private func useLatest(_ l: Latest) {
-    latest = l.rows { byPath[$0] }
-    latestWeb = URL(string: l.web, relativeTo: site)?.absoluteURL
-  }
+  private var latestFile: LatestFile { LatestFile(file: Self.cacheFile("latest-\(lang)"), site: site, fetch: Self.fromSite) }
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
@@ -382,6 +359,11 @@ final class HandbookModel {
         let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
       }
+      // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
+      if args.contains("-whats-new") {
+        let f = HandbookIndex.fixture
+        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: f.pages, latest: "/app/latest/vi.json"))
+      }
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       if args.contains("-breeds") {
         let f = HandbookIndex.fixture
@@ -407,11 +389,14 @@ final class HandbookModel {
     var values = URLResourceValues()
     values.isExcludedFromBackup = true
     try? dir.setResourceValues(values)
-    return PageCache(dir: dir, site: site, fetch: { url in
-      let (data, response) = try await URLSession.shared.data(from: url)
-      guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
-      return data
-    })
+    return PageCache(dir: dir, site: site, fetch: fromSite)
+  }
+
+  /// A file of the site's, or why not.
+  private static let fromSite: @Sendable (URL) async throws -> Data = { url in
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
+    return data
   }
 
   private static func cacheFile(_ lang: String) -> URL {
@@ -455,9 +440,9 @@ extension HandbookIndex {
     "co2": ["none": "Không cần", "optional": "Tùy chọn", "required": "Bắt buộc"],
     "growth": ["slow": "Chậm", "medium": "Vừa", "fast": "Nhanh"],
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
-  ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1], latest: "/app/latest/vi.json")
+  ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
 
-  /// UI tests' what's new, as the site writes it: newest first, a page the index doesn't have (left out), the neon there
+  /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
   /// twice, updated then new.
   static let fixtureLatest = Latest(lang: "vi", entries: [
     .init(date: "2026-10-28", path: "/vi/ca/ca-neon/", action: "updated", source: "Seriously Fish"),
