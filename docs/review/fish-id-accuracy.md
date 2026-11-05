@@ -26,7 +26,22 @@
 
 **The agent passes the design's rule** (docs/superpowers/specs/2026-11-04-fish-id-agent-design.md), against today's call on the same 200 photos: top-1 55.0% → 66.0% (+11.0 points; the rule asks +5), top-3 66.5% → 73.5% (the rule: no worse), median 9.1 s (≤ 20 s), p95 14.0 s (≤ 40 s), $30.84 per 1,000 photos (≤ $70). It changed 36 first answers: 29 wrong to right, 7 right to wrong. It opens its top guess and the closest look-alikes in one round, then answers: 2.0 calls and 1.8 reference photos a photo on average, and 198 of 200 runs ended when Claude chose. The fixed two-call run (one round of pages, then the answer forced) is 1.5 points lower for about the same cost. `FISH_ID_AGENT` stays off until the site lead decides.
 
-Two things make these numbers kinder than readers' photos will be. The reference photos are the page's other photos, often from the same source as the test photo and sometimes from the same shoot (the test photo itself is never shown). And the test photos were picked as typical of their page. Latency is from this machine straight to the API; the Worker's calls go through the relay in eastern North America, and its tools read the deploy's assets instead of content/.
+Two things made these numbers kinder than readers' photos will be. The reference photos were the page's other photos, often from the same source as the test photo and sometimes from the same shoot (the test photo itself was never shown): the rerun below leaves those out. And the test photos were picked as typical of their page, which still holds. Latency is from this machine straight to the API; the Worker's calls go through the relay in eastern North America, and its tools read the deploy's assets instead of content/.
+
+## The leak-checked rerun
+
+Later on 2026-11-05, after the review asked for it. The agent is never shown a reference photo from the test photo's source page (`sourceUrl`), nor a near-copy of it (dHash within 10 bits, `content/picture-hashes.json`), as well as the test photo itself. 45 of the 200 test photos had such copies among the reference photos: 90 photos left out. The facts give 6 photos a page here so that 2 are still left after that; the build gives 2. The agent runs as it now ships: a 27 s limit, the next call's size guessed with the last answer and the tool results.
+
+main's content changed between the two runs (the day's engine pages and photo checks), so seed 1 picked a partly different 200. Today's call was run again on the same 200 as the agent:
+
+| Run | Answered | Top-1 | Top-3 | Breed's species | Median latency | p95 latency | Cost / 1,000 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| claude-opus-5-5 | 200/200 | 53.5% | 63.0% | 100.0% | 5.7 s | 8.5 s | $13.58 |
+| claude-opus-5-5, agent, 4 calls, leak-checked | 200/200 | 62.5% | 72.0% | 96.2% | 9.1 s | 13.7 s | $30.87 |
+
+The agent averaged 1.9 calls, 1.3 tool calls and 1.6 reference photos a photo; 199 runs ended when Claude chose, 1 on the time limit. 42% of its input came from the cache.
+
+**The agent still passes the rule, by less:** top-1 53.5% → 62.5% (+9.0 points, against +11.0 before the leak check), top-3 63.0% → 72.0%, median 9.1 s, p95 13.7 s, $30.87 per 1,000. The two runs' agent top-1, 66.0% then and 62.5% now, aren't on the same photos; the gain over today's call on the same photos is the number to read. `FISH_ID_AGENT` stays off until the site lead decides.
 
 Earlier runs, 2026-11-02 (the content has changed since, so the same seed picked a slightly different 200: 25 breeds, 75 at random): Sonnet 5.5 47.0% / 63.0%, 8.0 s, $6.58 per 1,000; Opus 5.5 54.5% / 70.0%, 8.6 s, $13.59. Haiku 5.5, before the breed-matching fix: 20.0% / 31.0%, $0.42. **The tool uses Opus 5.5** (`DEFAULT_MODEL`, apps/site/worker/fishid/claude.ts): right first time on 7 more photos in 100 than Sonnet, at about twice the price. Most of what today's call misses are look-alikes (green neon for neon, Betta brownorum for B. coccina), which is what the agent checks.
 
