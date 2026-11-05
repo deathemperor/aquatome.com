@@ -1,0 +1,268 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://www.jbl.de/en/blog/detail/810/summer-heat-but-not-in-the-aquarium-please?country=au",
+      "title": "Summer heat - But not in the aquarium, please!",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.jbl.de/es-cl/blog/detail/406",
+      "title": "Winter: Temperature Issues in the Aquarium",
+      "kind": "maker"
+    },
+    {
+      "url": "https://cvm.ncsu.edu/?p=374771",
+      "title": "Dealing With Aquariums and Ponds During Power Outages",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
+      "title": "How to Keep Your Aquarium Fish Alive During A Power Outage",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/common-environmental-hazards-for-fish",
+      "title": "Common Environmental Hazards for Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-cham-soc-ca-canh-trong-mua-mua",
+      "title": "Cách Chăm Sóc Cá Cảnh Trong Mùa Mưa",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Water holds less dissolved oxygen as it gets warmer, so hot-season tanks lose oxygen just as the fish need more of it.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Room temperatures can reach 30 °C in summer, and lights, pumps and a closed lid can push the water even higher.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Most freshwater fish can handle about 30 °C for a few days, especially if the rise is slow. The heat becomes dangerous only when it lasts for weeks.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In winter, rooms can fall to 12–14 °C at night while tanks are kept at 23–28 °C, so the heater has to run almost constantly.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "A winter drop of about 3 °C below summer temperature is acceptable for fish and plants. Going lower strains plant health and fish metabolism.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Merck lists power failure and thermostat failure as causes of harmful temperature swings. These can kill fish suddenly or show up later as infections because the immune system is weakened.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Fish short of oxygen come to the surface to gulp air (piping), and their gills look flared and dark.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Low oxygen hits large fish harder than small ones, and in an acute case many fish can die at once.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Chlorine can kill fish suddenly without leaving any visible signs. Lower long-term exposure causes lethargy, excess mucus, cloudy eyes and inflamed gills.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Ich (white spot) can appear up to two weeks after a stressful event, especially a drop in temperature, so watch the fish for a few weeks afterwards.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Ammonia becomes toxic when un-ionized ammonia goes above 1 mg/L at a pH above 8. Signs include lethargy, not eating, spinning and convulsive swimming.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Rain can change pH and raise ammonia, nitrite and nitrate levels in the tank.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "Turn the filter outlet toward the surface to add oxygen and cool the water through evaporation.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a heatwave, feed as little as possible to lower oxygen demand and water pollution.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If a tank is overheating with no power, stirring the water with a whisk raises dissolved oxygen.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a power cut, do not feed the fish. Uneaten food adds nitrogen to the water, and most fish can go days or even weeks without eating.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a power cut, run a battery-powered air pump with an airstone to keep oxygen up.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "To keep heat in during a cold power cut, close the lid and wrap the tank in a blanket, sleeping bag, towels, newspaper or foam sheets. Small tanks lose heat faster.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Most tropical fish can stand the low 60s °F, or even the high 50s °F, for several hours. Warm the water once it drops to the mid-50s °F.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If the tank keeps cooling, add warm dechlorinated water. A temperature change of about 10% every one to two hours should not harm the fish.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Tropical and temperate fish often tolerate the high 80s or low 90s °F for a day or more. Block direct sunlight from the tank.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Canister filters that are closed to the air can lose all their oxygen in as little as 4 to 6 hours without power. Take the media out and keep it in tank water so the beneficial bacteria survive.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "After an outage, test for ammonia. If it is above 1 ppm, change 10% to 30% of the water.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Steps for summer heat (1): keep direct sunlight off the tank with curtains or blinds.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Steps for summer heat (2): shorten the lighting period and switch off equipment you don't need. Cutting lighting time by 50% lowers the water temperature by about 1 °C.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Steps for summer heat (3): open the lid. Evaporation then cools the water by about 1–2 °C.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Steps for summer heat (4): fit a cross-flow fan blowing at an angle across the water surface. This cools the water by about 2–4 °C.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Steps for summer heat (5): keep checking temperature and oxygen, and adjust plant fertilising because heat often slows plant growth.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "When power comes back, empty and rinse the filter body before restarting it, clean the impeller, prime the filter with fresh water, check that the heater works, and test ammonia, nitrite and pH.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "After power returns, wait about 24 hours, or until water quality is normal, before feeding. Then feed smaller amounts than usual.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "To move fish during a long outage, fill heavy-duty bags one-third with water and two-thirds with air or pure oxygen, at about five inches of fish per gallon. They should survive at least 36 hours if the air is warm enough.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "For winter heating, plan about 1 W of heater power per litre of water. 0.5 W per litre only works if the room stays above about 20 °C.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "In winter, insulate the tank walls with polystyrene and stand it on a foam pad. A lid keeps the heat from the lights in the water.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Put the heater where water flows well. With poor circulation, heat collects around the heater and the rest of the tank can be 3–4 °C colder.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep power-cut supplies ready in advance: a battery air pump, airstones, tubing, batteries, a flashlight, test kits, towels and foam sheets.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Fewer fish in a tank slow both the fall in oxygen and the rise in ammonia during a power cut.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "In the rainy season, keep tanks away from windows and rain splash, and keep them covered against dust, insects and rain.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Ice cubes, cooling packs and cold water changes cause sudden temperature swings that stress fish.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Ordinary PC fans make poor DIY coolers. They don't cover the surface evenly, can't be aimed, and are unsafe because splashes can blow a fuse or hurt someone.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "A substrate heating cable does not warm the tank water as a whole. It mainly helps conditions in the substrate.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Mixing fish from different tanks during an outage greatly increases the risk of spreading disease and can cause aggression.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "If you use ice during a power cut, seal it in a plastic bag so the meltwater doesn't dilute the tank. This matters most for brackish and marine tanks.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop blog advises keeping warm-water species at about 24–28 °C and cold-water species at about 18–22 °C during rainy-season cold snaps.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "For the rainy season, the same blog lists water test kits (bộ test nước), dechlorinators (sản phẩm khử clo), heaters (máy sưởi nước), thermometers (nhiệt kế), lids (nắp đậy bể cá) and small generators (máy phát điện nhỏ) for power cuts.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The blog says that if rain gets into a tank, you should do a partial water change with dechlorinated water.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Ornamental fish do not need light during a power cut. Reef tanks with corals are the exception.",
+      "source": 2
+    }
+  ]
+}

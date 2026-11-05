@@ -385,6 +385,20 @@
       "Item 6: \"leaflets\" is translated as \"helai daun\", which reads as whole leaves. Use \"anak daun\" or \"pinnae\", or \"daun\" if the source means fronds."
     ]
   },
+  "bucephalandra": {
+    "at": "2026-11-05",
+    "from": "2026-11-04",
+    "name": "Bucephalandra",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 8: \"special odours that attract pollinators\" became \"aroma khas yang menarik serangga penyerbuk\"; \"serangga\" (insects) is added and not in the source. Use \"penyerbuk\" only.",
+      "Item 6: \"Nutrients are stored mainly in the rhizome\" is rendered as \"Cadangan nutrisi\". This is acceptable but could be closer to the source.",
+      "Item 6: \"hewan pemakan alga\" is fine, but \"algae eaters\" is usually written \"hewan pemakan alga (algae eater)\" in Indonesian hobby writing. This is minor.",
+      "Items 3 and 6: \"emersed\" and \"submersed\" are left as English terms with a gloss only once. Use \"emers\" and \"submers\", or give a consistent gloss. This is minor.",
+      "Item 6: \"Another option is to leave the plant in its plastic basket\" is rendered as \"pot plastiknya\". \"Pot\" is common, but \"keranjang/pot jaring\" is more precise. This is minor."
+    ]
+  },
   "bucephalandra-diabolica": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -1547,16 +1561,15 @@
   },
   "monosolenium-tenerum": {
     "at": "2026-11-05",
-    "from": "2026-10-31",
+    "from": "2026-11-04",
     "name": "Monosolenium",
-    "confidence": "medium",
-    "score": 0.8,
+    "confidence": "high",
+    "score": 0.85,
     "notes": [
-      "Item 1: height \"3–5+ cm\" conflicts with item 3 \"2–5 cm\" — that is in the source, so not a translation error; no change needed except keep consistent.",
-      "Item 2: \"beradaptasi dan tumbuh mapan\" adds a nuance beyond \"established itself\"; simplify to \"sudah tumbuh mapan\".",
-      "Item 3: \"hamparan seperti bantalan\" is slightly wordy; use \"membentuk bantalan\" or \"gerumbul padat\".",
-      "Item 3: \"sering keliru dikenal sebagai Pellia\" — \"mistakenly known\" is better as \"keliru disebut Pellia\" or \"salah dikenal sebagai Pellia\"; \"sering\" (often) is added.",
-      "Item 3: \"cup tertutup\" — use the Indonesian trade term \"cup tertutup\" is OK, but \"Tanaman air\" for \"Aquarium plant\" should be \"Tanaman akuarium\"."
+      "Item 10: \"percaya bahwa ia sebagian besar hanya membayangkannya\" is ambiguous. \"ia\" could mean the scientists. Make the subject clear, e.g. \"bahwa Griffith sebagian besar mengkhayalkannya\" or \"bahwa tanaman itu sebagian besar hanya khayalannya\".",
+      "Item 10: 'nightshade' is left in English. Give the Indonesian \"terong-terongan\" (Solanum) or put the English in brackets.",
+      "Item 2: \"Pupuk: tidak perlu sampai sedikit\" and \"CO2: tidak perlu sampai sedikit\" are awkward. Use \"tidak perlu hingga sedikit\" or \"tidak diperlukan sampai dalam jumlah rendah\".",
+      "Item 6: \"menahun (perenial)\" is redundant. \"Bertalus\" and \"mengolonisasi\" are stiff. Use \"tanaman tahunan/abadi\" and \"menjajah/tumbuh di\"."
     ]
   },
   "murdannia-keisak": {
@@ -1566,6 +1579,33 @@
     "confidence": "medium",
     "score": 0.95,
     "notes": []
+  },
+  "myriophyllum-elatinoides": {
+    "at": "2026-11-05",
+    "from": "2026-10-30",
+    "name": "Myriophyllum elatinoides",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 4: \"cukup besar/signifikan\" leaves a slash alternative in the text; choose one, e.g. \"cukup besar\".",
+      "Item 8 Conclusion: \"menutupi/menguasai semua tanaman lain\" has a slash alternative and adds \"tanaman lain\" (the English says \"everything in the tank\"); use \"menguasai seisi akuarium\".",
+      "Item 5 Quarantine: \"nimfa capung, nimfa capung jarum\" is fine, but \"pot/gelas kultur\" has a slash alternative; use one term, e.g. \"wadah kultur\".",
+      "Item 6: \"teramati juga bahwa\" is stiff; use \"juga diamati bahwa\" or \"pertumbuhannya tercatat lebih lambat\".",
+      "Item 7: \"tidak tahan teduh\" is awkward; use \"tidak tahan ternaungi/kurang cahaya dalam jangka panjang\". \"kurus menjulang (leggy)\" is also awkward; use \"kurus dan menjulang\" or \"etiolasi\".",
+      "Item 7: \"sistem CO2 bertekanan (tabung)\" adds \"(tabung)\", which is not in the source; remove it.",
+      "Item 1: \"Water milfoil\" was left as the common name with no Indonesian equivalent; this is acceptable, but consider \"Myriophyllum/ganggang air\" if a local name exists."
+    ]
+  },
+  "myriophyllum-mattogrossense": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Myriophyllum mattogrossense",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"membuka membentuk kipas\" is slightly awkward; \"menyebar membentuk kipas\" is more natural for \"spread out in a fan shape\".",
+      "\"Pilihan yang bagus untuk pemula\" is fine, but \"A good starter plant\" could be \"tanaman pemula yang bagus\" to keep \"plant\" explicit (very minor)."
+    ]
   },
   "nymphaea-zenkeri": {
     "at": "2026-10-30",

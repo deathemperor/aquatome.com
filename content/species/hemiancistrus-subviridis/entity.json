@@ -21,10 +21,45 @@
       "regions": [
         "Orinoco",
         "Casiquiare",
-        "Ventuari"
+        "río Ventuari"
       ],
       "sources": [
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hemiancistrus subviridis is a suckermouth catfish from the upper Orinoco and Casiquiare drainages in southern Venezuela, where it lives in cracks between granite rocks in flowing water.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Catalog of Fishes also lists it from Colombia, where the Orinoco forms the border.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Upper Orinoco and Casiquiare drainages in Amazonas state, Venezuela.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Casiquiare"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's known from the Orinoco upstream of the Atures rapids as far as the río Iguapo, from the río Ventuari, and from the río Casiquiare upstream of the río Siapa (Werneke et al., 2005).",
+          "countries": [],
+          "regions": [
+            "río Ventuari"
+          ]
+        }
       ]
     },
     "records": {

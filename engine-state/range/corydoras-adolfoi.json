@@ -1,8 +1,8 @@
 {
   "id": "corydoras-adolfoi",
   "native": {
-    "input": "eb5a17a4938e6094",
-    "at": "2026-11-05T00:41:00.281Z",
+    "input": "98ed8b556c295203",
+    "at": "2026-11-05T06:42:12.410Z",
     "claims": [
       {
         "code": "BR",
@@ -10,14 +10,6 @@
         "source": "seriouslyfish",
         "quote": "Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.",
         "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "CO",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "Some sources state that it also occurs in the rio Uaupés (known as 'Vaupés' in Colombia), a major tributary of the Negro, but official confirmation has not been obtained so far.",
-        "words": "Colombia",
         "ok": true
       }
     ],
