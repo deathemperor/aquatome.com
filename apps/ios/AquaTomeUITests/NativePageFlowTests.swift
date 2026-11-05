@@ -394,6 +394,27 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the guide isn't drawn by the app")
   }
 
+  /// Under a series' cards, their pictures' credits as the site's credits list has them, one row per author and licence:
+  /// three videos' pictures by one author (each with its own page) on one line saying how many, then a number for each
+  /// linking its page, read as whose picture it is; the other author's picture, among them, on a line of its own linking
+  /// its page.
+  func testCardsPicturesByOneAuthorAreCreditedOnceWithALinkForEach() {
+    let app = launch()
+    openItem(app, "reu hai tu a", "Rêu hại từ A đến Z")
+    // How many times the credits' words say `s`, in one text or in several.
+    func times(_ s: String) -> Int {
+      app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).allElementsBoundByIndex.reduce(0) { $0 + $1.label.components(separatedBy: s).count - 1 }
+    }
+    reveal(app, text(app, "Ảnh: MJ Aquascaping"))
+    XCTAssertEqual(times("Ảnh: Tác giả 8 · YouTube"), 1, "one author's pictures credited more than once")
+    XCTAssertTrue(app.staticTexts["Ảnh: Tác giả 8 · YouTube · 3 ảnh"].exists, "not saying how many pictures")
+    XCTAssertEqual(times("Ảnh: MJ Aquascaping · YouTube"), 1, "the other author's picture not credited once")
+    XCTAssertTrue(app.links["Ảnh: MJ Aquascaping · YouTube"].exists, "a picture alone on its line not linking its page")
+    for n in 1...3 {
+      XCTAssertTrue(app.links["Ảnh: Tác giả 8, ảnh \(n)"].exists, "no link to picture \(n)'s page")
+    }
+  }
+
   // MARK: Helpers
 
   /// A search's row by its name, opened.

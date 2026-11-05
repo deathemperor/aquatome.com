@@ -49,6 +49,22 @@
         }
       }
     },
+    "%@, ảnh %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, foto %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ภาพที่ %lld"
+          }
+        }
+      }
+    },
     "%lld bản ghi không hợp lệ nên chưa vào tài khoản.": {
       "localizations": {
         "id": {
@@ -141,6 +157,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ %lld ดวง"
+          }
+        }
+      }
+    },
+    "%lld ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ภาพ"
           }
         }
       }
