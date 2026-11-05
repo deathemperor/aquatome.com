@@ -1,6 +1,9 @@
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixTranslation, furniture,
+  blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
@@ -322,4 +325,29 @@ test('the real-content test holds a defect at zero only on the kinds of page its
   expect(findings.map(f => `${f.page.kind} ${f.rule}`)).toEqual(['guides headings', 'guides imperial', 'glossary headings', 'glossary imperial', 'equipment headings', 'equipment imperial'])
   // The sweep writes glossary text, not an equipment page; `pnpm engine metric` converts neither.
   expect(ratcheted(findings).map(f => `${f.page.kind} ${f.rule}`)).toEqual(['guides headings', 'guides imperial', 'glossary headings'])
+})
+
+// Malay is swept and fixed as the others are, so these read its words where they read Indonesian's.
+test("Malay's words: comments, related posts, counts, labels, references, the page saying, gallons and pounds", () => {
+  expect(detected('<h3>7 komen mengenai “Akuarium”</h3><ul><li>a</li></ul><p>Tinggalkan komen</p><p>Artikel berkaitan:</p><ul><li>x</li></ul><h3>Komen pembaca</h3>'))
+    .toEqual(['7 komen mengenai “Akuarium”', 'Tinggalkan komen', 'Artikel berkaitan:', 'Komen pembaca'])
+  expect(detected('<p>Tinggalkan komen jika anda ada soalan tentang akuarium ini.</p>')).toEqual([]) // in a sentence, the text's own
+  expect(titleCount('7 Petua menjaga akuarium')).toBe(7)
+  expect(titleCount('5 kesilapan pemula')).toBe(5)
+  expect(titleCount('10 tumbuhan akuatik mudah')).toBe(10)
+  expect(titleCount('Akuarium 60 liter')).toBeUndefined()
+  expect(labelSlips('<p>Kesilapan 1: x</p><p>Kesilapan 9: y</p><p>Kesilapan 2: z</p>')).toEqual(['"kesilapan" 1, 9, 2'])
+  expect(renumberLabels('<p>Petua 1: x</p><p>Petua 9: y</p><p>Petua 2: z</p>')).toBe('<p>Petua 1: x</p><p>Petua 2: y</p><p>Petua 3: z</p>')
+  expect(blocks('<h3>Rujukan</h3><p>Smith.</p>')[1]!.refs).toBe(true)
+  expect(sourcePagePhrases(page({ fields: [{ field: 'body', html: '<p>Laman ini menyebut ikan ini tenang.</p>' }] })).map(x => x.quote)).toEqual(['Laman ini menyebut ikan ini tenang.'])
+  expect(imperialUnits('akuarium 10 gelen').alone).toHaveLength(1)
+  expect(imperialUnits('seberat 2 paun').alone).toHaveLength(1)
+})
+
+test('the fixes made on write reach the stored files of a language the site doesn\'t serve yet', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rules-ms-'))
+  await mkdir(join(root, 'guides/g'), { recursive: true })
+  await writeFile(join(root, 'guides/g/ms.json'), JSON.stringify({ name: 'Cacing &amp; Kutu', altNames: [] }))
+  expect(await fixStored(root)).toEqual(['guides/g/ms.json'])
+  expect(JSON.parse(await readFile(join(root, 'guides/g/ms.json'), 'utf8')).name).toBe('Cacing & Kutu')
 })

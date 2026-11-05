@@ -1,7 +1,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import { headingRoles, imperialLeft, LANGS, ownNumber, type DataCardField, type Lang } from '@aq/schema'
+import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang } from '@aq/schema'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
@@ -28,7 +28,7 @@ export type Finding = { rule: string; page: Page; detail: string }
 
 const YEAR = /\b(1[789]\d\d|20[0-2]\d)\b/
 /** A heading over the sources' list of papers and books. */
-const REFS_HEADING = /^(tài liệu tham khảo|tham khảo|nguồn tham khảo|references?|bibliography|referensi|daftar pustaka|เอกสารอ้างอิง|อ้างอิง)\s*:?$/i
+const REFS_HEADING = /^(tài liệu tham khảo|tham khảo|nguồn tham khảo|references?|bibliography|referensi|daftar pustaka|rujukan|bibliografi|เอกสารอ้างอิง|อ้างอิง)\s*:?$/i
 /**
  * The innermost blocks of some HTML (headings, paragraphs, list items, table cells) as text, in order. `refs`: a block of
  * a reference list (under a "Tài liệu tham khảo" heading, or a list whose items carry years), written in the papers' own
@@ -80,7 +80,7 @@ export function numberSlips(hs: string[]): string[] {
   return out
 }
 
-const COUNT_NOUN = 'loại|loài|cách|mẹo|bước|lý do|sai lầm|dấu hiệu|cây|cá|điều|thứ|ý tưởng|câu hỏi|nguyên nhân|lưu ý|bí quyết|jenis|cara|tips?|langkah|alasan|kesalahan|tanda|ikan|tanaman|hal|ชนิด|วิธี|ข้อ|เคล็ดลับ|สัญญาณ|สายพันธุ์|ขั้นตอน|ways|types|species|signs|reasons|mistakes|steps'
+const COUNT_NOUN = 'loại|loài|cách|mẹo|bước|lý do|sai lầm|dấu hiệu|cây|cá|điều|thứ|ý tưởng|câu hỏi|nguyên nhân|lưu ý|bí quyết|jenis|cara|tips?|langkah|alasan|kesalahan|tanda|ikan|tanaman|hal|sebab|punca|kesilapan|petua|tumbuhan|perkara|ชนิด|วิธี|ข้อ|เคล็ดลับ|สัญญาณ|สายพันธุ์|ขั้นตอน|ways|types|species|signs|reasons|mistakes|steps'
 const COUNT = new RegExp(`(?<![\\d.,])(\\d{1,2})\\s*(?=(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
 const TOP = /\btop\s?(\d{1,2})\b/i
 /** "10 loại cây…", "Top 7…", "7 Jenis…", "ไม้น้ำ 10 ชนิด": the number of things a title promises, if it promises one. */
@@ -109,7 +109,7 @@ export function stripCount(title: string): string {
  * "<strong>Mẹo 3:</strong> …", "Sai lầm 9: …", "เคล็ดลับที่ 2:": a block's numbered label (its word, lower case, and
  * number). Not a range or a decimal: "Cách 1–2 ngày: cho ăn" is every one to two days.
  */
-const LABEL = /^(sai lầm|lỗi|mẹo|cách|bước|lý do|nguyên nhân|dấu hiệu|ý tưởng|lưu ý|kesalahan|tips?|cara|langkah|alasan|penyebab|tanda|ข้อผิดพลาด(?:ที่)?|เคล็ดลับ(?:ที่)?|วิธี(?:ที่)?|ขั้นตอน(?:ที่)?|สาเหตุ(?:ที่)?|mistake|step|tip|reason|sign|way)\s*(\d{1,2})\s*(?:[:)]|[.–-](?!\s*\d))/iu
+const LABEL = /^(sai lầm|lỗi|mẹo|cách|bước|lý do|nguyên nhân|dấu hiệu|ý tưởng|lưu ý|kesalahan|tips?|cara|langkah|alasan|penyebab|tanda|kesilapan|petua|sebab|punca|ข้อผิดพลาด(?:ที่)?|เคล็ดลับ(?:ที่)?|วิธี(?:ที่)?|ขั้นตอน(?:ที่)?|สาเหตุ(?:ที่)?|mistake|step|tip|reason|sign|way)\s*(\d{1,2})\s*(?:[:)]|[.–-](?!\s*\d))/iu
 type Label = { el: HTMLElement; word: string; n: number }
 const labelsOf = (root: HTMLElement): Label[] => root.querySelectorAll('h3, p, li').filter(el => !el.querySelector('p, li')).flatMap(el => {
   const m = el.text.trim().match(LABEL)
@@ -218,10 +218,10 @@ export const plainEntities = (s: string) => [...s.matchAll(/&(?:amp|lt|gt|quot|a
  * list's label and nothing else. A heading of the text's own ("Một suy nghĩ cuối cùng", "Bình luận của Ken Childs" in a
  * text of letters, "Gửi phản hồi cho nhà sản xuất") stays.
  */
-const COMMENT = 'bình luận|phản hồi|ý kiến|suy nghĩ|comments?|responses?|thoughts?|repl(y|ies)|komentar|tanggapan|ความคิดเห็น'
-const COMMENTS = new RegExp(`^((\\d+|một|one) (${COMMENT})(\\s(về|on|to|untuk|pada|tentang)|\\s*เกี่ยวกับ)\\s*["“”'‘’«]|((\\d+|một|one) (${COMMENT})|(bình luận|ý kiến) của (độc giả|bạn đọc)|readers?'? comments|reader's comments|komentar pembaca|ความคิดเห็นของผู้อ่าน)(\\s*\\([^)]*\\))?\\s*:?$)`, 'i')
-const FORM = /^((để lại|gửi) (một )?(bình luận|phản hồi|ý kiến)( của bạn)?|leave a (reply|comment)( to [^.]{1,40}?)?|tinggalkan (balasan|komentar)|แสดงความคิดเห็น)(\s*(hủy (trả lời|phản hồi)|cancel reply|batalkan balasan))?\s*:?$/i
-const RELATED = /^(bài (viết )?liên quan|nội dung liên quan|related (posts|articles|content)|artikel terkait|บทความที่เกี่ยวข้อง)\s*:?$/i
+const COMMENT = 'bình luận|phản hồi|ý kiến|suy nghĩ|comments?|responses?|thoughts?|repl(y|ies)|komentar|tanggapan|komen|ulasan|ความคิดเห็น'
+const COMMENTS = new RegExp(`^((\\d+|một|one) (${COMMENT})(\\s(về|on|to|untuk|pada|tentang|mengenai)|\\s*เกี่ยวกับ)\\s*["“”'‘’«]|((\\d+|một|one) (${COMMENT})|(bình luận|ý kiến) của (độc giả|bạn đọc)|readers?'? comments|reader's comments|komentar pembaca|komen pembaca|ความคิดเห็นของผู้อ่าน)(\\s*\\([^)]*\\))?\\s*:?$)`, 'i')
+const FORM = /^((để lại|gửi) (một )?(bình luận|phản hồi|ý kiến)( của bạn)?|leave a (reply|comment)( to [^.]{1,40}?)?|tinggalkan (balasan|komentar|komen|ulasan)|แสดงความคิดเห็น)(\s*(hủy (trả lời|phản hồi)|cancel reply|batalkan balasan|batal balas))?\s*:?$/i
+const RELATED = /^(bài (viết )?liên quan|nội dung liên quan|related (posts|articles|content)|artikel terkait|artikel berkaitan|kandungan berkaitan|บทความที่เกี่ยวข้อง)\s*:?$/i
 type Furniture = 'comments' | 'form' | 'related'
 function furnitureOf(el: HTMLElement): Furniture | undefined {
   if (el.rawTagName !== 'h3' && el.rawTagName !== 'p') return undefined
@@ -339,7 +339,7 @@ export function dropRepeats<F extends { field: string; html: string }>(fields: F
  * No safe fix (who says it matters): the reader's writer rewrites it, kept only when its reviewer passes it.
  */
 // Not "ghi": a guide about websites says what a site lists ("trang ghi đủ các mục sau").
-const SOURCE_PAGE = /(?<!\p{L})(?:[Tt]rang (?:này )?(?:cũng )?(?:lưu ý|nêu|cho biết|khuyên|nhấn mạnh)|[Hh]alaman (?:ini )?(?:juga )?(?:menyebutkan|mencatat|menyatakan|menekankan))(?!\p{L})|หน้า(?:นี้|เว็บ(?:นี้)?)(?:ยัง)?(?:ระบุ|กล่าว|แนะนำ)/u
+const SOURCE_PAGE = /(?<!\p{L})(?:[Tt]rang (?:này )?(?:cũng )?(?:lưu ý|nêu|cho biết|khuyên|nhấn mạnh)|(?:[Hh]alaman|[Ll]aman) (?:ini )?(?:juga )?(?:menyebutkan|menyebut|mencatat|menyatakan|menekankan))(?!\p{L})|หน้า(?:นี้|เว็บ(?:นี้)?)(?:ยัง)?(?:ระบุ|กล่าว|แนะนำ)/u
 /** Where a page says "the page notes…": the field and the sentence. */
 export function sourcePagePhrases(p: Page): { field: string; quote: string }[] {
   return prose(p).flatMap(f => blocks(f.html).filter(b => SOURCE_PAGE.test(b.text)).map(b => ({
@@ -372,9 +372,9 @@ export function vietnameseLeft(s: string): string | undefined {
   return parse(plain).text.replace(/\s+/g, ' ').match(new RegExp(`.{0,30}${VI_ONLY.source}.{0,30}`, 'i'))?.[0]?.trim()
 }
 
-const IMPERIAL = /°\s?F\b|(?<=\d\s?)(?:inch(?:es)?|inci|นิ้ว)|(?<!\p{L})(?:gallons?|galon|gal)(?!\p{L})|แกลลอน|(?<=\d\s?)(?:ft|feet|foot|kaki|ฟุต)\b|(?<=\d\s?)(?:lbs?|pounds?|ปอนด์)\b/giu
+const IMPERIAL = /°\s?F\b|(?<=\d\s?)(?:inch(?:es)?|inci|นิ้ว)|(?<!\p{L})(?:gallons?|galon|gelen|gal)(?!\p{L})|แกลลอน|(?<=\d\s?)(?:ft|feet|foot|kaki|ฟุต)\b|(?<=\d\s?)(?:lbs?|pounds?|paun|ปอนด์)\b/giu
 const METRIC = /°\s?C|\d\s?(?:cm|mm|m|km|l|lít|lit|liter|litre|ml|kg|g)\b|ซม|มม|ลิตร|เมตร|กก|องศาเซลเซียส/iu
-const UNIT: [RegExp, string][] = [[/°/, '°F'], [/inch|inci|นิ้ว/i, 'inch'], [/gal|แกลลอน/i, 'gallon'], [/ft|feet|foot|kaki|ฟุต/i, 'feet'], [/lb|pound|ปอนด์/i, 'pound']]
+const UNIT: [RegExp, string][] = [[/°/, '°F'], [/inch|inci|นิ้ว/i, 'inch'], [/gal|gelen|แกลลอน/i, 'gallon'], [/ft|feet|foot|kaki|ฟุต/i, 'feet'], [/lb|pound|paun|ปอนด์/i, 'pound']]
 const unitOf = (m: string) => UNIT.find(([re]) => re.test(m))?.[1] ?? m
 /** Imperial units in a text: those with no metric figure beside them (`alone`, with a little of the text), and the units of those with one. */
 export function imperialUnits(t: string): { alone: string[]; beside: string[] } {
@@ -671,12 +671,12 @@ export function fixTranslation(t: Stored): Stored {
   }
 }
 
-/** The fixes made on write, applied to the translations already stored, in every language. Returns the files changed. */
+/** The fixes made on write, applied to the translations already stored, in every language the engine writes. Returns the files changed. */
 export async function fixStored(contentRoot: string): Promise<string[]> {
   const changed: string[] = []
   for (const kind of ['species', 'plants', 'guides', 'breeds', 'glossary', 'products']) {
     for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
-      for (const lang of LANGS) {
+      for (const lang of WRITTEN_LANGS) {
         const file = join(contentRoot, kind, id, `${lang}.json`)
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue

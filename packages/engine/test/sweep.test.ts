@@ -139,3 +139,15 @@ test('a title rewritten by the model is kept when the reviewer passes it, and th
   expect(adapted).toEqual({ t: { body: '<p>Chúng chỉ đang ngủ thôi.</p><p>Bài gốc đăng trên Tropical World Magazine, số 9.</p>' }, fixed: ['permission'] })
   expect(sweepTranslation(adapted.t).fixed).toEqual([])
 })
+
+test("a language the site doesn't serve yet is swept too: its text fixed, its names its own", async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const long = 'Kerana batu ini lengai, air dalam akuarium anda tidak berubah walaupun selepas beberapa bulan.'
+  await writeFile(join(c, 'guides/g/ms.json'), JSON.stringify(vi('Panduan', {}, { body: `<h3>Batu</h3><p>${long}</p><h3>4 komen mengenai “Batu”</h3><ul><li><p><strong>Marcia:</strong> Soalan.</p></li></ul><h3>Tinggalkan komen</h3>` })))
+  await writeFile(join(c, 'species/corydoras-sterbai/ms.json'), JSON.stringify({ ...vi('Cory Sterbai', { 'distribution:seriouslyfish': '<p>Brazil.</p>' }), altNames: ['Corydoras sterbai', 'Cory sterbai', 'Ikan Sterbai'] }))
+  const r = await sweep(root)
+  expect((await json(root, 'content/guides/g/ms.json')).body).toBe(`<h3>Batu</h3><p>${long}</p>`)
+  expect((await json(root, 'content/species/corydoras-sterbai/ms.json')).altNames).toEqual(['Ikan Sterbai'])
+  expect(r.files).toEqual(expect.arrayContaining(['guides/g/ms.json', 'species/corydoras-sterbai/ms.json']))
+})

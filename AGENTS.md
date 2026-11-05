@@ -25,9 +25,12 @@ E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright 
 
 ## Addresses
 
-- The languages are one table, `packages/schema/src/langs.ts`: code, address prefix, `lang`, locale, own name, browser
-  tags and countries. The engine, the site and the Worker read it, and each one's words per language are keyed by its
-  `Lang`, so the compiler names what a new row still needs.
+- The languages are one table, `packages/schema/src/langs.ts`: whether it's served, code, address prefix, `lang`, locale,
+  own name, browser tags and countries. The engine, the site and the Worker read it, and each one's words per language
+  are keyed by its `Lang`, so the compiler names what a new row still needs.
+- A row with `served: false` is the engine's alone (Malay, for now): it writes the language through `WRITTEN_LANGS` and
+  `WrittenLang`, while the site, the Worker, the sitemap, the chooser and the protocols read `LANGS` and `Lang` and don't
+  see it. `served: true` puts it live, and then the compiler names the site's maps.
 - Vietnamese pages are at the root (`src/pages/ca/[slug].astro` → `/ca/<slug>/`), and Indonesian and Thai ones mount
   the same files under `/id/` and `/th/`. A new section gets a folder in `src/pages/` and an entry in `VI_SECTIONS`
   (`apps/site/worker/paths.ts`): a test holds them, and wrangler's `run_worker_first`, to the folders.
@@ -37,7 +40,8 @@ E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright 
 ## Strings
 
 - UI text is Vietnamese in the code. Indonesian and Thai live in `apps/site/src/i18n/{id,th}.json`, and the build fails
-  on a missing key. Add or rename keys in place: the engine's `translate-ui.ts` sorts the files, and a hand re-sort turns
+  on a missing key. `ms.json` fills in from them through the cycle while Malay isn't served, and no build reads it. Add or
+  rename keys in place: the engine's `translate-ui.ts` sorts the files, and a hand re-sort turns
   a few lines into a thousand-line diff.
 - After adding a `ct('…')` or `msg('…')` string, run `node apps/site/scripts/i18n-client.mjs`.
 - These files and the engine's JSON merge through the drivers in `.gitattributes`. Set them once per clone:

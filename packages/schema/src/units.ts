@@ -1,11 +1,11 @@
-import type { Lang } from './langs'
+import type { WrittenLang } from './langs'
 
 const round1 = (n: number) => Math.round(n * 10) / 10
 export const cToF = (c: number): number => round1(c * 9 / 5 + 32)
 export const cmToIn = (cm: number): number => round1(cm / 2.54)
 
 /**
- * Page text in metric only. Readers in Vietnam, Indonesia and Thailand use °C, cm and litres, but sources (and
+ * Page text in metric only. Readers in Vietnam, Indonesia, Thailand and Malaysia use °C, cm and litres, but sources (and
  * translators following them) write "20–30 °C (68–86 °F)", "2 inch (khoảng 5 cm)" or a bare "10 gallon".
  * `toMetric` rewrites one text (HTML or plain) in the page's language:
  * - a metric figure with its imperial one beside it keeps only the metric: "120 × 30 cm (48 × 12 in)" → "120 × 30 cm",
@@ -31,25 +31,26 @@ export const cmToIn = (cm: number): number => round1(cm / 2.54)
  *   A hose (ống mềm) is sold by its inside size, and a hole saw (mũi khoét lỗ) cuts its own: their figures convert as
  *   lengths
  * - "84” x 27” x 28”", "6’ x 2’", "5ft x 2ft", "1/2" đến 1"", "bốn feet", "satu galon" are read as figures first;
- *   an Indonesian "kaki" is a foot only after a length word ("kedalaman minimal 3–4 kaki"), since it is a leg too
+ *   an Indonesian or Malay "kaki" is a foot only after a length word ("kedalaman minimal 3–4 kaki") or a tank, as
+ *   Malaysian shops size them ("akuarium 3 kaki"), since it is a leg too
  * Left as published: a quoted label with its metric after it ("'…elevation 650 feet' (độ cao khoảng 200 m)",
  * "“một gallon nước cho một inch cá” (khoảng 3,8 lít…)"), a product's name ("Fluval 10 Gallon": a unit written with a
  * capital), a bottle's size in ounces ("chai 8 oz": fluid ounces, as sold), unit words with no figure ("vài inch").
  * Reference lists are not page text: `metricPage` leaves them alone.
  */
-export type UnitLang = Lang
+export type UnitLang = WrittenLang
 type Dim = 'temp' | 'length' | 'feet' | 'flow' | 'volume' | 'mass'
 
 const FRAC: Record<string, number> = { '½': 0.5, '¼': 0.25, '¾': 0.75 }
 // A number as the three languages and English write it: 3,5 / 3.5 / 24.000 / 3 1/2 / 1/2 / ½ / 1½.
 const N = String.raw`(?:\d+\s+\d\/\d{1,2}|\d\/\d{1,2}|\d+(?:[.,]\d+)*(?:\s?[½¼¾])?|[½¼¾])`
-const TO = String.raw`(?:\s*[–—−-]\s*|\s+(?:to|đến|tới|hoặc|sampai|hingga|atau|ถึง|หรือ)\s+)`
+const TO = String.raw`(?:\s*[–—−-]\s*|\s+(?:to|đến|tới|hoặc|sampai|hingga|sehingga|ke|atau|ถึง|หรือ)\s+)`
 // Lengths only: a tank's sides ("48 × 12"), or a male's and a female's size ("2,2 / 1,6 inch").
 const BY = String.raw`(?:\s*[×x*]\s*|\s+\/\s+)`
 // A figure: one number or a range ("68–86", "73 °F–80"); a length also several by BY ("48 × 12 × 12").
 const RANGE = String.raw`${N}(?:(?:\s*[°º˚]\s*F)?${TO}${N})?`
 const FIG = (d: Dim) => (d === 'length' || d === 'feet' ? String.raw`${N}(?:(?:\s*[°º˚]\s*F)?${TO}${N}|(?:${BY}${N})+)?` : RANGE)
-const QUAL = String.raw`(?:~|≈|±|khoảng|chừng|gần|tầm|ước|sekitar|kira-kira|hampir|ประมาณ|ราว|เกือบ|about|approx\.?|ca\.)`
+const QUAL = String.raw`(?:~|≈|±|khoảng|chừng|gần|tầm|ước|sekitar|kira-kira|lebih\s+kurang|anggaran|hampir|ประมาณ|ราว|เกือบ|about|approx\.?|ca\.)`
 const NEARLY = /^(?:gần|hampir|เกือบ|nearly)/u
 // Not inside a number ("1.5") or a Latin word ("B2 in").
 const START = String.raw`(?<![\d.,A-Za-z])`
@@ -57,14 +58,14 @@ const END = String.raw`(?!\p{L})`
 const SUFFIX = String.raw`(?:\s+(?:SL|TL))?`
 
 // Imperial units by dimension. "in" counts only with no word after it (SL, TL aside): "1922 in Lake Malawi" is English.
-const GAL = String.raw`(?:(?:US|UK)\s+)?(?:[Gg]all?ons?|[Gg]al)`
+const GAL = String.raw`(?:(?:US|UK)\s+)?(?:[Gg]all?ons?|[Gg]elen|[Gg]al)`
 const IMP_UNIT: Record<Dim, string> = {
   temp: String.raw`(?:[°º˚]\s*F${END}|độ\s*F${END}|℉)`,
   length: String.raw`(?:[Ii]nch(?:es)?${END}|inci${END}|นิ้ว(?!มือ|เท้า)|″|in${END}(?!\s+(?!SL\b|TL\b)\p{L})(?!\s+\d))`,
   feet: String.raw`(?:(?:[Ff]eet|[Ff]oot|ft)${END}|ฟุต)`,
-  flow: String.raw`(?:(?:GPH|gph)${END}|${GAL}(?:\s+(?:Mỹ|US|AS))?\s*(?:mỗi\s+giờ|\/\s*giờ|per\s+jam|\/\s*jam|per\s+hour)${END}|แกลลอน(?:สหรัฐฯ?)?\s*(?:ต่อ|\/)\s*ชั่วโมง)`,
-  volume: String.raw`(?:${GAL}${END}|แกลลอน)(?:\s+(?:Mỹ|Anh|US|UK|AS|Inggris|imperial)${END}|\s*(?:สหรัฐฯ?|อังกฤษ))?`,
-  mass: String.raw`(?:(?:lbs?|oz|pounds?|ounces?|pon)${END}|ปอนด์|ออนซ์)`,
+  flow: String.raw`(?:(?:GPH|gph)${END}|${GAL}(?:\s+(?:Mỹ|US|AS))?\s*(?:mỗi\s+giờ|\/\s*giờ|per\s+jam|sejam|\/\s*jam|per\s+hour)${END}|แกลลอน(?:สหรัฐฯ?)?\s*(?:ต่อ|\/)\s*ชั่วโมง)`,
+  volume: String.raw`(?:${GAL}${END}|แกลลอน)(?:\s+(?:Mỹ|Anh|US|UK|AS|Inggris|Inggeris|imperial)${END}|\s*(?:สหรัฐฯ?|อังกฤษ))?`,
+  mass: String.raw`(?:(?:lbs?|oz|pounds?|ounces?|pon|paun|auns)${END}|ปอนด์|ออนซ์)`,
 }
 const LENGTH = String.raw`(?:(?:mm|cm|km|m|mét|meter)${END}|ซม\.|มม\.|เซนติเมตร|เมตร)`
 const LITRE = String.raw`(?:lít|L|l|liter|litre)`
@@ -88,6 +89,9 @@ const ANY_MET = String.raw`(?:${QUAL}\s*)?(?:${CHECKED.map(metric).join('|')})`
 const after = (a: unknown[]) => ({ at: a[a.length - 2] as number, s: a[a.length - 1] as string })
 const dimOf = (fig: string, kind: (d: Dim) => string) => CHECKED.find(d => new RegExp(`^${kind(d)}$`, 'u').test(fig.trim()))
 
+/** Thai and Malay write 1,000.5; Vietnamese and Indonesian 1.000,5. */
+const pointDecimal = (lang: UnitLang) => lang === 'th' || lang === 'ms'
+
 function parseNum(s: string, lang: UnitLang): number {
   const t = s.trim()
   let m = /^(\d+)\s+(\d)\/(\d{1,2})$/.exec(t)
@@ -96,8 +100,8 @@ function parseNum(s: string, lang: UnitLang): number {
   if (m) return Number(m[1]) / Number(m[2])
   const frac = /[½¼¾]$/.exec(t)
   const whole = (frac ? t.slice(0, -1) : t).trim()
-  // Thousands: "24.000" in Vietnamese and Indonesian, "1,000" in Thai; the other mark is the decimal one.
-  const group = lang === 'th' ? ',' : '.'
+  // Thousands: "24.000" in Vietnamese and Indonesian, "1,000" in Thai and Malay; the other mark is the decimal one.
+  const group = pointDecimal(lang) ? ',' : '.'
   const grouped = new RegExp(String.raw`^\d{1,3}(?:[${group}]\d{3})+(?:[.,]\d+)?$`).test(whole)
   const n = whole === '' ? 0 : Number((grouped ? whole.split(group).join('') : whole).replace(',', '.'))
   return n + (frac ? FRAC[frac[0]]! : 0)
@@ -106,12 +110,12 @@ const numbers = (fig: string, lang: UnitLang) => [...fig.matchAll(re(N))].map(m 
 
 function fmt(n: number, lang: UnitLang): string {
   const [int, dec] = String(n).split('.')
-  const i = int!.length > 3 ? int!.replace(/\B(?=(\d{3})+$)/g, lang === 'th' ? ',' : '.') : int!
-  return dec ? `${i}${lang === 'th' ? '.' : ','}${dec}` : i
+  const i = int!.length > 3 ? int!.replace(/\B(?=(\d{3})+$)/g, pointDecimal(lang) ? ',' : '.') : int!
+  return dec ? `${i}${pointDecimal(lang) ? '.' : ','}${dec}` : i
 }
 const roundTo = (n: number, step: number) => Number((Math.round(n / step) * step).toFixed(step < 1 ? 1 : 0))
-const isOunce = (unit: string) => /oz|ounce|ออนซ์/u.test(unit)
-const isUk = (unit: string) => /\b(?:UK|Anh|Inggris|imperial)\b|อังกฤษ/u.test(unit)
+const isOunce = (unit: string) => /oz|ounce|auns|ออนซ์/u.test(unit)
+const isUk = (unit: string) => /\b(?:UK|Anh|Inggris|Inggeris|imperial)\b|อังกฤษ/u.test(unit)
 const litres = (gal: number, uk: boolean) => gal * (uk ? 4.546 : 3.785)
 const litreStep = (l: number) => (l < 5 ? 0.1 : l < 100 ? 1 : l < 1000 ? 10 : 100)
 /** A °F figure that is a change of temperature, not one: after "±", or every number under 25 °F (-4 °C). */
@@ -120,8 +124,9 @@ const UNIT_OUT: Record<UnitLang, Record<'length' | 'feet' | 'flow' | 'volume', s
   vi: { length: 'cm', feet: 'm', flow: 'lít/giờ', volume: 'lít' },
   id: { length: 'cm', feet: 'm', flow: 'liter/jam', volume: 'liter' },
   th: { length: 'ซม.', feet: 'เมตร', flow: 'ลิตร/ชั่วโมง', volume: 'ลิตร' },
+  ms: { length: 'cm', feet: 'm', flow: 'liter/jam', volume: 'liter' },
 }
-const GRAMS: Record<UnitLang, [string, string]> = { vi: ['g', 'kg'], id: ['g', 'kg'], th: ['กรัม', 'กก.'] }
+const GRAMS: Record<UnitLang, [string, string]> = { vi: ['g', 'kg'], id: ['g', 'kg'], th: ['กรัม', 'กก.'], ms: ['g', 'kg'] }
 
 /** The imperial figure in metric: each number converted, its range and side separators kept. */
 function convert(fig: string, gap: string, unit: string, suffix: string, d: Dim, lang: UnitLang, delta = false): string {
@@ -187,7 +192,7 @@ function viNumber(w: string): number {
   if (b === 'mươi') return DIGIT[a!]! * 10 + (c ? DIGIT[c]! : 0)
   return DIGIT[a!]!
 }
-// Indonesian, before "galon" or "inci": "Satu galon air" (not the rule "satu galon per inci").
+// Indonesian and Malay, before "galon", "gelen" or "inci": "Satu galon air" (not the rule "satu galon per inci").
 const ID_WORDS: Record<string, number> = { satu: 1, dua: 2, tiga: 3, empat: 4, lima: 5, sepuluh: 10, setengah: 0.5 }
 const INCH_MARK = '["”″]'
 const FOOT_MARK = "['’′]"
@@ -199,10 +204,10 @@ function normalize(t: string): string {
     .replace(re(String.raw`(?<!\p{L})(${WORDS})\s+(feet|foot|inch|gallon)(\s+rưỡi)?(?!\p{L})`),
       (_a, w: string, u: string, half?: string) => `${String(viNumber(w) + (half ? 0.5 : 0)).replace('.', ',')} ${u}`)
     .replace(re(String.raw`(?<!\p{L})nửa\s+(inch|foot|gallon)(?!\p{L})`), '0,5 $1')
-    .replace(re(String.raw`(?<!\p{L})(${Object.keys(ID_WORDS).map(w => `[${w[0]}${w[0]!.toUpperCase()}]${w.slice(1)}`).join('|')})\s+(galon|inci)(?!\p{L})(?!\s+per\s+inci)`),
+    .replace(re(String.raw`(?<!\p{L})(${Object.keys(ID_WORDS).map(w => `[${w[0]}${w[0]!.toUpperCase()}]${w.slice(1)}`).join('|')})\s+(galon|gelen|inci)(?!\p{L})(?!\s+per\s+inci)`),
       (_a, w: string, u: string) => `${String(ID_WORDS[w.toLowerCase()]).replace('.', ',')} ${u}`)
-    // "kedalaman minimal 3–4 kaki": feet; a "kaki" is a leg too, so only after a length word.
-    .replace(re(String.raw`((?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar)(?:nya)?[^\d<>]{0,30}?${START}${N}(?:${TO}${N})?)\s*kaki(?!\p{L})`), '$1 feet')
+    // "kedalaman minimal 3–4 kaki", "akuarium 3 kaki": feet; a "kaki" is a leg too, so only after a length word or a tank.
+    .replace(re(String.raw`((?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar|akuarium|tangki)(?:nya)?[^\d<>]{0,30}?${START}${N}(?:${TO}${N}|(?:${BY}${N})+)?)\s*kaki(?!\p{L})`), '$1 feet')
     // "vài inch (khoảng 5–8 cm)": the bracket says how many.
     .replace(re(String.raw`(?<!\p{L})vài\s+(?:inch|feet|foot|gallon)\s*\(\s*(${QUAL}\s*${N}(?:${TO}${N})?\s*(?:${LENGTH}|${LITRE}${END}))\s*\)`), '$1')
     .replace(re(String.raw`\((\s*(?:${QUAL}\s+)?)(${WORDS})\s+mét\s*\)`), (_a, q: string, w: string) => `(${q}${viNumber(w)} mét)`)
@@ -229,12 +234,12 @@ function mask(t: string): { text: string; restore: (s: string) => string } {
     .replace(/(["“‘'])([^"“”‘’'<>()]{1,160}?)(["”’'])(\s*\([^()]*\d[^()]*\))/gu, (all, _o, inner: string, _c, br: string) =>
       (re(ANY_IMP).test(normalize(inner)) && re(ANY_MET).test(normalize(br)) ? hold(all) : all))
     // A unit written with a capital, mid-sentence, is part of a product's name: "Aqueon 10 Gallon", "Fluval Flex 32,5 Gallon".
-    .replace(re(String.raw`${START}${N}\s*-?\s*(?:Gall?ons?|Inch(?:es)?|Inci)${END}`), hold)
+    .replace(re(String.raw`${START}${N}\s*-?\s*(?:Gall?ons?|Gelen|Inch(?:es)?|Inci)${END}`), hold)
   return { text, restore: s => s.replace(/(.)/gu, (_a, c: string) => kept[c.charCodeAt(0) - 0xE100]!) }
 }
 
 // --- Guides: decades of °F, US tank models, pipe sizes. -------------------------------------------------------------
-const ABOUT: Record<UnitLang, string> = { vi: 'khoảng', id: 'sekitar', th: 'ราว' }
+const ABOUT: Record<UnitLang, string> = { vi: 'khoảng', id: 'sekitar', th: 'ราว', ms: 'kira-kira' }
 /** "giữa 60 độ F" → the middle of the 60s; "từ giữa đến cuối 60 độ F" → its upper half. A metric figure after wins. */
 function decades(t: string, lang: UnitLang): string {
   const BANDS: [RegExp, Record<string, number[]>][] = [
@@ -320,7 +325,7 @@ function tanks(seg: string, lang: UnitLang): string {
 
 // Nominal pipe sizes → outside diameter in mm, as Vietnamese shops name them ("phi 27").
 const PIPE: [number, number][] = [[0.5, 21], [0.75, 27], [1, 34], [1.25, 42], [1.5, 49], [2, 60], [2.5, 76], [3, 90], [4, 114]]
-const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d.,;:()<>]){0,30}?`
+const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d.,;:()<>]){0,30}?`
 function pipes(t: string, lang: UnitLang): string {
   const od = (fig: string) => PIPE.find(([inch]) => inch === parseNum(fig, lang))?.[1]
   const name = (mm: number) => (lang === 'vi' ? `phi ${mm}` : `${mm} ${lang === 'th' ? 'มม.' : 'mm'}`)
@@ -350,7 +355,7 @@ function ratios(t: string, lang: UnitLang): string {
 
 /** What may sit in brackets beside imperial figures that only restate a metric one: "~", "khoảng", "♂", "SL", "Mỹ", "cho mỗi"… */
 const FILLER = new RegExp(String.raw`^(?:\s|[,;:/~≈±–—−-]|[♂♀]|${QUAL}|SL|TL|Mỹ|US|AS|cho|mỗi|trên|per|ต่อ|น้ำ|cá|nước|ikan|air|ปลา)*$`, 'u')
-const SEP = String.raw`(?:\s*[,/]\s*|,?\s*(?:tức(?: là)?|yaitu|หรือ)\s+)(?:${QUAL}\s*)?`
+const SEP = String.raw`(?:\s*[,/]\s*|,?\s*(?:tức(?: là)?|yaitu|iaitu|หรือ)\s+)(?:${QUAL}\s*)?`
 
 /**
  * "86–88 (kemungkinan °F)": a translator unsure of a source's unit put it in brackets after the figure ("probably °F").
@@ -412,7 +417,7 @@ export function toMetric(text: string, lang: UnitLang): string {
 }
 
 /** The imperial figures a text still has (pounds; not ounces, which may size a bottle): none once `toMetric` has run (quoted labels and names aside). */
-const LEFT = re(String.raw`${ANY_IMP}|${HEDGED}|${START}${N}\s*-?\s*(?:(?:lbs?|pounds?|pon)${END}|ปอนด์)|${START}\d0(?:-an|s|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
+const LEFT = re(String.raw`${ANY_IMP}|${HEDGED}|${START}${N}\s*-?\s*(?:(?:lbs?|pounds?|pon|paun)${END}|ปอนด์)|${START}\d0(?:-an|s|\s*(?:ปลาย|ต้น|กลาง)\s*ๆ?)\s*[°º˚]\s*F|${START}${N}\s*ตารางฟุต`)
 export const imperialLeft = (text: string): string[] => normalize(mask(text).text).match(LEFT) ?? []
 
 type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }
