@@ -288,15 +288,14 @@ test('a logo the text reader missed is a watermark: off every page, onto the blo
   })
 })
 
-test('an engraved plate or an old drawing is an illustration of the fish, not "dead" nor "not a photo of it": it stays on its page', async () => {
+test('an engraved plate or an old drawing is "not a photo of it" as before, not "dead": it leaves its page with that reason', async () => {
   const r = await root([{ id: 'bagrus-bajad', sci: 'Bagrus bajad', photos: ['plate'] }])
-  const d = model({ plate: { ok: 'yes', typical: false, note: 'old engraved plate of two Bagrus catfish' } })
+  const d = model({ plate: { ok: 'none', typical: false, note: 'old engraved plate of two Bagrus catfish' } })
   await checkPagePhotos(r, d, { limit: 10 })
-  expect(d.seen[0]!.prompt).toContain('Not "dead": an old drawing, painting or engraved plate, which is an illustration (a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.')
-  expect(d.seen[0]!.prompt).toContain('An old drawing, painting or engraved plate of it counts too, as an illustration.')
-  expect(d.seen[0]!.prompt).toContain('"none" if it is not a photo of the subject at all: a map, chart or diagram, hands or people')
-  expect(await urls(r, 'content/species/bagrus-bajad/entity.json')).toEqual(['plate'])
-  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+  expect(d.seen[0]!.prompt).toContain('Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.')
+  expect(d.seen[0]!.prompt).toContain('"none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people')
+  expect(await urls(r, 'content/species/bagrus-bajad/entity.json')).toEqual([])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('plate')]: 'not Bagrus bajad: old engraved plate of two Bagrus catfish' })
   // Nor is a note about one a reason to ask again.
   expect(deadNote('Old plate showing two Bagrus catfish from a museum collection, engraved')).toBe(false)
   expect(deadNote('Old black-and-white plate of a preserved specimen and head close-up')).toBe(true)
@@ -304,7 +303,7 @@ test('an engraved plate or an old drawing is an illustration of the fish, not "d
 
 test('photos to judge again are picked from the notes of earlier looks: the checks\', the watermark step\'s and the gallery\'s captions', async () => {
   const r = await root([
-    { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'leaves', 'drawing', 'new', 'gone', 'tag', 'never'], gallery: ['cho', 'swim'] },
+    { id: 'cichla-temensis', sci: 'Cichla temensis', photos: ['market', 'leaves', 'drawing', 'new', 'gone', 'tag', 'never', 'landed'], gallery: ['cho', 'swim'] },
     { id: 'sulcospira-testudinaria', sci: 'Sulcospira testudinaria', photos: ['shell'] },
   ])
   const v = (note: string, extra: Partial<PhotoVerdict> = {}): PhotoVerdict => ({ ok: 'yes', typical: true, note, ...extra })
@@ -313,6 +312,7 @@ test('photos to judge again are picked from the notes of earlier looks: the chec
     [url('leaves')]: v('Adult among dead leaves'),
     [url('drawing')]: v('Old book drawing of the fish, from a museum library'),
     [url('gone')]: v('Dead fish on a tray'),
+    [url('landed')]: v('Large adult just caught, landed on a boat deck'),
   }))
   await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({
     [url('shell')]: { 'sulcospira-testudinaria': v('Naturalis museum shell specimens labelled Brotia testudinaria') },
@@ -328,6 +328,7 @@ test('photos to judge again are picked from the notes of earlier looks: the chec
     tag: 'preserved specimen photo, no text',
     cho: 'Cá hoàng đế sao chết bày bán ở chợ',
     shell: 'Naturalis museum shell specimens labelled Brotia testudinaria',
+    landed: 'Large adult just caught, landed on a boat deck',
   })
 })
 

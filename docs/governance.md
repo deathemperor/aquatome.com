@@ -242,8 +242,8 @@ The layers above still check the result.
   `docs/review/summaries.md`.
 - **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good), no dead fish or fish as food (markets, plates, catches landed or held, preserved, mounted or museum specimens;
-  old drawings and engraved plates may stay), each photo must show its species, open licences or permission only.
+  good), no dead fish or fish as food (markets, plates, catches landed or held, preserved, mounted or museum specimens),
+  each photo must show its species, open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   - **Galleries and their targets.** Every species, plant and breed has a gallery, topped up each cycle to a target set
