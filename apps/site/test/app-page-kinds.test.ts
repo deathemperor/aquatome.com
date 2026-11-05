@@ -10,7 +10,7 @@ import { getContent } from '../src/lib/content'
 import { smallSrc } from '../src/lib/img'
 import { speciesParts } from '../src/lib/species-page'
 import { translator } from '../src/lib/i18n'
-import { appHref, appPage } from './dist'
+import { appHref, appPage, DIST } from './dist'
 
 // The app draws fish, plant and glossary pages from these copies (once the index counts their kinds): what they hold
 // must be the page, credits and sources first.
@@ -50,7 +50,8 @@ const photosBySource = (c: Content) => {
 let footerChecked = 0
 /** What every fish and plant copy owes its page: its pictures credited, the page's credits all there, its sources. */
 function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) {
-  for (const img of images(d)) {
+  // Every photo's credit (the records' map is credited to its data: wild() holds it to the page).
+  for (const img of images(d).filter(i => !isMap(i))) {
     expect(img.credit?.text, `${d.path} ${img.src}`).toMatch(/^Ảnh: \S/)
     expect(img.credit?.licence, `${d.path} ${img.src}`).toBeTruthy()
     expect(img.credit?.url, `${d.path} ${img.src}`).toBeTruthy()
@@ -70,16 +71,63 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   const li = dom.querySelectorAll('.body .refs li')
   expect(refs?.items.map(r => [r.title, r.url]) ?? [], d.path).toEqual(li.map(l => [txt(l.querySelector('a')), l.querySelector('a')!.getAttribute('href')]))
   if (refs) expect(refs.note, d.path).toBe(txt(dom.querySelector('.body .refs .note')))
-  expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite').length)
+  expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite, .body #muc-range a.cite').length)
   for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch với sự cho phép của nguồn$/)
   // The sections under their questions, with the ids the page's jump row links.
   expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
 }
 
-/** The gallery as the page's strip shows it and its gallery page lists it. */
+const isMap = (img: Image) => img.src.startsWith('https://aquatome.com/app/range/')
+/** A PNG's width and height, from its header. */
+const pngSize = (file: string) => { const b = readFileSync(file); return [b.readUInt32BE(16), b.readUInt32BE(20)] }
+
+/**
+ * "Phân bố tự nhiên" as the page has it: its lines with their links and marks, its sources' sentences, its records in
+ * words, and its map as a picture of the same map (the PNG the build made, at its size), with the page's words for it,
+ * its legend and its credit. Returns whether the page has it.
+ */
+function wild(d: PageDoc, dom: HTMLElement): boolean {
+  const sec = dom.querySelector('#muc-range')
+  const at = d.blocks.findIndex(b => b.t === 'h' && b.id === 'muc-range')
+  expect(at >= 0, d.path).toBe(!!sec)
+  if (!sec) return false
+  const next = d.blocks.findIndex((b, i) => i > at && (b.t === 'h' || b.t === 'refs'))
+  const part = d.blocks.slice(at + 1, next < 0 ? undefined : next)
+  expect(txt(sec.querySelector('h2')), d.path).toBe((d.blocks[at] as B<'h'>).text)
+  const lines = [...sec.querySelectorAll('.words p'), ...sec.querySelectorAll('.said summary'), ...sec.querySelectorAll('.records p')]
+  expect(part.filter(b => b.t === 'p').map(b => text((b as B<'p'>).c)), d.path).toEqual(lines.map(txt))
+  const runs = part.flatMap(b => (b.t === 'p' ? b.c : b.t === 'list' ? b.items.flat().flatMap(x => (x.t === 'p' ? x.c : [])) : []))
+  expect(runs.flatMap(r => (typeof r === 'string' || !r.href ? [] : [r.href])), d.path).toEqual(sec.querySelectorAll('.words a, .said li a').map(a => appHref(a.getAttribute('href')!)))
+  const list = part.find((b): b is B<'list'> => b.t === 'list')
+  expect(list?.items.map(i => text((i[0] as B<'p'>).c)) ?? [], d.path).toEqual(sec.querySelectorAll('.said li').map(txt))
+  const fig = part.find((b): b is B<'figure'> => b.t === 'figure')
+  const svg = sec.querySelector('svg.map')
+  expect(!!fig, d.path).toBe(!!svg)
+  if (!fig || !svg) return true
+  expect(isMap(fig.img), d.path).toBe(true)
+  expect(fig.img.alt, d.path).toBe(svg.getAttribute('aria-label'))
+  const file = `${DIST}${fig.img.src.replace('https://aquatome.com', '')}`
+  expect(existsSync(file), file).toBe(true)
+  expect(pngSize(file), d.path).toEqual([fig.img.w, fig.img.h])
+  // As wide as the page's map, twice its units.
+  expect(fig.img.w / fig.img.h, d.path).toBeCloseTo(Number(svg.getAttribute('width')) / Number(svg.getAttribute('height')), 5)
+  // The legend in the caption's words, in order; the credit as the page writes it, GBIF linked to the same search.
+  const legend = sec.querySelectorAll('.legend li').map(txt)
+  const caption = text(fig.caption)
+  expect(legend.map(l => caption.indexOf(l)).every((n, i, a) => n >= 0 && (!i || n > a[i - 1]!)), `${d.path}: ${caption}`).toBe(true)
+  const credit = txt(sec.querySelector('.credit'))
+  expect(credit, d.path).toBe(`${fig.img.credit!.text} · ${fig.img.credit!.licence}. ${caption.slice(caption.lastIndexOf(legend.at(-1)!) + legend.at(-1)!.length).trim()}`)
+  expect(fig.img.credit!.url, d.path).toBe(sec.querySelector('.credit a')!.getAttribute('href'))
+  return true
+}
+
+/**
+ * The gallery as the page's strip shows it and its gallery page lists it. The strip's own thumbnails: the further ones a
+ * computer's photo column shows (`li.more`) are the gallery's, which the copy carries whole.
+ */
 function gallery(d: PageDoc, dom: HTMLElement) {
   const g = one(d, 'gallery')
-  const strip = dom.querySelectorAll('.strip li img')
+  const strip = dom.querySelectorAll('.strip li:not(.more) img')
   expect(!!g, d.path).toBe(strip.length > 0)
   if (!g) return
   expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
@@ -100,6 +148,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
   const fish = appSpecies('vi', c)
   expect(fish.length).toBeGreaterThan(5)
   const seen = new Set<string>()
+  const withRange: string[] = []
   for (const s of fish) {
     const d = await fishDoc('vi', c, s, listed)
     expect(PageDoc.safeParse(d).error, d.path).toBeUndefined()
@@ -142,6 +191,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     expect(vn?.items.map(i => `${i.label}: ${i.text}`) ?? [], d.path).toEqual(dom.querySelectorAll('.vn li').map(txt))
     if (vn) expect(vn.note, d.path).toBe(txt(dom.querySelector('.vn .assume')))
     gallery(d, dom)
+    if (wild(d, dom)) withRange.push(s.id)
     // A block that follows a source the card didn't says so above it, as on the page.
     expect(d.blocks.filter(b => b.t === 'p' && text(b.c).includes(' ghi khác bảng dữ liệu:')).map(b => text((b as B<'p'>).c)), d.path).toEqual(dom.querySelectorAll('.body .off').map(txt))
     // Breeds as cards, each with its picture's credit; videos; the guides that name it.
@@ -158,6 +208,8 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
   // The fixture has every new block somewhere, and photos the footer credits.
   for (const t of ['trust', 'mates', 'climate', 'gallery', 'summary', 'cards', 'videos', 'refs', 'pages']) expect(seen.has(t), t).toBe(true)
   expect(footerChecked).toBeGreaterThan(0)
+  // The fixture fish with a range have the block, and only they.
+  expect(withRange.sort()).toEqual(['neocaridina-davidi', 'paracheirodon-innesi', 'pterophyllum-scalare'])
 })
 
 test('a fish\'s other photos go between its sections, each credited, as many as the page has room for', async () => {
@@ -182,7 +234,7 @@ test('each fish\'s and plant\'s text converts with nothing the app would have to
   const c = await getContent('vi')
   for (const s of appSpecies('vi', c)) {
     const p = await speciesParts('vi', c, s)
-    expect(sectionBlocks('vi', c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard }).unknown, s.id).toEqual([])
+    expect(sectionBlocks('vi', c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range } }).unknown, s.id).toEqual([])
   }
   for (const x of appPlants('vi', c)) expect(sectionBlocks('vi', c, { sections: x.sections, t: x.t, figures: x.photos.slice(1).map(photo => ({ photo })) }).unknown, x.id).toEqual([])
 })
@@ -200,7 +252,7 @@ test('a fish\'s copy: its blocks in page order, every one credited and sourced',
   })
   // The card's figures are the index's: only who gives them here, and each source's own where they disagree.
   expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mức mọi nguồn cùng khuyên', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
-  expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '6 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
+  expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '45 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
   expect(one(d, 'gallery')!.photos[0]).toMatchObject({ credit: { text: 'Ảnh: Tác giả 1', licence: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' } })
   expect(one(d, 'summary')).toEqual({ t: 'summary', title: 'Tóm tắt nhanh', text: 'Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.', items: ['Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.'], mistakes: { title: 'Lỗi hay gặp', items: ['Thả vài con: nên nuôi đàn từ 8 con trở lên.'] }, by: 'AquaTome tóm tắt từ các nguồn bên dưới.' })
   expect(one(d, 'refs')).toMatchObject({ title: 'Nguồn', id: 'nguon', items: [{ title: 'Seriously Fish', url: 'https://www.seriouslyfish.com/species/paracheirodon-axelrodi' }, { title: 'Aquarium Glaser' }, { title: 'Aquarium Glaser' }] })

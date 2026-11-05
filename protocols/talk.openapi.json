@@ -370,6 +370,107 @@
           }
         }
       }
+    },
+    "/api/v1/talk/photos/mine": {
+      "get": {
+        "summary": "The signed-in reader's own photos, newest first: waiting, shown, or turned down and why",
+        "description": "Only photos sent from the app with this account: the site's pages send theirs without one. A photo the reader took back (DELETE below, or its delete link) isn't listed. Up to 200. A waiting photo has no public copy yet: the app shows its own copy of what it sent, by the `id` the POST to /_p returned. A shown photo that readers reported is waiting again until the nightly moderation looks at it.",
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Their photos.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyPhotos"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: session (the app's bearer is missing, expired or signed out)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: photos_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/talk/photos/mine/{id}": {
+      "delete": {
+        "summary": "Take back one of the reader's own photos",
+        "description": "As its delete link does: every stored copy is deleted, and it leaves the reader's list. A photo moderation turned down can be taken back too, to clear it from the list.",
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9a-f-]{36}$"
+            },
+            "description": "The photo's id, as the POST to /_p returned it."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Taken back."
+          },
+          "401": {
+            "description": "Error: session (the app's bearer is missing, expired or signed out)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (no such photo of this account's, or already taken back)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: photos_off",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -686,6 +787,101 @@
             "enum": [
               "received"
             ]
+          }
+        }
+      },
+      "Why": {
+        "type": "string",
+        "enum": [
+          "face",
+          "species",
+          "quality",
+          "unsafe",
+          "advert",
+          "not_photo",
+          "other"
+        ],
+        "description": "Why moderation turned a photo down, for the app to word in the reader's language: `face` a person, a face or a body part beyond a hand at the edge; `species` not this page's fish (and no page of the right one to move it to); `quality` too small, too blurred or unreadable; `unsafe` violent, sexual or cruel; `advert` text over it, a watermark, a phone number, a shop's advert or a link; `not_photo` a drawing, screenshot, meme, collage or AI-looking render; `other` anything else, the owner's removals among them."
+      },
+      "MyPhoto": {
+        "type": "object",
+        "required": [
+          "id",
+          "e",
+          "name",
+          "status",
+          "createdAt"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "e": {
+            "type": "string",
+            "description": "The readers' photos key of the page it shows on (`species:<id>`, `breed:<id>`): after a move, the right fish's page."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name it was sent with: its credit."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "removed"
+            ],
+            "description": "pending: waiting for the nightly moderation; approved: shown on its page; removed: turned down (see `why`)."
+          },
+          "url": {
+            "type": "string",
+            "description": "Approved only: the published photo."
+          },
+          "thumb": {
+            "type": "string",
+            "description": "Approved only: its small copy."
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Approved only."
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Approved only."
+          },
+          "why": {
+            "$ref": "#/components/schemas/Why",
+            "description": "Removed only."
+          },
+          "movedFrom": {
+            "type": "string",
+            "description": "The key of the page it was sent for, when moderation found it shows another fish the handbook has and moved it there."
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When it was sent, ISO 8601."
+          },
+          "decidedAt": {
+            "type": "string",
+            "description": "When moderation showed it or turned it down, ISO 8601: approved and removed only."
+          }
+        }
+      },
+      "MyPhotos": {
+        "type": "object",
+        "required": [
+          "photos"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "photos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyPhoto"
+            }
           }
         }
       }

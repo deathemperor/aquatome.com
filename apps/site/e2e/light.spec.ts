@@ -133,6 +133,34 @@ test('a light whose tank another tab deleted is saved again on a tank that exist
   expect(s.tanks.filter(t => !t.deletedAt).map(t => t.id)).toContain(lights[0]!.tankId)
 })
 
+// A tank synced from the app also keeps lights of other makers (Week Aqua, WEEKAQUA3.0), which this page can't drive:
+// they aren't listed as saved, so neither "Kết nối" nor "Quên đèn này" reaches them, and forgetting the Chihiros leaves
+// them on the tank.
+test('only Chihiros lights are listed as saved; a light of another maker stays on the tank', async ({ page, errors }) => {
+  await fakeLight(page)
+  await page.addInitScript(() => {
+    if (localStorage.getItem('aq.tanks')) return
+    const at = '2026-11-01T08:00:00.000Z'
+    const tankId = '00000000-0000-4000-8000-000000000001'
+    const light = (id: string, x: object) => ({ id: `00000000-0000-4000-8000-00000000002${id}`, tankId, kind: 'light', schedules: [], createdAt: at, updatedAt: at, ...x })
+    localStorage.setItem('aq.tanks', JSON.stringify({ v: 1, tanks: [{ id: tankId, name: 'Bể 60', species: [], plants: [], createdAt: at, updatedAt: at }], devices: [
+      light('0', { brand: 'chihiros', model: 'WRGB II Slim', bleName: 'DYSL30TEST' }),
+      light('1', { brand: 'weekaqua', model: 'M', bleName: 'WEEKAQUA3.0', nickname: 'Đèn Week' }),
+      light('2', { bleName: 'WEEKAQUA3.0' }), // no maker kept: told apart by its name
+      light('3', { bleName: 'DYNW60C0FFEE' }), // no maker kept, a Chihiros name
+    ] }))
+  })
+  await page.goto('/cong-cu/den-chihiros/')
+  const known = page.locator('#ch-known li')
+  await expect(known).toHaveCount(2)
+  await expect(page.locator('#ch-known')).not.toContainText(/Week|WEEKAQUA/)
+  await known.filter({ hasText: 'WRGB II Slim' }).getByRole('button', { name: 'Quên đèn này' }).click()
+  await expect(known).toHaveCount(1)
+  const live = await page.evaluate(() => (JSON.parse(localStorage.getItem('aq.tanks')!) as { devices: { bleName?: string; deletedAt?: string }[] }).devices.filter(d => !d.deletedAt).map(d => d.bleName))
+  expect(live).toEqual(['WEEKAQUA3.0', 'WEEKAQUA3.0', 'DYNW60C0FFEE'])
+  expect(errors).toEqual([])
+})
+
 test('a clock reset by a power cut is reported', async ({ page }) => {
   await fakeLight(page, 'reset')
   await page.goto('/cong-cu/den-chihiros/')

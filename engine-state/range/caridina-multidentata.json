@@ -1,0 +1,80 @@
+{
+  "id": "caridina-multidentata",
+  "native": {
+    "input": "6613ae179c19638c",
+    "at": "2026-11-05T00:41:00.281Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: Japan",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "As their alternative names suggest, the Amano shrimp is native to Japan.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caridina multidentata",
+    "status": "ACCEPTED",
+    "taxonKey": 5863054,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        84
+      ],
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        26
+      ],
+      [
+        "df1b03cd-806b-4479-adf2-dfd6ba3fd1d2",
+        8
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        7
+      ],
+      [
+        "f0f52ff5-64d7-442f-8d12-da62a889667c",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ]
+    ],
+    "native": [
+      "JP"
+    ],
+    "requests": 13,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

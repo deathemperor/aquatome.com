@@ -1,0 +1,20 @@
+{
+  "slug": "microsorum-sp",
+  "name": "Microsorum sp.",
+  "altNames": [
+    "ไมโครซอรัม",
+    "เฟิร์นไมโครซอรัม",
+    "Microsorum"
+  ],
+  "sections": {
+    "quickFacts:tropica": "<ul><li><strong>ประเภท:</strong> ไม้น้ำประเภทมีเหง้า</li></ul>",
+    "notes:tropica": "<p>ในงานจัดตู้ \"Bank Wood Ornamental\" ของ Tropica จะปลูกไม้น้ำสองต้นไว้บนขอนไม้ที่ติดจุ๊บสุญญากาศ เพื่อให้นำไปติดชิดกับกระจกตู้ปลาได้ ไม้น้ำที่ใช้คือ Anubias barteri var. caladiifolia หนึ่งต้นคู่กับ Microsorum หนึ่งต้น หรือไม่ก็ Microsorum สองต้น</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "tropica": 0.85
+    }
+  }
+}

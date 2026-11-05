@@ -1,0 +1,47 @@
+{
+  "id": "youtube-ly_mlJfzS-8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=ly_mlJfzS-8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "ly_mlJfzS-8",
+    "title": "HOW TO: DIY aquarium heater - INTERNAL",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 290,
+    "publishedAt": "2014-11-02",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbN03yoMmH3ioVkQVTJ3BwK",
+      "position": 17
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/ly_mlJfzS-8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 66
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 134
+      }
+    ]
+  }
+}

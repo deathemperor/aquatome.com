@@ -14,15 +14,20 @@ final class HandbookModel {
   let site = URL(string: "https://aquatome.com")!
   private(set) var status = Status.loading
   private(set) var count = 0
-  /// Cleared, the kind goes back to all: the next search starts with every kind, not one picked for the last.
-  var query = "" { didSet { if query != oldValue { if query.isEmpty { kind = nil }; refresh() } } }
-  var kind: HandbookIndex.Kind? { didSet { if kind != oldValue { refresh() } } }
-  /// What the list shows for the query and kind: worked out when they or the index change, not on every redraw.
-  private(set) var results: [HandbookIndex.Item] = []
-  /// How many pages the query finds of each kind, and in all under nil: what the chips above the results say. Counted
-  /// in the search that finds the results, so a keystroke costs no more.
-  private(set) var counts: [HandbookIndex.Kind?: Int] = [:]
+  /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
+  private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
+  var query: String { get { searching.query } set { searching.query = newValue } }
+  var kind: HandbookIndex.Kind? { get { searching.kind } set { searching.kind = newValue } }
+  var results: [HandbookIndex.Item] { searching.results }
+  /// How many pages the query finds of each kind, and in all under nil: what the chips above the results say.
+  var counts: [HandbookIndex.Kind?: Int] { searching.counts }
+  /// How many the kind picked finds past the rows listed: a page more of them for "Xem thêm kết quả".
+  var left: Int { searching.left }
+  func showMore() { searching.showMore() }
 
+  /// The index searched, for the tanks tab's guides and fish picker: a copy of the one in `searching`, set with it, so
+  /// what they read changes with the index, not with each letter typed in the Tìm tab, which would redraw them and
+  /// search again for them.
   private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
   private var pages: [String: HandbookIndex.Item] = [:]
@@ -77,7 +82,24 @@ final class HandbookModel {
     kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
     keptCounts = UserDefaults.standard.dictionary(forKey: "handbook.kept.counts.\(lang)") as? [String: Int] ?? [:]
     drawn = Self.pageCache(source, site: site)
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    #endif
   }
+
+  #if DEBUG
+  /// UI tests (`-watch-tank-searches`): how many times what the tanks tab's guides and fish picker search has changed
+  /// (each change redraws them and searches again), shown in the Tìm tab. Nil unless watched.
+  private(set) var tankSearchChanges: Int?
+  private func watchTankSearches() {
+    withObservationTracking { _ = guides(about: []); _ = life("") } onChange: { [weak self] in
+      Task { @MainActor in
+        self?.tankSearchChanges? += 1
+        self?.watchTankSearches()
+      }
+    }
+  }
+  #endif
 
   /// Whether the app draws this page itself: the site publishes its kind as blocks.
   func drawsItself(_ item: HandbookIndex.Item) -> Bool { shardCounts[item.kind.rawValue] != nil }
@@ -283,6 +305,7 @@ final class HandbookModel {
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
+    searching.search = search
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     matcher = PageMatcher(index: ix.items)
     byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
@@ -292,10 +315,17 @@ final class HandbookModel {
     labels = ix.labels
     count = ix.items.count
     status = s
-    refresh()
   }
 
-  private func refresh() { (results, counts) = search.findAndCount(query, kind: kind) }
+  /// How many of its best a search lists at first, and then a page more: 200, except in UI tests (`-search-page N`),
+  /// whose small index lists a few to see "Xem thêm kết quả" without scrolling through 200 rows.
+  private static func searchPage() -> Int {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-search-page"), i + 1 < args.count, let n = Int(args[i + 1]) { return n }
+    #endif
+    return 200
+  }
 
   /// The site, except in UI tests (`-fixed-handbook`), which use a small fixed index: no network, same answers each run.
   /// Performance tests use `-large-handbook`: as many fish as the site has, still without the network.
@@ -351,9 +381,11 @@ extension HandbookIndex {
           facts: .init(tempC: .init(min: 28, max: 31), ph: .init(min: 4.5, max: 6.5), sizeCm: 15, tankCm: 120, difficulty: 7), group: "cichlids"),
     .init(kind: .fish, contentId: "paracheirodon-innesi", name: "Cá neon", sub: "Paracheirodon innesi", aka: ["Neon tetra"], path: "/vi/ca/ca-neon/",
           facts: .init(tempC: .init(min: 20, max: 26), ph: .init(min: 5, max: 7), gh: .init(min: 1, max: 2), sizeCm: 4, tankCm: 60, temperament: "peaceful",
-                         schoolMin: 6, difficulty: 2),
+                         schoolMin: 6, difficulty: 2, lifeYears: .init(min: 5, max: 10)),
           group: "tetras"),
-    .init(kind: .fish, contentId: "danio-rerio", name: "Cá ngựa vằn", sub: "Danio rerio", path: "/vi/ca/ca-ngua-van/", group: "danios"),
+    // Its lifespan alone, one figure with a fraction of a year (min = max): none of the figures the fish list filters by.
+    .init(kind: .fish, contentId: "danio-rerio", name: "Cá ngựa vằn", sub: "Danio rerio", path: "/vi/ca/ca-ngua-van/",
+          facts: .init(lifeYears: .init(min: 3.5, max: 3.5)), group: "danios"),
     .init(kind: .plant, contentId: "rotala-rotundifolia", name: "Rotala đỏ", sub: "Rotala rotundifolia", path: "/vi/cay/rotala-do/",
           facts: .init(tempC: .init(min: 20, max: 28)), plant: .init(difficulty: 2, light: "high", co2: "optional", growth: "fast", placement: ["background"])),
     .init(kind: .guide, name: "Nuôi cá neon trong bể nhỏ", path: "/vi/huong-dan/nuoi-ca-neon/", section: "care", about: ["paracheirodon-innesi"]),
@@ -381,7 +413,7 @@ extension HandbookIndex {
   /// fish, a plant, a term and a video series, each as the site writes it.
   static let fixturePages = Data(#"""
   {"v":1,"pages":{"/vi/huong-dan/cach-han-che-reu-hai/":{"v":1,"kind":"guide","path":"/vi/huong-dan/cach-han-che-reu-hai/","title":"Cách hạn chế rêu hại","video":{"youtubeId":"abc123XYZ_-","title":"Hạn chế rêu hại","channel":"MJ Aquascaping","durationSec":1755},"blocks":[{"t":"p","c":["Ánh sáng vừa đủ, CO₂ đều, thay nước đúng lịch."]}]},
-  "/vi/video/reu-hai-tu-a-den-z/":{"v":1,"kind":"video","path":"/vi/video/reu-hai-tu-a-den-z/","title":"Rêu hại từ A đến Z","credit":["1 bài · 29 phút video · theo playlist “",{"text":"ALGAE! Everything you need to know!","href":"https://www.youtube.com/playlist?list=PLtest"},"” của kênh ",{"text":"MJ Aquascaping","href":"https://www.youtube.com/@MJAquascaping"}],"blocks":[{"t":"p","c":["Từng loại rêu hại: vì sao mọc và cách hạn chế."]},{"t":"cards","title":"Video","items":[{"path":"/vi/huong-dan/cach-han-che-reu-hai/","name":"Cách hạn chế rêu hại","sub":"Chăm cây · 29:15","img":{"src":"https://i.ytimg.com/vi/abc123XYZ_-/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: MJ Aquascaping","licence":"YouTube","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}}}]}]},
+  "/vi/video/reu-hai-tu-a-den-z/":{"v":1,"kind":"video","path":"/vi/video/reu-hai-tu-a-den-z/","title":"Rêu hại từ A đến Z","credit":["1 bài · 29 phút video · theo playlist “",{"text":"ALGAE! Everything you need to know!","href":"https://www.youtube.com/playlist?list=PLtest"},"” của kênh ",{"text":"MJ Aquascaping","href":"https://www.youtube.com/@MJAquascaping"}],"blocks":[{"t":"p","c":["Từng loại rêu hại: vì sao mọc và cách hạn chế."]},{"t":"cards","title":"Video","items":[{"path":"/vi/huong-dan/reu-toc/","name":"Rêu tóc","sub":"Chăm cây · 12:40","img":{"src":"https://i.ytimg.com/vi/fixtureV001/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV001"}}},{"path":"/vi/huong-dan/cach-han-che-reu-hai/","name":"Cách hạn chế rêu hại","sub":"Chăm cây · 29:15","img":{"src":"https://i.ytimg.com/vi/abc123XYZ_-/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: MJ Aquascaping","licence":"YouTube","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}}},{"path":"/vi/huong-dan/reu-nau/","name":"Rêu nâu","sub":"Chăm cây · 9:05","img":{"src":"https://i.ytimg.com/vi/fixtureV002/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV002"}}},{"path":"/vi/huong-dan/reu-xanh-lam/","name":"Rêu xanh lam","sub":"Chăm cây · 15:20","img":{"src":"https://i.ytimg.com/vi/fixtureV003/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV003"}}}]}]},
   "/vi/huong-dan/nuoi-ca-neon/":{"v":1,"kind":"guide","path":"/vi/huong-dan/nuoi-ca-neon/","title":"Nuôi cá neon trong bể nhỏ",
    "meta":"Chăm sóc · đọc khoảng 4 phút","credit":["AquaTome tổng hợp từ ",{"text":"2 nguồn","href":"#nguon"}," rồi tự viết"],
    "lead":{"src":"https://media.aquatome.com/a/neon-lead.webp","w":1200,"h":800,"credit":{"text":"Ảnh: Aquarium Co-op","licence":"CC BY 4.0"}},
@@ -406,7 +438,7 @@ extension HandbookIndex {
     {"t":"refs","title":"Nguồn tham khảo","id":"nguon","items":[{"title":"Neon tetra care","url":"https://example.org/neon"},{"title":"Cá neon","url":"https://example.org/ca-neon"}]},
     {"t":"pages","title":"Loài và cây trong bài","paths":["/vi/ca/ca-neon/","/vi/ca/khong-co/","/vi/cong-cu/be-cua-toi/"]}
    ]},
-  "/vi/ca/ca-neon/":{"v":1,"kind":"fish","path":"/vi/ca/ca-neon/","title":"Cá neon","sub":"Paracheirodon innesi","where":["Characidae, ",{"text":"Peru","href":"/vi/nguon-goc/south-america/peru/"}],"aka":"Tên khác: Neon tetra","credit":["Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."],"lead":{"src":"https://media.aquatome.com/a/neon.webp","w":1200,"h":800,"alt":"Cá neon, Paracheirodon innesi","credit":{"text":"Ảnh: Holger Krisp","licence":"CC BY 3.0","url":"https://example.org/photo/neon"}},"talk":{"comments":"species:paracheirodon-innesi","photos":"species:paracheirodon-innesi"},"blocks":[{"t":"trust","title":"Nguồn và độ tin cậy","legend":"Các nguồn ghi khác nhau","rows":[{"field":"tempC","label":"Nhiệt độ","conflict":true,"note":"Mức mọi nguồn cùng khuyên","items":["Seriously Fish: 20–26°C","Aquarium Glaser: 22–28°C"]},{"field":"ph","label":"pH","items":["Seriously Fish"]}]},{"t":"mates","title":"Nuôi chung","good":{"title":"Hợp với","items":[{"path":"/vi/ca/ca-ngua-van/","name":"Cá ngựa vằn","img":{"src":"https://media.aquatome.com/a/danio-480.webp","w":960,"h":640,"credit":{"text":"Ảnh: Tác giả 5","licence":"CC BY 4.0","url":"https://example.org/photo/danio"}}}]},"avoid":{"title":"Tránh","items":[{"path":"/vi/ca/ca-dia/","name":"Cá đĩa","why":"Lớn tới 15 cm, có thể ăn Cá neon"}]},"note":"Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.","tool":{"text":"Kiểm tra nuôi chung với loài khác →","href":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"}},{"t":"climate","title":"Nuôi ở Việt Nam","items":[{"label":"Mùa đông miền Bắc","ok":false,"text":"Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."},{"label":"Miền Nam","ok":true,"text":"Hợp nhiệt độ quanh năm, thường không cần sưởi."}],"note":"Giả định nước bể trong nhà, không sưởi hay làm lạnh. Đo nhiệt độ bể của bạn để chắc chắn."},{"t":"gallery","title":"Ảnh Cá neon","note":"3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở.","strip":[0,1],"href":"/vi/ca/ca-neon/anh/","photos":[{"src":"https://media.aquatome.com/g/n1.webp","w":1280,"h":960,"alt":"Đàn cá neon trong bể","thumb":"https://media.aquatome.com/g/n1-480.webp","credit":{"text":"Ảnh: Tác giả 1","licence":"CC BY 2.0","url":"https://example.org/photo/1"}},{"src":"https://media.aquatome.com/g/n2.webp","w":1280,"h":960,"alt":"Cá neon gần cây","thumb":"https://media.aquatome.com/g/n2-480.webp","credit":{"text":"Ảnh: Tác giả 2","licence":"CC BY-SA 4.0","url":"https://example.org/photo/2"}},{"src":"https://media.aquatome.com/g/n3.webp","w":800,"h":600,"alt":"Cá neon bơi","thumb":"https://media.aquatome.com/g/n3-480.webp","credit":{"text":"Ảnh: Tác giả 3","licence":"CC BY 4.0","url":"https://example.org/photo/3"}}]},{"t":"summary","title":"Tóm tắt nhanh","items":["Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm."],"text":"Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm.","mistakes":{"title":"Lỗi hay gặp","items":["Thả vài con: nên nuôi đàn từ 6 con trở lên."]},"by":"AquaTome tóm tắt từ các nguồn bên dưới."},{"t":"h","text":"Nước cần thế nào?","id":"muc-waterConditions"},{"t":"p","c":["Nước mềm, hơi chua.",{"text":"1","href":"https://example.org/neon","tip":{"term":"Seriously Fish","text":"example.org · dịch với sự cho phép của nguồn"}}]},{"t":"p","c":["Như các ",{"text":"cá tetra","href":"/vi/nhom/tetras/"}," khác, cá neon sống theo đàn."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Seriously Fish","url":"https://example.org/neon"}],"note":"Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó."},{"t":"cards","title":"Các dòng và cá lai từ Cá neon","items":[{"path":"/vi/ca/ca-neon-vang/","name":"Cá neon vàng","sub":"Dòng cá cảnh"}]},{"t":"pages","title":"Bài viết nhắc đến loài này","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"videos","title":"Video","items":[{"youtubeId":"neonVid_01","title":"Đàn neon trong bể thủy sinh","durationSec":724,"lang":"EN"}]}]},
+  "/vi/ca/ca-neon/":{"v":1,"kind":"fish","path":"/vi/ca/ca-neon/","title":"Cá neon","sub":"Paracheirodon innesi","where":["Characidae, ",{"text":"Peru","href":"/vi/nguon-goc/south-america/peru/"}],"aka":"Tên khác: Neon tetra","credit":["Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."],"lead":{"src":"https://media.aquatome.com/a/neon.webp","w":1200,"h":800,"alt":"Cá neon, Paracheirodon innesi","credit":{"text":"Ảnh: Holger Krisp","licence":"CC BY 3.0","url":"https://example.org/photo/neon"}},"talk":{"comments":"species:paracheirodon-innesi","photos":"species:paracheirodon-innesi"},"blocks":[{"t":"trust","title":"Nguồn và độ tin cậy","legend":"Các nguồn ghi khác nhau","rows":[{"field":"tempC","label":"Nhiệt độ","conflict":true,"note":"Mức mọi nguồn cùng khuyên","items":["Seriously Fish: 20–26°C","Aquarium Glaser: 22–28°C"]},{"field":"ph","label":"pH","items":["Seriously Fish"]},{"field":"lifeYears","label":"Tuổi thọ","items":["Seriously Fish"]}]},{"t":"mates","title":"Nuôi chung","good":{"title":"Hợp với","items":[{"path":"/vi/ca/ca-ngua-van/","name":"Cá ngựa vằn","img":{"src":"https://media.aquatome.com/a/danio-480.webp","w":960,"h":640,"credit":{"text":"Ảnh: Tác giả 5","licence":"CC BY 4.0","url":"https://example.org/photo/danio"}}}]},"avoid":{"title":"Tránh","items":[{"path":"/vi/ca/ca-dia/","name":"Cá đĩa","why":"Lớn tới 15 cm, có thể ăn Cá neon"}]},"note":"Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.","tool":{"text":"Kiểm tra nuôi chung với loài khác →","href":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"}},{"t":"climate","title":"Nuôi ở Việt Nam","items":[{"label":"Mùa đông miền Bắc","ok":false,"text":"Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."},{"label":"Miền Nam","ok":true,"text":"Hợp nhiệt độ quanh năm, thường không cần sưởi."}],"note":"Giả định nước bể trong nhà, không sưởi hay làm lạnh. Đo nhiệt độ bể của bạn để chắc chắn."},{"t":"gallery","title":"Ảnh Cá neon","note":"3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở.","strip":[0,1],"href":"/vi/ca/ca-neon/anh/","photos":[{"src":"https://media.aquatome.com/g/n1.webp","w":1280,"h":960,"alt":"Đàn cá neon trong bể","thumb":"https://media.aquatome.com/g/n1-480.webp","credit":{"text":"Ảnh: Tác giả 1","licence":"CC BY 2.0","url":"https://example.org/photo/1"}},{"src":"https://media.aquatome.com/g/n2.webp","w":1280,"h":960,"alt":"Cá neon gần cây","thumb":"https://media.aquatome.com/g/n2-480.webp","credit":{"text":"Ảnh: Tác giả 2","licence":"CC BY-SA 4.0","url":"https://example.org/photo/2"}},{"src":"https://media.aquatome.com/g/n3.webp","w":800,"h":600,"alt":"Cá neon bơi","thumb":"https://media.aquatome.com/g/n3-480.webp","credit":{"text":"Ảnh: Tác giả 3","licence":"CC BY 4.0","url":"https://example.org/photo/3"}}]},{"t":"summary","title":"Tóm tắt nhanh","items":["Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm."],"text":"Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm.","mistakes":{"title":"Lỗi hay gặp","items":["Thả vài con: nên nuôi đàn từ 6 con trở lên."]},"by":"AquaTome tóm tắt từ các nguồn bên dưới."},{"t":"h","text":"Nước cần thế nào?","id":"muc-waterConditions"},{"t":"p","c":["Nước mềm, hơi chua.",{"text":"1","href":"https://example.org/neon","tip":{"term":"Seriously Fish","text":"example.org · dịch với sự cho phép của nguồn"}}]},{"t":"p","c":["Như các ",{"text":"cá tetra","href":"/vi/nhom/tetras/"}," khác, cá neon sống theo đàn."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Seriously Fish","url":"https://example.org/neon"}],"note":"Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó."},{"t":"cards","title":"Các dòng và cá lai từ Cá neon","items":[{"path":"/vi/ca/ca-neon-vang/","name":"Cá neon vàng","sub":"Dòng cá cảnh"}]},{"t":"pages","title":"Bài viết nhắc đến loài này","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"videos","title":"Video","items":[{"youtubeId":"neonVid_01","title":"Đàn neon trong bể thủy sinh","durationSec":724,"lang":"EN"}]}]},
   "/vi/cay/rotala-do/":{"v":1,"kind":"plant","path":"/vi/cay/rotala-do/","title":"Rotala đỏ","sub":"Rotala rotundifolia","lead":{"src":"https://media.aquatome.com/a/rotala.webp","w":1200,"h":900,"alt":"Rotala đỏ, Rotala rotundifolia","credit":{"text":"Ảnh: Tropica","licence":"dùng với sự cho phép","url":"https://example.org/photo/rotala"}},"talk":{"comments":"plant:rotala-rotundifolia"},"blocks":[{"t":"h","text":"Trồng và chăm","id":"muc-care"},{"t":"p","c":["Cần ánh sáng mạnh để lên màu đỏ."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Tropica","url":"https://example.org/rotala"}]}]},
   "/vi/thuat-ngu/dem-ph/":{"v":1,"kind":"glossary","path":"/vi/thuat-ngu/dem-ph/","title":"Đệm pH","blocks":[{"t":"p","c":["Tiếng Anh: pH buffer"]},{"t":"p","c":["Khả năng giữ pH của nước khi có thêm axit."]}]}}}
   """#.utf8)

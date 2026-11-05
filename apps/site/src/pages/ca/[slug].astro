@@ -26,6 +26,7 @@ import { searchAliases } from '../../lib/search'
 import { speciesDescription, speciesTitle } from '../../lib/meta'
 import { i18n, langOf, served } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
+import { taxonHref } from '../../lib/taxa-places'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -40,17 +41,17 @@ const jsonld = [
     about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: t('Loài cá'), item: new URL('/vi/ca/', Astro.site).href },
-    ...(served(lang, '/vi/phan-loai/x/') ? [{ '@type': 'ListItem', position: 2, name: s.family, item: new URL(`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`, Astro.site).href }] : []),
+    ...(served(lang, '/vi/phan-loai/x/') ? [{ '@type': 'ListItem', position: 2, name: s.family, item: new URL(taxonHref(s, 2) ?? '/vi/phan-loai/', Astro.site).href }] : []),
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
-const { country, firstSource, summary, gallery, galleryPath, strip, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
+const { country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
 const alternates = await alternatesOf('species', s.id)
 ---
-<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...breedPhotos].map(p => p ?? undefined))}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
-    <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/`}>{s.family}</a> / <a href={`/vi/phan-loai/${s.order.toLowerCase()}/${s.family.toLowerCase()}/${s.genus.toLowerCase()}/`} class="sci">{s.genus}</a>
+    <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={taxonHref(s, 2)}>{s.family}</a> / <a href={taxonHref(s, 3)} class="sci">{s.genus}</a>
   </nav>
   <header class:list={['wrap top', s.photos.length === 0 && 'bare']}>
     <div class="id">
@@ -64,7 +65,7 @@ const alternates = await alternatesOf('species', s.id)
     {s.photos.length > 0 && (
       <div class="side">
         <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
-        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} column />}
+        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column />}
       </div>
     )}
     <div class="facts">
@@ -79,7 +80,7 @@ const alternates = await alternatesOf('species', s.id)
   {/* A page with no photo of its own has a one-column top: its thumbnails stay below it, the page's width. */}
   {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
-  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} />
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} />
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
@@ -113,7 +114,9 @@ const alternates = await alternatesOf('species', s.id)
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
   /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
-     show it whole, else its last part (the thumbnails, or the photo alone). */
+     show it whole, else its last part (the thumbnails, or the photo alone). On a tall screen a column with thumbnails is
+     as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end first.
+     The thumbnails fill what the photo leaves (GalleryStrip.astro). */
   @media (min-width: 861px) {
     .side { align-self: stretch; }
     .side > :global(:last-child) { position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
@@ -121,6 +124,8 @@ const alternates = await alternatesOf('species', s.id)
   @media (min-width: 861px) and (min-height: 50rem) {
     .side { align-self: start; position: sticky; top: calc(var(--sticky-top, 0px) + var(--space-4)); }
     .side > :global(:last-child) { position: static; }
+    .side:has(> :global(.strip)) { display: flex; flex-direction: column; height: min(100%, calc(100dvh - var(--sticky-top, 0px) - var(--space-4))); }
+    .side > :global(.strip) { flex: 1; }
   }
   @media (max-width: 860px) {
     /* minmax(0, …): nothing in the column (the thumbnails' heading, a long word) can widen it past the screen. */

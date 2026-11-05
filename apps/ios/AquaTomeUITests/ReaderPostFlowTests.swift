@@ -78,7 +78,9 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Chọn một ảnh trước đã."].waitForExistence(timeout: 5), "sent with no photo")
   }
 
-  /// A photo sent with consent: received for moderation, and the link that takes it back shown this once.
+  /// A photo sent with consent: received for moderation, the photo sent still shown, and the link that takes it back
+  /// shown this once, to keep: a tap on it doesn't open the page that removes the photo (a reader took the link for
+  /// their photo).
   func testAPhotoSentWithConsentShowsItsTakeBackLinkOnce() {
     let app = launch("-picked-photo")
     openNeon(app)
@@ -92,7 +94,13 @@ final class ReaderPostFlowTests: XCTestCase {
     let link = app.descendants(matching: .any)["post-delete"]
     XCTAssertTrue(link.waitForExistence(timeout: 3), "no link to take the photo back")
     XCTAssertTrue(link.label.hasPrefix("https://aquatome.com/_p/xoa/?id="), link.label)
+    XCTAssertTrue(app.images["post-sent"].exists, "the photo sent not shown")
+    XCTAssertEqual(app.images["post-sent"].label, "Ảnh của Hà")
+    XCTAssertEqual(link.elementType, .staticText, "the take-back link is a link to follow")
+    link.tap()
     app.buttons["Đóng"].tap()
+    // The fish's page, not the page that removes the photo, pushed behind the form.
+    XCTAssertTrue(app.buttons["post-photo"].waitForExistence(timeout: 5), "a tap on the link opened a page behind the form")
     app.buttons["post-photo"].tap()
     XCTAssertTrue(app.buttons["post-send"].waitForExistence(timeout: 5))
     XCTAssertFalse(app.descendants(matching: .any)["post-delete"].exists, "the link shown again")
