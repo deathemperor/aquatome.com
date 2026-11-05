@@ -38,6 +38,14 @@ test('in the app\'s copy, a figure of an Unsplash photo has its credit as the pa
   }
 })
 
+test('in the app\'s copy, a photographer\'s name is spaced as the credit line shows it, so the line holds the name', () => {
+  const spaced = { ...MAI, author: ' Mai \n  Lin ', url: 'https://images.unsplash.com/photo-1?ixid=x&w=1280', width: 1280, height: 960 }
+  const [b] = htmlBlocks(figureHtml('vi', { photo: spaced, label: 'Cá đĩa', href: '/vi/ca/ca-dia/' })).blocks
+  const credit = (b as { img: { credit: { text: string; author?: string } } }).img.credit
+  expect(credit.author).toBe('Mai Lin')
+  expect(credit.text).toContain(credit.author)
+})
+
 test('a CC photo\'s mark and credit are as before', () => {
   const cc = { author: 'Bo', licence: 'CC BY 4.0', sourceUrl: 'https://commons.wikimedia.org/wiki/File:A.jpg' }
   expect(photoMark('vi', cc)).toBe('<a class="cite pic" href="https://commons.wikimedia.org/wiki/File:A.jpg" rel="noopener" data-term="Ảnh: Bo" data-tip="CC BY 4.0" data-more="Xem ảnh gốc ↗" aria-label="Ảnh: Bo, CC BY 4.0">©</a>')
