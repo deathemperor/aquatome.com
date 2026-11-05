@@ -4,7 +4,7 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Three tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
 guides by subject, the video series and video guides, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
-light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
+light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
 kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a group named in a page opens the app's shelf of that group; a part it can't draw opens the web page, and a page of the site it can't draw, the web page in the app),
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; videos
 and the pages they link to become native the same way, tools stay web pages until rebuilt), a fish's facts under its name (size, temperature, pH, hardness, the shortest tank,
@@ -125,6 +125,27 @@ costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instruct
 Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
 `.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
 
+The app icons a reader chooses (`AppIconPicker`, drawn by `scripts/app-icons.py`) are most of the app's size: 32
+alternates at home-screen sizes only (iPhone 60 pt @2x/@3x, iPad 76 and 83.5 pt @2x; iOS scales them down for
+Spotlight, Settings and notifications), measured on one Mac, 2026-11-03 (the previews 2026-11-04):
+
+| Icons | Archive (all devices) | One iPhone (phone @3x)* |
+| --- | --- | --- |
+| 23 fish | 3,921.7 kB | 924.0 kB |
+| 6 seasonal | 882.4 kB | 207.6 kB |
+| 3 earlier designs | 58.5 kB | 13.5 kB |
+| Their previews in the picker (33, with the default's) | 297.5 kB | 183.1 kB |
+| The app without them | 3,078.1 kB | 3,052.7 kB |
+| The app with them | 8,229.9 kB | 4,395.5 kB |
+
+\* An estimate: `assetutil` thinning of the archive's `Assets.car` for an iPhone at @3x, the rest as archived (the
+binary is arm64 only). Not an App Store export's thinning report, which needs signing. The size budget is on the
+archive. Each icon costs about 150 kB there and 40 kB on one iPhone: its gradients barely compress (CoreUI keeps each
+size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29 and 20 pt sizes too the archive was
+10,625 kB. An icon set doesn't load as an image, so the picker shows each icon from a preview at its 64 points, @2x and
+@3x, stored lossy: 308 kB for the 33 by actool alone, where lossless pictures are 1,178 kB and SVG 2,233 kB (actool keeps
+three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
+
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
 Debug builds, so they don't see it.
@@ -142,10 +163,14 @@ Debug builds, so they don't see it.
   helpers) runs the smoke set alone. The app's start (`AquaTomeApp.swift`), `ios.yml`, `flows-to-run.py` and the
   scripts the flow jobs run run every flow, and so does a path under `apps/ios/` the script has no rule for. Jobs `kit`
   and `perf` (with the translations) run on every ready pull request.
-- **Every flow** runs after each merge to main, every night at 02:30 Vietnam time on main (without `perf`: the merge's
-  run measured the same code), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull request
-  labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full` with
-  every flow, any other label as a push would. Main's runs are never cancelled: each merge's run finishes.
+- **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: each change was
+  measured by its pull request's run), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull
+  request labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
+  with every flow, any other label as a push would. A main run that started is never cancelled; of those waiting for
+  it, only the newest is kept (a merge, the nightly run or one by hand), and it covers every merge since the last run
+  (a full run for each merge held the own Mac for hours when several merged at once). So a run by hand on main that is
+  still waiting is dropped when a merge lands, and a break main's run catches may come from any merge since its last
+  run.
 
 A break that only main's run catches is fixed forward first, in a pull request of its own. If the flow could have run on
 the pull request that broke it, give `flows-to-run.py` the rule that would have run it.
@@ -153,7 +178,7 @@ the pull request that broke it, give `flows-to-run.py` the rule that would have 
 ## CI's own Mac
 
 Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
-`aquatome`) for main (each merge, the nightly run and a run by hand) and for pull requests its owner opens from this
+`aquatome`) for main (after merges, the nightly run and a run by hand) and for pull requests its owner opens from this
 repository's own branches. GitHub's Macs keep everything else: a fork's or a bot's pull request (the automatic fixes'),
 and job `perf` (its budgets are GitHub's Macs' readings). The Mac has two runners, `aquatome-mac-1` and
 `aquatome-mac-2`, each running one job at a time, so the jobs take turns two at a time.

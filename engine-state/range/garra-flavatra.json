@@ -1,0 +1,60 @@
+{
+  "id": "garra-flavatra",
+  "native": {
+    "input": "535a4145ca2d175a",
+    "at": "2026-11-05T00:41:00.281Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The algae-eating suckermouth barb Garra flavatra from Burma is a quite beautiful fish.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rakhine Yoma",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra flavatra",
+    "status": "ACCEPTED",
+    "taxonKey": 2366783,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        2
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

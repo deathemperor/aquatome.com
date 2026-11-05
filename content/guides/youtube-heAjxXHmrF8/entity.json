@@ -1,0 +1,125 @@
+{
+  "id": "youtube-heAjxXHmrF8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=heAjxXHmrF8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-04",
+  "video": {
+    "youtubeId": "heAjxXHmrF8",
+    "title": "How to Set up an advanced aquarium - the plumbing",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 1568,
+    "publishedAt": "2011-07-16",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mYYlBtX2gd98mXp67fKoiYb",
+      "position": 7
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/heAjxXHmrF8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 120
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cần lọc bao nhiêu nước mỗi giờ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/heAjxXHmrF8/p0-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/heAjxXHmrF8/p0-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Bể sump acrylic nhiều ngăn có gắn bơm, đang lắp đặt cạnh bể chính."
+        }
+      },
+      {
+        "heading": "Chọn mũi khoan cho kính, mica và gỗ",
+        "moments": [
+          {
+            "t": 536,
+            "url": "https://media.aquatome.com/video/heAjxXHmrF8/t536.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cầm bulkhead có phần thân ren và vành, đang đối chiếu với mũi khoét."
+          },
+          {
+            "t": 595,
+            "url": "https://media.aquatome.com/video/heAjxXHmrF8/t595.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cầm mũi khoét lỗ trên tay để so cỡ với thân bulkhead."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/heAjxXHmrF8/p2-dGhfYXJib3IuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/heAjxXHmrF8/p2-dGhfYXJib3IuanBn-480.webp",
+          "width": 960,
+          "height": 571,
+          "licence": "CC BY-SA 4.0",
+          "author": "Edenblijker",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:TCT_Tungsten_Carbide_Hole_saw_with_arbor.jpg",
+          "caption": "Mũi khoét lỗ (hole saw) có mũi khoan dẫn ở giữa để giữ đúng tâm."
+        }
+      },
+      {
+        "heading": "Ống Durso và ống thẳng khác nhau ra sao",
+        "moments": [
+          {
+            "t": 1280,
+            "url": "https://media.aquatome.com/video/heAjxXHmrF8/t1280.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cận cảnh ống Durso có co 90 độ ở đầu trên."
+          },
+          {
+            "t": 1340,
+            "url": "https://media.aquatome.com/video/heAjxXHmrF8/t1340.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Ống Durso lắp trong bể, co 90 độ nằm ở đầu trên."
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao chưa dán keo vội",
+        "moments": [
+          {
+            "t": 1171,
+            "url": "https://media.aquatome.com/video/heAjxXHmrF8/t1171.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể đặt trên tủ gỗ, tay chỉ vào vị trí lỗ bulkhead dưới đáy."
+          },
+          {
+            "t": 1181,
+            "url": "https://media.aquatome.com/video/heAjxXHmrF8/t1181.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể có nền đá giả đặt thử trên tủ, đang kiểm tra phía dưới."
+          }
+        ]
+      }
+    ]
+  }
+}

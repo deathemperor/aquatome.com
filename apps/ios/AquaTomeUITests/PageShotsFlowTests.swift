@@ -4,7 +4,8 @@ import XCTest
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
 /// a guide and a video series, in light, the fish in dark too, and the fish's top at a large text size; photos as
 /// stand-ins (`-fixed-pictures`). And a search's results under the kinds it finds, light and dark, at the default and the
-/// largest text size. Each checks only that its screen opened: what it shows, the other flows check.
+/// largest text size; and the app's icon picker. Each checks only that its screen opened: what it shows, the other flows
+/// check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -18,8 +19,26 @@ final class PageShotsFlowTests: XCTestCase {
   func testASearchInTheDark() { shootSearch("search-dark", dark: true) }
   func testASearchInTheLargestText() { shootSearch("search-largest-light", size: largest) }
   func testASearchInTheLargestTextInTheDark() { shootSearch("search-largest-dark", dark: true, size: largest) }
+  func testTheAppIcons() { shootIcons("icons-light") }
+  func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
+
+  /// The app's icon picker (`-app-icons` opens it until its Tài khoản row is in): its top, and a screen further down.
+  private func shootIcons(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-app-icons"] + (dark ? ["-dark"] : [])
+    app.launch()
+    XCTAssertTrue(app.buttons["app-icon-default"].waitForExistence(timeout: 10), "the picker didn't open")
+    for n in 1...2 {
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+      app.swipeUp(velocity: .slow)
+    }
+  }
 
   /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12) {

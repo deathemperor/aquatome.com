@@ -8,6 +8,7 @@ import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
 import { breedLeads, readForumState } from './forum'
+import { breedKin, breedNames, cleanBreedAltNames } from './alt-names'
 
 const WRITE = readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
@@ -56,7 +57,7 @@ const researchPrompt = (a: BreedAsk) => `Research the aquarium fish "${a.name}" 
 Collect facts, each pointing at the index of its source in sources[]:
 - found: false if this is not a recognised aquarium fish, or if it is a wild species with its own scientific name.
 - kind: hybrid (two or more species crossed), variety (a line, strain or colour form bred within one species), transgenic.
-- enNames: its English names. viNames: the names Vietnamese hobbyists and shops use, each with its source.
+- enNames: its English names. viNames: the names Vietnamese hobbyists and shops use for it, each with its source. Only names for this fish itself: not its species' names, which every form of the species shares (a halfmoon betta's are not "cá xiêm" or "cá chọi"), nor its parents'.
 - basedOn: for a variety, the valid scientific name of its species.
 - parents: for a hybrid, each parent species or fish as sources give it, with its scientific name when known; certain = false when its role is disputed or a guess.
 - origin: who developed it, where and when.
@@ -94,14 +95,56 @@ function webFacts(r: BreedFacts) {
   return { web, at, facts }
 }
 
-/** Scientific name → species id, from the species pages we have. */
-async function speciesIds(content: string): Promise<Map<string, string>> {
-  const out = new Map<string, string>()
-  for (const id of await readdir(join(content, 'species')).catch(() => [] as string[])) {
-    const e = JSON.parse(await readFile(join(content, 'species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { scientificName?: string }
-    if (e.scientificName) out.set(e.scientificName.toLowerCase(), id)
+/**
+ * The species page a scientific name from a breed's research names, or undefined unless exactly one page is it: the
+ * page's own name, else through GBIF's answers the engine keeps (engine-state/_gbif-names.json; exact matches only, as
+ * a fuzzy one can be another fish), a synonym and its accepted name being one species. A note after the name is left
+ * out ("Vieja melanurus (syn. Vieja synspila)"), and only a species' name links: never two ("Poecilia sphenops /
+ * Poecilia latipinna"), a genus ("Caridina sp.") or a variety ("Cyprinus carpio var. flavipinnis").
+ */
+export async function speciesResolver(root: string): Promise<(name?: string) => string | undefined> {
+  const gbif = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string; matchType: string } | null>
+  const accepted = (sci: string) => { const t = gbif[sci]; return (t?.matchType === 'EXACT' ? t.canonicalName : sci).toLowerCase() }
+  const byName = new Map<string, Set<string>>()
+  const bySpecies = new Map<string, Set<string>>()
+  const add = (m: Map<string, Set<string>>, key: string, id: string) => (m.get(key) ?? m.set(key, new Set()).get(key)!).add(id)
+  for (const id of await readdir(join(root, 'content/species')).catch(() => [] as string[])) {
+    const sci = (JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { scientificName?: string }).scientificName?.trim()
+    if (!sci) continue
+    add(byName, sci.toLowerCase(), id)
+    add(bySpecies, accepted(sci), id)
   }
-  return out
+  const one = (ids?: Set<string>) => (ids?.size === 1 ? [...ids][0] : undefined)
+  return name => {
+    const sci = name?.replace(/\s*\(.*$/, '').trim()
+    if (!sci || !/^[A-Z][a-z]+ [a-z-]+( [a-z-]+)?$/.test(sci)) return undefined
+    const own = byName.get(sci.toLowerCase())
+    return own ? one(own) : one(bySpecies.get(accepted(sci)))
+  }
+}
+
+/**
+ * A breed's links to the species pages its research names, where it has none yet: what it is a form of (`basedOn`) and
+ * each parent's page. A link it has is never changed. The sweep runs it each cycle, so a breed written before its
+ * species had a page links once it has one. `links`: each link made; `unmatched`: why its parents were left as they are.
+ */
+export function linkBreed(e: BreedEntity, research: BreedFacts, species: (name?: string) => string | undefined): { entity: BreedEntity; links: string[]; unmatched?: string } {
+  const { facts } = webFacts(research)
+  const links: string[] = []
+  const basedOn = e.basedOn ?? species(facts.basedOn)
+  if (basedOn && !e.basedOn) links.push(`basedOn → ${basedOn} ("${facts.basedOn}")`)
+  // The page's parents are its research's cited ones, in the same order.
+  const same = facts.parents.length === e.parents.length
+  const parents = e.parents.map((p, i) => {
+    const s = p.species ? undefined : same ? species(facts.parents[i]!.scientificName) : undefined
+    if (!s) return p
+    links.push(`parent "${p.name}" → ${s} ("${facts.parents[i]!.scientificName}")`)
+    const { name, ...rest } = p
+    return { name, species: s, ...rest }
+  })
+  const unmatched = !same && e.parents.some(p => !p.species) ? `parents left: ${e.parents.length} on the page, ${facts.parents.length} in its research` : undefined
+  const { id, kind, ...rest } = e
+  return { entity: { id, kind, ...(basedOn ? { basedOn } : {}), ...rest, parents }, links, ...(unmatched ? { unmatched } : {}) }
 }
 async function speciesSlugs(content: string): Promise<Set<string>> {
   const out = new Set<string>()
@@ -131,10 +174,9 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   if (!researched.found) return { id, skipped: `${a.name}: not a man-made aquarium fish, or not found` }
 
   const { web, at, facts } = webFacts(researched)
-  const ids = await speciesIds(content)
+  const species = await speciesResolver(root)
   // "Vieja melanurus (syn. Vieja synspila)": the name before any synonym note.
   const sci = (name?: string) => name?.replace(/\s*\(.*$/, '').trim() || undefined
-  const species = (name?: string) => (sci(name) ? ids.get(sci(name)!.toLowerCase()) : undefined)
 
   const forWriter = { name: a.name, kind: facts.kind, enNames: facts.enNames, viNames: facts.viNames, basedOn: facts.basedOn, parents: facts.parents, origin: facts.origin, looks: facts.looks, lines: facts.lines, care: facts.care, keeping: facts.keeping, breeding: facts.breeding, health: facts.health, buying: facts.buying, controversy: facts.controversy }
   // A name the owner fixed is the page's name in the text too, not only in its title (other names stay other names).
@@ -160,7 +202,8 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
 
   // Photos: its Commons category (else a search for its name), screened for this line only, best first.
   // A rewrite from kept research keeps the photos already screened.
-  const prevPhotos = kept ? JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => 'null')) as BreedEntity | null : null
+  const was = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => 'null')) as BreedEntity | null
+  const prevPhotos = kept ? was : null
   const prevGallery = prevPhotos ? JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => 'null')) as { photos: BreedEntity['photos']; seen: number } | null : null
   const enName = facts.enNames[0] ?? a.name
   const cands = prevPhotos ? [] : await commonsCandidates((facts.commons ?? enName).replace(/^Category:/i, '').trim(), d.gallery.http, 450, !facts.commons)
@@ -178,21 +221,27 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     if (!(min >= lo && max <= hi) || at(c.source) < 0) continue
     ;(care[c.field] ??= []).push({ source: at(c.source), value: min === max ? min : { min, max } })
   }
-  const basedOn = a.basedOn ?? species(facts.basedOn)
+  // A link the page has stays (one given with --based-on too), and so do its parents' on a --redo (the same research).
+  const basedOn = a.basedOn ?? was?.basedOn ?? species(facts.basedOn)
+  const kin = kept && was?.parents.length === facts.parents.length ? was.parents : []
+  const parentOf = (i: number) => kin[i]?.species ?? species(facts.parents[i]!.scientificName)
   const entity: BreedEntity = BreedSchema.parse({
     id, kind: facts.kind,
     ...(basedOn ? { basedOn } : {}),
     // The writer's Vietnamese name for each parent when it gave one per parent; else the researched name.
-    parents: facts.parents.map((p, i) => ({ name: (w.parentNames?.length === facts.parents.length && w.parentNames[i]?.trim()) || (sci(p.scientificName) ? `${p.name} (${sci(p.scientificName)})` : p.name), ...(species(p.scientificName) ? { species: species(p.scientificName) } : {}), certain: p.certain })),
+    parents: facts.parents.map((p, i) => ({ name: (w.parentNames?.length === facts.parents.length && w.parentNames[i]?.trim()) || (sci(p.scientificName) ? `${p.name} (${sci(p.scientificName)})` : p.name), ...(parentOf(i) ? { species: parentOf(i) } : {}), certain: p.certain })),
     care, photos: photos.slice(0, 4), ...(facts.commons ? { commons: facts.commons } : {}),
     sources: facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today })), updatedAt: today,
   })
   // A name the owner fixed, and the addresses it had before, survive a --redo.
   const name = (prev?.nameFixed ? prev.name : unescapePlain(w.name)).trim()
+  // Other names, minus those the title already holds ("Cá hồng két (Blood parrot cichlid)"), and its own only: research
+  // gives the species' too ("Cá xiêm" for the halfmoon betta), which the sweep would take off again.
+  const breeds = await breedNames(content, 'vi')
+  const { altNames } = cleanBreedAltNames({ id, name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => unescapePlain(s).trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))] }, await breedKin(content, entity, 'vi', breeds), breeds)
   const vi: Translation = TranslationSchema.parse(metricPage({
     slug: prev?.slug ?? pickSlug(name.replace(/\s*\(.*\)\s*$/, ''), facts.kind === 'hybrid' ? 'lai' : 'dong', await speciesSlugs(content)),
-    // Other names, minus those the title already holds ("Cá hồng két (Blood parrot cichlid)").
-    name, altNames: [...new Set([...w.altNames, ...facts.enNames, ...facts.viNames.map(v => v.name)].map(s => unescapePlain(s).trim()).filter(s => s && !name.toLowerCase().includes(s.toLowerCase())))],
+    name, altNames,
     sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
@@ -246,10 +295,13 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string; name: string; nameFixed?: boolean } | null
   const name = localName(unescapePlain(w.name), prev, names, forWriter.name)
   const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
-  // The Vietnamese page's own names are not names in this language.
+  // The Vietnamese page's own names are not names in this language, nor are its species' (cleanBreedAltNames).
   const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
+  const breeds = await breedNames(join(root, 'content'), lang)
+  const entity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as BreedEntity
+  const { altNames } = cleanBreedAltNames({ id, name, altNames: [...new Set([w.name, ...w.altNames].map(n => unescapePlain(n).trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))] }, await breedKin(join(root, 'content'), entity, lang, breeds), breeds)
   const t = TranslationSchema.parse(metricPage({
-    slug, name, altNames: [...new Set([w.name, ...w.altNames].map(n => unescapePlain(n).trim()).filter(n => n && !viNames.has(n.toLowerCase()) && !name.toLowerCase().includes(n.toLowerCase())))],
+    slug, name, altNames,
     sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     ...(w.parentNames?.length && w.parentNames.length === facts.parents.length ? { parents: w.parentNames.map(n => n.trim()) } : {}),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
