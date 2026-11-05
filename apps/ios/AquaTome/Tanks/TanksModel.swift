@@ -195,15 +195,16 @@ final class TanksModel {
   #if DEBUG
   /// UI tests: no tanks (`-reset-defaults`), then maybe a store this app must leave alone (`-seed-tanks newer`,
   /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`),
-  /// one with fish and plants on it (`life`), one with 20 kinds of fish, longer than the screen (`many`), or a 60 cm tank
-  /// with discus and neons, which don't go together (`clash`).
+  /// one with fish and plants on it (`life`), one with 20 kinds of fish, longer than the screen (`many`), a 60 cm tank
+  /// with discus and neons, which don't go together (`clash`), or one with the stand-in Tuya cloud's first strip on it,
+  /// its outlets named "Đèn" and "CO2" (`plug`).
   static func prepareForTests(_ args: [String], file: URL = defaultFile()) {
     let dir = file.deletingLastPathComponent()
     let fm = FileManager.default
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres", "life", "many", "clash":
+    case "newer", "unreadable", "litres", "life", "many", "clash", "plug":
       let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
@@ -212,6 +213,7 @@ final class TanksModel {
         "life": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000002","name":"Bể cá neon","species":[{"id":"paracheirodon-innesi","count":12},{"id":"loai-chua-co-trang"}],"plants":[{"id":"rotala-rotundifolia"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "many": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000004","name":"Bể đông","species":["# + many + #"],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "clash": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000003","name":"Bể 60","dims":{"l":60,"w":30,"h":36},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"paracheirodon-innesi","count":12}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
+        "plug": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000005","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[{"id":"00000000-0000-4000-8000-000000000040","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 60","outlets":[{"code":"switch_1","label":"Đèn"},{"code":"switch_2","label":"CO2"},{"code":"switch_3"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)
       try? Data(store.utf8).write(to: file)

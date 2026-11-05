@@ -89,7 +89,7 @@ Settings per call: `effort: 'low'` as today, adaptive thinking (always on for Op
 | Tool calls | 6 in all | further `tool_use` blocks get "limit reached" results, then the forced last turn |
 | Reference photos | 6 in all | `get_entry` returns facts only after that |
 | Input tokens | 40,000 summed over the calls | forced last turn |
-| Time | 45 s from the first call | a call never gets past the deadline; under 12 s left, the next call is the last |
+| Time | 27 s from the first call (45 s at first; cut so a run, admission to settle, fits the 30 s the platform gives after a reader's connection drops) | a call never gets past the deadline; under 12 s left, the next call is the last |
 
 Expected run: call 1 guesses and searches (~8 s), call 2 opens two or three pages (~6 s), call 3 answers (~6 s), so
 about 20 s. Today's `rotate` budget is 25 s. The app's request timeout should be at least 60 s.

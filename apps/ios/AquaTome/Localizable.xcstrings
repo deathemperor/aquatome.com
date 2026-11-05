@@ -1,6 +1,38 @@
 {
   "sourceLanguage": "vi",
   "strings": {
+    "%@ (giờ %@)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (waktu %2$@)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (เวลา %2$@)"
+          }
+        }
+      }
+    },
+    "%@ (gợi ý)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (disarankan)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (แนะนำ)"
+          }
+        }
+      }
+    },
     "%@ chưa có trang trong cẩm nang. Vẫn thêm vào bể được: khi có trang, bể sẽ hiện trang đó.": {
       "localizations": {
         "id": {
@@ -33,6 +65,38 @@
         }
       }
     },
+    "%@ mỗi ngày": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ setiap hari"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ทุกวัน"
+          }
+        }
+      }
+    },
+    "%@ ngày %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ pada %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ วันที่ %2$@"
+          }
+        }
+      }
+    },
     "%@ tiếng": {
       "localizations": {
         "id": {
@@ -49,6 +113,38 @@
         }
       }
     },
+    "%@ vào %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ setiap %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ ทุก%2$@"
+          }
+        }
+      }
+    },
+    "%@, ảnh %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, foto %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ภาพที่ %lld"
+          }
+        }
+      }
+    },
     "%lld bản ghi không hợp lệ nên chưa vào tài khoản.": {
       "localizations": {
         "id": {
@@ -61,6 +157,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "มี %lld รายการที่ไม่ถูกต้อง จึงยังไม่ได้เพิ่มเข้าบัญชี"
+          }
+        }
+      }
+    },
+    "%lld con": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ekor"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ตัว"
           }
         }
       }
@@ -141,6 +253,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ %lld ดวง"
+          }
+        }
+      }
+    },
+    "%lld ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ภาพ"
           }
         }
       }
@@ -1025,6 +1153,22 @@
         }
       }
     },
+    "Bỏ chọn ổ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus pilihan colokan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยกเลิกการเลือกช่อง"
+          }
+        }
+      }
+    },
     "Bỏ lưu": {
       "localizations": {
         "id": {
@@ -1377,6 +1521,22 @@
         }
       }
     },
+    "Chưa đọc được hẹn giờ của ổ: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum bisa membaca timer colokan: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังอ่านการตั้งเวลาของช่องไม่ได้: %@"
+          }
+        }
+      }
+    },
     "Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này.": {
       "localizations": {
         "id": {
@@ -1597,6 +1757,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "กรุณาเลือกภาพก่อน"
+          }
+        }
+      }
+    },
+    "Chọn ổ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih colokan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกช่อง"
+          }
+        }
+      }
+    },
+    "Chọn ổ cắm của đèn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih colokan lampu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกช่องปลั๊กของโคมไฟ"
+          }
+        }
+      }
+    },
+    "Chọn ổ để AquaTome xem hẹn giờ của ổ có cắt điện đèn không.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih colokannya agar AquaTome bisa melihat apakah timer colokan itu memutus listrik lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกช่องเพื่อให้ AquaTome ดูว่าการตั้งเวลาของช่องนั้นตัดไฟโคมไฟหรือไม่"
           }
         }
       }
@@ -2321,6 +2529,22 @@
         }
       }
     },
+    "Cắm vào ổ “%@” (%@).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dicolokkan ke colokan “%1$@” (%2$@)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เสียบอยู่ที่ช่อง “%1$@” (%2$@)"
+          }
+        }
+      }
+    },
     "Cắm điện, bật đèn.": {
       "localizations": {
         "id": {
@@ -2685,6 +2909,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เวลาปิดต้องอยู่หลังเวลาเปิด ภายในวันเดียวกัน"
+          }
+        }
+      }
+    },
+    "Google chưa xác nhận được: thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Google belum bisa mengonfirmasi: coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Google ยังยืนยันไม่ได้ โปรดลองอีกครั้ง"
           }
         }
       }
@@ -3121,6 +3361,22 @@
         }
       }
     },
+    "Không có kết quả trong “%@”": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada hasil di “%@”"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่มีผลลัพธ์ใน “%@”"
+          }
+        }
+      }
+    },
     "Không có loài nào khớp. Thử nới điều kiện lọc.": {
       "localizations": {
         "id": {
@@ -3325,6 +3581,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่พบ %@ ในบริเวณนี้ เปิดโคมไฟ ขยับเข้าใกล้แล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không thấy hẹn giờ tắt nào của ổ này trong Smart Life.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada timer mati untuk colokan ini di Smart Life."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบการตั้งเวลาปิดของช่องนี้ใน Smart Life"
           }
         }
       }
@@ -4993,6 +5265,22 @@
         }
       }
     },
+    "Thử lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coba lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Thử màu trên đèn": {
       "localizations": {
         "id": {
@@ -5245,6 +5533,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tuya ไม่ว่างอยู่ โปรดลองใหม่อีกสักครู่"
+          }
+        }
+      }
+    },
+    "Tuổi thọ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Umur hidup"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อายุขัย"
           }
         }
       }
@@ -6017,6 +6321,22 @@
         }
       }
     },
+    "Xem thêm kết quả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat hasil lainnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูผลลัพธ์เพิ่มเติม"
+          }
+        }
+      }
+    },
     "Xem thử cả ngày": {
       "localizations": {
         "id": {
@@ -6061,6 +6381,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูในตู้ของฉัน →"
+          }
+        }
+      }
+    },
+    "Xem tất cả": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat semua"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูทั้งหมด"
           }
         }
       }
@@ -6433,6 +6769,22 @@
         }
       }
     },
+    "năm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tahun"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปี"
+          }
+        }
+      }
+    },
     "pH": {
       "localizations": {
         "id": {
@@ -6641,6 +6993,22 @@
         }
       }
     },
+    "Đang hiện %@ trong %@ kết quả. Gõ thêm để thu hẹp.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menampilkan %1$@ dari %2$@ hasil. Ketik lagi untuk mempersempit."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสดง %1$@ จาก %2$@ ผลลัพธ์ พิมพ์เพิ่มเพื่อให้แคบลง"
+          }
+        }
+      }
+    },
     "Đang kết nối lại…": {
       "localizations": {
         "id": {
@@ -6705,6 +7073,22 @@
         }
       }
     },
+    "Đang tải ảnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Memuat foto"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังโหลดรูปภาพ"
+          }
+        }
+      }
+    },
     "Đang xem bản đã lưu (ngoại tuyến).": {
       "localizations": {
         "id": {
@@ -6749,6 +7133,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "กำลังซ่อน %lld รายการที่คุณบล็อกหรือรายงานไว้"
+          }
+        }
+      }
+    },
+    "Đàn tối thiểu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kelompok minimal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จำนวนฝูงขั้นต่ำ"
           }
         }
       }
@@ -7313,6 +7713,22 @@
         }
       }
     },
+    "Đèn cắm vào ổ nào?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu dicolokkan ke colokan mana?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟเสียบอยู่ที่ช่องไหน"
+          }
+        }
+      }
+    },
     "Đèn hiện đúng màu đang chỉnh. Tắt thử thì đèn chạy lại theo lịch.": {
       "localizations": {
         "id": {
@@ -7325,6 +7741,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "โคมไฟแสดงสีตามที่กำลังปรับ เมื่อปิดการทดสอบ โคมไฟจะกลับไปทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
+    "Đèn không cắm ổ cắm Smart Life": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu tidak dicolokkan ke stopkontak Smart Life"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟไม่ได้เสียบปลั๊กไฟ Smart Life"
           }
         }
       }
@@ -7585,6 +8017,38 @@
         }
       }
     },
+    "Đăng nhập bằng Google": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Login dengan Google"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลงชื่อเข้าใช้ด้วย Google"
+          }
+        }
+      }
+    },
+    "Đăng nhập bằng Google đang tắt: đăng nhập cách khác.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Login dengan Google sedang dinonaktifkan: masuk dengan cara lain."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การลงชื่อเข้าใช้ด้วย Google ปิดอยู่: เข้าสู่ระบบด้วยวิธีอื่น"
+          }
+        }
+      }
+    },
     "Đăng nhập bằng email": {
       "localizations": {
         "id": {
@@ -7841,6 +8305,22 @@
         }
       }
     },
+    "Đổi ổ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ganti colokan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยนช่อง"
+          }
+        }
+      }
+    },
     "Độ cứng (dGH)": {
       "localizations": {
         "id": {
@@ -7869,6 +8349,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความยาก"
+          }
+        }
+      }
+    },
+    "Độ khó %@/8: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tingkat kesulitan %@/8: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาก %@/8: %@"
           }
         }
       }
@@ -7949,6 +8445,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปภาพ"
+          }
+        }
+      }
+    },
+    "Ảnh %lld trên %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto %lld dari %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปที่ %lld จาก %lld"
           }
         }
       }
@@ -8177,6 +8689,22 @@
         }
       }
     },
+    "Ổ “%@” tự tắt lúc %@. Mất điện là đèn mất giờ nên không tự bật theo lịch của nó. Tắt hẹn giờ của ổ trong Smart Life để đèn tự chạy lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colokan “%1$@” mati sendiri pukul %2$@. Saat listrik padam, jam lampu hilang sehingga lampu tidak menyala sendiri sesuai jadwalnya. Matikan timer colokan di Smart Life agar lampu menjalankan jadwalnya sendiri."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ช่อง “%1$@” ปิดเองเวลา %2$@ เมื่อไฟดับ เวลาในโคมไฟจะหายไป โคมไฟจึงไม่เปิดเองตามตารางเวลาของมัน ปิดการตั้งเวลาของช่องนี้ใน Smart Life เพื่อให้โคมไฟทำงานตามตารางเวลาของตัวเอง"
+          }
+        }
+      }
+    },
     "Ở trang Overview của dự án, sao chép Access ID và Access Secret vào ô dưới đây.": {
       "localizations": {
         "id": {
@@ -8189,6 +8717,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ที่หน้า Overview ของโปรเจกต์ คัดลอก Access ID และ Access Secret มาใส่ช่องด้านล่าง"
+          }
+        }
+      }
+    },
+    "“%@” có kết quả trong %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” punya hasil di %2$@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“%1$@” มีผลลัพธ์ใน %2$@"
           }
         }
       }
