@@ -18,3 +18,11 @@ test('our own browser checks are not readers: every Playwright project says so i
   expect(isBot(devices['Pixel 7']!.userAgent, 'vi')).toBe(false)
   expect(isBot(devices['Desktop Chrome']!.userAgent, 'vi')).toBe(false)
 })
+
+test('Lighthouse, as the checks run it, is ours too: its emulated phone and computer say so', async () => {
+  const { lighthouseFlags } = await import('../../e2e/lighthouse-flags')
+  const { userAgents } = await import('lighthouse/core/config/constants.js')
+  for (const form of ['phone', 'desktop'] as const) expect(isBot(lighthouseFlags(form, 9222, true).emulatedUserAgent, 'en-US'), form).toBe(true)
+  // Unmarked, they're readers: on the live site, a runner in the US got the language chooser at the root.
+  for (const ua of Object.values(userAgents)) expect(isBot(ua, 'en-US')).toBe(false)
+})
