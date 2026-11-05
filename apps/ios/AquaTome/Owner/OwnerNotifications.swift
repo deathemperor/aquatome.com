@@ -23,7 +23,7 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
   // The app in front: shown as it is outside it.
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async
     -> UNNotificationPresentationOptions {
-    [.banner, .list, .sound]
+    [.banner, .list]
   }
 
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
@@ -39,10 +39,12 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
   }
 }
 
-/// The daily report on this phone, at the top of the dashboard's overview: turned on, iOS asks first; refused there, it
-/// says where to allow them. Whether the site sends the report at all is its own setting ("Báo cáo").
+/// The daily report on this phone, at the top of the dashboard's overview: turned on, iOS asks first; refused there, or
+/// turned off since in Settings, it says where to allow them. Whether the site sends the report at all is its own
+/// setting ("Báo cáo").
 struct OwnerPushRow: View {
   @Environment(AccountModel.self) private var account
+  @Environment(\.scenePhase) private var phase
   @State private var refused = false
 
   var body: some View {
@@ -60,12 +62,18 @@ struct OwnerPushRow: View {
         .font(.footnote)
       }
     }
+    // On here, but not allowed in Settings (since): the site sends, iOS shows nothing.
+    .task(id: phase) {
+      guard phase == .active else { return }
+      let status = await UNUserNotificationCenter.current().notificationSettings().authorizationStatus
+      refused = account.push.wanted && status == .denied
+    }
   }
 
   private func turn(_ on: Bool) async {
     refused = false
     guard on else { return await account.push.want(false) }
-    let granted = (try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])) ?? false
+    let granted = (try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])) ?? false
     guard granted else { refused = true; return }
     await account.push.want(true)
     UIApplication.shared.registerForRemoteNotifications()

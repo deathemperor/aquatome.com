@@ -1,7 +1,7 @@
 import Foundation
 import Observation
 
-/// The daily report's notifications on this phone (protocols/owner-push): the owner turns them on here, and the phone's
+/// The daily report's notifications on this phone (docs/contracts/owner-push.md, #592): the owner turns them on here, and the phone's
 /// token goes to the site with the owner's session, once a launch (the site keeps one of each), while they're on and the
 /// account signed in is the owner's. Turned off, or before the account signs out, the token the site has is taken back.
 /// Whether the site sends any is the owner's setting there ("Báo cáo"); this is only whether this phone gets them.
@@ -44,17 +44,23 @@ public final class OwnerPush {
     if on { await send() } else { await takeBack() }
   }
 
-  /// Sends the token if it's wanted, known, not sent this launch, and the account signed in is the owner's. Called again
-  /// once the owner is known (after a sign-in, each sync).
+  /// What this phone's notifications need, once the owner is known (after a sign-in, each sync), and when the token
+  /// comes: wanted, the token sent if it wasn't this launch; not wanted, one the site still has from a take-back that
+  /// failed (offline, the server busy) taken back now.
   public func send() async {
-    guard wanted, let token, token != sentNow, owner.isOwner == true else { return }
+    guard owner.isOwner == true else { return }
+    guard wanted else { return await takeBack() }
+    guard let token, token != sentNow else { return }
     do {
       try await owner.ask { try await $0.pushToken(token, environment: self.environment) }
       sentNow = token
       defaults.set(token, forKey: Self.sentKey)
+      // Turned off while it was on its way: taken back at once.
+      if !wanted { await takeBack() }
     } catch {
-      // Tried again at the next launch or sync: a notification missed isn't worth a word on the screen.
-      await owner.failed(error, overview: false)
+      // Tried again at the next launch or sync: a notification missed isn't worth a word on the screen. Only a session
+      // over means more (the account is signed out, as a sync told so is).
+      await ended(error)
     }
   }
 
@@ -71,8 +77,13 @@ public final class OwnerPush {
       defaults.removeObject(forKey: Self.sentKey)
       sentNow = nil
     } catch {
-      // Kept, to take back next time: the site may still send to this phone until then.
+      // Kept, to take back at the next sync: the site may still send to this phone until then.
+      await ended(error)
     }
+  }
+
+  private func ended(_ error: Error) async {
+    if case .signedOut? = error as? OwnerError { await owner.failed(error, overview: false) }
   }
 
   /// The page a notification opens (its `url`): only one of aquatome.com's over https; anything else opens nothing.
