@@ -259,6 +259,14 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   #expect(c.text == "Ảnh: Tác giả 1" && c.licence == "CC BY 4.0" && c.url == "https://x/p/1" && c.author == nil && c.authorUrl == nil)
   c = try #require(try credit(["text": "Ảnh: Jane Doe trên Unsplash", "licence": "Unsplash License", "author": 3, "authorUrl": ["x"]]))
   #expect(c.text == "Ảnh: Jane Doe trên Unsplash" && c.author == nil && c.authorUrl == nil)
+  // The first page the site sends with both (#535's breed page, the pigeon blood discus's lead in page-vectors.json): its
+  // photographer named and linked, "Unsplash" Unsplash's home.
+  let mai = "https://unsplash.com/@mailin?utm_source=aquatome&utm_medium=referral"
+  c = try #require(try credit(["text": "Ảnh: Mai Lin trên Unsplash", "licence": "Unsplash License",
+                               "url": "https://unsplash.com/photos/a-red-discus-fish-Pb1Fixture1?utm_source=aquatome&utm_medium=referral",
+                               "authorUrl": mai, "author": "Mai Lin"]))
+  #expect(c.author == "Mai Lin" && c.authorUrl == mai)
+  #expect(pieces(c) == ["Ảnh: ", "Mai Lin → \(mai)", " trên ", "Unsplash → \(PageDoc.Image.Credit.unsplashHome)", " · Unsplash License"])
 }
 
 /// A credit's line in pieces, each with where it links (`text → link`).
@@ -284,6 +292,13 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
   let named = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: "Jane Doe")
   #expect(pieces(named) == ["Ảnh: ", "Jane Doe → \(photo)", " trên ", "Unsplash → \(home)", " · Unsplash License"])
   #expect(pieces(named, photo: false) == ["Ảnh: ", "Jane Doe", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  // The flowerhorn's gallery on the site (test/fixture-content/gallery/flowerhorn-cichlid.json): a photographer whose page
+  // is known, and one whose isn't yet, unlinked in the gallery's list.
+  let jo = "https://unsplash.com/@jopark?utm_source=aquatome&utm_medium=referral"
+  #expect(pieces(Credit(text: "Ảnh: Jo Park trên Unsplash", licence: "Unsplash License", url: photo, author: "Jo Park", authorUrl: jo), photo: false)
+          == ["Ảnh: ", "Jo Park → \(jo)", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  #expect(pieces(Credit(text: "Ảnh: Sam Reyes trên Unsplash", licence: "Unsplash License", url: photo, author: "Sam Reyes"), photo: false)
+          == ["Ảnh: ", "Sam Reyes", " trên ", "Unsplash → \(home)", " · Unsplash License"])
   // Another language's words around the name, and a name holding the word: "Unsplash" is the one outside it.
   let thai = Credit(text: "ภาพ: Jane Doe บน Unsplash", licence: "Unsplash License", url: photo, author: "Jane Doe", authorUrl: profile)
   #expect(pieces(thai) == ["ภาพ: ", "Jane Doe → \(profile)", " บน ", "Unsplash → \(home)", " · Unsplash License"])
