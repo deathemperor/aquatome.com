@@ -241,7 +241,7 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   """#.utf8))
   // A form of a species: the species it is checked as, no figures of its own in `facts`, its card's figures apart.
   #expect(ix.items[0].of == "betta-splendens" && !ix.items[0].facts.any)
-  #expect(ix.items[0].card == .init(tempC: .init(min: 24, max: 28), sizeCm: 6))
+  #expect(ix.items[0].card == .init(tempC: .init(min: 24, max: 28), sizeCm: 6, lifeYears: .init(min: 2, max: 3)))
   // A hybrid: a fish of its own.
   #expect(ix.items[1].of == nil && ix.items[1].facts == .init(sizeCm: 30))
   // What this app can't read is left out, not the fish.
