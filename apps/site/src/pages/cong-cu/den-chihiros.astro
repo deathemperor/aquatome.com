@@ -2,6 +2,8 @@
 import Browse from '../../layouts/Browse.astro'
 import { getContent } from '../../lib/content'
 import { SUPPORTED } from '../../scripts/chihiros'
+import AppInvite from '../../components/AppInvite.astro'
+import { APP_ON } from '../../lib/app'
 import { i18n } from '../../lib/i18n'
 
 const { lang, t } = i18n(Astro.url)
@@ -29,7 +31,7 @@ const LOOKS = [
 ]
 const RAMPS = [0, 10, 15, 20, 30, 45, 60, 90, 120, 150]
 const faq = [
-  { q: t('Điều khiển đèn Chihiros không cần ứng dụng được không?'), a: t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). iPhone và iPad cần trình duyệt Bluefy, vì Safari không hỗ trợ Bluetooth trên web.') },
+  { q: t('Điều khiển đèn Chihiros không cần ứng dụng được không?'), a: APP_ON ? t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). Safari trên iPhone và iPad không hỗ trợ Bluetooth trên web: ở đó dùng ứng dụng AquaTome, hoặc trình duyệt Bluefy.') : t('Được. Trang này gửi qua Bluetooth các lệnh giống ứng dụng My Chihiros, chạy trên Chrome hoặc Edge (Android, Windows, macOS, Linux). iPhone và iPad cần trình duyệt Bluefy, vì Safari không hỗ trợ Bluetooth trên web.') },
   { q: t('Đèn Chihiros nào dùng được?'), a: t('Các đèn Bluetooth có tên bắt đầu bằng DY: {list}. Chưa hỗ trợ X300, Z Light Tiny, Egg và Commander 1 vì các đèn này chia kênh màu khác.', { list: SUPPORTED.join(', ') }) },
   { q: t('Nên bật đèn bể thủy sinh mấy tiếng mỗi ngày?'), a: t('Khoảng 6 đến 8 tiếng, cùng một khung giờ mỗi ngày. Bể mới trồng nên bắt đầu 6 tiếng, đèn 40–50%, rồi tăng dần khi cây đã bén rễ. Bật quá 8 tiếng, hoặc đèn mạnh mà thiếu CO₂ và phân, dễ lên rêu.') },
   { q: t('Trang có nhớ lịch của đèn không?'), a: t('Có, trên máy này. Mỗi lần ghi lịch, trang nhớ đèn, tên bạn đặt và các lịch đã ghi, để lần sau mở lại, dùng lại hoặc hoàn tác. Đèn không cho đọc lại lịch đang lưu bên trong nó, nên lịch đặt bằng ứng dụng My Chihiros không hiện ở đây. Đèn cho đọc giờ của nó: trang báo khi đèn lệch giờ, chẳng hạn sau khi mất điện.') },
@@ -47,6 +49,7 @@ const HOURS = [0, 3, 6, 9, 12, 15, 18, 21, 24]
         <!-- Without Bluetooth (Safari, Firefox): what works, and that planning still does. -->
         <div id="ch-unsupported" class="state" hidden>
           <p class="title">{t('Trình duyệt này chưa kết nối được đèn')}</p>
+          <AppInvite ct="site-light-tool" text={t('Trên iPhone, iPad: điều khiển đèn bằng ứng dụng AquaTome')} />
           <p>{t('Dùng Chrome hoặc Edge trên điện thoại Android hay máy tính. Trên iPhone, iPad: trình duyệt Bluefy.')}</p>
           <p class="soft">{t('Vẫn lập lịch được ở dưới: trang nhớ lịch trên máy này để ghi vào đèn sau.')}</p>
         </div>

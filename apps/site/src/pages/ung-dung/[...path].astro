@@ -1,0 +1,146 @@
+---
+import Browse from '../../layouts/Browse.astro'
+import AppStoreBadge from '../../components/AppStoreBadge.astro'
+import { APP_ON, APP_PAGE, APP_SCREENSHOTS, storeLink } from '../../lib/app'
+import { i18n, LANGS, localizePath } from '../../lib/i18n'
+import { qrPath } from '../../lib/qr'
+
+// A page only while the switch is on (lib/app.ts): a plain index.astro would always build.
+export const getStaticPaths = () => (APP_ON ? [{ params: { path: undefined } }] : [])
+
+const { t } = i18n(Astro.url)
+const alternates = Object.fromEntries(LANGS.map(l => [l, localizePath(l, APP_PAGE)]))
+const qr = qrPath(storeLink('site-app-qr'))
+const QUIET = 4 // modules of clear space, what a scanner needs around the code
+const frame = qr.size + 2 * QUIET
+// A reader here already has the site, so each row says what the app adds. The app's words are the store listing's
+// (apps/ios/store/listing.json), so the site and the store agree.
+const ROWS = [
+  { name: t('Cẩm nang'), site: t('Cùng nội dung, đọc trên trình duyệt khi có mạng.'), app: t('Hồ sơ cá, tép, ốc và cây thủy sinh, hướng dẫn nuôi, thuật ngữ và video hướng dẫn. Lưu trang để đọc sau. Trang đã đọc vẫn mở được khi không có mạng.') },
+  { name: t('Bể của tôi'), site: t('Lưu trên trình duyệt này. Đăng nhập để đồng bộ.'), app: t('Ghi lại từng bể: kích thước, số lít, nền, ghi chú, cá và cây đang nuôi. Kiểm tra nuôi chung: loài nào hợp nhau, loài nào có thể ăn loài nào, bể đã đủ chỗ chưa. Đăng nhập bằng Apple, passkey hoặc email để đồng bộ bể với aquatome.com. Không bắt buộc.') },
+  { name: t('Đèn Chihiros'), day: [t('bình minh'), t('hoàng hôn')], site: t('Chrome hoặc Edge trên Android và máy tính. Trên iPhone, iPad chỉ chạy trong trình duyệt Bluefy.'), app: t('Kết nối đèn Chihiros qua Bluetooth: hẹn giờ bật tắt có bình minh và hoàng hôn, chỉnh từng kênh màu, chỉnh giờ cho đèn. Lịch chạy ngay trên đèn, không cần mở ứng dụng.') },
+  { name: t('Ổ cắm thông minh'), site: t('Chưa có.'), app: t('Bật tắt từng ổ của ổ cắm Smart Life (Tuya) cho lọc, sủi, máy sưởi hay CO₂, ngay trong bể, bằng khóa Tuya của chính bạn.') },
+]
+---
+<Browse
+  title={t('Ứng dụng cho iPhone và iPad')}
+  heading={t('Ứng dụng AquaTome')}
+  intro={t('AquaTome là cẩm nang cá cảnh và thủy sinh bằng tiếng Việt, cùng nội dung với aquatome.com, kèm bể và đèn của bạn trong một ứng dụng.')}
+  description={t('Cẩm nang cá cảnh và thủy sinh đọc lại được khi không có mạng, bể của bạn, đèn Chihiros qua Bluetooth và ổ cắm Smart Life, trong một ứng dụng miễn phí cho iPhone và iPad.')}
+  alternates={alternates}
+  ads={false}
+>
+  <div class="get">
+    <div class="store">
+      <AppStoreBadge ct="site-app-page" lazy={false} />
+      <dl class="needs">
+        <div><dt>{t('Giá')}</dt><dd>{t('Miễn phí')}</dd></div>
+        <div><dt>{t('Cần')}</dt><dd>{t('iOS 17 trở lên')}</dd></div>
+        <div><dt>{t('Dùng trên')}</dt><dd>{t('iPhone và iPad')}</dd></div>
+      </dl>
+    </div>
+    {/* Black on white in both themes: a scanner needs dark on light. */}
+    <figure class="qr">
+      <svg viewBox={`${-QUIET} ${-QUIET} ${frame} ${frame}`} width="148" height="148" role="img" aria-label={t('Mã QR mở AquaTome trên App Store')} shape-rendering="crispEdges">
+        <rect x={-QUIET} y={-QUIET} width={frame} height={frame} fill="#fff" />
+        <path d={qr.d} fill="#000" />
+      </svg>
+      <figcaption>{t('Đang ở máy tính? Quét mã bằng iPhone hoặc iPad để mở App Store.')}</figcaption>
+    </figure>
+  </div>
+
+  {APP_SCREENSHOTS.length > 0 && (
+    <ul class="shots" tabindex="0" aria-label={t('Ảnh màn hình ứng dụng')}>
+      {APP_SCREENSHOTS.map(s => <li><img src={s.src} width={s.width} height={s.height} alt={t(s.alt)} loading="lazy" /></li>)}
+    </ul>
+  )}
+
+  <section class="ledger" aria-labelledby="ledger-h">
+    <h2 id="ledger-h">{t('Trang web có gì, ứng dụng thêm gì')}</h2>
+    <div class="row heads" aria-hidden="true"><span></span><span>{t('Trên trang web')}</span><span>{t('Trong ứng dụng')}</span></div>
+    {ROWS.map(r => (
+      <article class="row">
+        <h3>{r.name}</h3>
+        <dl>
+          <div class="site"><dt>{t('Trên trang web')}</dt><dd>{r.site}</dd></div>
+          <div class="in-app">
+            <dt>{t('Trong ứng dụng')}</dt>
+            <dd>{r.app}</dd>
+            {r.day && (
+              <div class="day" aria-hidden="true" data-pagefind-ignore>
+                <svg viewBox="0 0 280 44">
+                  <path class="sky" d="M0 40H40L92 6H204L256 40H280Z" />
+                  <path class="line" d="M0 40H40L92 6H204L256 40H280" />
+                </svg>
+                <p>{r.day.map(word => <span>{word}</span>)}</p>
+              </div>
+            )}
+          </div>
+        </dl>
+      </article>
+    ))}
+  </section>
+
+  <p class="again"><a href={storeLink('site-app-page')}>{t('Mở AquaTome trên App Store')}</a></p>
+
+  <div class="fine" data-pagefind-ignore>
+    <p>{t('Tài khoản không lưu tên hay số điện thoại. Địa chỉ email chỉ lưu ở dạng mã hóa một chiều.')} {t('AquaTome không liên quan tới hãng Chihiros hay Tuya.')}</p>
+    <p>{t('Apple, logo Apple, iPhone và iPad là nhãn hiệu của Apple Inc., đã đăng ký tại Hoa Kỳ và các quốc gia khác. App Store là nhãn hiệu dịch vụ của Apple Inc.')}</p>
+  </div>
+</Browse>
+
+<style>
+  .store { max-width: var(--measure); }
+  .store :global(.app-store-badge) { display: block; width: fit-content; border-radius: 7px; }
+  /* The data card's way of giving figures: a word over its value. A quarter of the badge's height stays clear above. */
+  .needs { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); margin: var(--space-5) 0 0; }
+  .needs dt { font-size: var(--step--1); color: var(--c-ink-faint); }
+  .needs dd { margin: 0; font: 400 var(--step-1)/1.3 var(--f-display); }
+  /* For a computer: a phone or tablet is what would scan it. The page's style decides, no script. */
+  .qr { display: none; margin: 0; }
+  .qr figcaption { font-size: var(--step--1); color: var(--c-ink-soft); max-width: 24ch; }
+
+  .shots { display: flex; gap: var(--space-4); margin: var(--space-7) 0 0; padding: 0 0 var(--space-3); list-style: none; overflow-x: auto; scroll-snap-type: x proximity; }
+  .shots li { flex: none; scroll-snap-align: start; }
+  .shots img { width: auto; height: min(70vh, 30rem); border: 1px solid var(--c-rule); }
+
+  .ledger { margin-top: var(--space-7); }
+  .ledger h2 { font-size: var(--step-3); margin-bottom: var(--space-5); }
+  .row { padding-block: var(--space-4); border-top: 1px solid var(--c-rule); }
+  .row h3 { font-size: var(--step-2); margin-bottom: var(--space-3); }
+  .heads { display: none; }
+  dl { margin: 0; }
+  dd { margin: 0; }
+  .site dt, .in-app dt { font-size: var(--step--1); color: var(--c-ink-faint); margin-bottom: var(--space-1); }
+  .site { color: var(--c-ink-soft); margin-bottom: var(--space-3); }
+  .in-app { background: var(--c-plate); padding: var(--space-3) var(--space-4); margin-inline: calc(-1 * var(--space-2)); }
+  .day { max-width: 20rem; margin-top: var(--space-3); }
+  .day svg { display: block; width: 100%; height: auto; }
+  .day p { display: flex; justify-content: space-between; margin: var(--space-1) 0 0; padding-inline: 8%; font-size: var(--step--1); color: var(--c-ink-soft); }
+  .sky { fill: var(--c-moss); opacity: 0.14; }
+  .line { fill: none; stroke: var(--c-moss); stroke-width: 1.5; }
+
+  /* From here the three columns fit: the app's runs down the page as one plate, the column heads replace each row's, and the QR code stands over it. */
+  @media (min-width: 52rem) {
+    .get, .row { display: grid; grid-template-columns: 11rem minmax(0, 1fr) minmax(0, 1.5fr); }
+    .store { grid-column: 1 / 3; padding-right: var(--space-5); }
+    .row { padding-block: 0; }
+    .row h3 { margin: 0; padding-block: var(--space-4); padding-right: var(--space-4); }
+    .row dl { display: contents; }
+    .site, .in-app { margin: 0; padding: var(--space-4); }
+    .site { padding-left: 0; padding-right: var(--space-5); }
+    .site dt, .in-app dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .heads { display: grid; font-size: var(--step--1); color: var(--c-ink-faint); border-top: 0; }
+    .heads span { padding-block: var(--space-2); }
+    .heads span:last-child { background: var(--c-plate); padding-inline: var(--space-4); }
+  }
+  @media (min-width: 52rem) and (hover: hover) and (pointer: fine) {
+    .qr { display: flex; align-items: center; gap: var(--space-4); grid-column: 3; padding-inline: var(--space-4); }
+    .qr svg { flex: none; }
+  }
+
+  .again { margin: var(--space-6) 0 0; }
+  .again a { display: inline-flex; align-items: center; min-height: 44px; font: 400 var(--step-1) var(--f-display); }
+  .fine { max-width: var(--measure); margin-top: var(--space-6); font-size: var(--step--1); color: var(--c-ink-faint); }
+  .fine p { margin: 0 0 var(--space-2); }
+</style>

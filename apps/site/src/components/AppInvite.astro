@@ -1,0 +1,29 @@
+---
+import type { AppPlacement } from '../lib/app'
+import { APP_ON } from '../lib/app'
+import AppStoreBadge from './AppStoreBadge.astro'
+
+/**
+ * A quiet line offering the app, shown only on an iPhone or iPad: iPadOS says it's a Mac, with touch. Nothing on Android
+ * or a computer, or in the app's own web view (AquaTomeApp/, as scripts/account-panel.ts reads it). Nothing is stored.
+ * Rules, not a card: it also sits inside the light tool's card. Its style and script are written here, not bundled, so
+ * that a build with the switch off has neither.
+ */
+interface Props { ct: AppPlacement; text: string }
+const { ct, text } = Astro.props
+---
+{APP_ON && (
+  <>
+    <style is:inline>
+      .app-invite { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); max-width: var(--measure); margin-block: var(--space-4); padding-block: var(--space-3); border-block: 1px solid var(--c-rule); }
+      .app-invite[hidden] { display: none; }
+      .app-invite p { flex: 1 1 14rem; margin: 0; }
+      .app-invite .app-store-badge { display: block; flex: none; border-radius: 7px; }
+    </style>
+    <div class="app-invite" hidden>
+      <p>{text}</p>
+      <AppStoreBadge ct={ct} />
+    </div>
+    <script is:inline>(function(){var u=navigator.userAgent;if(!/AquaTomeApp\//.test(u)&&(/iP(hone|ad|od)/.test(u)||/Macintosh/.test(u)&&navigator.maxTouchPoints>1))document.currentScript.previousElementSibling.hidden=false})()</script>
+  </>
+)}

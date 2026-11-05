@@ -27,13 +27,13 @@ test('inventory: items per kind in content/, and how many have an Indonesian and
   expect(stats.inventory).toEqual({
     fish: { total: 9, id: 0, th: 0 }, breed: { total: 2, id: 0, th: 0 }, plant: { total: 4, id: 0, th: 0 },
     guide: { total: 7, id: 0, th: 0 }, videoGuide: { total: 2, id: 0, th: 0 }, series: { total: 2, id: 0, th: 0 },
-    glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 1, id: 0, th: 0 },
+    glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 4, id: 0, th: 0 },
   })
 })
 
 test('built pages: every index.html under /, /id/ and /th/, by kind, each with its h1 and its item', () => {
   // 134 pages, as markdown.ts counts them (every page under the three languages).
-  expect(stats.built!.total).toEqual({ vi: 96, id: 19, th: 19 })
+  expect(stats.built!.total).toEqual({ vi: 99, id: 19, th: 19 })
   const n = (vi: number, id = 0, th = 0) => ({ vi, id, th })
   expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(2), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(6, 6, 6), other: n(5, 4, 4) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])

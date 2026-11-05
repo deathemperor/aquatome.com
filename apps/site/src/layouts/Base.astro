@@ -11,6 +11,7 @@ import Footer from '../components/Footer.astro'
 import { isStaging } from '../lib/seo'
 import { jsonForScript } from '../lib/json'
 import { ADSENSE_CLIENT } from '../lib/site'
+import { APP_ON, APP_STORE_ID } from '../lib/app'
 import { OWNER_SCRIPT } from '../../worker/owner'
 import type { Credit } from '../lib/credits'
 import { i18n, LANG, LANGS, localizePath, served, toVi, type Lang } from '../lib/i18n'
@@ -66,6 +67,8 @@ const speculation = JSON.stringify({ prefetch: [{ where, eagerness: 'eager' }], 
     <title>{title}</title>
     {description && <meta name="description" content={description} data-pagefind-meta="description[content]" />}
     {(noindex || isStaging()) && <meta name="robots" content="noindex, follow" />}
+    {/* Safari's own Smart App Banner, no script of ours: lib/app.ts. */}
+    {APP_ON && <meta name="apple-itunes-app" content={`app-id=${APP_STORE_ID}, app-argument=${canonical}`} />}
     <link rel="canonical" href={canonical} />
     <meta property="og:site_name" content="AquaTome" />
     <meta property="og:locale" content={LANG[lang].og} />

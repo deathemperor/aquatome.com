@@ -1,4 +1,5 @@
 ---
+import { APP_ON, APP_PAGE } from '../lib/app'
 import { partsHtml, unsplashLine } from '../lib/cite'
 import { groupCredits, type Credit } from '../lib/credits'
 import { i18n, LANG, served, type Lang } from '../lib/i18n'
@@ -13,7 +14,7 @@ import { isUnsplash } from '../lib/unsplash'
 interface Props { credits?: Credit[]; later?: boolean; langs?: (readonly [Lang, string])[] }
 const { credits = [], later = false, langs = [] } = Astro.props
 const { t, lang } = i18n(Astro.url)
-const links = ([['/vi/gioi-thieu/', t('Giới thiệu')], ['/vi/chinh-sach-bao-mat/', t('Chính sách bảo mật')], ['/vi/lien-he/', t('Liên hệ')], ['/vi/thiet-bi/', t('Thiết bị')], ['/vi/moi-cap-nhat/', t('Mới cập nhật')]] as const).filter(([href]) => served(lang, href))
+const links = ([['/vi/gioi-thieu/', t('Giới thiệu')], ['/vi/chinh-sach-bao-mat/', t('Chính sách bảo mật')], ['/vi/lien-he/', t('Liên hệ')], ['/vi/thiet-bi/', t('Thiết bị')], ['/vi/moi-cap-nhat/', t('Mới cập nhật')], ...(APP_ON ? [[APP_PAGE, t('Ứng dụng iPhone, iPad')]] as const : [])] as const).filter(([href]) => served(lang, href))
 const groups = groupCredits(credits).map(g => ({ ...g, unsplash: isUnsplash(g.licence), nums: g.urls.length > 1 || (isUnsplash(g.licence) && !!g.authorUrl) }))
 ---
 <footer class="foot">

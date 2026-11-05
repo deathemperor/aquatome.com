@@ -1,0 +1,13 @@
+---
+import { APP_ON, appDevice } from '../lib/app'
+import type { Product } from '../lib/products'
+import { i18n } from '../lib/i18n'
+import AppInvite from './AppInvite.astro'
+
+/** On the page of a device the app controls (lib/app.ts appDevice). */
+interface Props { product: Product }
+const { t } = i18n(Astro.url)
+const device = APP_ON ? appDevice(Astro.props.product) : undefined
+---
+{device === 'light' && <AppInvite ct="site-product" text={t('Trên iPhone, iPad: hẹn giờ và chỉnh màu đèn này qua Bluetooth bằng ứng dụng AquaTome')} />}
+{device === 'strip' && <AppInvite ct="site-product" text={t('Trên iPhone, iPad: bật tắt từng ổ của ổ cắm này bằng ứng dụng AquaTome, với khóa Tuya của chính bạn')} />}
