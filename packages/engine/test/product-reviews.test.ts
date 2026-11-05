@@ -5,7 +5,7 @@ import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
-import { CHIHIROS_TESTS, cleanExtracted, figureOf, findReviews, isDue, mergeWritten, namesProduct, productCandidates, productReviews, reviewProduct, sourcesWith, TEST_NOTES, testsFor, unusable, watchUrl, type ReviewInput, type Written } from '../src/product-reviews'
+import { CHIHIROS_TESTS, cleanExtracted, figureOf, findReviews, isDue, mergeWritten, namesProduct, productCandidates, productReviews, reviewProduct, secondOf, sourcesWith, TEST_NOTES, testsFor, unusable, watchUrl, type ReviewInput, type Written } from '../src/product-reviews'
 import type { VideoMeta, YouTube } from '../src/youtube'
 
 const meta = (id: string, o: Partial<VideoMeta> = {}): VideoMeta => ({ id, title: 'Chihiros WRGB II review', channel: 'Example Scapes', channelUrl: 'https://youtube.example/c', durationSec: 700, chapters: [], embeddable: true, description: 'A review of the Chihiros light.', thumb: { url: 'https://i.ytimg.com/x.jpg', width: 1280, height: 720 }, captions: true, lang: 'en', ...o })
@@ -80,24 +80,36 @@ test('findReviews: YouTube throttling stops the run rather than dropping the vid
   await expect(findReviews({ find: { searchReviews: async () => [{ id: 'a', title: 'Chihiros WRGB II review', channel: 'A' }] }, yt, llm: vetOk(), sleep: async () => {} }, WRGB)).rejects.toThrow('429')
 })
 
-test('extraction: a moment outside the video, or a figure not said near it, doesn\'t stand', () => {
+test('a quote finds its second: the start of its line, however it\'s punctuated, across two lines; words not said find nothing', () => {
+  const t = '[14:12] that\'s the warranty i think two years gives a one year warranty on all their lights\n[14:44] which is of course it\'s just personal\n[15:15] so just to summarize'
+  // A real run's model put this point on the next line, after it was said.
+  expect(secondOf(t, 'gives a one year warranty on all their lights')).toBe(852)
+  expect(secondOf(t, 'Gives a ONE year, warranty!')).toBe(852)
+  expect(secondOf(t, 'on all their lights which is of course')).toBe(852)
+  expect(secondOf(t, 'which is of course a slip after the fourth word')).toBe(884)
+  expect(secondOf(t, 'a five year warranty on everything')).toBeUndefined()
+  expect(secondOf(t, 'warranty')).toBeUndefined() // too few words to place
+})
+
+test('extraction: a claim the transcript doesn\'t hold, or a figure not said near it, doesn\'t stand', () => {
   const x = cleanExtracted({
     reviewsProduct: true,
     findings: [
-      { kind: 'strength', text: 'Fan quiet after two months.', t: 90.4 },
-      { kind: 'strength', text: 'Fan quiet after 2 months.', t: 90 }, // a small figure captions spell out
-      { kind: 'weakness', text: 'Past the end.', t: 9999 },
-      { kind: 'note', text: 'Draws 45 W at the wall.', t: 90 }, // said nowhere near
+      { kind: 'strength', text: 'Fan quiet after two months.', quote: 'after two months the fan is quiet' },
+      { kind: 'strength', text: 'Fan quiet after 2 months.', quote: 'after two months the fan is quiet' }, // a small figure captions spell out
+      { kind: 'weakness', text: 'The legs wobble.', quote: 'the legs wobble on thin glass' }, // the transcript has no such words
+      { kind: 'note', text: 'Draws 45 W at the wall.', quote: 'after two months the fan is quiet' }, // a figure said nowhere near
     ],
     measured: [
-      { what: 'Noise at 1 m', value: '41', unit: 'dB', how: 'phone app', t: 430 },
-      { what: 'Noise at 1 m', value: '41', unit: 'dB', how: 'phone app', t: 5 }, // said, but minutes away from this moment
-      { what: 'PAR', value: '120', unit: 'umol', how: 'meter', t: 430 }, // never said
-      { what: 'Looks', value: 'nice', unit: '', how: '', t: 430 },
+      { what: 'Noise at 1 m', value: '41', unit: 'dB', how: 'phone app', quote: 'I measured 41 decibels with my phone' },
+      { what: 'PAR', value: '120', unit: 'umol', how: 'meter', quote: 'I measured 41 decibels with my phone' }, // never said
+      { what: 'Looks', value: 'nice', unit: '', how: '', quote: 'I measured 41 decibels with my phone' },
     ],
   }, TRANSCRIPT, 700)
   expect(x.findings.map(f => [f.text, f.t])).toEqual([['Fan quiet after two months.', 90], ['Fan quiet after 2 months.', 90]])
-  expect(x.measured.map(m => m.t)).toEqual([430])
+  expect(x.measured.map(m => [m.what, m.t])).toEqual([['Noise at 1 m', 430]])
+  // A moment past the video's end (captions that don't match it) doesn't stand either.
+  expect(cleanExtracted({ reviewsProduct: true, findings: [{ kind: 'note', text: 'Quiet.', quote: 'after two months the fan is quiet' }], measured: [] }, TRANSCRIPT, 60).findings).toEqual([])
 })
 
 const A = watchUrl('aaaaaaaaaaa')
@@ -208,7 +220,7 @@ test('sources: this run\'s reviews after research\'s, whose places the specs poi
 })
 
 const written: Written = { agree: [{ text: 'Đèn đủ sáng cho cây dễ tính ở 30 cm.', refs: ['R1.1', 'R2.1'] }], differ: [], single: [{ text: 'Một bài review thấy quạt gần như không nghe tiếng.', refs: ['R1.2'] }], measured: [{ ref: 'R1.m1', what: 'Độ ồn ở 1 m', how: 'ứng dụng trên điện thoại' }, { ref: 'R2.m1', what: 'Độ ồn ở 1 m', how: 'ứng dụng trên điện thoại' }], tested: [{ text: 'AquaTome thử trên WRGB II Slim: mất điện thì đồng hồ của đèn về 0.', refs: ['T1'] }] }
-const extraction = (t = 90) => ({ reviewsProduct: true, findings: [{ kind: 'strength', text: 'Bright enough for easy plants at 30 cm, after two months.', t }, { kind: 'strength', text: 'Fan almost silent.', t }], measured: [{ what: 'Noise at 1 m', value: '41', unit: 'dB', how: 'phone app', t: 430 }] })
+const extraction = () => ({ reviewsProduct: true, findings: [{ kind: 'strength', text: 'Bright enough for easy plants at 30 cm, after two months.', quote: 'at 30 cm easy plants did fine' }, { kind: 'strength', text: 'Fan almost silent.', quote: 'and the fan is quiet' }], measured: [{ what: 'Noise at 1 m', value: '41', unit: 'dB', how: 'phone app', quote: 'I measured 41 decibels with my phone' }] })
 const TRANSCRIPT2 = `[1:30] at 30 cm easy plants did fine after two months and the fan is quiet\n[7:10] I measured 41 decibels with my phone\n${'[9:00] more words about the light and the plants in this tank\n'.repeat(40)}`
 
 /** A stand-in for each model call, counting them: vet, extraction, writing. */

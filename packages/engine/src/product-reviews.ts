@@ -52,7 +52,7 @@ export function unusable(m: VideoMeta, t: ReviewTarget): string | null {
 const VET_SCHEMA = { type: 'object', required: ['verdicts'], properties: { verdicts: { type: 'array', items: { type: 'object', required: ['id', 'ok', 'reason'], properties: { id: { type: 'string' }, ok: { type: 'boolean' }, reason: { type: 'string' }, lang: { type: 'string' } } } } } }
 const VET = (t: ReviewTarget, xs: VideoMeta[]) => `A Vietnamese aquarium handbook summarizes YouTube reviews of "${t.brand} ${t.model}".
 
-ok = true only if the video reviews, tests or reports long use of this exact product. ok = false for another model or size line of the maker, a comparison where this product is a side note, an unboxing or spec read-out with no findings, a shop's sales video, or a how-to that only uses it.
+ok = true if the video may review, test or report use of this exact product, a comparison where it is one of the main subjects included. ok = false only when the title and description show it isn't: another model or size line of the maker, a range overview where this product is one of many, a spec read-out, a shop's sales video, or a how-to that only uses it. You see only the title and description; the transcript is read next, so when in doubt, ok = true.
 
 reason: a few words. lang: the language spoken ("vi" or "en"; a title may be translated, so also go by the channel). Reply with a verdict for every id.
 
@@ -122,13 +122,14 @@ export async function findReviews(d: ReviewDeps, t: ReviewTarget, o: { keep?: nu
 
 export type Finding = { kind: 'strength' | 'weakness' | 'note'; text: string; t: number }
 export type Measured = { what: string; value: string; unit: string; how: string; t: number }
-export type Extracted = { reviewsProduct: boolean; findings: Finding[]; measured: Measured[] }
+/** What the model answers: words to find each one by, not a second, which it can only guess at. */
+export type Extracted = { reviewsProduct: boolean; findings: (Omit<Finding, 't'> & { quote: string })[]; measured: (Omit<Measured, 't'> & { quote: string })[] }
 const EXTRACT_SCHEMA = {
   type: 'object', required: ['reviewsProduct', 'findings', 'measured'],
   properties: {
     reviewsProduct: { type: 'boolean' },
-    findings: { type: 'array', items: { type: 'object', required: ['kind', 'text', 't'], properties: { kind: { type: 'string', enum: ['strength', 'weakness', 'note'] }, text: { type: 'string' }, t: { type: 'number' } } } },
-    measured: { type: 'array', items: { type: 'object', required: ['what', 'value', 'unit', 'how', 't'], properties: { what: { type: 'string' }, value: { type: 'string' }, unit: { type: 'string' }, how: { type: 'string' }, t: { type: 'number' } } } },
+    findings: { type: 'array', items: { type: 'object', required: ['kind', 'text', 'quote'], properties: { kind: { type: 'string', enum: ['strength', 'weakness', 'note'] }, text: { type: 'string' }, quote: { type: 'string' } } } },
+    measured: { type: 'array', items: { type: 'object', required: ['what', 'value', 'unit', 'how', 'quote'], properties: { what: { type: 'string' }, value: { type: 'string' }, unit: { type: 'string' }, how: { type: 'string' }, quote: { type: 'string' } } } },
   },
 }
 
@@ -138,26 +139,44 @@ const figures = (s: string) => (s.match(/\d[\d.,]*\d|\d/g) ?? []).map(x => x.rep
 const smallFigure = (x: string) => x.length === 1
 /** The transcript's lines within `span` seconds of `t`. */
 function near(transcript: string, t: number, span = 120): string {
-  return transcript.split('\n').filter(l => { const m = /^\[(\d+):(\d\d)\]/.exec(l); return m && Math.abs(Number(m[1]) * 60 + Number(m[2]) - t) <= span }).join(' ')
+  return transcript.split('\n').filter(l => { const m = LINE.exec(l); return m && Math.abs(Number(m[1]) * 60 + Number(m[2]) - t) <= span }).join(' ')
+}
+const LINE = /^\[(\d+):(\d\d)\]\s?(.*)$/
+const plainWords = (s: string) => s.normalize('NFC').toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? []
+const MIN_QUOTE = 3
+/**
+ * The second a quote was said: the start of the line it starts in, so a link plays it rather than starting just after it.
+ * Undefined when the words aren't in the transcript. A slip late in a long quote still finds its place by the first words.
+ */
+export function secondOf(transcript: string, quote: string): number | undefined {
+  const timed = transcript.split('\n').flatMap(l => { const m = LINE.exec(l); return m ? plainWords(m[3]!).map(w => ({ w, t: Number(m[1]) * 60 + Number(m[2]) })) : [] })
+  const q = plainWords(quote)
+  if (q.length < MIN_QUOTE) return undefined
+  for (const needle of [q, q.slice(0, 4)]) {
+    const at = timed.findIndex((_, i) => needle.every((w, j) => timed[i + j]?.w === w))
+    if (at >= 0) return timed[at]!.t
+  }
+  return undefined
 }
 /**
- * Only what the words back: a second inside the video, and every figure said around that moment. A model reading a long
- * transcript can make up a reading or put it at the wrong minute; a page cites both to the second.
+ * Only what the words back. Each finding and reading must quote the transcript, and its second comes from where that quote
+ * is, not from the model, which put one point on a line after it was said (found reading a real run). Every figure must be
+ * said around that moment: a model reading a long transcript can make up a reading.
  */
-export function cleanExtracted(x: Extracted, transcript: string, durationSec: number): Omit<Extracted, 'reviewsProduct'> {
-  const inVideo = (t: number) => Number.isFinite(t) && t >= 0 && t <= durationSec
+export function cleanExtracted(x: Extracted, transcript: string, durationSec: number): { findings: Finding[]; measured: Measured[] } {
   const said = (text: string, t: number) => { const there = new Set(figures(near(transcript, t))); return figures(text).every(f => smallFigure(f) || there.has(f)) }
+  const placed = <T extends { quote: string }>(xs: T[]) => xs.flatMap(({ quote, ...rest }) => { const t = secondOf(transcript, quote ?? ''); return t !== undefined && t <= durationSec ? [{ ...rest, t }] : [] })
   return {
-    findings: x.findings.filter(f => f.text?.trim() && inVideo(f.t) && said(f.text, f.t)).map(f => ({ ...f, t: Math.floor(f.t) })),
-    measured: x.measured.filter(m => /\d/.test(m.value ?? '') && m.what?.trim() && inVideo(m.t) && said(m.value, m.t)).map(m => ({ ...m, t: Math.floor(m.t) })),
+    findings: placed(x.findings).filter(f => f.text?.trim() && said(f.text, f.t)),
+    measured: placed(x.measured).filter(m => /\d/.test(m.value ?? '') && m.what?.trim() && said(m.value, m.t)),
   }
 }
 
 /** What one review found: one model call. Null when it turns out not to review this product. */
-export async function extractFindings(llm: Llm, v: ReviewVideo, t: ReviewTarget, model?: string): Promise<Omit<Extracted, 'reviewsProduct'> | null> {
+export async function extractFindings(llm: Llm, v: ReviewVideo, t: ReviewTarget, model?: string): Promise<{ findings: Finding[]; measured: Measured[] } | null> {
   const x = await llm<Extracted>({
     system: 'You read aquarium product reviews and report what they found. Reply only with JSON.', schema: EXTRACT_SCHEMA, ...(model ? { model } : {}),
-    prompt: `${EXTRACT}\n\nProduct: ${t.brand} ${t.model}\nLength: ${v.durationSec} seconds\nSpoken in: ${v.lang}\n\nTranscript:\n${v.transcript.slice(0, 60_000)}`,
+    prompt: `${EXTRACT}\n\nProduct: ${t.brand} ${t.model}\nSpoken in: ${v.lang}\n\nTranscript:\n${v.transcript.slice(0, 60_000)}`,
   })
   if (!x.reviewsProduct) return null
   const clean = cleanExtracted(x, v.transcript, v.durationSec)

@@ -282,7 +282,7 @@ The layers above still check the result.
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
 - **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
-  - a figure or moment an extraction gives must be in the transcript near that moment
+  - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
   - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
   - the writer never sees a channel, a title or an address. A channel's name, talk of the video or a reviewer (`names-source`, also listed for every page written from videos), a score or rating, or saying AquaTome controls a product it doesn't (`control-claim`) keeps a point off the page
   - the measured table's values are the extraction's, never the writer's

@@ -7,7 +7,7 @@ Viết:
 - differ: chỗ các bài khác nhau. topic là chuyện đang bàn, vài chữ ("Độ ồn"). sides là từng phía, mỗi phía một câu và refs của phía đó, các phía từ các bài khác nhau.
 - single: điều đáng biết mà chỉ một bài nhắc tới. Viết rõ là chỉ một bài ("một bài review thấy…"). Tối đa 4 ý, chọn cái người mua cần nhất.
 - measured: mỗi số đo một dòng: ref là id của số đo, what và how dịch sang tiếng Việt, ngắn như trong bảng ("Độ ồn ở 1 m", "ứng dụng đo trên điện thoại"). Không viết con số vào what hay how trừ khi bản gốc có. Giá trị trang tự lấy, bạn không viết lại. how rỗng thì để rỗng.
-- tested: nếu có ghi chép T: những điều người mua cần biết, mỗi điều một câu, refs là id T. Viết "AquaTome thử trên <tên máy> thấy…" nếu trang này nói về một máy khác với máy đã thử. Không có ghi chép T thì để rỗng.
+- tested: nếu có ghi chép T: những điều người mua cần biết, mỗi điều một câu, refs là id T. Ý đầu tiên nêu tên máy đã thử ("AquaTome thử trên <tên máy> thấy…"), các ý sau viết thẳng, không lặp lại tên máy. Không có ghi chép T thì để rỗng.
 
 Quy tắc:
 - Mỗi câu chỉ nói điều mà các refs của nó nói. Mọi con số trong câu phải có trong các ý đó, giữ nguyên, không đổi đơn vị. Không suy ra, không tính thêm, không thêm lời khen hay lời chê của riêng bạn.
