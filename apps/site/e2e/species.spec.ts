@@ -343,10 +343,13 @@ test('species page: the shop picker points every search at the shop picked', asy
 
 // Shop links never push a page sideways, down to a 320 px screen (the width WCAG's reflow rule tests at): the equipment
 // page's "Mua … trên Shopee" line wraps, and the picker drops its label. They made /thiet-bi/loc/ 355 px and the product
-// page 336 px wide there.
+// page 336 px wide there. The product page is the build's first (the sitemap's on aquatome.com): products come and go
+// with the content, and the fixture's Oase BioMaster 350 isn't on the live site.
 test('shop links fit a 320 px screen', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 720 })
-  for (const path of ['/thiet-bi/loc/', '/san-pham/oase-biomaster-350/', '/ca/ca-neon-vua/']) {
+  const product = sourcePages().find(p => /^\/san-pham\/[^/]+\/$/.test(p))
+  expect(product, 'a product page').toBeTruthy()
+  for (const path of ['/thiet-bi/loc/', product!, '/ca/ca-neon-vua/']) {
     await page.goto(path)
     await expect(page.locator('[data-shop-pick]').first()).toBeVisible()
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), path).toBeLessThanOrEqual(0)
