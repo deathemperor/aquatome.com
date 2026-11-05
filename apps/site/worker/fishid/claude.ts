@@ -1,3 +1,4 @@
+import type { Lang } from '@aq/schema/langs'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { KeyEntry } from './keys'
 
@@ -19,7 +20,7 @@ export const PRICES: Record<string, { input: number; output: number; cacheRead: 
   'claude-opus-5-5': { input: 4, output: 20, cacheRead: 0.2, cacheWrite: 5 },
 }
 
-export type Lang = 'vi' | 'id' | 'th'
+export type { Lang }
 export type ImageType = 'image/jpeg' | 'image/png' | 'image/webp'
 export type Verdict = 'fish' | 'plant' | 'other' | 'unclear'
 /** `id`: the handbook page the agent checked it against (its answer schema only, AGENT_SCHEMA). */

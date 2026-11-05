@@ -1052,7 +1052,6 @@
   "Ánh sáng bể": "แสงในตู้",
   "Không cần châm": "ไม่ต้องเติม",
   "Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.": "ต้นไม้เหล่านี้ยังขาดข้อมูลบางส่วนที่คุณกำลังกรอง (แสง, CO₂, ตำแหน่งปลูก หรือความยาก) ข้อมูลที่มีอยู่เข้ากันได้ แต่ยังไม่พอจะยืนยัน",
-  "Lưu trên máy chủ (cơ sở dữ liệu Cloudflare D1): một mã tài khoản ngẫu nhiên; mã người dùng do Apple hoặc Google cấp, nếu bạn đăng nhập bằng họ; với email, chỉ một mã băm có khóa của địa chỉ; với passkey, mã nhận diện và khóa công khai của nó (vân tay, khuôn mặt hay mã PIN không bao giờ rời khỏi máy của bạn); các phiên đăng nhập (chỉ lưu mã băm); và các bể, đèn, lịch đèn bạn lưu.": "ข้อมูลที่จัดเก็บบนเซิร์ฟเวอร์ (ฐานข้อมูล Cloudflare D1): รหัสบัญชีแบบสุ่ม; รหัสผู้ใช้ที่ Apple หรือ Google ออกให้ หากคุณเข้าสู่ระบบผ่านบริการเหล่านั้น; สำหรับอีเมล จะเก็บเพียงค่าแฮชแบบใช้คีย์ของที่อยู่อีเมล; สำหรับ passkey จะเก็บรหัสระบุตัวตนและกุญแจสาธารณะของ passkey นั้น (ลายนิ้วมือ ใบหน้า หรือรหัส PIN จะไม่ออกจากอุปกรณ์ของคุณ); เซสชันการเข้าสู่ระบบ (เก็บเฉพาะค่าแฮช); รวมถึงตู้ปลา ไฟ และตารางเวลาเปิดปิดไฟที่คุณบันทึกไว้",
   "{source} ghi khác bảng dữ liệu:": "{source} ระบุต่างจากตารางข้อมูล:",
   "bảng:": "ตาราง:",
   "bể tối thiểu": "ตู้ขั้นต่ำ",
@@ -1133,5 +1132,14 @@
   "Ở công cụ nhận diện cá, trang web hoặc ứng dụng thu nhỏ ảnh bạn chọn (bỏ luôn thông tin kèm theo như vị trí GPS) rồi gửi tới máy chủ của chúng tôi, nơi ảnh được chuyển ngay tới Claude, mô hình AI của Anthropic, để nhận diện. Mặc định chúng tôi không lưu ảnh và không ghi ảnh vào nhật ký. Nếu bạn đánh dấu “Cho phép AquaTome giữ ảnh này để cải thiện nhận diện”, chúng tôi giữ ảnh cùng kết quả nhận diện trong 6 tháng để kiểm tra và cải thiện việc nhận diện. Chỉ quản trị viên xem được ảnh, ảnh không bao giờ hiện công khai và tự xóa sau 6 tháng. Ảnh gửi khi đã đăng nhập gắn với tài khoản của bạn, và bạn xóa được bất cứ lúc nào ở mục Tài khoản. Ảnh gửi khi chưa đăng nhập không gắn với ai: muốn xóa sớm, hãy liên hệ chúng tôi. Anthropic xử lý ảnh theo": "ในเครื่องมือระบุชนิดปลา เว็บไซต์หรือแอปจะย่อรูปที่คุณเลือก (และลบข้อมูลที่แนบมา เช่น ตำแหน่ง GPS) แล้วส่งไปยังเซิร์ฟเวอร์ของเรา ซึ่งส่งต่อให้ Claude โมเดล AI ของ Anthropic ระบุชนิดทันที โดยค่าเริ่มต้นเราไม่เก็บรูปและไม่บันทึกรูปลงในล็อก หากคุณเลือก “อนุญาตให้ AquaTome เก็บรูปนี้ไว้เพื่อปรับปรุงการระบุชนิด” เราจะเก็บรูปพร้อมผลการระบุชนิดไว้ 6 เดือนเพื่อตรวจสอบและปรับปรุงการระบุชนิด มีเพียงผู้ดูแลระบบของเราที่ดูรูปได้ รูปจะไม่แสดงต่อสาธารณะ และถูกลบอัตโนมัติหลัง 6 เดือน รูปที่ส่งขณะเข้าสู่ระบบจะผูกกับบัญชีของคุณ และคุณลบได้ทุกเมื่อในหัวข้อบัญชี รูปที่ส่งโดยไม่ได้เข้าสู่ระบบจะไม่ผูกกับใคร หากต้องการให้ลบเร็วกว่านั้น โปรดติดต่อเรา Anthropic ประมวลผลรูปตาม",
   "Chép link": "คัดลอกลิงก์",
   "Đã chép": "คัดลอกแล้ว",
-  "Ảnh: {author} trên {site}": "ภาพ: {author} บน {site}"
+  "Ảnh: {author} trên {site}": "ภาพ: {author} บน {site}",
+  "Chuẩn bị để nuôi {name}": "เตรียมของสำหรับเลี้ยง{name}",
+  "Để chống lạm dụng, máy chủ đếm số lần gửi bằng một mã băm có khóa của địa chỉ IP, xóa sau một ngày.": "เพื่อป้องกันการใช้งานในทางที่ผิด เซิร์ฟเวอร์จะนับจำนวนครั้งที่ส่งด้วยค่าแฮชแบบใช้คีย์ของที่อยู่ IP ซึ่งจะถูกลบหลังจากหนึ่งวัน",
+  "Mua đồ": "ซื้อของ",
+  "Tìm {name} trên": "ค้นหา {name} ใน",
+  "Tìm trên": "ค้นหาใน",
+  "Tìm trên sàn": "ค้นหาในร้านค้าออนไลน์",
+  "Tối thiểu {cm}": "อย่างน้อย {cm}",
+  "trên": "ใน",
+  "Lưu trên máy chủ (cơ sở dữ liệu Cloudflare D1): một mã tài khoản ngẫu nhiên; mã người dùng do Apple hoặc Google cấp, nếu bạn đăng nhập bằng họ; với email, chỉ một mã băm có khóa của địa chỉ; với passkey, mã nhận diện và khóa công khai của nó (vân tay, khuôn mặt hay mã PIN không bao giờ rời khỏi máy của bạn); các phiên đăng nhập (chỉ lưu mã băm); và các bể, đèn (tên và địa chỉ Bluetooth của đèn), lịch đèn bạn lưu.": "ข้อมูลที่จัดเก็บบนเซิร์ฟเวอร์ (ฐานข้อมูล Cloudflare D1): รหัสบัญชีแบบสุ่ม; รหัสผู้ใช้ที่ Apple หรือ Google ออกให้ หากคุณเข้าสู่ระบบผ่านบริการเหล่านั้น; สำหรับอีเมล จะเก็บเพียงค่าแฮชแบบใช้คีย์ของที่อยู่อีเมล; สำหรับ passkey จะเก็บรหัสระบุตัวตนและกุญแจสาธารณะของ passkey นั้น (ลายนิ้วมือ ใบหน้า หรือรหัส PIN จะไม่ออกจากอุปกรณ์ของคุณ); เซสชันการเข้าสู่ระบบ (เก็บเฉพาะค่าแฮช); รวมถึงตู้ปลา ไฟ (ชื่อและที่อยู่ Bluetooth ของไฟ) และตารางเวลาเปิดปิดไฟที่คุณบันทึกไว้"
 }

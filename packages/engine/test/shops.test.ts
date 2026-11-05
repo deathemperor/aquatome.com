@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { speciesOrder } from '../src/localize'
-import { addShopNames, makeShopList, popularFirst, shopIds, type ShopItem } from '../src/shops'
+import { addShopNames, makeShopList, popularFirst, shopIds, type ShopItem, type ShopLang } from '../src/shops'
 
 async function site() {
   const root = await mkdtemp(join(tmpdir(), 'shop-'))
@@ -12,7 +12,7 @@ async function site() {
   return root
 }
 const item = (trade: string, scientificName: string | null, confidence: number, name: string | null = trade): ShopItem => ({ trade, name, scientificName, confidence, evidence: '' })
-async function list(root: string, lang: 'vi' | 'id' | 'th', items: ShopItem[]) {
+async function list(root: string, lang: ShopLang, items: ShopItem[]) {
   await mkdir(join(root, 'engine-state/shop-lists'), { recursive: true })
   await writeFile(join(root, 'engine-state/shop-lists', `${lang}.json`), JSON.stringify({ lang, items, sources: [], updatedAt: '2026-10-31' }))
 }

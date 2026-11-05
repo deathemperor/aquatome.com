@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { getContent } from '../lib/content'
-import { localizePath, PAGES, routeIn, served } from '../lib/i18n'
+import { localizePath, OTHER_LANGS, PAGES, routeIn, served } from '../lib/i18n'
 import { categories, categoriesIn } from '../lib/equipment'
 import { GALLERY_MIN } from '../lib/gallery'
 import { videoChannels } from '../lib/video'
@@ -23,7 +23,7 @@ export const GET: APIRoute = async ({ site }) => {
     ...c.products.filter(p => p.t.quality.indexable).map(p => `/vi/san-pham/${p.t.slug}/`),
   ].map(p => localizePath('vi', p))
   // Other languages: their fixed pages and their indexable species, breed, photo, guide, plant (and its photos) and glossary pages.
-  for (const lang of ['id', 'th'] as const) {
+  for (const lang of OTHER_LANGS) {
     const t = await getContent(lang)
     paths.push(...PAGES[lang].filter(f => !f.includes('[')).map(f => `${routeIn(lang, f)}/`))
     if (served(lang, '/vi/ca/x/')) paths.push(...[...t.species, ...t.breeds].filter(s => s.t.quality.indexable).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/`)))

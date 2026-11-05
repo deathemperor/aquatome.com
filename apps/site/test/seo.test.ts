@@ -5,6 +5,7 @@ import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
 import { DIST, page } from './dist'
 import { VI_SECTIONS } from '../worker/paths'
+import { LANGS } from '@aq/schema/langs'
 
 const htmlFiles = (dir: string): string[] =>
   readdirSync(dir).flatMap(f => { const p = join(dir, f); return statSync(p).isDirectory() ? htmlFiles(p) : p.endsWith('.html') ? [p] : [] })
@@ -22,7 +23,7 @@ test('every vi page has exactly one canonical and a vi hreflang', () => {
 })
 test('every page has one non-empty h1', () => {
   // Every language's pages (not the redirects: /go/…).
-  const bad = ['vi', 'id', 'th'].flatMap(langFiles).filter(f => {
+  const bad = LANGS.flatMap(langFiles).filter(f => {
     const h1 = readFileSync(f, 'utf8').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g) ?? []
     return h1.length !== 1 || !h1[0]!.replace(/<[^>]+>/g, '').trim()
   })

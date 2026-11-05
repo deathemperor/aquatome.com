@@ -107,6 +107,8 @@ struct PageView: View {
   /// lists it, not a temperature the index may also have for it.
   private func facts(inPage: Bool) -> FactsCard? {
     if item.kind == .fish, item.facts.any { return FactsCard(facts: item.facts, inPage: inPage) }
+    // A breed checked as its species keeps its own figures apart, as its page's data card gives them.
+    if item.kind == .fish, let card = item.card, card.any { return FactsCard(facts: card, inPage: inPage) }
     if item.kind == .plant, let plant = item.plant, plant.any { return FactsCard(facts: .init(), plant: plant, inPage: inPage) }
     return nil
   }

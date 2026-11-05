@@ -339,6 +339,11 @@ final class HandbookModel {
         let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
       }
+      // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
+      if args.contains("-breeds") {
+        let f = HandbookIndex.fixture
+        return .fixed(HandbookIndex(lang: f.lang, items: f.items + HandbookIndex.fixtureBreeds, home: f.home, labels: f.labels, pages: f.pages))
+      }
       return .fixed(.fixture)
     }
     #endif
@@ -407,6 +412,14 @@ extension HandbookIndex {
     "growth": ["slow": "Chậm", "medium": "Vừa", "fast": "Nhanh"],
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
   ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
+
+  /// UI tests' breeds (`-breeds`): a form of the discus, as the site lists one: the species it's a form of, its own
+  /// figures as its page's data card gives them, and none of the tank-mates figures (a tank check counts it as the discus).
+  static let fixtureBreeds: [Item] = [
+    .init(kind: .fish, contentId: "pigeon-blood-discus", name: "Cá đĩa Pigeon Blood", path: "/vi/ca/ca-dia-pigeon-blood/",
+          of: "symphysodon-aequifasciatus",
+          card: .init(tempC: .init(min: 28, max: 30), ph: .init(min: 5.5, max: 7), sizeCm: 15, tankCm: 120, difficulty: 7)),
+  ]
 
   /// UI tests' pages: the neon guide as the site writes it (/app/pages/vi/guide-0.json), with each kind of block, links
   /// to the fixture's pages and a tool, a word's tip, and two parts in a row from a newer site the app can't draw; a

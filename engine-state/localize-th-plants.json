@@ -1644,6 +1644,60 @@
     "score": 0.95,
     "notes": []
   },
+  "nymphoides-hydrophylla": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "บัวไต้หวัน",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 1: \"Type: rhizomatous\" is rendered \"ไม้น้ำที่มีเหง้า\", but item 3 describes a rosette plant. Check that the source type is right. \"มีเหง้า\" is acceptable for the literal text, so keep it only if the source really says rhizomatous.",
+      "Item 3: \"The new plant grows from the plates of old leaves\" is translated literally as \"แผ่นใบของใบเก่า\", which is redundant and unclear. Use \"ต้นใหม่จะงอกจากแผ่นใบเก่า\" or \"ต้นใหม่งอกจากใบเก่า\".",
+      "Item 3: \"rosette plant\" is rendered \"ไม้น้ำทรงกอ\". A more common hobby term is \"ไม้น้ำทรงดอกกุหลาบ/โรเซตต์\". Consider \"ไม้น้ำทรงโรเซตต์ (rosette)\".",
+      "Item 2: \"it requires a lot of nourishment\" is rendered \"จะต้องการธาตุอาหารปริมาณมาก\", and the sentence reads awkwardly. Use \"ต้องการธาตุอาหารสูง/ต้องให้ปุ๋ยมาก\".",
+      "Item 3: \"variant\" is translated as \"สายพันธุ์\", which in Thai means strain or breed. Use \"รูปแบบ/ชนิดย่อย/โลคอลลิตี้\" or \"ตัวที่พบจากไต้หวัน\"."
+    ]
+  },
+  "peperomia-emarginella": {
+    "at": "2026-11-05",
+    "from": "2026-11-02",
+    "name": "เปเปอโรเมีย อีมาร์จิเนลลา",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"เท็กซ์เจอร์\" is a loanword; \"ลวดลายพื้นผิว\" or \"พื้นผิวใบ\" reads more naturally.",
+      "\"ป่าดิบ\" (evergreen forest) is imprecise for \"jungle\"; \"ป่าดงดิบ\" or \"ป่าเขตร้อน\" fits better.",
+      "\"ปักชำกิ่ง\" for \"stem cuttings\": \"ปักชำลำต้น/ข้อ\" or \"ตัดแบ่งลำต้นมาปักชำ\" is more natural.",
+      "\"ช่วยลดความแข็งของฮาร์ดสเคป\" is a little awkward; \"ช่วยให้ฮาร์ดสเคปดูอ่อนลง\" reads more smoothly.",
+      "The \"ปล่อยให้...ได้\" repetition in the growth-habit sentence is clumsy; vary the wording.",
+      "\"ซม.\" in item 1 is fine, no fix needed beyond consistency."
+    ]
+  },
+  "peperomia-prostrata": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "เปเปอโรเมีย สตริงออฟเทอร์เทิล",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"หลังปลูกได้สองเดือน\" adds \"after planting\"; the English only says \"after two months\" — use \"หลังผ่านไปสองเดือน\".",
+      "\"ใบเล็กกลมมีลวดลาย\" reads slightly choppy; \"ใบเล็กกลม\" could be \"ใบกลมขนาดเล็ก\".",
+      "\"เพาะเลี้ยงเนื้อเยื่อ (in vitro)\" is fine, but \"ตู้เทอร์ราเรียม\" could be shortened to \"เทอร์ราเรียม\" for more natural hobby usage.",
+      "\"ใช้งานได้หลากหลาย\" is slightly stiff; consider \"ปลูกจัดได้หลายรูปแบบ\"."
+    ]
+  },
+  "philodendron-sp-mini-midget": {
+    "at": "2026-11-05",
+    "from": "2026-11-03",
+    "name": "ฟิโลเดนดรอน มินิ มิดเจ็ท",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"พืชชนิดนี้ปลูกได้หลายแบบ\" for \"This versatile plant\" is fine, but \"ผูกติดกับขอนไม้\" is added specificity: the English says \"attached\", not \"tied\". Consider \"ติดกับ\" or \"ยึดกับ\".",
+      "\"ช่วยให้เทอร์ราเรียมดูเขียวชอุ่ม\" narrows \"any terrarium\" (\"any\" is lost). Consider \"เทอร์ราเรียมทุกแบบ\".",
+      "\"พืชดีที่หลายคนยังไม่รู้จัก\" is a stiff rendering of \"hidden gem\". Consider \"พืชน่าสนใจที่ยังไม่ค่อยมีใครรู้จัก\"."
+    ]
+  },
   "pogostemon-helferi": {
     "at": "2026-10-30",
     "from": "2026-10-30",

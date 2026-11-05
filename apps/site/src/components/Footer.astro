@@ -1,7 +1,7 @@
 ---
 import { partsHtml, unsplashLine } from '../lib/cite'
 import { groupCredits, type Credit } from '../lib/credits'
-import { i18n, LANG_NAME, served, type Lang } from '../lib/i18n'
+import { i18n, LANG, served, type Lang } from '../lib/i18n'
 import { isUnsplash } from '../lib/unsplash'
 /**
  * langs: this page in each language that has it (absolute URLs), for the language links. later: the page's script adds
@@ -26,7 +26,7 @@ const groups = groupCredits(credits).map(g => ({ ...g, unsplash: isUnsplash(g.li
     </nav>
     {langs.length > 1 && (
       <nav class="langs" aria-label={t('Ngôn ngữ')}>
-        {langs.map(([l, href], i) => <>{i > 0 && ' · '}{l === lang ? <span aria-current="page">{LANG_NAME[l]}</span> : <a href={href} hreflang={l} lang={l}>{LANG_NAME[l]}</a>}</>)}
+        {langs.map(([l, href], i) => <>{i > 0 && ' · '}{l === lang ? <span aria-current="page">{LANG[l].name}</span> : <a href={href} hreflang={LANG[l].html} lang={LANG[l].html}>{LANG[l].name}</a>}</>)}
       </nav>
     )}
   </div>

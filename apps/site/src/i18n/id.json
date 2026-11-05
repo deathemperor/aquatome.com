@@ -1052,7 +1052,6 @@
   "Ánh sáng bể": "Cahaya akuarium",
   "Không cần châm": "Tidak perlu injeksi",
   "Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.": "Tanaman ini belum punya sebagian informasi yang sedang Anda filter (cahaya, CO₂, posisi, atau tingkat kesulitan). Informasi yang ada sudah cocok, tetapi belum cukup untuk memastikan.",
-  "Lưu trên máy chủ (cơ sở dữ liệu Cloudflare D1): một mã tài khoản ngẫu nhiên; mã người dùng do Apple hoặc Google cấp, nếu bạn đăng nhập bằng họ; với email, chỉ một mã băm có khóa của địa chỉ; với passkey, mã nhận diện và khóa công khai của nó (vân tay, khuôn mặt hay mã PIN không bao giờ rời khỏi máy của bạn); các phiên đăng nhập (chỉ lưu mã băm); và các bể, đèn, lịch đèn bạn lưu.": "Disimpan di server (database Cloudflare D1): ID akun acak; ID pengguna dari Apple atau Google, jika Anda masuk dengan akun tersebut; untuk email, hanya hash berkunci dari alamatnya; untuk passkey, ID dan kunci publiknya (sidik jari, wajah, atau PIN Anda tidak pernah keluar dari perangkat Anda); sesi login (hanya hash-nya yang disimpan); serta akuarium, lampu, dan jadwal lampu yang Anda simpan.",
   "{source} ghi khác bảng dữ liệu:": "{source} mencatat angka yang berbeda dari tabel data:",
   "bảng:": "tabel:",
   "bể tối thiểu": "akuarium minimum",
@@ -1133,5 +1132,14 @@
   "Ở công cụ nhận diện cá, trang web hoặc ứng dụng thu nhỏ ảnh bạn chọn (bỏ luôn thông tin kèm theo như vị trí GPS) rồi gửi tới máy chủ của chúng tôi, nơi ảnh được chuyển ngay tới Claude, mô hình AI của Anthropic, để nhận diện. Mặc định chúng tôi không lưu ảnh và không ghi ảnh vào nhật ký. Nếu bạn đánh dấu “Cho phép AquaTome giữ ảnh này để cải thiện nhận diện”, chúng tôi giữ ảnh cùng kết quả nhận diện trong 6 tháng để kiểm tra và cải thiện việc nhận diện. Chỉ quản trị viên xem được ảnh, ảnh không bao giờ hiện công khai và tự xóa sau 6 tháng. Ảnh gửi khi đã đăng nhập gắn với tài khoản của bạn, và bạn xóa được bất cứ lúc nào ở mục Tài khoản. Ảnh gửi khi chưa đăng nhập không gắn với ai: muốn xóa sớm, hãy liên hệ chúng tôi. Anthropic xử lý ảnh theo": "Pada alat identifikasi ikan, situs atau aplikasi mengecilkan foto yang Anda pilih (sekaligus membuang data yang menyertainya, seperti posisi GPS) lalu mengirimnya ke server kami, yang langsung meneruskannya ke Claude, model AI dari Anthropic, untuk dikenali. Secara bawaan kami tidak menyimpan foto itu dan tidak mencatatnya di log. Jika Anda mencentang “Izinkan AquaTome menyimpan foto ini untuk meningkatkan identifikasi”, kami menyimpan foto beserta hasil identifikasinya selama 6 bulan untuk memeriksa dan meningkatkan identifikasi. Hanya admin kami yang dapat melihat foto itu; foto tidak pernah ditampilkan untuk umum dan terhapus otomatis setelah 6 bulan. Foto yang dikirim saat Anda masuk terhubung ke akun Anda, dan Anda dapat menghapusnya kapan saja di bagian Akun. Foto yang dikirim tanpa masuk tidak terhubung ke siapa pun: untuk menghapusnya lebih cepat, hubungi kami. Anthropic memproses foto sesuai",
   "Chép link": "Salin tautan",
   "Đã chép": "Tersalin",
-  "Ảnh: {author} trên {site}": "Foto: {author} di {site}"
+  "Ảnh: {author} trên {site}": "Foto: {author} di {site}",
+  "Chuẩn bị để nuôi {name}": "Persiapan memelihara {name}",
+  "Để chống lạm dụng, máy chủ đếm số lần gửi bằng một mã băm có khóa của địa chỉ IP, xóa sau một ngày.": "Untuk mencegah penyalahgunaan, server menghitung jumlah pengiriman dengan hash berkunci dari alamat IP, yang dihapus setelah satu hari.",
+  "Mua đồ": "Belanja",
+  "Tìm {name} trên": "Cari {name} di",
+  "Tìm trên": "Cari di",
+  "Tìm trên sàn": "Cari di marketplace",
+  "Tối thiểu {cm}": "Minimal {cm}",
+  "trên": "di",
+  "Lưu trên máy chủ (cơ sở dữ liệu Cloudflare D1): một mã tài khoản ngẫu nhiên; mã người dùng do Apple hoặc Google cấp, nếu bạn đăng nhập bằng họ; với email, chỉ một mã băm có khóa của địa chỉ; với passkey, mã nhận diện và khóa công khai của nó (vân tay, khuôn mặt hay mã PIN không bao giờ rời khỏi máy của bạn); các phiên đăng nhập (chỉ lưu mã băm); và các bể, đèn (tên và địa chỉ Bluetooth của đèn), lịch đèn bạn lưu.": "Disimpan di server (database Cloudflare D1): ID akun acak; ID pengguna dari Apple atau Google, jika Anda masuk dengan akun tersebut; untuk email, hanya hash berkunci dari alamatnya; untuk passkey, ID dan kunci publiknya (sidik jari, wajah, atau PIN Anda tidak pernah keluar dari perangkat Anda); sesi login (hanya hash-nya yang disimpan); serta akuarium, lampu (nama dan alamat Bluetooth lampu), dan jadwal lampu yang Anda simpan."
 }

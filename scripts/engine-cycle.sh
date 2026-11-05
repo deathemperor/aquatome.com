@@ -171,7 +171,9 @@ if part rewrite; then
   # Where each species lives in the wild (range.ts): the countries and regions its sources name, each country with the
   # source's sentence (engine-state/range/), RANGE_LIMIT model calls a cycle for species whose sources' text is new or
   # changed; then its wild records on GBIF (open licences only), RANGE_RECORDS species a cycle, each again monthly.
-  pnpm engine range --limit "${RANGE_LIMIT:-20}" --records "${RANGE_RECORDS:-20}" || log "range: failed"
+  # 60 a cycle (a Sonnet call each, about 12 GBIF requests each): the 1,458 species' maps in about 3 days, not 9
+  # (owner, 2026-11-06: the maps weren't showing on the web yet; 60 had them).
+  pnpm engine range --limit "${RANGE_LIMIT:-60}" --records "${RANGE_RECORDS:-60}" || log "range: failed"
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.

@@ -158,6 +158,12 @@ test('a page the app index leaves out is in no "pages" block; a link to it in th
   expect(block('loc-cho-be-nano')).toContain('/vi/huong-dan/thay-nuoc-dung-cach/')
 })
 
+// The owner approved the privacy page's text for the app's anonymous statistics (2026-11-06): every language's index
+// lets the app send them (protocols/app-telemetry.openapi.json; a reader can still turn them off in the app).
+test('every language\'s index turns the app\'s anonymous statistics on', () => {
+  for (const lang of LANGS) expect((JSON.parse(readFileSync(`${DIST}/app/${lang}.json`, 'utf8')) as { telemetry?: boolean }).telemetry, lang).toBe(true)
+})
+
 test('each page of each kind is in the shard its path names, the shards hold nothing else, and every page they name is listed', async () => {
   let kinds = 0
   for (const lang of LANGS) {

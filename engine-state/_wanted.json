@@ -55,6 +55,17 @@
     "mentions": 14,
     "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
   },
+  "epipremnum-aureum": {
+    "name": "Epipremnum aureum",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-plants-for-african-cichlids",
+      "guides/aquariumcoop-blogs-aquarium-pothos",
+      "guides/youtube-0i9qSwTrXIc",
+      "guides/youtube-FQzWS0GwGvM",
+      "guides/youtube-FaGycOl_GyA"
+    ],
+    "mentions": 13
+  },
   "crossocheilus-oblongus": {
     "name": "Crossocheilus oblongus",
     "mentionedIn": [
@@ -65,17 +76,6 @@
       "guides/youtube-dTkvCEn1xHA"
     ],
     "mentions": 15
-  },
-  "epipremnum-aureum": {
-    "name": "Epipremnum aureum",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-plants-for-african-cichlids",
-      "guides/aquariumcoop-blogs-aquarium-pothos",
-      "guides/youtube-0i9qSwTrXIc",
-      "guides/youtube-FQzWS0GwGvM",
-      "guides/youtube-FaGycOl_GyA"
-    ],
-    "mentions": 11
   },
   "panaque-nigrolineatus": {
     "name": "Panaque nigrolineatus",
@@ -736,6 +736,15 @@
     ],
     "mentions": 3
   },
+  "arapaima-gigas": {
+    "name": "Arapaima gigas",
+    "mentionedIn": [
+      "guides/youtube-HRHGNurFb8Y",
+      "guides/youtube-YtbwYLCWjhA",
+      "guides/youtube-Yv6gkqeQ0aE"
+    ],
+    "mentions": 3
+  },
   "schistura-latifasciata": {
     "name": "Schistura latifasciata",
     "mentionedIn": [
@@ -1106,19 +1115,19 @@
     ],
     "mentions": 2
   },
+  "trachelyopterus-galeatus": {
+    "name": "Trachelyopterus galeatus",
+    "mentionedIn": [
+      "guides/youtube-025oy0MtL-s",
+      "species/agamyxis-pectinifrons"
+    ],
+    "mentions": 2
+  },
   "arthrospira-platensis": {
     "name": "Arthrospira platensis",
     "mentionedIn": [
       "guides/youtube-9Ve-eoniVlw",
       "guides/youtube-rXQS95MHmTk"
-    ],
-    "mentions": 2
-  },
-  "arapaima-gigas": {
-    "name": "Arapaima gigas",
-    "mentionedIn": [
-      "guides/youtube-HRHGNurFb8Y",
-      "guides/youtube-Yv6gkqeQ0aE"
     ],
     "mentions": 2
   },
@@ -2630,6 +2639,14 @@
     ],
     "mentions": 1
   },
+  "synodontis-multipunctatus": {
+    "name": "Synodontis multipunctatus",
+    "mentionedIn": [
+      "guides/youtube-025oy0MtL-s"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/synodontis-multipunctatus"
+  },
   "cryptocoryne-nevillii": {
     "name": "Cryptocoryne nevillii",
     "mentionedIn": [
@@ -2650,6 +2667,14 @@
       "guides/youtube-9zhkRJllCNg"
     ],
     "mentions": 1
+  },
+  "electrophorus-electricus": {
+    "name": "Electrophorus electricus",
+    "mentionedIn": [
+      "guides/youtube-AqBogTwt6c4"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/electrophorus-electricus"
   },
   "cyperus-alternifolius": {
     "name": "Cyperus alternifolius",
@@ -2908,13 +2933,6 @@
     "name": "Acrossocheilus longipinnis",
     "mentionedIn": [
       "species/acrossocheilus-iridescens"
-    ],
-    "mentions": 1
-  },
-  "trachelyopterus-galeatus": {
-    "name": "Trachelyopterus galeatus",
-    "mentionedIn": [
-      "species/agamyxis-pectinifrons"
     ],
     "mentions": 1
   },

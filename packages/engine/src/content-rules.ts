@@ -1,11 +1,11 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import { headingRoles, imperialLeft, ownNumber, type DataCardField, type Lang } from '@aq/schema'
+import { headingRoles, imperialLeft, LANGS, ownNumber, type DataCardField, type Lang } from '@aq/schema'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
-import { pageUrl, type Page, type PageKind } from './pages'
+import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
 
 /**
  * Rules every published page is checked against, every cycle, in each language (`pnpm engine audit`). Each is a small
@@ -650,7 +650,7 @@ Indonesian and Thai (\`packages/engine/src/content-rules.ts\`, docs/governance.m
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (\`pnpm engine sweep\`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: ${pages.length} (Vietnamese ${per('vi')}, Indonesian ${per('id')}, Thai ${per('th')}). Imperial units
+Pages checked: ${pages.length} (${LANGS.map(l => `${LANG_NAME[l]} ${per(l)}`).join(', ')}). Imperial units
 beside a metric figure: ${[...beside].sort().map(([u, n]) => `${u} ${n}`).join(', ') || 'none'}.
 ${r.errors.length ? `\nRules that failed on a page (fix the rule):\n\n${r.errors.map(e => `- ${md(e)}`).join('\n')}\n` : ''}
 ${sections.join('\n')}`
@@ -676,7 +676,7 @@ export async function fixStored(contentRoot: string): Promise<string[]> {
   const changed: string[] = []
   for (const kind of ['species', 'plants', 'guides', 'breeds', 'glossary', 'products']) {
     for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
-      for (const lang of ['vi', 'id', 'th']) {
+      for (const lang of LANGS) {
         const file = join(contentRoot, kind, id, `${lang}.json`)
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue

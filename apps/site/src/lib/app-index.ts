@@ -86,6 +86,8 @@ export type AppIndex = {
   shards?: Partial<Record<PageDoc['kind'], KindShards>>
   /** The countries the items' `range` names (native, and outside), by code, A to Z, named in this language. None when none does. */
   countries?: Record<string, AppCountry>
+  /** What's new for the app (lib/app-latest.ts), where this language's site has /vi/moi-cap-nhat/. */
+  latest?: string
 }
 /**
  * The guides the index lists in this language, and the app has pages of (lib/app-page.ts): every one the site lists (the
@@ -238,7 +240,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   home.groups = home.groups.filter(g => groups.has(g.id))
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
-  return { version: 1, lang, items, home, labels, places, ...(codes.length ? { countries: Object.fromEntries(codes.map(code => [code, nameOf(code)])) } : {}) }
+  return {
+    version: 1, lang, items, home, labels, places,
+    ...(codes.length ? { countries: Object.fromEntries(codes.map(code => [code, nameOf(code)])) } : {}),
+    ...(served(lang, '/vi/moi-cap-nhat/') ? { latest: `/app/latest/${lang}.json` } : {}),
+  }
 }
 
 /**
