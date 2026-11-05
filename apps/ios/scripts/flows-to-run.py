@@ -11,9 +11,8 @@ Otherwise the changed paths of a pull request come on stdin, one a line. A pull 
 - every flow, when it changes what selects and runs the flows, or the flows' shared code (MACHINERY).
 The lists it reads (flow_lists.py: which job runs a class, and what each path can reach) aren't among them: a change to
 them alone runs no flow, and `--test` checks them on every run. The other flows its change can reach (REACH) run on main
-after the merge, and nightly; `left=` names their classes, for
-a notice. The owner's call of 2026-11-05: a pull request's run of every flow it reached held GitHub's Macs for one to
-two and a half hours.
+after the merge, and nightly; `left=` names their classes, for a notice. The owner's call of 2026-11-05: a pull
+request's run of every flow it reached held GitHub's Macs for one to two and a half hours.
 
 Prints `app=[halves]`, `app_1=`, `app_2=`, `handbook=[halves]`, `handbook_1=`, `handbook_2=`, `lights=[halves]`,
 `lights_1=`, `lights_2=` and `left=` for $GITHUB_OUTPUT: a job's half with no arguments is left out, and a job with no
