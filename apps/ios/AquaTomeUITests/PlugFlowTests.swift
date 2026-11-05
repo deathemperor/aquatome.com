@@ -248,7 +248,7 @@ final class PlugFlowTests: XCTestCase {
   @discardableResult
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) -> XCUIElement {
     _ = e.waitForExistence(timeout: 3)
-    for _ in 0..<8 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 8) {
       app.swipeUp()
       _ = e.waitForExistence(timeout: 1)
     }

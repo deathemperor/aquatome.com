@@ -69,7 +69,7 @@ final class NativePageFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
-    for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    repeatUntil(guide.exists && guide.isHittable, times: 6) { app.swipeUp() }
     guide.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the guide isn't drawn by the app")
     let neon = app.links["neon"].firstMatch
@@ -300,7 +300,7 @@ final class NativePageFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
-    for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    repeatUntil(guide.exists && guide.isHittable, times: 6) { app.swipeUp() }
     guide.tap()
     app.links["neon"].firstMatch.tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the link didn't open the fish")
@@ -497,7 +497,7 @@ final class NativePageFlowTests: XCTestCase {
   /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past; only down, so parts found
   /// one after another are in that order on the page.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<24 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

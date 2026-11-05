@@ -57,7 +57,7 @@ final class TankCheckFlowTests: XCTestCase {
   /// rows near the screen) and says whether it's there. Only down: reveal from the top of the screen to the bottom.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) -> Bool {
     if e.waitForExistence(timeout: 5) && e.isHittable { return true }
-    for _ in 0..<4 where !(e.exists && e.isHittable) { app.swipeUp() }
+    repeatUntil(e.exists && e.isHittable, times: 4) { app.swipeUp() }
     return e.exists
   }
 

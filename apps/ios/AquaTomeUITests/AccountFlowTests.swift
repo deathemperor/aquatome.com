@@ -170,7 +170,7 @@ final class AccountFlowTests: XCTestCase {
   private func tap(_ app: XCUIApplication, _ id: String) {
     let e = element(app, id)
     XCTAssertTrue(e.waitForExistence(timeout: 5), "no \(id)")
-    for _ in 0..<5 where !e.isHittable { app.swipeUp() }
+    repeatUntil(e.isHittable, times: 5) { app.swipeUp() }
     e.tap()
   }
 
