@@ -667,6 +667,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `AppIconFlowTests`: the app's icon chosen from its picker (every icon listed in the app with a preview to draw, none unlisted) and the default again.
 
+- `AppLinkFlowTests`: the app opened from a web page as the site's "Mở trong ứng dụng" opens it (`aquatome://open?url=<a page>`, Vietnamese at the site's root): opening the app, a page it draws once its index is read; while it runs, a tool's tab, a page it has no screen for as its web page on the Tìm tab, a bare `aquatome://` back at the home, and another site's address changing nothing.
+
 - `FactsCardFlowTests`: a fish's facts under its name as the site's data card writes them (its lifespan after its size, one figure when the sources give one, none when they give none; three to a row, the last never alone; the difficulty read as its badge, "Độ khó 2/8: dễ"), the sources behind them and the page's credit under them, as a row with the same badge over a web page, a breed's own figures on its and a plant's care on its.
 
 - `FishIdFlowTests`: the fish-ID tool opening the app's own screen (a photo picked and sent as the reader's account, a fish boxed and only that part sent, cut from the photo at full size, the guesses as the site shows them, a guess's page and its genus's pages opening in the app and back from one the guesses and the box as they were, signed out the sign-in first and then the tool with the photo kept, the account's day used up, the site's day used up, accounts off and no network each said in the site's words, a long wait said as it goes with the photo kept as it was, no answer in the request's time not taken for no network, a session refused while still signed in said).

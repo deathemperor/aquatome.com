@@ -19,7 +19,11 @@ picked for it has a Smart Life timer that cuts its power, which stops the light'
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
-just saved. The fish-ID tool is the app's own screen too (`FishIdView`): a photo from the library or the camera, one fish
+just saved. A Vietnamese page is read in either form, at the site's root as it's served or as /vi/…, as the app index
+lists it. A web page opens the app with `aquatome://open?url=<the page's address, percent-encoded>` (the site's "Mở
+trong ứng dụng", `AppLink`): the page on the Tìm tab, as a link in a page opens it (a tool's on its tab, a shop outside),
+else its web page; a bare `aquatome://` or the site's home opens the app's home, and anything but aquatome.com's pages
+over https is ignored. The scheme is declared in `Config/AquaTome-Info.plist`, merged with the keys Xcode writes. The fish-ID tool is the app's own screen too (`FishIdView`): a photo from the library or the camera, one fish
 boxed on it if the reader likes, shrunk and stripped as the site's page sends it, and sent as the reader's aquatome.com
 account (`protocols/fishid.openapi.json`: a bearer in place of the page's Turnstile check, counted per account); the
 guesses as the site shows them, each page opening in the app. Signed out, the sign-in comes first. Claude has up to
