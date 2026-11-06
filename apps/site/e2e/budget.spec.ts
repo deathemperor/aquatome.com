@@ -75,6 +75,9 @@ test('setup budget: fits a 320 px phone in every language; shop links only where
     // The three tiers stay one control, on one row, with the longest names (Indonesian's broke onto two rows once).
     const tops = await page.locator('.seg').evaluateAll(els => els.map(e => Math.round(e.getBoundingClientRect().top)))
     expect(new Set(tops).size, `${path}: the tiers on one row`).toBe(1)
+    // …and each name whole inside its own segment ("Menengah" ran under "Premium" once).
+    const cut = await page.locator('.seg').evaluateAll(els => els.filter(e => e.scrollWidth > e.clientWidth).map(e => e.textContent))
+    expect(cut, `${path}: tier names cut off`).toEqual([])
     expect(await page.locator('a[data-go]').count(), path).toBe(path === PATH ? 7 : 0)
     // Everything the script writes is in the page's language too, every optional row shown.
     if (path !== PATH) {

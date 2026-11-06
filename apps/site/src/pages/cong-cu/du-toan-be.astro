@@ -260,7 +260,7 @@ const countries: Country[] = ['vn', 'id', 'th']
   /* Three equal segments on one row however long a language's names: a name wraps inside its own. */
   .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .seg { position: relative; display: grid; }
-  .seg span { display: flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: var(--space-1) var(--space-2); border: 1px solid var(--c-rule); margin-left: -1px; font-weight: 500; text-align: center; cursor: pointer; }
+  .seg span { display: flex; align-items: center; justify-content: center; min-width: 0; overflow-wrap: break-word; min-height: 2.75rem; padding: var(--space-1) var(--space-2); border: 1px solid var(--c-rule); margin-left: -1px; font-weight: 500; text-align: center; cursor: pointer; }
   .seg:first-of-type span { border-radius: 8px 0 0 8px; margin-left: 0; }
   .seg:last-of-type span { border-radius: 0 8px 8px 0; }
   .seg:has(input:checked) span { position: relative; background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
@@ -307,5 +307,5 @@ const countries: Country[] = ['vn', 'id', 'th']
   .how p { color: var(--c-ink-soft); max-width: var(--measure); font-size: 0.95rem; }
   .how h2 { padding-bottom: var(--space-2); border-bottom: 1px solid var(--c-rule); margin-bottom: var(--space-3); }
   /* A 320 px phone: prices may wrap their unit under the number rather than push the page sideways. */
-  @media (max-width: 22rem) { .price { white-space: normal; } .where { margin-left: 0; } }
+  @media (max-width: 22rem) { .price { white-space: normal; } .where { margin-left: 0; } .seg span { font-size: 0.875rem; padding-inline: var(--space-1); } }
 </style>
