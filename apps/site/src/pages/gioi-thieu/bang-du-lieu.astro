@@ -79,10 +79,9 @@ const h = (f: keyof typeof FIELD_ANCHORS) => ({ id: FIELD_ANCHORS[f] })
   <h2 id={CONFLICT_ANCHOR}>{t('Khi các nguồn ghi khác nhau')}</h2>
   <p>{t('Một chấm đỏ cạnh tên ô nghĩa là các nguồn ghi số khác nhau. Mở "Nguồn và độ tin cậy" dưới bảng để xem số của từng nguồn. Bảng chỉ ghi một số, chọn như sau:')}</p>
   <ul>
-    <li><TextFigures text={t('Khi các nguồn ghi khoảng khác nhau, như nhiệt độ, pH hay độ cứng, bảng ghi trọn khoảng mà các nguồn đưa ra. Một nguồn ghi {a}, nguồn khác ghi {b} thì bảng ghi {c}. Mục "Nguồn và độ tin cậy" ghi mức của từng nguồn.')} vars={{ a: { c: [23, 27] }, b: { c: [24, 30] }, c: { c: [23, 30] } }} /></li>
-    <li>{t('Độ khó lấy mức dễ nhất mà một nguồn chấm. Kích thước và bể tối thiểu lấy số của Seriously Fish nếu nguồn này có ghi.')}</li>
-    <li>{t('Không có Seriously Fish thì bảng ghi con số lớn nhất.')}</li>
-    <li>{t('Tuổi thọ lấy số của Seriously Fish nếu có, không thì khoảng rộng nhất: một nguồn ghi 3–5 năm, nguồn khác ghi 5–8 năm thì bảng ghi 3–8 năm.')}</li>
+    <li><TextFigures text={t('Khi các nguồn ghi số khác nhau, như nhiệt độ, pH, kích thước hay bể tối thiểu, bảng lấy số của Seriously Fish, nguồn ghi chi tiết và dẫn nguồn kỹ nhất. Một nguồn ghi {a}, Seriously Fish ghi {b} thì bảng ghi {c}. Mục "Nguồn và độ tin cậy" ghi mức của từng nguồn.')} vars={{ a: { c: [23, 27] }, b: { c: [24, 30] }, c: { c: [24, 30] } }} /></li>
+    <li>{t('Độ khó lấy mức dễ nhất mà một nguồn chấm, để một nguồn chấm khắt khe không làm loài dễ nuôi thành khó.')}</li>
+    <li>{t('Không có Seriously Fish thì bảng ghi khoảng rộng nhất, hay con số lớn nhất.')}</li>
   </ul>
   <p>{t('Số nào rõ ràng sai thì không lên bảng, như °F ghi nhầm thành °C, hay bể ngắn hơn hai lần chiều dài cá.')}</p>
 </Doc>

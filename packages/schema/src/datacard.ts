@@ -4,10 +4,9 @@ const isRange = (v: Range | number): v is Range => typeof v === 'object'
 
 /**
  * One value for a field from what each source gives; every page shows this one value, so a species' numbers agree
- * wherever they appear. Sources that give different ranges: the full span they give between them (the owner,
- * 2026-11-06: the part they all accept could be a 1 °C window, and the tank form turned away fish the cards call easy).
- * A lifespan is no care target: Seriously Fish's when it gives one, else the widest. Difficulty: the easiest rating a
- * source gives (the owner, 2026-11-06). Other numbers: Seriously Fish's, else the largest.
+ * wherever they appear. Sources that disagree: Seriously Fish's figure when it gives one, the most detailed and cited
+ * of them (the owner, 2026-11-06), else the full span of their ranges, or the largest number. Difficulty: the easiest
+ * rating a source gives (the owner, 2026-11-06), so one source's strict rating doesn't make an easy fish read hard.
  */
 export function resolveDataCard<S extends string>(values: { source: S; value: Range | number }[], field: DataCardField): { value: Range | number; sources: S[]; conflict: boolean } | null {
   if (values.length === 0) return null
@@ -17,9 +16,8 @@ export function resolveDataCard<S extends string>(values: { source: S; value: Ra
   const conflict = new Set(values.map(v => key(v.value))).size > 1
   const ranges = values.map(v => v.value).filter(isRange)
   const numbers = values.map(v => v.value).filter((v): v is number => !isRange(v))
-  const span = (): Range => ({ min: Math.min(...ranges.map(r => r.min)), max: Math.max(...ranges.map(r => r.max)) })
   if (field === 'difficulty' && numbers.length) return { value: Math.min(...numbers), sources, conflict }
-  if (field !== 'lifeYears' && ranges.length === values.length) return { value: span(), sources, conflict }
   if (sf) return { value: sf.value, sources, conflict }
-  return { value: ranges.length ? span() : Math.max(...numbers), sources, conflict }
+  const value: Range | number = ranges.length ? { min: Math.min(...ranges.map(r => r.min)), max: Math.max(...ranges.map(r => r.max)) } : Math.max(...numbers)
+  return { value, sources, conflict }
 }

@@ -90,7 +90,7 @@ test("the home page's videos: one of each subject before a second of any", async
   const { homeVideos } = await import('../src/lib/video')
   const c = await getContent('vi')
   const g = c.guides.find(x => x.video?.series && x.video.figures?.some(f => f.photo))!
-  const part = (id: string, kind: string, position: number) => ({ ...g, id, kind, video: { ...g.video!, series: { ...g.video!.series!, position } } })
+  const part = (id: string, kind: typeof g.kind, position: number): typeof g => ({ ...g, id, kind, video: { ...g.video!, series: { ...g.video!.series!, position } } })
   const guides = [part('build-1', 'setup', 0), part('build-2', 'setup', 1), part('build-3', 'setup', 2), part('plants', 'plantCare', 3)]
   expect(homeVideos({ ...c, guides: [...guides, ...c.guides.filter(x => !x.video)] }, 2).map(v => v.id)).toEqual(['build-1', 'plants'])
 })

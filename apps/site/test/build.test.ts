@@ -10,9 +10,9 @@ describe('species page', () => {
     expect(html).toContain('Paracheirodon axelrodi')
     expect(dom.querySelector('a[href="https://www.seriouslyfish.com/species/paracheirodon-axelrodi"]')).not.toBeNull()
   })
-  test('sources disagree on temperature: the full span they give, each source one tap away', () => {
+  test('sources disagree on temperature: Seriously Fish\'s range, each source one tap away', () => {
     const t = dom.querySelector('.card [data-field="tempC"][data-conflict="true"]')!
-    expect(t.querySelector('.v')?.text).toBe('23–30°C') // Seriously Fish 24–30, Glaser 23–27
+    expect(t.querySelector('.v')?.text).toBe('24–30°C') // Seriously Fish 24–30, Glaser 23–27
     // Only the cell the sources disagree on is marked; one toggle per card holds every value's sources.
     expect(dom.querySelectorAll('.card [data-conflict]').map(c => c.getAttribute('data-field'))).toEqual(['tempC'])
     expect(dom.querySelectorAll('.card .mark').length).toBe(1)
@@ -33,7 +33,7 @@ describe('species page', () => {
     expect(order(top.querySelector('.side')!)).toEqual(['photo', 'strip'])
     const facts = top.querySelectorAll('.id .keyfacts > div')
     expect(facts.map(f => f.getAttribute('data-field'))).toEqual(['tempC', 'ph', 'tankCm', 'difficulty'])
-    expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('23,30') // the card's resolved range, °F toggle too
+    expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,30') // the card's resolved range, °F toggle too
     expect(facts[2]!.querySelector('[data-cm]')?.text).toBe('60 cm')
     expect(facts[3]!.querySelector('dd')?.text.trim()).toBe('Dễ')
   })
@@ -66,12 +66,13 @@ describe('species page', () => {
   })
   test('a block stating a figure the card shows otherwise says which source it follows, with both figures', () => {
     const note = dom.querySelector('section[data-section="waterConditions"] p.off')!
-    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 23–30°C).')
-    expect(note.getAttribute('data-source')).toBe('seriouslyfish')
+    // The card is Seriously Fish's 24–30 °C; Glaser's block says 23–27 °C.
+    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Aquarium Glaser ghi khác bảng dữ liệu: nhiệt độ 23–27°C (bảng: 24–30°C).')
+    expect(note.getAttribute('data-source')).toBe('glaser')
     expect(note.getAttribute('data-pagefind-ignore')).not.toBeNull()
-    expect(note.querySelectorAll('[data-c]').map(x => x.getAttribute('data-c'))).toEqual(['24,30', '23,30']) // °F toggle too
-    expect(note.nextElementSibling?.getAttribute('data-source')).toBe('seriouslyfish') // above its own block
-    expect(dom.querySelectorAll('p.off').length).toBe(1) // pH 4–6 is the card's own figure: nothing to say
+    expect(note.querySelectorAll('[data-c]').map(x => x.getAttribute('data-c'))).toEqual(['23,27', '24,30']) // °F toggle too
+    expect(note.nextElementSibling?.getAttribute('data-source')).toBe('glaser') // above its own block
+    expect(dom.querySelectorAll('p.off').length).toBe(1) // Seriously Fish's block states the card's own figures: nothing to say
   })
   test('the phone\'s key facts mark a value the sources disagree on, as the card does', () => {
     expect(dom.querySelectorAll('.keyfacts [data-conflict]').map(x => x.getAttribute('data-field'))).toEqual(['tempC'])
@@ -202,7 +203,7 @@ describe('browse pages', () => {
     expect(result.getAttribute('data-total')).toBe('9')
     expect(JSON.parse(readFileSync(`${DIST}/data/vi/species.json`, 'utf8'))).toHaveLength(9)
     expect(dom.querySelector('#species-index')).toBeNull()
-    expect(page('/ca/ca-neon-vua/').html).toMatch(/data-c="23,30"/)
+    expect(page('/ca/ca-neon-vua/').html).toMatch(/data-c="24,30"/)
     expect(html).toContain('data-units-toggle')
   })
   // The angelfish card ended at its Latin name, beside cards with figures, and read as unfinished (page review 2026-11-01).

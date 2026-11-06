@@ -71,12 +71,10 @@ test('states: the figure as each language writes it, with its unit', () => {
 
 test('figuresOffCard: what a block states that the card shows otherwise, never what it agrees on', () => {
   const water = '<ul><li>Nhiệt độ: 23–29 °C</li><li>pH: 3,5–7,5, nhưng cá hoang dã sống khỏe nhất ở nước có tính axit hơn.</li><li>Độ cứng: 1–12 dGH.</li></ul>'
-  // The card spans both sources: Seriously Fish's temperature and pH are its own, its hardness only part of it.
-  expect(figuresOffCard(neon, 'seriouslyfish', water)).toEqual([{ field: 'gh', own: { min: 1, max: 12 }, card: { min: 0, max: 12 } }])
-  // The Spruce Pets' narrower range is inside the card's, and reads otherwise.
+  // The card is Seriously Fish's: its own block has nothing to say.
+  expect(figuresOffCard(neon, 'seriouslyfish', water)).toEqual([])
+  // The Spruce Pets' range is not the card's.
   expect(figuresOffCard(neon, 'sprucepets', '<p>Nhiệt độ có thể dao động trong khoảng 23 đến 27 °C.</p>')).toEqual([{ field: 'tempC', own: { min: 23, max: 27 }, card: { min: 23, max: 29 } }])
-  // A block that states the card's own range: nothing to say.
-  expect(figuresOffCard(neon, 'seriouslyfish', '<p>Nhiệt độ: 23–29 °C.</p>')).toEqual([])
   // Cá chạch bùn: Loaches Online says 25 cm, the card 30 cm (The Spruce Pets').
   const loach = { sizeCm: [{ source: 'loachesonline', value: 25 }, { source: 'sprucepets', value: 30 }] }
   expect(figuresOffCard(loach, 'loachesonline', '<p>Cá trưởng thành có thể dài tới 25 cm.</p>')).toEqual([{ field: 'sizeCm', own: 25, card: 30 }])

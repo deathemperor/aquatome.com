@@ -4,12 +4,12 @@ import { resolveDataCard, type SourcedValue } from '../src/index'
 const sf: SourcedValue = { source: 'seriouslyfish', value: { min: 24, max: 30 } }
 const pc: SourcedValue = { source: 'planetcatfish', value: { min: 22, max: 28 } }
 
-test('ranges that disagree: the full span every source gives (the owner, 2026-11-06), Seriously Fish listed first', () => {
-  expect(resolveDataCard([pc, sf], 'tempC')).toEqual({ value: { min: 22, max: 30 }, sources: ['seriouslyfish', 'planetcatfish'], conflict: true })
-  // Paradise fish: 10–22 and 21–28 °C was 21–22 °C, a window no keeper would recognise.
-  expect(resolveDataCard([{ source: 'seriouslyfish', value: { min: 10, max: 22 } }, { source: 'bwaquatics', value: { min: 21, max: 28 } }], 'tempC')?.value).toEqual({ min: 10, max: 28 })
+test('ranges that disagree: Seriously Fish\'s (the owner, 2026-11-06), listed first; without it, the full span', () => {
+  expect(resolveDataCard([pc, sf], 'tempC')).toEqual({ value: { min: 24, max: 30 }, sources: ['seriouslyfish', 'planetcatfish'], conflict: true })
+  // Paradise fish: 10–22 and 21–28 °C was 21–22 °C, the part both accept.
+  expect(resolveDataCard([{ source: 'seriouslyfish', value: { min: 10, max: 22 } }, { source: 'bwaquatics', value: { min: 21, max: 28 } }], 'tempC')?.value).toEqual({ min: 10, max: 22 })
   const cold: SourcedValue = { source: 'glaser', value: { min: 16, max: 22 } }
-  expect(resolveDataCard([cold, sf], 'ph')?.value).toEqual({ min: 16, max: 30 })
+  expect(resolveDataCard([cold, pc], 'ph')?.value).toEqual({ min: 16, max: 28 })
 })
 test('identical values are not a conflict', () => {
   expect(resolveDataCard([pc, { ...pc, source: 'glaser' }], 'tempC')?.conflict).toBe(false)

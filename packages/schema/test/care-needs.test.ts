@@ -32,11 +32,11 @@ test('discus: a 120 cm tank, acid water and warm water only are each hard', () =
   ])
 })
 
-test('cardinal tetra: soft acid water is hard, the sources\' temperatures together are wide, a school of 8 is medium', () => {
+test('cardinal tetra: soft acid water is hard, Seriously Fish\'s 24–30 °C is wide, a school of 8 is medium', () => {
   expect(careNeeds(fixture('paracheirodon-axelrodi'))).toEqual([
     { key: 'space', level: 'easy', tankCm: 60, sizeCm: 5 },
     { key: 'water', level: 'hard', ph: { min: 4, max: 6 }, gh: { min: 1, max: 6 }, why: ['acid', 'soft'] },
-    { key: 'temperature', level: 'easy', tempC: { min: 23, max: 30 }, why: [] },
+    { key: 'temperature', level: 'easy', tempC: { min: 24, max: 30 }, why: [] },
     { key: 'temperament', level: 'easy', temperament: 'peaceful', finNipper: false },
     { key: 'social', level: 'mid', schoolMin: 8 },
   ])
