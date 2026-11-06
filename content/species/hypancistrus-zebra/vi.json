@@ -4,18 +4,28 @@
   "altNames": [
     "Cá pleco zebra",
     "Cá L46",
-    "Imperial zebra pleco"
+    "Imperial zebra pleco",
+    "L046"
   ],
   "sections": {
     "notes:glaser": "<p>Tháng 11 năm 2006: Ngoài những con zebra bình thường nhân giống tại Đức, chắc chắn là mã L được săn tìm nhiều nhất, hiện còn có một cá thể bị nhân đôi phần dưới vây đuôi. Vây biến đổi như vậy có lẽ do quá trình phát triển phôi bị rối loạn. Nếu ai định dùng con này để gây dòng \"zebra đuôi voan\" thì nhiều khả năng sẽ thất vọng. Dù vậy, đây vẫn là một cá thể cực kỳ lạ, rất hiếm gặp trong các mã L.</p>",
-    "quickFacts:glaser": "<ul><li>Xuất xứ: Brazil</li><li>Tên: Hypancistrus zebra</li></ul>"
+    "quickFacts:glaser": "<ul><li>Xuất xứ: Brazil</li><li>Tên: Hypancistrus zebra</li></ul>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Zebra Pleco, L046</li></ul>",
+    "beforeYouBuy:scotcat": "<p>Người chơi vẫn chưa thống nhất chuyện L173 có phải là một loài riêng, hợp lệ, chỉ trông giống zebra hay không. Khá nhiều con L173 trải qua một giai đoạn lớn lên mà người chưa quen nhìn sẽ tưởng là zebra. Còn với người đã biết và từng nuôi cả hai loài thì khác biệt rất rõ. Mọi con L173 đều có viền vàng quanh mắt, cá zebra thì không bao giờ có. L173 cũng lớn hơn zebra nhiều.</p><p>Từ tháng 12 năm 2004, H. zebra đã bị cấm xuất khẩu.</p>",
+    "distribution:scotcat": "<p>Brazil: phía hạ lưu khúc Volta Grande (khúc cua lớn) của sông Xingu.</p><p>Hypancistrus zebra là loài đặc hữu của Brazil. Chúng sống ở vùng Volta Grande của sông Xingu, thuộc bang Pará. Trước đây, mối đe dọa chính là nạn đánh bắt quá mức để bán cho thị trường cá cảnh quốc tế. Vì thế năm 2004 loài này bị xếp vào nhóm Sẽ nguy cấp (Vulnerable). Sau khi có lệnh cấm bắt, quần thể có vẻ đã phục hồi, người ta thường xuyên bắt gặp cá ngoài tự nhiên. Dù vậy, cá vẫn bị bắt trái phép rồi buôn lậu sang Colombia, và từ đó được xuất khẩu đều đặn. Hiện nay, mối đe dọa lớn nhất với loài là công trình Nhà máy thủy điện Belo Monte. Vùng phân bố đã biết của loài rộng 392 km² và nằm trọn trong vùng chịu ảnh hưởng trực tiếp của nhà máy, rộng 407 km². Tính đến công trình Belo Monte, với dự báo trong 10 năm và thời gian một thế hệ của loài ước tính là 2,5 năm, có thể suy ra quần thể sẽ giảm hơn 80%. Nguy cơ tuyệt chủng vì thế rất cao, và Hypancistrus zebra được xếp vào nhóm Cực kỳ nguy cấp (CR) theo tiêu chí A3c (IUCN 2023).</p>",
+    "maintenance:scotcat": "<p>Cá khá dễ chịu về thông số nước, miễn là nước luôn sạch, ấm và bạn thay nước đều đặn. Khi mới mua về, có một mẹo hay là nuôi tạm cá trong một bể nhỏ cho quen rồi mới chuyển sang bể chính. Nhờ vậy bạn chắc chắn được cá đã ăn tốt và hợp với nước. Bể tạm này có thể bày các cấu trúc dạng hang, giống với bể mà cá sẽ sống lâu dài.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 26-28°C. pH: 6.0-7.0. Loài này hợp nhất với nhiệt độ khá cao, vì vậy nước cần có nhiều oxy.</p>",
+    "equipment:scotcat": "<p>Nuôi cá pleco ngựa vằn trong bể không khó lắm, miễn là bạn cho chúng thật nhiều chỗ trốn: hang, đá cuội tròn, chậu cây và ống. Bạn cũng có thể bỏ thêm ít lũa vào bể. Tuy vậy, một số người từng nuôi loài này cho rằng lũa không hẳn là cần thiết.</p>",
+    "diet:scotcat": "<p>Loài này không ăn chay hoàn toàn, nên bạn cần cho ăn thêm đồ tươi nhiều đạm. Có thể dùng trùng huyết sống, đồ đông lạnh như thịt trai, trùng chỉ, trùng huyết, cùng các loại thức ăn viên quen thuộc.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: tên loài zebra là để chỉ các sọc vằn.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypancistrus zebra. The IUCN Red List of Threatened Species 2022. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. ScotCat Factsheet no. 56. Feb. 2001. twotankamin: per comm.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

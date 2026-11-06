@@ -1,0 +1,111 @@
+{
+  "id": "noturus-hildebrandi",
+  "scientificName": "Noturus hildebrandi",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "mississippi-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<ul><li>Scientific name: Noturus hildebrandi (Bailey &amp; Taylor, 1950)</li><li>Common name: Least Madtom</li><li>Type locality: Brushy Creek, about 1.6 km above its mouth in Homochitto River, hamlet of Homochitto, Amite County, Mississippi, U.S.A.</li><li>IUCN Red List: Least Concern (last assessed 2012)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>North America: tributaries of the Mississippi River in the USA from North Fork Obion River in southwestern Kentucky to Homochitto River in southern Mississippi.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Inhabits mixed rock and sand riffles and runs of clear lowland creeks and small rivers. Often found near debris.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>In the wild feeds on midge and caddis larvae, together with mayfly and stonefly nymphs. In the aquarium readily feeds on live and frozen foods. Will also adapt to flake and prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Suitable for a coldwater community tank. Ideal tank mates include small to mid-sized North American native fishes such as darters and shiners.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The species was named to honour Samuel F. Hildebrand.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1250",
+      "html": "<p>Copeia 1950 (no. 1), pp 32, Pls. 1, 2 (figs. E-F).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "uiBhZnvrRH8",
+      "title": "Least Madtom (Noturus hildebrandi) In Situ!",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nước lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cá đáy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi nhỏ bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

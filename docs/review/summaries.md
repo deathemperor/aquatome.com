@@ -129,17 +129,6 @@ Cá sấu hỏa tiễn nhiệt đới (Atractosteus tropicus) không hợp với
 - Cho ăn tim bò hoặc thịt gà: dùng tôm, cá đông lạnh hoặc cá nguyên con, vì thịt động vật có vú làm cá tích mỡ và thoái hóa cơ quan.
 - Thả chung với cá nhỏ: nuôi riêng, hoặc chỉ ghép cá không hung dữ, cỡ tương đương và không bị nuốt vừa.
 
-## Cá nheo Batrochoglanis raninus (Batrochoglanis raninus)
-id: `batrochoglanis-raninus`
-
-Cá nheo Batrochoglanis raninus hợp người thích cá hiền, hoạt động về đêm và hay trốn, vì cá chỉ dài khoảng 8 cm khi trưởng thành. Hồ sơ không ghi thông số nước hay bể tối thiểu, nên cần tự tìm thêm trước khi nuôi. Điểm khó nhất là cá ăn được con nào lọt vừa miệng, nên đừng nuôi chung với cá quá nhỏ.
-
-- Nuôi chung với cá nhỏ lọt vừa miệng thì dễ bị ăn; nên chọn bạn cùng bể có kích thước lớn hơn miệng cá.
-- Không bố trí chỗ trốn khiến cá bị căng thẳng vì thích trốn và hoạt động về đêm; nên thả ống nhựa vào bể làm chỗ ẩn.
-
-Kiểm tra:
-- Mistake 2: "Không bố trí chỗ trốn khiến cá bị căng thẳng" – the page never says that missing hiding places stresses the fish. It only says they hide a lot and gather in plastic pipes. The consequence is invented, and the page gives no advice on what happens without hiding places.
-
 ## Cá Batrochoglanis (Batrochoglanis villosus)
 id: `batrochoglanis-villosus`
 
@@ -515,6 +504,19 @@ Cá hút bùn buồm Trung Quốc (Myxocyprinus asiaticus) chỉ hợp người 
 - Mua cá con về bể gia đình thường rồi để đó: cá sẽ lớn tới 90 cm, nên lo bể dài ít nhất 200 cm hoặc hồ ngoài vườn ngay từ đầu.
 - Để nước ấm gần ngưỡng trên trong thời gian dài: giữ 15,5–21 °C, vì có báo cáo cá bị nấm trong bể và nguyên nhân có thể là nước quá nóng.
 - Để chất thải hữu cơ tích tụ và dòng yếu: dùng lọc ngoài, bơm tạo dòng, lọc quay vòng nước bể 8–12 lần mỗi giờ để nước luôn sạch và giàu oxy.
+
+## Cá rô phi Mozambique (Oreochromis mossambicus)
+id: `oreochromis-mossambicus`
+
+Cá rô phi Mozambique (Oreochromis mossambicus) dễ nuôi, ăn tạp, đẻ dễ, nhưng hồ sơ khuyên đại đa số người chơi không nên nuôi. Cá lớn tới 39 cm, cần bể dài tối thiểu 210 cm (hồ sơ ghi 210 × 60 × 60 cm, khoảng 756 lít), nước 21–27 °C, pH 6,2–8,5, độ cứng 10–30 dGH, độ khó 4/8, kèm lọc lớn và mạnh vì cá xả thải rất bẩn. Điểm khó nhất là cá đẻ quá nhiều, mỗi lứa vài trăm con mà gần như không ai nhận cá con, và là loài xâm hại nặng nên không được thả ra ngoài tự nhiên.
+
+- Mua cá con nhỏ vì dễ thương rồi nuôi bể nhỏ mãi; nên chuẩn bị sẵn bể dài 210 cm từ đầu, vì cá lớn tới 39 cm.
+- Trồng cây thủy sinh trong bể; nên để nền cát và bỏ cây, vì cá ăn hết.
+- Nuôi chung với cá nhỏ; nên chỉ ghép với cichlid lớn châu Phi hoặc Trung Mỹ, cá họ Loricariidae, Synodontis sp., vì cá nhỏ sẽ bị ăn thịt.
+
+Kiểm tra:
+- Summary says "dễ nuôi" (easy), but the card difficulty is 4/8, which is medium (vừa). The summary itself also writes "độ khó 4/8". The page's "rất dễ nuôi" does not override the card band.
+- Mistake 1 fix "nên chuẩn bị sẵn bể dài 210 cm từ đầu" goes against the page. The page says juveniles can be raised in a smaller tank and grown out gradually ("Cá con thì bạn có thể nuôi lớn dần trong bể nhỏ hơn").
 
 ## Cá bống tượng (Oxyeleotris marmorata)
 id: `oxyeleotris-marmorata`
