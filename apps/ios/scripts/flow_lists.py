@@ -11,7 +11,8 @@ UI = 'AquaTomeUITests'
 # The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check), run by
 # job `handbook`; job `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TelemetryFlowTests']
+            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'VideoFlowTests',
+            'TelemetryFlowTests']
 
 # What a path can reach. The longest prefix that matches a path decides: a list of flows (a class, or one of its
 # tests), with the smoke set; [] for the smoke set alone; ALL for every flow; NONE for no flow (job `kit`, `perf` or
@@ -21,7 +22,7 @@ NONE, ALL = None, 'all'
 APP, KIT = 'apps/ios/AquaTome/', 'apps/ios/AquaTomeKit/'
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
 HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests']
+                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests', 'VideoFlowTests']
 # The handbook's model and the kit's Handbook: its screens, and the tanks tab's parts that read it (the tank-mates check,
 # a tank's fish and plants, its guides).
 # Also the anonymous statistics, which wait for the index's flag.
@@ -30,7 +31,7 @@ HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testL
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
-         'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'TelemetryFlowTests']
+         'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests', 'TelemetryFlowTests']
 # The app's icon picker: its flows, and its screenshots (the whole class, run by `handbook (1)`, which keeps them).
 ICONS = ['AppIconFlowTests', 'PageShotsFlowTests']
 # The light flows of the outlet a light is plugged into, on the stand-in Tuya cloud: its timers read, the pick taken
@@ -209,3 +210,6 @@ def check(runs, left, reached):
     assert reached([APP + 'Localizable.xcstrings']) == {
         'HandbookFlowTests/testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo',
         'LightFlowTests/testTheWriteBarKeepsItsTimesWholeBesideALongerButton'}
+    # A video guide: the handbook's screens and the pages the app draws reach its flows.
+    assert 'VideoFlowTests' in reached([APP + 'Handbook/HomeList.swift'])
+    assert 'VideoFlowTests' in reached([APP + 'Handbook/NativePage.swift'])

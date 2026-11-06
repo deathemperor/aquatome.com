@@ -804,6 +804,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
+- `VideoFlowTests`: a guide's video played in the page in YouTube's own player and not the YouTube app (nothing of the player before play is pressed; YouTube's script stood in for, saying what it was asked), a chapter seeking it or starting it at its time, two tapped as it loads ending on the second, a link out of YouTube's player not taking its place and one to a new window opening outside the app, its own captions in the page's language or else the original ones untranslated, full screen with the same player playing on and swiped down back to the page, another tab pausing it, the page left with it playing or loading taking its player with it, one left before its player is ready not starting unseen, one whose player never comes up giving its thumbnail back to try again, one YouTube refuses opening on YouTube, a fish's second video stopping its first, each video's controls named for it.
+
 Hands-on, by hand: the Tuya route's list read against a real project (`liveListRead`, read-only, counts only;
 `apps/ios/README.md`), never a switch from a test. The simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run
 against a real light from a Mac with `light-harness` (`apps/ios/README.md`), ending with `restore`. What the light
@@ -820,11 +822,12 @@ Rules (as for the site):
    old reason, or removed.
 6. **A change to how a screen looks shows it before and after**, so its author critiques their own work against them
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
-   pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, and the fish's top in large text), the
-   fish-ID screen with its guesses, light and dark, the home's section for kit and a long list's whole list, with
-   stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the lights tab's card with its
-   outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on the stand-in server (its
-   overview, a section with charts and tables, and the daily report's settings). Job `handbook (1)` puts them in its `ios-page-shots`
+   pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, the fish's top in large text, and a
+   guide's video playing in its page), the fish-ID screen with its guesses, light and dark, the home's section for kit and
+   a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the
+   lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
+   the stand-in server (its overview, a section with charts and tables, and the daily report's settings). Job
+   `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs
    them (`apps/ios/scripts/shots.py`): on every run on main, and on a PR whose change can reach the pages, or one
    labelled `ios-full`. The PR links main's last run (the before) and its own (the after), and names the pair behind each

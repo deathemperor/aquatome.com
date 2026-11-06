@@ -4049,6 +4049,22 @@
         }
       }
     },
+    "Không mở được video. Kiểm tra mạng rồi thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video tidak bisa dibuka. Periksa koneksi internet, lalu coba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดวิดีโอไม่ได้ ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง"
+          }
+        }
+      }
+    },
     "Không phải? %lld loài %@ khác trong cẩm nang": {
       "localizations": {
         "id": {
@@ -5761,6 +5777,22 @@
         }
       }
     },
+    "Thoát toàn màn hình": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keluar dari layar penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ออกจากโหมดเต็มจอ"
+          }
+        }
+      }
+    },
     "Thuật ngữ": {
       "localizations": {
         "id": {
@@ -5997,6 +6029,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ลองหลายครั้งเกินไป โปรดรอสักครู่แล้วลองใหม่"
+          }
+        }
+      }
+    },
+    "Toàn màn hình": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Layar penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เต็มจอ"
+          }
+        }
+      }
+    },
+    "Toàn màn hình: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Layar penuh: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เต็มจอ: %@"
           }
         }
       }
@@ -6865,6 +6929,38 @@
         }
       }
     },
+    "Video này chỉ xem được trên YouTube.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video ini hanya bisa ditonton di YouTube."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอนี้ดูได้บน YouTube เท่านั้น"
+          }
+        }
+      }
+    },
+    "Video: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอ: %@"
+          }
+        }
+      }
+    },
     "Vui lòng xác nhận ảnh do bạn chụp.": {
       "localizations": {
         "id": {
@@ -7149,6 +7245,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูในตู้ของฉัน →"
+          }
+        }
+      }
+    },
+    "Xem trên YouTube": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tonton di YouTube"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูบน YouTube"
+          }
+        }
+      }
+    },
+    "Xem trên YouTube: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tonton di YouTube: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูบน YouTube: %@"
           }
         }
       }
