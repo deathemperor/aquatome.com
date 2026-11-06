@@ -31,6 +31,9 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 log "videos start"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
+# Guides under the bar whose review left no notes (written before reviews were kept), reviewed again against their
+# transcript, nothing rewritten: the owner's videos first, REVIEW_BACKFILL_LIMIT a run (engine-state/reviews/video-guide.json).
+pnpm engine review-backfill --kind video-guide --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
 pnpm engine video-items --limit 20 || log "video-items: failed"
 pnpm engine discover-videos || log "discover-videos: failed"
 # Older guides' stills (storyboard tiles, 320 or 160 px) become the video's own frames, screened before they publish.

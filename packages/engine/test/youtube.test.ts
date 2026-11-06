@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
+import { logReviews, readReviews } from '../src/review-log'
 import { chaptersFrom, parseTranscript, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
@@ -134,6 +135,34 @@ test('a guide that still names the creator or the video gets one editor pass; th
   const clean = deps(await mkdtemp(join(tmpdir(), 'yt-')))
   await videoGuides(clean.d, { playlists: ['PL1'] })
   expect(clean.calls.prompts.filter(p => p.includes('Bài cần biên tập'))).toEqual([])
+})
+
+test('every review of a guide is kept: the first draft\'s and the rewrite\'s, with the one on the page marked', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root, { scores: [0.6, 0.8], drafts: [draft('Bản đầu'), draft('Bản sửa')] }).d, { playlists: ['PL1'] })
+  expect((await read(root, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản sửa', quality: { score: 0.8 } })
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']).toEqual([
+    { at: '2026-10-29T10:00:00Z', model: 'sonnet', score: 0.8, notes: ['"Ánh sáng" is vague'], attempt: 'rewrite', kept: true },
+    { at: '2026-10-29T10:00:00Z', model: 'sonnet', score: 0.6, notes: ['"Ánh sáng" is vague'], attempt: 'first', kept: false },
+  ])
+})
+
+test('--redo tells the writer what the last review of the guide on the site found, when it was under the bar', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root, { scores: [0.6, 0.6] }).d, { playlists: ['PL1'] })
+  // The guide on the site scored 0.6 (its rewrite kept); a later recheck found what is wrong with it.
+  const found = { score: 0.62, notes: ['Says CO2 is optional; the transcript says it is needed for carpeting plants'] }
+  await logReviews(root, 'video-guide', { id: 'guides/youtube-a1', lang: 'vi' }, [found], found, { now: new Date('2026-11-01T00:00:00Z'), recheck: true })
+  const again = deps(root)
+  await videoGuides(again.d, { playlists: ['PL1'], redo: true })
+  const writer = again.calls.prompts.find(p => p.includes('Bản ghi:'))!
+  expect(writer).toContain('Bản trước bị người duyệt chấm thấp')
+  expect(writer).toContain('- Says CO2 is optional; the transcript says it is needed for carpeting plants')
+
+  // Its last review passed (0.9 now): the next redo writes from the transcript alone.
+  const third = deps(root)
+  await videoGuides(third.d, { playlists: ['PL1'], redo: true })
+  expect(third.calls.prompts.find(p => p.includes('Bản ghi:'))).not.toContain('Bản trước bị người duyệt chấm thấp')
 })
 
 test('redo rewrites each written guide once, in the series it is in, even after a failed later attempt; other playlists get no series', async () => {
