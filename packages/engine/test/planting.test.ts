@@ -58,6 +58,23 @@ test('a plant whose page says nothing on planting gets a short part on it, first
   expect((await writePlanting(root, llm([0.9]))).written).toEqual([])
 })
 
+test("a shop's own talk on the page isn't given to the writer", async () => {
+  // Bucephalandra Silver's BW Aquatics note, 2026-11-06: its second paragraph became "Bạn nên chuẩn bị sẵn môi trường
+  // sống cho cây trước khi mua về" in the sample, as the cycle writes before the sweep takes it off the page.
+  const root = await store()
+  const at = (f: string) => join(root, 'content/plants/anubias-barteri-nana', f)
+  const e = JSON.parse(await readFile(at('entity.json'), 'utf8'))
+  e.sections.push({ key: 'notes', source: 'bwaquatics', sourceUrl: 'https://bwaquatics.com/x', html: '<p>Ideal for low light tanks.</p><p>Be sure to have the habitat ready before purchase.</p>' })
+  await writeFile(at('entity.json'), JSON.stringify(e))
+  const t = JSON.parse(await readFile(at('vi.json'), 'utf8'))
+  t.sections['notes:bwaquatics'] = '<p>Hợp bể ánh sáng yếu.</p><p>Hãy chuẩn bị sẵn môi trường sống trước khi mua.</p>'
+  await writeFile(at('vi.json'), JSON.stringify(t))
+  const m = llm([0.9])
+  await writePlanting(root, m)
+  expect(m.prompts[0]).toContain('[notes:bwaquatics] Hợp bể ánh sáng yếu.')
+  expect(m.prompts[0]).not.toContain('trước khi mua')
+})
+
 test('under the bar twice, nothing is written, and the plant is not tried again', async () => {
   const root = await store()
   const m = llm([0.5, 0.6])

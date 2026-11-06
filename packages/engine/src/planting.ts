@@ -5,6 +5,7 @@ import { plainText, QUALITY_THRESHOLD, SECTION_ORDER, type PlantEntity, type Tra
 import { LlmError, type Llm } from './claude'
 import { logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
+import { isShop, withoutShopTalk } from './species-sources'
 
 const WRITE = readFileSync(new URL('./prompts/planting.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
@@ -65,7 +66,11 @@ function input(p: Plant, guides: { name: string; text: string }[]): string {
   return [
     `CÂY: ${t.name} (${e.scientificName})`,
     `THÔNG SỐ: vị trí: ${e.placement.map(x => PLACE[x]).join(', ') || 'không ghi'}; ánh sáng: ${LIGHT[e.light]}; CO2: ${CO2[e.co2]}; tốc độ mọc: ${GROWTH[e.growth]}`,
-    'CHỮ TRÊN TRANG:', ...own(t).map(([k, h]) => `[${k}] ${plainText(h)}`),
+    // A shop's own talk ("chuẩn bị sẵn môi trường sống trước khi mua") isn't for the writer, though the sweep hasn't taken it off yet.
+    'CHỮ TRÊN TRANG:', ...own(t).map(([k, h]) => {
+      const s = e.sections.find(x => `${x.key}:${x.source}` === k)
+      return `[${k}] ${plainText(s && isShop(s.source) ? withoutShopTalk(s.html, { vi: h }).tr.vi : h)}`
+    }),
     ...(guides.length ? ['BÀI HƯỚNG DẪN TỪ VIDEO:', ...guides.map(g => `[${g.name}] ${g.text}`)] : []),
   ].join('\n')
 }
