@@ -143,10 +143,18 @@ test('a long page has a back-to-top button within a thumb\'s reach', async ({ pa
 // own list of chapters). The list is closed now, its chapters the video's own; the contents list follows it.
 test('a video guide: its chapters one tap away, without the video\'s own list of chapters', async ({ page, errors }, info) => {
   let checked = 0
-  for (const path of sourcePages().filter(p => /^\/huong-dan\/[^/]+\/$/.test(p)).slice(0, 40)) {
+  // Few guides have chapters (39 of aquatome.com's 601, 2026-11-07), and the sitemap lists them late: the first two are
+  // found by their HTML, 20 pages at a time, then opened.
+  const guides = sourcePages().filter(p => /^\/huong-dan\/[^/]+\/$/.test(p))
+  const withChapters: string[] = []
+  for (let i = 0; i < guides.length && withChapters.length < 2; i += 20) {
+    const batch = guides.slice(i, i + 20)
+    const html = await Promise.all(batch.map(p => page.request.get(p).then(r => r.text(), () => '')))
+    withChapters.push(...batch.filter((_, k) => html[k]!.includes('class="chapters"')))
+  }
+  for (const path of withChapters.slice(0, 2)) {
     await page.goto(path)
     const list = page.locator('details.chapters')
-    if (!(await list.count())) continue
     checked++
     await expect(list).not.toHaveAttribute('open')
     await expect(list.locator('button[data-t]').first()).toBeHidden()
@@ -154,7 +162,6 @@ test('a video guide: its chapters one tap away, without the video\'s own list of
     expect(titles.filter(t => /mục lục|chapters/i.test(t)), path).toEqual([])
     if (info.project.name === 'phone') await list.locator('summary').tap(); else await list.locator('summary').click()
     await expect(list.locator('button[data-t]').first()).toBeVisible()
-    if (checked >= 2) break
   }
   expect(checked, 'video guides with chapters').toBeGreaterThan(0)
   expect(errors).toEqual([])
