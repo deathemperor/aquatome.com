@@ -13,6 +13,8 @@ struct AquaTomeApp: App {
   @State private var tab = Tab.handbook
   @State private var tanksPath = NavigationPath()
   @State private var handbookPath = NavigationPath()
+  /// A link from outside the app waiting for the handbook's index, to know the pages the app has (AppLink).
+  @State private var opening: AppLink?
   @Environment(\.scenePhase) private var phase
 
   enum Tab { case tanks, handbook, lights }
@@ -26,6 +28,11 @@ struct AquaTomeApp: App {
       WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast) {}
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
+    // The UI flows (`-no-animations`): after each tap or swipe XCUITest waits for the app to be idle, UIKit's animations
+    // ended (a push, a sheet, an alert, the tab bar), up to about 2 s a step on a busy Mac. SwiftUI's own animations
+    // turned off too shortened none of those waits, so they stay. Never in the performance tests: they measure the app
+    // as a reader sees it.
+    if ProcessInfo.processInfo.arguments.contains("-no-animations") { UIView.setAnimationsEnabled(false) }
     #endif
     // Read after the tests' reset above (the handbook keeps the pages read).
     let handbook = HandbookModel()
@@ -63,6 +70,15 @@ struct AquaTomeApp: App {
       .environment(plugs)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
+      // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.
+      // Opening the app, before the index is read, it waits for it.
+      .onOpenURL { url in
+        // Anything else is ignored, and leaves a link waiting as it is.
+        guard let link = AppLink.of(url, site: handbook.site) else { return }
+        opening = link
+        if handbook.status != .loading { openLink() }
+      }
+      .onChange(of: handbook.status) { if handbook.status != .loading { openLink() } }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
@@ -71,6 +87,7 @@ struct AquaTomeApp: App {
       .onChange(of: phase) { if phase == .background { lights.leave() } else if phase == .active { lights.returned() } }
       // The page shots' dark run (PageShotsFlowTests): the runner's own appearance setting doesn't reach the app.
       .preferredColorScheme(Self.testScheme)
+      .appIconsForTests()
     }
   }
 
@@ -87,6 +104,10 @@ struct AquaTomeApp: App {
   private func open(_ screen: AppScreen) {
     switch screen {
     case .lights: tab = .lights
+    case .fishId:
+      // A tool of the handbook's: on the Tìm tab, where the pages its guesses lead to open too.
+      tab = .handbook
+      handbookPath.append(FishIdRoute())
     case .tanks(let id):
       var path = NavigationPath()
       if let id, tanks.tanks.contains(where: { $0.id == id }) { path.append(id) }
@@ -102,9 +123,34 @@ struct AquaTomeApp: App {
     }
   }
 
+  /// The link from outside waiting, if any: the home's top, with no search; a shop outside, as a page's link opens it;
+  /// else the page on the Tìm tab, as its own screen (a tool's on its tab: AppScreen) or its web page.
+  private func openLink() {
+    guard let link = opening else { return }
+    opening = nil
+    switch link {
+    case .home:
+      tab = .handbook
+      handbookPath = NavigationPath()
+      handbook.query = ""
+    case .page(let url):
+      if ShopLink.is(url, site: handbook.site) {
+        Task { await OwnCopy.open(url, site: handbook.site) }
+        return
+      }
+      tab = .handbook
+      if let screen = AppScreen.of(url, site: handbook.site, listed: { handbook.item(at: $0) != nil },
+                                   group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
+        open(screen)
+      } else {
+        handbookPath.append(SitePage(url: url))
+      }
+    }
+  }
+
   /// aquatome.com's accounts, and where readers' demand for pages goes (Wanted). A debug build on the simulator (every UI
   /// and performance test) never reaches it: it gets one stand-in server in the app for both (accounts off unless
-  /// `-fake-accounts on`), a stand-in Apple sheet and Turnstile check, as it gets a fake light; `-real-accounts` to try
+  /// `-fake-accounts on`), a stand-in Apple sheet, Google page and Turnstile check, as it gets a fake light; `-real-accounts` to try
   /// the real server from the simulator.
   @MainActor
   private static func server(_ tanks: TanksModel) -> (AccountModel, Wanted) {
@@ -113,7 +159,7 @@ struct AquaTomeApp: App {
     if !args.contains("-real-accounts") {
       let fake = FakeServer(args)
       let send: Send = { try await fake.send($0) }
-      return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true),
+      return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), google: FakeGoogleSignIn(args), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true),
               Wanted(send: send, ours: { OwnCopy.isOurs }))
     }
     #endif

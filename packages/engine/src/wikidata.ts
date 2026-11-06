@@ -1,31 +1,43 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
+import { altKey, breedNames, keptOf } from './alt-names'
 import type { TargetLang } from './localize'
 
 type Http = (url: string) => Promise<unknown>
 /** By scientific name: the species' Wikidata label and aliases in each language (null: no item has that taxon name). */
 type Names = Record<string, Partial<Record<TargetLang, string[]>> | null>
 const CACHE = 'engine-state/_wikidata-names.json'
-const LANGS: TargetLang[] = ['id', 'th']
+const LANGS: readonly TargetLang[] = WRITTEN_OTHER_LANGS
+/** Asked of every species in the cache since it began, so an entry that doesn't list one has no names in it. */
+const ASKED_OF_ALL: readonly TargetLang[] = ['id', 'th']
 const BATCH = 100
 const MAX_ALT = 8
 
 const readCache = async (root: string) => JSON.parse(await readFile(join(root, CACHE), 'utf8').catch(() => '{}')) as Names
 
-/** Names Wikidata (CC0) gives these species in Indonesian and Thai, by taxon name (P225); fetched once each, cached. */
+/**
+ * Names Wikidata (CC0) gives these species in the engine's languages, by taxon name (P225); each species and language
+ * fetched once, cached. A language added later is asked of the species cached before it: none of them would ever get its
+ * names otherwise. It is recorded with [] when Wikidata has none, so it isn't asked again.
+ */
 export async function fetchWikidataNames(root: string, http: Http, scis: string[]): Promise<Names> {
   const cache = await readCache(root)
-  const todo = [...new Set(scis)].filter(s => !(s in cache))
-  for (let i = 0; i < todo.length; i += BATCH) {
+  const wanted = (s: string) => LANGS.filter(l => !(s in cache) || (!ASKED_OF_ALL.includes(l) && cache[s]?.[l] === undefined))
+  const groups = new Map<string, string[]>() // the languages to ask → the species that lack just those
+  for (const s of new Set(scis)) { const langs = wanted(s).join(); if (langs) groups.set(langs, [...(groups.get(langs) ?? []), s]) }
+  for (const [langs, todo] of groups) for (let i = 0; i < todo.length; i += BATCH) {
     const batch = todo.slice(i, i + BATCH)
+    const asked = langs.split(',') as TargetLang[]
     const q = `SELECT ?name ?lang ?label WHERE { VALUES ?name { ${batch.map(s => JSON.stringify(s)).join(' ')} } ?item wdt:P225 ?name .
-      { ?item rdfs:label ?label } UNION { ?item skos:altLabel ?label } BIND(lang(?label) AS ?lang) FILTER(?lang IN (${LANGS.map(l => `"${l}"`).join(', ')})) }`
+      { ?item rdfs:label ?label } UNION { ?item skos:altLabel ?label } BIND(lang(?label) AS ?lang) FILTER(?lang IN (${asked.map(l => `"${l}"`).join(', ')})) }`
     const r = (await http(`https://query.wikidata.org/sparql?format=json&query=${encodeURIComponent(q)}`)) as { results: { bindings: { name: { value: string }; lang: { value: TargetLang }; label: { value: string } }[] } }
-    for (const s of batch) cache[s] = null
+    for (const s of batch) if (!(s in cache)) cache[s] = null
     for (const b of r.results.bindings) {
       const n = (cache[b.name.value] ??= {})
       ;(n[b.lang.value] ??= []).push(b.label.value.trim())
     }
+    for (const s of batch) for (const l of asked) if (!ASKED_OF_ALL.includes(l) && cache[s]?.[l] === undefined) cache[s] = { ...cache[s], [l]: [] }
   }
   await mkdir(join(root, 'engine-state'), { recursive: true })
   await writeFile(join(root, CACHE), `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
@@ -55,10 +67,11 @@ export async function wikidataAltNames(root: string, lang: TargetLang): Promise<
   }
   return (id, sci, have) => {
     const mine = new Set([`sci:${sci}`, `species:${id}`])
-    const seen = new Set(have.map(key))
+    // One name written another way is the page's already ("Pea Puffer" for "Pea puffer"), as the sweep keeps it.
+    const seen = new Set(have.flatMap(n => [key(n), altKey(n)]))
     return [...new Set(cache[sci]?.[lang] ?? [])].filter(n => {
-      if (latin(n) || phrase(n) || seen.has(key(n)) || [...(owners.get(key(n)) ?? [])].some(o => !mine.has(o))) return false
-      seen.add(key(n))
+      if (latin(n) || phrase(n) || seen.has(key(n)) || seen.has(altKey(n)) || [...(owners.get(key(n)) ?? [])].some(o => !mine.has(o))) return false
+      seen.add(key(n)).add(altKey(n))
       return true
     })
   }
@@ -72,12 +85,13 @@ export async function addWikidataNames(root: string, http: Http, lang: TargetLan
   for (const id of ids) sci.set(id, (JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { scientificName: string }).scientificName)
   await fetchWikidataNames(root, http, [...sci.values()])
   const extra = await wikidataAltNames(root, lang)
+  const breeds = await breedNames(join(root, 'content'), lang)
   const added: string[] = []
   for (const id of ids) {
     const file = join(dir, id, `${lang}.json`)
     const t = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { name: string; altNames: string[] } | null
     if (!t || t.altNames.length >= MAX_ALT) continue
-    const add = extra(id, sci.get(id)!, [t.name, ...t.altNames]).slice(0, MAX_ALT - t.altNames.length)
+    const add = keptOf({ name: t.name, sci: sci.get(id)!, altNames: t.altNames }, breeds, extra(id, sci.get(id)!, [t.name, ...t.altNames])).slice(0, MAX_ALT - t.altNames.length)
     if (!add.length) continue
     t.altNames = [...t.altNames, ...add]
     await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)

@@ -1,0 +1,204 @@
+{
+  "id": "corydoras-reticulatus",
+  "scientificName": "Corydoras reticulatus",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-reticulatus-2/",
+      "html": "<p>The maximum length of C. reticulatus is around 6-7 cm in total, including the caudal fin. The species makes no special demands on care. Medium water values, temperatures in the range of 22-26°C and a sandy bottom, company of conspecifics: these are the key data for successful care.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>The reticulated cory, Brochis reticulata, long known as Corydoras reticulatus, is an armoured catfish from the lower Amazon basin in Brazil, also known as the network cory. One of the commoner species seen in dealers' tanks, it is a good cory for the beginner. Very peaceful, it should be kept in a group of at least six, and like other corys it is sensitive to dirty substrates.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-reticulatus-2/",
+      "html": "<p>C. reticulatus can be easily distinguished from the similar species Corydoras sodalis by the deep black spot on the dorsal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Lower Amazon Basin, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Standard length: 60 mm SL. Aquarium base: 60 × 38 cm. Volume: ~68 litres (60 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Use a substrate of fine sand and provide shelter in the form of smooth rocks and chunks of bogwood. Areas of thick planting are also appreciated, as is the provision of some floating cover. Also provide some surface turbulence and flow, as it prefers well-oxygenated water. As with all corys, don't use undergravel filtration, and ensure the substrate is kept scrupulously clean, as these catfish are sensitive to poorly-maintained or dirty substrates and can lose their barbels if kept in poor conditions.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.2</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, brine shrimp and chopped earthworm. Feeding a varied diet will ensure the fish are in the best condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Very peaceful and suitable for many community tanks. Don't keep it with anything very large or aggressive. Good tankmates include small characins, cyprinids, anabantoids, dwarf cichlids and other peaceful catfish. Always try to maintain Corydoras in groups as they're far more confident and active in the presence of conspecifics. A group of at least 6 individuals is suggested.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Like most corys, Brochis reticulata is most easily sexed when viewed from above. Females are noticeably rounder and broader-bodied than females, especially when full of eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>No captive breeding information is available, but it can probably be bred in a similar fashion to many other Corydoras species. Set up the breeding tank (45 × 30 × 30 cm or similar is a good size), with either a bare bottom, sand or fine gravel substrate. Use air-powered sponge or box-type filtration as fry won't be sucked into these and provide some clumps of vegetation such as java moss. A temperature of around 24 °C and a pH of 7 should be fine. It's always better to have a higher ratio of males to females when breeding corys and 2 males per female is recommended. Condition the group on a varied diet of live, frozen and dried foods. When the females are visibly full of eggs perform a large (50-70%) water change with cooler water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>It's worth observing a couple of notes on general cory breeding at this point. Many species are seasonal spawners, breeding during the wet season in their native countries. This occurs at the same time of year as the UK winter, so if summer breeding attempts are failing, it may be worth waiting until winter before trying again. Also, some species can take several years to become sexually mature, so be patient. Finally some species simply require different tactics, including timing of water changes, oxygenation levels etc. If you aren't having any luck, don't be afraid of trying different approaches.</p><p>If the fish decide to spawn, they will usually lay their eggs on the tank glass, often in an area where water flow is quite high. Spawning behaviour is characterised by an initial increase in activity and excitement, before males begin to actively pursue females. A receptive female will allow a male to caress her with his barbels, before the pair take up the classic \"t-position\", in which the male grasps the females barbels between his pectoral fin and body. He then releases some sperm and it's thought that this passes through the mouth and gills of the female, being directed towards her pelvic fins. These she uses to form a 'basket', into which she deposits a single egg (although up to 4 may be released). Once this is fertilised, she swims away to find a suitable place to deposit the egg, before the cycle is repeated. If you spawn the fish in a group situation, you will often see multiple males chasing a female as she goes to deposit an egg, in an effort to be the next chosen to fertilise eggs.</p><p>The adults will eat their spawn given the opportunity, so once spawning is complete you have 2 choices. Either remove the adults and raise the brood in the same tank, or move the eggs and raise the fry elsewhere. If you decide to move the eggs, you'll find they're quite robust, and can usually be gently rolled up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated. Wherever you decide to hatch the eggs, it's always best to add a few drops of methylene blue to the water to prevent fungussing. Even then some eggs will probably fungus, and these should be removed as soon as they're spotted in order to prevent the fungus spreading. The eggs hatch in 3-4 days and once the fry have used up their yolk sacs, they will accept microworm and brine shrimp nauplii as first foods. The fry seem to be less susceptible to disease when kept over a thin layer of sand, as opposed to in a bare-bottomed setup.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/corydoras-reticulatus-2/",
+      "html": "<p>A special feature of this species are the extremely pointed fin spines of the dorsal and pectoral fins, which make it very easy for them to get tangled in the net. The risk is reduced (but by no means eliminated) if the nets used are as fine-meshed as possible. However, it is better to catch these animals with a large cup.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-reticulata",
+      "html": "<p>Also known as the network cory, this is one of the commoner species seen in dealers' tanks, and is a good cory for the beginner.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/4bb7851e14fa5e62.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Callichthyidae_Corydoras_reticulatus_1.jpg",
+      "caption": "Corydoras reticulatus RETICULATED CORYDORAS. Frankfurt Zoological Garden.",
+      "thumb": "https://media.aquatome.com/commons/4bb7851e14fa5e62-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c82abffc4320e00b.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "karsten_s",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_reticulatus_247526321.jpg",
+      "caption": "Reticulated Corydoras (Corydoras reticulatus) in Peru",
+      "thumb": "https://media.aquatome.com/commons/c82abffc4320e00b-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "cát mịn cho cá chuột"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên chìm cá chuột"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

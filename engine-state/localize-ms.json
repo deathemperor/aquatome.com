@@ -1,0 +1,83 @@
+{
+  "betta-splendens": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Ikan laga",
+    "confidence": "high",
+    "score": 0.55,
+    "notes": [
+      "Item 1: 'hybrid of sorts' rendered as 'boleh dikatakan sejenis hibrid' is awkward; also 'Tiada' for N/A is fine but 'Copper Alien Hybrid ... daripada kompleks' is clumsy.",
+      "Item 5: 'patut tidak digalakkan' is unnatural; use 'patut dihalang' or 'tidak wajar digalakkan'.",
+      "Item 9: 'Saiz tangki minimum: kira-kira 8 liter' fine, but 'ikan laga' is used for 'bettas' while 'balang' for 'bowl' is OK; 'mungkin hujah terbesar menentang' is stiff.",
+      "Item 11: 'Betta fish are low-maintenance' translated as 'mudah dijaga' - fine, but 'tukar air' used as noun is clumsy; use 'penukaran air'.",
+      "Item 12: 'daun kering' for 'dried leaf litter' loses 'leaf litter' sense; 'pelompat yang handal' is awkward for 'excellent jumper' (use 'pelompat yang hebat').",
+      "Item 14: 'air panas' for warm water suggests hot water; use 'air suam/hangat'. Same in items 2, 7, 16 ('air panas' for warm water). 'dilaburkan' in item 16 is odd for buying a heater.",
+      "Item 16: the English 'Consider ... floating or digital thermometer' fine, but 5 watts per gallon converted to 1.3 W/L is correct.",
+      "Item 18: 'Brine shrimp' rendered 'Artemia' and 'Glassworm' left in English; add Malay/hobby equivalents e.g. 'cacing kaca'. 'flake' left in English in several items; 'serpihan' is common alternative.",
+      "Item 27: 'Tukar air perlu dibuat dalam kuantiti kecil' awkward; 'sehingga telur betina habis' ok. 'milt' left untranslated - use 'sperma/air mani ikan'.",
+      "Item 29: 'turquoise' rendered 'biru firus' fine; 'oren' fine. Item 21/22: 'Species with body shapes ... ' in 22 omits 'similar' mismatch: English says 'body shapes or trailing finnage' (to avoid), MS adds 'serupa' – an added qualifier that is not in the source."
+    ]
+  },
+  "paracheirodon-axelrodi": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Cardinal tetra",
+    "confidence": "high",
+    "score": 0.5,
+    "notes": [
+      "Item 5: \"sejauh barat Colombia di sebelah barat\" is redundant and garbled; use \"hingga ke barat Colombia\".",
+      "Item 20: English gives 26.5–29 °C (80–84 °F), but the Malay says \"27–29 °C\". The lower limit is wrong; 80 °F is about 26.5–27 °C, so write \"26.5–29 °C\".",
+      "Item 22: \"Hypessobrycon simulans\" and \"P. inessi\" repeat the source spellings. Latin names stay unchanged, so this is acceptable, but note the typo \"Hypessobrycon\".",
+      "Item 11: pH range \"3.5–7.5\" is kept as in the source, so no change is needed. The (GH) label was added to \"Kekerasan air\", which is fine.",
+      "Item 7: \"hidup berkawan\" is awkward for \"live in shoals\"; use \"hidup berkawan/berkumpulan\". The sentence also repeats \"kawanan\" from the previous one.",
+      "Item 21: \"Ikan ini bertelur pada waktu petang\" is fine. \"wajib\" for \"essential\" is slightly strong; \"penting\" is better.",
+      "Item 6: \"menjulur ke atas air\" for \"overhanging\" is acceptable. \"hampir sebagai ikan tahunan\" is awkward; use \"hampir sepenuhnya ikan semusim\".",
+      "Item 3: \"jalur merahnya... memanjang di sepanjang badan\" is slightly redundant, and \"mid-body to tail\" is rendered correctly.",
+      "Item 15: \"flake\" is left in English. Use \"makanan serpihan (flake)\".",
+      "Item 16: \"ikan berkawan lain untuk memberi rasa selamat\" is fine. \"gasteropelecid\" and similar family names are retained as in the source, which is acceptable."
+    ]
+  },
+  "paracheirodon-innesi": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Neon Tetra",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"Neon tetra pada umumnya semuanya hasil ternakan\" is redundant and awkward. Use \"Neon tetra yang dijual pada umumnya hasil ternakan\"."
+    ]
+  },
+  "poecilia-reticulata": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Guppy",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "#4: \"saliran air panas\" for \"warm waterways\" implies hot water or hot springs. Use \"saliran air suam/hangat\".",
+      "#15: \"mudah dibawa berbincang\" for \"easygoing\" is an odd idiom. Use \"mudah dijaga\" or \"berwatak tenang\".",
+      "#10: \"tangki bertumbuhan dengan tumbuhan terapung\" is awkward. Use \"tangki bertumbuhan dengan tumbuhan terapung\" or \"tangki yang ditanam dengan tumbuhan akuatik termasuk tumbuhan terapung\".",
+      "#20: \"agresif\" for \"vigorous\" shifts the meaning towards aggression. Use \"bertenaga/gigih\" for the males' pursuit.",
+      "#13: \"flake\" is left in English. Use \"serpihan\" or \"makanan kepingan (flake)\"."
+    ]
+  },
+  "trigonostigma-heteromorpha": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Harlequin rasbora",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 1: EN says 'Harlequin barb' but MS renders 'Harlequin rasbora' – the name was changed; keep faithful to the source or flag the discrepancy.",
+      "Item 8: '10 gallons (about 38 litres)' is correct, but 'Sehingga 10 ekor ... dalam akuarium 75 liter' is fine; the 'Saiz tangki minimum' line is OK. Note the 38 L minimum conflicts with item 9 (54 L), which comes from the source and not the translation.",
+      "Item 21: 'harlequin barb' was rendered as just 'harlequin'; this is acceptable but inconsistent with the source name.",
+      "Item 24: omitted the wholesale paragraph (codes 452523/452563 for Aquarium Glaser) and the byline; the byline and shop-talk omission is allowed, so no fix is needed there.",
+      "Item 22: 'Harlequin rasbora ... melekatkan telurnya' – 'egg layers' is rendered correctly, but 'Rasbora lain menabur telur secara rawak' adds 'secara rawak', which is not in the source sentence (minor).",
+      "Item 3: 'ikan ternakan kurang warnanya berbanding ikan liar' loses 'much of the colour' ('kehilangan banyak warna'); 'Harlequin' alone should be 'Harlequin rasbora'.",
+      "Item 22: 'jentik-jentik' for mosquito larvae is fine, but 'Harlequin lebih sukar dibiakkan' keeps 'Harlequins are among the more difficult', so this is OK.",
+      "Item 18: 'ikan keli' for 'catfishes' is misleading in Malaysia (keli means Clarias); use 'ikan duri/catfish' or 'ikan keli kecil (catfish)'.",
+      "Item 23: 'kekerasan 1–5 °H' is awkward; use dGH. 'mengurat' for male courtship is colloquial; use 'mengurat' or 'pamer pasangan' more neutrally.",
+      "Item 6: 'Rasbora ialah famili ikan air tawar sejati' – rasboras are not a family in the source's sense, but it follows the source, so no fix is needed."
+    ]
+  }
+}

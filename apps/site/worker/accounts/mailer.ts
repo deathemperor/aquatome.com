@@ -2,10 +2,11 @@ import type { SendMail } from './email'
 
 /**
  * Sign-in codes go out through Cloudflare Email Sending (the `send_email` binding EMAIL, wrangler.jsonc), from
- * aquatome.com, which is onboarded for sending in the Cloudflare dashboard. Plain text only.
+ * aquatome.com, which is onboarded for sending in the Cloudflare dashboard. Plain text only; the daily report
+ * (worker/daily) sends `html` beside it.
  */
 export type EmailBinding = {
-  send(message: { to: string; from: { email: string; name: string }; subject: string; text: string }): Promise<{ messageId: string }>
+  send(message: { to: string; from: { email: string; name: string }; subject: string; text: string; html?: string }): Promise<{ messageId: string }>
 }
 export const MAIL_FROM = { email: 'dang-nhap@aquatome.com', name: 'AquaTome' }
 

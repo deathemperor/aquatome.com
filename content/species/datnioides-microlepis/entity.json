@@ -12,6 +12,138 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Batang Hari",
+        "Musi",
+        "Perak",
+        "Selangor",
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Batang Hari",
+            "Musi",
+            "Perak",
+            "Selangor",
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5210838,
+      "total": 20,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "KH",
+          8
+        ],
+        [
+          "TH",
+          8
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -82.96875,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          5,
+          0
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          6,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

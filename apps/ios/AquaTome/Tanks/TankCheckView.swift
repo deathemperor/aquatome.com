@@ -48,19 +48,26 @@ struct TankCheckSection: View {
 
   private func make() -> TankCheck? {
     guard handbook.count > 0 else { return nil }
-    var fish: [(page: String, fish: TankCheck.Fish)] = tank.species.map { s in
-      let page = handbook.page(s.id)
-      return (s.id, .init(name: page?.name ?? s.id, facts: page?.facts ?? .init(), count: s.count))
-    }
+    var fish = tank.species.map { s in row(handbook.page(s.id), id: s.id, count: s.count) }
     var unlisted: [String] = []
     for e in tank.unlisted where !e.isPlant {
       if let page = handbook.page(for: e) {
-        fish.append((page.contentId ?? page.id, .init(name: page.name, facts: page.facts, count: e.count)))
+        fish.append(row(page, id: page.contentId ?? page.id, count: e.count))
       } else { unlisted.append(e.name) }
     }
     guard !fish.isEmpty || !unlisted.isEmpty else { return nil }
     let size = TankCheck.Size(dims: tank.dims.map { .init(l: $0.l, w: $0.w, h: $0.h) }, litres: tank.litres)
-    return Checkers.of(handbook.lang).check(TankCheck.onePerPage(fish), size: size, unlisted: unlisted)
+    // The site's check makes the rows of one page, or of a species and its breeds, one fish (TankCheck.Fish).
+    return Checkers.of(handbook.lang).check(fish, size: size, unlisted: unlisted)
+  }
+
+  /// A row of the tank as the check counts it: by its page, or a breed that is a form of a species (`of`) as that species,
+  /// with its figures; a species the handbook lacks leaves the breed a fish of its own.
+  private func row(_ page: HandbookIndex.Item?, id: String, count: Int?) -> TankCheck.Fish {
+    if let page, let of = page.of, let species = handbook.page(of) {
+      return .init(name: page.name, facts: species.facts, count: count, key: of, species: species.name)
+    }
+    return .init(name: page?.name ?? id, facts: page?.facts ?? .init(), count: count, key: id)
   }
 }
 

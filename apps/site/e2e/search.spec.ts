@@ -104,7 +104,9 @@ test('a search of several words far apart on a page still lists it (only one pla
 test('tapping "Xem thêm kết quả" twice quickly loads the next page once', async ({ page }) => {
   await page.goto('/tim-kiem/?q=c')
   const more = page.locator('[data-more]')
-  await expect(more).toBeVisible()
+  // One letter gives the fixture build more than one page of results. On aquatome.com it matches ~3,500 pages, and a
+  // fresh page takes 6–7 s to rank them (Pagefind's index for "c…"), past the 5 s default: the live check failed on it.
+  await expect(more).toBeVisible({ timeout: 20_000 })
   await more.evaluate(b => { (b as HTMLButtonElement).click(); (b as HTMLButtonElement).click() })
   await expect(page.locator('[data-hits] li')).not.toHaveCount(10)
   const hrefs = await page.$$eval('[data-hits] li a', as => as.map(a => a.getAttribute('href')))

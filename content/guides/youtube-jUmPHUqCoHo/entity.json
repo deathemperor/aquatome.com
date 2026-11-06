@@ -1,0 +1,61 @@
+{
+  "id": "youtube-jUmPHUqCoHo",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=jUmPHUqCoHo",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "jUmPHUqCoHo",
+    "title": "HOW TO build the ultimate DIY aquarium filter",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 811,
+    "publishedAt": "2021-09-08",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaz5-CO-M0O7MzldTzRRhn",
+      "position": 44
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/jUmPHUqCoHo/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 180
+      },
+      {
+        "category": "loc",
+        "t": 660
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Dùng băng keo điện thay cho kẹp",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/jUmPHUqCoHo/p2-eV9Ob3J3YXkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/jUmPHUqCoHo/p2-eV9Ob3J3YXkuanBn-480.webp",
+          "width": 960,
+          "height": 538,
+          "licence": "CC BY 4.0",
+          "author": "R. Henrik Nilsson",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ca_1970_roll_of_polyethylene_electrical_insulating_tape_by_Norgesplaster_AS_Mosby_Norway.jpg",
+          "caption": "Hai cuộn băng keo điện PE, loại dùng để dán các tấm mica."
+        }
+      }
+    ]
+  }
+}

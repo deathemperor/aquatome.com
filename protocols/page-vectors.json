@@ -1,5 +1,5 @@
 {
-  "$comment": "Cases for the app page format (packages/schema/src/app-page.ts, protocols/page.schema.json). html: a page's HTML as shown, and the blocks apps/site/src/lib/page-blocks.ts makes of it (unknown: what it could not convert). shards: which shard of /app/pages/<lang>/<kind>-<n>.json a path is in, for that many shards. docs: whole pages; valid ones are as the site writes them, the others a reader must still show, with the blocks it shows (web: \"open on the web\"). added: whole pages with the blocks and fields added after the first app that reads the format (fish, plant, glossary and video series pages: gallery, trust, mates, climate, cards, videos; a fish's where and aka; a summary's text (one paragraph, also its only item), mistakes and by; a source list's note; a gallery photo's thumb). Each is valid as the site writes it; older is what an app that predates them shows (web for each block it doesn't know, in its place; the fields it doesn't know left out). The fish, plant and video series cases are the fixture build's pages (/app/pages/vi/), with their older: apps/site/test/page-vectors.test.ts fails while they differ, and UPDATE_VECTORS=1 pnpm --filter site test rewrites them (edit only their notes here). The glossary case is written by hand. levels: the shards an app index gives (each kind's shard count n and level) and the kinds an app that knows appLevel draws itself (draws, in any order): those whose level is at or below its own; it opens the others' pages on the web.",
+  "$comment": "Cases for the app page format (packages/schema/src/app-page.ts, protocols/page.schema.json). html: a page's HTML as shown, and the blocks apps/site/src/lib/page-blocks.ts makes of it (unknown: what it could not convert). shards: which shard of /app/pages/<lang>/<kind>-<n>.json a path is in, for that many shards. docs: whole pages; valid ones are as the site writes them, the others a reader must still show, with the blocks it shows (web: \"open on the web\"). added: whole pages with the blocks and fields added after the first app that reads the format (fish, plant, glossary, video series and equipment pages: gallery, trust, mates, climate, cards, videos; a fish's where and aka; a summary's text (one paragraph, also its only item), mistakes and by; a source list's note; a gallery photo's thumb). Each is valid as the site writes it; older is what an app that predates them shows (web for each block it doesn't know, in its place; the fields it doesn't know left out). The fish, plant, video series and equipment cases are the fixture build's pages (/app/pages/vi/), with their older: apps/site/test/page-vectors.test.ts fails while they differ, and UPDATE_VECTORS=1 pnpm --filter site test rewrites them (edit only their notes here). The glossary case is written by hand. levels: the shards an app index gives (each kind's shard count n and level) and the kinds an app that knows appLevel draws itself (draws, in any order): those whose level is at or below its own; it opens the others' pages on the web.",
   "html": [
     {
       "note": "paragraphs and a heading with its table-of-contents id; spaces as a browser shows them",
@@ -1069,7 +1069,7 @@
           {
             "t": "gallery",
             "title": "Ảnh Cá neon vua",
-            "note": "6 ảnh từ Wikimedia Commons, giấy phép mở.",
+            "note": "45 ảnh từ Wikimedia Commons, giấy phép mở.",
             "photos": [
               {
                 "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Neon1.jpg/1280px-Neon1.jpg",
@@ -1142,6 +1142,474 @@
                   "url": "https://commons.wikimedia.org/wiki/File:Neon7.jpg"
                 },
                 "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Neon7.jpg/500px-Neon7.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/NeonVua10.jpg/1280px-NeonVua10.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 10",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua10.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/NeonVua10.jpg/500px-NeonVua10.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/NeonVua11.jpg/1280px-NeonVua11.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 11",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua11.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/NeonVua11.jpg/500px-NeonVua11.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/NeonVua12.jpg/1280px-NeonVua12.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 12",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua12.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/NeonVua12.jpg/500px-NeonVua12.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NeonVua13.jpg/1280px-NeonVua13.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 13",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua13.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NeonVua13.jpg/500px-NeonVua13.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/NeonVua14.jpg/1280px-NeonVua14.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 14",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua14.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/NeonVua14.jpg/500px-NeonVua14.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/NeonVua15.jpg/1280px-NeonVua15.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 15",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua15.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/NeonVua15.jpg/500px-NeonVua15.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/NeonVua16.jpg/1280px-NeonVua16.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 16",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua16.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/NeonVua16.jpg/500px-NeonVua16.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/NeonVua17.jpg/1280px-NeonVua17.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 17",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua17.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/NeonVua17.jpg/500px-NeonVua17.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/NeonVua18.jpg/1280px-NeonVua18.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 18",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua18.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/NeonVua18.jpg/500px-NeonVua18.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/NeonVua19.jpg/1280px-NeonVua19.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 19",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua19.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/NeonVua19.jpg/500px-NeonVua19.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/NeonVua20.jpg/1280px-NeonVua20.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 20",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua20.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/NeonVua20.jpg/500px-NeonVua20.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/NeonVua21.jpg/1280px-NeonVua21.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 21",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua21.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/NeonVua21.jpg/500px-NeonVua21.jpg"
+              },
+              {
+                "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/960px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg",
+                "w": 960,
+                "h": 758,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: CHUCAO",
+                  "licence": "CC BY-SA 3.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg"
+                },
+                "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/500px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/NeonVua22.jpg/1280px-NeonVua22.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 22",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua22.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/NeonVua22.jpg/500px-NeonVua22.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/NeonVua23.jpg/1280px-NeonVua23.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 23",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua23.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/NeonVua23.jpg/500px-NeonVua23.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/NeonVua24.jpg/1280px-NeonVua24.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 24",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua24.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/NeonVua24.jpg/500px-NeonVua24.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/NeonVua25.jpg/1280px-NeonVua25.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 25",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua25.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/NeonVua25.jpg/500px-NeonVua25.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/NeonVua26.jpg/1280px-NeonVua26.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 26",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua26.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/NeonVua26.jpg/500px-NeonVua26.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/NeonVua27.jpg/1280px-NeonVua27.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 27",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua27.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/NeonVua27.jpg/500px-NeonVua27.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/NeonVua28.jpg/1280px-NeonVua28.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 28",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua28.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/NeonVua28.jpg/500px-NeonVua28.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/NeonVua29.jpg/1280px-NeonVua29.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 29",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua29.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/NeonVua29.jpg/500px-NeonVua29.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/NeonVua30.jpg/1280px-NeonVua30.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 30",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua30.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/NeonVua30.jpg/500px-NeonVua30.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/NeonVua31.jpg/1280px-NeonVua31.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 31",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua31.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/NeonVua31.jpg/500px-NeonVua31.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/NeonVua32.jpg/1280px-NeonVua32.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 32",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua32.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/NeonVua32.jpg/500px-NeonVua32.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/NeonVua33.jpg/1280px-NeonVua33.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 33",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua33.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/NeonVua33.jpg/500px-NeonVua33.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/NeonVua34.jpg/1280px-NeonVua34.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 34",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua34.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/NeonVua34.jpg/500px-NeonVua34.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/NeonVua35.jpg/1280px-NeonVua35.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 35",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua35.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/NeonVua35.jpg/500px-NeonVua35.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/NeonVua36.jpg/1280px-NeonVua36.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 36",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua36.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/NeonVua36.jpg/500px-NeonVua36.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/NeonVua37.jpg/1280px-NeonVua37.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 37",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua37.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/NeonVua37.jpg/500px-NeonVua37.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/NeonVua38.jpg/1280px-NeonVua38.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 38",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua38.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/NeonVua38.jpg/500px-NeonVua38.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/NeonVua39.jpg/1280px-NeonVua39.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 39",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua39.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/NeonVua39.jpg/500px-NeonVua39.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/NeonVua40.jpg/1280px-NeonVua40.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 40",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua40.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/NeonVua40.jpg/500px-NeonVua40.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/NeonVua41.jpg/1280px-NeonVua41.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 41",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua41.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/NeonVua41.jpg/500px-NeonVua41.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/NeonVua42.jpg/1280px-NeonVua42.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 42",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua42.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/NeonVua42.jpg/500px-NeonVua42.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/NeonVua43.jpg/1280px-NeonVua43.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 43",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua43.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/NeonVua43.jpg/500px-NeonVua43.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/NeonVua44.jpg/1280px-NeonVua44.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 44",
+                  "licence": "CC BY 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua44.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/NeonVua44.jpg/500px-NeonVua44.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/NeonVua45.jpg/1280px-NeonVua45.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 45",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua45.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/NeonVua45.jpg/500px-NeonVua45.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/NeonVua46.jpg/1280px-NeonVua46.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 46",
+                  "licence": "CC0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua46.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/NeonVua46.jpg/500px-NeonVua46.jpg"
+              },
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/NeonVua47.jpg/1280px-NeonVua47.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá neon vua",
+                "credit": {
+                  "text": "Ảnh: Tác giả 47",
+                  "licence": "CC BY 2.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:NeonVua47.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/NeonVua47.jpg/500px-NeonVua47.jpg"
               }
             ],
             "strip": [
@@ -1150,7 +1618,9 @@
               2,
               3,
               4,
-              5
+              5,
+              6,
+              7
             ],
             "href": "/vi/ca/ca-neon-vua/anh/"
           },
@@ -1191,7 +1661,7 @@
                 "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch từ nguồn"
                 }
               }
             ]
@@ -1218,7 +1688,7 @@
                       "href": "https://www.aquariumglaser.de/en/fish-archives/paracheirodon-axelrodi/",
                       "tip": {
                         "term": "Aquarium Glaser",
-                        "text": "aquariumglaser.de · dịch với sự cho phép của nguồn"
+                        "text": "aquariumglaser.de · dịch từ nguồn"
                       }
                     }
                   ]
@@ -1255,7 +1725,7 @@
                 "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch từ nguồn"
                 }
               }
             ]
@@ -1279,7 +1749,7 @@
                 "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch từ nguồn"
                 }
               }
             ]
@@ -1307,7 +1777,7 @@
                 "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch từ nguồn"
                 }
               }
             ]
@@ -1326,7 +1796,7 @@
                 "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch từ nguồn"
                 }
               }
             ]
@@ -1345,7 +1815,7 @@
                 "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch từ nguồn"
                 }
               }
             ]
@@ -1359,7 +1829,7 @@
                 "href": "https://example.invalid/glaser/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Aquarium Glaser",
-                  "text": "example.invalid · dịch với sự cho phép của nguồn"
+                  "text": "example.invalid · dịch từ nguồn"
                 }
               }
             ]
@@ -1378,7 +1848,7 @@
                 "href": "https://www.seriouslyfish.com/species/paracheirodon-axelrodi",
                 "tip": {
                   "term": "Seriously Fish",
-                  "text": "seriouslyfish.com · dịch với sự cho phép của nguồn"
+                  "text": "seriouslyfish.com · dịch từ nguồn"
                 }
               }
             ]
@@ -1401,7 +1871,7 @@
                 "url": "https://example.invalid/glaser/paracheirodon-axelrodi"
               }
             ],
-            "note": "Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó."
+            "note": "Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."
           },
           {
             "t": "pages",
@@ -1451,6 +1921,637 @@
         "refs",
         "pages",
         "web"
+      ]
+    },
+    {
+      "note": "a fish's page with where it lives in the wild (\"Phân bố tự nhiên\"): its countries and regions with their sources' marks, the sentences they rest on, its wild records in words, and their map as a picture, credited to GBIF; all in blocks a level-2 app reads, so its older view is the fish page's own",
+      "doc": {
+        "v": 1,
+        "kind": "fish",
+        "path": "/vi/ca/ca-neon-xanh/",
+        "title": "Cá neon xanh",
+        "sub": "Paracheirodon innesi",
+        "where": [
+          "Characidae, ",
+          {
+            "text": "Peru",
+            "href": "/vi/nguon-goc/south-america/peru/"
+          }
+        ],
+        "aka": "Tên khác: Neon tetra",
+        "credit": [
+          "Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."
+        ],
+        "lead": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Neonsalmler_Paracheirodon_innesi.jpg/960px-Neonsalmler_Paracheirodon_innesi.jpg",
+          "w": 960,
+          "h": 636,
+          "alt": "Cá neon xanh, Paracheirodon innesi",
+          "credit": {
+            "text": "Ảnh: Holger Krisp",
+            "licence": "CC BY 3.0",
+            "url": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg"
+          }
+        },
+        "talk": {
+          "comments": "species:paracheirodon-innesi",
+          "photos": "species:paracheirodon-innesi"
+        },
+        "blocks": [
+          {
+            "t": "trust",
+            "title": "Nguồn và độ tin cậy",
+            "rows": [
+              {
+                "field": "tempC",
+                "label": "Nhiệt độ",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "ph",
+                "label": "pH",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "sizeCm",
+                "label": "Kích thước",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "lifeYears",
+                "label": "Tuổi thọ",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "tankCm",
+                "label": "Bể tối thiểu",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "difficulty",
+                "label": "Độ khó",
+                "items": [
+                  "Seriously Fish"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "mates",
+            "title": "Nuôi chung",
+            "good": {
+              "title": "Hợp với",
+              "items": [
+                {
+                  "path": "/vi/ca/ca-neon-vua/",
+                  "name": "Cá neon vua",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/500px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg",
+                    "w": 960,
+                    "h": 758,
+                    "credit": {
+                      "text": "Ảnh: CHUCAO",
+                      "licence": "CC BY-SA 3.0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg"
+                    }
+                  }
+                },
+                {
+                  "path": "/vi/ca/ca-boraras-do/",
+                  "name": "Cá boraras đỏ",
+                  "img": {
+                    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Boraras-brigittae-3191524164.jpg/500px-Boraras-brigittae-3191524164.jpg",
+                    "w": 800,
+                    "h": 600,
+                    "credit": {
+                      "text": "Ảnh: Fantomeno 14",
+                      "licence": "CC0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Boraras-brigittae-3191524164.jpg"
+                    }
+                  }
+                }
+              ]
+            },
+            "avoid": {
+              "title": "Tránh",
+              "items": [
+                {
+                  "path": "/vi/ca/ca-apisto-cacatuoides/",
+                  "name": "Cá apisto cacatuoides",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Cacatuoides.JPG/500px-Cacatuoides.JPG",
+                    "w": 960,
+                    "h": 720,
+                    "credit": {
+                      "text": "Ảnh: William Kreijkes",
+                      "licence": "CC BY-SA 3.0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Cacatuoides.JPG"
+                    }
+                  },
+                  "why": "Hơi dữ, có thể rượt đuổi Cá neon xanh"
+                }
+              ]
+            },
+            "note": "Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.",
+            "tool": {
+              "text": "Kiểm tra nuôi chung với loài khác →",
+              "href": "/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6"
+            }
+          },
+          {
+            "t": "climate",
+            "title": "Nuôi ở Việt Nam",
+            "items": [
+              {
+                "label": "Mùa đông miền Bắc",
+                "ok": false,
+                "text": "Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."
+              },
+              {
+                "label": "Miền Nam",
+                "ok": false,
+                "text": "Không cần sưởi, nhưng mùa nóng cần làm mát (xem dòng dưới)."
+              },
+              {
+                "label": "Mùa hè cả nước",
+                "ok": false,
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 26°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
+              }
+            ],
+            "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
+          },
+          {
+            "t": "h",
+            "text": "Nuôi chung với con gì?",
+            "id": "muc-behaviour"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Là ",
+              {
+                "text": "cá đàn",
+                "href": "/vi/thuat-ngu/ca-dan/",
+                "tip": {
+                  "term": "Cá đàn",
+                  "text": "Loài cá sống và bơi theo nhóm, cần nuôi số lượng lớn."
+                }
+              },
+              " hiền lành, hợp bể cộng đồng với cá cùng cỡ.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Phân biệt đực cái thế nào?",
+            "id": "muc-dimorphism"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Con đực thon hơn; vạch xanh của con cái hơi cong do bụng tròn.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Phân bố tự nhiên",
+            "id": "muc-range"
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Sống tự nhiên ở:",
+                "b": true
+              },
+              " ",
+              {
+                "text": "Colombia",
+                "href": "/vi/nguon-goc/south-america/colombia/"
+              },
+              ", ",
+              {
+                "text": "Peru",
+                "href": "/vi/nguon-goc/south-america/peru/"
+              },
+              ", ",
+              {
+                "text": "Brazil",
+                "href": "/vi/nguon-goc/south-america/brazil/"
+              },
+              ", Ecuador",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Sông, hồ, vùng:",
+                "b": true
+              },
+              " Amazon, Orinoco, Purus, Putumayo, Solimões, Napo",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Nguồn ghi gì",
+                "b": true
+              }
+            ]
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Colombia, Peru, Brazil, Amazon",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch từ nguồn"
+                      }
+                    },
+                    ": “The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.”"
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Ecuador, Napo",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch từ nguồn"
+                      }
+                    },
+                    ": “These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).”"
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Purus",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch từ nguồn"
+                      }
+                    },
+                    ": “The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.”"
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Putumayo, Solimões",
+                      "b": true
+                    },
+                    " · Seriously Fish",
+                    {
+                      "text": "1",
+                      "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                      "tip": {
+                        "term": "Seriously Fish",
+                        "text": "seriouslyfish.com · dịch từ nguồn"
+                      }
+                    },
+                    ": “Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.”"
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "GBIF có 39 ghi nhận ngoài tự nhiên: 27 trong các nước trên, 12 ở nơi khác (nhiều nhất: Venezuela 12). Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài."
+            ]
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://aquatome.com/app/range/paracheirodon-innesi-d0610e6d1f.png",
+              "w": 1200,
+              "h": 666,
+              "alt": "Bản đồ 39 ghi nhận ngoài tự nhiên của Cá neon xanh trên GBIF: 27 trong các nước bản địa, 12 ở nơi khác.",
+              "credit": {
+                "text": "Dữ liệu: GBIF.org, 39 ghi nhận, lấy ngày 2026-11-04",
+                "licence": "CC0, CC BY 4.0",
+                "url": "https://www.gbif.org/occurrence/search?taxon_key=2353909&occurrence_status=present&has_coordinate=true&has_geospatial_issue=false&basis_of_record=HUMAN_OBSERVATION&basis_of_record=MACHINE_OBSERVATION&basis_of_record=OBSERVATION&basis_of_record=PRESERVED_SPECIMEN&basis_of_record=MATERIAL_SAMPLE&basis_of_record=MATERIAL_CITATION&basis_of_record=OCCURRENCE&license=CC0_1_0&license=CC_BY_4_0"
+              }
+            },
+            "caption": [
+              "■ Ghi nhận trong các nước bản địa · □ Ghi nhận ở nơi khác · ▒ Nước bản địa. Mỗi ô khoảng 160 km. Bản đồ nền: Natural Earth."
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Môi trường tự nhiên",
+            "id": "muc-habitat"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Suối rừng thượng nguồn Amazon, nước trong đến hơi đục.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Tài liệu tham khảo",
+            "id": "muc-references"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Chen, X.-Y. 2005. A review of the genus ",
+              {
+                "text": "Paracheirodon",
+                "href": "/vi/phan-loai/characiformes/characidae/paracheirodon/"
+              },
+              ". Copeia 2005(3): 566-570.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/paracheirodon-innesi",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn",
+            "id": "nguon",
+            "items": [
+              {
+                "title": "Seriously Fish",
+                "url": "https://www.seriouslyfish.com/species/paracheirodon-innesi"
+              }
+            ],
+            "note": "Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."
+          },
+          {
+            "t": "pages",
+            "title": "Bài viết nhắc đến loài này",
+            "paths": [
+              "/vi/huong-dan/setup-be-thuy-sinh-dau-tien/"
+            ]
+          }
+        ]
+      },
+      "older": [
+        "web",
+        "web",
+        "web",
+        "h",
+        "p",
+        "h",
+        "p",
+        "h",
+        "p",
+        "p",
+        "p",
+        "list",
+        "p",
+        "figure",
+        "h",
+        "p",
+        "h",
+        "p",
+        "refs",
+        "pages"
+      ]
+    },
+    {
+      "note": "a breed's page, a fish's to the app: what it is a form of (linked) in its line above the name, no scientific name, the card's sources, its gallery, summary, text, questions, guides and sources; its figures are the index's `card`",
+      "doc": {
+        "v": 1,
+        "kind": "fish",
+        "path": "/vi/ca/ca-dia-pigeon-blood/",
+        "title": "Cá đĩa Pigeon Blood",
+        "where": [
+          "Dòng cá cảnh, dòng của ",
+          {
+            "text": "Cá đĩa",
+            "href": "/vi/ca/ca-dia/"
+          }
+        ],
+        "aka": "Tên khác: Pigeon Blood Discus, Đĩa bồ câu máu",
+        "credit": [
+          "AquaTome tổng hợp từ 2 nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật 30/10/2026."
+        ],
+        "lead": {
+          "src": "https://images.unsplash.com/photo-1000000000001-pigeonblood1?ixid=fixture&w=1280&q=80&fm=jpg&fit=max",
+          "w": 1280,
+          "h": 960,
+          "alt": "Cá đĩa Pigeon Blood",
+          "credit": {
+            "text": "Ảnh: Mai Lin trên Unsplash",
+            "licence": "Unsplash License",
+            "url": "https://unsplash.com/photos/a-red-discus-fish-Pb1Fixture1?utm_source=aquatome&utm_medium=referral",
+            "authorUrl": "https://unsplash.com/@mailin?utm_source=aquatome&utm_medium=referral",
+            "author": "Mai Lin"
+          }
+        },
+        "talk": {
+          "comments": "breed:pigeon-blood-discus",
+          "photos": "breed:pigeon-blood-discus"
+        },
+        "blocks": [
+          {
+            "t": "trust",
+            "title": "Nguồn và độ tin cậy",
+            "legend": "Các nguồn ghi khác nhau",
+            "rows": [
+              {
+                "field": "tempC",
+                "label": "Nhiệt độ",
+                "conflict": true,
+                "note": "Mức mọi nguồn cùng khuyên",
+                "items": [
+                  "Trại cá đĩa A: 28–30°C",
+                  "Diễn đàn B: 27–31°C"
+                ]
+              },
+              {
+                "field": "sizeCm",
+                "label": "Kích thước",
+                "items": [
+                  "Trại cá đĩa A"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "gallery",
+            "title": "Ảnh Cá đĩa Pigeon Blood",
+            "note": "1 ảnh từ Wikimedia Commons, giấy phép mở.",
+            "photos": [
+              {
+                "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed2.jpg/1280px-Breed2.jpg",
+                "w": 1280,
+                "h": 960,
+                "alt": "Cá lai 2",
+                "credit": {
+                  "text": "Ảnh: Người chụp 2",
+                  "licence": "CC BY-SA 4.0",
+                  "url": "https://commons.wikimedia.org/wiki/File:Breed2.jpg"
+                },
+                "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Breed2.jpg/500px-Breed2.jpg"
+              }
+            ],
+            "strip": [
+              0
+            ]
+          },
+          {
+            "t": "summary",
+            "title": "Tóm tắt",
+            "items": [
+              "Một dòng cá đĩa lai tạo ở Thái Lan."
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Nguồn gốc"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Dòng của ",
+              {
+                "text": "cá đĩa",
+                "href": "/vi/ca/ca-dia/"
+              },
+              ", hay nuôi chung với ",
+              {
+                "text": "Cá La Hán",
+                "href": "/vi/ca/ca-la-han/"
+              },
+              " là không nên. Cá đĩa Pigeon Blood có đốm đen."
+            ]
+          },
+          {
+            "t": "faq",
+            "title": "Hỏi đáp",
+            "items": [
+              {
+                "q": "Có khó nuôi không?",
+                "a": "Khó hơn cá đĩa hoang dã một chút."
+              }
+            ]
+          },
+          {
+            "t": "pages",
+            "title": "Bài viết nhắc đến",
+            "paths": [
+              "/vi/huong-dan/phan-loai-ca-dia/"
+            ]
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn",
+            "items": [
+              {
+                "title": "Trại cá đĩa A",
+                "url": "https://breeder.example/pigeon"
+              },
+              {
+                "title": "Diễn đàn B",
+                "url": "https://forum.example/t/1"
+              }
+            ]
+          }
+        ]
+      },
+      "older": [
+        "web",
+        "web",
+        "summary",
+        "h",
+        "p",
+        "faq",
+        "pages",
+        "refs"
       ]
     },
     {
@@ -1578,7 +2679,7 @@
                 "href": "https://example.invalid/tropica/cryptocoryne-wendtii",
                 "tip": {
                   "term": "Tropica",
-                  "text": "example.invalid · dịch với sự cho phép của nguồn"
+                  "text": "example.invalid · dịch từ nguồn"
                 }
               }
             ]
@@ -1597,7 +2698,7 @@
                 "href": "https://example.invalid/2hraquarist/cryptocoryne-wendtii",
                 "tip": {
                   "term": "2Hr Aquarist",
-                  "text": "example.invalid · dịch với sự cho phép của nguồn"
+                  "text": "example.invalid · dịch từ nguồn"
                 }
               }
             ]
@@ -1616,7 +2717,7 @@
                 "url": "https://example.invalid/2hraquarist/cryptocoryne-wendtii"
               }
             ],
-            "note": "Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó."
+            "note": "Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."
           }
         ]
       },
@@ -1712,6 +2813,597 @@
       "older": [
         "p",
         "web"
+      ]
+    },
+    {
+      "note": "a kind of kit's page: its types with their shop links as built (Shopee), how to choose, the fish it's for as one list, questions, guides, what to search for and the affiliate note",
+      "doc": {
+        "v": 1,
+        "kind": "equipment",
+        "path": "/vi/thiet-bi/loc/",
+        "title": "Lọc",
+        "meta": "2 loài cá cần · 6 loại · 3 bài viết",
+        "lead": {
+          "src": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe.webp",
+          "w": 1000,
+          "h": 667,
+          "alt": "Lọc",
+          "credit": {
+            "text": "Ảnh: Aquarium Co-op",
+            "licence": "",
+            "url": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank-filters-which-one-should-you-get"
+          }
+        },
+        "blocks": [
+          {
+            "t": "p",
+            "c": [
+              "Bộ lọc giữ nước trong và nuôi vi sinh xử lý chất thải của cá. Chọn đúng loại theo cỡ bể và tính cá."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Lọc làm ba việc: giữ lại cặn bẩn (lọc cơ học), nuôi vi sinh chuyển amoniac thành nitrit rồi nitrat (lọc sinh học), và tạo dòng chảy cho nước trao đổi oxy. Trong ba việc đó, lọc sinh học quan trọng nhất: bể có thể trong vắt mà vẫn độc nếu vi sinh chưa đủ."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Không có loại lọc \"tốt nhất\". Lọc bọt biển rẻ, êm, an toàn cho cá bột và tép. Lọc treo dễ lắp cho bể 40–100 lít. Lọc thùng mạnh và gọn cho bể lớn hoặc bể thủy sinh. Cá suối như cá chạch bám đá cần thêm máy tạo dòng."
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Các loại lọc"
+          },
+          {
+            "t": "h",
+            "text": "Máy sủi khí",
+            "id": "suc-khi"
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Air_pump_and_stone.jpg/960px-Air_pump_and_stone.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "w": 960,
+              "h": 720,
+              "alt": "Máy sủi khí",
+              "credit": {
+                "text": "Ảnh: Ofkun",
+                "licence": "CC BY-SA 4.0",
+                "url": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg"
+              }
+            }
+          },
+          {
+            "t": "p",
+            "c": [
+              "Máy bơm không khí qua dây và quả sủi. Bản thân nó không lọc, nhưng chạy lọc bọt biển và tăng oxy khi trời nóng hoặc khi cá bệnh."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Chọn thế nào:",
+                "b": true
+              },
+              " Một máy 2 vòi đủ cho 2 lọc bọt biển. Lắp van một chiều để nước không chảy ngược khi mất điện."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Mua máy sủi oxy bể cá trên Shopee",
+                "href": "/go/shopee/?k=m%C3%A1y+s%E1%BB%A7i+oxy+b%E1%BB%83+c%C3%A1&c=loc&e=equipment%3Aloc"
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Máy tạo dòng",
+            "id": "tao-dong"
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Echinotitti.JPG/960px-Echinotitti.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "w": 960,
+              "h": 720,
+              "alt": "Máy tạo dòng",
+              "credit": {
+                "text": "Ảnh: Brianza2008",
+                "licence": "CC BY-SA 3.0",
+                "url": "https://commons.wikimedia.org/wiki/File:Echinotitti.JPG"
+              }
+            }
+          },
+          {
+            "t": "p",
+            "c": [
+              "Bơm nhỏ đặt trong bể, đẩy nước thành dòng mạnh mà không lọc. Dùng cho cá suối, cá chạch bám đá, cá bống sông cần nước chảy và nhiều oxy."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Chọn thế nào:",
+                "b": true
+              },
+              " Tổng lưu lượng (lọc + tạo dòng) khoảng 10–20 lần thể tích bể mỗi giờ cho bể suối; chừa chỗ nước lặng cho cá nghỉ."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Mua máy tạo dòng bể cá trên Shopee",
+                "href": "/go/shopee/?k=m%C3%A1y+t%E1%BA%A1o+d%C3%B2ng+b%E1%BB%83+c%C3%A1&c=loc&e=equipment%3Aloc"
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Lọc tràn (sump)",
+            "id": "sump"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Bể phụ đặt dưới tủ, nước tràn xuống qua các ngăn vật liệu lọc rồi được bơm ngược lên. Chứa được rất nhiều vật liệu và giấu ",
+              {
+                "text": "sưởi",
+                "href": "/vi/thiet-bi/suoi/"
+              },
+              ", thiết bị."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Chọn thế nào:",
+                "b": true
+              },
+              " Hợp bể từ 300 lít, hồ cá lớn và cá dữ. Cần bể khoan lỗ hoặc hộp tràn; tính chỗ chứa nước khi mất điện."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Mua lọc tràn bể cá trên Shopee",
+                "href": "/go/shopee/?k=l%E1%BB%8Dc+tr%C3%A0n+b%E1%BB%83+c%C3%A1&c=loc&e=equipment%3Aloc"
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Lọc thùng (lọc ngoài)",
+            "id": "thung"
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Eheim_type_2011%2C_pump_101101993-4232.jpg/960px-Eheim_type_2011%2C_pump_101101993-4232.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+              "w": 960,
+              "h": 1280,
+              "alt": "Lọc thùng (lọc ngoài)",
+              "credit": {
+                "text": "Ảnh: Raimond Spekking",
+                "licence": "CC BY-SA 4.0",
+                "url": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4232.jpg"
+              }
+            }
+          },
+          {
+            "t": "p",
+            "c": [
+              "Thùng kín đặt dưới tủ, ống hút và ống xả nối vào bể. Chứa nhiều vật liệu lọc, chạy êm, không chiếm chỗ trong bể nên được ưa cho bể thủy sinh và bể từ 60 cm."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Chọn thế nào:",
+                "b": true
+              },
+              " Chọn lưu lượng ghi trên hộp khoảng 4–6 lần thể tích bể mỗi giờ (bể 120 lít: lọc 500–700 L/h). Vệ sinh 1–2 tháng một lần."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Đã tìm hiểu kỹ: ",
+              {
+                "text": "Oase BioMaster 350",
+                "href": "/vi/san-pham/oase-biomaster-350/"
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Mua lọc thùng bể cá trên Shopee",
+                "href": "/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+b%E1%BB%83+c%C3%A1&c=loc&e=equipment%3Aloc"
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Hay tìm: ",
+              {
+                "text": "lọc thùng 600l/h",
+                "href": "/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+600l%2Fh&c=loc&e=equipment%3Aloc"
+              },
+              ", ",
+              {
+                "text": "lọc thùng 1200l/h",
+                "href": "/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+1200l%2Fh&c=loc&e=equipment%3Aloc"
+              }
+            ]
+          },
+          {
+            "t": "cards",
+            "title": "Loài dùng lọc thùng (lọc ngoài)",
+            "items": [
+              {
+                "path": "/vi/ca/ca-neon-vua/",
+                "name": "Cá neon vua",
+                "img": {
+                  "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Cardinal_Paracheirodon_axelrodi_%283%29.jpg/500px-Cardinal_Paracheirodon_axelrodi_%283%29.jpg",
+                  "w": 960,
+                  "h": 758,
+                  "credit": {
+                    "text": "Ảnh: CHUCAO",
+                    "licence": "CC BY-SA 3.0",
+                    "url": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg"
+                  }
+                }
+              },
+              {
+                "path": "/vi/ca/ca-dia/",
+                "name": "Cá đĩa",
+                "img": {
+                  "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Blue_Discus.jpg/500px-Blue_Discus.jpg",
+                  "w": 960,
+                  "h": 802,
+                  "credit": {
+                    "text": "Ảnh: Patrick Farrelly",
+                    "licence": "Public domain",
+                    "url": "https://commons.wikimedia.org/wiki/File:Blue_Discus.jpg"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Lọc treo, lọc thác",
+            "id": "treo"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Hộp lọc móc lên thành bể, nước được hút lên rồi chảy tràn trở lại như thác nhỏ. Rẻ, dễ lắp, dễ thay bông."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Chọn thế nào:",
+                "b": true
+              },
+              " Hợp bể 20–100 lít. Bọc đầu hút bằng mút nếu nuôi tép hoặc cá nhỏ để chúng không bị hút vào."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Mua lọc treo bể cá trên Shopee",
+                "href": "/go/shopee/?k=l%E1%BB%8Dc+treo+b%E1%BB%83+c%C3%A1&c=loc&e=equipment%3Aloc"
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Lọc bọt biển (lọc sủi)",
+            "id": "bot-bien"
+          },
+          {
+            "t": "figure",
+            "img": {
+              "src": "https://media.aquatome.com/aquariumcoop/24ef4e81cde803ad.webp",
+              "w": 1000,
+              "h": 667,
+              "alt": "Lọc bọt biển (lọc sủi)",
+              "credit": {
+                "text": "Ảnh: Aquarium Co-op",
+                "licence": "",
+                "url": "https://www.aquariumcoop.com/blogs/aquarium/sponge-filters-the-easiest-fish-tank-filter-ever"
+              }
+            }
+          },
+          {
+            "t": "p",
+            "c": [
+              "Khối mút xốp chạy bằng máy sủi khí: bọt khí kéo nước qua mút, vi sinh sống trong lỗ mút. Dòng nhẹ, không hút cá bột, gần như không hỏng."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Chọn thế nào:",
+                "b": true
+              },
+              " Hợp bể dưới 60 lít, bể betta, bể tép, bể đẻ và cá con. Bóp mút trong nước bể cũ khi vệ sinh, đừng rửa vòi để giữ vi sinh."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              {
+                "text": "Mua lọc bọt biển bể cá trên Shopee",
+                "href": "/go/shopee/?k=l%E1%BB%8Dc+b%E1%BB%8Dt+bi%E1%BB%83n+b%E1%BB%83+c%C3%A1&c=loc&e=equipment%3Aloc"
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Cách chọn"
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Tính thể tích bể (dài × rộng × cao cm ÷ 1000 = lít), rồi chọn lọc có lưu lượng 4–6 lần thể tích đó mỗi giờ."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Cá bột, tép, betta, cá vây dài: dòng nhẹ, ưu tiên lọc bọt biển hoặc lọc treo có van chỉnh."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Cá suối, cá chạch bám đá, cá bống sông: lọc mạnh cộng máy tạo dòng, nhiều oxy."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Cá lớn và cá ăn nhiều (",
+                    {
+                      "text": "cichlid",
+                      "href": "/vi/nhom/cichlids/"
+                    },
+                    ", cá vàng, cá da trơn): chọn dư một cỡ so với thể tích bể."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Bể thủy sinh có CO2: lọc thùng giữ CO2 tốt hơn lọc thác vì mặt nước ít bị khuấy."
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Sai lầm thường gặp"
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Rửa vật liệu lọc bằng nước máy có clo: chết vi sinh, bể \"chu kỳ lại\" và cá chết hàng loạt."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Thay toàn bộ bông và sứ lọc cùng lúc. Thay lần lượt, mỗi lần một phần."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Thả cá ngay khi vừa lắp lọc. Bể mới cần 3–6 tuần cho vi sinh phát triển."
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    "Tắt lọc qua đêm cho êm: vi sinh thiếu oxy sẽ chết sau vài giờ."
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Dân chơi dùng gì trong video"
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Oase BioMaster 350",
+                      "b": true,
+                      "href": "/vi/san-pham/oase-biomaster-350/"
+                    },
+                    " · 1 video · ",
+                    {
+                      "text": "Cách hạn chế rêu hại trong bể thủy sinh",
+                      "href": "/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "pages",
+            "title": "Loài cá cần lọc",
+            "paths": [
+              "/vi/ca/ca-neon-vua/",
+              "/vi/ca/ca-dia/"
+            ]
+          },
+          {
+            "t": "faq",
+            "title": "Hỏi đáp",
+            "items": [
+              {
+                "q": "Bể 60 cm nên dùng lọc gì?",
+                "a": "Bể 60 cm (khoảng 54–60 lít) dùng tốt một lọc treo 300–400 L/h, một lọc thùng nhỏ, hoặc hai lọc bọt biển nếu nuôi tép và cá nhỏ."
+              },
+              {
+                "q": "Bao lâu thì vệ sinh lọc?",
+                "a": "Khi dòng chảy yếu rõ rệt, thường 2–4 tuần với lọc bọt biển và lọc treo, 1–2 tháng với lọc thùng. Luôn rửa vật liệu trong nước bể vừa thay ra."
+              },
+              {
+                "q": "Lọc chạy cả ngày lẫn đêm à?",
+                "a": "Có. Vi sinh trong lọc cần dòng nước có oxy liên tục; tắt vài giờ là chúng bắt đầu chết."
+              },
+              {
+                "q": "Có cần máy sủi nếu đã có lọc?",
+                "a": "Không bắt buộc nếu lọc khuấy mặt nước tốt. Nên có khi nước trên 28 °C, khi bể đông cá hoặc khi dùng thuốc trị bệnh."
+              }
+            ]
+          },
+          {
+            "t": "pages",
+            "title": "Bài viết liên quan",
+            "paths": [
+              "/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/",
+              "/vi/huong-dan/chon-loc-cho-be-nano/",
+              "/vi/huong-dan/setup-be-thuy-sinh-dau-tien/"
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Gợi ý mua hay gặp (2)"
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "lọc thùng 600l/h",
+                      "href": "/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+600l%2Fh&c=loc&e=equipment%3Aloc"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "lọc thùng 1200l/h",
+                      "href": "/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+1200l%2Fh&c=loc&e=equipment%3Aloc"
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết."
+            ]
+          }
+        ]
+      },
+      "older": [
+        "p",
+        "p",
+        "p",
+        "h",
+        "h",
+        "figure",
+        "p",
+        "p",
+        "p",
+        "h",
+        "figure",
+        "p",
+        "p",
+        "p",
+        "h",
+        "p",
+        "p",
+        "p",
+        "h",
+        "figure",
+        "p",
+        "p",
+        "p",
+        "p",
+        "p",
+        "web",
+        "h",
+        "p",
+        "p",
+        "p",
+        "h",
+        "figure",
+        "p",
+        "p",
+        "p",
+        "h",
+        "list",
+        "h",
+        "list",
+        "h",
+        "list",
+        "pages",
+        "faq",
+        "pages",
+        "h",
+        "list",
+        "p"
       ]
     }
   ],

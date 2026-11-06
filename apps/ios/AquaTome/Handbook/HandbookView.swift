@@ -4,7 +4,7 @@ import SwiftUI
 /// The handbook: before a search, a home arranged as the site arranges it (HomeList: fish by group, plants by where
 /// they go, guides by subject, the tools, the glossary); while searching, every page that matches, of one kind if
 /// picked. A page opens as the app draws it (guides), the site's page, or the app's own screen for it (the Chihiros
-/// tool is the Lights tab, "Bể của tôi" the tanks tab).
+/// tool is the Lights tab, "Bể của tôi" the tanks tab, the fish-ID tool a screen of its own).
 struct HandbookView: View {
   /// The pages open in the tab: a link in a page the app draws pushes onto it (AppScreen.page).
   @Binding var path: NavigationPath
@@ -19,11 +19,19 @@ struct HandbookView: View {
         } else {
           Section {
             ForEach(handbook.results) { item in Row(item: item) }
+            // The kind picked has none but others have some: said under the chips, as a row the list scrolls. Laid over
+            // the list, at the largest text it covered the chips, and with the keyboard up its button was under it.
+            if handbook.results.isEmpty, let kind = handbook.kind, handbook.counts[nil, default: 0] > 0 {
+              NoneOfKind(kind: kind).listRowBackground(Color.clear)
+            }
           } header: {
             // The kinds found, under the search field and right above their results, as the reader types (and none
             // before: the home shows then, which a kind doesn't change). In the list, not a bar over it: a bar's
             // scroll view reaches up under the navigation bar, and iOS 26 drew none of its chips.
             KindChips().padding(.bottom, 4).listRowInsets(EdgeInsets()).textCase(nil)
+          } footer: {
+            // More found than listed (a search lists its best 200): says so, under chips that count them all.
+            if handbook.left > 0 { MoreResults() }
           }
         }
       }
@@ -34,10 +42,19 @@ struct HandbookView: View {
       .navigationTitle("Tìm")
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }
+      .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
-        else if handbook.results.isEmpty && !handbook.query.isEmpty { ContentUnavailableView.search(text: handbook.query) }
+        // Nothing found of any kind (none of one, with others found, is a row: NoneOfKind).
+        else if !handbook.query.isEmpty && handbook.counts[nil, default: 0] == 0 { ContentUnavailableView.search(text: handbook.query) }
       }
+      #if DEBUG
+      // UI tests (`-watch-tank-searches`): how many times what the tanks tab searches has changed (HandbookModel).
+      .overlay(alignment: .bottomLeading) {
+        if let n = handbook.tankSearchChanges { Text(verbatim: "\(n)").font(.caption2).accessibilityIdentifier("tank-search-changes") }
+      }
+      #endif
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
     }
@@ -84,8 +101,9 @@ private struct KindChip: View {
     Button(action: pick) {
       HStack(spacing: 6) {
         Text(title)
-        // Faded only off the picked chip: faded on its green, the count falls under 4.5:1.
-        Text(count, format: .number).monospacedDigit().foregroundStyle(picked ? HierarchicalShapeStyle.primary : .secondary)
+        // Faded only off the picked chip (faded on its green, the count falls under 4.5:1), and less than the system's
+        // secondary there, which measured 3.1:1 on the chip's fill.
+        Text(count, format: .number).monospacedDigit().opacity(picked ? 1 : 0.6)
       }
       .font(.subheadline.weight(.medium))
       .lineLimit(1)
@@ -102,6 +120,43 @@ private struct KindChip: View {
     .accessibilityLabel(title)
     .accessibilityValue(Text(count, format: .number))
     .accessibilityAddTraits(picked ? .isSelected : [])
+  }
+}
+
+/// Under results that stop short of what the kind picked finds: how many show, and a page more, as the site's search
+/// page has it. A page more is the next part of what the search ranked (SearchState): no search.
+private struct MoreResults: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let shown = handbook.results.count
+    VStack(alignment: .leading, spacing: 4) {
+      Text("Đang hiện \(shown.formatted()) trong \((shown + handbook.left).formatted()) kết quả. Gõ thêm để thu hẹp.")
+        // As the chips' counts: the footer's secondary measured 3.3:1 on the light look's background.
+        .foregroundStyle(Color.primary.opacity(0.6))
+        .accessibilityIdentifier("more-note")
+      Button("Xem thêm kết quả") { handbook.showMore() }
+        .font(.subheadline.weight(.medium))
+        .frame(minHeight: 44)
+        .accessibilityIdentifier("more")
+    }
+  }
+}
+
+/// The kind picked finds nothing the search finds elsewhere: which kinds have some, and a way to all of them.
+private struct NoneOfKind: View {
+  let kind: HandbookIndex.Kind
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    let found = HandbookIndex.Kind.allCases.compactMap { k in handbook.counts[k].map { "\(k.title) (\($0.formatted()))" } }
+    ContentUnavailableView {
+      Label("Không có kết quả trong “\(kind.title)”", systemImage: "magnifyingglass")
+    } description: {
+      Text("“\(handbook.query)” có kết quả trong \(found.formatted(.list(type: .and))).")
+    } actions: {
+      Button("Xem tất cả") { handbook.kind = nil }.accessibilityIdentifier("see-all")
+    }
   }
 }
 
@@ -214,4 +269,9 @@ extension HandbookIndex.Kind {
     case .origin: "globe.asia.australia"
     }
   }
+}
+
+/// A page of the site the app has no screen for, opened from outside the app (AppLink): its web page, on the Tìm tab.
+struct SitePage: Hashable {
+  let url: URL
 }

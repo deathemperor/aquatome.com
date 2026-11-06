@@ -45,11 +45,15 @@ export function unsureSpecies(items: SpeciesIndexItem[], q: SpeciesQuery): Speci
   return items.filter(i => { const c = checks(i, q); return named(i, q) && !c.includes(false) && c.includes(undefined) })
 }
 
-/** Breeds carry no water data: with a filter set, one stays only when the filter is a name search that matches it. */
-export function keepBreed(name: string, q: SpeciesQuery): boolean {
-  const { text, ...rest } = q
-  if (Object.values(rest).some(v => v !== undefined)) return false
-  return !text || nameHas(name, text)
+/** A breed card's own figures, from its care card (SpeciesCard.astro's `data-fig`): what the water filter reads. */
+export type BreedFigures = Pick<SpeciesIndexItem, 'tempC' | 'ph' | 'tankCm' | 'difficulty'>
+/**
+ * A breed card under the list's filter: a name search reads its name, the water filter its own figures, as a species'
+ * (every figure asked for known and fitting); a group, which a breed has none of, hides it.
+ */
+export function keepBreed(name: string, fig: BreedFigures, q: SpeciesQuery): boolean {
+  if (q.group || (q.text && !nameHas(name, q.text))) return false
+  return checks({ slug: '', name, scientificName: '', group: '', ...fig }, q).every(c => c === true)
 }
 
 export function queryFromParams(p: URLSearchParams): SpeciesQuery {

@@ -1,0 +1,103 @@
+{
+  "id": "scleropages-inscriptus",
+  "scientificName": "Scleropages inscriptus",
+  "order": "Osteoglossiformes",
+  "family": "Osteoglossidae",
+  "genus": "Scleropages",
+  "group": "other",
+  "places": [
+    "asia",
+    "myanmar",
+    "tenasserim"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-inscriptus",
+      "html": "<p>Scleropages inscriptus is an osteoglossid said to come from the Tenasserim river basin in Tanintharyi Region, southern Myanmar. Its distribution is unclear, and the type specimens were obtained dead from an aquarium fish vendor. Distinctive angulated linear markings on the head and flanks separate it from other members of the genus. The largest of the type series measured 385 mm, but it can apparently attain about 600 mm.</p><ul><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-inscriptus",
+      "html": "<p>This species' distribution is unclear although individuals from the aquarium trade are said to have been collected in the Tenasserim river basin in Tanintharyi Region, southern Myanmar.</p><p>Type locality is 'supposedly from Tanintharyi district, Tanintharyi River basin, obtained dead from aquarium fish vendor at Meik'.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-inscriptus",
+      "html": "<p>Standard length: 600 mm SL.</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-inscriptus",
+      "html": "<p>Probably an obligate predator feeding on smaller fishes, crustaceans and other invertebrates in nature but should adapt well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-inscriptus",
+      "html": "<p>This species differs from other members of the genus in possessing distinctive angulated linear markings on the dermal bones of the circumorbital and opercular series, on the sides of the head and flanks.</p><p>Etymology: Scleropages: from the Ancient Greek σκληρός (skleros), meaning 'hard', and pages (Latin derivation?), meaning 'leaves', perhaps in reference to the large body scales. inscriptus: from the Latin inscriptus, meaning 'inscribed', in reference to the distinctive markings on the scales and facial bones.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-inscriptus",
+      "html": "<ul><li>Roberts, T. R. (2012). Scleropages inscriptus, a new fish species from the Tananthayi or Tenasserim River basin, Malay Peninsula of Myanmar (Osteoglossidae: Osteoglossiformes). Aqua 18(2), 113-118</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5e374f614ea594a8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5e374f614ea594a8-480.webp",
+      "width": 670,
+      "height": 427,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/scleropages-inscriptus",
+      "caption": "Wild-collected specimen from the aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá dài 2m",
+        "bể cá lớn cho cá rồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá rồng",
+        "tôm đông lạnh cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

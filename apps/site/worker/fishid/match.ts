@@ -23,18 +23,24 @@ export function sciKey(s: string): { full: string; binomial: string; genus: stri
 export function plain(s: string): string {
   return s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[đĐ]/g, 'd').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/^(ca|tep|cay) /, '')
 }
-const compact = (s: string) => plain(s).replace(/ /g, '')
+export const compact = (s: string) => plain(s).replace(/ /g, '')
 /** "Cá tai tượng albino (Albino oscar)" → itself, "tai tuong albino", "albino oscar", compacted. */
 const namesOf = (e: CatalogEntry) => [...new Set([e.name.vi, ...(e.alt ?? [])].flatMap(n => [n, ...n.split(/[()]/)]).map(compact).filter(Boolean))]
 
-type Index = { full: Map<string, CatalogEntry[]>; binomial: Map<string, CatalogEntry[]>; genus: Map<string, CatalogEntry[]>; breeds: { e: CatalogEntry; root?: string; names: string[]; words: string[][]; whole: string[][] }[] }
+type Index = { byId: Map<string, CatalogEntry>; full: Map<string, CatalogEntry[]>; binomial: Map<string, CatalogEntry[]>; genus: Map<string, CatalogEntry[]>; breeds: { e: CatalogEntry; root?: string; names: string[]; words: string[][]; whole: string[][] }[] }
 const built = new WeakMap<Catalog, Index>()
+/** What a breed is a form of, through other breeds, down to a species: its id, whether or not the handbook has its page. */
+function rootOf(byId: Map<string, CatalogEntry>, e: CatalogEntry): string | undefined {
+  let root = e.basedOn
+  for (let i = 0; root && byId.get(root)?.kind === 'breed' && i < 5; i++) root = byId.get(root)!.basedOn
+  return root
+}
 function indexOf(c: Catalog): Index {
   let ix = built.get(c)
   if (ix) return ix
-  ix = { full: new Map(), binomial: new Map(), genus: new Map(), breeds: [] }
-  const add = (m: Map<string, CatalogEntry[]>, k: string, e: CatalogEntry) => { if (k) m.set(k, [...(m.get(k) ?? []), e]) }
   const byId = new Map(c.entries.map(e => [e.id, e]))
+  ix = { byId, full: new Map(), binomial: new Map(), genus: new Map(), breeds: [] }
+  const add = (m: Map<string, CatalogEntry[]>, k: string, e: CatalogEntry) => { if (k) m.set(k, [...(m.get(k) ?? []), e]) }
   for (const e of c.entries) {
     for (const name of [e.sci, ...(e.syn ?? [])]) {
       if (!name) continue
@@ -44,9 +50,7 @@ function indexOf(c: Catalog): Index {
       if (name === e.sci) add(ix.genus, k.genus, e)
     }
     if (e.kind === 'breed') {
-      // What it is a form of, through other breeds, down to a species.
-      let root = e.basedOn
-      for (let i = 0; root && byId.get(root)?.kind === 'breed' && i < 5; i++) root = byId.get(root)!.basedOn
+      const root = rootOf(byId, e)
       const all = [e.name.vi, ...(e.alt ?? [])]
       ix.breeds.push({ e, root, names: namesOf(e), words: [...new Set(all.flatMap(n => [n, ...n.split(/[()]/)]))].map(words).filter(w => w.length), whole: [...new Set([e.name.vi, ...e.name.vi.split(/[()]/), ...(e.alt ?? []).flatMap(n => n.split(/[()]/).filter(p => words(p).length >= 2))])].map(words).filter(w => w.length) })
     }
@@ -83,7 +87,7 @@ function within(a: string, b: string, max: number): boolean {
 }
 
 /** A name's words, compared as `plain` compares names. */
-const words = (s: string) => plain(s).split(' ').filter(Boolean)
+export const words = (s: string) => plain(s).split(' ').filter(Boolean)
 /** One word for another: the same, or one the start of the other, both of 4 letters or more ("tail" for "tailed"). */
 const sameWord = (a: string, b: string) => a === b || (Math.min(a.length, b.length) >= 4 && (a.startsWith(b) || b.startsWith(a)))
 const hasWord = (ws: string[], w: string) => ws.some(x => sameWord(x, w))
@@ -134,14 +138,21 @@ function breedFor(ix: Index, g: Guess, species: CatalogEntry | undefined): Catal
 }
 const compareRank = (a: number[], b: number[]) => { for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return a[i]! - b[i]!; return 0 }
 
-const link = (e: CatalogEntry, lang: Lang): Linked => ({ id: e.id, kind: e.kind, name: e.name[lang] ?? e.name.vi, ...(e.sci ? { sci: e.sci } : {}), ...(e.url[lang] ? { url: e.url[lang] } : {}), ...(e.img ? { img: e.img } : {}) })
+export const link = (e: CatalogEntry, lang: Lang): Linked => ({ id: e.id, kind: e.kind, name: e.name[lang] ?? e.name.vi, ...(e.sci ? { sci: e.sci } : {}), ...(e.url[lang] ? { url: e.url[lang] } : {}), ...(e.img ? { img: e.img } : {}) })
 
-/** Each guess with the handbook's pages for it, in the reader's language. */
+/**
+ * Each guess with the handbook's pages for it, in the reader's language. A guess the agent checked carries the page's
+ * `id`: that page first (a breed's, or the species or plant the variety may name a breed of), then the name as before.
+ * The id itself is not part of the result (the page carries it).
+ */
 export function matchGuesses(guesses: Guess[], c: Catalog, lang: Lang): Result[] {
   const ix = indexOf(c)
-  return guesses.map(g => {
-    const species = pageFor(ix, g.scientificName)
-    const breed = breedFor(ix, g, species)
+  const byId = ix.byId
+  return guesses.map(({ id, ...g }) => {
+    const checked = id ? byId.get(id) : undefined
+    const root = checked?.kind === 'breed' ? byId.get(rootOf(byId, checked) ?? '') : undefined
+    const species = checked ? (checked.kind === 'breed' ? root : checked) : pageFor(ix, g.scientificName)
+    const breed = checked?.kind === 'breed' ? checked : breedFor(ix, g, species)
     const page = breed ?? species
     // The genus of the page it matched (a synonym or a renamed genus finds the page's own), else of Claude's name.
     const genus = (ix.genus.get(sciKey(species?.sci ?? page?.sci ?? g.scientificName).genus) ?? []).filter(e => e.kind !== 'breed' && e !== page && e !== species).slice(0, SAME_GENUS_MAX)

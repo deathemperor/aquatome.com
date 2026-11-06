@@ -1,0 +1,97 @@
+{
+  "id": "melanotaenia-boesemani",
+  "native": {
+    "input": "60c2ef6e2fdb2ab9",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Boeseman's rainbowfish, Melanotaenia boesemani, is a rainbowfish from Indonesia, known only from the Ajamaru lakes and nearby Lakes Hain and Aitinjo.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Indonesia.",
+        "words": "Indonesia",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ajamaru lakes",
+        "source": "seriouslyfish",
+        "quote": "Boeseman's rainbowfish, Melanotaenia boesemani, is a rainbowfish from Indonesia, known only from the Ajamaru lakes and nearby Lakes Hain and Aitinjo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lake Hain",
+        "source": "seriouslyfish",
+        "quote": "Has a very limited natural range, being known only from an area of three lakes known as Ajamaru, in the remote Vogelkop Peninsula of Irian Jaya, and from nearby Lakes Hain and Aitinjo.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Aitinjo",
+        "source": "seriouslyfish",
+        "quote": "Has a very limited natural range, being known only from an area of three lakes known as Ajamaru, in the remote Vogelkop Peninsula of Irian Jaya, and from nearby Lakes Hain and Aitinjo.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Vogelkop Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Has a very limited natural range, being known only from an area of three lakes known as Ajamaru, in the remote Vogelkop Peninsula of Irian Jaya, and from nearby Lakes Hain and Aitinjo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia boesemani",
+    "status": "ACCEPTED",
+    "taxonKey": 2411651,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        21
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        13
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

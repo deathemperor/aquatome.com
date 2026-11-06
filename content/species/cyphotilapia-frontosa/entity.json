@@ -12,6 +12,121 @@
     "democratic-republic-of-the-congo",
     "burundi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "BI",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs throughout this area, but localities popular in the aquarium hobby include: Tembwe, Kitumba, Kavala, Kabimba, Kabobo, Ubwari, and Gitaza in Democratic Republic of the Congo (formerly known as Zaire, which is still used in reference to some populations; see 'Notes'); Bujumbura, Luhanga, Pemba (Bemba), Magara, Resha, and Nyanza in Burundi; Kigoma, Bulombora, Maswa, Halembe, and Bulu Point in Tanzania.",
+          "countries": [
+            "CD",
+            "BI"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kigoma, Tanzania, Lake Tanganyika'.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the northern portion of Lake Tanganyika where it is distributed between Cape Tembwe on the western coast and Bulu Point on the eastern coast.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373233,
+      "total": 33,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "CD",
+          13
+        ],
+        [
+          "ZM",
+          8
+        ],
+        [
+          "TZ",
+          7
+        ],
+        [
+          "BI",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          28.125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          28.125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          29.53125,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3,
+          2
+        ],
+        [
+          29.53125,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          30.9375,
+          -9.84375,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

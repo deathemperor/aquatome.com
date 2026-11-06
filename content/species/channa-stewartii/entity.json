@@ -16,6 +16,156 @@
     "bhutan",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "NP",
+        "BT",
+        "MM"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Ganges",
+        "Barak"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "India, Assam.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Assamese snakehead, Channa stewartii, is a snakehead of the C. gachua group from the Brahmaputra and Ganges basins of India, Bangladesh and Nepal.",
+          "countries": [
+            "BD",
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is also listed from Bhutan and Myanmar and grows to about 30 cm TL.",
+          "countries": [
+            "BT",
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's known from the Brahmaputra basin in India and Bangladesh, and from the Ganges basin from southern Nepal eastward (Bordoloi et al., 2024).",
+          "countries": [],
+          "regions": [
+            "Brahmaputra",
+            "Ganges"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Cachar in the Barak valley of Assam, northeastern India.",
+          "countries": [],
+          "regions": [
+            "Barak"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391448,
+      "total": 75,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          70
+        ],
+        [
+          "BT",
+          2
+        ],
+        [
+          "NP",
+          2
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          10,
+          10
+        ],
+        [
+          84.375,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          90,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          23.90625,
+          46,
+          46
+        ],
+        [
+          94.21875,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          26.71875,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

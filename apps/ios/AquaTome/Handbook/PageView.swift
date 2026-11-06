@@ -57,7 +57,8 @@ struct PageView: View {
       .task(id: item.path) {
         // Opened before the index said the app draws this kind: the web page, for this visit (not a spinner later).
         guard handbook.drawsItself(item), !tried else { tried = true; return }
-        pieces = await handbook.doc(item).map(NativePage.pieces)
+        let traits = item.kind == .fish ? FactsCard.traits(item.facts) : nil
+        pieces = await handbook.doc(item).map { NativePage.pieces($0, traits: traits) }
         tried = true
       }
       .navigationTitle(item.name)
@@ -116,6 +117,8 @@ struct PageView: View {
   /// lists it, not a temperature the index may also have for it.
   private func facts(inPage: Bool) -> FactsCard? {
     if item.kind == .fish, item.facts.any { return FactsCard(facts: item.facts, inPage: inPage) }
+    // A breed checked as its species keeps its own figures apart, as its page's data card gives them.
+    if item.kind == .fish, let card = item.card, card.any { return FactsCard(facts: card, inPage: inPage) }
     if item.kind == .plant, let plant = item.plant, plant.any { return FactsCard(facts: .init(), plant: plant, inPage: inPage) }
     return nil
   }

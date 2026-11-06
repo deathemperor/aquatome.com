@@ -15,18 +15,19 @@ private struct Case: Decodable {
 
   enum CodingKeys: String, CodingKey { case note, lang, fish, size, unlisted, check }
   private struct Fish: Decodable {
-    let name: String, count: Int?, facts: HandbookIndex.Facts
-    enum CodingKeys: String, CodingKey { case name, count }
+    let name: String, count: Int?, key: String?, species: String?, facts: HandbookIndex.Facts
+    enum CodingKeys: String, CodingKey { case name, count, key, species }
     init(from decoder: any Decoder) throws {
       let c = try decoder.container(keyedBy: CodingKeys.self)
       name = try c.decode(String.self, forKey: .name); count = try c.decodeIfPresent(Int.self, forKey: .count); facts = try .init(from: decoder)
+      key = try c.decodeIfPresent(String.self, forKey: .key); species = try c.decodeIfPresent(String.self, forKey: .species)
     }
   }
   private struct Size: Decodable { struct Dims: Decodable { let l, w, h: Double }; let dims: Dims?; let litres: Double? }
   init(from decoder: any Decoder) throws {
     let c = try decoder.container(keyedBy: CodingKeys.self)
     note = try c.decode(String.self, forKey: .note); lang = try c.decode(String.self, forKey: .lang); check = try c.decode(TankCheck.self, forKey: .check)
-    fish = try c.decode([Fish].self, forKey: .fish).map { .init(name: $0.name, facts: $0.facts, count: $0.count) }
+    fish = try c.decode([Fish].self, forKey: .fish).map { .init(name: $0.name, facts: $0.facts, count: $0.count, key: $0.key, species: $0.species) }
     let s = try c.decode(Size.self, forKey: .size)
     size = .init(dims: s.dims.map { .init(l: $0.l, w: $0.w, h: $0.h) }, litres: s.litres)
     unlisted = try c.decodeIfPresent([String].self, forKey: .unlisted) ?? []
@@ -69,7 +70,11 @@ private let cases: [Case] = {
   let json = try JSONSerialization.jsonObject(with: JSONEncoder().encode(fish)) as! [String: Any]
   #expect(json["name"] as? String == "Cá neon" && json["count"] as? Int == 12 && json["sizeCm"] as? Double == 4)
   #expect(json["temperament"] as? String == "peaceful" && (json["ph"] as? [String: Double]) == ["min": 5, "max": 7])
-  #expect(json["tempC"] == nil)
+  #expect(json["tempC"] == nil && json["key"] == nil)
+  // A breed counted as its species: what it counts as, and the species' name for a group.
+  let breed = TankCheck.Fish(name: "Cá betta Halfmoon", facts: .init(), count: 1, key: "betta-splendens", species: "Cá betta (cá xiêm)")
+  let row = try JSONSerialization.jsonObject(with: JSONEncoder().encode(breed)) as! [String: Any]
+  #expect(row["key"] as? String == "betta-splendens" && row["species"] as? String == "Cá betta (cá xiêm)")
 }
 
 @Test func oneFishAndNoSizeGivesNoVerdictButTheTankItNeeds() {
@@ -85,17 +90,22 @@ private let cases: [Case] = {
 }
 
 @Test func aPageOnTheTankTwiceIsCheckedAsOneFishWithItsCountsAddedUp() {
-  // On the tank from its page, and again by name from before the page existed (an entry the page now matches).
-  func neon(_ n: Int?) -> TankCheck.Fish { .init(name: "Cá neon", facts: .init(schoolMin: 6), count: n) }
-  let betta = TankCheck.Fish(name: "Cá betta", facts: .init(), count: 1)
-  #expect(TankCheck.onePerPage([("neon", neon(10)), ("betta", betta), ("neon", neon(5))]) == [neon(15), betta])
+  // On the tank from its page, and again by name from before the page existed (an entry the page now matches): rows with
+  // one key, which the site's code makes one fish (tank-check.ts oneFishEach, its own cases in the site's test).
+  let checker = TankChecker(lang: "vi"), size = TankCheck.Size(dims: .init(l: 60, w: 30, h: 36))
+  func neon(_ n: Int?) -> TankCheck.Fish { .init(name: "Cá neon", facts: .init(sizeCm: 4, schoolMin: 6), count: n, key: "neon") }
+  let betta = TankCheck.Fish(name: "Cá betta", facts: .init(sizeCm: 7), count: 1, key: "betta")
+  func same(_ rows: [TankCheck.Fish], _ fish: [TankCheck.Fish]) -> Bool { checker.check(rows, size: size) == checker.check(fish, size: size) }
+  #expect(same([neon(10), betta, neon(5)], [neon(15), betta]))
   // A row without a count is read as the school size, so the other row's 4 doesn't bring the 6 down; 10 is more.
-  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(4))]) == [neon(6)])
-  #expect(TankCheck.onePerPage([("neon", neon(4)), ("neon", neon(nil))]) == [neon(6)])
-  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(10))]) == [neon(10)])
+  #expect(same([neon(nil), neon(4)], [neon(6)]))
+  #expect(same([neon(4), neon(nil)], [neon(6)]))
+  #expect(same([neon(nil), neon(10)], [neon(10)]))
   // No school size: one.
-  let shrimp = TankCheck.Fish(name: "Tép", facts: .init(), count: nil), shrimp3 = TankCheck.Fish(name: "Tép", facts: .init(), count: 3)
-  #expect(TankCheck.onePerPage([("tep", shrimp), ("tep", shrimp3)]) == [shrimp3])
-  // None given stays none, for the check to read as it reads one row.
-  #expect(TankCheck.onePerPage([("neon", neon(nil)), ("neon", neon(nil))]) == [neon(nil)])
+  func shrimp(_ n: Int?) -> TankCheck.Fish { .init(name: "Tép", facts: .init(sizeCm: 3), count: n, key: "tep") }
+  #expect(same([shrimp(nil), shrimp(3)], [shrimp(3)]))
+  // None given stays none, read as the school size once.
+  #expect(same([neon(nil), neon(nil)], [neon(nil)]))
+  // Rows with keys of their own stay two fish.
+  #expect(!same([neon(4), .init(name: "Cá neon", facts: .init(sizeCm: 4, schoolMin: 6), count: 4, key: "neon 2")], [neon(8)]))
 }

@@ -1,0 +1,104 @@
+{
+  "id": "symphysodon-discus",
+  "native": {
+    "input": "ee1edf77688ba427",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins.",
+        "words": "Venezuelan",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins.",
+        "words": "Peruvian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon River",
+        "source": "sprucepets",
+        "quote": "Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tefé",
+        "source": "sprucepets",
+        "quote": "A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Symphysodon discus",
+    "status": "ACCEPTED",
+    "taxonKey": 5208131,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "PE",
+      "BR"
+    ],
+    "requests": 13,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

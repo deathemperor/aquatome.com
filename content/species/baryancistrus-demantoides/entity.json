@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "venezuela",
-    "ventuari"
+    "ventuari",
+    "colombia"
   ],
   "dataCard": {
     "tempC": [
@@ -43,12 +44,20 @@
       {
         "source": "seriouslyfish",
         "value": 15.1
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 120
+      },
+      {
+        "source": "glaser",
+        "value": 100
       }
     ],
     "difficulty": [
@@ -66,10 +75,22 @@
       "html": "<ul><li>Difficulty: moderate. It needs a well-established tank and stable water.</li></ul><p>The green phantom pleco, Baryancistrus demantoides, is a suckermouth catfish known only from where the río Ventuari meets the Orinoco in Venezuela. It closely resembles Hemiancistrus subviridis, which lives alongside it, and both have been marketed as L200. B. demantoides is the less common and more expensive of the two, sometimes sold as 'L200 high-fin' or 'L200a' for its longer dorsal-fin spine. Males become increasingly intolerant of conspecifics as they age.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_demantoides_l_200_high_fin_en/",
+      "html": "<ul><li>Origin: Venezuela, Colombia</li><li>Can be kept in a 100 cm tank</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-demantoides",
       "html": "<p>Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, and also occurs in the lower reaches of the Ventuari as far as the inflowing río Guapuchi.</p><p>Type locality is 'Rio Ventuari near ornamental fish market in river, 04.07565°N, 066.89285°W, Amazonas, Venezuela'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_demantoides_l_200_high_fin_en/",
+      "html": "<p>Imported from Colombia. Origin: Venezuela, Colombia.</p>"
     },
     {
       "key": "habitat",
@@ -82,6 +103,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-demantoides",
       "html": "<ul><li>Standard length: 151 mm SL (6 in SL)</li><li>Aquarium base: 120 × 45 cm (48 × 18 in)</li><li>Volume: ~243 litres (~64 US gal)</li></ul><p>An aquarium with base dimensions of 120 × 45 cm (48 × 18 in) or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_demantoides_l_200_high_fin_en/",
+      "html": "<p>Their aggressiveness is limited, so they can already be kept in a 100 cm tank.</p>"
     },
     {
       "key": "maintenance",
@@ -108,6 +135,12 @@
       "html": "<p>Juveniles are relatively peaceful but males in particular become increasingly intolerant of conspecifics as they age, and typically react aggressively towards any other fish viewed as a territorial threat.</p><p>It is therefore best kept alongside species that inhabit other areas of the tank, with medium-to-large sized characids particularly suitable. A group can be maintained in larger aquaria provided sufficient territorial space is available and visual barriers considered when laying out the décor.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_demantoides_l_200_high_fin_en/",
+      "html": "<p>Compared with the more frequently kept Hypancistrus species, they are quite little shy and do not appear only while feeding. Their aggressiveness is limited.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-demantoides",
@@ -124,6 +157,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-demantoides",
       "html": "<p>Etymology: Baryancistrus, from the Ancient Greek βαρύς (barús), meaning 'heavy' and the generic name Ancistrus, in reference to the broad, robust body shape of member species. demantoides, from demantoid, a type of yellowish- to brownish-green garnet, and the Ancient Greek εἶδος (eîdos) meaning 'to resemble', in reference to the species' colour pattern.</p><p>This species is very similar to Hemiancistrus subviridis in appearance and the two occur sympatrically in nature, though B. demantoides is less common and tends to be more expensive in the aquarium trade. Both have been marketed under the DATZ code L200, with B. demantoides sometimes referred to as 'L200 high-fin' or 'L200a', the former name in reference to its comparatively long dorsal-fin spine (average length in the type series 42.1 mm (1.7 in) vs. 34.3 mm (1.4 in) in H. subviridis).</p><p>It is further distinguished from H. subviridis by presence (vs. absence) of an enlarged membrane connecting the dorsal and adipose fins, and from other loricariids possessing such a membrane by its colour pattern consisting of an olive-to-yellowish base colour with white or cream-coloured spots on the head and anterior portion of the body.</p><p>The family Loricariidae is the largest among catfishes with over 700 species described to date and many awaiting description. The latter are typically assigned a specific 'L' number by hobbyists and scientists alike in order to provide a basic means of identification, although in some cases several species have been referred to the same number, or multiple numbers have been used for different populations of a single taxon. All loricariids are also commonly referred to as 'pleco', 'plecostomus', or 'suckermouth armoured catfishes'.</p><p>Baryancistrus is currently considered a member of the tribe Ancistrini within Hypostominae and grouped in the Panaque clade of that tribe, close to Parancistrus and Hemiancistrus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/baryancistrus_demantoides_l_200_high_fin_en/",
+      "html": "<p>Partially or completely yellow-coloured specimens of Baryancistrus demantoides are now available. They reach only about 15 cm and thus remain substantially smaller than Hemiancistrus subviridis, which is also labelled L 200.</p>"
     },
     {
       "key": "references",
@@ -145,23 +184,23 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/4d81c6a91270d1f6.webp",
-      "thumb": "https://media.aquatome.com/scotcat/4d81c6a91270d1f6-480.webp",
-      "width": 500,
-      "height": 330,
-      "licence": "dùng với sự cho phép",
-      "author": "Damnyankee / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/baryancistrus_demantoides.htm",
-      "caption": "Baryancistrus demantoides",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/dc352cce2efc06e0.webp",
       "thumb": "https://media.aquatome.com/scotcat/dc352cce2efc06e0-480.webp",
       "width": 500,
       "height": 273,
       "licence": "dùng với sự cho phép",
       "author": "Vedran Cuncic / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/baryancistrus_demantoides.htm",
+      "caption": "Baryancistrus demantoides",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4d81c6a91270d1f6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4d81c6a91270d1f6-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "Damnyankee / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/baryancistrus_demantoides.htm",
       "caption": "Baryancistrus demantoides",
       "source": "scotcat"
@@ -198,5 +237,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-05"
 }

@@ -1,0 +1,212 @@
+{
+  "id": "xiphophorus-variatus",
+  "native": {
+    "input": "a1ad2cccb2ccdfc6",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The ancestors of these animals were collected in 2002 in Puente Escalanar, Veracruz, Mexico.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The variable platy, Xiphophorus variatus, is a livebearer native to the Atlantic slope of Mexico, with feral populations in several other countries.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Originally endemic to the Atlantic slope of Mexico but introduced or feral populations now exist in several other countries, including Costa Rica, Colombia, the USA, Hawaii, Singapore and Hong Kong.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus variatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2350220,
+    "datasets": [
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        138
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        115
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        73
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        62
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        53
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        35
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        24
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        22
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        18
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        16
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        15
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        12
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        9
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        6
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        5
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        4
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        4
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        4
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        3
+      ],
+      [
+        "a9576a23-3690-4c27-8d19-0db353957177",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "50efc135-cd5f-4282-b38b-1f73be8affe1",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 17,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

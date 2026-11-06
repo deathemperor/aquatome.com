@@ -1,0 +1,146 @@
+{
+  "id": "puntigrus-tetrazona",
+  "native": {
+    "input": "2836ddf885738c03",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The tiger barb, Puntigrus tetrazona, is a small cyprinid probably endemic to central and southern Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Puntigrus tetrazona is a 6-8 cm barb that originally comes from Indonesia and surrounding areas in Southeast Asia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.",
+        "words": "the United States",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Feral populations derived from aquarium stock also exist in a number of other territories including Singapore, Australia, the United States, Colombia, and Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "The tiger barb, Puntigrus tetrazona, is a small cyprinid probably endemic to central and southern Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
+        "ok": true
+      },
+      {
+        "name": "Musi",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Indragiri, Batang Hari, and Musi river systems in Riau, Jambi, and South Sumatra provinces, respectively.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Puntigrus tetrazona",
+    "status": "ACCEPTED",
+    "taxonKey": 8214163,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 16,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

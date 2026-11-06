@@ -3,13 +3,14 @@ import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { typeUses } from './equipment'
 import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { leadGuides, listOrder } from './home'
-import type { Lang, T } from './i18n'
+import { licenceLabel, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
 import { guideImages } from './mentions'
 import { listPictures, pagePictures, photosOf, takeEach } from './pictures'
 import { PAGE } from '../scripts/filter-list'
 import { toIndexItem } from './species-index'
 import { clock, videoChannels } from './video'
+import { taxonKeys } from './taxa-places'
 
 /**
  * The fish and plant lists' data, a file per language (/data/<lang>/species.json, /data/<lang>/plants.json) that the
@@ -20,14 +21,14 @@ import { clock, videoChannels } from './video'
  * /data/<lang>/species/<list>.json).
  */
 
-/** The photo a card shows: its small picture, and its credit (author, licence, its page on the source). */
-export type CardPhoto = { src: string; w: number; h: number; author: string; licence: string; url: string }
+/** The photo a card shows: its small picture, and its credit (author, licence as shown, its page on the source; an Unsplash photographer's page). */
+export type CardPhoto = { src: string; w: number; h: number; author: string; authorUrl?: string; licence: string; url: string }
 /** Only what the filter reads (no gh, sizeCm), and the card's photo. */
 export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?: CardPhoto }
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
-const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, licence: p.licence, url: p.sourceUrl })
+const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl })
 
 /** Species as a list's data file has them, with the photo each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {
@@ -82,14 +83,13 @@ export function speciesLists(lang: Lang, c: Content): Map<string, Localized<Spec
   const places = new Map(c.places.map(p => [p.id, p]))
   const lists = new Map<string, Localized<SpeciesEntity>[]>()
   for (const s of listOrder(lang, c)) {
-    const [o, f, g] = [s.order, s.family, s.genus].map(x => x.toLowerCase())
     // A continent's page and a country's (under its parent): the places with a page of their own.
     const from = [...new Set(s.places)].flatMap(id => {
       const p = places.get(id)
       return p?.kind === 'continent' ? [`nguon-goc/${id}`] : p?.kind === 'country' && p.parent ? [`nguon-goc/${p.parent}/${id}`] : []
     })
     const kit = [...new Set(s.productSlots.map(x => `thiet-bi/${x.category}`))]
-    for (const k of [`nhom/${s.group}`, `phan-loai/${o}`, `phan-loai/${o}/${f}`, `phan-loai/${o}/${f}/${g}`, ...from, ...kit]) (lists.get(k) ?? lists.set(k, []).get(k)!).push(s)
+    for (const k of [`nhom/${s.group}`, ...taxonKeys(s), ...from, ...kit]) (lists.get(k) ?? lists.set(k, []).get(k)!).push(s)
   }
   return lists
 }

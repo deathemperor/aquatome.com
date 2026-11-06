@@ -16,6 +16,182 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "KH",
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Borneo",
+        "Sumatra",
+        "Kapuas",
+        "Schwaner mountain range"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the Mekong river system in Vietnam and Cambodia, eastern Thailand, Peninsular Malaysia, and the northern Sunda Islands (Sumatra and Borneo), although it is now extirpated across much of this range.",
+          "countries": [
+            "VN",
+            "KH",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The variants include the 'green' form which is widespread throughout the species' range, the 'super red' or 'chilli red' form (described as S. legendrei in 2003) which occurs only in the upper Kapuas river in Indonesian Borneo, the 'cross back golden' or 'blue Malayan' form which occurs in Pahang State and Bukit Merah Lake in Peninsular Malaysia, and the 'red tail golden' form from Pekanbaru and Jambi on Sumatra (described as S. aureus in 2003).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Lake Mahoeroenge, a small lake connected by a narrrow canal to the river Pekoempau, Borneo'.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In addition, two silvery-coloured forms known as the 'grey tail silver' or 'Pinoh arowana', and 'yellow tail silver', are collected from the Schwaner mountain range between west and central Kalimantan provinces, and central and south Kalimantan provinces in Indonesian Borneo, respectively.",
+          "countries": [],
+          "regions": [
+            "Schwaner mountain range"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2402231,
+      "total": 21,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MY",
+          6
+        ],
+        [
+          "ID",
+          5
+        ],
+        [
+          "SG",
+          3
+        ],
+        [
+          "TW",
+          3
+        ],
+        [
+          "KH",
+          2
+        ],
+        [
+          "TH",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          112.5,
+          0,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

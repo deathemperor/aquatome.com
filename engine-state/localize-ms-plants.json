@@ -1,0 +1,67 @@
+{
+  "acorus-gramineus": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Acorus gramineus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Section 4: \"starting from 80 liters (20 gallons)\" -> \"bermula dari 80 liter\" is fine; but \"Hujung daun kering\" etc fine. Real issue: Section 8 \"nimfa pepatung, nimfa pepatung jarum\" - 'dragonfly, damselfly nymphs' is OK, but 'Hydrogen sulfide' fine.",
+      "Section 1/8: \"Boleh ditanam secara emersed\" and \"bentuk emergen\" are inconsistent; use one term, e.g. \"tumbuh timbul (emersed)\".",
+      "Section 8: \"Tumbuhan ini suka pencahayaan yang baik\" under heading \"Cahaya tidak mencukupi\" is fine, but \"tanah lembap\" for 'wetlands' in section 3 is imprecise; use \"tanah bencah/lembap\" and \"(sebahagiannya atau sepenuhnya tenggelam)\" fine.",
+      "Section 3: \"di paya\" for marshes is acceptable; \"kawasan tanah lembap\" better \"kawasan tanah bencah\".",
+      "Section 8: \"Daunnya mengeluarkan bau wangi yang ketara apabila dironyok\" - 'dironyok' is awkward; use \"diramas\".",
+      "Section 7: \"low-tech\" left in English; use \"tangki berteknologi rendah (low-tech)\".",
+      "Section 8: \"Kuarantin ... nyahjangkit\" fine; \"Mencegah poket gas\" fine; \"Bentuk ini biasa digunakan di sempadan taman\" ok."
+    ]
+  },
+  "aegagropila-linnaei": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Marimo",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 3: 8 to 12 inches converted to \"20 hingga 30 cm\" is fine, so no change needed there. The real problems are elsewhere.",
+      "Item 5: \"Ia tumbuh sangat perlahan, iaitu 5 mm setahun\" - correct, but \"Kebanyakan marimo yang dijual di pasaran\" is fine. Not an error.",
+      "Item 4: \"Haiwan pembersih ... pandai mengutip\" - \"pandai\" is colloquial; use \"mampu\" or \"cekap\" instead. The mix of \"moss ball\" and \"bola marimo\" is inconsistent; use one term (\"bola marimo\") throughout.",
+      "Item 4: \"Pusingkan sekali-sekala\" omits the object; use \"Pusingkan bola itu sekali-sekala\".",
+      "Item 4: \"Kalau ia mula mengumpul kotoran\" - \"detritus\" is better translated as \"detritus\" or \"sisa organik\" than \"kotoran\".",
+      "Item 6: Latin name changed. The English has \"Cladophora aegagrophila\" in the second mention, and the MS keeps it. That is faithful to the source. However, the source's spelling inconsistency is carried over; consider unifying to \"Cladophora aegagropila\".",
+      "Item 6: \"mesti dielakkan walau apa pun\" - better: \"alga perlu dielakkan sebaik mungkin\".",
+      "Item 7: \"Peminat aquascape pernah membukanya menjadi hamparan\" - \"membukanya\" is unclear; use \"menguraikannya\" or \"melerai gulungannya\". Also \"hiasan\" is repeated in \"balang hiasan sebagai hiasan rumah\"; reword."
+    ]
+  },
+  "alternanthera-bettzickiana": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Alternanthera bettzickiana",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Section 3: 'mesh areas' was rendered as 'kawasan paya' (swamp area). The source word is probably a garbled 'marsh', so check it, but the rendering is still a meaning shift. Make it consistent with the source or flag it.",
+      "Section 4: 'growth is then moderate to high' was rendered as 'sederhana hingga cepat'. Use 'sederhana hingga tinggi' or 'sederhana hingga pesat' to match the source and the header's 'Kadar pertumbuhan'.",
+      "Section 1: 'Growth rate: low' became 'perlahan', which is fine. However, 'Boleh ditanam secara emersed' and 'Pembiakan' leave 'emersed' in English with no local gloss. Use 'secara emers (di atas air)' or 'tumbuh separa darat' for readability.",
+      "Section 4: 'In winter it can only survive indoors' was kept as 'Pada musim sejuk'. Malaysia has no winter, so add context such as 'di negara beriklim sederhana' or rephrase for local readers. The 'south-facing window' advice also does not suit Malaysia.",
+      "Section 4: 'daun udara' for 'aerial leaves' is awkward. Use 'daun emers' or 'daun yang tumbuh di atas permukaan air'.",
+      "Section 4: 'Hardness 1–12 GH' was rendered as 'Kekerasan air 1–12 GH'. This is acceptable, but 'melting' left in English in brackets is fine. 'Substrat ... kedalaman' is fine. 'Gastrousus' in section 1 is non-standard. Use 'penyakit gastrousus' or 'penyakit saluran penghadaman'.",
+      "Section 1: 'prophylaxis of dementia' was rendered as 'pencegahan demensia'. This is fine, but 'sebagai sumber khasiat' for 'for nourishment' is slightly off. Use 'sebagai makanan berkhasiat/tonik'."
+    ]
+  },
+  "alternanthera-reineckii": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Alternanthera reineckii",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 7: 'Cucuk batang baharu itu ke dalam substrat' – 'cucuk' is slightly odd; use 'tanam' or 'tancapkan'.",
+      "Item 7: 'Jika tumbuhan menerima semua keperluan yang diperlukan' is redundant; use 'semua sumber yang diperlukan'.",
+      "Item 8: 'melting (cair)' mixes English and Malay; keep one form consistently, e.g. 'mereput/cair (melting)'.",
+      "Item 2: 'secara emersed' is left in English; add the Malay term 'timbul/di atas air' (emersed).",
+      "Item 12: 'Jambak bunganya terletak pada ketiak' is stiff; 'Perbungaan tumbuh di ketiak daun' is more natural.",
+      "Item 9: 'Baja yang berlebihan, paling ringan pun' is awkward; use 'sekurang-kurangnya/paling minimum'.",
+      "Item 12: 'Kurang tahan lasak' for 'Not very resilient' is acceptable but the following sentence 'tidak mampu menyerap logam berat tanpa terjejas' is slightly stiff."
+    ]
+  }
+}

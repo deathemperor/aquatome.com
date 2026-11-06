@@ -12,13 +12,42 @@
     "brazil",
     "amazon",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "tumatumari"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
       }
     ]
   },
@@ -28,6 +57,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1186",
       "html": "<p>Megalonema platycephalum Eigenmann, 1912. Type locality: Tumatumari, Guyana. Maximum size: 300 mm (11.8\") SL, a reasonable guess as the holotype is 126 mm SL. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (2023)</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -42,16 +77,58 @@
       "html": "<p>South America: Amazon, Essequibo and Orinoco River basins, including Guyana waters and coastal rivers of the Guianas.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<p>South America: Amazon, Essequibo and Orinoco River basins. Type locality: Tumatumari, British Guiana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<p>The pimelodid catfish genus Megalonema has an ample distribution in South America throughout the Paraná, Amazon, Essequibo, Orinoco, Maracaibo and Magdalena basins. The species of Megalonema inhabit medium to large rivers mostly in flowing marginal reaches and over fine substrates of mud or sand.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<p>This is the largest species of this genus, so provide a tank of at least 120 x 60 x 60 cm with a medium water flow.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<p>Weekly water changes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<p>When this species was caught on hook and line it was found to have beetle larvae, fish scales and catfish spines in its stomach contents. In the aquarium it will accept sinking pellets and most types of worms and shellfish.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1186",
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<p>Description: These are streamlined catfishes of modest size with adult lengths ranging among species from about 10–30 cm SL. Their clear to hyaline fins are gracefully shaped and often filamentous, with flexible fin spines in the dorsal and pectoral fins, and an expansive adipose fin.</p><p>Colouration: Megalonema are mostly plain yellowish to tan and generally without prominent marks, except for the common presence of an embedded dark spot at the base of the upper caudal-fin lobe, and sometimes also the lower lobe.</p><p>Etymology: The specific name platycephalum means flat-headed, from platýs, flat, and kephal, head, referring to the flattened head between the eyes.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1186",
       "html": "<p>Memoirs of the Carnegie Museum v. 5 (no. 1), pp150, Fig. 31, Pl. 10 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Grant, Steven. Pims. Pimelodidae, Heptapteridae and Pseudopimelodidae Catfishes. ATS-Aquashop.de 2021 219p.</p><p>Lundberg, G. John; Dahdul, M. Wasila; 2008. Two new cis-Andean species of the South American catfish genus Megalonema allied to trans-Andean Megalonema xanthum, with description of a new subgenus (Siluriformes: Pimelodidae). Neotrop. ichthyol. vol.6 no.3 Porto Alegre 2008.</p><p>Salvador, G.N. 2023. Megalonema platycephalum. The IUCN Red List of Threatened Species 2023.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -65,42 +142,34 @@
       "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
       "caption": "Megalonema platycephalum",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/3d588cbcd3c678c8.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3d588cbcd3c678c8-480.webp",
-      "width": 500,
-      "height": 157,
-      "licence": "dùng với sự cho phép",
-      "author": "Julio Endler / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
-      "caption": "Megalonema platycephalum",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/3485a53d526aefb8.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3485a53d526aefb8-480.webp",
-      "width": 500,
-      "height": 320,
-      "licence": "dùng với sự cho phép",
-      "author": "Julio Endler / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
-      "caption": "Megalonema platycephalum: dorsal view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/da9eb9196f0ed0a2.webp",
-      "thumb": "https://media.aquatome.com/scotcat/da9eb9196f0ed0a2-480.webp",
-      "width": 500,
-      "height": 678,
-      "licence": "dùng với sự cho phép",
-      "author": "Julio Endler / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/pimelodidae/megalonema_platycephalum.htm",
-      "caption": "Megalonema platycephalum: head view",
-      "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Q6umymLOdHE",
+      "title": "Megalonema platycephalum - Jungtier",
+      "durationSec": 5,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "x89opkIPJxA",
+      "title": "Megalonema platycephalum - Slow motion - erster Versuch",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0Tr-wP7azRw",
+      "title": "Megalonema Jungtier in der Strömung",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rH8OD9gOLi8",
+      "title": "Bachlauf / Welsrennstrecke für Megalonema",
+      "durationSec": 78,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -122,5 +191,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-04"
 }

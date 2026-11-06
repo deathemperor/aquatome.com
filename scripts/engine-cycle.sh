@@ -3,7 +3,7 @@
 # The steps come in four parts that run side by side, each publishing its own work, so one failing part loses only its
 # own: pages (new pages from every source but Seriously Fish, with their photos screened and
 # stored), sf (the same for Seriously Fish, whose ~1,800-page backlog would otherwise take most of the pages job),
-# photos (upkeep of the photos on every page), rewrite (older Vietnamese, and Indonesian and Thai species pages). No argument: all four, one after another.
+# photos (upkeep of the photos on every page), rewrite (older Vietnamese, and pages in the other languages). No argument: all four, one after another.
 # rewrite runs on GitHub (engine.yml). pages, sf and photos need macOS and run on the owner's Mac, each from its own clone
 # (install-engine-schedule.sh), so they never touch a development checkout and GitHub's few macOS runners stay the iOS app's.
 set -euo pipefail
@@ -17,12 +17,8 @@ PART="${1:-all}"
 case "$PART" in all|pages|sf|photos|rewrite) ;; *) echo "usage: $0 [pages|sf|photos|rewrite]" >&2; exit 2 ;; esac
 # One a part: the Mac runs three parts at once.
 TEST_LOG="/tmp/aquatome-engine-test-$PART.log"
-# The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
-# slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
-# The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even
-# 30 s per test isn't enough. The checks wait for the 5-minute load to fall under 4 a core, up to 45 minutes, then run.
-calm() { local cores; cores=$(sysctl -n hw.ncpu); for _ in $(seq 90); do [ "$(sysctl -n vm.loadavg | awk '{print int($3)}')" -lt $((cores * 4)) ] && return; sleep 30; done; log "load still high after 45 min: checking anyway"; }
-checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else calm; lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
+# calm, checks and verify: the build and tests before publishing, on a Mac other jobs share.
+source "$REPO/scripts/cycle-checks.sh"
 part() { [ "$PART" = all ] || [[ " $* " == *" $PART "* ]]; }
 # A targeted run (ENGINE_ARGS, e.g. --sources seriouslyfish --limit 2) is the pages job's alone.
 if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pages job does it"; exit 0; fi
@@ -38,7 +34,7 @@ push() {
       git rebase --abort 2>/dev/null || true
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
       if git pull -q --rebase -X theirs; then
-        checks 'pnpm build && pnpm test' >"$TEST_LOG" 2>&1 || { log "build/tests failed after that merge, not publishing"; return 1; }
+        verify 'pnpm build && pnpm test' || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -97,6 +93,14 @@ if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
+  # What YouTube reviews found, on PRODUCT_REVIEW_LIMIT product pages a cycle (candidates: product-reviews.ts): a vet, an
+  # extraction a review and a writing call, on top of a research call and a page for a product with none. So only with time
+  # left for that. Not behind SKIP_VIDEOS, which the Mac's parts set for video-cycle.sh's bursts: this is a few requests and
+  # would never run; it stops when YouTube throttles, marking nothing failed.
+  if [ -z "${ENGINE_ARGS:-}" ]; then
+    NEW_PAGES=; [ "$SECONDS" -lt $(( ${PRODUCT_PAGES_BEFORE_MINUTES:-170} * 60 )) ] || NEW_PAGES=--no-new-pages
+    YT_COOKIES_FROM="$(cat "$HOME/.config/aquatome/yt-cookies-from" 2>/dev/null || true)" pnpm engine product-reviews --limit "${PRODUCT_REVIEW_LIMIT:-1}" $NEW_PAGES || log "product-reviews: failed"
+  fi
   # SKIP_VIDEOS (GitHub Actions): the three YouTube steps run in video-cycle.sh on the owner's Mac instead.
   # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
   # Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.
@@ -134,6 +138,10 @@ if part photos; then
   # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map or a tank
   # gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the page. Most-read pages
   # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
+  # Dead fish, fish as food (a market, a catch, a preserved specimen) and a logo take a photo off every page. Photos judged
+  # before the check asked (2026-11-05) whose notes say they may show one are judged again first, once: after that it finds
+  # none and calls no model.
+  pnpm engine recheck-photos --limit "${PHOTO_RECHECK_LIMIT:-40}" || log "recheck-photos: failed"
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;
@@ -142,7 +150,8 @@ if part photos; then
   pnpm engine gallery --sheets "${GALLERY_SHEETS:-60}" || log "gallery: failed"
   # Breed pages with no photo: a looser Commons search than the page step's (Unsplash below tries them too).
   pnpm engine breed-photos --limit 10 || log "breed-photos: failed"
-  # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms).
+  # Unsplash photos added to the galleries of the most-read fish (hot-linked and credited, per Unsplash's API terms). First
+  # it links each stored photo's credit to its photographer's page, a request a photo, as many as the hour allows.
   pnpm engine unsplash --limit "${UNSPLASH_LIMIT:-6}" || log "unsplash: failed"
 fi
 if part pages sf photos; then
@@ -167,6 +176,12 @@ if part rewrite; then
   # Vietnamese shops' blogs, read for ideas a week apart (their posts' titles, never their text): the topics the
   # handbook has no guide on, most asked first (ideas.ts).
   pnpm engine ideas || log "ideas: failed"
+  # Where each species lives in the wild (range.ts): the countries and regions its sources name, each country with the
+  # source's sentence (engine-state/range/), RANGE_LIMIT model calls a cycle for species whose sources' text is new or
+  # changed; then its wild records on GBIF (open licences only), RANGE_RECORDS species a cycle, each again monthly.
+  # 60 a cycle (a Sonnet call each, about 12 GBIF requests each): the 1,458 species' maps in about 3 days, not 9
+  # (owner, 2026-11-06: the maps weren't showing on the web yet; 60 had them).
+  pnpm engine range --limit "${RANGE_LIMIT:-60}" --records "${RANGE_RECORDS:-60}" || log "range: failed"
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.
@@ -202,6 +217,31 @@ if part rewrite; then
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
+  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live.
+  # After everything readers see, and each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES: they give
+  # first when a cycle runs long. A cycle starts every 3 hours and took 91-135 min in November 2026, so 135 leaves the
+  # longest step here (10 species, about 20 min) and the build, tests and push (about 6) inside the 170 min the next cycle
+  # waits for. They add about 40 min a cycle.
+  ahead() {
+    if [ "$SECONDS" -lt $(( ${AHEAD_BEFORE_MINUTES:-135} * 60 )) ]; then "$@" || log "$*: failed"
+    else log "$*: skipped, the cycle has run $(( SECONDS / 60 )) min"; fi
+  }
+  for lang in ms; do
+    # Most-read first. The rest at the others' pace; the first run's glossary (59 terms) and places (757, in 8 batches) are
+    # once only and short enough to go whole, but the buying guides take minutes each.
+    ahead pnpm engine localize --lang "$lang" --limit "${LOCALIZE_AHEAD_LIMIT:-10}"
+    ahead pnpm engine wikidata-names --lang "$lang"
+    ahead pnpm engine shop-names --lang "$lang"
+    ahead pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}"
+    ahead pnpm engine localize-glossary --lang "$lang"
+    ahead pnpm engine localize-places --lang "$lang"
+    ahead pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}"
+    ahead pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"
+    ahead pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"
+    ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
+  done
+  # Their UI text: no build asks for it, so the strings the served languages have, a share a cycle (two model calls).
+  ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-120}"
 fi
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"
@@ -215,7 +255,7 @@ if part photos; then
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
   pnpm engine audit || log "audit: failed"
 fi
-if [ -z "$(git status --porcelain -- content sources)" ]; then
+if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
   # cycle redoes that work. The site doesn't read them, so no build and no deploy.
   if [ -n "$(git status --porcelain -- engine-state docs/review)" ]; then
@@ -232,7 +272,7 @@ if [ -z "$(git status --porcelain -- content sources)" ]; then
 fi
 # Real content must build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new
 # Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content.
-if ! checks 'I18N_LENIENT=1 pnpm build && pnpm test' >"$TEST_LOG" 2>&1; then
+if ! verify 'I18N_LENIENT=1 pnpm build && pnpm test'; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 git add content sources engine-state docs/review apps/site/src/i18n

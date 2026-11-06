@@ -2,11 +2,13 @@
 // Tests and the simulator only: not in a release build.
 import CryptoKit
 import Foundation
+import ImageIO
 import Tanks
 
 /// The accounts server, in process, for tests and the simulator's UI tests: the paths `AccountsClient` uses, answered
 /// as apps/site/worker/accounts does (protocols/accounts.openapi.json). Sign in with Apple's identity token is
-/// `<sub>|<nonce or its SHA-256>`, and a fresh Apple authorization code for an Apple user is `good-<sub>`. An email
+/// `<sub>|<nonce or its SHA-256>`, and a fresh Apple authorization code for an Apple user is `good-<sub>`. Google's ID
+/// token reads the same (`FakeGoogle` gives one), and that account is kept under `google:<sub>`. An email
 /// sign-in takes any Turnstile token once, and its code is always `emailCode`; that account is kept under
 /// `email:<address>`. A passkey (`addPasskey`, as one added on aquatome.com) signs in with an answer from `assertion`,
 /// checked as the server checks one, short of the signature; one made with `newPasskey` is added within 10 minutes of a
@@ -15,6 +17,8 @@ import Tanks
 public final class FakeAccounts {
   public var accountsOn = true
   public var passkeysOn = true
+  /// Google sign-in offered (the server has GOOGLE_CLIENT_IDS).
+  public var googleOn = true
   /// No network: every request fails as URLSession does.
   public var offline = false
   /// The next syncs answer 409 busy (another sync of the account in progress).
@@ -37,9 +41,21 @@ public final class FakeAccounts {
   public var reportable: Set<String> = []
   /// The reports taken, in order: who sent each (an account, or nil from the page's way) and what they said.
   public private(set) var reports: [(account: String?, kind: String, id: String, reason: String?)] = []
+  /// The fish-ID tool (`/api/fish-id`, protocols/fishid.openapi.json): on, every key resting, an account's identifications
+  /// a day, how many each account had made today before these, and how many the site has left today (none: busy).
+  public var fishIdOn = true
+  public var fishIdResting = false
+  public var fishIdPerAccount = 10
+  public var fishIdUsedBefore = 0
+  public var fishIdSiteLeft = 300
+  /// The identifications answered: who sent each (an account, or nil from the page's way), the form's fields (the
+  /// file as its width × height), and its user agent.
+  public private(set) var identifications: [(account: String?, fields: [String: String], userAgent: String?)] = []
+  /// The answer an identification gets, given the photo's width × height ("1024×768"): `fishIdGuesses` unless set.
+  public var fishIdAnswer: (_ photo: String) -> [String: JSON] = FakeAccounts.fishIdGuesses(photo:)
 
   struct Account { let id: String; var kind = "apple"; var store = TankStore() }
-  private var accounts: [String: Account] = [:] // by Apple sub, or `email:<address>`
+  private var accounts: [String: Account] = [:] // by Apple sub, `google:<sub>` or `email:<address>`
   private var tokens: [String: String] = [:] // token → its account's key
   private var nonces: Set<String> = []
   private var turnstiles: Set<String> = [] // used once each
@@ -125,6 +141,30 @@ public final class FakeAccounts {
     SHA256.hash(data: Data("fake-key|account:\(account)".utf8)).prefix(8).map { String(format: "%02x", $0) }.joined()
   }
 
+  /// An image by its first bytes, as the Worker tells one (JPEG, PNG, WebP).
+  static func isImage(_ data: Data) -> Bool {
+    let b = [UInt8](data.prefix(12))
+    return b.starts(with: [0xFF, 0xD8, 0xFF]) || b.starts(with: [0x89, 0x50, 0x4E, 0x47])
+      || (b.count == 12 && b[0..<4].elementsEqual("RIFF".utf8) && b[8..<12].elementsEqual("WEBP".utf8))
+  }
+
+  /// The stand-in's identification, as the Worker writes one: a neon tetra, whose page the UI tests' handbook has, then
+  /// a green neon it has none for, with the neon as its genus's page. The first reason names the photo it got, so a flow
+  /// can tell a fish boxed from the whole photo.
+  nonisolated public static func fishIdGuesses(photo: String) -> [String: JSON] {
+    let neon: JSON = .object(["id": .string("paracheirodon-innesi"), "kind": .string("species"), "name": .string("Cá neon"),
+                              "sci": .string("Paracheirodon innesi"), "url": .string("/vi/ca/ca-neon/"), "img": .string("https://media.aquatome.com/a/neon.webp")])
+    return [
+      "verdict": .string("fish"), "model": .string("stand-in"),
+      "results": .array([
+        .object(["scientificName": .string("Paracheirodon innesi"), "commonName": .string("Neon tetra"), "variety": .null, "confidence": .number(0.86),
+                 "reason": .string("Sọc xanh ánh kim dọc thân, nửa sau thân đỏ. Ảnh nhận được: \(photo)."), "page": neon]),
+        .object(["scientificName": .string("Paracheirodon simulans"), "commonName": .string("Green neon tetra"), "variety": .null, "confidence": .number(0.35),
+                 "reason": .string("Sọc xanh chạy tới tận đuôi."), "sameGenus": .array([neon])]),
+      ]),
+    ]
+  }
+
   public func send(_ r: URLRequest) async throws -> (Data, HTTPURLResponse) {
     requests.append(r)
     if offline { throw URLError(.notConnectedToInternet) }
@@ -203,15 +243,55 @@ public final class FakeAccounts {
       // A file only as a part with a filename; an image only by its first bytes (JPEG, PNG, WebP).
       guard let file = parts["file"], file.filename != nil, !file.data.isEmpty else { return try fail(400, "no file") }
       guard file.data.count <= maxBytes else { return try fail(413, "too large") }
-      let b = [UInt8](file.data.prefix(12))
-      let image = b.starts(with: [0xFF, 0xD8, 0xFF]) || b.starts(with: [0x89, 0x50, 0x4E, 0x47])
-        || (b.count == 12 && b[0..<4].elementsEqual("RIFF".utf8) && b[8..<12].elementsEqual("WEBP".utf8))
-      guard image else { return try fail(415, "not an image") }
+      guard Self.isImage(file.data) else { return try fail(415, "not an image") }
       if earlier.count >= 5 { return try fail(429, "rate") }
       var fields = parts.filter { $0.value.filename == nil }.mapValues { String(decoding: $0.data, as: UTF8.self) }
       fields["file"] = "\(file.data.count) bytes"
       posts.append((path, sub, fields))
       return try reply(201, ["status": .string("pending"), "id": .string("p\(posts.count)"), "deleteUrl": .string("/_p/xoa/?id=p\(posts.count)&t=x")])
+    }
+    // The fish-ID tool, read as apps/site/worker/fishid/api.ts reads it, in its order (protocols/fishid.openapi.json). The
+    // app's way is a bearer, counted per account; the page's (no Authorization header) is a same-origin request with a
+    // Turnstile token, any one here. Claude is stood in for by `fishIdAnswer`.
+    if path == "/api/fish-id" {
+      if method == "GET" {
+        return try reply(200, fishIdOn ? ["on": .bool(true), "sitekey": .string("sk"), "resting": .bool(fishIdResting), "perIp": .number(10),
+                                          "perAccount": .number(Double(fishIdPerAccount))] : ["on": .bool(false)])
+      }
+      guard method == "POST" else { return try reply(405) }
+      guard fishIdOn else { return try fail(503, "fish_id_off") }
+      // A bearer gone is refused, never taken the page's way.
+      if bearer != nil, sub == nil || !accountsOn { return try fail(401, "session") }
+      if sub == nil, let origin = r.value(forHTTPHeaderField: "Origin"), origin != "https://aquatome.com" { return try fail(403, "cross-origin") }
+      let maxImage = 1_572_864
+      guard (r.httpBody?.count ?? 0) <= maxImage * 4 / 3 + 16 * 1024 else { return try fail(413, "too large") }
+      var fields: [String: String], photo: Data?
+      if r.value(forHTTPHeaderField: "Content-Type")?.hasPrefix("multipart/form-data") == true {
+        let parts = Self.parts(r)
+        guard !parts.isEmpty else { return try fail(400, "bad form") }
+        fields = parts.filter { $0.value.filename == nil }.mapValues { String(decoding: $0.data, as: UTF8.self) }
+        // A file only as a part with a filename, as the Worker's form reader gives one.
+        photo = parts["file"].flatMap { $0.filename == nil ? nil : $0.data }
+      } else if let body {
+        fields = body.compactMapValues(\.string).filter { $0.key != "image" }
+        photo = body["image"]?.string.flatMap { Data(base64Encoded: $0.replacing(/^data:[^,]*,/, with: "")) }
+      } else {
+        return try fail(400, "bad form")
+      }
+      guard let photo, !photo.isEmpty else { return try fail(400, "no file") }
+      guard photo.count <= maxImage else { return try fail(413, "too large") }
+      guard Self.isImage(photo) else { return try fail(415, "not an image") }
+      if sub == nil && (fields["token"] ?? "").isEmpty { return try fail(403, "turnstile") }
+      let limit = sub == nil ? 10 : fishIdPerAccount
+      let used = (sub == nil ? 0 : fishIdUsedBefore) + identifications.filter { $0.account == sub }.count
+      if used >= limit { return try reply(429, ["error": .string("rate"), "limit": .number(Double(limit))]) }
+      if fishIdSiteLeft <= 0 { return try fail(429, "busy") }
+      if fishIdResting { return try fail(503, "resting") }
+      fishIdSiteLeft -= 1
+      let p = CGImageSourceCreateWithData(photo as CFData, nil).flatMap { CGImageSourceCopyPropertiesAtIndex($0, 0, nil) } as? [CFString: Any]
+      fields["file"] = "\(p?[kCGImagePropertyPixelWidth] as? Int ?? 0)×\(p?[kCGImagePropertyPixelHeight] as? Int ?? 0)"
+      identifications.append((sub, fields, r.value(forHTTPHeaderField: "User-Agent")))
+      return try reply(200, fishIdAnswer(fields["file"]!))
     }
     if !accountsOn { return path == "/api/v1/session" ? try reply(200, ["accounts": .bool(false)]) : try fail(404, "accounts_off") }
     if method == "POST" && body == nil { return try fail(400, "bad_request") }
@@ -220,7 +300,7 @@ public final class FakeAccounts {
     case ("GET", "/api/v1/session"):
       return try reply(200, [
         "accounts": .bool(true),
-        "providers": .object(["google": .null, "apple": .object(["clientId": .string("com.aquatome.web")]), "email": .bool(true), "passkey": .bool(passkeysOn)]),
+        "providers": .object(["google": googleOn ? .object(["clientId": .string("web.apps.googleusercontent.com")]) : .null, "apple": .object(["clientId": .string("com.aquatome.web")]), "email": .bool(true), "passkey": .bool(passkeysOn)]),
         "turnstileSitekey": .string("sk"),
         "user": sub.flatMap { accounts[$0] }.map { user($0, sub!) } ?? .null,
       ])
@@ -229,15 +309,17 @@ public final class FakeAccounts {
       let n = "nonce-\(issued)"
       nonces.insert(n)
       return try reply(200, ["nonce": .string(n)])
-    case ("POST", "/api/v1/auth/apple"):
+    case ("POST", "/api/v1/auth/apple"), ("POST", "/api/v1/auth/google"):
       // Without `client: "app"` the server would set a cookie, and only for a request from its own pages.
       guard body!["client"]?.string == "app" else { return try fail(403, "cross_site") }
+      let google = path.hasSuffix("/google")
+      if google && !googleOn { return try fail(503, "provider_off") }
       guard let idToken = body!["idToken"]?.string, let nonce = body!["nonce"]?.string else { return try fail(400, "bad_request") }
       guard nonces.remove(nonce) != nil else { return try fail(401, "bad_nonce") }
       let parts = idToken.split(separator: "|", omittingEmptySubsequences: false).map(String.init)
       guard parts.count == 2, !parts[0].isEmpty else { return try fail(401, "bad_token") }
       guard parts[1] == nonce || parts[1] == sha256Hex(nonce) else { return try fail(401, "bad_nonce") }
-      return try reply(200, signedIn(parts[0], "apple", bearer: bearer))
+      return try reply(200, google ? signedIn("google:" + parts[0], "google", bearer: bearer) : signedIn(parts[0], "apple", bearer: bearer))
     case ("POST", "/api/v1/auth/email/start"):
       let email = body!["email"]?.string?.trimmingCharacters(in: .whitespaces).lowercased() ?? ""
       guard email.contains("@"), !email.hasPrefix("@"), !email.hasSuffix("@") else { return try fail(400, "bad_email") }

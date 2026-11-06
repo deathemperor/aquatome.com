@@ -1,4 +1,5 @@
 import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
+import { cleanAltNames } from './alt-names'
 import type { Taxon } from './gbif'
 import type { ProcessedPage } from './process'
 
@@ -64,7 +65,7 @@ function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ct
   // name staying findable as an alternative name.
   const clash = !!page.viName && !!ctx.takenNames?.has(nameKey(page.viName))
   const name = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : page.viName) : clash ? '' : page.viName) || prev?.name || fallbackName
-  // A replaced name stays findable as an alternative name.
+  // A replaced name stays findable as an alternative name, unless a variety's (mergeSpecies, alt-names.ts).
   const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && page.viName ? [page.viName] : []), ...page.viAltNames, ...page.enCommonNames]).filter(n => n !== name)
   return {
     slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY,
@@ -88,10 +89,14 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
     id: slugify(taxon.canonicalName), scientificName: taxon.canonicalName, order: taxon.order ?? '', family: taxon.family ?? '', genus,
     group: prev?.group ?? page.group ?? 'other', ...(lNumber ? { lNumber } : {}),
     places: uniq([...(prev?.places ?? []), ...page.places.flatMap(p => [p.continent, p.country, usableRegion(p.region) ? p.region : undefined].filter((x): x is string => !!x).map(placeId))]),
+    // The range step's (range.ts): read again there when this source's text changes it.
+    ...(prev?.range ? { range: prev.range } : {}),
     dataCard, sections, photos: prev?.photos ?? [], videos: prev?.videos ?? [],
     productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
   }
-  return { entity, vi: translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi) }
+  // Its other names are its own: a shop listing's variety ("Cá betta Green Alien") or one name twice never adds up.
+  const t = translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi)
+  return { entity, vi: { ...t, altNames: cleanAltNames({ name: t.name, sci: taxon.canonicalName, altNames: t.altNames }).altNames } }
 }
 
 export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation }, page: ProcessedPage, ctx: Ctx): Item<PlantEntity> | null {

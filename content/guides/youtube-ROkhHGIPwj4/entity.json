@@ -1,0 +1,111 @@
+{
+  "id": "youtube-ROkhHGIPwj4",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=ROkhHGIPwj4",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "ROkhHGIPwj4",
+    "title": "HOW TO: Build a simple aquarium filter TUTORIAL",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 704,
+    "publishedAt": "2011-05-09",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaz5-CO-M0O7MzldTzRRhn",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/ROkhHGIPwj4/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 1
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 40
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [
+          {
+            "t": 35,
+            "url": "https://media.aquatome.com/video/ROkhHGIPwj4/t35.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Chai nhựa, miếng mút, máy sủi oxy, dây hơi và giác hút đã chuẩn bị."
+          }
+        ]
+      },
+      {
+        "heading": "Khoan lỗ và lắp ráp từng bước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ROkhHGIPwj4/p2-b3NhZ2FpYWsuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/ROkhHGIPwj4/p2-b3NhZ2FpYWsuanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Gorkaazk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liztor_beltzak_harrapatzeko_tranpak_egiteko_behar_diren_osagaiak.jpg",
+          "caption": "Chai nhựa trong, mũi khoan và dao đã chuẩn bị sẵn để khoan lỗ."
+        }
+      },
+      {
+        "heading": "Vì sao không nên gắn quả sủi",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ROkhHGIPwj4/p3-hbnlfMjAyNC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/ROkhHGIPwj4/p3-hbnlfMjAyNC5qcGc-480.webp",
+          "width": 960,
+          "height": 1234,
+          "licence": "CC BY-SA 4.0",
+          "author": "Nimmerwelk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_Stone_Disk_aquarium_Germany_2024.jpg",
+          "caption": "Dòng bọt khí đi lên trong bể, kéo nước chuyển động mạnh."
+        }
+      },
+      {
+        "heading": "Đặt lọc ở đâu và xử lý tiếng ồn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ROkhHGIPwj4/p4-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/ROkhHGIPwj4/p4-uZF9zdG9uZS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+          "caption": "Máy sục khí nhỏ kèm ống dẫn khí và đá sủi cho bể cá."
+        }
+      },
+      {
+        "heading": "Bảo dưỡng thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ROkhHGIPwj4/p7-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/ROkhHGIPwj4/p7-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Miếng mút lọc màu đen với các lỗ xốp lớn, dùng giữ cặn bẩn."
+        }
+      }
+    ]
+  }
+}

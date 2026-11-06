@@ -32,7 +32,9 @@ Node 24.22.1 (`nvm use` reads `.nvmrc`; not 25.x) and pnpm 10+.
 
 Build environment: `PUBLIC_BUILD=1` builds only cleared sources, `SITE_URL` sets canonical links and the sitemap,
 `STAGING=1` makes every page `noindex`, `CONTENT_ROOT` / `OUT_DIR` move content and output, and `I18N_LENIENT=1` lets an
-untranslated UI string through (the engine cycle only).
+untranslated UI string through (the engine cycle only), and `APP_INVITE_STATE=off|owner|on` builds the app's invitations in
+another state than their switch's (`apps/site/worker/app-switch.ts`; `pnpm test` builds `apps/site/dist-app-off` and
+`dist-app-on`).
 
 ## Ship
 
@@ -40,6 +42,9 @@ A pull request runs `ci.yml`. A squash merge to `main` runs `deploy.yml`, which 
 `watch.yml` then checks the live site. Problems become issues, and `fix.yml` drafts fixes for them
 ([governance](docs/governance.md)). The engine (`engine.yml`, every 3 h) pushes content the same way. A manual deploy:
 `CLOUDFLARE_API_TOKEN="$(cat ~/.config/aquatome/cf-token)" ./scripts/deploy.sh`.
+
+The owner's dashboard is at `https://aquatome.com/_ab/`, which goes to `https://dashboard.aquatome.com/` once Cloudflare
+Access guards that host ([governance](docs/governance.md)).
 
 ## Content rules
 

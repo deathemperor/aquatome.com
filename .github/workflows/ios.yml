@@ -14,24 +14,29 @@ on:
   push:
     branches: [main]
     paths: ['apps/ios/**', 'protocols/**', '.github/workflows/ios.yml']
-  # Every flow each night on main, whatever changed: 02:30 in Vietnam. Not `perf`: main's push measured the same code.
+  # Every flow each night on main, whatever changed: 02:30 in Vietnam. Not `perf`: each change was measured by its pull
+  # request's run, and by main's run after it unless the nightly run took that run's place (concurrency, below).
   schedule:
     - cron: '30 19 * * *'
   workflow_dispatch:
-# A pull request's newer run (a push, a label) cancels its run in progress. Main's runs, nightly or by hand, each have a
-# group of their own, so none is cancelled, nor dropped while waiting (a group keeps one run waiting and cancels any
-# before it): every merge's run finishes.
+# A pull request's newer run (a push, a label) cancels its run in progress. Main's runs (a merge, the nightly run, one
+# by hand) share a group: a run that started is never cancelled, and of those waiting only the newest is kept (a group
+# keeps one run waiting and cancels any before it; which one is kept isn't guaranteed when merges land seconds
+# apart). That one runs every flow on main as of its merge, so it covers each merge since the last run. A full run for
+# each merge held the own Mac for hours when several merged at once (2026-11-04: ten merges waiting, each run six Mac
+# jobs).
 concurrency:
-  group: >-
-    ${{ github.event_name == 'pull_request' && format('ios-{0}', github.ref) || format('ios-run-{0}', github.run_id) }}
+  group: ios-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 permissions:
   contents: read
 jobs:
   # Whether a pull request is ready (a draft runs nothing on macOS), and which flows each flow job runs: the full suite
-  # on main, nightly, by hand and on a pull request labelled `ios-full`; on any other pull request, the smoke set and
-  # the flows its change can reach (apps/ios/scripts/flows-to-run.py says how it decides). A job with no flows to run
-  # is skipped, and doesn't hold a Mac. Jobs `kit` and `perf` run on every ready pull request.
+  # on main, nightly, by hand and on a pull request labelled `ios-full`; on any other pull request, the smoke set, the
+  # classes of the flow files it edits, and the page shots when its change can reach the pages, while main's run after
+  # the merge runs the other flows its change can reach (apps/ios/scripts/flows-to-run.py says how it decides; job
+  # `report` opens an issue when main's run fails). A job with no flows to run is skipped, and doesn't hold a Mac. Jobs
+  # `kit` and `perf` run on every ready pull request.
   changes:
     name: "iOS app: which flows this change needs"
     runs-on: ubuntu-latest
@@ -69,23 +74,26 @@ jobs:
           else
             echo ready=true | tee -a "$GITHUB_OUTPUT"
             git -c core.quotePath=false diff --no-renames --name-only HEAD^1 HEAD |
-              python3 apps/ios/scripts/flows-to-run.py | tee -a "$GITHUB_OUTPUT"
-            echo "::notice title=Some flows::the smoke set and the flows this change can reach; ios-full runs them all"
+              python3 apps/ios/scripts/flows-to-run.py > "$RUNNER_TEMP/flows"
+            tee -a "$GITHUB_OUTPUT" < "$RUNNER_TEMP/flows"
+            left=$(sed -n 's/^left=//p' "$RUNNER_TEMP/flows")
+            if [ -n "$left" ]; then
+              echo "::notice title=Left to main::main's run after the merge runs the other flows this change can reach: $left. The label ios-full runs them on this pull request: ask for it on a change to a model many flows share (LightsModel, HandbookModel's fixture, AccountModel)"
+            else
+              echo "::notice title=Some flows::the smoke set, and the classes of the flow files this change edits; ios-full runs every flow"
+            fi
           fi
       # Where jobs `kit`, `app`, `handbook` and `lights` run: the repository's own Mac (label `aquatome`,
-      # apps/ios/README.md) for main (a push, the nightly run, a run by hand) and for pull requests its owner opened from
-      # this repository's own branches, while the repository variable IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise.
-      # The Mac has two runners (aquatome-mac-1 and -2, each with its own simulator), so its jobs take turns two at a
-      # time. Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of this file,
-      # so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
+      # apps/ios/README.md) for main (a push, the nightly run, a run by hand) while the repository variable
+      # IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise, and always for pull requests, which then have GitHub's five
+      # Macs to themselves. A job can't take whichever Mac is free: runs-on names one kind. The Mac runs one job at a time
+      # (aquatome-mac-1). Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of
+      # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
       - id: where
         env:
           LOCAL: >-
-            ${{ vars.IOS_LOCAL_RUNNER == 'on' &&
-            ((github.ref == 'refs/heads/main' && contains(fromJSON('["push", "schedule", "workflow_dispatch"]'),
-            github.event_name)) ||
-            (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository &&
-            github.event.pull_request.user.login == github.repository_owner)) }}
+            ${{ vars.IOS_LOCAL_RUNNER == 'on' && github.ref == 'refs/heads/main' &&
+            contains(fromJSON('["push", "schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           if [ "$LOCAL" = true ]; then echo 'runner=["self-hosted","macOS","aquatome"]'; else echo 'runner="macos-26"'; fi |
             tee -a "$GITHUB_OUTPUT"
@@ -106,20 +114,26 @@ jobs:
     needs: changes
     if: needs.changes.outputs.app != ''
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 60
+    # A stopgap until this job is split in two halves, as `handbook` and `lights` are: on GitHub's Macs its full suite
+    # takes about a minute a test, and #553's run was stopped at 60 minutes with 42 passed and none failed. Main runs it
+    # in full after every merge and each night, so at 60 each of those runs would end red (2026-11-05).
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
       # The full suite: the main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights'
       # (job `lights`), the performance tests (job `perf`), and the App Store's screenshots (app-store.yml), which read
-      # the live site. A pull request: the smoke set, and the flows its change can reach that are none of those.
+      # the live site. A pull request: the smoke set, and the classes of the flow files it edits that are none of those.
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
+      # `exec`: xcodebuild takes the step's place, so a cancelled job's stop signals reach it. Run under the step's
+      # shell, it was left running with no parent when that shell died, still driving the simulator and writing its
+      # result bundle into the next job's checkout (2026-11-04, the runner's log; wait-for-simulator.sh).
       - env:
           TESTS: ${{ needs.changes.outputs.app }}
         run: >-
-          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
@@ -190,8 +204,9 @@ jobs:
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
   # build), with only the facts card added to main; the handbook stack (#313 to #341) adds more. Then this job alone
   # took 53 to 58 minutes on every pull request of 2026-11-03, and ran out of its hour with the tank volume flows
-  # (#400): in two halves since, as the light flows are. On a pull request, a half runs only the flows its change can
-  # reach that are in that half, and a half with none is left out (`halves` in flows-to-run.py).
+  # (#400): in two halves since, as the light flows are. On a pull request, a half runs only the classes of that half
+  # whose flow files it edits, and the page shots in the first, and a half with none is left out (`halves` in
+  # flows-to-run.py).
   handbook:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: handbook and tank-life flows"
@@ -209,8 +224,9 @@ jobs:
       # Retried once, as in job `app`, and for the same reason.
       - env:
           TESTS: ${{ needs.changes.outputs[format('handbook_{0}', matrix.half)] }}
+        # `exec`, as in job `app`.
         run: >-
-          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/handbook.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
@@ -241,7 +257,7 @@ jobs:
   # The light flows on the simulator's fake light, which answers like the real one (with its pauses, so each flow takes
   # a minute or more): in two halves, beside jobs `app` and `handbook`. One runner outgrew its hour on 2026-11-01 (#312:
   # 58 minutes of flows, 37 of them the lights'), then the lights alone reached 51 minutes on a slow runner (#315). On
-  # a pull request, as in job `handbook`, a half runs only the light flows its change can reach.
+  # a pull request, both halves run only when it edits the light flows' file.
   lights:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: light flows"
@@ -261,8 +277,9 @@ jobs:
       # takes under three on CI.
       - env:
           TESTS: ${{ needs.changes.outputs[format('lights_{0}', matrix.half)] }}
+        # `exec`, as in job `app`.
         run: >-
-          xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
+          exec xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/lights.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
@@ -279,3 +296,44 @@ jobs:
           name: ios-light-flows-${{ matrix.half }}
           path: build/lights.xcresult
           if-no-files-found: ignore
+  # Main's runs (a merge, the nightly run, one by hand) are where a broken flow shows first, as a pull request runs the
+  # smoke set and leaves the other flows its change can reach to them (flows-to-run.py): a failed job opens an issue
+  # labelled `ios-main-red`, or comments on the one open, naming the run and its commit, to be fixed forward. A run
+  # whose jobs all passed or were skipped (job `perf` the nightly run's) closes it. A cancelled job says nothing: main's
+  # waiting runs give way to the newest, and a run sure to fail is stopped by hand. A test that passed only on its retry
+  # is a warning in its job, not a failure.
+  report:
+    name: "iOS app: main's run reported"
+    needs: [changes, kit, app, perf, handbook, lights]
+    if: always() && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          NEEDS: ${{ toJSON(needs) }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          failed=$(jq -r '[to_entries[] | select(.value.result == "failure") | .key] | join(", ")' <<< "$NEEDS")
+          cancelled=$(jq -r '[to_entries[] | select(.value.result == "cancelled") | .key] | join(", ")' <<< "$NEEDS")
+          open=$(gh issue list --label ios-main-red --state open --json number --jq '.[0].number // empty')
+          subject=$(gh api "repos/$GH_REPO/commits/$GITHUB_SHA" --jq '.commit.message | split("\n")[0]')
+          said="The $EVENT run $RUN on ${GITHUB_SHA:0:8} ($subject)"
+          if [ -n "$failed" ]; then
+            body="$said failed (jobs: $failed). Fix forward: the flows that failed are in its log and its xcresult artifacts."
+            if [ -n "$open" ]; then
+              gh issue comment "$open" --body "$body"
+            else
+              gh label create ios-main-red --color B60205 --force \
+                --description "Main's iOS run failed: a flow broke after a merge (ios.yml, job report)"
+              gh issue create --label ios-main-red --title "iOS: main's run failed" --body "$body"
+            fi
+          elif [ -n "$cancelled" ]; then
+            echo "Cancelled ($cancelled): nothing to report"
+          elif [ -n "$open" ]; then
+            gh issue close "$open" --comment "$said passed."
+          fi
