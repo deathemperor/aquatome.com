@@ -1969,6 +1969,22 @@
         }
       }
     },
+    "Chữ AT": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Huruf AT"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตัวอักษร AT"
+          }
+        }
+      }
+    },
     "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center cùng vùng với tài khoản Smart Life của bạn.": {
       "localizations": {
         "id": {
@@ -2193,6 +2209,22 @@
         }
       }
     },
+    "Cá kính lúp": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan kaca pembesar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาแว่นขยาย"
+          }
+        }
+      }
+    },
     "Cá lá": {
       "localizations": {
         "id": {
@@ -2349,6 +2381,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลาและกุ้ง"
+          }
+        }
+      }
+    },
+    "Cá vây sách": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikan sirip buku"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาครีบหนังสือ"
           }
         }
       }
