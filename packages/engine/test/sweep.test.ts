@@ -111,6 +111,67 @@ test('a card figure whose reason went shows again', async () => {
   expect(JSON.parse(await readFile(file, 'utf8')).dataCard.tankCm).toEqual([{ source: 'seriouslyfish', value: 60 }, { source: 'glaser', value: 10 }])
 })
 
+test('a species\' tank search is the card\'s minimum tank as shops sell it, never a smaller or mini tank', async () => {
+  // The betta's and the neon's shop rows offered a 20 cm mini tank and a 40-litre one under a 45 and a 60 cm minimum
+  // (design critique 2026-11-06). Corydoras adolfoi's card: 60 cm (Glaser's 10 cm is hidden).
+  const root = await store()
+  const set = async (id: string, productSlots: object[]) => {
+    const file = join(root, 'content/species', id, 'entity.json')
+    await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), productSlots }, null, 1))
+  }
+  const food = { category: 'thuc-an', keywords: ['thức ăn cá chuột'] }
+  await set('corydoras-adolfoi', [{ category: 'be-ca', keywords: ['bể cá mini 20cm', 'bể cá 40 lít'] }, food])
+  // No minimum tank on the card: nothing to judge the row by.
+  await set('corydoras-sterbai', [{ category: 'be-ca', keywords: ['bể cá mini'] }])
+  const r = await sweep(root)
+  expect((await json(root, 'content/species/corydoras-adolfoi/entity.json')).productSlots).toEqual([{ category: 'be-ca', keywords: ['bể cá 60cm'] }, food])
+  expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).productSlots).toEqual([{ category: 'be-ca', keywords: ['bể cá mini'] }])
+  expect(r.tanks).toEqual(['corydoras-adolfoi: bể cá mini 20cm, bể cá 40 lít → bể cá 60cm'])
+  expect((await sweep(root)).tanks).toEqual([])
+})
+
+test('a shop\'s own talk and a page about one variety leave a species page, in every language; never all a page has', async () => {
+  // The betta's page (design critique 2026-11-06): BW Aquatics' Copper Alien product page gave it a quick fact about the
+  // hybrid, the shop's note on picking fish for its customers, and card figures; Aquarium Glaser its stock-list line.
+  const root = await store()
+  const alien = 'https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas'
+  await writeFile(join(root, 'engine-state/_variety-pages.json'), JSON.stringify({ [alien]: { species: 'corydoras-adolfoi', variety: 'Copper Alien', at: '2026-11-06' }, 'https://x/koi': { species: 'gymnocorymbus-ternetzi', variety: 'Koi', at: '2026-11-06' } }))
+  const file = (id: string, f: string) => join(root, 'content/species', id, f)
+  const e = JSON.parse(await readFile(file('corydoras-adolfoi', 'entity.json'), 'utf8'))
+  e.sections.push(
+    { key: 'quickFacts', source: 'bwaquatics', sourceUrl: alien, html: '<p>Copper Alien Hybrid from breeders in Vietnam.</p>' },
+    { key: 'beforeYouBuy', source: 'bwaquatics', sourceUrl: alien, html: '<p>We always pick the best fish for our customers.</p>' },
+    { key: 'notes', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>A peaceful catfish.</p><p>For our customers: code 364006 on our stocklist.</p>' },
+  )
+  e.dataCard.tempC = [{ source: 'bwaquatics', value: { min: 24, max: 29 } }, { source: 'seriouslyfish', value: { min: 22, max: 30 } }]
+  e.photos.push(photo('https://media.aquatome.com/bwaquatics/alien.webp', 'Copper Alien'))
+  e.photos.at(-1).sourceUrl = alien
+  await writeFile(file('corydoras-adolfoi', 'entity.json'), JSON.stringify(e, null, 1))
+  const vi = JSON.parse(await readFile(file('corydoras-adolfoi', 'vi.json'), 'utf8'))
+  Object.assign(vi.sections, { 'quickFacts:bwaquatics': '<p>Betta Copper Alien lai từ các nhà lai tạo ở Việt Nam.</p>', 'beforeYouBuy:bwaquatics': '<p>Chúng tôi luôn chọn con đẹp nhất cho khách hàng.</p>', 'notes:glaser': '<p>Cá chuột hiền.</p><p>Dành cho khách hàng của chúng tôi: mã 364006.</p>' })
+  await writeFile(file('corydoras-adolfoi', 'vi.json'), JSON.stringify(vi, null, 1))
+  await writeFile(file('corydoras-adolfoi', 'th.json'), JSON.stringify({ ...vi, sections: { 'notes:glaser': '<p>ปลาสงบ</p><p>สำหรับลูกค้า</p>', 'beforeYouBuy:bwaquatics': '<p>เราเลือก</p>' } }, null, 2))
+  // A page whose only text is a variety's keeps it.
+  const koi = JSON.parse(await readFile(file('gymnocorymbus-ternetzi', 'entity.json'), 'utf8'))
+  koi.sections = [{ key: 'notes', source: 'sprucepets', sourceUrl: 'https://x/koi', html: '<p>Koi.</p>' }]
+  await writeFile(file('gymnocorymbus-ternetzi', 'entity.json'), JSON.stringify(koi, null, 2))
+
+  const r = await sweep(root)
+  const after = JSON.parse(await readFile(file('corydoras-adolfoi', 'entity.json'), 'utf8'))
+  expect(after.sections.map((x: { key: string; source: string; html: string }) => `${x.key}:${x.source} ${x.html}`)).toEqual([
+    'distribution:seriouslyfish <p>Rivers.</p>', 'habitat:seriouslyfish <p>Rivers.</p>', 'notes:glaser <p>A peaceful catfish.</p>'])
+  expect(after.dataCard.tempC).toEqual([{ source: 'seriouslyfish', value: { min: 22, max: 30 } }])
+  expect(after.photos.map((p: { url: string }) => p.url)).not.toContain('https://media.aquatome.com/bwaquatics/alien.webp')
+  const sections = async (f: string) => JSON.parse(await readFile(file('corydoras-adolfoi', f), 'utf8')).sections
+  expect(Object.entries(await sections('vi.json')).filter(([k]) => !k.endsWith('seriouslyfish'))).toEqual([['notes:glaser', '<p>Cá chuột hiền.</p>']])
+  expect(await sections('th.json')).toEqual({ 'notes:glaser': '<p>ปลาสงบ</p>' })
+  expect(r.varieties).toEqual([`corydoras-adolfoi: ${alien}`, 'gymnocorymbus-ternetzi: https://x/koi (kept: all the page has)'])
+  expect(r.shop).toEqual(['species/corydoras-adolfoi: notes:glaser (blocks)'])
+  expect(r.summaries).toContain('corydoras-adolfoi')
+  expect(JSON.parse(await readFile(file('gymnocorymbus-ternetzi', 'entity.json'), 'utf8')).sections).toHaveLength(1)
+  expect((await sweep(root)).files).toEqual([])
+})
+
 test('a title rewritten by the model is kept when the reviewer passes it, and the number dropped when not', async () => {
   const llm = (title: string, score: number): Llm => async <T>({ schema }: { schema: object }) =>
     ((schema as { required: string[] }).required.includes('title') ? { title } : { score, notes: score < 0.75 ? ['subject changed'] : [] }) as T

@@ -11,6 +11,84 @@
     "araguaia",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Araguaia",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Araquaia near Aruana, 14°58'S, 51°04'W, Goias State, Brazil', and this species appears restricted to the upper Araguaia basin.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Araguaia"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species originates from the Rio Negro basin.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342547,
+      "total": 48,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          48
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          -53.4375,
+          -16.875,
+          17,
+          17
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          19,
+          19
+        ],
+        [
+          -52.03125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

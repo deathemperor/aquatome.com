@@ -82,7 +82,9 @@
   "File:Trupp Corydoras.jpg",
   "File:Corydoras pair with eggs.jpg",
   "File:Corydoras paleatus 84869641.jpg",
-  "File:Species of fishes from the Chasqueiro Stream (Mirim Lagoon system).jpg"
+  "File:Species of fishes from the Chasqueiro Stream (Mirim Lagoon system).jpg",
+  "flickr:2709294861",
+  "flickr:2397969023"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/ca2a8705dff4e31e.webp": "da5a5b021399b909",
@@ -109,7 +111,8 @@
   "https://media.aquatome.com/inaturalist/271031195.webp": "8ec2430e02a74c89",
   "https://media.aquatome.com/inaturalist/218595337.webp": "1fc965191d4b4f1b",
   "https://media.aquatome.com/inaturalist/218595379.webp": "4b4dcb05454948c3",
-  "https://media.aquatome.com/inaturalist/2610794.webp": "27267464ecca34b0"
+  "https://media.aquatome.com/inaturalist/2610794.webp": "27267464ecca34b0",
+  "https://live.staticflickr.com/3217/2709294861_f59f2ac5c5_b.jpg": "ec78f8faf8f4aa8b"
  },
  "inat": {
   "taxon": 1560832,
@@ -123,5 +126,9 @@
  "gbif": {
   "key": 2342720,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-06"
 }

@@ -1,0 +1,34 @@
+{
+  "vi/guides/loachesonline-care-the-loach-almanac#body": [
+    {
+      "at": "2026-11-06T12:51:02Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Item 1: 'Trùn chỉ đỏ (bloodworm)' changed to 'Trùn huyết (bloodworm, ấu trùng muỗi đỏ)': added gloss 'ấu trùng muỗi đỏ' not in the original.",
+        "Item 1: 'Giun tubifex' became 'trùn chỉ (tubifex)'. This is a name change, and it clashes with the original name 'trùn chỉ đỏ' for bloodworm.",
+        "Item 1: 'được biết là mang nhiều bệnh' became 'nổi tiếng mang nhiều mầm bệnh'. 'mầm bệnh' is a slight shift, and 'nổi tiếng' is stronger than 'được biết là'.",
+        "Item 1: 'Giun tubifex ... nên tốt nhất là tránh' is split and reordered, with the advice first and the reason second. Content is kept.",
+        "Item 1: 'những thứ dài ngoằn ngoèo' became 'những con dài ngoằn ngoèo'. This is minor.",
+        "Item 2: 'Nó tối đa hóa lượng thức ăn cá thật sự dùng để lớn' became 'Phần lớn thức ăn sẽ thật sự đi vào việc nuôi cá lớn'. This is a weaker claim ('most of the food' replaces 'maximizes').",
+        "Item 2: 'mục tiêu số một' became 'một mục tiêu lớn nhất'. This is fine.",
+        "Item 2: 'dành cho các loài ăn đêm' is kept. 'phần cơ thể không dùng tới' became 'phần thức ăn cơ thể không dùng tới', which clarifies the meaning but changes the wording."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy#body": [
+    {
+      "at": "2026-11-06T12:49:53Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"đồng danh\" → \"tên đồng nghĩa\": same meaning (synonym), fine",
+        "\"nhưng\" added: slight contrastive nuance not in BEFORE, minor"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ]
+}

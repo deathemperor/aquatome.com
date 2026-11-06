@@ -503,6 +503,15 @@ extension PageDoc {
 
   /// A YouTube video's picture, as a page shows it.
   public static func thumbnail(_ youtubeId: String) -> String { "https://i.ytimg.com/vi/\(youtubeId)/hqdefault.jpg" }
+
+  /// Whether `id` is a video id as YouTube gives them, 11 of A–Z, a–z, 0–9, `-` and `_`: the app plays only those in a
+  /// page. Any other (one starting `//` makes no link, one with markup would break the player's page) opens on YouTube.
+  public static func isYouTubeId(_ id: String) -> Bool {
+    id.utf8.count == 11 && id.utf8.allSatisfy { c in
+      (UInt8(ascii: "a")...UInt8(ascii: "z")).contains(c) || (UInt8(ascii: "A")...UInt8(ascii: "Z")).contains(c)
+        || (UInt8(ascii: "0")...UInt8(ascii: "9")).contains(c) || c == UInt8(ascii: "-") || c == UInt8(ascii: "_")
+    }
+  }
 }
 
 /// A page's list of other pages. One longer than 30 (the fish a kind of kit is for: over a thousand on the site) shows

@@ -100,6 +100,17 @@ describe('species page', () => {
     expect(note.nextElementSibling?.getAttribute('data-source')).toBe('seriouslyfish') // above its own block
     expect(dom.querySelectorAll('p.off').length).toBe(1) // pH 4–6 is the card's own figure: nothing to say
   })
+  // The betta's page said "Dung tích bể tối thiểu: 8 lít" twice under a 45 cm card (design critique 2026-11-06): a volume
+  // that makes a shorter tank than the card's is noted, and a quick-facts line that says it goes.
+  test('a tank volume that makes a shorter tank than the card: off its quick facts, noted over its other text', () => {
+    const galaxy = page('/ca/ca-galaxy/').dom
+    const facts = galaxy.querySelector('section[data-section="quickFacts"] .prose[data-source="sprucepets"]')!
+    expect(facts.querySelectorAll('li').map(li => li.text.replace(/\d+$/, ''))).toEqual(['Thức ăn: ăn tạp'])
+    const note = galaxy.querySelector('section[data-section="aquariumSize"] p.off')!
+    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('The Spruce Pets ghi khác bảng dữ liệu: bể tối thiểu 19 lít (bảng: 45 cm).')
+    expect(note.querySelectorAll('[data-cm]').map(x => x.getAttribute('data-cm'))).toEqual(['45,45'])
+    expect(galaxy.querySelectorAll('p.off').length).toBe(1)
+  })
   test('the phone\'s key facts mark a value the sources disagree on only as the card does: here, by too little to', () => {
     expect(dom.querySelectorAll('.keyfacts [data-conflict]').map(x => x.getAttribute('data-field'))).toEqual(['tempC'])
     expect(dom.querySelector('.keyfacts .mark')).toBeNull()
@@ -137,6 +148,10 @@ describe('species page', () => {
       expect(a.getAttribute('rel')).toContain('sponsored')
       expect(a.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
     }
+    // The tank row offers no tank shorter than the card's minimum (60 cm): the fixture's "bể cá mini 20cm" and "bể cá 40 lít"
+    // are left out, as the shop sold the betta and the neon smaller tanks than their pages ask for (critique 2026-11-06).
+    expect(links.map(a => a.text.replace(/\s*\(.*$/, '').trim())).toContain('bể kính 60cm')
+    expect(kit.text).not.toMatch(/bể cá mini 20cm|bể cá 40 lít/)
     const kinds = kit.querySelectorAll('.rows > li .what').map(w => w.childNodes[0]!.text)
     expect(new Set(kinds).size, 'one row a kind').toBe(kinds.length)
     expect(kit.querySelectorAll('[data-shop-pick] button').map(b => b.getAttribute('data-shop'))).toEqual(['shopee', 'lazada', 'tiki'])

@@ -1,0 +1,54 @@
+{
+  "id": "badis-juergenschmidti",
+  "native": {
+    "input": "5b70bd1bac8425e2",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently known only from the type locality in the Ka Dat Chaung river system, Mon State, south-eastern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ka Dat Chaung",
+        "source": "seriouslyfish",
+        "quote": "Currently known only from the type locality in the Ka Dat Chaung river system, Mon State, south-eastern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "This is part of the larger Sittaung River drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Badis juergenschmidti",
+    "status": "ACCEPTED",
+    "taxonKey": 5961745,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        5
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

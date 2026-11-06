@@ -59,6 +59,18 @@
       "html": "<p>[EN source text placeholder for quickFacts]</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/celestial-pearl-danio-1378321",
+      "html": "<ul><li>Minimum tank size: 5 gallons</li><li>Diet: omnivore</li></ul>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "sprucepets",
+      "sourceUrl": "https://www.thesprucepets.com/celestial-pearl-danio-1378321",
+      "html": "<p>Minimum tank size: 5 gallons. A planted tank suits them.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-margaritatus",

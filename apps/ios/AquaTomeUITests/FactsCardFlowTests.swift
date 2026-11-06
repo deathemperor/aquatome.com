@@ -51,7 +51,7 @@ final class FactsCardFlowTests: XCTestCase {
     XCTAssertLessThan(credit.frame.maxY, heading.frame.minY, "the credit after the page's first heading")
     // Tapped, each figure's sources.
     let toggle = sources.firstMatch
-    for _ in 0..<4 where !toggle.isHittable { app.swipeUp() }
+    repeatUntil(toggle.isHittable, times: 4) { app.swipeUp() }
     toggle.tap()
     let opened = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "Seriously Fish: 20–26°C")).firstMatch
     XCTAssertTrue(opened.waitForExistence(timeout: 2), "the sources behind a figure don't open")
