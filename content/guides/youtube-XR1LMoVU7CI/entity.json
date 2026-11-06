@@ -1,0 +1,71 @@
+{
+  "id": "youtube-XR1LMoVU7CI",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=XR1LMoVU7CI",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "scleropages-formosus"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "XR1LMoVU7CI",
+    "title": "MONSTER AQUARIUM setup",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 574,
+    "publishedAt": "2014-05-25",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 54
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/XR1LMoVU7CI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Scleropages formosus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Chuyển lọc đã chạy vi sinh sang bể mới",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/XR1LMoVU7CI/p4-9uXyhQU0YpLnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/XR1LMoVU7CI/p4-9uXyhQU0YpLnBuZw-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "Public domain",
+          "author": "Pearson Scott Foresman",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Union_(PSF).png",
+          "caption": "Hình minh họa đầu nối ống ren, giống kiểu khớp nối dùng cho đường ống lọc."
+        }
+      },
+      {
+        "heading": "Thứ tự chuyển lọc và chuyển cá",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/XR1LMoVU7CI/p5-ZV8yMDEyXzMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/XR1LMoVU7CI/p5-ZV8yMDEyXzMuanBn-480.webp",
+          "width": 960,
+          "height": 509,
+          "licence": "CC BY-SA 3.0",
+          "author": "Karelj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
+          "caption": "Cá rồng châu Á bơi trong bể, thân vảy ánh bạc rõ nét."
+        }
+      }
+    ]
+  }
+}

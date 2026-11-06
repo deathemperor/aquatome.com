@@ -1,9 +1,9 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules: docs/governance.md, "Photos".
-3583 verdicts. Shows it: 2601; its habitat: 54; something else: 112; not a photo of it: 83; dead or as food: 107; a logo on it: 5; can't tell: 605.
+Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules: docs/governance.md, "Photos".
+3652 verdicts. Shows it: 2649; its habitat: 55; something else: 112; not a photo of it: 86; dead or as food: 110; a logo on it: 7; can't tell: 617.
 
-## Left with no photo (17)
+## Left with no photo (18)
 
 - plants/cyperus-helferi
 - species/hyphessobrycon-elachys
@@ -12,6 +12,7 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 - species/cyclocheilichthys-janthochir
 - species/neblinichthys-pilosus
 - species/nemacheilus-guentheri
+- species/opsarius-pulchellus
 - species/ailiichthys-punctata
 - species/akysis-variegatus
 - species/aphyocharax-rathbuni
@@ -23,7 +24,7 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 - species/garra-mullya
 - species/parambassis-wolffii
 
-## Can't tell: still shown (605)
+## Can't tell: still shown (617)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -596,6 +597,18 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/nemacheilus-corica | [photo](https://media.aquatome.com/seriouslyfish/b1c82b587bc1cedd.webp) | live barred loach on gravel, clear view, dark bar at tail base; look-alike nemacheilids not ruled out |
 | species/neoheterandria-elegans | [photo](https://media.aquatome.com/seriouslyfish/a670f640e0ed9320.webp) | close-up of rear body and long gonopodium only, head not shown; species hard to confirm |
 | species/neolamprologus-brevis | [photo](https://media.aquatome.com/seriouslyfish/2e79536786d5dbc3.webp) | live pinkish lamprologine-like cichlid with dark gill spot under blue light; slender body and colour cast make brevis un |
+| species/oreochromis-niloticus | [photo](https://media.aquatome.com/inaturalist/194050540.webp) | single fish blurred in murky brown water |
+| species/oreochromis-niloticus | [photo](https://media.aquatome.com/inaturalist/207594794.webp) | two slender fish in shallow water seen from above; too unclear to confirm as tilapia |
+| species/oreochromis-niloticus | [photo](https://media.aquatome.com/panitvong/inat-231304834.webp) | dark pond surface with sky reflections, fish barely visible |
+| species/oreochromis-niloticus | [photo](https://media.aquatome.com/panitvong/inat-420644977.webp) | small distant fish over submerged log in murky water |
+| species/oryzias-dancena | [photo](https://media.aquatome.com/inaturalist/420679416.webp) | small fish school seen from above in shallow wild water; species hard to confirm |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/277794138.webp) | pale small fish seen from above over sand, could be ricefish but not identifiable |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/330417115.webp) | two small dark fish over muddy bottom, distant view |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/363093154.webp) | swarm of tiny fry against pale background, species unidentifiable |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/470816791.webp) | blurry small fish over gravel in shallow water |
+| species/oxyeleotris-marmorata | [photo](https://media.aquatome.com/commons/a10ae39242338925.webp) | two plain grey-brown sleepers in a shop tank, marbling not visible |
+| species/oxyeleotris-marmorata | [photo](https://media.aquatome.com/inaturalist/125023594.webp) | pale juvenile seen from above in a white bowl, hard to confirm |
+| species/pangio-cuneovirgata | [photo](https://media.aquatome.com/inaturalist/374115290.webp) | orange-red kuhli with longer bars, possibly P. kuhlii/semicincta |
 | species/parasphaerichthys-ocellatus | [photo](https://media.aquatome.com/seriouslyfish/07f246d78b788c95.webp) | close-up of a bubble nest with eggs inside a tube; no fish visible |
 | species/parasphaerichthys-ocellatus | [photo](https://media.aquatome.com/seriouslyfish/fd6ef0ee65753ae9.webp) | bubble nest with eggs under a cave; no fish visible to identify |
 | species/schistura-nicholsi | [photo](https://media.aquatome.com/seriouslyfish/4e14b2354a536d8d.webp) | Wild underwater shot of a banded Schistura loach with red spot at dorsal base; tail not red, so species can't be confirm |
@@ -633,7 +646,7 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/aphyocharax-nattereri | [photo](https://media.aquatome.com/seriouslyfish/76ac3d43f145df02.webp) | Pale translucent tetra with a dark tail base and white-tipped fins. It doesn't clearly show the Dawn Tetra's marks and c |
 | species/aphyosemion-bivittatum | [photo](https://media.aquatome.com/commons/5e19d31c0c91347a.webp) | Two-banded Chromaphyosemion killifish, but no lyre tail or red body spots; could be a female/young bivittatum or a relat |
 
-## Removed (307)
+## Removed (315)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), and "logo" a mark added on the photo, both off every page; the rest are maps, hands, tanks, packshots and the like.
 
@@ -884,6 +897,14 @@ Written by `pnpm engine check-photos` (2026-11-05), most-read pages first. Rules
 | species/neblinichthys-pilosus | [photo](https://media.aquatome.com/scotcat/19b8e7e8ee570f08.webp) | dead: preserved museum specimen of a pleco, belly view |
 | species/neblinichthys-pilosus | [photo](https://media.aquatome.com/scotcat/27e692ae021f0f90.webp) | dead: preserved museum specimen of a pleco, side view on cloth |
 | species/nemacheilus-guentheri | [photo](https://media.aquatome.com/commons/b789ec6896055987.webp) | Old black-and-white scientific drawing of a spotted loach, not a photo |
+| species/opsarius-barna | [photo](https://media.aquatome.com/commons/f45c39dd0bd9fec1.webp) | engraved plate drawing of two fish |
+| species/opsarius-pulchellus | [photo](https://media.aquatome.com/seriouslyfish/9bde674a074bb629.webp) | logo: shallow sandy stream bed seen through water, faint barred fish hard to make out; tiny text in centre |
+| species/osphronemus-laticlavius | [photo](https://media.aquatome.com/commons/d60c4207a9a541ad.webp) | logo: adult with red fins in public aquarium; copyright text bottom left |
+| species/oxyeleotris-marmorata | [photo](https://media.aquatome.com/inaturalist/338473183.webp) | dead: fish lying out of water on wooden slats, net beside it |
+| species/pao-palembangensis | [photo](https://media.aquatome.com/commons/2851b91bb01f5072.webp) | historical hand-coloured illustration plate |
+| species/pao-palembangensis | [photo](https://media.aquatome.com/commons/4bbdfb38919cf929.webp) | dead: preserved specimens in museum jars |
+| species/pao-palembangensis | [photo](https://media.aquatome.com/commons/a463f355b04d79e5.webp) | dead: inflated caught puffer (likely Arothron) held on wooden board |
+| species/pao-palembangensis | [photo](https://media.aquatome.com/commons/b4e30ced185ca67f.webp) | world distribution map |
 | species/parambassis-siamensis | [photo](https://media.aquatome.com/commons/d97f2b7a84039e76.webp) | dead: dead glassfish specimen lying on white board beside a measuring tape |
 | species/parasphaerichthys-ocellatus | [photo](https://media.aquatome.com/seriouslyfish/0f1be69de08334a6.webp) | striped gourami-like fish, possibly Trichopsis or a female Betta; pale stripes along the body, no eyespot and no chocola |
 | species/parasphaerichthys-ocellatus | [photo](https://media.aquatome.com/seriouslyfish/d4084c7cce7fb2a5.webp) | slender silvery fish with a pointed snout, probably a female Betta; no dark eyespot and not the deep chocolate-brown bod |
