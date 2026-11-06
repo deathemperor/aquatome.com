@@ -101,7 +101,8 @@ const rowCovers = new Map(groups.flatMap(x => x.rows).map(r => [r, pics.take(r.g
     .rows a { grid-template-columns: 7rem minmax(0, 1fr); grid-template-areas: 'th name' 'th meta' 'blurb blurb'; grid-template-rows: auto 1fr auto; gap: 2px var(--space-3); padding-block: 10px; }
     .txt { display: contents; }
     .th { grid-area: th; }
-    h3 { grid-area: name; font-size: 1.05rem; line-height: 1.2; }
+    /* Two lines at most: beside the picture a long name (the engine allows 60 characters) took three, a 140 px row (2026-11-06). */
+    h3 { grid-area: name; font-size: 1.05rem; line-height: 1.2; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
     .meta { grid-area: meta; }
     .blurb { grid-area: blurb; font-size: 0.85rem; line-height: 1.4; -webkit-line-clamp: 1; line-clamp: 1; }
   }

@@ -1,0 +1,98 @@
+{
+  "id": "amblyceps-mangois",
+  "native": {
+    "input": "7e3baf4688b67f0d",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Ganges drainage in Northern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "scotcat",
+        "quote": "Asia: Ganges drainage in Northern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "scotcat",
+        "quote": "Given that this species is relatively common and abundant throughout the sub-Himalayan region (in the Ganges and Brahmaputra river drainages), Amblyceps mangois is assessed as Least Concern here, but needs updating (IUCN 2010).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblyceps mangois",
+    "status": "ACCEPTED",
+    "taxonKey": 2342853,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        40
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        33
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        15
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "7b88be3f-ae5e-497d-bf56-0d549300d916",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

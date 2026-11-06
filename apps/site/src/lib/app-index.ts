@@ -1,7 +1,9 @@
 import { resolveDataCard, type BreedEntity, type Content, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
-import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { breedFigures, speciesOf, type BreedFigures } from './breeds'
+import { categoriesIn } from './equipment'
+import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
@@ -13,13 +15,13 @@ import { seriesGuides } from './video'
 
 /**
  * The handbook's index for the native app (/app/<lang>.json): the pages of one language that the app can search and
- * list. Fish, plants, guides, glossary terms and video series are every one the site's own lists show (a page out of
+ * list. Fish, plants, guides, glossary terms, video series and equipment are every one the site's own lists show (a page out of
  * search engines too). The app opens the page itself in a web view, so an item is only what a search result shows and
  * what the app browses it by. Fish come in the site's list order (the well-known ones first).
  */
 export type AppItem = {
-  /** `video`: a series of video guides (/vi/video/<slug>/). */
-  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video'
+  /** `video`: a series of video guides (/vi/video/<slug>/). `equipment`: a kind of kit (/vi/thiet-bi/<category>/). */
+  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video' | 'equipment'
   /** The page's content id, the same in every language (fish, plants): what a saved tank lists them by. */
   id?: string
   name: string
@@ -63,10 +65,22 @@ export type AppItem = {
   lifeYears?: Range
   /** Where a species lives in the wild and its wild records (lib/range.ts, protocols/range-vectors.json); breeds have none. */
   range?: AppRange
+  /**
+   * A breed that is a form of a species (`basedOn`, through a parent breed, up to the species): that species' id, when
+   * this index lists it. A tank's check counts the breed as that species (tank-check.ts groups a tank's fish by
+   * `of ?? id`), so the breed has none of the `Facts` of its own. Hybrids, and breeds linked to no species here, have none.
+   */
+  of?: string
+  /**
+   * A breed's own figures, as its page's data card shows them (breedFigures): what the app's facts card shows for it.
+   * An app that predates it shows none, as for a breed before.
+   */
+  card?: BreedFigures
 } & Partial<Facts>
 /**
  * A species' figures and behaviour (fish), named as the tank-mates tool names them (SpeciesIndexItem), so the app checks
- * a tank with the tool's own code. Each one the content has no value for is left out; breeds have none.
+ * a tank with the tool's own code. Each one the content has no value for is left out. A breed has its figures only when
+ * it has no `of`: a hybrid, or a breed linked to no species, is a fish of its own, checked with no behaviour ("unsure").
  */
 export type Facts = Pick<SpeciesIndexItem, (typeof FACTS)[number]>
 export const FACTS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'temperament', 'finNipper', 'schoolMin', 'difficulty'] as const
@@ -103,6 +117,10 @@ export function appGuides(lang: Lang, c: Content): Content['guides'] {
  */
 export function appSpecies(lang: Lang, c: Content): Content['species'] {
   return served(lang, '/vi/ca/x/') ? listOrder(lang, c) : []
+}
+/** The breeds the index lists in this language, and the app has pages of: every one the fish list shows. */
+export function appBreeds(lang: Lang, c: Content): Content['breeds'] {
+  return served(lang, '/vi/ca/x/') ? c.breeds : []
 }
 /** The plants the index lists in this language, and the app has pages of: every one the plant list shows, as for species. */
 export function appPlants(lang: Lang, c: Content): Content['plants'] {
@@ -155,6 +173,9 @@ export type AppPlace = {
   kids?: string[]
 }
 
+/** The equipment categories the app gets, as this language's site has their pages. */
+export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet-bi/x/') ? categoriesIn(lang, c) : [])
+
 /**
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
  * every language (the Vietnamese content's), so a breed gets its species' group even where that species has no page.
@@ -198,8 +219,18 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
         tax: taxa ? [s.order, s.family, s.genus] : undefined, from: from.length ? from : undefined, lifeYears, range: appRange(s.range, regionName), ...facts,
       }))
     }
-    // Every breed, as the fish list shows them.
-    for (const b of c.breeds) items.push(clean({ kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds) }))
+    // Every breed, as the fish list shows them: a form of a listed species counted as it, any other with its own figures.
+    const listed = new Set(appSpecies(lang, c).map(s => s.id))
+    for (const b of appBreeds(lang, c)) {
+      const species = speciesOf(c, b)
+      const of = species && listed.has(species) ? species : undefined
+      const card = breedFigures(b)
+      const { tempC, ph, gh, sizeCm, tankCm, difficulty } = card
+      items.push(clean({
+        kind: 'fish', id: b.id, name: b.t.name, aka: aka(b.t.altNames), path: at(`/vi/ca/${b.t.slug}/`), img: img(b.photos), group: breedGroup(b, groupOf, c.breeds),
+        of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
+      }))
+    }
     home.groups = groupTiles(lang, c).map(g => (g.photo ? { id: g.group, img: smallSrc(g.photo) } : { id: g.group }))
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
@@ -229,6 +260,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const { s, guides } of appSeries(lang, c)) {
     const ph = guideImage(c, guides[0]!)
     items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
+  }
+  // An equipment category as its page names it; the same categories the app gets pages of.
+  for (const u of appEquipment(lang, c)) {
+    const g = c.equipment.find(e => e.category === u.category)
+    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && smallSrc(g.hero) }))
   }
   for (const [vi, name, own] of TOOLS) {
     if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })

@@ -1,5 +1,5 @@
 {
-  "$comment": "The fish and plant lists' filters (apps/site/src/scripts/filter.ts): which ones fit what the reader set (every figure known and fitting) and which may fit (nothing known rules them out, but a figure the filter asks about is missing). The site's tests run filter.ts on these cases, and the iOS app's tests run its own filters (AquaTomeKit Handbook/Filters.swift): both must answer `fit` and `unsure` exactly, in this order. Species figures are the app index's (tempC, ph, tankCm, difficulty on the site's 1–8 scale); plants' are their care (light, co2, difficulty 1–3).",
+  "$comment": "The fish and plant lists' filters (apps/site/src/scripts/filter.ts): which ones fit what the reader set (every figure known and fitting) and which may fit (nothing known rules them out, but a figure the filter asks about is missing). The site's tests run filter.ts on these cases, and the iOS app's tests run its own filters (AquaTomeKit Handbook/Filters.swift): both must answer `fit` and `unsure` exactly, in this order. Species figures are the app index's (tempC, ph, tankCm, difficulty on the site's 1–8 scale); plants' are their care (light, co2, difficulty 1–3). Breeds (keepBreed): a name search reads the name; the water filter reads the breed's own figures (its care card, the app index's `card`) and keeps it only when every figure asked about is known and fits, with no \"may fit\"; a group filter hides every breed.",
   "species": [
     {"name": "Cá neon", "tempC": {"min": 20, "max": 26}, "ph": {"min": 5, "max": 7}, "tankCm": 60, "difficulty": 2},
     {"name": "Cá đĩa", "tempC": {"min": 28, "max": 31}, "ph": {"min": 4.5, "max": 6.5}, "tankCm": 120, "difficulty": 7},
@@ -27,5 +27,21 @@
     {"note": "no CO₂: plants that grow without it, an optional one too", "query": {"co2": "none"}, "fit": ["Ráy nana", "Monte Carlo"], "unsure": ["Cây chưa rõ"]},
     {"note": "the plants that need CO₂", "query": {"co2": "required"}, "fit": ["Rotala đỏ"], "unsure": ["Cây chưa rõ"]},
     {"note": "easy only (1 on the 1–3 scale), with low light: a plant known to be harder is out, though its light is unknown", "query": {"difficultyMax": 1, "light": "low"}, "fit": ["Ráy nana"], "unsure": []}
+  ],
+  "breeds": [
+    {"name": "Cá La Hán", "tempC": {"min": 26, "max": 30}, "ph": {"min": 6.5, "max": 7.8}},
+    {"name": "Cá đĩa Pigeon Blood", "tempC": {"min": 28, "max": 31}, "ph": {"min": 5.5, "max": 7}, "tankCm": 120},
+    {"name": "Betta Koi"}
+  ],
+  "breedCases": [
+    {"note": "nothing set: every breed stays", "query": {}, "kept": ["Cá La Hán", "Cá đĩa Pigeon Blood", "Betta Koi"]},
+    {"note": "a name search keeps the names that match", "query": {"text": "la han"}, "kept": ["Cá La Hán"]},
+    {"note": "a temperature both ranges hold; the breed with none is out, not a maybe", "query": {"tempC": 29}, "kept": ["Cá La Hán", "Cá đĩa Pigeon Blood"]},
+    {"note": "a temperature only one range holds", "query": {"tempC": 27}, "kept": ["Cá La Hán"]},
+    {"note": "a tank: the one with a tank figure that fits; one without a tank figure is out", "query": {"tankCm": 150}, "kept": ["Cá đĩa Pigeon Blood"]},
+    {"note": "a tank shorter than the breed's own", "query": {"tankCm": 100}, "kept": []},
+    {"note": "a difficulty: no breed has one, so none stays", "query": {"difficultyMax": 3}, "kept": []},
+    {"note": "a name and a temperature: both must hold", "query": {"text": "dia", "tempC": 29}, "kept": ["Cá đĩa Pigeon Blood"]},
+    {"note": "a group hides every breed", "query": {"group": "cichlids"}, "kept": []}
   ]
 }

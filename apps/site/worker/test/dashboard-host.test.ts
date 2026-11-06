@@ -3,7 +3,7 @@ import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
 import { createSession } from '../accounts/session'
-import { hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
+import { CHANGELOG_PATH, hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
 import { APP_PAGES } from '../app-switch'
 import { putReport } from '../daily/log'
 import { handle, type Env } from '../index'
@@ -99,7 +99,7 @@ test('a valid token opens the dashboard: the overview at /, each page at /<key>/
   const html = await home.text()
   expect(isDashboard(html)).toBe(true)
   expect(html).toContain('href="/" aria-current="page"')
-  expect(WEB_PAGES).toEqual(expect.arrayContaining([SCOREBOARD_PATH, REPORT_PATH]))
+  expect(WEB_PAGES).toEqual(expect.arrayContaining([SCOREBOARD_PATH, REPORT_PATH, CHANGELOG_PATH]))
   for (const p of WEB_PAGES.filter(x => x !== '/_ab/')) {
     const key = p.slice('/_ab'.length)
     const r = await dash(key, {}, e)
@@ -486,6 +486,30 @@ test('the owner\'s forms work from the page itself, Origin: null as a no-referre
     expect(store.size, JSON.stringify(headers)).toBe(0)
   }
   expect((await form({ 'sec-fetch-site': 'same-origin' }, null)).status).toBe(403)
+  expect(store.size).toBe(0)
+})
+
+test('the daily report\'s delivery from its page on this host: the form posts behind Access, from the page only, and comes back to /bao-cao/', async () => {
+  const { e, store } = env()
+  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Tắt email</button><button name="push" value="1">Bật thông báo</button></form>')
+  const press = (headers: Record<string, string>, token?: string | null, on: Env = e) => dash('/_ab/bao-cao/cai-dat', { method: 'POST', body: new URLSearchParams({ push: '1' }), token, headers: { 'content-type': 'application/x-www-form-urlencoded', ...headers } }, on)
+  const ok = await press({ 'sec-fetch-site': 'same-origin', origin: 'null' })
+  expect([ok.status, ok.headers.get('location'), ok.headers.get('x-robots-tag'), ok.headers.get('cache-control')]).toEqual([303, '/bao-cao/', 'noindex, nofollow', 'no-store'])
+  expect(JSON.parse(store.get('report-settings')!)).toEqual({ email: true, push: true })
+  expect(await (await dash('/bao-cao/', {}, e)).text()).toContain('<button name="push" value="0">Tắt thông báo</button>')
+  store.clear()
+  // Not from the page, or not through Access: refused, nothing written.
+  for (const headers of [{ 'sec-fetch-site': 'cross-site' }, { 'sec-fetch-site': 'same-site' }, { 'sec-fetch-site': 'none' }, {}] as Record<string, string>[]) {
+    expect((await press(headers)).status, JSON.stringify(headers)).toBe(403)
+  }
+  for (const token of [null, await jwt({ exp: Math.floor(Date.now() / 1000) - 5 }), await jwt({ aud: ['another-app'] })]) {
+    expect((await press({ 'sec-fetch-site': 'same-origin' }, token)).status).toBe(403)
+  }
+  for (const vars of UNSET) {
+    const off = env(vars)
+    expect((await press({ 'sec-fetch-site': 'same-origin' }, undefined, off.e)).status, JSON.stringify(vars)).toBe(403)
+    expect(off.store.size).toBe(0)
+  }
   expect(store.size).toBe(0)
 })
 

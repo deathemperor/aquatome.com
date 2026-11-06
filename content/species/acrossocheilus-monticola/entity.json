@@ -10,6 +10,50 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently endemic to the upper Yangtze River basin, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366413,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          30.9375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

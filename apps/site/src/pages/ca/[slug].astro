@@ -69,7 +69,7 @@ const alternates = await alternatesOf('species', s.id)
     {s.photos.length > 0 && (
       <div class="side">
         <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
-        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column />}
+        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column readers />}
       </div>
     )}
     <div class="facts">
@@ -82,7 +82,7 @@ const alternates = await alternatesOf('species', s.id)
   <JumpChips items={kit ? [...jumps, { href: '#mua-do', label: t('Mua đồ') }] : jumps} />
 
   {/* A page with no photo of its own has a one-column top: its thumbnails stay below it, the page's width. */}
-  {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
+  {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} readers />}
   {vn && summary && <QuickSummary summary={summary} />}
   <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} />
   {kit && <div class="wrap"><ProductSlots slots={s.productSlots} heading={t('Chuẩn bị để nuôi {name}', { name: s.t.name })} entity={`species:${s.id}`} tankCm={typeof tank === 'number' ? tank : undefined} /></div>}

@@ -1,5 +1,7 @@
-import type { BreedEntity, Content, Localized, Photo } from '@aq/schema'
+import type { BreedEntity, Content, Localized, Photo, Range } from '@aq/schema'
+import { cardRows } from './card-rows'
 import type { Lang } from './i18n'
+import { asNum, asRange } from './species-index'
 
 export type Breed = Localized<BreedEntity>
 export const BREED_KIND: Record<BreedEntity['kind'], string> = { hybrid: 'Cá lai', variety: 'Dòng cá cảnh', transgenic: 'Cá biến đổi gen' }
@@ -24,3 +26,32 @@ export function careCard(b: Breed) {
   return { card, sources }
 }
 
+
+/**
+ * A breed's figures, one for each row its page's data card shows, resolved as the card resolves them (cardRows, as
+ * DataCard.astro): a range for temperature, pH, hardness and lifespan; one figure for size, tank and difficulty, as the
+ * app index gives a species' (toIndexItem).
+ */
+export type BreedFigures = { tempC?: Range; ph?: Range; gh?: Range; sizeCm?: number; tankCm?: number; difficulty?: number; lifeYears?: Range }
+export function breedFigures(b: Breed): BreedFigures {
+  const out: BreedFigures = {}
+  for (const r of cardRows(careCard(b).card)) {
+    if (r.field === 'tempC' || r.field === 'ph' || r.field === 'gh' || r.field === 'lifeYears') out[r.field] = asRange(r.value)
+    else out[r.field] = asNum(r.value)
+  }
+  return out
+}
+
+/**
+ * The species a breed is a form of: its `basedOn`, through a parent breed's own, up to a species of this language's
+ * content. None for a hybrid, or a breed linked to no species (or through a breed this language lacks).
+ */
+export function speciesOf(c: Content, b: Breed): string | undefined {
+  if (b.kind === 'hybrid') return undefined
+  const seen = new Set<string>()
+  for (let id = b.basedOn; id && !seen.has(id); id = c.breeds.find(x => x.id === id)?.basedOn) {
+    seen.add(id)
+    if (c.species.some(s => s.id === id)) return id
+  }
+  return undefined
+}

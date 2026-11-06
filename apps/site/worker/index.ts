@@ -3,6 +3,7 @@ import { runChecks } from './affiliate/check'
 import { fromOurPage, parseGo, recordClick, resolveGo } from './affiliate/go'
 import { searchTarget, type AffEnv } from './affiliate/networks'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
+import { postCommentWithPhoto, sweepCommentPhotos } from './comments/photo'
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
@@ -58,6 +59,9 @@ export interface Env {
   MEDIA?: R2Bucket
   /** Who the daily report goes to (a secret, worker/daily): never logged, stored or answered. */
   REPORT_TO?: string
+  /** The APNs auth key (.p8 contents) and its id (secrets, worker/daily/push.ts): without them the report's push is skipped. */
+  APNS_KEY?: string
+  APNS_KEY_ID?: string
 }
 type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & FishIdEnv
 const MAX_EVENT_BYTES = 4096
@@ -117,7 +121,10 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
   if (route === 'queue') return Response.json(await moderationQueue(env.DB, new Date()), { headers: { 'cache-control': 'no-store' } })
   const body = await req.json().catch(() => null)
   if (!Array.isArray(body) || body.length > 500) return new Response('expected a JSON array (≤500)', { status: 400 })
-  return Response.json(await applyDecisions(env.DB, body, new Date()))
+  const r = await applyDecisions(env.DB, body, new Date())
+  // A comment removed takes its photo with it.
+  await sweepCommentPhotos(env, new Date())
+  return Response.json(r)
 }
 
 /** A page's address in any language: Vietnamese ones at the root, the others under their prefix (/id/, /th/). */
@@ -231,7 +238,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
-  if (url.pathname === '/_c') return finish(req.method === 'POST' ? await postComment(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
+  // A comment with its photo comes as multipart (comments/photo.ts); without one, as JSON.
+  if (url.pathname === '/_c') return finish(req.method === 'POST' ? await (req.headers.get('content-type')?.startsWith('multipart/form-data') ? postCommentWithPhoto : postComment)(req, env, new Date()) : req.method === 'GET' ? await listComments(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname.startsWith('/_c/admin/')) return commentsAdmin(req, url, env)
   if (url.pathname === '/_p') return finish(req.method === 'POST' ? await postPhoto(req, env, new Date()) : req.method === 'GET' ? await listPhotos(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname === '/_p/xoa/' || url.pathname === '/_p/xoa') return finish(await deleteRoute(req, url, env, new Date()), env)

@@ -1,0 +1,47 @@
+{
+  "id": "amblyceps-cerinum",
+  "native": {
+    "input": "f580f4b06fdf8645",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: India, Brahmaputra River drainage, northern West Bengal.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "scotcat",
+        "quote": "Asia: India, Brahmaputra River drainage, northern West Bengal.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblyceps cerinum",
+    "status": "ACCEPTED",
+    "taxonKey": 5961305,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

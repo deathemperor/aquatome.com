@@ -5,17 +5,18 @@ import { chipOf, dayLabel, esc, lastDays } from '../admin/chart'
 import { added, type EntityKind, type Snapshot } from '../admin/content'
 import { inLang, items, perDay } from '../admin/content-page'
 import { alignDaily, at, MODERATION_MISSED_MS, todos, waitingEn, type Overview } from '../admin/pages'
-import { isFailed, REPORT_PATH, type Soft } from '../admin/shell'
+import { KEY_NAMES_EN, scoreboardBlock, type BlockWords, type Scoreboard } from '../admin/scoreboard'
+import { CHANGELOG_PATH, isFailed, REPORT_PATH, SCOREBOARD_PATH, type Soft } from '../admin/shell'
 import { dashboardUrl } from '../paths'
 import { clock, HOME_TZ } from '../admin/time'
-import { REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
+import { AREAS, REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
 
 /** Numbers as the report's English reads them, 2.1, 1,234, $0.11; the dashboard writes them the Vietnamese way (admin/chart.ts). */
 export const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
 const usd = (n: number) => `$${fmt(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
 
 /**
- * The owner's daily report, from what the dashboard's loaders returned and what daily-report.yml sent: needs care first,
+ * The owner's daily report, from what the dashboard's loaders returned and what daily-report.yml sent: the week's success numbers and needs care first,
  * then the day's biggest moves, what was built, and the numbers. In English, which the owner reads it in; days and times
  * in Vietnam's zone, numbers as the dashboard writes them. No reader's data: comments, names they typed, addresses and
  * account ids aren't in what it prints, and any address that comes in with GitHub's text is cut on the way out (`cleaned`).
@@ -40,11 +41,14 @@ export type Care = { title: string; text?: string; href?: string; n?: number }
 /** A measure yesterday against the 7 whole days before it. `moves`: it may be a highlight. */
 export type Stat = { label: string; value: number; base?: number; show?: (n: number) => string; note?: string; moves: boolean }
 type Line = { text: string; href?: string }
-type Built = { label: string; text: string; href?: string; lines?: Line[]; more?: number }
+/** `groups`: lines under labels of their own (what changed, by area); `link`: one link after them. */
+type Built = { label: string; text: string; href?: string; lines?: Line[]; more?: number; groups?: { label: string; lines: string[] }[]; link?: Line }
 type Table = { head: string[]; rows: string[][] }
 
-export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide }
-export type Composed = { subject: string; text: string; html: string; care: number }
+/** `scoreboard`: undefined when it couldn't load (a loaded one names in its own `failed` the parts that didn't). */
+export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide; scoreboard: Scoreboard | undefined }
+/** `first`: the first thing that needs care, for the phone's notification. */
+export type Composed = { subject: string; text: string; html: string; care: number; first?: string }
 
 const plural = (n: number, one: string, many = `${one}s`) => `${fmt(n)} ${n === 1 ? one : many}`
 const runsText = (r: Runs) => `${plural(r.runs, 'run')}, ${fmt(r.failed)} failed`
@@ -52,7 +56,7 @@ const when = (t: Date | string, now: Date) => clock(t, HOME_TZ, now)
 const careCount = (care: Care[]) => care.reduce((sum, c) => sum + (c.n ?? 1), 0)
 
 /** What needs the owner, each with where to deal with it. */
-export function needsCare({ now, overview: o, app, gh }: ComposeInput): Care[] {
+export function needsCare({ now, overview: o, app, gh, scoreboard }: ComposeInput): Care[] {
   const out: Care[] = []
   for (const f of gh.failing) out.push({ title: `${f.workflow} is failing`, text: `${plural(f.failures, 'failed run')} since ${when(f.since, now)}, no success after.`, href: f.url })
   if (gh.missing.length) out.push({ title: 'GitHub did not give part of this report', text: `Missing: ${gh.missing.join(', ')}. The counts they feed may be low.`, href: gh.runUrl })
@@ -70,7 +74,17 @@ export function needsCare({ now, overview: o, app, gh }: ComposeInput): Care[] {
     const crashes = app.versions.reduce((n, v) => n + v.crashes, 0)
     if (crashes) out.push({ title: `App: ${plural(crashes, 'crash', 'crashes')} in the last 24 hours`, text: app.versions.filter(v => v.crashes).map(v => `${v.version}: ${fmt(v.crashes)}`).join(', '), href: '/_ab/ung-dung/' })
   }
+  if (!scoreOf(scoreboard)) out.push({ title: 'Could not load the week\'s success numbers', href: SCOREBOARD_PATH })
   return out
+}
+
+const SUCCESS: BlockWords = { title: 'Success, this week', names: KEY_NAMES_EN, sameMoment: 'same point last week', lastWeek: 'all of last week', fmt }
+/** The scoreboard, when its key metrics could load: each of them is the readers' beacon's, whose failure its page puts above them. */
+const scoreOf = (s: Scoreboard | undefined) => (s && !s.failed.beacon ? s : undefined)
+/** The week's success numbers, the north star first, this week so far against last (admin/scoreboard.ts); or the line that says why not. */
+function success(s: Scoreboard | undefined): string[] | string {
+  const loaded = scoreOf(s)
+  return loaded ? scoreboardBlock(loaded, SUCCESS).lines : 'Could not load the scoreboard\'s numbers.'
 }
 
 /** The mean of the 7 whole days before yesterday, in a list whose last value is today; undefined when none of them counts. */
@@ -146,6 +160,21 @@ function contentAdded(o: Overview): string | undefined {
   return `Added ${dayLabel(before.day)} to ${dayLabel(last.day)}: ${what.length ? what.join('; ') : 'nothing'}.`
 }
 
+/**
+ * What changed for readers, app users and the content (scripts/changelog.mjs): the site's, the app's and the engine's
+ * lines, each newest first and once, and the change log's link; never a PR's number or link.
+ */
+function whatChanged(gh: GitHubSide): Built {
+  const newest = [...gh.changes].sort((a, b) => Date.parse(b.at) - Date.parse(a.at))
+  const groups = AREAS.flatMap(area => {
+    const lines = [...new Set(newest.filter(c => c.area === area).map(c => c.text))]
+    return lines.length ? [{ label: area, lines }] : []
+  })
+  // With part of GitHub's answer missing (needs care says which), none found isn't none made.
+  const text = groups.length ? '' : gh.missing.length ? 'None found, but GitHub did not give part of this report.' : 'No product changes.'
+  return { label: 'What changed', text, groups, link: { text: 'Change log', href: CHANGELOG_PATH } }
+}
+
 const itemLines = (l: Listed, n: number): Pick<Built, 'lines' | 'more'> => ({ lines: l.items.slice(0, n).map((i: Item) => ({ text: `#${i.number} ${i.title}`, href: i.url })), more: Math.max(0, l.total - Math.min(n, l.items.length)) })
 
 function built({ now, overview: o, gh }: ComposeInput): Built[] {
@@ -155,9 +184,9 @@ function built({ now, overview: o, gh }: ComposeInput): Built[] {
   const addedText = contentAdded(o)
   const tf = gh.testflight
   return [
+    whatChanged(gh),
     { label: 'Deploys', text: `${runsText(gh.deploys)}.${live ? ` Live: ${live.sha}, deployed ${when(live.at, now)}.` : ''}${madeAt}`, ...(live ? { href: live.url } : {}) },
     { label: 'Content pushes', text: `Engine: ${plural(gh.engine.runs, 'cycle')}, ${fmt(gh.engine.failed)} failed. ${plural(gh.commits.total, 'content commit')}${parts ? ` (${parts})` : ''}.`, lines: addedText ? [{ text: addedText }] : [] },
-    { label: `Merged PRs (${fmt(gh.merged.total)})`, text: gh.merged.total ? '' : 'none.', ...itemLines(gh.merged, 50) },
     { label: 'App builds', text: `ios.yml: ${runsText(gh.ios)}. TestFlight: ${tf.uploads.length ? `${plural(tf.uploads.length, 'upload')} (build ${tf.uploads.map(u => u.build).join(', ')})` : 'no upload'}${tf.failed ? `, ${fmt(tf.failed)} failed` : ''}. App Store: ${runsText(gh.appStore)}.`, ...(tf.uploads[0] ? { href: tf.uploads[0].url } : {}) },
     { label: 'Live checks', text: `${runsText(gh.watch)}.${gh.notes ? ` ${plural(gh.notes, 'review note')} open.` : ''}` },
     { label: 'Open PRs', text: `${fmt(gh.prs.ready.total)} ready, ${fmt(gh.prs.draft.total)} draft.`, ...itemLines(gh.prs.ready, PRS_SHOWN) },
@@ -192,11 +221,12 @@ function appBlock(app: Soft<AppDay>): Table | string {
 
 // ——— Its two forms: one model, drawn as plain text and as HTML with inline styles, which is what Gmail on a phone keeps ———
 
-type Model = { title: string; lede: string; count: number; care: Care[]; highlights: string[]; built: Built[]; site: Table[]; app: Table | string; footer: Line[] }
+type Model = { title: string; lede: string; success: string[] | string; count: number; care: Care[]; highlights: string[]; built: Built[]; site: Table[]; app: Table | string; footer: Line[] }
 
 const textTable = (t: Table) => [`${t.head[0]}:`, ...t.rows.map(r => `  ${r[0]}: ${r[1]}${r[2] !== undefined ? ` (${t.head[2]} ${r[2]})` : ''}`)]
 function toText(m: Model): string {
-  const out = [m.title, m.lede, '', m.count ? `NEEDS CARE (${fmt(m.count)})` : 'NEEDS CARE: nothing']
+  const out = [m.title, m.lede, '', SUCCESS.title.toUpperCase(), ...(typeof m.success === 'string' ? [m.success] : m.success.map(l => `- ${l}`)), `Scoreboard: ${linkOf(SCOREBOARD_PATH)}`]
+  out.push('', m.count ? `NEEDS CARE (${fmt(m.count)})` : 'NEEDS CARE: nothing')
   m.care.slice(0, CARE_SHOWN).forEach((c, i) => {
     out.push(`${i + 1}. ${c.title}${c.text ? `: ${c.text}` : ''}`)
     const href = linkOf(c.href)
@@ -210,6 +240,8 @@ function toText(m: Model): string {
     if (href) out.push(`  ${href}`)
     for (const l of b.lines ?? []) out.push(`- ${l.text}${linkOf(l.href) ? ` ${linkOf(l.href)}` : ''}`)
     if (b.more) out.push(`- and ${fmt(b.more)} more`)
+    for (const g of b.groups ?? []) out.push(`  ${g.label}:`, ...g.lines.map(l => `  - ${l}`))
+    if (b.link) out.push(`  ${b.link.text}: ${linkOf(b.link.href) ?? ''}`)
   }
   out.push('', 'SITE', ...m.site.flatMap(textTable), '', 'APP', ...(typeof m.app === 'string' ? [m.app] : textTable(m.app)), '', ...m.footer.map(l => `${l.text}: ${linkOf(l.href) ?? ''}`))
   return out.join('\n')
@@ -233,6 +265,7 @@ function htmlTable(t: Table): string {
   return `<table style="width:100%;border-collapse:collapse;margin:0 0 14px;font-size:14px"><tr>${t.head.map((h, i) => cell(h, i, 'th')).join('')}</tr>${t.rows.map(r => `<tr>${r.map((c, i) => cell(c, i, 'td')).join('')}</tr>`).join('')}</table>`
 }
 function toHtml(m: Model): string {
+  const score = typeof m.success === 'string' ? `<p style="margin:0">${esc(m.success)}</p>` : `<ul style="${LIST}">${m.success.map((l, i) => `<li style="margin:0 0 6px">${i ? esc(l) : `<b>${esc(l)}</b>`}</li>`).join('')}</ul>`
   const more = m.care.length > CARE_SHOWN ? `<p style="margin:0;color:${MUTED}">and ${fmt(m.care.length - CARE_SHOWN)} more</p>` : ''
   const care = m.care.length
     ? `<ol style="${LIST}">${m.care.slice(0, CARE_SHOWN).map(c => `<li style="margin:0 0 8px;${WRAP}">${anchor(c.title, c.href, true)}${c.text ? `<br><span style="color:${MUTED}">${esc(c.text)}</span>` : ''}</li>`).join('')}</ol>${more}`
@@ -240,11 +273,14 @@ function toHtml(m: Model): string {
   const moves = m.highlights.length ? `<ul style="${LIST}">${m.highlights.map(h => `<li style="margin:0 0 6px">${esc(h)}</li>`).join('')}</ul>` : '<p style="margin:0">No big moves.</p>'
   const made = m.built.map(b => {
     const sub = [...(b.lines ?? []).map(l => anchor(l.text, l.href)), ...(b.more ? [`and ${fmt(b.more)} more`] : [])]
-    return `<p style="margin:0 0 ${sub.length ? 4 : 10}px;${WRAP}"><b>${esc(b.label)}</b>${b.text ? `: ${esc(b.text)}` : ''}${linkOf(b.href) ? ` ${anchor('run', b.href)}` : ''}</p>${sub.length ? `<ul style="${LIST};margin-bottom:10px">${sub.map(s => `<li style="margin:0 0 4px;${WRAP}">${s}</li>`).join('')}</ul>` : ''}`
+    const groups = (b.groups ?? []).map(g => `<p style="margin:0 0 2px;color:${MUTED};font-size:13px;font-weight:600">${esc(g.label)}</p><ul style="${LIST};margin-bottom:8px">${g.lines.map(l => `<li style="margin:0 0 4px;${WRAP}">${esc(l)}</li>`).join('')}</ul>`).join('')
+    const link = b.link ? `<p style="margin:0 0 10px">${anchor(b.link.text, b.link.href)}</p>` : ''
+    return `<p style="margin:0 0 ${sub.length || groups || link ? 4 : 10}px;${WRAP}"><b>${esc(b.label)}</b>${b.text ? `: ${esc(b.text)}` : ''}${linkOf(b.href) ? ` ${anchor('run', b.href)}` : ''}</p>${sub.length ? `<ul style="${LIST};margin-bottom:10px">${sub.map(s => `<li style="margin:0 0 4px;${WRAP}">${s}</li>`).join('')}</ul>` : ''}${groups}${link}`
   }).join('')
   return `<div style="font:15px/1.5 ${FONT};color:${INK};background:#fff;max-width:640px;margin:0 auto;padding:16px">
 <h2 style="display:block;font:600 21px/1.25 ${FONT};color:${INK};margin:0 0 4px">${esc(m.title)}</h2>
 <p style="margin:0;color:${MUTED};font-size:13px">${esc(m.lede)}</p>
+${h3(SUCCESS.title)}${score}<p style="margin:8px 0 0">${anchor('Scoreboard', SCOREBOARD_PATH)}</p>
 ${h3(m.count ? `Needs care (${fmt(m.count)})` : 'Needs care', m.count ? RUST : INK)}${care}
 ${h3('Highlights')}${moves}
 ${h3('Built, last 24 hours')}${made}
@@ -260,7 +296,7 @@ ${h3('App')}${typeof m.app === 'string' ? `<p style="margin:0">${esc(m.app)}</p>
  */
 const ADDRESS = /[^\s<>"'(),;:]+@[^\s<>"'(),;:]+\.[A-Za-z]{2,}/g
 const OTHER_SITE = /\b(?:https?:\/\/|www\.)(?!(?:[a-z0-9-]+\.)?aquatome\.com\b|github\.com\b)[^\s<>"'&]+/gi
-const cleaned = (s: string) => s.replace(ADDRESS, '[address removed]').replace(OTHER_SITE, '[link removed]')
+export const cleaned = (s: string) => s.replace(ADDRESS, '[address removed]').replace(OTHER_SITE, '[link removed]')
 
 const SHORT_DAY = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', timeZone: HOME_TZ })
 
@@ -273,6 +309,7 @@ export function compose(input: ComposeInput): Composed {
   const model: Model = {
     title: `AquaTome daily · ${day}`,
     lede: `Made ${when(now, now)}, Vietnam. GitHub: the last 24 hours. Site: yesterday, ${dayLabel(lastDays(now, 2, HOME_TZ)[0]!)}, against the 7 days before it.`,
+    success: success(input.scoreboard),
     count, care,
     highlights: highlights(stats),
     built: built(input),
@@ -281,5 +318,5 @@ export function compose(input: ComposeInput): Composed {
     footer: [{ text: 'All reports', href: REPORT_PATH }, { text: 'This run', href: gh.runUrl }],
   }
   const subject = `AquaTome daily · ${day} · ${count ? `${fmt(count)} ${count === 1 ? 'needs' : 'need'} care` : 'nothing needs care'}`
-  return { subject: cleaned(subject), text: cleaned(toText(model)), html: cleaned(toHtml(model)), care: count }
+  return { subject: cleaned(subject), text: cleaned(toText(model)), html: cleaned(toHtml(model)), care: count, ...(care[0] ? { first: cleaned(care[0].title) } : {}) }
 }
