@@ -1,6 +1,7 @@
 import { decodeProtectedHeader, jwtVerify } from 'jose'
 import { afterEach, expect, test, vi } from 'vitest'
 import { addDevice, devices, notification, providerToken, pushReport, removeDevices, TOKENS_KEY, type Device } from '../daily/push'
+import { contract } from './contract'
 import { DEFAULT_SETTINGS, getSettings, setSettings, settingsChange, SETTINGS_KEY } from '../daily/settings'
 
 afterEach(() => { vi.restoreAllMocks() })
@@ -82,6 +83,11 @@ test('the notification: "AquaTome", the subject and the first thing that needs c
   expect(notification({ subject: 'AquaTome daily · 6 Nov · nothing needs care' }, '7').aps.alert.body).toBe('AquaTome daily · 6 Nov · nothing needs care')
   const long = notification({ subject: 's', first: 'x'.repeat(1000) }, '7').aps.alert.body
   expect([long.length, long.endsWith('…')]).toEqual([400, true])
+  // Each the contract's (the owner dashboard's Notification), and only what it allows: no sound, no badge.
+  const { misfits } = contract('owner-dashboard.openapi.json')
+  const shape = { $ref: '#/components/schemas/Notification' }
+  for (const n of [notification({ subject: 'a', first: 'b' }, '1001'), notification({ subject: 's', first: 'x'.repeat(1000) }, '7')]) expect(misfits(n, shape)).toEqual([])
+  expect(misfits({ ...notification({ subject: 'a' }, '7'), aps: { alert: { title: 'AquaTome', body: 'a' }, 'thread-id': 'daily-report', sound: 'default' } }, shape)).toEqual(['$.aps.sound: not allowed'])
 })
 
 type Call = { url: string; init: RequestInit }

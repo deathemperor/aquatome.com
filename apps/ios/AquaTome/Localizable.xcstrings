@@ -11104,6 +11104,38 @@
           }
         }
       }
+    },
+    "Nhận thông báo báo cáo trên máy này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terima notifikasi laporan di perangkat ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รับการแจ้งเตือนรายงานบนเครื่องนี้"
+          }
+        }
+      }
+    },
+    "Thông báo của AquaTome đang tắt trong Cài đặt.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notifikasi AquaTome dimatikan di Pengaturan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การแจ้งเตือนของ AquaTome ปิดอยู่ในการตั้งค่า"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
