@@ -7841,6 +7841,22 @@
         }
       }
     },
+    "Đang ở bể %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ada di akuarium %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยู่บนตู้ %@"
+          }
+        }
+      }
+    },
     "Đàn tối thiểu": {
       "localizations": {
         "id": {
@@ -8349,6 +8365,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้นี้มีชนิดที่ยังไม่มีหน้าครบ %lld ชนิดแล้ว"
+          }
+        }
+      }
+    },
+    "Đã ở bể này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah di akuarium ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยู่บนตู้นี้แล้ว"
           }
         }
       }
