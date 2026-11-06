@@ -70,6 +70,40 @@
     "WRGB 2 120 cm (sold out)": "WRGB 2 120 cm (đã bán hết)",
     "WRGB 2 Slim 30 (low stock)": "WRGB 2 Slim 30 (sắp hết hàng)"
   },
+  "tested": [
+    {
+      "text": "AquaTome thử trên Chihiros WRGB II Slim, firmware 24, thấy hễ cúp điện là đồng hồ của đèn về 0, mà lịch đã lưu lại chạy theo đồng hồ này, nên có điện lại là phải chỉnh giờ cho đèn.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    },
+    {
+      "text": "Đèn trả lại được lịch đã lưu khi được hỏi, nhưng không báo mức sáng chỉnh tay của từng kênh, vì vậy app điều khiển phải tự nhớ các mức này.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    },
+    {
+      "text": "Khi đọc lại lịch đã lưu, đèn chỉ báo một mức sáng là mức của kênh đầu tiên, còn mức trong lịch của các kênh khác thì không đọc lại được.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    },
+    {
+      "text": "Lịch mới cài vào sẽ thay hẳn lịch cũ chứ không cộng thêm vào.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    }
+  ],
   "quality": {
     "score": 0.82,
     "indexable": true

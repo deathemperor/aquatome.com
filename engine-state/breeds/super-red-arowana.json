@@ -156,6 +156,24 @@
       "min": 150,
       "max": 150,
       "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 9
+    },
+    {
+      "field": "lifeYears",
+      "min": 20,
+      "max": 25,
+      "source": 10
+    },
+    {
+      "field": "lifeYears",
+      "min": 20,
+      "max": 20,
+      "source": 9
     }
   ],
   "keeping": [
@@ -294,6 +312,16 @@
       "url": "https://www.monsterfishkeepers.com/forums/threads/preventing-drop-eye.120054/post-1481314",
       "title": "Preventing drop eye – MonsterFishKeepers",
       "kind": "forum"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/red-arowana",
+      "title": "Red Arowana Care Guide: A Fishkeeper's Crown Jewel? – Fishkeeping World",
+      "kind": "article"
+    },
+    {
+      "url": "https://theaquariumparadise.com/fishes/super-red-arowana",
+      "title": "super red arowana – The Aquarium Paradise",
+      "kind": "article"
     }
   ]
 }

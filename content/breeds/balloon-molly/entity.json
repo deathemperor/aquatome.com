@@ -80,6 +80,32 @@
           "max": 60
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 4,
+        "value": 2
+      },
+      {
+        "source": 8,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 4,
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      }
     ]
   },
   "photos": [
@@ -162,6 +188,12 @@
       "title": "Cá Molly Giá Bao Nhiêu? - SG AQUA",
       "kind": "shop",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.ouraquariumlife.com/fish/balloon-molly-fish",
+      "title": "Balloon Molly Fish: Appearance, Types & Care",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

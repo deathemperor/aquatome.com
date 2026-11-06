@@ -165,6 +165,24 @@
       "min": 25,
       "max": 25,
       "source": 3
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 3
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 15,
+      "max": 15,
+      "source": 7
     }
   ],
   "keeping": [
@@ -300,6 +318,11 @@
     {
       "url": "https://about-goldfish.com/goldfish-culling.html",
       "title": "Goldfish Culling – about-goldfish.com",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/oranda-goldfish",
+      "title": "Oranda Goldfish Care Guide & Species Profile – Fish Keeping World",
       "kind": "article"
     }
   ]

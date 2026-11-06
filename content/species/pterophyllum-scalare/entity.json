@@ -34,13 +34,62 @@
         "Amazon",
         "Essequibo",
         "Oyapock",
+        "Rio Negro",
         "Rio Ucayali",
-        "Rio Solimões",
-        "Rio Negro"
+        "Rio Solimões"
       ],
       "sources": [
         "glaser",
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The natural range of this species covers parts of Colombia, Guyana, Suriname, French Guiana, Peru and Brazil.",
+          "countries": [
+            "CO",
+            "GY",
+            "SR",
+            "GF",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The angelfish, Pterophyllum scalare, is a cichlid from the Amazon, Essequibo, Oyapock and other rivers of northern South America.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Essequibo",
+            "Oyapock"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali",
+            "Rio Solimões"
+          ]
+        }
       ]
     },
     "records": {

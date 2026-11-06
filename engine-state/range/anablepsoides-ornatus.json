@@ -1,0 +1,72 @@
+{
+  "id": "anablepsoides-ornatus",
+  "native": {
+    "input": "50a2799cb76aec13",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Peru",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anablepsoides ornatus",
+    "status": "ACCEPTED",
+    "taxonKey": 7193321,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        30
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        26
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        17
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

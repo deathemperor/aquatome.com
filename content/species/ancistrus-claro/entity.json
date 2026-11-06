@@ -11,6 +11,89 @@
     "brazil",
     "cuiaba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Cuiabá",
+        "Rio Paraguay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Ancistrus claro, the gold marble bristlenose catfish (LDA 008), is a suckermouth catfish from the rios Claro and Coxipó in Mato Grosso, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Cuiabá"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Cuiabá is itself a tributary of the rio Paraguay and its lower reaches flow through the Pantanal wetlands.",
+          "countries": [],
+          "regions": [
+            "Rio Paraguay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961379,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
