@@ -102,8 +102,9 @@ test('two photos sent: only the latest one\'s take-back shows', async ({ page, e
     if (n === 2) await new Promise<void>(r => (release = r))
     return n === 3 ? route.fulfill({ status: 429, json: { error: 'rate' } }) : route.fulfill({ status: 201, json: { status: 'pending', id: `e2e${n}`, deleteUrl: link(n) } })
   })
-  // Each send spends the token; the stand-in gives a new one after its reset, as Turnstile does.
-  await page.route(/challenges\.cloudflare\.com\/turnstile/, route => route.fulfill({ contentType: 'text/javascript', body: 'window.turnstile = { render(el, o) { window.__ts = o; setTimeout(() => o.callback("tok"), 10); return "w" }, reset() { setTimeout(() => window.__ts.callback("tok"), 10) } }' }))
+  // Each send spends the token; the stand-in gives a new one after its reset, as Turnstile does, to the widget reset: on
+  // aquatome.com the page's comments render a widget of their own, so the last one rendered is often not this form's.
+  await page.route(/challenges\.cloudflare\.com\/turnstile/, route => route.fulfill({ contentType: 'text/javascript', body: 'const cbs = {}; let n = 0; window.turnstile = { render(el, o) { const id = "w" + ++n; cbs[id] = o.callback; setTimeout(() => o.callback("tok"), 10); return id }, reset(id) { setTimeout(() => cbs[id]("tok"), 10) } }' }))
   await page.goto(fish)
   const section = page.locator('[data-reader-photos]')
   await section.locator('summary').click()

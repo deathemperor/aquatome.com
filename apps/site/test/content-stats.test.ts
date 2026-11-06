@@ -32,10 +32,10 @@ test('inventory: items per kind in content/, and how many have an Indonesian and
 })
 
 test('built pages: every index.html under /, /id/ and /th/, by kind, each with its h1 and its item', () => {
-  // 143 pages, as markdown.ts counts them (every page under the three languages).
-  expect(stats.built!.total).toEqual({ vi: 103, id: 20, th: 20 })
+  // 146 pages, as markdown.ts counts them (every page under the three languages).
+  expect(stats.built!.total).toEqual({ vi: 104, id: 21, th: 21 })
   const n = (vi: number, id = 0, th = 0) => ({ vi, id, th })
-  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(3), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(6, 6, 6), other: n(6, 5, 5) })
+  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(3), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(7, 7, 7), other: n(6, 5, 5) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
