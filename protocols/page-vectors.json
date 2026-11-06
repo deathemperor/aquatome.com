@@ -617,7 +617,7 @@
       ]
     },
     {
-      "note": "a video guide: the video with its chapters, a section's pictures, a part only the web page shows",
+      "note": "a video guide: the video with its chapters, its credit naming no channel and its sources the video first, a section's pictures, a part only the web page shows",
       "valid": true,
       "doc": {
         "v": 1,
@@ -626,11 +626,12 @@
         "title": "Cắt tỉa cây hậu cảnh",
         "meta": "Chăm cây · video 12:05 · đọc khoảng 3 phút",
         "credit": [
-          "Bài viết của AquaTome, dựa trên video của ",
+          "AquaTome tổng hợp từ ",
           {
-            "text": "Green Aqua",
-            "href": "https://www.youtube.com/@GreenAqua"
-          }
+            "text": "1 nguồn",
+            "href": "#nguon"
+          },
+          " rồi tự viết"
         ],
         "video": {
           "youtubeId": "abc123XYZ_-",
@@ -695,6 +696,17 @@
           },
           {
             "t": "web"
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn tham khảo",
+            "id": "nguon",
+            "items": [
+              {
+                "title": "Video gốc: Trimming stem plants, kênh Green Aqua · 12:05",
+                "url": "https://www.youtube.com/watch?v=abc123XYZ_-"
+              }
+            ]
           }
         ]
       },
@@ -703,7 +715,8 @@
         "p",
         "figure",
         "moments",
-        "web"
+        "web",
+        "refs"
       ]
     },
     {
