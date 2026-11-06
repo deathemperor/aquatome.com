@@ -81,7 +81,7 @@ export function buildFacts<P>(catalog: Catalog, pages: FactPages<P>, thumb: (p: 
     const text = e.kind === 'breed'
       ? (p.t.summary ?? []).join(' ')
       : [...sections.filter(x => x.key === 'dimorphism'), ...sections.filter(x => x.key === 'notes')].map(x => plainText(x.html)).filter(Boolean).join(' ')
-    const look = e.kind === 'breed' ? undefined : lookOf(sections)
+    const look = e.kind === 'breed' ? undefined : lookOf(sections, undefined, e.kind === 'plant')
     if (look) f.look = look
     if (text) f.text = cut(text, TEXT_MAX)
     f.photos = [...new Set([...p.photos, ...(opts.gallery?.(e.id) ?? [])].map(thumb))].slice(0, count)

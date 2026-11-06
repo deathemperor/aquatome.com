@@ -216,3 +216,28 @@ test('recheck: the call after it still counts toward the limits (the 4th call is
   expect(r).toMatchObject({ stopped: 'calls', calls: 4, rechecked: true })
   expect(c.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'auto', 'auto', 'none'])
 })
+
+test('recheck: the answer sent back stands when what follows fails, runs out of time, is cut short or refused, or asks for tools on the forced call', async () => {
+  const more = () => [{ type: 'text' as const, text: 'more' }]
+  const first = '{"guess":1}'
+  const err = Object.assign(new Error('overloaded'), { status: 529 })
+  let k = 0
+  const thrown = await runAgent(input(async () => { if (++k === 2) throw err; return answers(first) }, { recheck: more }))
+  expect(thrown).toMatchObject({ stopped: 'answer', calls: 2, rechecked: true })
+  expect(thrown.message?.content).toEqual([{ type: 'text', text: first }])
+  for (const [then, stopped] of [[() => answers('{"gue', 'max_tokens'), 'answer'], [() => answers('', 'refusal'), 'answer']] as const) {
+    const r = await runAgent(input(script([() => answers(first), then]).send, { recheck: more }))
+    expect(r).toMatchObject({ stopped, calls: 2, rechecked: true })
+    expect(r.message?.content).toEqual([{ type: 'text', text: first }])
+  }
+  // Rechecked on the 3rd call: the 4th is forced, and a tool request there leaves the held answer, the limit named.
+  const forced = await runAgent(input(script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers(first), () => asks([{ name: 'echo', input: { q: 'y' } }])]).send, { recheck: more }))
+  expect(forced).toMatchObject({ stopped: 'calls', calls: 4, rechecked: true })
+  expect(forced.message?.content).toEqual([{ type: 'text', text: first }])
+  // Out of time after the recheck's tool call: the held answer, not an error.
+  const clock = { now: 0, per: [10_000, 16_200] }
+  const late = await runAgent(input(script([() => answers(first), () => asks([{ name: 'echo', input: { q: 'x' } }])], clock).send, { recheck: more, clock: () => clock.now }))
+  expect(late).toMatchObject({ stopped: 'answer', calls: 2, rechecked: true })
+  expect(late.message?.content).toEqual([{ type: 'text', text: first }])
+  expect(late.error).toBeUndefined()
+})

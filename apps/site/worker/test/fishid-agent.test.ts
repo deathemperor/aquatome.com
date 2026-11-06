@@ -192,7 +192,7 @@ test('the agent on: a page the answer names without checking still links by its 
   expect(body.results.map(r => r.page?.id ?? null)).toEqual(['paracheirodon-innesi', null])
 })
 
-test('the agent on: an answer under 0.6 sure is sent back once with its genus\'s species and their marks; the answer after it is the reader\'s, logged as rechecked', async () => {
+test('the agent on: an answer under 0.6 sure is sent back once with its genus\'s species; the answer after it is the reader\'s, logged as rechecked', async () => {
   const { e, points } = agentEnv()
   const unsure = { verdict: 'fish', guesses: [{ scientificName: 'Betta splendens', commonName: 'Betta', variety: null, confidence: 0.4, reason: 'Thân đỏ.', id: null }] }
   const sure = { verdict: 'fish', guesses: [{ ...unsure.guesses[0], confidence: 0.85, id: 'betta-splendens' }] }

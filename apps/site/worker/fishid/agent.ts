@@ -30,15 +30,25 @@ export const FALLBACK_MIN_MS = 10_000
  */
 export const RECHECK_BELOW = 0.6
 
-/** What `recheck` sends back, or undefined when the answer stands (sure enough, no fish or plant, no genus the handbook has). */
-export function recheckOf(catalog: Catalog, m: Anthropic.Message): Anthropic.ContentBlockParam[] | undefined {
+/**
+ * What `recheck` sends back, or undefined when the answer stands (sure enough, no fish or plant, no genus the handbook
+ * has). A genus already listed in this run (`listed`, shared with the tools) is named, not sent again.
+ */
+export function recheckOf(catalog: Catalog, m: Anthropic.Message, listed = new Set<string>()): Anthropic.ContentBlockParam[] | undefined {
   let answer
   try { answer = readAnswer(m) } catch { return undefined }
   if (answer.refused || (answer.id.verdict !== 'fish' && answer.id.verdict !== 'plant')) return undefined
   const top = answer.id.guesses[0]
   if (!top || top.confidence >= RECHECK_BELOW) return undefined
   const genera = [...new Set(answer.id.guesses.map(g => sciKey(g.scientificName).genus).filter(Boolean))].slice(0, 2)
-  const lists = genera.flatMap(g => { const marks = genusMarks(catalog, g); return marks ? [`${g[0]!.toUpperCase()}${g.slice(1)}: ${marks}`] : [] })
+  const lists = genera.flatMap(g => {
+    const name = `${g[0]!.toUpperCase()}${g.slice(1)}`
+    if (listed.has(g)) return [`${name}: listed above, in this identification.`]
+    const marks = genusMarks(catalog, g)
+    if (!marks) return []
+    listed.add(g)
+    return [`${name}: ${marks}`]
+  })
   if (!lists.length) return undefined
   return [{
     type: 'text',
@@ -91,6 +101,8 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
   let key: KeyEntry | undefined
   let client: Anthropic | undefined
   let later400: string | undefined
+  /** The genera this run has listed, by its tools or its second look: each sent once. */
+  const listed = new Set<string>()
   const run = await runAgent<Step>({
     send: async (body, { timeoutMs, call }) => {
       if (call === 1) {
@@ -117,7 +129,7 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
     },
     model: o.model,
     system: AGENT_SYSTEM,
-    tools: fishIdTools({ ...o.tools, lang: o.lang }),
+    tools: fishIdTools({ ...o.tools, lang: o.lang, listed }),
     first: {
       role: 'user',
       content: [
@@ -131,7 +143,7 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
     maxTokens: MAX_TOKENS,
     limits: o.limits,
     onStep: o.onStep,
-    recheck: m => recheckOf(o.tools.catalog, m),
+    recheck: m => recheckOf(o.tools.catalog, m, listed),
     clock,
   })
   const base = { calls: run.calls, tools: run.tools, photos: run.photos, steps: run.steps, spent: run.spent, attempts, ...(run.rechecked ? { rechecked: true } : {}), ...(later400 !== undefined ? { later400 } : {}) }

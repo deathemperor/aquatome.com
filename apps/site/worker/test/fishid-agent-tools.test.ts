@@ -161,19 +161,33 @@ test('marks: the sources\' sentence that tells it from others first, its counts 
   const long = lookOf([{ key: 'notes', html: `<p>It differs from its congeners by ${'a red spot and a black band '.repeat(20)}on the flank.</p>` }], 120)!
   expect(long.length).toBeLessThanOrEqual(120)
   expect(long.endsWith('…')).toBe(true)
+  // A conservation status is never a mark, whatever colour its name has.
+  expect(lookOf([{ key: 'notes', html: '<p>IUCN Red List: Endangered (EN), criterion A4c.</p><p>The Red List assesses it as vulnerable.</p>' }])).toBeUndefined()
+  // "Light green" is a colour, not the tank's light; a plant's leaves are its look, a fish's sentence on leaves and light is keeping.
+  const leaves = [{ key: 'notes', html: '<p>Its leaves show patterns of white, light green and dark green under strong light.</p>' }]
+  expect(lookOf(leaves, LOOK_MAX, true)).toBe('Its leaves show patterns of white, light green and dark green under strong light.')
+  expect(lookOf(leaves)).toBeUndefined()
+  expect(lookOf([{ key: 'notes', html: '<p>The body is light green with a dark band.</p>' }])).toBe('The body is light green with a dark band.')
 })
 
 test('the catalog and the facts carry a species\' and a plant\'s marks, short in the catalog; a breed has none', () => {
-  const sections = [{ key: 'notes', html: '<p>Males are red with a black band on the tail and a white edge to every fin, which tells it from its look-alikes in the genus at a glance, even from a distance.</p>' }]
+  const first = 'Males are red with a black band on the tail and a white edge to every fin, which tells it from its look-alikes in the genus at a glance, even from a distance.'
+  const second = 'Females are paler, brown with two dark stripes along the flank.'
+  const sections = [{ key: 'notes', html: `<p>${first} ${second}</p>` }]
+  const plantSections = [{ key: 'notes', html: '<p>Its leaves are dark green with white veins, and new leaves come in red under strong light.</p>' }]
   const page = (id: string, extra: object) => ({ id, photos: [] as { url: string }[], t: { name: id, altNames: [] as string[], slug: id }, ...extra })
-  const vi = { species: [page('betta-coccina', { scientificName: 'Betta coccina', sections })], breeds: [page('halfmoon-betta', { basedOn: 'betta-coccina', sections })], plants: [] }
+  const vi = { species: [page('betta-coccina', { scientificName: 'Betta coccina', sections })], breeds: [page('halfmoon-betta', { basedOn: 'betta-coccina', sections })], plants: [page('bucephalandra-pygmaea', { scientificName: 'Bucephalandra pygmaea', sections: plantSections })] }
   const catalog = buildCatalog([{ lang: 'vi', pages: vi, at: p => p }], p => p.url)
-  expect(catalog.entries.find(e => e.id === 'betta-coccina')?.look).toMatch(/^Males are red with a black band on the tail/)
-  expect(catalog.entries.find(e => e.id === 'betta-coccina')!.look!.length).toBeLessThanOrEqual(200)
+  // The two sentences are past the catalog's 200 characters: it keeps the first, the page both.
+  expect(`${first} ${second}`.length).toBeGreaterThan(200)
+  expect(catalog.entries.find(e => e.id === 'betta-coccina')?.look).toBe(first)
   expect(catalog.entries.find(e => e.id === 'halfmoon-betta')).not.toHaveProperty('look')
   const facts = buildFacts(catalog, vi, p => p.url)
-  expect(facts.find(f => f.id === 'betta-coccina')?.look).toBe(sections[0]!.html.replace(/<\/?p>/g, ''))
+  expect(facts.find(f => f.id === 'betta-coccina')?.look).toBe(`${first} ${second}`)
   expect(facts.find(f => f.id === 'halfmoon-betta')).not.toHaveProperty('look')
+  // A plant's leaves are its marks, in both.
+  expect(catalog.entries.find(e => e.id === 'bucephalandra-pygmaea')?.look).toMatch(/^Its leaves are dark green/)
+  expect(facts.find(f => f.id === 'bucephalandra-pygmaea')?.look).toMatch(/^Its leaves are dark green/)
 })
 
 const said = (answer: unknown, stop = 'end_turn') => ({ content: [{ type: 'text', text: JSON.stringify(answer) }], stop_reason: stop, usage: { input_tokens: 1, output_tokens: 1 } }) as unknown as Anthropic.Message
@@ -190,6 +204,29 @@ test('recheck: a fish or plant answer under 0.6 sure is sent back with its guess
   expect(text).not.toContain('halfmoon-betta')
   expect(text).not.toContain('Rotala')
   expect(text).toContain('get_entry')
+})
+
+test('recheck: a genus the run has already listed is named, not sent again; one it lists now is marked as listed', () => {
+  const listed = new Set(['betta'])
+  const more = recheckOf(CATALOG, said({ verdict: 'fish', guesses: [guess('Betta splendens', 0.45), guess('Paracheirodon innesi', 0.2)] }), listed)
+  const text = (more![0] as Anthropic.TextBlockParam).text
+  expect(text).toContain('Betta: listed above, in this identification.')
+  expect(text).not.toContain('betta-coccina')
+  expect(text).toContain('Paracheirodon: [')
+  expect([...listed]).toEqual(['betta', 'paracheirodon'])
+  // Every genus listed already: still sent back, to read them again.
+  expect((recheckOf(CATALOG, said({ verdict: 'fish', guesses: [guess('Betta splendens', 0.45)] }), listed)![0] as Anthropic.TextBlockParam).text).not.toContain('[')
+})
+
+test('recheck and the tools share the run\'s genera: get_entry after a second look doesn\'t list the genus again', async () => {
+  const listed = new Set<string>()
+  recheckOf(CATALOG, said({ verdict: 'fish', guesses: [guess('Betta splendens', 0.45)] }), listed)
+  const [, entry] = fishIdTools({ catalog: CATALOG, lang: 'vi', facts: async id => FACTS.find(f => f.id === id), listed })
+  const blocks = await entry!.run({ id: 'betta-splendens' }, { photosLeft: 6 }) as Block[]
+  expect(blocks.filter(b => b.type === 'text' && b.text?.startsWith('The other '))).toHaveLength(0)
+  // Without the shared set, the same page lists its genus.
+  const [, alone] = fishIdTools({ catalog: CATALOG, lang: 'vi', facts: async id => FACTS.find(f => f.id === id) })
+  expect((await alone!.run({ id: 'betta-splendens' }, { photosLeft: 6 }) as Block[]).filter(b => b.type === 'text' && b.text?.startsWith('The other '))).toHaveLength(1)
 })
 
 test('recheck: an answer that stands is not sent back (sure enough, not a fish or plant, refused, not the schema, no genus the handbook has)', () => {

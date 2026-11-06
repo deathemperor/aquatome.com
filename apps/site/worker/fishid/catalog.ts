@@ -52,7 +52,7 @@ export function buildCatalog<P>(langs: LangPages<P>[], thumb: (photo: P) => stri
       if (p.basedOn) e.basedOn = p.basedOn
       if (key === 'breeds' && p.t.altNames.length) e.alt = p.t.altNames
       if (p.photos[0]) e.img = thumb(p.photos[0])
-      const look = key === 'breeds' ? undefined : lookOf(p.sections, LOOK_SHORT)
+      const look = key === 'breeds' ? undefined : lookOf(p.sections, LOOK_SHORT, key === 'plants')
       if (look) e.look = look
       for (const other of byId) {
         if (other.lang === 'vi') continue

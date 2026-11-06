@@ -81,6 +81,8 @@ export type ToolDeps = {
   exclude?: (src: string) => boolean
   /** A page's facts couldn't be read (`facts` threw): the Worker counts it. */
   onFactsMissing?: () => void
+  /** The genera already listed in this run, shared with the agent's second look (agent.ts recheckOf); a new set if none. */
+  listed?: Set<string>
 }
 
 /**
@@ -106,7 +108,7 @@ export function genusMarks(c: Catalog, genus: string, without?: string): string 
 
 export function fishIdTools(d: ToolDeps): Tool<Step>[] {
   /** The genera already listed in this run (search_handbook's genus, or a page get_entry opened): each once. */
-  const listedGenera = new Set<string>()
+  const listedGenera = d.listed ?? new Set<string>()
   const nullable = (description: string) => ({ type: ['string', 'null'], description })
   const search: Tool<Step> = {
     name: 'search_handbook',
