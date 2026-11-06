@@ -40,7 +40,7 @@ final class PlugFlowTests: XCTestCase {
     remove.tap()
     let confirm = app.buttons["confirm-remove-keys"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5))
-    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 250, "the question isn't by the button that asked it")
+    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 150, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(waitGone(element(app, "keys-saved")), "the keys weren't removed")
     app.buttons["setup-done"].tap()
@@ -189,7 +189,7 @@ final class PlugFlowTests: XCTestCase {
     let confirm = app.buttons["confirm-remove-plug"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
     // It pointed at the top of the form, far from the button tapped at its end.
-    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 250, "the question isn't by the button that asked it")
+    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 150, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(element(app, "add-plug").waitForExistence(timeout: 5))
     XCTAssertFalse(element(app, "plug-name").exists, "still on the tank")

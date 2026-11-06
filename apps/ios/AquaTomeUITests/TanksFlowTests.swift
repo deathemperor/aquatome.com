@@ -135,8 +135,8 @@ final class TanksFlowTests: XCTestCase {
     delete.tap()
     let confirm = app.buttons["Xóa"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
-    // It pointed at the top of the screen, far from the button tapped at the tank's end.
-    XCTAssertLessThan(abs(confirm.frame.midY - delete.frame.midY), 250, "the question isn't by the button that asked it")
+    // It pointed at the top of the screen, far from the button tapped at the tank's end: 261 pt off, where on its button it's 23.
+    XCTAssertLessThan(abs(confirm.frame.midY - delete.frame.midY), 150, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the tank is still listed")
   }
