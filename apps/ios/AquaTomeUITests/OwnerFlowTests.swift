@@ -56,7 +56,7 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(notes.label.contains("Xem thêm") && notes.label.contains("Đánh giá bài viết từ video, 03/11 · 3 nhận xét"), notes.label)
     // Down the section to its table, then across it to the notes' column.
     let window = app.windows.firstMatch.frame
-    for _ in 0..<20 where !notes.isHittable {
+    repeatUntil(notes.isHittable, times: 20) {
       let f = notes.frame
       if f.midY > window.maxY - 120 { app.swipeUp() } else if f.midY < window.minY + 160 { app.swipeDown() } else {
         let row = app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.width * 0.85, dy: f.minY + 10))
@@ -176,7 +176,7 @@ final class OwnerFlowTests: XCTestCase {
     // Signed out as a sync told the same is; the row stays, saying why it can't open. Under the ways to sign in, out of
     // view until scrolled to: the list makes its rows as they come into view.
     let row = app.descendants(matching: .any)["owner-dashboard"].firstMatch
-    for _ in 0..<6 where !row.exists { app.swipeUp() }
+    repeatUntil(row.exists, times: 6) { app.swipeUp() }
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the row went")
     XCTAssertTrue(row.label.contains("đăng nhập lại"), row.label)
     let message = app.staticTexts["account-message"]
@@ -184,7 +184,7 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertEqual(message.label, "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.")
 
     // Signed in again (its button back up the list): the dashboard opens as before.
-    for _ in 0..<6 where !app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists { app.swipeDown() }
+    repeatUntil(app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists, times: 6) { app.swipeDown() }
     signIn(app)
     let plain = expectation(for: NSPredicate(format: "NOT (label CONTAINS 'đăng nhập lại')"), evaluatedWith: row)
     wait(for: [plain], timeout: 10)
@@ -257,7 +257,7 @@ extension XCUIApplication {
   func scrollToAndTap(_ id: String, file: StaticString = #filePath, line: UInt = #line) {
     let e = descendants(matching: .any)[id].firstMatch
     XCTAssertTrue(e.waitForExistence(timeout: 10), "no \(id)", file: file, line: line)
-    for _ in 0..<6 where !e.isHittable { swipeUp() }
+    repeatUntil(e.isHittable, times: 6) { swipeUp() }
     e.tap()
   }
 
@@ -265,7 +265,7 @@ extension XCUIApplication {
   func openOwnersSection(_ name: String, file: StaticString = #filePath, line: UInt = #line) {
     XCTAssertTrue(buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load", file: file, line: line)
     let row = buttons.matching(NSPredicate(format: "identifier == 'owner-section' AND label == %@", name)).firstMatch
-    for _ in 0..<10 where !(row.exists && row.isHittable) { swipeUp() }
+    repeatUntil(row.exists && row.isHittable, times: 10) { swipeUp() }
     XCTAssertTrue(row.isHittable, "no section \(name)", file: file, line: line)
     row.tap()
   }
