@@ -2,6 +2,18 @@
   "id": "ameca-splendens",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/429120409.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/429120409-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Juan Carlos Pérez Magaña",
+      "sourceUrl": "https://www.inaturalist.org/photos/429120409",
+      "caption": "Cá Ameca splendens đực đuôi viền xanh bơi trong bể nước xanh",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/commons/6e6bd0be0fe41bef.webp",
       "thumb": "https://media.aquatome.com/commons/6e6bd0be0fe41bef-480.webp",
       "width": 1200,
@@ -38,7 +50,7 @@
       "kind": "other"
     }
   ],
-  "seen": 3,
-  "updatedAt": "2026-11-03",
-  "builtAt": "2026-11-03"
+  "seen": 5,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

@@ -16,8 +16,8 @@ struct TanksView: View {
     NavigationStack(path: $path) {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
-        // Signed in, the list stays, for the account's buttons.
-        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil {
+        // Signed in, the list stays, for the account's buttons; so does the owner's dashboard after its session ended.
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil && account.owner.isOwner != true {
           // Centred on the screen; it scrolls when the sign-in and its fine print run past the tab bar (a small phone,
           // large text).
           GeometryReader { g in
@@ -55,6 +55,7 @@ struct TanksView: View {
               }
             }
             AccountSection()
+            OwnerEntry()
             BlockedSection()
             TelemetrySwitch()
           }
@@ -71,6 +72,7 @@ struct TanksView: View {
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
+      .ownerDashboard(account)
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }

@@ -1,19 +1,22 @@
 ---
-import type { ProductSlot } from '@aq/schema'
+import { tankKeywordFits, type ProductSlot } from '@aq/schema'
 import { categoryLabel, goLink } from '../lib/format'
 import { i18n } from '../lib/i18n'
 import ShopPicker from './ShopPicker.astro'
 /**
  * What to buy for a page, by kind of thing (tank, filter, food…): each search a large link to the marketplace the page's
  * picker names (Shopee until the reader picks another). `tankCm`: the species' minimum tank from its data card, under the
- * tank row, in the reader's units (scripts/units.ts) as the card shows it.
+ * tank row, in the reader's units (scripts/units.ts) as the card shows it; a tank search for a shorter tank, or a mini one
+ * for a fish past a nano tank, is left out (@aq/schema tank-sizes).
  */
 interface Props { slots: ProductSlot[]; heading?: string; entity?: string; id?: string; tankCm?: number }
 const { t } = i18n(Astro.url)
 const { slots, heading = t('Thiết bị phù hợp'), entity, id = 'mua-do', tankCm } = Astro.props
 const [before, after] = t('Tối thiểu {cm}').split(/\{\w+\}/) as [string, string]
 // One row a kind, in the page's order, each search once.
-const rows = [...slots.reduce((m, s) => m.set(s.category, [...new Set([...(m.get(s.category) ?? []), ...s.keywords])]), new Map<string, string[]>())]
+const fits = (category: string, k: string) => category !== 'be-ca' || tankCm === undefined || tankKeywordFits(k, tankCm)
+const rows = [...slots.reduce((m, s) => m.set(s.category, [...new Set([...(m.get(s.category) ?? []), ...s.keywords.filter(k => fits(s.category, k))])]), new Map<string, string[]>())]
+  .filter(([, keywords]) => keywords.length > 0)
 ---
 {rows.length > 0 && (
   <section class="kit" aria-labelledby={id}>

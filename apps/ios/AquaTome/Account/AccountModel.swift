@@ -56,6 +56,11 @@ final class AccountModel {
   @ObservationIgnored private var again = false
   /// The store as the last sync left it: a change seen after that is the reader's, and is sent.
   @ObservationIgnored private var synced: TankStore?
+  /// The owner's dashboard (Owner/): shown only to the owner's account, read with its session; a reply saying the
+  /// session is over signs it out.
+  @ObservationIgnored private(set) lazy var owner = OwnerAccess(send: api.send, session: { [unowned self] in
+    user.flatMap { u in token.map { (u.id, $0) } }
+  }, ended: { [unowned self] in sessionEnded() })
 
   init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), google: GoogleSignIn = SystemGoogleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
     self.tanks = tanks
@@ -411,6 +416,13 @@ final class AccountModel {
     } catch {
       say(problem(error), bad: true)
     }
+  }
+
+  /// Another request with the token was told the session is over (401 `signed_out`): signed out, and said so, as a sync
+  /// told the same is.
+  func sessionEnded() {
+    forget()
+    say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true)
   }
 
   private func forget() {
