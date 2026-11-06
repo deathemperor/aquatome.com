@@ -282,6 +282,9 @@ final class HandbookModel {
         pagesLater = ix
         return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels), .ready)
       }
+      // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
+      // waits for it: AppLink).
+      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
       #endif
       return use(ix, .ready)
     }

@@ -12,6 +12,138 @@
     "venezuela",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon River",
+        "Lake Tefé"
+      ],
+      "sources": [
+        "sprucepets"
+      ],
+      "quotes": [
+        {
+          "source": "sprucepets",
+          "quote": "Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins.",
+          "countries": [
+            "VE",
+            "PE"
+          ],
+          "regions": [
+            "Amazon River"
+          ]
+        },
+        {
+          "source": "sprucepets",
+          "quote": "A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Lake Tefé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208131,
+      "total": 17,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          15
+        ],
+        [
+          "IN",
+          1
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          71.71875,
+          18.28125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,86 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears restricted to the states of Assam and Nagaland in northeastern India but is scarce and never collected in numbers.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Brahmaputra River near Goyalpara, Assam, India', with 'Goyalpara' referring to modern-day Goalpara district in Assam.",
+          "countries": [],
+          "regions": [
+            "Brahmaputra River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391474,
+      "total": 49,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          49
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          5,
+          5
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          40,
+          40
+        ],
+        [
+          90,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
