@@ -2,7 +2,8 @@ import { expect, test } from 'vitest'
 import { lastDays } from '../admin/chart'
 import { summariseApp, type AppDay } from '../admin/app'
 import type { Overview } from '../admin/pages'
-import { compose, dashLink, highlights, needsCare, siteStats, type ComposeInput, type Stat } from '../daily/compose'
+import { compose, highlights, needsCare, siteStats, type ComposeInput, type Stat } from '../daily/compose'
+import { dashboardUrl } from '../paths'
 import { parseGitHubSide, type GitHubSide } from '../daily/github'
 import * as S from './owner-sample'
 
@@ -217,9 +218,9 @@ test('what a report may carry: no address, no picture, links only to aquatome.co
 
 test('every dashboard link goes through one helper', () => {
   const r = compose({ now: S.NOW, overview: S.OVERVIEW, app: { ...S.APP, sessions: 1 }, gh: gh() })
-  expect(r.html).toContain(`href="${dashLink('/_ab/nhan-dien-ca/#key')}"`)
-  expect(r.html).toContain(`href="${dashLink('/_ab/bao-cao/')}"`)
-  expect(r.text).toContain(dashLink('/_ab/ung-dung/'))
+  expect(r.html).toContain(`href="${dashboardUrl('/_ab/nhan-dien-ca/#key')}"`)
+  expect(r.html).toContain(`href="${dashboardUrl('/_ab/bao-cao/')}"`)
+  expect(r.text).toContain(dashboardUrl('/_ab/ung-dung/'))
   expect(r.html).not.toMatch(/href="\//)
 })
 

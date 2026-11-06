@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm
 title: Farlowella oxyrryncha (Kner, 1853)
-fetchedAt: 2026-11-05T20:22:39.532Z
+fetchedAt: 2026-11-05T23:53:01.368Z
 hash: aba91479538639976b2b887c17f08cd6b366004c7c4c2e8418fdf54624adc971
 ---
 

@@ -147,7 +147,7 @@ costs (1.7% apart run to run on CI); the runners' virtual Macs read CPU instruct
 Budgets only tighten (`docs/governance.md`, Mobile apps rule 5). They're kept in that file rather than an Xcode
 `.xcbaseline`, which belongs to one machine model and would silently stop applying when the hosted runners change.
 
-The app icons a reader chooses (`AppIconPicker`, drawn by `scripts/app-icons.py`) are most of the app's size: 32
+The app icons a reader chooses (`AppIconPicker`, drawn by `scripts/app-icons.py`) are much of the app's size: 32
 alternates at home-screen sizes only (iPhone 60 pt @2x/@3x, iPad 76 and 83.5 pt @2x; iOS scales them down for
 Spotlight, Settings and notifications), measured on one Mac, 2026-11-03 (the previews 2026-11-04):
 
@@ -162,11 +162,26 @@ Spotlight, Settings and notifications), measured on one Mac, 2026-11-03 (the pre
 
 \* An estimate: `assetutil` thinning of the archive's `Assets.car` for an iPhone at @3x, the rest as archived (the
 binary is arm64 only). Not an App Store export's thinning report, which needs signing. The size budget is on the
-archive. Each icon costs about 150 kB there and 40 kB on one iPhone: its gradients barely compress (CoreUI keeps each
-size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29 and 20 pt sizes too the archive was
-10,625 kB. An icon set doesn't load as an image, so the picker shows each icon from a preview at its 64 points, @2x and
-@3x, stored lossy: 308 kB for the 33 by actool alone, where lossless pictures are 1,178 kB and SVG 2,233 kB (actool keeps
-three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
+archive. Each icon cost about 150 kB there and 40 kB on one iPhone, before quantizing: its gradients barely compress
+(CoreUI keeps each size as ARGB, lzfse), where the flat earlier designs cost 20 kB. With the 40, 29 and 20 pt sizes too
+the archive was 10,625 kB. An icon set doesn't load as an image, so the picker shows each icon from a preview at its 64
+points, @2x and @3x, stored lossy: 308 kB for the 33 by actool alone, where lossless pictures are 1,178 kB and SVG 2,233
+kB (actool keeps three pictures of an SVG beside it). The last row also has #445's code (+18 kB).
+
+The default since 2026-11-04, the round fish with leaf fins (the owner's choice; the AT stays an alternate), costs more
+than the AT did. Its 1024 is kept for iPhone and iPad (one universal entry; actool writes one for each, and a device gets
+its own), in three looks: as drawn, dark and tinted. They are gradients, which CoreUI stores as ARGB, lzfse, whatever the
+asset catalog says, so `app-icons.py` quantizes each (pngquant, dithered, 256 colours): the drawn one costs 246.4 kB a
+device where it cost 467.9 lossless, alike at home-screen and App Store sizes (faint rings around its glows only at full
+size). Without dithering it bands; without its glows it would cost 155 kB lossless but look flatter. Per device: the
+drawn 1024 246.4 kB (the AT's 25.3), dark 89.1, tinted 33.7; the home-screen PNGs beside the app 49.2 kB (the AT's 8.5).
+With the picker's three new alternates (a book-page fin, a magnifier, the AT) and their previews, the archive is 9,367.4
+kB, 4,933.5 kB on one iPhone (the same estimate).
+
+The alternates drawn by `app-icons.py` (34 of them; the AT, flat and hand-drawn, isn't: its gamma moves its colour) are
+quantized the same way since 2026-11-04: Assets.car 6,243.8 → 3,171.9 kB, so the archive is 6,295.5 kB, 4,211.8 kB on
+one iPhone (the table above is from before). At home-screen size each looks as it did; zoomed in with the contrast
+pushed, the dark glows show faint grain, and one glow's edge faint rings; no bands.
 
 Release builds optimize for size (`-Osize`: the project's Release setting, and `swiftSettings` for the kit's modules):
 the app does nothing CPU-heavy, and its archive is 10% smaller (1,310 → 1,180 kB, 2026-11-01). The performance tests run
