@@ -161,10 +161,16 @@
       "source": 2
     },
     {
+      "field": "difficulty",
+      "min": 8,
+      "max": 8,
+      "source": 6
+    },
+    {
       "field": "lifeYears",
       "min": 15,
       "max": 20,
-      "source": 6
+      "source": 7
     }
   ],
   "keeping": [
@@ -306,8 +312,13 @@
       "kind": "forum"
     },
     {
+      "url": "https://fishyhub.com/sg/product-detail/red-tail-golden-arowana-20049",
+      "title": "Red Tail Golden Arowana – FishyHub",
+      "kind": "shop"
+    },
+    {
       "url": "https://snkaquapets.com/?p=38827",
-      "title": "Red Tail Golden Arowana (Scleropages formosus “Red Tail Golden”) (7+ inches) – SNK Aquapets",
+      "title": "Red Tail Golden Arowana (Scleropages formosus “Red Tail Golden”) – SNK Aquapets",
       "kind": "shop"
     }
   ]

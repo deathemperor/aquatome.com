@@ -156,16 +156,22 @@
       "source": 3
     },
     {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 2
+    },
+    {
       "field": "lifeYears",
       "min": 10,
       "max": 15,
       "source": 3
     },
     {
-      "field": "difficulty",
-      "min": 6,
-      "max": 6,
-      "source": 3
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 8
     }
   ],
   "keeping": [

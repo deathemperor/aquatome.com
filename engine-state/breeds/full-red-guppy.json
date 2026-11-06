@@ -171,9 +171,15 @@
     },
     {
       "field": "difficulty",
-      "min": 7,
-      "max": 7,
-      "source": 5
+      "min": 6,
+      "max": 6,
+      "source": 2
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 3
     }
   ],
   "keeping": [

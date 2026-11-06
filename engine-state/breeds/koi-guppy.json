@@ -187,6 +187,12 @@
       "min": 2,
       "max": 3,
       "source": 3
+    },
+    {
+      "field": "lifeYears",
+      "min": 2,
+      "max": 3,
+      "source": 5
     }
   ],
   "keeping": [

@@ -79,9 +79,20 @@
           "min": 10,
           "max": 15
         }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
       }
     ],
     "difficulty": [
+      {
+        "source": 6,
+        "value": 3
+      },
       {
         "source": 7,
         "value": 4
@@ -169,15 +180,15 @@
       "at": "2026-10-29"
     },
     {
-      "url": "https://www.aquariumsource.com/blood-parrot-cichlid/",
-      "title": "Blood Parrot Cichlid Care – Aquarium Source",
-      "kind": "article",
+      "url": "https://tropicaltreasureswyo.com/blogs/tank-buddy-blog/parrot-cichlid-care-guide-hybrid-cichlid",
+      "title": "Blood Parrot Cichlid Care Guide: Complete Hybrid Cichlid Manual – Tropical Treasures",
+      "kind": "shop",
       "at": "2026-11-06"
     },
     {
-      "url": "https://frags2fishes.com/freshwater/fish-freshwater/bloodredparrotcichlid/",
-      "title": "Blood Red Parrot Cichlid – Frags2Fishes",
-      "kind": "shop",
+      "url": "https://www.aquariumsource.com/blood-parrot-cichlid/",
+      "title": "Blood Parrot Cichlid Care: Size, Behavior, Tank Mates… – Aquarium Source",
+      "kind": "article",
       "at": "2026-11-06"
     }
   ],

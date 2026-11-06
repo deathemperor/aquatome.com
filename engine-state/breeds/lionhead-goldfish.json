@@ -158,6 +158,18 @@
       "min": 15,
       "max": 15,
       "source": 8
+    },
+    {
+      "field": "difficulty",
+      "min": 5,
+      "max": 5,
+      "source": 9
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 9
     }
   ],
   "keeping": [
@@ -299,6 +311,11 @@
     {
       "url": "https://www.fishkeepingworld.com/lionhead-goldfish",
       "title": "Lionhead Goldfish Care & Species Profile",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.furrycritter.com/pages/descriptions/fish/carassius_auratus_lionhead.htm",
+      "title": "Lionhead Goldfish Care Guide - Furry Critter Network",
       "kind": "article"
     }
   ]

@@ -147,6 +147,12 @@
       "min": 150,
       "max": 150,
       "source": 3
+    },
+    {
+      "field": "difficulty",
+      "min": 5,
+      "max": 5,
+      "source": 9
     }
   ],
   "keeping": [
@@ -276,6 +282,11 @@
       "url": "https://vnexpress.net/nghe-cat-mi-sua-moi-cho-ca-4822542.html",
       "title": "Nghề cắt mí, sửa môi cho cá - VnExpress",
       "kind": "article"
+    },
+    {
+      "url": "https://swelluk.dev82.magecloud.net/malaysian-golden-crossback-arowana-scleropages-formosus",
+      "title": "Malaysian Golden Crossback Arowana Scleropages Formosus 20cm",
+      "kind": "shop"
     }
   ]
 }

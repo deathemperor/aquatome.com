@@ -88,16 +88,16 @@
     ],
     "difficulty": [
       {
-        "source": 9,
-        "value": 2
+        "source": 2,
+        "value": 3
       }
     ],
     "lifeYears": [
       {
-        "source": 10,
+        "source": 2,
         "value": {
-          "min": 10,
-          "max": 20
+          "min": 5,
+          "max": 7
         }
       }
     ]
@@ -168,18 +168,6 @@
       "title": "Blue acara – Wikipedia",
       "kind": "article",
       "at": "2026-10-30"
-    },
-    {
-      "url": "https://www.fishkeepingworld.com/electric-blue-acara",
-      "title": "Electric Blue Acara Care Guide & Species Profile",
-      "kind": "article",
-      "at": "2026-11-06"
-    },
-    {
-      "url": "https://www.buildyouraquarium.com/electric-blue-acara/",
-      "title": "A Guide To Electric Blue Acara Care",
-      "kind": "article",
-      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

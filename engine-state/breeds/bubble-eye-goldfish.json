@@ -151,6 +151,18 @@
     },
     {
       "field": "difficulty",
+      "min": 6,
+      "max": 6,
+      "source": 4
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 10,
+      "source": 4
+    },
+    {
+      "field": "difficulty",
       "min": 4,
       "max": 4,
       "source": 8

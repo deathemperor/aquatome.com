@@ -147,13 +147,25 @@
       "field": "difficulty",
       "min": 4,
       "max": 4,
-      "source": 0
+      "source": 12
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 4
     },
     {
       "field": "lifeYears",
       "min": 4,
       "max": 5,
       "source": 10
+    },
+    {
+      "field": "lifeYears",
+      "min": 2,
+      "max": 2,
+      "source": 13
     }
   ],
   "keeping": [
@@ -318,6 +330,16 @@
       "url": "https://forum.aquariumcoop.com/topic/5196-selective-breeding-for-new-colorations-what-have-you-worked-on/",
       "title": "Selective breeding for new colorations - Aquarium Co-Op forum",
       "kind": "forum"
+    },
+    {
+      "url": "https://www.buildyouraquarium.com/electric-blue-ram/",
+      "title": "Electric Blue Ram Care, Information, & Pictures",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumdomain.com/SpeciesProfiles/FreshwaterCommunityFish/ElectricBlueBalloonRam.shtml",
+      "title": "Electric Blue Balloon Ram - Aquarium Domain",
+      "kind": "article"
     }
   ]
 }

@@ -196,6 +196,12 @@
       "source": 4
     },
     {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 10,
+      "source": 1
+    },
+    {
       "field": "difficulty",
       "min": 2,
       "max": 2,
@@ -206,12 +212,6 @@
       "min": 10,
       "max": 15,
       "source": 7
-    },
-    {
-      "field": "lifeYears",
-      "min": 10,
-      "max": 10,
-      "source": 1
     }
   ],
   "keeping": [
@@ -359,7 +359,7 @@
     },
     {
       "url": "https://www.fishkeepingworld.com/black-moor-goldfish",
-      "title": "Black Moor Goldfish Care, Lifespan, Tank Size & Tank Mates – Fishkeeping World",
+      "title": "Black Moor Goldfish Care, Lifespan, Tank Size & Tank Mates – Fish Keeping World",
       "kind": "article"
     }
   ]

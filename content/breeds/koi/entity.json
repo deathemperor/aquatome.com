@@ -70,21 +70,25 @@
       {
         "source": 2,
         "value": 5
+      },
+      {
+        "source": 1,
+        "value": 2
       }
     ],
     "lifeYears": [
-      {
-        "source": 1,
-        "value": {
-          "min": 25,
-          "max": 35
-        }
-      },
       {
         "source": 2,
         "value": {
           "min": 25,
           "max": 50
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 25,
+          "max": 35
         }
       }
     ]

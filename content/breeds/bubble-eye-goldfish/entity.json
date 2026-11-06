@@ -70,11 +70,22 @@
     ],
     "difficulty": [
       {
+        "source": 4,
+        "value": 6
+      },
+      {
         "source": 8,
         "value": 4
       }
     ],
     "lifeYears": [
+      {
+        "source": 4,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      },
       {
         "source": 8,
         "value": {

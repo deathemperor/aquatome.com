@@ -166,10 +166,34 @@
       "source": 11
     },
     {
+      "field": "difficulty",
+      "min": 5,
+      "max": 5,
+      "source": 12
+    },
+    {
+      "field": "lifeYears",
+      "min": 8,
+      "max": 15,
+      "source": 11
+    },
+    {
       "field": "lifeYears",
       "min": 10,
       "max": 15,
-      "source": 11
+      "source": 12
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 20,
+      "max": 20,
+      "source": 2
     }
   ],
   "keeping": [
@@ -324,8 +348,13 @@
       "kind": "other"
     },
     {
+      "url": "https://www.aquariadise.com/ranchu-goldfish/",
+      "title": "Ranchu Goldfish - Aquariadise",
+      "kind": "article"
+    },
+    {
       "url": "https://www.fishkeepingworld.com/ranchu-goldfish",
-      "title": "Ranchu Goldfish Care & Species Profile - Fishkeeping World",
+      "title": "Ranchu Goldfish Care & Species Profile - Fishkeepingworld",
       "kind": "article"
     }
   ]

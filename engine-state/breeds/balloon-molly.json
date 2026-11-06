@@ -142,14 +142,26 @@
     },
     {
       "field": "difficulty",
-      "min": 4,
-      "max": 4,
+      "min": 2,
+      "max": 2,
+      "source": 4
+    },
+    {
+      "field": "lifeYears",
+      "min": 5,
+      "max": 5,
+      "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
       "source": 8
     },
     {
       "field": "lifeYears",
-      "min": 2,
-      "max": 2,
+      "min": 3,
+      "max": 5,
       "source": 8
     }
   ],
@@ -293,8 +305,8 @@
       "kind": "shop"
     },
     {
-      "url": "https://www.fishkeepingworld.com/balloon-molly",
-      "title": "Balloon Molly Care & Species Guide - Fishkeeping World",
+      "url": "https://www.ouraquariumlife.com/fish/balloon-molly-fish",
+      "title": "Balloon Molly Fish: Appearance, Types & Care",
       "kind": "article"
     }
   ]

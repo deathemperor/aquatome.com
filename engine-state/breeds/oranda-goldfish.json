@@ -168,6 +168,12 @@
     },
     {
       "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 3
+    },
+    {
+      "field": "difficulty",
       "min": 4,
       "max": 4,
       "source": 7
@@ -316,7 +322,7 @@
     },
     {
       "url": "https://www.fishkeepingworld.com/oranda-goldfish",
-      "title": "Oranda Goldfish Care Guide & Species Profile – Fishkeeping World",
+      "title": "Oranda Goldfish Care Guide & Species Profile – Fish Keeping World",
       "kind": "article"
     }
   ]

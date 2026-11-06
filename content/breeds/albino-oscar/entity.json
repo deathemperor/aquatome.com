@@ -90,6 +90,13 @@
     ],
     "lifeYears": [
       {
+        "source": 0,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      },
+      {
         "source": 1,
         "value": {
           "min": 12,
@@ -97,10 +104,10 @@
         }
       },
       {
-        "source": 0,
+        "source": 5,
         "value": {
-          "min": 10,
-          "max": 10
+          "min": 5,
+          "max": 7
         }
       }
     ]

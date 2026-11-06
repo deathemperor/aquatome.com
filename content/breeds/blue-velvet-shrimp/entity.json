@@ -99,11 +99,22 @@
       {
         "source": 0,
         "value": 2
+      },
+      {
+        "source": 2,
+        "value": 3
       }
     ],
     "lifeYears": [
       {
         "source": 7,
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      },
+      {
+        "source": 8,
         "value": {
           "min": 1,
           "max": 2
@@ -193,9 +204,15 @@
       "at": "2026-10-30"
     },
     {
-      "url": "https://www.theshrimpfarm.com/blue-velvet-shrimp.php",
-      "title": "Blue Velvet Shrimp – The Shrimp Farm",
-      "kind": "breeder",
+      "url": "https://www.aquariumsource.com/blue-velvet-shrimp/",
+      "title": "Blue Velvet Shrimp Care: The Complete Guide",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://fishkeepingadvice.com/blue-velvet-shrimp-care/",
+      "title": "Blue Velvet Shrimp (Fishkeeping Advice)",
+      "kind": "article",
       "at": "2026-11-06"
     }
   ],

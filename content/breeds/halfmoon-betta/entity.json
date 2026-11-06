@@ -67,6 +67,14 @@
       {
         "source": 10,
         "value": 4
+      },
+      {
+        "source": 5,
+        "value": 1
+      },
+      {
+        "source": 8,
+        "value": 4
       }
     ],
     "lifeYears": [
@@ -74,7 +82,7 @@
         "source": 10,
         "value": {
           "min": 3,
-          "max": 5
+          "max": 3
         }
       }
     ]
@@ -173,8 +181,8 @@
       "at": "2026-10-30"
     },
     {
-      "url": "https://www.furrycritter.com/pages/descriptions/fish/betta_splendens_halfmoon.htm",
-      "title": "Halfmoon Betta Care Guide - Furry Critter Network",
+      "url": "https://www.fishkeepingworld.com/halfmoon-betta-fish",
+      "title": "Halfmoon Betta Fish Care & Species Guide",
       "kind": "article",
       "at": "2026-11-06"
     }

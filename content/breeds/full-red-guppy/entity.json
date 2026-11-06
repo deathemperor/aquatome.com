@@ -84,8 +84,12 @@
     ],
     "difficulty": [
       {
-        "source": 5,
-        "value": 7
+        "source": 2,
+        "value": 6
+      },
+      {
+        "source": 3,
+        "value": 2
       }
     ]
   },

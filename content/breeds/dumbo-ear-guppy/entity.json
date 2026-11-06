@@ -98,16 +98,34 @@
     ],
     "difficulty": [
       {
-        "source": 2,
+        "source": 8,
         "value": 2
+      },
+      {
+        "source": 4,
+        "value": 4
       }
     ],
     "lifeYears": [
+      {
+        "source": 8,
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      },
       {
         "source": 2,
         "value": {
           "min": 1,
           "max": 2
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 1.5,
+          "max": 2.5
         }
       }
     ]
@@ -161,6 +179,12 @@
       "title": "Dumbo Ear Dragon Guppy Male - LiveAquaria",
       "kind": "shop",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.garnelio.de/en/guppy-male-dumbo-ear-poecilia-reticulata",
+      "title": "Guppy male \"dumbo ear\" - Poecilia reticulata - Garnelio",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

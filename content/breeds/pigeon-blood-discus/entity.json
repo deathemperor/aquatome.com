@@ -56,24 +56,21 @@
     ],
     "difficulty": [
       {
-        "source": 10,
-        "value": 8
-      },
-      {
         "source": 2,
         "value": 4
+      },
+      {
+        "source": 0,
+        "value": 2
+      },
+      {
+        "source": 10,
+        "value": 6
       }
     ],
     "lifeYears": [
       {
         "source": 10,
-        "value": {
-          "min": 12,
-          "max": 12
-        }
-      },
-      {
-        "source": 11,
         "value": {
           "min": 10,
           "max": 15
@@ -155,14 +152,8 @@
       "at": "2026-10-30"
     },
     {
-      "url": "https://www.saltwaterfish.com/product-pigeon-blood-discus-symphysodon-aequifasciatus",
-      "title": "Pigeon Blood Discus – Saltwaterfish.com",
-      "kind": "shop",
-      "at": "2026-11-06"
-    },
-    {
-      "url": "https://riverparkaquatics.co.uk/pigeon-blood-discus-symphysodon-aequifasciatus/",
-      "title": "Pigeon Blood Discus – Riverpark Aquatics",
+      "url": "https://riverparkaquatics.co.uk/red-pigeon-blood-discus-symphysodon-aequifasciatus-5cm/",
+      "title": "Riverpark Aquatics – Red Pigeon Blood Discus",
       "kind": "shop",
       "at": "2026-11-06"
     }

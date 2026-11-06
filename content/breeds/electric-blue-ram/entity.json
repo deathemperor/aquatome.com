@@ -93,8 +93,12 @@
     ],
     "difficulty": [
       {
-        "source": 0,
+        "source": 12,
         "value": 4
+      },
+      {
+        "source": 4,
+        "value": 2
       }
     ],
     "lifeYears": [
@@ -103,6 +107,13 @@
         "value": {
           "min": 4,
           "max": 5
+        }
+      },
+      {
+        "source": 13,
+        "value": {
+          "min": 2,
+          "max": 2
         }
       }
     ]
@@ -191,6 +202,18 @@
       "title": "Selective breeding for new colorations - Aquarium Co-Op forum",
       "kind": "forum",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.buildyouraquarium.com/electric-blue-ram/",
+      "title": "Electric Blue Ram Care, Information, & Pictures",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://www.aquariumdomain.com/SpeciesProfiles/FreshwaterCommunityFish/ElectricBlueBalloonRam.shtml",
+      "title": "Electric Blue Balloon Ram - Aquarium Domain",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"
