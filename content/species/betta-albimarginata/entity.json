@@ -11,6 +11,64 @@
     "kalimantan",
     "sebuku"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sebuku River",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta albimarginata is a small mouthbrooding labyrinth fish that appears endemic to the Sebuku River drainage in East Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears endemic to the Sebuku River drainage in Kalimantan Timur (East Kalimantan) province, Indonesia, Borneo.",
+          "countries": [],
+          "regions": [
+            "Sebuku River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394012,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -88,12 +146,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-albimarginata",
       "html": "<p>Betta albimarginata is a small mouthbrooding labyrinth fish that appears endemic to the Sebuku River drainage in East Kalimantan, Indonesian Borneo. It lives among marginal plant roots and leaf litter in forest streams only 5 to 10 cm deep. With B. channoides it forms the Betta albimarginata group, and the two look very similar: in B. albimarginata the unpaired fins have a broad white distal band and a broad dark submarginal band around a plain red inner portion.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-albimarginata-sebuku",
-      "html": "<p>A great beginner fish for someone being introduced to the mouthbrooding betta world. This fish is slightly larger than the type collected in Malinau. Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -233,8 +285,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể cá nhỏ nuôi betta"
+        "bể cá 50cm"
       ]
     },
     {

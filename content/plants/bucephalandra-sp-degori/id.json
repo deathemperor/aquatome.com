@@ -3,19 +3,20 @@
   "name": "Bucephalandra Degori",
   "altNames": [
     "Buce Degori",
-    "Bucep Degori",
-    "Bucephalandra sp. Degori"
+    "Bucephalandra sp. Degori",
+    "Buce sp. Degori"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Bucephalandra adalah genus tanaman berbunga yang di habitat aslinya tumbuh terendam (submersed), dan kadang-kadang juga di atas permukaan air (emersed). Tanaman ini bahkan bisa berbunga di dalam air.</p><p>Isi per porsi: 3 rizoma, panjang sekitar 5–8 cm.</p>",
-    "maintenance:bwaquatics": "<p>Cocok untuk semua jenis akuarium tanaman, dan ideal untuk akuarium dengan cahaya rendah yang perawatannya mudah, misalnya akuarium cupang sederhana.</p>",
-    "notes:bwaquatics": "<p>Pastikan akuarium atau wadahnya sudah siap sebelum membeli tanaman ini.</p>"
+    "quickFacts:bwaquatics": "<p>Bucephalandra adalah genus tanaman berbunga yang di habitatnya tumbuh terendam, dan kadang juga emersed (di atas permukaan air). Tanaman ini bahkan bisa berbunga di dalam air.</p><p>Isi per porsi: 3 rizom, sekitar 5–8 cm.</p>",
+    "maintenance:aquatome": "<p>Buce adalah tanaman epifit, jadi tempatnya menempel di kayu atau batu, bukan ditanam di substrat. Rumpun yang besar dengan rizom tebal sebaiknya diselipkan dalam-dalam ke celah-celah di pangkal kayu. Rumpun yang kecil disebar merata di bagian lain supaya komposisinya seimbang. Kalau membeli tanaman pot, bersihkan rockwool dari akarnya sampai benar-benar bersih sebelum diikat ke kayu. Memang makan waktu, tapi sepadan, karena rockwool yang menempel di kayu kelihatan sangat mencolok. Tanaman yang dibeli dari beberapa tempat disimpan terpisah di dalam air dulu supaya beradaptasi, sambil menunggu jumlahnya cukup, baru kemudian ditanam. Beberapa minggu pertama akuarium mudah ditumbuhi alga karena Buce tumbuhnya lambat, meskipun ditanam banyak. Menanam beberapa tanaman air yang cepat tumbuh di sampingnya akan jauh mengurangi alga.</p>",
+    "maintenance:bwaquatics": "<p>Cocok untuk semua akuarium tanaman dan ideal untuk akuarium dengan cahaya rendah dan perawatan mudah, misalnya akuarium cupang sederhana.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.75
+      "bwaquatics": 0.75,
+      "aquatome": 0.75
     }
   }
 }

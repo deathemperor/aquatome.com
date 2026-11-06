@@ -35,6 +35,10 @@ pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: fail
 # transcript, nothing rewritten: the owner's videos first, REVIEW_BACKFILL_LIMIT a run (engine-state/reviews/video-guide.json).
 pnpm engine review-backfill --kind video-guide --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
 pnpm engine video-items --limit 20 || log "video-items: failed"
+# The species-profile channels (species-videos.ts PROFILE_CHANNELS): their new uploads vetted by title, then a few profile
+# videos a run into species and plant pages (a new species page is a web research call), each tried once
+# (engine-state/_species-videos.json).
+pnpm engine species-videos --limit "${SPECIES_VIDEOS_LIMIT:-3}" || log "species-videos: failed"
 pnpm engine discover-videos || log "discover-videos: failed"
 # Older guides' stills (storyboard tiles, 320 or 160 px) become the video's own frames, screened before they publish,
 # and their times the seconds they show (a guide that needs only that goes first: one yt-dlp call, no frames).

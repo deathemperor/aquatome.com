@@ -26,7 +26,7 @@ export const QUALITY_BAR = 0.75
  * rewrote (kept only at a passing score), a product's review section, a quick summary, a place's name (no place page is
  * out of search for it), a plant's planting part (kept only at a passing score). test/content-stats.test.ts holds each of the engine's kinds to one list.
  */
-export const SCORE_REVIEWS = ['video-guide', 'translation', 'vi-rewrite', 'breed', 'topic', 'product', 'localize', 'glossary', 'equipment'] as const
+export const SCORE_REVIEWS = ['video-guide', 'translation', 'vi-rewrite', 'breed', 'topic', 'product', 'localize', 'glossary', 'equipment', 'species'] as const
 export const OTHER_REVIEWS = ['reader-rewrite', 'title', 'product-reviews', 'summary', 'places', 'planting'] as const
 
 // Content files are read as the engine wrote them, without the schema's parser: the backfill runs this on old commits too.

@@ -1521,6 +1521,22 @@
         }
       }
     },
+    "Chưa có khóa Tuya: thiết lập ở mục “Ổ cắm thông minh” trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada kunci Tuya: atur di bagian “Stopkontak pintar” di Akuarium saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีคีย์ Tuya: ตั้งค่าได้ที่หัวข้อ “ปลั๊กไฟอัจฉริยะ” ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
     "Chưa có kích thước.": {
       "localizations": {
         "id": {
@@ -10973,6 +10989,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลั๊กไฟนี้ถูกนำออกจากตู้แล้ว"
+          }
+        }
+      }
+    },
+    "Ổ cắm thông minh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak pintar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊กไฟอัจฉริยะ"
           }
         }
       }

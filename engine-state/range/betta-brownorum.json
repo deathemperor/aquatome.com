@@ -1,0 +1,64 @@
+{
+  "id": "betta-brownorum",
+  "native": {
+    "input": "c7afbb5b8774114c",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the island of Borneo where it's restricted to southern and western parts of the state of Sarawak, Malaysia with a handful of populations across the border in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the island of Borneo where it's restricted to southern and western parts of the state of Sarawak, Malaysia with a handful of populations across the border in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the island of Borneo where it's restricted to southern and western parts of the state of Sarawak, Malaysia with a handful of populations across the border in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta brownorum",
+    "status": "ACCEPTED",
+    "taxonKey": 2394030,
+    "datasets": [
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

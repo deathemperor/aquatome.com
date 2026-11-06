@@ -1,0 +1,110 @@
+{
+  "id": "betta-edithae",
+  "native": {
+    "input": "fdf5d524198df3f9",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Another mouthbrooder type betta originating from South Kalimantan in Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from the Greater Sunda Islands region in Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kalimantan",
+        "source": "seriouslyfish",
+        "quote": "It's subsequently been recorded over a large range including all four provinces of Kalimantan as well as near Palembang in South Sumatra (Sumatera Selatan) province, Sumatra and the islands of Bangka, Belitung (together forming Bangka-Belitung province) and Bintan (Riau Islands province).",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "It's subsequently been recorded over a large range including all four provinces of Kalimantan as well as near Palembang in South Sumatra (Sumatera Selatan) province, Sumatra and the islands of Bangka, Belitung (together forming Bangka-Belitung province) and Bintan (Riau Islands province).",
+        "ok": true
+      },
+      {
+        "name": "Bangka",
+        "source": "seriouslyfish",
+        "quote": "It's subsequently been recorded over a large range including all four provinces of Kalimantan as well as near Palembang in South Sumatra (Sumatera Selatan) province, Sumatra and the islands of Bangka, Belitung (together forming Bangka-Belitung province) and Bintan (Riau Islands province).",
+        "ok": true
+      },
+      {
+        "name": "Belitung",
+        "source": "seriouslyfish",
+        "quote": "It's subsequently been recorded over a large range including all four provinces of Kalimantan as well as near Palembang in South Sumatra (Sumatera Selatan) province, Sumatra and the islands of Bangka, Belitung (together forming Bangka-Belitung province) and Bintan (Riau Islands province).",
+        "ok": true
+      },
+      {
+        "name": "Bintan",
+        "source": "seriouslyfish",
+        "quote": "It's subsequently been recorded over a large range including all four provinces of Kalimantan as well as near Palembang in South Sumatra (Sumatera Selatan) province, Sumatra and the islands of Bangka, Belitung (together forming Bangka-Belitung province) and Bintan (Riau Islands province).",
+        "ok": true
+      },
+      {
+        "name": "Barito River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Barito River delta, Banjarmasin, Borneo Indonesia' which corresponds to the town of Banjarmasin in South Kalimantan (Kalimantan Selatan) province.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta edithae",
+    "status": "ACCEPTED",
+    "taxonKey": 2394057,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        8
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

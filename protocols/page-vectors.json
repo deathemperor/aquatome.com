@@ -2555,6 +2555,273 @@
       ]
     },
     {
+      "note": "a fish whose sources' smallest tanks are more than a fifth apart: that row marked (the card's dot), where the overlapping temperatures of the first fish's are not",
+      "doc": {
+        "v": 1,
+        "kind": "fish",
+        "path": "/vi/ca/ca-galaxy/",
+        "title": "Cá galaxy",
+        "sub": "Danio margaritatus",
+        "where": [
+          "Danionidae, ",
+          {
+            "text": "Myanmar",
+            "href": "/vi/nguon-goc/asia/myanmar/"
+          }
+        ],
+        "aka": "Tên khác: Celestial pearl danio",
+        "credit": [
+          "Dịch và tổng hợp từ Seriously Fish, The Spruce Pets. Cập nhật 2026-10-28."
+        ],
+        "lead": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Danio_Margaritatus_malle_%28zoom%29.jpg/960px-Danio_Margaritatus_malle_%28zoom%29.jpg",
+          "w": 960,
+          "h": 720,
+          "alt": "Cá galaxy, Danio margaritatus",
+          "credit": {
+            "text": "Ảnh: Cisamarc",
+            "licence": "CC BY-SA 3.0",
+            "url": "https://commons.wikimedia.org/wiki/File:Danio_Margaritatus_malle_(zoom).jpg"
+          }
+        },
+        "talk": {
+          "comments": "species:danio-margaritatus",
+          "photos": "species:danio-margaritatus"
+        },
+        "blocks": [
+          {
+            "t": "trust",
+            "title": "Nguồn và độ tin cậy",
+            "legend": "Các nguồn ghi khác nhau",
+            "rows": [
+              {
+                "field": "tempC",
+                "label": "Nhiệt độ",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "ph",
+                "label": "pH",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "sizeCm",
+                "label": "Kích thước",
+                "items": [
+                  "Seriously Fish"
+                ]
+              },
+              {
+                "field": "tankCm",
+                "label": "Bể tối thiểu",
+                "conflict": true,
+                "marked": true,
+                "note": "Mỗi nguồn ghi một mức",
+                "items": [
+                  "Seriously Fish: 45 cm",
+                  "Aquarium Glaser: 30 cm"
+                ]
+              },
+              {
+                "field": "difficulty",
+                "label": "Độ khó",
+                "items": [
+                  "Seriously Fish"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "mates",
+            "title": "Nuôi chung",
+            "avoid": {
+              "title": "Tránh",
+              "items": [
+                {
+                  "path": "/vi/ca/ca-apisto-cacatuoides/",
+                  "name": "Cá apisto cacatuoides",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Cacatuoides.JPG/500px-Cacatuoides.JPG",
+                    "w": 960,
+                    "h": 720,
+                    "credit": {
+                      "text": "Ảnh: William Kreijkes",
+                      "licence": "CC BY-SA 3.0",
+                      "url": "https://commons.wikimedia.org/wiki/File:Cacatuoides.JPG"
+                    }
+                  },
+                  "why": "Lớn tới 9 cm, có thể ăn Cá galaxy"
+                }
+              ]
+            },
+            "note": "Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.",
+            "tool": {
+              "text": "Kiểm tra nuôi chung với loài khác →",
+              "href": "/vi/cong-cu/nuoi-chung/?ca=ca-galaxy"
+            }
+          },
+          {
+            "t": "climate",
+            "title": "Nuôi ở Việt Nam",
+            "items": [
+              {
+                "label": "Mùa đông miền Bắc",
+                "ok": false,
+                "text": "Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."
+              },
+              {
+                "label": "Miền Nam",
+                "ok": false,
+                "text": "Không cần sưởi, nhưng mùa nóng cần làm mát (xem dòng dưới)."
+              },
+              {
+                "label": "Mùa hè cả nước",
+                "ok": false,
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 25°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
+              }
+            ],
+            "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
+          },
+          {
+            "t": "h",
+            "text": "Thông tin nhanh",
+            "id": "muc-quickFacts"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Cá nano chấm sao, hợp bể nhỏ trồng nhiều cây.",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/danio-margaritatus",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "list",
+            "items": [
+              [
+                {
+                  "t": "p",
+                  "c": [
+                    {
+                      "text": "Thức ăn",
+                      "href": "/vi/thiet-bi/thuc-an/"
+                    },
+                    ": ăn tạp",
+                    {
+                      "text": "2",
+                      "href": "https://www.thesprucepets.com/celestial-pearl-danio-1378321",
+                      "tip": {
+                        "term": "The Spruce Pets",
+                        "text": "thesprucepets.com · dịch từ nguồn"
+                      }
+                    }
+                  ]
+                }
+              ]
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Cần bể bao lớn?",
+            "id": "muc-aquariumSize"
+          },
+          {
+            "t": "p",
+            "c": [
+              "The Spruce Pets ghi khác bảng dữ liệu: bể tối thiểu 19 lít (bảng: 45 cm)."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Dung tích bể tối thiểu: 19 lít. Bể trồng nhiều cây hợp với cá.",
+              {
+                "text": "2",
+                "href": "https://www.thesprucepets.com/celestial-pearl-danio-1378321",
+                "tip": {
+                  "term": "The Spruce Pets",
+                  "text": "thesprucepets.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "h",
+            "text": "Môi trường tự nhiên",
+            "id": "muc-habitat"
+          },
+          {
+            "t": "p",
+            "c": [
+              "Ao cạn nhiều cỏ ở cao nguyên Shan, ",
+              {
+                "text": "Myanmar",
+                "href": "/vi/nguon-goc/asia/myanmar/"
+              },
+              ".",
+              {
+                "text": "1",
+                "href": "https://www.seriouslyfish.com/species/danio-margaritatus",
+                "tip": {
+                  "term": "Seriously Fish",
+                  "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "refs",
+            "title": "Nguồn",
+            "id": "nguon",
+            "items": [
+              {
+                "title": "Seriously Fish",
+                "url": "https://www.seriouslyfish.com/species/danio-margaritatus"
+              },
+              {
+                "title": "The Spruce Pets",
+                "url": "https://www.thesprucepets.com/celestial-pearl-danio-1378321"
+              }
+            ],
+            "note": "Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."
+          },
+          {
+            "t": "pages",
+            "title": "Bài viết nhắc đến loài này",
+            "paths": [
+              "/vi/huong-dan/ca-nano-cho-be-19-lit/",
+              "/vi/huong-dan/chon-loc-cho-be-nano/"
+            ]
+          }
+        ]
+      },
+      "older": [
+        "web",
+        "web",
+        "web",
+        "h",
+        "p",
+        "list",
+        "h",
+        "p",
+        "p",
+        "h",
+        "p",
+        "refs",
+        "pages"
+      ]
+    },
+    {
       "note": "a plant's page: its gallery, then its text and sources",
       "doc": {
         "v": 1,

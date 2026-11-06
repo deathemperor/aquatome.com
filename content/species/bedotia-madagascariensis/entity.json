@@ -10,6 +10,74 @@
     "madagascar",
     "atsinanana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [
+        "Ivoloina River",
+        "Manambalo Creek"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Madagascan rainbow fish, Bedotia madagascariensis, comes from small streams and the lower reaches of rivers in eastern Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Although the extent of its historical range is unclear, modern distribution extends southwards from the lower Ivoloina River, just north of Toamasina city, as far as Manambalo Creek which lies south of the town of Vatomandry.",
+          "countries": [],
+          "regions": [
+            "Ivoloina River",
+            "Manambalo Creek"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2412028,
+      "total": 26,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MG",
+          25
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          47.8125,
+          -19.6875,
+          23,
+          23
+        ],
+        [
+          49.21875,
+          -19.6875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -160,8 +228,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá thủy sinh 120x30"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,31 @@
+{
+  "vi/plants/anubias-barteri-nana": [
+    {
+      "at": "2026-11-06T15:33:22Z",
+      "model": "opus",
+      "score": 0.82,
+      "notes": [
+        "\"phần lớn dân chơi buộc nó lên lũa\" overstates the source, which only says Anubias 'thường được gắn lên lũa'. It turns that into a claim about what most hobbyists do.",
+        "\"Bụi ráy to thường có rễ rất dài\" comes from the guide on tying a large Anubias clump onto big driftwood, not from information about nana specifically. It's general Anubias advice presented as nana advice.",
+        "\"rồi cứ đổ nghiêng mãi\": the word 'mãi' adds emphasis the source doesn't have ('cây sẽ lỏng ra và cứ đổ nghiêng').",
+        "The advice to split the clump to spread it across many spots applies to a large piece of driftwood in the source ('nếu lũa lớn'). The passage drops that condition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp-degori": [
+    {
+      "at": "2026-11-06T15:33:48Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Mấy tuần đầu bể dễ lên rêu\": the INPUT only says \"giai đoạn đầu\" of a newly set-up tank. \"Mấy tuần\" is an added timeframe, and the passage drops the new-tank context.",
+        "\"sẽ đỡ rêu hơn nhiều\": the INPUT says fast-growing plants take up excess nutrients and keep algae from spreading. \"hơn nhiều\" overstates this.",
+        "\"Nếu mua cây chậu, bạn nên gỡ bông đá...\": this advice comes from a general prep guide, not one about this plant. It's acceptable, but the INPUT never says Degori is sold potted; the page says it's sold as rhizomes."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ]
+}

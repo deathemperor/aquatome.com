@@ -18,11 +18,25 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
       }
     ],
     "ph": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 6,
           "max": 7
@@ -33,12 +47,35 @@
       {
         "source": "planetcatfish",
         "value": 30
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 26
       }
     ],
     "difficulty": [
       {
         "source": "planetcatfish",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
       }
     ]
   },
@@ -50,16 +87,52 @@
       "html": "<p><strong>Scientific name:</strong> Rita kuturnee (Sykes, 1839)</p><p><strong>Common name:</strong> Deccan Rita</p><p><strong>Type locality:</strong> Deccan, India.</p><p><strong>Size:</strong> 300 mm (11.8\") SL.</p><p><strong>Etymology:</strong> The name Rita is derived from the local name of the fish. The specific epithet comes from the local name of the fish, 'katarnaa'. Most of Sykes' species are named after regional/local species names.</p><p><strong>IUCN Red List:</strong> Least Concern (last assessed 2010).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>The Deccan rita, Rita kuturnee, is a bagrid catfish from large river systems in India, growing to around 260 mm SL. Rita species are not often seen in the hobby. Relatively peaceful, it suits communities of larger species such as the bigger barbs, sturdy cichlids and loricariids, although smaller fish will be eaten.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
       "html": "<p>Asia: Peninsular India from Deccan rivers up to the Krishna river system, including the Kaveri, Krishna and Tungabhadra, and the states of Andhra Pradesh and Karnataka.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>India.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>It occurs in large river systems.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>A tank measuring 120 × 30 × 30 cm, about 108 litres, though larger is preferable.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>The decor used is not critical but the fish must be provided with some hiding places. Driftwood pieces arranged to form shelters, flowerpots and lengths of pvc piping can all be used. You will see it more often if the surface is covered in floating plants to cut down the light reaching the substrate.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
       "html": "<p>pH: 6.0 - 7.0</p><p>Temperature: 22.0-27.0°C (71.6-80.6°F)</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -74,10 +147,22 @@
       "html": "<p>Readily eats all manner of live and prepared foods. Will eat smaller fishes.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>An unfussy feeder accepting most small live, frozen and dried foods. Try to keep the diet varied.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
       "html": "<p>Although a fairly peaceful fish, it will eat smaller tankmates and is therefore best kept only with large, robust fishes. Larger cyprinids (e.g. Osteochilus) and larger spiny eels (Mastacembelus) are ideal tankmates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>A robust but relatively peaceful catfish that is an ideal bottom dweller in communities of larger species. Smaller fish will be eaten, however. Good tankmates include some of the larger barb species, such as Tinfoil or Lemon-finned, robust cichlids and loricariids. It can be maintained in groups in larger aquaria, but provide each fish with a refuge to call home.</p>"
     },
     {
       "key": "dimorphism",
@@ -86,16 +171,34 @@
       "html": "<p>Males have an elongate genital papilla in front of the anal fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>Males possess quite a long genital papilla located just in front of the anal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
       "html": "<p>Not reported in the aquarium.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>There currently exist no reports of captive breeding this species.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1033",
       "html": "<p>Bagrid catfishes of the genus Rita Bleeker, 1854 are found in large rivers throughout the Indian subcontinent and Myanmar, and can reach sizes of up to 1500 mm TL (Talwar and Jhingran, 1991), although mature specimens of about 200-300 mm SL are more commonly encountered. The genus is diagnosed by the following synapomorphies (Mo, 1991): single pair of mandibular barbels, elongated Weberian apparatus firmly sutured to the basioccipital, and the sensory canal on the posttemporal enclosed within the bone.</p><p>Palatal teeth in two slender crescentic bands and dorsal spine smooth anteriorly, except for a few serrations at the base.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rita-kuturnee",
+      "html": "<p>Rita species are not often seen in the hobby. When available, R. kuturnee makes a fine bottom dweller for communities containing other robust species.</p>"
     },
     {
       "key": "references",
@@ -129,23 +232,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/9110107fd7147121.webp",
+      "thumb": "https://media.aquatome.com/commons/9110107fd7147121-480.webp",
       "width": 960,
       "height": 685,
       "licence": "Public domain",
       "author": "J. Swaine (artist)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_kuturnee_Sykes.jpg",
-      "caption": "Rita kuturnee syn. Phractocephalus kuturnee",
-      "thumb": "https://media.aquatome.com/commons/9110107fd7147121-480.webp"
+      "caption": "Rita kuturnee syn. Phractocephalus kuturnee"
     },
     {
       "url": "https://media.aquatome.com/commons/740ff44d8c2a9094.webp",
+      "thumb": "https://media.aquatome.com/commons/740ff44d8c2a9094-480.webp",
       "width": 960,
       "height": 463,
       "licence": "Public domain",
       "author": "Robert Mintern",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rita_hastata_Mintern_103.jpg",
-      "caption": "Rita kuturnee syn. R. hastataThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Rita hastata",
-      "thumb": "https://media.aquatome.com/commons/740ff44d8c2a9094-480.webp"
+      "caption": "Rita kuturnee syn. R. hastataThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Rita hastata"
     }
   ],
   "videos": [],
@@ -172,5 +275,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }

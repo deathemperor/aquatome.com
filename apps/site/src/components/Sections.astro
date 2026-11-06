@@ -22,7 +22,7 @@ const { fold = [] } = Astro.props
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const pair = (v: Range | number) => (isRange(v) ? `${v.min},${v.max}` : `${v},${v}`)
-const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, await getContent(lang), Astro.props)
+const { groups, refs, note, figAfter, wild, wildAt } = sectionParts(lang, await getContent(lang), Astro.props)
 const biblio = groups.find(g => g.key === 'references')
 // Each slot's place: inside its own section, else before the first section after where it would be (or the end).
 const SLOTS = (['waterConditions', 'behaviour'] as SectionKey[]).filter(k => Astro.slots.has(k))
@@ -66,7 +66,7 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
       <details>
         <summary><h2 id="nguon-h">{tr('Nguồn')}</h2> <span class="n">{biblio ? tr('{n} nguồn và tài liệu tham khảo', { n: refs.length }) : tr('{n} nguồn', { n: refs.length })}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
         <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener">{r.name}</a> <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
-        <p class="note">{tr('Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.')}</p>
+        <p class="note">{note}</p>
         {biblio && (
           <section class="biblio" data-section="references" id="muc-references">
             <h3>{tr(QUESTION_LABELS.references)}</h3>

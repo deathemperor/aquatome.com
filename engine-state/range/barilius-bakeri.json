@@ -1,0 +1,98 @@
+{
+  "id": "barilius-bakeri",
+  "native": {
+    "input": "1ecf4feda2d1ea44",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains, southwestern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains, southwestern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "In Kerala state records exist from the Periyar, Kabini, Chalakudy, Valapatanam, Chaliyar, Neyyar, Pampa, Vamanapuram, Kallada, Ithikkara, Karamana, Bharatapuzha, Muvattupuzha, Meenachil, Manimala, Achankovil, Pambar, Chandragiri, Karyangode, Kuppam, and Bahavani river systems.",
+        "ok": true
+      },
+      {
+        "name": "Kabini",
+        "source": "seriouslyfish",
+        "quote": "In Kerala state records exist from the Periyar, Kabini, Chalakudy, Valapatanam, Chaliyar, Neyyar, Pampa, Vamanapuram, Kallada, Ithikkara, Karamana, Bharatapuzha, Muvattupuzha, Meenachil, Manimala, Achankovil, Pambar, Chandragiri, Karyangode, Kuppam, and Bahavani river systems.",
+        "ok": true
+      },
+      {
+        "name": "Chalakudy",
+        "source": "seriouslyfish",
+        "quote": "In Kerala state records exist from the Periyar, Kabini, Chalakudy, Valapatanam, Chaliyar, Neyyar, Pampa, Vamanapuram, Kallada, Ithikkara, Karamana, Bharatapuzha, Muvattupuzha, Meenachil, Manimala, Achankovil, Pambar, Chandragiri, Karyangode, Kuppam, and Bahavani river systems.",
+        "ok": true
+      },
+      {
+        "name": "Pampa",
+        "source": "seriouslyfish",
+        "quote": "In Kerala state records exist from the Periyar, Kabini, Chalakudy, Valapatanam, Chaliyar, Neyyar, Pampa, Vamanapuram, Kallada, Ithikkara, Karamana, Bharatapuzha, Muvattupuzha, Meenachil, Manimala, Achankovil, Pambar, Chandragiri, Karyangode, Kuppam, and Bahavani river systems.",
+        "ok": true
+      },
+      {
+        "name": "Chittar",
+        "source": "seriouslyfish",
+        "quote": "In Karnataka it is known from the Indira Gandhi Wildlife Sanctuary, and in Tamil Nadu the Chittar, Periyar, and Pampa river basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius bakeri",
+    "status": "ACCEPTED",
+    "taxonKey": 2363276,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

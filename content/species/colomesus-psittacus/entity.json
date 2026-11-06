@@ -1,0 +1,197 @@
+{
+  "id": "colomesus-psittacus",
+  "scientificName": "Colomesus psittacus",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Colomesus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "xingu",
+    "colombia",
+    "venezuela",
+    "orinoco",
+    "guyana",
+    "suriname",
+    "french-guiana",
+    "north-america",
+    "trinidad-and-tobago",
+    "bahamas",
+    "cuba",
+    "dominican-republic",
+    "haiti",
+    "jamaica",
+    "puerto-rico",
+    "cayman-islands",
+    "grenada"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 29
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>The banded puffer, Colomesus psittacus, is a large puffer of coastal waters from Colombia and Venezuela through the Guianas to northeastern Brazil. It also occurs in Trinidad and Tobago and the Caribbean islands, and inhabits mangrove swamps, estuaries and the lower reaches of rivers. Growing to 290 mm SL, it is the largest of its genus and has six dark bands across the back. Likely to prove aggressive in all but the largest systems, it is not a popular aquarium fish.</p><ul><li>Difficulty: 6 of 8 (moderate); needs a very large tank and a well-established tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>This species' known range extends eastwards from the Parque Nacional Natural Tayrona in Magdalena Department, Colombia, across northern Venezuela, the Gulf of Paria and Orinoco Delta, then southwards via the Guyanas and past the mouth of the Amazon, with the southernmost records from Sergipe state in northeastern Brazil. It is also known from Trinidad and Tobago and Caribbean islands including the Greater Antilles, Lesser Antilles, and Bahamas.</p><p>Records from the middle and upper Amazon basins appear to represent misidentifications of the congener C. asellus.</p><p>Type locality is given in error as 'Indian Ocean'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>Although it does penetrate the lower basins of rivers, particularly the Amazon where it has been collected from the rio Xingu several hundred kilometres from its mouth, this species is predominantly an inhabitant of mangrove swamps, estuaries, and other such saline habitats.</p><p>It is particularly common in tidal channels, shallow inshore lagoons, and the lower reaches of rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>An aquarium measuring 180 × 60 × 60 cm (about 648 litres) is suggested as a bare minimum, but even this may prove too small for long-term care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>Choice of décor is not especially critical though it should be maintained in a well-decorated set-up, perhaps containing some driftwood roots or branches in order to mimic its natural mangrove habitats.</p><p>It is intolerant of organic waste and require spotless water in order to thrive. Moderate levels of dissolved oxygen and water movement are also recommended, meaning additional powerheads, pumps, etc., should be employed as necessary. A linear flow pump may prove a useful addition, while weekly water changes of 30-50% should be considered mandatory.</p><p>Wild examples can be delicate and sensitive to white spot/ich post-import, so a lengthy quarantine period may be required. Maintenance in pure freshwater may also present problems, so the addition of marine salt to a standard gravity of ≥1.010 is recommended.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 7.0–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>Chiefly carnivorous and feeds almost exclusively on molluscs and crustaceans such as Cirripedia (barnacles) and Brachyuran crabs, taking increasingly mobile prey as it matures. There is also evidence to suggest seasonal changes in diet, with crabs favoured during drier periods.</p><p>In the aquarium offer unshelled crab legs, cockles, mussels, prawns, etc. Tetraodontids lack true teeth, the jawbone itself being modified into four fused toothlike structures. These grow continuously at a surprising rate, so such a diet is essential in order to maintain them at a reasonable length.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>Juveniles apparently form loose aggregations in the wild, but in the confines of an aquarium this species is likely to prove aggressive in all but the largest systems.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<p>This species is also referred to as 'parrot puffer' in the ornamental trade, although it is not a popular aquarium fish.</p><p>Within the genus Colomesus, it can be immediately identified from congeners by its larger adult size, possession of 17-19 (vs. 13-16) pectoral-fin rays, presence of 6 (vs. 5) transverse dark bands dorsally on the body, and predominantly brackish, coastal (vs. freshwater, fluvial) ecology.</p><p>Tetraodontids are commonly referred to as 'puffers' due to the ability of many species to inflate their body to an enormous size when stressed or threatened. This is achieved by drawing water into a specialised ventral diverticulum of the stomach, although air can also be used if the fish is removed from the water. As a result of these morphological adaptations puffers swim via a unique combination of pectoral and median fin undulations referred to as 'diodontiform' swimming. They are also able to produce sounds by grinding the jaw/pharyngeal teeth or vibrating the swim bladder. Puffers are secondary freshwater fishes, with the majority of members exclusively inhabiting marine environments.</p><p>Other defining characters of tetraodontids include a tough skin usually covered with small spines, a beak-like dental plate divided by a median suture, a reduced gill opening anterior to the pectoral-fin base, no pelvic fins or spinous fin rays, typically short-based dorsal and anal fins, and no ribs.</p><p>Puffer flesh is toxic and can cause clinical poisoning and human mortality, although it is regarded as a delicacy in certain countries. The predominant toxin, usually either tetrodotoxin or saxitoxin, is dependant on species, geographic area, and time of year. The toxins are not produced by the fishes themselves, but by bacteria living in symbiotic association, or they are acquired via the food chain. Colomesus species accumulate saxitoxin, although it is unclear whether eating their flesh represents a danger to humans.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "html": "<ul><li>Bloch, M. E. and J. G. Schneider (1801). M. E. Blochii, Systema Ichthyologiae Iconibus cx Ilustratum. Post obitum auctoris opus inchoatum absolvit, correxit, interpolavit Jo. Gottlob Schneider, Saxo. Berolini. Sumtibus Auctoris Impressum et Bibliopolio Sanderiano Commissum, i-lx + 1-584, Pls. 1-110</li><li>Gill, T. N. (1884). Synopsis of the plectognath fishes. Proceedings of the United States National Museum 7(26-27), 411-427</li><li>Amaral, C. R. L., P. M. Brito, D. A. Silva and E. F. Carvalho (2013). A new cryptic species of South American freshwater pufferfish of the genus Colomesus (Tetraodontidae), based on both morphology and DNA data. PLoS ONE 8(9), 1-15</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Nelson, J. S. (2006). Fishes of the World. 4th edition. John Wiley &amp; Sons, Hoboken, N. J., i-xix + 1-601</li><li>Helfman, G., B. B. Collette, D. E. Facey, and B. W. Bowen (2009). The Diversity of Fishes: Biology, Evolution, and Ecology, 2nd Edition. Wiley-Blackwell, 1-736</li><li>Tyler, J. C. (1964). A diagnosis of the two species of South American puffer fishes (Tetraodontidae, Plectognathi) of the genus Colomesus. Proceedings of the Academy of Natural Sciences of Philadelphia 116, 119-148</li><li>Krumme, U., H. Keuthen, U. Saint-Paul, and W. Villwock (2007). Contribution to the feeding ecology of the banded puffer fish Colomesus psittacus (Tetraodontidae) in north Brazilian mangrove creeks. Brazilian Journal of Biology 67(3), 383-392</li><li>Camargo, M., T. Giarrizzo, and V. Isaac (2004). Review of the geographic distribution of fish fauna of the Xingu river basin, Brazil. Ecotropica 10, 123-147</li><li>Phillip, D. A. T., D. C. Taphorn, E. Holm, J. F. Gilliam, B. A. Lamphere and H. López-Fernández (2013). Annotated list and key to the stream fishes of Trinidad &amp; Tobago. Zootaxa 3711(1), 1-64</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8c4560038fe5f4a0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8c4560038fe5f4a0-480.webp",
+      "width": 850,
+      "height": 638,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/colomesus-psittacus",
+      "caption": "Specimen from coastal Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nóc",
+        "tôm tép đông lạnh",
+        "nghêu sò cho cá nóc"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước",
+        "tỷ trọng kế",
+        "muối biển"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

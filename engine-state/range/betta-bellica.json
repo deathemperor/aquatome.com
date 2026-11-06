@@ -1,0 +1,101 @@
+{
+  "id": "betta-bellica",
+  "native": {
+    "input": "1b58b0cd402ca311",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Wild-caught Betta bellica from Malaysia, from the Betta bellica complex.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The slender betta, Betta bellica, is a bubble-nesting labyrinth fish from Peninsular Malaysia and northeastern Sumatra, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The slender betta, Betta bellica, is a bubble-nesting labyrinth fish from Peninsular Malaysia and northeastern Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the provinces of Terengganu, Perak, Selangor, Pahang and Johor in Peninsular Malaysia, plus the provinces of Utara and Riau in northeastern Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "This species was first recorded from a heavily-vegetated forest swamp in Perak Province on the Malay Peninsula, and since its rediscovery in 1996 has most often been found in peat swamp forests and associated black water streams, although it does also occur in freshwater swamp forest.",
+        "ok": true
+      },
+      {
+        "name": "Kinta River",
+        "source": "seriouslyfish",
+        "quote": "The original type locality was 'Malaysia: Pengkalan-Pegou, on Kinta River, 150 km upstream of mouth of Perak River'.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Perak River",
+        "source": "seriouslyfish",
+        "quote": "The original type locality was 'Malaysia: Pengkalan-Pegou, on Kinta River, 150 km upstream of mouth of Perak River'.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta bellica",
+    "status": "ACCEPTED",
+    "taxonKey": 2394004,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

@@ -11,6 +11,54 @@
     "nakhon-si-thammarat",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Batasio fluviatilis is a small bagrid catfish from southern Thailand and Peninsular Malaysia, below the Isthmus of Kra.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961271,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          9.84375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -161,8 +209,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài 120x30"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,82 @@
+{
+  "id": "baryancistrus-chrysolomus",
+  "native": {
+    "input": "f12054282f813047",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The mango pleco, Baryancistrus chrysolomus, traded as L047, is a loricariid endemic to the rio Xingu basin in Pará state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Xingu basin in Pará state, Brazil, where it inhabits a section of the river's main channel known as 'Volta Grande do rio Xingu' directly above Belo Monte falls.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Xingu basin in Pará state, Brazil, where it inhabits a section of the river's main channel known as 'Volta Grande do rio Xingu' directly above Belo Monte falls.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Curuá",
+        "source": "seriouslyfish",
+        "quote": "It's also been collected in the upper rio Curuá, a tributary of the rio Iriri which is itself an affluent of the Xingu.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Baryancistrus chrysolomus",
+    "status": "ACCEPTED",
+    "taxonKey": 6167965,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        23
+      ],
+      [
+        "99a7ee0d-5607-4d11-996f-da6f3685f61a",
+        12
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}
