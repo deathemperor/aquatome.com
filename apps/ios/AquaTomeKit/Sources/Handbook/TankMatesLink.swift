@@ -27,9 +27,16 @@ public struct TankMatesLink: Sendable {
       if bits.count > 1, let n = Self.count(String(bits[1])) { counts[item.path] = n }
       if !picked.contains(where: { $0.path == item.path }) { picked.append(item) }
     }
-    fish = picked.prefix(Self.maxFish).map { ($0, counts[$0.path] ?? $0.facts.schoolMin ?? 1) }
+    let byId = Dictionary(index.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    fish = picked.prefix(Self.maxFish).map { ($0, counts[$0.path] ?? Self.start($0) { byId[$0] }) }
     let sides = ["l", "w", "h"].compactMap { params[$0].flatMap(Self.number).flatMap { $0 > 0 ? $0 : nil } }
     size = sides.count == 3 ? Size(l: sides[0], w: sides[1], h: sides[2]) : nil
+  }
+
+  /// How many of a fish the tool starts at: its school size; for a breed that is a form of a species (`of`), which has
+  /// none of its own, the species'; else one. `species`: a page by its content id.
+  public static func start(_ item: HandbookIndex.Item, species: (String) -> HandbookIndex.Item?) -> Int {
+    item.facts.schoolMin ?? item.of.flatMap { species($0)?.facts.schoolMin } ?? 1
   }
 
   /// A fish's name in the tool's links: its page's last path component ("/vi/ca/ca-neon/" → "ca-neon").
