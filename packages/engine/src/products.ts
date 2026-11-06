@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { MarketSchema, ProductSchema, QUALITY_THRESHOLD, slugify, TranslationSchema, type Market, type ProductEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { isMarketplace } from './marketplaces'
+import { lastKept, logReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 
 const WRITE = readFileSync(new URL('./prompts/product.md', import.meta.url), 'utf8')
@@ -111,12 +112,16 @@ export async function makeProduct(contentRoot: string, d: { research: Llm; llm: 
     const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(factsForWriter)}\n\nPAGE:\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the page on the site found, as the rewrite below does.
+  const before = kept ? await lastKept(dirname(contentRoot), { id: `products/${slugify(`${a.brand} ${a.model}`)}`, lang: 'vi' }, ['product']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   // Any claim beyond the facts: one rewrite with the checker's notes; the better-grounded page is kept.
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
   const body = sanitizeHtml(w.body)
@@ -153,5 +158,6 @@ export async function makeProduct(contentRoot: string, d: { research: Llm; llm: 
   const market: Market = MarketSchema.parse({ currency: 'VND', checkedAt: today, prices: prices.map(p => ({ shop: p.shop, url: p.url, ...(p.variant ? { variant: p.variant } : {}), price: Math.round(p.vnd), at: today })) })
   await mkdir(dir, { recursive: true })
   for (const [f, v] of [['entity.json', entity], ['vi.json', vi], ['vn.json', market]] as const) await writeFile(join(dir, f), `${JSON.stringify(v, null, 2)}\n`)
+  await logReviews(dirname(contentRoot), 'product', { id: `products/${id}`, lang: 'vi' }, tries, review, { now: d.now() })
   return { id, score, notes: review.notes ?? [], prices: `${prices.length}/${facts.prices.length} prices confirmed on the shop page` }
 }

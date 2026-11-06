@@ -1,0 +1,213 @@
+{
+  "id": "erpetoichthys-calabaricus",
+  "scientificName": "Erpetoichthys calabaricus",
+  "order": "Polypteriformes",
+  "family": "Polypteridae",
+  "genus": "Erpetoichthys",
+  "group": "other",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "angola",
+    "nigeria",
+    "cameroon",
+    "equatorial-guinea",
+    "benin"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150,
+        "hidden": "shorter than twice the fish (90 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<ul><li>Difficulty: 3 of 8 (moderate); needs a very large tank</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. A tight-fitting cover is essential as this fish is an excellent escape artist.</li></ul><p>The ropefish, Erpetoichthys calabaricus, is a nocturnal polypterid from shallow, heavily vegetated waters in Western Africa. The only member of its genus, it is closely related to Polypterus, and its divided swim bladder serves as an accessory breathing organ, so it can drown if denied atmospheric air. It grows to 90 cm and will eat tankmates it can fit in its mouth.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>Widespread in Western Africa, it has been collected in Democratic Republic of Congo, Angola, Nigeria, Cameroon, Equatorial Guinea and Benin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>Generally inhabits shallow, heavily vegetated waters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>Standard length: 90 cm SL.</p><p>Aquarium base: 150 × 60 cm. Volume: ~540 litres.</p><p>150 × 60 × 60 cm, ~540 litres, for an adult specimen.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>A densely planted aquarium with a soft substrate and pieces of driftwood forming hiding places is ideal for this fish. A tight-fitting cover is essential as this fish is an excellent escape artist.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<ul><li>Temperature: 23–30°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>E. calabaricus is carnivorous by nature and will not usually accept dried foods in aquaria, though some specimens have been known to take pelleted varieties. The most suitable options are meaty live or frozen foods such as prawns, earthworms, mussel, bloodworm etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>Not to be trusted with tankmates it can fit in its mouth but is relatively peaceful otherwise. It can even be maintained in small groups as it is not particularly territorial. Good tankmates include Synodontis species, larger characins and cichlids such as Severum, Angelfish, some Tilapia species etc. It shouldn't be kept with very vigorous species, however, as it may be outcompeted at feeding time.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>The male fish has 12–14 dorsal fin rays while the female has only 9–12. When in breeding condition the anal fin of the male swells and thickens.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>Unrecorded in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/erpetoichthys-calabaricus",
+      "html": "<p>This is the only species in the genus Erpetoichthys, and is an incredibly hardy, nocturnal species. Due to its poor vision, the ropefish relies on its excellent sense of smell to locate food. It is closely related to the Polypterus genus and both are some of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occurred during the early development of the dinosaurs, more than 200 million years ago.</p><p>They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right-hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time, provided it is kept moist. Like anabantoid species, this fish may actually drown if it is denied access to atmospheric air. Young ropefish have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water, clearly exhibits the link these species form between fish and amphibians.</p><p>Also known as the Reedfish or Snakefish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/560ccf8546892968.webp",
+      "width": 800,
+      "height": 521,
+      "licence": "CC BY-SA 3.0",
+      "author": "Michał Zalewski",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akwa19_reedfish.jpg",
+      "caption": "en:Reedfish",
+      "thumb": "https://media.aquatome.com/commons/560ccf8546892968-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/355b637409e8d70d.webp",
+      "width": 960,
+      "height": 727,
+      "licence": "CC BY-SA 2.5",
+      "author": "Daiju Azuma",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erpetoichthys_calabaricus.jpg",
+      "caption": "ja:アミメウナギ en:Reedfish Species Erpetoichthys calabaricus Familia Polypteridae Source http://opencage.info/pics/large_7736.asp Location Suma Aqualife Park, KOBE, Japan Other photos; http://opencage.info",
+      "thumb": "https://media.aquatome.com/commons/355b637409e8d70d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6d4034e2e085bf7d.webp",
+      "width": 960,
+      "height": 443,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erpetoichthys_calabaricus_01.jpg",
+      "caption": "Erpetoichthys calabaricus en aquarium.",
+      "thumb": "https://media.aquatome.com/commons/6d4034e2e085bf7d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/26708ef33c0f05d3.webp",
+      "width": 960,
+      "height": 658,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erpetoichthys_calabaricus_-_Fl%C3%B6sselaal.jpg",
+      "caption": "Portrait of a reedfish",
+      "thumb": "https://media.aquatome.com/commons/26708ef33c0f05d3-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn 540 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá 150cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "tôm đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}
