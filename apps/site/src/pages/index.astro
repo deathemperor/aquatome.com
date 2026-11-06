@@ -14,6 +14,7 @@ import { easyPlants, featuredSpecies, groupTiles, leadGuides, nativeCards, nativ
 import { i18n } from '../lib/i18n'
 import { pagePictures, photosOf, takeEach } from '../lib/pictures'
 import { toolCards } from '../lib/tools'
+import { fmt } from '../lib/format'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
@@ -48,7 +49,7 @@ const videoPhotos = takeEach(pics, videos, g => guideImages(c, g))
 const plantPhotos = takeEach(pics, plants, p => photosOf(p.photos))
 const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...groups.map(g => g.photo), ...guidePhotos, ...videoPhotos, ...plantPhotos].map(p => p ?? undefined))]
 ---
-<Base title={t('AquaTome — Cẩm nang cá cảnh & thủy sinh')} description={t('Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp; hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt.')} credits={credits}>
+<Base title={t('AquaTome — Cẩm nang cá cảnh & thủy sinh')} description={t('Nhập kích thước, nhiệt độ và pH bể của bạn để xem loài cá nào hợp. Có hồ sơ loài, cây thủy sinh và hướng dẫn nuôi bằng tiếng Việt.')} credits={credits}>
   <link slot="head" rel="preload" as="image" href={HERO.url} imagesrcset={`${HERO.url} 960w, ${HERO.large} 1600w`} imagesizes="(min-width: 900px) 40vw, 100vw" fetchpriority="high" />
   <Nav slot="header" />
 
@@ -96,7 +97,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   </section>
 
   <section class="wrap block" aria-labelledby="featured-h">
-    <div class="head"><h2 id="featured-h" class="h">{t('Loài quen thuộc')}</h2><a href="/vi/ca/">{t('Tất cả {n} loài →', { n: c.species.length })}</a></div>
+    <div class="head"><h2 id="featured-h" class="h">{t('Loài quen thuộc')}</h2><a href="/vi/ca/">{t('Tất cả {n} loài →', { n: fmt(lang).num(c.species.length) })}</a></div>
     {featured.length === 0
       ? <p class="empty">{t('Chưa có hồ sơ loài nào được xuất bản.')}</p>
       : <div class="grid">{featured.map((s, i) => <SpeciesCard s={s} eager={i < 4} photo={featuredPhotos[i]} />)}</div>}
@@ -104,7 +105,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
 
   {native.place?.parent && nativeShown.length === 4 && (
     <section class="wrap block" aria-labelledby="native-h">
-      <div class="head"><h2 id="native-h" class="h">{t('Cá bản địa {place}', { place: native.place.t.name })}</h2><a href={`/vi/nguon-goc/${native.place.parent}/${native.place.id}/`}>{t('Tất cả {n} loài →', { n: native.count })}</a></div>
+      <div class="head"><h2 id="native-h" class="h">{t('Cá bản địa {place}', { place: native.place.t.name })}</h2><a href={`/vi/nguon-goc/${native.place.parent}/${native.place.id}/`}>{t('Tất cả {n} loài →', { n: fmt(lang).num(native.count) })}</a></div>
       <div class="grid">{nativeShown.map((s, i) => <SpeciesCard s={s} photo={nativePhotos[i]} />)}</div>
     </section>
   )}
@@ -139,7 +140,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
 
   {plants.length > 0 && (
     <section class="wrap block" aria-labelledby="plants-h">
-      <div class="head"><h2 id="plants-h" class="h">{t('Cây dễ trồng, không bắt buộc CO2')}</h2><a href="/vi/cay/">{t('Tất cả {n} cây →', { n: c.plants.length })}</a></div>
+      <div class="head"><h2 id="plants-h" class="h">{t('Cây dễ trồng, không bắt buộc CO2')}</h2><a href="/vi/cay/">{t('Tất cả {n} cây →', { n: fmt(lang).num(c.plants.length) })}</a></div>
       <div class="grid">{plants.map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
     </section>
   )}
@@ -147,7 +148,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   {equipment.length > 0 && (
     <section class="wrap block" aria-labelledby="equip-h">
       <div class="head"><h2 id="equip-h" class="h">{t('Mua thiết bị: chọn thế nào')}</h2><a href="/vi/thiet-bi/">{t('Tất cả thiết bị →')}</a></div>
-      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}><b>{e.name}</b><span>{e.types.map(x => x.name).join(' · ')}</span></a></li>)}</ul>
+      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}><b>{e.name}</b><span>{e.types.map(x => x.name.replace(/(\d) (?=[a-zA-Zđ])/g, '$1\u00a0')).join(' · ')}</span></a></li>)}</ul>
     </section>
   )}
 
@@ -211,7 +212,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .cnt { display: block; color: var(--c-ink-faint); font-size: 0.8rem; }
   .groups a:hover b { color: var(--c-moss); }
 
-  .equip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); column-gap: var(--space-5); }
+  .equip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-5); } /* nine kinds: three even rows */
   .equip li { border-top: 1px solid var(--c-rule); }
   .equip a { display: grid; gap: 2px; min-height: 44px; padding-block: var(--space-3); text-decoration: none; color: inherit; }
   .equip b { font: 500 var(--step-1) var(--f-display); }
@@ -224,6 +225,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
     .photo img { aspect-ratio: 16 / 9; }
     .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); }
     .steps { grid-template-columns: 1fr; }
+    .equip { grid-template-columns: 1fr; }
     .tools { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: var(--space-4) var(--space-5); }
     .steps li + li { border-left: 0; border-top: 1px solid var(--c-rule); }
     .groups { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-5); gap: var(--space-3); padding-bottom: var(--space-2); margin-inline: calc(-1 * var(--space-5)); padding-inline: var(--space-5); }

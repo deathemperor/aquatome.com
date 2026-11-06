@@ -5,8 +5,8 @@ import { LANG, type Lang } from './i18n'
 
 
 /** Plants every beginner can grow: shown first. */
-/** A group's tile tries these first: most snail photos are museum shells on black, these show a living snail. */
-const GROUP_COVERS: Record<string, string[]> = { snails: ['radix-rubiginosa', 'peregriana-peregra', 'neripteron-auriculatum'] }
+/** A group's tile tries these first: most snail photos are museum shells on black, these show a living snail; a dwarf cichlid in colour reads as the group. */
+const GROUP_COVERS: Record<string, string[]> = { snails: ['radix-rubiginosa', 'peregriana-peregra', 'neripteron-auriculatum'], cichlids: ['apistogramma-cacatuoides', 'mikrogeophagus-ramirezi'] }
 const PLANT_STAPLES = ['taxiphyllum-barbieri', 'microsorum-pteropus', 'vallisneria', 'bucephalandra-sp', 'aegagropila-linnaei', 'bolbitis-heudelotii']
 
 /** Beginner guides on what most readers need first (cycling, water changes, easy fish and plants, ich): lead when they have a picture. */
