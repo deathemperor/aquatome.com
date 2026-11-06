@@ -25,17 +25,17 @@ test('the build writes dist/_ab/content.json; the fixture build has no engine st
 
 test('inventory: items per kind in content/, and how many have an Indonesian and a Thai page', () => {
   expect(stats.inventory).toEqual({
-    fish: { total: 9, id: 0, th: 0 }, breed: { total: 2, id: 0, th: 0 }, plant: { total: 4, id: 0, th: 0 },
+    fish: { total: 9, id: 0, th: 0 }, breed: { total: 3, id: 0, th: 0 }, plant: { total: 4, id: 0, th: 0 },
     guide: { total: 7, id: 0, th: 0 }, videoGuide: { total: 2, id: 0, th: 0 }, series: { total: 2, id: 0, th: 0 },
     glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 6, id: 0, th: 0 },
   })
 })
 
 test('built pages: every index.html under /, /id/ and /th/, by kind, each with its h1 and its item', () => {
-  // 142 pages, as markdown.ts counts them (every page under the three languages).
-  expect(stats.built!.total).toEqual({ vi: 102, id: 20, th: 20 })
+  // 143 pages, as markdown.ts counts them (every page under the three languages).
+  expect(stats.built!.total).toEqual({ vi: 103, id: 20, th: 20 })
   const n = (vi: number, id = 0, th = 0) => ({ vi, id, th })
-  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(2), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(6, 6, 6), other: n(6, 5, 5) })
+  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(3), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(6, 6, 6), other: n(6, 5, 5) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
@@ -93,7 +93,7 @@ test('gaps on the fish, plant and breed pages, each with its count and the list 
   expect([g.fish!.noPhoto!.n, g.fish!.noViName!.n, g.fish!.noId!.n, g.fish!.noTh!.n]).toEqual([0, 0, 9, 9])
   expect(g.plant!.noPhoto).toEqual({ n: 1, top: [['/cay/cay-rau-den-do-mini/', 'Cây rau dền đỏ mini']] })
   expect(g.plant!.noViName).toEqual({ n: 1, top: [['/cay/cryptocoryne-wendtii/', 'Cryptocoryne wendtii']] })
-  expect(g.breed!.noPhoto).toEqual({ n: 1, top: [['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)']] })
+  expect(g.breed!.noPhoto).toEqual({ n: 2, top: [['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)'], ['/ca/ca-vang-oranda/', 'Cá vàng Oranda']] })
   expect(g.breed!.noKeyFacts!.by).toEqual({ tempC: 1, ph: 2, sizeCm: 1 })
   expect([g.guide!.noId!.n, g.videoGuide!.noTh!.n, g.glossary!.noId!.n]).toEqual([7, 2, 4])
   // Older Vietnamese: every page with text to rewrite, less Cá neon xanh (done) and the term pH (failed under this version).
@@ -131,7 +131,7 @@ test('the engine rules the stats mirror are the engine\'s', () => {
 test('sources and photos: what each source gives the pages, and where photos come from', () => {
   expect(stats.sources.seriouslyfish).toEqual({ name: 'Seriously Fish', fish: 7, plant: 0, guide: 0 })
   expect(stats.sources.youtube).toEqual({ name: 'YouTube', fish: 0, plant: 0, guide: 2 })
-  expect(stats.photos.covered).toEqual({ fish: { with: 9, of: 9 }, plant: { with: 3, of: 4 }, breed: { with: 1, of: 2 } })
+  expect(stats.photos.covered).toEqual({ fish: { with: 9, of: 9 }, plant: { with: 3, of: 4 }, breed: { with: 1, of: 3 } })
   expect(stats.photos.pages).toBe(14)
   expect(stats.totals.photos).toEqual({ pages: 14, gallery: 60 })
   expect(licenceFamily({ licence: 'CC BY-SA 3.0 de' })).toBe('CC BY-SA')
@@ -145,7 +145,7 @@ test('sources and photos: what each source gives the pages, and where photos com
   // page is left; of the breeds' photos, the Commons one waits for our media host and the Unsplash one shows.
   const pub = computeContentStats({ contentRoot: CONTENT, publicBuild: true, now: NOW })
   expect(Object.keys(pub.sources)).toEqual(['youtube'])
-  expect(pub.photos.covered).toEqual({ fish: { with: 0, of: 0 }, plant: { with: 0, of: 0 }, breed: { with: 1, of: 2 } })
+  expect(pub.photos.covered).toEqual({ fish: { with: 0, of: 0 }, plant: { with: 0, of: 0 }, breed: { with: 1, of: 3 } })
   expect(pub.gaps.fish!.noSummary!.n).toBe(0)
   expect(pub.photos.waitingMirror).toBe(1)
 })
