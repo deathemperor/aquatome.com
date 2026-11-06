@@ -7,7 +7,8 @@ import { parse } from 'node-html-parser'
 import TurndownService from 'turndown'
 import { APP_PAGES, appState } from '../worker/app-switch.ts'
 
-const DROP = 'script, style, noscript, template, svg, form, button, nav, .comments, .kit, [data-shop-pick], .app-invite'
+// Readers' photos load live, so a copy would have only the section's heading and its "none yet" line.
+const DROP = 'script, style, noscript, template, svg, form, button, nav, .comments, .kit, [data-shop-pick], .app-invite, [data-reader-photos]'
 const td = new TurndownService({ headingStyle: 'atx', bulletListMarker: '-', codeBlockStyle: 'fenced' })
 // Card links (an <a> wrapping a heading and labels) become one list line: "- [heading](href) · label · label".
 td.addRule('card', {
