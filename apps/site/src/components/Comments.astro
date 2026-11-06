@@ -16,9 +16,15 @@ const { lang, t } = i18n(Astro.url)
   <form data-form hidden>
     <label>{t('Tên')}<input name="name" required minlength="1" maxlength="40" autocomplete="nickname" /></label>
     <label>{t('Bình luận')}<textarea name="body" required minlength="2" maxlength="2000" rows="4"></textarea></label>
+    <label>{t('Ảnh (không bắt buộc)')}<input name="file" type="file" accept="image/jpeg,image/png,image/webp" /></label>
+    <div class="with-photo" data-with-photo hidden>
+      <label class="check"><input name="consent" type="checkbox" /> <span>{t('Ảnh do tôi chụp. Tôi đồng ý để AquaTome đăng ảnh này kèm tên tôi.')}</span></label>
+      <p class="rules">{t('Ảnh được kiểm duyệt trước khi hiện dưới bình luận: ảnh có người, quảng cáo hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.')}</p>
+    </div>
     <div data-turnstile></div>
     <button type="submit">{t('Gửi bình luận')}</button>
     <p class="msg" data-msg role="status" aria-live="polite"></p>
+    <div class="sent" data-sent hidden></div>
     <p class="rules">{t('Chỉ cần tên. Bình luận được kiểm duyệt; quảng cáo và thông tin cá nhân sẽ bị gỡ.')}</p>
   </form>
 </section>
@@ -34,6 +40,9 @@ const { lang, t } = i18n(Astro.url)
   .list :global(time) { color: var(--c-ink-faint); font-size: var(--step--1); }
   .list :global(.helpful) { background: var(--c-moss); color: var(--c-paper); border-radius: 999px; font-size: var(--step--1); padding: 0 var(--space-2); }
   .list :global(.comment p) { margin: 0 0 var(--space-2); overflow-wrap: anywhere; }
+  /* A comment's photo, under its text: opens the photo viewer (scripts/comments.ts). */
+  .list :global(.photo) { display: block; padding: 4px; border: 0; border-radius: 0; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); cursor: zoom-in; margin-bottom: var(--space-2); }
+  .list :global(.photo img) { display: block; width: 160px; max-width: 100%; height: auto; }
   .empty, .notice, .rules { color: var(--c-ink-soft); }
   form { display: grid; gap: var(--space-3); max-width: var(--measure); }
   label { display: grid; gap: var(--space-1); font-weight: 600; }
@@ -43,4 +52,16 @@ const { lang, t } = i18n(Astro.url)
   button:disabled { opacity: 0.6; cursor: wait; }
   .msg:empty { display: none; }
   .rules { font-size: var(--step--1); }
+  input[type='file'] { min-width: 0; font-weight: 400; }
+  .with-photo:not([hidden]) { display: grid; gap: var(--space-2); }
+  label.check { display: flex; gap: var(--space-2); align-items: flex-start; font-weight: 400; }
+  label.check input { margin-top: 0.3em; min-width: 20px; min-height: 20px; }
+  /* The photo just sent, and its take-back link to keep (scripts/reader-photos.ts showSent). */
+  .sent:not([hidden]) { display: grid; gap: var(--space-2); }
+  .sent :global(img) { width: 160px; max-width: 100%; height: auto; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); }
+  .sent :global(p) { margin: 0; }
+  .sent :global(.keep) { display: flex; gap: var(--space-2); min-width: 0; }
+  .sent :global(input) { flex: 1; min-width: 0; min-height: 44px; font: inherit; font-size: var(--step--1); padding: 0 var(--space-2); }
+  .sent :global(button) { flex: none; min-height: 44px; font: 600 var(--step--1) var(--f-body); padding: 0 var(--space-4); border: 1px solid var(--c-ink); background: var(--c-plate); color: var(--c-ink); }
+  .list :global(.photo:focus-visible), .sent :global(input:focus-visible), .sent :global(button:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
 </style>

@@ -7473,23 +7473,7 @@
         }
       }
     },
-    "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "https://aquatome.com/id/kebijakan-privasi/#nhan-dien-ca"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "https://aquatome.com/th/privacy/#nhan-dien-ca"
-          }
-        }
-      }
-    },
-    "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan": {
+    "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan": {
       "localizations": {
         "id": {
           "stringUnit": {
@@ -7505,7 +7489,7 @@
         }
       }
     },
-    "https://aquatome.com/vi/lien-he/": {
+    "https://aquatome.com/lien-he/": {
       "localizations": {
         "id": {
           "stringUnit": {
@@ -7517,6 +7501,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/contact/"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kebijakan-privasi/#nhan-dien-ca"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/privacy/#nhan-dien-ca"
           }
         }
       }

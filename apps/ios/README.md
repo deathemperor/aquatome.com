@@ -30,6 +30,12 @@ guesses as the site shows them, each page opening in the app. Signed out, the si
 25 s on the Worker, so the request waits 65 s and the screen says so after the first seconds; meanwhile the photo can't
 be changed, so its guesses come in under it.
 
+The site's Vietnamese pages may be under "/vi/" ("/vi/ca/ca-neon/") or at the root ("/ca/ca-neon/"), Indonesian and Thai
+staying under "/id/" and "/th/" (`PathForm`; the sections the site's `VI_SECTIONS` lists). The app index's own paths
+say which: the app looks up every page path in that form, a link or a kept path in the other finding its page too, and
+when the index's form changes it moves what it keeps by path (the reading list, the pages kept for offline and their
+shards) to it, either way (`HandbookPaths`); the form is saved once all of it has moved, so a move cut short runs again.
+
 Signing in (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
 the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no Google SDK (the size
 budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth 2.0 for installed
@@ -59,7 +65,8 @@ Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`Plu
 `-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
 And for the handbook: `-fixed-handbook` gives a small fixed index and guide pages (`HandbookIndex.fixture`), with
 `-whats-new` the site's what's new too (`HandbookIndex.fixtureLatest`), and each of the site's web pages opens as a
-stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com.
+stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com. With `-vi-at-root` too, the same
+index and pages have their Vietnamese pages at the root, as the site has them once it takes "/vi" out of their addresses.
 
 ## The app
 

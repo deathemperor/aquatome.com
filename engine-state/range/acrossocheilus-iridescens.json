@@ -1,0 +1,95 @@
+{
+  "id": "acrossocheilus-iridescens",
+  "native": {
+    "input": "9fe17770c48ccc0b",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Acrossocheilus iridescens is a barred cyprinid known from Laos, northern Vietnam, Yunnan province in southwestern China and Hainan Island.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Acrossocheilus iridescens is a barred cyprinid known from Laos, northern Vietnam, Yunnan province in southwestern China and Hainan Island.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Acrossocheilus iridescens is a barred cyprinid known from Laos, northern Vietnam, Yunnan province in southwestern China and Hainan Island.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the Nam Xam and Nam Ma basins in Laos, the Red River basin in Vietnam and Yunnan province, southwestern China, plus Hainan Island, although some populations are of questionable taxonomic status.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Nam Xam",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the Nam Xam and Nam Ma basins in Laos, the Red River basin in Vietnam and Yunnan province, southwestern China, plus Hainan Island, although some populations are of questionable taxonomic status.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Nam Ma",
+        "source": "seriouslyfish",
+        "quote": "This species is known from the Nam Xam and Nam Ma basins in Laos, the Red River basin in Vietnam and Yunnan province, southwestern China, plus Hainan Island, although some populations are of questionable taxonomic status.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Hainan Island",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Nodoa, Hainan Island, China', and the species sensu stricto may actually be restricted to Hainan.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acrossocheilus iridescens",
+    "status": "ACCEPTED",
+    "taxonKey": 2366427,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "VN",
+      "CN"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}
