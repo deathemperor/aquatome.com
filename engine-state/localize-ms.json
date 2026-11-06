@@ -1,4 +1,23 @@
 {
+  "astronotus-ocellatus": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Oscar",
+    "confidence": "high",
+    "score": 0.55,
+    "notes": [
+      "Item 2: 'Minimum tank size: 65 gallons (about 250 litres)' – 65 US gal ≈ 246 L, so this is fine; but 'Tank level: Top, mid-dweller' is rendered 'Bahagian atas dan tengah', which is acceptable. No fix needed here.",
+      "Item 14: the English contains stray Vietnamese '(cá Jack Dempsey)', '(cá Convict)', '(cá đô la bạc)'. The Malay drops them but adds 'ikan dolar perak'. Use the trade name 'Silver Dollar' alone or add the Malay gloss consistently.",
+      "Item 14: 'tumbuhan akuatik hidup yang berakar' is fine, but 'kebanyakannya cepat membesar' changes 'many' into 'most of them'. Use 'ramai'/'banyak yang'.",
+      "Item 17: 'akuarium awam serta kedai ikan hiasan sering ditawarkan lebih banyak ikan' is garbled. Say 'akuarium awam dan kedai kerap ditawarkan ikan lebih banyak daripada yang mampu ditampung'.",
+      "Item 17: 'induk' for parents and 'substrate-spawner' translated as 'bertelur di atas permukaan' is OK. But 'mempunyai nilai komersial yang rendah' is fine; 'dijaga dan diberi makan dengan betul' adds 'dijaga'. Use 'dikondisikan' (conditioned) instead.",
+      "Item 11: 'ikan bilis/anak ikan' for whitebait is imprecise. Use 'ikan bilis' only or 'whitebait'. 'makanan hidup atau sejuk beku' is OK.",
+      "Item 12: 'cacing darah' is fine, but 'karnivor tulen' for 'serious carnivores' is slightly changed. Use 'karnivor tegar'.",
+      "Item 7: 'heaterstat' is rendered 'pemanas (termostat pemanas)', which is confusing. Use 'pemanas bertermostat' or 'heater'.",
+      "Item 2: 'Care: Advanced' rendered 'Lanjutan (sukar)' adds 'sukar' and is unnatural. Use 'Mahir/Lanjutan'.",
+      "Item 6: the Malay omits the volume note '(~143 US gal)', which is fine as an imperial figure. No fix needed."
+    ]
+  },
   "betta-splendens": {
     "at": "2026-11-06",
     "from": "2026-11-01",
@@ -16,6 +35,17 @@
       "Item 18: 'Brine shrimp' rendered 'Artemia' and 'Glassworm' left in English; add Malay/hobby equivalents e.g. 'cacing kaca'. 'flake' left in English in several items; 'serpihan' is common alternative.",
       "Item 27: 'Tukar air perlu dibuat dalam kuantiti kecil' awkward; 'sehingga telur betina habis' ok. 'milt' left untranslated - use 'sperma/air mani ikan'.",
       "Item 29: 'turquoise' rendered 'biru firus' fine; 'oren' fine. Item 21/22: 'Species with body shapes ... ' in 22 omits 'similar' mismatch: English says 'body shapes or trailing finnage' (to avoid), MS adds 'serupa' – an added qualifier that is not in the source."
+    ]
+  },
+  "neocaridina-davidi": {
+    "at": "2026-11-06",
+    "from": "2026-10-28",
+    "name": "Udang Neocaridina",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "\"bersalin kulit (molting)\": \"bersalin\" usually means giving birth. Hobbyists more commonly write \"menyalin kulit\" or \"tukar kulit\". Minor.",
+      "\"zukini\": the usual Malaysian spelling is \"zucchini\" or \"zuchini\". Minor."
     ]
   },
   "paracheirodon-axelrodi": {
@@ -59,6 +89,40 @@
       "#10: \"tangki bertumbuhan dengan tumbuhan terapung\" is awkward. Use \"tangki bertumbuhan dengan tumbuhan terapung\" or \"tangki yang ditanam dengan tumbuhan akuatik termasuk tumbuhan terapung\".",
       "#20: \"agresif\" for \"vigorous\" shifts the meaning towards aggression. Use \"bertenaga/gigih\" for the males' pursuit.",
       "#13: \"flake\" is left in English. Use \"serpihan\" or \"makanan kepingan (flake)\"."
+    ]
+  },
+  "pterophyllum-scalare": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Ikan Angel",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 2: \"Adults reach 15 cm in body length and 20 cm or more in height\" is rendered accurately, but \"Sungai Amazon, Essequibo, Oyapock\" adds \"Sungai\" only to Amazon. Write \"Sungai Amazon, Sungai Essequibo, Sungai Oyapock\" or drop it for all.",
+      "Item 7: \"Tanam tumbuhan akuatik dengan lebat\" is an awkward imperative for \"Well planted\". Use \"Ditanam dengan padat dengan tumbuhan...\". \"digemari\" is also stiff for \"preferred\"; use \"lebih sesuai\".",
+      "Item 10: \"akan menerima pelet atau flake\" leaves \"flake\" in English. Use \"pelet atau serpihan (flake)\". \"menerima\" is also literal; use \"boleh diberi/menjamah\".",
+      "Item 12: \"pasti akan terbentuk sepasang\" keeps the source's overconfident \"sure to form\". Soften it to \"biasanya akan terbentuk\" or keep it as is, but check that it reads naturally. \"bertelur\" for \"spawning\" is fine, but \"papila genital ... kelihatan ketika bertelur\" is OK.",
+      "Item 4/5: \"lembangan utama Amazon\" is fine, but \"Timur Jauh\" and \"dalam hobi ini\" are literal. Prefer \"Asia Timur\" and \"dalam dunia hobi akuarium\".",
+      "Item 3: \"munisipaliti\" is a stiff loanword. Use \"perbandaran\" or \"daerah\" Santa Isabel.",
+      "Item 13: \"induk yang baik\" for \"good parents\" is fine, but \"ditukar kepada makanan anak ikan komersial\" is awkward. Use \"beralih kepada makanan anak ikan yang dijual di pasaran\"."
+    ]
+  },
+  "puntius-titteya": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Cherry Barb",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
+  },
+  "symphysodon-aequifasciatus": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Discus",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [
+      "Item 8: 'terkenal sebagai yang paling cantik' weakens 'legendarily most beautiful'. Consider 'dikatakan legenda sebagai yang paling cantik' or 'terkenal secara legenda sebagai yang paling cantik'."
     ]
   },
   "trigonostigma-heteromorpha": {

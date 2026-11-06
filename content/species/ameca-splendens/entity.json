@@ -10,6 +10,76 @@
     "mexico",
     "ameca"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Río Ameca"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The butterfly goodeid, Ameca splendens, is a livebearer from the Río Ameca drainage in Jalisco, Mexico, and the neighbouring Sayula valley.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Río Ameca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347699,
+      "total": 40,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MX",
+          38
+        ],
+        [
+          "JP",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -115.3125,
+          35.15625,
+          1,
+          0
+        ],
+        [
+          -105.46875,
+          19.6875,
+          5,
+          5
+        ],
+        [
+          -104.0625,
+          19.6875,
+          33,
+          33
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

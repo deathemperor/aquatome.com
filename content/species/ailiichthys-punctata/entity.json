@@ -13,6 +13,77 @@
     "indus",
     "bangladesh"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "BD",
+        "NP"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Indus",
+        "Jumna"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Pakistan and India.",
+          "countries": [
+            "PK",
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Reported from Bangladesh.",
+          "countries": [
+            "BD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: The species is widespread across northern India, Bangladesh, Nepal and Pakistan, however it is likely that overexploitation is a major threat to the species, but due to lack of data the level of population decline cannot be estimated.",
+          "countries": [
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is known from the Ganges-Brahmaputra and Indus river drainages in the northern part of the Indian subcontinent.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Brahmaputra",
+            "Indus"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Jumna at and below Delhi, also in the lower Punjaub rivers.",
+          "countries": [],
+          "regions": [
+            "Jumna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341634,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
