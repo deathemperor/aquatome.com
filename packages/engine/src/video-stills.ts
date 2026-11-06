@@ -18,17 +18,24 @@ export type StillDeps = Pick<ImageDeps, 'frames' | 'grab' | 'faces'> & {
   look: WatermarkDeps['look']
   now: () => Date
 }
-/** Per guide: when its stills were last worked on, and the stills that stay storyboard tiles for good (by `t`, with why). */
-export type StillsState = Record<string, { at: string; kept?: Record<string, string>; failed?: string }>
+/**
+ * Per guide: when its stills were last worked on, whether their `t` are the seconds they show (`timed`), and the stills
+ * that stay storyboard tiles for good (by `t`, with why).
+ */
+export type StillsState = Record<string, { at: string; timed?: true; kept?: Record<string, string>; failed?: string }>
 type Moment = NonNullable<NonNullable<GuideEntity['video']>['figures']>[number]['moments'][number]
 
 const SHARP = /-hd\.webp$/
+/** A still's address before 2026-11-07, `t<t>.webp` or `t<t>-hd.webp`: the `t` it was given, its tile k ÷ fps. */
+const BY_FPS = /\/t(\d+)(?:-hd)?\.webp$/
 const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.fromEntries(Object.entries(o).sort(([a], [b]) => (a < b ? -1 : 1))), null, 2)}\n`
 
 /**
- * Older video guides' stills were storyboard tiles (320 or 160 px). Each becomes the video's own frame at the second its
- * tile shows, uploaded as `t<t>-hd.webp`; its `t`, caption and place stay. A frame is checked against its tile before
- * anything else, then screened as the stills of a new guide are, before it is uploaded:
+ * Older video guides' stills were storyboard tiles (320 or 160 px), and their `t` was the tile k ÷ fps, up to 16 s
+ * early on a long video. First each still's `t` becomes the second its tile shows, worked out from the number in its
+ * address, so doing it twice changes nothing; a guide with nothing else to do goes first. Then each tile becomes the
+ * video's own frame at that second, uploaded as `at<t>-hd.webp`; its `t`, caption and place stay. A frame is checked
+ * against its tile before anything else, then screened as the stills of a new guide are, before it is uploaded:
  * - a face in it (macOS Vision): the still leaves the page, since the tile only hid the person;
  * - text on it: the old still's watermark verdict holds when the model gave one, else the model judges the frame now; a
  *   watermark takes the still off the page and onto `_photo-rejected.json`. Its text and verdict go into
@@ -47,14 +54,17 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
   const hashes = await json<Record<string, string>>(file('content', 'picture-hashes.json'))
   const today = d.now().toISOString().slice(0, 10)
 
-  // Guides with a still that is still a tile and not kept as one; one that failed before goes after the others.
-  const queue: { id: string; e: GuideEntity }[] = []
+  // Guides with a still that is still a tile and not kept as one, or stills not yet timed; timing alone first, and one
+  // that failed before after the others.
+  const queue: { id: string; e: GuideEntity; tiles: boolean }[] = []
   for (const id of (await readdir(file('content', 'guides')).catch(() => [] as string[])).filter(x => x.startsWith('youtube-')).sort()) {
     if (o.only && !o.only.includes(id)) continue
     const e = JSON.parse(await readFile(file('content', 'guides', id, 'entity.json'), 'utf8')) as GuideEntity
-    if ((e.video?.figures ?? []).some(f => f.moments.some(m => !SHARP.test(m.url) && !(String(m.t) in (state[id]?.kept ?? {}))))) queue.push({ id, e })
+    const all = (e.video?.figures ?? []).flatMap(f => f.moments)
+    const tiles = all.some(m => !SHARP.test(m.url) && !(String(m.t) in (state[id]?.kept ?? {})))
+    if (tiles || (!state[id]?.timed && all.some(m => BY_FPS.test(m.url)))) queue.push({ id, e, tiles })
   }
-  queue.sort((a, b) => Number(!!state[a.id]?.failed) - Number(!!state[b.id]?.failed))
+  queue.sort((a, b) => Number(!!state[a.id]?.failed) - Number(!!state[b.id]?.failed) || Number(a.tiles) - Number(b.tiles))
 
   const dir = await mkdtemp(join(tmpdir(), 'aq-stills-'))
   let inARow = 0
@@ -62,27 +72,51 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
   try {
     for (const { id, e } of queue.slice(0, o.limit ?? queue.length)) {
       const v = e.video!
-      const kept: Record<string, string> = { ...state[id]?.kept }
-      const fail = (why: string) => { report.failed.push(`${id}: ${why}`); state[id] = { at: today, ...(Object.keys(kept).length ? { kept } : {}), failed: why }; worked = true }
+      let kept: Record<string, string> = { ...state[id]?.kept }
+      let timed = !!state[id]?.timed
+      const record = () => ({ at: today, ...(timed ? { timed: true as const } : {}), ...(Object.keys(kept).length ? { kept } : {}) })
+      const fail = (why: string) => { report.failed.push(`${id}: ${why}`); state[id] = { ...record(), failed: why }; worked = true }
+      const save = (figures: NonNullable<typeof v.figures>) => writeFile(file('content', 'guides', id, 'entity.json'), `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...v, figures } }), null, 2)}\n`)
 
       let frames: VideoFrames
       try { frames = await d.frames(v.youtubeId) } catch (err) {
         if (throttled(err)) { report.stopped = (err as Error).message; break }
         fail((err as Error).message.slice(0, 160)); continue
       }
-      if (!frames.stream) { fail('no stream to take frames from'); continue }
+
+      // 0. Each still's t: the second its tile shows, from the t its address keeps (the kept tiles' too).
+      let figures = v.figures!
+      let retimed = 0
+      if (!timed && figures.some(f => f.moments.some(m => BY_FPS.test(m.url)))) {
+        const sb = frames.storyboard
+        if (!sb) { fail('no storyboard to time the stills by'); continue }
+        const to = new Map<number, number>()
+        figures = figures.map(f => ({ ...f, moments: f.moments.map(m => {
+          const n = BY_FPS.exec(m.url)?.[1]
+          const t = n === undefined ? m.t : tileTime(sb, Number(n))
+          to.set(m.t, t)
+          if (t === m.t) return m
+          retimed++
+          return { ...m, t }
+        }) }))
+        kept = Object.fromEntries(Object.entries(kept).map(([t, why]) => [String(to.get(Number(t)) ?? t), why]))
+      }
+      timed = true
+      if (!frames.stream) {
+        if (retimed) await save(figures)
+        fail('no stream to take frames from'); continue
+      }
 
       // 1. The frame at each tile's second, when it shows the tile's moment.
       const grabbed: { m: Moment; hd: Uint8Array; png: string }[] = []
       let left = 0
-      for (const m of (v.figures ?? []).flatMap(f => f.moments)) {
+      for (const m of figures.flatMap(f => f.moments)) {
         if (SHARP.test(m.url) || String(m.t) in kept) continue
         if (m.url in rejected) { kept[String(m.t)] = 'rejected'; continue } // never given a new address that escapes it
-        const at = frames.storyboard ? tileTime(frames.storyboard, m.t) : m.t
         try {
-          const hd = await sharpFrame(d.grab, frames.stream, at, await d.get(m.url))
+          const hd = await sharpFrame(d.grab, frames.stream, m.t, await d.get(m.url))
           inARow = 0
-          if (!hd) { kept[String(m.t)] = `the frame at ${at} s isn't the tile's moment`; report.kept.push(`${id} t${m.t}`); continue }
+          if (!hd) { kept[String(m.t)] = `the frame at ${m.t} s isn't the tile's moment`; report.kept.push(`${id} t${m.t}`); continue }
           const png = join(dir, `${id}-${m.t}.png`)
           await writeFile(png, hd)
           grabbed.push({ m, hd, png })
@@ -133,19 +167,16 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       for (const { m, hd } of grabbed) {
         const entry = entries.get(m)
         if (!entry) continue
-        const s = await d.media.put(`video/${v.youtubeId}/t${m.t}-hd.webp`, hd)
+        const s = await d.media.put(`video/${v.youtubeId}/at${m.t}-hd.webp`, hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
         swap.set(m, { ...m, url: s.url, width: s.width, height: s.height })
       }
-      const figures = v.figures!.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo)
-      if (swap.size || drop.size) {
-        await writeFile(file('content', 'guides', id, 'entity.json'), `${JSON.stringify(GuideSchema.parse({ ...e, video: { ...v, figures } }), null, 2)}\n`)
-        changed = true
-      }
-      state[id] = { at: today, ...(Object.keys(kept).length ? { kept } : {}) }
+      if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
+      if (swap.size || drop.size) changed = true
+      state[id] = record()
       worked = true
-      report.done.push(`${id}: ${swap.size} sharp, ${drop.size} dropped, ${Object.keys(kept).length} kept as tiles${left ? `, ${left} for next run` : ''}`)
+      report.done.push(`${id}: ${retimed ? `${retimed} retimed, ` : ''}${swap.size} sharp, ${drop.size} dropped, ${Object.keys(kept).length} kept as tiles${left ? `, ${left} for next run` : ''}`)
     }
   } finally {
     await rm(dir, { recursive: true, force: true })

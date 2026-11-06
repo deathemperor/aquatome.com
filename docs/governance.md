@@ -445,8 +445,13 @@ The layers above still check the result.
   - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
     YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
     shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
-    `t<sec>-hd.webp` with its 480 px copy. A tile's second is its number × YouTube's interval (2, 5 or 10 s), not the
-    `t` written from yt-dlp's tiles ÷ duration, which runs up to 16 s early on a long video, often another scene.
+    `at<sec>-hd.webp` with its 480 px copy. A tile's second is its number × YouTube's interval (2, 5 or 10 s), not its
+    number ÷ yt-dlp's tiles-per-second, which runs up to 16 s early on a long video, often another scene.
+    - A still's `t`, the "▶ mm:ss" under it and the second the video plays from (on the page and in the app), is that
+      second (`video-images.test.ts`). Stills stored before carry the early one and their address keeps it (`t<t>.webp`,
+      `t<t>-hd.webp`): `pnpm engine video-stills` sets each guide's from those addresses, once (`timed` in
+      `engine-state/_video-stills.json`; twice would change nothing), guides with nothing else to do first. Found
+      2026-11-06: the labels and the play buttons were up to 16 s early.
     - A frame that can't be had leaves the tile, and `pnpm engine video-stills` (the Mac's video job, 12 guides a run)
       tries it again, as it does for the guides written before (2026-11-06: 3,682 stills, half of them 160 px).
     - It screens a frame as a new guide's, before uploading it: a face takes the still off the page; text keeps the

@@ -504,7 +504,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   if (r.stopped) console.log(`stopped: ${r.stopped}`)
 } else if (cmd === 'video-stills') {
-  // Older video guides' stills (storyboard tiles) become the video's own frames, screened as a new guide's (video-stills.ts).
+  // Older video guides' stills (storyboard tiles) become the video's own frames, screened as a new guide's, and their
+  // times the seconds they show (video-stills.ts).
   const r = await videoStills(ROOT, {
     frames: ytFrames, grab: ytGrab, faces: visionFaces, read: files => visionText(files), media: media(), now: () => new Date(),
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
