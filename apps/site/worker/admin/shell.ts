@@ -15,20 +15,21 @@ export const NAV = [
   ['/_ab/anh-ban-doc/', 'Ảnh bạn đọc'],
   ['/_ab/an-trang/', 'Ẩn trang'],
   ['/_ab/tai-khoan/', 'Tài khoản · Bình luận'],
+  ['/_ab/bao-cao/', 'Báo cáo hằng ngày'],
 ] as const
 export type AdminPath = (typeof NAV)[number][0]
 /**
- * The scoreboard and the daily report's log (worker/daily) are on the web dashboard only, outside NAV: NAV is also the
- * section list the iOS app draws (dashboard.ts SECTIONS, protocols/owner-dashboard*.json), which belongs to the app's
- * contract. The rail adds them.
+ * The scoreboard is on the web dashboard only, outside NAV: NAV is also the section list the iOS app draws (dashboard.ts
+ * SECTIONS, protocols/owner-dashboard*.json), which belongs to the app's contract. The rail adds it.
  */
 export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
+/** The daily report's log and its delivery (worker/daily), a section of the app's too. */
 export const REPORT_PATH = '/_ab/bao-cao/'
 export const REPORT_NAME = 'Báo cáo hằng ngày'
-export type WebPath = AdminPath | typeof SCOREBOARD_PATH | typeof REPORT_PATH
-/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections, the daily report. */
-const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1), [REPORT_PATH, REPORT_NAME]]
-/** Every page of the web dashboard, the ones the app doesn't list included. */
+export type WebPath = AdminPath | typeof SCOREBOARD_PATH
+/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections (the daily report last). */
+const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1)]
+/** Every page of the web dashboard, the one the app doesn't list included. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
 /** Their keys. A key's page, the pages under it (one report) and its JSON form (thanh-cong.json) are the dashboard's. */

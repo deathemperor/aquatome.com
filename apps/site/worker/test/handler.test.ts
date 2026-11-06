@@ -118,7 +118,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
   const { ADMIN_PAGES } = await import('../dashboard')
   const { db, owner, reader, app } = await signedIn()
   const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc', ASSETS: assets } as Partial<Env>)
-  expect(ADMIN_PAGES).toHaveLength(11)
+  expect(ADMIN_PAGES).toHaveLength(12)
   // Nobody, the old token cookie, another reader's account, the owner's app session (a bearer), and the owner's cookie
   // under the dashboard token as a bearer (a bearer is read first, and opens no page).
   const visits: Record<string, string>[] = [browser, { ...browser, cookie: 'ab_token=tok' }, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }, { ...browser, authorization: 'Bearer tok', cookie: owner }]
@@ -135,7 +135,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
       }
     }
     if (h.authorization !== 'Bearer tok') expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(404)
-    for (const p of ['/_ab/photos', '/_ab/hidden']) expect((await handle(new Request(`https://x.test${p}`, { method: 'POST', body: new URLSearchParams({ id: 'x', url: '/ca/x/', action: 'hide' }), headers: h }), e)).status, p).toBe(404)
+    for (const p of ['/_ab/photos', '/_ab/hidden', '/_ab/bao-cao/cai-dat']) expect((await handle(new Request(`https://x.test${p}`, { method: 'POST', body: new URLSearchParams({ id: 'x', url: '/ca/x/', action: 'hide', push: '1' }), headers: h }), e)).status, p).toBe(404)
     expect((await handle(get('/_ab/something-else/', h), e)).status).toBe(404)
     // The build's content stats (scripts/content-stats.ts) are a file in /_ab/: the Worker answers first, and never with it.
     expect((await handle(get('/_ab/content.json', h), e)).status).toBe(404)
