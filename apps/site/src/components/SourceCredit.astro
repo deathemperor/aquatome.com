@@ -6,9 +6,8 @@ const { source, url, sources, video, refs } = Astro.props
 const name = sources[source]?.name ?? source
 const { t } = i18n(Astro.url)
 ---
-{source === 'aquatome' ? <p class="credit">{t('AquaTome tổng hợp từ')} <a href="#nguon">{t('{n} nguồn', { n: refs?.length ?? 0 })}</a> {t('rồi tự viết')}</p>
-  : video
-  ? <p class="credit">{t('Bài viết của AquaTome, dựa trên video của')} <a href={video.channelUrl} rel="noopener">{video.channel}</a></p>
+{/* AquaTome's own guides, a video's among them, name no author or channel here: their sources are the page's list (#nguon), the video first. */}
+{source === 'aquatome' || video ? <p class="credit">{t('AquaTome tổng hợp từ')} <a href="#nguon">{t('{n} nguồn', { n: (video ? 1 : 0) + (refs?.length ?? 0) })}</a> {t('rồi tự viết')}</p>
   : <p class="credit">{t('Theo')} <a href={url} rel="noopener">{name}</a></p>}
 <style>
   .credit { font-size: var(--step--1); color: var(--c-ink-faint); margin: 0; }

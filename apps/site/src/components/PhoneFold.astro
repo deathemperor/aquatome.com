@@ -1,0 +1,33 @@
+---
+/**
+ * A section's text folded under its heading on a phone, the heading a row that opens it; open on a computer, where the
+ * heading reads as it always did. In the HTML it is open (search, the page's Markdown copy and readers without the script
+ * get it all); the script closes it on a phone. `on` false: the heading and the text, unchanged.
+ */
+interface Props { on: boolean }
+---
+{Astro.props.on ? (<>
+  <details class="fold" open>
+    <summary><slot name="head" /><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
+    <slot />
+  </details>
+  <script is:inline>(function (d) { var m = matchMedia('(max-width: 860px)'); var set = function () { d.open = !m.matches }; set(); m.addEventListener('change', set); d.firstElementChild.addEventListener('click', function (e) { if (!m.matches) e.preventDefault() }) })(document.currentScript.previousElementSibling)</script>
+</>) : (<><slot name="head" /><slot /></>)}
+<style>
+  .fold { grid-column: 1; }
+  summary { position: relative; display: block; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  /* Over the section's own heading margin (.body h2): the row's spacing is the summary's. */
+  .fold > summary > :global(h2) { margin: 0; }
+  .fold[open] > summary { margin-bottom: var(--space-3); }
+  .chev { display: none; }
+  @media (max-width: 860px) {
+    summary { display: flex; align-items: center; min-height: 2.75rem; cursor: pointer; }
+    /* The heading's rule runs the row's width, its words clear of the chevron; closed, the row needs no rule of its own
+       (handbook.css draws it, hence its weight here). */
+    summary > :global(h2) { flex: 1; padding-right: 2.75rem; }
+    :global(:root:not(#_)) .fold:not([open]) > summary > :global(h2) { border-bottom: 0; padding-bottom: 0; }
+    .chev { display: block; position: absolute; right: var(--space-2); top: calc(50% - 8px); color: var(--c-ink-soft); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+    .fold[open] .chev { transform: rotate(180deg); }
+  }
+</style>

@@ -12,6 +12,7 @@ const { t } = i18n(Astro.url)
   <h2 id="rp-h">{t('Ảnh bạn đọc')}</h2>
   <ul class="list" data-list></ul>
   <button type="button" class="more" data-more hidden>{t('Xem thêm')}</button>
+  <div class="invite">
   <p class="empty" data-empty>{t('Chưa có ảnh nào. Bạn nuôi {name}? Gửi một tấm ảnh cho mọi người cùng xem.', { name })}</p>
   <details class="send">
     <summary>{t('Gửi ảnh {name} của bạn', { name })}</summary>
@@ -26,6 +27,7 @@ const { t } = i18n(Astro.url)
       <p class="rules">{t('Không cần tài khoản. Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.')}</p>
     </form>
   </details>
+  </div>
 </section>
 <script>
   import { mountReaderPhotos } from '../scripts/reader-photos'
@@ -51,6 +53,10 @@ const { t } = i18n(Astro.url)
   .empty, .rules { color: var(--c-ink-soft); }
   .list + .more { margin-top: var(--space-4); border: 1px solid var(--c-ink); background: var(--c-plate); color: var(--c-ink); }
   .send { margin-top: var(--space-4); max-width: var(--measure); }
+  /* No photos yet: the line and the send button are one invitation, set apart from the discussion's own empty line below. */
+  .invite:has(> .empty:not([hidden])) { max-width: var(--measure); padding: var(--space-4); border: 1px dashed var(--c-ink-faint); background: var(--c-plate); }
+  .invite > .empty { margin: 0; }
+  .invite:has(> .empty:not([hidden])) > .send { margin-top: var(--space-3); }
   .send summary { display: inline-block; cursor: pointer; min-height: 44px; line-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--c-ink); background: var(--c-plate); font-weight: 600; }
   /* Not while `hidden` (no Turnstile, or the phone check on): a display of its own would show it anyway. */
   form:not([hidden]) { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); margin-top: var(--space-4); }

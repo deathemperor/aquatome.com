@@ -20,6 +20,22 @@ export const isoDuration = (sec: number) => `PT${Math.floor(sec / 3600) ? `${Mat
 
 export const watchUrl = (id: string, start = 0) => `https://www.youtube.com/watch?v=${id}${start ? `&t=${start}s` : ''}`
 
+/** A first chapter that only lists the others ("Chapters cuz uncle MJ cares about your time", "Mục lục video"). */
+const INDEX = /^\s*(m[ụu]c l[ụu]c|chapters?\b|table of contents|timestamps?\b)/i
+
+/**
+ * A video's chapters as a guide lists them (VideoPlayer, its schema.org clips, the app's copy), each with where it ends:
+ * the creator's own titles, or the guide's, one per chapter, when it has them all; a first chapter that only lists the
+ * others left out.
+ */
+export function guideChapters(v: NonNullable<GuideEntity['video']>, titles: string[] = []) {
+  const ours = titles.length === v.chapters.length
+  return v.chapters
+    .map((c, i) => ({ start: c.start, end: v.chapters[i + 1]?.start ?? v.durationSec, title: ours ? titles[i]! : c.title, index: c.start === 0 && (INDEX.test(c.title) || (ours && INDEX.test(titles[i]!))) }))
+    .filter(c => !c.index)
+    .map(({ index: _, ...c }) => c)
+}
+
 /**
  * The video's thumbnail as the guide's picture (share preview), credited to the channel. Card thumb: hqdefault (480×360,
  * letterboxed 16:9), which a 16:9 box with object-fit: cover crops to exactly the picture.
