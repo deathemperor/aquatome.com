@@ -275,7 +275,8 @@ struct NativePage: View {
     // A species' credit goes under its facts, as on the site's page.
     if !species, !doc.credit.isEmpty { out.append(credit) }
     if let v = doc.video {
-      var cap = styled("\(v.title) · \(v.channel) · \(clock(v.durationSec))")
+      // No channel: a page names no YouTube channel (the owner, 2026-11-06); its sources, the video first, say whose it is.
+      var cap = styled("\(v.title) · \(clock(v.durationSec))")
       if let s = v.subtitles { cap += styled("\n" + s, .caption.bold()) }
       for ch in v.chapters ?? [] {
         // The link its line alone, not the line break before it: tapped and read where it shows.
