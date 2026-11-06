@@ -423,6 +423,8 @@ ${tiles(runTiles(k))}<p class="note">${RUNS_NOTE}</p>`
 const RECENT_HEAD = ['Lúc', 'Kết quả', 'Loại', 'Đoán nhiều nhất', 'Chắc', 'Token vào', 'Token ra', 'Chi phí', 'ms', 'Key', 'Lần gọi', 'Agent: lượt Claude · công cụ · ảnh', 'Từ', 'Nước']
 /** The agent's calls to Claude, tool calls and reference photos (fishid/log.ts). */
 const agentText = (c: Call) => `${fmt(c.turns)} · ${fmt(c.tools)} · ${fmt(c.refs)}`
+/** Why it stopped, and when its first answer, too unsure, was sent back to look again. */
+const stoppedText = (c: Call) => `${STOPPED[c.stopped] ?? c.stopped}${c.rechecked ? ' · xem lại một lần' : ''}`
 const RECENT_NONE = 'Chưa có lượt nào được ghi.'
 /** A call's best guess: its page when the catalog has one, else the name and why there is no link. */
 function guessOf(c: Call, pages: Map<string, string>): Cell {
@@ -433,7 +435,7 @@ function guessOf(c: Call, pages: Map<string, string>): Cell {
 const recentCells = (c: Call, pages: Map<string, string>, now: Date, tz: string): Cell[] => [
   { text: timeText(c.t, tz, now) }, { text: OUTCOME[c.outcome] ?? c.outcome }, { text: VERDICT[c.verdict] ?? (c.verdict || '—') }, guessOf(c, pages),
   { text: c.guesses ? `${fmt(c.conf * 100)}%` : '—' }, { text: fmt(c.tin) }, { text: fmt(c.tout) }, { text: c.usd ? usd(c.usd) : '—' }, { text: fmt(c.ms) },
-  { text: c.key || '—' }, { text: fmt(c.attempts) }, c.stopped ? { text: agentText(c), sub: STOPPED[c.stopped] ?? c.stopped } : { text: '—' }, { text: FROM[c.from] ?? (c.from || '—') }, { text: c.country || '—' },
+  { text: c.key || '—' }, { text: fmt(c.attempts) }, c.stopped ? { text: agentText(c), sub: stoppedText(c) } : { text: '—' }, { text: FROM[c.from] ?? (c.from || '—') }, { text: c.country || '—' },
 ]
 function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: string): string {
   const guess = (c: Call) => {
@@ -442,7 +444,7 @@ function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: strin
     const name = `<i class="sci">${esc(c.sci)}</i>`
     return url ? `<a href="${esc(withoutVi(url))}">${name}</a>` : c.page ? `${name} <span class="muted">(${esc(c.page)})</span>` : `${name} <span class="muted">· chưa có trang</span>`
   }
-  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${c.stopped ? `${esc(agentText(c))} <span class="muted">${esc(STOPPED[c.stopped] ?? c.stopped)}</span>` : '—'}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
+  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${c.stopped ? `${esc(agentText(c))} <span class="muted">${esc(stoppedText(c))}</span>` : '—'}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
   return `<div class="scroll"><table class="wide"><thead><tr>${RECENT_HEAD.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="${RECENT_HEAD.length}" class="none">${RECENT_NONE}</td></tr>`}</tbody></table></div>`
 }
 
