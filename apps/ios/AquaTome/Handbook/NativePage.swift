@@ -189,9 +189,10 @@ struct NativePage: View {
       DisclosureGroup {
         Text(text).lineSpacing(3).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 12)
       } label: {
-        Text(heading).accessibilityAddTraits(.isHeader)
+        // In the text's colour, as the page's other headings: only the chevron in the tint, which the links in the
+        // text keep too.
+        Text(heading).foregroundStyle(Color.primary).accessibilityAddTraits(.isHeader)
       }
-      .tint(.primary)
       .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
       .id(anchor ?? "piece-\(i)")
       .accessibilityIdentifier("page-fold")
@@ -305,24 +306,30 @@ struct NativePage: View {
       for b in doc.blocks { if case .trust = b { add(b, to: &out) } }
       if !doc.credit.isEmpty { out.append(credit) }
     }
-    // A species' parts in the order its reader asks (rank): the summary, the care text, the photos, the videos, its
-    // readers, where to go next, its sources. Its climate and tank-mates go in the text, at the end of the section they
-    // answer (slot). A paragraph before a species' summary and sections is the tank-mates tool's link, sent alone when the
-    // page shows no tank-mates: it goes where they would. A guide's parts as written.
+    // A species' parts in the order its reader asks (rank); a guide's as written. A fish's page (one with tank-mates or
+    // the tank-mates tool's link, which a breed's hasn't) reads as the site's on a phone: the summary, the care text,
+    // then its photos (`answerFirst`), its climate and tank-mates at the end of the sections they answer (slot). The
+    // tool's link is a paragraph before the summary and sections, sent alone when the page shows no tank-mates: it goes
+    // where they would. A plant's or a breed's: the summary, a breed's line before it (its parents), the photos, the text.
     let lead = doc.blocks.firstIndex { if case .summary = $0 { true } else if case .heading = $0 { true } else { false } } ?? doc.blocks.count
     let slot = { (i: Int) -> String? in
       switch doc.blocks[i] {
       case .climate: "waterConditions"
       case .mates: "behaviour"
-      case .paragraph where i < lead: "behaviour"
+      // The tool's link alone (fishDoc's), not a breed's line naming its parents.
+      case let .paragraph(runs) where i < lead && runs.count == 1 && runs[0].href != nil: "behaviour"
       default: nil
       }
     }
+    let answerFirst = doc.kind == "fish" && doc.blocks.indices.contains { slot($0) != nil }
+    let rank = { (b: PageDoc.Block, i: Int) in Self.rank(b, answerFirst: answerFirst, lead: species && i < lead) }
     var order = doc.blocks.indices.map { $0 }
     if species {
-      order = order.filter { slot($0) == nil }.sorted { (rank(doc.blocks[$0]), $0) < (rank(doc.blocks[$1]), $1) }
-      let slotted = doc.blocks.indices.filter { slot($0) != nil }.sorted { (sectionOrder.firstIndex(of: slot($0)!)!, $0) < (sectionOrder.firstIndex(of: slot($1)!)!, $1) }
-      for i in slotted { order.insert(i, at: place(slot(i)!, in: order.map { doc.blocks[$0] })) }
+      order = order.filter { !answerFirst || slot($0) == nil }.sorted { (rank(doc.blocks[$0], $0), $0) < (rank(doc.blocks[$1], $1), $1) }
+      if answerFirst {
+        let slotted = doc.blocks.indices.filter { slot($0) != nil }.sorted { (sectionOrder.firstIndex(of: slot($0)!)!, $0) < (sectionOrder.firstIndex(of: slot($1)!)!, $1) }
+        for i in slotted { order.insert(i, at: place(slot(i)!, in: order.map { doc.blocks[$0] })) }
+      }
     }
     var readers = doc.talk.map { Piece.readers($0, name: doc.title) }
     var webBefore = false
@@ -330,28 +337,28 @@ struct NativePage: View {
     while at < order.count {
       let b = doc.blocks[order[at]]
       at += 1
-      if species, rank(b) > 3, let r = readers { out.append(r); readers = nil }
+      if species, rank(b, order[at - 1]) > 6, let r = readers { out.append(r); readers = nil }
       // A run of parts it can't draw is one offer of the web page.
       if case .web = b { if !webBefore { out.append(.web) }; webBefore = true; continue }
       webBefore = false
       if species, case .trust = b { continue }
-      // "Thông tin nhanh" folded under its heading, when all of it is text: its blocks up to the next heading or the
-      // climate or tank-mates put after it.
-      if species, case let .heading(text, id) = b, id == "muc-quickFacts" {
+      // A fish's "Thông tin nhanh" folded under its heading, as the site's page on a phone has it, when all of it is
+      // text: its blocks up to the next heading, photo, or climate or tank-mates put after it. Else open, as it was.
+      if answerFirst, case let .heading(text, id) = b, id == "muc-quickFacts" {
         var part: [Piece] = []
-        while at < order.count, slot(order[at]) == nil, rank(doc.blocks[order[at]]) == 1 {
-          if case .heading = doc.blocks[order[at]] { break }
-          add(doc.blocks[order[at]], to: &part)
-          at += 1
+        var end = at
+        while end < order.count, slot(order[end]) == nil, rank(doc.blocks[order[end]], order[end]) == 3 {
+          if case .heading = doc.blocks[order[end]] { break }
+          if case .figure = doc.blocks[order[end]] { break }
+          add(doc.blocks[order[end]], to: &part)
+          end += 1
         }
         let texts = part.compactMap { if case let .text(t, _, _) = $0 { t } else { nil } }
         if !part.isEmpty, texts.count == part.count {
           out.append(.fold(styled(text, .pageHeading), anchor: id, texts.dropFirst().reduce(texts[0]) { $0 + AttributedString("\n\n") + $1 }))
-        } else {
-          add(b, to: &out)
-          out += part
+          at = end
+          continue
         }
-        continue
       }
       let before = out.count
       add(b, to: &out)
@@ -367,14 +374,16 @@ struct NativePage: View {
   private static let sectionOrder = ["quickFacts", "beforeYouBuy", "aquariumSize", "waterConditions", "maintenance", "equipment", "diet", "behaviour",
                                      "dimorphism", "reproduction", "distribution", "habitat", "notes", "references"]
 
-  /// Where a part that answers section `key` goes among a species' blocks, as the site's page puts it (Sections.astro): at
-  /// the end of that section; else where it would be, before the first section that comes after it (one the order
-  /// doesn't name, such as the wild range, counts as after); else at the end of the care text.
+  /// Where a part that answers section `key` goes among a fish's blocks (in rank order), as the site's page puts it
+  /// (Sections.astro): at the end of that section, before the photo the site puts between it and the next; else where it
+  /// would be, before the first section that comes after it (one the order doesn't name, such as the wild range, counts
+  /// as after); else at the end of the care text.
   private static func place(_ key: String, in blocks: [PageDoc.Block]) -> Int {
     let mine = sectionOrder.firstIndex(of: key)!
     var inside = false
     for (i, b) in blocks.enumerated() {
-      if rank(b) > 1 { return i }
+      if rank(b, answerFirst: true, lead: false) > 3 { return i }
+      if inside, case .figure = b { return i }
       guard case let .heading(_, id) = b, let id, id.hasPrefix("muc-") else { continue }
       let k = String(id.dropFirst(4))
       if inside { return i }
@@ -384,18 +393,20 @@ struct NativePage: View {
     return blocks.count
   }
 
-  /// Where a species' block goes: the answer first (the summary), then the care text, its photos (after the text, as the
-  /// site's page on a phone has them), its videos, where to go next, its sources last.
-  private static func rank(_ b: PageDoc.Block) -> Int {
+  /// Where a species' block goes: the answer first (the summary), then the text; a fish's photos after it, as the site's
+  /// page on a phone has them (`answerFirst`), a plant's or breed's before it, after a breed's line under its summary
+  /// (`lead`: a paragraph before the summary and sections); then its videos, where to go next, its sources last.
+  private static func rank(_ b: PageDoc.Block, answerFirst: Bool, lead: Bool) -> Int {
     switch b {
     case .summary: 0
-    case .gallery: 2
-    case .videos: 3
-    case .cards: 4
-    case .pages: 5
-    case .refs: 6
-    case .trust: 7
-    default: 1
+    case .paragraph where lead: 1
+    case .gallery: answerFirst ? 4 : 2
+    case .videos: 6
+    case .cards: 7
+    case .pages: 8
+    case .refs: 9
+    case .trust: 10
+    default: 3
     }
   }
 

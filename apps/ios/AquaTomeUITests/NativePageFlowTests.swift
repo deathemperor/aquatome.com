@@ -216,11 +216,12 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists)
   }
 
-  /// A fish's page as the site writes it for the app, in the order its reader asks: where it's from and its other names
-  /// under its name, the sources behind its figures under its facts (as the site's data card has them), the summary as
-  /// one paragraph with the mistakes keepers make, the Vietnamese climate, its tank-mates (its temperament and smallest
-  /// school first), its gallery (each photo credited) before the detail, as the web page has it, its videos, its
-  /// breeds, then the sources' terms, last. Each is found further down than the one before (`reveal` only scrolls
+  /// A fish's page as the site writes it for the app, in the order the site's page on a phone has it: where it's from
+  /// and its other names under its name, the sources behind its figures under its facts (as the site's data card has
+  /// them, the dot only where their gap matters), the summary as one paragraph with the mistakes keepers make, the care
+  /// text ("Thông tin nhanh" folded, the Vietnamese climate at the end of the water section, its tank-mates where "Nuôi
+  /// chung" is or would be, its temperament and smallest school first), its gallery (each photo credited) after the
+  /// text, its videos, its breeds, then the sources' terms, last. Each is found further down than the one before (`reveal` only scrolls
   /// down). All of it drawn: no part left to the web.
   func testAFishIsDrawnByTheAppWithEachOfItsParts() {
     let app = launch()
@@ -395,6 +396,8 @@ final class NativePageFlowTests: XCTestCase {
     openItem(app, "rotala", "Rotala đỏ")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the plant isn't drawn by the app")
     XCTAssertTrue(text(app, "Tên khác: Rotala tròn lá").exists, "no other names")
+    // A plant's "Thông tin nhanh" open, as the site's plant page has it: only a fish's folds.
+    XCTAssertTrue(text(app, "Cây thân mọc nhanh").exists, "a plant's quick facts folded")
     XCTAssertTrue(text(app, "Cần ánh sáng mạnh").exists)
     app.navigationBars.buttons.element(boundBy: 0).tap()
     let field = app.searchFields.firstMatch
