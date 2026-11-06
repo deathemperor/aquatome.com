@@ -88,13 +88,21 @@ The table's nine blocks come as four, so the Worker fills each from data the app
   client's tank check of the link's fish, as the tool's page draws it.
 - Suggestions → the turn's `suggestions`, not a block.
 
-## Open, for the leads
+## Decided with the leads (2026-11-07)
 
-- **Blocks filled by the Worker, or references the client fills.** The contract has the Worker fill them, as fish ID
-  links its guesses: both clients draw the same thing, and an app with an old index still shows today's figures. The
-  cost: the site draws `page.schema.json` blocks in its chat, which today only the app does.
-- **The conversation kept by the Worker for 24 hours** under the account, rather than sent back by the client each
-  turn: a client can't put words in Claude's mouth, and a reader's later question needs no history in the request.
-  It needs storage keyed by the conversation (R2 or KV, no D1 table).
-- **What fish ID hands over:** its guesses' names, page ids and confidence (`identified`), not the photo.
-- **Limits and timing** (`perAccount`, `maxTurns`, 60 s a turn) are placeholders until the eval of real questions.
+- **The Worker fills the blocks** from published data, as fish ID links its guesses: both clients show the same
+  figures, and an app with an old index still shows today's. A `section` carries the page's blocks for the app, and the
+  site's chat draws it from the web page itself, from the heading's id to the next heading. Every heading the app's
+  copy of a page has is on the web page with the same id (`apps/site/test/chat-sections.test.ts`), so the two hold.
+- **The Worker keeps a conversation for 24 hours** under the account, so a client can't send forged earlier turns, and
+  later questions carry no history. It lives in R2, which reads its own writes (KV can show a stale conversation for
+  up to a minute at another location, as when a phone changes networks between turns), under its own prefix with a
+  1-day lifecycle rule. The 365-day transcripts are kept apart.
+- **Signed-in only**, the site's page same-origin with the session cookie and no Turnstile, the app with its bearer;
+  counted per account on fish ID's ledger, under the site's dollar cap.
+- **A retry with the same `Idempotency-Key` while the run is still answering waits for it** and gets its turn,
+  counted once: the phone drops the stream when the reader leaves the app mid-answer, and resends on return.
+- **`done` replaces what was streamed**: the app draws the turn again from it.
+- **Fish ID hands over its guesses** (`identified`), not the photo.
+- **The limits and the 60 s a turn are placeholders** until the eval of real questions sets them.
+- **The app** syncs the account before the first question, and starts a new conversation when the account changes.

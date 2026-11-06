@@ -116,7 +116,9 @@ that would have caught it).
     (`protocols/chat-stream-*.sse`, `chat-rate.json`) of its shape, with each section's blocks of the page schema's, the
     text before the blocks and `done` holding the same text, blocks and steps, and the contract naming each; a stream
     with an event after its end, a block or tool it doesn't know, a card with a figure the app index doesn't have, or a
-    section with no blocks refused (`apps/site/worker/test/chat-stream.test.ts`).
+    section with no blocks refused (`apps/site/worker/test/chat-stream.test.ts`); every heading in the app's copy of a
+    page on the built web page with the same id, where the site's chat draws a section from
+    (`apps/site/test/chat-sections.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
