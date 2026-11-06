@@ -14,6 +14,18 @@
       "kind": "form"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/303370503.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/303370503-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/303370503",
+      "caption": "Cá midas đỏ cam bơi giữa đá trong bể lớn",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/081f3cce87ebe2d5.webp",
       "thumb": "https://media.aquatome.com/commons/081f3cce87ebe2d5-480.webp",
       "width": 1200,
@@ -24,6 +36,18 @@
       "caption": "Cá midas cam bơi trong bể cây xanh",
       "best": true,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/346195128.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/346195128-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Татьяна Максимова",
+      "sourceUrl": "https://www.inaturalist.org/photos/346195128",
+      "caption": "Nhóm cá midas cam trong bể có đá và lũa",
+      "best": true,
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/fc8a8970863c4886.webp",
@@ -58,6 +82,18 @@
       "author": "Cangadoba",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amphilophus_705.jpg",
       "caption": "Cá midas màu cam có u trán nổi bật bơi trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/303370476.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/303370476-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/303370476",
+      "caption": "Cá midas đỏ cam có u trán trong bể có lũa",
       "best": true,
       "kind": "form"
     },
@@ -98,6 +134,18 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/636367237.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/636367237-480.webp",
+      "width": 1019,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Meng-Chi Hung",
+      "sourceUrl": "https://www.inaturalist.org/photos/636367237",
+      "caption": "Cá midas cam bơi ở mép nước hoang dã",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/230425642fcdc2de.webp",
       "thumb": "https://media.aquatome.com/commons/230425642fcdc2de-480.webp",
       "width": 1024,
@@ -134,14 +182,14 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/commons/1f843db94c2c4396.webp",
-      "thumb": "https://media.aquatome.com/commons/1f843db94c2c4396-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/111129249.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/111129249-480.webp",
       "width": 1024,
-      "height": 672,
-      "licence": "CC BY 3.0",
-      "author": "Doronenko",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amphilophus_citrinellus_02.jpg",
-      "caption": "Cá midas vàng có đốm đen bên thân trong bể",
+      "height": 683,
+      "licence": "CC0",
+      "author": "Adam Jackson",
+      "sourceUrl": "https://www.inaturalist.org/photos/111129249",
+      "caption": "Cá midas màu cam bơi trong nước hồ",
       "best": false,
       "kind": "other"
     },
@@ -156,6 +204,18 @@
       "caption": "Cá midas màu cam đốm trắng trong bể",
       "best": false,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1f843db94c2c4396.webp",
+      "thumb": "https://media.aquatome.com/commons/1f843db94c2c4396-480.webp",
+      "width": 1024,
+      "height": 672,
+      "licence": "CC BY 3.0",
+      "author": "Doronenko",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amphilophus_citrinellus_02.jpg",
+      "caption": "Cá midas vàng có đốm đen bên thân trong bể",
+      "best": false,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/ed76101b1748ade6.webp",
@@ -230,7 +290,7 @@
       "kind": "form"
     }
   ],
-  "seen": 26,
-  "updatedAt": "2026-11-03",
-  "builtAt": "2026-11-03"
+  "seen": 46,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }
