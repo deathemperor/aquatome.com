@@ -15,7 +15,7 @@ notes: up to 6 short, concrete problems (in English), quoting the phrase. Empty 
 const WRITE_SCHEMA = { type: 'object', required: ['html'], properties: { html: { type: 'string' } } }
 const CHECK_SCHEMA = { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } }
 /** AquaTome's own text is credited to its about page, as its own photos are (own-photos.ts). */
-const ABOUT = 'https://aquatome.com/vi/gioi-thieu/'
+export const ABOUT = 'https://aquatome.com/vi/gioi-thieu/'
 
 /**
  * Words that say where or how a plant is planted ("vùi", "buộc lên lũa", "trồng xuống nền", "thả nổi"), in its

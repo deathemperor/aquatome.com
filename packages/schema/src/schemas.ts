@@ -14,10 +14,14 @@ const Range = z.object({ min: z.number(), max: z.number() })
  * `hidden`: why the build leaves this figure off the card (`pnpm engine sweep`: outside sane bounds, upside down, or a
  * minimum tank shorter than twice the fish). The figure stays here, with its source, for a person to look at.
  */
-const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional() })
+/**
+ * `ref`: a figure AquaTome researched (source 'aquatome'), the page in the species' `refs` it comes from.
+ */
+const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), ref: z.number().int().nonnegative().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
-const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string() })
+/** `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from. */
+const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional() })
 /** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */
 const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
@@ -77,11 +81,24 @@ export const RangeSchema = z.object({
   if (native.size && cells.reduce((s, c) => s + (c[3] ?? 0), 0) !== countries.reduce((s, [c, n]) => s + (native.has(c) ? n : 0), 0)) fail('the cells\' records inside don\'t add up to the native countries\' records')
 })
 
+/** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
+const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
+/**
+ * `refs`: a species no licensed source covers, written by AquaTome from web research (engine species-research.ts): the
+ * pages its facts come from. Each of its sections and figures names the ones it rests on, so no AquaTome figure is uncited.
+ */
 export const SpeciesSchema = z.object({
   id: z.string(), scientificName: z.string(), order: z.string(), family: z.string(), genus: z.string(), group: z.string(),
   lNumber: z.string().optional(), places: z.array(z.string()), range: RangeSchema.optional(),
   dataCard: z.partialRecord(DataCardField, z.array(SourcedValue)),
   sections: z.array(Section), photos: z.array(Photo), videos: z.array(Video), productSlots: z.array(ProductSlot), updatedAt: z.string(),
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(),
+}).superRefine((e, ctx) => {
+  const n = e.refs?.length ?? 0
+  for (const [field, vs] of Object.entries(e.dataCard)) for (const v of vs ?? []) {
+    if (v.source === 'aquatome' && (v.ref === undefined || v.ref >= n)) ctx.addIssue({ code: 'custom', message: `an AquaTome ${field} figure that names no page in refs` })
+  }
+  for (const x of e.sections) if (x.refs?.some(i => i >= n)) ctx.addIssue({ code: 'custom', message: `a ${x.key} section citing a page refs doesn't have` })
 })
 
 export const PlantSchema = z.object({
@@ -95,6 +112,10 @@ export const PlantSchema = z.object({
   light: z.enum(['low', 'medium', 'high']), co2: z.enum(['none', 'optional', 'required']), growth: z.enum(['slow', 'medium', 'fast']),
   placement: z.array(z.enum(['foreground', 'midground', 'background', 'epiphyte', 'floating'])),
   sections: z.array(Section), photos: z.array(Photo), productSlots: z.array(ProductSlot), updatedAt: z.string(),
+  /** The pages AquaTome's own text on the plant was written from (a species-profile video, engine species-videos.ts), as a species' `refs`. */
+  refs: z.array(z.object({ url: WebUrl, title: z.string().min(1) })).optional(),
+}).superRefine((e, ctx) => {
+  for (const x of e.sections) if (x.refs?.some(i => i >= (e.refs?.length ?? 0))) ctx.addIssue({ code: 'custom', message: `a ${x.key} section citing a page refs doesn't have` })
 })
 
 /**
@@ -179,8 +200,6 @@ export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a
 const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional() })
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
-/** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
-const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })
 /**
  * One product (brand + model), the same in every language and market: its specs and variants, each fact pointing at the
