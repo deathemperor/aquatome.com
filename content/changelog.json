@@ -2,6 +2,20 @@
   {
     "date": "2026-11-06",
     "kind": "species",
+    "id": "nanosphronemus-gemma",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "nanosphronemus-gemma",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
     "id": "synodontis-ocellifer",
     "source": "glaser",
     "action": "new"
@@ -3482,20 +3496,6 @@
     "date": "2026-11-04",
     "kind": "species",
     "id": "hepsetus-odoe",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hemiodus-unimaculatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hemigrammus-vorderwinkleri",
     "source": "seriouslyfish",
     "action": "new"
   }
