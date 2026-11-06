@@ -46,7 +46,10 @@ final class HandbookFlowTests: XCTestCase {
     for name in ["Cá đĩa", "Cá neon", "Cá ngựa vằn"] { XCTAssertTrue(item(app, name).waitForExistence(timeout: 5), name) }
     XCTAssertFalse(item(app, "Rotala đỏ").exists, "a plant among the fish")
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    shelf(app, "Hậu cảnh").tap()
+    // Below the tools and the fish (a lazy list draws only what's on screen).
+    let back = shelf(app, "Hậu cảnh")
+    repeatUntil(back.exists && back.isHittable, times: 4) { app.swipeUp() }
+    back.tap()
     XCTAssertTrue(item(app, "Rotala đỏ").waitForExistence(timeout: 5))
     XCTAssertFalse(item(app, "Cá đĩa").exists)
   }
@@ -338,12 +341,70 @@ final class HandbookFlowTests: XCTestCase {
   }
 
   /// `text` reads at least 4.5:1 on what's behind it, once the screen is still: the ratio is in the test's log.
-  private func readsClearly(_ app: XCUIApplication, _ text: XCUIElement, _ what: String) {
+  /// `inset`: points left out at each edge of `text`'s box (a list cell's rounded corners, which show the list behind).
+  private func readsClearly(_ app: XCUIApplication, _ text: XCUIElement, _ what: String, inset: CGFloat = 0) {
     let until = Date().addingTimeInterval(1)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
-    let ratio = contrast(app, text)
+    let ratio = contrast(app, text, inset: inset)
     XCTContext.runActivity(named: String(format: "%@: %.2f:1", what, ratio)) { _ in }
     XCTAssertGreaterThanOrEqual(ratio, 4.5, "\(what) reads \(ratio):1")
+  }
+
+  // The owner's ask: the tools a tap from Tìm's first screen, fish ID leading them as a card, then the others as tiles by
+  // their short names (the tabs' tools, the lights and the tanks, not repeated); not at the bottom of the shelves any more.
+  func testTheToolsLeadTimWithFishIdThenTheirTiles() {
+    let app = launch()
+    let card = app.buttons["tool-fish-id"]
+    XCTAssertTrue(card.waitForExistence(timeout: 5), "no fish ID card")
+    XCTAssertTrue(card.isHittable, "fish ID not on the first screen")
+    XCTAssertEqual(card.label, "Đây là cá gì?, Chụp hoặc chọn ảnh: cá, tép, ốc hay cây")
+    let tiles = app.buttons.matching(identifier: "tool-tile")
+    XCTAssertTrue(tiles.firstMatch.waitForExistence(timeout: 5), "no tiles")
+    XCTAssertEqual(tiles.allElementsBoundByIndex.map { $0.label }, ["Nuôi chung", "Thể tích bể", "Dự toán chi phí"], "not the index's tools, by their short names")
+    // Two to a row, under the card.
+    let f = tiles.allElementsBoundByIndex.map { $0.frame }
+    XCTAssertEqual(f[0].minY, f[1].minY, accuracy: 1, "not side by side")
+    XCTAssertLessThan(f[0].maxX, f[1].minX)
+    XCTAssertGreaterThan(f[2].minY, f[0].maxY, "a third in the first row")
+    XCTAssertGreaterThan(f[0].minY, card.frame.maxY, "the tiles above the card")
+    card.tap()
+    XCTAssertTrue(app.navigationBars["Đây là cá gì?"].waitForExistence(timeout: 5), "fish ID didn't open")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tiles.element(boundBy: 1).tap()
+    XCTAssertTrue(app.navigationBars["Bể bao nhiêu lít?"].waitForExistence(timeout: 5), "not the volume tool's screen")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tiles.element(boundBy: 2).tap()
+    XCTAssertTrue(app.webViews.staticTexts["/vi/cong-cu/du-toan-be/"].waitForExistence(timeout: 10), "not the budget tool's page")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    // At the bottom of the shelves, no tools section any more.
+    let contact = app.descendants(matching: .any)["contact"]
+    repeatUntil(contact.exists && contact.isHittable, times: 30) { app.swipeUp() }
+    XCTAssertTrue(contact.isHittable, "the bottom of the shelves not reached")
+    for name in ["Đèn Chihiros", "Bể của tôi", "Bể bao nhiêu lít?", "Đây là cá gì?"] {
+      XCTAssertFalse(item(app, name).exists, "\(name) still listed at the bottom")
+    }
+  }
+
+  func testAtTheLargestTextTheToolTilesAreOneToARow() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    let tiles = app.buttons.matching(identifier: "tool-tile")
+    XCTAssertTrue(tiles.firstMatch.waitForExistence(timeout: 5), "no tiles")
+    let f = tiles.allElementsBoundByIndex.map { $0.frame }
+    XCTAssertEqual(f.count, 3)
+    XCTAssertEqual(f[0].minX, f[1].minX, accuracy: 1, "two to a row")
+    XCTAssertGreaterThan(f[1].minY, f[0].maxY - 1)
+  }
+
+  // The card is filled with the accent colour: dark green in light mode, light green in dark, where white words would
+  // read 1.7:1. Measured inside the card, clear of its cell's rounded corners (the list behind them is black in dark).
+  func testTheFishIdCardsWordsReadOnItsFill() { cardReadsClearly(launch()) }
+
+  func testTheFishIdCardsWordsReadOnItsFillInTheDark() { cardReadsClearly(launch("-dark")) }
+
+  private func cardReadsClearly(_ app: XCUIApplication) {
+    let card = app.buttons["tool-fish-id"]
+    XCTAssertTrue(card.waitForExistence(timeout: 5), "no fish ID card")
+    readsClearly(app, card, "the fish ID card", inset: 12)
   }
 
   func testTheGlossaryGoesByLetter() {
@@ -575,10 +636,10 @@ final class HandbookFlowTests: XCTestCase {
 
   /// How `text` reads on what's behind it, as WCAG measures contrast: its most contrasting pixel against the colour most
   /// of its box is (a chip's fill, for its count).
-  private func contrast(_ app: XCUIApplication, _ text: XCUIElement) -> Double {
+  private func contrast(_ app: XCUIApplication, _ text: XCUIElement, inset: CGFloat = 0) -> Double {
     guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return 0 }
     let scale = CGFloat(shot.width) / app.frame.width
-    let f = text.frame
+    let f = text.frame.insetBy(dx: inset, dy: inset)
     guard let box = shot.cropping(to: CGRect(x: f.minX * scale, y: f.minY * scale, width: f.width * scale, height: f.height * scale).integral)
     else { return 0 }
     let w = box.width, h = box.height
