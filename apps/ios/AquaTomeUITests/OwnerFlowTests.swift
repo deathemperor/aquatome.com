@@ -43,6 +43,38 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertFalse(approve.exists, "still waiting to be approved")
   }
 
+  // A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
+  func testALongCellShowsTwoLinesUntilTapped() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    section(app, "Nội dung")
+    // The video guide's three notes, the first with `&` and `<don't>` in it, as written.
+    let notes = app.buttons.matching(NSPredicate(format: "identifier == 'owner-fold' AND label CONTAINS 'Phụ đề tự động' AND label CONTAINS %@",
+                                                 "Keep them hedged & <don't> give")).firstMatch
+    XCTAssertTrue(notes.waitForExistence(timeout: 10), "no notes cell")
+    XCTAssertTrue(notes.label.contains("Xem thêm") && notes.label.contains("Đánh giá bài viết từ video, 03/11 · 3 nhận xét"), notes.label)
+    // Down the section to its table, then across it to the notes' column.
+    let window = app.windows.firstMatch.frame
+    for _ in 0..<20 where !notes.isHittable {
+      let f = notes.frame
+      if f.midY > window.maxY - 120 { app.swipeUp() } else if f.midY < window.minY + 160 { app.swipeDown() } else {
+        let row = app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.width * 0.85, dy: f.minY + 10))
+        row.press(forDuration: 0.05, thenDragTo: row.withOffset(CGVector(dx: -window.width * 0.6, dy: 0)))
+      }
+    }
+    XCTAssertTrue(notes.isHittable, "the notes cell isn't on screen")
+    let folded = notes.frame.height
+    notes.tap()
+    let opened = expectation(for: NSPredicate(format: "label CONTAINS 'Thu gọn'"), evaluatedWith: notes)
+    wait(for: [opened], timeout: 5)
+    XCTAssertGreaterThan(notes.frame.height, folded * 2, "not all of it")
+    notes.tap()
+    let closed = expectation(for: NSPredicate(format: "label CONTAINS 'Xem thêm'"), evaluatedWith: notes)
+    wait(for: [closed], timeout: 5)
+    XCTAssertEqual(notes.frame.height, folded, accuracy: 1, "not two lines again")
+  }
+
   func testRemovingAReadersPhotoAsksFirst() {
     let app = launch()
     signIn(app)

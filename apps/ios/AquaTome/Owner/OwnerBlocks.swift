@@ -136,8 +136,10 @@ struct OwnerDraw {
     return AnyView(DisclosureGroup { grid } label: { Text(verbatim: folded) })
   }
 
-  /// A cell: its text (a link's in the tint), its second line smaller.
+  /// A cell: its text (a link's in the tint), its second line smaller. A long one (a review's notes run to some 4 KB, a
+  /// note a line) shows two lines until tapped, as the web's does.
   private func cell(_ c: Owner.Link) -> AnyView {
+    if c.to == nil, c.title.count > 60 || c.title.contains("\n") { return AnyView(Capped(width: 240) { OwnerFold(cell: c) }) }
     var t = Text(verbatim: c.title).foregroundStyle(c.to != nil ? Color.accentColor : c.tone.color)
     if let s = c.text { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
     return go(c.to, AnyView(Capped(width: 240) { t.accessibilityLabel(Text(verbatim: said(c.title, c.text, c.tone.said))) }), "")
@@ -182,6 +184,37 @@ struct OwnerDraw {
     case nil: break
     }
     return id.isEmpty ? out : AnyView(out.accessibilityIdentifier(id))
+  }
+}
+
+/// A long cell: two lines of its text, all of it once tapped ("Xem thêm" only when there's more), the line under it
+/// always.
+private struct OwnerFold: View {
+  let cell: Owner.Link
+  @State private var open = false
+  /// The text's height as shown, and all of it at the same width.
+  @State private var shown: CGFloat = 0
+  @State private var full: CGFloat = 0
+
+  var body: some View {
+    let text = Text(verbatim: cell.title).foregroundStyle(cell.tone.color)
+    let more = open || full > shown + 1
+    Button { open.toggle() } label: {
+      VStack(alignment: .leading, spacing: 2) {
+        text.lineLimit(open ? nil : 2)
+          .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { shown = $0 }
+          .background {
+            text.fixedSize(horizontal: false, vertical: true).hidden()
+              .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { full = $0 }
+          }
+        if more { Text(open ? "Thu gọn" : "Xem thêm").font(.caption.weight(.semibold)).foregroundStyle(Color.accentColor) }
+        if let s = cell.text { Text(verbatim: s).font(.caption).foregroundStyle(.secondary) }
+      }
+      .multilineTextAlignment(.leading)
+    }
+    .buttonStyle(.plain)
+    .disabled(!more)
+    .accessibilityIdentifier("owner-fold")
   }
 }
 
