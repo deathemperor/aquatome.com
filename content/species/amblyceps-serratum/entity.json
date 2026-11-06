@@ -12,6 +12,68 @@
     "cambodia",
     "stung-treng"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "KH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Mekong River drainage of central and southern Laos and Cambodia.",
+          "countries": [
+            "LA",
+            "KH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342855,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          3
+        ],
+        [
+          "LA",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

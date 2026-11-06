@@ -1,0 +1,74 @@
+{
+  "id": "alestopetersius-nigropterus",
+  "native": {
+    "input": "46daf9563aed923e",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African rainbow tetra is an alestid from the Congo River system around Kinshasa, DR Congo, normally traded as Alestopetersius nigropterus.",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently exported from Kinshasa, capital of the Democratic Republic of the Congo and almost certainly native to the Congo river system in the area surrounding the city, although the full extent of its distribution is currently as unclear as its identity (see 'Notes').",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "Apparently exported from Kinshasa, capital of the Democratic Republic of the Congo and almost certainly native to the Congo river system in the area surrounding the city, although the full extent of its distribution is currently as unclear as its identity (see 'Notes').",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Lake Mai-Ndombe",
+        "source": "seriouslyfish",
+        "quote": "A. nigropterus is a valid congener that is not in the aquarium trade, with little to no export from Lake Mai-Ndombe, to which it is endemic, while A. ansorgii is a synonym of Nannopetersius ansorgii.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Alestopetersius nigropterus",
+    "status": "ACCEPTED",
+    "taxonKey": 2356139,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        25
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

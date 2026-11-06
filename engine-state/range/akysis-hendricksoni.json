@@ -1,0 +1,110 @@
+{
+  "id": "akysis-hendricksoni",
+  "native": {
+    "input": "ef9b62b82eca6910",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hendrickson's stream catfish, Akysis hendricksoni, is a small akysid catfish from much of Peninsular Malaysia and the extreme south of Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hendrickson's stream catfish, Akysis hendricksoni, is a small akysid catfish from much of Peninsular Malaysia and the extreme south of Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Sungai Golok, Sungai, Terengganu, Sabak Bernam and Endau basins, peninsular Malaysia and Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Sungai Golok, Sungai, Terengganu, Sabak Bernam and Endau basins, peninsular Malaysia and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Terengganu",
+        "source": "seriouslyfish",
+        "quote": "Described from the 'Trengganu River at Kuala Brang, Trengganu, Malaysia' which corresponds to the the town now known as Kuala Berang on the Sungai (river) Terengganu, Terengganu state, northeastern Peninsular Malaysia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Endau, Sabak Bernam and Golok (aka Kolok) river drainages meaning the species is distributed throughout much of Peninsular Malaysia and into the extreme south of Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Sabak Bernam",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Endau, Sabak Bernam and Golok (aka Kolok) river drainages meaning the species is distributed throughout much of Peninsular Malaysia and into the extreme south of Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Golok",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the Endau, Sabak Bernam and Golok (aka Kolok) river drainages meaning the species is distributed throughout much of Peninsular Malaysia and into the extreme south of Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "scotcat",
+        "quote": "This species is known from the Endau River drainage in southern Peninsular Malaysia northwards to the Mae Nam Kolok (Sungai Golok) drainage in southern Peninsular Thailand.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis hendricksoni",
+    "status": "ACCEPTED",
+    "taxonKey": 2340902,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}
