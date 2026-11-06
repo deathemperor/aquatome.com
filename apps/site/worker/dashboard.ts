@@ -226,7 +226,9 @@ const DAY = /^\d{4}-\d{2}-\d{2}$/
 const RUN_PAGE = /^\/_ab\/nhan-dien-ca\/luot\/(\d{4}-\d{2}-\d{2})\/([0-9a-f-]{36})\/$/
 const runsHtml: Load<string> = async (env, url, now, tz) => {
   const asked = url.searchParams.get('ngay') ?? ''
-  const day = DAY.test(asked) ? asked : now.toISOString().slice(0, 10)
+  // A day as written (2026-11-06) that is a real day; else today's (UTC, as runs are kept).
+  const t = Date.parse(`${asked}T00:00:00Z`)
+  const day = DAY.test(asked) && !Number.isNaN(t) && new Date(t).toISOString().slice(0, 10) === asked ? asked : now.toISOString().slice(0, 10)
   return runsPage(day, env.UPLOADS ? await soft('fish-id runs', listRuns(env.UPLOADS, day)) : unset('R2'), now, tz)
 }
 const runHtml = (day: string, id: string): Load<string | undefined> => async (env, _url, now, tz) => {

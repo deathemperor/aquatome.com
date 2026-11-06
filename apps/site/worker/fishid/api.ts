@@ -416,7 +416,12 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     if (d.status === 200 && retryKey) await env.AB.put(retryKey, JSON.stringify(d.body), { expirationTtl: RETRY_SEC }).catch(() => undefined)
     await Promise.allSettled(spends)
     await ledger.settle({ day, run, refund: d.status === 503, keys: tally.keys, ...(tally.ok ? { ok: tally.ok } : {}), counts: tally.counts }).catch(e => console.error('fish-id settle:', e))
-    if (trail && env.UPLOADS) wait(saveRun(env.UPLOADS, transcript(d, trail)).catch(e => console.error('fish-id transcript:', e)))
+    if (trail && env.UPLOADS) {
+      // Never in the reader's way: a record that can't be made or saved is only logged (its error, never its content).
+      const bucket = env.UPLOADS
+      const t = trail
+      wait(Promise.resolve().then(() => saveRun(bucket, transcript(d, t))).catch(e => console.error('fish-id transcript:', e)))
+    }
     return d
   }
   /** The run as kept a year: what the reader got and how, never who they are (fishid/transcript.ts). */

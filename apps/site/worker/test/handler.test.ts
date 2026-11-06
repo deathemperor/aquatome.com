@@ -565,6 +565,9 @@ test('fish-ID runs: the owner reads a day\'s list, one run\'s turns, and the day
       expect(text).not.toContain(id)
     }
   }
+  // A day that isn't one shows today's (UTC), never an error.
+  const odd = await as('/_ab/nhan-dien-ca/luot/?ngay=2026-13-45')
+  expect([odd.status, (await odd.text()).includes(`Lượt nhận diện ngày ${new Date().toISOString().slice(0, 10)}`)]).toEqual([200, true])
   // A run that isn't kept, or a path that isn't one: not found.
   expect((await as(`/_ab/nhan-dien-ca/luot/2026-11-03/${crypto.randomUUID()}/`)).status).toBe(404)
   expect((await as(`/_ab/nhan-dien-ca/luot/2026-11-3/${id}/`)).status).toBe(404)

@@ -36,6 +36,10 @@ test('a run\'s turns: what Claude thought, wrote and asked for, the tools\' answ
   const failed = turnsOf([first, { role: 'assistant', content: [{ type: 'tool_use', id: 'b', name: 'get_entry', input: { id: 'x' } }] }, { role: 'user', content: [{ type: 'tool_result', tool_use_id: 'b', content: 'shard unreadable', is_error: true }] }])
   expect(failed).toEqual([{ tools: [{ name: 'get_entry', input: { id: 'x' }, result: 'shard unreadable', error: true }] }])
   expect(turnsOf([], answer('{}'))).toEqual([{ thinking: 'Sure now: red patch on the opercle.', text: '{}' }])
+  // An answer sent back for a second look, then kept when what followed failed (the loop's held answer): one turn, not two.
+  const held = answer('{"verdict":"fish","guesses":[]}')
+  const kept = turnsOf([first, { role: 'assistant', content: held.content }, { role: 'user', content: [{ type: 'text', text: 'Your top guess is only 0.45 sure.' }] }], held)
+  expect(kept).toEqual([{ thinking: 'Sure now: red patch on the opercle.', text: '{"verdict":"fish","guesses":[]}', sent: 'Your top guess is only 0.45 sure.' }])
 })
 
 const record = (at: string, id: string, extra: Partial<RunRecord> = {}): RunRecord => ({
@@ -66,9 +70,10 @@ test('the daily cron deletes every day of runs a year old or more, a missed day\
   const r2 = memoryR2(2)
   const now = new Date('2026-11-06T03:00:00Z')
   const day = (back: number) => new Date(now.getTime() - back * 86_400_000).toISOString().slice(0, 10)
-  for (const back of [RUN_DAYS + 3, RUN_DAYS + 1, RUN_DAYS + 1, RUN_DAYS + 1, RUN_DAYS - 1, 0]) await saveRun(r2.bucket, record(`${day(back)}T01:00:00.000Z`, crypto.randomUUID()))
+  for (const back of [RUN_DAYS + 3, RUN_DAYS + 1, RUN_DAYS + 1, RUN_DAYS + 1, RUN_DAYS, RUN_DAYS - 1, 0]) await saveRun(r2.bucket, record(`${day(back)}T01:00:00.000Z`, crypto.randomUUID()))
   await r2.bucket.put('fish-id/anon/00000000-0000-4000-8000-000000000000', new Uint8Array([1]))
-  expect(await sweepRuns(r2.bucket, now)).toBe(4)
+  // A year to the day is gone, so no run outlives its 365 days; the day after it stays.
+  expect(await sweepRuns(r2.bucket, now)).toBe(5)
   expect([...r2.m.keys()].map(k => k.split('/').slice(0, 2).join('/')).sort()).toEqual([`fish-id-runs/${day(0)}`, `fish-id-runs/${day(RUN_DAYS - 1)}`, 'fish-id/anon'].sort())
   expect(await sweepRuns(r2.bucket, now)).toBe(0)
 })

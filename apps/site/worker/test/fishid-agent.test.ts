@@ -218,6 +218,22 @@ test('every run is kept a year as text: the agent asks for its thinking summaris
   const single = JSON.parse(new TextDecoder().decode([...r2b.m.values()][0]!.bytes))
   expect(single).toMatchObject({ outcome: 'ok', turns: [{ text: JSON.stringify(NEON) }] })
   expect(single).not.toHaveProperty('agent')
+  // Streamed (the app's progress): the same, one record when the run ends.
+  const r2c = memoryR2()
+  const { e: s3 } = agentEnv({ UPLOADS: r2c.bucket })
+  const waits3: Promise<unknown>[] = []
+  expect(await (await handle(streamed(), s3, p => { waits3.push(p) }, undefined, deps(claude([() => message(CHECKED, 'end_turn', usage3)]).fetch))).text()).toContain('event: result')
+  await Promise.all(waits3)
+  expect([...r2c.m.keys()].filter(k => k.startsWith('fish-id-runs/'))).toHaveLength(1)
+  // A bucket that fails to save: the reader's answer as ever, the error logged.
+  const { e: broken } = agentEnv({ UPLOADS: { put: async () => { throw new Error('r2 down') } } })
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const waits4: Promise<unknown>[] = []
+  const res4 = await handle(post(), broken, p => { waits4.push(p) }, undefined, deps(claude([() => message(CHECKED)]).fetch))
+  expect(res4.status).toBe(200)
+  await Promise.all(waits4)
+  expect(errors.mock.calls.some(c => c[0] === 'fish-id transcript:')).toBe(true)
+  errors.mockRestore()
   // No bucket: the identification as before, nothing kept.
   const { e: bare } = agentEnv()
   expect((await run(post(), bare, deps(claude([() => message(CHECKED)]).fetch))).status).toBe(200)

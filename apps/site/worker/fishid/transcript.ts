@@ -87,7 +87,8 @@ export function turnsOf(history: readonly Anthropic.MessageParam[], last?: Anthr
     }
     if (sent.length) t.sent = cut(sent.join('\n\n'), TEXT_MAX)
   }
-  if (last) turns.push(turnOf(last.content))
+  // An answer sent back for a second look and then kept (the loop's held answer) is in the history already: once.
+  if (last && !history.some(m => m.role === 'assistant' && m.content === last.content)) turns.push(turnOf(last.content))
   // The tool_use ids were only for matching.
   for (const t of turns) for (const c of t.tools ?? []) delete (c as Partial<ToolCall & { id: string }>).id
   return turns
@@ -132,7 +133,7 @@ export async function readRun(bucket: R2Bucket, day: string, id: string): Promis
   return o ? (await o.json<RunRecord>()) : null
 }
 
-/** The daily cron: every day's runs older than RUN_DAYS (a missed cron's too). How many deleted. */
+/** The daily cron: every day's runs RUN_DAYS old or more (a missed cron's too), so none outlives its year. How many deleted. */
 export async function sweepRuns(bucket: R2Bucket, now: Date): Promise<number> {
   const cutoff = new Date(now.getTime() - RUN_DAYS * 86_400_000).toISOString().slice(0, 10)
   const days: string[] = []
@@ -141,7 +142,7 @@ export async function sweepRuns(bucket: R2Bucket, now: Date): Promise<number> {
     const page = await bucket.list({ prefix: PREFIX, delimiter: '/', cursor })
     for (const p of page.delimitedPrefixes) {
       const day = p.slice(PREFIX.length, -1)
-      if (DAY.test(day) && day < cutoff) days.push(day)
+      if (DAY.test(day) && day <= cutoff) days.push(day)
     }
     cursor = page.truncated ? page.cursor : undefined
   } while (cursor)
