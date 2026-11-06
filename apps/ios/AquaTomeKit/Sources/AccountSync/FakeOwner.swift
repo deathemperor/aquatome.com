@@ -18,6 +18,8 @@ public final class FakeOwner {
   public var sessionEndsAtNextSection = false
   /// The next read of a section answers 503 `unavailable`, as the Worker does while its storage doesn't answer.
   public var storageDownAtNextSection = false
+  /// The phones the daily report's notifications go to: each token given, with its APNs (`sandbox` or `production`).
+  public private(set) var pushTokens: [String: String] = [:]
   private let replies: [[String: JSON]]
   private var sections: [String: JSON] = [:]
   /// The daily report's delivery, as the vectors' section shows it: email and phone notifications on, to one phone.
@@ -60,9 +62,11 @@ public final class FakeOwner {
       return try json(e["status"]!.int!, b)
     }
     let refused = { () throws -> (Int, Data, String) in
-      // The Worker's own refusal of a request to this path, else of one like it, else a plain one.
+      // The Worker's own refusal of a request to this path (with this method, else another), else of one like it, else a
+      // plain one.
       let refusals = self.replies.filter { $0["status"]?.int == 400 }
-      let e = refusals.first { $0["request"]?.object?["path"]?.string == path }
+      let e = refusals.first { $0["request"]?.object?["path"]?.string == path && $0["request"]?.object?["method"]?.string == method }
+        ?? refusals.first { $0["request"]?.object?["path"]?.string == path }
         ?? refusals.first { ($0["request"]?.object?["path"]?.string).map { self.alike($0, path) } == true }
       return try e?["body"].map { try json(400, $0) } ?? error(400, "bad_request")
     }
@@ -122,6 +126,19 @@ public final class FakeOwner {
       report = (flag(b["email"]) ?? report.email, flag(b["push"]) ?? report.push)
       reportShown()
       return try json(200, .object(["ok": .bool(true), "changed": .bool(report != before), "email": .bool(report.email), "push": .bool(report.push)]))
+    case ("POST", "push-token"), ("DELETE", "push-token"):
+      // As the Worker takes them (protocols/owner-dashboard.openapi.json): lowercase hex of 16 to 100 bytes; POST with the APNs,
+      // DELETE the token alone.
+      let fields: Set<String> = method == "POST" ? ["token", "environment"] : ["token"]
+      guard let b = body?.object, Set(b.keys) == fields, let token = b["token"]?.string, (32...200).contains(token.count), token.count % 2 == 0,
+            token.allSatisfy({ "0123456789abcdef".contains($0) }) else { return try refused() }
+      if method == "POST" {
+        guard let env = b["environment"]?.string, env == "sandbox" || env == "production" else { return try refused() }
+        let changed = pushTokens[token] != env
+        pushTokens[token] = env
+        return try json(200, .object(["ok": .bool(true), "changed": .bool(changed)]))
+      }
+      return try json(200, .object(["ok": .bool(true), "changed": .bool(pushTokens.removeValue(forKey: token) != nil)]))
     default:
       return try error(404, "not_found")
     }

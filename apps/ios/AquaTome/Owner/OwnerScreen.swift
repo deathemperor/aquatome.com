@@ -35,6 +35,8 @@ struct OwnerScreen: View {
             Text(verbatim: problem).foregroundStyle(.red).accessibilityIdentifier("owner-message")
             if let again { Button("Thử lại") { Task { await again() } }.buttonStyle(.bordered).accessibilityIdentifier("owner-again") }
           }
+          // The overview: the daily report on this phone first.
+          if key.isEmpty && shown { OwnerPushRow() }
           if let blocks {
             ForEach(blocks.indices, id: \.self) { draw.block(blocks[$0].0, id: blocks[$0].1) }
           } else if problem == nil && shown {

@@ -43,7 +43,7 @@ export function deliveryNote({ settings: s, phones, keyed }: Delivery): { text: 
   if (!s.push) return { text: `${mail} Thông báo trên điện thoại: đang tắt.`, tone: 'plain' }
   if (phones && keyed) return { text: `${mail} Thông báo trên điện thoại: đang bật, gửi đến ${fmt(phones)} điện thoại.`, tone: 'plain' }
   const missing = [phones ? '' : 'chưa có điện thoại nào đăng ký', keyed ? '' : 'chưa có khóa APNs'].filter(Boolean).join(' và ')
-  const todo = phones ? '' : ' Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo trên máy này”.'
+  const todo = phones ? '' : ' Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo báo cáo trên máy này”.'
   return { text: `${mail} Thông báo trên điện thoại: đang bật, nhưng ${missing} nên chưa gửi được.${todo}`, tone: 'bad' }
 }
 
