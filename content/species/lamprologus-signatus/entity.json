@@ -1,0 +1,186 @@
+{
+  "id": "lamprologus-signatus",
+  "scientificName": "Lamprologus signatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Lamprologus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-tanganyika",
+    "zambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>Neolamprologus signatus is a shell-brooding cichlid endemic to Lake Tanganyika, known from Moba in DR Congo south to Cape Kapembwa in Zambia. Males and females look very different. Males grow larger and have vertical bars on the flanks, and females have none. Only one male should be kept unless the aquarium is large.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>Endemic to Lake Tanganyika. It is known from Moba in DR Congo south to Cape Kapembwa in Zambia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>It inhabits fairly deep water around the shoreline in areas with a soft substrate, where the empty shells of snails collect.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>Standard length: 55 mm SL.</p><p>A tank of 45 cm x 30 cm x 30 cm (40 litres) for a pair or trio. A larger tank is required for a colony.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>The aquarium should have large open areas of sandy substrate to which should be added a good number of empty snail shells (see breeding section below). More shells should be provided than there are individual fish. The substrate should be at least 5 cm deep as this species likes to dig. The water must be hard and alkaline.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>Live and frozen varieties should form the bulk of the diet, although dried foods are usually accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>A territorial species that will defend its shell and the small territory around it vigorously. It can be combined with species that inhabit other areas of the aquarium. Good tankmate choices include rockdwellers such as Neolamprologus brichardi or smaller species of Julidochromis and open water species such as Cyprichromis sp. Only one male should be kept unless the aquarium is large as males are very aggressive towards conspecifics.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>Males grow larger than females and have distinct vertical barring on the flanks, which is lacking in females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<p>Possible. Shell brooder. It may breed in a community situation but if you want to raise a full brood of these a species tank is best. Set up the aquarium as suggested above. Provide plenty of snail shells as the females will lay their eggs in these. Escargot shells are a good choice and can be obtained from most decent delicatessens. Each female will require 4-5 shells. Water should be hard and alkaline with a pH of around 8.0-8.5 and a temperature of 25–26.5°C. The species is most easily bred in a harem situation within which spawning pairs will form weak bonds until their broods are large enough to fend for themselves. The bond is not monogamous and both fish may go on to spawn with other individuals. It's best to keep several females with a single male for breeding purposes. Condition the fish well on a good diet of live and frozen foods. The females will attempt to catch the attention of the male by displaying at the entrance of their chosen shells. When the male is sufficiently interested, the female swims into the shell where she deposits her eggs. She then leaves the shell and the male enters, where he fertilises the eggs. Both parents assist in broodcare, and they will regularly move the entire brood between different shells. The fry are big enough to accept brine shrimp nauplii or microworm once they become free swimming. It is probably better to remove them to a separate rearing tank at this stage to ensure the best survival rate, although the parents do not usually harm them.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-signatus",
+      "html": "<ul><li>Konings, A. (1988). Tanganyika cichlids Verduijn Cichlids and Lake Fish Movies, Zevenhuizen, 1-272</li><li>Ad Konings (2019). Tanganyika Cichlids in their natural habitat, 4th edition Cichlid Press, 380-384</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "466Rsv21I8c",
+      "title": "Neolamprologus signatus Hanging Out",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mrSPJciZX7U",
+      "title": "Danielle with Lamprologus signatus tank - Babies!!!",
+      "durationSec": 460,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "A_YCx_zM9L8",
+      "title": "Neolamprologus signatus with fry",
+      "durationSec": 56,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "-wjfpB-8HC8",
+      "title": "Neolamprologus or Lamprologus signatus fry",
+      "durationSec": 29,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 45cm",
+        "bể cá 40 lít"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cichlid Tanganyika",
+        "vỏ ốc cho cá cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá cichlid",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá 50W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

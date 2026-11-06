@@ -8,15 +8,16 @@
   "places": [
     "asia",
     "sri-lanka",
-    "kottawa-forest"
+    "kottawa-forest",
+    "kelani"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "seriouslyfish",
         "value": {
-          "min": 24,
-          "max": 25
+          "min": 23,
+          "max": 26
         }
       }
     ],
@@ -25,7 +26,7 @@
         "source": "seriouslyfish",
         "value": {
           "min": 5,
-          "max": 7
+          "max": 7.5
         }
       }
     ],
@@ -38,131 +39,204 @@
     "tankCm": [
       {
         "source": "seriouslyfish",
-        "value": 60
+        "value": 90
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
       }
     ]
   },
   "sections": [
     {
-      "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>Channa orientalis is a dwarf snakehead with an average size of about 10 cm, from south-western Sri Lanka and the Kottawa Forest. Several variants exist, including \"Kottawa Forest A\" and \"Kottawa Forest B\", which are best kept separately.</p>"
-    },
-    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>They are occasionally available for sale but tend to command prices of £50+.</p><p>Snakeheads are listed as one of the species to be banned from import under European legislation to help stop the spread of Epizootic Ulcerative Syndrome (EUS). If this happens, snakeheads will become very rare in the hobby because most seen for sale in shops are wild caught and only a few people actively breed them. There is no time scale available for the ban at present. In Scotland, all species of snakeheads require a licence to be kept.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p><p>The Ceylon snakehead, Channa orientalis, is a small snakehead without pelvic fins, endemic to the wet zone of southwestern Sri Lanka. Its name has been widely misapplied to Channa populations elsewhere in South and Southeast Asia, most of them now considered C. gachua. Probably endangered in the wild, it is a paternal mouthbrooder that forms lasting pair bonds, and captive breeding should be the priority when keeping it.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>Endemic to southwestern Sri Lanka where it appears restricted to the so-called 'wet zone' (see Habitat). Confirmed localities are all within the Bentota and Kelani river systems and Kottawa Forest Reserve in Galle district, Southern Province.</p><p>Type locality is given simply as 'Habitat in India orientale', and this appears to have caused confusion regarding the species' distribution with it sometimes said to occur throughout South and Southeast Asia (see Notes).</p><p>In reality it is probably endangered in the wild, and responsible aquarists tend to maintain known collections or variants separately in order to maintain blood lines and prevent population-mixing. Those in the hobby include 'Kottawa A', 'Kottawa B' and 'black fin/flathead'.</p>"
     },
     {
       "key": "habitat",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>The natural habitat of C. orientalis is the slow moving streams and blackwaters of the rainforest. They have been known to survive in quite harsh conditions and, like other members of the genus, are famous for being able to cross areas of damp land in search of new water. They can breathe atmospheric air just like gouramis and Bettas.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>The 'wet zone' of southwestern Sri Lanka is an area receiving annual rainfall of 2000–3000 mm, much of which arrives during the South-West monsoons between March and August. It is a tropical environment with no significant dry spells or climatic changes, and air temperature remains fairly constant throughout the year, ranging from 25–27°C. Such conditions favour development of lowland tropical rainforest at altitudes below 1000 m above sea level.</p><p>In Sri Lanka these forests are found only in the wet zone and they are inhabited by a significant proportion of the country's endemic flora and fauna, with the moist, warm climate and long period of geographic isolation having led to exceptional localised biodiversity.</p><p>Unfortunately the majority of original forest cover has been cleared for plantation agriculture, much of it when the country was under British colonial rule, though a significant portion was also removed during the more-recent civil war, with more than 35% lost between 1990 and 2005. As of 2006 only 4.6% of the old forest was left, with this remainder existing as small, highly-fragmented patches, most covering areas less than 10 km², some of which are now officially-protected reserves.</p><p>Kottawa Forest is one of these and comprises just 15–20 hectares of wet, evergreen jungle, though the combined Kottawa-Kombala forest covers around 1600 ha.</p><p>A number of small, typically shallow streams containing clear or slightly-stained water traverse the reserve and these represent typical habitats of C. orientalis across its range.</p><p>Little sun is able to penetrate the forest floor so aquatic habitats are shaded and water temperature may be relatively cool, while conductivity and hardness are generally low and pH slightly acidic. Macrophytes are uncommon though there may be dense, marginal vegetation, sometimes overhanging the full width of the stream, the roots of which may penetrate the banks underwater. Typical substrates are sandy or silty and often covered by a layer of leaf litter with fallen twigs and branches.</p><p>Sympatric fish species include Rasboroides vaterifloris, Puntius bimaculatus, P. kelumi, P. titteya, Pethia nigrofasciata, Dawkinsia singhala, Schistura notostigma, Mystus vittatus, Aplocheilus werneri, Malpulutta kretseri, and Mastacembelus armatus.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>The author's group was kept in a 60 x 30 x 30 cm tank. The aquarium must be covered; all Channa species can jump out of any gaps.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>Standard length: 100 mm SL (10 cm). Aquarium base: 90 × 30 cm. Volume: about 81 litres.</p><p>An aquarium with base dimensions of at least 90 × 30 cm is recommended.</p><p>Water depth is less important but should not be less than 30 cm.</p>"
     },
     {
       "key": "maintenance",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>The tank was decorated with clay pipes, plastic plants and coconut-shell caves, with filtration from an air-operated sponge filter. The local tap water is so soft that the pH can drop quite rapidly. Many Channa species do not like regular partial water changes or water kept too clean. The best method seems to be a heavily planted tank with little or no filtration, which goes against the grain for \"normal\" fishkeeping.</p><p>A filter is not needed if only C. orientalis are kept in a large enough tank.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>Prefers a dimly-lit aquarium with a layer of surface vegetation such as Ceratopteris spp. plus some submerged cover.</p><p>Driftwood roots and branches can be used and placed in such a way that a few shaded spots are formed, while the addition of dried leaf litter is also recommended.</p><p>It is essential to use a tightly-fitting cover since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p>"
     },
     {
       "key": "waterConditions",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>The pH could range from 5 to 7. The fish were kept at a tropical temperature of about 24-25°C: unlike some other members of the genus, C. orientalis is a true tropical species and not subtropical like Channa bleheri.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 5.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
       "key": "diet",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>The snakeheads were fed a good variety of food, including a staple of granule fish food supplemented with frozen bloodworms, grindalworms and earthworms. They grew quickly under this regime and, with regular water changes, were near breeding size within only a few months.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>An obligate predator which probably feeds on smaller fishes and insects in nature, but in most cases adapts well to dead alternatives in captivity. Some specimens may accept dried foods though these should never form the staple diet.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike, while adults will accept strips of fish flesh, whole prawns, mussels, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction, and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
       "key": "behaviour",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>Until the largest reached about 8 cm the fish were very peaceful, then showed a slight increase in aggression towards each other. They can be kept in a community tank as long as the tank is large enough and the other fish are too large to be eaten. However, a pair that forms to breed may be more aggressive.</p><p>On two occasions a fish that was perfectly healthy one day was found dead and tattered the next. This apparently meant a pair had started to form; the couple could be seen embracing around each other's bodies in an \"S\" shape.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>Best maintained in the absence of other fishes, and captive breeding should be the priority given its conservation status. Nevertheless, C. orientalis can be kept in a well-chosen community arrangement alongside peaceful, non-territorial tankmates that are too large to be viewed as prey.</p><p>Young specimens can be maintained together but usually begin to display aggressive behaviour towards one another as they become sexually mature, although this does vary somewhat between individuals. Should a pair form they are usually peaceful towards one another but hostile to other conspecifics to the extent they may be badly injured or killed.</p>"
     },
     {
       "key": "dimorphism",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>The author could not see any sexual dimorphism between the fish to split them into pairs. At about 8 cm the fish showed some nice blue colours across the fins.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>Adult males tend to be slightly smaller in build and possess more intense colouration in the unpaired fins than females. The colour pattern intensifies further in nuptial individuals.</p>"
     },
     {
       "key": "reproduction",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>The pair was moved to their own 60 x 30 x 30 cm tank with pipes, caves and a thin layer of fine sand, but nothing happened. On advice from an experienced Channa breeder, the author stopped the frequent water changes, added four handfuls of garden soil (free of herbicides and pesticides) and removed the filter, leaving the temperature unchanged. There was barely any ammonia reading despite the sudden addition of organic material. The author would not recommend this procedure for any other genus.</p><p>Within days the fish were embracing again and after a week the male appeared from a cave with a bulging throat, meaning he was brooding eggs. He ate the first four batches, as some mouthbrooders do on early attempts, but eventually held a brood to full term. The incubation period varies between individuals and conditions; fry may be ejected after as little as three or four days or held for as long as ten.</p><p>The fry initially have a distinctive orange dorsal surface. The female feeds the fry by circling over them and laying eggs as a meal. These eggs are small compared to those released during spawning, and the fry gorge on them until their bellies bulge. With the first brood the fry were removed from the parents' tank once they looked for food themselves, yielding eleven young fish; parents seem to produce more as they gain experience. The fry were fed the same food as their parents from about 15 mm.</p><p>When the male brooded again, he released small fry that appeared to leave via his gills. Over fifty fry were counted, but three days later his throat was bulging again; he had collected many of the fry in his mouth and kept them a few days longer.</p><p>Fry removed from the tank early, though fed very well, were at least 25% smaller than siblings left with the adults, probably because the latter were fed by the female with her infertile eggs. The author plans to leave fry with the parents until they are about 3 to 4 cm long.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>This species is a paternal mouthbrooder which forms lasting pair bonds. Unless a proven pair is available it is best to begin with a group of 6–8 young fish and allow them to select their own partners. Once a pair has formed the other fish should ideally be removed after which spawning can be induced by a prolonged period of constant temperature and lack of water changes.</p><p>At the peak of courtship the pair embrace in a similar way to anabantoids, and the male collects the fertilised eggs in his mouth where they normally remain for a period of 3–5 days (although some individuals have been observed to hold the fry for up to 10 days).</p><p>Once released the young fish are easy to raise with females producing infertile eggs in order to feed them once they become free-swimming. Brood care may extend for several weeks, and fry tend to grow faster when left with the parents rather than raised elsewhere.</p>"
     },
     {
       "key": "notes",
       "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
-      "html": "<p>Other, less small snakeheads include gachua, pulchra, ornatipinnis and bleheri, but these are sub-tropical species and should not be kept long term in tropical aquariums.</p>"
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<p>This species has also been referred to as the 'green', 'smooth-breasted', or 'walking' snakehead.</p><p>Its scientific name has and continues to be widely misapplied in reference to Channa populations outside its natural range with all the following having been considered to represent C. orientalis in the past: Channa gachua (non Hamilton, 1822); Ophiocephalus marginatus (non Cuvier, 1829); Ophiocephalus coramota (non Cuvier, 1831); Ophiocephalus fusca (non Cuvier, 1831); Ophiocephalus limbatus (non Cuvier, 1831); Ophiocephalus montanus (non McClelland, 1842); Philypnoides surakartensis (non Bleeker, 1849); Ophiocephalus gachua kelaarti (non Günther, 1861); Ophiocephalus kelaarti (non Günther, 1861); Ophiocephalus kelaartii (non Günther, 1861); Ophiocephalus gachua malaccensis (non Peters, 1868); Ophiocephalus harcourtbutleri (non Annandale, 1918); Channa burmanica (non Chaudhuri, 1919).</p><p>The majority of these names are currently considered synonymous with the widespread species Channa gachua, the taxonomy of which remains a complex and unresolved problem.</p><p>C. orientalis is one of several genus members to lack pelvic fins, with other diagnostic characters including: gular scales absent; 6–7 predorsal scales; 5–6 scales between posterior border of orbit and posterior edge of preopercle; 40–41 lateral line scales; 21–22 anal-fin rays; 30–34 dorsal-fin rays; 13–15 pectoral-fin rays; dorsal-fin base 58.0–59.6% SL; anal-fin base 36.4–38.8% SL; ocellated spot in posterior portion of dorsal fin, above caudal peduncle, in juveniles and females; pectoral-fin with 5 dark, narrow bands; lower jaw with 10–20 canines behind single row of villiform teeth, the latter expanding to about 7 rows at jaw symphysis; prevomer and palatines with canine-like teeth.</p><p>Members of the family Channidae are commonly referred to as 'snakeheads' due to possession of large scales on the head of most species which are reminiscent of the epidermal scales (cephalic plates) on the heads of snakes. There currently exist over 30 valid species but diversity within the group is likely to prove significantly greater.</p><p>The existence of distinct phylogenetic groups has been proposed with the putative C. gachua species assemblage of Britz (2008) containing C. orientalis, C. gachua, C. bleheri, C. burmanica, C. barca, C. aurantimaculata, and C. stewartii.</p><p>All Channa spp. possess supplementary breathing apparatus in the form of paired suprabranchial chambers located behind and above the gills, although these are not labyrinthic but lined with respiratory epithelium. These chambers allow the fish to breathe atmospheric air and survive in hypoxic conditions or even out of the water for a considerable period of time, and in aquaria they are often seen rising to the surface to take gulps of air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "html": "<ul><li>Bloch, M. E. and J. G. Schneider (1801). M. E. Blochii, Systema Ichthyologiae Iconibus cx Ilustratum. Post obitum auctoris opus inchoatum absolvit, correxit, interpolavit Jo. Gottlob Schneider, Saxo. Berolini. Sumtibus Auctoris Impressum et Bibliopolio Sanderiano Commissum, i-lx + 1-584, Pls. 1-110</li><li>Courtenay, W. R., Jr. and J. D. Williams (2004). Snakeheads (Pisces, Channidae) - a biological synopsis and risk assessment. Circular, U. S. Department of the Interior, Geological Survey No. 1251, i-v + 1-143</li><li>Britz, R. (2013). Channa andrao, a new species of dwarf snakehead from West Bengal, India (Teleostei: Channidae). Zootaxa 3731(2), 287-294</li><li>Shrestha, T. K. (2008). Ichthyology of Nepal. A study of fishes of the Himalayan waters. Himalayan Ecosphere, Kathmandu, Nepal., 389 pp., 72 pls.</li><li>Ng, H. H., P. K. L. Ng and R. Britz (1999). Channa harcourtbutleri (Annandale, 1918): a valid species of snakehead (Perciformes: Channidae) from Myanmar. Journal of South Asian Natural History 4(1), 57-63</li><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Vierke, J. (1991). Ein farbenfroher neuer Schlangenkopffisch aus Assam: Channa bleheri spec. nov. Das Aquarium 25(259), 20-24</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/2c1a672fb0b0c91e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2c1a672fb0b0c91e-480.webp",
+      "width": 882,
+      "height": 630,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "caption": "Adult female of the 'Kottawa A' form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a157c749a796b207.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a157c749a796b207-480.webp",
+      "width": 882,
+      "height": 630,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "caption": "Adult male - 'Kottawa A' form.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/52a8829c3dbefd9f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/52a8829c3dbefd9f-480.webp",
+      "width": 894,
+      "height": 596,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-orientalis",
+      "caption": "Adult pair with fry - 'Kottawa A' form.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/seriouslyfish/9519010ac0f65212.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9519010ac0f65212-480.webp",
       "width": 882,
       "height": 630,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
       "caption": "Adult male specimen",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9519010ac0f65212-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/9d6e936cad724a24.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9d6e936cad724a24-480.webp",
       "width": 882,
       "height": 630,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
       "caption": "Adult female",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9d6e936cad724a24-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/0ce369febb7029f2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0ce369febb7029f2-480.webp",
       "width": 894,
       "height": 596,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
       "caption": "Channa orientalis Kottawa A with fry 1",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/0ce369febb7029f2-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/496a93009e9ec010.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/496a93009e9ec010-480.webp",
       "width": 882,
       "height": 630,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/articles/channa-orientalis-bloch-schneider-1801",
       "caption": "Adult female; aggressive mood",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/496a93009e9ec010-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "N4KjfnJ9RRQ",
+      "title": "🐍🧑🐟 Schlangen im #Aquarium?! 😬 Artvorstellung des #Channa orientalis Cylon #Schlangenkopffisch",
+      "durationSec": 1252,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "DfIqnk3tvsM",
+      "title": "👶🐍🐟 Nachwuchs bei den #Channa orientalis - #Aquarium für Baby Channas einrichten - Beckenvorstellung",
+      "durationSec": 434,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "ZGvraMqK-oo",
+      "title": "channa orientalis #channa #fish",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "a0LMYV2UDGE",
+      "title": "Ceylon snakehead (Channa orientalis ) snakey dance #fish #aquarium #shorts #snakehead",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -193,5 +267,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-06"
 }
