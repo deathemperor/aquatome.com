@@ -25,7 +25,7 @@ struct AddPlug: View {
             if let on = tanks.tankOf(plug: p.provider, p.id) {
               VStack(alignment: .leading, spacing: 2) {
                 Text(p.name.isEmpty ? String(localized: "Ổ cắm") : p.name).foregroundStyle(.secondary)
-                Text(on == tankId ? String(localized: "Đã ở bể này") : String(localized: "Đang ở bể \(tanks.tanks.first { $0.id == on }?.name ?? "")"))
+                Text(on == tankId ? String(localized: "Đã ở bể này") : String(localized: "Đang ở bể “\(tanks.store.tank(on)?.name ?? "")”"))
                   .font(.caption).foregroundStyle(.secondary)
               }
               .accessibilityElement(children: .combine)

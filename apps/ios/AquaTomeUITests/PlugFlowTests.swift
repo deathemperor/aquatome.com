@@ -79,6 +79,28 @@ final class PlugFlowTests: XCTestCase {
     XCTAssertEqual(outlet(app, "switch_1").value as? String, "1")
   }
 
+  func testAPlugOnAnotherTankIsListedByThatTanksName() {
+    let app = launch()
+    addPlug(app, "Ổ cắm bể 60")
+    // A second tank: the strip on "Bể 60" is in its list too, naming that tank, and can't be picked there.
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tap(app, "add-row")
+    let field = app.textFields["name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no tank form")
+    field.tap()
+    field.typeText("Bể 30")
+    app.buttons["save"].tap()
+    let other = app.buttons.matching(identifier: "tank").matching(NSPredicate(format: "label CONTAINS %@", "Bể 30")).firstMatch
+    XCTAssertTrue(other.waitForExistence(timeout: 5), "no second tank")
+    other.tap()
+    tap(app, "add-plug")
+    XCTAssertTrue(app.navigationBars["Thêm ổ cắm"].waitForExistence(timeout: 5))
+    let taken = app.descendants(matching: .any).matching(identifier: "plug-taken").matching(NSPredicate(format: "label BEGINSWITH %@", "Ổ cắm bể 60")).firstMatch
+    XCTAssertTrue(taken.waitForExistence(timeout: 5), "a plug on another tank left out of the list")
+    XCTAssertTrue(taken.label.contains("Đang ở bể “Bể 60”"), taken.label)
+    XCTAssertFalse(choice(app, "Ổ cắm bể 60").exists, "a plug on another tank offered")
+  }
+
   func testSwitchesAnOutletAndShowsWhatThePlugConfirmed() {
     let app = launch()
     addPlug(app, "Ổ cắm bể 60", roles: ["role-switch_3": "Lọc"])
