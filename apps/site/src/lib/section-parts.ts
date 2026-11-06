@@ -40,11 +40,12 @@ export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNa
   const refs: { name: string; url: string }[] = []
   const refNo = (name: string, url: string) => { const i = refs.findIndex(r => r.url === url); return i >= 0 ? i + 1 : refs.push({ name, url }) }
   const tr = translator(lang)
-  // AquaTome's own text cites each page its facts were researched from (not translated: the card names the page's site).
+  // AquaTome's own text cites each page its facts were researched from (not translated: the card names the page's site),
+  // its marks in the list's order.
   const researchMarks = (x: Section) => (x.refs ?? []).flatMap(i => {
     const r = researched[i]
-    return r ? [citeMark(lang, refNo(r.title, r.url), r.title, r.url, { tip: new URL(r.url).hostname.replace(/^www\./, ''), more: tr('Mở bài gốc ↗') })] : []
-  })
+    return r ? [[refNo(r.title, r.url), r] as const] : []
+  }).sort(([a], [b]) => a - b).map(([n, r]) => citeMark(lang, n, r.title, r.url, { tip: new URL(r.url).hostname.replace(/^www\./, ''), more: tr('Mở bài gốc ↗') }))
   let fromResearch = false
   // A source the range cites by its page's own address there (its first section with text in this language); none for one
   // the page has no text of.

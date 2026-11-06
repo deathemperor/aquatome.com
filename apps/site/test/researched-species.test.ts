@@ -30,8 +30,8 @@ test('AquaTome\'s own text cites each page it was researched from, numbered in t
   const { c, s } = await researched()
   const { groups, refs: listed, note } = sectionParts('vi', c, { sections: s.sections, t: s.t, card: s.dataCard, refs: s.refs })
   const html = (key: string) => groups.find(g => g.key === key)!.blocks[0]!.vi
-  // A mark for each page, numbered by where it first appears; never AquaTome's own about page.
-  expect([...html('notes').matchAll(/href="([^"]+)"[^>]*>(\d+)</g)].map(m => [m[1], m[2]])).toEqual([[refs[0]!.url, '2'], [refs[1]!.url, '1']])
+  // A mark for each page, numbered by where it first appears and in that order; never AquaTome's own about page.
+  expect([...html('notes').matchAll(/href="([^"]+)"[^>]*>(\d+)</g)].map(m => [m[1], m[2]])).toEqual([[refs[1]!.url, '1'], [refs[0]!.url, '2']])
   expect([...html('habitat').matchAll(/href="([^"]+)"[^>]*>(\d+)</g)].map(m => [m[1], m[2]])).toEqual([[refs[1]!.url, '1']])
   expect(html('notes')).not.toContain(ABOUT)
   expect(html('notes')).not.toContain('dịch từ nguồn')
