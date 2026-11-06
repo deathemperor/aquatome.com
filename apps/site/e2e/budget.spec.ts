@@ -1,4 +1,4 @@
-import { expect, test } from './fixtures'
+import { expect, test, VIETNAMESE, VIETNAMESE_ALLOWED } from './fixtures'
 
 const PATH = '/cong-cu/du-toan-be/'
 
@@ -76,5 +76,11 @@ test('setup budget: fits a 320 px phone in every language; shop links only where
     const tops = await page.locator('.seg').evaluateAll(els => els.map(e => Math.round(e.getBoundingClientRect().top)))
     expect(new Set(tops).size, `${path}: the tiers on one row`).toBe(1)
     expect(await page.locator('a[data-go]').count(), path).toBe(path === PATH ? 7 : 0)
+    // Everything the script writes is in the page's language too, every optional row shown.
+    if (path !== PATH) {
+      let text = await page.locator('body').innerText()
+      for (const re of VIETNAMESE_ALLOWED) text = text.replace(re, '')
+      expect(text.match(new RegExp(`\\S*${VIETNAMESE.source}\\S*`, 'i'))?.[0], `${path}: Vietnamese on the page`).toBeUndefined()
+    }
   }
 })
