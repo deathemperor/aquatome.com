@@ -12,6 +12,9 @@ import { accountReport, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
 import { productCandidates, productReviews } from './product-reviews'
 import { readKit } from './video-items'
+import { BACKFILL_KINDS, reviewBackfill, type BackfillKind } from './review-backfill'
+import { allTraces } from './review-log'
+import { reviewReport } from './review-report'
 import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
@@ -48,13 +51,14 @@ import { gbifClient } from './range-records'
 import { topicCheck } from './topic-check'
 import { COVER_SCHEMA, videoCovers } from './video-covers'
 import { videoImages } from './video-images'
+import { videoStills } from './video-stills'
 import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
 import { VI_WRITE } from './vi-rewrite'
 import { addOwnerPicks, discoverPlaylists, discoverSingles, QUERIES_BY_LANG } from './video-discovery'
 import { galleries, VET_SCHEMA as GALLERY_VET, type GalleryDeps, type Vet } from './gallery'
 import { englishName, unsplashCredits, unsplashPhotos, type UnsplashApi } from './unsplash'
-import { breedPhotos, localizeBreed, makeBreed } from './breeds'
+import { breedCare, breedPhotos, localizeBreed, makeBreed } from './breeds'
 import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
@@ -63,7 +67,7 @@ import { localizeTopic, makeTopic } from './topics'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
-import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStoryboard } from './youtube'
+import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
@@ -417,6 +421,19 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const t of r.trimmed) console.log(`  ${t.id}: dropped ${t.dropped.join('; ')}`)
   for (const h of r.held) console.log(`  held for a person: ${h}`)
   console.log(`topic-check: ${r.checked.length} checked, ${r.trimmed.length} trimmed, ${r.held.length} held, ${r.failed.length} failed`)
+} else if (cmd === 'review-backfill') {
+  // Pages under the bar whose review left no notes, reviewed again as they are, nothing rewritten (review-backfill.ts):
+  // --kind k,k (video-guide reads transcripts: the video job's, on the Mac), --limit N model calls a kind, --only ids.
+  const kinds = values.kind?.split(',').map(s => s.trim()).filter(Boolean)
+  if (kinds?.some(k => !(BACKFILL_KINDS as readonly string[]).includes(k))) throw new Error(`usage: pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id]`)
+  const r = await reviewBackfill({ root: ROOT, llm: claudeCli, now: () => new Date(), yt: youtube() }, { ...(kinds ? { kinds: kinds as BackfillKind[] } : {}), limit: Number(values.limit ?? 10), ...(values.only ? { only: values.only.split(',').map(s => s.trim()).filter(Boolean) } : {}) })
+  for (const x of r.checked) console.log(`  ${x}`)
+  for (const x of r.failed) console.log(`  failed: ${x}`)
+  console.log(`review-backfill: ${r.checked.length} reviewed again, ${r.failed.length} failed, left ${Object.entries(r.left).map(([k, n]) => `${k} ${n}`).join(', ') || 'none'}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+} else if (cmd === 'reviews') {
+  // What the quality reviews kept, per kind: pages under the bar and their most common faults → docs/review/reviews.md.
+  await writeFile(join(ROOT, 'docs/review/reviews.md'), reviewReport(await allTraces(ROOT)))
+  console.log('reviews: docs/review/reviews.md')
 } else if (cmd === 'videos') {
   // Original Vietnamese guides from educational YouTube playlists (engine-state/youtube-playlists.json, or --playlist ID,ID).
   const r = await videoGuides(
@@ -432,10 +449,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
   await covers({})
-  // Pictures per section: video stills (storyboard frames) + an open-licence Commons photo, picked by Claude, no faces.
+  // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
   const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const im = await videoImages(join(ROOT, 'content'), {
-    llm: claudeCli, faces: visionFaces, storyboard: ytStoryboard, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
+    llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
     look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
   }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
   console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
@@ -486,6 +503,15 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const d of r.done) console.log(values['dry-run'] ? JSON.stringify(d, null, 1) : `product-reviews: ${d.id}: ${d.written ? 'written' : d.note}, ${d.videos.length} reviews, ${d.calls} model calls${d.renamed?.length ? `, renamed ${d.renamed.join(', ')}` : ''}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   if (r.stopped) console.log(`stopped: ${r.stopped}`)
+} else if (cmd === 'video-stills') {
+  // Older video guides' stills (storyboard tiles) become the video's own frames, screened as a new guide's (video-stills.ts).
+  const r = await videoStills(ROOT, {
+    frames: ytFrames, grab: ytGrab, faces: visionFaces, read: files => visionText(files), media: media(), now: () => new Date(),
+    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
+  }, { limit: Number(values.limit ?? 15), ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
+  for (const x of [...r.done, ...r.dropped.map(x => `dropped: ${x}`), ...r.kept.map(x => `kept as a tile: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+  console.log(`video-stills: ${r.done.length} guides, ${r.dropped.length} stills dropped, ${r.kept.length} kept as tiles, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'video-items') {
   // Species and kit in video guides written before extraction: pnpm engine video-items [--limit N] (one transcript fetch each).
   const r = await backfillVideoItems(join(ROOT, 'content'), {
@@ -507,6 +533,12 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const r = await breedPhotos(ROOT, galleryDeps(), { limit: values.limit ? Number(values.limit) : 10 })
   console.log(`breed-photos: ${r.done.length} breeds, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
+} else if (cmd === 'breed-care') {
+  // Difficulty and lifespan for breed pages whose card lacks either, from their own sources: a research call a breed,
+  // once (engine-state/_breed-care.json). pnpm engine breed-care [--only id,id] [--limit N]
+  const r = await breedCare(ROOT, claudeResearch, { ...(values.only ? { only: values.only.split(',') } : {}), ...(values.limit ? { limit: Number(values.limit) } : {}) })
+  console.log(`breed-care: ${r.done.length} breeds given figures, ${r.none.length} with none found, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...r.done, ...r.none, ...r.failed]) console.log(x)
 } else if (cmd === 'unsplash') {
   // Unsplash photos for the galleries of the staples, breeds and popular species, after linking the photographer's page of
   // those stored without one: pnpm engine unsplash [--limit N]
@@ -724,6 +756,6 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
+  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
   process.exitCode = 1
 }

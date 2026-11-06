@@ -7,6 +7,7 @@ import { LlmError, type Llm } from './claude'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { rewriteTitle } from './reader'
+import { logReviews } from './review-log'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 
@@ -238,6 +239,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model)
         if (r.score >= QUALITY_THRESHOLD) { title = r.title; how = `rewritten (${r.score.toFixed(2)})` }
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
+        await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
       } catch (e) {
         if (e instanceof LlmError) report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`

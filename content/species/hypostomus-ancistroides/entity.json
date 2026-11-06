@@ -7,7 +7,9 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "brazil",
+    "tiete"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +19,32 @@
           "min": 16,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 16,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "scotcat",
+        "value": 27.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -34,10 +56,46 @@
       "html": "<p>A slender, very rare Hypostomus imported from Paraguay. The subtropical species tolerates temperatures between 16 and 28°C and attains a maximum length of about 20-25 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "html": "<ul><li>Conservation status: Least Concern (LC) (IUCN 2022)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/",
       "html": "<p>Imported from Paraguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "html": "<p>South America: Tietê River basin, Ribeira de Iguape River basin, Brazil. Type locality: Rio Tatuhy, left-bank tributary of the Rio Sorocaba, Rio Piracicaba, State of São Paulo [Brazil].</p><p>Hypostomus ancistroides is widely distributed, frequent, and abundant. Since no significant threats to its population have been detected, it has been listed in the Least Concern (LC) category (IUCN 2022).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "html": "<p>One of the smallest in this genus, it would make a good aquarium inhabitant in a large aquarium. As this genus is in the main messy eaters, good water quality and filtration need to be maintained. A lower water temperature is advised for this species.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "html": "<p>Will eat all manner of foods in the aquarium: vegetable foods, tablets, pellets and good quality flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "html": "<p>Description: Body deep; greatest body depth contained 4.2 to 4.7 and caudal peduncle depth 9.8 to 10.0 times in SL. Mouth inferior. Ground colour brown, with dark-brown blotches on the body, especially on the dorsal region. Fins dark brown with black spots.</p><p>Etymology: The specific name ancistroides is Neo-Latin from eidos, form or shape, referring to its resemblance to some species of Ancistrus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypostomus ancistroides. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2020. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2020).</p>"
     }
   ],
   "photos": [
@@ -86,7 +144,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "umaEUX93se4",
+      "title": "Hypostomus Ancistroides vasculhando o garfo. #aquarium #exoticaquariumfish #pleco #hypostomus",
+      "durationSec": 30,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -110,5 +175,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-06"
 }

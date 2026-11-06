@@ -243,8 +243,8 @@ test('fish carry the tank-mates tool\'s figures and behaviour under the tool\'s 
   expect(discus).toMatchObject({ sizeCm: 15, tankCm: 120, ph: { min: 4.5, max: 6.5 } })
   expect(discus.temperament).toBeUndefined()
   expect(discus.gh).toBeUndefined()
-  // Guides, plants and these breeds have none (a breed's, below).
-  for (const i of vi.filter(x => x.kind !== 'fish' || !x.sub)) expect(Object.keys(i).filter(k => ['tempC', 'ph', 'sizeCm', 'temperament'].includes(k)), i.path).toEqual([])
+  // Guides, plants and these breeds have none (a breed's, below; the Oranda, linked to no species, has its own).
+  for (const i of vi.filter(x => x.kind !== 'fish' || (!x.sub && x.id !== 'oranda-goldfish'))) expect(Object.keys(i).filter(k => ['tempC', 'ph', 'sizeCm', 'temperament'].includes(k)), i.path).toEqual([])
 })
 
 test('a breed that is a form of a species is checked as it (`of`), its own figures for its card; any other breed is a fish of its own', async () => {
@@ -260,6 +260,10 @@ test('a breed that is a form of a species is checked as it (`of`), its own figur
   // A hybrid with no figures: neither.
   const flowerhorn = vi.find(i => i.id === 'flowerhorn-cichlid')!
   expect(['of', 'card', 'tempC', 'sizeCm', 'temperament'].filter(k => k in flowerhorn)).toEqual([])
+  // A line linked to no species: a fish of its own, its difficulty and lifespan its page's card's, as a species' are.
+  const oranda = vi.find(i => i.id === 'oranda-goldfish')!
+  expect(oranda).toMatchObject({ difficulty: 3, card: { difficulty: 3, lifeYears: { min: 10, max: 15 } } })
+  expect('of' in oranda).toBe(false)
   // Every breed's card is its page's card.
   const c = await getContent('vi')
   for (const b of appBreeds('vi', c)) {
@@ -275,6 +279,10 @@ test('a breed that is a form of a species is checked as it (`of`), its own figur
     expect(item, b.kind).toMatchObject(own)
     expect(['of', 'temperament', 'finNipper', 'schoolMin'].filter(k => k in item), b.kind).toEqual([])
   }
+  // A form of a species with a difficulty: on its card, the figure the app's facts card shows for it.
+  const rated = with_([{ ...breed, care: { ...breed.care, difficulty: [{ source: 0, value: 6 }] } }]).find(i => i.id === breed.id)!
+  expect(rated).toMatchObject({ of: 'symphysodon-aequifasciatus', card: { difficulty: 6 } })
+  expect('difficulty' in rated).toBe(false)
   // A form of a form: up to the species. A species the index doesn't list: a fish of its own.
   const line = { ...breed, id: 'pigeon-line', basedOn: 'pigeon-blood-discus', t: { ...breed.t, slug: 'pigeon-line' } }
   expect(with_([breed, line]).find(i => i.id === 'pigeon-line')?.of).toBe('symphysodon-aequifasciatus')

@@ -53,6 +53,29 @@
           "max": 20
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 2,
+        "value": 4
+      },
+      {
+        "source": 0,
+        "value": 2
+      },
+      {
+        "source": 10,
+        "value": 6
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 10,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
     ]
   },
   "photos": [
@@ -127,6 +150,12 @@
       "title": "Nông dân Củ Chi nuôi cá dĩa – PLO",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://riverparkaquatics.co.uk/red-pigeon-blood-discus-symphysodon-aequifasciatus-5cm/",
+      "title": "Riverpark Aquatics – Red Pigeon Blood Discus",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

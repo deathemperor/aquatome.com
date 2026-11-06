@@ -1,8 +1,8 @@
 {
   "id": "neocaridina-davidi",
   "native": {
-    "input": "cd9d1b720994b6ab",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "400ee2e6434282a4",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [],
     "regions": [],
     "disputed": [],
@@ -65,9 +65,5 @@
     "native": [],
     "requests": 10,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

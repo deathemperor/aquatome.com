@@ -2465,9 +2465,72 @@
   },
   "https://www.planetcatfish.com/common/species.php?species_id=1248": {
     "entityIds": [],
-    "updatedAt": "2026-11-04T23:33:50.252Z",
-    "status": "error",
-    "attempts": 2,
-    "error": "no archived copy (HTTP 429)"
+    "updatedAt": "2026-11-06T04:48:14.998Z",
+    "hash": "d4829b072db5783e1845ed04391492e22bf671ddbbc3420ec7be6caf7c8ed8ec",
+    "processedHash": "d4829b072db5783e1845ed04391492e22bf671ddbbc3420ec7be6caf7c8ed8ec",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1249": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T04:52:36.128Z",
+    "hash": "36498576d83c8dbf370962551f0404ccda26b31a325a9bdcef66f29085c6d514",
+    "processedHash": "36498576d83c8dbf370962551f0404ccda26b31a325a9bdcef66f29085c6d514",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=125": {
+    "entityIds": [
+      "species/pseudacanthicus-pitanga"
+    ],
+    "updatedAt": "2026-11-06T04:55:00.324Z",
+    "hash": "183525dec0ee6ee42fafaf5ae3bc5bee63c1e8c5b2b27c1215956d2dcb34c7f7",
+    "processedHash": "183525dec0ee6ee42fafaf5ae3bc5bee63c1e8c5b2b27c1215956d2dcb34c7f7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1250": {
+    "entityIds": [
+      "species/noturus-hildebrandi"
+    ],
+    "updatedAt": "2026-11-06T05:02:31.187Z",
+    "hash": "2ee2feb9d85b2ab4acfaa7e5c46a8ebb18e5d7646ebb1ae11fa987be5161feaf",
+    "processedHash": "2ee2feb9d85b2ab4acfaa7e5c46a8ebb18e5d7646ebb1ae11fa987be5161feaf",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1251": {
+    "entityIds": [
+      "species/hypostomus-pusarum"
+    ],
+    "updatedAt": "2026-11-06T05:07:16.974Z",
+    "hash": "8f68df4bdf4cd423c6f17dc79506b6431051c3ee96802d0d6a7402718beb8fe4",
+    "processedHash": "8f68df4bdf4cd423c6f17dc79506b6431051c3ee96802d0d6a7402718beb8fe4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1252": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T05:14:21.347Z",
+    "hash": "4ed40930a1cb5797d14fc5173d8a514ae38317cf0faed4b2c0255c16eaf6c93c",
+    "processedHash": "4ed40930a1cb5797d14fc5173d8a514ae38317cf0faed4b2c0255c16eaf6c93c",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1253": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T05:15:19.910Z",
+    "hash": "3e208252ae59211d1b691c48993693191d01df27bfc3b28ab2cced8a1cfa2050",
+    "processedHash": "3e208252ae59211d1b691c48993693191d01df27bfc3b28ab2cced8a1cfa2050",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1254": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T05:21:51.656Z",
+    "hash": "50b053361b4d882d49ed6390634126c71642bbfdb0958e6ee95a43607d94a609",
+    "processedHash": "50b053361b4d882d49ed6390634126c71642bbfdb0958e6ee95a43607d94a609",
+    "status": "skipped",
+    "attempts": 0
   }
 }

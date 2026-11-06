@@ -1127,6 +1127,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/notropis_chrosomus_en/": {
+    "lastmod": "2017-01-05T08:36:35+00:00",
+    "entityIds": [
+      "species/notropis-chrosomus"
+    ],
+    "updatedAt": "2026-11-06T05:26:32.484Z",
+    "hash": "d29f3bd6cf69433379c592e19bc0625c6004fd2369fbec6302fc32bbfa3921ee",
+    "processedHash": "d29f3bd6cf69433379c592e19bc0625c6004fd2369fbec6302fc32bbfa3921ee",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius-barna-2/": {
     "lastmod": "2021-04-23T10:36:46+00:00",
     "entityIds": [
@@ -1168,6 +1179,17 @@
     "updatedAt": "2026-10-31T13:46:44.203Z",
     "hash": "2028ae0edf9b54c16c5896367149a4e7ac5bdaf84a1e8397cf51a4d13d313cb8",
     "processedHash": "2028ae0edf9b54c16c5896367149a4e7ac5bdaf84a1e8397cf51a4d13d313cb8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/oreichthys_crenuchoides_spec_hifin__en/": {
+    "lastmod": "2017-01-09T14:24:44+00:00",
+    "entityIds": [
+      "species/oreichthys-crenuchoides"
+    ],
+    "updatedAt": "2026-11-06T05:38:27.808Z",
+    "hash": "4c3b7fc3c23837d7dcbe063e4bec9413cfd8bb4707daa5c91931eef7e6b37f44",
+    "processedHash": "4c3b7fc3c23837d7dcbe063e4bec9413cfd8bb4707daa5c91931eef7e6b37f44",
     "status": "processed",
     "attempts": 0
   },
@@ -1267,6 +1289,17 @@
     "updatedAt": "2026-11-04T14:56:42.468Z",
     "hash": "6212cb36a4289c24497cfac4dbef12e97f07470a92f7f46ff7488e2cb98f192b",
     "processedHash": "6212cb36a4289c24497cfac4dbef12e97f07470a92f7f46ff7488e2cb98f192b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_paucisqualis_en/": {
+    "lastmod": "2017-01-09T10:47:32+00:00",
+    "entityIds": [
+      "species/rasbora-paucisqualis"
+    ],
+    "updatedAt": "2026-11-06T05:35:22.423Z",
+    "hash": "f897fce5425dd2996a87e9b7fcfd5b4235258c411c03db99ba7f1c393c52edb7",
+    "processedHash": "f897fce5425dd2996a87e9b7fcfd5b4235258c411c03db99ba7f1c393c52edb7",
     "status": "processed",
     "attempts": 0
   },
@@ -2035,6 +2068,17 @@
     "updatedAt": "2026-11-02T20:18:30.328Z",
     "hash": "cc29d057181c53f9393fb1bbb31e6eebd4c0a0cfee40b8769e94e19c70e8ef34",
     "processedHash": "cc29d057181c53f9393fb1bbb31e6eebd4c0a0cfee40b8769e94e19c70e8ef34",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-flammeus-gold-2/": {
+    "lastmod": "2017-11-24T18:38:13+00:00",
+    "entityIds": [
+      "species/hyphessobrycon-flammeus"
+    ],
+    "updatedAt": "2026-11-06T05:41:45.808Z",
+    "hash": "f404c2b55f1d3a7c5ca921a222cc709ab5b177a89f21e0960432d98f323d4163",
+    "processedHash": "f404c2b55f1d3a7c5ca921a222cc709ab5b177a89f21e0960432d98f323d4163",
     "status": "processed",
     "attempts": 0
   },
@@ -4427,6 +4471,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/aguarunichthys_torosus_en/": {
+    "lastmod": "2016-11-22T08:52:42+00:00",
+    "entityIds": [
+      "species/aguarunichthys-torosus"
+    ],
+    "updatedAt": "2026-11-06T05:57:12.338Z",
+    "hash": "47b36fed938360df7aec020343aa684d05c83137b39df7a3d627c2c1b1814862",
+    "processedHash": "47b36fed938360df7aec020343aa684d05c83137b39df7a3d627c2c1b1814862",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amaralia-hypsiura/": {
     "lastmod": "2016-11-22T08:52:41+00:00",
     "entityIds": [
@@ -4435,6 +4490,28 @@
     "updatedAt": "2026-11-05T00:20:14.211Z",
     "hash": "cd515b264ca46bb2bed7a086d3099e857342fbd3b0ce869fb19bbb07ad09678d",
     "processedHash": "cd515b264ca46bb2bed7a086d3099e857342fbd3b0ce869fb19bbb07ad09678d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amblydoras_nauticus_en/": {
+    "lastmod": "2016-11-22T08:52:42+00:00",
+    "entityIds": [
+      "species/amblydoras-nauticus"
+    ],
+    "updatedAt": "2026-11-06T05:59:24.164Z",
+    "hash": "7fa30bbc709742af056bef81054b317e4fa09bf3c39c246e49d77e69ae95e28e",
+    "processedHash": "7fa30bbc709742af056bef81054b317e4fa09bf3c39c246e49d77e69ae95e28e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/": {
+    "lastmod": "2016-11-22T08:52:42+00:00",
+    "entityIds": [
+      "species/asterophysus-batrachus"
+    ],
+    "updatedAt": "2026-11-06T05:55:46.597Z",
+    "hash": "60670ef6d0726fbc5cd4dc966dd2080e6f8f75ceb42cd71ee4301dd153be50b7",
+    "processedHash": "60670ef6d0726fbc5cd4dc966dd2080e6f8f75ceb42cd71ee4301dd153be50b7",
     "status": "processed",
     "attempts": 0
   },
@@ -4515,6 +4592,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachydoras_paraguayensis_en/": {
+    "lastmod": "2016-11-22T08:52:42+00:00",
+    "entityIds": [
+      "species/trachydoras-paraguayensis"
+    ],
+    "updatedAt": "2026-11-06T05:57:43.515Z",
+    "hash": "168e31294291473837bfc7fa36c718300f744658c23c76af9dde999f227f62e6",
+    "processedHash": "168e31294291473837bfc7fa36c718300f744658c23c76af9dde999f227f62e6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tridensimilis_brevis_en-2/": {
+    "lastmod": "2016-11-22T08:52:42+00:00",
+    "entityIds": [
+      "species/tridensimilis-brevis"
+    ],
+    "updatedAt": "2026-11-06T05:53:43.101Z",
+    "hash": "4505911c7afda8c8ba49ba0bcd7a1907f64806be5ff3588206201a7dc2920402",
+    "processedHash": "4505911c7afda8c8ba49ba0bcd7a1907f64806be5ff3588206201a7dc2920402",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/xyliphius-cf-lepturus/": {
     "lastmod": "2016-11-22T08:52:41+00:00",
     "entityIds": [
@@ -4546,6 +4645,15 @@
     "hash": "61531807b32c1a3c462e50a3c7edfc656734a39f92bdb675351f6592125dbceb",
     "processedHash": "61531807b32c1a3c462e50a3c7edfc656734a39f92bdb675351f6592125dbceb",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_multipunctatus_en/": {
+    "lastmod": "2017-01-05T10:38:43+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-06T05:37:31.407Z",
+    "hash": "027a201643e8dd35cf7641fac52f98f232a702d03f3783d7850f4a7b822f74fc",
+    "processedHash": "027a201643e8dd35cf7641fac52f98f232a702d03f3783d7850f4a7b822f74fc",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_nigriventris_finally_available_again__en/": {
@@ -6068,6 +6176,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_uaupesi_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-uaupesi"
+    ],
+    "updatedAt": "2026-11-06T05:36:40.548Z",
+    "hash": "57e1812d04a408255dd79d08c8c2c8e58c33bdb6d34f0acfd680c5e148948f82",
+    "processedHash": "57e1812d04a408255dd79d08c8c2c8e58c33bdb6d34f0acfd680c5e148948f82",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogrammoides_pucallpaensis_en/": {
     "lastmod": "2016-11-22T10:08:20+00:00",
     "entityIds": [
@@ -6409,6 +6528,17 @@
     "updatedAt": "2026-11-02T20:04:42.959Z",
     "hash": "532c99eb67dd0b201f0096254c0ec9091c43fa939d621d4fbdbf6e6a5b921c56",
     "processedHash": "532c99eb67dd0b201f0096254c0ec9091c43fa939d621d4fbdbf6e6a5b921c56",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-uaupesi-2/": {
+    "lastmod": "2019-01-14T10:03:28+00:00",
+    "entityIds": [
+      "species/apistogramma-uaupesi"
+    ],
+    "updatedAt": "2026-11-06T05:43:56.143Z",
+    "hash": "1096c195ffa1cde9c257f806bbd18836f9ce977a2f2e9077edacc8e523441286",
+    "processedHash": "1096c195ffa1cde9c257f806bbd18836f9ce977a2f2e9077edacc8e523441286",
     "status": "processed",
     "attempts": 0
   },
@@ -6837,6 +6967,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/xenopus_laevis_en/": {
+    "lastmod": "2017-01-05T10:46:42+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-06T05:38:06.545Z",
+    "hash": "702c623c35ae7bb1f26b3ec6d4c7e836ee66efb2d03931a57da48f5cbc57c982",
+    "processedHash": "702c623c35ae7bb1f26b3ec6d4c7e836ee66efb2d03931a57da48f5cbc57c982",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/anentome-helena/": {
     "lastmod": "2017-01-09T13:29:37+00:00",
     "entityIds": [
@@ -6900,6 +7039,28 @@
     "updatedAt": "2026-11-04T08:14:47.569Z",
     "hash": "d5a9958520c00278c94857094d2a27f7ea9764f6ba8183f66704c13927605ac7",
     "processedHash": "d5a9958520c00278c94857094d2a27f7ea9764f6ba8183f66704c13927605ac7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-snowden-2/": {
+    "lastmod": "2021-01-18T15:53:45+00:00",
+    "entityIds": [
+      "species/cherax-snowden"
+    ],
+    "updatedAt": "2026-11-06T05:48:31.084Z",
+    "hash": "94e1e23871bb068630425fc0e8852e8a6e6f1b27ea2f400e334ac1bb24895832",
+    "processedHash": "94e1e23871bb068630425fc0e8852e8a6e6f1b27ea2f400e334ac1bb24895832",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-snowden-irianto-red-and-cherax-holthuisi/": {
+    "lastmod": "2019-07-15T14:20:52+00:00",
+    "entityIds": [
+      "species/cherax-snowden"
+    ],
+    "updatedAt": "2026-11-06T05:47:00.326Z",
+    "hash": "3cc9c9463bb00f568a62d7d3b9e356595ed6c8f32545a3c0df7dec730b03268c",
+    "processedHash": "3cc9c9463bb00f568a62d7d3b9e356595ed6c8f32545a3c0df7dec730b03268c",
     "status": "processed",
     "attempts": 0
   },
@@ -7233,6 +7394,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/fisharchive/hydrophlox-chrosomus-notropis-chrosomus-2/": {
+    "lastmod": "2025-03-21T09:57:16+00:00",
+    "entityIds": [
+      "species/notropis-chrosomus"
+    ],
+    "updatedAt": "2026-11-06T05:30:34.606Z",
+    "hash": "69ea86083b629527a6513861717daa1981f0062342372b2d3dee60d1a69edffd",
+    "processedHash": "69ea86083b629527a6513861717daa1981f0062342372b2d3dee60d1a69edffd",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-columbianus-2/": {
     "lastmod": "2025-02-07T08:47:22+00:00",
     "entityIds": [
@@ -7241,6 +7413,17 @@
     "updatedAt": "2026-11-02T23:34:29.193Z",
     "hash": "05d2b2ec2a67a40eac60d1d0b85b28afde16fa0a6c0d9be541d3134ef3f1d70c",
     "processedHash": "05d2b2ec2a67a40eac60d1d0b85b28afde16fa0a6c0d9be541d3134ef3f1d70c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-flammeus-2/": {
+    "lastmod": "2025-11-28T08:45:20+00:00",
+    "entityIds": [
+      "species/hyphessobrycon-flammeus"
+    ],
+    "updatedAt": "2026-11-06T05:51:05.420Z",
+    "hash": "b6768aa3729b755046003b78bbede9d849c539a81882794583c7a91682d11164",
+    "processedHash": "b6768aa3729b755046003b78bbede9d849c539a81882794583c7a91682d11164",
     "status": "processed",
     "attempts": 0
   },
@@ -7563,6 +7746,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/fisharchive/oreichthys-crenuchoides-2/": {
+    "lastmod": "2024-09-23T08:04:45+00:00",
+    "entityIds": [
+      "species/oreichthys-crenuchoides"
+    ],
+    "updatedAt": "2026-11-06T05:49:01.833Z",
+    "hash": "824954685ca280086fee420481c6c0ce1e8ad4d5f9e8c307053023eac5e569b0",
+    "processedHash": "824954685ca280086fee420481c6c0ce1e8ad4d5f9e8c307053023eac5e569b0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/fisharchive/osteogaster-rabauti-and-o-zygata/": {
     "lastmod": "2026-10-23T08:08:53+00:00",
     "entityIds": [
@@ -7637,6 +7831,17 @@
     "updatedAt": "2026-10-31T20:52:52.678Z",
     "hash": "148d27a62eeef5365c1e9a0e0ef12dd757ccdd6c4f8179cfeca50ef4de4f4c31",
     "processedHash": "148d27a62eeef5365c1e9a0e0ef12dd757ccdd6c4f8179cfeca50ef4de4f4c31",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/": {
+    "lastmod": "2024-10-17T10:37:21+00:00",
+    "entityIds": [
+      "species/planorbella-duryi"
+    ],
+    "updatedAt": "2026-11-06T05:33:26.316Z",
+    "hash": "6d3de2e5cd05b301afc8e8ef48cea35cf00852a9c08c8ccbe18eaee894eae79b",
+    "processedHash": "6d3de2e5cd05b301afc8e8ef48cea35cf00852a9c08c8ccbe18eaee894eae79b",
     "status": "processed",
     "attempts": 0
   },

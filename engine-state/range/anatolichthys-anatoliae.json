@@ -1,0 +1,93 @@
+{
+  "id": "anatolichthys-anatoliae",
+  "native": {
+    "input": "c1c3a7fd7c5f7bd9",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Anatolian toothcarp, Anatolichthys anatoliae, is a small killifish from central and western Anatolia in Turkey.",
+        "words": "Turkey",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tuz",
+        "source": "seriouslyfish",
+        "quote": "Central and western Anatolia, Turkey where it can be found in freshwater springs, streams and small rivers feeding Lake Tuz as well as the Turkish Lakes (Göller Yöresi) region in the west Taurus mountains, around Lakes Eğirdir, Beyşehir and Kovada.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Lake Eğirdir",
+        "source": "seriouslyfish",
+        "quote": "Central and western Anatolia, Turkey where it can be found in freshwater springs, streams and small rivers feeding Lake Tuz as well as the Turkish Lakes (Göller Yöresi) region in the west Taurus mountains, around Lakes Eğirdir, Beyşehir and Kovada.",
+        "country": "TR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Beyşehir",
+        "source": "seriouslyfish",
+        "quote": "Central and western Anatolia, Turkey where it can be found in freshwater springs, streams and small rivers feeding Lake Tuz as well as the Turkish Lakes (Göller Yöresi) region in the west Taurus mountains, around Lakes Eğirdir, Beyşehir and Kovada.",
+        "country": "TR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Büyük Menderes",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded from various rivers, pools and swamps between the cities of Konya and Niğde, and further west from springs of the Büyük Menderes river system and its lower reaches in the Selçuk Plain.",
+        "ok": true
+      },
+      {
+        "name": "Taurus mountains",
+        "source": "seriouslyfish",
+        "quote": "Central and western Anatolia, Turkey where it can be found in freshwater springs, streams and small rivers feeding Lake Tuz as well as the Turkish Lakes (Göller Yöresi) region in the west Taurus mountains, around Lakes Eğirdir, Beyşehir and Kovada.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Lake Kovada",
+        "source": "seriouslyfish",
+        "quote": "Central and western Anatolia, Turkey where it can be found in freshwater springs, streams and small rivers feeding Lake Tuz as well as the Turkish Lakes (Göller Yöresi) region in the west Taurus mountains, around Lakes Eğirdir, Beyşehir and Kovada.",
+        "country": "TR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anatolichthys anatoliae",
+    "status": "ACCEPTED",
+    "taxonKey": 11477416,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "TR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

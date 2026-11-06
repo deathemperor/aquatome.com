@@ -64,6 +64,39 @@
         "source": 3,
         "value": 183
       }
+    ],
+    "lifeYears": [
+      {
+        "source": 3,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": 6,
+        "value": 3
+      },
+      {
+        "source": 7,
+        "value": 4
+      }
     ]
   },
   "photos": [
@@ -145,6 +178,18 @@
       "title": "Practical Fishkeeping continues its anti-dyed fish campaign",
       "kind": "article",
       "at": "2026-10-29"
+    },
+    {
+      "url": "https://tropicaltreasureswyo.com/blogs/tank-buddy-blog/parrot-cichlid-care-guide-hybrid-cichlid",
+      "title": "Blood Parrot Cichlid Care Guide: Complete Hybrid Cichlid Manual – Tropical Treasures",
+      "kind": "shop",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://www.aquariumsource.com/blood-parrot-cichlid/",
+      "title": "Blood Parrot Cichlid Care: Size, Behavior, Tank Mates… – Aquarium Source",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-29"
