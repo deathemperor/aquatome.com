@@ -36,6 +36,10 @@ pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: fail
 pnpm engine review-backfill --kind video-guide --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
 pnpm engine video-items --limit 20 || log "video-items: failed"
 pnpm engine discover-videos || log "discover-videos: failed"
+# Older guides' stills (storyboard tiles, 320 or 160 px) become the video's own frames, screened before they publish.
+# About 80 s a guide (2026-11-06: 6 to 17 stills, 8–9 s each): 12 a run is about 15 minutes, and 8 runs a day finish
+# the 472 guides in about 5 days. Then it finds none and calls nothing.
+pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-12}" || log "video-stills: failed"
 # Photos that show their page's fish, plant or breed (the GitHub engine's account runs out of model calls mid-week):
 # 20 calls a run, most-read pages first, verdicts cached.
 pnpm engine check-photos --limit 20 || log "check-photos: failed"

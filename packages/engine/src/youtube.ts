@@ -14,7 +14,7 @@ import { lastKept, logReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
-import type { Storyboard } from './video-images'
+import type { Storyboard, Stream, VideoFrames } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
 import { seconds } from './videos'
 
@@ -220,12 +220,42 @@ export function ytApi(key: string, get: (url: string) => Promise<unknown> = asyn
   }
 }
 
-/** The largest storyboard (scrub-preview frames) YouTube lists for a video; its sheet URLs are signed, so use them right away. */
-export async function ytStoryboard(id: string): Promise<Storyboard | null> {
-  const d = JSON.parse(await run(['-J', watch(id)]))
-  const sb = ((d.formats ?? []) as (Storyboard & { format_note?: string })[]).filter(f => f.format_note === 'storyboard' && f.fragments?.length).sort((a, b) => b.width - a.width)[0]
-  return sb ? { fps: sb.fps, rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null
+/**
+ * Seconds between storyboard tiles. YouTube's storyboard gives it (2, 5 or 10 s so far), but yt-dlp passes on only tiles
+ * ÷ duration as `fps`. The tile count is ceil(duration ÷ interval) + 1, so the interval is the one that gives that count.
+ */
+export function storyboardInterval(fps: number, duration: number): number {
+  const n = Math.round(fps * duration)
+  return [1, 2, 5, 10, 15, 20, 30, 60].find(i => Math.ceil(duration / i) + 1 === n) ?? 1 / fps
 }
+
+/**
+ * One yt-dlp call for a video's pictures: its largest storyboard (sheet URLs are signed, so use them right away) and a
+ * stream to take frames from, the widest video-only https format up to 1280 px, H.264 first (ffmpeg decodes it
+ * anywhere), with the user agent yt-dlp was given it for.
+ */
+export async function ytFrames(id: string): Promise<VideoFrames> {
+  const d = JSON.parse(await run(['-J', watch(id)]))
+  type Format = Storyboard & { format_note?: string; url?: string; protocol?: string; vcodec?: string; acodec?: string; http_headers?: Record<string, string> }
+  const formats = (d.formats ?? []) as Format[]
+  const sb = formats.filter(f => f.format_note === 'storyboard' && f.fragments?.length).sort((a, b) => b.width - a.width)[0]
+  const avc = (f: Format) => Number(f.vcodec!.startsWith('avc1'))
+  const v = formats.filter(f => f.url && f.protocol === 'https' && f.vcodec && f.vcodec !== 'none' && (!f.acodec || f.acodec === 'none') && f.width > 0 && f.width <= 1280)
+    .sort((a, b) => b.width - a.width || avc(b) - avc(a))[0]
+  const ua = v?.http_headers?.['User-Agent']
+  return {
+    storyboard: sb ? { fps: sb.fps, interval: storyboardInterval(sb.fps, Number(d.duration)), rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null,
+    stream: v ? { url: v.url!, ...(ua ? { userAgent: ua } : {}) } : null,
+  }
+}
+
+/** The stream's frame at `sec` seconds, as PNG. ffmpeg seeks by range requests, so only the part around it is downloaded. */
+export const ytGrab = (s: Stream, sec: number) => new Promise<Uint8Array>((resolve, reject) =>
+  execFile('ffmpeg', ['-nostdin', '-loglevel', 'error', ...(s.userAgent ? ['-user_agent', s.userAgent] : []), '-ss', sec.toFixed(3), '-i', s.url, '-frames:v', '1', '-c:v', 'png', '-f', 'image2pipe', '-'], { encoding: 'buffer', maxBuffer: 64 * 1024 * 1024, timeout: 60_000 }, (e, out, err) => {
+    if (e) reject(new Error(`ffmpeg: ${(err.toString() || e.message).trim().split('\n').pop()}`))
+    else if (!out.length) reject(new Error('ffmpeg: no frame'))
+    else resolve(new Uint8Array(out))
+  }))
 
 const flat = async (url: string, end = 30) => {
   const d = JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url]))

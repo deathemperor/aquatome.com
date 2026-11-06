@@ -442,6 +442,17 @@ The layers above still check the result.
       captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
       by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
       said so and the verdict was "yes".
+  - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
+    YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
+    shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
+    `t<sec>-hd.webp` with its 480 px copy. A tile's second is its number × YouTube's interval (2, 5 or 10 s), not the
+    `t` written from yt-dlp's tiles ÷ duration, which runs up to 16 s early on a long video, often another scene.
+    - A frame that can't be had leaves the tile, and `pnpm engine video-stills` (the Mac's video job, 12 guides a run)
+      tries it again, as it does for the guides written before (2026-11-06: 3,682 stills, half of them 160 px).
+    - It screens a frame as a new guide's, before uploading it: a face takes the still off the page; text keeps the
+      old still's watermark verdict or goes to the model, and a watermark takes the still off and onto
+      `_photo-rejected.json`. A frame of another moment leaves the tile for good (`engine-state/_video-stills.json`).
+    - Found by the owner (2026-11-06): the stills looked blurry and low-res, most of all on a computer.
   - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
     page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page
     or in the app's copy says "with permission" (owner, 2026-11-05; `apps/site/test/photo-permission.test.ts`). The
