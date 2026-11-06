@@ -63,6 +63,7 @@ import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
+import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
@@ -534,6 +535,12 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const r = await breedPhotos(ROOT, galleryDeps(), { limit: values.limit ? Number(values.limit) : 10 })
   console.log(`breed-photos: ${r.done.length} breeds, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
+} else if (cmd === 'planting') {
+  // Where it goes and how to plant it, for plant pages that say neither (planting.ts): written from the page and the
+  // video guides that cover the plant, reviewed, kept at the bar; each plant once. pnpm engine planting [--limit N] [--only id,id] [--redo]
+  const r = await writePlanting(ROOT, claudeCli, { limit: Number(values.limit ?? 5), ...(values.only ? { only: values.only.split(',') } : {}), redo: !!values.redo, model: process.env.PLANTING_MODEL ?? 'opus' })
+  console.log(`planting: ${r.written.length} written, ${r.none.length} with nothing to go on, ${r.low.length} under the bar, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...r.written.map(x => `written: ${x}`), ...r.none.map(x => `nothing to go on: ${x}`), ...r.low.map(x => `under the bar: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
 } else if (cmd === 'breed-care') {
   // Difficulty and lifespan for breed pages whose card lacks either, from their own sources: a research call a breed,
   // once (engine-state/_breed-care.json). pnpm engine breed-care [--only id,id] [--limit N]
