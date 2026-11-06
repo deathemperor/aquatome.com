@@ -38,7 +38,7 @@ const shown = guides.slice(0, max)
   .all button[hidden] { display: none; }
   /* A phone: two cards, each a full screen's width, then the button for the rest. */
   @media (max-width: 520px) {
-    .vg[data-few] .grid > :nth-child(n + 3) { display: none; }
+    .vg[data-few] .grid > :global(:nth-child(n + 3)) { display: none; }
     .all { display: block; }
   }
 </style>
