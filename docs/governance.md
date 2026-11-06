@@ -17,14 +17,16 @@ that would have caught it).
 
 - `pnpm test`: the site built from `apps/site/test/fixture-content`, checked as HTML (vitest).
   - The app's copy of each page (`/app/pages/`, `protocols/page.schema.json`) against `protocols/page-vectors.json`,
-    which the app's tests read too (its fish, plant and video series pages are the fixture build's, and the test fails
-    when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the app
-    would have to send to the web. Each guide's, fish's, plant's, glossary term's, video series' and equipment category's
-    copy is held to its built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, for a fish
-    the data card's sources, tank mates, climate, gallery and breeds, and for a series its whole line (counts, playlist
-    and channel) as its credit and its guides in order; an equipment category's every part in the page's order, its shop
-    links as built (Shopee) and Vietnamese only, with the affiliate note beside them, and the fish that need it one list,
-    however long.
+    which the app's tests read too (its fish, breed, plant and video series pages are the fixture build's, and the test
+    fails when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the
+    app would have to send to the web. Each guide's, fish's, breed's, plant's, glossary term's, video series' and equipment
+    category's copy is held to its built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its
+    numbered sources, for a fish the data card's sources, tank mates, climate, gallery and breeds, for a breed what it is
+    a form of, a hybrid's parents, the card's sources, its gallery, summary, text, lines, questions, guides and sources,
+    for a series its whole line (counts, playlist and channel) as its credit and its guides in order, and for an
+    equipment category every part in the page's order, its shop links as built (Shopee) and Vietnamese only, with the
+    affiliate note beside them, and the fish that need it one list, however long. Every link a copy has to a fish or a
+    breed the index lists opens that page's copy.
   - Which app draws which kind: the app index's `shards` gives each kind's shard count and **level**
     (`PAGE_LEVELS` in `apps/site/src/lib/app-page.ts`; the rule in `packages/schema/src/app-page.ts`, cases in
     `page-vectors.json` `levels`):
@@ -41,7 +43,10 @@ that would have caught it).
   - The app index (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) against the built pages: its fish, plants,
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
     shard, and so are its equipment categories, named as their pages name them; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
-    with what each lists, and `labels` say what those pages say.
+    with what each lists, and `labels` say what those pages say. A breed's `card` is its page's data card; a breed that
+    is a form of a listed species (its `basedOn`, through a parent breed) has that species' id as `of` and no tank-mates
+    figures of its own, being checked as that species; a hybrid, or a breed linked to no listed species, has its figures
+    and no behaviour, a fish of its own.
   - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
     `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
     first 200, each a page the app index lists; the index names the file (`latest`) only where the site has the page.
