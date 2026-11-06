@@ -805,23 +805,32 @@ final class LightFlowTests: XCTestCase {
     let bar = app.navigationBars.firstMatch
     let top = bar.exists ? bar.frame.maxY + 8 : window.minY
     let bottom = min(window.maxY - window.height / 5, pinned - 16)
+    let third = window.height / 3
+    // The content moves about half again as far as the finger (446 pt for a 291 pt drag on the iPhone 17 simulator CI
+    // uses, the large title not counted): a drag shortened by that much lands at the band's middle, and one that misses
+    // still ends nearer, whatever that ratio is up to three.
+    let carry: CGFloat = 1.5
     for _ in 0..<20 {
       let f = e.exists ? e.frame : nil
       if let f, f.minY > top, f.maxY < bottom { break }
-      // Not built yet (off the screen): down the screen first, then back up.
-      let up = f.map { $0.midY > (top + bottom) / 2 } ?? (downs < 8)
-      if up { downs += 1 }
-      drag(app, up: up)
+      // To the middle of the clear band, as far as a drag goes. A fixed third of the screen moved the content past the
+      // band each time (the quick actions: 20 drags, up and down, then a tap where they happened to be). Not built yet
+      // (off the screen): down the screen first, then back up.
+      if let f {
+        drag(app, by: max(-third, min(third, ((top + bottom) / 2 - f.midY) / carry)))
+      } else {
+        drag(app, by: downs < 8 ? -third : third)
+        downs += 1
+      }
     }
     return e
   }
 
-  /// A third of the screen, dragged at its right edge (clear of sliders and handles) and held: no coasting, so the next
-  /// tap lands where the element was seen.
-  private func drag(_ app: XCUIApplication, up: Bool) {
-    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: up ? 0.65 : 0.3))
-    let b = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: up ? 0.3 : 0.65))
-    a.press(forDuration: 0.05, thenDragTo: b, withVelocity: .default, thenHoldForDuration: 0.2)
+  /// A drag of `dy` points (up when negative) at the screen's right edge, clear of sliders and handles, held before it
+  /// lets go so the content settles where the next read finds it.
+  private func drag(_ app: XCUIApplication, by dy: CGFloat) {
+    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? 0.65 : 0.3))
+    a.press(forDuration: 0.05, thenDragTo: a.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
   }
 
   private func tap(_ app: XCUIApplication, _ id: String) {
