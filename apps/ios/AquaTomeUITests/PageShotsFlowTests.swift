@@ -1,14 +1,15 @@
 import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
-/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
-/// a guide and a video series, in light, the fish in dark too, the fish's top at a large text size, and a guide's video
-/// playing in its page (the stand-in player); photos as stand-ins (`-fixed-pictures`). Also the ways to sign in, in
-/// light and in dark, where they first show: the tanks tab on a new phone. And a search's results under the kinds it
-/// finds, light and dark, at the default and the largest text size, with more found than listed, and with a kind picked
-/// that it finds none of, at both sizes; the app's icon picker; and the lights tab's card for the fake light, its clock
-/// lost, warning of its outlet's timer on the stand-in Tuya cloud. Each checks only that its screen opened: what it
-/// shows, the other flows check.
+/// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a
+/// plant, a guide and a video series, in light, the fish in dark too, the fish's top at a large text size, and a
+/// guide's video playing in its page (the stand-in player); the fish-ID screen with its guesses, light and dark; photos
+/// as stand-ins (`-fixed-pictures`). Also the ways to sign in, in light and in dark, where they first show: the tanks
+/// tab on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the largest
+/// text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's icon
+/// picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in Tuya
+/// cloud; and what's new, its row on the home then its list, light and dark. Each checks only that its screen opened:
+/// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -27,6 +28,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
   func testSigningIn() { shootSignIn("sign-in-light") }
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
+  func testFishId() { shootFishId("fish-id-light") }
+  func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
+  func testWhatsNew() { shootWhatsNew("whats-new-light") }
+  func testWhatsNewInTheDark() { shootWhatsNew("whats-new-dark", dark: true) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -65,6 +70,28 @@ final class PageShotsFlowTests: XCTestCase {
     }
   }
 
+  /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.
+  private func shootWhatsNew(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures", "-whats-new"] + (dark ? ["-dark"] : [])
+    app.launchForFlow()
+    let row = app.descendants(matching: .any)["all-latest"]
+    XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
+    for _ in 0..<8 where !(row.exists && row.isHittable) { app.swipeUp() }
+    XCTAssertTrue(row.exists, "no row for what's new")
+    for n in 1...2 {
+      if n == 2 {
+        row.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["latest"].firstMatch.waitForExistence(timeout: 5), "the list didn't open")
+      }
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+  }
+
   /// The app's icon picker (`-app-icons` opens it until its Tài khoản row is in): its top, and a screen further down.
   private func shootIcons(_ name: String, dark: Bool = false) {
     let app = XCUIApplication()
@@ -93,6 +120,31 @@ final class PageShotsFlowTests: XCTestCase {
   private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12,
                      then: (XCUIApplication) -> Void = { _ in }) {
     let app = launch(dark: dark, size: large ? "UICTContentSizeCategoryAccessibilityL" : nil)
+    open(app, query, row)
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    then(app)
+    capture(app, name, dark: dark, large: large, screens: screens)
+  }
+
+  /// The fish-ID screen, signed in on the stand-in server, with the stand-in's guesses for a photo as if picked.
+  private func shootFishId(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, size: nil, ["-fake-accounts", "on", "-reset-fake-server", "-picked-photo"])
+    open(app, "nhan dien", "Đây là cá gì?")
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let send = app.descendants(matching: .any)["fish-id-send"].firstMatch
+    XCTAssertTrue(send.waitForExistence(timeout: 10), "no tool")
+    for _ in 0..<6 where !send.isHittable { app.swipeUp() }
+    send.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["fish-id-guess"].firstMatch.waitForExistence(timeout: 10), "no guesses")
+    // From the top: the screen scrolls to the guesses when they come.
+    for _ in 0..<4 { app.swipeDown() }
+    capture(app, name, dark: dark, large: false, screens: 8)
+  }
+
+  /// The handbook's row for `row`, found by `query`, opened.
+  private func open(_ app: XCUIApplication, _ query: String, _ row: String) {
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
@@ -100,8 +152,10 @@ final class PageShotsFlowTests: XCTestCase {
     let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", row)).firstMatch
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
-    then(app)
+  }
+
+  /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.
+  private func capture(_ app: XCUIApplication, _ name: String, dark: Bool, large: Bool, screens: Int) {
     var seen: [[UInt8]] = []
     var ended = false
     for n in 1...screens {
@@ -170,7 +224,7 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  private func launch(dark: Bool, size: String?, _ more: [String] = []) -> XCUIApplication {
+  private func launch(dark: Bool, size: String? = nil, _ more: [String] = []) -> XCUIApplication {
     let app = XCUIApplication()
     // Dark by the app's own switch: the runner's appearance setting (XCUIDevice) left the shots light.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]

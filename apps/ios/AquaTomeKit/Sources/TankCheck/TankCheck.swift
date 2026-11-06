@@ -36,19 +36,28 @@ public struct TankCheck: Decodable, Equatable, Sendable {
   /// The fish without a page (a tank's entries without one), named in one line: none of the checks counts them.
   public let unchecked: String?
 
-  /// A fish on the tank: its name, its figures from the handbook, and how many when the tank says.
+  /// A row of the tank: its name, its figures from the handbook, how many when the tank says, and what the check counts
+  /// it as (`key`): its page's content id, or for a breed that is a form of a species (the index's `of`), the species',
+  /// with the species' figures and its name as `species`. The site's code makes the rows with one key one fish
+  /// (tank-check.ts `oneFishEach`): their numbers added up, never fewer than the school size while a row gives none.
   public struct Fish: Encodable, Equatable, Sendable {
     public let name: String
     public let facts: HandbookIndex.Facts
     public let count: Int?
-    public init(name: String, facts: HandbookIndex.Facts, count: Int?) { self.name = name; self.facts = facts; self.count = count }
+    public let key: String?
+    public let species: String?
+    public init(name: String, facts: HandbookIndex.Facts, count: Int?, key: String? = nil, species: String? = nil) {
+      self.name = name; self.facts = facts; self.count = count; self.key = key; self.species = species
+    }
 
-    enum CodingKeys: String, CodingKey { case name, count }
+    enum CodingKeys: String, CodingKey { case name, count, key, species }
     /// The figures beside the name, as the site's code reads a species.
     public func encode(to encoder: any Encoder) throws {
       var c = encoder.container(keyedBy: CodingKeys.self)
       try c.encode(name, forKey: .name)
       try c.encodeIfPresent(count, forKey: .count)
+      try c.encodeIfPresent(key, forKey: .key)
+      try c.encodeIfPresent(species, forKey: .species)
       try facts.encode(to: encoder)
     }
   }
@@ -62,23 +71,6 @@ public struct TankCheck: Decodable, Equatable, Sendable {
     public let dims: Dims?
     public let litres: Double?
     public init(dims: Dims? = nil, litres: Double? = nil) { self.dims = dims; self.litres = litres }
-  }
-
-  /// The fish to check, one per handbook page (by content id): a page on the tank twice, put on from the page and
-  /// again by name from before the page existed, is one fish, with the counts given added up. The check reads a fish
-  /// with no count as its school size, so while one of them has none, the fish counts at least that: adding a row never
-  /// lowers it. None given: none.
-  public static func onePerPage(_ fish: [(page: String, fish: Fish)]) -> [Fish] {
-    var order: [String] = [], rows: [String: [Fish]] = [:]
-    for (page, f) in fish {
-      if rows[page] == nil { order.append(page) }
-      rows[page, default: []].append(f)
-    }
-    return order.map { page in
-      let all = rows[page]!, first = all[0], given = all.compactMap(\.count), sum = given.reduce(0, +)
-      let count = given.isEmpty ? nil : given.count == all.count ? sum : max(sum, first.facts.schoolMin ?? 1)
-      return Fish(name: first.name, facts: first.facts, count: count)
-    }
   }
 }
 

@@ -1,0 +1,94 @@
+{
+  "id": "pseudomugil-furcatus",
+  "native": {
+    "input": "2215a6a9a5b54075",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The forktail blue-eye, Pseudomugil furcatus, is a small pseudomugilid endemic to the Northern and Milne Bay provinces of eastern Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Pseudomugil furcatus comes from the rainforests of Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Pseudomugil furcatus is a small, darting rainbowfish native to rainforest streams and clearwater tributaries of Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Peria Creek, Kwagira River, eastern Papua New Guinea' and despite its popularity in the aquarium hobby is endemic to a relatively small area in the country's Northern and Milne Bay provinces.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kwagira River",
+        "source": "sprucepets",
+        "quote": "Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Peria Creek",
+        "source": "sprucepets",
+        "quote": "Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Musa",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the Musa and Kwagila river basins which drain into Dyke Ackland Bay and Collingwood Bay, respectively, and presumably occurs in drainages between the two as well.",
+        "ok": true
+      },
+      {
+        "name": "Kwagila",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded in the Musa and Kwagila river basins which drain into Dyke Ackland Bay and Collingwood Bay, respectively, and presumably occurs in drainages between the two as well.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomugil furcatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2411765,
+    "datasets": [],
+    "native": [
+      "PG"
+    ],
+    "requests": 2,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

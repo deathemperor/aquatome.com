@@ -22,6 +22,209 @@
     "white-nile",
     "lake-chad"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM",
+        "ML",
+        "GH",
+        "SD",
+        "TD",
+        "NE"
+      ],
+      "regions": [
+        "White Nile",
+        "Volta",
+        "Bénoué"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The featherfin Synodontis, Synodontis euptera, is a catfish from Nigeria, Cameroon, Mali, Ghana, Sudan, Chad and Niger.",
+          "countries": [
+            "NG",
+            "CM",
+            "ML",
+            "GH",
+            "SD",
+            "TD",
+            "NE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: White Nile, Chad, Volta and Niger basins, including the Bénoué.",
+          "countries": [],
+          "regions": [
+            "White Nile",
+            "Volta",
+            "Bénoué"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344483,
+      "total": 30,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "NG",
+          11
+        ],
+        [
+          "GH",
+          6
+        ],
+        [
+          "ML",
+          4
+        ],
+        [
+          "CM",
+          3
+        ],
+        [
+          "BF",
+          2
+        ],
+        [
+          "GN",
+          2
+        ],
+        [
+          "CF",
+          1
+        ],
+        [
+          "TD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -11.25,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -9.84375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -8.4375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -8.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -4.21875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -4.21875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -2.8125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -1.40625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          4.21875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          4.21875,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          5.625,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          16.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,150 @@
+{
+  "id": "tanichthys-albonubes",
+  "native": {
+    "input": "3a1ead2db3c160c0",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: White Cloud Mountains of China",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The White Cloud Mountain minnow, Tanichthys albonubes, is a small cyprinid from Guangdong and Hainan in southern China and from northeastern Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The White Cloud Mountain minnow, Tanichthys albonubes, is a small cyprinid from Guangdong and Hainan in southern China and from northeastern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Tanichthys albonubes gets its common name from White Cloud Mountain in southern China where it was first discovered.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Fortunately, a small number of native populations have been discovered in isolated locations within the coastal provinces of Guangdong and Hainan Island in China, as well as in Quảng Ninh province in Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Fortunately, a small number of native populations have been discovered in isolated locations within the coastal provinces of Guangdong and Hainan Island in China, as well as in Quảng Ninh province in Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pearl River Delta",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'White Cloud Mountain, Kwangtung, China', referring to White Cloud Mountain (also known as Mount Baiyun or Baiyunshan) a few miles north of the city of Guangzhou, Guangdong Province, China and this species is probably restricted to the Pearl River Delta region.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Hainan Island",
+        "source": "seriouslyfish",
+        "quote": "In 2007 an additional population was discovered on Hainan Island, Hainan province, which is separated from Guangdong by the 30 km wide Qiongzhou Strait (Chan and Chen, 2009).",
+        "ok": true
+      },
+      {
+        "name": "Hainan Island",
+        "source": "sprucepets",
+        "quote": "Fortunately, a small number of native populations have been discovered in isolated locations within the coastal provinces of Guangdong and Hainan Island in China, as well as in Quảng Ninh province in Vietnam.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tanichthys albonubes",
+    "status": "ACCEPTED",
+    "taxonKey": 5207572,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "8fbae0f5-56c9-4f77-a8bc-899a2e783cfe",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "ff98132c-b720-4304-a68c-390968b991f7",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN"
+    ],
+    "requests": 16,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

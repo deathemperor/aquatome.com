@@ -10,6 +10,60 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Brahmaputra River basin in northeastern India, and officially known only from a swamp in the vicinity of Barobisha town, although collections for the aquarium trade appear to suggest the existence of at least one additional population.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7820111,
+      "total": 3,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          2
+        ],
+        [
+          "BT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          26.71875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

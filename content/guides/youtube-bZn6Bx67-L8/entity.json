@@ -1,0 +1,128 @@
+{
+  "id": "youtube-bZn6Bx67-L8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=bZn6Bx67-L8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "ceratophyllum-demersum",
+    "oryzias-latipes",
+    "poecilia-reticulata",
+    "carassius-auratus",
+    "cyprinus-rubrofuscus"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "bZn6Bx67-L8",
+    "title": "Sun's Out, Tubs Out! Building with Dean Part 1",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 1317,
+    "publishedAt": "2025-06-16",
+    "chapters": [],
+    "series": {
+      "id": "PLNM4mDAXGxWxZO5mkRefZhunHQFAIlHxF",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/bZn6Bx67-L8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Ceratophyllum demersum",
+      "Oryzias latipes",
+      "Poecilia reticulata",
+      "Carassius auratus",
+      "Cyprinus rubrofuscus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "brand": "Doop",
+        "model": "half size tubs",
+        "t": 90
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 1290
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 1290
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 270
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Chọn thùng và chỗ đặt thế nào",
+        "moments": [
+          {
+            "t": 0,
+            "url": "https://media.aquatome.com/video/bZn6Bx67-L8/t0.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hàng thùng nhựa khung lưới xếp dọc theo tường, nhìn rõ chỗ đặt."
+          },
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/bZn6Bx67-L8/t30.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Dãy thùng nhựa đen có khung lưới đặt sát tường nhà."
+          }
+        ]
+      },
+      {
+        "heading": "Làm đường xả trước khi chốt vị trí",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/bZn6Bx67-L8/p1-Q3ODIyMjUpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/bZn6Bx67-L8/p1-Q3ODIyMjUpLmpwZw-480.webp",
+          "width": 960,
+          "height": 1707,
+          "licence": "Public domain",
+          "author": "MassDOT",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:2014_07_22_Harvard_Street_Bridge_Drainage_-_PVC_Pipe_Installation_at_Manhole-1_(15034782225).jpg",
+          "caption": "Ống thoát nước đặt trong rãnh đào, có đá dăm quanh ống để nước chảy xuôi."
+        }
+      },
+      {
+        "heading": "Làm nắp và giữ cho cụm thùng dễ nhìn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/bZn6Bx67-L8/p2-oaW5nbGVzKS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/bZn6Bx67-L8/p2-oaW5nbGVzKS5KUEc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC0",
+          "author": "Hassocks5489",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Mary%27s_Church,_Old_Christchurch_Road,_Everton,_Hampshire_(July_2021)_(Cedar_Shingles).JPG",
+          "caption": "Ván lợp gỗ tuyết tùng xếp lớp, dùng ốp ngoài cho cụm thùng gọn gàng."
+        }
+      },
+      {
+        "heading": "Nuôi gì trong thùng ngoài trời",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/bZn6Bx67-L8/p7-hTWFkcm9uYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/bZn6Bx67-L8/p7-hTWFkcm9uYS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Javier martin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_2010-8-14_RioMontoro_SierraMadrona.jpg",
+          "caption": "Rong đuôi chồn mọc dày, trải kín mặt nước trong thùng ngoài trời."
+        }
+      }
+    ]
+  }
+}

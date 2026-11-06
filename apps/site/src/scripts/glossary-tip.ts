@@ -9,7 +9,8 @@ export function placeTip(term: Box, w: number, h: number, viewW: number, viewH: 
 }
 
 /** Glossary terms, and source marks (lib/cite.ts: a text source's number, a photo's ©), which use the same card. */
-const SEL = 'a.gl[data-tip], a.cite[data-tip]'
+// A photo's © has no tip when it has no licence to name: its card is its author and the link to the photo's page.
+const SEL = 'a.gl[data-tip], a.cite[data-tip], a.cite.pic'
 
 /**
  * Glossary terms in the text (a.gl, dotted underline, with data-term / data-tip): hovering or focusing one shows what it
@@ -32,9 +33,12 @@ export function initGlossaryTips() {
   function show(a: HTMLAnchorElement, tapped: boolean) {
     const name = document.createElement('strong')
     name.textContent = a.dataset.term ?? a.textContent
-    const text = document.createElement('p')
-    text.textContent = a.dataset.tip!
-    tip.replaceChildren(name, text)
+    tip.replaceChildren(name)
+    if (a.dataset.tip) {
+      const text = document.createElement('p')
+      text.textContent = a.dataset.tip
+      tip.append(text)
+    }
     if (tapped) {
       const more = document.createElement('a')
       more.href = a.href

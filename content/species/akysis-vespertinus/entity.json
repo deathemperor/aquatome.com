@@ -10,6 +10,58 @@
     "myanmar",
     "ann-chaung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ann Chaung",
+        "Rakhine Yoma"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The western stream catfish, Akysis vespertinus, is an akysid catfish known only from the Ann Chaung river system in Rakhine State, western Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from headwaters of the Ann Chaung river system which drains the western face of the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar.",
+          "countries": [],
+          "regions": [
+            "Ann Chaung",
+            "Rakhine Yoma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340903,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          19.6875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

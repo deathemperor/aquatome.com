@@ -1,0 +1,92 @@
+{
+  "id": "hasemania-nana",
+  "native": {
+    "input": "0f086c1e66c696e4",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The silvertip tetra, Hasemania nana, is a characid from the Rio São Francisco basin in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio São Francisco basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio São Francisco",
+        "source": "seriouslyfish",
+        "quote": "The silvertip tetra, Hasemania nana, is a characid from the Rio São Francisco basin in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hasemania nana",
+    "status": "ACCEPTED",
+    "taxonKey": 2353385,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        30
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        12
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "id": "hemigrammus-erythrozonus",
+  "native": {
+    "input": "9d7a1b6dc03649ac",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The glowlight tetra, Hemigrammus erythrozonus, is a small characin known only from the Rio Essequibo in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Rio Essequibo, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Essequibo is the longest river in Guyana, and flows through a variety of biotopes.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Rio Essequibo, Guyana.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemigrammus erythrozonus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354398,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        11
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        10
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

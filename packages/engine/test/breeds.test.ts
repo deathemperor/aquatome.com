@@ -212,3 +212,20 @@ test("a breed page's other names are its own: research and the writer give its s
   await localizeBreed(r, id, 'ranchu-goldfish', 'id')
   expect(JSON.parse(await readFile(join(r, 'content/breeds/ranchu-goldfish/id.json'), 'utf8')).altNames).toEqual(['Ranchu Jepang'])
 })
+
+test('localizeBreed in Malay: addressed by its name, and a name a species has takes its word for "fish"', async () => {
+  const r = await root()
+  const hybrid: BreedFacts = { ...facts, kind: 'hybrid', basedOn: undefined, commons: undefined, parents: [] }
+  const vi: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá lai X', altNames: [], parentNames: [], summary: ['s'], body: '<p>b</p>', faq: [] }) as T
+  await makeBreed(r, { research: (async () => hybrid) as Llm, llm: vi, gallery: gallery([]) }, { name: 'X hybrid' })
+  await writeFile(join(r, 'content/species/carassius-auratus/ms.json'), JSON.stringify({ slug: 'ikan-kacukan-x', name: 'Ikan emas' }))
+  const prompts: string[] = []
+  const ms: Llm = async <T,>(a: { prompt: string; schema: object }) => {
+    prompts.push(a.prompt)
+    if ('score' in (a.schema as { properties: object }).properties) return { score: 0.9, notes: [] } as T
+    return { name: 'Ikan Kacukan X', slug: 'ignored', altNames: [], parentNames: [], summary: ['s'], body: '<p>Suhu 68 °F.</p>', faq: [] } as T
+  }
+  expect(await localizeBreed(r, ms, 'x-hybrid', 'ms')).toMatchObject({ slug: 'ikan-kacukan-x-ikan' })
+  expect(prompts[0]).toContain('Malaysia')
+  expect(JSON.parse(await readFile(join(r, 'content/breeds/x-hybrid/ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C.</p>')
+})

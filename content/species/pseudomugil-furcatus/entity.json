@@ -11,6 +11,60 @@
     "milne-bay-province",
     "kwagira-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Kwagira River",
+        "Peria Creek",
+        "Musa",
+        "Kwagila"
+      ],
+      "sources": [
+        "bwaquatics",
+        "sprucepets",
+        "seriouslyfish",
+        "aquariumcoop"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The forktail blue-eye, Pseudomugil furcatus, is a small pseudomugilid endemic to the Northern and Milne Bay provinces of eastern Papua New Guinea.",
+          "countries": [
+            "PG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province.",
+          "countries": [],
+          "regions": [
+            "Kwagira River",
+            "Peria Creek"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded in the Musa and Kwagila river basins which drain into Dyke Ackland Bay and Collingwood Bay, respectively, and presumably occurs in drainages between the two as well.",
+          "countries": [],
+          "regions": [
+            "Musa",
+            "Kwagila"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411765,
+      "total": 0,
+      "fetched": "2026-11-05",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

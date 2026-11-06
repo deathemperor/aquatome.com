@@ -1,0 +1,111 @@
+{
+  "id": "acentronichthys-leptos",
+  "native": {
+    "input": "b306ba48c3343a23",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: coastal streams from Rio de Janeiro to Santa Catarina, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: coastal streams from Rio de Janeiro to Santa Catarina State, and in São Mateus, in Espírito Santo State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Doce River",
+        "source": "scotcat",
+        "quote": "IUCN Red List: although it is possible that it is a species complex, Acentronichthys leptos was assessed as a single specific entity due to its wide distribution (from Santa Catarina to northern Rio de Janeiro and northern Espírito Santo, above the mouth of the Doce River to southern Bahia).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acentronichthys leptos",
+    "status": "ACCEPTED",
+    "taxonKey": 2343628,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        143
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        54
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        29
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        18
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        14
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

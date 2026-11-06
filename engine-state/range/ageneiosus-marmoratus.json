@@ -1,0 +1,174 @@
+{
+  "id": "ageneiosus-marmoratus",
+  "native": {
+    "input": "47b671db82ec65d1",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Bottlenose catfish, Ageneiosus marmoratus, is a predatory auchenipterid catfish from Guyana, Suriname and the upper Amazon in Peru and Ecuador.",
+        "ok": true
+      },
+      {
+        "name": "Courantyne",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it to occur over a huge area since it's also been recorded from the Courantyne/Corantijn basin in western Guyana and Suriname, the upper Amazon region in Peru and Ecuador, and there is also a questionable record from the Paraná drainage in Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Potaro",
+        "source": "seriouslyfish",
+        "quote": "The holotype was collected from a creek below the settlement of Potaro Landing in the Potaro-Siparuni region of central Guyana which almost certainly refers to a tributary of the Potaro River, itself an affluent of the much larger Essequibo system.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ageneiosus marmoratus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344560,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR",
+      "PE",
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

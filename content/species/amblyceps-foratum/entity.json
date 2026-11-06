@@ -12,6 +12,68 @@
     "trat",
     "chantaburi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Perak River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Thailand, southern peninsular (Khlong Sok at Ban Khlong Sok, Surat Thani Province) and south-eastern Thailand (provinces of Trat and Chantaburi).",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: although there is no information on the population and its trends, it is still relatively abundant in hill-streams and the upper parts of river drainages throughout the northern part of the Malay Peninsula, northwards from the Perak River drainage to the Isthmus of Kra (based on recent survey data).",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula",
+            "Perak River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342854,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          3
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

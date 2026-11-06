@@ -7,7 +7,8 @@ const PORT = Number(process.env.E2E_PORT ?? 4419)
 const live = process.env.E2E_BASE_URL
 // Each browser says it's ours (worker/bots.ts), so the checks run on the live site aren't counted as readers, shop
 // clicks or wanted names.
-const ours = <T extends { userAgent: string }>(device: T) => ({ ...device, userAgent: `${device.userAgent} AquaTomeCheck/1` })
+export const ours = (userAgent: string) => `${userAgent} AquaTomeCheck/1`
+const ourDevice = <T extends { userAgent: string }>(device: T) => ({ ...device, userAgent: ours(device.userAgent) })
 export default defineConfig({
   testDir: 'e2e',
   fullyParallel: true,
@@ -21,8 +22,8 @@ export default defineConfig({
   // runners (2026-10-31). The failure's screenshot and accessibility snapshot (error-context.md) still show the page.
   use: { baseURL: live ?? `http://127.0.0.1:${PORT}`, trace: { mode: 'retain-on-failure', snapshots: false }, screenshot: 'only-on-failure' },
   projects: [
-    { name: 'phone', use: ours(devices['Pixel 7']!) },
-    { name: 'desktop', use: { ...ours(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
+    { name: 'phone', use: ourDevice(devices['Pixel 7']!) },
+    { name: 'desktop', use: { ...ourDevice(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
   ],
   webServer: live ? undefined : { command: `node e2e/serve.mjs ${process.env.E2E_DIST ?? 'dist'} ${PORT}`, url: `http://127.0.0.1:${PORT}/`, reuseExistingServer: !process.env.CI },
 })

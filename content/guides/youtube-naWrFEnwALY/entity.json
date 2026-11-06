@@ -1,0 +1,120 @@
+{
+  "id": "youtube-naWrFEnwALY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=naWrFEnwALY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "naWrFEnwALY",
+    "title": "Double Your Canister Filter Flow! [Data Nerd Video]",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 998,
+    "publishedAt": "2025-10-23",
+    "chapters": [],
+    "series": {
+      "id": "PLNM4mDAXGxWztcos8KO9aqqiXjPDY2w9n",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/naWrFEnwALY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Eheim",
+        "model": "1500",
+        "t": 30
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "FX4",
+        "t": 500
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "407",
+        "t": 780
+      },
+      {
+        "category": "suoi",
+        "t": 61
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Đo lưu lượng thực tế bằng cách nào",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/naWrFEnwALY/t20.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Đồng hồ đo lưu lượng (flow meter) điện tử giá khoảng 41 USD."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/naWrFEnwALY/p0-ksX01ldGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/naWrFEnwALY/p0-ksX01ldGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 542,
+          "licence": "CC BY 2.0",
+          "author": "MTA Capital Construction Mega Projects",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Running_wire_between_sump_pump_control_panels_in_a_vent_facility_in_Queens._09-25-2019_(48804750623),_Meter.jpg",
+          "caption": "Đồng hồ đo lưu lượng gắn trên đường ống nước, hiển thị số đo."
+        }
+      },
+      {
+        "heading": "Những thứ làm lọc thùng chảy yếu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/naWrFEnwALY/p1-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/naWrFEnwALY/p1-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng Fluval đặt trong tủ bể, ống nối chạy ra xô nước."
+        }
+      },
+      {
+        "heading": "Bẩn thì cản bao nhiêu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/naWrFEnwALY/p4-Rlci5zczAzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/naWrFEnwALY/p4-Rlci5zczAzLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rucksackfilter.forAqualium.GEX.slim.filter.ss03.jpg",
+          "caption": "Cánh quạt của máy bơm/lọc nhìn từ bên trong buồng cánh quạt."
+        }
+      },
+      {
+        "heading": "Lưu lượng ghi trên hộp và thực tế",
+        "moments": [
+          {
+            "t": 760,
+            "url": "https://media.aquatome.com/video/naWrFEnwALY/t760.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hộp lọc thùng Fluval FX4 ghi lưu lượng 2.650 lít/giờ."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -6,9 +6,11 @@ import { creditsFor } from '../lib/credits'
 import { galleryNote, licenceUrl } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
 import { i18n, licenceLabel } from '../lib/i18n'
+import { isUnsplash } from '../lib/unsplash'
 /**
  * A species', breed's or plant's photo gallery page: every photo credited (author, licence, its source page), the photo
  * viewer (scripts/photo-viewer.ts), ImageGallery data. `page`: the fish or plant's own page; `back`: the link text to it.
+ * An Unsplash photo's credit in the viewer is its line (lib/unsplash.ts), then its own page.
  */
 interface Props { name: string; sci?: string; photos: Photo[]; page: string; back: string; crumbs: [string, string][]; indexable: boolean; alternates: Partial<Record<Lang, string>> }
 const { name, sci, photos, page, back, crumbs, indexable, alternates } = Astro.props
@@ -17,8 +19,8 @@ const c = await getContent(lang)
 const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ImageGallery', name: `${t('Ảnh {name}', { name })}${sci ? ` (${sci})` : ''}`,
   image: photos.slice(0, 60).map(p => ({
-    '@type': 'ImageObject', contentUrl: p.url, thumbnailUrl: p.thumb ?? p.url, caption: p.caption, creditText: p.author, creator: { '@type': 'Person', name: p.author },
-    copyrightNotice: `${p.author}, ${p.licence}`, acquireLicensePage: p.sourceUrl, ...(licenceUrl(p.licence) ? { license: licenceUrl(p.licence) } : {}),
+    '@type': 'ImageObject', contentUrl: p.url, thumbnailUrl: p.thumb ?? p.url, caption: p.caption, creditText: p.author, creator: { '@type': 'Person', name: p.author, ...(p.authorUrl ? { url: p.authorUrl } : {}) },
+    copyrightNotice: [p.author, licenceLabel(p.licence)].filter(Boolean).join(', '), acquireLicensePage: p.sourceUrl, ...(licenceUrl(p.licence) ? { license: licenceUrl(p.licence) } : {}),
   })),
 }]
 ---
@@ -27,7 +29,7 @@ const jsonld = [{
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
       <li id={`a${i + 1}`}>
-        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={licenceLabel(t, p.licence)} data-src={p.sourceUrl}>
+        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={licenceLabel(p.licence)} data-src={p.sourceUrl} data-by={p.authorUrl} data-unsplash={isUnsplash(p.licence) ? '' : undefined}>
           <img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
         </a>
       </li>
@@ -37,6 +39,7 @@ const jsonld = [{
     import { ct } from '../scripts/ct'
     import { photoOfHash } from '../scripts/photo-view'
     import { createViewer } from '../scripts/photo-viewer'
+    import { unsplashParts } from '../lib/unsplash'
     // Without this script each tile stays a link to its full photo.
     const grid = document.querySelector<HTMLElement>('[data-gallery]')
     if (grid) {
@@ -46,10 +49,11 @@ const jsonld = [{
         photos: links.map(a => {
           const d = a.dataset
           const img = a.querySelector('img')!
-          const credit = () => {
-            const l = document.createElement('a'); l.href = d.src!; l.rel = 'noopener'; l.target = '_blank'; l.textContent = d.author!
-            return [`${ct('Ảnh:')} `, l, `, ${d.lic}`]
-          }
+          const link = (href: string, text: string) => { const l = document.createElement('a'); l.href = href; l.rel = 'noopener'; l.target = '_blank'; l.textContent = text; return l }
+          // An Unsplash photo: "Ảnh: <name> trên Unsplash", the name the photographer's page once the engine has it, then the photo's own.
+          const credit = () => d.unsplash === undefined
+            ? [`${ct('Ảnh:')} `, link(d.src!, d.author!), ...(d.lic ? [`, ${d.lic}`] : [])]
+            : [...unsplashParts(ct('Ảnh: {author} trên {site}'), d.author!, d.by ? { authorUrl: d.by } : { photo: d.src! }).map(x => (x.href ? link(x.href, x.text) : x.text)), ...(d.by ? [' · ', link(d.src!, ct('Xem ảnh gốc ↗'))] : [])]
           return { src: d.full!, thumb: img.src, width: Number(d.w), height: Number(d.h), alt: img.alt, ...(d.cap ? { caption: d.cap } : {}), credit }
         }),
         tile: i => links[i],

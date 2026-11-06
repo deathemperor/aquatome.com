@@ -59,6 +59,8 @@ private func json(_ i: PageDoc.Image) -> [String: Any] {
   if let c = i.credit {
     var j: [String: Any] = ["text": c.text, "licence": c.licence]
     j["url"] = c.url
+    j["author"] = c.author
+    j["authorUrl"] = c.authorUrl
     o["credit"] = j
   }
   return o
@@ -234,6 +236,91 @@ private func same(_ a: Any, _ b: Any) -> Bool { (a as AnyObject).isEqual(b) }
   let photo: [String: Any] = ["src": "https://x/1.jpg", "w": 4, "h": 3]
   let d = try doc(page([["t": "gallery", "title": "Ảnh", "note": "1 ảnh", "photos": [photo], "strip": [0, 3]]]))
   #expect(d.blocks.map(\.t) == ["web"])
+}
+
+/// An Unsplash photo's credit (protocols/page.schema.json `Credit`): the photographer's name as the line writes it, and
+/// their page once the site's engine has it. Any other photo's credit is read as before; a name or a page that isn't
+/// text is none, never a lost credit.
+@Test func anUnsplashCreditIsReadWithItsPhotographerAndAnyOtherAsBefore() throws {
+  let profile = "https://unsplash.com/@jane_doe_fixture?utm_source=aquatome&utm_medium=referral"
+  func credit(_ c: [String: Any]) throws -> PageDoc.Image.Credit? {
+    var p = page([])
+    p["lead"] = ["src": "https://x/1.jpg", "w": 4, "h": 3, "credit": c] as [String: Any]
+    return try doc(p).lead?.credit
+  }
+  let unsplash: [String: Any] = ["text": "Ảnh: Jane Doe trên Unsplash", "licence": "Unsplash License", "url": "https://unsplash.com/photos/abc", "author": "Jane Doe"]
+  var c = try #require(try credit(unsplash.merging(["authorUrl": profile]) { a, _ in a }))
+  #expect(c.text == "Ảnh: Jane Doe trên Unsplash" && c.licence == "Unsplash License" && c.url == "https://unsplash.com/photos/abc")
+  #expect(c.author == "Jane Doe" && c.authorUrl == profile)
+  // Before the engine has the photographer's page: the name alone.
+  c = try #require(try credit(unsplash))
+  #expect(c.author == "Jane Doe" && c.authorUrl == nil)
+  c = try #require(try credit(["text": "Ảnh: Tác giả 1", "licence": "CC BY 4.0", "url": "https://x/p/1"]))
+  #expect(c.text == "Ảnh: Tác giả 1" && c.licence == "CC BY 4.0" && c.url == "https://x/p/1" && c.author == nil && c.authorUrl == nil)
+  c = try #require(try credit(["text": "Ảnh: Jane Doe trên Unsplash", "licence": "Unsplash License", "author": 3, "authorUrl": ["x"]]))
+  #expect(c.text == "Ảnh: Jane Doe trên Unsplash" && c.author == nil && c.authorUrl == nil)
+  // The first page the site sends with both (#535's breed page, the pigeon blood discus's lead in page-vectors.json): its
+  // photographer named and linked, "Unsplash" Unsplash's home.
+  let mai = "https://unsplash.com/@mailin?utm_source=aquatome&utm_medium=referral"
+  c = try #require(try credit(["text": "Ảnh: Mai Lin trên Unsplash", "licence": "Unsplash License",
+                               "url": "https://unsplash.com/photos/a-red-discus-fish-Pb1Fixture1?utm_source=aquatome&utm_medium=referral",
+                               "authorUrl": mai, "author": "Mai Lin"]))
+  #expect(c.author == "Mai Lin" && c.authorUrl == mai)
+  #expect(pieces(c) == ["Ảnh: ", "Mai Lin → \(mai)", " trên ", "Unsplash → \(PageDoc.Image.Credit.unsplashHome)", " · Unsplash License"])
+}
+
+/// A credit's line in pieces, each with where it links (`text → link`).
+private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
+  c.parts(photo: photo).map { p in p.link.map { "\(p.text) → \($0)" } ?? p.text }
+}
+
+/// A credit's line as the site links it (apps/site/src/lib/unsplash.ts): an Unsplash photo's name linking the
+/// photographer's page, else the photo's own, and "Unsplash" Unsplash's home with AquaTome's UTM, the rest unlinked, in
+/// any language's line; a line that doesn't hold the name links the photo's own page and "Unsplash" still. A credit
+/// without a name is one link to the photo's own page, licence and all, as before.
+@Test func anUnsplashCreditsNameAndUnsplashAreLinksAndAnyOtherIsOneLink() {
+  typealias Credit = PageDoc.Image.Credit
+  let home = "https://unsplash.com/?utm_source=aquatome&utm_medium=referral"
+  let profile = "https://unsplash.com/@jane_doe_fixture?utm_source=aquatome&utm_medium=referral"
+  let photo = "https://unsplash.com/photos/abc"
+  #expect(Credit.unsplashHome == home)
+  let full = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: "Jane Doe", authorUrl: profile)
+  #expect(pieces(full) == ["Ảnh: ", "Jane Doe → \(profile)", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  // In a list that links each photo's page by a number: the same, the photo's page not in it.
+  #expect(pieces(full, photo: false) == pieces(full))
+  // Until the site has the photographer's page, the name links the photo's; in such a list, nothing.
+  let named = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: "Jane Doe")
+  #expect(pieces(named) == ["Ảnh: ", "Jane Doe → \(photo)", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  #expect(pieces(named, photo: false) == ["Ảnh: ", "Jane Doe", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  // The flowerhorn's gallery on the site (test/fixture-content/gallery/flowerhorn-cichlid.json): a photographer whose page
+  // is known, and one whose isn't yet, unlinked in the gallery's list.
+  let jo = "https://unsplash.com/@jopark?utm_source=aquatome&utm_medium=referral"
+  #expect(pieces(Credit(text: "Ảnh: Jo Park trên Unsplash", licence: "Unsplash License", url: photo, author: "Jo Park", authorUrl: jo), photo: false)
+          == ["Ảnh: ", "Jo Park → \(jo)", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  #expect(pieces(Credit(text: "Ảnh: Sam Reyes trên Unsplash", licence: "Unsplash License", url: photo, author: "Sam Reyes"), photo: false)
+          == ["Ảnh: ", "Sam Reyes", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  // Another language's words around the name, and a name holding the word: "Unsplash" is the one outside it.
+  let thai = Credit(text: "ภาพ: Jane Doe บน Unsplash", licence: "Unsplash License", url: photo, author: "Jane Doe", authorUrl: profile)
+  #expect(pieces(thai) == ["ภาพ: ", "Jane Doe → \(profile)", " บน ", "Unsplash → \(home)", " · Unsplash License"])
+  let fan = Credit(text: "Ảnh: Unsplash Fan trên Unsplash", licence: "Unsplash License", url: photo, author: "Unsplash Fan", authorUrl: profile)
+  #expect(pieces(fan) == ["Ảnh: ", "Unsplash Fan → \(profile)", " trên ", "Unsplash → \(home)", " · Unsplash License"])
+  // The name with other spaces than the line's (the site collapses the line's), and a name that is the line's first word.
+  let spaced = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: " Jane  Doe ", authorUrl: profile)
+  #expect(pieces(spaced) == pieces(full))
+  let word = Credit(text: "Foto: Foto di Unsplash", licence: "Unsplash License", url: photo, author: "Foto", authorUrl: profile)
+  #expect(pieces(word) == ["Foto: ", "Foto → \(profile)", " di ", "Unsplash → \(home)", " · Unsplash License"])
+  // A name the line doesn't hold, or an empty one: the line linking the photo's page as before, "Unsplash" still its home.
+  let elsewhere = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: "Janet Roe", authorUrl: profile)
+  #expect(pieces(elsewhere) == ["Ảnh: Jane Doe trên  → \(photo)", "Unsplash → \(home)", " · Unsplash License"])
+  let empty = Credit(text: "Ảnh: Jane Doe trên Unsplash", licence: "Unsplash License", url: photo, author: "")
+  #expect(pieces(empty, photo: false) == ["Ảnh: Jane Doe trên ", "Unsplash → \(home)", " · Unsplash License"])
+  // Without "Unsplash" in the line either: one link, as before.
+  #expect(pieces(Credit(text: "Ảnh: Jane Doe", licence: "CC BY 4.0", url: photo, author: "")) == ["Ảnh: Jane Doe · CC BY 4.0 → \(photo)"])
+  let other = Credit(text: "Ảnh: Tác giả 1", licence: "CC BY 4.0", url: "https://x/p/1")
+  #expect(pieces(other) == ["Ảnh: Tác giả 1 · CC BY 4.0 → https://x/p/1"])
+  #expect(pieces(other, photo: false) == ["Ảnh: Tác giả 1 · CC BY 4.0"])
+  // A reader's photo: their name, no licence, no page.
+  #expect(pieces(Credit(text: "Lan", licence: "", url: nil)) == ["Lan"])
 }
 
 @Test func readsEveryHtmlCasesBlocksAsWritten() throws {

@@ -16,6 +16,9 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// (PageDoc.level); a site without it, its `pages` (guides only: left as they were for apps older than levels). Empty
   /// from a site older than both.
   public let pages: [String: Int]
+  /// What's new on the site (Latest): its file's path ("/app/latest/vi.json"), where the language's site has the page;
+  /// nil from one without it.
+  public let latest: String?
 
   /// `video`: a series of video guides (its page lists them).
   public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video }
@@ -49,19 +52,27 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     public let parts: Int?
     /// A tool page's own title, the line under its heading and its description: found by search, not shown.
     public let words: [String]
+    /// A breed that is a form of a species: the species' content id. A tank's check counts the breed as that species, so
+    /// it has no `facts` of its own.
+    public var of: String? { breed?.of }
+    /// A breed's own figures, as its page's data card shows them: what its facts card shows.
+    public var card: Facts? { breed?.card }
+    /// `of` and `card`, behind one reference: only breeds have them, and every item is copied as a list scrolls, so
+    /// held in each item they cost a fling through the fish about 2 MB (perf-budgets.json).
+    private let breed: Breed?
     public var id: String { path }
 
     /// Of `kind`, as a search narrowed to it or a list of it takes it: a video guide is a guide, and a video too.
     public func `is`(_ kind: Kind) -> Bool { self.kind == kind || (kind == .video && video != nil) }
 
-    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words }
+    enum CodingKeys: String, CodingKey { case kind, contentId = "id", name, sub, aka, path, img, section, about, group, plant, video, parts, words, of, card }
 
     public init(kind: Kind, contentId: String? = nil, name: String, sub: String? = nil, aka: [String]? = nil, path: String, img: String? = nil,
                 facts: Facts = Facts(), section: String? = nil, about: [String] = [], group: String? = nil, plant: Plant? = nil,
-                video: Int? = nil, parts: Int? = nil, words: [String] = []) {
+                video: Int? = nil, parts: Int? = nil, words: [String] = [], of: String? = nil, card: Facts? = nil) {
       self.kind = kind; self.contentId = contentId; self.name = name; self.sub = sub; self.aka = aka; self.path = path; self.img = img
       self.facts = facts; self.section = section; self.about = about; self.group = group; self.plant = plant
-      self.video = video; self.parts = parts; self.words = words
+      self.video = video; self.parts = parts; self.words = words; self.breed = Breed(of: of, card: card)
     }
 
     public init(from decoder: any Decoder) throws {
@@ -82,6 +93,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       video = (try? c.decodeIfPresent(Int.self, forKey: .video)) ?? nil
       parts = (try? c.decodeIfPresent(Int.self, forKey: .parts)) ?? nil
       words = ((try? c.decodeIfPresent([String].self, forKey: .words)) ?? nil) ?? []
+      breed = Breed(of: (try? c.decodeIfPresent(String.self, forKey: .of)) ?? nil,
+                    card: (try? c.decodeIfPresent(Facts.self, forKey: .card)) ?? nil)
     }
 
     public func encode(to encoder: any Encoder) throws {
@@ -100,7 +113,23 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       try c.encodeIfPresent(video, forKey: .video)
       try c.encodeIfPresent(parts, forKey: .parts)
       if !words.isEmpty { try c.encode(words, forKey: .words) }
+      try c.encodeIfPresent(of, forKey: .of)
+      try c.encodeIfPresent(card, forKey: .card)
       try facts.encode(to: encoder)
+    }
+
+    /// What a breed's item has that others don't: none for an item with neither.
+    final class Breed: Sendable, Hashable {
+      let of: String?
+      let card: Facts?
+
+      init?(of: String?, card: Facts?) {
+        guard of != nil || card != nil else { return nil }
+        self.of = of; self.card = card
+      }
+
+      static func == (a: Breed, b: Breed) -> Bool { a.of == b.of && a.card == b.card }
+      func hash(into h: inout Hasher) { h.combine(of); h.combine(card) }
     }
   }
 
@@ -226,8 +255,10 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     }
   }
 
-  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:]) {
+  public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:],
+              latest: String? = nil) {
     self.version = version; self.lang = lang; self.items = items; self.home = home; self.labels = labels; self.pages = pages
+    self.latest = latest
   }
 
   /// The index format this app reads. A site that changes it on purpose bumps `version`; the app then keeps its copy.
@@ -253,6 +284,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     // Each kind on its own: one this app can't read is left out, the others drawn.
     let shards = ((try? c.decodeIfPresent([String: Shards].self, forKey: .shards)) ?? nil) ?? [:]
     pages = !shards.isEmpty ? Self.drawn(shards, level: PageDoc.level) : ((try? c.decodeIfPresent([String: Int].self, forKey: .pages)) ?? nil) ?? [:]
+    latest = (try? c.decodeIfPresent(String.self, forKey: .latest)) ?? nil
   }
 
   public func encode(to encoder: any Encoder) throws {
@@ -263,10 +295,11 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     try c.encodeIfPresent(home, forKey: .home)
     if !labels.words.isEmpty { try c.encode(labels, forKey: .labels) }
     if !pages.isEmpty { try c.encode(pages, forKey: .pages) }
+    try c.encodeIfPresent(latest, forKey: .latest)
   }
 
   // The copy kept on the phone writes `pages` alone: the kinds this app draws, already chosen.
-  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards }
+  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards, latest }
   private struct Skipped: Decodable { init(from decoder: any Decoder) {} }
   /// The kinds an app knowing `level` draws itself, of the site's `shards`, with their shard counts: those at that level
   /// or a lower one (protocols/page-vectors.json, `levels`).
