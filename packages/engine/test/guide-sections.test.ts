@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { guideHeading, withSections } from '../src/guide-sections'
+import { fixFirst, guideHeading, guideHeadings, withSections } from '../src/guide-sections'
 import { htmlToOutline } from '../src/outline'
 import { backfillPhotos } from '../src/photo-backfill'
 
@@ -68,4 +68,18 @@ test("a guide photo gets its section in a language the site doesn't serve yet", 
   const body = (hs: string[]) => hs.map(h => `<h3>${h}</h3><p>…</p>`).join('')
   const [out] = withSections([p], { vi: body(VI), ms: body(VI.map(h => `${h} (ms)`)) })
   expect(out && 'section' in out ? out.section : undefined).toEqual({ vi: VI[0], ms: `${VI[0]} (ms)` })
+})
+
+test('a guide that fixes a problem leads with the fix, then the causes; the text is the same', () => {
+  // The black beard algae guide (design critique 2026-11-06): "Cách xử lý" last of six.
+  const bba = '<p>Tảo râu đen rất khó trị.</p><h3>Vì sao BBA bám mép lá?</h3><p>a</p><h3>Nguyên nhân gây tảo râu đen</h3><p>b</p><h3>Cách xử lý tảo râu đen</h3><p>c</p><ul><li>d</li></ul>'
+  expect(fixFirst('Cách loại bỏ tảo râu đen (BBA)', 'disease', bba)).toBe('<p>Tảo râu đen rất khó trị.</p><h3>Cách xử lý tảo râu đen</h3><p>c</p><ul><li>d</li></ul><h3>Vì sao BBA bám mép lá?</h3><p>a</p><h3>Nguyên nhân gây tảo râu đen</h3><p>b</p>')
+  // The fix's own steps go with it, and a closing section stays last.
+  const steps = '<h3>Tảo lam là gì?</h3><p>a</p><h3>Cách diệt tảo lam</h3><p>b</p><h3>1. Gỡ bằng tay</h3><p>c</p><h3>2. Che tối bể</h3><p>d</p><h3>Kết luận</h3><p>e</p>'
+  expect(guideHeadings(fixFirst('Tảo lam: đặc điểm và cách loại bỏ', 'disease', steps))).toEqual(['Cách diệt tảo lam', '1. Gỡ bằng tay', '2. Che tối bể', 'Tảo lam là gì?', 'Kết luận'])
+  // Not a fix guide, a setup guide, the fix first already, or the fix one of a numbered run: as it was.
+  for (const [title, kind, body] of [
+    ['Nuôi cá neon', 'care', bba], ['Cách xử lý lũa trước khi cho vào bể', 'setup', bba], ['Cách loại bỏ tảo', 'disease', '<h3>Cách xử lý</h3><p>a</p><h3>Nguyên nhân</h3><p>b</p>'],
+    ['Cách loại bỏ tảo nâu', 'disease', '<h3>1. Tảo nâu là gì?</h3><p>a</p><h3>2. Cách diệt tảo nâu</h3><p>b</p>'],
+  ] as const) expect(fixFirst(title, kind, body)).toBe(body)
 })

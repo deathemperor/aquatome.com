@@ -30,9 +30,9 @@ const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, await getCon
             {tr('{source} ghi khác bảng dữ liệu:', { source: b.name })}{' '}
             {b.off.map((o, i) => {
               const fig = (v: Range | number) => (o.field === 'tempC' ? <span data-c={pair(v)}>{range(v)}°C</span>
-                : o.field === 'sizeCm' || o.field === 'tankCm' ? <span data-cm={pair(v)}>{range(v)} cm</span>
+                : o.field === 'sizeCm' || o.field === 'tankCm' || o.field === 'tankL' ? <span data-cm={pair(v)}>{range(v)} cm</span>
                 : o.field === 'gh' ? `${range(v)} dGH` : range(v))
-              return <span data-off={o.field}>{i > 0 && ', '}{tr(OFF_LABELS[o.field]!)} <span class="theirs">{fig(o.own)}</span> ({tr('bảng:')} <span class="ours">{fig(o.card)}</span>)</span>
+              return <span data-off={o.field}>{i > 0 && ', '}{tr(OFF_LABELS[o.field]!)} <span class="theirs">{o.field === 'tankL' ? `${range(o.own)} ${tr('lít')}` : fig(o.own)}</span> ({tr('bảng:')} <span class="ours">{fig(o.card)}</span>)</span>
             })}.
           </p>
         )}

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { cardRepeats, dropCardRepeats, dropItems, figuresOffCard, shownCard, states, tankIsVolume } from '../src/index'
+import { cardRepeats, dropCardRepeats, dropItems, dropOffItems, figuresOffCard, litresOffCard, shownCard, states, tankIsVolume } from '../src/index'
 
 // Cá neon vua and Cá chạch bùn as aquatome.com had them (design critique 2026-10-31): the card said 3,5 cm, pH 4,6–6,2,
 // 23–27 °C; The Spruce Pets' quick facts and Seriously Fish's water text said 5 cm, pH 3,5–7,5, 23–29 °C.
@@ -117,4 +117,32 @@ test('a card figure the engine hid (out of bounds, a tank too short for the fish
   expect(shownCard(card, [], () => true)).toEqual({ sizeCm: [{ source: 'seriouslyfish', value: 90 }], tankCm: [{ source: 'glaser', value: 200 }] })
   expect(shownCard({ tankCm: [card.tankCm[0]!] }, [], () => true)).toEqual({})
   expect(card.tankCm).toHaveLength(2)
+})
+
+// The betta's and the neon's pages (design critique 2026-11-06): the card said 45 and 60 cm, The Spruce Pets' text 8 and
+// 38 litres; Seriously Fish's own volume, beside its tank's base, is that tank's.
+const betta = { tankCm: [{ source: 'sprucepets', value: 30, hidden: 'a volume' }, { source: 'seriouslyfish', value: 45 }].filter(v => !v.hidden) }
+const neonTank = { tankCm: [{ source: 'seriouslyfish', value: 60 }] }
+
+test('a tank volume that makes a shorter tank than the card is off the card; one beside its tank\'s sides or length is that tank\'s', () => {
+  expect(litresOffCard(betta, '<p>Dung tích bể tối thiểu: 8 lít. Việc duy trì nhiệt độ nước phù hợp…</p>')).toEqual([{ field: 'tankL', own: 8, card: 45 }])
+  expect(litresOffCard(neonTank, '<p><strong>Kích thước bể tối thiểu:</strong> 38 lít</p>')).toEqual([{ field: 'tankL', own: 38, card: 60 }])
+  expect(litresOffCard(betta, '<p>Đáy bể: 45 × 30 cm. Thể tích: khoảng 41 lít.</p>')).toEqual([])
+  expect(litresOffCard(neonTank, '<p>Bạn nên dùng bể có đáy từ 60 × 30 cm trở lên (khoảng 54 lít).</p>')).toEqual([])
+  expect(litresOffCard({ tankCm: [{ source: 'seriouslyfish', value: 120 }] }, '<p>Đáy 120 × 30 cm (khoảng 108 lít).</p>')).toEqual([])
+  expect(litresOffCard(neonTank, '<p>Bể dài 60 cm, khoảng 40 lít.</p>')).toEqual([])
+  // Enough volume, a rate, a thousand litres, the other languages, a range by its low end; no minimum on the card.
+  expect(litresOffCard(neonTank, '<p>Bể 54 lít trở lên; lọc 300 lít/giờ; hồ 1.000 lít.</p>')).toEqual([])
+  expect(litresOffCard(neonTank, '<p>Akuarium minimal 38 liter.</p><p>ตู้ขนาด 20 ลิตรขึ้นไป</p><p>Bể 30–40 L.</p>')).toEqual([
+    { field: 'tankL', own: 38, card: 60 }, { field: 'tankL', own: 20, card: 60 }, { field: 'tankL', own: { min: 30, max: 40 }, card: 60 }])
+  expect(litresOffCard({}, '<p>8 lít</p>')).toEqual([])
+})
+
+test('a quick-facts line off the card goes; the rest of the block stays', () => {
+  const facts = '<ul><li><strong>Tuổi thọ:</strong> 5 đến 10 năm</li><li><strong>Kích thước bể tối thiểu:</strong> 38 lít</li><li><strong>Nhiệt độ:</strong> 20 đến 26 °C</li></ul><p>Cá hiền.</p>'
+  const card = { ...neonTank, tempC: [{ source: 'seriouslyfish', value: { min: 20, max: 26 } }, { source: 'sprucepets', value: { min: 20, max: 28 } }] }
+  expect(dropOffItems(card, 'sprucepets', facts)).toBe('<ul><li><strong>Tuổi thọ:</strong> 5 đến 10 năm</li><li><strong>Nhiệt độ:</strong> 20 đến 26 °C</li></ul><p>Cá hiền.</p>')
+  // A line stating this source's own figure where the card shows another: off too.
+  expect(dropOffItems(card, 'sprucepets', '<ul><li>Nhiệt độ: 20 đến 28 °C</li></ul>')).toBe('')
+  expect(dropOffItems(card, 'sprucepets', '<ul><li>Hiền.</li></ul>')).toBe('<ul><li>Hiền.</li></ul>')
 })
