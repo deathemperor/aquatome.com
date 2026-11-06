@@ -129,6 +129,22 @@
         }
       }
     },
+    "%@ đến %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ sampai %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ ถึง %2$@"
+          }
+        }
+      }
+    },
     "%@, ảnh %lld": {
       "localizations": {
         "id": {
@@ -141,6 +157,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ภาพที่ %lld"
+          }
+        }
+      }
+    },
+    "%@: mới nhất %@, thấp nhất %@, cao nhất %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: terbaru %2$@, terendah %3$@, tertinggi %4$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@: ล่าสุด %2$@, ต่ำสุด %3$@, สูงสุด %4$@"
           }
         }
       }
@@ -813,6 +845,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "วันนี้คุณส่งรูปครบ 5 รูปแล้ว โปรดกลับมาใหม่พรุ่งนี้"
+          }
+        }
+      }
+    },
+    "Bảng điều khiển": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dasbor"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แดชบอร์ด"
           }
         }
       }
@@ -2545,6 +2593,22 @@
         }
       }
     },
+    "Các mục": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bagian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หมวด"
+          }
+        }
+      }
+    },
     "Các ổ cắm trong dự án Tuya của bạn.": {
       "localizations": {
         "id": {
@@ -2797,6 +2861,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เครื่องมือกำลังพักชั่วคราว กลับมาใหม่อีกสักสองสามชั่วโมงนะ"
+          }
+        }
+      }
+    },
+    "Cần bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perlu Anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รอคุณจัดการ"
           }
         }
       }
@@ -3841,6 +3921,22 @@
         }
       }
     },
+    "Không có việc gì cần bạn lúc này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada yang perlu Anda tangani saat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้ไม่มีอะไรรอคุณจัดการ"
+          }
+        }
+      }
+    },
     "Không cần châm": {
       "localizations": {
         "id": {
@@ -3917,6 +4013,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูปไม่สำเร็จ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không hoàn tác được.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak bisa dibatalkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ย้อนกลับไม่ได้"
           }
         }
       }
@@ -5245,6 +5357,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "passkey นี้ไม่ตรงกับบัญชีใด: เข้าสู่ระบบด้วยวิธีอื่น"
+          }
+        }
+      }
+    },
+    "Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesi masuk sudah berakhir: masuk lagi untuk melihat dasbor."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เซสชันหมดอายุแล้ว โปรดเข้าสู่ระบบอีกครั้งเพื่อดูแดชบอร์ด"
           }
         }
       }
@@ -7505,6 +7633,22 @@
         }
       }
     },
+    "cần chú ý": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "perlu perhatian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต้องให้ความสนใจ"
+          }
+        }
+      }
+    },
     "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan": {
       "localizations": {
         "id": {
@@ -7633,6 +7777,22 @@
         }
       }
     },
+    "so với %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dibandingkan %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เทียบกับ %@"
+          }
+        }
+      }
+    },
     "sáng %lld%%": {
       "localizations": {
         "id": {
@@ -7693,6 +7853,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ หรี่ลง"
+          }
+        }
+      }
+    },
+    "tốt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baik"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดี"
           }
         }
       }
