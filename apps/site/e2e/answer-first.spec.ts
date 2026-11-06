@@ -141,9 +141,18 @@ test('a long page has a back-to-top button within a thumb\'s reach', async ({ pa
 
 // A video guide showed its 18 chapters before its first paragraph, the first of them "0:00 Mục lục video" (the creator's
 // own list of chapters). The list is closed now, its chapters the video's own; the contents list follows it.
+// The guides with chapters are found by their HTML, as on aquatome.com they are a few of hundreds and none of the first
+// 40 the check once opened (2026-11-06: 39 of 601, the first 297th).
 test('a video guide: its chapters one tap away, without the video\'s own list of chapters', async ({ page, errors }, info) => {
+  const guides = sourcePages().filter(p => /^\/huong-dan\/[^/]+\/$/.test(p))
+  const found: string[] = []
+  for (let i = 0; i < guides.length && found.length < 2; i += 20) {
+    const batch = guides.slice(i, i + 20)
+    const html = await Promise.all(batch.map(p => page.request.get(p).then(r => r.text())))
+    found.push(...batch.filter((_, j) => html[j]!.includes('<details class="chapters')))
+  }
   let checked = 0
-  for (const path of sourcePages().filter(p => /^\/huong-dan\/[^/]+\/$/.test(p)).slice(0, 40)) {
+  for (const path of found.slice(0, 2)) {
     await page.goto(path)
     const list = page.locator('details.chapters')
     if (!(await list.count())) continue
