@@ -9,7 +9,7 @@ import { photoCredit } from '../src/lib/cite'
 import { getContent } from '../src/lib/content'
 import { smallSrc } from '../src/lib/img'
 import { speciesParts } from '../src/lib/species-page'
-import { appPath, LANGS, translator } from '../src/lib/i18n'
+import { appPath, LANGS, licenceLabel, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST } from './dist'
 
 // The app draws fish, plant and glossary pages from these copies (once the index counts their kinds): what they hold
@@ -53,7 +53,10 @@ function pictured(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>, 
   // Every photo's credit (the records' map is credited to its data: wild() holds it to the page).
   for (const img of images(d).filter(i => !isMap(i))) {
     expect(img.credit?.text?.startsWith(`${photo} `) && /^\S/.test(img.credit.text.slice(photo.length + 1)), `${d.path} ${img.src}: ${img.credit?.text}`).toBe(true)
-    expect(img.credit?.licence, `${d.path} ${img.src}`).toBeTruthy()
+    // Its licence as the page shows it: none named for a photo used with permission (licenceLabel), only its author.
+    const record = (bySource.get(img.credit?.url ?? '') ?? []).find(p => p.url === img.src || smallSrc(p) === img.src)
+    if (record) expect(img.credit?.licence ?? '', `${d.path} ${img.src}`).toBe(licenceLabel(record.licence))
+    else expect(img.credit?.licence, `${d.path} ${img.src}`).toBeTruthy()
     expect(img.credit?.url, `${d.path} ${img.src}`).toBeTruthy()
   }
   // The footer's "Nguồn ảnh" names each photo by its own page: every one the page shows is in the copy, credited. (The
@@ -298,28 +301,28 @@ test('a breed\'s lines are its copy\'s cards, each a form of it; a line\'s copy 
 })
 
 test('every link a copy has to a fish, a breed\'s too, opens its copy in the app; the rest are listed pages or the web', async () => {
-  const vi = { breeds: new Set<string>(), linked: new Map<string, string>() }
+  const vi = { breeds: new Set<string>(), linked: new Map<string, Set<string>>() }
   for (const lang of LANGS) {
     const c = await getContent(lang)
     const docs = Object.values(await appPages(lang, c)).flat()
     const copies = new Set(docs.map(d => d.path))
     const listed = listedPaths(lang, c)
     const breeds = new Set(appBreeds(lang, c).map(b => appPath(lang, `/vi/ca/${b.t.slug}/`)))
-    const linked = new Map<string, string>()
+    const linked = new Map<string, Set<string>>()
     for (const d of docs) {
       for (const b of kids(d.blocks)) {
         const runs = [...(b.t === 'p' ? b.c : []), ...(d.where ?? [])].filter((r): r is Exclude<Inline, string> => typeof r !== 'string')
-        for (const href of [...runs.flatMap(r => (r.href ? [r.href] : [])), ...(b.t === 'cards' ? b.items.map(i => i.path) : []), ...(b.t === 'pages' ? b.paths : [])]) linked.set(href, d.path)
+        for (const href of [...runs.flatMap(r => (r.href ? [r.href] : [])), ...(b.t === 'cards' ? b.items.map(i => i.path) : []), ...(b.t === 'pages' ? b.paths : [])]) linked.set(href, (linked.get(href) ?? new Set()).add(d.path))
       }
     }
     const fish = [...linked.keys()].filter(h => h.startsWith(appPath(lang, '/vi/ca/')) && !/\/anh\/$/.test(h) && h !== appPath(lang, '/vi/ca/'))
-    for (const h of fish.filter(x => listed.has(x))) expect(copies.has(h), `${lang}: ${linked.get(h)} links ${h}`).toBe(true)
+    for (const h of fish.filter(x => listed.has(x))) expect(copies.has(h), `${lang}: ${[...linked.get(h)!][0]} links ${h}`).toBe(true)
     if (lang === 'vi') Object.assign(vi, { breeds, linked })
   }
   // Both ways in the fixture: the discus's lines to the pigeon blood, the pigeon blood back to the discus.
   expect([...vi.linked.keys()].filter(h => vi.breeds.has(h)).length).toBeGreaterThan(0)
   expect(vi.linked.get('/vi/ca/ca-dia-pigeon-blood/')).toBeDefined()
-  expect([...vi.linked].some(([h, from]) => h === '/vi/ca/ca-dia/' && from === '/vi/ca/ca-dia-pigeon-blood/')).toBe(true)
+  expect(vi.linked.get('/vi/ca/ca-dia/')?.has('/vi/ca/ca-dia-pigeon-blood/')).toBe(true)
 })
 
 test('a fish\'s other photos go between its sections, each credited, as many as the page has room for', async () => {
