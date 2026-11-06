@@ -61,8 +61,9 @@ final class LightFlowTests: XCTestCase {
     // The second needs no confirmation (the first is known), and can be undone.
     tap(app, "preset-settled")
     tap(app, "write")
-    XCTAssertFalse(app.alerts.firstMatch.waitForExistence(timeout: 1), "asked again with a known schedule on the light")
+    // Written without asking: had it asked, nothing would be written until answered.
     expect(app, "notice", contains: "Đã ghi: bật 12:00, tắt 20:00.")
+    XCTAssertFalse(app.alerts.firstMatch.exists, "asked again with a known schedule on the light")
     expect(app, "notice-action", contains: "Hoàn tác")
     tap(app, "notice-action")
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
@@ -130,10 +131,17 @@ final class LightFlowTests: XCTestCase {
     let light = app.buttons["tank-light"].firstMatch
     XCTAssertTrue(light.waitForExistence(timeout: 5), "the light on the tank can't be tapped")
     light.tap()
+    // On Đèn: the tap has done what it does, and a second connection would be looking for the light by now.
+    let lightsTab = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: app.tabBars.buttons["Đèn"])
+    XCTAssertEqual(XCTWaiter().wait(for: [lightsTab], timeout: 5), .completed, "the light didn't open on the Đèn tab")
+    // A second connection clears the notice before its first wait (LightsModel's connect(saved:)), and the tap's task has
+    // run by the time the tab shows: the first connection's "Đã kết nối", still there at once, means none started.
+    let notice = element(app, "notice")
+    let said = notice.exists ? notice.label : "nothing"
+    XCTAssertTrue(said.contains("Đã kết nối"), "a second connection started: the notice says \(said)")
     let looking = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Đang tìm'")).firstMatch
-    XCTAssertFalse(looking.waitForExistence(timeout: 3), "a second connection started")
+    XCTAssertFalse(looking.exists, "a second connection started")
     XCTAssertEqual(element(app, "frames").label, written, "a second connection started")
-    expect(app, "notice", contains: "Đã kết nối")
     XCTAssertTrue(element(app, "disconnect").exists, "the light was let go")
   }
 
@@ -443,7 +451,7 @@ final class LightFlowTests: XCTestCase {
     // The day preview too: once it has sent its first levels (manual mode, off before 12:00), it stops there.
     tap(app, "play")
     expectFrames(app, ".* 05 12 ff ff .. \\| 5a 01 08 .. .. 05 0b ff ff .. \\| .*")
-    XCTAssertFalse(element(app, "notice").waitForExistence(timeout: 1), "the last notice still showing as the preview starts")
+    XCTAssertFalse(element(app, "notice").exists, "the last notice still showing as the preview starts")
     leaveAndComeBack(app)
     expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
     expect(app, "notice", lacks: "Xong") // stopped, not played to its end
@@ -512,7 +520,7 @@ final class LightFlowTests: XCTestCase {
     tap(app, "quick-auto")
     expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
     expectFrames(app, ".* 5a 01 08 .. .. 05 12 ff ff ..")
-    XCTAssertFalse(element(app, "hand").waitForExistence(timeout: 1), "still kept as set by hand after “Theo lịch”")
+    XCTAssertFalse(element(app, "hand").exists, "still kept as set by hand after “Theo lịch”")
   }
 
   func testTheWriteBarStaysInViewAndSaysWhatWillBeWritten() {
@@ -586,8 +594,8 @@ final class LightFlowTests: XCTestCase {
     expect(app, "summary", contains: "13:00–19:00 · 40% · 6 tiếng")
     expectFrames(app, ".* 07 00 28 .. \\| 5a 01 07 .. .. 07 01 28 .. \\| 5a 01 07 .. .. 07 02 28 ..")
     tap(app, "write")
-    XCTAssertFalse(app.alerts.firstMatch.waitForExistence(timeout: 1), "asked again with a known schedule on the light")
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    XCTAssertFalse(app.alerts.firstMatch.exists, "asked again with a known schedule on the light")
     expectFrames(app, ".*a5 01 13 .. .. 19 0d 00 13 00 1e 7f 28 28 28 ff .*")
     // Written again, it is the one in use, first, with its name; nothing is listed twice.
     rows = savedRows(app)

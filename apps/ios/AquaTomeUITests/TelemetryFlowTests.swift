@@ -148,7 +148,7 @@ final class TelemetryFlowTests: XCTestCase {
   /// "Gửi thống kê ẩn danh", in Bể của tôi: at the end of its list, or under the empty tab's sign-in.
   private func toggle(_ app: XCUIApplication, on: Bool) {
     let s = app.switches["telemetry-switch"]
-    for _ in 0..<6 where !(s.exists && s.isHittable) { app.swipeUp() }
+    repeatUntil(s.exists && s.isHittable, times: 6) { app.swipeUp() }
     XCTAssertTrue(s.isHittable, "no switch")
     if (s.value as? String == "1") != on { s.switches.firstMatch.exists ? s.switches.firstMatch.tap() : s.tap() }
     let set = expectation(for: NSPredicate(format: "value == %@", on ? "1" : "0"), evaluatedWith: s)
@@ -158,7 +158,7 @@ final class TelemetryFlowTests: XCTestCase {
   private func tap(_ app: XCUIApplication, _ id: String) {
     let e = app.descendants(matching: .any)[id].firstMatch
     XCTAssertTrue(e.waitForExistence(timeout: 5), "no \(id)")
-    for _ in 0..<5 where !e.isHittable { app.swipeUp() }
+    repeatUntil(e.isHittable, times: 5) { app.swipeUp() }
     e.tap()
   }
 

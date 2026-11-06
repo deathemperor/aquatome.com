@@ -251,7 +251,7 @@ final class FishIdFlowTests: XCTestCase {
   /// boxing, a drag on the photo draws a box.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement, up: Bool = false) {
     let (from, to) = up ? (0.4, 0.7) : (0.7, 0.4)
-    for _ in 0..<12 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 12) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: from))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: to)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

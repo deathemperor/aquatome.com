@@ -60,6 +60,12 @@ struct TanksView: View {
           }
         }
       }
+      #if DEBUG
+      .background {
+        // For the UI tests (debug builds only): the server has said whether it offers accounts, and to whom.
+        if account.state != .unknown { Text(verbatim: "answered").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("account-answered") }
+      }
+      #endif
       .navigationTitle("Bể của tôi")
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
