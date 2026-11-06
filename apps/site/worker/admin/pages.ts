@@ -18,10 +18,14 @@ import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zon
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
 
 export type AffSummary = { byNetwork: { network: string; category: string; n: number }[]; top: { entity_ref: string; n: number }[]; status: { status: string; n: number }[]; lastCheck: string | null }
-/** `moved_from`: the page it was sent for, when moderation found another fish and moved it to `entity_ref`. */
-export type RecentPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; thumb: string; created_at: string }
+/**
+ * `moved_from`: the page it was sent for, when moderation found another fish and moved it to `entity_ref`. `comment`: a
+ * comment's photo's comment (`entity_ref` "comment:<id>"): its page's key and, when this build has the page, its address.
+ */
+export type RecentPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; thumb: string; created_at: string; comment?: PhotoComment }
 /** `ownerOk`: the owner approved it here; the next moderation pass publishes it. */
-export type WaitingPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string; ownerOk: boolean }
+export type WaitingPhoto = { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string; ownerOk: boolean; comment?: PhotoComment }
+export type PhotoComment = { page: string; path?: string }
 export type Clicks = { days: string[]; clicks: number[] }
 
 /** A day kept as text (2026-11-04) as the dashboard writes days: 04/11, with the year when it isn't `now`'s. */
@@ -419,6 +423,8 @@ ${tiles(runTiles(k))}<p class="note">${RUNS_NOTE}</p>`
 const RECENT_HEAD = ['Lúc', 'Kết quả', 'Loại', 'Đoán nhiều nhất', 'Chắc', 'Token vào', 'Token ra', 'Chi phí', 'ms', 'Key', 'Lần gọi', 'Agent: lượt Claude · công cụ · ảnh', 'Từ', 'Nước']
 /** The agent's calls to Claude, tool calls and reference photos (fishid/log.ts). */
 const agentText = (c: Call) => `${fmt(c.turns)} · ${fmt(c.tools)} · ${fmt(c.refs)}`
+/** Why it stopped, and when its first answer, too unsure, was sent back to look again. */
+const stoppedText = (c: Call) => `${STOPPED[c.stopped] ?? c.stopped}${c.rechecked ? ' · xem lại một lần' : ''}`
 const RECENT_NONE = 'Chưa có lượt nào được ghi.'
 /** A call's best guess: its page when the catalog has one, else the name and why there is no link. */
 function guessOf(c: Call, pages: Map<string, string>): Cell {
@@ -429,7 +435,7 @@ function guessOf(c: Call, pages: Map<string, string>): Cell {
 const recentCells = (c: Call, pages: Map<string, string>, now: Date, tz: string): Cell[] => [
   { text: timeText(c.t, tz, now) }, { text: OUTCOME[c.outcome] ?? c.outcome }, { text: VERDICT[c.verdict] ?? (c.verdict || '—') }, guessOf(c, pages),
   { text: c.guesses ? `${fmt(c.conf * 100)}%` : '—' }, { text: fmt(c.tin) }, { text: fmt(c.tout) }, { text: c.usd ? usd(c.usd) : '—' }, { text: fmt(c.ms) },
-  { text: c.key || '—' }, { text: fmt(c.attempts) }, c.stopped ? { text: agentText(c), sub: STOPPED[c.stopped] ?? c.stopped } : { text: '—' }, { text: FROM[c.from] ?? (c.from || '—') }, { text: c.country || '—' },
+  { text: c.key || '—' }, { text: fmt(c.attempts) }, c.stopped ? { text: agentText(c), sub: stoppedText(c) } : { text: '—' }, { text: FROM[c.from] ?? (c.from || '—') }, { text: c.country || '—' },
 ]
 function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: string): string {
   const guess = (c: Call) => {
@@ -438,7 +444,7 @@ function recentHtml(xs: Call[], pages: Map<string, string>, now: Date, tz: strin
     const name = `<i class="sci">${esc(c.sci)}</i>`
     return url ? `<a href="${esc(withoutVi(url))}">${name}</a>` : c.page ? `${name} <span class="muted">(${esc(c.page)})</span>` : `${name} <span class="muted">· chưa có trang</span>`
   }
-  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${c.stopped ? `${esc(agentText(c))} <span class="muted">${esc(STOPPED[c.stopped] ?? c.stopped)}</span>` : '—'}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
+  const rows = xs.map(c => `<tr><th>${timeTag(c.t, tz, now)}</th><td class="l">${esc(OUTCOME[c.outcome] ?? c.outcome)}</td><td class="l">${esc(VERDICT[c.verdict] ?? (c.verdict || '—'))}</td><td class="l wrap">${guess(c)}</td><td>${c.guesses ? `${fmt(c.conf * 100)}%` : '—'}</td><td>${fmt(c.tin)}</td><td>${fmt(c.tout)}</td><td>${c.usd ? usd(c.usd) : '—'}</td><td>${fmt(c.ms)}</td><td class="l">${c.key ? `<code>${esc(c.key)}</code>` : '—'}</td><td>${fmt(c.attempts)}</td><td class="l">${c.stopped ? `${esc(agentText(c))} <span class="muted">${esc(stoppedText(c))}</span>` : '—'}</td><td class="l">${esc(FROM[c.from] ?? (c.from || '—'))}</td><td class="l">${esc(c.country || '—')}</td></tr>`).join('')
   return `<div class="scroll"><table class="wide"><thead><tr>${RECENT_HEAD.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows || `<tr><td colspan="${RECENT_HEAD.length}" class="none">${RECENT_NONE}</td></tr>`}</tbody></table></div>`
 }
 
@@ -599,12 +605,16 @@ export function wantedSection(now: Date, w: Soft<{ names: Wanted[]; more: boolea
 
 /** A moved photo's line under its page: the page it was sent for. */
 const movedText = (from: string) => `Kiểm duyệt chuyển từ ${from}`
+/** A comment's photo is marked so, with its comment's page (worker/comments/photo.ts) in place of its own key. */
+const FROM_COMMENT = 'Ảnh kèm bình luận'
+const isCommentPhoto = (p: { entity_ref: string }) => p.entity_ref.startsWith('comment:')
+const commentPage = (p: { entity_ref: string; comment?: PhotoComment }) => p.comment?.path ?? p.comment?.page ?? p.entity_ref
 /**
  * One reader photo: its picture, who sent it, to which page (and the page it was sent for, when moderation moved it) and
  * when, then its buttons, Gỡ last. Two columns, so the buttons stay on a phone's screen.
  */
-const photoRow = (p: { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string }, picture: string, state: string, buttons: string, now: Date, tz: string) =>
-  `<tr><th style="width:1%">${picture}</th><td class="l" style="overflow-wrap:anywhere"><strong>${esc(p.name)}</strong><br>${esc(p.entity_ref)}${p.moved_from ? `<br><span class="muted">${esc(movedText(p.moved_from))}</span>` : ''}<br><span class="muted">${timeTag(p.created_at, tz, now)}</span>${state}`
+const photoRow = (p: { id: string; entity_ref: string; moved_from?: string | null; name: string; created_at: string; comment?: PhotoComment }, picture: string, state: string, buttons: string, now: Date, tz: string) =>
+  `<tr><th style="width:1%">${picture}</th><td class="l" style="overflow-wrap:anywhere"><strong>${esc(p.name)}</strong><br>${isCommentPhoto(p) ? `<span class="chip">${FROM_COMMENT}</span> ${p.comment?.path ? pageLink(p.comment.path) : esc(commentPage(p))}` : esc(p.entity_ref)}${p.moved_from ? `<br><span class="muted">${esc(movedText(p.moved_from))}</span>` : ''}<br><span class="muted">${timeTag(p.created_at, tz, now)}</span>${state}`
   + `<form method="post" action="/_ab/photos" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px"><input type="hidden" name="id" value="${esc(p.id)}">${buttons}<button name="action" value="remove">Gỡ</button></form></td></tr>`
 
 const PHOTOS_LEDE = 'Ảnh đã qua kiểm duyệt tự động (khuôn mặt, đúng loài, an toàn) hoặc do bạn duyệt, và đang hiện trên trang loài. Gỡ: ảnh bị xóa ngay khỏi trang và máy chủ.'
@@ -645,7 +655,7 @@ export function photosPage(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<W
 
 export function photosSection(xs: Soft<RecentPhoto[] | undefined>, waiting?: Soft<WaitingPhoto[] | undefined>, now = new Date(), tz = HOME_TZ): Section {
   const blocks: Block[] = [note(PHOTOS_LEDE)]
-  const meta = (p: { entity_ref: string; moved_from?: string | null; created_at: string }) => [p.entity_ref, ...(p.moved_from ? [movedText(p.moved_from)] : []), timeText(p.created_at, tz, now)]
+  const meta = (p: { entity_ref: string; moved_from?: string | null; created_at: string; comment?: PhotoComment }) => [...(isCommentPhoto(p) ? [FROM_COMMENT, commentPage(p)] : [p.entity_ref]), ...(p.moved_from ? [movedText(p.moved_from)] : []), timeText(p.created_at, tz, now)]
   if (waiting && !isFailed(waiting) && waiting.length) {
     const items: PhotoItem[] = waiting.map(p => ({ id: p.id, src: waitingSrc(p.id), caption: p.name, meta: [...meta(p), ...(p.ownerOk ? [OWNER_OK.join(' · ')] : [])], actions: photoActions(p.id, !p.ownerOk) }))
     blocks.push(heading(`Chờ duyệt (${waiting.length})`), note(WAITING_NOTE, 'muted'), { kind: 'photos', items }, heading('Đang hiện'))

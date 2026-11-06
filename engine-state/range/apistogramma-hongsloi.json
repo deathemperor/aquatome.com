@@ -1,0 +1,123 @@
+{
+  "id": "apistogramma-hongsloi",
+  "native": {
+    "input": "a98f6f1bbd6e030d",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma hongsloi is a dwarf cichlid from the Río Vichada and middle Río Meta basins in Colombia and the middle Orinoco in Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma hongsloi is a dwarf cichlid from the Río Vichada and middle Río Meta basins in Colombia and the middle Orinoco in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Río Vichada and middle Río Meta basins in Colombia, plus the middle section of the Orinoco system in Venezuela, of which both the Vichada and Meta are tributaries.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Río Vichada and middle Río Meta basins in Colombia, plus the middle section of the Orinoco system in Venezuela, of which both the Vichada and Meta are tributaries.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Known from the Río Vichada and middle Río Meta basins in Colombia, plus the middle section of the Orinoco system in Venezuela, of which both the Vichada and Meta are tributaries.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "Known from the Río Vichada and middle Río Meta basins in Colombia, plus the middle section of the Orinoco system in Venezuela, of which both the Vichada and Meta are tributaries.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Vichada",
+        "source": "seriouslyfish",
+        "quote": "Known from the Río Vichada and middle Río Meta basins in Colombia, plus the middle section of the Orinoco system in Venezuela, of which both the Vichada and Meta are tributaries.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma hongsloi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371301,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        25
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        19
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        14
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

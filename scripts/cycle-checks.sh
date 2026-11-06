@@ -15,3 +15,13 @@ verify() {
   log "tests ran out of time on a busy Mac: checking again once it is calmer"
   checks "$1" >"$TEST_LOG" 2>&1
 }
+
+# Before the checks: the cycle's commit on top of main as it is now. A cycle runs for hours from the main it started on,
+# and a test that main failed then and has fixed since would hold back all of the cycle's pages: the pages part of
+# 2026-11-06 started from a main whose page-vectors test failed, fixed 11 minutes later, and lost 229 files at its check.
+# A clash with what landed meanwhile is left to push(), which settles it and checks again.
+catch_up() {
+  git pull -q --rebase && return 0
+  git rebase --abort 2>/dev/null || true
+  log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
+}

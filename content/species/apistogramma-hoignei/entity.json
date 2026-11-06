@@ -10,6 +10,183 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Apure",
+        "Arauca",
+        "Caura",
+        "Río Portugesa"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco",
+            "Apure",
+            "Arauca",
+            "Caura"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Río Portugesa, a tributary of the Río Apuré in southwestern Venezuela and also recorded from the lower Río Arauca and Río Caura.",
+          "countries": [],
+          "regions": [
+            "Río Portugesa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371248,
+      "total": 189,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          186
+        ],
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          7.03125,
+          21,
+          21
+        ],
+        [
+          -70.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          53,
+          53
+        ],
+        [
+          -70.3125,
+          8.4375,
+          40,
+          40
+        ],
+        [
+          -68.90625,
+          5.625,
+          13,
+          11
+        ],
+        [
+          -68.90625,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          -68.90625,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -67.5,
+          7.03125,
+          12,
+          12
+        ],
+        [
+          -67.5,
+          8.4375,
+          11,
+          11
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -143,8 +320,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

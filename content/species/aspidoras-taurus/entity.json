@@ -10,6 +10,56 @@
     "brazil",
     "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Paraguay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper rio Itiquira and upper rio Taquari, both tributaries within the rio Paraguay system, Mato Grosso State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Paraguay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342553,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -18.28125,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -18.28125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -188,8 +238,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 70 lít"
+        "bể cá 80cm"
       ]
     },
     {

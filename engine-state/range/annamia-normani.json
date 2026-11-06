@@ -1,0 +1,126 @@
+{
+  "id": "annamia-normani",
+  "native": {
+    "input": "03aaa7fc402be9f0",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous tributary drainages of the Mekong River in Vietnam, Laos and Cambodia, including the Khone Falls area.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous tributary drainages of the Mekong River in Vietnam, Laos and Cambodia, including the Khone Falls area.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous tributary drainages of the Mekong River in Vietnam, Laos and Cambodia, including the Khone Falls area.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A. normani has also been reported from Laos and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A. normani has also been reported from Laos and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from numerous tributary drainages of the Mekong River in Vietnam, Laos and Cambodia, including the Khone Falls area.",
+        "ok": true
+      },
+      {
+        "name": "Annamite Mountains",
+        "source": "seriouslyfish",
+        "quote": "In Vietnam it is also known from coastal rivers draining the eastern Annamite Mountains, which are not connected to the Mekong.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Duc My River",
+        "source": "seriouslyfish",
+        "quote": "A typical habitat is the Duc My River in central Vietnam, where the fish were studied in a gently sloping section around 25 m wide characterised by a series of rocky riffles, rapids and deeper pools with a mixed sand and gravel substrate.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai River",
+        "source": "seriouslyfish",
+        "quote": "In the Dong Nai River, southern Vietnam sympatric species included Garra cambodgiensis, Mystacoleucus obtusirostris, Barbodes rhombeus, Rasbora paviana, Hemimyzon papilio, Homalopteroides smithi, Misgurnus anguillicaudatus, and Glyptothorax laosensis.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Annamia normani",
+    "status": "ACCEPTED",
+    "taxonKey": 2358659,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        371
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "LA",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

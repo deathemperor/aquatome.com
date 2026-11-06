@@ -1,0 +1,78 @@
+{
+  "id": "trichomycterus-alternatus",
+  "scientificName": "Trichomycterus alternatus",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Trichomycterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-de-janeiro"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
+      "html": "<p>One of the easiest pencil catfishes to keep in the aquarium. It reaches a total length of about 10 cm and can be kept in aquariums from 60 cm in length.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
+      "html": "<p>The species originates from the Rio de Janeiro region in Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
+      "html": "<p>These very shy fish resemble the Stone loach native to Europe in appearance and live in similar biotopes in the wild, i.e. clean, fast-flowing brooks and small rivers.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
+      "html": "<p>Good water hygiene and a high oxygen content are a must. A strong pump or a high-performance filter should provide a sufficient current.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
+      "html": "<p>T. alternatus is not a parasite like some of its relatives from the group of the pencil or parasitic catfishes. Some of these are unpleasant, such as the urinophilic catfishes known in their homeland as Candiru, which are able to enter the human urethra. Usually, however, these little catfishes enter the gills of fishes, where their parasitic nature takes over by feeding on blood and bits of flesh.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá dài 60 cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc nước hồ cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

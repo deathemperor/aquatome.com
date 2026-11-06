@@ -1,0 +1,82 @@
+{
+  "id": "betta-balunga",
+  "native": {
+    "input": "1e9398a118c5fc9d",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta balunga is a mouthbrooding labyrinth fish from Borneo, found from Tawau in Sabah, Malaysia, south to the Sebuku and Mahakam basins in Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta balunga is a mouthbrooding labyrinth fish from Borneo, found from Tawau in Sabah, Malaysia, south to the Sebuku and Mahakam basins in Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Another mouthbrooder type betta found in Tarakan in Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Betta balunga is a mouthbrooding labyrinth fish from Borneo, found from Tawau in Sabah, Malaysia, south to the Sebuku and Mahakam basins in Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "Betta balunga is a mouthbrooding labyrinth fish from Borneo, found from Tawau in Sabah, Malaysia, south to the Sebuku and Mahakam basins in Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sebuku",
+        "source": "seriouslyfish",
+        "quote": "Betta balunga is a mouthbrooding labyrinth fish from Borneo, found from Tawau in Sabah, Malaysia, south to the Sebuku and Mahakam basins in Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta balunga",
+    "status": "ACCEPTED",
+    "taxonKey": 2393988,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

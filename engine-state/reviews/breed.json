@@ -1,0 +1,70 @@
+{
+  "ms/breeds/bubble-eye-goldfish": [
+    {
+      "at": "2026-11-06T17:24:54Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Kekerasan air (GH) 4–20 dGH\": the facts give GH 4–20 with no unit, so 'dGH' is a small addition.",
+        "\"Jangka hayat ... 10–15 tahun (sumber lain)\": this is supported by the facts (source 8).",
+        "\"Ia sukar mencari makanan\" and \"ia perenang yang lemah\" in the beginner FAQ: these are supported, but they are presented as reasons the source gave for 'not suitable for beginners'. The facts don't state that link.",
+        "\"Boleh, tetapi hanya dengan ikan yang perlahan\": this leaves out the advice to keep it apart, which is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T17:24:54Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Siapa sebenarnya penternak pertamanya tidak direkodkan\" – not in the facts (unsupported claim).",
+        "\"10–15 tahun (sumber lain)\" is supported, but the intro says \"penglihatannya terhad\" – facts say vision is impaired, which is acceptable.",
+        "\"sediakan tangki ... penapis yang disediakan khas\" / \"ia perlukan tangki dan penapis yang disediakan khas\" – generalisation not directly stated.",
+        "\"kantungnya mudah pecah\" given as the reason it is not suitable for beginners – facts only say not suitable for beginners, with no reason given.",
+        "\"Ada juga yang memberi salad dan timun\" – facts say lettuce and cucumber, and \"salad\" is a loose rendering of lettuce.",
+        "Size \"10–20 cm\" – facts say 10–20.3 cm; this is roughly acceptable.",
+        "Care table GH \"4–20\" has no unit; this is minor."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/butterfly-koi": [
+    {
+      "at": "2026-11-06T17:26:52Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Sumber menyarankan kolam kira-kira 3,800 liter seekor dengan kedalaman sekurang-kurangnya 90 cm hingga lebih 1 m\" is a mild merge of two sources. It is supported.",
+        "\"Ia hidup lama dan boleh membesar dengan besar, jadi rancang kolam yang cukup luas sebelum membeli\" is a small generality and is not stated as a recommendation in the facts.",
+        "\"Kolam simen menaikkan pH, jadi kolam jenis ini perlu dikedap\" is supported.",
+        "\"Pada tahun 1980-an\" and \"sekitar 1982\" are supported.",
+        "The heading \"Rakan sekolam\" and the answer \"Boleh, kerana penjagaannya hampir sama\" are slight paraphrases. They are supported.",
+        "\"Sumber yang sama menegaskan\" ties the 'not goldfish' statement to the 'Asian carp' source. This matches source 2.",
+        "\"Pada ikan yang jarang ditemui, siripnya sepanjang badan\" matches the facts.",
+        "\"Sesetengah peminat di Jepun\" matches the facts.",
+        "\"Penternak koi pakar\" is supported.",
+        "\"Sirip dan ekornya... dua pertiga\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T17:26:52Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"kolam tanpa objek tajam sangat penting\" and \"ikan ini boleh hidup puluhan tahun dan membesar besar\": mild generalisations. The first rests on the sharp-objects fact, but the 'sangat penting' emphasis is an addition.",
+        "\"Dijual di kedai ikan hiasan dan kedai kolam\": the facts say 'pet and pond shops', so this is a fair paraphrase. The 'Kolam' table row merges two sources (90 cm and >1 m) into one range, which is acceptable.",
+        "\"tidak terlalu terdedah kepada arus yang kuat\": slight embellishment of the advice about slow swimming in strong currents.",
+        "\"kolam simen ... permukaannya perlu disalut atau dikedap\": 'disalut' (coated) is not in the facts. The facts only say to seal the pond.",
+        "\"Sirip terus memanjang apabila ikan semakin tua, jadi ikan dewasa mempunyai sirip paling panjang\": the facts support this, since older fish have the longest fins.",
+        "\"Ikan itu kurang laku, lalu Blue Ridge ... mengacukkannya dengan koi\": supported.",
+        "\"Air yang bersih, kolam tanpa objek tajam dan pengendalian yang berhati-hati membantu mengelakkannya\" (in the FAQ): this implies prevention of torn fins. It is mostly supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

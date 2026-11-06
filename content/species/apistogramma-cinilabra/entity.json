@@ -10,6 +10,58 @@
     "peru",
     "loreto"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from backwaters between Iquitos and Nauta, Loreto, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961937,
+      "total": 27,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          -5.625,
+          13,
+          13
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -160,8 +212,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60x30"
+        "bể cá 60cm"
       ]
     },
     {

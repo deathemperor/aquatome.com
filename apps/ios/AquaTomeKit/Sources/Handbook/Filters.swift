@@ -40,11 +40,12 @@ public struct FishFilter: Equatable, Sendable {
     return verdict([within(f.tempC, tempC), within(f.ph, ph), atMost(f.tankCm, tankCm), atMost(f.difficulty, difficultyMax)])
   }
 
-  /// The fish that fit, then the ones that may, each in the list's order. A breed (no scientific name, no figures) is
-  /// only in the list with no filter set, as on the site.
+  /// The fish that fit, then the ones that may, each in the list's order. A breed (no scientific name) goes by its own
+  /// card's figures, as on the site (`keepBreed`): it fits when every one asked about is known and fits, and is out
+  /// otherwise, never a maybe.
   public func split(_ items: [HandbookIndex.Item]) -> (fit: [HandbookIndex.Item], unsure: [HandbookIndex.Item]) {
     guard !isEmpty else { return (items, []) }
-    return Self.split(items.filter { $0.sub != nil }) { fits($0.facts) }
+    return Self.split(items) { $0.sub != nil ? fits($0.facts) : fits($0.card ?? .init()) == true }
   }
 
   static func split(_ items: [HandbookIndex.Item], _ fits: (HandbookIndex.Item) -> Bool?) -> (fit: [HandbookIndex.Item], unsure: [HandbookIndex.Item]) {

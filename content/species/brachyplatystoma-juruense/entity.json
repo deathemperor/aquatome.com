@@ -15,7 +15,8 @@
     "peru",
     "solimoes",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "rio-jurua"
   ],
   "dataCard": {
     "tempC": [
@@ -49,6 +50,10 @@
       {
         "source": "seriouslyfish",
         "value": 60
+      },
+      {
+        "source": "glaser",
+        "value": 60
       }
     ],
     "tankCm": [
@@ -72,10 +77,22 @@
       "html": "<p>The gold zebra catfish, Brachyplatystoma juruense, is a large pimelodid from the middle Amazon and Orinoco basins, described from the rio Juruá. Adults have broad dark vertical, oblique or branching bands on a pale yellowish body and grow to at least 600 mm. It is sometimes confused with B. tigrinum, especially when young, but has a much less defined pattern, a deeper body and shorter barbels. It suits only public aquaria and a very small minority of private aquarists.</p><p>Rated difficult because it needs a tank at least 2 m long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/brachyplatystoma_juruense_en-3/",
+      "html": "<p>Adults of this predatory catfish attain a maximum length of around 60 cm and have a very nice, zebra-like striped pattern. Available size: 5–10 cm. Origin: Peru.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-juruense",
       "html": "<p>Described from the rio Juruá, northwestern Brazil but has a much wider distribution in the middle Amazon and Orinoco basins including many tributary drainages.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/brachyplatystoma_juruense_en-3/",
+      "html": "<p>Peru. The Rio Jurua is the type locality.</p>"
     },
     {
       "key": "habitat",
@@ -114,6 +131,12 @@
       "html": "<p>Only keep with species large enough to avoid predation.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/brachyplatystoma_juruense_en-3/",
+      "html": "<p>The coloration of the body of the juveniles is very variable. There are spotted ones, striped ones or even uniformly dark ones. All have in common the large, white caudal fin. On the upper lobe of the caudal fin is a filament that is as long as the body of the fish.</p><p>Juveniles (the photographed specimens are 5–8 cm long) are already predators. Sometimes they swim free in the water column, the head turned upside, against the current. Now the caudal filament works as a stabilizer, comparable to the tail of a kite. Another, species-specific behaviour of the fish is to sit on the bottom, braced on the ventral fins and looking against the water surface. It seems likely that in this position the long tail filament works as a fishing rod that attracts small fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-juruense",
@@ -132,6 +155,12 @@
       "html": "<p>This species is sometimes confused with B. tigrinum, especially when juvenile, but can be told apart quite easily by it's much less-defined colour pattern, relatively deeper body shape and shorter barbels. Some individuals are more colourful than others and typically traded as B. juruense 'flash' or 'flash zebra', but its unclear if these differences are geographically-influenced or not, and other trade names included 'false zebra shovelnose' and 'false tigrinus'. It can be distinguished from congeners by the following external characters: colour pattern in adults comprising broad dark vertical, oblique or branching bands, sometimes broken into spots, base body colour pale yellowish, caudal fin blotched or barred; colour pattern in juveniles comprising a mid-lateral row of spots which expand to form adult pattern; caudal-fin in adults moderately-forked with broad, more-or-less evenly-sized lobes, filaments present in adults; eye diameter fits more than 10 times in length of snout; maxillary barbels in adults reaching to or a little beyond dorsal-fin base; caudal peduncle compressed with greater depth than width; origin of adipose-fin anterior to origin of anal-fin; base length of adipos-fin approximately 1.3 times that of anal-fin; height of adipose-fin approximately three times its length; opercle triangular; 17-19 anal-fin rays.</p><p>Brachyplatystoma spp. are distinguished from all other catfishes by two synapomorphies. The first comprises several morphological characters relating to the skull, specifically that the mandibular suspensorium (that which connects the lower jaw bone to the skull) is greatly expanded mediodorsally to form a large plate approaching the parasphenoid bone, with the hyomandibula and metapterygoid similarly enlarged. The second is the presence of an elongate filament formed from a single, unbranched simple ray on both caudal fin lobes in juveniles and subadults. These become shorter or are lost in adult specimens of B. vaillantii, B. filamentosum, B. rousseauxii, and B. capapretum but retained in B. juruense, B. platynema and B. tigrinum.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/brachyplatystoma_juruense_en-3/",
+      "html": "<p>Lexicon: Brachyplatystoma: from ancient Greek, means \"short Platystoma\"; Platystoma is another genus of catfish. juruense: after the Rio Jurua, the type locality.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-juruense",
@@ -141,14 +170,14 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/cc65cdef95557aee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/cc65cdef95557aee-480.webp",
       "width": 1024,
       "height": 742,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-juruense",
       "caption": "Young juvenile...",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/cc65cdef95557aee-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/c2753802e6f05ba1.webp",
@@ -173,13 +202,37 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "s1n2VNlYnCg",
+      "title": "Brachyplatystoma juruense BRASIL",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ODYDqK-Zrv4",
+      "title": "Brachyplatystoma Juruense",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OOHLjhu57io",
+      "title": "Brachyplatystoma juruense バンデッドピラムターバ",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ybo4DMEVsK8",
+      "title": "Juruense & spiny eel tank update; clown knife, argentea, amur catfish, giraffe catfish",
+      "durationSec": 477,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 2m",
-        "bể cá kính cường lực cỡ lớn"
+        "bể cá 200cm"
       ]
     },
     {
@@ -204,5 +257,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-06"
 }

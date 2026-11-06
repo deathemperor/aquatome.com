@@ -13,6 +13,7 @@ You turn one English aquarium web page into structured, translated content for a
    group: one of tetras, cichlids, catfish, loaches, danios, rasboras, barbs, labyrinth, livebearers, killifish, gobies, rainbowfish, shrimp, snails, other.
    lNumber: L-/LDA-/C-number if the page gives one.
    synonyms: other scientific names the page gives for this species (older or newer genus, e.g. "Corydoras sterbai" on a Hoplisoma sterbai page); empty if none.
+   variety: when the page is about one man-made variety, strain, colour form or hybrid line of the species rather than the species itself (a shop's "Copper Alien Betta", "Albino Pacu", "Blue and Gold" harlequin, "Super Red" cherry barb, "Hulk Orange" shrimp, "Koi"), its name in English; "" for a page about the species, a wild population or a collecting locality ("Betta albimarginata Sebuku", "wild red form").
 3. For plants: also fill plant {difficulty 1-3, light low|medium|high, co2 none|optional|required, growth slow|medium|fast, placement[]}; use the same section keys where they fit (quickFacts, maintenance, notes).
 4. For guides: guide {kind setup|care|breeding|disease|aquascaping|plantCare|discovery, viTitle, viBody (full Vietnamese translation as HTML)}; sections empty.
 5. productSlots: 1–4 things a Vietnamese hobbyist could buy for this (tank size, filter, heater, food, substrate, the plant itself), as {category, keywords[]} where category is one of be-ca, loc, suoi, den, thuc-an, phan-nen, cay-thuy-sinh, co2, test-nuoc and keywords are short Vietnamese shopping search phrases.

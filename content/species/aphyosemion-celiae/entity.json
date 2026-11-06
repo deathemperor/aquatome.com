@@ -10,6 +10,56 @@
     "cameroon",
     "mungo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Mungo River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Celia's lyretail, Aphyosemion celiae, is a killifish from western Cameroon, where it appears restricted to parts of the central Mungo River basin.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a small stream in Mambanda, near Kumba, western Cameroon, and appears restricted to parts of the central Mungo River basin in that region.",
+          "countries": [],
+          "regions": [
+            "Mungo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348419,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "DE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          50.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

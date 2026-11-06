@@ -5,13 +5,13 @@ import type { ProcessedPage } from '../src/process'
 
 const taxon = { canonicalName: 'Paracheirodon axelrodi', order: 'Characiformes', family: 'Characidae', genus: 'Paracheirodon', matchType: 'EXACT' }
 const page = (over: Partial<ProcessedPage> = {}): ProcessedPage => ({
-  kind: 'species', scientificName: 'Paracheirodon axelrodi', synonyms: [], enCommonNames: ['Cardinal Tetra'], viName: 'Cá neon vua', viAltNames: ['Neon đỏ'],
+  kind: 'species', scientificName: 'Paracheirodon axelrodi', synonyms: [], enCommonNames: ['Cardinal Tetra'], viName: 'Cá neon vua', viAltNames: ['Neon đỏ'], variety: '',
   group: 'tetras', places: [{ continent: 'South America', country: 'Brazil', region: 'Rio Negro' }],
   dataCard: { tempC: { min: 23, max: 29 }, sizeCm: 3.5 },
   sections: [{ key: 'habitat', en: '<p>Streams.</p>', vi: '<p>Suối.</p>' }, { key: 'diet', en: '<p>Small.</p>', vi: '<p>Nhỏ.</p>' }],
   productSlots: [{ category: 'thuc-an', keywords: ['thức ăn tetra'] }], ...over,
 })
-const ctx = (source: 'seriouslyfish' | 'glaser', url = `https://${source}/p`) => ({ source, url, taxon, now: '2026-10-28', takenSlugs: new Set<string>() })
+const ctx = (source: 'seriouslyfish' | 'glaser' | 'bwaquatics', url = `https://${source}/p`) => ({ source, url, taxon, now: '2026-10-28', takenSlugs: new Set<string>() })
 
 test('two sources merge; re-processing one source replaces only its parts', () => {
   const a = mergeSpecies({}, page(), ctx('seriouslyfish'))
@@ -30,6 +30,22 @@ test('two sources merge; re-processing one source replaces only its parts', () =
   expect(Object.keys(c.vi.sections).sort()).toEqual(['diet:seriouslyfish', 'habitat:glaser'])
   expect(c.vi.slug).toBe('ca-neon-vua')
   expect(c.vi.altNames).toEqual(expect.arrayContaining(['Neon đỏ', 'Cardinal Tetra']))
+})
+
+test('a shop\'s own talk stays off the page; another source\'s "we" is its own', () => {
+  const sections = [
+    { key: 'beforeYouBuy' as const, en: '<p>We always try to pick the healthiest fish for our customers.</p><p>Wild-caught in Kalimantan.</p>', vi: '<p>Chúng tôi luôn cố gắng chọn những con khỏe nhất cho khách hàng.</p><p>Bắt tự nhiên ở Kalimantan.</p>' },
+    { key: 'diet' as const, en: '<p>The seller currently feeds blackworms.</p>', vi: '<p>Người bán hiện cho ăn trùn chỉ.</p>' },
+  ]
+  const shop = mergeSpecies({}, page({ sections }), { ...ctx('glaser'), source: 'bwaquatics' as const })
+  expect(shop.entity.sections.map(s => [s.key, s.html])).toEqual([['beforeYouBuy', '<p>Wild-caught in Kalimantan.</p>']])
+  expect(shop.vi.sections).toEqual({ 'beforeYouBuy:bwaquatics': '<p>Bắt tự nhiên ở Kalimantan.</p>' })
+  expect(mergeSpecies({}, page({ sections }), ctx('seriouslyfish')).entity.sections).toHaveLength(2)
+})
+
+test('a translated guide that fixes a problem is written with the fix first', () => {
+  const g = writeGuide(page({ kind: 'guide', guide: { kind: 'disease', viTitle: 'Cách loại bỏ tảo râu đen (BBA)', viBody: '<h3>Nguyên nhân</h3><p>a</p><h3>Cách xử lý tảo râu đen</h3><p>b</p>' } }), { source: 'aquariumcoop', url: 'https://x/bba', now: '2026-11-06', takenSlugs: new Set() })
+  expect(g?.vi.body).toBe('<h3>Cách xử lý tảo râu đen</h3><p>b</p><h3>Nguyên nhân</h3><p>a</p>')
 })
 
 test('long names give slugs of at most 60 chars cut at a word boundary', () => {

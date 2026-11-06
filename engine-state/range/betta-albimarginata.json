@@ -1,0 +1,77 @@
+{
+  "id": "betta-albimarginata",
+  "native": {
+    "input": "bda11a70085d4dc6",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta albimarginata is a small mouthbrooding labyrinth fish that appears endemic to the Sebuku River drainage in East Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to the Sebuku River drainage in Kalimantan Timur (East Kalimantan) province, Indonesia, Borneo.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sebuku River",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to the Sebuku River drainage in Kalimantan Timur (East Kalimantan) province, Indonesia, Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to the Sebuku River drainage in Kalimantan Timur (East Kalimantan) province, Indonesia, Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta albimarginata from Sebuku is a rare mouthbrooding betta native to the forest streams of East Kalimantan, Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta albimarginata",
+    "status": "ACCEPTED",
+    "taxonKey": 2394012,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

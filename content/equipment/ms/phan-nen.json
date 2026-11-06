@@ -1,0 +1,104 @@
+{
+  "category": "phan-nen",
+  "name": "Substrat dan daun",
+  "lead": "Substrat dasar ialah tempat ikan dasar mencari makan, tumbuhan berakar dan bakteria hidup. Pilihlah mengikut spesies ikan dan jenis tumbuhan.",
+  "intro": "<p>Ikan loach, corydoras dan banyak lagi ikan dasar menggunakan sesungut dan mulut untuk mengorek makanan di dalam substrat. Batu kelikir yang tajam boleh mencalarkan sesungut ikan ini lalu menyebabkan jangkitan. Spesies ini memerlukan pasir halus berbutir bulat.</p><p>Tangki aquascape memerlukan substrat berkhasiat (aqua soil), atau substrat lengai yang ditambah baja kapsul di akar tumbuhan. Daun ketapang kering yang diletakkan di dasar menjadikan air berwarna teh dan sedikit berasid, sama seperti anak sungai hutan tempat ikan laga dan rasbora hidup.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/commons/499597be352de181.webp",
+    "thumb": "https://media.aquatome.com/commons/499597be352de181-480.webp",
+    "width": 960,
+    "height": 574,
+    "licence": "CC BY 3.0",
+    "author": "Green Yoshi",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_gravel.jpg",
+    "caption": "Gravel at the bottom of an aquarium."
+  },
+  "types": [
+    {
+      "id": "la",
+      "name": "Daun ketapang kering dan daun luruh",
+      "match": "lá",
+      "desc": "<p>Daun ketapang (Terminalia catappa) mengeluarkan tanin yang menjadikan air berwarna teh dan sedikit berasid, serta bersifat antibakteria ringan. Daun yang mereput juga menjadi tempat berlindung dan sumber makanan mikroorganisma untuk udang dan anak ikan.</p>",
+      "pick": "1–2 helai daun bagi setiap 40 liter. Rendam atau celur dalam air mendidih dahulu supaya daun tenggelam dan bersih.",
+      "buy": "lá bàng khô",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/499ea329d52dd7cf.webp",
+        "thumb": "https://media.aquatome.com/commons/499ea329d52dd7cf-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY 3.0 us",
+        "author": "Forest and Kim Starr",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-080607-7241-Terminalia_catappa-leaves-Medical_clinic_Sand_Island-Midway_Atoll_(24287654284).jpg",
+        "caption": "Terminalia catappa (False kamani, tropical almond) Leaves at Medical clinic Sand Island, Midway Atoll, Hawaii. June 07, 2008 #080607-7241 Image Use Policy"
+      }
+    },
+    {
+      "id": "cat",
+      "name": "Pasir halus",
+      "match": "cát",
+      "desc": "<p>Pasir sungai atau pasir kuarza berbutir bulat bersaiz 0.5–1 mm. Selamat untuk ikan dasar yang suka mengorek dan ikan loach yang suka membenamkan diri.</p>",
+      "pick": "Basuh sehingga air jernih. Ketebalan 3–5 cm; lapisan yang lebih tebal mudah membentuk kantung anaerobik.",
+      "buy": "cát mịn bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/58a7f552440fdefe.webp",
+        "thumb": "https://media.aquatome.com/commons/58a7f552440fdefe-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 3.0",
+        "author": "Ahmed1251985",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horseface_loach_under_aquarium_gravel.jpg",
+        "caption": "this image shows a horseface loach under aquarium gravel"
+      }
+    },
+    {
+      "id": "phan",
+      "name": "Aqua soil (substrat berkhasiat)",
+      "match": "phân|đất|soil|nền thủy sinh|nền dinh dưỡng",
+      "desc": "<p>Tanah akuarium berkhasiat (aqua soil) yang kaya nutrien, mengekalkan pH sedikit berasid dan membantu tumbuhan akuatik berakar membesar. Pilihan lain ialah baja kapsul yang dibenamkan di akar untuk substrat lengai.</p>",
+      "pick": "Lapisan 5–8 cm di bahagian belakang, semakin nipis ke bahagian hadapan. Ganti selepas 1–2 tahun apabila nutriennya habis.",
+      "buy": "phân nền thủy sinh"
+    },
+    {
+      "id": "soi",
+      "name": "Kerikil dan batu",
+      "match": "sỏi|đá|nền",
+      "desc": "<p>Kerikil bulat dan batu sungai sesuai untuk tangki biotop sungai, tangki cichlid dan ikan yang tidak mengorek. Sisa kotoran mudah disipon dan kerikil tidak tersedut ke dalam penapis.</p>",
+      "pick": "Elakkan kerikil bersisi tajam untuk ikan dasar. Batu kapur dan serpihan karang menjadikan air keras dan beralkali: hanya sesuai untuk cichlid tasik Afrika.",
+      "buy": "sỏi nền bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/499597be352de181.webp",
+        "thumb": "https://media.aquatome.com/commons/499597be352de181-480.webp",
+        "width": 960,
+        "height": 574,
+        "licence": "CC BY 3.0",
+        "author": "Green Yoshi",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_gravel.jpg",
+        "caption": "Gravel at the bottom of an aquarium."
+      }
+    }
+  ],
+  "choose": [
+    "<p>Ada ikan loach, corydoras atau ikan dasar yang suka mengorek: pilih pasir halus berbutir bulat.</p>",
+    "<p>Tangki aquascape dengan tumbuhan berakar (keladi air/anubias, Amazon sword, rumput): gunakan aqua soil, atau substrat lengai bersama baja kapsul.</p>",
+    "<p>Ikan yang suka air lembut dan berasid: tambah daun ketapang dan elakkan batu kapur.</p>"
+  ],
+  "mistakes": [
+    "<p>Tidak membasuh pasir: air tangki keruh keputihan selama beberapa hari.</p>",
+    "<p>Menggunakan kerikil tajam untuk corydoras dan ikan loach: sesungut tercalar dan dijangkiti.</p>",
+    "<p>Menyipon sisa kotoran terlalu dalam ke dalam aqua soil: butiran pecah dan air menjadi keruh.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Adakah daun ketapang memudaratkan ikan?",
+      "a": "<p>Tidak, jika digunakan secara sederhana. Air berwarna teh adalah perkara biasa; tukar air atau tambah karbon aktif jika mahu air lebih jernih.</p>"
+    },
+    {
+      "q": "Pasir atau kerikil, mana lebih baik?",
+      "a": "<p>Pasir untuk ikan dasar yang suka mengorek, kerikil bulat untuk tangki biotop sungai dan ikan besar. Tangki aquascape menggunakan aqua soil.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

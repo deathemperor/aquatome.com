@@ -10,6 +10,56 @@
     "indonesia",
     "bangka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bangka"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The green throat mouthbrooder, Betta chloropharynx, is a labyrinth fish described from Bangka, an island off the east coast of Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species was described from Bangka, a small island just off the east coast of Sumatra, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Bangka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394045,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -131,8 +181,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá thủy sinh 80x30"
+        "bể cá 80cm"
       ]
     },
     {

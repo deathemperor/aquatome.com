@@ -14,6 +14,204 @@
     "colombia",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Ucayali",
+        "Solimões"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
+          "countries": [
+            "PE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Ucayali",
+            "Solimões"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371275,
+      "total": 87,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          71
+        ],
+        [
+          "BR",
+          7
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "EC",
+          4
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          9,
+          9
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          20,
+          20
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          20,
+          20
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -175,8 +373,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

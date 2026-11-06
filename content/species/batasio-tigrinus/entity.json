@@ -10,6 +10,65 @@
     "thailand",
     "khwae-noi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Khwae Noi",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Batasio tigrinus is a small bagrid catfish that appears endemic to the Khwae Noi basin, often called the River Kwai, in western Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Khwae Noi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Khwae Noi is part of the larger Mae Klong watershed, merging with the Khwae Yai at the town of Kanchanaburi.",
+          "countries": [],
+          "regions": [
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338651,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -192,8 +251,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x30"
+        "bể cá 120cm"
       ]
     },
     {

@@ -8,6 +8,17 @@ import { distinctPhotos, morePhotos, pagePictures, takeEach } from './pictures'
 import { foldNearEmpty } from './sections'
 import { approvedSummary } from './summaries'
 
+/**
+ * The data card with its sources named for the page: a figure AquaTome researched names the page it comes from (its
+ * title), as a breed's card does (lib/breeds.ts careCard); the others their source. The card itself (KeyFacts, the
+ * sections' notes) keeps source ids.
+ */
+export function namedCard(c: Content, s: SpeciesEntity) {
+  const card = Object.fromEntries(Object.entries(s.dataCard).map(([f, vs]) => [f, (vs ?? []).map(v => (v.source === 'aquatome' && v.ref !== undefined && s.refs?.[v.ref] ? { source: `aquatome:${v.ref}`, value: v.value } : v))]))
+  const sources: Partial<Record<string, { name: string }>> = { ...c.sources, ...Object.fromEntries((s.refs ?? []).map((r, i) => [`aquatome:${i}`, { name: r.title }])) }
+  return { card, sources }
+}
+
 const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
 
 /**
@@ -23,6 +34,8 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const places = s.places.map(id => c.places.find(p => p.id === id)).filter(p => p !== undefined)
   const country = places.find(p => p.kind === 'country')
   const firstSource = s.sections[0]
+  // A page AquaTome wrote itself from research (no licensed source has the species): the pages it researched, not a source it translated.
+  const researched = s.refs?.length && s.sections.every(x => x.source === 'aquatome') ? s.refs.length : 0
   const summary = await approvedSummary(s.id)
   // The gallery as its page has it (each picture once), so a thumb opens its own photo there.
   const pics = pagePictures(c)
@@ -42,15 +55,12 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
   // A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
   const text = foldNearEmpty(s.sections, s.t, t)
-  // The jump row: the parts readers look for, in page order (the photo strip comes before the text).
+  // The jump row's care questions, in page order; the page adds the shop and the photos, which come after the text.
   const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
-  const jumps = [
-    ...(strip.some(Boolean) ? [{ href: '#gal-h', label: t('Ảnh') }] : []),
-    ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
-  ]
+  const jumps = JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) }))
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   return {
-    country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,
+    country, firstSource, researched, ...namedCard(c, s), summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,
     guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video),
   }
 }

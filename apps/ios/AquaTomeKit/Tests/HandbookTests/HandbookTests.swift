@@ -39,6 +39,21 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(throws: (any Error).self) { try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":2,"lang":"vi","items":[]}"#.utf8)) }
 }
 
+/// The app sends its anonymous telemetry only once the site says it takes it: `telemetry: true`, nothing else.
+@Test func theSiteTakesTelemetryOnlyWhenItsIndexSaysTrue() throws {
+  func flag(_ field: String) throws -> Bool {
+    try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[]\#(field)}"#.utf8)).telemetry
+  }
+  #expect(try flag(#","telemetry":true"#))
+  #expect(try !flag(""))
+  #expect(try !flag(#","telemetry":false"#))
+  #expect(try !flag(#","telemetry":"true""#))
+  #expect(try !flag(#","telemetry":1"#))
+  // The copy kept on the phone says the same.
+  let kept = try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(HandbookIndex(lang: "vi", items: [], telemetry: true)))
+  #expect(kept.telemetry)
+}
+
 @Test func readsAVideoSeriesAVideoGuidesLengthAndAToolsOwnWords() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[
@@ -352,4 +367,16 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   // Five at most, unless asked otherwise.
   let many = (1...7).map { g("Neon \($0)", "care", ["neon"]) }
   #expect(HandbookIndex.guides(about: ["neon"], in: many).map(\.name) == ["Neon 1", "Neon 2", "Neon 3", "Neon 4", "Neon 5"])
+}
+
+// A kind of kit as the site's index lists it: read, on its shelf, found by its name, its page drawn by the app.
+@Test func aKindOfKitIsReadShelvedAndFound() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[{"kind":"equipment","name":"Lọc","path":"/vi/thiet-bi/loc/","img":"https://media.aquatome.com/a/loc-480.webp"}],
+   "shards":{"equipment":{"n":1,"level":2}}}
+  """#.utf8))
+  #expect(ix.items.map(\.kind) == [.equipment])
+  #expect(ix.pages == ["equipment": 1])
+  #expect(HandbookShelves(ix).all(.equipment).map(\.name) == ["Lọc"])
+  #expect(HandbookSearch(ix.items).find("loc", limit: 5).map(\.path) == ["/vi/thiet-bi/loc/"])
 }

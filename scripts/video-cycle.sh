@@ -31,8 +31,20 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 log "videos start"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
+# Guides under the bar whose review left no notes (written before reviews were kept), reviewed again against their
+# transcript, nothing rewritten: the owner's videos first, REVIEW_BACKFILL_LIMIT a run (engine-state/reviews/video-guide.json).
+pnpm engine review-backfill --kind video-guide --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
 pnpm engine video-items --limit 20 || log "video-items: failed"
+# The species-profile channels (species-videos.ts PROFILE_CHANNELS): their new uploads vetted by title, then a few profile
+# videos a run into species and plant pages (a new species page is a web research call), each tried once
+# (engine-state/_species-videos.json).
+pnpm engine species-videos --limit "${SPECIES_VIDEOS_LIMIT:-3}" || log "species-videos: failed"
 pnpm engine discover-videos || log "discover-videos: failed"
+# Older guides' stills (storyboard tiles, 320 or 160 px) become the video's own frames, screened before they publish,
+# and their times the seconds they show (a guide that needs only that goes first: one yt-dlp call, no frames).
+# About 80 s a guide (2026-11-06: 6 to 17 stills, 8–9 s each): 12 a run is about 15 minutes, and 8 runs a day finish
+# the 472 guides in about 5 days. Then it finds none and calls nothing.
+pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-12}" || log "video-stills: failed"
 # Photos that show their page's fish, plant or breed (the GitHub engine's account runs out of model calls mid-week):
 # 20 calls a run, most-read pages first, verdicts cached.
 pnpm engine check-photos --limit 20 || log "check-photos: failed"

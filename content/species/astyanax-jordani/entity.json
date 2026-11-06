@@ -10,6 +10,64 @@
     "mexico",
     "san-luis-potosi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The blind cave tetra was discovered by the ornamental fish collector C. Basil Jordan in a cave in the state of San Luis Potosí in Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204359,
+      "total": 62,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MX",
+          62
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          22.5,
+          1,
+          1
+        ],
+        [
+          -99.84375,
+          21.09375,
+          46,
+          46
+        ],
+        [
+          -99.84375,
+          22.5,
+          14,
+          14
+        ],
+        [
+          -92.8125,
+          18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

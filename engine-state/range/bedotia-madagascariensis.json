@@ -1,0 +1,69 @@
+{
+  "id": "bedotia-madagascariensis",
+  "native": {
+    "input": "22a2176ceb27bc2f",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Madagascan rainbow fish, Bedotia madagascariensis, comes from small streams and the lower reaches of rivers in eastern Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from small streams and the lower reaches of rivers, most of which drain into a series of coastal lagoons and lakes in Atsinanana region, eastern Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ivoloina River",
+        "source": "seriouslyfish",
+        "quote": "Although the extent of its historical range is unclear, modern distribution extends southwards from the lower Ivoloina River, just north of Toamasina city, as far as Manambalo Creek which lies south of the town of Vatomandry.",
+        "ok": true
+      },
+      {
+        "name": "Manambalo Creek",
+        "source": "seriouslyfish",
+        "quote": "Although the extent of its historical range is unclear, modern distribution extends southwards from the lower Ivoloina River, just north of Toamasina city, as far as Manambalo Creek which lies south of the town of Vatomandry.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bedotia madagascariensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2412028,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        19
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "MG"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

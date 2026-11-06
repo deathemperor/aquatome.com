@@ -1,0 +1,67 @@
+{
+  "ms/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": [
+    {
+      "at": "2026-11-06T17:21:12Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"karbon atau media penjerap seumpamanya dikeluarkan\": facts say carbon or Purigen; \"media penjerap seumpamanya\" is a generalisation of Purigen.",
+        "\"ikan yang dijangkiti perlu dipindahkan ke tangki rawatan\" for columnaris: the facts say hospital tank, which is close, but the guide ties it to fin rot in a way the facts don't state.",
+        "\"ikan laga kerap terkena reput sirip kerana keadaan di kedai ikan hiasan tidak disokong oleh rujukan\": the facts only say the claim lacks a citation (Wikipedia). The guide's wording is slightly loose.",
+        "\"Kanamycin ... boleh dicampurkan ke dalam makanan ... ikut sukatan dan bahan campuran dalam arahan pengeluar\": the facts give the mix of 1 scoop KanaPlex, 1 scoop Focus and 1 tbsp food, but the guide leaves it out. This is an omission, not an invented claim.",
+        "\"Reput ... biasanya oleh bakteria\" in the intro: broadly supported, but \"biasanya\" is a mild generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T17:21:12Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bakteria ini biasanya memang hidup di dalam air atau dalam lendir kulit ikan\" merges two sources; acceptable but slightly blended.",
+        "\"Asingkan ikan yang suka menggigit atau bergaduh\" in step 2: the facts say remove nippers, so this is fine. The facts do not say to isolate fighting fish in this step.",
+        "\"Pemakanan yang tidak baik dan makanan berlebihan\" lists overfeeding as a predisposing factor. The facts name overfeeding as a stressor, so this is a minor generalisation.",
+        "\"Ubat hanya digunakan jika ikan tidak pulih ... atau jika jangkitan semakin teruk\" in the intro: the facts give no 'if the infection worsens' criterion.",
+        "\"Pandangan sumber berbeza\" is the guide's framing, not a fact. It is mild.",
+        "\"Ubat ini juga boleh dicampur ke dalam makanan ... sehingga 1 minggu\": the facts give the recipe (1 scoop KanaPlex, 1 scoop Focus, 1 tbsp food). The guide leaves out the Focus part, but nothing in it is invented.",
+        "\"Bila perlu risau\" bullet 'Reput sudah sampai ke pangkal sirip' as a worry trigger is the guide's own inference. The facts only say tissue cannot regrow.",
+        "\"Jika mulut ikan turut reput, mungkin itu penyakit columnaris\" is a mild extrapolation from the facts. The facts only say columnaris is highly contagious and fish should go to a hospital tank.",
+        "\"Sumber yang sama mencadangkan suhu air 26–27 °C dan pH 7–8\" says 'same source' about the second source (Mytour). This is correct, but 'sumber yang sama' reads ambiguously."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-bay-mau-sinh-san-dau-hieu-sap-de-tach-ca-me-va-nuoi-ca-con": [
+    {
+      "at": "2026-11-06T17:23:02Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Penternak menggunakan suplemen mineral untuk mengelakkannya\" - the facts only name Wonder Shell/Seachem Equilibrium as skipped minerals. The guide generalizes without naming them, and the claim about what keepers do is slightly beyond the facts.",
+        "\"Asingkan betina sebelum dia hampir bersalin\" in the intro presents separation as a firm rule. The facts say sources differ, and one suggests a divider instead of moving her.",
+        "\"Jika perut membengkak tetapi gravid spot tidak kelihatan, kemungkinan itu dropsy atau masalah pundi renang\" - this is an inference. The facts only say the gravid spot is the key way to tell them apart, not that a missing spot means disease.",
+        "\"Betina yang bunting juga sering mengejar jantan\" is supported. The \"Bila perlu risau\" heading is the guide's own framing, and the facts don't say when to worry."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T17:23:02Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Tangki kira-kira 38 liter\": facts say about 10 gallons; the liter conversion is not in the facts (though it is roughly right).",
+        "\"Jadi betina yang sudah diasingkan daripada jantan masih boleh bunting lagi\": this is an inference the facts don't state.",
+        "\"Jika kandungan lewat melebihi jangka biasa, periksa kualiti air\": the facts only say poor water can delay birth. They don't give this advice for an overdue pregnancy.",
+        "\"Pastikan keadaan airnya sama seperti tangki utama\": the facts say this for the nursery tank. The guide moves it into the birthing setup, which is a minor shift.",
+        "\"Gunakan penapis yang perlahan\": the facts say 'gentle filtration'. The 'penapis span' example comes from the colony-breeding source.",
+        "\"Jika perut besar dan tompok ... semakin gelap ... kemungkinan besar ikan itu bunting\": this is a mild generalisation, but it is consistent with the facts.",
+        "\"suplemen mineral untuk akuarium\": the facts name Wonder Shell and Seachem Equilibrium. The guide generalises them, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

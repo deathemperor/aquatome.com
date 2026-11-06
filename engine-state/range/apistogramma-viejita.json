@@ -1,0 +1,74 @@
+{
+  "id": "apistogramma-viejita",
+  "native": {
+    "input": "26738987a7e5d275",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red edge apisto, Apistogramma viejita, is a dwarf cichlid from the upper Meta basin, part of the Orinoco system in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is known from a tributary of the Rio Yucao, federal state of Meta, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Meta",
+        "source": "seriouslyfish",
+        "quote": "The red edge apisto, Apistogramma viejita, is a dwarf cichlid from the upper Meta basin, part of the Orinoco system in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The red edge apisto, Apistogramma viejita, is a dwarf cichlid from the upper Meta basin, part of the Orinoco system in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Rio Yucao",
+        "source": "seriouslyfish",
+        "quote": "Type locality is known from a tributary of the Rio Yucao, federal state of Meta, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma viejita",
+    "status": "ACCEPTED",
+    "taxonKey": 2371304,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

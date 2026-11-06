@@ -26,9 +26,12 @@ export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
 /** The daily report's log and its delivery (worker/daily), a section of the app's too. */
 export const REPORT_PATH = '/_ab/bao-cao/'
 export const REPORT_NAME = 'Báo cáo hằng ngày'
-export type WebPath = AdminPath | typeof SCOREBOARD_PATH
-/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections (the daily report last). */
-const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1)]
+/** The product change log (daily/changelog.ts), which the daily report adds to: web only, like the scoreboard. */
+export const CHANGELOG_PATH = '/_ab/thay-doi/'
+export const CHANGELOG_NAME = 'Thay đổi sản phẩm'
+export type WebPath = AdminPath | typeof SCOREBOARD_PATH | typeof CHANGELOG_PATH
+/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections (the daily report last), the change log. */
+const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1), [CHANGELOG_PATH, CHANGELOG_NAME]]
 /** Every page of the web dashboard, the one the app doesn't list included. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
@@ -164,6 +167,35 @@ h3.sub-h{font:600 1.05rem/1.3 var(--serif);margin:22px 0 8px}
 .gaps details{margin-top:2px}
 ol.pages{margin:4px 0 6px;padding-left:1.6em;columns:2 14rem;column-gap:24px;font-size:14px}
 ol.pages li{break-inside:avoid;padding:2px 0}
+/* Out of search for a low score: each page, its score and its last review's notes, the first two lines until opened */
+.low .kpis{margin-bottom:12px}
+.low-t th,.low-t td{text-align:left}
+.low-t tbody th{min-width:12rem}
+.low-t td.s,.low-t td.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.low-t td.s{font:600 1.05rem/1.3 var(--serif);color:var(--rust)}
+.low-t td.why{min-width:22rem;max-width:44rem;font-size:13.5px;line-height:1.45;overflow-wrap:anywhere}
+.why p{margin:0}
+.why ul{list-style:none;margin:0;padding:0 0 0 1.1em}
+.why li{margin-top:6px}
+.why small{display:block;margin-top:6px;font-size:12.5px;color:var(--muted)}
+.why summary{list-style:none;cursor:pointer;position:relative;padding-left:1.1em}
+.why summary::-webkit-details-marker{display:none}
+.why summary:before{content:'▸';position:absolute;left:0;color:var(--muted)}
+.why details[open]>summary:before{content:'▾'}
+.why details:not([open]) summary span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.why details:not([open]) summary:after{content:attr(data-more);display:block;margin-top:4px;font-weight:600;color:var(--moss)}
+@media (max-width:720px){
+.low-t thead{display:none}
+.low-t,.low-t tbody{display:block}
+.low-t tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.low-t tr:last-child{border-bottom:0}
+.low-t tbody th,.low-t td{display:block;padding:0;border:0;background:none;min-width:0;max-width:none}
+.low-t td.k{grid-column:1;font-size:13px}
+.low-t td.s{grid-column:2;grid-row:1}
+.low-t td.r{grid-column:2;grid-row:2;font-size:13px;color:var(--muted)}
+.low-t td.r:after{content:' người đọc'}
+.low-t td.why{grid-column:1/-1;margin-top:8px;min-width:0}
+}
 .chart .kpis{border:0;border-radius:0;background:none}
 /* Detail pages: tiles, charts, tables, forms */
 table{border-collapse:collapse;width:100%}

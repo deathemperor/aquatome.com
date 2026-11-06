@@ -1,8 +1,8 @@
 {
   "id": "paracheirodon-innesi",
   "native": {
-    "input": "e11de4fb0db513cb",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "bbb9bdaf1d646e77",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "CO",
@@ -26,6 +26,30 @@
         "source": "sprucepets",
         "quote": "Origin: Southeastern Colombia, eastern Peru, western Brazil",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+        "words": "Columbia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+        "words": "Peru",
         "ok": true
       },
       {
@@ -64,12 +88,18 @@
     "regions": [
       {
         "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
         "source": "sprucepets",
         "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
         "ok": true
       },
       {
-        "name": "Orinoco",
+        "name": "Amazon",
         "source": "sprucepets",
         "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
         "ok": true
@@ -81,21 +111,17 @@
         "ok": true
       },
       {
-        "name": "Solimões",
-        "source": "seriouslyfish",
-        "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
-        "ok": true
-      },
-      {
         "name": "Purus",
         "source": "seriouslyfish",
         "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+        "country": "BR",
         "ok": true
       },
       {
-        "name": "Napo",
+        "name": "Ucayali",
         "source": "seriouslyfish",
         "quote": "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).",
+        "country": "PE",
         "ok": true
       }
     ],
@@ -178,9 +204,5 @@
     ],
     "requests": 12,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

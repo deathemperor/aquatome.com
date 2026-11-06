@@ -1,0 +1,78 @@
+{
+  "id": "betta-channoides",
+  "native": {
+    "input": "88e5d76c099c569a",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The snakehead betta, Betta channoides, is a small mouthbrooding labyrinth fish from the Mahakam basin in East Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mahakam river basin in the province of Kalimantan Timur (eastern Kalimantan) on the island of Borneo, Indonesia, with type locality 'unnamed blackwater stream entering Mahakam River on the northern side near Mujub, 0°01'S, 115°43'E, Kalimantan Timur, Indonesia'.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to the Mahakam river basin in eastern Kalimantan, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mahakam river basin in the province of Kalimantan Timur (eastern Kalimantan) on the island of Borneo, Indonesia, with type locality 'unnamed blackwater stream entering Mahakam River on the northern side near Mujub, 0°01'S, 115°43'E, Kalimantan Timur, Indonesia'.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mahakam river basin in the province of Kalimantan Timur (eastern Kalimantan) on the island of Borneo, Indonesia, with type locality 'unnamed blackwater stream entering Mahakam River on the northern side near Mujub, 0°01'S, 115°43'E, Kalimantan Timur, Indonesia'.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "bwaquatics",
+        "quote": "Native to the Mahakam river basin in eastern Kalimantan, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta channoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2394056,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

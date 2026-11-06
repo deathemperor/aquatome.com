@@ -10,6 +10,62 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Marañón",
+        "Ucayali",
+        "Aguaytia"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Aguaytia basin, Río Huacamayo, about 9°S, 75°29'W, Dept. Ucayali, Province Coronel Portillo, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon, Upper Amazon, Marañón, Ucayali, Upper Ucayali, Aguaytia.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Marañón",
+            "Ucayali",
+            "Aguaytia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340457,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -9.84375,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,63 @@
+{
+  "id": "apistogramma-panduro",
+  "native": {
+    "input": "26ae83fbbafd8130",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma panduro is a dwarf cichlid from the Río Ucayali drainage and the Río Tahuayo in Loreto Region, northern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Río Ucayali drainage in Genaro/Jenaro Herrera District, Requena Province, Loreto Region, northern Peru and also known from the Río Tahuayo further north, after the Ucayali's confluence with the Río Maranón.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma panduro is a dwarf cichlid from the Río Ucayali drainage and the Río Tahuayo in Loreto Region, northern Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Tahuayo",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma panduro is a dwarf cichlid from the Río Ucayali drainage and the Río Tahuayo in Loreto Region, northern Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma panduro",
+    "status": "ACCEPTED",
+    "taxonKey": 2371223,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

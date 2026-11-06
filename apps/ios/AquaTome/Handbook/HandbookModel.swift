@@ -2,6 +2,7 @@ import Foundation
 import Handbook
 import Observation
 import Tanks
+import Telemetry
 
 /// The handbook tab: the site's index for this language (kept on the phone for offline use), searched natively.
 @Observable
@@ -33,12 +34,13 @@ final class HandbookModel {
   private var pages: [String: HandbookIndex.Item] = [:]
   /// The page a tank's entry without a page is shown as, by its scientific name.
   private var matcher = PageMatcher([])
-  /// Every page by its path: what the reading list keeps.
-  private var byPath: [String: HandbookIndex.Item] = [:]
+  /// Every page by its path, and what the reader keeps on this phone by path (the pages saved to read later and read
+  /// last, the pages kept for offline), one set per language: all in the index's form, moved when it changes.
+  private let paths: HandbookPaths
   /// What's new on the site as last read: none until read, and none from a site without it (the index names no file).
   private var whatsNew: Latest?
-  /// Its entries with their pages in the index shown now, newest first.
-  var latest: [Latest.Row] { whatsNew?.rows { byPath[$0] } ?? [] }
+  /// Its entries with their pages in the index shown now, newest first (looked up in the index's form).
+  var latest: [Latest.Row] { whatsNew?.rows { paths.item(at: $0) } ?? [] }
   /// The whole of what's new, on the web.
   var latestWeb: URL? { whatsNew.flatMap { URL(string: $0.web, relativeTo: site)?.absoluteURL } }
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
@@ -51,20 +53,22 @@ final class HandbookModel {
   private(set) var labels = HandbookIndex.Labels()
   /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
   private var shardCounts: [String: Int] = [:]
-  /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone, one list per
-  /// language: the pages are this language's).
-  private(set) var reading: ReadingList
-  /// The pages kept for reading offline, each whole on the phone (KeepPages), newest first: on this phone, one list per
-  /// language.
-  private(set) var kept: [String]
+  /// Whether the site takes the app's anonymous telemetry, as its index read fresh this launch says; nil until then. Not
+  /// from the copy kept from an earlier launch: a flag the site has turned off since must not let anything go.
+  private(set) var siteTelemetry: Bool?
+  /// The app's anonymous telemetry: each page opened. The app sets it.
+  @ObservationIgnored var telemetry: Telemetry?
   /// Keeps on their way, by shelf (KeepOffline's key): how many pictures are in, of how many. Here, not on the shelf's
   /// screen, so a shelf left and opened again still shows its keep and can stop it.
   private(set) var keeping: [String: (done: Int, of: Int)] = [:]
   private var runs: [String: Task<Void, Never>] = [:]
+  #if DEBUG
+  /// Keeps whose work hasn't ended, stopped or not: a stopped one is off `keeping` at once, but its last picture can
+  /// still be on its way. The UI tests read it before saying a stopped keep kept nothing (BrowseView).
+  private(set) var keepsWorking = 0
+  #endif
   /// A keep that ended with some pages not kept (kept, of how many), for its shelf to say once.
   private var short: [String: (Int, Int)] = [:]
-  /// Each kind's shard count when its pages were kept: with another, the kept shards are other files.
-  private var keptCounts: [String: Int]
   private let source: Source
   /// The pages the app draws itself, kept on the phone.
   private let drawn: PageCache
@@ -84,10 +88,8 @@ final class HandbookModel {
   init(source: Source = HandbookModel.defaultSource(), preferred: [String] = Bundle.main.preferredLocalizations) {
     self.source = source
     lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
-    reading = UserDefaults.standard.data(forKey: "handbook.reading.\(lang)").flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) } ?? ReadingList()
-    kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
-    keptCounts = UserDefaults.standard.dictionary(forKey: "handbook.kept.counts.\(lang)") as? [String: Int] ?? [:]
     drawn = Self.pageCache(source, site: site)
+    paths = HandbookPaths(lang: lang, cache: drawn)
     #if DEBUG
     if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
     #endif
@@ -113,7 +115,8 @@ final class HandbookModel {
   /// The page as blocks, from the phone or the site; nil when the web page is to show instead.
   func doc(_ item: HandbookIndex.Item) async -> PageDoc? {
     guard let count = shardCounts[item.kind.rawValue] else { return nil }
-    return await drawn.doc(path: item.path, kind: item.kind.rawValue, lang: lang, count: count)
+    await paths.settled()
+    return await drawn.doc(path: paths.shardPath(item.path), kind: item.kind.rawValue, lang: lang, count: count)
   }
 
   /// A page's readers' comments and photos, from the site (Readers): each nil when the page has none to ask for or the
@@ -146,33 +149,36 @@ final class HandbookModel {
     return data
   }
 
-  /// The page at a path the index lists ("/vi/ca/ca-neon/").
-  func item(at path: String) -> HandbookIndex.Item? { byPath[path] }
+  /// The page at a path the index lists ("/vi/ca/ca-neon/"), the path in either form (PathForm): a link from a page
+  /// read before the site moved its Vietnamese pages, or after.
+  func item(at path: String) -> HandbookIndex.Item? { paths.item(at: path) }
 
   /// Keeps these pages for reading offline: the shards they're in, read from the site now, then every picture in them,
   /// telling how many pictures are kept so far. Returns how many of the pages are on the phone.
   /// A stop (the task cancelled) ends it; a page counts as kept only once it's whole on the phone (KeepPages).
   func keep(_ items: [HandbookIndex.Item], progress: (_ done: Int, _ of: Int) -> Void) async -> Int {
-    await KeepPages.run(items.map(\.path), docs: { _ in
+    await KeepPages.run(items.map { paths.shardPath($0.path) }, docs: { _ in
+      await paths.settled()
       var docs: [PageDoc] = []
       for (kind, list) in Dictionary(grouping: items, by: \.kind) {
         guard let count = shardCounts[kind.rawValue] else { continue }
-        docs += await drawn.keep(list.map(\.path), kind: kind.rawValue, lang: lang, count: count)
+        docs += await drawn.keep(list.map { paths.shardPath($0.path) }, kind: kind.rawValue, lang: lang, count: count)
       }
       return docs
-    }, picture: { await PageImages.keep($0) }, kept: { path in
-      kept.removeAll { $0 == path }
-      kept.insert(path, at: 0)
-      if let kind = byPath[path]?.kind.rawValue { keptCounts[kind] = shardCounts[kind] }
-      saveKept()
-    }, progress: progress)
+    }, picture: { await PageImages.keep($0) }, kept: { paths.markKept($0, counts: shardCounts) }, progress: progress)
   }
 
   /// Starts keeping a shelf's pages (`shelf`: its key), unless that shelf's keep is on its way.
   func startKeeping(_ items: [HandbookIndex.Item], shelf: String) {
     guard runs[shelf] == nil else { return }
     keeping[shelf] = (0, 0)
+    #if DEBUG
+    keepsWorking += 1
+    #endif
     runs[shelf] = Task {
+      #if DEBUG
+      defer { keepsWorking -= 1 }
+      #endif
       let n = await keep(items) { done, of in if !Task.isCancelled { keeping[shelf] = (done, of) } }
       // Stopped: already off the list, and the pages kept so far are whole.
       guard !Task.isCancelled else { return }
@@ -191,15 +197,10 @@ final class HandbookModel {
   /// How a shelf's last keep fell short (kept, of how many), once: then forgotten.
   func takeShort(_ shelf: String) -> (Int, Int)? { short.removeValue(forKey: shelf) }
 
-  private func saveKept() {
-    UserDefaults.standard.set(kept, forKey: "handbook.kept.\(lang)")
-    UserDefaults.standard.set(keptCounts, forKey: "handbook.kept.counts.\(lang)")
-  }
-
-  func isKept(_ item: HandbookIndex.Item) -> Bool { kept.contains(item.path) }
+  func isKept(_ item: HandbookIndex.Item) -> Bool { paths.isKept(item) }
 
   /// The pages kept for offline that the index has now.
-  var keptItems: [HandbookIndex.Item] { ReadingList.items(kept, in: byPath, kind: nil) }
+  var keptItems: [HandbookIndex.Item] { paths.keptItems }
 
   /// Pages no longer kept for offline: off the list, then their pictures and the shards no kept page is in deleted from
   /// the phone (not what a page still kept needs).
@@ -207,31 +208,22 @@ final class HandbookModel {
   func unkeep(_ items: [HandbookIndex.Item]) async {
     let running = Array(runs.values)
     for shelf in Array(runs.keys) { stopKeeping(shelf) }
-    let gone = Set(items.map(\.path))
-    kept.removeAll { gone.contains($0) }
-    saveKept()
+    paths.unmark(items)
     for t in running { await t.value }
     for (kind, list) in Dictionary(grouping: items, by: \.kind) {
       guard let count = shardCounts[kind.rawValue] else { continue }
-      await forget(list.map(\.path), kind: kind.rawValue, count: count)
+      await forget(list.map { paths.shardPath($0.path) }, kind: kind.rawValue, count: count)
     }
   }
 
-  private func forget(_ paths: [String], kind: String, count: Int) async {
-    let staying = kept.filter { byPath[$0]?.kind.rawValue == kind }
-    for src in await drawn.forget(paths, keeping: staying, kind: kind, lang: lang, count: count) { PageImages.forget(src) }
+  private func forget(_ gone: [String], kind: String, count: Int) async {
+    await paths.settled()
+    for src in await drawn.forget(gone, keeping: paths.kept(of: kind), kind: kind, lang: lang, count: count) { PageImages.forget(src) }
   }
 
-  /// The site split a kind's pages anew: the kept shards are another count's files, so that kind's kept pages are no
-  /// longer on the phone as the app reads them. They come off the list (kept again from their shelf), and the old files go.
+  /// The site split a kind's pages anew: that kind's kept pages come off the list (HandbookPaths), and their old files go.
   private func dropKeptOfOtherCounts() {
-    for (kind, old) in keptCounts where shardCounts[kind] != old {
-      let paths = kept.filter { byPath[$0]?.kind.rawValue == kind }
-      kept.removeAll { paths.contains($0) }
-      keptCounts[kind] = nil
-      saveKept()
-      Task { await forget(paths, kind: kind, count: old) }
-    }
+    for d in paths.dropOtherCounts(shardCounts) { Task { await forget(d.paths, kind: d.kind, count: d.count) } }
   }
 
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
@@ -243,8 +235,8 @@ final class HandbookModel {
   func page(for e: UnlistedEntry) -> HandbookIndex.Item? { matcher.page(kind: e.kind, sci: e.sci).flatMap { pages[$0] } }
 
   /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
-  func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { ReadingList.items(reading.saved, in: byPath, kind: kind) }
-  func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { ReadingList.items(reading.recent, in: byPath, kind: kind, limit: limit) }
+  func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { paths.saved(kind) }
+  func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { paths.recent(kind, limit: limit) }
 
   /// Guides that name these fish and plants (a tank's), the most of them first, then in name order: the written ones,
   /// and the ones made from videos apart, as a species page on the site lists them.
@@ -253,8 +245,10 @@ final class HandbookModel {
     return (HandbookIndex.guides(about: ids, in: all.filter { $0.video == nil }), HandbookIndex.guides(about: ids, in: all.filter { $0.video != nil }))
   }
 
+  /// A page opened (drawn by the app or as the web page): on the pages read last, and its view for the telemetry.
   func read(_ item: HandbookIndex.Item) {
-    change { $0.read(item.path) }
+    paths.read(item)
+    telemetry?.record(.view(path: item.path))
     #if DEBUG
     // UI tests (`-pages-later`): the index says which kinds the app draws only once a page has opened.
     if let ix = pagesLater {
@@ -263,12 +257,8 @@ final class HandbookModel {
     }
     #endif
   }
-  func toggleSaved(_ item: HandbookIndex.Item) { change { $0.toggleSaved(item.path) } }
-
-  private func change(_ edit: (inout ReadingList) -> Void) {
-    edit(&reading)
-    UserDefaults.standard.set(try? JSONEncoder().encode(reading), forKey: "handbook.reading.\(lang)")
-  }
+  func toggleSaved(_ item: HandbookIndex.Item) { paths.toggleSaved(item) }
+  func isSaved(_ item: HandbookIndex.Item) -> Bool { paths.isSaved(item) }
 
   /// The fish and plants a tank can list, for `query` (all of them for none).
   func life(_ query: String) -> [HandbookIndex.Item] {
@@ -286,8 +276,11 @@ final class HandbookModel {
       #if DEBUG
       if ProcessInfo.processInfo.arguments.contains("-pages-later"), pagesLater == nil, count == 0 {
         pagesLater = ix
-        return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels), .ready)
+        return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels, telemetry: ix.telemetry), .ready)
       }
+      // `-index-kept-only`: only the copy kept from an earlier launch is read, and the site's never comes (offline, or a
+      // slow site).
+      if ProcessInfo.processInfo.arguments.contains("-index-kept-only") { return use(ix, .offline) }
       // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
       // waits for it: AppLink).
       if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
@@ -331,8 +324,9 @@ final class HandbookModel {
     searching.search = search
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     matcher = PageMatcher(index: ix.items)
-    byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
+    paths.use(ix)
     shardCounts = ix.pages
+    if s == .ready { siteTelemetry = ix.telemetry }
     dropKeptOfOtherCounts()
     shelves = HandbookShelves(ix)
     labels = ix.labels
@@ -357,22 +351,20 @@ final class HandbookModel {
     let args = ProcessInfo.processInfo.arguments
     if args.contains("-large-handbook") { return .fixed(.large) }
     if args.contains("-fixed-handbook") {
+      // `-vi-at-root`: the site has taken "/vi" out of its Vietnamese pages' addresses.
+      let f = args.contains("-vi-at-root") ? HandbookIndex.fixtureAtRoot : .fixture
       // `-pages-count N`: the site has split its guides into N shards since the last launch.
-      if let i = args.firstIndex(of: "-pages-count"), i + 1 < args.count, let n = Int(args[i + 1]) {
-        let f = HandbookIndex.fixture
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
-      }
+      let counted = args.firstIndex(of: "-pages-count").flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }.map { ["guide": $0] } ?? f.pages
+      // `-equipment`: the site lists a kind of kit too, with the many fish it's for, and has its page as blocks.
+      let kit = args.contains("-equipment")
+      let pages = kit ? counted.merging(["equipment": 1]) { a, _ in a } : counted
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
-      if args.contains("-whats-new") {
-        let f = HandbookIndex.fixture
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: f.pages, latest: "/app/latest/vi.json"))
-      }
+      let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
-      if args.contains("-breeds") {
-        let f = HandbookIndex.fixture
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items + HandbookIndex.fixtureBreeds, home: f.home, labels: f.labels, pages: f.pages))
-      }
-      return .fixed(.fixture)
+      let items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
+      return .fixed(HandbookIndex(lang: f.lang, items: items, home: f.home, labels: f.labels, pages: pages, telemetry: args.contains("-site-telemetry"),
+                                  latest: latest))
     }
     #endif
     return .site
@@ -383,7 +375,10 @@ final class HandbookModel {
     #if DEBUG
     if case .fixed = source {
       let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
-      return PageCache(dir: dir, site: site, fetch: { _ in HandbookIndex.fixturePages })
+      let launch = ProcessInfo.processInfo.arguments
+      let pages = launch.contains("-equipment") ? HandbookIndex.fixtureKitPages
+        : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot : HandbookIndex.fixturePages
+      return PageCache(dir: dir, site: site, fetch: { _ in pages })
     }
     #endif
     var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "pages")
@@ -432,6 +427,7 @@ extension HandbookIndex {
     .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/"),
     .init(kind: .tool, name: "Bể của tôi", path: "/vi/cong-cu/be-cua-toi/", words: ["Bể của tôi: sổ ghi bể cá, cây và lịch đèn"]),
     .init(kind: .tool, name: "Kiểm tra nuôi chung", path: "/vi/cong-cu/nuoi-chung/"),
+    .init(kind: .tool, name: "Bể bao nhiêu lít?", path: "/vi/cong-cu/the-tich-be/", words: ["Tính thể tích bể cá: lít, gallon, độ dày kính"]),
     .init(kind: .tool, name: "Đây là cá gì?", path: "/vi/cong-cu/nhan-dien-ca/", words: ["Nhận diện cá qua ảnh"]),
   ], home: .init(groups: [.init(id: "cichlids"), .init(id: "tetras"), .init(id: "danios")], fish: ["/vi/ca/ca-neon/", "/vi/ca/ca-dia/"],
                  plants: [], guides: ["/vi/huong-dan/nuoi-ca-neon/"]),
@@ -444,6 +440,10 @@ extension HandbookIndex {
     "growth": ["slow": "Chậm", "medium": "Vừa", "fast": "Nhanh"],
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
   ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
+
+  /// UI tests' kit (`-equipment`): a kind of kit, and more fish needing it than its page lists in place.
+  static let fixtureKit: [Item] = [.init(kind: .equipment, name: "Lọc", path: "/vi/thiet-bi/loc/")]
+    + (1...40).map { .init(kind: .fish, contentId: "ca-thu-\($0)", name: "Cá thử \($0)", sub: "Piscis \($0)", path: "/vi/ca/ca-thu-\($0)/") }
 
   /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
   /// twice, updated then new.
@@ -463,11 +463,17 @@ extension HandbookIndex {
           card: .init(tempC: .init(min: 28, max: 30), ph: .init(min: 5.5, max: 7), sizeCm: 15, tankCm: 120, difficulty: 7)),
   ]
 
+  /// UI tests' page of a kind of kit (`-equipment`), as the site writes it.
+  static let fixtureKitPages = Data(#"""
+  {"v":1,"pages":{"/vi/thiet-bi/loc/":{"v":1,"kind":"equipment","path":"/vi/thiet-bi/loc/","title":"Lọc","meta":"40 loài cá cần · 2 loại · 1 bài viết","lead":{"src":"https://media.aquatome.com/a/loc.webp","w":1000,"h":667,"alt":"Lọc","credit":{"text":"Ảnh: Aquarium Co-op","licence":"dùng với sự cho phép","url":"https://example.org/photo/loc"}},"blocks":[{"t":"p","c":["Bộ lọc giữ nước trong và nuôi vi sinh xử lý chất thải của cá."]},{"t":"p","c":["Lọc làm ba việc: giữ cặn, nuôi vi sinh, tạo dòng chảy."]},{"t":"h","text":"Các loại lọc"},{"t":"h","text":"Lọc thùng","id":"loc-thung"},{"t":"figure","img":{"src":"https://media.aquatome.com/a/loc-thung.webp","w":960,"h":720,"alt":"Lọc thùng","credit":{"text":"Ảnh: Tác giả 6","licence":"CC BY 4.0","url":"https://example.org/photo/loc-thung"}}},{"t":"p","c":["Đặt ngoài bể, khỏe và êm, hợp bể từ 60 cm."]},{"t":"p","c":[{"text":"Chọn thế nào:","b":true}," Lưu lượng gấp 4 lần thể tích bể mỗi giờ."]},{"t":"p","c":["Đã tìm hiểu kỹ: ",{"text":"Oase BioMaster 350","href":"/vi/san-pham/oase-biomaster-350/"}]},{"t":"p","c":[{"text":"Mua lọc thùng trên Shopee","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng&c=loc&e=equipment%3Aloc"}]},{"t":"p","c":["Hay tìm: ",{"text":"lọc thùng mini","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+mini&c=loc&e=equipment%3Aloc"}]},{"t":"cards","title":"Loài dùng lọc thùng","items":[{"path":"/vi/ca/ca-neon/","name":"Cá neon"},{"path":"/vi/ca/ca-dia/","name":"Cá đĩa"}]},{"t":"p","c":["+38 loài"]},{"t":"h","text":"Lọc bọt biển","id":"loc-bot-bien"},{"t":"p","c":["Rẻ và hiền, hợp bể nhỏ và bể tép."]},{"t":"p","c":[{"text":"Chọn thế nào:","b":true}," Một miếng cho bể đến 40 lít."]},{"t":"h","text":"Cách chọn"},{"t":"list","items":[[{"t":"p","c":["Chọn theo cỡ bể và cá nuôi."]}]]},{"t":"h","text":"Sai lầm thường gặp"},{"t":"list","items":[[{"t":"p","c":["Rửa vật liệu lọc bằng nước máy."]}]]},{"t":"pages","title":"Loài cá cần lọc","paths":["/vi/ca/ca-thu-1/","/vi/ca/ca-thu-2/","/vi/ca/ca-thu-3/","/vi/ca/ca-thu-4/","/vi/ca/ca-thu-5/","/vi/ca/ca-thu-6/","/vi/ca/ca-thu-7/","/vi/ca/ca-thu-8/","/vi/ca/ca-thu-9/","/vi/ca/ca-thu-10/","/vi/ca/ca-thu-11/","/vi/ca/ca-thu-12/","/vi/ca/ca-thu-13/","/vi/ca/ca-thu-14/","/vi/ca/ca-thu-15/","/vi/ca/ca-thu-16/","/vi/ca/ca-thu-17/","/vi/ca/ca-thu-18/","/vi/ca/ca-thu-19/","/vi/ca/ca-thu-20/","/vi/ca/ca-thu-21/","/vi/ca/ca-thu-22/","/vi/ca/ca-thu-23/","/vi/ca/ca-thu-24/","/vi/ca/ca-thu-25/","/vi/ca/ca-thu-26/","/vi/ca/ca-thu-27/","/vi/ca/ca-thu-28/","/vi/ca/ca-thu-29/","/vi/ca/ca-thu-30/","/vi/ca/ca-thu-31/","/vi/ca/ca-thu-32/","/vi/ca/ca-thu-33/","/vi/ca/ca-thu-34/","/vi/ca/ca-thu-35/","/vi/ca/ca-thu-36/","/vi/ca/ca-thu-37/","/vi/ca/ca-thu-38/","/vi/ca/ca-thu-39/","/vi/ca/ca-thu-40/"]},{"t":"faq","title":"Hỏi đáp","items":[{"q":"Bao lâu rửa lọc một lần?","a":"Khoảng mỗi tháng, bằng nước bể."}]},{"t":"pages","title":"Bài viết liên quan","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"h","text":"Gợi ý mua hay gặp (1)"},{"t":"list","items":[[{"t":"p","c":[{"text":"lọc thùng mini","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+mini&c=loc&e=equipment%3Aloc"}]}]]},{"t":"p","c":["Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết."]}]}}}
+  """#.utf8)
+
   /// UI tests' pages: the neon guide as the site writes it (/app/pages/vi/guide-0.json), with each kind of block, links
   /// to the fixture's pages and a tool, a word's tip, and two parts in a row from a newer site the app can't draw; a
-  /// fish, a plant, a term and a video series, each as the site writes it.
+  /// video guide with its chapters; a fish with three videos (the last one YouTube refuses), a plant, a term and a video
+  /// series, each as the site writes it.
   static let fixturePages = Data(#"""
-  {"v":1,"pages":{"/vi/huong-dan/cach-han-che-reu-hai/":{"v":1,"kind":"guide","path":"/vi/huong-dan/cach-han-che-reu-hai/","title":"Cách hạn chế rêu hại","video":{"youtubeId":"abc123XYZ_-","title":"Hạn chế rêu hại","channel":"MJ Aquascaping","durationSec":1755},"blocks":[{"t":"p","c":["Ánh sáng vừa đủ, CO₂ đều, thay nước đúng lịch."]}]},
+  {"v":1,"pages":{"/vi/huong-dan/cach-han-che-reu-hai/":{"v":1,"kind":"guide","path":"/vi/huong-dan/cach-han-che-reu-hai/","title":"Cách hạn chế rêu hại","credit":["AquaTome tổng hợp từ ",{"text":"1 nguồn","href":"#nguon"}," rồi tự viết"],"video":{"youtubeId":"abc123XYZ_-","title":"Hạn chế rêu hại","channel":"MJ Aquascaping","durationSec":1755,"chapters":[{"at":0,"title":"Vì sao rêu mọc"},{"at":95,"title":"Ánh sáng và CO₂"}]},"blocks":[{"t":"p","c":["Ánh sáng vừa đủ, CO₂ đều, thay nước đúng lịch."]},{"t":"refs","title":"Nguồn tham khảo","id":"nguon","items":[{"title":"Video gốc: Hạn chế rêu hại, kênh MJ Aquascaping · 29:15","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}]}]},
   "/vi/video/reu-hai-tu-a-den-z/":{"v":1,"kind":"video","path":"/vi/video/reu-hai-tu-a-den-z/","title":"Rêu hại từ A đến Z","credit":["1 bài · 29 phút video · theo playlist “",{"text":"ALGAE! Everything you need to know!","href":"https://www.youtube.com/playlist?list=PLtest"},"” của kênh ",{"text":"MJ Aquascaping","href":"https://www.youtube.com/@MJAquascaping"}],"blocks":[{"t":"p","c":["Từng loại rêu hại: vì sao mọc và cách hạn chế."]},{"t":"cards","title":"Video","items":[{"path":"/vi/huong-dan/reu-toc/","name":"Rêu tóc","sub":"Chăm cây · 12:40","img":{"src":"https://i.ytimg.com/vi/fixtureV001/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV001"}}},{"path":"/vi/huong-dan/cach-han-che-reu-hai/","name":"Cách hạn chế rêu hại","sub":"Chăm cây · 29:15","img":{"src":"https://i.ytimg.com/vi/abc123XYZ_-/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: MJ Aquascaping","licence":"YouTube","url":"https://www.youtube.com/watch?v=abc123XYZ_-"}}},{"path":"/vi/huong-dan/reu-nau/","name":"Rêu nâu","sub":"Chăm cây · 9:05","img":{"src":"https://i.ytimg.com/vi/fixtureV002/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV002"}}},{"path":"/vi/huong-dan/reu-xanh-lam/","name":"Rêu xanh lam","sub":"Chăm cây · 15:20","img":{"src":"https://i.ytimg.com/vi/fixtureV003/hqdefault.jpg","w":1280,"h":720,"credit":{"text":"Ảnh: Tác giả 8","licence":"YouTube","url":"https://www.youtube.com/watch?v=fixtureV003"}}}]}]},
   "/vi/huong-dan/nuoi-ca-neon/":{"v":1,"kind":"guide","path":"/vi/huong-dan/nuoi-ca-neon/","title":"Nuôi cá neon trong bể nhỏ",
    "meta":"Chăm sóc · đọc khoảng 4 phút","credit":["AquaTome tổng hợp từ ",{"text":"2 nguồn","href":"#nguon"}," rồi tự viết"],
@@ -491,12 +497,27 @@ extension HandbookIndex {
     {"t":"p","c":["Nấm: cách ly và giữ nước sạch."]},
     {"t":"faq","title":"Câu hỏi thường gặp","items":[{"q":"Nuôi mấy con?","a":"Từ 6 con trở lên."}]},
     {"t":"refs","title":"Nguồn tham khảo","id":"nguon","items":[{"title":"Neon tetra care","url":"https://example.org/neon"},{"title":"Cá neon","url":"https://example.org/ca-neon"}]},
-    {"t":"pages","title":"Loài và cây trong bài","paths":["/vi/ca/ca-neon/","/vi/ca/khong-co/","/vi/cong-cu/be-cua-toi/"]}
+    {"t":"pages","title":"Loài và cây trong bài","paths":["/vi/ca/ca-neon/","/vi/ca/khong-co/","/vi/cong-cu/be-cua-toi/","/vi/cong-cu/the-tich-be/"]}
    ]},
-  "/vi/ca/ca-neon/":{"v":1,"kind":"fish","path":"/vi/ca/ca-neon/","title":"Cá neon","sub":"Paracheirodon innesi","where":["Characidae, ",{"text":"Peru","href":"/vi/nguon-goc/south-america/peru/"}],"aka":"Tên khác: Neon tetra","credit":["Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."],"lead":{"src":"https://media.aquatome.com/a/neon.webp","w":1200,"h":800,"alt":"Cá neon, Paracheirodon innesi","credit":{"text":"Ảnh: John Roe trên Unsplash","licence":"Unsplash License","url":"https://example.org/photo/neon","author":"John Roe"}},"talk":{"comments":"species:paracheirodon-innesi","photos":"species:paracheirodon-innesi"},"blocks":[{"t":"trust","title":"Nguồn và độ tin cậy","legend":"Các nguồn ghi khác nhau","rows":[{"field":"tempC","label":"Nhiệt độ","conflict":true,"note":"Mức mọi nguồn cùng khuyên","items":["Seriously Fish: 20–26°C","Aquarium Glaser: 22–28°C"]},{"field":"ph","label":"pH","items":["Seriously Fish"]},{"field":"lifeYears","label":"Tuổi thọ","items":["Seriously Fish"]}]},{"t":"mates","title":"Nuôi chung","good":{"title":"Hợp với","items":[{"path":"/vi/ca/ca-ngua-van/","name":"Cá ngựa vằn","img":{"src":"https://media.aquatome.com/a/danio-480.webp","w":960,"h":640,"credit":{"text":"Ảnh: Jane Doe trên Unsplash","licence":"Unsplash License","url":"https://example.org/photo/danio","author":"Jane Doe","authorUrl":"https://unsplash.com/@jane_doe_fixture?utm_source=aquatome&utm_medium=referral"}}}]},"avoid":{"title":"Tránh","items":[{"path":"/vi/ca/ca-dia/","name":"Cá đĩa","why":"Lớn tới 15 cm, có thể ăn Cá neon"}]},"note":"Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.","tool":{"text":"Kiểm tra nuôi chung với loài khác →","href":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"}},{"t":"climate","title":"Nuôi ở Việt Nam","items":[{"label":"Mùa đông miền Bắc","ok":false,"text":"Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."},{"label":"Miền Nam","ok":true,"text":"Hợp nhiệt độ quanh năm, thường không cần sưởi."}],"note":"Giả định nước bể trong nhà, không sưởi hay làm lạnh. Đo nhiệt độ bể của bạn để chắc chắn."},{"t":"gallery","title":"Ảnh Cá neon","note":"3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở.","strip":[0,1],"href":"/vi/ca/ca-neon/anh/","photos":[{"src":"https://media.aquatome.com/g/n1.webp","w":1280,"h":960,"alt":"Đàn cá neon trong bể","thumb":"https://media.aquatome.com/g/n1-480.webp","credit":{"text":"Ảnh: Tác giả 1","licence":"CC BY 2.0","url":"https://example.org/photo/1"}},{"src":"https://media.aquatome.com/g/n2.webp","w":1280,"h":960,"alt":"Cá neon gần cây","thumb":"https://media.aquatome.com/g/n2-480.webp","credit":{"text":"Ảnh: Tác giả 2","licence":"CC BY-SA 4.0","url":"https://example.org/photo/2"}},{"src":"https://media.aquatome.com/g/n3.webp","w":800,"h":600,"alt":"Cá neon bơi","thumb":"https://media.aquatome.com/g/n3-480.webp","credit":{"text":"Ảnh: Tác giả 3","licence":"CC BY 4.0","url":"https://example.org/photo/3"}}]},{"t":"summary","title":"Tóm tắt nhanh","items":["Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm."],"text":"Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm.","mistakes":{"title":"Lỗi hay gặp","items":["Thả vài con: nên nuôi đàn từ 6 con trở lên."]},"by":"AquaTome tóm tắt từ các nguồn bên dưới."},{"t":"h","text":"Nước cần thế nào?","id":"muc-waterConditions"},{"t":"p","c":["Nước mềm, hơi chua.",{"text":"1","href":"https://example.org/neon","tip":{"term":"Seriously Fish","text":"example.org · dịch từ nguồn"}}]},{"t":"p","c":["Như các ",{"text":"cá tetra","href":"/vi/nhom/tetras/"}," khác, cá neon sống theo đàn."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Seriously Fish","url":"https://example.org/neon"}],"note":"Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."},{"t":"cards","title":"Các dòng và cá lai từ Cá neon","items":[{"path":"/vi/ca/ca-neon-vang/","name":"Cá neon vàng","sub":"Dòng cá cảnh"}]},{"t":"pages","title":"Bài viết nhắc đến loài này","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"videos","title":"Video","items":[{"youtubeId":"neonVid_01","title":"Đàn neon trong bể thủy sinh","durationSec":724,"lang":"EN"}]}]},
-  "/vi/cay/rotala-do/":{"v":1,"kind":"plant","path":"/vi/cay/rotala-do/","title":"Rotala đỏ","sub":"Rotala rotundifolia","lead":{"src":"https://media.aquatome.com/a/rotala.webp","w":1200,"h":900,"alt":"Rotala đỏ, Rotala rotundifolia","credit":{"text":"Ảnh: Tropica","licence":"","url":"https://example.org/photo/rotala"}},"talk":{"comments":"plant:rotala-rotundifolia"},"blocks":[{"t":"h","text":"Trồng và chăm","id":"muc-care"},{"t":"p","c":["Cần ánh sáng mạnh để lên màu đỏ."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Tropica","url":"https://example.org/rotala"}]}]},
+  "/vi/ca/ca-neon/":{"v":1,"kind":"fish","path":"/vi/ca/ca-neon/","title":"Cá neon","sub":"Paracheirodon innesi","where":["Characidae, ",{"text":"Peru","href":"/vi/nguon-goc/south-america/peru/"}],"aka":"Tên khác: Neon tetra","credit":["Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."],"lead":{"src":"https://media.aquatome.com/a/neon.webp","w":1200,"h":800,"alt":"Cá neon, Paracheirodon innesi","credit":{"text":"Ảnh: John Roe trên Unsplash","licence":"Unsplash License","url":"https://example.org/photo/neon","author":"John Roe"}},"talk":{"comments":"species:paracheirodon-innesi","photos":"species:paracheirodon-innesi"},"blocks":[{"t":"trust","title":"Nguồn và độ tin cậy","legend":"Các nguồn ghi khác nhau","rows":[{"field":"tempC","label":"Nhiệt độ","conflict":true,"note":"Mức mọi nguồn cùng khuyên","items":["Seriously Fish: 20–26°C","Aquarium Glaser: 22–28°C"]},{"field":"ph","label":"pH","items":["Seriously Fish"]},{"field":"lifeYears","label":"Tuổi thọ","items":["Seriously Fish"]},{"field":"tankCm","label":"Bể tối thiểu","conflict":true,"marked":true,"note":"Mỗi nguồn ghi một mức","items":["Seriously Fish: 60 cm","Aquarium Glaser: 45 cm"]}]},{"t":"mates","title":"Nuôi chung","good":{"title":"Hợp với","items":[{"path":"/vi/ca/ca-ngua-van/","name":"Cá ngựa vằn","img":{"src":"https://media.aquatome.com/a/danio-480.webp","w":960,"h":640,"credit":{"text":"Ảnh: Jane Doe trên Unsplash","licence":"Unsplash License","url":"https://example.org/photo/danio","author":"Jane Doe","authorUrl":"https://unsplash.com/@jane_doe_fixture?utm_source=aquatome&utm_medium=referral"}}}]},"avoid":{"title":"Tránh","items":[{"path":"/vi/ca/ca-dia/","name":"Cá đĩa","why":"Lớn tới 15 cm, có thể ăn Cá neon"}]},"note":"Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.","tool":{"text":"Kiểm tra nuôi chung với loài khác →","href":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"}},{"t":"climate","title":"Nuôi ở Việt Nam","items":[{"label":"Mùa đông miền Bắc","ok":false,"text":"Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."},{"label":"Miền Nam","ok":true,"text":"Hợp nhiệt độ quanh năm, thường không cần sưởi."}],"note":"Giả định nước bể trong nhà, không sưởi hay làm lạnh. Đo nhiệt độ bể của bạn để chắc chắn."},{"t":"gallery","title":"Ảnh Cá neon","note":"3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở.","strip":[0,1],"href":"/vi/ca/ca-neon/anh/","photos":[{"src":"https://media.aquatome.com/g/n1.webp","w":1280,"h":960,"alt":"Đàn cá neon trong bể","thumb":"https://media.aquatome.com/g/n1-480.webp","credit":{"text":"Ảnh: Tác giả 1","licence":"CC BY 2.0","url":"https://example.org/photo/1"}},{"src":"https://media.aquatome.com/g/n2.webp","w":1280,"h":960,"alt":"Cá neon gần cây","thumb":"https://media.aquatome.com/g/n2-480.webp","credit":{"text":"Ảnh: Tác giả 2","licence":"CC BY-SA 4.0","url":"https://example.org/photo/2"}},{"src":"https://media.aquatome.com/g/n3.webp","w":800,"h":600,"alt":"Cá neon bơi","thumb":"https://media.aquatome.com/g/n3-480.webp","credit":{"text":"Ảnh: Tác giả 3","licence":"CC BY 4.0","url":"https://example.org/photo/3"}}]},{"t":"summary","title":"Tóm tắt nhanh","items":["Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm."],"text":"Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm.","mistakes":{"title":"Lỗi hay gặp","items":["Thả vài con: nên nuôi đàn từ 6 con trở lên."]},"by":"AquaTome tóm tắt từ các nguồn bên dưới."},{"t":"h","text":"Thông tin nhanh","id":"muc-quickFacts"},{"t":"p","c":["Cá neon là loài cá nhỏ sống theo đàn ở suối rừng Nam Mỹ."]},{"t":"list","items":[[{"t":"p","c":["Tên thường gọi: Cá neon, neon tetra"]}],[{"t":"p","c":["Nhiệt độ: 20–26°C"]}]]},{"t":"h","text":"Nước cần thế nào?","id":"muc-waterConditions"},{"t":"p","c":["Nước mềm, hơi chua.",{"text":"1","href":"https://example.org/neon","tip":{"term":"Seriously Fish","text":"example.org · dịch từ nguồn"}}]},{"t":"p","c":["Như các ",{"text":"cá tetra","href":"/vi/nhom/tetras/"}," khác, cá neon sống theo đàn."]},{"t":"h","text":"Cho ăn gì?","id":"muc-diet"},{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]},{"t":"h","text":"Sinh sản ra sao?","id":"muc-reproduction"},{"t":"p","c":["Khó cho đẻ trong bể nuôi chung: cần bể đẻ riêng, nước rất mềm."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Seriously Fish","url":"https://example.org/neon"}],"note":"Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."},{"t":"cards","title":"Các dòng và cá lai từ Cá neon","items":[{"path":"/vi/ca/ca-neon-vang/","name":"Cá neon vàng","sub":"Dòng cá cảnh"}]},{"t":"pages","title":"Bài viết nhắc đến loài này","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"videos","title":"Video","items":[{"youtubeId":"neonVid_001","title":"Đàn neon trong bể thủy sinh","durationSec":724,"lang":"EN"},{"youtubeId":"neonVid_002","title":"Cá neon ăn trùn chỉ","durationSec":95,"lang":"EN"},{"youtubeId":"noEmbed_001","title":"Cá neon đẻ trứng","durationSec":310,"lang":"EN"}]}]},
+  "/vi/cay/rotala-do/":{"v":1,"kind":"plant","path":"/vi/cay/rotala-do/","title":"Rotala đỏ","sub":"Rotala rotundifolia","aka":"Tên khác: Rotala tròn lá","lead":{"src":"https://media.aquatome.com/a/rotala.webp","w":1200,"h":900,"alt":"Rotala đỏ, Rotala rotundifolia","credit":{"text":"Ảnh: Tropica","licence":"","url":"https://example.org/photo/rotala"}},"talk":{"comments":"plant:rotala-rotundifolia"},"blocks":[{"t":"h","text":"Thông tin nhanh","id":"muc-quickFacts"},{"t":"p","c":["Cây thân mọc nhanh, lên đỏ dưới đèn mạnh."]},{"t":"h","text":"Trồng và chăm","id":"muc-care"},{"t":"p","c":["Cần ánh sáng mạnh để lên màu đỏ."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Tropica","url":"https://example.org/rotala"}]}]},
   "/vi/thuat-ngu/dem-ph/":{"v":1,"kind":"glossary","path":"/vi/thuat-ngu/dem-ph/","title":"Đệm pH","blocks":[{"t":"p","c":["Tiếng Anh: pH buffer"]},{"t":"p","c":["Khả năng giữ pH của nước khi có thêm axit."]}]}}}
   """#.utf8)
+
+  /// UI tests (`-vi-at-root`): the fixture and its pages with the Vietnamese pages at the root, as the site has them
+  /// once it takes "/vi" out of their addresses: every path and link that starts "/vi/" without it, but one. The video
+  /// series' card for its guide stays under "/vi/", as in a page kept on the phone from before.
+  static let fixtureAtRoot: HandbookIndex = {
+    let e = JSONEncoder()
+    e.outputFormatting = .withoutEscapingSlashes
+    return try! JSONDecoder().decode(HandbookIndex.self, from: atRoot(e.encode(fixture)))
+  }()
+  static let fixturePagesAtRoot = Data(String(decoding: atRoot(fixturePages), as: UTF8.self)
+    .replacingOccurrences(of: #"{"path":"/huong-dan/cach-han-che-reu-hai/""#, with: #"{"path":"/vi/huong-dan/cach-han-che-reu-hai/""#).utf8)
+  /// Only a string that starts with the path: not the "/vi/" in a YouTube picture's address.
+  private static func atRoot(_ json: Data) -> Data {
+    Data(String(decoding: json, as: UTF8.self).replacingOccurrences(of: #""/vi/"#, with: #""/"#).utf8)
+  }
 
   /// UI tests' readers' content, by the address the app asks for it: the neon's comments (one a good answer) and two
   /// readers' photos, as the site's Worker answers. The plant asks too, and the site has none for it.

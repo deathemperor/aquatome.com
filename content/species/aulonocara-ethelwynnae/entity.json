@@ -10,6 +10,43 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Chitande Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi where it was described from and only occurs around 'Chitendi Island', now normally referred to as Chitande island plus a short stretch of coastline between Ngara and Chilumba along the lake's northwestern shoreline.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The northern aulonocara, Aulonocara ethelwynnae, is a cichlid endemic to Lake Malawi, known only from Chitande Island and the nearby northwest shore.",
+          "countries": [],
+          "regions": [
+            "Chitande Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370491,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -149,8 +186,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 90cm",
-        "bể cá 90x45"
+        "bể cá 90cm"
       ]
     },
     {

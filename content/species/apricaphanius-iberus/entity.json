@@ -10,6 +10,70 @@
     "spain",
     "catalonia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ES"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Spanish toothcarp, or fartet, Apricaphanius iberus, is restricted to a few small areas of Spain's Mediterranean coast.",
+          "countries": [
+            "ES"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10799761,
+      "total": 12,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ES",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -4.21875,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          36.5625,
+          3,
+          3
+        ],
+        [
+          -1.40625,
+          37.96875,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          40.78125,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          42.1875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
@@ -173,8 +237,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30",
-        "bể cá dài 120cm"
+        "bể cá 120cm"
       ]
     },
     {

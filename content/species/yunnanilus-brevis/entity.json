@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "myanmar",
-    "inle-lake"
+    "inle-lake",
+    "lake-inle"
   ],
   "dataCard": {
     "tempC": [
@@ -18,12 +19,53 @@
           "min": 16,
           "max": 26
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -35,10 +77,40 @@
       "html": "<p>Petruichthys brevis is a species of loach that originates from Burma. The species attains a length of only 4-5 cm and thus belongs to the small species of fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>The Inle loach, Petruichthys brevis, is a small nemacheilid loach known only from Lake Inlé and its watershed in Shan state, eastern Myanmar. Sometimes traded as 'Lake Inle red-tailed loach', it is listed as 'Vulnerable' on the IUCN Red List due to deterioration of the lake. Unlike most loaches it spends a lot of time in the open, often hovering in midwater, and it is highly gregarious, needing a group of at least 8-10.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/petruichthys-brevis-formerly-yunnanilus-brevis/",
       "html": "<p>Petruichthys brevis occurs in Burma, only in Inle Lake.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>Known only from isolated Lake Inlé and surrounding watershed in Shan state, eastern Myanmar, and the nearby He-Ho plain.</p><p>Type locality is 'Inlé Lake, Fort Stedman, southern Shan States, Myanmar, elevation 3000 feet'.</p><p>The species is currently listed as 'Vulnerable' on the IUCN Red List due to deterioration of Lake Inlé. Unsustainable agricultural practices in and around the basin have caused increases in sedimentation, eutrophication, and pollution along with a reduction in surface area of more than 30% between the years 1935-2000. Non-native, predatory Parambassis and Tilapia species have been introduced for farming, while collection for the aquarium trade may also be exerting a negative effect.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>Lake Inlé lies in a karstic valley almost 900m above sea level in the Shan Plateau region and is home to many endemic animals including nine species of fish and numerous gastropods. The water is clear, shallow (2-3 metres deep in most places) and has a very fertile, loamy substrate, although it can be muddy and turbid around the margins.</p><p>It is famed for its stilted villages and local fishermen known as Intha who row their boats using only one leg. These people, thought to have migrated from the south of Myanmar in the late 1300s, use naturally-occurring floating 'islands' consisting of tangles of various plant species as gardens.</p><p>These islands form a wide raft around the lake margins, rising and falling with the water level, and have come to form the habitats of many fishes which take shelter among the tangle of roots and plant stems at their base. Macrophytes also grow densely in places.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>Minimum base dimensions of 90 × 30 cm or equivalent (about 81 litres) are suggested.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>Best maintained in a planted aquarium, and an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants, driftwood roots or branches, and leaf litter seems to be appreciated.</p><p>If you wish to raise fry alongside the adults the addition of fine-leaved aquatic moss such as a Taxiphylum sp. is advisable (see 'Reproduction').</p><p>The water should be well-oxygenated but not turbulent, although some flow is acceptable.</p>"
     },
     {
       "key": "waterConditions",
@@ -47,10 +119,28 @@
       "html": "<p>Lake Inle has comparatively hard water, so most types of tap water are perfectly suited for keeping this fish. The water temperature can be between 16 and 26°C, which makes a heater unnecessary in living rooms.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 3–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>Likely to be a micropredator feeding chiefly on small insects, worms, crustaceans, and other zooplankton in nature.</p><p>In the aquarium it must be offered items of a suitable size and quality, particularly small live foods, although fine-grade or crushed dried foods are also accepted.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/petruichthys-brevis-formerly-yunnanilus-brevis/",
       "html": "<p>In contrast to most other species of loach, this one is a free swimming, schooling species. The swimming behaviour is similar to that of the penguin tetra (Thayeria boehlkei), e.g. the fish prefer to swim in a head-up position. The caudal peduncle is slightly snapped off, an adaptation to the special swimming style.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>Peaceful and likely to be intimidated or outcompeted for food by larger or more boisterous tankmates, although the presence of similarly-sized schooling fishes seems to help reduce its shyness.</p><p>Small cyprinids or characids are ideal options, and many peaceful loaches and catfishes should also prove suitable.</p><p>Petruichthys spp. are highly gregarious and should be kept in a group of at least 8-10 specimens. Unlike most loaches they also spend a lot of time in the open, often hovering in midwater and exploring all levels of the aquarium.</p>"
     },
     {
       "key": "dimorphism",
@@ -59,20 +149,88 @@
       "html": "<p>Males are smaller, have longer pectoral fins and usually a longitudinal stripe on the side, while females grow larger and have a spotted pattern.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>Sexually mature females tend to be more robust and noticeably larger than males, with a colour pattern comprising irregular dark spots and small blotches, some of which may be fused to form small stripes or bars.</p><p>Males possess a number of short, variably-sized vertical bars along the flanks, which in some specimens are joined to form a solid stripe, and also possess a suborbital flap which is absent in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/petruichthys-brevis-formerly-yunnanilus-brevis/",
       "html": "<p>Petruichthys brevis can be bred quite easily in aquaria. The fish spawn among fine underwater plants.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>This species has been bred in mature, heavily-decorated community aquaria. A relatively coarse substrate with driftwood roots and plenty of live plants appears to represent the most favourable set-up, presumably because such an arrangement allows some eggs to hatch and subsequently some fry to avoid predation.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<p>This species is sometimes traded as 'Lake Inle red-tailed loach' and was formerly included in the genus Yunnanilus, a diverse assemblage of which the majority of members are endemic to the Yunnan plateau in Yunnan province, southern China.</p><p>A number of them are known only from a single locality or have very restricted ranges, and in some cases have come to colonise habitats or ecological niches not normally associated with nemacheilid loaches.</p><p>Several groups of closely-related species existing within Yunnanilus have been noted and Kottelat (2012) moved those that had been formerly included in the Y. nigromaculatus species group into the genus Eonemacheilus Berg, 1938, while those from Myanmar were included in Petruichthys Menon, 1987.</p><p>P. brevis can be told apart from congeners and related species by the following combination of characters: short lateral line with up to 12 pored scales; cephalic lateral line system present with 3+3 supratemporal and 9 pre-opercular-mandibular pores; 16-17 branched caudal-fin rays; caudal peduncle 1.06-1.14 times longer than deep; caudal peduncle depth 12-14% SL; eye diameter 6.2-7.6% SL; body depth 23-26% SL.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "html": "<ul><li>Freyhof, J. and D. V. Serov (2001). Nemacheiline loaches from Central Vietnam with descriptions of a new genus and 14 new species (Cypriniformes: Balitoridae). Ichthyological Exploration of Freshwaters 12(2), 133-191</li><li>Bănărescu, P. M. and T. T. Nalbant (1995). A generical classification of Nemacheilinae with description of two new genera (Teleostei: Cypriniformes: Cobitidae). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 35, 429-495</li><li>Kottelat, M. and X.-L. Chu (1988). Revision of Yunnanilus with descriptions of a miniature species flock and six new species from China (Cypriniformes: Homalopteridae). Environmental Biology of Fishes 23(1-2), 65-93</li><li>Boulenger, G. A. (1893). List of the fishes collected by Mr. E. W. Oates in the southern Shan States, and presented by him to the British Museum. Annals and Magazine of Natural History (Series 6) 12(69), 198-203</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/607089eddc5f482e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/607089eddc5f482e-480.webp",
+      "width": 800,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "caption": "Mature female measuring 60 mm TL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/65599e4303a8f14d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/65599e4303a8f14d-480.webp",
+      "width": 901,
+      "height": 601,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "caption": "S. resplendens is endemic to the Lake Inlé basin in Shan state, Myanmar.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/104fcd095311cd0c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/104fcd095311cd0c-480.webp",
+      "width": 622,
+      "height": 245,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "caption": "Males tend to possess a series of short, vertical bars along each flank...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2252ecd5e0bcd9f6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2252ecd5e0bcd9f6-480.webp",
+      "width": 640,
+      "height": 411,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/petruichthys-brevis",
+      "caption": "...which are fused to form a solid longitudinal stripe in some cases.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá mini"
+        "bể cá 90cm"
       ]
     },
     {
@@ -97,5 +255,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

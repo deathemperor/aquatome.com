@@ -26,6 +26,26 @@
       ],
       "sources": [
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Menam River, Thailand', which refers to the Chao Phraya river basin.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya"
+          ]
+        }
       ]
     },
     "records": {
@@ -369,13 +389,6 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 24,
-          "max": 29
-        }
-      },
-      {
         "source": "sprucepets",
         "value": {
           "min": 24,
@@ -392,13 +405,6 @@
     ],
     "ph": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 5,
-          "max": 7
-        }
-      },
-      {
         "source": "sprucepets",
         "value": {
           "min": 6.8,
@@ -414,10 +420,6 @@
       }
     ],
     "sizeCm": [
-      {
-        "source": "bwaquatics",
-        "value": 5.8
-      },
       {
         "source": "sprucepets",
         "value": 7
@@ -476,12 +478,6 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
-      "html": "<p>Copper Alien Hybrid from breeders in Vietnam, from the Betta splendens complex.</p><ul><li>Max size: 2.3 inches (about 5.8 cm)</li><li>IUCN Red List: N/A (this type is a hybrid of sorts and does not naturally occur in the wild)</li></ul>"
-    },
-    {
-      "key": "quickFacts",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<ul><li>Common names: Betta, Siamese fighting fish</li><li>Family: Belontiidae</li><li>Adult size: 7 cm (3 inches)</li><li>Life expectancy: 3 to 5 years</li><li>Origin: Cambodia, Thailand</li><li>Social: males cannot be kept together</li><li>Tank level: all</li><li>Minimum tank size: 2 gallons (about 8 litres)</li><li>Diet: live foods, pellets, flakes and frozen foods</li><li>Breeding: egglayer (male is a bubble nest builder)</li><li>Care: easy to intermediate</li><li>pH: 6.8 to 7.4</li><li>Water hardness: up to 20 dGH</li><li>Temperature: 24 to 30 °C (75 to 86 °F)</li></ul><p>Betta fish, also known as Siamese fighting fish, are popular for their colorful scales and flowing fins. Males cannot be kept together due to their aggressive nature, while multiple females can generally coexist. Bettas require warm water, ideally between 24 and 30 °C, and need access to the water surface to breathe.</p>"
@@ -491,12 +487,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
       "html": "<p>The Siamese fighting fish, Betta splendens, is a labyrinth fish from central Thailand, native to rice paddies, swamps, ditches and other still waters. The wild form is rarely seen in the hobby, but countless ornamental strains exist that vary tremendously in colour, finnage and quality. Its care requirements and disposition mean it is best kept alone, and it is not recommended for the standard community aquarium.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
-      "html": "<p>Please note that pairs that \"we pick\" aren't necessarily lower quality than the posted males; we don't always have time to take photos of them all, but we usually only sell customers the best of what we have. All males come from the same lineage and are generally similar. We always try to pick the healthiest and best fish for our customers.</p><p>Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -548,12 +538,6 @@
     },
     {
       "key": "waterConditions",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
-      "html": "<ul><li>TDS: 60 - 200 (kept in soft water with low TDS to match the seller's other wild bettas, but they are more tolerant of water conditions)</li><li>pH: 5.0-7.0</li><li>Temperature: 75-85°F (about 24-29°C); much better coloration at warmer temperatures above 78°F (about 26°C)</li></ul>"
-    },
-    {
-      "key": "waterConditions",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Bettas thrive on heat and will become increasingly listless when the water temperature falls below 75 °F (24 °C).</p><p>Optimally, the water for keeping bettas healthy should be soft and warm, with a neutral to slightly acidic pH. Water movement should be kept to a minimum, which means that power filters and powerheads are not suitable.</p><p>Even though bettas do well in water that is low in dissolved oxygen, that does not mean they require less oxygen than other fish. Bettas have a special respiratory organ (called the labyrinth organ) that allows them to breathe air directly from the surface. In fact, they inherently must do so. In experiments where the labyrinth organ was removed, the fish died from suffocation even though the water was saturated with oxygen. For this reason, bettas must have access to the water surface to breathe air directly from the atmosphere.</p>"
@@ -572,12 +556,6 @@
     },
     {
       "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
-      "html": "<p>Carnivorous. The seller currently feeds live blackworms, frozen bloodworms and pellets.</p>"
-    },
-    {
-      "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Betta fish should be fed two to three times a day, as much food as they will eat in five minutes. In nature, bettas subsist almost exclusively on insects and insect larvae. They are built with an upturned mouth that is well suited to snatching any hapless insect that might fall into the water. Internally their digestive system is geared for meat, having a much shorter alimentary tract than vegetarian fish. For this reason, live foods are the ideal diet for the betta, however, they will adapt to eating flake foods and frozen or freeze-dried foods, such as:</p><ul><li>Brine shrimp</li><li>Daphnia</li><li>Plankton</li><li>Tubifex</li><li>Glassworms</li><li>Beef heart</li></ul><p>These are all excellent options that may be found frozen or freeze-dried. If flake food is fed, it should be supplemented a few times a week with frozen and freeze-dried foods, and if possible, live foods.</p>"
@@ -587,12 +565,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
       "html": "<p>Likely to prey on aquatic and terrestrial invertebrates in nature.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) regularly to ensure development of optimal colour and condition. Small insects such as pinhead crickets or Drosophila fruit flies are also suitable to use; it is best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
-      "html": "<p>Temperament: Males are VERY aggressive and should be kept alone or in tanks with tank mates that are not male bettas. They can be kept in a planted community tank of multiple females if there is adequate space.</p>"
     },
     {
       "key": "behaviour",
@@ -620,12 +592,6 @@
     },
     {
       "key": "reproduction",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
-      "html": "<p>Bubblenester.</p>"
-    },
-    {
-      "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
       "html": "<p>Bettas have a fairly short lifespan and are most successful as breeders when they are about a year old; bettas in pet shops that are full size are usually at least six months old. They breed in bubble nests and do not require a large tank or special equipment, just a few nice-to-haves, including:</p><ul><li>Floating water plants for the male to attach the bubble nest to</li><li>A hiding place for the female to hang out in if the male becomes aggressive</li></ul><p>When they are ready to spawn, the pair will display intense coloration and begin circling each other under the bubble nest. The male will wrap himself around the female, who has turned on her back. As she expels the eggs, they are fertilized and begin to sink. The male will scoop up the eggs in his mouth and spit them into the nest. This may be repeated several times, but finally, the male will chase the female away and she should be carefully removed from the breeding tank. From this point on, the male will tend the brood and care for the babies after the eggs hatch.</p><p>The male will continue to tend the bubble nest, spitting eggs that fall out back into the nest. In one to three days the eggs will hatch, and the fry will be visible hanging in the bubble nest with their tails pointing downward. They are provided nutrition by their yolk sac for another 36 hours, during which time the male will continue to pick up and return any fry that falls out of the nest. The male should be removed when the fry leave the bubble nest, as the male may eat the young once they are free-swimming.</p>"
@@ -635,12 +601,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
       "html": "<p>Bubble nester. It is particularly important to provide plenty of cover for the female, and empty camera film canisters or lengths of plastic tubing can be used to offer potential nesting sites. Floating plants may be incorporated into the nest if present.</p><p>The aquarium should have the tightest-fitting cover possible (some breeders use clingfilm/plastic wrap) because the fry need access to a layer of warm, humid air without which development of the labyrinth organ can be impaired.</p><p>The pair need not be separated prior to spawning. The male might construct the nest in a tube or canister, under a broad plant leaf or among fine-leaved surface vegetation, and will not usually tolerate the female in the vicinity until it is complete.</p><p>The nuptial female becomes paler in colour and dark bars appear on the flanks. Spawning normally occurs beneath the nest in an 'embrace' typical of osphronemids, with the male wrapped around the female.</p><p>At the point of climax milt and a few eggs are released, which the female proceeds to catch between pelvic fins and body. The male then transfers these to the nest while the female recovers any loose eggs. The process is then repeated until the female is spent.</p><p>Post-spawning the adults can normally be left in situ although the female is no longer actively involved, the male assuming sole responsibility for guarding and tending the nest.</p><p>The eggs hatch in 24-48 hours, remaining in the nest for a further 3-4 days until the yolk sac is fully-absorbed, the male continuing to collect and return any that fall. If threatened the entire nest may be moved elsewhere. Once the fry begin to swim freely the male will lose interest, but the adults do not usually eat their offspring.</p><p>The fry require an infusoria-grade food for the first few days, after which they can accept motile foods such as microworm and Artemia nauplii, though it should be noted that there exist reports of young Betta developing health issues if fed excessive amounts of the latter. Water changes should be small and regular rather than large and intermittent.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/alien-betta-copper-hybrid-rare-bettas",
-      "html": "<p>Beautiful coloration of copper throughout the body. Copper is one of the most unique colors for bettas, as you can see hints of various colors depending on the angle of the light.</p><p>First discovered and named \"alien\" due to the weird shape of their head. The result of having a homozygous metallic gene over a homozygous iridescence gene (steel blue). Copper aliens, like all copper bettas, breed true.</p><p>Aliens are a hybridization of different types of wild bettas and are considered a type of wild hybrid. Traits of \"Alien\" include a full facial mask, spread iridescence that covers the fins and the body, and webbing on the caudal fin.</p>"
     },
     {
       "key": "notes",
@@ -766,8 +726,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá betta",
-        "bể cá mini 20cm"
+        "bể cá 50cm"
       ]
     },
     {

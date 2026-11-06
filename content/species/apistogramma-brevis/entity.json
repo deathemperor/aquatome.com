@@ -13,6 +13,105 @@
     "colombia",
     "tiquie"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Rio Uaupés",
+        "Rio Tiquié",
+        "Rio Negro",
+        "Rio Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from parts of the Rio Uaupés basin in far northwestern Brazil and the Rio Tiquié in southern Colombia.",
+          "countries": [
+            "BR",
+            "CO"
+          ],
+          "regions": [
+            "Rio Uaupés",
+            "Rio Tiquié"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded in the upper reaches of both the Rio Negro and Rio Orinoco.",
+          "countries": [],
+          "regions": [
+            "Rio Negro",
+            "Rio Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371227,
+      "total": 17,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          10
+        ],
+        [
+          "BR",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          0,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -134,8 +233,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá 50 lít"
+        "bể cá 50cm"
       ]
     },
     {

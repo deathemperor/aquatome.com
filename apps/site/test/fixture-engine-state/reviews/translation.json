@@ -1,0 +1,49 @@
+{
+  "vi/guides/aquariumcoop-thay-nuoc#aquariumcoop": [
+    {
+      "at": "2026-11-04T07:00:00Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Thay 50% nước mỗi tuần\" states as a rule what the source gives as one keeper's habit. Hedge it.",
+        "The table's \"Nước máy\" row leaves out the source's warning about chloramine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/boraras-brigittae#planetcatfish": [
+    {
+      "at": "2026-11-06T08:00:00Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/boraras-brigittae#seriouslyfish": [
+    {
+      "at": "2026-11-05T10:00:00Z",
+      "model": "sonnet",
+      "score": 0.61,
+      "notes": [
+        "\"Nhiệt độ 20–28°C\" is not the source's range (24–28°C).",
+        "\"Cá sống theo đàn lớn ngoài tự nhiên\" is not in the source: <cut it>.",
+        "Wording: \"Đây là loài cá mà nhiều người yêu thích\" is a calque. Rewrite it plainly."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/paracheirodon-axelrodi#seriouslyfish": [
+    {
+      "at": "2026-11-05T10:00:00Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ]
+}

@@ -12,13 +12,59 @@
     "orinoco",
     "brazil",
     "amazon",
-    "peru"
+    "peru",
+    "rio-negro",
+    "inirida",
+    "solimoes"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 4
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -30,10 +76,34 @@
       "html": "<p>Poecilocharax weitzmani grows to 3-4 cm. Despite its large mouth, it is a peaceful fish. It is an ideal companion for the cardinal tetra (Paracheirodon axelrodi), with which it also occurs in the wild.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>The black darter tetra, Poecilocharax weitzmani, is a crenuchid recorded from Brazil, Colombia, Peru and Venezuela. It has been collected from the upper Río Negro, Río Orinoco and Río Solimões drainages. Also traded as 'Black Morpho' tetra, it requires specialist care and is notoriously reluctant to accept dried foods. Unlike most small characids it does not form schools, and males are aggressively territorial towards one another. The Peruvian populations may apparently represent an undescribed species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/poecilocharax-weitzmani-2/",
       "html": "<p>P. weitzmani is relatively widespread in the upper Amazon and upper Orinoco. It is found in Colombia, Venezuela, Brazil and Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>Quite widely distributed having been recorded from Brazil, Colombia, Peru and Venezuela. It's been collected from the upper parts of several major river drainages including the Río Negro, Río Orinoco (including the Río Inírida and Casiquiare canal) and Río Solimões. The type series was collected from 'Igarapé Préto', Brazil, said to be 60 kilometres to the south of the Colombian border city Leticia. Populations from Colombia and Brazil tend to be more intensely-coloured, and the Peruvian populations may apparently represent an undescribed species.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>Most commonly collected from slow-moving rainforest streams with tannin-stained water, substrates of mud or sand, abundant leaf litter and submerged tree roots/branches. Such habitats are typically shaded from the sun by marginal vegetation and the dense forest canopy above. The water generally has a negligible dissolved mineral content, is poorly buffered and tea-coloured due to the gradual release of tannins and organic acids from decaying plant material. German aquarist Michael Schlüter collected the species in 1997 from an igarape in the upper rio Negro alongside species of Apistogramma, Copella, Hemigrammus, Moenkhausia, Fluviphylax plus some unidentified characids and a gobiid.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>A pair or harem with a single male and multiple females can be maintained in something with base dimensions of 45 cm x 30 cm or equivalent (about 41 litres). If you want to keep more than one male it's recommended to allow at least 30 cm x 30 cm per individual because significant fin damage can occur during territorial battles if the weaker individual(s) cannot seek refuge.</p>"
     },
     {
       "key": "maintenance",
@@ -42,16 +112,34 @@
       "html": "<p>With regard to all care factors (food, temperature, lighting, furnishings), refer to the extensive literature on cardinal tetra. P. weitzmani does not have any significantly different requirements, with the exception of spawning caves.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>Use a soft, sandy substrate since this species mostly feeds from the bottom. A few driftwood roots and branches placed in such a way that plenty of shady spots are formed can be used to add structure to the display and addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable and a mixture of all three looks very effective) would assist in simulation of natural conditions and provide additional cover. Some hobbyists add lengths of plastic piping of a suitable diameter to provide cover and potential spawning sites. Fairly dim lighting is preferable and surface vegetation can be used to diffuse artificial sources. Aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp. may also be included, while gentle, ideally air-powered, filtration is adequate. Since stable water conditions are mandatory this species should never be introduced to biologically immature aquaria.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/poecilocharax-weitzmani-2/",
       "html": "<p>Just as with the cardinal tetra, the adaptability to water values as they come out of the tap in Central Europe is very good. Even in such water, the small fish reach an age that is 5-10 times longer than in the wild. For normal keeping it is not advisable to aim for the very soft, acidic water needed for breeding.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<ul><li>Temperature: 21–28°C</li><li>pH: 3.0–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>A micropredator thought to feed on aquatic insect larvae, crustaceans and worms in nature with perhaps some fish fry taken as well. It's notoriously reluctant to accept dried foods in captivity and daily feeds of live Daphnia, Artemia, grindal worm, micro worm, chopped bloodworm, etc., are usually necessary to bring the fish into condition post import as they tend to ship quite poorly. Try to avoid purchasing specimens with markedly hollow bellies as these rarely recover.</p>"
+    },
+    {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/poecilocharax-weitzmani-2/",
-      "html": "<p>There are observations from aquarists that describe P. weitzmani as shy. This does not correspond with our observations. The animals photographed, for example, were imported only a few days ago and already present themselves as if they had been born there in the very sparsely furnished photo tank with a few pieces of wood and leaves.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>Not an efficient competitor despite its predatory nature and should therefore be the focal species of any community. Other benthic, especially territorial, species, are best avoided with ideal tankmates being similarly-sized, pelagic fishes which swim in the upper part of the water column such as Nannostomus, Axelrodia, Carnegiella, or some smaller Hyphessobrycon spp. Small loricariids like Otocinclus or Hisonotus spp. should also be suitable. Unlike the majority of small characids this species does not form schools and males are aggressively territorial towards one another. In theory it's therefore possible to maintain just a single pair although a group with two or more males is preferable as the interaction between rivals is impressive to watch. Buy more females than males if possible to avoid individuals being harassed excessively.</p>"
     },
     {
       "key": "dimorphism",
@@ -60,20 +148,103 @@
       "html": "<p>Among the Brazilian specimens are a few (1-2 animals per 500) male individuals with a brilliant red coloration.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>Males are considerably more colourful than females, slightly larger and develop extended dorsal and anal fins as they mature, to a spectacular extent in some individuals.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/poecilocharax-weitzmani-2/",
-      "html": "<p>P. weitzmani is a truly special characin, as, in contrast to most other characin relatives, it is a cave breeder with brood care. In the aquarium, the males occupy hollow pieces of bamboo as breeding grounds and guard the spawn there until the young hatch.</p><p>Breeding is not easy, because for the spawn to develop well, water values similar to those in nature are needed: hardness practically undetectable and pH around 4.5-5. Some experience is needed to keep such water stable over a longer period of time.</p><p>So far, P. weitzmani has only been bred by specialists interested in behavioral studies; due to its abundance and the resulting low price, breeding is not economically worthwhile.</p>"
+      "html": "<p>P. weitzmani is a truly special characin, as, in contrast to most other characin relatives, it is a cave breeder with brood care. In the aquarium, the males occupy hollow pieces of bamboo as breeding grounds and guard the spawn there until the young hatch.</p><p>Breeding is not easy, because for the spawn to develop well, water values similar to those in nature are needed: hardness practically undetectable and pH around 4.5-5. Some experience is needed to keep such water stable over a longer period of time.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>Not often bred in captivity but certainly possible. The aquarium can be arranged as described with the provision of caves or lengths of plastic tubing essential. pH should be 4.0 - 5.0 with very low hardness and conductivity. Feed a diet rich in small live foods to bring the fish into spawning condition. Individual males will select a territory containing one or more caves and defend these against rivals. They also intensify in colour exhibiting thickened, white pelvic-fin tips, while females take on a dark appearance with the anal-fin an intense red. As the latter become ripe they begin to investigate male territories and potential spawning sites before courtship begins. Eggs are normally deposited on the roof of the selected cave and number 50 - 100. The male guards them during the incubation period as well as tending them using flicks of the caudal-fin and by removing any infertile ones. They begin to hatch after 4-5 days and fry drop to the floor of the cave around 2 days later. Apparently it's quite common for the male to mate with a second female during incubation with the original clutch remaining unharmed, though should that occur it's recommended to siphon the first batch into a different container once visibly free swimming or not many of the second are liable to survive. Once swimming freely the fry are large enough to accept Artemia nauplii immediately and at this point the male ceases to care for them. Either adults or fry should now be removed to avoid the latter being eaten, and the male should be offered plenty of food as it does not usually eat during broodcare. Interestingly only some males develop extended finnage as they grow though this doesn't appear related to hierarchical dominance.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/poecilocharax-weitzmani-2/",
       "html": "<p>Two local forms are offered, from Colombia and Brazil. There are no clear visual differences between them, but the Brazilian specimens are currently much larger, almost fully grown. It is possible that interest in breeding will change now that the red variety has become known.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<p>This species is also traded as 'Black Morpho' tetra and isn't often exported in large numbers, being encountered more commonly among shipments of other species such as wild-collected Paracheirodon axelrodi. It's not recommended for beginners since it requires specialist care, and even represents a challenge for advanced aquarists. The genus contains just one other species, P. bovalii Eigenmann 1909, which is native to Guyana and exceptionally rare in the hobby. Both lack an adipose-fin and share a peculiar adaptation with Crenuchus spilurus, the only other member of the putative crenuchid subfamily Crenuchinae, consisting of a pair of foramina (openings) in the frontal cranial bones above which lies a patch of fatty tissue. Jacques Géry discovered these features and suggested that they seem to be connected to the brain but the specimens he used weren't well-preserved enough to make any definitive conclusions. Since then little work appears to have been done regarding their function although there has been speculation that they're used to detect prey via thermal radiation.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "html": "<ul><li>Buckup, P. A. (2003). Crenuchidae (South American darters). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil., 87-95</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f00f32b7c7aa3b81.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f00f32b7c7aa3b81-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "caption": "Some variants of the species are particularly colourful.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fa89877a8dc15181.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fa89877a8dc15181-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "caption": "Another adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/36420d3a7e6173ea.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/36420d3a7e6173ea-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/poecilocharax-weitzmani",
+      "caption": "Female.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Hdw-k2_LgrI",
+      "title": "Black Darter Tetra  - Poecilocharax Weitzmani #shorts",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "B_0RnaNunJA",
+      "title": "APRENDA TUDO SOBRE O TETRA COLIBRI (Poecilocharax weitzmani)!",
+      "durationSec": 325,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6oeft2u4AIo",
+      "title": "Black Morpho Tetra (Poecilocharax weitzmani) - January, 2021",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hYUeNNaTUT0",
+      "title": "Tetra Colibri (Poecilocharax weitzmani)",
+      "durationSec": 102,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -97,5 +268,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

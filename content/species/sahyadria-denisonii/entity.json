@@ -18,13 +18,43 @@
       "regions": [
         "Valapatanam",
         "Chaliyar",
-        "Kallar",
-        "Kuttiyadi",
         "Bhavani",
-        "Bharatapuzha"
+        "Bharatapuzha",
+        "Chandragiri",
+        "Manimala River"
       ],
       "sources": [
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the states of Kerala and Karnataka in southern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
+          "countries": [],
+          "regions": [
+            "Valapatanam",
+            "Chaliyar",
+            "Bhavani",
+            "Bharatapuzha",
+            "Chandragiri"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.",
+          "countries": [],
+          "regions": [
+            "Manimala River"
+          ]
+        }
       ]
     },
     "records": {
@@ -123,7 +153,7 @@
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/sahyadria_denisonii_gold_en/",
-      "html": "<p>For our customers: the fish have code 369498 on our stocklist. Please note that we exclusively supply the wholesale trade.</p><p>Text &amp; photos: Frank Schäfer</p>"
+      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
     },
     {
       "key": "distribution",
@@ -281,8 +311,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá dài cho cá đàn"
+        "bể cá 120cm"
       ]
     },
     {

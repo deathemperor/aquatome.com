@@ -1,0 +1,24 @@
+{
+  "vi/breeds/flowerhorn-cichlid": [
+    {
+      "at": "2026-11-06T09:35:27Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The kok (head hump) is said to grow from diet alone; the research says genes and diet both matter."
+      ],
+      "attempt": "recheck",
+      "kept": true
+    },
+    {
+      "at": "2026-11-01T03:00:00Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "An older version's note."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "barilius-ornatus",
+  "native": {
+    "input": "e7d90957bcbffe87",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Possibly restricted to a handful of small systems in Chumphon Province on the eastern side of the Isthmus of Kra, southern Thailand, with the majority of records deriving from the Tha Sae basin (Tejavej, 2012).",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Isthmus of Kra",
+        "source": "seriouslyfish",
+        "quote": "Possibly restricted to a handful of small systems in Chumphon Province on the eastern side of the Isthmus of Kra, southern Thailand, with the majority of records deriving from the Tha Sae basin (Tejavej, 2012).",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Tha Sae",
+        "source": "seriouslyfish",
+        "quote": "Possibly restricted to a handful of small systems in Chumphon Province on the eastern side of the Isthmus of Kra, southern Thailand, with the majority of records deriving from the Tha Sae basin (Tejavej, 2012).",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mé-Nam River, Thailand', with 'Mé-Nam' having been considered an older name for the Chao Phraya river in central and western Thailand prior to this species' redescription.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius ornatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2363273,
+    "datasets": [
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

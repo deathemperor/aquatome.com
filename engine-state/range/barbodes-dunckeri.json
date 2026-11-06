@@ -1,0 +1,62 @@
+{
+  "id": "barbodes-dunckeri",
+  "native": {
+    "input": "ffa2815c4b021cfe",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Bukith Timah, Singapore' and also occurs throughout Peninsular Malaysia though may now be extirpated in Singapore.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbodes dunckeri",
+    "status": "ACCEPTED",
+    "taxonKey": 9304972,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "SG"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

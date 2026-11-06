@@ -14,6 +14,18 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/211396173.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/211396173-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Luis Ángel Niño Barreat",
+      "sourceUrl": "https://www.inaturalist.org/photos/211396173",
+      "caption": "Cá Blue Acara bơi trong nước xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/eccea64005fb3c8e.webp",
       "thumb": "https://media.aquatome.com/commons/eccea64005fb3c8e-480.webp",
       "width": 1200,
@@ -24,6 +36,18 @@
       "caption": "Cá blue acara đang chăm trứng hoặc cá bột trong bể",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/409260096.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/409260096-480.webp",
+      "width": 918,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/409260096",
+      "caption": "Hai cá Blue Acara ánh xanh óng trong bể nuôi",
+      "best": true,
+      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/commons/6c29712efd5784de.webp",
@@ -62,7 +86,7 @@
       "kind": "other"
     }
   ],
-  "seen": 6,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 14,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

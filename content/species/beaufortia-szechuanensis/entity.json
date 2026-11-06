@@ -10,6 +10,38 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Upper Yangtze"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Upper Yangtze River (aka Chang Jiang) basin, Sichuan province, southwestern China where it's been recorded from various tributary systems including the Qing, Ming, Wu and Da Ning He rivers.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Upper Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205371,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -143,8 +175,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

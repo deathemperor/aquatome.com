@@ -1,8 +1,8 @@
 {
   "id": "amaralia-hypsiura",
   "native": {
-    "input": "87d38d86f198c4cc",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "9823633a29a74e66",
+    "at": "2026-11-06T12:17:30.771Z",
     "claims": [
       {
         "code": "VE",
@@ -11,9 +11,62 @@
         "quote": "The specimens described here originate from Venezuela.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
+        "words": "Ecuador",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
+        "ok": true
+      },
+      {
+        "name": "Rio Branco",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Branco, Amazonas.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -84,9 +137,14 @@
       ]
     ],
     "native": [
-      "VE"
+      "VE",
+      "BO",
+      "BR",
+      "CO",
+      "PE",
+      "EC"
     ],
     "requests": 12,
-    "at": "2026-11-06T01:44:56.709Z"
+    "at": "2026-11-06T12:17:30.771Z"
   }
 }

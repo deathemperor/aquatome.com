@@ -1,0 +1,143 @@
+{
+  "category": "loc",
+  "name": "Penapis",
+  "lead": "Penapis memastikan air kekal jernih dan menjadi tempat bakteria hidup untuk memproses sisa ikan. Pilih jenis yang sesuai dengan saiz tangki dan sifat ikan.",
+  "intro": "<p>Penapis melakukan tiga perkara: memerangkap kotoran (penapisan mekanikal), menjadi tempat bakteria hidup untuk menukar ammonia kepada nitrit dan kemudian nitrat (penapisan biologi), serta menghasilkan arus supaya air dapat bertukar oksigen. Daripada tiga perkara itu, penapisan biologi paling penting: air tangki boleh kelihatan jernih tetapi masih beracun jika bakteria belum mencukupi.</p><p>Tiada jenis penapis yang \"terbaik\". Penapis span murah, senyap dan selamat untuk anak ikan dan udang. Penapis gantung mudah dipasang untuk tangki 40–100 liter. Penapis kanister kuat dan kemas untuk tangki besar atau aquascape. Ikan sungai berarus seperti hillstream loach memerlukan wavemaker tambahan.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-tank-filters-which-one-should-you-get",
+    "caption": "Fish Tank Filters: Which One Should You Get? - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "suc-khi",
+      "name": "Pam udara",
+      "match": "^(máy sục|máy sủi|sủi oxy)",
+      "desc": "<p>Mesin yang mengepam udara melalui tiub dan batu udara. Pam ini sendiri tidak menapis, tetapi ia menggerakkan penapis span dan menambah oksigen ketika cuaca panas atau ketika ikan sakit.</p>",
+      "pick": "Satu pam dua saluran cukup untuk 2 penapis span. Pasang injap sehala supaya air tidak mengalir balik ketika bekalan elektrik terputus.",
+      "buy": "máy sủi oxy bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/1386755734fcbfaf.webp",
+        "thumb": "https://media.aquatome.com/commons/1386755734fcbfaf-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 4.0",
+        "author": "Ofkun",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+        "caption": "Air pump and stone.jpg"
+      }
+    },
+    {
+      "id": "tao-dong",
+      "name": "Wavemaker (pam arus)",
+      "match": "tạo dòng|tạo sóng|powerhead",
+      "desc": "<p>Pam kecil yang diletakkan di dalam tangki untuk menghasilkan arus kuat tanpa menapis. Digunakan untuk ikan sungai berarus, hillstream loach dan ikan gobi sungai yang memerlukan air mengalir dan banyak oksigen.</p>",
+      "pick": "Jumlah kadar aliran (penapis + wavemaker) kira-kira 10–20 kali isi padu tangki sejam untuk tangki biotop sungai; sediakan ruang air tenang untuk ikan berehat.",
+      "buy": "máy tạo dòng bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/839fbe9ded0e3841.webp",
+        "thumb": "https://media.aquatome.com/commons/839fbe9ded0e3841-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 3.0",
+        "author": "Brianza2008",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinotitti.JPG",
+        "caption": "60 lit. aquarium Anubias and Echinodorus"
+      }
+    },
+    {
+      "id": "sump",
+      "name": "Penapis sump",
+      "match": "sump|tràn",
+      "desc": "<p>Tangki tambahan yang diletakkan di bawah kabinet; air melimpah turun melalui beberapa petak bahan penapis, kemudian dipam semula ke atas. Boleh memuatkan sangat banyak bahan penapis serta menyembunyikan pemanas dan peralatan lain.</p>",
+      "pick": "Sesuai untuk tangki 300 liter ke atas, kolam ikan besar dan ikan pemangsa. Memerlukan tangki yang ditebuk lubang atau kotak limpahan (overflow box); kira ruang untuk menampung air ketika bekalan elektrik terputus.",
+      "buy": "lọc tràn bể cá"
+    },
+    {
+      "id": "thung",
+      "name": "Penapis kanister (penapis luar)",
+      "match": "thùng|ngoài|ngoại|canister|lớn|công suất",
+      "desc": "<p>Bekas tertutup yang diletakkan di bawah kabinet, dengan paip sedut dan paip keluar disambung ke tangki. Memuatkan banyak bahan penapis, senyap dan tidak mengambil ruang di dalam tangki, jadi digemari untuk aquascape dan tangki 60 cm ke atas.</p>",
+      "pick": "Pilih kadar aliran yang tertera pada kotak kira-kira 4–6 kali isi padu tangki sejam (tangki 120 liter: penapis 500–700 L/j). Bersihkan sekali setiap 1–2 bulan.",
+      "buy": "lọc thùng bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/ddd1a46ad1595bb5.webp",
+        "thumb": "https://media.aquatome.com/commons/ddd1a46ad1595bb5-480.webp",
+        "width": 960,
+        "height": 1280,
+        "licence": "CC BY-SA 4.0",
+        "author": "Raimond Spekking",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4232.jpg",
+        "caption": "Eheim type 2011, pump 101101993 - Aquarium filter"
+      }
+    },
+    {
+      "id": "treo",
+      "name": "Penapis gantung (hang-on-back)",
+      "match": "treo|thác|hông",
+      "desc": "<p>Kotak penapis yang digantung pada dinding tangki; air disedut naik lalu melimpah kembali seperti air terjun kecil. Murah, mudah dipasang dan kapasnya mudah ditukar.</p>",
+      "pick": "Sesuai untuk tangki 20–100 liter. Balut hujung paip sedut dengan span jika memelihara udang atau ikan kecil supaya ia tidak tersedut masuk.",
+      "buy": "lọc treo bể cá"
+    },
+    {
+      "id": "bot-bien",
+      "name": "Penapis span (sponge filter)",
+      "match": "bọt biển|sủi|bọt khí|sponge|mút|xốp|bông|lọc khí|vi sinh|mini|nhỏ|nano|betta",
+      "desc": "<p>Blok span yang digerakkan oleh pam udara: gelembung udara menarik air melalui span, dan bakteria hidup di dalam liang span. Arusnya lembut, tidak menyedut anak ikan dan hampir tidak pernah rosak.</p>",
+      "pick": "Sesuai untuk tangki bawah 60 liter, tangki ikan laga, tangki udang, tangki pembiakan dan anak ikan. Semasa membersihkan, picit span di dalam air tangki lama, jangan bilas di bawah paip supaya bakteria tidak mati.",
+      "buy": "lọc bọt biển bể cá",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/24ef4e81cde803ad.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/24ef4e81cde803ad-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/sponge-filters-the-easiest-fish-tank-filter-ever",
+        "caption": "Sponge Filters: The Easiest Fish Tank Filter Ever - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Kira isi padu tangki (panjang × lebar × tinggi dalam cm ÷ 1000 = liter), kemudian pilih penapis dengan kadar aliran 4–6 kali isi padu itu sejam.</p>",
+    "<p>Anak ikan, udang, ikan laga dan ikan bersirip panjang: arus lembut, utamakan penapis span atau penapis gantung yang ada injap pelaras.</p>",
+    "<p>Ikan sungai berarus, hillstream loach dan ikan gobi sungai: penapis kuat ditambah wavemaker, dengan banyak oksigen.</p>",
+    "<p>Ikan besar dan ikan yang makan banyak (cichlid, ikan emas, ikan keli): pilih penapis satu saiz lebih besar daripada isi padu tangki.</p>",
+    "<p>Aquascape yang menggunakan CO2: penapis kanister mengekalkan CO2 lebih baik daripada penapis gantung kerana permukaan air kurang terkocak.</p>"
+  ],
+  "mistakes": [
+    "<p>Membilas bahan penapis dengan air paip yang mengandungi klorin: bakteria mati, tangki terpaksa melalui kitaran nitrogen semula dan ikan mati beramai-ramai.</p>",
+    "<p>Menukar semua kapas dan seramik penapis serentak. Tukar secara berperingkat, sebahagian setiap kali.</p>",
+    "<p>Memasukkan ikan sebaik sahaja penapis dipasang. Tangki baharu memerlukan 3–6 minggu untuk bakteria membiak.</p>",
+    "<p>Mematikan penapis pada waktu malam supaya senyap: bakteria yang kekurangan oksigen akan mati selepas beberapa jam.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Tangki 60 cm sesuai guna penapis apa?",
+      "a": "<p>Tangki 60 cm (kira-kira 54–60 liter) sesuai dengan satu penapis gantung 300–400 L/j, satu penapis kanister kecil, atau dua penapis span jika memelihara udang dan ikan kecil.</p>"
+    },
+    {
+      "q": "Berapa kerap penapis perlu dibersihkan?",
+      "a": "<p>Apabila arus menjadi jelas lemah, biasanya setiap 2–4 minggu untuk penapis span dan penapis gantung, dan setiap 1–2 bulan untuk penapis kanister. Sentiasa bilas bahan penapis di dalam air tangki yang baru dikeluarkan semasa tukar air.</p>"
+    },
+    {
+      "q": "Adakah penapis perlu dihidupkan siang dan malam?",
+      "a": "<p>Ya. Bakteria di dalam penapis memerlukan aliran air beroksigen secara berterusan; jika dimatikan beberapa jam, bakteria mula mati.</p>"
+    },
+    {
+      "q": "Perlukah pam udara jika sudah ada penapis?",
+      "a": "<p>Tidak wajib jika penapis mengocak permukaan air dengan baik. Elok ada apabila suhu air melebihi 28 °C, apabila tangki padat dengan ikan atau apabila menggunakan ubat untuk merawat penyakit.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

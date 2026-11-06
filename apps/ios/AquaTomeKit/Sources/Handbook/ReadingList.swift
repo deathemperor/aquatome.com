@@ -22,6 +22,13 @@ public struct ReadingList: Codable, Equatable, Sendable {
     if let i = saved.firstIndex(of: path) { saved.remove(at: i) } else { saved.insert(path, at: 0) }
   }
 
+  /// Each page's path put in `form`: a list kept before the site moved its Vietnamese pages (PathForm) finds them where
+  /// the index has them now.
+  public mutating func move(to form: PathForm) {
+    saved = form.paths(saved)
+    recent = form.paths(recent)
+  }
+
   /// The pages at `paths` that the index has now (`byPath`), of `kind` (any for nil), in order: the first `limit`.
   public static func items(_ paths: [String], in byPath: [String: HandbookIndex.Item], kind: HandbookIndex.Kind?, limit: Int = .max) -> [HandbookIndex.Item] {
     var out: [HandbookIndex.Item] = []

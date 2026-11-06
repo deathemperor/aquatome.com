@@ -3,7 +3,7 @@ import SwiftUI
 
 /// The handbook before a search, as the site's home and lists arrange it: what the reader saved and read last; fish by
 /// group, then the well-known ones; plants by where they go, then easy ones; the first guides, then guides by subject;
-/// the video series and every video guide; the tools; the glossary. Each way in leads to one shelf of pages
+/// the video series and every video guide; equipment; the tools; the glossary. Each way in leads to one shelf of pages
 /// (BrowseView), never to everything at once.
 struct HomeList: View {
   @Environment(HandbookModel.self) private var handbook
@@ -80,6 +80,11 @@ private struct Shelves: View {
       }
     }
 
+    let kit = shelves.all(.equipment)
+    if !kit.isEmpty {
+      Section("Thiết bị") { ForEach(kit) { Row(item: $0) } }
+    }
+
     let tools = shelves.all(.tool)
     if !tools.isEmpty {
       Section("Công cụ") { ForEach(tools) { Row(item: $0) } }
@@ -99,7 +104,7 @@ private struct Shelves: View {
     }
     // How to reach AquaTome, signed in or not: the site's contact page, in the browser.
     Section {
-      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!).accessibilityIdentifier("contact")
+      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!).accessibilityIdentifier("contact")
     }
   }
 }

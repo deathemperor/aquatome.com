@@ -2,21 +2,26 @@
   "slug": "java-moss",
   "name": "Java Moss",
   "altNames": [
-    "Moss Jawa",
+    "Moss Java",
     "Lumut Jawa",
-    "Lumut Java"
+    "Bogor Moss",
+    "Java moss"
   ],
   "sections": {
-    "quickFacts:aquariumcoop": "<ul><li>Salah satu tanaman air yang paling mudah ditanam; tangguh dan serbaguna.</li><li>Bisa tumbuh tanpa cahaya sama sekali.</li><li>Tidak berakar; tanaman ini menempel sendiri pada permukaan benda.</li><li>Ujung yang berwarna hijau muda menandakan pertumbuhan baru.</li></ul>",
-    "maintenance:aquariumcoop": "<p>Java moss sangat tahan banting. Ada kejadian tanaman ini terlupakan di dalam ember sampai dua bulan dan ketika ditemukan masih hidup dan tetap tumbuh. Jarang sekali ada orang yang gagal memelihara java moss, sehingga tanaman ini sangat cocok untuk pemula.</p><p>Supaya moss terlihat lebih rapi di akuarium, cukup dipangkas sebentar. Pemangkasan menjaga tanaman tetap sehat dan tidak merusak pertumbuhan berikutnya.</p><p>Kadang alga rambut bisa tumbuh di moss, tetapi menambahkan beberapa ekor udang hias ke akuarium bisa mengatasi masalah itu. Udang akan dengan senang hati memakan serabut putih tersebut sampai habis.</p>",
-    "behaviour:aquariumcoop": "<p>Java moss bagus untuk para penangkar karena sangat ramah bagi burayak dan udang. Anakan kecil mendapatkan rasa aman dan nyaman di antara moss yang lembut, sementara udang senang punya tempat untuk bersarang. Udang juga bisa membersihkan moss dengan hati-hati sehingga moss tetap sehat.</p>",
-    "notes:aquariumcoop": "<p>Java moss tidak berakar. Tanaman ini menempel pada benda-benda, mirip tanaman rambat, dan tidak akan mengakar ke dalam kerikil. Biasanya ia tertambat di satu tempat dan melayang di sana, dengan helaian hijaunya berada di atas kerikil.</p><p>Java moss terlihat bagus di kebanyakan akuarium dan mudah dipakai untuk aquascape. Moss ini bisa disampirkan di atas atau ditempelkan pada dahan kayu, di bagian atas maupun bawah akuarium.</p>"
+    "quickFacts:aquariumcoop": "<ul><li>Salah satu tanaman air yang paling mudah dipelihara; tangguh dan serbaguna.</li><li>Bisa tumbuh tanpa cahaya sama sekali.</li><li>Tidak berakar; tanaman ini menempel sendiri pada permukaan.</li><li>Ujung yang berwarna hijau muda menandakan tunas baru.</li></ul>",
+    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Moss</li><li><strong>Asal:</strong> Asia</li><li><strong>Kecepatan tumbuh:</strong> Sedang</li><li><strong>Tinggi:</strong> 3–10+ cm</li><li><strong>Kebutuhan cahaya:</strong> Rendah</li><li><strong>CO2:</strong> Rendah</li></ul>",
+    "maintenance:aquariumcoop": "<p>Java moss sangat tahan banting. Ada kasus tanaman ini terlupa di dalam ember sampai dua bulan, dan saat ditemukan masih hidup dan tetap tumbuh. Jarang sekali ada orang yang gagal memelihara java moss, jadi tanaman ini sangat cocok untuk pemula.</p><p>Supaya moss terlihat lebih rapi di akuarium, cukup pangkas sebentar. Pemangkasan menjaga tanaman tetap sehat dan tidak merusak pertumbuhan berikutnya.</p><p>Kadang alga rambut bisa tumbuh di moss, tapi menambahkan beberapa ekor udang ke akuarium bisa mengatasi masalah itu. Udang dengan senang hati akan memakan habis serabut putih tersebut.</p>",
+    "maintenance:tropica": "<p>Ikat tanaman dengan senar pancing atau benang katun sampai tanaman sudah menempel kuat pada dekorasi. Kalau pertumbuhannya terlalu lebat, tanaman bisa dipangkas dengan gunting.</p>",
+    "behaviour:aquariumcoop": "<p>Java moss bagus untuk para breeder karena sangat ramah bagi burayak dan udang. Anakan ikan yang kecil mendapat tempat aman dan nyaman di moss yang lembut, sementara udang senang punya tempat untuk bersarang. Udang juga bisa membersihkan moss dengan hati-hati sehingga moss tetap sehat.</p>",
+    "notes:aquariumcoop": "<p>Java moss tidak berakar. Sebagai gantinya, tanaman ini menempel pada benda-benda, mirip tanaman rambat, dan tidak akan berakar ke dalam kerikil. Biasanya moss tertambat di satu titik lalu melayang di situ, dengan helaian hijaunya berada di atas kerikil.</p><p>Tanaman ini terlihat bagus di kebanyakan akuarium dan mudah dipakai untuk aquascape. Moss bisa disampirkan di atas atau ditempelkan pada dahan, di posisi tinggi maupun rendah, di dalam akuarium.</p>",
+    "notes:tropica": "<p>Taxiphyllum barbieri 'Bogor Moss' dari Asia Tenggara adalah tanaman tangguh yang tidak banyak menuntut soal kualitas air maupun cahaya. Moss ini bisa mencapai ketebalan 3–10 cm dan mudah tumbuh di permukaan apa pun, sehingga ideal untuk menghias batu dan akar kayu atau menyamarkan peralatan di dalam akuarium. Di akuarium pemijahan, Taxiphyllum barbieri menjadi tempat persembunyian yang sangat baik bagi anakan ikan.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "aquariumcoop": 0.85
+      "aquariumcoop": 0.85,
+      "tropica": 0.85
     }
   }
 }

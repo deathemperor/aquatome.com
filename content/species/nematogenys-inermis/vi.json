@@ -2,20 +2,28 @@
   "slug": "ca-tre-chile",
   "name": "Cá trê Chile",
   "altNames": [
-    "Chilean catfish"
+    "Chilean catfish",
+    "Cá da trơn núi",
+    "Mountain Catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Nematogenys inermis (Guichenot, 1848). Họ: Nematogenyidae. Nơi thu mẫu chuẩn: Chile. Kích thước tối đa: 240 mm SL (chiều dài chuẩn, không tính vây đuôi). Danh lục đỏ IUCN: Cực kỳ nguy cấp (lần đánh giá gần nhất vào năm 2021).</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: Chile.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Fauna Chilena.... in Gay., pp 312, Pl. 9 (fig. 2).</p>"
+    "references:planetcatfish": "<p>Fauna Chilena.... in Gay., pp 312, Pl. 9 (fig. 2).</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Mountain Catfish (cá trê núi)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ. Hiện nay loài này chỉ còn ở vài điểm rời rạc tại Concepción, Rancagua và Angol, Chile. Trước kia chúng sống rộng khắp phần lớn miền Trung Chile. Địa điểm mẫu chuẩn: Chile.</p>",
+    "habitat:scotcat": "<p>Giống này là loài đặc hữu của một số con sông ở Chile. Hiện nay người ta coi loài này đã tuyệt chủng ở gần như mọi con sông của Chile. Chỉ còn vài lưu vực ven biển tương đối ít bị con người tác động là ngoại lệ. Ở đoạn trung lưu sông Biobío, giới nghiên cứu đã ghi nhận loài này có thể đã biến mất. Ở Laguna Grande San Pedro thuộc vùng Biobío, loài này vẫn còn được ghi nhận cho đến những năm 1990. Thế nhưng đợt lấy mẫu từ tháng 3/2018 đến tháng 2/2019 không bắt được con nào ở đó. Những thay đổi này có thể do chất lượng nước và môi trường sống xuống cấp. Nạn khai thác nước, ô nhiễm và việc điều tiết dòng chảy vẫn đang tiếp tục làm biến đổi nơi sống của chúng, và tình trạng này được dự báo sẽ còn nặng hơn. Thêm vào đó, loài này chỉ sống ở các vùng trung tâm Chile, nơi rất dễ chịu tác động của biến đổi khí hậu.</p>",
+    "beforeYouBuy:scotcat": "<p>Đây là loài cực hiếm trong giới chơi cá. Vì quá hiếm nên chúng chưa từng được xuất khẩu, và gần như không có thông tin gì về cách nuôi trong bể. Danh sách Đỏ IUCN xếp loài này ở mức Cực kỳ nguy cấp. Người ta nghi rằng số lượng của chúng đã giảm 90% trong 12 năm qua, và loài này đang cần được bảo tồn khẩn cấp.</p>",
+    "notes:scotcat": "<p>Giống Nematogenys chỉ có một loài duy nhất là N. inermis. Loài này không có vây mỡ, vây đuôi ngắn và tròn. Trước đây nó từng được xếp vào họ Trichomycteridae. Ở Chile, người ta tìm thấy một hóa thạch thuộc kỷ Miocene trong lớp trầm tích sông hồ lục địa của phần trên hệ tầng Cura–Mallín (37–39°S). Hóa thạch này đã được mô tả và đặt tên là Nematogenys cuivi (Azpelicueta &amp; Rubilar, 1997). Về nguồn gốc tên gọi, inermis trong tiếng Latin nghĩa là \"không có vũ khí\". Cái tên ám chỉ việc loài này không có gai ở nắp mang. Vào thời điểm mô tả, đặc điểm này giúp phân biệt nó với những loài trong Trichomycterus mà khi đó người ta cho là cùng giống.</p>",
+    "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. T.F.H. Publications. de Pínna, M.C.C., 2003. Nematogenyidae (mountain catfishes). In Reis, Kullander and Ferraris (eds.) Checklist of the Freshwater Fishes of South and Central America. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil. Zootaxa 1418:1-628. Froese, R. and D. Pauly. 2017. FishBase. Górski, K. 2023. Nematogenys inermis. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
+    }
   }
 }

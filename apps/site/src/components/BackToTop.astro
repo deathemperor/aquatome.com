@@ -1,0 +1,34 @@
+---
+import { i18n } from '../lib/i18n'
+/**
+ * On a long page (a fish's, a plant's, a guide), a round button low on the right, where a thumb reaches, once the reader
+ * is two screens down: back to the top, focus on the page's name. Hidden without the script, which shows it.
+ */
+const { t } = i18n(Astro.url)
+---
+<button type="button" class="totop" data-totop aria-label={t('Lên đầu trang')} hidden>
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+</button>
+<script>
+  const b = document.querySelector<HTMLButtonElement>('[data-totop]')
+  if (b) {
+    b.hidden = false
+    const calm = matchMedia('(prefers-reduced-motion: reduce)')
+    let frame = 0
+    const update = () => { frame = 0; b.toggleAttribute('data-on', scrollY > innerHeight * 2) }
+    addEventListener('scroll', () => { frame ||= requestAnimationFrame(update) }, { passive: true })
+    update()
+    b.addEventListener('click', () => {
+      scrollTo({ top: 0, behavior: calm.matches ? 'auto' : 'smooth' })
+      const h = document.querySelector<HTMLElement>('main h1')
+      if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }) }
+    })
+  }
+</script>
+<style>
+  .totop { position: fixed; z-index: 3; right: max(var(--space-4), env(safe-area-inset-right)); bottom: calc(var(--space-4) + env(safe-area-inset-bottom)); display: grid; place-items: center; width: 3rem; height: 3rem; padding: 0; border: 1px solid var(--c-ink); border-radius: 50%; background: var(--c-plate); color: var(--c-ink); box-shadow: 0 2px 10px rgb(0 0 0 / 0.16); cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(0.5rem); transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0s 0.2s; }
+  .totop[hidden] { display: none; }
+  .totop[data-on] { opacity: 1; visibility: visible; transform: none; transition: opacity 0.2s ease-out, transform 0.2s ease-out; }
+  .totop:hover { background: var(--c-ink); color: var(--c-paper); }
+  .totop:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+</style>

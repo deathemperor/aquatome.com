@@ -67,6 +67,46 @@
           "max": 15
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 11,
+        "value": 5
+      },
+      {
+        "source": 12,
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 11,
+        "value": {
+          "min": 8,
+          "max": 15
+        }
+      },
+      {
+        "source": 12,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      {
+        "source": 2,
+        "value": {
+          "min": 20,
+          "max": 20
+        }
+      }
     ]
   },
   "photos": [
@@ -178,6 +218,18 @@
       "title": "Category:Ranchū - Wikimedia Commons",
       "kind": "other",
       "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.aquariadise.com/ranchu-goldfish/",
+      "title": "Ranchu Goldfish - Aquariadise",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/ranchu-goldfish",
+      "title": "Ranchu Goldfish Care & Species Profile - Fishkeepingworld",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-29"
