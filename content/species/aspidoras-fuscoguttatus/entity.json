@@ -10,6 +10,163 @@
     "brazil",
     "upper-parana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Paraná",
+        "Upper Paraná River",
+        "São Francisco"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Paraná system, Córrego Corguinho, estrada da Três Lagoas, 20°46'S, 51°43'W, Mato Grosso, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Paraná"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Paraná River basin (La Plata, Paraná, Upper Paraná, Grande, Uberaba) and São Francisco, Upper São Francisco, Paraopeba.",
+          "countries": [],
+          "regions": [
+            "Upper Paraná River",
+            "São Francisco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342557,
+      "total": 119,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          119
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          25,
+          25
+        ],
+        [
+          -52.03125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -21.09375,
+          23,
+          23
+        ],
+        [
+          -50.625,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -21.09375,
+          13,
+          13
+        ],
+        [
+          -49.21875,
+          -19.6875,
+          8,
+          8
+        ],
+        [
+          -49.21875,
+          -18.28125,
+          11,
+          11
+        ],
+        [
+          -49.21875,
+          -16.875,
+          15,
+          15
+        ],
+        [
+          -47.8125,
+          -21.09375,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

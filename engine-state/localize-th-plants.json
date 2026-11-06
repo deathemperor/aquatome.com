@@ -1947,31 +1947,55 @@
     "score": 0.93,
     "notes": []
   },
+  "solenostoma-tetragonum": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Pearl Moss (Solenostoma tetragonum)",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ความสูงเฉลี่ยหลังปลูกในตู้ได้สองเดือน\": the English says \"after two months in the tank\". Use something simpler like \"หลังอยู่ในตู้ครบสองเดือน\".",
+      "\"เป็นลิเวอร์เวิร์ตหายากและมีเอกลักษณ์\": \"distinctive\" is rendered awkwardly. \"มีเอกลักษณ์เฉพาะตัว\" is more natural.",
+      "\"ที่ชอบที่ร่ม\": \"shade-loving\" is better as \"ที่ชอบแสงน้อย\" or \"ไม้น้ำร่ม\", the usual hobby term.",
+      "\"ลุค\" and \"เลย์เอาต์\": these are colloquial transliterations. \"ลักษณะ\" and \"การจัดตู้\" would fit a handbook better.",
+      "\"มอสที่นิยมใช้ในตู้ปลาทั่วไป\": the English says \"traditional aquarium mosses\". \"มอสดั้งเดิม\" or \"มอสแบบทั่วไปในตู้ไม้น้ำ\" is closer. \"ตู้ปลา\" should also be \"ตู้ไม้น้ำ\".",
+      "\"ฟองออกซิเจนเม็ดเล็กคล้ายไข่มุก\": \"เม็ดเล็ก\" is added and \"striking\" is not translated. The closing \"ดูสวยงามโดดเด่น\" is padding."
+    ]
+  },
+  "spirodela-polyrrhiza": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "แหนใหญ่",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"แหนใหญ่\" is acceptable, but Spirodela polyrrhiza is more commonly called \"แหนเป็ดใหญ่\" or \"จอกหูหนูใหญ่\" by Thai hobbyists; consider checking the common name.",
+      "\"ตักออกเป็นประจำ\" for \"regular thinning\" is fine, but \"ตักออกบางส่วนเป็นประจำ\" would be clearer that only some are removed.",
+      "\"fronds\" translated as \"แผ่นใบ\" is slightly awkward; \"ใบ\" or \"แผ่นใบเล็ก\" would read more naturally."
+    ]
+  },
   "staurogyne-repens": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "สตอโรไจน์ รีเพนส์",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "Item 8: \"ปลาเพลตี้ sunburst\" leaves 'sunburst' in English; use a Thai form such as \"ปลาเพลตี้ซันเบิร์สต์\" or \"ปลาเพลตี้สีส้มเหลือง\".",
-      "Item 8: \"หอย black devil\" is left in English; transliterate it (\"หอยแบล็กเดวิล\") or give the Thai name.",
-      "Item 8: \"ปลาคาร์ดินัลจีน (White Mountain minnow)\" and \"หอยขมญี่ปุ่น\" are uncommon Thai terms. Check that hobbyists use them, or use the more usual names (e.g. \"ปลาเรดไวท์คลาวด์\" for White Cloud Mountain minnow).",
-      "Item 5: \"Staurogyne repens เป็นไม้ต้น\" for 'stem plant' is awkward; use \"ไม้ลำต้น\" or \"ไม้ก้าน\" (ไม้ประเภทมีลำต้น).",
-      "Item 8: \"ด้วยความบอบบางและเป็นที่ชอบของสัตว์กินพืช\" slightly restates 'palatable'; \"เป็นที่ชอบของสัตว์กินพืช\" adds 'herbivores', which the source doesn't say. Use \"ถูกสัตว์แทะกินได้ง่าย\"."
+      "Item 9: \"หอยขมญี่ปุ่น\" for Japanese trapdoor snail is not a well-known hobby term; consider \"หอยญี่ปุ่น (Japanese trapdoor snail)\" or keep the English in brackets.",
+      "Item 10: \"ผ่านการเซ็ตวงจรไนโตรเจน\" adds \"nitrogen\" to \"cycles the substrate\". Phrase it more simply, e.g. \"ช่วยให้วัสดุปลูกเข้าที่/ผ่านการไซเคิล\"."
     ]
   },
   "taxiphyllum-alternans": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "ไต้หวันมอส",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "มอสไต้หวัน",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.8,
     "notes": [
-      "\"ข้อแตกกิ่ง\" is a stiff rendering of \"branching nodes\"; more natural: \"จุดแตกกิ่ง\" or \"ข้อต่อที่แตกกิ่ง\".",
-      "\"ไต้หวันมอส\" is acceptable, but hobbyists usually write \"ไต้หวันมอส (Taiwan moss)\"; add the English name in brackets, as was done for Java moss.",
-      "\"ตู้ปลาที่มีแสงน้อย\" is fine, but \"ตู้รวม\" is ambiguous. Use \"ตู้รวมปลา\" or \"ตู้ community\" for clarity.",
-      "\"habitat ready before purchase\" is translated as \"เตรียมตู้ให้พร้อม\". This is slightly narrower than \"habitat\". Consider \"เตรียมตู้/สภาพแวดล้อมให้พร้อม\"."
+      "Item 4: \"Be sure to have the habitat ready before purchase\" was rendered as \"เตรียมตู้หรือที่ปลูกให้พร้อม\". This is a slight reinterpretation, because it adds \"ตู้หรือ\". Keep it closer to the source, e.g. \"เตรียมที่อยู่/ที่ปลูกให้พร้อมก่อนซื้อ\".",
+      "Item 5: \"family Isopterygium\" is wrong in the source, because Isopterygium is a genus. The Thai \"กลุ่ม\" blurs this, which is acceptable. Consider \"สกุล\" only if correcting is allowed. Otherwise keep \"กลุ่ม\".",
+      "Item 3: \"วีปปิ้งมอส\" is a transliteration. The common Thai name is \"วีปปิ้งมอส\", so this is fine, but \"ขนาดย่อส่วน\" placed after the name reads slightly awkwardly.",
+      "Item 1: \"ข้อ\" for \"nodes\" is a little unusual. Consider \"ข้อ/จุดแตกกิ่ง\" for clarity."
     ]
   },
   "taxiphyllum-barbieri": {

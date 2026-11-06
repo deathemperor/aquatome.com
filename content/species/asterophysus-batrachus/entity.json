@@ -13,6 +13,129 @@
     "orinoco",
     "atabapo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344563,
+      "total": 25,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          10
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "CO",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

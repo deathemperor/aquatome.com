@@ -69,6 +69,16 @@
       "Item 24: 'larva' sits beside 'anak ikan' for the same life stage. Use one term consistently."
     ]
   },
+  "gymnocorymbus-ternetzi": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Black Skirt Tetra",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "#10: \"semalap yang boleh\" is non-standard and awkward. Use \"semalap mungkin\" or \"sesuram yang boleh\"."
+    ]
+  },
   "mikrogeophagus-ramirezi": {
     "at": "2026-11-06",
     "from": "2026-10-30",
@@ -193,6 +203,19 @@
       "Item 13: \"induk yang baik\" for \"good parents\" is fine, but \"ditukar kepada makanan anak ikan komersial\" is awkward. Use \"beralih kepada makanan anak ikan yang dijual di pasaran\"."
     ]
   },
+  "puntigrus-tetrazona": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Tiger barb",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 17: \"diisi dengan air matang\" – in Malay \"air matang\" usually means boiled water. Use \"air akuarium yang sudah matang (mature)\" or similar.",
+      "Item 17: \"Kumpulan dewasa boleh dirangsang (conditioning)\" is awkward. Use \"dikondisikan\" or \"diberi makanan penyubur\" instead.",
+      "Item 13: \"ikan rainbow\" is acceptable, but \"ikan pelangi (rainbowfish)\" would be clearer for readers. \"Bersaiz sama\" is better than \"sama saiz\".",
+      "Item 12: \"roughage\" is rendered as \"makanan berserat\", but daphnia and brine shrimp are not fibre sources. Keep the sense of \"roughage\" and check the wording."
+    ]
+  },
   "puntius-titteya": {
     "at": "2026-11-06",
     "from": "2026-11-01",
@@ -244,6 +267,50 @@
       "#7: 'pada musim bertelur' for 'at spawning time' — 'semasa waktu bertelur' is more natural; 'Sangat aman' should be 'Sangat jinak/tidak agresif'.",
       "#8: 'Pada musim bertelur' similarly; 'papila genital ... tirus' fine. 'roe (eggs)' simplified to 'telur' - fine.",
       "#1: 'kekal sebagai tambahan yang cantik' is literal; 'remain a beautiful addition' better as 'tetap menjadi pilihan yang menarik'."
+    ]
+  },
+  "trichogaster-lalius": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Dwarf gourami",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 3: 'Minimum tank size: 15 gallons (~60 litres)' – 15 gallons is about 57 L, so ~60 L is fine, but item 10 is the real issue below.",
+      "Item 10: 'Tangki 60 cm x 30 cm x 30 cm (56 liter)' – 60x30x30 is 54 L and the original '56 litre' is kept; fine. However, item 11 '10-gallon (40-litre)' and '20–30 gallons (80–120 litres)' were kept as the source gave them; OK.",
+      "Item 14: 'ikan mas koki' for goldfish is fine, but 'Jauhkan ikan ini daripada crayfish' leaves 'crayfish' untranslated; use 'udang karang (crayfish)'.",
+      "Item 21: 'Harlequin Trigonostigma heteromorpha' leaves the English common name without a Malay hobby form; use 'rasbora harlequin'.",
+      "Item 27: 'segenggam dua serat gambut' and 'plastik pembalut makanan' are acceptable; but 'Jantan langsung tidak dapat menerima kehadiran pasangannya lagi' is awkward; use 'Jantan tidak lagi bertoleransi terhadap pasangannya'.",
+      "Item 27: 'ia akan bertelur bila-bila masa ia mahu' is too colloquial for a handbook; use 'ia akan bertelur dengan sendirinya'.",
+      "Item 20: 'Kutu air' for daphnia is non-standard hobby usage; Malaysian hobbyists say 'kutu air' for daphnia commonly, but also use 'daphnia'; consider adding the term.",
+      "Item 21: 'ikan pelangi (rainbowfish)' is fine, but 'Aras dalam tangki' in items 2 and 3 for 'Tank level/Dwellers' is stiff; consider 'Lapisan tangki'.",
+      "Item 19: 'Dalam kurungan' for 'in captivity' sounds like confinement; use 'Dalam akuarium' or 'Dalam penjagaan'."
+    ]
+  },
+  "trichopodus-leerii": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Sepat mutiara",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 4: \"dibiakkan dalam kurungan\" is awkward for \"in captivity\". Use \"dalam penangkaran\" or \"dibiakkan secara terkawal\".",
+      "Item 9: \"Susunan tangki bertumbuhan\" reads unnaturally. Use \"Tangki bertanaman\" or \"Susunan tangki yang ditanam tumbuhan\".",
+      "Item 20: \"tingkah laku mengurat\" is too colloquial. Use \"tingkah laku memikat\" or \"tingkah laku pemikatan\".",
+      "Item 19: \"pelukan yang biasa bagi anabantoid\" is a little stiff. Use \"pelukan pembiakan anabantoid yang lazim\"."
+    ]
+  },
+  "trichopodus-trichopterus": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Sepat Ronggeng",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 9: \"sirip dorsalnya menjadi tajam\" is a little unnatural for \"pointed dorsal fin\". \"runcing\" is the more usual word.",
+      "Item 10: \"menayangkan diri\" for \"display\" is awkward. \"mempamerkan diri\" or \"berlagak/menunjuk-nunjuk\" is more natural courtship wording.",
+      "Items 1, 8: \"sangat garang\" for \"spiteful\" is acceptable but loses the sense of malice. \"berdendam/jahat\" or \"nakal dan agresif\" is closer.",
+      "Item 10: \"flake yang dihancurkan menjadi serbuk\" is wordy. \"serpihan (flake) yang dihancurkan\" would read better."
     ]
   },
   "trigonostigma-heteromorpha": {

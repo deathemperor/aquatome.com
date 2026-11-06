@@ -12,6 +12,74 @@
     "sumatra",
     "musi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "TH"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Batang Hari",
+        "Musi",
+        "Kapuas"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Palembang, Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Thailand to Indonesia. Pacific, Greater Sunda Island Rivers, Borneo Waters; Pacific, Greater Sunda Island Rivers, Sumatra Waters.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo",
+            "Batang Hari",
+            "Musi",
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338053,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

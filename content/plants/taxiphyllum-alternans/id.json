@@ -2,18 +2,22 @@
   "slug": "taiwan-moss",
   "name": "Taiwan Moss",
   "altNames": [
-    "Moss Taiwan",
+    "Mini Taiwan Moss",
     "Lumut Taiwan"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Taiwan moss mirip dengan Java moss, tetapi memiliki lebih banyak percabangan dan tumbuh lebih tebal serta lebih rimbun.</p>",
-    "notes:bwaquatics": "<p>Moss ini sangat cocok untuk akuarium dengan cahaya rendah yang membutuhkan tempat persembunyian di akuarium komunitas, dan juga untuk membesarkan burayak.</p><p>Pastikan habitatnya sudah siap sebelum membeli.</p>"
+    "quickFacts:bwaquatics": "<p>Taiwan moss mirip dengan Java moss, tetapi punya lebih banyak titik percabangan dan tumbuh lebih tebal serta rimbun.</p>",
+    "quickFacts:tropica": "<ul><li>Jenis: Moss</li><li>Asal: Asia</li><li>Kecepatan tumbuh: Sedang</li><li>Tinggi: 3–10+ cm</li><li>Kebutuhan cahaya: Rendah</li><li>CO2: Rendah</li></ul>",
+    "maintenance:tropica": "<p>Mini Taiwan moss tumbuh mendatar dan menjuntai, seperti versi mini dari 'Weeping moss'. Moss ini paling bagus tampilannya kalau diikat ke kayu yang bercabang atau batu yang tegak, dan juga sangat berguna untuk dinding moss (moss wall) atau untuk menyamarkan peralatan di dalam akuarium. Moss ini mudah dirawat, dekoratif, dan kebutuhannya cukup rendah, tetapi cahaya yang baik dan sedikit tambahan CO2 akan memacu pertumbuhan dan percabangannya.</p>",
+    "notes:bwaquatics": "<p>Moss ini sangat cocok untuk akuarium bercahaya rendah yang butuh tempat sembunyi, baik untuk akuarium komunitas maupun untuk membesarkan burayak.</p><p>Pastikan tempatnya sudah siap sebelum membeli.</p>",
+    "notes:tropica": "<p>Identitas lengkap moss yang cantik ini belum dipastikan, dan hasil penelitian kemungkinan besar akan memasukkannya sebagai salah satu spesies dari famili Isopterygium.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.75,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.9
+      "bwaquatics": 0.75,
+      "tropica": 0.75
     }
   }
 }

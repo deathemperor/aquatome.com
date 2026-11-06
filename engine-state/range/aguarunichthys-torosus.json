@@ -1,14 +1,14 @@
 {
   "id": "aguarunichthys-torosus",
   "native": {
-    "input": "54b4e6b06f723560",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "0f201c6fb230ff0d",
+    "at": "2026-11-06T12:17:30.771Z",
     "claims": [
       {
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "quote": "The bolt catfish, Aguarunichthys torosus, is a pimelodid catfish known only from the Río Marañón in the upper Amazon basin of Peru.",
         "words": "Peru",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "EC",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "quote": "It probably also occurs in some tributaries draining into Peru from Ecuador.",
         "words": "Ecuador",
         "ok": true
       }
@@ -25,14 +25,14 @@
       {
         "name": "Río Marañón",
         "source": "seriouslyfish",
-        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "quote": "The bolt catfish, Aguarunichthys torosus, is a pimelodid catfish known only from the Río Marañón in the upper Amazon basin of Peru.",
         "country": "PE",
         "ok": true
       },
       {
         "name": "Amazon",
         "source": "seriouslyfish",
-        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "quote": "The bolt catfish, Aguarunichthys torosus, is a pimelodid catfish known only from the Río Marañón in the upper Amazon basin of Peru.",
         "country": "PE",
         "ok": true
       }

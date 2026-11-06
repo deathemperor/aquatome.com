@@ -1,0 +1,88 @@
+{
+  "id": "aspidoras-fuscoguttatus",
+  "native": {
+    "input": "895fa7b0b2c65561",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Paraná system, Córrego Corguinho, estrada da Três Lagoas, 20°46'S, 51°43'W, Mato Grosso, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Paraná",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Paraná system, Córrego Corguinho, estrada da Três Lagoas, 20°46'S, 51°43'W, Mato Grosso, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Upper Paraná River",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Paraná River basin (La Plata, Paraná, Upper Paraná, Grande, Uberaba) and São Francisco, Upper São Francisco, Paraopeba.",
+        "ok": true
+      },
+      {
+        "name": "São Francisco",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Paraná River basin (La Plata, Paraná, Upper Paraná, Grande, Uberaba) and São Francisco, Upper São Francisco, Paraopeba.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aspidoras fuscoguttatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342557,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        59
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        28
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}
