@@ -10,6 +10,87 @@
     "democratic-republic-of-the-congo",
     "congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo",
+        "Lake Mai-Ndombe"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The African rainbow tetra is an alestid from the Congo River system around Kinshasa, DR Congo, normally traded as Alestopetersius nigropterus.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently exported from Kinshasa, capital of the Democratic Republic of the Congo and almost certainly native to the Congo river system in the area surrounding the city, although the full extent of its distribution is currently as unclear as its identity (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A. nigropterus is a valid congener that is not in the aquarium trade, with little to no export from Lake Mai-Ndombe, to which it is endemic, while A. ansorgii is a synonym of Nannopetersius ansorgii.",
+          "countries": [],
+          "regions": [
+            "Lake Mai-Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356139,
+      "total": 35,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CG",
+          28
+        ],
+        [
+          "CD",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -4.21875,
+          16,
+          0
+        ],
+        [
+          15.46875,
+          -4.21875,
+          12,
+          0
+        ],
+        [
+          16.875,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          23.90625,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

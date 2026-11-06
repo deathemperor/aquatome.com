@@ -1,0 +1,95 @@
+{
+  "id": "ambastaia-sidthimunki",
+  "native": {
+    "input": "1a5167856fcfbe4e",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Instead, A. sidthimunki appears to be restricted to the Mae Klong river basin in western Thailand and the Ataran (Kasat in Thai) drainage, around the border between Thailand and Myanmar (K. Udomritthiruj, pers. comm.).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Instead, A. sidthimunki appears to be restricted to the Mae Klong river basin in western Thailand and the Ataran (Kasat in Thai) drainage, around the border between Thailand and Myanmar (K. Udomritthiruj, pers. comm.).",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Roberts (1995) stated that A. sidthimunki occurs in the Xe Pian river, a tributary of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos, while Rainboth (1996) considered it to occur in the Cambodian section of the Mekong basin.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Roberts (1995) stated that A. sidthimunki occurs in the Xe Pian river, a tributary of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos, while Rainboth (1996) considered it to occur in the Cambodian section of the Mekong basin.",
+        "words": "Cambodian",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "Ambastaia sidthimunki comes from rivers and floodplain forests in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Instead, A. sidthimunki appears to be restricted to the Mae Klong river basin in western Thailand and the Ataran (Kasat in Thai) drainage, around the border between Thailand and Myanmar (K. Udomritthiruj, pers. comm.).",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "seriouslyfish",
+        "quote": "Instead, A. sidthimunki appears to be restricted to the Mae Klong river basin in western Thailand and the Ataran (Kasat in Thai) drainage, around the border between Thailand and Myanmar (K. Udomritthiruj, pers. comm.).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ambastaia sidthimunki",
+    "status": "ACCEPTED",
+    "taxonKey": 7734965,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

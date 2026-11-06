@@ -51,17 +51,30 @@ const hex = (buf: ArrayBuffer) => [...new Uint8Array(buf)].map(x => x.toString(1
 export const sha256 = async (s: string) => hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))
 export const token = () => btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(24)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
 
-/** GET /_p?e=species:x → approved photos, newest first, plus the Turnstile site key for the form. */
+const LIST_MAX = 60
+/** `before`: the `next` of the page before, its last photo's time and id (two photos can share a time). */
+const BEFORE_RE = /^(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d{1,3})?Z)~([0-9a-f-]{36})$/
+
+/**
+ * GET /_p?e=species:x → approved photos, newest first, 60 at most, plus the Turnstile site key for the form. With older
+ * ones left, `next`; `before=<next>` lists those.
+ */
 export async function listPhotos(url: URL, env: PhotosEnv): Promise<Response> {
   if (!live(env)) return off()
   const e = url.searchParams.get('e') ?? ''
   if (!SPECIES_RE.test(e)) return json({ error: 'bad entity' }, 400)
+  const before = url.searchParams.get('before')
+  const after = before === null ? null : BEFORE_RE.exec(before)
+  if (before !== null && !after) return json({ error: 'bad before' }, 400)
   const { results } = await env.DB.prepare(
-    `SELECT id, name, url, thumb, width, height, created_at, account_id FROM photos WHERE entity_ref = ? AND status = 'approved' ORDER BY created_at DESC LIMIT 60`,
-  ).bind(e).all<{ id: string; name: string; url: string; thumb: string; width: number; height: number; created_at: string; account_id: string | null }>()
+    `SELECT id, name, url, thumb, width, height, created_at, account_id FROM photos WHERE entity_ref = ? AND status = 'approved'${after ? ' AND (created_at, id) < (?, ?)' : ''}
+     ORDER BY created_at DESC, id DESC LIMIT ${LIST_MAX + 1}`,
+  ).bind(e, ...(after ? [after[1], after[2]] : [])).all<{ id: string; name: string; url: string; thumb: string; width: number; height: number; created_at: string; account_id: string | null }>()
+  const shown = results.slice(0, LIST_MAX)
+  const last = shown.at(-1)
   const author = await authors(env.COMMENT_HMAC_KEY)
-  const photos: PublicPhoto[] = await Promise.all(results.map(async r => ({ id: r.id, name: r.name, url: r.url, thumb: r.thumb, width: r.width, height: r.height, createdAt: r.created_at, author: await author(r) })))
-  return json({ photos, sitekey: env.TURNSTILE_SITEKEY, verification: env.COMMENT_VERIFICATION === 'phone' ? 'phone' : 'none' }, 200, { 'cache-control': 'public, max-age=60' })
+  const photos: PublicPhoto[] = await Promise.all(shown.map(async r => ({ id: r.id, name: r.name, url: r.url, thumb: r.thumb, width: r.width, height: r.height, createdAt: r.created_at, author: await author(r) })))
+  return json({ photos, ...(results.length > LIST_MAX && last ? { next: `${last.created_at}~${last.id}` } : {}), sitekey: env.TURNSTILE_SITEKEY, verification: env.COMMENT_VERIFICATION === 'phone' ? 'phone' : 'none' }, 200, { 'cache-control': 'public, max-age=60' })
 }
 
 /**

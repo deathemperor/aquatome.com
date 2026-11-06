@@ -1,0 +1,116 @@
+{
+  "id": "amblypharyngodon-chulabhornae",
+  "native": {
+    "input": "c6f3538a7bfa042d",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The princess carplet, Amblypharyngodon chulabhornae, is a small cyprinid from Thailand and the Mekong system in Laos, Vietnam and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The princess carplet, Amblypharyngodon chulabhornae, is a small cyprinid from Thailand and the Mekong system in Laos, Vietnam and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The princess carplet, Amblypharyngodon chulabhornae, is a small cyprinid from Thailand and the Mekong system in Laos, Vietnam and Cambodia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The princess carplet, Amblypharyngodon chulabhornae, is a small cyprinid from Thailand and the Mekong system in Laos, Vietnam and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "A feral population was detected at the Kranji marshes, Singapore, in 2011 but it remains unknown if the species has become established on a permanent basis.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "The princess carplet, Amblypharyngodon chulabhornae, is a small cyprinid from Thailand and the Mekong system in Laos, Vietnam and Cambodia.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Thailand where it has been recorded from the Maeklong and Chao Phraya drainages and some smaller basins in upper peninsular Thailand, plus the Mekong system where its range extends into Laos, Vietnam, and Cambodia.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Maeklong",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Thailand where it has been recorded from the Maeklong and Chao Phraya drainages and some smaller basins in upper peninsular Thailand, plus the Mekong system where its range extends into Laos, Vietnam, and Cambodia.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblypharyngodon chulabhornae",
+    "status": "ACCEPTED",
+    "taxonKey": 2361126,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "VN",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

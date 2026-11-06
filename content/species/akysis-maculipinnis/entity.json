@@ -12,6 +12,47 @@
     "cambodia",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phrya"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Chantaboon, Southeast Siam' which corresponds to modern day Chanthaburi Province, eastern Thailand and presumably the river drainage of the same name.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Mekong and Chao Phrya (Thailand) basins as well as basins around the upper Gulf of Thailand.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phrya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340897,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

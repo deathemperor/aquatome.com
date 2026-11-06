@@ -688,7 +688,9 @@ describe('photo gallery', () => {
     const { dom } = page('/ca/ca-neon-vua/')
     const strip = dom.querySelector('section.strip')!
     expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
-    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 45 ảnh')
+    // Its gallery has the readers' photos too (the gallery test below), and the link says so; a breed's has none yet.
+    expect(strip.querySelector('.head a')!.textContent).toBe('Xem tất cả 45 ảnh và ảnh bạn đọc →')
+    expect(page('/ca/ca-la-han/').dom.querySelector('section.strip .head a')!.textContent).not.toContain('bạn đọc')
     const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
     expect(links[0]).toBe('/ca/ca-neon-vua/anh/#a1')
     expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)
@@ -726,6 +728,25 @@ describe('photo gallery', () => {
     expect(g.image[0]).toMatchObject({ '@type': 'ImageObject', creditText: 'Tác giả 1', license: 'https://creativecommons.org/licenses/by/2.0/', acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
     expect(g.image.find((x: { license?: string }) => x.license?.includes('publicdomain'))).toBeTruthy()
     expect(dom.querySelector('a[href="/ca/ca-neon-vua/"]')).toBeTruthy()
+  })
+  test('a fish\'s gallery ends with its readers\' photos, loaded live by the fish\'s key, outside the gallery\'s count and data', () => {
+    const { html, dom } = page('/ca/ca-neon-vua/anh/')
+    const s = dom.querySelector('section[data-reader-photos]')!
+    // The fish page's key (lib/talk.ts photosKey), never a comment's: their photos list under `comment:<id>`.
+    expect(s.getAttribute('data-entity')).toBe(page('/ca/ca-neon-vua/').dom.querySelector('section[data-reader-photos]')!.getAttribute('data-entity'))
+    expect(s.getAttribute('data-entity')).toMatch(/^species:[a-z0-9-]+$/)
+    expect(s.hasAttribute('hidden')).toBe(true)
+    expect(s.hasAttribute('data-later')).toBe(true) // after the gallery's photos (components/ReaderPhotos.astro)
+    expect(s.classList.contains('wrap')).toBe(false) // inside the page's margins already
+    expect(s.querySelector('input[type="file"]')).toBeTruthy()
+    expect(s.querySelector('button[data-more][hidden]')?.text).toBe('Xem thêm')
+    // After the gallery, and none of its photos: the count in the title, the tiles and the ImageGallery data are the
+    // gallery's 45 (checked above).
+    expect(html.indexOf('data-gallery')).toBeLessThan(html.indexOf('data-reader-photos'))
+    expect(s.querySelectorAll('a[data-i], img')).toHaveLength(0)
+    expect(dom.querySelector('title')!.text).toContain('45 ảnh')
+    // A fish's only (a breed's and a plant's gallery: none yet).
+    for (const other of ['/ca/ca-la-han/anh/', '/cay/cryptocoryne-wendtii/anh/']) expect(page(other).dom.querySelector('[data-reader-photos]'), other).toBeNull()
   })
   test('sitemap lists the gallery page', () => {
     expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/ca/ca-neon-vua/anh/')

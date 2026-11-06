@@ -10,6 +10,50 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: India, Brahmaputra River drainage, northern West Bengal.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961305,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          25.3125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,118 @@
+{
+  "id": "alfaro-cultratus",
+  "native": {
+    "input": "242645b433be4ec1",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The knife livebearer, Alfaro cultratus, is a poeciliid from rivers, streams, ditches and backwaters in Costa Rica, Nicaragua and Panama.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The knife livebearer, Alfaro cultratus, is a poeciliid from rivers, streams, ditches and backwaters in Costa Rica, Nicaragua and Panama.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The knife livebearer, Alfaro cultratus, is a poeciliid from rivers, streams, ditches and backwaters in Costa Rica, Nicaragua and Panama.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Iroquois",
+        "source": "seriouslyfish",
+        "quote": "Type locality is \"Río Iroquois, Costa Rica\".",
+        "country": "CR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Alfaro cultratus",
+    "status": "ACCEPTED",
+    "taxonKey": 2349754,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        52
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        27
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        19
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        11
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        10
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        8
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "CR",
+      "NI",
+      "PA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

@@ -1,6 +1,6 @@
 import { date, escapeHtml, loadTurnstile } from './comments'
 import { ct } from './ct'
-import type { Viewer } from './photo-viewer'
+import type { Viewer, ViewerPhoto } from './photo-viewer'
 
 export type ShownPhoto = { id: string; name: string; url: string; thumb: string; width: number; height: number; createdAt: string }
 const MAX_BYTES = 8 * 1024 * 1024
@@ -15,15 +15,24 @@ export function photoHtml(p: ShownPhoto, i: number): string {
 }
 
 /**
- * A tap on a tile opens the page's readers' photos in the viewer, loaded then (pages without readers' photos never load
- * it). Should it fail to load (a deploy replaced it since the page loaded), the photo opens on its own.
+ * The page's readers' photos as tiles, `first` and then each older batch "Xem thêm" brings (the function returned). A
+ * tap on a tile opens them in the viewer, loaded then (pages without readers' photos never load it), which steps through
+ * every one shown so far. Should it fail to load (a deploy replaced it since the page loaded), the photo opens on its own.
  */
-function viewReaderPhotos(list: HTMLElement, photos: ShownPhoto[]) {
+function viewReaderPhotos(list: HTMLElement, first: ShownPhoto[]): (more: ShownPhoto[]) => void {
   const lang = document.documentElement.lang
+  const photos: ShownPhoto[] = []
+  const slides: ViewerPhoto[] = []
+  const add = (more: ShownPhoto[]) => {
+    list.insertAdjacentHTML('beforeend', more.map((p, k) => photoHtml(p, photos.length + k)).join(''))
+    photos.push(...more)
+    slides.push(...more.map(p => ({ src: p.url, thumb: p.thumb, width: p.width, height: p.height, alt: ct('Ảnh của {name}', { name: p.name }), credit: () => [`${ct('Ảnh của {name}', { name: p.name })} · ${date(p.createdAt, lang)}`] })))
+  }
+  add(first)
   let viewer: Promise<Viewer> | undefined
   const view = () => (viewer ??= import('./photo-viewer').then(m => m.createViewer({
     id: 'reader',
-    photos: photos.map(p => ({ src: p.url, thumb: p.thumb, width: p.width, height: p.height, alt: ct('Ảnh của {name}', { name: p.name }), credit: () => [`${ct('Ảnh của {name}', { name: p.name })} · ${date(p.createdAt, lang)}`] })),
+    photos: slides,
     tile: i => list.querySelectorAll<HTMLElement>('button[data-i]')[i],
   })))
   list.addEventListener('click', e => {
@@ -33,6 +42,7 @@ function viewReaderPhotos(list: HTMLElement, photos: ShownPhoto[]) {
   })
   // Reloaded with a photo open: open it again (its history entry is the viewer's, photo-view.ts viewerHistory).
   if ((history.state as { viewer?: unknown } | null)?.viewer === 'reader') view().then(v => v.restore(), () => {})
+  return add
 }
 
 /**
@@ -89,20 +99,38 @@ export const ERRORS: Record<string, string> = {
   consent: ct('Vui lòng xác nhận ảnh do bạn chụp.'),
 }
 
+type Listed = { photos: ShownPhoto[]; next?: string; sitekey: string; verification: 'none' | 'phone' }
+
 /** Gallery + form; hidden unless the API answers (no buckets / no JS → nothing dead on the page). */
 export async function mountReaderPhotos(section: HTMLElement) {
   const entity = section.dataset.entity!
   const res = await fetch(`/_p?e=${encodeURIComponent(entity)}`).catch(() => null)
   if (!res?.ok) return
-  const data = (await res.json()) as { photos: ShownPhoto[]; sitekey: string; verification: 'none' | 'phone' }
+  const data = (await res.json()) as Listed
   const list = section.querySelector<HTMLUListElement>('[data-list]')!
   const empty = section.querySelector<HTMLElement>('[data-empty]')!
+  const more = section.querySelector<HTMLButtonElement>('[data-more]')!
   const form = section.querySelector<HTMLFormElement>('[data-form]')!
   const msg = section.querySelector<HTMLElement>('[data-msg]')!
   const sent = section.querySelector<HTMLElement>('[data-sent]')!
-  list.innerHTML = data.photos.map(photoHtml).join('')
   empty.hidden = data.photos.length > 0
-  viewReaderPhotos(list, data.photos)
+  const add = viewReaderPhotos(list, data.photos)
+  // The API lists 60 at a time: "Xem thêm" brings the older ones while there are more, and focus goes to the first of
+  // them. A failed load leaves the button to try again.
+  let next = data.next
+  more.hidden = !next
+  more.addEventListener('click', async () => {
+    more.disabled = true
+    const r = await fetch(`/_p?e=${encodeURIComponent(entity)}&before=${encodeURIComponent(next!)}`).catch(() => null)
+    const older = r?.ok ? ((await r.json().catch(() => null)) as Listed | null) : null
+    more.disabled = false
+    if (!older) return
+    const from = list.children.length
+    add(older.photos)
+    next = older.next
+    more.hidden = !next
+    list.querySelectorAll<HTMLElement>('button[data-i]')[from]?.focus()
+  })
   section.hidden = false
   if (data.verification === 'phone') return
   const ts = await loadTurnstile().catch(() => null)
