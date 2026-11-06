@@ -49,28 +49,34 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     open(app, "owner-dashboard")
     section(app, "Nội dung")
-    // The video guide's three notes, the first with `&` and `<don't>` in it, as written.
+    // The video guide's three notes, the third with `&` and `<don't>` in it, as written; the review's line said too.
     let notes = app.buttons.matching(NSPredicate(format: "identifier == 'owner-fold' AND label CONTAINS 'Phụ đề tự động' AND label CONTAINS %@",
                                                  "Keep them hedged & <don't> give")).firstMatch
     XCTAssertTrue(notes.waitForExistence(timeout: 10), "no notes cell")
-    XCTAssertTrue(notes.label.contains("Xem thêm") && notes.label.contains("Đánh giá bài viết từ video, 03/11 · 3 nhận xét"), notes.label)
-    // Down the section to its table, then across it to the notes' column.
+    XCTAssertTrue(notes.label.contains("Đánh giá bài viết từ video, 03/11 · 3 nhận xét"), notes.label)
+    XCTAssertEqual(notes.value as? String, "Xem thêm")
+    // Down the section to its table, then across it to the notes' column: dragged and held, never flung, so it isn't
+    // scrolled past.
     let window = app.windows.firstMatch.frame
-    repeatUntil(notes.isHittable, times: 20) {
+    func drag(_ from: CGVector, _ by: CGVector) {
+      let start = app.coordinate(withNormalizedOffset: .zero).withOffset(from)
+      start.press(forDuration: 0.05, thenDragTo: start.withOffset(by), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    repeatUntil(notes.isHittable, times: 24) {
       let f = notes.frame
-      if f.midY > window.maxY - 120 { app.swipeUp() } else if f.midY < window.minY + 160 { app.swipeDown() } else {
-        let row = app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.width * 0.85, dy: f.minY + 10))
-        row.press(forDuration: 0.05, thenDragTo: row.withOffset(CGVector(dx: -window.width * 0.6, dy: 0)))
-      }
+      if f.minY > window.maxY - 200 { drag(CGVector(dx: window.midX, dy: window.height * 0.7), CGVector(dx: 0, dy: -window.height * 0.4)) }
+      else if f.minY < window.minY + 160 { drag(CGVector(dx: window.midX, dy: window.height * 0.3), CGVector(dx: 0, dy: window.height * 0.3)) }
+      else { drag(CGVector(dx: window.width * 0.85, dy: f.minY + 10), CGVector(dx: -window.width * 0.6, dy: 0)) }
     }
     XCTAssertTrue(notes.isHittable, "the notes cell isn't on screen")
     let folded = notes.frame.height
-    notes.tap()
-    let opened = expectation(for: NSPredicate(format: "label CONTAINS 'Thu gọn'"), evaluatedWith: notes)
+    // Tapped near its top, which stays put as it opens downwards.
+    notes.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)).tap()
+    let opened = expectation(for: NSPredicate(format: "value == 'Thu gọn'"), evaluatedWith: notes)
     wait(for: [opened], timeout: 5)
     XCTAssertGreaterThan(notes.frame.height, folded * 2, "not all of it")
-    notes.tap()
-    let closed = expectation(for: NSPredicate(format: "label CONTAINS 'Xem thêm'"), evaluatedWith: notes)
+    notes.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)).tap()
+    let closed = expectation(for: NSPredicate(format: "value == 'Xem thêm'"), evaluatedWith: notes)
     wait(for: [closed], timeout: 5)
     XCTAssertEqual(notes.frame.height, folded, accuracy: 1, "not two lines again")
   }

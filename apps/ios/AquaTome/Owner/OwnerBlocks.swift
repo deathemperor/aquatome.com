@@ -139,7 +139,7 @@ struct OwnerDraw {
   /// A cell: its text (a link's in the tint), its second line smaller. A long one (a review's notes run to some 4 KB, a
   /// note a line) shows two lines until tapped, as the web's does.
   private func cell(_ c: Owner.Link) -> AnyView {
-    if c.to == nil, c.title.count > 60 || c.title.contains("\n") { return AnyView(Capped(width: 240) { OwnerFold(cell: c) }) }
+    if c.to == nil, c.title.count > 60 || c.title.contains("\n") { return AnyView(Capped(width: 240) { OwnerFold(cell: c, said: said(c.title, c.text, c.tone.said)) }) }
     var t = Text(verbatim: c.title).foregroundStyle(c.to != nil ? Color.accentColor : c.tone.color)
     if let s = c.text { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
     return go(c.to, AnyView(Capped(width: 240) { t.accessibilityLabel(Text(verbatim: said(c.title, c.text, c.tone.said))) }), "")
@@ -188,32 +188,42 @@ struct OwnerDraw {
 }
 
 /// A long cell: two lines of its text, all of it once tapped ("Xem thêm" only when there's more), the line under it
-/// always.
+/// always. Said whole, its tone too, as a cell is; a button only when there's more to show.
 private struct OwnerFold: View {
   let cell: Owner.Link
+  /// What VoiceOver says: the text, the line under it and the tone (it can't see the colour).
+  let said: String
   @State private var open = false
-  /// The text's height as shown, and all of it at the same width.
-  @State private var shown: CGFloat = 0
+  /// The text's height in two lines, and all of it, at the cell's width: measured apart from what's shown, so folding
+  /// it again doesn't take "Xem thêm" away for a moment.
+  @State private var two: CGFloat = 0
   @State private var full: CGFloat = 0
 
   var body: some View {
     let text = Text(verbatim: cell.title).foregroundStyle(cell.tone.color)
-    let more = open || full > shown + 1
-    Button { open.toggle() } label: {
-      VStack(alignment: .leading, spacing: 2) {
-        text.lineLimit(open ? nil : 2)
-          .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { shown = $0 }
-          .background {
-            text.fixedSize(horizontal: false, vertical: true).hidden()
+    let more = full > two + 1
+    let shown = VStack(alignment: .leading, spacing: 2) {
+      text.lineLimit(open ? nil : 2)
+        .background {
+          ZStack {
+            text.lineLimit(2).fixedSize(horizontal: false, vertical: true).hidden()
+              .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { two = $0 }
+            text.lineLimit(nil).fixedSize(horizontal: false, vertical: true).hidden()
               .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { full = $0 }
           }
-        if more { Text(open ? "Thu gọn" : "Xem thêm").font(.caption.weight(.semibold)).foregroundStyle(Color.accentColor) }
-        if let s = cell.text { Text(verbatim: s).font(.caption).foregroundStyle(.secondary) }
-      }
-      .multilineTextAlignment(.leading)
+        }
+      if more { Text(open ? "Thu gọn" : "Xem thêm").font(.caption.weight(.semibold)).foregroundStyle(Color.accentColor) }
+      if let s = cell.text { Text(verbatim: s).font(.caption).foregroundStyle(.secondary) }
     }
-    .buttonStyle(.plain)
-    .disabled(!more)
+    .multilineTextAlignment(.leading)
+    Group {
+      if more {
+        Button { open.toggle() } label: { shown }.buttonStyle(.plain).accessibilityValue(Text(open ? "Thu gọn" : "Xem thêm"))
+      } else {
+        shown.accessibilityElement(children: .ignore)
+      }
+    }
+    .accessibilityLabel(Text(verbatim: said))
     .accessibilityIdentifier("owner-fold")
   }
 }
