@@ -35,9 +35,12 @@ const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_P
 /** Every page of the web dashboard, the one the app doesn't list included. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
-/** Their keys. A key's page, the pages under it (one report) and its JSON form (thanh-cong.json) are the dashboard's. */
+/**
+ * Their keys. A key's page, the pages under it (one report, one fish-ID run) and their JSON forms (thanh-cong.json, a
+ * day of fish-ID runs) are the dashboard's.
+ */
 const KEYS = new Set(WEB_PAGES.map(p => p.slice('/_ab/'.length, -1)).filter(Boolean))
-const UNDER_KEY = /^\/([a-z0-9-]+)((?:\/[a-z0-9-]+)*\/|\.json)$/
+const UNDER_KEY = /^\/([a-z0-9-]+)((?:\/[a-z0-9-]+)*(?:\/|\.json))$/
 /**
  * The /_ab/ path behind an address on the dashboard's own host (dashboard-host.ts): "/" → "/_ab/", "/bao-cao/1003/" →
  * "/_ab/bao-cao/1003/", "/thanh-cong.json" → "/_ab/thanh-cong.json"; undefined for an address that isn't the dashboard's.
