@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/loricaria-simillima
 title: Loricaria simillima (Marbled Whiptail) · Seriously Fish
-fetchedAt: 2026-11-05T13:18:26.307Z
+fetchedAt: 2026-11-05T23:01:41.455Z
 hash: 7b70cabbb0569591ae663f914efaaaff49dedd0890fbe033fa384ecac7d99261
 ---
 

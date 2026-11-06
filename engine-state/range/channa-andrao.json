@@ -1,0 +1,52 @@
+{
+  "id": "channa-andrao",
+  "native": {
+    "input": "9f635c5ffe2d25e9",
+    "at": "2026-11-05T16:38:28.515Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Brahmaputra River basin in northeastern India, and officially known only from a swamp in the vicinity of Barobisha town, although collections for the aquarium trade appear to suggest the existence of at least one additional population.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Brahmaputra River basin in northeastern India, and officially known only from a swamp in the vicinity of Barobisha town, although collections for the aquarium trade appear to suggest the existence of at least one additional population.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa andrao",
+    "status": "ACCEPTED",
+    "taxonKey": 7820111,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T16:38:28.515Z"
+  }
+}

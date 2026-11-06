@@ -10,6 +10,90 @@
     "brazil",
     "rio-aripuana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Aripuanã",
+        "Rio Madeira"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The purple emperor tetra, Inpaichthys kerri, is a small characin from the Rio Aripuanã and upper Rio Madeira basins in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Aripuanã and upper Rio Madeira basins, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Aripuanã",
+            "Rio Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354732,
+      "total": 19,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          16
+        ],
+        [
+          "NA",
+          2
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -11.25,
+          13,
+          13
+        ],
+        [
+          -59.0625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          26.71875,
+          -26.71875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

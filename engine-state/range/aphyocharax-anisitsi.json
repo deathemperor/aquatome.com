@@ -1,0 +1,155 @@
+{
+  "id": "aphyocharax-anisitsi",
+  "native": {
+    "input": "1915c3ced332b59f",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Asunción, Paraguay and endemic to the Paraná River drainage in Brazil, Paraguay and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Asunción, Paraguay and endemic to the Paraná River drainage in Brazil, Paraguay and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Asunción, Paraguay and endemic to the Paraná River drainage in Brazil, Paraguay and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Paraguay",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Described from Asunción, Paraguay and endemic to the Paraná River drainage in Brazil, Paraguay and Argentina.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "UY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyocharax anisitsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2353650,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        135
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        100
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        69
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        69
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        51
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        45
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        37
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        17
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        10
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        9
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        7
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "PY",
+      "BR",
+      "AR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

@@ -42,6 +42,16 @@ final class TankCheckFlowTests: XCTestCase {
     XCTAssertFalse(app.descendants(matching: .any)["stocking"].exists)
   }
 
+  /// A breed that is a form of a species is checked as that species (`of` in the index): the discus and a breed of it
+  /// are one fish, a school of 5, not a discus beside a fish the check knows nothing of.
+  func testABreedIsCheckedAsItsSpecies() {
+    let app = launch("-breeds", "-seed-tanks", "breed") // 120 × 50 × 50 cm: 2 discus, 3 pigeon blood discus
+    XCTAssertTrue(reveal(app, app.descendants(matching: .any)["stocking"]), "no stocking")
+    XCTAssertTrue(app.descendants(matching: .any)["stocking"].label.contains("78% · Vừa phải"), app.descendants(matching: .any)["stocking"].label)
+    XCTAssertFalse(app.descendants(matching: .any)["verdict"].exists, "a verdict for one fish")
+    XCTAssertFalse(text(app, "chưa tính vào mật độ").exists, "the breed left out of the stocking")
+  }
+
   // MARK: Helpers
 
   private func launch(_ args: String...) -> XCUIApplication {

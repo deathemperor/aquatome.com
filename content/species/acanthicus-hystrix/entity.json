@@ -15,6 +15,155 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE",
+        "VE"
+      ],
+      "regions": [
+        "Amazon",
+        "Río Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The lyre tail pleco, Acanthicus hystrix, is a very large loricariid catfish from the Amazon region of Brazil and Peru.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A handful of records come from the Orinoco in Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Río Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202070,
+      "total": 19,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          14
+        ],
+        [
+          "VE",
+          4
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

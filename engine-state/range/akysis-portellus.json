@@ -1,0 +1,63 @@
+{
+  "id": "akysis-portellus",
+  "native": {
+    "input": "3679daf7ab5825dc",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The smallmouth stream catfish, Akysis portellus, is a small akysid catfish from the Sittaung River system in southern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sittaung River",
+        "source": "seriouslyfish",
+        "quote": "The smallmouth stream catfish, Akysis portellus, is a small akysid catfish from the Sittaung River system in southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittang River",
+        "source": "scotcat",
+        "quote": "Known from the type locality in the Sittang River drainage, southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis portellus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340900,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

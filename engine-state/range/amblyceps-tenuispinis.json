@@ -1,0 +1,35 @@
+{
+  "id": "amblyceps-tenuispinis",
+  "native": {
+    "input": "973f6eb676c8fdaa",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Ghazipur, India. Type locality: Ghazipur [India].",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblyceps tenuispinis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342870,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

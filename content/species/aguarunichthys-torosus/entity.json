@@ -10,6 +10,96 @@
     "peru",
     "maranon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "EC"
+      ],
+      "regions": [
+        "Río Marañón",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+          "countries": [
+            "PE",
+            "EC"
+          ],
+          "regions": [
+            "Río Marañón",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338729,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          5
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          0,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

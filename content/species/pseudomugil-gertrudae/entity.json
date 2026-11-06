@@ -14,6 +14,271 @@
     "indonesia",
     "aru-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU",
+        "PG",
+        "ID"
+      ],
+      "regions": [
+        "Aru Islands",
+        "Cape York Peninsula",
+        "Fly",
+        "Groot Eylandt",
+        "Trangan",
+        "Daly"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to the slow-moving waters and wetlands of northern Australia and New Guinea.",
+          "countries": [
+            "AU"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Pseudomugil gertrudae is a pseudomugilid from northern Australia, Papua New Guinea and the Aru Islands, eastern Indonesia.",
+          "countries": [
+            "PG",
+            "ID"
+          ],
+          "regions": [
+            "Aru Islands"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Populations are now known from numerous rivers draining into the Timor Sea and Gulf of Carpentaria, northern Australia, with a range extending eastwards from the city of Darwin through the Kakadu National Park, Arnhem Land, and Carpentaria as far the Cape York Peninsula.",
+          "countries": [],
+          "regions": [
+            "Cape York Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Papua New Guinea records exist from the Bensbach, Pahoturi, and Fly (Elevala River and Lake Bosset, aka Lake Herbert Hoover) river systems but it may be more widely-distributed in southern drainages of the country and neighbouring state of Papua, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Fly"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from the islands of Bathurst, Melville, and Groot Eylandt, plus some smaller islands in the Torres Strait.",
+          "countries": [],
+          "regions": [
+            "Groot Eylandt"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Rivulet in sago forest at Ngaiguli, Terangan, Aru Island, Aru Islands, Maluku, Indonesia', corresponding to the island now normally referred to as 'Trangan' in the Aru Islands group, eastern Indonesia.",
+          "countries": [],
+          "regions": [
+            "Trangan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known localities in the Northern Territory include the rivers Moyle, Daly, Finniss, Adelaide, Alligator, Blyth, Liverpool, Cadell, Buckingham, Cato, and some smaller drainages around Darwin.",
+          "countries": [],
+          "regions": [
+            "Daly"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411747,
+      "total": 473,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "AU",
+          459
+        ],
+        [
+          "PG",
+          9
+        ],
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          129.375,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          129.375,
+          -14.0625,
+          31,
+          31
+        ],
+        [
+          129.375,
+          -12.65625,
+          8,
+          8
+        ],
+        [
+          130.78125,
+          -14.0625,
+          65,
+          65
+        ],
+        [
+          130.78125,
+          -12.65625,
+          47,
+          47
+        ],
+        [
+          132.1875,
+          -14.0625,
+          25,
+          25
+        ],
+        [
+          132.1875,
+          -12.65625,
+          9,
+          9
+        ],
+        [
+          133.59375,
+          -12.65625,
+          36,
+          36
+        ],
+        [
+          133.59375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          135,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          135,
+          -12.65625,
+          12,
+          12
+        ],
+        [
+          136.40625,
+          -12.65625,
+          16,
+          16
+        ],
+        [
+          139.21875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          140.625,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          140.625,
+          -12.65625,
+          13,
+          13
+        ],
+        [
+          140.625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -14.0625,
+          24,
+          24
+        ],
+        [
+          142.03125,
+          -12.65625,
+          32,
+          32
+        ],
+        [
+          142.03125,
+          -11.25,
+          63,
+          63
+        ],
+        [
+          142.03125,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          142.03125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          143.4375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -18.28125,
+          61,
+          61
+        ],
+        [
+          144.84375,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          151.875,
+          -25.3125,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

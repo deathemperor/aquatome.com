@@ -10,6 +10,55 @@
     "democratic-republic-of-the-congo",
     "lake-mai-ndombe"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lac Mai Ndombe"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This tetra was obtained for the first time from Lac Mai Ndombe (formerly known as Lake Leopold).",
+          "countries": [],
+          "regions": [
+            "Lac Mai Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356108,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CD",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          16.875,
+          -2.8125,
+          5
+        ],
+        [
+          23.90625,
+          -1.40625,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

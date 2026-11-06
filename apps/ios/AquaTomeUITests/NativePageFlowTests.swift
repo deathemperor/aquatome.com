@@ -239,7 +239,7 @@ final class NativePageFlowTests: XCTestCase {
     reveal(app, text(app, "Tính cách: Hiền · Đàn tối thiểu: 6 con"))
     reveal(app, text(app, "Lớn tới 15 cm, có thể ăn Cá neon"))
     XCTAssertTrue(card(app, "Cá ngựa vằn").exists, "no fish to keep with it")
-    XCTAssertTrue(app.links["Ảnh: Tác giả 5 · CC BY 4.0"].exists, "a card's photo without its credit")
+    XCTAssertTrue(app.links["Jane Doe"].exists, "a card's photo without its credit")
     let all = app.buttons["gallery-all"]
     reveal(app, all)
     XCTAssertEqual(all.label, "Ảnh Cá neon, Xem tất cả 3 ảnh", "not read with whose photos they are")
@@ -417,6 +417,27 @@ final class NativePageFlowTests: XCTestCase {
     for n in 1...3 {
       XCTAssertTrue(app.links["Ảnh: Tác giả 8, ảnh \(n)"].exists, "no link to picture \(n)'s page")
     }
+  }
+
+  /// An Unsplash photo's credit as the site's: "Ảnh: <name> trên Unsplash", the name and "Unsplash" each a link (the
+  /// photographer's page and Unsplash's), not the whole line one link. Under the lead photo, whose photographer's page
+  /// the site doesn't have yet, the name links the photo's own page; under a tank-mate's card, whose it has, the photo's
+  /// own page is a number after the line, as the site's credits list has it.
+  func testAnUnsplashPhotosCreditLinksItsPhotographerAndUnsplash() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
+    XCTAssertTrue(text(app, "Ảnh: John Roe trên Unsplash · Unsplash License").exists, "no Unsplash line under the lead photo")
+    XCTAssertTrue(app.links["John Roe"].exists, "the photographer's name not a link")
+    XCTAssertTrue(app.links["Unsplash"].firstMatch.exists, "Unsplash not a link")
+    XCTAssertFalse(app.links["Ảnh: John Roe trên Unsplash · Unsplash License"].exists, "the whole line one link")
+    let number = app.links["Ảnh: Jane Doe trên Unsplash, ảnh 1"]
+    reveal(app, number)
+    XCTAssertTrue(text(app, "Ảnh: Jane Doe trên Unsplash · Unsplash License · 1 ảnh").exists, "the card's photo not credited with how many")
+    XCTAssertTrue(app.links["Jane Doe"].exists, "the photographer's name not a link")
+    // The lead photo's "Unsplash" and the card's.
+    XCTAssertEqual(app.links.matching(NSPredicate(format: "label == %@", "Unsplash")).count, 2, "Unsplash not a link under the card")
+    XCTAssertFalse(app.links["Ảnh: Jane Doe trên Unsplash · Unsplash License"].exists, "the whole line one link")
   }
 
   // MARK: Helpers

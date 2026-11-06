@@ -10,6 +10,84 @@
     "myanmar",
     "bago"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Bago River",
+        "Salween"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Bago River basin, Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Bago River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Although there is little information on the population and trend of this species throughout its range, data from limited field work suggests that this species is still relatively abundant, at least in the Salween River drainage in western Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342858,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          5
+        ],
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

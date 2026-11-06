@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
 """The app's icons a reader can choose (Tài khoản → Biểu tượng ứng dụng), drawn here and rendered into the asset catalog.
 
-Usage: apps/ios/scripts/app-icons.py. Needs rsvg-convert (Homebrew librsvg). Writes AquaTome/Assets.xcassets/
+Usage: apps/ios/scripts/app-icons.py. Needs rsvg-convert (Homebrew librsvg), pngquant and ImageMagick (magick). Writes AquaTome/Assets.xcassets/
 AppIcon-<id>.appiconset for each icon in ICONS: explicit home-screen sizes only (SLOTS), for an iPhone and an iPad, no
-1024 (only the primary icon needs one); a 1024 would cost about 430 kB an icon. The primary icon,
-AppIcon (the AT), isn't drawn here. AppIconPicker.swift lists the same ids with their names; AppIconFlowTests checks that
-each is in the app.
+1024 (only the primary icon needs one); a 1024 would cost about 430 kB an icon. The primary icon, AppIcon (DEFAULT, the
+round fish with leaf fins), is drawn here too, at 1024. The AT, the default until 2026-11-04, was drawn by hand: it stays
+an alternate, shrunk from design/at-1024.png. AppIconPicker.swift lists the same ids with their names; AppIconFlowTests
+checks that each is in the app.
+
+Every icon set drawn here is quantized (`quantize`: pngquant, dithered, 256 colours at most). CoreUI keeps an icon set's
+pictures as ARGB, lzfse, whatever the asset catalog says (its "lossy" is for image sets), and gradients barely compress
+that way; quantized, the 34 alternates drawn here cost half as much of the archive (measured 2026-11-04: Assets.car
+6,243.8 → 3,171.9 kB), alike at home-screen size, with faint grain in the dark glows, and faint rings at one glow's
+edge, only when zoomed with the contrast pushed. The AT isn't: it's flat, and its picture's gamma moves its colour when
+quantized.
 
 An icon set doesn't load as an image (UIImage(named:) gives nil), so the picker shows each icon, the default too, from
 AppIconPreviews/AppIconPreview-<id>.imageset: the icon at the picker's 64 points, @2x and @3x, stored lossy. Measured
-with actool for the 33 icons: 308 kB in all (195 kB on one iPhone), where lossless is 1,178 kB and SVG 2,233 kB (actool
+with actool for the first 33 icons: 308 kB in all (195 kB on one iPhone), where lossless is 1,178 kB and SVG 2,233 kB (actool
 keeps three pictures of an SVG beside it, and iOS draws one without its filters).
 """
-import json, math, os, random, shutil, subprocess, sys, tempfile
+import json, math, os, random, re, shutil, subprocess, sys, tempfile
 P = {  # a: top-left, b: glow top-right, c: glow bottom-left, d: bottom-right, x: the fish's accent
  'pink':    ('#FF4FA3','#FF8A3D','#6E5BFF','#B44CFF','#FF4FA3'),
  'aqua':    ('#1FD1C1','#7CF0B0','#3B6BFF','#6E5BFF','#21B8E0'),
@@ -55,14 +63,58 @@ def clip_body(u, body, inner):
     return f'<clipPath id="cb{u}"><path d="{body}"/></clipPath><g clip-path="url(#cb{u})">{inner}</g>'
 
 # ---- characters: each returns (silhouette, face) drawn about a 1024 canvas
+BUBS = dict(
+    tail='M392,520 C344,452 290,372 222,356 C184,348 164,378 174,418 C186,466 214,498 250,522 C214,546 186,578 174,626 C164,666 184,696 222,688 C290,672 344,588 392,520 Z',
+    dors='M452,392 C444,320 470,236 520,214 C546,204 562,226 556,256 C580,220 622,212 640,236 C654,256 646,280 630,298 C664,290 694,306 698,334 C700,350 690,360 680,366 Z',
+    body='M352,520 C380,404 500,338 624,340 C744,342 830,420 830,528 C830,640 738,708 618,710 C494,712 380,640 352,520 Z',
+    pect='M628,612 C600,600 556,616 530,652 C516,672 524,690 548,688 C584,684 618,662 634,636 C640,626 638,616 628,612 Z')
+
 def bubs(u, x):
-    tail='M392,520 C344,452 290,372 222,356 C184,348 164,378 174,418 C186,466 214,498 250,522 C214,546 186,578 174,626 C164,666 184,696 222,688 C290,672 344,588 392,520 Z'
-    dors='M452,392 C444,320 470,236 520,214 C546,204 562,226 556,256 C580,220 622,212 640,236 C654,256 646,280 630,298 C664,290 694,306 698,334 C700,350 690,360 680,366 Z'
-    body='M352,520 C380,404 500,338 624,340 C744,342 830,420 830,528 C830,640 738,708 618,710 C494,712 380,640 352,520 Z'
-    pect='M628,612 C600,600 556,616 530,652 C516,672 524,690 548,688 C584,684 618,662 634,636 C640,626 638,616 628,612 Z'
-    sil=f'<path d="{tail}" fill="url(#fin{u})"/><path d="{dors}" fill="url(#fin{u})"/><path d="{body}" fill="url(#body{u})"/><path d="{pect}" fill="url(#fin{u})"/>'
+    b = BUBS
+    sil=f'<path d="{b["tail"]}" fill="url(#fin{u})"/><path d="{b["dors"]}" fill="url(#fin{u})"/><path d="{b["body"]}" fill="url(#body{u})"/><path d="{b["pect"]}" fill="url(#fin{u})"/>'
     face=eye(716,482)+smile(742,580)+blush(660,566)
     return sil, face
+
+# The round fish with something of the app in it, as a terminal's dinosaur wears a gear for a crest: its fins a plant's
+# leaves (the default icon), its dorsal fin a book's pages (the handbook), or its eye behind a magnifier, the handle its
+# gill (looking a fish up).
+def leaf(cx, cy, length, width, angle):
+    d = f'M0,0 C{width},{-length*.2:g} {width*.9:g},{-length*.75:g} 0,{-length} C{-width*.9:g},{-length*.75:g} {-width},{-length*.2:g} 0,0 Z'
+    veins = f'<path d="M0,-6 L0,{-length*.9:g}" stroke="#E9FFF4" stroke-width="9" stroke-linecap="round"/>'
+    for t in (.3, .5, .7):
+        y = -length*t; w = width*.62*(1-abs(t-.45))
+        for side in (1, -1):
+            veins += f'<path d="M0,{y:g} L{side*w:g},{y-length*.12:g}" stroke="#E9FFF4" stroke-width="6" stroke-linecap="round"/>'
+    return f'<g transform="translate({cx} {cy}) rotate({angle})"><path d="{d}" fill="url(#leaf)"/>{veins}</g>'
+
+def leafy(u, x):
+    b = BUBS
+    grad = '<defs><linearGradient id="leaf" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2DB86A"/><stop offset="1" stop-color="#9BEA7A"/></linearGradient></defs>'
+    fins = leaf(530, 380, 210, 76, -32) + leaf(396, 512, 236, 82, -122) + leaf(396, 528, 236, 82, -58)
+    return f'{grad}{fins}<path d="{b["body"]}" fill="url(#body{u})"/><path d="{b["pect"]}" fill="url(#fin{u})"/>', eye(716,482)+smile(742,580)+blush(660,566)
+
+def pages(u, x):
+    b = BUBS
+    fan = ''
+    for k, a in enumerate((-58, -34, -10, 14)):
+        front = k == 3
+        # a page standing on the back; the front one's corner turned down
+        sheet = ('M-40,40 L-40,-196 C-40,-214 -28,-224 -10,-224 L10,-224 L44,-190 L44,40 Z' if front
+                 else 'M-40,40 L-40,-196 C-40,-214 -28,-224 -10,-224 L24,-224 C38,-224 44,-214 44,-200 L44,40 Z')
+        fill = f'url(#fin{u})' if front else ('#E9E2FF' if k % 2 else '#F4F0FF')
+        lines = ''.join(f'<path d="M-20,{y} L{24 if front and y < -150 else 26},{y}" stroke="#C4B6FF" stroke-width="8" stroke-linecap="round"/>' for y in (-176, -144, -112, -80))
+        ear = '<path d="M10,-224 L10,-198 C10,-192 14,-190 20,-190 L44,-190 Z" fill="#CFC3FF"/>' if front else ''
+        fan += (f'<g transform="translate(556 414) rotate({a})"><path d="{sheet}" fill="{fill}" stroke="#CFC3FF" stroke-width="5" stroke-linejoin="round"/>'
+                f'{lines}{ear}</g>')
+    return (f'<path d="{b["tail"]}" fill="url(#fin{u})"/>{fan}<path d="{b["body"]}" fill="url(#body{u})"/><path d="{b["pect"]}" fill="url(#fin{u})"/>',
+            eye(716,482)+smile(742,580)+blush(660,566))
+
+def lens(u, x):
+    sil, _ = bubs(u, x)
+    glass = (f'<path d="M650,560 C630,590 612,612 590,634" stroke="{INK}" stroke-width="30" stroke-linecap="round" fill="none"/>'
+             f'<circle cx="712" cy="486" r="86" fill="#BFF4FF" fill-opacity=".55" stroke="{INK}" stroke-width="20"/>'
+             f'<path d="M660,450 A62,62 0 0 1 700,418" stroke="#fff" stroke-width="12" stroke-linecap="round" fill="none" opacity=".9"/>')
+    return sil, glass + eye(716,490,1.25) + smile(694,612,46)
 
 def betta(u, x):
     tail='M420,500 C360,380 240,300 150,340 C96,366 116,430 168,462 C108,470 70,530 112,572 C70,620 110,700 182,692 C110,736 160,820 240,790 C330,760 400,650 430,560 Z'
@@ -160,7 +212,7 @@ def koi(u, x):
           +f'<path d="M820,560 C850,580 860,620 846,650" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round"/>')
     return sil, face
 
-CHAR = dict(bubs=bubs, betta=betta, puffer=puffer, clown=clown, angel=angel, neon=neon, discus=discus, guppy=guppy, goldfish=goldfish, koi=koi)
+CHAR = dict(bubs=bubs, leafy=leafy, pages=pages, lens=lens, betta=betta, puffer=puffer, clown=clown, angel=angel, neon=neon, discus=discus, guppy=guppy, goldfish=goldfish, koi=koi)
 
 # ---- seasonal extras
 def santa_hat(u):  # on the puffer's head
@@ -256,6 +308,7 @@ AT_PATH = 'M231.11606201171867 592.8027709960937V557.1543481445312H422.802807617
 def ICONS():
     W = lambda i: f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">{i}</svg>'
     fish = [('bubs-pink','pink','bubs'), ('bubs-aqua','aqua','bubs'), ('bubs-sunrise','sunrise','bubs'),
+            ('pages-pink','pink','pages'), ('lens-pink','pink','lens'),
             ('betta-grape','grape','betta'), ('betta-reef','reef','betta'), ('betta-night','night','betta'),
             ('puffer-lagoon','lagoon','puffer'), ('puffer-peach','peach','puffer'), ('puffer-lime','lime','puffer'),
             ('clown-sky','sky','clown'), ('clown-aqua','aqua','clown'),
@@ -270,11 +323,23 @@ def ICONS():
     out += [('at-water', W(at(CUR, 'w'))), ('book', W(book(NEW, 'b'))), ('leaf-fish', W(leaffish(NEW, 'f')))]
     return out
 
+# The app's own icon (AppIcon), chosen by the owner 2026-11-04.
+DEFAULT = icon('aqua', 'leafy', 'L')
+
 # Pixel size → the slot that uses it: (idiom, size in points, scale). Home-screen sizes only: iOS scales them down for
 # Spotlight, Settings and notifications, as it did for alternate icons listed by file (CFBundleIconFiles, 60 pt only).
 # With the 40/29/20 slots too, the 32 icons cost 7.55 MB of the archive instead of 4.8.
 SLOTS = {120: [('iphone','60x60','2x')], 180: [('iphone','60x60','3x')],
          152: [('ipad','76x76','2x')], 167: [('ipad','83.5x83.5','2x')]}
+
+def quantize(png, out, alpha=False):
+    """png, dithered to 256 colours at most (a picture with fewer stays as it is), written to out as PNG colour type 2
+    (RGB, on black), or 6 (RGBA) with alpha."""
+    subprocess.run(['pngquant', '--quality', '90-100', '--speed', '1', '--force', '--output', png, png], check=True)
+    flat = [] if alpha else ['-background', 'black', '-alpha', 'remove', '-alpha', 'off']
+    # Without its date chunks, so a rerun writes the same bytes.
+    subprocess.run(['magick', png, *flat, '-define', f'png:color-type={6 if alpha else 2}',
+                    '-define', 'png:exclude-chunks=date,time', out], check=True)
 
 if __name__ == '__main__':
     here = os.path.dirname(os.path.abspath(__file__))
@@ -291,9 +356,41 @@ if __name__ == '__main__':
                    'info': {'author': 'xcode', 'version': 1}, 'properties': {'compression-type': 'lossy'}},
                   open(os.path.join(d, 'Contents.json'), 'w'), indent=2)
 
-    # The default (the AT), from its own 1024.
-    primary = os.path.join(cat, 'AppIcon.appiconset', 'AppIcon-1024.png')
-    preview('default', lambda px, out: subprocess.run(['sips', '-z', str(px), str(px), primary, '--out', out], check=True, capture_output=True))
+    # The default: the round fish with leaf fins, at the 1024 iOS draws every size from, in the three looks of the home
+    # screen: as drawn (no alpha: App Store Connect refuses one), dark (the fish alone on transparent, iOS's dark tile
+    # behind it: alpha allowed there) and tinted (the fish in grey on black, tinted by iOS). Each is quantized: its
+    # gradients stored as they are cost 885 kB of the archive for the 1024 alone, iPhone and iPad; quantized, about half,
+    # alike at home-screen and App Store sizes (faint rings around the glows only at full size, looked for).
+    icon_set = os.path.join(cat, 'AppIcon.appiconset')
+    alone = re.sub(r'<rect width="1024" height="1024" fill="url\(#(?:g|r1|r2)L\)"/>', '', DEFAULT)
+    assert alone != DEFAULT, 'the default lost its background'
+    looks = [('AppIcon-1024.png', None, DEFAULT, 'opaque'), ('AppIcon-1024-dark.png', 'dark', alone, 'alpha'),
+             ('AppIcon-1024-tinted.png', 'tinted', alone, 'grey')]
+    for f, appearance, svg, kind in looks:
+        with tempfile.TemporaryDirectory() as tmp:
+            src, png = os.path.join(tmp, 'icon.svg'), os.path.join(tmp, 'icon.png')
+            open(src, 'w').write(svg)
+            subprocess.run(['rsvg-convert', '-w', '1024', '-h', '1024', src, '-o', png], check=True)
+            if kind == 'grey':
+                subprocess.run(['magick', png, '-background', 'black', '-alpha', 'remove', '-colorspace', 'Gray', png], check=True)
+            quantize(png, os.path.join(icon_set, f), alpha=kind == 'alpha')
+    json.dump({'images': [{**({'appearances': [{'appearance': 'luminosity', 'value': a}]} if a else {}), 'filename': f, 'idiom': 'universal',
+                           'platform': 'ios', 'size': '1024x1024'} for f, a, _, _ in looks],
+               'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(icon_set, 'Contents.json'), 'w'), indent=2)
+    with tempfile.NamedTemporaryFile('w', suffix='.svg', delete=False) as t: t.write(DEFAULT)
+    preview('default', lambda px, out: subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), t.name, '-o', out], check=True))
+    os.unlink(t.name)
+    # The AT, the default until 2026-11-04, drawn by hand (design/at-1024.png): an alternate at the same sizes.
+    at_png = os.path.join(here, '..', 'design', 'at-1024.png')
+    shrink = lambda px, out: subprocess.run(['sips', '-z', str(px), str(px), at_png, '--out', out], check=True, capture_output=True)
+    d = os.path.join(cat, 'AppIcon-at.appiconset'); os.makedirs(d, exist_ok=True)
+    for old in os.listdir(d): os.remove(os.path.join(d, old))
+    images = []
+    for px, slots in SLOTS.items():
+        shrink(px, os.path.join(d, f'{px}.png'))
+        images += [{'filename': f'{px}.png', 'idiom': idiom, 'scale': scale, 'size': size} for idiom, size, scale in slots]
+    json.dump({'images': images, 'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(d, 'Contents.json'), 'w'), indent=2)
+    preview('at', shrink)
     for i, svg in ICONS():
         d = os.path.join(cat, f'AppIcon-{i}.appiconset'); os.makedirs(d, exist_ok=True)
         for old in os.listdir(d): os.remove(os.path.join(d, old))
@@ -302,6 +399,7 @@ if __name__ == '__main__':
         for px, slots in SLOTS.items():
             f = f'{px}.png'
             subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), '-b', 'black', t.name, '-o', os.path.join(d, f)], check=True)
+            quantize(os.path.join(d, f), os.path.join(d, f))
             images += [{'filename': f, 'idiom': idiom, 'scale': scale, 'size': size} for idiom, size, scale in slots]
         json.dump({'images': images, 'info': {'author': 'xcode', 'version': 1}}, open(os.path.join(d, 'Contents.json'), 'w'), indent=2)
         preview(i, lambda px, out: subprocess.run(['rsvg-convert', '-w', str(px), '-h', str(px), t.name, '-o', out], check=True))

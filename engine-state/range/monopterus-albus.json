@@ -1,0 +1,367 @@
+{
+  "id": "monopterus-albus",
+  "native": {
+    "input": "dcdaa140a711e13e",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Very widespread, being found in India, Myanmar, China, Thailand, Cambodia, Laos, Vietnam, Hong Kong, Japan, Taiwan, Malaysia, Indonesia, Philippines, Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Has also been introduced to both Hawaii and the USA.",
+        "words": "USA",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "HK",
+        "TW",
+        "KR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Monopterus albus",
+    "status": "ACCEPTED",
+    "taxonKey": 5204081,
+    "datasets": [
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        125
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        115
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        80
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        52
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        41
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        39
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        37
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        20
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        18
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "c35d9a99-9a4b-44e7-8c92-7b5fe302318b",
+        10
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        10
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        9
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        8
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        7
+      ],
+      [
+        "d74d1313-04f6-4e91-8732-b6d5282416dc",
+        6
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        4
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        4
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "8a10929f-9729-408b-ad1a-2a86d56fa9e0",
+        3
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        3
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        3
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        2
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        2
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        2
+      ],
+      [
+        "084cd772-e50b-47b5-b5a5-e46bd58f3ed1",
+        1
+      ],
+      [
+        "175d2868-a330-4179-ba25-35da91a8214d",
+        1
+      ],
+      [
+        "26ae0930-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "cf5e37a6-e657-4ee2-91c0-b1da03251a62",
+        1
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        1
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "MM",
+      "CN",
+      "TH",
+      "KH",
+      "LA",
+      "VN",
+      "JP",
+      "MY",
+      "ID",
+      "PH",
+      "AU"
+    ],
+    "requests": 15,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

@@ -5,6 +5,7 @@ import { DIST, LIVE, recheckPages, samplePages, sourcePages } from './pages'
 import { VIETNAMESE, VIETNAMESE_ALLOWED, expect, test } from './fixtures'
 import { checkPage, loadFacts } from '../scripts/page-check'
 import { isViPage } from '../worker/paths'
+import { prefixedLang } from '@aq/schema/langs'
 
 // The page checks read the content the build was made from: the fixture's for a local build, the checkout's (the live
 // version's commit, in watch.yml) for a live site; CONTENT_ROOT for another build (E2E_DIST).
@@ -54,16 +55,16 @@ for (const path of pages) {
 
     // Links to this site's pages lead to pages that exist: Vietnamese ones at the root, and any old /vi/ one (none is built).
     const hrefs = await page.$$eval('a[href^="/"]', as => [...new Set(as.map(a => a.getAttribute('href')!))])
-    const paths = [...new Set(hrefs.map(h => h.replace(/[?#].*$/, '')).filter(h => isViPage(h) || /^\/(vi|id|th)\//.test(h)))]
+    const paths = [...new Set(hrefs.map(h => h.replace(/[?#].*$/, '')).filter(h => isViPage(h) || /^\/vi\//.test(h) || !!prefixedLang(h)))]
     const broken = (await Promise.all(paths.map(async h => ((await exists(h, request)) ? null : h)))).filter(Boolean)
     expect(broken, 'links to missing pages').toEqual([])
 
     // Indonesian and Thai pages show no Vietnamese. Left out: a quoted Vietnamese title (lang="vi") and the photo credits
-    // (people's names, which can be Vietnamese on any page).
-    if (/^\/(id|th)\//.test(path)) {
+    // (people's names, which can be Vietnamese on any page): the list, and an Unsplash photo's line under it (.pic-by).
+    if (prefixedLang(path)) {
       const text = await page.evaluate(() => {
         const body = document.body.cloneNode(true) as HTMLElement
-        body.querySelectorAll('[lang="vi"], #photo-credits, script, style, template').forEach(el => el.remove())
+        body.querySelectorAll('[lang="vi"], #photo-credits, .pic-by, script, style, template').forEach(el => el.remove())
         return body.textContent ?? ''
       })
       const plain = VIETNAMESE_ALLOWED.reduce((t, re) => t.replace(re, ''), text)

@@ -1,0 +1,192 @@
+{
+  "id": "acestrorhynchus-pantaneiro",
+  "native": {
+    "input": "614865dd20fd2642",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Paraná",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "ok": true
+      },
+      {
+        "name": "Río Uruguay",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "ok": true
+      },
+      {
+        "name": "Río de la Plata",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "ok": true
+      },
+      {
+        "name": "Mamoré",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "ok": true
+      },
+      {
+        "name": "Rio Cuiabá",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Cuiabá, Volta Grande, município de Santo Antônio do Leverger, Mato Grosso' and this species also occurs in the lower Río Paraná, Río Uruguay, Río de la Plata and rio Mamoré Paraguay, Uruguay, Argentina and Bolivia, respectively.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acestrorhynchus pantaneiro",
+    "status": "ACCEPTED",
+    "taxonKey": 2355576,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        166
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        73
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        60
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        46
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        45
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        30
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        26
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        17
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        9
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        3
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "PY",
+      "UY",
+      "AR",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

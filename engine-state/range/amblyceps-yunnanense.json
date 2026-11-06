@@ -1,0 +1,50 @@
+{
+  "id": "amblyceps-yunnanense",
+  "native": {
+    "input": "2d07f26eb69161af",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: River Mengnai, Yunnan Province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mengnai",
+        "source": "scotcat",
+        "quote": "Asia: River Mengnai, Yunnan Province, China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "scotcat",
+        "quote": "Described from specimens collected from a tributary of the upper Irrawaddy in western Yunnan Province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblyceps yunnanense",
+    "status": "ACCEPTED",
+    "taxonKey": 11215193,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

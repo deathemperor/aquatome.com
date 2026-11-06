@@ -13,6 +13,223 @@
     "central-african-republic",
     "ubangi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CG",
+        "CD",
+        "CF"
+      ],
+      "regions": [
+        "Congo River",
+        "Kasai",
+        "Ubangi",
+        "Lefini",
+        "Tshuapa",
+        "Lomami"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
+          "countries": [
+            "CG",
+            "CD",
+            "CF"
+          ],
+          "regions": [
+            "Congo River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+          "countries": [],
+          "regions": [
+            "Kasai",
+            "Ubangi",
+            "Lefini",
+            "Tshuapa",
+            "Lomami"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5210826,
+      "total": 125,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "CD",
+          89
+        ],
+        [
+          "CG",
+          35
+        ],
+        [
+          "CF",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -5.625,
+          21,
+          21
+        ],
+        [
+          14.0625,
+          -4.21875,
+          26,
+          26
+        ],
+        [
+          14.0625,
+          0,
+          3,
+          3
+        ],
+        [
+          15.46875,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          15.46875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          15.46875,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          15.46875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          16.875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          18.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -1.40625,
+          12,
+          12
+        ],
+        [
+          19.6875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          19.6875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          19.6875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          22.5,
+          0,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          23.90625,
+          0,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          1.40625,
+          13,
+          13
+        ],
+        [
+          23.90625,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          30.9375,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -14,6 +14,105 @@
     "china",
     "hainan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "VN",
+        "CN"
+      ],
+      "regions": [
+        "Red River",
+        "Nam Xam",
+        "Nam Ma",
+        "Hainan Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Acrossocheilus iridescens is a barred cyprinid known from Laos, northern Vietnam, Yunnan province in southwestern China and Hainan Island.",
+          "countries": [
+            "LA",
+            "VN",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known from the Nam Xam and Nam Ma basins in Laos, the Red River basin in Vietnam and Yunnan province, southwestern China, plus Hainan Island, although some populations are of questionable taxonomic status.",
+          "countries": [],
+          "regions": [
+            "Red River",
+            "Nam Xam",
+            "Nam Ma"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Nodoa, Hainan Island, China', and the species sensu stricto may actually be restricted to Hainan.",
+          "countries": [],
+          "regions": [
+            "Hainan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366427,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VN",
+          6
+        ],
+        [
+          "FR",
+          2
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -4.21875,
+          47.8125,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          22.5,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
