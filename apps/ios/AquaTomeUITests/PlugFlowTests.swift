@@ -7,10 +7,14 @@ import XCTest
 final class PlugFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
+  // The keys are set up once, in Bể của tôi's list: a tank says nothing of plugs until there are some.
   func testSetsUpTheTuyaKeysChecksThemAndRemovesThem() {
     let app = launch(keys: false)
-    XCTAssertTrue(element(app, "plugs-intro").waitForExistence(timeout: 5), "no word on what plugs need")
-    XCTAssertFalse(element(app, "add-plug").exists)
+    XCTAssertTrue(reveal(app, app.buttons["delete"]).exists, "the end of the tank not reached")
+    XCTAssertFalse(element(app, "plugs-header").exists, "plugs on a tank without keys")
+    XCTAssertFalse(element(app, "plug-setup").exists, "the keys set up from a tank")
+    back(app)
+    XCTAssertTrue(reveal(app, element(app, "plugs-intro")).exists, "no word on what plugs need")
     XCTAssertFalse(element(app, "apple-sign-in").exists, "an AquaTome account asked for")
     tap(app, "plug-setup")
     // Wrong keys: said so, not kept.
@@ -26,16 +30,23 @@ final class PlugFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "keys-saved").waitForExistence(timeout: 5))
     XCTAssertEqual(element(app, "keys-saved").label, "Đã lưu khóa của một dự án ở Tây Mỹ (Western America).")
     app.buttons["setup-done"].tap()
-    XCTAssertTrue(element(app, "add-plug").waitForExistence(timeout: 5), "the tank doesn't offer the plugs")
+    XCTAssertFalse(element(app, "plugs-intro").waitForExistence(timeout: 2), "still saying what plugs need")
+    openTank(app)
+    XCTAssertTrue(reveal(app, element(app, "add-plug")).exists, "the tank doesn't offer the plugs")
+    back(app)
     // Removed: back to setting up; nothing on the tank is lost.
     tap(app, "plug-setup")
-    tap(app, "remove-keys")
+    let remove = reveal(app, element(app, "remove-keys"))
+    remove.tap()
     let confirm = app.buttons["confirm-remove-keys"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5))
+    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 250, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(waitGone(element(app, "keys-saved")), "the keys weren't removed")
     app.buttons["setup-done"].tap()
-    XCTAssertTrue(element(app, "plugs-intro").waitForExistence(timeout: 5))
+    XCTAssertTrue(reveal(app, element(app, "plugs-intro")).exists)
+    openTank(app)
+    XCTAssertTrue(reveal(app, app.buttons["delete"]).exists, "the end of the tank not reached")
     XCTAssertFalse(element(app, "add-plug").exists)
   }
 
@@ -171,9 +182,12 @@ final class PlugFlowTests: XCTestCase {
     let app = launch()
     addPlug(app, "Ổ cắm bể 60")
     tap(app, "edit-plug")
-    tap(app, "remove-plug")
+    let remove = reveal(app, element(app, "remove-plug"))
+    remove.tap()
     let confirm = app.buttons["confirm-remove-plug"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
+    // It pointed at the top of the form, far from the button tapped at its end.
+    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 250, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(element(app, "add-plug").waitForExistence(timeout: 5))
     XCTAssertFalse(element(app, "plug-name").exists, "still on the tank")
@@ -199,11 +213,19 @@ final class PlugFlowTests: XCTestCase {
       field.typeText("Bể 60")
       app.buttons["save"].tap()
     }
-    let tank = app.buttons["tank"].firstMatch
-    XCTAssertTrue(tank.waitForExistence(timeout: 5), "no tank")
-    tank.tap()
+    openTank(app)
     return app
   }
+
+  /// From Bể của tôi's list, the tank's screen.
+  private func openTank(_ app: XCUIApplication) {
+    let tank = app.buttons["tank"].firstMatch
+    XCTAssertTrue(tank.waitForExistence(timeout: 5), "no tank")
+    if !tank.isHittable { repeatUntil(tank.isHittable, times: 4) { app.swipeDown() } }
+    tank.tap()
+  }
+
+  private func back(_ app: XCUIApplication) { app.navigationBars.buttons.element(boundBy: 0).tap() }
 
   /// Puts one of the project's plugs on the tank, maybe with roles, and saves it.
   private func addPlug(_ app: XCUIApplication, _ name: String, roles: [String: String] = [:], save: Bool = true) {

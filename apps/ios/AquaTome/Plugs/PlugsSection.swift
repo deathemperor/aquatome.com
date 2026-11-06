@@ -4,34 +4,32 @@ import Tanks
 
 /// "Ổ cắm" on a tank (docs/smart-plugs.md): the reader's Smart Life strips put on it, each outlet named for what it
 /// powers, with its switch. What a switch shows is what the plug last reported (`PlugBoard`), never what was asked; the
-/// records on the tank hold no state. The plugs are reached with the reader's own Tuya project keys, set up once.
+/// records on the tank hold no state. The plugs are reached with the reader's own Tuya project keys, set up once for
+/// every tank (`PlugKeysSection`): a tank shows its plugs only once there are keys, or plugs put on it before.
 struct PlugsSection: View {
   let tank: Tank
   @Environment(PlugsModel.self) private var plugs
   @Environment(TanksModel.self) private var tanks
   @State private var adding = false
-  @State private var settingUp = false
 
   var body: some View {
-    Section {
-      ForEach(tanks.plugs(in: tank)) { d in PlugRows(device: d) }
-      if plugs.dataCenter == nil {
-        Text("Bật tắt ổ cắm Smart Life ngay trên bể, bằng dự án Tuya của riêng bạn: không cần tài khoản AquaTome.")
-          .foregroundStyle(.secondary)
-          .accessibilityIdentifier("plugs-intro")
-      } else {
-        status
-        if let l = plugs.board.list, !l.plugs.isEmpty {
-          Button("Thêm ổ cắm") { adding = true }
-            .accessibilityIdentifier("add-plug")
-            .sheet(isPresented: $adding) { AddPlug(tankId: tank.id) }
+    let on = tanks.plugs(in: tank)
+    if plugs.dataCenter != nil || !on.isEmpty {
+      Section {
+        ForEach(on) { d in PlugRows(device: d) }
+        if plugs.dataCenter == nil {
+          Text("Chưa có khóa Tuya: thiết lập ở cuối danh sách Bể của tôi.").foregroundStyle(.secondary).accessibilityIdentifier("plugs-no-keys")
+        } else {
+          status
+          if let l = plugs.board.list, !l.plugs.isEmpty {
+            Button("Thêm ổ cắm") { adding = true }
+              .accessibilityIdentifier("add-plug")
+              .sheet(isPresented: $adding) { AddPlug(tankId: tank.id) }
+          }
         }
+      } header: {
+        Text("Ổ cắm").accessibilityIdentifier("plugs-header")
       }
-      Button(plugs.dataCenter == nil ? String(localized: "Thiết lập ổ cắm") : String(localized: "Khóa Tuya")) { settingUp = true }
-        .accessibilityIdentifier("plug-setup")
-        .sheet(isPresented: $settingUp) { PlugSetup() }
-    } header: {
-      Text("Ổ cắm").accessibilityIdentifier("plugs-header")
     }
   }
 
@@ -43,6 +41,27 @@ struct PlugsSection: View {
       if l.plugs.isEmpty { Text(PlugProblem.empty(l)).foregroundStyle(.secondary).accessibilityIdentifier("plugs-problem") }
     } else if plugs.board.loading {
       HStack { ProgressView(); Text("Đang đọc ổ cắm…").foregroundStyle(.secondary) }
+    }
+  }
+}
+
+/// The Tuya keys, once for every tank: in Bể của tôi's list, with the account.
+struct PlugKeysSection: View {
+  @Environment(PlugsModel.self) private var plugs
+  @State private var settingUp = false
+
+  var body: some View {
+    Section {
+      Button(plugs.dataCenter == nil ? String(localized: "Thiết lập ổ cắm") : String(localized: "Khóa Tuya")) { settingUp = true }
+        .accessibilityIdentifier("plug-setup")
+        .sheet(isPresented: $settingUp) { PlugSetup() }
+    } header: {
+      Text("Ổ cắm thông minh")
+    } footer: {
+      if plugs.dataCenter == nil {
+        Text("Bật tắt ổ cắm Smart Life ngay trên bể, bằng dự án Tuya của riêng bạn: không cần tài khoản AquaTome.")
+          .accessibilityIdentifier("plugs-intro")
+      }
     }
   }
 }
