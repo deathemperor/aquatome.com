@@ -84,19 +84,16 @@ jobs:
             fi
           fi
       # Where jobs `kit`, `app`, `handbook` and `lights` run: the repository's own Mac (label `aquatome`,
-      # apps/ios/README.md) for main (a push, the nightly run, a run by hand) and for pull requests its owner opened from
-      # this repository's own branches, while the repository variable IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise.
-      # The Mac has two runners (aquatome-mac-1 and -2, each with its own simulator), so its jobs take turns two at a
-      # time. Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of this file,
-      # so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
+      # apps/ios/README.md) for main (a push, the nightly run, a run by hand) while the repository variable
+      # IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise, and always for pull requests, which then have GitHub's five
+      # Macs to themselves. A job can't take whichever Mac is free: runs-on names one kind. The Mac runs one job at a time
+      # (aquatome-mac-1). Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of
+      # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
       - id: where
         env:
           LOCAL: >-
-            ${{ vars.IOS_LOCAL_RUNNER == 'on' &&
-            ((github.ref == 'refs/heads/main' && contains(fromJSON('["push", "schedule", "workflow_dispatch"]'),
-            github.event_name)) ||
-            (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository &&
-            github.event.pull_request.user.login == github.repository_owner)) }}
+            ${{ vars.IOS_LOCAL_RUNNER == 'on' && github.ref == 'refs/heads/main' &&
+            contains(fromJSON('["push", "schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           if [ "$LOCAL" = true ]; then echo 'runner=["self-hosted","macOS","aquatome"]'; else echo 'runner="macos-26"'; fi |
             tee -a "$GITHUB_OUTPUT"

@@ -212,25 +212,31 @@ would have.
 
 ## CI's own Mac
 
-Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
-`aquatome`) for main (after merges, the nightly run and a run by hand) and for pull requests its owner opens from this
-repository's own branches. GitHub's Macs keep everything else: a fork's or a bot's pull request (the automatic fixes'),
-and job `perf` (its budgets are GitHub's Macs' readings). The Mac has two runners, `aquatome-mac-1` and
-`aquatome-mac-2`, each running one job at a time, so the jobs take turns two at a time.
+Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (a self-hosted runner, label
+`aquatome`) for main: after merges, the nightly run and a run by hand. GitHub's Macs keep every pull request, which then
+have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). One runner runs,
+`aquatome-mac-1`, one job at a time: that Mac is also someone's working machine, and two runners with pull requests on
+them overloaded it on 2026-11-05. Its service has `Nice` 10, which reaches its builds but not the simulator's processes:
+launchd starts those, at normal priority. `aquatome-mac-2` stays registered, stopped and disabled, so a reboot doesn't
+start it (`launchctl disable gui/$(id -u)/actions.runner.deathemperor-aquatome.com.aquatome-mac-2`). A full run on main
+takes hours on one runner; of the runs waiting, only the newest is kept.
 
-The runners run as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
-the workflows, which can name the label. What keeps others' code off the Mac is each runner's job-started hook
+The runner runs as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
+the workflows, which can name the label. What keeps others' code off the Mac is the runner's job-started hook
 (`ACTIONS_RUNNER_HOOK_JOB_STARTED` in its `.env`, a script outside the repository): any job but one of main's (a push,
-the nightly run, a run by hand) or a pull request from the owner off one of this repository's branches fails before its
-first step. Approving an outside contributor's run (required for every one, by the repository's Actions setting) runs
+the nightly run, a run by hand) fails before its first step, and so does any job with under 40 GB free on that Mac. Its
+job-completed hook (`ACTIONS_RUNNER_HOOK_JOB_COMPLETED`) deletes the job's `build/`, so builds and test results don't
+pile up. Approving an outside contributor's run (required for every one, by the repository's Actions setting) runs
 their workflows, on GitHub's Macs if the hook holds; read them first.
 
 - Off, when the Mac is away or asleep: `gh variable set IOS_LOCAL_RUNNER --body off`. New runs then go to GitHub's Macs;
   runs already queued for the Mac wait for it. "Re-run failed jobs" keeps where the jobs ran: re-run all jobs instead.
   `--body on` brings them back.
 - The runners: each in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
-  (`./svc.sh install && ./svc.sh start`), their hook in `~/actions-runner/hooks/`. The Mac must not sleep. They build
-  with that Mac's own Xcode, which can be newer than GitHub's.
+  (`./svc.sh install && ./svc.sh start`; `install` writes the plist anew, so add `Nice` again after it), their hooks in
+  `~/actions-runner/hooks/`. The Mac must not sleep. They build with that Mac's own Xcode, which can be newer than
+  GitHub's, the one TestFlight's builds use: main can fail what a pull request's run passed, or pass what the shipped
+  build gets wrong.
 - Their simulators: one each, `aquatome-ci-1` for `aquatome-mac-1` and `aquatome-ci-2` for `aquatome-mac-2`, made with
   `xcrun simctl create aquatome-ci-<n> "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its id in that
   runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first, points
