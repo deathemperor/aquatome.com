@@ -253,7 +253,7 @@ struct NativePage: View {
       return .handled
     default:
       let u = url.scheme == nil ? URL(string: url.relativeString, relativeTo: handbook.site)?.absoluteURL ?? url : url
-      if let screen = AppScreen.of(u, site: handbook.site, listed: { handbook.item(at: $0) != nil },
+      if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
                                    group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
         openScreen(screen)
         return .handled

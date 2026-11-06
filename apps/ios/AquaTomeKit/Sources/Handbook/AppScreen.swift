@@ -12,6 +12,9 @@ public enum AppScreen: Equatable, Sendable {
   case tankVolume(String?)
   /// The fish-ID tool: the app's own screen for it, which asks as the reader's account.
   case fishId
+  /// The tank-mates tool, with the fish and tank its link sets (`ca=ca-neon:6&l=60&w=30&h=36`, TankMatesLink), if any:
+  /// the app's own screen, on the tab in front.
+  case tankMates(String?)
   /// A page the app index lists, by its path ("/vi/ca/ca-neon/"): the app's screen for it, on the tab in front.
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
@@ -19,8 +22,10 @@ public enum AppScreen: Equatable, Sendable {
 
   /// The screen `url` is, if it's one of these pages on `site`, in any of the site's languages (Vietnamese under "/vi/"
   /// or at the root, PathForm); with `listed` (whether the app index has a path, as the link gives it), also any other
-  /// page the index lists; with `group` (whether the app has fish of a group), also those groups' pages.
-  public static func of(_ url: URL, site: URL, listed: (String) -> Bool = { _ in false }, group: (String) -> Bool = { _ in false }) -> AppScreen? {
+  /// page the index lists; with `group` (whether the app has fish of a group), also those groups' pages. `lang`: the
+  /// index's language, whose pages' names a link to the tank-mates tool must use to set its fish.
+  public static func of(_ url: URL, site: URL, lang: String? = nil, listed: (String) -> Bool = { _ in false },
+                        group: (String) -> Bool = { _ in false }) -> AppScreen? {
     guard ["http", "https"].contains(url.scheme?.lowercased() ?? ""), bare(url.host) == bare(site.host) else { return nil }
     // The site's Vietnamese is at its root ("/ca/ca-neon/"), and its old /vi/ form still leads there (PathForm): matched
     // as the /vi/ form.
@@ -36,9 +41,15 @@ public enum AppScreen: Equatable, Sendable {
       return .tankVolume(url.query(percentEncoded: true).flatMap { $0.isEmpty ? nil : $0 })
     case "vi/cong-cu/nhan-dien-ca", "id/alat/kenali-ikan", "th/tools/fish-id":
       return .fishId
+    case "vi/cong-cu/nuoi-chung", "id/alat/kecocokan-ikan", "th/tools/tank-mates":
+      // Its fish are named by their pages' names in the link's language ("neon-tetra" in Indonesian, "ca-neon" in
+      // Vietnamese): a link that names fish in another language than the index's is the web page, which knows them.
+      let fish = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.contains { $0.name == "ca" && $0.value?.isEmpty == false }
+      if let lang, parts.first != lang, fish == true { return nil }
+      return .tankMates(url.query(percentEncoded: true).flatMap { $0.isEmpty ? nil : $0 })
     default:
-      // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
-      // app shows it: the web takes it whole.
+      // A link asking for more than the page (the tools page set to a tank, `?l=60&w=30&h=36`) isn't the page as the app
+      // shows it: the web takes it whole.
       guard url.query == nil else { return nil }
       if let g = Self.group(parts), group(g) { return .group(g) }
       // The index's paths end in "/", as the site's pages do; a link may leave it off. The page as the index lists it, in

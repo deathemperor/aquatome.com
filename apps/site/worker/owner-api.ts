@@ -10,8 +10,7 @@ import { approveByOwner, photosLive, removePhoto } from './photos'
 /**
  * The owner's dashboard as JSON, for the iOS app to draw natively (protocols/owner-dashboard.openapi.json): the
  * overview's to-dos and areas, each /_ab/ page as blocks (from the same load as the page, dashboard.ts), and the pages'
- * actions; and the daily report's delivery and the phones it notifies (daily/settings.ts, daily/push.ts;
- * docs/contracts/owner-push.md until the contract has them). Only the owner's app session, as a bearer, opens it.
+ * actions; and the daily report's delivery and the phones it notifies (daily/settings.ts, daily/push.ts). Only the owner's app session, as a bearer, opens it.
  * Without a live app session (none, one that ended, a web session's token, the dashboard token, the cookie): 401
  * signed_out, as the accounts API says it. Another account's app: 404, as for a path that isn't there. That check comes
  * first, so nobody else learns the paths. A part that throws (D1, KV, R2) is 503 unavailable. Never stored, never indexed.

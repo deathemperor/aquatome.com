@@ -61,6 +61,15 @@ final class AccountModel {
   @ObservationIgnored private(set) lazy var owner = OwnerAccess(send: api.send, session: { [unowned self] in
     user.flatMap { u in token.map { (u.id, $0) } }
   }, ended: { [unowned self] in sessionEnded() })
+  /// The daily report's notifications on this phone, for the owner's account (OwnerNotifications).
+  @ObservationIgnored private(set) lazy var push = OwnerPush(owner: owner, environment: Self.apns)
+  /// The APNs a build's token is from: a debug build's (Xcode, development signing) the sandbox's; TestFlight's and the
+  /// App Store's, production's.
+  #if DEBUG
+  static let apns = "sandbox"
+  #else
+  static let apns = "production"
+  #endif
 
   init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), google: GoogleSignIn = SystemGoogleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
     self.tanks = tanks
@@ -375,6 +384,8 @@ final class AccountModel {
     guard let token, !working else { return }
     working = true
     defer { working = false }
+    // While the session holds: the site stops sending the owner's notifications to this phone.
+    await push.signingOut()
     do {
       try await api.signOut(token: token)
     } catch AccountError.signedOut {
@@ -402,6 +413,7 @@ final class AccountModel {
         return
       }
     }
+    await push.signingOut()
     do {
       try await api.deleteAccount(token: token, appleCode: code)
       forget()

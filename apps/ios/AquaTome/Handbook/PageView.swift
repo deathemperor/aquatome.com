@@ -38,7 +38,7 @@ struct PageView: View {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-        WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+        WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
           // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
           .accessibilityIdentifier("page")
           .ignoresSafeArea(edges: .bottom)
@@ -118,13 +118,14 @@ struct PageView: View {
 /// as a tool set to a fish): the web page, kept for offline as any is.
 struct WebScreen: View {
   let url: URL
+  @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Environment(\.openScreen) private var openScreen
   @State private var offline = false
   @State private var failed = false
 
   var body: some View {
-    WebPage(url: url, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+    WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
       .accessibilityIdentifier("page")
       .ignoresSafeArea(edges: .bottom)
       .navigationBarTitleDisplayMode(.inline)
@@ -144,6 +145,8 @@ struct WebScreen: View {
 
 private struct WebPage: UIViewRepresentable {
   let url: URL
+  /// The index's language, for a link to a tool whose state names its pages (AppScreen.of).
+  let lang: String
   @Binding var offline: Bool
   @Binding var failed: Bool
   /// The app's tanks as JSON for the pages (nil: none to hand them), and what to do with a page's.
@@ -236,7 +239,7 @@ private struct WebPage: UIViewRepresentable {
       case .app:
         // A tapped link to "Bể của tôi" (the tools' "Xem trong Bể của tôi →" after a save) or the Chihiros page: the app's
         // own tab. Only a tap: the page's first load, back and reload stay as they are.
-        if action.targetFrame?.isMainFrame == true, action.navigationType == .linkActivated, let screen = AppScreen.of(u, site: page.url) {
+        if action.targetFrame?.isMainFrame == true, action.navigationType == .linkActivated, let screen = AppScreen.of(u, site: page.url, lang: page.lang) {
           page.open(screen)
           return .cancel
         }
