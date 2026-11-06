@@ -4,6 +4,7 @@ import { soft, unset } from '../admin/shell'
 import { HOME_TZ } from '../admin/time'
 import { readCapped } from '../comments/api'
 import { ae, bearerOk, liveOwnerApps, loadOverview, loadScoreboard, type AdminEnv } from '../dashboard'
+import { addChanges } from './changelog'
 import { compose, type Composed } from './compose'
 import { parseGitHubSide, type GitHubSide } from './github'
 import { getReport, putReport, type Report } from './log'
@@ -14,7 +15,8 @@ import { getSettings } from './settings'
  * POST /_ab/report, from daily-report.yml with the dashboard token (anyone else: 404, as the other admin routes): GitHub's
  * half of the owner's daily report. The Worker adds the site's and the app's numbers from the dashboard's loaders,
  * composes it, sends it as the owner set (daily/settings.ts): mailed to the secret REPORT_TO, and a notification to the
- * owner's phones (daily/push.ts). It keeps it in the log (daily/log.ts) either way, with what went out. The address is
+ * owner's phones (daily/push.ts). It keeps it in the log (daily/log.ts) either way, with what went out, and adds the
+ * day's product changes to the change log (daily/changelog.ts) before anything goes out. The address is
  * never logged, stored or answered: a refused send is logged by its code, as accounts/mailer.ts does.
  *
  * The workflow's run id is the idempotency key. A mail or a push once sent is never sent again; one refused goes out on
@@ -100,6 +102,8 @@ export async function dailyReportRoute(req: Request, url: URL, env: DailyEnv, no
     const report = kept
       ? { when: kept.when, subject: kept.subject, text: kept.text, html: kept.html, care: kept.care, ...(kept.first ? { first: kept.first } : {}) }
       : { when: now.toISOString(), ...(await composeNow(env, url, now, gh)) }
+    // Before the send: should it fail, the claim is released and the job's next try writes it, then sends.
+    await addChanges(env.AB, gh.changes, now)
     const mail = kept?.sent ? { sent: true } : mailDue ? await deliver(env, report) : { sent: false, why: 'email_off' }
     mailed = mailDue && mail.sent
     const push: PushOutcome = pushedBefore ? kept!.push! : pushDue ? await pushReport(env, env.AB, report, id, now, ids => liveOwnerApps(env, ids, now)) : { sent: 0, why: 'push_off' }
