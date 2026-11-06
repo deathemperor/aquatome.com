@@ -307,6 +307,26 @@ The layers above still check the result.
 
 - **Reviewed writing.** Each translation or guide is scored by a second model call against its source. A low score gets
   one rewrite with the notes; still low, the page is published but kept out of search (`quality.indexable`).
+  - **Every review leaves its trace** (`packages/engine/src/review-log.ts`): its kind, the page, its language, the date,
+    the reviewer's model, the score, the notes, which attempt (the first version, the rewrite, or a recheck of the page
+    as it is) and whether that version is the one on the page, in `engine-state/reviews/<kind>.json`. A page's newest
+    6 are kept, newest first. One key a page (and source, for a species' text from each), and each kind is one step's,
+    so the engine's parts and the video job never change one key and the files merge through the jsonmap driver.
+    Wired into every reviewer: video guides, source translations, the style rewrite, the reader's rewrites, title
+    rewrites, breed pages, AquaTome's guides, product pages and their review summaries, quick summaries, and the
+    Indonesian and Thai species, plant, glossary, place and equipment pages. The photo checks keep their own verdicts.
+  - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
+    `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
+    run (under the bar, or any note for the pages checked against their research).
+  - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
+    each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
+    What prompt fixes start from.
+  - **Pages reviewed before traces were kept** get theirs from `pnpm engine review-backfill`: a recheck of the page as
+    it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (video guides in the video job, the
+    owner's videos first; Vietnamese translations per source, Indonesian and Thai pages and place names in the rewrite
+    part). A guide translated from a source keeps no English to check against: it gets its notes when it is next
+    translated. Found by the owner (2026-11-06): their video guide scored 0.60 and nobody could say why; 175 of 471
+    video guides were in the same state.
 - **Page depth.** A species page made only from a shop listing, a dealer's note or a stub is thin. It is published but
   kept out of search (`quality.indexable` false, `quality.reason: "thin"`) until it is deep (`packages/schema/src/depth.ts`):
   - **deep** means it has an in-depth source, or it reaches the bar on its own:

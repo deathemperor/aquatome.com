@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { loadAll, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, SummarySchema, type DataCardField, type Localized, type Range, type SpeciesEntity, type Summary } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { nativeTo } from './localize'
+import { logReviews, type Review } from './review-log'
 import { shopIds } from './shops'
 
 const TEMPLATE = readFileSync(new URL('./prompts/summary.md', import.meta.url), 'utf8')
@@ -183,10 +184,13 @@ export async function draftSummaries(contentRoot: string, llm: Llm, opts: { top:
     }
     let draft = await write()
     let problems = await check(draft)
-    if (problems.length) { draft = await write({ draft, problems }); problems = await check(draft) }
+    // The check passes or fails: 1 or 0, its problems the notes.
+    const tries: Review[] = [{ score: problems.length ? 0 : 1, notes: problems }]
+    if (problems.length) { draft = await write({ draft, problems }); problems = await check(draft); tries.push({ score: problems.length ? 0 : 1, notes: problems }) }
     const base = { id: s.id, ...draft, speciesUpdatedAt: s.updatedAt, generatedAt: opts.now().toISOString() }
     if (problems.length) { await save(contentRoot, { ...base, review: 'pending', problems }); report.pending.push({ id: s.id, problems }) }
     else { await save(contentRoot, { ...base, review: 'approved' }); report.approved.push(s.id) }
+    await logReviews(dirname(contentRoot), 'summary', { id: `species/${s.id}`, lang: 'vi' }, tries, tries.at(-1), { now: opts.now() })
   }
 
   let next = 0
