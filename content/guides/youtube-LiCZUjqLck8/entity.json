@@ -1,0 +1,81 @@
+{
+  "id": "youtube-LiCZUjqLck8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=LiCZUjqLck8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "marsilea-hirsuta",
+    "heteranthera-zosterifolia",
+    "micranthemum-tweediei-monte-carlo",
+    "vesicularia-ferriei",
+    "micranthemum-umbrosum",
+    "rotala-rotundifolia",
+    "ludwigia-repens"
+  ],
+  "updatedAt": "2026-11-06",
+  "video": {
+    "youtubeId": "LiCZUjqLck8",
+    "title": "CO2 vs NO CO2 🍀 LET'S PUT IT TO THE TEST!! TWIN SCAPE EXPERIMENT",
+    "channel": "MJ Aquascaping",
+    "channelUrl": "https://www.youtube.com/channel/UCZt0DA238-CmgriSgjeTjUA",
+    "durationSec": 1058,
+    "publishedAt": "2021-08-31",
+    "chapters": [],
+    "series": {
+      "id": "PLrlvf56gZy-g8jUtOn5CEwL7LpxvgP5p-",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/LiCZUjqLck8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Marsilea hirsuta",
+      "Heteranthera zosterifolia",
+      "Micranthemum tweediei",
+      "Hygrophila sp.",
+      "Vesicularia ferriei",
+      "Micranthemum umbrosum",
+      "Rotala rotundifolia",
+      "Ludwigia repens"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 132
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "A series",
+        "t": 132
+      },
+      {
+        "category": "co2",
+        "t": 14
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Aquario",
+        "model": "Neo Soil",
+        "t": 294
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 361
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 915
+      }
+    ]
+  }
+}

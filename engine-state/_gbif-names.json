@@ -20388,5 +20388,98 @@
     "family": "Prochilodontidae",
     "genus": "Semaprochilodus",
     "matchType": "EXACT"
-  }
+  },
+  "Amaralia oviraptor": {
+    "canonicalName": "Amaralia oviraptor",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Amaralia",
+    "matchType": "EXACT"
+  },
+  "Asolene spixi": {
+    "canonicalName": "Asolene spixii",
+    "order": "Architaenioglossa",
+    "family": "Ampullariidae",
+    "genus": "Asolene",
+    "matchType": "FUZZY"
+  },
+  "Batrochoglanis raninus": {
+    "canonicalName": "Batrochoglanis raninus",
+    "order": "Siluriformes",
+    "family": "Pseudopimelodidae",
+    "genus": "Batrochoglanis",
+    "matchType": "EXACT"
+  },
+  "Brotia pagodula": {
+    "canonicalName": "Brotia pagodula",
+    "family": "Pachychilidae",
+    "genus": "Brotia",
+    "matchType": "EXACT"
+  },
+  "Dianema longibarbus": {
+    "canonicalName": "Dianema longibarbis",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Dianema",
+    "matchType": "FUZZY"
+  },
+  "Farlowella oxyrryncha": {
+    "canonicalName": "Farlowella oxyrryncha",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Farlowella",
+    "matchType": "EXACT"
+  },
+  "Hybopsis rubricroceus": {
+    "canonicalName": "Notropis rubricroceus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Notropis",
+    "matchType": "EXACT"
+  },
+  "Largescale rasbora": null,
+  "Marisa cornuarietis": {
+    "canonicalName": "Marisa cornuarietis",
+    "order": "Architaenioglossa",
+    "family": "Ampullariidae",
+    "genus": "Marisa",
+    "matchType": "EXACT"
+  },
+  "Neosarmatium meinerti": {
+    "canonicalName": "Neosarmatium meinerti",
+    "order": "Decapoda",
+    "family": "Sesarmidae",
+    "genus": "Neosarmatium",
+    "matchType": "EXACT"
+  },
+  "Neritodryas cornea": {
+    "canonicalName": "Neritodryas cornea",
+    "order": "Cycloneritida",
+    "family": "Neritidae",
+    "genus": "Neritodryas",
+    "matchType": "EXACT"
+  },
+  "Noturus hildebrandi": {
+    "canonicalName": "Noturus hildebrandi",
+    "order": "Siluriformes",
+    "family": "Ictaluridae",
+    "genus": "Noturus",
+    "matchType": "EXACT"
+  },
+  "Pacifastacus leniusculus": {
+    "canonicalName": "Pacifastacus leniusculus",
+    "order": "Decapoda",
+    "family": "Astacidae",
+    "genus": "Pacifastacus",
+    "matchType": "EXACT"
+  },
+  "Planorbarius corneus": {
+    "canonicalName": "Planorbarius corneus",
+    "family": "Planorbidae",
+    "genus": "Planorbarius",
+    "matchType": "EXACT"
+  },
+  "Sau giai": null,
+  "Trong khoa": null,
+  "Xen nhi": null
 }

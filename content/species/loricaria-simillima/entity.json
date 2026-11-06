@@ -15,7 +15,8 @@
     "peru",
     "brazil",
     "paraguay",
-    "argentina"
+    "argentina",
+    "canelos"
   ],
   "dataCard": {
     "tempC": [
@@ -31,6 +32,13 @@
         "value": {
           "min": 24,
           "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
         }
       }
     ],
@@ -48,6 +56,13 @@
           "min": 5.6,
           "max": 7.8
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
@@ -58,6 +73,10 @@
       {
         "source": "seriouslyfish",
         "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 25
       }
     ],
     "gh": [
@@ -73,6 +92,10 @@
       {
         "source": "seriouslyfish",
         "value": 75
+      },
+      {
+        "source": "scotcat",
+        "value": 120
       }
     ],
     "difficulty": [
@@ -202,6 +225,48 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
       "html": "<p>The pictures here show the fish that is most commonly referred to as L. simillima, but there is a great deal of uncertainty surrounding its true identity. As suggested above, it seems unlikely that its natural distribution is so wide, and we are probably dealing with several species or subspecies. This argument is strengthened by the fact that several differently coloured fish are imported as this species, with darker specimens being collected from acidic blackwaters and lighter fish hailing from sediment-rich whitewater habitats. Furthermore, it is unclear as to what the original holotype of the species actually looks like, as the description is basic to say the least. Unfortunately the type specimens are now very old and have lost their patterning. These were collected from an isolated river in Ecuador that does not link to any other river system and where collection for the trade never occurs. All this means that the species shown here is quite possibly not L. simillima at all! Thankfully despite all the confusion the fish makes a great aquarium subject, and its fascinating parental care makes it an ideal choice for a breeding project.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (IUCN 2023). Despite the little information available on this species, it has a wide range and no apparent threats.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>South America: Amazon, Orinoco and La Plata River basins. Type locality: Canelos, e. Ecuador.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>As this species grows to 25 cm, a large aquarium of around 120 cm is required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>Soft substrate such as sand is beneficial. A common Loricariid in the hobby which is not too difficult to keep.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>Breeding is similar to other members of the genus (read more in Evers, H.-G. &amp; I. Seidel, see reference).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>This genus is identified by the teeth of the upper mandible being twice as long as the lower mandible. The upper lip is short, its edge covered by numerous thin, simple, bifurcate or, more rarely, trifurcate barbels. The lower lip has small papillae with long filaments along the edge. The leading ray of the pectoral fins is longer and the upper first spine of the caudal fin is extended. This species is very similar to Loricaria cataphracta from the Guyana highlands and Loricaria lata.</p><p>Etymology: the specific name simillima is Latin for very similar, as it was described as similar to L. cataphracta.</p><p>This genus can sometimes be difficult to identify to species. Depending on the catchment area there may be differences in colouration and markings. There is a similar species from the Rio Atabapo, a river dividing Venezuela and Colombia, which has not been described yet and goes under the name Loricaria sp. \"Rio Atabapo\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<ul><li>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. P.944.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Salvador, G.N. 2023. Loricaria simillima. The IUCN Red List of Threatened Species 2023.</li></ul>"
     }
   ],
   "photos": [
@@ -228,7 +293,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "j8VI-Ayx-GQ",
+      "title": "🐟 Loricaria simillima",
+      "durationSec": 10,
+      "lang": "cs"
+    },
+    {
+      "youtubeId": "FpG6JlhiucY",
+      "title": "Loricaria Spawning Times Two",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tj6HnfDDGFw",
+      "title": "Loricaria simillima.",
+      "durationSec": 235,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "jxLWjUVLY7g",
+      "title": "Vatoz Vlog #52 (Loricaria Simillima Yumurtladı)",
+      "durationSec": 621,
+      "lang": "tr"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

@@ -1,16 +1,20 @@
 {
   "slug": "ca-tre-lun-tridensimilis-brevis",
   "name": "Cá trê lùn Tridensimilis brevis",
-  "altNames": [],
+  "altNames": [
+    "Cá mèo kính lùn",
+    "Dwarf glass cat"
+  ],
   "sections": {
-    "quickFacts:glaser": "<p>Đây là một loài cá da trơn lùn bé xíu, bơi tự do và rất dễ thương. Cá trưởng thành chỉ dài tối đa 2-3 cm.</p>",
-    "distribution:glaser": "<p>Cá nhập về đều có nguồn gốc từ Paraguay.</p>"
+    "quickFacts:glaser": "<p>Tridensimilis brevis là một loài cá mèo thủy tinh lùn rất dễ thương. Cá bơi tự do giữa tầng nước và dài tối đa 3 cm. Nó cùng họ hàng với cá candiru khét tiếng, nhưng bản thân nó hoàn toàn không hút máu. Con cá da trơn tí hon này trong đến mức bạn có thể nhìn thấy thức ăn đi từ miệng xuống tới hậu môn.</p>",
+    "distribution:glaser": "<p>Cá được nhập về từ Peru.</p>",
+    "behaviour:glaser": "<p>T. brevis nuôi chung với các loài tetra nhỏ mà không gặp vấn đề gì. Tuy vậy, tốt nhất đừng thả cá chuột Corydoras chung bể với Tridensimilis, nhất là C. pygmaeus.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.8,
     "indexable": false,
     "bySource": {
-      "glaser": 0.9
+      "glaser": 0.8
     },
     "reason": "thin"
   }
