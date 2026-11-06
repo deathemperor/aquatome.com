@@ -5,6 +5,7 @@ import { prefersMarkdown } from '../markdown'
 import { gonePage } from '../hidden'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
+import { saveRun, type RunRecord } from '../fishid/transcript'
 import { LANGS } from '@aq/schema/langs'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
@@ -527,6 +528,47 @@ test("the iOS app's association: its passkeys are this site's (webcredentials), 
   expect(r.status).toBe(200)
   expect(r.headers.get('content-type')).toBe('application/json')
   expect(await r.json()).toEqual({ webcredentials: { apps: ['Q783W6B4FA.com.aquatome.app'] } })
+})
+
+test('fish-ID runs: the owner reads a day\'s list, one run\'s turns, and the day as JSON; a reader, the app and no one get none of it; a kept photo links its run', async () => {
+  const { db, owner, reader, app } = await signedIn()
+  const r2 = memoryR2()
+  const id = crypto.randomUUID()
+  const record: RunRecord = {
+    v: 1, id, at: '2026-11-03T10:00:00.000Z', lang: 'vi', from: 'page', model: 'm', outcome: 'ok', ms: 9000, cost: 0.03, tokens: { input: 9000, output: 400 },
+    agent: { calls: 2, tools: 1, photos: 1, stopped: 'answer', rechecked: true }, verdict: 'fish',
+    results: [{ scientificName: 'Betta macrostoma', commonName: 'Brunei beauty', confidence: 0.8, reason: 'Red <patch>.', page: 'betta-macrostoma' }],
+    turns: [{ thinking: 'A red betta.', tools: [{ name: 'get_entry', input: { id: 'betta-macrostoma' }, result: 'Betta macrostoma (species)', photos: ['https://media.aquatome.com/m-480.webp'] }] }, { text: '{"verdict":"fish"}', sent: 'Your top guess is only 0.45 sure.' }],
+  }
+  await saveRun(r2.bucket, record)
+  const kept = crypto.randomUUID()
+  await r2.bucket.put(`fish-id/anon/${kept}`, new Uint8Array([0xff, 0xd8, 1]), { customMetadata: { created: '2026-11-03T10:00:00.000Z', verdict: 'fish', guesses: '[]', model: 'm', lang: 'vi', run: id } })
+  const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', UPLOADS: r2.bucket } as Partial<Env>)
+  const as = (path: string, h: Record<string, string> = { ...browser, cookie: owner }) => handle(get(path, h), e)
+  const list = await (await as('/_ab/nhan-dien-ca/luot/?ngay=2026-11-03')).text()
+  expect(list).toContain(`href="/_ab/nhan-dien-ca/luot/2026-11-03/${id}/"`)
+  expect(list).toContain('<i class="sci">Betta macrostoma</i>')
+  expect(list).toContain('tự trả lời · xem lại một lần')
+  expect(list).toContain('href="/_ab/nhan-dien-ca/luot/2026-11-03.json"')
+  const one = await (await as(`/_ab/nhan-dien-ca/luot/2026-11-03/${id}/`)).text()
+  for (const said of ['A red betta.', '<code>get_entry</code>', 'https://media.aquatome.com/m-480.webp', 'Your top guess is only 0.45 sure.', 'Red &lt;patch&gt;.', 'xem lại một lần']) expect(one).toContain(said)
+  const json = await as('/_ab/nhan-dien-ca/luot/2026-11-03.json')
+  expect([json.status, json.headers.get('cache-control'), json.headers.get('x-robots-tag')]).toEqual([200, 'private, no-store', 'noindex, nofollow'])
+  expect(await json.json()).toEqual([record])
+  // The kept photo links its run.
+  expect(await (await as('/_ab/anh-nhan-dien/')).text()).toContain(`href="/_ab/nhan-dien-ca/luot/2026-11-03/${id}/"`)
+  for (const h of [browser, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }] as Record<string, string>[]) {
+    expect((await as('/_ab/nhan-dien-ca/luot/2026-11-03.json', h)).status).toBe(404)
+    for (const path of [`/_ab/nhan-dien-ca/luot/2026-11-03/${id}/`, '/_ab/nhan-dien-ca/luot/?ngay=2026-11-03']) {
+      const text = await (await as(path, h)).text()
+      expect(text).not.toContain('A red betta.')
+      expect(text).not.toContain(id)
+    }
+  }
+  // A run that isn't kept, or a path that isn't one: not found.
+  expect((await as(`/_ab/nhan-dien-ca/luot/2026-11-03/${crypto.randomUUID()}/`)).status).toBe(404)
+  expect((await as(`/_ab/nhan-dien-ca/luot/2026-11-3/${id}/`)).status).toBe(404)
+  expect((await as('/_ab/nhan-dien-ca/luot/2026-11-03/../../anh-nhan-dien/')).status).not.toBe(500)
 })
 
 test('kept fish-ID photos: only the owner sees them (the page, or the app\'s session), each image and its result, and deletes one; a reader gets nothing', async () => {
