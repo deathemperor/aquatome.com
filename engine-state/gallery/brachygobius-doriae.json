@@ -1,0 +1,34 @@
+{
+ "queue": [],
+ "judged": [
+  "inat:248579947",
+  "inat:248579954",
+  "inat:248579961",
+  "File:Brachygobius doriae.jpg",
+  "File:Brachygobius doriae in aquarium.jpg",
+  "File:Bumblebee goby (Brachygobius doriae).jpg",
+  "File:Doria-Goldringelgrundel (Tiergarten Nürnberg).jpg",
+  "File:Brachygobius doriae 248579947.jpg",
+  "File:Brachygobius doriae 248579954.jpg"
+ ],
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/9a27be470f738d6c.webp": "50c922a1e8c09bb9",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/248579947/large.jpg": "00005460240b3c00",
+  "https://upload.wikimedia.org/wikipedia/commons/a/ac/Brachygobius_doriae.jpg": "f3409a2ae8ec6bd4",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Brachygobius_doriae_in_aquarium.jpg/1280px-Brachygobius_doriae_in_aquarium.jpg": "5132aaa8ea73f28c",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Bumblebee_goby_%28Brachygobius_doriae%29.jpg/1280px-Bumblebee_goby_%28Brachygobius_doriae%29.jpg": "3b673b3b6b4b9baf"
+ },
+ "inat": {
+  "taxon": 187185,
+  "pass": "done",
+  "after": {
+   "research": 144788101,
+   "agree": 0
+  }
+ },
+ "commons": "2026-11-06",
+ "gbif": {
+  "key": 2377140,
+  "next": null
+ }
+}
