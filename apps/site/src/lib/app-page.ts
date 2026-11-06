@@ -25,7 +25,7 @@ import { QUESTION_LABELS } from './sections'
 import { seriesParts } from './series-page'
 import { speciesParts } from './species-page'
 import { commentsKey, photosKey } from './talk'
-import { clock } from './video'
+import { clock, guideChapters, watchUrl } from './video'
 
 /**
  * The app's copy of each content page (packages/schema/src/app-page.ts): the page's own pieces, as the site's template
@@ -47,10 +47,12 @@ const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = fa
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
 const linked = (lang: Lang, text: string, viPath: string): Inline => (served(lang, viPath) ? { text, href: appPath(lang, viPath) } : text)
 
-/** "Theo Aquarium Breeder", "AquaTome tổng hợp từ 4 nguồn rồi tự viết": the line under a guide's title (SourceCredit). */
+/**
+ * "Theo Aquarium Breeder", "AquaTome tổng hợp từ 4 nguồn rồi tự viết": the line under a guide's title (SourceCredit). A
+ * video guide's names no channel: its sources (refs, the video first) say whose it is.
+ */
 function credit(t: ReturnType<typeof translator>, c: Content, g: Localized<GuideEntity>, refs: GuideEntity['refs']): Inline[] {
-  if (g.source === 'aquatome') return [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: refs?.length ?? 0 }), href: '#nguon' }, ` ${t('rồi tự viết')}`]
-  if (g.video) return [`${t('Bài viết của AquaTome, dựa trên video của')} `, { text: g.video.channel, href: g.video.channelUrl }]
+  if (g.source === 'aquatome' || g.video) return [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: (g.video ? 1 : 0) + (refs?.length ?? 0) }), href: '#nguon' }, ` ${t('rồi tự viết')}`]
   return [`${t('Theo')} `, { text: c.sources[g.source]?.name ?? g.source, href: g.sourceUrl }]
 }
 
@@ -456,7 +458,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
       video: {
         youtubeId: v.youtubeId, title: v.title, channel: v.channel, durationSec: v.durationSec,
         ...(v.transcribed ? {} : { subtitles: t('Phụ đề tiếng Việt') }),
-        ...(v.chapters.length > 1 ? { chapters: v.chapters.map((ch, i) => ({ at: ch.start, title: g.t.chapters?.[i] ?? ch.title })) } : {}),
+        ...(guideChapters(v, g.t.chapters).length > 1 ? { chapters: guideChapters(v, g.t.chapters).map(ch => ({ at: ch.start, title: ch.title })) } : {}),
       },
     } : {}),
     talk: { comments: commentsKey(lang, `guide:${g.id}`) },
@@ -464,7 +466,10 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
       ...(g.t.summary?.length ? [{ t: 'summary' as const, title: t('Tóm tắt nhanh'), items: g.t.summary }] : []),
       ...blocks,
       ...(g.t.faq?.length ? [{ t: 'faq' as const, title: t('Câu hỏi thường gặp'), items: g.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
-      ...(p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
+      ...(v || p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: [
+        ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
+        ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
+      ] }] : []),
       ...pages(p.series && p.pos + 1 < p.inSeries.length ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.next.map(x => `/vi/huong-dan/${x.t.slug}/`)),
       ...pages(t('Loài và cây trong bài'), [...p.species.map(s => `/vi/ca/${s.t.slug}/`), ...p.plants.map(x => `/vi/cay/${x.t.slug}/`)]),
     ],

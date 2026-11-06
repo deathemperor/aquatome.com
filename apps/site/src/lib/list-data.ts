@@ -116,8 +116,8 @@ export const listedGuides = (c: Content) => c.guides.filter(g => g.kind !== 'dis
 /** A guide card's subject and its line on where the guide comes from, in the page's language (GuideCard). */
 export const guideWords = (t: T, c: Content, g: Localized<GuideEntity>) => ({
   label: t(GUIDE_KIND_LABELS[g.kind]!),
-  src: g.video ? t('Theo video của {name}', { name: g.video.channel })
-    : g.source === 'aquatome' ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.t.refs ?? g.refs)?.length ?? 0 })
+  // No channel on a card (PRODUCT.md): a video guide is AquaTome's, from its video and any other sources.
+  src: g.source === 'aquatome' || g.video ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.video ? 1 : 0) + ((g.t.refs ?? g.refs)?.length ?? 0) })
     : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source }),
 })
 

@@ -10,6 +10,9 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15;
 p { text-wrap: pretty; }
 ::selection { background: var(--c-neon); color: var(--c-blackwater); }
 input, select, textarea { caret-color: var(--c-moss); accent-color: var(--c-moss); }
+/* A file field's button in the site's colours (the browser's own is a grey slab on the dark theme). */
+input[type='file']::file-selector-button { margin-right: var(--space-3); min-height: 2.25rem; padding: 0 var(--space-4); border: 1px solid var(--c-ink); border-radius: 0; background: var(--c-paper); color: var(--c-ink); font: 600 0.9rem var(--f-body); cursor: pointer; }
+input[type='file']::file-selector-button:hover { background: var(--c-ink); color: var(--c-paper); }
 dl, .num { font-variant-numeric: tabular-nums; }
 html { scrollbar-color: var(--c-ink-soft) var(--c-paper); }
 .sci { font-family: var(--f-display); font-style: italic; }
@@ -46,16 +49,25 @@ figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top
 .prose th, .prose td { text-align: left; vertical-align: top; padding: var(--space-2) var(--space-3) var(--space-2) 0; border-bottom: 1px solid var(--c-rule); }
 
 /* Source marks (lib/cite.ts): a small numbered or © mark at the end of a block or caption. Hover, focus or tap shows the
-   source in the glossary card (scripts/glossary-tip.ts). The ::before widens the tap target without moving the text. */
+   source in the glossary card (scripts/glossary-tip.ts). The ::before is the 44 px a finger needs (PRODUCT.md), centred
+   on the mark, without moving the text. */
 .cite {
   position: relative; display: inline-grid; place-items: center; min-width: 1.4em; height: 1.4em; padding: 0 0.3em; margin-left: 0.25em;
   border-radius: 999px; vertical-align: 0.45em; font: 600 0.62rem/1 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: 0;
   color: var(--c-moss); background: color-mix(in srgb, var(--c-moss) 12%, transparent); text-decoration: none;
   transition: color 0.15s ease-out, background-color 0.15s ease-out;
 }
-.cite::before { content: ''; position: absolute; inset: -0.9rem -0.5rem; }
+.cite::before { content: ''; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
+/* Marks side by side (a review's "2 3"): each one's 44 px reaches away from the other, never over it. */
+.cite:has(+ .cite)::before { left: auto; right: 0; transform: translateY(-50%); }
+.cite + .cite::before { left: 0; transform: translateY(-50%); }
+.cite + .cite:has(+ .cite)::before { left: 0; right: 0; width: auto; }
 .cite:hover, .cite:focus-visible, .cite[aria-describedby] { color: var(--c-paper); background: var(--c-moss); }
 .cite-line { margin: 0; }
+/* Small links on a line of their own (the breadcrumb, a fish's country, a credit line): the same 44 px, centred on each,
+   without moving anything. A link inside a sentence is the inline exception (WCAG 2.5.8) and keeps its size. */
+.crumb a, .where a, .credit a { position: relative; }
+.crumb a::before, .where a::before, .credit a::before { content: ''; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: 44px; transform: translate(-50%, -50%); }
 /* A photo's mark: the © alone (the glyph is already a ring), quiet until pointed at. Its box is the 24 px a finger
    needs (WCAG 2.5.8): in a caption it often sits right after a link, where the ::before alone doesn't count. */
 .cite.pic { min-width: 24px; height: 24px; margin-block: -0.2rem; margin-left: 0.1em; padding: 0; background: none; vertical-align: baseline; font-size: 0.85rem; font-weight: 500; color: var(--c-ink-faint); }
