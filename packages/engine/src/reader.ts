@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
 import { LANGS, metricPage, QUALITY_THRESHOLD, type Lang, type WrittenLang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { logReviews } from './review-log'
 import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
 import { LANG_NAME, pageUrl, type Page } from './pages'
@@ -260,13 +261,15 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
         if (!r) continue
         const kept = r.score >= QUALITY_THRESHOLD
         entry.rewrites = [...(entry.rewrites ?? []), { at: entry.at, field, score: r.score, kept, problems: fs.map(f => f.problem) }]
-        if (!kept) { report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
+        const traced = { id: `${p.kind}/${p.id}`, lang: 'vi', part: field }
+        if (!kept) { await logReviews(root, 'reader-rewrite', traced, [r], undefined, { now: d.now() }); report.notKept.push(`${key} ${field} (${r.score.toFixed(2)}: ${r.notes.slice(0, 2).join('; ')})`); continue }
         if (field === 'body') t.body = r.html
         else if (field === 'definition') t.definition = r.html
         else t.sections![field.replace(/^sections\./, '')] = r.html
         // Fish, plant and breed pages are written in metric only, as by every other writer (metric.ts).
         const out = METRIC_KINDS.includes(p.kind) ? metricPage(t, 'vi') : t
         await writeFile(file, `${JSON.stringify(out, null, 2)}\n`)
+        await logReviews(root, 'reader-rewrite', traced, [r], r, { now: d.now() })
         // What it fixed leaves the open list, and the page counts as read as it is now.
         entry.findings = entry.findings.filter(f => !fs.includes(f))
         now = { ...now, fields: now.fields.map(f => (f.field === field ? { ...f, html: fieldOf(out, field)! } : f)) }

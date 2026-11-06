@@ -1,12 +1,13 @@
 ---
 url: https://www.seriouslyfish.com/species/hypancistrus-zebra
 title: Hypancistrus zebra (Zebra Plec) · Seriously Fish
-fetchedAt: 2026-11-05T23:01:27.446Z
-hash: 2fd5f55f38c5a39a623b65c311d3b09d2bddda73a0471fd8cb0a8e83dd4ac212
+fetchedAt: 2026-11-06T06:18:51.518Z
+hash: 21b0891c900fef0d4cb1d826bb475633ac361acf2bc57175bc5c64a5fb324f94
 ---
 
 On this page
-13 sections
+13
+sections
 - Etymology
 - Distribution
 - Habitat
