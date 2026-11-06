@@ -1,8 +1,8 @@
 """The lists flows-to-run.py reads: which job runs a class of flows (HANDBOOK), and what a path can reach (REACH).
 
-A pull request that changes only this file runs no flow: what these lists decide is the flows of a pull request that
-reaches these paths and of main's run after it, and `flows-to-run.py --test` checks them on every run of ios.yml, a
-draft's too. How the jobs' halves are cut and the smoke set are in flows-to-run.py, whose change runs every flow.
+A pull request that changes only this file runs no flow: these lists decide which flows a pull request that reaches
+these paths runs and leaves to main (main runs every flow, HANDBOOK deciding only which job runs a class), and
+`flows-to-run.py --test` checks them on every run of ios.yml, a draft's too. How the jobs' halves are cut and the smoke set are in flows-to-run.py, whose change runs every flow.
 `check` holds what the lists decide for a few changes; flows-to-run.py's own checks of how it picks use stand-ins.
 """
 
@@ -51,8 +51,8 @@ REACH = {
     APP + 'AquaTomeApp.swift': ALL, '.github/workflows/ios.yml': ALL, 'apps/ios/scripts/flows-to-run.py': ALL,
     'apps/ios/scripts/wait-for-simulator.sh': ALL, 'apps/ios/scripts/retried-tests.py': ALL,
     'apps/ios/scripts/shots.py': ALL,
-    # These lists: they decide what main runs after a merge, not what the app does, and `flows-to-run.py --test` checks
-    # them on every run of ios.yml.
+    # These lists: they decide what a pull request runs, not what the app does (main runs every flow), and
+    # `flows-to-run.py --test` checks them on every run of ios.yml.
     'apps/ios/scripts/flow_lists.py': NONE,
     # What every screen sits in, or builds the app and its flows: the smoke set.
     APP + 'OwnCopy.swift': [], APP + 'Assets.xcassets/': [], 'apps/ios/AquaTome.xcodeproj/': [], 'apps/ios/Config/': [],
@@ -181,6 +181,11 @@ def check(runs, left, reached):
         assert reached([p]) == {'TelemetryFlowTests'}, p
     assert 'TelemetryFlowTests' in reached([APP + 'Handbook/NativePage.swift']), 'pages'
     assert 'TelemetryFlowTests' in reached([APP + 'Handbook/HandbookModel.swift']), 'the index flag'
+    # Fish ID: its screen is the handbook's, and it sends as the reader's account.
+    assert 'FishIdFlowTests' in reached([APP + 'Handbook/HomeList.swift'])
+    for p in (APP + 'Handbook/FishIdView.swift', KIT + 'Sources/Handbook/FishId.swift', APP + 'Account/AccountModel.swift',
+              KIT + 'Sources/AccountSync/Accounts.swift'):
+        assert 'FishIdFlowTests' in reached([p]), p
     # The catalog: the two flows that read its Indonesian.
     assert reached([APP + 'Localizable.xcstrings']) == {
         'HandbookFlowTests/testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo',

@@ -179,11 +179,6 @@ def test():
         rs = [reach(p) for p in paths]
         return ALL if ALL in rs else {f for r in rs if isinstance(r, list) for f in r}
 
-    # Fish ID: its screen is the handbook's, and it sends as the reader's account.
-    assert 'FishIdFlowTests' in reached([APP + 'Handbook/HomeList.swift'])
-    for p in (APP + 'Handbook/FishIdView.swift', KIT + 'Sources/Handbook/FishId.swift', APP + 'Account/AccountModel.swift',
-              KIT + 'Sources/AccountSync/Accounts.swift'):
-        assert 'FishIdFlowTests' in reached([p]), p
     # The full suite: both halves of each, every class of `app` in one of its halves (the second skips the first's).
     everything = dict(zip(('app', 'handbook', 'lights'), full()))
     assert everything['app']['halves'] == everything['handbook']['halves'] == everything['lights']['halves'] == '[1, 2]'
