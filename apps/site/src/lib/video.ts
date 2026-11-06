@@ -3,6 +3,7 @@ import { slugify } from '@aq/schema/slug'
 import { THUMB_WIDTH, thumbOf, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type Series } from '@aq/schema'
 import { translator, type Lang } from './i18n'
 import { photoMark } from './cite'
+import { guideImage } from './mentions'
 
 type VideoGuide = Localized<GuideEntity> & { video: NonNullable<GuideEntity['video']> }
 export const isVideo = (g: Localized<GuideEntity>): g is VideoGuide => !!g.video
@@ -46,9 +47,9 @@ export function hours(lang: Lang, sec: number): string {
   return h ? (m ? t('{h} giờ {m} phút', { h, m }) : t('{h} giờ', { h })) : t('{m} phút', { m })
 }
 
-/** Video guides for the homepage: the first parts of each series (largest first), then their next parts. */
+/** Video guides for the homepage: the first parts of each series (largest first), then their next parts; each with a picture. */
 export function homeVideos(c: Content, n = 4): VideoGuide[] {
-  const lists = c.series.map(s => seriesGuides(c, s).filter(g => g.t.quality.indexable)).filter(l => l.length).sort((a, b) => b.length - a.length)
+  const lists = c.series.map(s => seriesGuides(c, s).filter(g => g.t.quality.indexable && guideImage(c, g))).filter(l => l.length).sort((a, b) => b.length - a.length)
   const out: VideoGuide[] = []
   for (let i = 0; out.length < n && lists.some(l => l[i]); i++) for (const l of lists) if (l[i] && out.length < n) out.push(l[i]!)
   return out

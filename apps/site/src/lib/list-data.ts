@@ -116,20 +116,20 @@ export const listedGuides = (c: Content) => c.guides.filter(g => g.kind !== 'dis
 /** A guide card's subject and its line on where the guide comes from, in the page's language (GuideCard). */
 export const guideWords = (t: T, c: Content, g: Localized<GuideEntity>) => ({
   label: t(GUIDE_KIND_LABELS[g.kind]!),
-  src: g.video ? t('Theo video của {name}', { name: g.video.channel })
+  src: g.video ? t('Bài viết kèm video')
     : g.source === 'aquatome' ? t('AquaTome tổng hợp, {n} nguồn', { n: (g.t.refs ?? g.refs)?.length ?? 0 })
     : t('Dịch từ {name}', { name: c.sources[g.source]?.name ?? g.source }),
 })
 
-/** A guide card's address, subject (to filter on), words and picture; a video's length and label. */
-export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto; video?: { dur: string; cover?: string } }
+/** A guide card's address, subject (to filter on), words and picture; a video's length. */
+export type GuideListItem = { slug: string; kind: string; name: string; label: string; src: string; photo?: CardPhoto; video?: { dur: string } }
 
 /** Guides as a list's data file has them, with the picture each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const guideItems = (t: T, c: Content, guides: Localized<GuideEntity>[], photos: (Photo | null)[]): GuideListItem[] => guides.map((g, n) => {
   const p = photos[n]
   return {
     slug: g.t.slug, kind: g.kind, name: g.t.name, ...guideWords(t, c, g), ...(p ? { photo: cardPhoto(p) } : {}),
-    ...(g.video ? { video: { dur: clock(g.video.durationSec), ...(g.t.cover ? { cover: g.t.cover } : {}) } } : {}),
+    ...(g.video ? { video: { dur: clock(g.video.durationSec) } } : {}),
   }
 })
 

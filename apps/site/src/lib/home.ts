@@ -60,7 +60,7 @@ export function listOrder(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
 }
 
 /**
- * Each species group with a page: its size and a picture of its best-documented member. `pics`: the pictures its page
+ * Each species group with a page: its size and a picture of its best-documented member, a sharp one first. `pics`: the pictures its page
  * already shows (the home page's fish cards just above): a group whose best member is shown takes its next member's.
  */
 export function groupTiles(lang: Lang, c: Content, pics?: PictureSet): { group: string; label: string; count: number; photo?: Photo }[] {
@@ -68,7 +68,9 @@ export function groupTiles(lang: Lang, c: Content, pics?: PictureSet): { group: 
     .map(([group, label]) => {
       const members = c.species.filter(s => s.group === group)
       const ranked = [...members].sort(richest(lang))
-      const photos = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? [])
+      const all = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? [])
+      // A photo under 640 px wide is often an old, soft scan: it waits for every larger one.
+      const photos = [...all.filter(p => p.width >= 640), ...all.filter(p => p.width < 640)]
       return { group, label, count: members.length, photos }
     })
     .filter(g => g.count > 0 && g.group !== 'other')

@@ -502,7 +502,10 @@ describe('video pages', () => {
     expect(dom.querySelectorAll('.new .gc').map(a => a.getAttribute('href'))).toEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', '/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'])
     const card = dom.querySelector('.new .gc[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')
     expect(card?.querySelector('.dur')?.text).toContain('29:15')
-    expect(card?.querySelector('.cover')?.text).toBe('Bí quyết trị rêu hại')
+    // No YouTube thumbnail and no label over it: a thumbnail shows the people in the video. A photo from its sections.
+    expect(card?.querySelector('.cover')).toBeNull()
+    expect(card?.querySelector('img')?.getAttribute('src')).not.toMatch(/ytimg/)
+    expect(card?.querySelector('.src')?.text).not.toMatch(/Theo video/)
   })
   test('series page lists parts in order with an ItemList', () => {
     const { dom } = page('/video/reu-hai-tu-a-den-z/')

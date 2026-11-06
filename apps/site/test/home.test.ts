@@ -1,6 +1,6 @@
 import type { Content } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { featuredSpecies, listOrder, nativeSpecies } from '../src/lib/home'
+import { featuredSpecies, groupTiles, listOrder, nativeSpecies } from '../src/lib/home'
 
 const fish = (id: string, o: { places?: string[]; indexable?: boolean; photo?: boolean } = {}) => ({
   id, places: o.places ?? ['thailand'], sections: [], photos: o.photo === false ? [] : [{ url: `https://x/${id}.jpg` }],
@@ -33,4 +33,31 @@ test('home features only species with a full data card while there are enough, s
   expect(featuredSpecies('th', c, 4).map(s => s.id)).toEqual(['betta-splendens', 'rasbora-x', 'pterophyllum-scalare', 'rasbora-y'])
   // The full species list keeps its order: well-known first, whatever their card.
   expect(listOrder('th', c).map(s => s.id).slice(0, 2)).toEqual(['betta-splendens', 'pterophyllum-scalare'])
+})
+
+test("a group's tile takes a photo at least 640 px wide before a smaller one, even from a less documented member", () => {
+  const cat = (id: string, width: number, photos = 3) => ({ ...fish(id), group: 'catfish', photos: Array.from({ length: photos }, (_, i) => ({ url: `https://x/${id}-${i}.jpg`, width, height: width / 1.5, source: 'commons' })) })
+  const c = { species: [cat('corydoras-small-scan', 500), cat('corydoras-sharp', 1000, 1)] } as unknown as Content
+  expect(groupTiles('vi', c)[0]!.photo?.url).toBe('https://x/corydoras-sharp-0.jpg')
+  // With none that wide, the best-documented member's.
+  const soft = { species: [cat('a', 500), cat('b', 400, 1)] } as unknown as Content
+  expect(groupTiles('vi', soft)[0]!.photo?.url).toBe('https://x/a-0.jpg')
+})
+
+test("a video guide's card picture: a photo from its sections, not a strip a card would crop to a sliver; the home page's videos all have one", async () => {
+  const { getContent } = await import('../src/lib/content')
+  const { guideImages } = await import('../src/lib/mentions')
+  const { homeVideos } = await import('../src/lib/video')
+  const c = await getContent('vi')
+  const g = c.guides.find(x => x.video?.figures?.some(f => f.photo))!
+  const photo = g.video!.figures!.find(f => f.photo)!.photo!
+  expect(guideImages(c, g)).toContain(photo)
+  const strip = { ...g, video: { ...g.video!, figures: [{ heading: 'x', moments: [], photo: { ...photo, url: 'https://x/strip.webp', width: 960, height: 267 } }] } }
+  expect(guideImages(c, strip).map(p => p.url)).not.toContain('https://x/strip.webp')
+  // A guide with no picture at all waits: the home page's row shows only videos with one.
+  const bare = { ...g, id: 'bare', photos: [], mentions: [], t: { ...g.t, body: '<p>Không nhắc loài nào.</p>' }, video: { ...g.video!, figures: [], series: { ...g.video!.series!, position: 0 } } }
+  expect(guideImages({ ...c, guides: [bare, ...c.guides] }, bare)).toEqual([])
+  const withBare = { ...c, guides: [bare, ...c.guides] }
+  expect(homeVideos(withBare).map(v => v.id)).not.toContain('bare')
+  expect(homeVideos(withBare).length).toBeGreaterThan(0)
 })

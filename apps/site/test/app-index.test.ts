@@ -309,12 +309,13 @@ test('guides carry their subject and the fish and plants they name, as their pag
   expect(index('vi').items.filter(i => i.kind !== 'guide').some(i => 'section' in i || 'about' in i)).toBe(false)
 })
 
-test("a guide's picture is its card's on the site: a video guide with no photo of its own shows its video", async () => {
+test("a guide's picture is its card's on the site: a video guide shows a photo from its sections, never its video's thumbnail", async () => {
   const c = await getContent('vi')
   const guides = new Map(index('vi').items.filter(i => i.kind === 'guide').map(i => [i.path, i]))
   const videos = c.guides.filter(g => g.video && !g.photos.length).map(g => guides.get(`/vi/huong-dan/${g.t.slug}/`)).filter(i => i !== undefined)
   expect(videos.length).toBeGreaterThan(0)
-  for (const v of videos) expect(v.img, v.path).toMatch(/^https:\/\/i\.ytimg\.com\/vi\/[\w-]{11}\//)
+  for (const v of videos) expect(v.img ?? '', v.path).not.toMatch(/ytimg/)
+  expect(videos.filter(v => v.img).length, 'a video guide with a photo in its sections shows it').toBeGreaterThan(0)
 })
 
 test('a video series is an item (Vietnamese only, as its page is), and a video guide carries its length', () => {
