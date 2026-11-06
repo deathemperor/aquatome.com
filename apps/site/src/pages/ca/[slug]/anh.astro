@@ -1,6 +1,7 @@
 ---
 import type { BreedEntity, Localized, Photo, SpeciesEntity } from '@aq/schema'
 import GalleryPage from '../../../components/GalleryPage.astro'
+import ReaderPhotos from '../../../components/ReaderPhotos.astro'
 import { getContent } from '../../../lib/content'
 import { GALLERY_MIN } from '../../../lib/gallery'
 import { breedGallery } from '../../../lib/breeds'
@@ -20,4 +21,7 @@ const page = `/vi/ca/${s.t.slug}/`
 // The same photos in every language: the gallery is there wherever its fish's page is.
 const alternates = Object.fromEntries(Object.entries(await alternatesOf(sci ? 'species' : 'breeds', s.id)).map(([l, p]) => [l, localizePath(l as Lang, `${toVi(p)}anh/`)]))
 ---
-<GalleryPage name={s.t.name} sci={sci} photos={photos} page={page} back={t('Cách nuôi {name} →', { name: s.t.name })} crumbs={[['/vi/ca/', t('Loài cá')], [page, s.t.name]]} indexable={s.t.quality.indexable} alternates={alternates} />
+<GalleryPage name={s.t.name} sci={sci} photos={photos} page={page} back={t('Cách nuôi {name} →', { name: s.t.name })} crumbs={[['/vi/ca/', t('Loài cá')], [page, s.t.name]]} indexable={s.t.quality.indexable} alternates={alternates}>
+  {/* A species' readers' photos, as on its page (a breed's: later). */}
+  {sci && <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} gallery />}
+</GalleryPage>

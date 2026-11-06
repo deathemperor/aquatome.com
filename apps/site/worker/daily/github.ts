@@ -6,8 +6,15 @@
 export const REPO_URL = 'https://github.com/deathemperor/aquatome.com/'
 const MAX_LIST = 50
 const MAX_TITLE = 200
+/** The product changes' bounds (scripts/changelog.mjs MAX_TEXT, daily-report.mjs MAX_CHANGES): a few lines a pull request. */
+const MAX_CHANGES = 100
+const MAX_CHANGE = 300
 
 export type Item = { number: number; title: string; url: string }
+export const AREAS = ['Site', 'App', 'Engine'] as const
+export type Area = (typeof AREAS)[number]
+/** What a merged pull request changed for readers, app users or the engine's content, in plain words, and when it merged. */
+export type Change = { area: Area; text: string; at: string }
 export type Listed = { total: number; items: Item[] }
 /** Runs on main that ran (none cancelled or skipped), and those that failed. */
 export type Runs = { runs: number; failed: number }
@@ -19,7 +26,8 @@ export type GitHubSide = {
   since: string
   /** What GitHub wouldn't give: the counts it feeds may be low. */
   missing: string[]
-  merged: Listed
+  /** The product changes of the pull requests merged in the window (scripts/changelog.mjs), newest first. */
+  changes: Change[]
   /** `live`: the newest deploy.yml run that succeeded. */
   deploys: Runs & { live?: { sha: string; url: string; at: string } }
   /** The engine's cycles (engine.yml; the Mac's parts report only when they fail), and its `content:` commits on main by part. */
@@ -43,7 +51,7 @@ const count = (x: unknown) => (Number.isInteger(x) && (x as number) >= 0 && (x a
 const text = (x: unknown, max = MAX_TITLE) => (typeof x === 'string' && x.length <= max ? x.replace(/\p{Cc}/gu, ' ') : refuse())
 const link = (x: unknown) => (typeof x === 'string' && x.length <= 300 && x.startsWith(REPO_URL) && !/[\s"'<>]/.test(x) ? x : refuse())
 const moment = (x: unknown) => (typeof x === 'string' && x.length <= 40 && Number.isFinite(Date.parse(x)) ? x : refuse())
-const list = <T>(x: unknown, each: (y: unknown) => T): T[] => (Array.isArray(x) && x.length <= MAX_LIST ? x.map(each) : refuse())
+const list = <T>(x: unknown, each: (y: unknown) => T, max = MAX_LIST): T[] => (Array.isArray(x) && x.length <= max ? x.map(each) : refuse())
 const item = (x: unknown): Item => {
   const r = record(x)
   return { number: count(r.number), title: text(r.title), url: link(r.url) }
@@ -51,6 +59,11 @@ const item = (x: unknown): Item => {
 const listed = (x: unknown): Listed => {
   const r = record(x)
   return { total: count(r.total), items: list(r.items, item) }
+}
+const change = (x: unknown): Change => {
+  const r = record(x)
+  const area = AREAS.find(a => a === r.area) ?? refuse()
+  return { area, text: text(r.text, MAX_CHANGE).trim() || refuse(), at: moment(r.at) }
 }
 const runs = (x: unknown): Runs => {
   const r = record(x)
@@ -70,7 +83,7 @@ export function parseGitHubSide(body: string): GitHubSide | null {
     return {
       runId, runUrl: link(r.runUrl), since: moment(r.since),
       missing: list(r.missing, y => text(y)),
-      merged: listed(r.merged),
+      changes: list(r.changes, change, MAX_CHANGES),
       deploys: { ...runs(deploys), ...(live ? { live: { sha: text(live.sha, 40), url: link(live.url), at: moment(live.at) } } : {}) },
       engine: runs(r.engine),
       commits: {

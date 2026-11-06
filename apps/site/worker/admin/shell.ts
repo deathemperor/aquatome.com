@@ -26,9 +26,12 @@ export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
 /** The daily report's log and its delivery (worker/daily), a section of the app's too. */
 export const REPORT_PATH = '/_ab/bao-cao/'
 export const REPORT_NAME = 'Báo cáo hằng ngày'
-export type WebPath = AdminPath | typeof SCOREBOARD_PATH
-/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections (the daily report last). */
-const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1)]
+/** The product change log (daily/changelog.ts), which the daily report adds to: web only, like the scoreboard. */
+export const CHANGELOG_PATH = '/_ab/thay-doi/'
+export const CHANGELOG_NAME = 'Thay đổi sản phẩm'
+export type WebPath = AdminPath | typeof SCOREBOARD_PATH | typeof CHANGELOG_PATH
+/** The rail's pages, in its order: the overview, the scoreboard, NAV's sections (the daily report last), the change log. */
+const PAGE_NAV: readonly (readonly [WebPath, string])[] = [NAV[0], [SCOREBOARD_PATH, 'Thành công'], ...NAV.slice(1), [CHANGELOG_PATH, CHANGELOG_NAME]]
 /** Every page of the web dashboard, the one the app doesn't list included. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 

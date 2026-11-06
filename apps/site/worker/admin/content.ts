@@ -124,6 +124,18 @@ export async function queryContentReads(accountId: string, token: string, stats:
 /** The prefix pages give D1's entity_ref ("species:<id>"), by page kind. */
 const REF: Partial<Record<PageKind, string>> = { fish: 'species', breed: 'breed', plant: 'plant', guide: 'guide', videoGuide: 'guide', equipment: 'equipment', product: 'product' }
 
+/** The build's pages by the key D1 gives them: "species:<id>" on /vi/, "id:species:<id>" on /id/ (src/lib/talk.ts). */
+export function pagesByRef(stats: ContentStats): Map<string, PageInfo> {
+  const byRef = new Map<string, PageInfo>()
+  for (const x of pageIndex(stats).values()) {
+    const pre = REF[x.kind]
+    if (!pre || !x.id) continue
+    const lang = langOfPath(x.path)
+    byRef.set(lang === 'vi' ? `${pre}:${x.id}` : `${lang}:${pre}:${x.id}`, x)
+  }
+  return byRef
+}
+
 export type PageTalk = { path: string; title: string; kind: PageKind; comments: number; photos: number }
 export type Talk = {
   /** Approved comments and reader photos, on pages this build has. */
@@ -143,15 +155,10 @@ export type Talk = {
 export async function talkByPage(db: D1Database, stats: ContentStats, top = 20): Promise<Talk> {
   const [c, p] = await Promise.all([
     db.prepare("SELECT entity_ref AS ref, COUNT(*) AS n FROM comments WHERE status = 'approved' GROUP BY entity_ref").all<{ ref: string; n: number }>(),
-    db.prepare("SELECT entity_ref AS ref, COUNT(*) AS n FROM photos WHERE status = 'approved' GROUP BY entity_ref").all<{ ref: string; n: number }>(),
+    // A comment's photo counts on its comment's page.
+    db.prepare("SELECT COALESCE(c.entity_ref, p.entity_ref) AS ref, COUNT(*) AS n FROM photos p LEFT JOIN comments c ON p.entity_ref = 'comment:' || c.id WHERE p.status = 'approved' GROUP BY 1").all<{ ref: string; n: number }>(),
   ])
-  const byRef = new Map<string, PageInfo>()
-  for (const x of pageIndex(stats).values()) {
-    const pre = REF[x.kind]
-    if (!pre || !x.id) continue
-    const lang = langOfPath(x.path)
-    byRef.set(lang === 'vi' ? `${pre}:${x.id}` : `${lang}:${pre}:${x.id}`, x)
-  }
+  const byRef = pagesByRef(stats)
   const pages = new Map<string, PageTalk>()
   const out: Talk = { comments: 0, photos: 0, byKind: [], top: [], elsewhere: { comments: 0, photos: 0 } }
   const add = (rows: { ref: string; n: number }[], field: 'comments' | 'photos') => {
