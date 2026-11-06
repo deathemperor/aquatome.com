@@ -35,6 +35,8 @@ export type Run = { reader: string; reserved: number; spent: number; at: number 
 export type LedgerDay = {
   /** Identifications admitted: the site's day. */
   calls: number
+  /** Chat questions admitted (chat/api.ts): chat's own day, under the same dollar cap. Missing before any. */
+  chat?: number
   /** Calls to Claude per key hash, and the answers among them. */
   keys: Record<string, number>
   ok: Record<string, number>
@@ -48,7 +50,8 @@ export type LedgerDay = {
   counts: Counts
 }
 
-export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean }
+/** `kind`: a chat question, counted against chat's day (`perDay`), not the identifications'; the dollar cap is the same. */
+export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean; kind?: 'chat' }
 export type Admitted = { ok: true; run: string } | { ok: false; error: 'rate'; limit: number } | { ok: false; error: 'busy' | 'resting' }
 export type SettleInput = { day: string; run: string; refund: boolean; keys: Record<string, number>; ok?: string; counts?: Partial<Counts> }
 
@@ -98,11 +101,13 @@ export class Ledger {
     for (const [id, r] of Object.entries(day.runs)) if (now - r.at > STALE_MS) { day.usd = Math.max(0, day.usd - (r.reserved - r.spent)); delete day.runs[id] }
     const used = day.readers[a.reader] ?? 0
     if (used >= a.perReader) return { ok: false, error: 'rate', limit: a.perReader }
-    if (day.calls >= a.perDay || day.usd + a.reserve > a.usdCap) return { ok: false, error: 'busy' }
+    const counted = a.kind === 'chat' ? (day.chat ?? 0) : day.calls
+    if (counted >= a.perDay || day.usd + a.reserve > a.usdCap) return { ok: false, error: 'busy' }
     if (!a.healthy) return { ok: false, error: 'resting' }
     const run = this.newId()
     day.readers[a.reader] = used + 1
-    day.calls++
+    if (a.kind === 'chat') day.chat = counted + 1
+    else day.calls++
     day.usd += a.reserve
     day.runs[run] = { reader: a.reader, reserved: a.reserve, spent: 0, at: now }
     await this.save(a.day, day)
@@ -144,10 +149,10 @@ export class Ledger {
   /** The day as the dashboard reads it: no reader keys, no runs; the biggest number of refunds one reader had. */
   async read(d: string): Promise<DayView> {
     const day = await this.day(d)
-    return { calls: day.calls, keys: { ...day.keys }, ok: { ...day.ok }, usd: day.usd, open: Object.keys(day.runs).length, counts: { ...day.counts }, mostRefunds: Math.max(0, ...Object.values(day.refunds)) }
+    return { calls: day.calls, chat: day.chat ?? 0, keys: { ...day.keys }, ok: { ...day.ok }, usd: day.usd, open: Object.keys(day.runs).length, counts: { ...day.counts }, mostRefunds: Math.max(0, ...Object.values(day.refunds)) }
   }
 }
-export type DayView = { calls: number; keys: Record<string, number>; ok: Record<string, number>; usd: number; open: number; counts: Counts; mostRefunds: number }
+export type DayView = { calls: number; chat: number; keys: Record<string, number>; ok: Record<string, number>; usd: number; open: number; counts: Counts; mostRefunds: number }
 
 /** `d` (YYYY-MM-DD) moved by `n` days. */
 function shift(d: string, n: number): string {
