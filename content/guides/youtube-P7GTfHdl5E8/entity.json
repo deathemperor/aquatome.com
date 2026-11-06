@@ -16,7 +16,7 @@
     "youtubeId": "P7GTfHdl5E8",
     "title": "How to Build a Planted Aquarium from Scratch with SerpaDesign",
     "channel": "YouTube",
-    "channelUrl": "https://www.youtube.com/@YouTube",
+    "channelUrl": "https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ",
     "durationSec": 539,
     "publishedAt": "2026-11-04",
     "chapters": [],
@@ -28,17 +28,17 @@
     "taxa": [
       "Neocaridina davidi",
       "Caridina multidentata",
-      "Boraras brigittae",
-      "Yunnanilus cruciatus",
-      "Physella acuta",
+      "Physa acuta",
       "Planorbella sp.",
-      "Melanoides tuberculata"
+      "Melanoides tuberculata",
+      "Boraras brigittae",
+      "Yunnanilus cruciatus"
     ],
     "gear": [
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 227
+        "t": 232
       },
       {
         "category": "phan-nen",
@@ -48,17 +48,7 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 232
-      },
-      {
-        "category": "loc",
-        "type": "bot-bien",
-        "t": 400
-      },
-      {
-        "category": "test-nuoc",
-        "type": "test",
-        "t": 361
+        "t": 97
       },
       {
         "category": "cay-thuy-sinh",
@@ -67,68 +57,73 @@
       },
       {
         "category": "cay-thuy-sinh",
-        "type": "trong-nen",
-        "t": 264
+        "type": "reu",
+        "t": 300
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 400
       }
     ],
     "figures": [
       {
-        "heading": "Lấy cảm hứng từ đâu khi bể còn trống",
+        "heading": "Một bể thủy sinh mới cần đi qua những bước nào",
         "moments": [
           {
             "t": 35,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t35-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bờ đất lộ rễ cây bên dòng suối nhỏ, góc dễ bắt chước."
+            "caption": "Bờ suối có rễ cây và khúc gỗ đổ ven mép nước."
           },
           {
             "t": 40,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t40-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Sườn đồi đá phủ cây leo ngoài thiên nhiên, gợi ý cho bố cục đá."
+            "caption": "Sườn đá phiến ven bờ phủ dương xỉ và cây rừng, ý tưởng cho bố cục."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p0-3X0plcnNleS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p0-3X0plcnNleS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p0-cXVhc2NhcGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p0-cXVhc2NhcGUucG5n-480.webp",
           "width": 960,
-          "height": 720,
+          "height": 447,
           "licence": "CC BY-SA 4.0",
-          "author": "Famartin",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023-08-06_08_42_41_A_moss-covered_log_within_the_forest_of_Ann_M._Banchoff_Park_in_the_Mountainview_section_of_Ewing_Township,_Mercer_County,_New_Jersey.jpg",
-          "caption": "Khúc gỗ phủ rêu xanh nằm giữa tán cây thấp, ý tưởng đẹp để dựng bể."
+          "author": "Duc Viet Bui",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
+          "caption": "Bể thủy sinh dựng lũa phủ rêu, cây mọc dày như góc rừng ngập nước."
         }
       },
       {
-        "heading": "Vì sao bố cục đá, lũa là phần quan trọng nhất",
+        "heading": "Dựng lũa và đá thế nào cho ra bố cục đẹp",
         "moments": [
           {
-            "t": 64,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t64-hd.webp",
+            "t": 104,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t104-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khúc lũa cành có các nhánh cùng hướng mọc, nhìn tự nhiên."
+            "caption": "Xếp lũa và đá trong bể để dựng bố cục hardscape."
           },
           {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t99-hd.webp",
+            "t": 114,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t114-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khối đá có vân bề mặt rõ đặt cạnh lũa trong bể."
+            "caption": "Cận cảnh bề mặt vân đá, dùng để chọn đá cùng kiểu vân."
           }
         ]
       },
       {
-        "heading": "Cố định đá, lũa bằng keo 502 và bông gòn",
+        "heading": "Cố định lũa đá bằng keo và bông",
         "moments": [
           {
             "t": 163,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t163-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nghiền vụn phân nền trong cối để phủ giấu vết keo."
+            "caption": "Nghiền phân nền trong cối để phủ che mối dán."
           },
           {
             "t": 173,
@@ -137,43 +132,53 @@
             "height": 675,
             "caption": "Nhỏ keo dán vào mối nối giữa hai khúc lũa."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p2-kzMDMyOTYpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p2-kzMDMyOTYpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "Ben Sale from Stevenage, UK",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Super_super_Glue_(3329303296).jpg",
+          "caption": "Lọ keo dán nhanh (super glue) đặt trên khúc gỗ, dùng để dán lũa."
+        }
       },
       {
-        "heading": "Lũa nhánh mảnh và chuyện tạo cảm giác tỉ lệ",
+        "heading": "Xử lý lũa trước khi cho vào bể",
         "moments": [
-          {
-            "t": 183,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t183-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa nhện với các nhánh mảnh đặt cạnh khối lũa lớn và đá."
-          },
           {
             "t": 188,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t188-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Luộc lũa nhện trong nồi nước sôi để bớt tannin."
+            "caption": "Luộc lũa trong nồi nước sôi, nước ngả màu sẫm vì tannin."
+          },
+          {
+            "t": 203,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t203-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lũa spider wood đã được bố trí trong bể thủy sinh."
           }
         ]
       },
       {
-        "heading": "Làm nền thế nào cho bền",
+        "heading": "Làm nền thế nào để cây có dinh dưỡng lâu dài",
         "moments": [
+          {
+            "t": 242,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t242-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đặt túi lưới chứa nền xuống đáy bể, sát chân lũa."
+          },
           {
             "t": 247,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t247-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi lưới chứa nền đặt dưới lũa và đá trong hồ."
-          },
-          {
-            "t": 252,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t252-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp nền đen được trải phẳng, đặt đá cố định bố cục."
+            "caption": "Các túi lưới đựng hỗn hợp nền đặt sẵn trong bể giữa lũa và đá."
           }
         ],
         "photo": {
@@ -184,110 +189,144 @@
           "licence": "CC BY-SA 2.0",
           "author": "kerinin",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
-          "caption": "Lớp cát nền mịn trải dưới chân khối đá trong bể."
+          "caption": "Lớp cát nền mịn phủ dưới đá trong bể, nhìn từ mặt kính bên hông."
         }
       },
       {
-        "heading": "Trồng cây: cây bám, cây hoa thị, cây thân mọc, rêu",
+        "heading": "Trồng cây: bám đá, cây hoa thị, cây thân và rêu",
         "moments": [
           {
-            "t": 282,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t282-hd.webp",
+            "t": 262,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t262-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Buộc dương xỉ vào khúc lũa để cây bám rễ."
+            "caption": "Nhét cây bám vào khe lũa, rễ bám chắc trên gỗ."
           },
           {
             "t": 287,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t287-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dương xỉ lá dài mọc khỏe giữa đá và lũa trong bể."
+            "caption": "Cây hoa thị lá xanh mọc giữa đá trong bể còn khô."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p5-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p5-ydS1JbmRpYS5qcGc-480.webp",
-          "width": 960,
-          "height": 942,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leptochilus_pteropus_Trident-1-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cây dương xỉ java lá xanh mướt bám trên lũa trong bể."
-        }
+        ]
       },
       {
-        "heading": "Chăm bể sau khi trồng",
+        "heading": "Thêm cây trồng trong nhà để lọc nước",
         "moments": [
           {
-            "t": 336,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t336-hd.webp",
+            "t": 326,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t326-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng vợt vớt xác lá và vụn cây trên mặt nước."
+            "caption": "Tay gắn cụm cây lá đỏ vào khe lũa phía sau bể."
           },
+          {
+            "t": 331,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t331-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây dương xỉ xanh tốt mọc trên lũa, phần lá vươn lên khỏi mặt nước."
+          }
+        ]
+      },
+      {
+        "heading": "Chăm sóc sau khi trồng xong",
+        "moments": [
           {
             "t": 346,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t346-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Dùng kéo cắt tỉa lá hư trong bể thủy sinh."
-          }
-        ]
-      },
-      {
-        "heading": "Vì sao chưa được thả cá ngay",
-        "moments": [
+            "caption": "Dùng kéo tỉa cắt bỏ lá hư, lá yếu trong bể thủy sinh."
+          },
           {
             "t": 366,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t366-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh mới trồng xong nhìn rất đẹp nhưng chưa có vi sinh."
+            "caption": "Bể thủy sinh sau khi trồng, đèn phía trên và cây phủ xanh đẹp."
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao chưa nên thả cá vào bể vừa set",
+        "moments": [
+          {
+            "t": 376,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t376-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thay nước định kỳ bằng ống siphon trong bể thủy sinh."
           },
           {
             "t": 386,
             "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t386-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Vật liệu lọc sứ trong hộp lọc, nơi vi sinh nitrat hóa bám vào."
-          }
-        ]
-      },
-      {
-        "heading": "Ốc và tép: đội dọn bể nên có",
-        "moments": [
-          {
-            "t": 401,
-            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t401-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các loại ốc nhỏ trong bể thủy sinh, chụp cận cảnh."
+            "caption": "Vật liệu lọc dạng sứ trong thùng lọc, nơi vi sinh bám."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-NoZXJyeV9hLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-NoZXJyeV9hLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-Z2VuQ3ljbGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p8-Z2VuQ3ljbGUucG5n-480.webp",
+          "width": 960,
+          "height": 619,
+          "licence": "CC BY 2.5",
+          "author": "w:pl:Wikipedysta:Lukas3",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-NitrogenCycle.png",
+          "caption": "Sơ đồ chu trình đạm trong bể: amoniac thành nitrit, nitrat rồi cây hấp thụ."
+        }
+      },
+      {
+        "heading": "Ốc và tép: đội dọn bể",
+        "moments": [
+          {
+            "t": 410,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t410-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ốc kèn bò trên nền cát, đang dọn bể."
+          },
+          {
+            "t": 415,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t415-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép cherry đỏ bám trên gỗ lũa, gặm rêu hại."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p9-NoZXJyeV9hLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p9-NoZXJyeV9hLmpwZw-480.webp",
           "width": 960,
           "height": 638,
           "licence": "CC BY 4.0",
           "author": "Uccio D'Agostino",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planorbis_planorbis_Neocaridina_davidi_var._Red_Cherry_a.jpg",
-          "caption": "Ốc sừng cừu và tép nhỏ cùng bò trên nền sỏi đen trong bể."
+          "caption": "Ốc ram's horn đỏ bò trên nền sỏi đen, cạnh một chú tép nhỏ."
         }
       },
       {
         "heading": "Bắt đầu từ đâu",
-        "moments": [],
+        "moments": [
+          {
+            "t": 25,
+            "url": "https://media.aquatome.com/video/P7GTfHdl5E8/t25-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thân mềm xanh tốt trồng cạnh những khối đá trong bể."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p9-cXVhc2NhcGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p9-cXVhc2NhcGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/P7GTfHdl5E8/p10-cXVhc2NhcGUucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/P7GTfHdl5E8/p10-cXVhc2NhcGUucG5n-480.webp",
           "width": 960,
           "height": 447,
           "licence": "CC BY-SA 4.0",
           "author": "Duc Viet Bui",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
-          "caption": "Bể thủy sinh dùng lũa làm điểm nhấn, cây trồng phủ xanh xung quanh."
+          "caption": "Bể thủy sinh dựng lũa lớn phủ rêu, cây bám mọc xanh mướt."
         }
       }
     ]
