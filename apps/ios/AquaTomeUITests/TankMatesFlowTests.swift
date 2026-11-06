@@ -35,13 +35,19 @@ final class TankMatesFlowTests: XCTestCase {
 
     // A fish already chosen is marked, not added twice.
     app.buttons["add-mate"].tap()
-    let search = app.searchFields.firstMatch
+    let search = app.searchFields.matching(NSPredicate(format: "placeholderValue == %@", "Gõ tên Việt hoặc tên khoa học")).firstMatch
     XCTAssertTrue(search.waitForExistence(timeout: 5))
+    search.tap()
     search.typeText("neon")
-    let chosen = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
-    XCTAssertTrue(chosen.waitForExistence(timeout: 5))
-    XCTAssertTrue(chosen.label.contains("Đã thêm") && !chosen.isEnabled, "the chosen fish not marked: \(chosen.label)")
-    app.buttons["Hủy"].tap()
+    // Its row marked (not the bar's back button, which names the fish page the tool came from).
+    let chosen = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon' AND label CONTAINS 'Đã thêm'")).firstMatch
+    XCTAssertTrue(chosen.waitForExistence(timeout: 5), "the chosen fish not marked")
+    XCTAssertFalse(chosen.isEnabled, "the chosen fish can be added again")
+    // Its search ended ("Đóng", where the bar's buttons were while it's typed in), then the sheet closed.
+    app.buttons["Đóng"].tap()
+    let cancel = app.buttons["Hủy"]
+    if cancel.waitForExistence(timeout: 2) { cancel.tap() }
+    XCTAssertTrue(app.navigationBars["Thêm loài"].waitForNonExistence(timeout: 5), "the sheet stayed")
     XCTAssertEqual(app.textFields.matching(identifier: "mate-count").count, 2)
 
     app.swipeDown()
@@ -160,8 +166,10 @@ final class TankMatesFlowTests: XCTestCase {
     let add = app.buttons["add-mate"]
     for _ in 0..<4 where !(add.exists && add.isHittable) { app.swipeDown() }
     add.tap()
-    let field = app.searchFields.firstMatch
+    // The sheet's own field, tapped: the Tìm tab's, under the sheet, is a search field too.
+    let field = app.searchFields.matching(NSPredicate(format: "placeholderValue == %@", "Gõ tên Việt hoặc tên khoa học")).firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
     field.typeText(query)
     let row = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "no \(name)")
@@ -200,10 +208,15 @@ final class TankMatesFlowTests: XCTestCase {
 }
 
 private extension XCUIElement {
-  /// Taps at the end of the text, deletes it all, then types.
+  /// Its number replaced: picked whole by a double tap, as where a tap leaves the cursor varies (a tap near the end of
+  /// "6" left it before the 6, and "12" made 126), then typed over; as TankVolumeFlowTests' does.
   func clearAndType(_ text: String) {
-    let old = value as? String ?? ""
-    coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
-    typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: old.count) + text)
+    tap()
+    if let old = value as? String, !old.isEmpty, old != placeholderValue {
+      doubleTap()
+      typeText(XCUIKeyboardKey.delete.rawValue)
+    }
+    typeText(text)
+    XCTAssertEqual(value as? String, text, "not typed over")
   }
 }
