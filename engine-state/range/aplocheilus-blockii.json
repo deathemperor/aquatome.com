@@ -1,0 +1,113 @@
+{
+  "id": "aplocheilus-blockii",
+  "native": {
+    "input": "ca4f060de384566d",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The green panchax, Aplocheilus blockii, is a small killifish from Sri Lanka and southern India, growing to around 45 mm SL.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The green panchax, Aplocheilus blockii, is a small killifish from Sri Lanka and southern India, growing to around 45 mm SL.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Sri Lanka and southern India with records in the latter existing from the states of Goa, Kerala, Tamil Nadu, and more recently, Karnataka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Sri Lanka and southern India with records in the latter existing from the states of Goa, Kerala, Tamil Nadu, and more recently, Karnataka.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Reports from Pakistan may be erroneous while the species's distribution in certain parts of the Western Ghats mountains in India requires confirmation.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Sri Lanka'.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Reports from Pakistan may be erroneous while the species's distribution in certain parts of the Western Ghats mountains in India requires confirmation.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aplocheilus blockii",
+    "status": "ACCEPTED",
+    "taxonKey": 2347804,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        16
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "LK",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

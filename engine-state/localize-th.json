@@ -1671,6 +1671,30 @@
       "Item 11: 'อย่างไม่มีเหตุผล' for 'inexplicably' is too strong. 'ระงับการใช้ชื่อนี้ ... เมื่อไม่นานมานี้ในปี 2003' is a literal rendering. Also, 'Lebias' is listed as a species, not as a genus, in the English."
     ]
   },
+  "aphanius-vladykovi": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "อะฟาเนียส วลาดีโควี",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 4: \"22 accepted species and subspecies\" is rendered as \"จากชนิดและชนิดย่อย...22 ชนิด\", which reads awkwardly and drops the sense of \"species and subspecies\" in the count. Suggest \"ปัจจุบันมีชนิดและชนิดย่อยที่ได้รับการยอมรับ 22 รายการ ซึ่งหลายชนิดเสี่ยงต่อการสูญพันธุ์...\".",
+      "Item 3: \"breathtaking colours\" is softened to \"สีสันสวยงามมาก\". Suggest a stronger phrase such as \"สีสันสวยงามตระการตา\".",
+      "Item 3: \"the displays of the males\" as \"การแสดงท่าทางของตัวผู้\" is a bit vague. Suggest \"พฤติกรรมการโชว์/การอวดสีของตัวผู้\".",
+      "Item 3: \"outdoor tanks\" is rendered as \"บ่อหรือภาชนะกลางแจ้ง\" in one place and \"ตู้...กลางแจ้ง\" in another. Use one consistent term.",
+      "Item 2: \"Boldaji\" is left in Latin script. This is acceptable as a place name, but consider adding the Thai form (บอลดาจี) in brackets."
+    ]
+  },
+  "aphanotorulus-unicolor": {
+    "at": "2026-11-06",
+    "from": "2026-11-05",
+    "name": "เพลโคยูนิคัลเลอร์",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 9: \"อาหารเม็ดแบบแปะ\" for \"tablet\" is slightly unusual. Consider \"อาหารเม็ดแบบแผ่นจม\" or \"อาหารแท็บเล็ต\"."
+    ]
+  },
   "aphyocharax-anisitsi": {
     "at": "2026-11-04",
     "from": "2026-11-03",
@@ -1685,6 +1709,237 @@
       "Item 3: 'ถึงขั้นเลี้ยงโดยไม่ใช้ฮีตเตอร์ได้ในบ้านที่เก็บความร้อนได้ดี' is awkward; 'ถึงขั้น' overstates 'can even', so use 'ยังสามารถเลี้ยง...ได้ด้วย'.",
       "Item 7: ~54 litres matches the source, but '~14 US gal' was dropped, which is acceptable. Item 3: the first two sentences repeat the jumping warning, so the repetition reads redundantly in Thai."
     ]
+  },
+  "aphyocharax-nattereri": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ดอว์นเตตร้า",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 11: 'ไข่ติด' for 'aren't adhesive' is ambiguous; use 'ไข่ไม่เหนียวติด/ไม่ติดวัสดุ'.",
+      "Item 11: 'ขุนปลา' for 'conditioned' is a bit odd; use 'ปรับสภาพ/เตรียมความพร้อมปลา'.",
+      "Item 11: 'ไมโครเวิร์ม' and 'ลูกไรทะเลแรกฟัก' are acceptable but consider adding 'อาร์ทีเมีย' (Artemia), the term hobbyists use.",
+      "Item 11: 'ใส่กรองฟองน้ำ... ก็เป็นอันครบชุด' reads a little unnatural; 'เมื่อใส่กรองฟองน้ำ... การจัดตู้ก็ครบสมบูรณ์' is smoother.",
+      "Item 2: the first paragraph repeats the jumping warning, as the English does, but the Thai repeats it awkwardly; consider merging.",
+      "Item 12: 'Villa Bella', Parintins, Manaus and Santarém are left in Latin script; this is acceptable, but consider a Thai transliteration for readability.",
+      "Item 9: 'ปลาแพะ Corydoras' is fine, but the common Thai term 'ปลาคอรี่' is more usual among hobbyists; 'ปลาซักเกอร์' is also less standard than 'ปลาเทศบาล/ปลาซัคเกอร์'."
+    ]
+  },
+  "aphyocharax-rathbuni": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "กรีนไฟร์เตตร้า",
+    "confidence": "medium",
+    "score": 0.65,
+    "notes": [
+      "Items 1 and 8: \"anabantoid\" is left in English in \"ปลากลุ่ม anabantoid\". Use a Thai term such as ปลากลุ่มลาบิรินท์ (ปลาที่มีอวัยวะช่วยหายใจ เช่น ปลากัด ปลาหมอ ปลาสลิด), with the English in brackets if you want it.",
+      "Items 1 and 10: \"Rathbun's bloodfin\" and \"java moss\" are left in English in the running text. Give the Thai name first (e.g. มอสชวา, which is already used) and put the English in brackets. Give a Thai rendering of 'bloodfin' as well."
+    ]
+  },
+  "aphyosemion-australe": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่ออสตราเล่",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 11: 'a damp layer of peat moss ... In our experience less eggs tend to fungus using the latter method' – 'วิธีหลัง' is fine, but 'ปลาแพะ' in item 9 for Corydoras is wrong: Thai hobbyists call them 'ปลาคอรี่ดอรัส' / 'ปลาหมูสี' (ปลาแพะ is not a standard term); fix.",
+      "Item 11: 'เพื่อป้องกันความผิดพลาดร้ายแรง' overstates 'any disasters'; use 'ป้องกันความสับสน/ผิดพลาด'.",
+      "Item 11: 'spawning mops' translated as 'ไหมพรมวางไข่' is awkward; use 'ไหมพรมสำหรับวางไข่ (spawning mop)' or 'รังไหมพรม', acceptable but check.",
+      "Item 11: 'liquifry' rendered as 'อาหารลูกปลาชนิดน้ำ (liquifry)' ok, but 'velvet disease' as 'โรคกำมะหยี่' is fine; 'Artemia nauplii' as 'ลูกไรทะเลแรกฟัก' is OK. 'ขุน' for conditioning is not a hobby term; use 'ปรับสภาพ/เตรียมความพร้อมพ่อแม่พันธุ์'.",
+      "Item 1: 'Max size: 60 mm SL' – 'มม. (SL)' leaves SL unexplained; write 'ความยาวมาตรฐาน (SL) 60 มม.'. Also 'ขนาดสูงสุด' fine.",
+      "Item 8: 'ไรแดง' is used for daphnia (ok); 'ปลาที่เพาะเลี้ยงในตู้' fine. 'accepts flake' → 'อาหารแผ่น' is OK.",
+      "Item 9: 'ปลาแมวที่นิสัยสงบ' for 'peaceful catfish' is odd; use 'ปลาหนู/ปลาดุกขนาดเล็กที่นิสัยสงบ' or 'ปลาเทพา/ปลาหนูสีสงบ'; 'Anabantoid' left in English, use 'ปลากลุ่มปลากัด/แอนาแบนทอยด์'.",
+      "Item 12: 'อายุค่อนข้างยืน' is unnatural; use 'อายุค่อนข้างยาว'."
+    ]
+  },
+  "aphyosemion-bitaeniatum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่ไบทีเนียทัม",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"ปลาคิลลี่ไบทีเนียทัม\" is an invented transliteration of the Latin name. Use \"ปลาคิลลี่ฟิช Aphyosemion bitaeniatum\" or a standard hobby name instead.",
+      "Item 1: \"ใช้ตู้ปลาขนาดเล็กได้ แต่ต้องใช้น้ำที่เป็นกรด\" adds a concessive \"but\" that is not in the source. Phrase it neutrally, e.g. \"เหมาะกับตู้ขนาดเล็ก ต้องใช้น้ำกรด\".",
+      "Item 1: \"สามเหลี่ยมปากแม่น้ำ\" is acceptable, but the usual term is \"ดินดอนสามเหลี่ยมปากแม่น้ำ\" or \"เดลต้า\". \"ไนเจอร์\" and \"ครอส\" are fine.",
+      "Item 2: \"widely-distributed\" is rendered as \"กระจายพันธุ์กว้าง\", which is fine. \"ในแผ่นดิน\" is slightly stiff. \"ในพื้นที่ตอนใน\" or \"ห่างจากชายฝั่ง\" reads more naturally.",
+      "Item 4: \"ถูกดองเก็บไว้\" for \"preserved\" is awkward. Use \"ที่ดองรักษาสภาพ\" or \"ตัวอย่างดอง\".",
+      "Item 4: \"semeion\" meaning 'banner, flag' is rendered as \"ธง ป้าย\", which adds the sense \"sign\" (ป้าย). Use \"ธง\" or \"ธงประดับ\" only.",
+      "Item 4: \"ริบบิ้น\" and \"รูปพิณ\" are acceptable. Lyre-shaped is more commonly \"รูปพิณไลร์\" or \"รูปพิณกรีก\", which is a minor point."
+    ]
+  },
+  "aphyosemion-bivittatum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่ไบวิตตาตัม",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "\"50 มม. SL (ความยาวมาตรฐาน)\": the English gives \"2.0 in SL\" as well, so converting to 5 cm would be expected. Leaving the figure in mm is acceptable, but \"SL\" is left as an English abbreviation. Write it as \"ความยาวมาตรฐาน (SL)\" so it reads more naturally.",
+      "\"พิณไลร์\": \"lyre\" is rendered as a rarely used term. Use \"ครีบหางรูปพิณ (lyre)\" or \"รูปพิณ\" to make it clearer.",
+      "\"ปลาคิลลี่\": the usual Thai hobby spelling is \"ปลาคิลลี่ฟิช\" (killifish). This is a minor point."
+    ]
+  },
+  "aphyosemion-bualanum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่ บัวลานัม",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 2: \"เมืองบัวลา\" adds \"city/town\", which the English doesn't say. Use \"พื้นที่/ท้องที่ Bouala\" or \"บัวลา\".",
+      "Item 3: \"semeion ... 'banner, flag'\" is translated only as 'ธง'. Add 'แบนเนอร์/ป้าย' or \"ธง\" for completeness (minor).",
+      "Item 3: \"ปัจจัยภาษาละติน -anum\" is slightly stiff. \"คำลงท้าย/หน่วยคำต่อท้าย\" reads more naturally (minor)."
+    ]
+  },
+  "aphyosemion-celiae": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "คิลลี่ซีเลีย",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Celia's lyretail\" left in English as the common name; add a Thai transliteration or explanation, or keep it in brackets after a Thai name.",
+      "Items 1, 2, 4: place names such as Mungo, Mambanda and Kumba are left in Latin script; Thai transliteration would read more naturally for a Thai handbook.",
+      "Item 1: \"SL\" is left unexplained in \"65 มม. SL\"; write \"ความยาวมาตรฐาน (SL)\" so readers know what it means.",
+      "Item 4: \"ธง, แถบผ้า\" for semeion 'banner, flag' is slightly off; \"ธง, ป้าย\" would be closer.",
+      "Item 4: \"Scheel\" is left unexplained; the reader does not know he is the describing author or collector. Add a role such as \"นักสะสมปลา Scheel\" if the source allows."
+    ]
+  },
+  "aphyosemion-cognatum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่ค็อกนาทัม",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 1: \"Lac Fwa\" is rendered as \"ทะเลสาบ Lac Fwa\" (redundant: Lac already means lake) and the place names are left in Latin script; consider transliterating, e.g. \"ทะเลสาบฟวา (Lac Fwa)\" and \"แม่น้ำซันกูรู (Sankuru)\".",
+      "Item 1: \"many hundreds of kilometres from Kinshasa\" is fine, but the English trade name \"Red-spotted lyretail\" is left untranslated without any Thai common name. Consider adding a Thai name or a Thai explanation in brackets.",
+      "Item 2: \"tributary\" is translated as \"สาขาของแม่น้ำคองโก\". This is acceptable, but \"แควของแม่น้ำคองโก\" is more natural Thai.",
+      "Item 3: \"cognatus\" is translated as 'ซึ่งเกี่ยวดองกัน'. \"เกี่ยวดอง\" means related by marriage, so it shifts the meaning. Use 'มีความเกี่ยวข้องกัน' or 'เป็นญาติกัน'.",
+      "Item 3: \"banner, flag\" is rendered as 'ธง, แถบธง'. \"แถบธง\" is awkward; use 'ธง, ป้าย' or just 'ธง'.",
+      "Item 3: \"ornamented, often lyre-shaped\" is rendered as \"รูปทรงคล้ายพิณไลร์\". \"พิณไลร์\" is non-standard; use \"คล้ายพิณลีร์ (lyre)\" or \"รูปพิณ\".",
+      "Item 3: \"at the time of description\" is rendered as \"ช่วงที่มีการบรรยายลักษณะชนิดนั้น\". \"ชนิดนั้น\" is slightly off; use \"ช่วงที่มีการตั้งชื่อและบรรยายลักษณะปลาชนิดนี้\"."
+    ]
+  },
+  "aphyosemion-congicum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "คองโก ไลร์เทล",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: 'ธง, ธงประดับ' for 'banner, flag' adds the sense 'ประดับ' (decorated); better 'ธง, ป้ายธง' or 'ธง, แถบธง'.",
+      "Item 1: 'คองโก ไลร์เทล' is a transliteration. Consider 'ไลร์เทลคองโก' to follow the Thai order of noun then modifier."
+    ]
+  },
+  "aphyosemion-decorsei": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่ Aphyosemion decorsei",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "\"Max size: 50 mm SL\" → \"ขนาดโตเต็มที่: 50 มม. SL\": the unit is fine, but \"SL\" is left unexplained. Consider \"ความยาวมาตรฐาน (SL)\", or add \"ซม.\" (5 ซม.).",
+      "\"Decorse's lyretail\" is left in English. Consider adding a Thai transliteration or the established name in front of the English one.",
+      "\"ป้าย\" for 'banner, flag' is slightly off. \"ธง\" or \"ธงประดับ\" alone is closer."
+    ]
+  },
+  "aphyosemion-elberti": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aphyosemion elberti",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 2: \"ผ่านตอนกลางของแคเมอรูน (ผ่านระบบแม่น้ำ Sanaga ...\" repeats \"ผ่าน\". Rephrase, e.g. \"ผ่านตอนกลางของแคเมอรูน (ตามระบบแม่น้ำ Sanaga ...)\".\n",
+      "Item 4: \"ธง, แถบผ้า\" for 'banner, flag' adds a nuance the source doesn't have. Use \"ธง, ป้ายธง\" or just \"ธง\".",
+      "Item 1: \"Red-barred lyretail\" is left in English with no Thai name. Add a Thai rendering or a hobby name, e.g. \"ปลาคิลลี่หางพิณแถบแดง\"."
+    ]
+  },
+  "aphyosemion-erythron": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อะไฟโอซีเมียน อีริทรอน",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 1: \"Max size: 25 mm SL (1.0 in SL)\" – 25 mm is metric already, so dropping the inch figure is fine, but \"SL\" is left unexplained; add \"ความยาวมาตรฐาน (SL)\" or similar so readers understand.",
+      "Item 1: \"Río Muni\" is transliterated as \"ริโอมูนี\" while \"Río Aye\", \"Río Ecucu\" and \"Río Benito\" stay in Latin script. Use one style for all place names (e.g. transliterate all, or keep all in Latin).",
+      "Item 1: The sentence about A. sp. Ecurya is moved to a separate paragraph and starts with \"ทั้งนี้\", which does not match the original flow. Keep it in the first paragraph, and drop \"ทั้งนี้\".",
+      "Item 1: \"ปลาคิลลี่ฟิชเรดดิช ไลร์เทล (reddish lyretail)\" is a clumsy transliteration of the common name. Use a simpler form, e.g. \"ปลาคิลลี่ฟิชไลร์เทลสีแดง\", or keep \"Reddish lyretail\" in brackets.",
+      "Items 1–3: \"ได้รับการตั้งชื่อเป็นชนิดใหม่จากตัวอย่างที่เก็บได้ใน...\" is wordy. \"Described from\" can be \"ถูกพรรณนาครั้งแรกจากตัวอย่างใน...\" or \"ได้รับการอธิบายลักษณะครั้งแรกจาก...\"."
+    ]
+  },
+  "aphyosemion-gabunense": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่กาบอง",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Items 2 and 9: \"แย่งอาหารสู้ปลาที่ว่องไวกว่า...ไม่ได้ง่าย ๆ\" is awkward and could be misread as hard to beat. Use something clearer such as \"มักแพ้ปลาที่ว่องไวกว่าเวลาแย่งอาหาร\".",
+      "Items 1 and 7: \"ความกระด้าง (GH)\" adds a GH label. The source says only Hardness with a dGH unit. Use \"ความกระด้าง: 5–15 dGH\"."
+    ]
+  },
+  "aphyosemion-hanneloreae": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาคิลลี่ฮันเนอลอเร",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 1: 'Max size: 40 mm SL (1.6 in SL)' — mm should be converted/expressed as ซม. (4 ซม.) per metric convention; 'มม.' is acceptable but SL gloss 'จากปลายปากถึงโคนหาง' is an added explanation; keep simply 'SL (standard length)'.",
+      "Item 1: 'ปลาคิลลี่ฮันเนอลอเร' is an invented Thai name for 'Hannelore's lyretail'; better to keep the English trade name 'Hannelore's lyretail' or use 'ไลเรเทล' rather than coining a name.",
+      "Item 3: 'named for second author Eduard Pürzl's wife' — Thai 'ผู้บรรยายชนิดคนที่สอง' (second species describer) changes 'second author' slightly; use 'ผู้เขียนคนที่สอง (ผู้ตั้งชื่อ)' for fidelity.",
+      "Item 3: 'aphúe' meaning 'a small fish' fine; but 'banner, flag' translated only as 'ธง' — omits 'banner' (ป้ายธง/แถบธง); add it.",
+      "Item 3: 'ornamented' rendered 'มีลวดลายสวยงาม' — 'ornamented' is closer to 'ประดับประดา/ตกแต่ง'; also 'genus members' fine."
+    ]
+  },
+  "aphyosemion-herzogi": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "คิลลี่เฮอร์ซอกิ",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "aphyosemion-loennbergii": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อะไฟโอซีเมียน เลินน์เบอร์กิอาย",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 4: 'semeion ... banner, flag' translated as 'ป้ายประดับ, ธง' adds 'ประดับ' (ornamented) to the meaning; use 'ป้าย, ธง' or 'ธง, สัญลักษณ์'.",
+      "Item 1: 'ความกระด้าง (GH): 1–5 dGH' adds the term GH not in the English 'Hardness'; just 'ความกระด้าง: 1–5 dGH' is more faithful (minor).",
+      "Item 1: 'ไลร์เทลเลินน์แบร์ก' as a common name is a clumsy transliteration; consider 'ไลร์เทลของเลินน์แบร์ก' (minor)."
+    ]
+  },
+  "aphyosemion-mimbon": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "คิลลี่ มิมบอน",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: 'ลำน้ำ Abanga, Mbei, Komo และ Nkam' — the English just lists names (Nkam etc. are rivers/drainages); fine overall, but Latin-script place names are left untransliterated (Mvé, Akoga, Abanga); consider Thai transliteration with the original in brackets.",
+      "Items 1 and 4: country name is inconsistent — 'กาบอง' in items 1 and 2 but 'กาบอง' vs 'กาบอง' spelling should be unified (item 4 uses 'กาบอง' too; check consistency with standard 'กาบอง').",
+      "Item 4: 'ธง, แถบธง' for 'banner, flag' is slightly redundant; use 'ธง, ป้ายธง' or just 'ธง'.",
+      "Item 4: 'พิณไลร์' for 'lyre-shaped' is awkward; use 'รูปพิณลายเร (lyre)' or 'รูปคล้ายพิณ'.",
+      "Item 1: 'SL' left as abbreviation without explanation; consider 'ความยาวมาตรฐาน (SL)'.",
+      "Items 1 and 3: 'Hardness' translated as 'ความกระด้าง (GH)' while the unit is dGH; use 'ความกระด้างของน้ำ' without 'GH' to avoid mismatch."
+    ]
+  },
+  "aphyosemion-ogoense": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อะไฟโอซีเมียน โอโกเอนเซ่",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
   },
   "apteronotus-albifrons": {
     "at": "2026-11-04",

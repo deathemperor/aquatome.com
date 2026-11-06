@@ -1,0 +1,113 @@
+{
+  "id": "aphyosemion-bualanum",
+  "native": {
+    "input": "c246d0d88ba4272d",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Bouala lyretail, Aphyosemion bualanum, is a killifish from the upper Benue and Mayo Kébbi systems in Cameroon, Central African Republic and Chad.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Bouala lyretail, Aphyosemion bualanum, is a killifish from the upper Benue and Mayo Kébbi systems in Cameroon, Central African Republic and Chad.",
+        "words": "Central African Republic",
+        "ok": true
+      },
+      {
+        "code": "TD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Bouala lyretail, Aphyosemion bualanum, is a killifish from the upper Benue and Mayo Kébbi systems in Cameroon, Central African Republic and Chad.",
+        "words": "Chad",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its known distribution includes parts of northern Cameroon, western Central African Republic, southeastern Chad and possibly eastern Nigeria in the upper Benue and Mayo Kébbi river systems.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its known distribution includes parts of northern Cameroon, western Central African Republic, southeastern Chad and possibly eastern Nigeria in the upper Benue and Mayo Kébbi river systems.",
+        "words": "Central African Republic",
+        "ok": true
+      },
+      {
+        "code": "TD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its known distribution includes parts of northern Cameroon, western Central African Republic, southeastern Chad and possibly eastern Nigeria in the upper Benue and Mayo Kébbi river systems.",
+        "words": "Chad",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Its known distribution includes parts of northern Cameroon, western Central African Republic, southeastern Chad and possibly eastern Nigeria in the upper Benue and Mayo Kébbi river systems.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Benue",
+        "source": "seriouslyfish",
+        "quote": "The Bouala lyretail, Aphyosemion bualanum, is a killifish from the upper Benue and Mayo Kébbi systems in Cameroon, Central African Republic and Chad.",
+        "ok": true
+      },
+      {
+        "name": "Mayo Kébbi",
+        "source": "seriouslyfish",
+        "quote": "The Bouala lyretail, Aphyosemion bualanum, is a killifish from the upper Benue and Mayo Kébbi systems in Cameroon, Central African Republic and Chad.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion bualanum",
+    "status": "ACCEPTED",
+    "taxonKey": 2348331,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        10
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ]
+    ],
+    "native": [
+      "CM",
+      "CF",
+      "TD"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

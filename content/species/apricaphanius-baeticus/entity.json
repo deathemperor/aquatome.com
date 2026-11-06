@@ -11,6 +11,56 @@
     "guadalquivir",
     "gibraltar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ES"
+      ],
+      "regions": [
+        "Guadalquivir"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Baetican toothcarp, Apricaphanius baeticus, is endemic to a small part of southern Spain, mostly in the lower Guadalquivir River basin.",
+          "countries": [
+            "ES"
+          ],
+          "regions": [
+            "Guadalquivir"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11371927,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ES",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -7.03125,
+          36.5625,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          35.15625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

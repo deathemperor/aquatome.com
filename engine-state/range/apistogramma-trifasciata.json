@@ -1,0 +1,169 @@
+{
+  "id": "apistogramma-trifasciata",
+  "native": {
+    "input": "8d646c488ed5b2c7",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found in Brazil, Paraguay and Argentina, it lives in sluggish creeks, tributaries and smaller rivers where leaf litter collects.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found in Brazil, Paraguay and Argentina, it lives in sluggish creeks, tributaries and smaller rivers where leaf litter collects.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found in Brazil, Paraguay and Argentina, it lives in sluggish creeks, tributaries and smaller rivers where leaf litter collects.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Arroyo Chagalalina' in Paraguay but this species has a relatively wide distribution extending southwards from the rio Guaporé drainage in the southern Amazon basin though the connected rio Paraguay watershed in Brazil and Paraguay and on as far as the middle Paraná (of which the Paraguay is a major tributary) basin in Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Arroyo Chagalalina' in Paraguay but this species has a relatively wide distribution extending southwards from the rio Guaporé drainage in the southern Amazon basin though the connected rio Paraguay watershed in Brazil and Paraguay and on as far as the middle Paraná (of which the Paraguay is a major tributary) basin in Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Arroyo Chagalalina' in Paraguay but this species has a relatively wide distribution extending southwards from the rio Guaporé drainage in the southern Amazon basin though the connected rio Paraguay watershed in Brazil and Paraguay and on as far as the middle Paraná (of which the Paraguay is a major tributary) basin in Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Arroyo Chagalalina' in Paraguay but this species has a relatively wide distribution extending southwards from the rio Guaporé drainage in the southern Amazon basin though the connected rio Paraguay watershed in Brazil and Paraguay and on as far as the middle Paraná (of which the Paraguay is a major tributary) basin in Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Arroyo Chagalalina' in Paraguay but this species has a relatively wide distribution extending southwards from the rio Guaporé drainage in the southern Amazon basin though the connected rio Paraguay watershed in Brazil and Paraguay and on as far as the middle Paraná (of which the Paraguay is a major tributary) basin in Argentina.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Arroyo Chagalalina' in Paraguay but this species has a relatively wide distribution extending southwards from the rio Guaporé drainage in the southern Amazon basin though the connected rio Paraguay watershed in Brazil and Paraguay and on as far as the middle Paraná (of which the Paraguay is a major tributary) basin in Argentina.",
+        "country": "AR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Arroyo Chagalalina' in Paraguay but this species has a relatively wide distribution extending southwards from the rio Guaporé drainage in the southern Amazon basin though the connected rio Paraguay watershed in Brazil and Paraguay and on as far as the middle Paraná (of which the Paraguay is a major tributary) basin in Argentina.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma trifasciata",
+    "status": "ACCEPTED",
+    "taxonKey": 2371310,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        29
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        27
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        25
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        24
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        15
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        11
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "id": "apistogramma-hoignei",
+  "native": {
+    "input": "cbd10f60a68cb20f",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Río Portugesa, a tributary of the Río Apuré in southwestern Venezuela and also recorded from the lower Río Arauca and Río Caura.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Apure",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Arauca",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Caura",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma hoignei is a dwarf cichlid from the Río Orinoco basin in Venezuela, including the Apure, Arauca and Caura drainages.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Portugesa",
+        "source": "seriouslyfish",
+        "quote": "Described from the Río Portugesa, a tributary of the Río Apuré in southwestern Venezuela and also recorded from the lower Río Arauca and Río Caura.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma hoignei",
+    "status": "ACCEPTED",
+    "taxonKey": 2371248,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        107
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        30
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        22
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

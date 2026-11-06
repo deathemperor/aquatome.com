@@ -11,6 +11,79 @@
     "peru",
     "huallaga"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Huallaga",
+        "Rio Shanushi",
+        "Paranapura"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Inca dwarf cichlid, Apistogramma baenschi, is from tributaries of the lower Río Huallaga in the Amazonian portion of northern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Huallaga"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+          "countries": [],
+          "regions": [
+            "Rio Shanushi",
+            "Paranapura"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371233,
+      "total": 36,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -7.03125,
+          27,
+          27
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

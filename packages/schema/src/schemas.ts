@@ -120,8 +120,8 @@ export const VideoRef = z.object({
   gear: z.array(z.object({ category: z.string(), type: z.string().optional(), brand: z.string().optional(), model: z.string().optional(), t: z.number().optional() })).optional(),
   /**
    * Pictures per guide section (matched by its h3 text): stills from the video (its own frames, `-hd.webp`; a storyboard
-   * tile until `pnpm engine video-stills` reaches it; a click plays the video from `t`) and an open-licence photo. Absent
-   * until the images pass has run; [] when nothing fitted.
+   * tile until `pnpm engine video-stills` reaches it; `t` is the second the still shows, and a click plays the video
+   * from it) and an open-licence photo. Absent until the images pass has run; [] when nothing fitted.
    */
   figures: z.array(z.object({
     heading: z.string(),

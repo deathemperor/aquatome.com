@@ -12,6 +12,122 @@
     "nigeria",
     "cross-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TG",
+        "BJ",
+        "NG"
+      ],
+      "regions": [
+        "Cross River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The two-striped lyretail, Aphyosemion bitaeniatum, is a killifish from lowland coastal regions of Togo, Benin and Nigeria.",
+          "countries": [
+            "TG",
+            "BJ",
+            "NG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is widely-distributed in lowland, coastal regions of Togo, Benin and Nigeria as far as the Cross River delta, and occurs at some inland localities along the lower Niger River.",
+          "countries": [],
+          "regions": [
+            "Cross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348297,
+      "total": 58,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BJ",
+          32
+        ],
+        [
+          "NG",
+          21
+        ],
+        [
+          "DE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          20,
+          20
+        ],
+        [
+          1.40625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          7
+        ],
+        [
+          5.625,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          7.03125,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          50.625,
+          5,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,92 @@
+{
+  "id": "aphyosemion-mimbon",
+  "native": {
+    "input": "a23a4c24cfd7e340",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "May occur across the border in southeastern Equatorial Guinea.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mvé",
+        "source": "seriouslyfish",
+        "quote": "Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Abanga",
+        "source": "seriouslyfish",
+        "quote": "Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Mbei",
+        "source": "seriouslyfish",
+        "quote": "Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Komo",
+        "source": "seriouslyfish",
+        "quote": "Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Nkam",
+        "source": "seriouslyfish",
+        "quote": "Described from a minor tributary of the Mvé River running through the village of Akoga, northwestern Gabon and has been recorded in other headwater drainages of the region including the Abanga, Mbei, Komo and Nkam.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion mimbon",
+    "status": "ACCEPTED",
+    "taxonKey": 2348380,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

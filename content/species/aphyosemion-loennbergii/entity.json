@@ -10,6 +10,76 @@
     "cameroon",
     "kienke"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Nyong",
+        "Lokundje",
+        "Kienké"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the 'Kribi', now known as Kienké, river, southwestern Cameroon and has a wider distribution in the region, occurring in the Lokundje and Nyong drainages.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Nyong",
+            "Lokundje",
+            "Kienké"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348282,
+      "total": 45,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CM",
+          38
+        ],
+        [
+          "DE",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          2.8125,
+          31,
+          31
+        ],
+        [
+          9.84375,
+          50.625,
+          7,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
