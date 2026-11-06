@@ -43,6 +43,8 @@ export type AgentRun<Step> = {
   photos: number
   spent: Spent
   steps: Step[]
+  /** The answer was sent back with more to read (`recheck`). */
+  rechecked?: boolean
 }
 export type AgentInput<Step> = {
   send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number }) => Promise<Anthropic.Message>
@@ -55,6 +57,11 @@ export type AgentInput<Step> = {
   maxTokens: number
   limits?: Partial<Limits>
   onStep?: (step: Step) => void
+  /**
+   * Asked once a run, when Claude answers of its own accord with time for another call: more for it to read before the
+   * answer is final (undefined: the answer stands). It answers again, with the tools while calls are left.
+   */
+  recheck?: (answer: Anthropic.Message) => Anthropic.ContentBlockParam[] | undefined
   clock?: () => number
 }
 
@@ -104,8 +111,16 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
     run.spent.cacheRead += r.usage.cache_read_input_tokens ?? 0
     run.spent.cacheWrite += r.usage.cache_creation_input_tokens ?? 0
     run.spent.output += r.usage.output_tokens
-    // An answer, a refusal, or anything that isn't a request for tools ends the run; so does the forced call, whatever it says.
-    if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) return { ...run, message: r, stopped: forced ?? 'answer' }
+    // An answer, a refusal, or anything that isn't a request for tools ends the run; so does the forced call, whatever it
+    // says. An answer Claude chose, with time left for a last call, may first be sent back once with more to read.
+    if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) {
+      const more = !forced && !run.rechecked && r.stop_reason === 'end_turn' && deadline - clock() >= lim.lastCallMs ? a.recheck?.(r) : undefined
+      if (!more?.length) return { ...run, message: r, stopped: forced ?? 'answer' }
+      run.rechecked = true
+      next = promptOf(r.usage) + r.usage.output_tokens + Math.ceil(more.reduce((n, b) => n + (b.type === 'text' ? b.text.length : 0), 0) / 4)
+      history.push({ role: 'assistant', content: r.content as Anthropic.ContentBlockParam[] }, { role: 'user', content: more })
+      continue
+    }
 
     const results: Anthropic.ToolResultBlockParam[] = []
     for (const use of r.content) {

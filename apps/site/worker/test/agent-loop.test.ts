@@ -176,3 +176,43 @@ test('a refusal, an answer cut short, a call that fails: each ends the run, with
   expect(failing).toMatchObject({ stopped: 'error', calls: 2, tools: 1, error: err, spent: { input: 1000 } })
   expect(failing.message).toBeUndefined()
 })
+
+test('recheck: an answer Claude chose may be sent back once with more to read, and the run goes on to its next answer', async () => {
+  const seen: Anthropic.Message[] = []
+  const more = [{ type: 'text' as const, text: 'Read these marks.' }]
+  const c = script([() => answers('{"guess":1}'), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers('{"guess":2}')])
+  const r = await runAgent(input(c.send, { recheck: m => { seen.push(m); return more } }))
+  expect(r).toMatchObject({ stopped: 'answer', calls: 3, tools: 1, rechecked: true })
+  expect(r.message?.content).toEqual([{ type: 'text', text: '{"guess":2}' }])
+  // Asked once: the second answer stands whatever recheck would say.
+  expect(seen.map(m => m.content)).toEqual([[{ type: 'text', text: '{"guess":1}' }]])
+  // The first answer and the recheck's text join the history, append-only; the tools stay free to use.
+  expect(c.calls[1]!.body.messages.slice(1)).toEqual([{ role: 'assistant', content: [{ type: 'text', text: '{"guess":1}' }] }, { role: 'user', content: more }])
+  expect(c.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'auto', 'auto'])
+})
+
+test('recheck: not asked of a forced answer, a refusal or an answer cut short, nor with under 12 s left; nothing to add ends the run', async () => {
+  let asked = 0
+  const recheck = () => { asked++; return [{ type: 'text' as const, text: 'more' }] }
+  const forced = await runAgent(input(script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()]).send, { recheck, limits: { calls: 2 } }))
+  expect(forced).toMatchObject({ stopped: 'calls', calls: 2 })
+  const refusal = await runAgent(input(script([() => answers('', 'refusal')]).send, { recheck }))
+  const cut = await runAgent(input(script([() => answers('{"verdict":', 'max_tokens')]).send, { recheck }))
+  expect([refusal.calls, cut.calls]).toEqual([1, 1])
+  const late = { now: 0, per: [15_500] }
+  const slow = await runAgent(input(script([() => answers()], late).send, { recheck, clock: () => late.now }))
+  expect(slow).toMatchObject({ stopped: 'answer', calls: 1 })
+  expect(asked).toBe(0)
+  for (const none of [() => undefined, () => []]) {
+    const r = await runAgent(input(script([() => answers()]).send, { recheck: none }))
+    expect(r).toMatchObject({ stopped: 'answer', calls: 1 })
+    expect(r.rechecked).toBeUndefined()
+  }
+})
+
+test('recheck: the call after it still counts toward the limits (the 4th call is forced)', async () => {
+  const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers(), () => answers()])
+  const r = await runAgent(input(c.send, { recheck: () => [{ type: 'text', text: 'more' }] }))
+  expect(r).toMatchObject({ stopped: 'calls', calls: 4, rechecked: true })
+  expect(c.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'auto', 'auto', 'none'])
+})
