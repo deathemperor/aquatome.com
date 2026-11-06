@@ -135,7 +135,7 @@ private struct TankDetail: View {
         // Guides that name its fish and plants (TankGuides.swift).
         TankGuidesSection(tank: t)
         if !lights.isEmpty {
-          Section("Đèn") { ForEach(lights) { d in LightButton(device: d) } }
+          Section("Đèn") { ForEach(lights) { d in LightButton(device: d, tankLights: lights) } }
         }
         PlugsSection(tank: t)
         Section {
@@ -165,16 +165,24 @@ private struct TankDetail: View {
 }
 
 /// A light on the tank opens on the Đèn tab: connected to, as from Đèn's saved lights, when no light is; the one
-/// connected, or another light that is, is shown as it is (connecting one more would leave that one hanging).
+/// connected, or another light that is, is shown as it is (connecting one more would leave that one hanging). A Week
+/// Aqua light opens the Week Aqua screen, connecting the tank's Week Aqua lights together, as the group they are.
 private struct LightButton: View {
   let device: Device
+  let tankLights: [Device]
   @Environment(LightsModel.self) private var lights
   @Environment(\.openScreen) private var openScreen
 
   var body: some View {
     Button {
       openScreen(.lights)
-      if lights.card == .idle { Task { await lights.connect(saved: device) } }
+      if device.isWeekAqua {
+        let wa = lights.weekAqua
+        wa.isOpen = true
+        if !wa.isConnected && !wa.isConnecting { Task { await wa.connect(saved: tankLights.filter(\.isWeekAqua)) } }
+      } else if lights.card == .idle {
+        Task { await lights.connect(saved: device) }
+      }
     } label: {
       HStack {
         LightRow(device: device).foregroundStyle(Color.primary)
@@ -192,6 +200,23 @@ private struct LightRow: View {
   let device: Device
 
   var body: some View {
+    if device.isWeekAqua { weekAqua } else { chihiros }
+  }
+
+  /// What AquaTome last sent it: the light can't say what it shows.
+  private var weekAqua: some View {
+    VStack(alignment: .leading, spacing: 2) {
+      // Two can share a name: the end of the address tells them apart.
+      Text(verbatim: [device.nickname ?? device.bleName ?? "Week Aqua", device.bleAddress.map { "…\(WeekAquaModel.tail($0))" }].compactMap { $0 }.joined(separator: " · "))
+      if let s = device.weekAquaSent {
+        Text(verbatim: WeekAquaModel.label(s)).font(.caption).foregroundStyle(.secondary)
+      } else {
+        Text("AquaTome chưa gửi gì tới đèn này.").font(.caption).foregroundStyle(.secondary)
+      }
+    }
+  }
+
+  private var chihiros: some View {
     VStack(alignment: .leading, spacing: 2) {
       Text(device.nickname ?? device.model ?? device.bleName ?? String(localized: "Đèn"))
       if let s = device.schedules.first(where: { $0.id == device.activeScheduleId }) {

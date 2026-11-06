@@ -14,6 +14,7 @@ struct LightsView: View {
     // At the largest text sizes a bar pinned to the bottom would leave little of the screen: the write bar goes after the
     // colour instead, where the site's sits on a wide screen.
     let pinned = !size.isAccessibilitySize
+    @Bindable var weekAqua = lights.weekAqua
     NavigationStack {
       ScrollView {
         VStack(alignment: .leading, spacing: 24) {
@@ -28,11 +29,14 @@ struct LightsView: View {
             AboutText()
           }
           .font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4)
+          // Week Aqua lights after all of the Chihiros screen, which the tab is named for: last for VoiceOver too.
+          WeekAquaEntry().modifier(Panel())
         }
         .padding()
       }
       .background(Color(.systemGroupedBackground))
       .navigationTitle("Đèn Chihiros")
+      .navigationDestination(isPresented: $weekAqua.isOpen) { WeekAquaView() }
       // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar
       // is fixed to the bottom on a phone too).
       .safeAreaInset(edge: .bottom) { VStack(spacing: 0) { NoticeBar(); if pinned { WriteBar(pinned: true) } } }
@@ -51,7 +55,7 @@ struct LightsView: View {
 }
 
 /// A block of the screen on its own background, like a grouped list's section.
-private struct Panel: ViewModifier {
+struct Panel: ViewModifier {
   func body(content: Content) -> some View {
     content
       .padding()

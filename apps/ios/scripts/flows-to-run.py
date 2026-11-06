@@ -35,7 +35,8 @@ HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'Nati
 HANDBOOK_FIRST = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests',
                   'TankCheckFlowTests']
 # The light flows' first half, run by `lights (1)`; `lights (2)` runs the rest of LightFlowTests, so a flow added later
-# runs there. Split by their times on main's run of 2026-11-01 (1,034 s and 1,017 s).
+# runs there. Split by their times on main's run of 2026-11-01 (1,034 s and 1,017 s); the slowest Week Aqua flow (202 s
+# on a local simulator) here, as the others joined the rest.
 LIGHT_FIRST = [
     'testADroppedLightConnectsAgainWithoutAScan', 'testALightThatDropsMidTestIsKeptAsSetByHandUntilTheoLich',
     'testALightThatDropsWhileBeingReadCanBeConnectedAgain',
@@ -45,7 +46,7 @@ LIGHT_FIRST = [
     'testSchedulesWrittenAreListedOnlyWhileTheLightIsConnected', 'testTheDayPreviewStopsAtOnceOnTheScreenAndOnTheLight',
     'testTheLightsOwnScheduleIsNeverShownAsWhatItRuns', 'testThePlanIsKeptWithoutALight',
     'testTheWriteBarStaysInViewAndSaysWhatWillBeWritten', 'testWritesAPresetThenAnotherThenUndoesBackToTheFirst',
-    'testWritingAScheduleEndsTheManualLevels']
+    'testWritingAScheduleEndsTheManualLevels', 'testWeekAquaWritesAGroupInTheOrderTheLightsTakeThenSetsTheirClock']
 # Run elsewhere: the performance tests by job `perf`, the App Store's screenshots by app-store.yml.
 ELSEWHERE = ['PerformanceTests', 'StoreShotsFlowTests']
 
@@ -91,7 +92,8 @@ LIGHT_OUTLET = ['LightFlowTests/' + t for t in (
 LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testKeepsTheLightAndWhatWasWrittenOnATank', 'testALightOnATankOpensOnTheLightsTabAndConnects',
     'testALightOnATankOpensTheConnectedLightAsItIs',
-    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten')] + LIGHT_OUTLET
+    'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten',
+    'testWeekAquaKeepsTheGroupOnATankAndConnectsItFromThere')] + LIGHT_OUTLET
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -139,6 +141,8 @@ REACH = {
     # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
     APP + 'Lights/LightsView.swift': ['LightFlowTests', 'PageShotsFlowTests'],
     APP + 'Lights/LightOutlet.swift': ['LightFlowTests', 'PageShotsFlowTests'],
+    # The Week Aqua screen, which the page shots take too.
+    APP + 'Lights/WeekAquaView.swift': ['LightFlowTests', 'PageShotsFlowTests'],
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first).
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests'],
@@ -345,7 +349,7 @@ def test():
     assert 'HandbookFlowTests/testFiltersTheFishToMyTank' in got and set(LIGHTS_ON_TANKS) <= got, got
     assert reached([APP + 'Lights/Radio.swift']) == reached([KIT + 'Sources/Chihiros/Frames.swift']) == {'LightFlowTests'}
     assert reached([KIT + 'Sources/WeekAqua/WeekAquaSession.swift']) == {'LightFlowTests'}
-    for card in ('LightsView.swift', 'LightOutlet.swift'):
+    for card in ('LightsView.swift', 'LightOutlet.swift', 'WeekAquaView.swift'):
         assert reached([APP + 'Lights/' + card]) == {'LightFlowTests', 'PageShotsFlowTests'}, card
     # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.
     assert reached([KIT + 'Sources/Plugs/NewSource.swift']) == {'PlugFlowTests'} | set(LIGHT_OUTLET)
