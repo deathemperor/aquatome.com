@@ -396,7 +396,7 @@ const carePrompt = (name: string, e: BreedEntity, r: BreedFacts | null, want: st
 Use WebSearch and WebFetch. Its page already cites these sources: look at them first, then search for other care sheets and breeders' pages on it (in English, and in Vietnamese when that helps), also when a listed page fails to load.
 ${e.sources.map(s => `- ${s.title}: ${s.url}`).join('\n')}
 
-Rules: ${ITS_OWN} Prefer breeders, long-time hobbyist articles and care sheets over shop copy. Never fetch Shopee, Lazada or Tiki pages. Each figure points at the index of its source in sources[], with quote: the source's own words that state it. Leave out a figure no source states. none: why a figure asked for is missing and what was tried, in one sentence (empty when every one was found).`
+Rules: ${ITS_OWN} Prefer breeders, long-time hobbyist articles and care sheets over shop copy. Never fetch Shopee, Lazada or Tiki pages. Each figure points at the index of its source in sources[], with quote: the source's own words that state it. If sources disagree, keep each figure with its own source. Leave out a figure no source states. none: why a figure asked for is missing and what was tried, in one sentence (empty when every one was found).`
 }
 
 /**

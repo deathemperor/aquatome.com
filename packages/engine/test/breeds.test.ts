@@ -288,6 +288,7 @@ test('breed-care: a breed whose card lacks a difficulty or lifespan gets them fr
   expect(asked[0]).toContain('https://breeder.example') // its page's sources, looked at first
   expect(asked[0]).toContain('difficulty (1 = very easy … 8 = expert')
   expect(asked[0]).toContain('Never a figure from a page about its species or a parent species')
+  expect(asked[0]).toContain('If sources disagree, keep each figure with its own source')
   expect(out.done).toEqual(['ranchu-goldfish: difficulty 3: "Care level: easy" (https://caresheet.example/ranchu); lifeYears 10–15: "lives 10 to 15 years" (https://article.example/)'])
   const e = JSON.parse(await readFile(file, 'utf8'))
   expect(e.care.difficulty).toEqual([{ source: 2, value: 3 }])

@@ -352,7 +352,8 @@ The layers above still check the result.
   1–8 scale; `pnpm engine breed-care` (each cycle, `BREED_CARE_LIMIT`) gives a breed whose card lacks either one
   research call for just those, once: the figures join its card and the research kept for `--redo`, its new sources its
   sources, nothing else on the page changes, and `engine-state/_breed-care.json` keeps what each call found, with the
-  source's words, or why it found none. Found by the owner (2026-11-06): no breed page had a difficulty.
+  words it quoted from the source, or why it found none. Found by the owner (2026-11-06): no breed page had a
+  difficulty.
 - **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
   - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
   - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
