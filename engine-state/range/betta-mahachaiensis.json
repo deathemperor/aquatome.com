@@ -1,0 +1,56 @@
+{
+  "id": "betta-mahachaiensis",
+  "native": {
+    "input": "50a5c55f4dc5d716",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "It is native to brackish coastal waters of Thailand's Samut Sakhon and Samut Songkhram provinces, particularly around Mahachai.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities in Bangkok, Samut Sakhon, Samut Songkhram and Samut Prakan provinces in central Thailand, all of which lie on the coast of the Gulf of Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta mahachaiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7193203,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        82
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        82
+      ],
+      [
+        "521b84d5-5368-4509-87db-aad632bbd4ca",
+        37
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

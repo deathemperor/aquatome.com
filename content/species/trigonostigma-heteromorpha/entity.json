@@ -24,9 +24,12 @@
         "SG"
       ],
       "regions": [
-        "Sumatra"
+        "Sumatra",
+        "Borneo",
+        "Bintan"
       ],
       "sources": [
+        "sprucepets",
         "seriouslyfish"
       ],
       "quotes": [
@@ -38,8 +41,30 @@
             "MY",
             "SG"
           ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+          "countries": [],
           "regions": [
             "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "While it certainly occurs on the island of Bintan in Riau Islands province, Sumatra, definitive information regarding the mainland is lacking other than a vague reference to the city of Medan in the north (the species is said to range throughout northern Sumatra).",
+          "countries": [],
+          "regions": [
+            "Bintan"
           ]
         }
       ]

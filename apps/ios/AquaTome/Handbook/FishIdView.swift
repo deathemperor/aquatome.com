@@ -216,7 +216,7 @@ struct FishIdView: View {
   /// A page a guess names: the app's own screen for it, else its web page in the app.
   private func open(_ l: FishId.Linked) {
     guard let path = l.path, let u = URL(string: path, relativeTo: handbook.site)?.absoluteURL else { return }
-    if let screen = AppScreen.of(u, site: handbook.site, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
+    if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
   }
 
   // MARK: Doing it

@@ -10,6 +10,50 @@
     "indonesia",
     "bintan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bintan Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Bintan Island, Riau Islands province, Indonesia, where it is known only from a handful of localities in the northern portion of the island.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bintan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394024,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

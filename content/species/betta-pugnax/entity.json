@@ -11,6 +11,132 @@
     "penang",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta pugnax is a paternal mouthbrooding labyrinth fish from much of Peninsular Malaysia and Singapore, described from Penang.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394033,
+      "total": 133,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          59
+        ],
+        [
+          "MY",
+          57
+        ],
+        [
+          "SG",
+          15
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          5.625,
+          2,
+          0
+        ],
+        [
+          98.4375,
+          7.03125,
+          21,
+          0
+        ],
+        [
+          98.4375,
+          8.4375,
+          9,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          28,
+          28
+        ],
+        [
+          99.84375,
+          5.625,
+          29,
+          3
+        ],
+        [
+          101.25,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          101.25,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          12,
+          12
+        ],
+        [
+          102.65625,
+          1.40625,
+          13,
+          13
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

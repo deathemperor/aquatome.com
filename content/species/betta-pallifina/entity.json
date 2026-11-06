@@ -12,6 +12,52 @@
     "barito",
     "mahakam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Barito",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "To date it has only been collected from a remote part of the upper Barito river basin in the Indonesian province of Kalimantan Tengah (Central Kalimantan), Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Barito",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393986,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          -1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

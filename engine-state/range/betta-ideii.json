@@ -1,0 +1,71 @@
+{
+  "id": "betta-ideii",
+  "native": {
+    "input": "9b7d54eb243a8188",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Wild-caught Betta ideii from Indonesia, from the Betta unimaculata complex.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be restricted to southern parts of the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo and Pulau Laut (Laut Island).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Pulau Laut",
+        "source": "seriouslyfish",
+        "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta ideii",
+    "status": "ACCEPTED",
+    "taxonKey": 2394014,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

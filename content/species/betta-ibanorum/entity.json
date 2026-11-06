@@ -10,6 +10,50 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Malaysian state of Sarawak on the island of Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393995,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

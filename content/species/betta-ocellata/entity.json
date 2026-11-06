@@ -13,6 +13,87 @@
     "sabah",
     "sebuku"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sebuku River",
+        "Kinabatangan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Malaysian state of Sabah in northeastern Borneo plus the northern tip of Kalimantan Timur (East Kalimantan), one of the four Indonesian provinces on the island.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Sebuku River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kinabatangan drainage basin B. ocellata was collected from ox-bow lakes and lowland streams with turbid water.",
+          "countries": [],
+          "regions": [
+            "Kinabatangan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393994,
+      "total": 30,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          30
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          116.71875,
+          5.625,
+          3,
+          3
+        ],
+        [
+          118.125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,67 @@
     "malaysia",
     "maliau"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Maliau basin",
+        "Borneo",
+        "Kinabantangan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta gladiator is a large paternal mouthbrooding labyrinth fish presumed endemic to the isolated Maliau basin in Sabah, Malaysian Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Presumed endemic to the geographically-isolated Maliau basin, a roughly circular plateau enclosed by hills in Sabah state, Malaysia, Borneo.",
+          "countries": [],
+          "regions": [
+            "Maliau basin",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Maliau River is part of the much larger Kinabantangan watershed, Malaysia's second longest river.",
+          "countries": [],
+          "regions": [
+            "Kinabantangan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393997,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

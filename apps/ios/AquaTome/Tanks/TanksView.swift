@@ -74,6 +74,7 @@ struct TanksView: View {
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .ownerDashboard()
+      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query) }
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
