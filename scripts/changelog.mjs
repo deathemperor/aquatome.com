@@ -79,7 +79,11 @@ function conventional(title) {
   return m ? { type: m[1].toLowerCase(), scope: (m[2] ?? '').toLowerCase().split(/[\s,/]+/).filter(Boolean), text: m[3].trim() } : undefined
 }
 
-/** The engine's content: a title of type `content`, or a PR whose files are all content, sources or engine state. */
+/**
+ * The engine's content: a title of type `content`, or a PR whose files are all content, sources or engine state.
+ * @param {string} title
+ * @param {string[]} [files]
+ */
 export function isContentPush(title, files = []) {
   return conventional(title)?.type === 'content' || (files.length > 0 && files.every(f => CONTENT.test(f)))
 }
@@ -90,7 +94,7 @@ export function titleQualifies(title) {
   return Boolean(c && (c.type === 'feat' || c.type === 'fix') && c.text && !c.scope.some(w => NOT_PRODUCT.has(w)))
 }
 
-/** The area by the files a PR touched: any in the iOS app is App, else any in the engine is Engine, else Site. */
+/** The area by the files a PR touched: any in the iOS app is App, else any in the engine is Engine, else Site. @param {string[]} [files] */
 export const areaOf = (files = []) => (files.some(f => f.startsWith('apps/ios/')) ? 'App' : files.some(f => f.startsWith('packages/engine/')) ? 'Engine' : 'Site')
 
 const sentence = s => {
@@ -98,7 +102,11 @@ const sentence = s => {
   return /[.!?…]$/.test(t) ? t : `${t}.`
 }
 
-/** A PR without the section: its title's text after `type(scope): `, as a sentence, for a feat or fix that isn't content. */
+/**
+ * A PR without the section: its title's text after `type(scope): `, as a sentence, for a feat or fix that isn't content.
+ * @param {string} title
+ * @param {string[]} [files]
+ */
 export function fallbackChange(title, files = []) {
   if (!titleQualifies(title) || isContentPush(title, files)) return undefined
   return { area: areaOf(files), text: sentence(conventional(title).text) }
@@ -109,6 +117,8 @@ const clip = s => (s.length > MAX_TEXT ? `${s.slice(0, MAX_TEXT - 1)}…` : s)
 /**
  * The product changes of merged pull requests (GitHub's objects, `merged_at` set), newest first, each line once (the
  * newest). `files`: each PR's changed paths by number, needed only for those that fall back to their title.
+ * @param {{ number: number, title: string, body?: string | null, merged_at: string }[]} prs
+ * @param {Record<number, string[]>} [files]
  */
 export function productChanges(prs, files = {}) {
   const seen = new Set()
@@ -137,7 +147,10 @@ const HOW = [
   'Then run this job again: it reads the body as it is now.',
 ].join('\n')
 
-/** Why a PR's body doesn't pass, or undefined when it does. fix.yml's PRs and the engine's content pass as they are. */
+/**
+ * Why a PR's body doesn't pass, or undefined when it does. fix.yml's PRs and the engine's content pass as they are.
+ * @param {{ author?: string, title: string, body?: string | null, files?: string[] }} pr
+ */
 export function checkPr({ author, title, body, files = [] }) {
   if (BOTS.has(author)) return undefined
   if (isContentPush(title, files)) return undefined
