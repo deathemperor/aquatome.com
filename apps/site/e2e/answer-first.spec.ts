@@ -169,12 +169,17 @@ test('a video guide: its chapters one tap away, without the video\'s own list of
 
 // A plant page showed six full-width video cards (2.5 screens) on a phone: two now, the rest one tap away.
 test('a page\'s video guides: two cards on a phone, the rest behind "Xem cả"', async ({ page, errors }, info) => {
+  // Few pages have more than two (70 of aquatome.com's 1356 fish and plants, the first the 165th, 2026-11-06): opening
+  // them one by one ran past the test's time. The first is found by its HTML (the "Xem cả" button), 20 pages at a time.
+  const pages = sourcePages().filter(p => /^\/(ca|cay)\/[^/]+\/$/.test(p))
   let path: string | undefined
-  for (const p of sourcePages().filter(p => /^\/(ca|cay)\/[^/]+\/$/.test(p)).slice(0, 60)) {
-    await page.goto(p)
-    if ((await page.locator('[data-vg] .gc').count()) > 2) { path = p; break }
+  for (let i = 0; i < pages.length && !path; i += 20) {
+    const batch = pages.slice(i, i + 20)
+    const html = await Promise.all(batch.map(p => page.request.get(p).then(r => r.text(), () => '')))
+    path = batch.find((_, k) => /<button[^>]*data-vg-all/.test(html[k]!))
   }
   test.skip(!path, 'no page with more than two video guides')
+  await page.goto(path!)
   const cards = page.locator('[data-vg] .gc')
   const n = await cards.count()
   const more = page.locator('[data-vg-all]')
