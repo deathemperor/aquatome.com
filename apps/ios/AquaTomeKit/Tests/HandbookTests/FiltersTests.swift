@@ -50,10 +50,11 @@ private let v: Vectors = {
 }
 
 @Test func filtersBreedsAsTheSitesListDoes() {
-  // A breed's figures are its own card's (the index's `card`), and it has no scientific name.
+  // A breed's figures are its own card's (the index's `card`), and it has no scientific name. One with no figures has
+  // no card at all, as the index leaves it out.
   let items = v.breeds.map { f in
-    HandbookIndex.Item(kind: .fish, contentId: f.name, name: f.name, path: "/vi/ca/\(f.name)/",
-                       card: .init(tempC: f.tempC, ph: f.ph, tankCm: f.tankCm, difficulty: f.difficulty))
+    let card = HandbookIndex.Facts(tempC: f.tempC, ph: f.ph, tankCm: f.tankCm, difficulty: f.difficulty)
+    return HandbookIndex.Item(kind: .fish, contentId: f.name, name: f.name, path: "/vi/ca/\(f.name)/", card: card == .init() ? nil : card)
   }
   // The name search and the groups are the search's and the shelves', not this filter's.
   let cases = v.breedCases.filter { $0.query.text == nil && $0.query.group == nil }

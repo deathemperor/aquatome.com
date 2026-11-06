@@ -43,6 +43,8 @@
     {"note": "a tank shorter than the breed's own", "query": {"tankCm": 100}, "kept": []},
     {"note": "a difficulty: the breed whose own is at or under it; one with none is out, not a maybe", "query": {"difficultyMax": 3}, "kept": ["Cá vàng Oranda"]},
     {"note": "a difficulty under the breed's own", "query": {"difficultyMax": 1}, "kept": []},
+    {"note": "a difficulty equal to the breed's own", "query": {"difficultyMax": 2}, "kept": ["Cá vàng Oranda"]},
+    {"note": "a pH at one breed's top: a range holds both its ends; the breeds with none are out", "query": {"ph": 7}, "kept": ["Cá La Hán", "Cá đĩa Pigeon Blood"]},
     {"note": "a name and a temperature: both must hold", "query": {"text": "dia", "tempC": 29}, "kept": ["Cá đĩa Pigeon Blood"]},
     {"note": "a group hides every breed", "query": {"group": "cichlids"}, "kept": []}
   ]
