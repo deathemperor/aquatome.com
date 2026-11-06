@@ -27,6 +27,21 @@
         "source": 4,
         "value": 15
       }
+    ],
+    "difficulty": [
+      {
+        "source": 8,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 8,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
     ]
   },
   "photos": [
@@ -103,6 +118,12 @@
       "title": "Cá Thần Tiên Platinum – Dau Aquarium",
       "kind": "shop",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.saltwaterfish.com/product-platinum-angelfish-pterophyllum-scalare",
+      "title": "Platinum Angelfish – saltwaterfish.com",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

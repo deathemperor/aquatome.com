@@ -1,18 +1,27 @@
 {
   "slug": "ca-nheo-batrochoglanis-raninus",
   "name": "Cá nheo Batrochoglanis raninus",
-  "altNames": [],
+  "altNames": [
+    "Frog Marbled Catfish"
+  ],
   "sections": {
     "quickFacts:glaser": "<p>Xuất xứ: Colombia. Kích thước thường có bán: 6-8 cm.</p>",
     "notes:glaser": "<p>Chi Batrochoglanis trước đây được xếp chung vào chi Pseudopimelodus. Cách dễ nhất để phân biệt hai chi này là nhìn vây đuôi. Pseudopimelodus có vây đuôi chẻ sâu, còn vây đuôi của Batrochoglanis chỉ hơi lõm vào.</p><p>Hiện nay có năm loài Batrochoglanis được công nhận. Thỉnh thoảng có những con thuộc chi này về từ Colombia. Chúng khớp với mô tả của loài B. raninus ở mọi điểm, chỉ trừ một điều là cá cứ nhỏ mãi! Bình thường B. raninus là loài lớn nhanh, dài tới 15-20 cm. Thế nhưng nhà cung cấp chưa lần nào giao được con lớn hơn, và cá nuôi tại chỗ cũng không lớn thêm bao nhiêu. Những con lớn nhất ghi nhận được đến nay chỉ dài khoảng 8 cm, tính cả vây đuôi. Có vẻ những con to và nặng hơn là cá cái.</p>",
-    "behaviour:glaser": "<p>Batrochoglanis là cá hoạt động về đêm và rất thích trốn. Chúng rất hiền với mọi loài cá khác, miễn là con đó không lọt vừa miệng chúng. Không thể gọi đây là loài sống theo đàn. Dù vậy, chúng vẫn hay tụ lại thành đám đông trong những ống nhựa thả vào bể làm chỗ trốn.</p>"
+    "behaviour:glaser": "<p>Batrochoglanis là cá hoạt động về đêm và rất thích trốn. Chúng rất hiền với mọi loài cá khác, miễn là con đó không lọt vừa miệng chúng. Không thể gọi đây là loài sống theo đàn. Dù vậy, chúng vẫn hay tụ lại thành đám đông trong những ống nhựa thả vào bể làm chỗ trốn.</p>",
+    "quickFacts:scotcat": "<ul><li>Tình trạng bảo tồn: Ít quan tâm (IUCN 2022). Loài này được xếp vào mức này vì có vùng phân bố rộng, dù thông tin về nó còn khá ít.</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon, Guyana và Guiana thuộc Pháp.</p>",
+    "habitat:scotcat": "<p>Loài này thường gặp ở cả suối nhỏ lẫn sông lớn. Chúng sống ở những đoạn sông sâu và rất râm, nơi nước chảy chậm, đáy tối và sỏi phủ đầy xác thực vật. Ban ngày, cá nằm ẩn dưới cành cây hoặc hốc đá.</p>",
+    "behaviour:scotcat": "<p>Trong bể, cá sẽ săn những con cá nhỏ hơn nó. Bạn nên bố trí thật nhiều chỗ trốn để cá ẩn mình vào ban ngày. Tốt nhất là nuôi theo nhóm nhỏ 2-3 con. Đây là loài rất nhát và hay lẩn trốn.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, cá rình mồi rồi nuốt chửng con nào lọt vào tầm với. Lúc nhỏ cá ăn giáp xác li ti và ấu trùng côn trùng dưới nước. Lớn lên, nó chuyển sang ăn cả những con cá khá to. Trong bể, cá ăn được mọi loại thức ăn: thức ăn mảnh, viên nén, viên chìm, thức ăn sống và đông lạnh.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài raninus trong tiếng Latin nghĩa là \"giống ếch\". Cái tên này nói đến dáng vẻ giống ếch của cá, nhất là cái miệng và cái đầu rộng.</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl, 1985. Aquarien atlas. Band 2. Mergus, Verlag für Natur-und Heimtierkunde GmbH, Melle, Germany. 1216 p.</p><p>Brejão, G.L. 2022. Batrochoglanis raninus. The IUCN Red List of Threatened Species 2022.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p>"
   },
   "quality": {
     "score": 0.88,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.88
-    },
-    "reason": "thin"
+      "glaser": 0.88,
+      "scotcat": 0.88
+    }
   }
 }

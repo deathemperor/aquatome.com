@@ -1,0 +1,44 @@
+{
+  "id": "aphanius-vladykovi",
+  "native": {
+    "input": "65d38f2213b61fb4",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "IR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Aphanius vladykovi inhabits only a small area in Iran; the exact collecting site of the strain is Boldaji.",
+        "words": "Iran",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphanius vladykovi",
+    "status": "ACCEPTED",
+    "taxonKey": 2348147,
+    "datasets": [
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        5
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        3
+      ]
+    ],
+    "native": [
+      "IR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

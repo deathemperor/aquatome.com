@@ -71,6 +71,32 @@
         "source": 0,
         "value": 20
       }
+    ],
+    "difficulty": [
+      {
+        "source": 3,
+        "value": 2
+      },
+      {
+        "source": 1,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 3,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      {
+        "source": 1,
+        "value": {
+          "min": 5,
+          "max": 10
+        }
+      }
     ]
   },
   "photos": [

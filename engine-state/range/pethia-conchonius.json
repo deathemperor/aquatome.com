@@ -1,8 +1,8 @@
 {
   "id": "pethia-conchonius",
   "native": {
-    "input": "b003a88c697a0a5f",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "8a2b34df8aa42b5e",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "IN",
@@ -11,15 +11,6 @@
         "quote": "Origin: India",
         "words": "India",
         "ok": true
-      },
-      {
-        "code": "IN",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Wild-collected rosy barbs, originating from the vicinity of Calcutta (the type locality of Barbus conchonius), look completely different from the aquarium strains.",
-        "words": "Calcutta",
-        "ok": false,
-        "why": "\"Calcutta\" is not IN"
       },
       {
         "code": "IN",
@@ -73,7 +64,7 @@
         "code": "PK",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
         "words": "Pakistan",
         "ok": true
       },
@@ -81,7 +72,7 @@
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
         "words": "India",
         "ok": true
       },
@@ -89,7 +80,7 @@
         "code": "NP",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
         "words": "Nepal",
         "ok": true
       },
@@ -97,7 +88,7 @@
         "code": "BD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The rosy barb, Pethia conchonius, is a small cyprinid found from Pakistan throughout India, Nepal and Bangladesh.",
+        "quote": "Described from 'Ponds of northeastern Bengal; Kosi and Ami rivers, India' but according to current knowledge is extensively distributed from Pakistan throughout India, Nepal, and Bangladesh.",
         "words": "Bangladesh",
         "ok": true
       },
@@ -295,9 +286,5 @@
     ],
     "requests": 16,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

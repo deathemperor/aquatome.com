@@ -1,0 +1,107 @@
+{
+  "id": "brachygobius-doriae",
+  "native": {
+    "input": "92e03fe55fcb942f",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "On Borneo itself records exist from various localities in Sarawak and Brunei Darussalam, with the Kapuas river system, Kalimantan Barat (West Kalimantan) province, Indonesia, appearing to mark the limit of its eastward range.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Singapore are apparently erroneous.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Natuna Islands",
+        "source": "seriouslyfish",
+        "quote": "Described from the Malaysian state of Sarawak on the island of Borneo, and appears endemic to western parts of the island plus the Natuna Islands archipelago which lies off Borneo's western coast but forms part of Riau Islands province, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "On Borneo itself records exist from various localities in Sarawak and Brunei Darussalam, with the Kapuas river system, Kalimantan Barat (West Kalimantan) province, Indonesia, appearing to mark the limit of its eastward range.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachygobius doriae",
+    "status": "ACCEPTED",
+    "taxonKey": 2377140,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        12
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID",
+      "BN"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

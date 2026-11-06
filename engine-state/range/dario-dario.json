@@ -1,0 +1,76 @@
+{
+  "id": "dario-dario",
+  "native": {
+    "input": "d1a1f75197b659e7",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: India",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The scarlet badis, Dario dario, is a tiny badid from tributaries of the Brahmaputra in West Bengal and Assam, India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Appears to be restricted to tributary systems draining into the Brahamaputra River in parts of West Bengal and Assam states, India although it may also range into Bhutan.",
+        "words": "Bhutan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "The scarlet badis, Dario dario, is a tiny badid from tributaries of the Brahmaputra in West Bengal and Assam, India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dario dario",
+    "status": "ACCEPTED",
+    "taxonKey": 2389480,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

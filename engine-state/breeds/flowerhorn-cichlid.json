@@ -217,6 +217,24 @@
       "min": 80,
       "max": 80,
       "source": 5
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 9
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 12,
+      "source": 9
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 10,
+      "source": 4
     }
   ],
   "keeping": [
@@ -383,6 +401,11 @@
       "url": "https://www.fishforums.net/threads/the-most-technical-standard-with-how-to-raise-king-kamfa-fish.465881",
       "title": "The most technical standard with how to raise King Kamfa fish – Fishforums",
       "kind": "forum"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/flowerhorn-cichlid",
+      "title": "Flowerhorn Cichlid – Fishkeeping World",
+      "kind": "article"
     }
   ]
 }

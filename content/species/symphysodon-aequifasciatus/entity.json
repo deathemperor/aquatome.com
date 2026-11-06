@@ -31,6 +31,30 @@
       "sources": [
         "seriouslyfish",
         "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The discus, Symphysodon aequifasciatus, is a cichlid from the Amazon in Colombia, Peru and Brazil.",
+          "countries": [
+            "CO",
+            "PE",
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The natural range of this species extends down the Rio Solimões and along the main Amazon river, between the Rio Putumayo in Colombia and Peru as far as the Rio Tocantins drainage in Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Solimões",
+            "Rio Putumayo",
+            "Rio Tocantins"
+          ]
+        }
       ]
     },
     "records": {
