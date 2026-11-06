@@ -81,6 +81,9 @@ public final class OwnerAccess {
     }
   }
 
+  /// The session signed in now, for what the site keeps per session (OwnerPush's token).
+  var sessionToken: String? { session()?.token }
+
   /// A page of the site a cell links to (from "/"), as an address.
   public func page(_ href: String) -> URL? { OwnerClient(send: send, token: "").page(href) }
 
