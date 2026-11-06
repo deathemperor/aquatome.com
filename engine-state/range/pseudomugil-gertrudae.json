@@ -1,0 +1,162 @@
+{
+  "id": "pseudomugil-gertrudae",
+  "native": {
+    "input": "5d5671f48e563f32",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to the slow-moving waters and wetlands of northern Australia and New Guinea.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pseudomugil gertrudae is a pseudomugilid from northern Australia, Papua New Guinea and the Aru Islands, eastern Indonesia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pseudomugil gertrudae is a pseudomugilid from northern Australia, Papua New Guinea and the Aru Islands, eastern Indonesia.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pseudomugil gertrudae is a pseudomugilid from northern Australia, Papua New Guinea and the Aru Islands, eastern Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Aru Islands",
+        "source": "seriouslyfish",
+        "quote": "Pseudomugil gertrudae is a pseudomugilid from northern Australia, Papua New Guinea and the Aru Islands, eastern Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Cape York Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Populations are now known from numerous rivers draining into the Timor Sea and Gulf of Carpentaria, northern Australia, with a range extending eastwards from the city of Darwin through the Kakadu National Park, Arnhem Land, and Carpentaria as far the Cape York Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Fly",
+        "source": "seriouslyfish",
+        "quote": "In Papua New Guinea records exist from the Bensbach, Pahoturi, and Fly (Elevala River and Lake Bosset, aka Lake Herbert Hoover) river systems but it may be more widely-distributed in southern drainages of the country and neighbouring state of Papua, Indonesia.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Groot Eylandt",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the islands of Bathurst, Melville, and Groot Eylandt, plus some smaller islands in the Torres Strait.",
+        "ok": true
+      },
+      {
+        "name": "Trangan",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Rivulet in sago forest at Ngaiguli, Terangan, Aru Island, Aru Islands, Maluku, Indonesia', corresponding to the island now normally referred to as 'Trangan' in the Aru Islands group, eastern Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Daly",
+        "source": "seriouslyfish",
+        "quote": "Known localities in the Northern Territory include the rivers Moyle, Daly, Finniss, Adelaide, Alligator, Blyth, Liverpool, Cadell, Buckingham, Cato, and some smaller drainages around Darwin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudomugil gertrudae",
+    "status": "ACCEPTED",
+    "taxonKey": 2411747,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        156
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        137
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        46
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        44
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        40
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        24
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        12
+      ],
+      [
+        "56caf05f-1364-4f24-85f6-0c82520c2792",
+        5
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        2
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ]
+    ],
+    "native": [
+      "AU",
+      "PG",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

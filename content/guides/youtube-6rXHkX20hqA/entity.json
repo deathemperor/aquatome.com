@@ -1,0 +1,125 @@
+{
+  "id": "youtube-6rXHkX20hqA",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=6rXHkX20hqA",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "6rXHkX20hqA",
+    "title": "BUILDING A 16 FOOT LONG AQUARIUM",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 537,
+    "publishedAt": "2024-03-30",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 52
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/6rXHkX20hqA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 192
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao chốt chiều dài 4,88 m",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/6rXHkX20hqA/t10.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Thanh gỗ xẻ dài được đặt dọc theo bức tường nơi sẽ đặt bể."
+          },
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/6rXHkX20hqA/t30.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Thanh gỗ nằm dọc tường, cho thấy chiều dài khoảng 4,9 m của bể."
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao làm chân bằng gạch block",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6rXHkX20hqA/p3-fUGFpbnRlZC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/6rXHkX20hqA/p3-fUGFpbnRlZC5qcGc-480.webp",
+          "width": 960,
+          "height": 1349,
+          "licence": "CC0",
+          "author": "Sophieoui",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elm_Place_-_Concrete_masonry_Unit_(CMU)_Blocks_Painted.jpg",
+          "caption": "Bức tường xây bằng gạch block bê tông xám, loại dùng làm chân bể."
+        }
+      },
+      {
+        "heading": "Tính chiều cao chân bể",
+        "moments": [
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/6rXHkX20hqA/t355.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Các viên gạch được xếp chồng lên nhau sát tường để đo độ cao."
+          },
+          {
+            "t": 360,
+            "url": "https://media.aquatome.com/video/6rXHkX20hqA/t360.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hàng gạch block xếp dọc theo tường làm chân đỡ cho bể."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6rXHkX20hqA/p4-pcm9ubWVudC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/6rXHkX20hqA/p4-pcm9ubWVudC5qcGc-480.webp",
+          "width": 960,
+          "height": 641,
+          "licence": "CC BY 2.0",
+          "author": "Shixart1985",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stacks_of_red_bricks_and_concrete_blocks_at_a_construction_site_during_the_day_in_an_urban_environment.jpg",
+          "caption": "Những chồng gạch xếp cao, loại vật liệu dùng làm chân kê bể."
+        }
+      },
+      {
+        "heading": "Xếp trụ gạch và chú ý ổ điện",
+        "moments": [
+          {
+            "t": 365,
+            "url": "https://media.aquatome.com/video/6rXHkX20hqA/t365.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Hàng trụ gạch xếp dọc sát tường phía sau chỗ đặt bể."
+          },
+          {
+            "t": 429,
+            "url": "https://media.aquatome.com/video/6rXHkX20hqA/t429.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Đặt thử tấm ván lên hàng trụ gạch để kiểm tra độ cao."
+          }
+        ]
+      }
+    ]
+  }
+}

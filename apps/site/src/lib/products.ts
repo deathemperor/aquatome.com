@@ -1,5 +1,7 @@
 import type { Content } from '@aq/schema'
-import { LANG, type Lang } from './i18n'
+import { citeMark } from './cite'
+import { LANG, translator, type Lang } from './i18n'
+import { clock } from './video'
 
 export type Product = Content['products'][number]
 const norm = (s = '') => s.toLowerCase().replace(/[^a-z0-9]/g, '')
@@ -23,3 +25,19 @@ export function priceRange(p: Product): { min: number; max: number; n: number; a
 }
 export const vnd = (lang: Lang, n: number) => `${n.toLocaleString(LANG[lang].locale)} ₫`
 export const dmy = (iso: string) => iso.split('-').reverse().join('/')
+
+type Cite = { url: string; t?: number }
+/** A video's address at a moment; the address that cites nothing else, as it is. */
+export const citeHref = (c: Cite) => (c.t === undefined ? c.url : `${c.url}&t=${c.t}`)
+/**
+ * A claim's mark: its source's number in the page's list, linking to the source, a review at the moment it says so. A claim
+ * whose source isn't listed gets none (research can list the sources again; the engine keeps them, a test holds it).
+ */
+export function productMark(lang: Lang, p: Pick<Product, 'sources'>, c: Cite): string {
+  const t = translator(lang)
+  const i = p.sources.findIndex(s => s.url === c.url)
+  const s = p.sources[i]
+  if (!s) return ''
+  const card = s.kind === 'video' ? { tip: `YouTube · ${c.t === undefined ? '' : clock(c.t)}`, more: t('Xem đoạn này ↗') } : { tip: t('Ghi chép AquaTome tự thử'), more: t('Xem ghi chép ↗') }
+  return citeMark(lang, i + 1, s.title, citeHref(c), card)
+}

@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { addWikidataNames } from '../src/wikidata'
+import { addWikidataNames, fetchWikidataNames } from '../src/wikidata'
 
 test("Wikidata's Thai names join a page's other names unless Latin, already there, or another species' name", async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-wd-'))
@@ -36,4 +36,30 @@ test("Wikidata's Thai names join a page's other names unless Latin, already ther
   // Cached: the next run asks Wikidata nothing, and adds nothing twice.
   expect(await addWikidataNames(root, http, 'th')).toEqual([])
   expect(urls).toHaveLength(1)
+})
+
+test("a language added later: the species cached before it are asked once, for it alone; what the cache has for the others stays", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-wd-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  // As the cache stands when Malay joins: names in Indonesian or Thai, or none at all (null).
+  const before = { 'Betta splendens': { id: ['Cupang'], th: ['ปลากัด'] }, 'Datnioides pulcher': null }
+  await writeFile(join(root, 'engine-state/_wikidata-names.json'), JSON.stringify(before))
+  const queries: string[] = []
+  const http = async (url: string) => {
+    const q = decodeURIComponent(url)
+    queries.push(q)
+    return { results: { bindings: q.includes('Betta splendens') ? [{ name: { value: 'Betta splendens' }, lang: { value: 'ms' }, label: { value: 'Ikan Laga' } }] : [] } }
+  }
+  const cache = await fetchWikidataNames(root, http, ['Betta splendens', 'Datnioides pulcher', 'Danio rerio'])
+  expect(cache['Betta splendens']).toEqual({ id: ['Cupang'], th: ['ปลากัด'], ms: ['Ikan Laga'] })
+  expect(cache['Datnioides pulcher']).toEqual({ ms: [] })
+  // Those two together, for Malay alone; a species new to the cache, for every language.
+  expect(queries).toHaveLength(2)
+  expect(queries[0]).toContain('Betta splendens')
+  expect(queries[0]).toContain('IN ("ms")')
+  expect(queries[1]).toContain('Danio rerio')
+  expect(queries[1]).toContain('IN ("id", "th", "ms")')
+  // Asked once: the next run has nothing to ask.
+  await fetchWikidataNames(root, http, ['Betta splendens', 'Datnioides pulcher', 'Danio rerio'])
+  expect(queries).toHaveLength(2)
 })

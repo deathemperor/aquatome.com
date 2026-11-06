@@ -22,6 +22,28 @@
           }
         }
       }
+    },
+    "NSCameraUsageDescription": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome memakai kamera untuk memotret ikan yang ingin Anda kenali."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome ใช้กล้องเพื่อถ่ายรูปปลาที่คุณต้องการระบุชนิด"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome dùng máy ảnh để chụp con cá bạn muốn nhận diện."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

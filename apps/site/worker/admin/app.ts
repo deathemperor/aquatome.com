@@ -6,8 +6,8 @@ import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ } from './time'
 
 /**
- * The iOS app's telemetry (worker/telemetry, dataset aquatome_app) for /_ab/ung-dung/: six bounded queries over 30 days,
- * side by side. Our own copies (test builds) are left out unless asked for (?test=1, then only they). Counts go through
+ * The iOS app's telemetry (worker/telemetry, dataset aquatome_app) for /_ab/ung-dung/: six bounded queries over 30 days
+ * (the daily report's: one day), side by side. Our own copies (test builds) are left out unless asked for (?test=1, then only they). Counts go through
  * _sample_interval; launch time and memory percentiles are worked out here from the newest reports, weighted the same way.
  */
 type N = number | string
@@ -20,15 +20,15 @@ export type PerfRow = { ver: string; launch: N; mem: N; w: N }
 export type AppRows = { views: ViewRow[]; actions: ActionRow[]; errors: ErrorRow[]; shops: ShopRow[]; health: HealthRow[]; perf: PerfRow[] }
 
 const PERF_ROWS = 2000
-export function appSql(test: boolean): Record<keyof AppRows, string> {
-  const where = (type: string) => `WHERE ${type} AND blob14 = '${test ? '1' : ''}' AND timestamp > NOW() - INTERVAL '30' DAY`
+export function appSql(test: boolean, days = 30): Record<keyof AppRows, string> {
+  const where = (type: string) => `WHERE ${type} AND blob14 = '${test ? '1' : ''}' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY`
   return {
     views: `SELECT blob2 AS p, blob3 AS s, SUM(_sample_interval) AS n FROM aquatome_app ${where("blob1 = 'view'")} GROUP BY p, s ORDER BY n DESC LIMIT 200 FORMAT JSON`,
     actions: `SELECT blob6 AS act, blob8 AS ver, SUM(_sample_interval) AS n, SUM(_sample_interval * double1) AS ok FROM aquatome_app ${where("blob1 = 'action'")} GROUP BY act, ver ORDER BY n DESC LIMIT 200 FORMAT JSON`,
     errors: `SELECT blob6 AS act, blob7 AS why, SUM(_sample_interval) AS n FROM aquatome_app ${where("blob1 = 'action' AND double1 = 0")} GROUP BY act, why ORDER BY n DESC LIMIT 30 FORMAT JSON`,
     shops: `SELECT blob4 AS shop, blob2 AS p, SUM(_sample_interval) AS n FROM aquatome_app ${where("blob1 = 'aff'")} GROUP BY shop, p ORDER BY n DESC LIMIT 200 FORMAT JSON`,
     health: `SELECT blob8 AS ver, SUM(IF(blob1 = 'metric', _sample_interval, 0)) AS reports, SUM(_sample_interval * double3) AS crashes, SUM(_sample_interval * double4) AS hangs, SUM(_sample_interval * double8) AS exits FROM aquatome_app ${where("(blob1 = 'metric' OR blob1 = 'diagnostic')")} GROUP BY ver FORMAT JSON`,
-    perf: `SELECT blob8 AS ver, double5 AS launch, double7 AS mem, _sample_interval AS w FROM aquatome_app ${where("blob1 = 'metric'")} ORDER BY timestamp DESC LIMIT ${PERF_ROWS} FORMAT JSON`,
+    perf: `SELECT blob8 AS ver, double5 AS launch, double7 AS mem, _sample_interval AS w, timestamp AS t FROM aquatome_app ${where("blob1 = 'metric'")} ORDER BY t DESC LIMIT ${PERF_ROWS} FORMAT JSON`,
   }
 }
 
@@ -88,13 +88,24 @@ export function summariseApp(r: AppRows, test: boolean): AppStats {
 
 /** A dataset nothing has written to yet may not exist: that is no data, not a failure. */
 const NO_TABLE = /unknown table|unknown dataset|does not exist|UNKNOWN_TABLE/i
-export async function queryApp(accountId: string, token: string, test: boolean): Promise<AppStats> {
-  const sql = appSql(test)
-  const run = <T>(q: string) => aeSql<T>(accountId, token, q).catch((e: unknown) => { if (NO_TABLE.test(String(e))) return [] as T[]; throw e })
+export const orNoTable = <T>(rows: Promise<T[]>) => rows.catch((e: unknown) => { if (NO_TABLE.test(String(e))) return [] as T[]; throw e })
+export async function queryApp(accountId: string, token: string, test: boolean, days = 30): Promise<AppStats> {
+  const sql = appSql(test, days)
+  const run = <T>(q: string) => orNoTable(aeSql<T>(accountId, token, q))
   const [views, actions, errors, shops, health, perf] = await Promise.all([
     run<ViewRow>(sql.views), run<ActionRow>(sql.actions), run<ErrorRow>(sql.errors), run<ShopRow>(sql.shops), run<HealthRow>(sql.health), run<PerfRow>(sql.perf),
   ])
   return summariseApp({ views, actions, errors, shops, health, perf }, test)
+}
+
+/** The app's sessions, readers' copies only, by the id each batch of events carries; reports (crashes, performance) have none. */
+const SESSIONS_MAX = 10_000
+export const APP_SESSIONS_SQL = (days: number) => `SELECT blob13 AS sid FROM aquatome_app WHERE blob13 != '' AND blob14 = '' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid LIMIT ${SESSIONS_MAX} FORMAT JSON`
+export type AppDay = AppStats & { sessions: number }
+/** The daily report's share: the last 24 hours. */
+export async function queryAppDay(accountId: string, token: string): Promise<AppDay> {
+  const [stats, sessions] = await Promise.all([queryApp(accountId, token, false, 1), orNoTable(aeSql<{ sid: string }>(accountId, token, APP_SESSIONS_SQL(1)))])
+  return { ...stats, sessions: sessions.length }
 }
 
 // ——— The page ———
@@ -150,7 +161,7 @@ const appRanks = (s: AppStats) => ({
   shops: s.shops.map(x => ({ label: esc(x.shop), value: x.taps })) as Ranked[],
   shopPages: s.shopPages.map(x => ({ label: pageLink(x.path), value: x.taps })) as Ranked[],
 })
-const isEmpty = (s: AppStats) => !s.pages.length && !s.screens.length && !s.actions.length && !s.shops.length && !s.versions.length
+export const isEmpty = (s: AppStats) => !s.pages.length && !s.screens.length && !s.actions.length && !s.shops.length && !s.versions.length
 
 export function appPage(now: Date, test: boolean, s: Soft<AppStats>, tz = HOME_TZ): string {
   const w = which(test)

@@ -99,3 +99,21 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   expect(th.body).toContain('<p>อุณหภูมิ 26–27 °C</p>')
   expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
 })
+
+test('localizeTopic in Malay: addressed by its name, and a name another guide has takes its word for "guide"', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  await writeFile(join(root, 'content/guides/other/ms.json'), JSON.stringify({ slug: 'mata-tersembul', name: 'Mata tersembul' }))
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    return { name: 'Mata tersembul: punca', slug: 'ignored', summary: ['Mata ikan tersembul.'], body: '<p>Suhu 68 °F, 1 gelen.</p>', faq: [] } as never
+  }
+  const r = await localizeTopic(root, llm, r0.id, 'ms')
+  expect(r).toMatchObject({ slug: 'mata-tersembul-panduan' })
+  expect(prompts[0]).toContain('Malay')
+  expect(prompts[0]).toContain('Malaysia')
+  expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C, 3.8 liter.</p>')
+})

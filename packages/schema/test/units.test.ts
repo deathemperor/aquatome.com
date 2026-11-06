@@ -234,3 +234,51 @@ test('guides: quoted labels with their metric, names, a bottle\'s ounces and fig
   // A quoted rule with no metric after it is converted whole.
   expect(th('กฎ "1 แกลลอนต่อปลา 1 นิ้ว" เป็นแค่แนวทาง')).toBe('กฎ "3.8 ลิตรต่อปลา 2.5 ซม." เป็นแค่แนวทาง')
 })
+
+// Malay marks its numbers as Thai does (1,000.5), not as Indonesian (1.000,5), and has its own words for a gallon and a pound.
+const ms = (s: string) => toMetric(s, 'ms')
+test('Malay: a decimal point and a comma for thousands, read and written', () => {
+  expect(ms('akuarium 20 gelen')).toBe('akuarium 76 liter')
+  expect(ms('1 gelen')).toBe('3.8 liter')
+  expect(ms('1,000 gelen')).toBe('3,800 liter')
+  expect(ms('2.5 inci')).toBe('6.5 cm')
+  expect(ms('pam 300 gelen sejam')).toBe('pam 1,100 liter/jam')
+  // Indonesian keeps its own marks.
+  expect(toMetric('1 galon', 'id')).toBe('3,8 liter')
+  expect(toMetric('1.000 galon', 'id')).toBe('3.800 liter')
+})
+
+test('every language writes a decimal as its locale does', async () => {
+  const { LANG, WRITTEN_LANGS } = await import('../src/langs')
+  for (const lang of WRITTEN_LANGS) {
+    const mark = new Intl.NumberFormat(LANG[lang].locale).format(1.5).replace(/\d/g, '')
+    expect(toMetric('1 gallon', lang), lang).toContain(`3${mark}8`)
+  }
+})
+
+test("Malay's words: gelen, paun, auns, kaki after a tank, iaitu, lebih kurang", () => {
+  expect(ms('10 hingga 20 inci')).toBe('25 hingga 51 cm')
+  expect(ms('10 sehingga 20 gelen')).toBe('38 sehingga 76 liter')
+  expect(ms('10 ke 20 inci')).toBe('25 ke 51 cm')
+  expect(ms('5 inci (lebih kurang 12.7 cm)')).toBe('12.7 cm')
+  expect(ms('20 °C (68 °F)')).toBe('20 °C')
+  expect(ms('kira-kira 20 °C, iaitu 68 °F')).toBe('kira-kira 20 °C')
+  expect(ms('2 paun')).toBe('910 g')
+  expect(ms('8 auns')).toBe('230 g')
+  expect(ms('botol 8 auns')).toBe('botol 8 auns')
+  expect(ms('satu gelen air')).toBe('3.8 liter air')
+  expect(ms('10 gelen UK')).toBe('45 liter')
+  expect(ms('10 gelen Inggeris')).toBe('45 liter')
+  expect(ms('paip PVC ¾ inci')).toBe('paip PVC 27 mm')
+  // How Malaysian shops size a tank.
+  expect(ms('akuarium 3 kaki')).toBe('akuarium 91 cm')
+  expect(ms('tangki 1.5 kaki')).toBe('tangki 46 cm')
+  expect(ms('akuarium 4 x 2 x 2 kaki')).toBe('akuarium 122 x 61 x 61 cm')
+  // A leg, and a product's name.
+  expect(ms('katak mempunyai 4 kaki')).toBe('katak mempunyai 4 kaki')
+  expect(ms('Fluval 10 Gelen dijual')).toBe('Fluval 10 Gelen dijual')
+  // The test on the real content reads these words too.
+  expect(imperialLeft('akuarium 10 gelen')).toHaveLength(1)
+  expect(imperialLeft('seberat 2 paun')).toHaveLength(1)
+  expect(imperialLeft(ms('akuarium 10 gelen, seberat 2 paun, 68 °F'))).toEqual([])
+})

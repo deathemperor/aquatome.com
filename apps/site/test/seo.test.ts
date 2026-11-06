@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto'
 import { DIST, page } from './dist'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
+import { APP_PAGES, APP_STATE } from '../src/lib/app'
 
 const htmlFiles = (dir: string): string[] =>
   readdirSync(dir).flatMap(f => { const p = join(dir, f); return statSync(p).isDirectory() ? htmlFiles(p) : p.endsWith('.html') ? [p] : [] })
@@ -95,7 +96,9 @@ test('markdown for agents: every page has index.md — front matter, headings, f
   expect(md).not.toContain('Gửi bình luận')
   expect(md).not.toContain('/go/')
   expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
-  expect(langFiles('vi').every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
+  // The app page has none while it's the owner's (worker/app-switch.ts).
+  const owners = APP_STATE === 'owner' ? APP_PAGES.map(p => join(DIST, p, 'index.html')) : []
+  expect(langFiles('vi').filter(f => !owners.includes(f)).every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
 })
 test('agent discovery files: llms.txt, OpenAPI, skills index whose digest matches the SKILL.md bytes', () => {
   expect(readFileSync(join(DIST, 'llms.txt'), 'utf8')).toMatch(/^# AquaTome\n\n> /)

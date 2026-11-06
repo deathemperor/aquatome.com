@@ -47,7 +47,7 @@ const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, await getCon
     <section class="refs" id="nguon" aria-labelledby="nguon-h" data-pagefind-ignore>
       <h2 id="nguon-h">{tr('Nguồn')}</h2>
       <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener">{r.name}</a> <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
-      <p class="note">{tr('Các phần trên dịch từ những nguồn này, với sự cho phép của họ. Mỗi đoạn ghi số nguồn của nó.')}</p>
+      <p class="note">{tr('Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.')}</p>
     </section>
   )}
   <GlossaryTip />
