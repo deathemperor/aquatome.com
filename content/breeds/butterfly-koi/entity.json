@@ -60,6 +60,28 @@
           "max": 102
         }
       }
+    ],
+    "lifeYears": [
+      {
+        "source": 3,
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      },
+      {
+        "source": 7,
+        "value": {
+          "min": 25,
+          "max": 35
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": 7,
+        "value": 4
+      }
     ]
   },
   "photos": [
@@ -146,6 +168,12 @@
       "title": "Cá Koi – Mytour",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.furrycritter.com/pages/descriptions/fish/butterfly_koi.htm",
+      "title": "Butterfly Koi Care Guide – Furry Critter Network",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

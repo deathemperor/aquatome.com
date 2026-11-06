@@ -81,6 +81,16 @@
           "max": 4
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 2,
+        "value": 6
+      },
+      {
+        "source": 3,
+        "value": 2
+      }
     ]
   },
   "photos": [

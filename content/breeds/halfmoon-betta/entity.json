@@ -62,6 +62,29 @@
         "value": 15,
         "hidden": "shorter than twice the fish (7.6 cm)"
       }
+    ],
+    "difficulty": [
+      {
+        "source": 10,
+        "value": 4
+      },
+      {
+        "source": 5,
+        "value": 1
+      },
+      {
+        "source": 8,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 10,
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
     ]
   },
   "photos": [
@@ -156,6 +179,12 @@
       "title": "Halfmoon Fish Story",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/halfmoon-betta-fish",
+      "title": "Halfmoon Betta Fish Care & Species Guide",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"
