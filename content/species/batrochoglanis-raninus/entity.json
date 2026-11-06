@@ -7,13 +7,38 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "amazon",
+    "guyana",
+    "french-guiana"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -25,16 +50,58 @@
       "html": "<p>Origin: Colombia. Available size: 6-8 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<ul><li>Conservation: Least Concern (IUCN 2022), assessed as such due to its wide range despite limited information.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>South America: Amazon River basin, Guyana and French Guiana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Commonly occurs in creeks as well as in rivers. Found in very shady and deep zones of rivers where the current is slow, the bottom is shady and the gravel is covered with plant debris. During the day, it lies hidden under branches or rocks.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>In its natural habitat it goes stalk-hunting, swallowing prey within its range. Starts feeding on micro-crustaceans and aquatic insect larvae, then shifts its diet to fishes of notable size. No problem in the aquarium with eating all types of aquarium fare, flake, tablets, pellets, live and frozen foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/batrochoglanis_raninus_dwarf_en/",
       "html": "<p>Batrochoglanis are nocturnal fish that love to hide. They are very peaceful towards all other fish that do not fit in their mouths. Although they cannot be called social animals, they gather in large aggregations in the plastic tubes offered as hiding places.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Predatory in the aquarium towards fish that are smaller. Provide plenty of hiding places to hide during the day and best kept in a small group of 2-3. Very secretive in its surroundings.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/batrochoglanis_raninus_dwarf_en/",
       "html": "<p>The genus Batrochoglanis was formerly placed in Pseudopimelodus. Batrochoglanis can be best distinguished from Pseudopimelodus by the shape of the caudal fin. Pseudopimelodus has a deeply forked caudal fin, Batrochoglanis only a slightly indented one.</p><p>Currently five species of Batrochoglanis are accepted. Specimens of that genus are occasionally obtained from Colombia, which fit perfectly in all respects to the described species B. raninus, with one exception: the fish stay small! Usually B. raninus should be a fast growing species that becomes 15-20 cm long. But the supplier could never deliver larger specimens, nor did they grow much in the facility. The largest specimens observed so far were about 8 cm long (including caudal fin). It seems that the larger and heavier fish are the females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Etymology: the specific name raninus is Latin for frog-like, referring to its frog-like shape or appearance, particularly its wide mouth and head.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl, 1985. Aquarien atlas. Band 2. Mergus, Verlag für Natur-und Heimtierkunde GmbH, Melle, Germany. 1216 p.</p><p>Brejão, G.L. 2022. Batrochoglanis raninus. The IUCN Red List of Threatened Species 2022.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p>"
     }
   ],
   "photos": [
@@ -72,7 +139,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hhu_hYpC_uc",
+      "title": "Crazy Bumblebee Jelly Catfish (Batrochoglanis raninus)",
+      "durationSec": 115,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EVjC_FwsyqU",
+      "title": "Batrochoglanis raninus (bumblee bee jelly catfish)",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zchfLJpVhOU",
+      "title": "Pseudopimelodus raninus - feeding time - earthworms",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9pjb3rNBqTM",
+      "title": "Raninus tank after the move",
+      "durationSec": 152,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -96,5 +188,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-06"
 }

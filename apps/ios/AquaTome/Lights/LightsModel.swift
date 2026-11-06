@@ -3,6 +3,7 @@ import ChihirosBLE
 import Foundation
 import Observation
 import Tanks
+import Telemetry
 import UIKit
 
 /// The lights screen, as the site's Chihiros page (pages/vi/cong-cu/den-chihiros.astro, scripts/light-page.ts): the light
@@ -74,6 +75,8 @@ final class LightsModel {
   /// The mix "Độ sáng" scales, as it was before the brightness moved: rescaling levels already rounded would drift.
   private var mix: [Int]?
   private var settingBrightness = false
+  /// The app's anonymous telemetry: how connecting and writing went, never which light. The app sets it.
+  @ObservationIgnored var telemetry: Telemetry?
   #if DEBUG
   /// The last frames sent, for the UI tests (the site's tests read the fake light's frames the same way).
   private(set) var sentFrames: [String] = []
@@ -219,12 +222,14 @@ final class LightsModel {
       guard let hit else {
         connecting = nil
         notice = Notice(text: String(localized: "Không thấy \(Self.title(d)) quanh đây. Bật đèn, lại gần rồi thử lại."), isError: true)
+        telemetry?.record(.action(.lightConnect, ok: false, kind: .notNearby))
         return
       }
       await connect(hit)
     } catch {
       guard mine == attempt else { return }
       connecting = nil
+      telemetry?.record(.action(.lightConnect, ok: false, kind: Event.Kind(error)))
       fail(error)
     }
   }
@@ -243,6 +248,7 @@ final class LightsModel {
   func connect(_ l: FoundLight, again: Bool = false) async -> Bool {
     guard let m = Model.of(name: l.name) else {
       notice = Notice(text: String(localized: "Đèn \(l.name) chưa được hỗ trợ."), isError: true)
+      telemetry?.record(.action(.lightConnect, ok: false, kind: .unsupportedModel))
       return true
     }
     stopScan()
@@ -291,12 +297,14 @@ final class LightsModel {
       notice = Notice(text: !new.canWriteSchedule
         ? String(localized: "Đã kết nối \(m.name), firmware \(snap.firmware): bản này chưa hẹn giờ được từ ứng dụng, cập nhật firmware bằng ứng dụng My Chihiros.")
         : known ? String(localized: "Đã kết nối \(name).") : String(localized: "Đã kết nối \(m.name). Đèn mới: làm theo các bước trong khung này."))
+      telemetry?.record(.action(.lightConnect, ok: true))
       return false
     } catch {
       guard mine == attempt, s == nil || session === s else { return false } // disconnected while reading: nothing to report
       session?.disconnect()
       session = nil
       light = nil
+      telemetry?.record(.action(.lightConnect, ok: false, kind: Event.Kind(error)))
       fail(error)
       return true
     }
@@ -448,7 +456,11 @@ final class LightsModel {
       // The levels being sent by hand stop: the schedule comes next, after any already on their way.
       self.pending = [:]
       while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
-      let snap = try await session.writeSchedule(s)
+      let snap: Snapshot
+      do { snap = try await session.writeSchedule(s) } catch {
+        if self.session === session { self.telemetry?.record(.action(.lightWrite, ok: false, kind: Event.Kind(error))) }
+        throw error
+      }
       guard self.session === session else { return }
       self.show(snap)
       self.isManual = false
@@ -462,8 +474,10 @@ final class LightsModel {
           $0.clockSyncedAt = Timestamp.string(Date())
         }
         self.notice = Notice(text: String(localized: "Đèn chưa báo lại lịch mới. Kiểm tra lại sau ít phút."), isError: true)
+        self.telemetry?.record(.action(.lightWrite, ok: false, kind: .notReadBack))
         return
       }
+      self.telemetry?.record(.action(.lightWrite, ok: true))
       self.remember(s, name: name, at: Date())
       self.undo = undoing ? nil : before.flatMap { b in
         TimeOfDay(b.on).flatMap { on in TimeOfDay(b.off).map { (Schedule(on: on, off: $0, ramp: b.ramp, levels: b.levels), b.name) } }

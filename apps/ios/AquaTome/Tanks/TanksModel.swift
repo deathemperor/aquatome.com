@@ -2,6 +2,7 @@ import AccountSync
 import Foundation
 import Observation
 import Tanks
+import Telemetry
 
 /// "Bể của tôi" on this phone: the shared tank store (docs/my-tanks-sync.md), kept in Application Support. Works without
 /// an account; signing in later sends these same records to the account.
@@ -23,6 +24,8 @@ final class TanksModel {
   /// handbook has a page for one (then it isn't sent). The app sets them.
   @ObservationIgnored var wanted: Wanted?
   @ObservationIgnored var hasPage: (UnlistedEntry) -> Bool = { _ in false }
+  /// The app's anonymous telemetry: a tank added, or not. The app sets it.
+  @ObservationIgnored var telemetry: Telemetry?
   #if DEBUG
   /// What the server took as wanted since launch, each body as sent (the UI tests read it).
   private(set) var wantedForTests: [String] = []
@@ -54,9 +57,16 @@ final class TanksModel {
   @discardableResult
   func add(named name: String, _ change: (inout Tank) -> Void) throws -> Tank {
     var s = store
-    let t = try s.addTank(name: name)
-    try s.updateTank(t.id) { change(&$0) }
-    try commit(s)
+    let t: Tank
+    do {
+      t = try s.addTank(name: name)
+      try s.updateTank(t.id) { change(&$0) }
+      try commit(s)
+    } catch {
+      telemetry?.record(.action(.tankAdd, ok: false, kind: Event.Kind(error)))
+      throw error
+    }
+    telemetry?.record(.action(.tankAdd, ok: true))
     saved(s.tank(t.id), before: nil)
     return s.tank(t.id) ?? t
   }

@@ -10,7 +10,8 @@
     "brazil",
     "negro",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "atabapo"
   ],
   "dataCard": {
     "tempC": [
@@ -44,6 +45,10 @@
       {
         "source": "seriouslyfish",
         "value": 25
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -67,16 +72,40 @@
       "html": "<p>The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela. Also called the 'ogre catfish', it hunts in shallow blackwater tributaries, mostly at night. It can consume fishes almost twice its own size and is not recommended for the community aquarium.</p><ul><li>Max size: 250 mm SL (10 in)</li><li>Aquarium size: 150 × 60 cm (60 × 24 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li><li>Difficulty: 7 of 8 – moderate; needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/",
+      "html": "<ul><li>Origin: Venezuela</li><li>Available size: 5-7 cm</li><li>Described by Kner, 1858</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/",
+      "html": "<p>There is as yet no common name for this fish, which appears to consist practically entirely of mouth. These fishes are still imported in only small numbers each year.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
       "html": "<p>Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.</p><p>Type locality is given simply as 'Marabitanos, Brazil', presumably in reference to Forte de São José de Marabitanas in the upper rio Negro basin, Amazonas state, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/",
+      "html": "<p>According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
       "html": "<p>Inhabits blackwater tributaries where it tends to hunt in shallow water and is typically active at night.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/",
+      "html": "<p>According to a report by Roland Numrich, who spotted the fish while snorkelling in the Rio Atabapo during an expedition to Venezuela, this catfish lives in rock crevices, from which it emerges with considerable speed to grab its prey, before disappearing again. This makes collecting it difficult.</p>"
     },
     {
       "key": "aquariumSize",
@@ -101,6 +130,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/asterophysus-batrachus",
       "html": "<p>An obligate predator by nature, but captive specimens readily accept strips of white fish, whole shrimp, earthworms, and similar once they are recognised as food.</p><p>Adult individuals are unlikely to require feeding on a daily basis with 1-2 meals per week sufficient.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian/avian meat such as beef heart or chicken, and similarly there is little benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/asterophysus_batrachus_en/",
+      "html": "<p>The fish feed readily on feeder fish. In the wild it preys on altum angels (Pterophyllum altum). The imported specimens were initially difficult to get to feed, but after about 10 days they abandoned their hunger strike without needing to be fed on altum angels. Feeder fishes are essential. The individuals will even feed from the hand of their keeper.</p>"
     },
     {
       "key": "behaviour",
@@ -179,7 +214,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Ef-qKT_D0i8",
+      "title": "Attack Asterophysus batrachus Prédator",
+      "durationSec": 192,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bEDT4LFY-30",
+      "title": "Gulper cat asterophysus batrachus",
+      "durationSec": 205,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xRJ6-o9AVIM",
+      "title": "Gulper Catfish (Asterophysus batrachus) eats fish fillet!!! 2014",
+      "durationSec": 36,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "7r_rP8v9WvA",
+      "title": "Gulper Catfish (Asterophysus batrachus) no Brasil... Primeiro vídeo...",
+      "durationSec": 58,
+      "lang": "pt"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -208,5 +268,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-06"
 }
