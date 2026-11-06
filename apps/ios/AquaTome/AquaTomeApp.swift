@@ -183,6 +183,8 @@ struct AquaTomeApp: App {
       push(Browse.fish(group))
     case .tankVolume(let query):
       push(VolumeTool(query: query))
+    case .tankMates(let query):
+      push(TankMatesTool(query: query))
     }
   }
 
@@ -207,7 +209,7 @@ struct AquaTomeApp: App {
         return
       }
       tab = .handbook
-      if let screen = AppScreen.of(url, site: handbook.site, listed: { handbook.item(at: $0) != nil },
+      if let screen = AppScreen.of(url, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
                                    group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
         open(screen)
       } else {
