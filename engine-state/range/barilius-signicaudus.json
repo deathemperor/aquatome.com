@@ -1,0 +1,48 @@
+{
+  "id": "barilius-signicaudus",
+  "native": {
+    "input": "11764eb496fdbd3d",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from headwater tributaries within the Khwae Yai and Khwae Noi branches of the Mae Klong River in western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Klong River",
+        "source": "seriouslyfish",
+        "quote": "Known only from headwater tributaries within the Khwae Yai and Khwae Noi branches of the Mae Klong River in western Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius signicaudus",
+    "status": "ACCEPTED",
+    "taxonKey": 7386808,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "batasio-travancoria",
+  "native": {
+    "input": "7756f7570005a7e1",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Malabar batasio, Batasio travancoria, is a bagrid catfish endemic to southern Kerala, India, in the Pamba, Chittar and Kallada drainages.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Peruntenaruvi', a tributary of the Pamba River in Kottayam district, Kerala state, southwestern India, and also known from the Chittar and Kallada drainages.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pamba",
+        "source": "seriouslyfish",
+        "quote": "The Malabar batasio, Batasio travancoria, is a bagrid catfish endemic to southern Kerala, India, in the Pamba, Chittar and Kallada drainages.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Chittar",
+        "source": "seriouslyfish",
+        "quote": "The Malabar batasio, Batasio travancoria, is a bagrid catfish endemic to southern Kerala, India, in the Pamba, Chittar and Kallada drainages.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kallada",
+        "source": "seriouslyfish",
+        "quote": "The Malabar batasio, Batasio travancoria, is a bagrid catfish endemic to southern Kerala, India, in the Pamba, Chittar and Kallada drainages.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Batasio travancoria",
+    "status": "ACCEPTED",
+    "taxonKey": 2338643,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

@@ -2044,6 +2044,277 @@
       "Item 1/3: 'cool' water with 22–29 °C is source wording; ok."
     ]
   },
+  "apistogramma-bitaeniata": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต ไบทีเนียตา",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"แม่น้ำ Río Ucayali\" and \"แม่น้ำ rio Solimões/rio Madeira/rio Tapajós\" repeat the word for river, since Río and rio already mean river. Write \"แม่น้ำ Ucayali\" and so on, in one consistent form. Item 2 also writes \"แม่น้ำ Madeira\" in one place, so the river names are not consistent.",
+      "Item 11: \"แม้ว่าจะยังไม่พบสถานที่ใดที่ตรงกับชื่อหลังสุดนี้\" is a little stiff. The \"though\" clause could read more naturally, for example \"แต่ไม่พบสถานที่ที่ชื่อตรงกับ 'Purutu' ...\"."
+    ]
+  },
+  "apistogramma-borellii": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต บอเรลลี่",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 5: \"every few weeks\" is rendered as \"ทุก ๆ 2–3 สัปดาห์\", which adds a specific figure. Use a vague phrase such as \"ทุกไม่กี่สัปดาห์\".",
+      "Item 7: \"ลูกน้ำริ้นน้ำจืด (หนอนแดง)\" is an awkward term for chironomid larvae. Use \"ลูกน้ำแดง/หนอนแดง (ตัวอ่อนริ้นน้ำจืด)\".",
+      "Items 1 and 8: \"dither fish\" is left in English. Add a Thai explanation, for example \"ปลาที่ช่วยให้ปลาหมอสีรู้สึกปลอดภัย (dither fish)\".",
+      "Items 1 and 8: \"ปลาที่เพาะเลี้ยงในที่เลี้ยง\" is redundant. Use \"ปลาที่เพาะพันธุ์ในที่เลี้ยง\" or \"ปลาเพาะเลี้ยง\".",
+      "Item 10: \"เป็นปลาที่วางไข่บนวัสดุ\" is a stiff rendering of \"substrate spawner\". Use \"ปลาวางไข่ตามพื้นผิว/ซอกโพรง\".",
+      "Items 1 and 3: common names and place names are left in Latin script, for example \"Borelli's dwarf cichlid\" and \"rio Paraguay\". Give Thai forms such as \"แม่น้ำปารากวัย\" and \"แม่น้ำปารานา\", consistent with the Thai country names used elsewhere."
+    ]
+  },
+  "apistogramma-brevis": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต เบรวิส",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 1: the English says 'Aquarium size' and 'Max size: 60 mm SL'. The Thai is fine on these, but 'ปลาหมอแคระ' for dwarf cichlid is acceptable. Main problem is item 7: 'ไรทะเล' for brineshrimp is fine, but 'bloodworm' as 'หนอนแดง' is OK. The real issue is 'อาหารเม็ดแผ่นสาหร่าย' for 'algae wafers'. Use 'อาหารแผ่นสาหร่าย' or 'อัลจีเวเฟอร์'.",
+      "Item 8: 'ปลาแพะคอริดอรัส' is a wrong or odd name. Use 'ปลาคอรี่/คอริดอรัส' (หมูอ้วน is not right either). 'ปลาแมวขนาดเล็ก' for small catfish is acceptable, but 'ปลาแพะ' is not a standard term for Corydoras.",
+      "Item 8: 'ปลาซิว' for rasboras is acceptable, but 'ปลาเตตร้า' should be 'เตตร้า' or 'ปลาเทตร้า'. Use the form hobbyists commonly write.",
+      "Item 10: 'ตัวเมียอาจไม่ยอมให้ตัวผู้อยู่ใกล้' is fine. 'ไรทะเล' for newly-hatched brineshrimp is fine, but 'อาหารแบบปลาโต' is awkward. Use 'อาหารสำหรับปลาโตเต็มวัย'.",
+      "Item 11: 'ชนิดต้นแบบ' is used for both 'type families' and 'species type'. The English 'grouped into type families' is mistranslated as 'จัดเป็นกลุ่มตามชนิดต้นแบบ'. Use 'จัดเป็นกลุ่ม (group) โดยมีชนิดต้นแบบของแต่ละกลุ่ม'.",
+      "Item 1: the Thai 'ค่า pH อาจลดต่ำลงได้ถึง 4.0 หรือ 5.0' is faithful. However, the listed range 'pH: 6.0–7.0' sits against a habitat pH of 4.0–5.0. This matches the source, so no fix is needed there."
+    ]
+  },
+  "apistogramma-cacatuoides": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "ปลาหมอแคระค็อกคาทู",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 7: 'Artemia' is rendered 'ไรทะเล', which is a generic term. Artemia is usually called 'อาร์ทีเมีย' or 'ไรน้ำเค็ม' in Thai. Check this against local hobby usage.",
+      "Item 7: 'ไรแดง' for Daphnia is acceptable. 'benthic invertebrates' as 'สัตว์น้ำไม่มีกระดูกสันหลังหน้าดิน' is stiff. Use 'สัตว์ไม่มีกระดูกสันหลังที่อาศัยตามพื้น'.",
+      "Item 5: 'Ketapang almond leaves' is rendered 'ใบหูกวาง'. This is correct and common in Thai, so keep it. 'beech, oak' are fine.",
+      "Item 5: 'most populations will appreciate the tannins' is rendered 'ประชากรส่วนใหญ่ก็จะได้ประโยชน์'. 'ประชากร' is unnatural here. Use 'ปลาจากแหล่งส่วนใหญ่' or 'ปลาหลายกลุ่ม'.",
+      "Item 1: 'double red' and 'orange flash' are left in Latin letters. This is acceptable, but add the Thai trade name if one exists.",
+      "Item 2: 'ลองจิจูด 69°W ถึง 71°W' is correct, but 'ríos Ucayali and Amazonas' is rendered 'แม่น้ำอามาโซนัส'. Amazonas in Peru is the Amazon main stem, so use 'แม่น้ำแอมะซอน' for consistency with the rest of the text.",
+      "Item 10: 'substrate spawner' is rendered 'ปลาวางไข่ตามพื้นและซอกหลืบ'. This adds 'ซอกหลืบ', which is not in the English. Use 'ปลาวางไข่บนพื้นผิว'.",
+      "Item 11: 'ผ่านการแผ่ขยายเชิงปรับตัว (adaptive radiation)' is acceptable. 'เผ่า (tribe)' and 'กลุ่มซับซ้อน (complex)' are stiff but understandable.",
+      "Item 12: The reference list is left untranslated as instructed, so no fix is needed."
+    ]
+  },
+  "apistogramma-cinilabra": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต ซินิลาบรา",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 11: \"สายวงศ์ (lineage)\" is an awkward coinage for lineage. Consider \"สายวิวัฒนาการ\" or \"สายสายพันธุ์\" and keep the English term in brackets.",
+      "Item 11: \"กลุ่มซับซ้อน (complex)\" reads stiffly. \"กลุ่มสปีชีส์คอมเพล็กซ์\" or \"complex\" with a short explanation would be more natural for hobbyists."
+    ]
+  },
+  "apistogramma-commbrae": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโตแกรมมา คอมเบร",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 7: the list \"Artemia, Daphnia, Moina and chironomid larvae\" is shortened to \"ไรทะเล ไรแดง และหนอนแดง\". Moina and Daphnia are merged into one term, so a listed food is dropped. Name both, e.g. \"ไรน้ำ (Daphnia) ไรแดง (Moina)\".",
+      "Item 7: \"with pelleted products generally preferred to flake\" is ambiguous in Thai (\"อาหารเม็ดจะเหมาะกว่า\"). Say the fish generally prefer pellets to flakes, e.g. \"ปลามักชอบอาหารเม็ดมากกว่าอาหารแผ่น\".",
+      "Item 10: \"patriarch-maternal\" is left in English inside quotes with no Thai gloss. Add a Thai explanation, e.g. \"พ่อเป็นหัวหน้าฝูง แม่เลี้ยงลูก\".",
+      "Item 1: \"ปลาหมอแคระคอรุมบา\" looks like an invented common name. Check it against what Thai hobbyists use, or keep the Latin name with a short gloss.",
+      "Item 5: \"A. commbrae ... settles in to a wide range of water parameters\" is rendered \"ไม่ได้ต้องการสภาพเฉพาะเจาะจง\", which is slightly stilted. Consider \"ไม่ต้องการน้ำเฉพาะทาง\"."
+    ]
+  },
+  "apistogramma-elizabethae": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต เอลิซาเบธ",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 11: \"Geophaginae ซึ่งยังเป็นข้อสันนิษฐาน\" misplaces \"putative\"; the English says the subfamily is putative. Rephrase as \"วงศ์ย่อย Geophaginae (ซึ่งยังไม่เป็นที่ยอมรับแน่ชัด)\".",
+      "Item 11: \"แบ่งออกเป็นสาม 'tribe'\" leaves \"tribe\" in English. Use \"เผ่า (tribe)\".",
+      "Item 11: \"Cichlidae\" rendered as \"วงศ์\" and then the six subfamilies as \"หกวงศ์ย่อย\" is fine, but \"ปลาหมอสีเขตร้อนโลกใหม่\" for \"neotropical\" is awkward. Use \"ปลาหมอสีในเขตนีโอทรอปิก\" or \"อเมริกากลางและใต้\".",
+      "Item 11: \"ทรงพิณ (lyrate)\" and \"ทรงหอก\" are unnatural. Use \"ทรงพิณ\" and \"ทรงใบหอก\" with consistent glosses, or the hobby terms for the tail shapes.",
+      "Item 11: \"ผู้เลี้ยงมักติดป้ายข้อมูลแหล่งที่เก็บปลา\" is ok, but \"ซึ่งมีหลักฐานสนับสนุนหนักแน่น\" moves \"well-supported\" onto the clade name and reads clumsily. Rephrase the two bullet items so it is clear which relationship is weak and which is strong.",
+      "Item 5: \"ไม่ควรปล่อยลงตู้ที่วงจรไนโตรเจนยังไม่สมบูรณ์เด็ดขาด\" is fine, but \"ลูกอัลเดอร์ (alder cone)\" should be \"ลูกแอลเดอร์\" or explained as alder cones. \"Microsorum, Taxiphyllum หรือ Cryptocoryne spp.\" should use hobby names such as เฟิร์นชวา, ใบพาย or คริปโต.",
+      "Item 7: \"ไรทะเล\" for Artemia is OK, but \"ไรแดง (ทั้ง Daphnia และ Moina)\" is imprecise. Daphnia is \"ไรน้ำนิ่ม\" or \"ไรแดง\", and Moina is \"ไรน้ำเค็ม/ไรแดงเล็ก\". Give each its own Thai name.",
+      "Item 1/4/11: \"อพิสโต\" for Apistogramma is a hobby short form, but \"ปลาหมอแคระ\" or \"อะพิสโตแกรมมา\" would be clearer on first use.",
+      "Item 4: \"ความยาวมาตรฐาน 50 มม. SL\" omits the 2.0 in, which is fine, but the sentence \"Base dimensions ... acceptable for a single pair\" lost nothing. No change needed here."
+    ]
+  },
+  "apistogramma-eremnopyge": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต อีเรมโนไพจ์",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 5: 'ไม่ควรปล่อยลงตู้ที่วงจรไนโตรเจนยังไม่สมบูรณ์' is fine, but 'Alder cones ... for the latter purpose' is OK; the real problem is 'ปลาหมอแคระ'/'ไรทะเล' for Artemia in item 7. Artemia means brine shrimp (อาร์ทีเมีย). 'ไรทะเล' is acceptable but the nauplii in item 10 should be 'ลูกอาร์ทีเมียแรกฟัก' or 'ไรทะเลแรกฟัก'. Keep it consistent.",
+      "Item 7: 'Daphnia, Moina' are rendered only as 'ไรแดง'. Moina is omitted, and Daphnia and Moina are both called 'ไรแดง'. Name both, for example 'ไรแดง (Daphnia) และมอยนา (Moina)'. 'Chironomid larvae (bloodworm)' is also reduced to 'หนอนแดง'. Add 'ลูกน้ำ/ตัวอ่อนแมลงหนอนแดง (chironomid)'.",
+      "Item 8: 'ตัวเมียมากถึงสามเท่าของจำนวนตัวผู้' is correct, but 'ปลาเล็กที่ช่วยให้ปลารู้สึกปลอดภัย (dither fish)' is wordy. Also 'ในตู้ที่ใหญ่ขึ้น' is placed awkwardly at the end of the sentence.",
+      "Item 8: 'เพราะจะทำให้ปลาไม่หันมาทำร้ายกัน' is unclear about the cause. Say 'เพราะทำให้เบนความสนใจจากการรุมทำร้ายกัน'.",
+      "Item 11: 'ข้อสรุปเรื่องความสัมพันธ์ระหว่างสกุลต่าง ๆ ของพวกเขา' leaves 'ของพวกเขา' as a literal rendering of 'their'. Replace it with 'ของผู้วิจัย'. 'neotropical' is transliterated as 'นีโอทรอปิคัล' and 'sublineage' is translated as 'สายวงศ์ย่อย'. Use more standard terms.",
+      "Item 1: the first list drops '(2.8 in)' etc. as intended. The 'dark blotch low on the caudal peduncle' is fine. In item 3, 'น้ำสีชา' for 'black water' is acceptable but could be 'น้ำดำ (blackwater)'.",
+      "Item 5: 'Microsorum, Taxiphyllum หรือ Cryptocoryne spp.' now implies only Cryptocoryne is plural. Use 'spp.' consistently or common names, for example เฟิร์นกลุ่ม Microsorum."
+    ]
+  },
+  "apistogramma-eunotus": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโตแกรมม่า ยูโนตัส",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": []
+  },
+  "apistogramma-gibbiceps": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต กิบบิเซปส์",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "apistogramma-hoignei": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต ฮอยเนอิ",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 11: \"neotropical family Cichlidae was divided into six subfamilies\" is rendered as \"วงศ์ Cichlidae ในเขตร้อนของโลกใหม่\". Write \"เขตneotropics/อเมริกาเขตร้อน\" instead. Also \"six subfamilies\" is translated correctly, but \"สายวงศ์ (lineage)\" is a poor term because it suggests \"family\". Use \"สายพันธุ์วิวัฒนาการ\" or just \"ลิเนียจ\".",
+      "Item 11: \"species lineages, sublineages, complexes and groups by authors\" became \"นักวิชาการ ... จัดชนิดต่าง ๆ\". That is acceptable. However, \"กลุ่มซับซ้อน (complex)\" is a stiff, unnatural coinage. Use \"คอมเพล็กซ์\" or \"กลุ่มชนิดใกล้เคียง\".",
+      "Item 11: \"ข้อสรุปเรื่องความสัมพันธ์ระหว่างสกุลต่าง ๆ ของพวกเขา\" reads as a literal rendering. Drop \"ของพวกเขา\" or use \"ของงานนี้\".",
+      "Item 11: \"adaptive radiation\" is explained correctly. \"monophyletic\" is glossed as \"กลุ่มที่มีบรรพบุรุษร่วมเดียวกัน\", which is fine. \"ผ่านการแผ่รังสีเชิงปรับตัว\" is awkward. Use \"การแตกสายพันธุ์เชิงปรับตัว\".",
+      "Item 8: \"ปลาเล็กที่ช่วยให้ปลารู้สึกปลอดภัย (dither fish)\" is wordy. \"Apistogramma อื่น\" was rendered \"อพิสโตชนิดอื่น\", which is a non-standard truncation and may confuse readers. Write \"Apistogramma ชนิดอื่น\" or \"ปลาหมอแคระ Apistogramma ชนิดอื่น\".",
+      "Item 5: \"หากในตู้เลี้ยงปลาไม่หนาแน่น\" is clumsy. Use \"หากเลี้ยงปลาไม่หนาแน่น\". \"ใบไม้ที่เน่าเปื่อย\" for decaying leaves is slightly negative. Use \"ย่อยสลาย\".",
+      "Item 7: \"อาหารสดและอาหารแช่แข็ง\" for live foods is wrong. \"Live\" means \"มีชีวิต\", not \"สด\". Use \"อาหารมีชีวิต\". \"หนอนแดง\" for chironomid larvae is fine.",
+      "Item 10: \"วางไข่ติดวัสดุ\" is acceptable, but the \"อาจก้าวร้าวรุนแรงมาก\" for \"hyper-aggressive\" is fine too. No change needed."
+    ]
+  },
+  "apistogramma-hongsloi": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต ฮองสลอย",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 11: \"สายวงศ์ (lineage) สายวงศ์ย่อย\" is a slightly odd rendering of lineage/sublineage, which suggests family rank. Consider \"สายสายวิวัฒนาการ\" or keep the English terms in brackets throughout."
+    ]
+  },
+  "apistogramma-macmasteri": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโตแกรมม่า แมคมาสเตอรี่",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 1/7: 'Captive-raised fish are the recommended choice' is translated 'ปลาที่เพาะเลี้ยงในที่เลี้ยง', which is redundant and awkward. Use 'ปลาที่เพาะพันธุ์ในที่เลี้ยง' or 'ปลาเพาะเลี้ยง'. Also, the item 1 summary adds 'หากจะเลี้ยงในตู้รวม', which is a minor rephrase.",
+      "Item 3: 'Base dimensions of 45 × 30 cm or more are acceptable for a single pair with a group requiring larger quarters' is rendered 'เพียงพอสำหรับปลาหนึ่งคู่'. This is fine, but 'ตู้ที่ใหญ่กว่านี้' should be made specific, e.g. a larger base.",
+      "Item 4: 'Ketapang almond leaves' became 'ใบหูกวาง'. This is the correct local term. 'most populations will appreciate the tannins' became 'ปลาส่วนใหญ่ก็ชอบ', which changes populations to fish. Use 'ปลาหลายประชากร/หลายแหล่งที่จับ'.",
+      "Item 4: 'very large water changes are best avoided' became 'เปลี่ยนน้ำปริมาณมากเกินไป'. This weakens the advice. Use 'การเปลี่ยนน้ำปริมาณมากในครั้งเดียว'.",
+      "Item 6: 'benthic invertebrates' became 'สัตว์ไม่มีกระดูกสันหลังที่อาศัยอยู่ตามพื้นน้ำ'. This is correct but stiff. 'Artemia' became 'ไรทะเล' and 'Daphnia' became 'ไรแดง'. Hobbyists would usually write 'อาร์ทีเมีย' and 'ไรน้ำ/ไรแดง'. 'Bloodworm' is given as 'หนอนแดง', which is acceptable. The last clause 'with pelleted products generally preferred to flake' is garbled: 'โดยทั่วไปมักชอบ' leaves the subject unclear.",
+      "Item 10: 'the neotropical family Cichlidae was divided into six subfamilies' became 'แบ่งวงศ์ ... ออกเป็นหกวงศ์ย่อย โดยวงศ์ย่อยที่เสนอไว้คือ Geophaginae มี 16 สกุล'. This is slightly muddled. 'Putative subfamily' should read 'วงศ์ย่อย Geophaginae (ที่ยังเป็นข้อเสนอ)'.",
+      "Item 10: 'Neotropical' became 'เขตร้อนโลกใหม่', which is awkward. Use 'เขตนีโอทรอปิก' or 'อเมริกากลางและใต้'. 'speciose' became 'มีจำนวนชนิดมากที่สุด', which overstates 'among the most'. 'The A. macmasteri complex forms the A. macmasteri group alongside the A. hongsloi complex' is clumsy and unclear in Thai."
+    ]
+  },
+  "apistogramma-mendezi": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต เมนเดซิ",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 5: \"ลูกสนอัลเดอร์ (alder cone)\" is wrong. Alder (Alnus) cones are not pine cones. Use \"ผลอัลเดอร์\" or \"โคนอัลเดอร์ (alder cone)\" and drop \"สน\". Hobbyists could buy the wrong material."
+    ]
+  },
+  "apistogramma-nijsseni": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโตแพนด้า",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 7: 'ลูกน้ำริ้น (หนอนแดง)' for 'chironomid larvae (bloodworm)' is imprecise, because chironomids are not ริ้น. Use 'ตัวอ่อนแมลงหวี่น้ำ/ไคโรโนมิด (หนอนแดง)' or just 'หนอนแดง'.",
+      "Item 10: 'substrate spawner' became 'วางไข่บนวัสดุ', which is vague and reads oddly next to 'lays eggs in crevices or cavities'. Use a clearer term, e.g. 'ปลาวางไข่ติดพื้นผิว/วางไข่ในโพรง'.",
+      "Item 5: 'most populations will appreciate' became 'ปลาส่วนใหญ่ก็ชอบ', which changes populations into fish in general. Use something like 'ปลาหลายประชากร/หลายแหล่งที่มา'. Also, 'เน่าเปื่อย' is a bit harsh for leaf decomposition.",
+      "Item 8: 'dither fish' is left in English inside quotes. Add a Thai explanation, e.g. 'ปลาเล็กที่ช่วยให้ปลาหลักกล้าออกมาว่าย'.",
+      "Item 11: 'sister group relationship' is translated as 'กลุ่มพี่น้อง', which is fine but stiff. The word order 'ซึ่งมีหลักฐานสนับสนุนไม่หนักแน่น' is slightly awkward."
+    ]
+  },
+  "apistogramma-norberti": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโตแกรมมา นอร์เบอร์ติ",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 8: 'dither fish' is left in English in quotes; give a Thai explanation, e.g. 'ปลาล่อ/ปลาช่วยลดความเครียด (dither fish)'.",
+      "Item 11: 'พบได้ทั่วไปในปลาชนิดต่าง ๆ ของกลุ่ม A. nijsseni' reads as 'commonly found'; 'typical' is better as 'เป็นลักษณะเฉพาะของกลุ่ม A. nijsseni'."
+    ]
+  },
+  "apistogramma-panduro": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต แพนดูโร",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 10: \"เป็นปลาที่วางไข่ติดกับพื้นผิว/ซอกหลบ\" uses a slash and adds \"ซอกหลบ\" to \"substrate spawner\". Use a cleaner phrase such as \"ปลาวางไข่ติดพื้นผิว\".",
+      "Items 8 and 5: 'dither' is left in English with quotes. Add a short Thai gloss, e.g. \"ปลาเสริมที่ช่วยให้ปลาหลักกล้าออกมา (dither fish)\".",
+      "Item 7: \"ริ้นน้ำจืดวงศ์ Chironomidae\" adds detail the source does not have. \"ตัวอ่อนแมลงวงศ์ Chironomidae (หนอนแดง)\" would be simpler and match the source.",
+      "Item 11: \"แบบ…ปลาอีกแบบจากแม่น้ำ Tamshiyacu ซึ่งอาจเป็นชนิดเดียวกันได้รับรหัส A184\" runs two clauses together without a break. Add a pause or conjunction for readability."
+    ]
+  },
+  "apistogramma-pantalone": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโตแกรมม่า แพนทาโลน",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"แพนทาโลนซิคลิด\" is an awkward transliteration of \"pantaloon cichlid\". Use a more natural name, or just the Latin name with the English name in brackets.",
+      "Item 5: \"ลูกสนอัลเดอร์ (alder cone)\" is misleading, because alder cones are not pine cones. Use \"ผลของต้นอัลเดอร์\" or \"โคนอัลเดอร์\".",
+      "Item 11: \"กลุ่มซับซ้อน (complex)\" is stiff. Use \"สปีชีส์คอมเพล็กซ์\" or \"กลุ่มสปีชีส์ใกล้เคียง\".",
+      "Item 11: \"ซึ่งยังเป็นการจัดกลุ่มที่ไม่ได้ข้อยุติ\" over-explains \"putative\". Use \"ที่ยังเป็นข้อเสนอ\" or \"ซึ่งยังไม่เป็นที่ยอมรับทั่วไป\"."
+    ]
+  },
+  "apistogramma-paulmuelleri": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต พอลมูลเลอรี",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 3: 'on August 2011 ... up to 80 cm (31 in) deep' is handled fine, but item 1 'Hardness: 1–3 dGH' became 'ความกระด้าง (GH): 1–3 dGH', which adds a GH label. Write 'ความกระด้าง: 1–3 dGH' or 'dGH' only.",
+      "Item 11: 'Apistogramma and a number of related genera are often included in the putative subfamily Geophaginae' became 'ซึ่งยังเป็นข้อสันนิษฐาน'. This is clumsy and attaches 'putative' to the wrong thing. Rephrase to 'วงศ์ย่อย Geophaginae (ซึ่งยังไม่เป็นที่ยอมรับแน่ชัด)'.",
+      "Item 11: 'Geophaginae เป็นกลุ่มที่มีบรรพบุรุษร่วมเดียวกัน (monophyletic)' is acceptable, but 'ผ่านการแผ่ขยายพันธุ์เชิงปรับตัว' for 'adaptive radiation' is unnatural. Use 'การแตกสายพันธุ์เชิงปรับตัว' or 'วิวัฒนาการแผ่ขยายเชิงปรับตัว'.",
+      "Item 11: 'จำนวนรูบนหัวไม่ลดลง' for 'head pores not reduced in number' is vague. Specify 'รูรับความรู้สึก (pores) บนหัว'.",
+      "Item 11: 'Crenicichla and Teleocichla ... the 'crenicarine clade' with Biotoecus and Crenicichla' is kept, but 'six subfamilies' became 'หกวงศ์ย่อย' correctly. The one real problem is 'ตัวผู้ที่โตเต็มวัยมีลายสีแดงสด', where 'markings' is better as 'ลาย/แต้ม'. Also 'ปื้นสีดำวางตัวในแนวตั้ง' is stiff, so use 'ปื้นสีดำแนวตั้ง'.",
+      "Item 7: 'ไรทะเล ไรแดง' for Artemia and Daphnia is fine, but 'ตัวอ่อนของริ้นน้ำจืดวงศ์ Chironomidae' adds detail not in the source ('chironomid larvae'). Use 'ลูกน้ำตัวอ่อนของ chironomid' or just 'หนอนแดง (ตัวอ่อน chironomid)'.",
+      "Item 8: 'โดยหลักแล้วไม่ควรเลี้ยงรวมกับ' for 'ideally should not' changes the strength. Use 'ควรหลีกเลี่ยงการเลี้ยงรวมกับ ... หากเป็นไปได้'.",
+      "Item 10: 'เป็นปลาที่วางไข่บนวัสดุ' for 'substrate spawner' is unclear. Use 'ปลาที่วางไข่ติดพื้นผิว/ซอกหลืบ'. 'hyper-aggressive' as 'ก้าวร้าวรุนแรงมาก' is fine."
+    ]
+  },
+  "apistogramma-steindachneri": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "อพิสโต สไตน์ดัคเนอรี",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 11: 'Following Römer (2006) ... lateral stripe narrow and reaching caudal spot' fine, but 'Geophaginae ซึ่งยังเป็นที่ถกเถียงอยู่' adds a fact; English says only 'putative subfamily'. Rephrase as 'วงศ์ย่อยที่ยังไม่เป็นที่ยืนยัน' or drop the added claim.",
+      "Item 11: 'ปลาหมอสีวงศ์ Cichlidae ในเขตร้อนของโลกใหม่' for 'neotropical Cichlidae' is fine, but 'ข้อสรุปเรื่องความสัมพันธ์ระหว่างสกุลของพวกเขา' leaves 'พวกเขา' (their, meaning the authors) ambiguous and awkward. Use 'ของงานวิจัยนั้น'.",
+      "Item 11: 'Satanoperca clade' etc. are left in English and 'a weakly-supported sister group relationship' is reordered, which is acceptable. However, 'ปลาชนิดนี้ ... ลำตัวด้านล่างมักมีโทนสีฟ้า' is fine. 'Hobbyists label ... เพื่อป้องกันไม่ให้ปลาปะปนกัน' is fine.",
+      "Item 7: 'ไรทะเล' for Artemia is imprecise. Use 'อาร์ทีเมีย' or 'ไรทะเล (Artemia)'. 'ไรแดง (Daphnia และ Moina)' merges two genera under one term; Moina is usually 'ไรแดงเล็ก/มอยน่า'. 'หนอนแดง' for chironomid larvae is fine.",
+      "Item 5: 'ตู้ที่วงจรไนโตรเจนยังไม่สมบูรณ์' is a reasonable rendering of 'biologically-immature'. 'ปลากลุ่มนี้' for 'these fishes' is fine. 'ปลาที่เพาะเลี้ยงในฟาร์ม' in item 8 adds 'ในฟาร์ม' (farm), which is not in the source 'captive-raised'. Use 'ปลาเพาะเลี้ยง'.",
+      "Item 4: The English gives ~21 US gal and the translation drops it, which is fine. Item 3: 'μS/cm-1' is kept unchanged from the source and should be 'μS/cm'. It is a minor point.",
+      "Item 1: 'Steindachner's apisto' is left in English at the start. Add a Thai name or transliteration such as 'อพิสโตสไตน์ดาคเนอร์'."
+    ]
+  },
   "apteronotus-albifrons": {
     "at": "2026-11-04",
     "from": "2026-11-04",

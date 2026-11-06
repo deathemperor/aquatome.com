@@ -1,0 +1,74 @@
+{
+  "ms/equipment/loc": [
+    {
+      "at": "2026-11-06T17:30:22Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Ikan sungai arus deras seperti hillstream loach\": 'cá suối như cá chạch bám đá' is rendered with an English loanword; acceptable but could add a Malay gloss such as 'ikan sungai arus deras (cth. loach bukit/hillstream loach)'.",
+        "\"ikan belacak/gobi sungai\": 'belacak' is not a standard name for river gobies. Use 'ikan belanak'/'ikan buntal' only if correct, or simply 'ikan gobi sungai'. The slash makes it awkward.",
+        "\"ikan keli\" for cá da trơn: 'keli' is catfish in general, which is fine. 'ikan laga' for betta is correct.",
+        "\"Pam udara... ke batu udara\": the Vietnamese says 'quả sủi' (air stone). The Malay is fine, but 'hos' for 'dây' should be 'hos udara' for clarity.",
+        "\"Penapis luar berkuasa dan kemas\" in the intro: Vietnamese 'lọc thùng' is rendered as 'penapis luar' here but 'canister' in the list. Keep the terms consistent, e.g. 'penapis luar (canister)'.",
+        "\"Pam arus (wavemaker)\": 'máy tạo dòng' in a freshwater stream tank is better given as 'pam arus/powerhead'. 'Wavemaker' is mostly a marine term.",
+        "\"Sebab itu ia digemari\": the Vietnamese is a single sentence, and the Malay splits it. Meaning is intact.",
+        "\"tangki aliran deras\" in the pick for the stream tank is slightly inconsistent with 'tangki sungai arus deras' elsewhere.",
+        "\"Pam udara elok ada apabila suhu air melebihi 28 °C\": 'elok' is colloquial. Use 'sebaiknya ada' for a handbook register.",
+        "\"Penapis span... hampir tidak pernah rosak\": acceptable, though 'jarang rosak' is more natural."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T17:30:22Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Ikan sungai berarus\" is an awkward rendering of \"cá suối\"; \"ikan sungai arus deras\" or \"ikan hillstream\" reads more naturally.",
+        "\"ikan gobi sungai\" is unnatural; \"ikan belacak/gobi sungai\" or a short gloss would be clearer.",
+        "\"kapas\" for \"bông\" (filter wool) is not standard in Malaysian shops; use \"span/bulu penapis\" or \"filter floss\".",
+        "\"tangki biotop sungai\" is stiff for \"bể suối\"; \"tangki aliran deras\" would be more natural.",
+        "\"Sekali setiap 1–2 bulan\" is slightly clumsy; \"setiap 1–2 bulan sekali\" is more idiomatic.",
+        "\"Penapis luar\" and \"kolam ikan besar\" are acceptable, but \"akuarium besar\" suits \"hồ cá lớn\" better, since \"kolam\" suggests an outdoor pond.",
+        "\"Tangki\" is used throughout; Malaysian hobbyists commonly say \"akuarium\" or \"tangki\", so this is acceptable. For consistency, \"air tangki\" in the intro is fine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/equipment/phan-nen": [
+    {
+      "at": "2026-11-06T17:31:19Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"bakteria hidup\" for \"vi sinh sinh sống\": acceptable, but \"mikroorganisma\" is used elsewhere. Make the term consistent, e.g. \"mikroorganisma\".",
+        "\"keladi air/anubias\" for \"ráy\": this adds an unneeded second name. Use just \"anubias\", or \"ráy\" as the aroid plant family name, to avoid confusion.",
+        "\"Amazon sword\" for \"cây kiếm\" is fine. Consider adding the Malay form \"pokok pedang Amazon\" or keeping it in italics.",
+        "\"ikan laga\" for \"cá betta\": correct. Malaysian hobbyists also commonly say \"betta\", so it could be mentioned once.",
+        "\"Ikan loach\" for \"cá chạch\": acceptable. \"Ikan pekasam\" would not fit, so keep it.",
+        "\"Tangki aquascape\" for \"bể thủy sinh\": fine. The heading \"Aqua soil (substrat berkhasiat)\" is OK.",
+        "\"Daun ketapang kering dan daun luruh\" is good. \"Menyipon sisa kotoran\" is correct for \"hút cặn\".",
+        "\"0.5–1 mm\": Malay uses a decimal comma or point. The point is common in Malaysia, so this is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T17:31:19Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Batu kelikir\" is used for sỏi (gravel), but \"batu kelikir\" in the intro is fine; the heading \"Batu kelikir dan batu\" is slightly awkward. Consider \"Kerikil dan batu\" (kerikil is more common among Malaysian hobbyists).",
+        "\"ráy\" (Anubias/aroid) was translated as \"anubias\" and \"cây kiếm\" as \"Amazon sword\". This is acceptable, but \"anubias\" is narrower than ráy. Consider \"keladi air/anubias\".",
+        "\"Aqua soil (substrat baja)\" for \"Phân nền thủy sinh\" is OK, but \"tanah bakar (aqua soil)\" is an odd phrase for đất nung. Consider \"tanah akuarium berkhasiat (aqua soil)\".",
+        "\"anak sungai hutan\" and \"tangki aquascape\" are fine. \"ikan laga\" for betta is correct.",
+        "\"0.5–1 mm\" uses a decimal point where the Vietnamese had a comma. This is correct Malaysian usage and the number is unchanged.",
+        "\"Pasir sungai atau pasir kuarza\": fine. \"poket anaerobik\" is acceptable; \"kantung anaerobik\" is also common.",
+        "\"Kotoran mudah disedut\" is fine, but \"sisa kotoran\" or \"najis ikan\" is more natural for hút cặn (siphoning). \"Menyedut kotoran\" in the mistakes list does not make clear that the action is siphoning (\"sipon\")."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

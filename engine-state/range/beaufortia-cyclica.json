@@ -1,0 +1,55 @@
+{
+  "id": "beaufortia-cyclica",
+  "native": {
+    "input": "6b7a2982220ca753",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the Xi River (Xi Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China plus the Tuoniang river system in Funing County, southeastern Yunnan province.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xi River",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the Xi River (Xi Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China plus the Tuoniang river system in Funing County, southeastern Yunnan province.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Tuoniang",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of localities within the Xi River (Xi Jiang) drainage in Guangxi Zhuang Autonomous Region, southern China plus the Tuoniang river system in Funing County, southeastern Yunnan province.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Beaufortia cyclica",
+    "status": "ACCEPTED",
+    "taxonKey": 5205362,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

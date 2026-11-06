@@ -1,0 +1,69 @@
+{
+  "id": "betta-enisae",
+  "native": {
+    "input": "a60b0eae72e79b31",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from parts of the River Kapuas basin, Kalimantan Barat (West Kalimantan), Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from parts of the River Kapuas basin, Kalimantan Barat (West Kalimantan), Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from parts of the River Kapuas basin, Kalimantan Barat (West Kalimantan), Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Santik",
+        "source": "seriouslyfish",
+        "quote": "Its range extends east and slightly northwards from Sanggau as far as Putussibau, the type locality being within the River Santik watershed.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta enisae",
+    "status": "ACCEPTED",
+    "taxonKey": 2394022,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

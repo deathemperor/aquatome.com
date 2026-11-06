@@ -1,0 +1,58 @@
+{
+  "id": "betadevario-ramachandrani",
+  "native": {
+    "input": "409c161b5a86c63a",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from two sites in the upper Sita River drainage close to the village of Agumbe, Karnataka state, southwestern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sita River",
+        "source": "seriouslyfish",
+        "quote": "Known only from two sites in the upper Sita River drainage close to the village of Agumbe, Karnataka state, southwestern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "The Sita flows through part of the Western Ghats mountain range and by current knowledge B. ramachandrani is the only danionin endemic to that region, though some others do occur there.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betadevario ramachandrani",
+    "status": "ACCEPTED",
+    "taxonKey": 5962684,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

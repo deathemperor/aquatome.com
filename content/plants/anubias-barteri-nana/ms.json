@@ -4,16 +4,18 @@
   "altNames": [
     "Anubias barteri nana",
     "Anubias barteri var. nana",
-    "Dwarf Anubias"
+    "Anubias Nana"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li><strong>Asal:</strong> Afrika</li><li><strong>Kadar pertumbuhan:</strong> Perlahan</li><li><strong>Ketinggian:</strong> 5 - 15+ cm (ketinggian purata selepas dua bulan dalam tangki)</li><li><strong>Keperluan cahaya:</strong> Rendah</li><li><strong>Keperluan CO2:</strong> Rendah</li></ul>"
+    "quickFacts:tropica": "<ul><li><strong>Asal:</strong> Afrika</li><li><strong>Kadar pertumbuhan:</strong> Perlahan</li><li><strong>Ketinggian:</strong> 5–15+ cm (purata ketinggian selepas dua bulan dalam tangki)</li><li><strong>Keperluan cahaya:</strong> Rendah</li><li><strong>Keperluan CO2:</strong> Rendah</li></ul>",
+    "maintenance:aquatome": "<p>Anubias nana sesuai untuk bahagian depan dan bahagian tengah aquascape. Tumbuhan ini hidup melekat pada kayu hanyut atau batu, jadi kebanyakan penggemar mengikatnya pada kayu hanyut dan tidak menanamnya dalam substrat.</p><ul><li>Rumpun anubias yang besar biasanya mempunyai akar yang sangat panjang dan sukar dilekapkan rapat pada kayu. Pendekkan sedikit akarnya, kemudian pecahkan rumpun kepada beberapa bahagian kecil supaya boleh disebarkan di beberapa tempat pada kayu.</li><li>Letakkan setiap bahagian pada kayu dahulu untuk mencuba, dan ikat hanya selepas susunannya sudah memuaskan. Dengan cara ini, anda tidak perlu membuka dan mengikat semula berkali-kali.</li><li>Lilitkan tali pancing dengan sangat perlahan mengelilingi tumbuhan dan kayu, kerana tarikan yang kuat mudah mematahkan daun. Jangan lupa buat simpulan berganda. Simpulan tunggal mudah terlerai sehingga tumbuhan menjadi longgar dan asyik condong.</li><li>Untuk celah sempit yang tali pancing tidak boleh dimasukkan, gunakan gam jenis gel. Semasa mengikat, tumbuhan berada di luar air agak lama, jadi setiap kali tumbuhan mula kering, semburkan air padanya sekali.</li></ul>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.9,
     "indexable": true,
     "bySource": {
-      "tropica": 0.95
+      "tropica": 0.9,
+      "aquatome": 0.9
     }
   }
 }

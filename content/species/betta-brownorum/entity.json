@@ -12,6 +12,52 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the island of Borneo where it's restricted to southern and western parts of the state of Sarawak, Malaysia with a handful of populations across the border in Kalimantan Barat (West Kalimantan) province, Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394030,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          1.40625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -264,8 +310,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

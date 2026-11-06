@@ -10,6 +10,70 @@
     "india",
     "netravathi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Netravathi",
+        "Tungabhadra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Probably restricted to southern parts of Karnataka state and northern Kerala state in southwestern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Following its redescription in 2015 (see 'Notes') it is known with certainty only from the Netravathi and Tungabhadra river systems in Karnataka although it is thought to occur elsewhere.",
+          "countries": [],
+          "regions": [
+            "Netravathi",
+            "Tungabhadra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363299,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          75.9375,
+          8.4375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -149,8 +213,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150x60",
-        "bể cá lớn 540 lít"
+        "bể cá 150cm"
       ]
     },
     {
