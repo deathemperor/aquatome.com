@@ -18,10 +18,20 @@ test('quick facts: the items the card carries for that source, and the family, g
   expect(cardRepeats(spruceEn, 'sprucepets', neon)).toEqual([0, 2, 3, 4, 5, 6, 7])
   expect(dropCardRepeats(spruceEn, spruceVi, 'sprucepets', neon)).toBe(
     '<ul><li><strong>Nguồn gốc:</strong> Brazil, Colombia và Venezuela</li><li><strong>Tuổi thọ:</strong> 4 năm</li></ul>')
-  // The lifespan stays, even on the card from this source: the app's facts card has none yet.
-  expect(cardRepeats(spruceEn, 'sprucepets', { ...neon, lifeYears: [{ source: 'sprucepets', value: { min: 4, max: 4 } }] })).toEqual([0, 2, 3, 4, 5, 6, 7])
+  // The lifespan goes when the card has it from this source: the app's facts card shows the card's.
+  expect(cardRepeats(spruceEn, 'sprucepets', { ...neon, lifeYears: [{ source: 'sprucepets', value: { min: 4, max: 4 } }] })).toEqual([0, 2, 3, 4, 5, 6, 7, 8])
   // A figure the card has from another source only is this source's own word: it stays.
   expect(cardRepeats(spruceEn, 'sprucepets', { tempC: neon.tempC.slice(0, 1) })).toEqual([0])
+})
+
+test('quick facts: a lifespan the card has from this source goes, as the sources write it; one that says more stays', () => {
+  const life = { lifeYears: [{ source: 'seriouslyfish', value: { min: 3, max: 5 } }] }
+  const en = '<ul><li>Life span: up to 5 years</li><li><strong>Lifespan:</strong> up to 3 years</li><li>Life expectancy: 3 to 5 years</li><li>Life span: up to 1 year</li><li>Average lifespan: 18 months</li><li>Lifespan: up to 3 years in captivity (2 – 3 years in the wild)</li></ul>'
+  expect(cardRepeats(en, 'seriouslyfish', life)).toEqual([0, 1, 2, 3, 4])
+  // From another source only, it is this source's own word.
+  expect(cardRepeats(en, 'sprucepets', life)).toEqual([])
+  // A lifespan's units are a lifespan's only: a size reached in a time says how fast the fish grows.
+  expect(cardRepeats('<ul><li>Max size: 5 cm in 2 years</li><li>Adult size: 10 cm in 6 months</li></ul>', 'seriouslyfish', { sizeCm: [{ source: 'seriouslyfish', value: 10 }] })).toEqual([])
 })
 
 test('quick facts: an item that says more than the figure stays', () => {

@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { speciesOrder } from '../src/localize'
-import { addShopNames, makeShopList, popularFirst, shopIds, type ShopItem } from '../src/shops'
+import { addShopNames, makeShopList, popularFirst, shopIds, type ShopItem, type ShopLang } from '../src/shops'
 
 async function site() {
   const root = await mkdtemp(join(tmpdir(), 'shop-'))
@@ -12,7 +12,7 @@ async function site() {
   return root
 }
 const item = (trade: string, scientificName: string | null, confidence: number, name: string | null = trade): ShopItem => ({ trade, name, scientificName, confidence, evidence: '' })
-async function list(root: string, lang: 'vi' | 'id' | 'th', items: ShopItem[]) {
+async function list(root: string, lang: ShopLang, items: ShopItem[]) {
   await mkdir(join(root, 'engine-state/shop-lists'), { recursive: true })
   await writeFile(join(root, 'engine-state/shop-lists', `${lang}.json`), JSON.stringify({ lang, items, sources: [], updatedAt: '2026-10-31' }))
 }
@@ -107,4 +107,25 @@ test('plant shop list: the prompt asks for plants and leaves fish out; written b
   await makeShopList(root, research, 'vi', { now: () => new Date('2026-10-31T00:00:00Z') })
   expect(prompts[1]).toContain('You compile what aquarium fish shops in Vietnam actually sell')
   expect(prompts[1]).toContain('Leave out plants, equipment and food')
+})
+
+test("Malay: no list, no names; a list's names reach its pages, and what the engine fetches first still follows the served languages' lists", async () => {
+  const root = await site()
+  expect(await addShopNames(root, 'ms')).toEqual([])
+  await writeFile(join(root, 'content/species/paracheirodon-innesi/ms.json'), JSON.stringify({ slug: 'neon-tetra', name: 'Neon Tetra', altNames: [] }))
+  await list(root, 'ms', [item('Tetra Neon', 'Paracheirodon innesi', 0.9), item('Ikan Hanya Di Sini', 'Fakeus malayanus', 0.9)])
+  expect(await addShopNames(root, 'ms')).toEqual(['paracheirodon-innesi: Tetra Neon'])
+  expect(await names(root, 'paracheirodon-innesi', 'ms')).toEqual(['Tetra Neon'])
+  expect(await popularFirst(root)).not.toContain('Fakeus malayanus')
+  expect((await speciesOrder(root, 'ms')).slice(0, 1)).toEqual(['paracheirodon-innesi'])
+})
+
+test('a shop list can be made for Malaysia, in its own country and names', async () => {
+  const root = await site()
+  const prompts: string[] = []
+  const research: Llm = async <T>({ prompt }: { prompt: string }) => { prompts.push(prompt); return { items: [], sources: [] } as T }
+  await makeShopList(root, research, 'ms', { now: () => new Date('2026-11-06T00:00:00Z') })
+  expect(prompts[0]).toContain('Malaysia')
+  expect(prompts[0]).toContain('Ikan Laga')
+  expect(prompts[0]).not.toContain('Indonesia ')
 })

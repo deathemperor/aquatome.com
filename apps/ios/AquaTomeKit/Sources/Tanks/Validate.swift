@@ -110,6 +110,11 @@ struct Checker {
       c.field(s, "preset", p, optional: true) { c, v, p in c.string(v, p, min: 1, max: 40) }
       c.field(s, "brightness", p, optional: true) { c, v, p in c.int(v, p, min: 0, max: 100) }
     }
+    field(o, "powerOutlet", p, optional: true) { c, v, p in
+      guard let s = c.object(v, p) else { return }
+      c.field(s, "plugId", p) { c, v, p in c.recordId(v, p) }
+      c.field(s, "code", p) { c, v, p in c.string(v, p, min: 1, max: 40) }
+    }
     field(o, "remoteId", p, optional: true) { c, v, p in c.string(v, p, min: 1, max: 64) }
     field(o, "outlets", p, optional: true) { c, v, p in
       c.list(v, p, max: 16) { c, v, p in

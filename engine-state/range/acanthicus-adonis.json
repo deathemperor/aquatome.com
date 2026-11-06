@@ -1,0 +1,92 @@
+{
+  "id": "acanthicus-adonis",
+  "native": {
+    "input": "98ef335c24caeb08",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The polka dot lyre tail pleco, Acanthicus adonis, is a very large loricariid catfish from the rio Tocantins in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the lower rio Tocantins near the city of Cametá, Pará state, northern Brazil and occurs throughout the lower part of that system.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Although definitive details are lacking, it's also thought to range throughout much of the Amazon basin with similar-looking fishes being exported from as far afield as Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "The polka dot lyre tail pleco, Acanthicus adonis, is a very large loricariid catfish from the rio Tocantins in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Although definitive details are lacking, it's also thought to range throughout much of the Amazon basin with similar-looking fishes being exported from as far afield as Peru.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acanthicus adonis",
+    "status": "ACCEPTED",
+    "taxonKey": 5202069,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

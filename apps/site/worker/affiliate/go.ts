@@ -31,6 +31,13 @@ export async function resolveGo(p: GoParams, db: D1Database, env: AffEnv, now: D
   return { location: searchTarget(p.network, p.keyword, env), productId: 'search' }
 }
 
+/**
+ * A browser opening the link from one of our pages, as its own Sec-Fetch headers say (every browser since Safari 16.4,
+ * 2023; an older one's clicks go uncounted). A crawler calling itself a browser sends none of them, and a browser opened
+ * at the address, or a script fetching it, says that instead.
+ */
+export const fromOurPage = (req: Request) => req.headers.get('sec-fetch-site') === 'same-origin' && req.headers.get('sec-fetch-mode') === 'navigate'
+
 export async function recordClick(db: D1Database, p: GoParams, productId: string, now: Date): Promise<void> {
   await db.prepare(
     `INSERT INTO clicks_daily (date, network, category, entity_ref, product_id, n) VALUES (?, ?, ?, ?, ?, 1)

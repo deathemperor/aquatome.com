@@ -1,0 +1,79 @@
+{
+  "$comment": "A search's first results: the pages named exactly what was searched for, by their name or one of their other names, as the site's search puts them first (namedFirst, apps/site/src/scripts/search-rank.ts). A name and a query are compared as readers type them (nameKey): no accents, đ as d, any case, nothing in brackets, no leading \"cá\". The site's tests run namedFirst on these cases (apps/site/test/search-rank.test.ts), and the iOS app's tests run its own search (AquaTomeKit Handbook/Handbook.swift, HandbookSearch.find): both must start with `first`, in any order. `items`: the pages the query finds, as Pagefind could order them for the site's test (the named ones after others: Pagefind ranks short pages up, so a breed can come before its species), each as the app index has it: its name, scientific name (`sub`; breeds have none), other names (`aka`) and kind. The site's page carries `sub` and `aka` as its Pagefind `aka` metadata (searchAliases, apps/site/src/lib/search.ts). The order after `first` is not shared: the site leaves it to Pagefind, the app to its own ranks.",
+  "cases": [
+    {
+      "note": "live, 2026-11-05: the app listed the koi guppy first, ahead of the species",
+      "query": "bảy màu",
+      "items": [
+        { "name": "Bảy màu Koi (Koi guppy)", "aka": ["Guppy Koi", "7 màu koi", "Cá bảy màu Guppy Koi"], "kind": "fish" },
+        { "name": "Cá bảy màu tai voi (Dumbo ear guppy)", "aka": ["Bảy màu dumbo", "Dumbo guppy"], "kind": "fish" },
+        { "name": "Cá bảy màu", "sub": "Poecilia reticulata", "aka": ["Cá khổng tước", "Cá guppy", "Guppy"], "kind": "fish" },
+        { "name": "Cá bảy màu Endler", "sub": "Poecilia wingei", "aka": ["Cá guppy Endler", "Endler"], "kind": "fish" }
+      ],
+      "first": ["Cá bảy màu"]
+    },
+    {
+      "note": "live, 2026-11-05: the app listed two breeds and the short-named wild bettas first, the species not in its first four",
+      "query": "betta",
+      "items": [
+        { "name": "Betta Koi (Koi betta)", "aka": ["Cá betta koi", "Koi plakat betta"], "kind": "fish" },
+        { "name": "Betta đuôi tưa (Crowntail betta)", "aka": ["Cá đuôi tưa", "Betta Crowntail", "CT betta"], "kind": "fish" },
+        { "name": "Cá betta pi", "sub": "Betta pi", "aka": ["Cá betta ấp trứng miệng pi"], "kind": "fish" },
+        { "name": "Cá betta đốm", "sub": "Betta picta", "aka": ["Betta picta", "Cá chọi đốm", "Spotted Betta"], "kind": "fish" },
+        { "name": "Cá betta (cá xiêm)", "sub": "Betta splendens", "aka": ["Cá lia thia", "Cá xiêm", "Cá chọi Xiêm", "Betta", "Siamese fighting fish"], "kind": "fish" }
+      ],
+      "first": ["Cá betta (cá xiêm)"]
+    },
+    {
+      "note": "live, 2026-11-05: the app listed the butterfly koi first. The species and the breed are both named \"koi\" (brackets dropped): their order is the app's and Pagefind's",
+      "query": "koi",
+      "items": [
+        { "name": "Koi bướm (Butterfly koi)", "aka": ["Cá chép vây dài", "Longfin koi", "Dragon koi"], "kind": "fish" },
+        { "name": "Betta Koi (Koi betta)", "aka": ["Cá betta koi", "Koi plakat betta"], "kind": "fish" },
+        { "name": "Cá Koi (Nishikigoi)", "aka": ["Koi Nhật", "Koi bướm", "Butterfly koi"], "kind": "fish" },
+        { "name": "Cá koi", "sub": "Cyprinus rubrofuscus", "aka": ["Cá chép Nhật", "Nishikigoi", "Koi"], "kind": "fish" }
+      ],
+      "first": ["Cá koi", "Cá Koi (Nishikigoi)"]
+    },
+    {
+      "note": "the query's own leading \"cá\" is dropped too",
+      "query": "cá bảy màu",
+      "items": [
+        { "name": "Cá bảy màu tai voi (Dumbo ear guppy)", "aka": ["Bảy màu dumbo", "Dumbo guppy"], "kind": "fish" },
+        { "name": "Bảy màu Koi (Koi guppy)", "aka": ["Guppy Koi", "Cá bảy màu Guppy Koi"], "kind": "fish" },
+        { "name": "Cá bảy màu", "sub": "Poecilia reticulata", "aka": ["Cá khổng tước", "Guppy"], "kind": "fish" }
+      ],
+      "first": ["Cá bảy màu"]
+    },
+    {
+      "note": "named only through its brackets: no other name of the species is \"Betta\"",
+      "query": "betta",
+      "items": [
+        { "name": "Betta đuôi tưa (Crowntail betta)", "aka": ["Betta Crowntail"], "kind": "fish" },
+        { "name": "Cá betta pi", "sub": "Betta pi", "kind": "fish" },
+        { "name": "Cá betta (cá xiêm)", "sub": "Betta splendens", "aka": ["Cá xiêm", "Siamese fighting fish"], "kind": "fish" }
+      ],
+      "first": ["Cá betta (cá xiêm)"]
+    },
+    {
+      "note": "named through another name: \"Guppy\" is the species', ahead of pages with guppy in their name",
+      "query": "guppy",
+      "items": [
+        { "name": "Bảy màu Koi (Koi guppy)", "aka": ["Guppy Koi", "Kohaku guppy"], "kind": "fish" },
+        { "name": "Cá bảy màu tai voi (Dumbo ear guppy)", "aka": ["Dumbo guppy"], "kind": "fish" },
+        { "name": "Làm dàn khay nuôi guppy: thay nước tự động, hút cặn cố định, sục khí", "kind": "guide" },
+        { "name": "Cá bảy màu", "sub": "Poecilia reticulata", "aka": ["Cá khổng tước", "Cá guppy", "Guppy"], "kind": "fish" }
+      ],
+      "first": ["Cá bảy màu"]
+    },
+    {
+      "note": "named through its scientific name, which the site's page carries among its other names: ahead of a guide with it in its title",
+      "query": "betta splendens",
+      "items": [
+        { "name": "Cách chăm sóc cá betta (cá chọi Xiêm) - Betta splendens", "kind": "guide" },
+        { "name": "Cá betta (cá xiêm)", "sub": "Betta splendens", "aka": ["Cá xiêm"], "kind": "fish" }
+      ],
+      "first": ["Cá betta (cá xiêm)"]
+    }
+  ]
+}

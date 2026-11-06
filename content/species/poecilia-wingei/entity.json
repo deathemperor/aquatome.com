@@ -10,6 +10,47 @@
     "venezuela",
     "paria-peninsula"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish",
+        "aquariumcoop"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in fresh waters in the Campoma and Buena Vista lagoons unto Carupano, in northeastern Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5203789,
+      "total": 2,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          9.84375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

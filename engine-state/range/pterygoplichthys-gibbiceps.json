@@ -1,0 +1,200 @@
+{
+  "id": "pterygoplichthys-gibbiceps",
+  "native": {
+    "input": "696750477bd88d11",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The true P. gibbiceps, L165, is rarely imported and is from the Rio Negro (Brazil).",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The wild species is very widespread in South America (the entire upper and middle basins of the Amazon and Orinoco: Bolivia, Brazil, Ecuador, Peru, Colombia and Venezuela), but is hardly ever imported from there.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Middle and upper Amazon and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "scotcat",
+        "quote": "The true P. gibbiceps, L165, is rarely imported and is from the Rio Negro (Brazil).",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "scotcat",
+        "quote": "There is a wide distribution and colour variants in Brazil and Peru for this species including L083 and L313 from Brazil, Pará, Rio Xingu (south and floodplain lakes at Altamira), and L164 from the Rio Tefé, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterygoplichthys gibbiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 2339957,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        35
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        17
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        3
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        1
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BO",
+      "BR",
+      "EC",
+      "PE",
+      "CO",
+      "VE"
+    ],
+    "requests": 14,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

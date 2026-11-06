@@ -1,0 +1,97 @@
+{
+  "id": "youtube-HMKKaOCIc-8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=HMKKaOCIc-8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "HMKKaOCIc-8",
+    "title": "HOW TO: Build a Corner Aquarium 2/2",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 193,
+    "publishedAt": "2013-02-28",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 50
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/HMKKaOCIc-8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao bể góc cần chú ý phần tủ",
+        "moments": [
+          {
+            "t": 27,
+            "url": "https://media.aquatome.com/video/HMKKaOCIc-8/t27.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khung tủ gỗ đỡ bể, mặt tủ phải phẳng để kính chịu lực đều."
+          }
+        ]
+      },
+      {
+        "heading": "Đóng khung tủ hình chữ L",
+        "moments": [
+          {
+            "t": 74,
+            "url": "https://media.aquatome.com/video/HMKKaOCIc-8/t74.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khung gỗ hình chữ L được đóng bằng các thanh gỗ."
+          },
+          {
+            "t": 98,
+            "url": "https://media.aquatome.com/video/HMKKaOCIc-8/t98.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Các cột đứng nối khung trên và khung dưới của tủ chữ L."
+          }
+        ]
+      },
+      {
+        "heading": "Giằng mặt tủ và lót ván ép",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HMKKaOCIc-8/p2-OlBseXdvb2QuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/HMKKaOCIc-8/p2-OlBseXdvb2QuanBn-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY-SA 3.0",
+          "author": "Rotor DB at English Wikipedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plywood.jpg",
+          "caption": "Tấm ván ép nhiều lớp, loại dùng lót mặt tủ đỡ bể cá."
+        }
+      },
+      {
+        "heading": "Đặt bể và hoàn thiện tủ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HMKKaOCIc-8/p4-Njc4NTY3MSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/HMKKaOCIc-8/p4-Njc4NTY3MSkuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "David Stanley from Nanaimo, Canada",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mirage_Aquarium_(8226785671).jpg",
+          "caption": "Bể kính lớn đặt trên phần chân ốp đá hoàn thiện gọn gàng."
+        }
+      }
+    ]
+  }
+}

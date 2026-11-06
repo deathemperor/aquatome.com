@@ -13,7 +13,7 @@ test('safeEqual compares whole strings', () => {
 })
 const NOW = new Date('2026-11-02T10:00:00Z')
 const nothing: Overview = { now: NOW, readers: unset('x'), clicks: unset('x'), fish: unset('x'), keys: unset('x'), photos: unset('x'), waiting: unset('x'), wanted: unset('x'), accounts: unset('x'), hidden: unset('x'), content: unset('x'), snapshots: unset('x') }
-const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Totals => ({ kinds: { fish: [fish, idFish, thFish], plant: [plant, 0, 0], guide: [guide, 0, 0] } as Totals['kinds'], built: null, sources: {}, photos: { pages: 0, gallery: 0 } })
+const totals = (fish: number, plant = 0, guide = 0, idFish = 0, thFish = 0): Totals => ({ kinds: { fish: { vi: fish, id: idFish, th: thFish }, plant: { vi: plant, id: 0, th: 0 }, guide: { vi: guide, id: 0, th: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources: {}, photos: { pages: 0, gallery: 0 } })
 /** content.json as the home page reads it: the items, and the engine's queue. */
 const stats = (needsHuman: { source: string; since: string }[] = []) => ({
   inventory: { fish: { total: 100, id: 0, th: 0 }, plant: { total: 20, id: 0, th: 0 }, guide: { total: 5, id: 0, th: 0 } },
@@ -29,7 +29,7 @@ const well = (): Overview => {
     periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none } }
   return {
     now: NOW, readers: [], clicks: { days, clicks: [...zeros] }, fish, photos: 3, hidden: {},
-    keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'ok', calls: 0, answered: 0 }], bad: 0, today: 0, model: 'm' },
+    keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'ok', calls: 0, answered: 0 }], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 },
     waiting: { comments: 0, photos: 0, oldest: null }, wanted: { names: [], more: false }, content: stats(), snapshots: [],
     accounts: { days: lastDays(NOW, 30), users: 5, newUsers: zeros.slice(1), synced: 2, openSessions: 1, credentials: [], comments: [], newComments: zeros.slice(1) },
   }
@@ -37,7 +37,7 @@ const well = (): Overview => {
 
 test('overview: what needs the owner comes first, each with the one place to deal with it', () => {
   const o = { ...well(), fish: { failed: 'x' } }
-  o.keys = { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit', until: '2026-11-03T08:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok', calls: 9, answered: 9 }], bad: 1, today: 12, model: 'm' }
+  o.keys = { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit', until: '2026-11-03T08:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok', calls: 9, answered: 9 }], bad: 1, today: 12, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 }
   o.waiting = { comments: 2, photos: 1, oldest: '2026-11-01T02:00:00.000Z' } // 32 hours before NOW: a night was missed
   const t = todos(o)
   expect(t.map(x => x.title)).toEqual(['1 key Anthropic đang nghỉ', '1 dòng trong ANTHROPIC_KEYS không đọc được', 'Kiểm duyệt đêm chưa chạy', 'Không tải được nhật ký nhận diện cá'])
@@ -76,7 +76,7 @@ test('overview: a source behind a browser check is the owner\'s to pass; the con
   const translated: Snapshot[] = [{ day: days[7]!, totals: totals(100, 20, 5, 10, 12) }, { day: days[8]!, totals: totals(100, 20, 5, 30, 32) }]
   expect(log({ ...o, snapshots: translated })[0]!.items[0]).toEqual({ text: '20 bài tiếng Indonesia, 20 bài tiếng Thái mới', section: 'noi-dung' })
   // A day not kept, or with nothing kept before it, is unknown rather than 0.
-  expect(perDay(snaps, days, t => t.kinds.fish[0])).toEqual([null, 10, null, null, null, null, null, 8, 2])
+  expect(perDay(snaps, days, t => t.kinds.fish.vi)).toEqual([null, 10, null, null, null, null, null, 8, 2])
 })
 
 test('overview areas: the last 7 whole days against the 7 before, the 30 whole days drawn; today left out', () => {

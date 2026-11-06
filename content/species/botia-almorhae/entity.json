@@ -12,6 +12,120 @@
     "nepal",
     "koshi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Ganges",
+        "Kosi",
+        "Yamuna",
+        "Chambal"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "B. almorhae Gray, 1831 - This species is often referred to as the 'Pakistani' loach which is a misnomer since it's restricted to parts of the Ganges River drainage in northern India and possibly Nepal.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Ganges"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The description by Gray (1831) gives the type locality simply as 'Almorah' which corresponds to Almora district, Uttarakhand State, India and means the holotype could have derived from either the Kosi River or Sot River (Grant, 2007).",
+          "countries": [],
+          "regions": [
+            "Kosi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kosi drainage it's been collected close to the cities of Roorkee and Kashipur (both Uttarakhand State) and has also been recorded from the Yamuna River (Delhi State), Alaknanda River (Uttarakhand State), Markanda River (tributary of the Yamuna in Himachal Pradesh and Haryana States), Ghugger River (Himachal Pradesh State), Kali River (near the city of Meerut and in Muzaffarnagar and Bijnour districts, Uttar Pradesh State), Gambhir River (Sawai Madhopur district, Rajasthan State) and Chambal River (Kota district, Rajasthan State).",
+          "countries": [],
+          "regions": [
+            "Yamuna",
+            "Chambal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368023,
+      "total": 10,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          6
+        ],
+        [
+          "NP",
+          3
+        ],
+        [
+          "PK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          73.125,
+          30.9375,
+          1,
+          0
+        ],
+        [
+          75.9375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          3,
+          0
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

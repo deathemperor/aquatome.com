@@ -1,0 +1,60 @@
+{
+  "id": "amblyceps-serratum",
+  "native": {
+    "input": "3b48f3b2cc242bf7",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Mekong River drainage of central and southern Laos and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Mekong River drainage of central and southern Laos and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Mekong River drainage of central and southern Laos and Cambodia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblyceps serratum",
+    "status": "ACCEPTED",
+    "taxonKey": 2342855,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        2
+      ]
+    ],
+    "native": [
+      "LA",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

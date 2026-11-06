@@ -8,10 +8,13 @@ import { nameKey } from '@aq/schema'
  * the fish). Not the name of one of its breeds or colour forms, which shop listings of a single variety gave it and every
  * merge kept (32 names on the betta, 2026-11-04: "Cá betta Green Alien", "Red Spade Tail Betta"…), and not one name twice
  * ("Pea puffer", "Pea Puffer"; "Cá Tiger Oscar", "Tiger Oscar").
+ *
+ * A breed page's other names, the same way round: the breed's own, not its species' (the halfmoon betta listed "Cá xiêm"
+ * and "Cá chọi", so every guide naming the betta was listed on the halfmoon's page, 2026-11-05).
  */
 
 export type BreedName = { id: string; name: string }
-export type NameOff = { name: string; why: 'breed' | 'variety' | 'duplicate'; of?: string }
+export type NameOff = { name: string; why: 'breed' | 'variety' | 'duplicate' | 'species'; of?: string }
 
 /** A leading word for the kind of animal: "Cá Oscar" and "Oscar" are one name. Thai writes ปลา onto the name. */
 const CLASSIFIERS = new Set(['cá', 'tép', 'ốc', 'cua', 'ikan', 'udang', 'ปลา', 'กุ้ง', 'หอย'].map(nameKey))
@@ -90,8 +93,8 @@ function better(a: string, b: string) {
  * A species page's other names in one language, cleaned: each name off it with why. Keeps the names' order (one name
  * written several ways stands where its first form stood, in its best-written form).
  * - a name that is a breed page's name ("Bubble Eye Goldfish" for the Bubble eye goldfish page, "Cá GloFish"): that page
- *   is found by it. Only a breed's own name, never its other names: those list the species' too ("Cá xiêm" under the
- *   plakat betta). A breed whose name is the species' own (the koi and Cyprinus rubrofuscus, "Cá koi") takes none.
+ *   is found by it. Only a breed's own name, never its other names: a name both list is the species' and leaves the
+ *   breed (cleanBreedAltNames). A breed whose name is the species' own (the koi and Cyprinus rubrofuscus, "Cá koi") takes none.
  * - a bred line or colour form: the species' own name with a marker (MARKERS) and colours ("Alien Betta Green Hybrid",
  *   "Betta Splendens (Red Spade Tail)", "Cá tứ vân albino"). A page for a genus or a group ("Các loài cá molly") lists
  *   its kinds, and keeps them.
@@ -159,6 +162,70 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
     return false
   })
   return { altNames, off }
+}
+
+/** A species a breed is a form of, or a hybrid's parent: its scientific name and its names in the breed page's language. */
+export type Kin = { id: string; sci: string; names: string[] }
+
+/**
+ * A note saying a name is every form's, the species': "Cá xiêm / cá chọi (tên chung của loài)", "cá lia thia / cá xiêm /
+ * cá chọi (tên chung của betta, plakat là dạng đuôi ngắn)". Not a note on the breed's own use of a name ("cá đá (plakat
+ * chọn làm cá đá)").
+ */
+const SHARED_NOTE = /\(\s*tên (?:gọi )?chung\b[^()]*\)\s*$/iu
+/** "Cá xiêm / cá chọi (tên chung của loài)" → "Cá xiêm", "cá chọi", "tên chung của loài": the names a name is made of. */
+const segments = (s: string) => s.split(/\s*[/()]\s*/).filter(Boolean)
+
+/**
+ * A breed page's other names in one language, cleaned: its own only, each once.
+ * - a name its species has, or a hybrid's parent (`kin`: its name, other names, scientific name; "Cá xiêm" under the
+ *   halfmoon betta): other pages' text names the species by it, and the breed would be listed for every page naming the
+ *   species. So do the names a note calls the species' ("Cá xiêm / cá chọi (tên chung của loài)", "Cá chọi" with it),
+ *   and the noted name itself. A breed whose own name is the species' (the koi, "Cá koi" on Cyprinus rubrofuscus) is
+ *   what the names they share name first, and keeps them.
+ * - another breed page's name ("Cá vàng Lan Thọ" under the lionhead, the Ranchu page's name), and one name written twice:
+ *   as on a species page (cleanAltNames). A breed has no scientific name, so no colour-form rule: its lines' names are
+ *   its own ("Koi plakat betta" under the koi betta).
+ */
+export function cleanBreedAltNames(page: { id: string; name: string; altNames: string[] }, kin: Kin[], breeds: BreedName[] = []): { altNames: string[]; off: NameOff[] } {
+  const of = new Map<string, string>() // a name's key → the species it is a name of
+  for (const k of kin) for (const n of [k.sci, ...k.names]) for (const p of parts(n)) { const key = altKey(p); if (key && !of.has(key)) of.set(key, k.id) }
+  const namesake = parts(page.name).some(p => of.has(altKey(p)))
+  const off: NameOff[] = []
+  let own = page.altNames
+  if (kin.length && !namesake) {
+    for (const n of page.altNames) if (SHARED_NOTE.test(n)) for (const s of segments(n.replace(SHARED_NOTE, ''))) if (altKey(s) && !of.has(altKey(s))) of.set(altKey(s), kin[0]!.id)
+    own = page.altNames.filter(n => {
+      const ss = segments(n)
+      const species = of.get(altKey(n)) ?? (SHARED_NOTE.test(n) ? kin[0]!.id : ss.length > 1 && ss.every(s => of.has(altKey(s))) ? of.get(altKey(ss[0]!)) : undefined)
+      if (species) off.push({ name: n, why: 'species', of: species })
+      return !species
+    })
+  }
+  // An empty scientific name: no colour-form rule (cleanAltNames treats the page as a group's).
+  const rest = cleanAltNames({ name: page.name, sci: '', altNames: own }, breeds.filter(b => b.id !== page.id))
+  return { altNames: rest.altNames, off: [...off, ...rest.off] }
+}
+
+/**
+ * The species a breed is a form of (`basedOn`, or the one a breed it is a line of is a form of) and a hybrid's parents'
+ * species, each with its names in a language as the species sweep leaves them (cleanAltNames, so a name the species
+ * holds that is this breed's never counts as the species').
+ */
+export async function breedKin(content: string, e: { basedOn?: string; parents: { species?: string }[] }, lang: string, breeds: BreedName[], seen = new Set<string>()): Promise<Kin[]> {
+  const read = async <T>(...path: string[]) => JSON.parse(await readFile(join(content, ...path), 'utf8').catch(() => 'null')) as T | null
+  const out: Kin[] = []
+  for (const id of [e.basedOn, ...e.parents.map(p => p.species)]) {
+    if (!id || seen.has(id)) continue
+    seen.add(id)
+    const line = await read<{ basedOn?: string; parents: { species?: string }[] }>('breeds', id, 'entity.json')
+    if (line) { out.push(...await breedKin(content, line, lang, breeds, seen)); continue }
+    const sci = (await read<{ scientificName?: string }>('species', id, 'entity.json'))?.scientificName
+    if (!sci) continue
+    const t = await read<{ name?: string; altNames?: string[] }>('species', id, `${lang}.json`)
+    out.push({ id, sci, names: t?.name ? [t.name, ...cleanAltNames({ name: t.name, sci, altNames: t.altNames ?? [] }, breeds).altNames] : [] })
+  }
+  return out
 }
 
 /** Every breed page's name in a language (content/breeds/<id>/<lang>.json). */

@@ -217,22 +217,29 @@ final class NativePageFlowTests: XCTestCase {
   }
 
   /// A fish's page as the site writes it for the app, in the order its reader asks: where it's from and its other names
-  /// under its name, the summary as one paragraph with the mistakes keepers make, the Vietnamese climate, its tank-mates,
-  /// its gallery (each photo credited), its videos, its breeds, then the sources' terms and the sources behind its
-  /// figures, last. Each is found further down than the one before (`reveal` only scrolls down). All of it drawn: no part
-  /// left to the web.
+  /// under its name, the sources behind its figures under its facts (as the site's data card has them), the summary as
+  /// one paragraph with the mistakes keepers make, the Vietnamese climate, its tank-mates (its temperament and smallest
+  /// school first), its gallery (each photo credited) before the detail, as the web page has it, its videos, its
+  /// breeds, then the sources' terms, last. Each is found further down than the one before (`reveal` only scrolls
+  /// down). All of it drawn: no part left to the web.
   func testAFishIsDrawnByTheAppWithEachOfItsParts() {
     let app = launch()
     openItem(app, "ca neon", "Cá neon")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
     XCTAssertTrue(text(app, "Characidae, Peru").exists, "no family and country")
     XCTAssertTrue(text(app, "Tên khác: Neon tetra").exists, "no other names")
+    let sources = app.descendants(matching: .any)["page-more"]
+    reveal(app, sources)
+    sources.tap()
+    XCTAssertTrue(text(app, "Seriously Fish: 20–26°C").waitForExistence(timeout: 2), "the sources behind a figure don't open")
     reveal(app, text(app, "Cá nhỏ, hiền, hợp bể cộng đồng"))
     reveal(app, text(app, "Thả vài con"))
     reveal(app, text(app, "Mùa đông miền Bắc"))
+    // Its temperament and smallest school under "Nuôi chung", as the site has them: not in the facts.
+    reveal(app, text(app, "Tính cách: Hiền · Đàn tối thiểu: 6 con"))
     reveal(app, text(app, "Lớn tới 15 cm, có thể ăn Cá neon"))
     XCTAssertTrue(card(app, "Cá ngựa vằn").exists, "no fish to keep with it")
-    XCTAssertTrue(app.links["Ảnh: Tác giả 5 · CC BY 4.0"].exists, "a card's photo without its credit")
+    XCTAssertTrue(app.links["Jane Doe"].exists, "a card's photo without its credit")
     let all = app.buttons["gallery-all"]
     reveal(app, all)
     XCTAssertEqual(all.label, "Ảnh Cá neon, Xem tất cả 3 ảnh", "not read with whose photos they are")
@@ -250,13 +257,16 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["3/3 · 3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở."].waitForExistence(timeout: 3), "not on the last photo")
     XCTAssertTrue(app.links["Ảnh: Tác giả 3 · CC BY 4.0"].waitForExistence(timeout: 3), "a photo without its credit")
     app.buttons["Đóng"].tap()
+    // The photos before the detail, as the web page has them (under its climate and tank-mates), not after it: read once
+    // the viewer has gone, which would cover the heading.
+    let closed = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: app.descendants(matching: .any)["gallery"])
+    XCTAssertEqual(XCTWaiter().wait(for: [closed], timeout: 5), .completed, "the viewer stayed open")
+    let detail = text(app, "Nước cần thế nào?")
+    if detail.exists && detail.isHittable { XCTAssertGreaterThan(detail.frame.minY, all.frame.maxY, "the photos under the detail") }
+    reveal(app, detail)
     reveal(app, text(app, "Đàn neon trong bể thủy sinh"))
     reveal(app, card(app, "Cá neon vàng"))
-    reveal(app, text(app, "với sự cho phép của họ"))
-    let sources = app.descendants(matching: .any)["page-more"]
-    reveal(app, sources)
-    sources.tap()
-    XCTAssertTrue(text(app, "Seriously Fish: 20–26°C").waitForExistence(timeout: 2), "the sources behind a figure don't open")
+    reveal(app, text(app, "Các phần trên dịch từ những nguồn này."))
     XCTAssertFalse(app.buttons["page-web"].exists, "a part left to the web")
   }
 
@@ -387,6 +397,48 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the guide isn't drawn by the app")
   }
 
+  /// Under a series' cards, their pictures' credits as the site's credits list has them, one row per author and licence:
+  /// three videos' pictures by one author (each with its own page) on one line saying how many, then a number for each
+  /// linking its page, read as whose picture it is; the other author's picture, among them, on a line of its own linking
+  /// its page.
+  func testCardsPicturesByOneAuthorAreCreditedOnceWithALinkForEach() {
+    let app = launch()
+    openItem(app, "reu hai tu a", "Rêu hại từ A đến Z")
+    // How many times the credits' words say `s`, in one text or in several.
+    func times(_ s: String) -> Int {
+      app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).allElementsBoundByIndex.reduce(0) { $0 + $1.label.components(separatedBy: s).count - 1 }
+    }
+    reveal(app, text(app, "Ảnh: MJ Aquascaping"))
+    XCTAssertEqual(times("Ảnh: Tác giả 8 · YouTube"), 1, "one author's pictures credited more than once")
+    XCTAssertTrue(app.staticTexts["Ảnh: Tác giả 8 · YouTube · 3 ảnh"].exists, "not saying how many pictures")
+    XCTAssertEqual(times("Ảnh: MJ Aquascaping · YouTube"), 1, "the other author's picture not credited once")
+    XCTAssertTrue(app.links["Ảnh: MJ Aquascaping · YouTube"].exists, "a picture alone on its line not linking its page")
+    for n in 1...3 {
+      XCTAssertTrue(app.links["Ảnh: Tác giả 8, ảnh \(n)"].exists, "no link to picture \(n)'s page")
+    }
+  }
+
+  /// An Unsplash photo's credit as the site's: "Ảnh: <name> trên Unsplash", the name and "Unsplash" each a link (the
+  /// photographer's page and Unsplash's), not the whole line one link. Under the lead photo, whose photographer's page
+  /// the site doesn't have yet, the name links the photo's own page; under a tank-mate's card, whose it has, the photo's
+  /// own page is a number after the line, as the site's credits list has it.
+  func testAnUnsplashPhotosCreditLinksItsPhotographerAndUnsplash() {
+    let app = launch()
+    openItem(app, "ca neon", "Cá neon")
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the fish isn't drawn by the app")
+    XCTAssertTrue(text(app, "Ảnh: John Roe trên Unsplash · Unsplash License").exists, "no Unsplash line under the lead photo")
+    XCTAssertTrue(app.links["John Roe"].exists, "the photographer's name not a link")
+    XCTAssertTrue(app.links["Unsplash"].firstMatch.exists, "Unsplash not a link")
+    XCTAssertFalse(app.links["Ảnh: John Roe trên Unsplash · Unsplash License"].exists, "the whole line one link")
+    let number = app.links["Ảnh: Jane Doe trên Unsplash, ảnh 1"]
+    reveal(app, number)
+    XCTAssertTrue(text(app, "Ảnh: Jane Doe trên Unsplash · Unsplash License · 1 ảnh").exists, "the card's photo not credited with how many")
+    XCTAssertTrue(app.links["Jane Doe"].exists, "the photographer's name not a link")
+    // The lead photo's "Unsplash" and the card's.
+    XCTAssertEqual(app.links.matching(NSPredicate(format: "label == %@", "Unsplash")).count, 2, "Unsplash not a link under the card")
+    XCTAssertFalse(app.links["Ảnh: Jane Doe trên Unsplash · Unsplash License"].exists, "the whole line one link")
+  }
+
   // MARK: Helpers
 
   /// A search's row by its name, opened.
@@ -407,7 +459,7 @@ final class NativePageFlowTests: XCTestCase {
   private func launch(_ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"] + more
-    app.launch()
+    app.launchForFlow()
     return app
   }
 

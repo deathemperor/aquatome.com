@@ -10,6 +10,73 @@
     "myanmar",
     "rakhine"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Rakhine Yoma"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The algae-eating suckermouth barb Garra flavatra from Burma is a quite beautiful fish.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
+          "countries": [],
+          "regions": [
+            "Rakhine Yoma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366783,
+      "total": 7,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MM",
+          6
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          94.21875,
+          16.875,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          18.28125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

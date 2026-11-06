@@ -131,6 +131,11 @@ export const Device = z.looseObject({
     preset: z.string().min(1).max(40).optional(),
     brightness: Level.optional(),
   }).optional(),
+  /**
+   * Lights: the outlet it is plugged into, as the reader picked it from the plugs on its tank: the plug's record `id` and
+   * the outlet's `code`. The app reads that outlet's timers to warn of one that cuts the light's power (docs/smart-plugs.md).
+   */
+  powerOutlet: z.looseObject({ plugId: RecordId, code: z.string().min(1).max(40) }).optional(),
   /** Plugs: the maker's id for the device, in its cloud (docs/smart-plugs.md); `brand` is the maker. */
   remoteId: z.string().min(1).max(64).optional(),
   /** Plugs: the outlets named on this tank, by the maker's switch code. Their state is never stored. */

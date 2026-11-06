@@ -1,0 +1,116 @@
+{
+  "id": "youtube-_ByGYB5GtLo",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=_ByGYB5GtLo",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "_ByGYB5GtLo",
+    "title": "HOW TO: cool and ventilate your aquarium",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 258,
+    "publishedAt": "2015-11-01",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mbN03yoMmH3ioVkQVTJ3BwK",
+      "position": 36
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/_ByGYB5GtLo/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 20
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [
+          {
+            "t": 79,
+            "url": "https://media.aquatome.com/video/_ByGYB5GtLo/t79.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Quạt máy tính 12V dùng làm mát thùng máy, có dây nguồn."
+          },
+          {
+            "t": 115,
+            "url": "https://media.aquatome.com/video/_ByGYB5GtLo/t115.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Nối dây quạt với dây nguồn adapter 12V đã cắt đầu cắm."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/_ByGYB5GtLo/p1-Y0OTE0NjIpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/_ByGYB5GtLo/p1-Y0OTE0NjIpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "I G",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:FD8015U12S_12V_0.5A_Frameless_graphics_card_fan_Opened_Up_(15206491462).jpg",
+          "caption": "Quạt máy tính tháo rời, thấy rõ cánh quạt, mô-tơ và dây điện."
+        }
+      },
+      {
+        "heading": "Nối dây quạt với nguồn",
+        "moments": [
+          {
+            "t": 69,
+            "url": "https://media.aquatome.com/video/_ByGYB5GtLo/t69.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Quạt tản nhiệt đen với các dây điện thò ra ở góc."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/_ByGYB5GtLo/p2-cmJvX2Zhbi4uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/_ByGYB5GtLo/p2-cmJvX2Zhbi4uanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Andries L Steenkamp",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:When_your_computer_needs_a_turbo_fan..jpg",
+          "caption": "Bộ dây điện và nguồn bên trong thùng máy tính, gần giống dây quạt nối adapter."
+        }
+      },
+      {
+        "heading": "Lắp quạt vào tủ hoặc nắp bể",
+        "moments": [
+          {
+            "t": 154,
+            "url": "https://media.aquatome.com/video/_ByGYB5GtLo/t154.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Quạt máy tính đen với khung có lỗ bắt vít, chuẩn bị lắp."
+          }
+        ]
+      },
+      {
+        "heading": "Tận dụng quạt để bể mát hơn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/_ByGYB5GtLo/p5-gwbW1fZmFuLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/_ByGYB5GtLo/p5-gwbW1fZmFuLmpwZw-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "Public domain",
+          "author": "cappie2000",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:80mm_fan.jpg",
+          "caption": "Nhiều quạt máy tính nhỏ có lưới chắn, loại hay dùng gắn nắp bể."
+        }
+      }
+    ]
+  }
+}

@@ -329,6 +329,25 @@
           ],
           "additionalProperties": {}
         },
+        "powerOutlet": {
+          "type": "object",
+          "properties": {
+            "plugId": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            },
+            "code": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 40
+            }
+          },
+          "required": [
+            "plugId",
+            "code"
+          ],
+          "additionalProperties": {}
+        },
         "remoteId": {
           "type": "string",
           "minLength": 1,

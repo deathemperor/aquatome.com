@@ -8,13 +8,37 @@
   "places": [
     "south-america",
     "brazil",
-    "trombetas"
+    "trombetas",
+    "amazon",
+    "rio-trombetas"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 6.6
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -26,10 +50,40 @@
       "html": "<ul><li><strong>Scientific name:</strong> Mastiglanis asopos Bockmann, 1994</li><li><strong>Type locality:</strong> Igarapé Saracazinho, tributary of Rio Trombetas, near Porto Trombetas, Pará State, Brazil.</li><li><strong>Etymology:</strong> from Greek mastax, -agos (bite) and glanis (a fish that can eat the bait without touching the hook; a catfish).</li><li><strong>Size:</strong> 66 mm SL (standard length).</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2020).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (2023). Despite the little information available, the species has a wide range and no apparent threats.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
       "html": "<p>South America: Amazon, Capim and Orinoco River basins. Recorded areas include the Lower Amazon (Guamá, Capim, Trombetas), Upper Amazon, and Middle Amazon (Solimões; Negro, Preto da Eva).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
+      "html": "<p>South America: Amazon, Capim and Orinoco River basins. Type locality: Brazil, Pará, Igarapé Saracazinho, tributary of Rio Trombetas, near Porto Trombetas.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
+      "html": "<p>M. asopos is a strictly sand-dwelling species. It spends the daytime buried in the top layer of sand and it forages mostly at night and sometimes in the morning. As an ambush predator, when foraging, it poises in the streamlet channel where water is flowing, supported by a tripod formed by its pelvic and anal fins, spreading both its very long barbels and the filamentous dorsal and pectoral-fin rays, thus forming a kind of \"drift-trap\". When the fish intercepts food, it will lunge at these food particles; after lunging for a short distance, it will return to its previous hunting spot. This behavior is similar to that seen in the tripod fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
+      "html": "<p>Kept in a 4 ft by 2 ft by 18 in deep tank (120 x 600 x 457 mm) with a sandy base, together with a mix of Corys, Synos, Tatia, eel-tailed banjos and whiptails plus a few other cats. There is plenty of plant and wood cover, anubias and java moss and a few caves. They seem to hang around under the sponge filter and are not often seen in the sand.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
+      "html": "<p>Small trichopteran larvae (ingested with the sand cases) and ephemeropterans constituted a considerable portion of the gut contents in a study of Mastiglanis asopos, but their foraging behavior allows a varied diet which includes large chironomid larvae and small adult beetles that would not be consumed by other sand-dwelling animals.</p>"
     },
     {
       "key": "reproduction",
@@ -38,10 +92,22 @@
       "html": "<p>Unreported in the aquarium.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
+      "html": "<p>Colouration: Overall body colour pale transparent (yellowish when in alcohol). Dorsal portion of body with seven conspicuous areas of concentrated dark chromatophores: one between head and dorsal fin (just behind nape), one in front of dorsal fin origin, one at the level of last three branched dorsal fin rays, one between dorsal and adipose fin, one just behind the adipose fin origin, one on the posterior point of adipose fin base and one on the caudal peduncle. There are also some scattered melanophores on top of head region.</p><p>Etymology: The specific name asopos is derived from the Greek river god \"Asopos\", given in reference to the widespread distribution of this fish throughout Amazonian drainages.</p><p>Remarks: Mastiglanis asopos has long barbels and long first pectoral fin rays which are used for feeding. It also has an acuminate (tapered to a point) snout.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
       "html": "<p>Proceedings of the Biological Society of Washington v. 107 (no. 4), pp 762, Fig. 1.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Kirkham, Michael, pers. comm. 2019.</p><p>Salvador, G.N. 2023. Mastiglanis asopos. The IUCN Red List of Threatened Species 2023.</p><p>Zuanon, Jansen; Bockmann, Flávio A.; Sazima, Ivan (2006). \"A remarkable sand-dwelling fish assemblage from central Amazonia, with comments on the evolution of psammophily in South American freshwater fishes\". Neotropical Ichthyology 4 (1): 107–118.</p>"
     }
   ],
   "photos": [
@@ -66,19 +132,56 @@
       "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
       "caption": "Mastiglanis asopos",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/35d7ceefb64645c3.webp",
-      "width": 960,
-      "height": 489,
-      "licence": "CC BY-SA 2.0",
-      "author": "Jonathan (Jon) Armbruster",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mastiglanis_asopos_Armbruster.jpg",
-      "caption": "Mastiglanis asopos GUY14-26 56mm",
-      "thumb": "https://media.aquatome.com/commons/35d7ceefb64645c3-480.webp"
     }
   ],
-  "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "videos": [
+    {
+      "youtubeId": "6UqCrF80Xy0",
+      "title": "Mastiglanis asopos (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EnEBRK16N60",
+      "title": "Rare Albino Giant Pangio myersi kuhli loach & Mastiglanis asopos Shrimp Catfish Predatory Fish",
+      "durationSec": 199,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "D5kfSTPKOA0",
+      "title": "Feeding Albino Giant Pangio myersi kuhli loach & Mastiglanis asopos Shrimp Catfish forum",
+      "durationSec": 199,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút bể cá",
+        "lọc sponge"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cá da trơn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
 }

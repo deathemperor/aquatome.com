@@ -1,0 +1,71 @@
+{
+  "id": "youtube-cYmUrguvkrk",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=cYmUrguvkrk",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "scleropages-formosus"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "cYmUrguvkrk",
+    "title": "HOW TO: Build large acrylic aquariums",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 419,
+    "publishedAt": "2014-05-04",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 11
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/cYmUrguvkrk/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [
+      "Scleropages formosus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao chọn bể thấp mà rộng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/cYmUrguvkrk/p0-hcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/cYmUrguvkrk/p0-hcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "ZoofanNZ",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oceanarium_tunnel_napier_aquarium.jpg",
+          "caption": "Đường hầm acrylic cong trong suốt, cho thấy tấm acrylic lớn của bể cá."
+        }
+      },
+      {
+        "heading": "Chọn độ dày tấm và tính chi phí",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/cYmUrguvkrk/p1-bGljX2N1YmUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/cYmUrguvkrk/p1-bGljX2N1YmUuanBn-480.webp",
+          "width": 960,
+          "height": 950,
+          "licence": "CC BY-SA 3.0 de",
+          "author": "Alchemist-hp (pse-mendelejew.de)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bromine_vial_in_acrylic_cube.jpg",
+          "caption": "Khối acrylic đúc trong suốt dày, minh họa độ dày tấm khi đóng bể."
+        }
+      }
+    ]
+  }
+}

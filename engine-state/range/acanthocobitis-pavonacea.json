@@ -1,0 +1,65 @@
+{
+  "id": "acanthocobitis-pavonacea",
+  "native": {
+    "input": "1a4332e824b26b5a",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is simply 'Assam, India', and this species appears restricted to the Brahmaputra River drainage in Assam State, northeastern India and probably the neighbouring state of West Bengal given that A. longipinnis, a synonym of this species (see 'Notes'), was described from the Ganges drainage.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Singer and Page (2015) restrict this species to the Brahmaputra and Ganges river basins of northern India and Bangladesh [p. 398].",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Singer and Page (2015) restrict this species to the Brahmaputra and Ganges river basins of northern India and Bangladesh [p. 398].",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Singer and Page (2015) restrict this species to the Brahmaputra and Ganges river basins of northern India and Bangladesh [p. 398].",
+        "ok": true
+      },
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "Singer and Page (2015) restrict this species to the Brahmaputra and Ganges river basins of northern India and Bangladesh [p. 398].",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acanthocobitis pavonacea",
+    "status": "ACCEPTED",
+    "taxonKey": 7193505,
+    "datasets": [],
+    "native": [
+      "IN",
+      "BD"
+    ],
+    "requests": 2,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

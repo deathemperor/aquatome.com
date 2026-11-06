@@ -202,7 +202,7 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   }
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string } | null
   const name = unescapePlain(w.name).trim()
-  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), lang === 'id' ? 'panduan' : 'guide', taken)
+  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
   const t = TranslationSchema.parse(metricPage({
     slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },

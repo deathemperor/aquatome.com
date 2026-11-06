@@ -10,6 +10,49 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Dikrong",
+        "Subansiri"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Brahmaputra River basin, Arunachal Pradesh and Mizoram, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is known only from the Dikrong and Subansiri rivers, and subsequent surveys in other areas have not revealed its presence elsewhere.",
+          "countries": [],
+          "regions": [
+            "Dikrong",
+            "Subansiri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11162964,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

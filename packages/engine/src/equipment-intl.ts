@@ -28,10 +28,11 @@ const fill = (s: string, lang: TargetLang) => s.replaceAll('{{LANG}}', TARGETS[l
  * is kept, indexable at the usual threshold). content/equipment/<lang>/<category>.json keeps the guide's photos and type
  * matching as they are. Guides already done are skipped unless redo.
  */
-export async function localizeEquipment(root: string, llm: Llm, lang: TargetLang, o: { only?: string[]; redo?: boolean; model?: string } = {}) {
+export async function localizeEquipment(root: string, llm: Llm, lang: TargetLang, o: { only?: string[]; redo?: boolean; model?: string; /** Stop after this many guides made. */ limit?: number } = {}) {
   const dir = join(root, 'content/equipment')
   const report = { done: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '' }
   for (const f of (await readdir(dir)).filter(f => f.endsWith('.json')).sort()) {
+    if (report.done.length >= (o.limit ?? Infinity)) break
     const cat = f.replace(/\.json$/, '')
     if (o.only && !o.only.includes(cat)) continue
     const out = join(dir, lang, f)

@@ -1,0 +1,69 @@
+---
+import type { RangeParts } from '../lib/range'
+/**
+ * A species' "Phân bố tự nhiên" (lib/range.ts rangeParts, which the app's copy reads too): where its sources say it
+ * lives, each line with its sources' marks and their sentences on request; its wild records on GBIF in words, then on a
+ * small map with its legend and credit. The map is inline SVG, sized by its viewBox, coloured by the page's theme.
+ * Sections.astro puts it in its own section, under its heading, where the page's text has the wild.
+ */
+interface Props { part: RangeParts }
+const { part } = Astro.props
+const link = (text: string, word: string, href: string) => text.split(word).map((s, i) => (i ? `<a href="${href}" rel="noopener">${word}</a>${s}` : s)).join('')
+---
+<div class="wild">
+  {part.words && <div class="words" set:html={part.words} />}
+  {part.said && (
+    <details class="said" data-pagefind-ignore>
+      <summary>{part.said.title}<svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
+      <Fragment set:html={part.said.html} />
+    </details>
+  )}
+  {part.records && <div class="records" set:html={part.records} />}
+  {part.map && part.credit && (
+    <figure class="atlas">
+      <Fragment set:html={part.map.svg} />
+      <figcaption>
+        <ul class="legend">
+          {part.map.legend.map(l => (
+            <li>
+              <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true" class="key">
+                {l.kind === 'both' ? <><rect x="1.5" y="1.5" width="11" height="11" class="out" /><path d="M3.5 3.5v7h7z" class="in" /></> : <rect x={l.kind === 'out' ? 1.5 : 0.5} y={l.kind === 'out' ? 1.5 : 0.5} width={l.kind === 'out' ? 11 : 13} height={l.kind === 'out' ? 11 : 13} class={l.kind} />}
+              </svg>
+              {l.label}
+            </li>
+          ))}
+          <li>{part.map.scale}</li>
+        </ul>
+        <p class="credit" data-pagefind-ignore><Fragment set:html={link(part.credit.text, 'GBIF.org', part.credit.url)} /> · {part.credit.licence}. <Fragment set:html={link(part.credit.base, 'Natural Earth', 'https://www.naturalearthdata.com/')} />.</p>
+      </figcaption>
+    </figure>
+  )}
+</div>
+<style>
+  .wild { grid-column: 1; min-width: 0; }
+  .wild :global(p) { margin: 0 0 var(--space-2); line-height: 1.7; }
+  .words :global(strong) { font-weight: 600; }
+  .said { margin: 0 0 var(--space-4); border-top: 1px dotted var(--c-rule); border-bottom: 1px dotted var(--c-rule); }
+  .said summary { display: flex; align-items: center; gap: var(--space-2); min-height: 44px; cursor: pointer; list-style: none; font-size: var(--step--1); font-weight: 600; color: var(--c-ink-soft); }
+  .said summary::-webkit-details-marker { display: none; }
+  .said .chev { transition: transform 0.15s; }
+  .said[open] .chev { transform: rotate(180deg); }
+  .said :global(ul) { margin: 0 0 var(--space-3); padding: 0; list-style: none; font-size: var(--step--1); line-height: 1.6; }
+  .said :global(li) { padding-block: var(--space-2); border-top: 1px dotted var(--c-rule); }
+  .said :global(li:first-child) { border-top: 0; padding-top: 0; }
+  .said :global([lang='en']) { color: var(--c-ink-soft); }
+  .atlas { margin: var(--space-2) 0 0; }
+  .atlas :global(svg.map) { display: block; width: 100%; height: auto; border: 1px solid var(--c-rule); background: var(--c-plate); }
+  .wild :global(.sea) { fill: var(--c-plate); }
+  .wild :global(.land), .wild :global(.native) { stroke: var(--c-plate); stroke-width: 0.75; stroke-linejoin: round; }
+  .wild :global(.land) { fill: color-mix(in srgb, var(--c-ink) 12%, var(--c-plate)); }
+  .wild :global(.native) { fill: color-mix(in srgb, var(--c-moss) 28%, var(--c-plate)); }
+  .wild :global(.in) { fill: var(--c-moss); }
+  .wild :global(.out) { fill: var(--c-plate); stroke: var(--c-cardinal); stroke-width: 2; }
+  .wild :global(.rec) { fill: var(--c-ink-soft); }
+  .atlas figcaption { margin-top: var(--space-2); font-size: var(--step--1); color: var(--c-ink-soft); }
+  .legend { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); margin: 0; padding: 0; list-style: none; }
+  .legend li { display: inline-flex; align-items: center; gap: var(--space-2); }
+  .key { flex: none; }
+  .credit { margin: var(--space-2) 0 0; color: var(--c-ink-faint); }
+</style>

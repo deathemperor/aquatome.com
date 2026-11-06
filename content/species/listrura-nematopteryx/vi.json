@@ -6,14 +6,18 @@
     "quickFacts:planetcatfish": "<ul><li>de Pinna mô tả năm 1988</li><li>Danh sách đỏ IUCN: Cực kỳ nguy cấp (đánh giá năm 2018)</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ. Nơi ghi nhận là một vùng đầm lầy ở đầu nguồn một con lạch. Con lạch này về sau đổ vào lạch Imbariê, một phụ lưu của sông Estrela, tại Piabetá, Rio de Janeiro. Loài này cũng có ở những môi trường sống tương tự tại Picinguaba, São Paulo, Brazil.</p><p>Địa điểm mẫu chuẩn là vùng đầm lầy ở đầu nguồn một con lạch, về sau đổ vào Ribeirão Imbariê, phụ lưu của Rio Estrela, thuộc khu Piabetá, Brazil.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản chưa được ghi nhận. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Revue Suisse de Zoologie v. 95 (no. 1), pp 115, Figs. 1-2.</p>"
+    "references:planetcatfish": "<p>Revue Suisse de Zoologie v. 95 (no. 1), pp 115, Figs. 1-2.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Estrela ở bang Rio de Janeiro và vùng Picinguaba ở bang São Paulo, Brazil.</p>",
+    "habitat:scotcat": "<p>Listrura nematopteryx sống ở lưu vực sông Estrela, thuộc thành phố Magé, bang Rio de Janeiro. Người ta mới chỉ gặp loài này ở những vi môi trường có nền đáy tơi rời, nước chảy và có cây thủy sinh. Các đợt khảo sát gần đây trong vùng không tìm thấy thêm quần thể nào mới. Cả thảy chỉ có hai địa điểm từng ghi nhận loài này. Nơi thu mẫu chuẩn đã bị tàn phá nặng, và quần thể ở đó coi như đã tuyệt chủng. Diện tích nơi cư trú đã biết (AOO) chỉ khoảng 4 km², và số địa điểm được tính là một. Đô thị hóa dồn dập đang làm môi trường sống ngày càng xuống cấp. Vì thế, Listrura nematopteryx bị xếp vào nhóm Cực kỳ nguy cấp (CR) (IUCN 2021).</p>",
+    "notes:scotcat": "<p>Mô tả: Điểm phân biệt loài này với các loài cùng chi là vây ngực chỉ có một tia. Tia vây ngực, vây lưng và vây hậu môn đều không phân nhánh. Phía lưng của vây đuôi có 31-35 tia phụ, phía bụng có 28-32 tia phụ. Xương tiền hàm có 14-19 răng, xương hàm dưới có 13-18 răng.</p><p>Nguồn gốc tên: Tên chi Listrura ghép từ listron (cái xẻng) và ourá (đuôi). Tên này nói đến chuyện đuôi có rất nhiều tia phụ, làm cả vùng đuôi trông như cái xẻng. Tên loài nematopteryx ghép từ nematos (sợi chỉ) và ptéryx (cánh hoặc vây). Cái tên ám chỉ vây ngực cực hẹp, chỉ có một tia và mảnh như sợi chỉ.</p>",
+    "references:scotcat": "<ul><li>de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</li><li>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2024).</li><li>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2021. Listrura nematopteryx. The IUCN Red List of Threatened Species 2021.</li></ul>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.9
+    }
   }
 }

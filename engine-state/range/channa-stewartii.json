@@ -1,0 +1,128 @@
+{
+  "id": "channa-stewartii",
+  "native": {
+    "input": "de16d0c0dadca0a6",
+    "at": "2026-11-05T16:38:28.515Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "India, Assam.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Assamese snakehead, Channa stewartii, is a snakehead of the C. gachua group from the Brahmaputra and Ganges basins of India, Bangladesh and Nepal.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Assamese snakehead, Channa stewartii, is a snakehead of the C. gachua group from the Brahmaputra and Ganges basins of India, Bangladesh and Nepal.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Assamese snakehead, Channa stewartii, is a snakehead of the C. gachua group from the Brahmaputra and Ganges basins of India, Bangladesh and Nepal.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is also listed from Bhutan and Myanmar and grows to about 30 cm TL.",
+        "words": "Bhutan",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is also listed from Bhutan and Myanmar and grows to about 30 cm TL.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "It's known from the Brahmaputra basin in India and Bangladesh, and from the Ganges basin from southern Nepal eastward (Bordoloi et al., 2024).",
+        "ok": true
+      },
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "It's known from the Brahmaputra basin in India and Bangladesh, and from the Ganges basin from southern Nepal eastward (Bordoloi et al., 2024).",
+        "ok": true
+      },
+      {
+        "name": "Barak",
+        "source": "seriouslyfish",
+        "quote": "Described from Cachar in the Barak valley of Assam, northeastern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa stewartii",
+    "status": "ACCEPTED",
+    "taxonKey": 2391448,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        49
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        20
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "93c707dc-4708-47fc-93d8-424702116442",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD",
+      "NP",
+      "BT",
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T16:38:28.515Z"
+  }
+}

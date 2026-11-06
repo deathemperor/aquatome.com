@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { DIST, page } from './dist'
 import { VI_SECTIONS } from '../worker/paths'
+import { LANGS } from '@aq/schema/langs'
 
 describe('species page', () => {
   const { html, dom } = page('/ca/ca-neon-vua/')
@@ -39,7 +40,7 @@ describe('species page', () => {
   test('jump row: the main parts this page has, in page order, each to its section', () => {
     const links = dom.querySelectorAll('nav.jump a')
     expect(links.map(a => [a.text, a.getAttribute('href')])).toEqual([
-      ['Ảnh', '#gal-h'], ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Sinh sản', '#muc-reproduction'],
+      ['Ảnh', '#gal-h'], ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Sinh sản', '#muc-reproduction'], ['Mua đồ', '#mua-do'],
     ])
     for (const a of links) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
   })
@@ -96,11 +97,24 @@ describe('species page', () => {
     expect(marks[0]!.getAttribute('data-term')).toBe(list[0]!.querySelector('a')!.text)
     expect(dom.querySelector('.body .credit')).toBeNull()
   })
-  test('product slots are sponsored /go/ links carrying the placement', () => {
-    const a = dom.querySelector('a[href^="/go/shopee/?k="]')
-    expect(a?.getAttribute('rel')).toContain('sponsored')
-    expect(a?.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
-    expect(dom.querySelector('a[href^="/go/tiki/?k="]')).not.toBeNull()
+  // What to buy: right after the care text (not at the foot of the page by the comments), one row a kind of thing, each
+  // search a sponsored /go/ link to Shopee that the page's picker can point at Lazada or Tiki (e2e/species.spec.ts).
+  test('what to buy: after the care text, sponsored /go/ links carrying the placement, one shop picked for all', () => {
+    const kit = dom.querySelector('section.kit')!
+    expect(kit.querySelector('h2')?.text).toBe('Chuẩn bị để nuôi Cá neon vua')
+    expect(kit.querySelector('h2')?.getAttribute('id')).toBe('mua-do')
+    const links = kit.querySelectorAll('a[data-go]')
+    expect(links.length).toBeGreaterThan(0)
+    for (const a of links) {
+      expect(a.getAttribute('href')).toMatch(/^\/go\/shopee\/\?k=/)
+      expect(a.getAttribute('rel')).toContain('sponsored')
+      expect(a.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
+    }
+    const kinds = kit.querySelectorAll('.rows > li .what').map(w => w.childNodes[0]!.text)
+    expect(new Set(kinds).size, 'one row a kind').toBe(kinds.length)
+    expect(kit.querySelectorAll('[data-shop-pick] button').map(b => b.getAttribute('data-shop'))).toEqual(['shopee', 'lazada', 'tiki'])
+    const order = [...html.matchAll(/id="(muc-reproduction|mua-do|comments-h)"/g)].map(m => m[1])
+    expect(order).toEqual(['muc-reproduction', 'mua-do', 'comments-h'])
     expect(html).not.toMatch(/href="https:\/\/(shopee\.vn|www\.lazada\.vn|tiki\.vn)/)
   })
   test('"Nuôi ở Việt Nam" box: heater for the northern winter, convertible temperatures', () => {
@@ -140,8 +154,8 @@ test('a thin page (one dealer\'s note) stays out of search; a heading over a few
   expect(html).toMatch(/<meta name="robots" content="noindex/)
   expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/ca/ca-ong-tien/')
   // "Spawns on leaves." under its own heading becomes a line of the quick facts, with its source's mark; "Amazon basin."
-  // is left out, the quick facts already say it.
-  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts'])
+  // is left out, the quick facts already say it. Its range (where it lives in the wild) is a section of its own.
+  expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts', 'range'])
   const facts = dom.querySelector('#muc-quickFacts')!
   expect(facts.querySelectorAll('li').map(li => li.text)).toEqual(['Sinh sản: Đẻ trứng trên lá.1'])
   expect(facts.querySelector('li strong')?.text).toBe('Sinh sản:')
@@ -301,6 +315,15 @@ test("a guide's photos go under the section they name, at their own size and cre
 test('a breed the guide names (engine mentions) lists the guide on its page', () => {
   expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
   expect(page('/ca/ca-dia/').dom.querySelector('a[href="/huong-dan/phan-loai-ca-dia/"]')).not.toBeNull()
+})
+
+// 2026-11-05: the halfmoon betta's other names held the betta's ("Cá xiêm"), so every guide naming the betta was listed on
+// the halfmoon's page (a pea puffer video among them). A breed's names are its own (engine alt-names.ts cleanBreedAltNames).
+test("a guide naming only a breed's species is listed on the species' page, not the breed's", () => {
+  const guide = 'a[href="/huong-dan/hang-moi-ve-nhung-loai-hiem-thang-nay/"]' // "Cá đĩa hoang dã về ít…"
+  expect(page('/ca/ca-dia/').dom.querySelector(guide)).not.toBeNull()
+  expect(page('/ca/ca-dia-pigeon-blood/').dom.querySelector(guide)).toBeNull()
+  expect(page('/ca/ca-la-han/').dom.querySelector(guide)).toBeNull() // a hybrid the discus may be a parent of
 })
 
 describe('review fixes', () => {
@@ -603,6 +626,61 @@ describe('product page', () => {
   test('indexable products are in the sitemap', () => {
     expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/san-pham/oase-biomaster-350/</loc>')
   })
+  test('a product with no reviews and no control shows neither block', () => {
+    expect(dom.querySelector('.reviews')).toBeNull()
+    expect(dom.querySelector('.control')).toBeNull()
+  })
+})
+
+describe('a product page\'s reviews and control', () => {
+  const { dom } = page('/san-pham/chihiros-wrgb-ii-slim/')
+  const reviews = dom.querySelector('.reviews')!
+  test('says what it is: a summary of its reviews, not our own test', () => {
+    expect(reviews.querySelector('.reviews-note')?.text).toContain('tóm tắt 2 bài review trên YouTube, không phải AquaTome tự thử')
+  })
+  test('each claim marks its video at the second it was said, numbered as the source list numbers it', () => {
+    const list = dom.querySelectorAll('.sources ol a').map(a => a.getAttribute('href'))
+    const marks = reviews.querySelectorAll('li').find(li => li.querySelector('a.cite'))!.querySelectorAll('a.cite')
+    expect(marks.map(a => a.getAttribute('href'))).toEqual(['https://www.youtube.com/watch?v=aaaaaaaaaaa&t=95', 'https://www.youtube.com/watch?v=bbbbbbbbbbb&t=212'])
+    expect(marks.map(a => a.text)).toEqual(['https://www.youtube.com/watch?v=aaaaaaaaaaa', 'https://www.youtube.com/watch?v=bbbbbbbbbbb'].map(u => String(list.indexOf(u) + 1)))
+    // Not the wording of a text we translated with permission: a review we summarize, at its moment.
+    expect(marks[0]!.getAttribute('data-tip')).toBe('YouTube · 1:35')
+    expect(marks[0]!.getAttribute('data-more')).toBe('Xem đoạn này ↗')
+  })
+  test('where they differ, side by side; what one found, on its own', () => {
+    expect(reviews.querySelector('.differ dt')?.text).toBe('Tiếng quạt')
+    expect(reviews.querySelectorAll('.differ dd')).toHaveLength(2)
+    expect(reviews.text).toContain('Chỉ một bài nhắc tới')
+  })
+  test('the figures a reviewer measured, how, cited; none where nothing was said about how', () => {
+    const rows = reviews.querySelectorAll('.measured tbody tr')
+    expect(rows.map(r => r.querySelector('th')?.text)).toEqual(['PAR ở nền, cách đèn 30 cm', 'Độ ồn ở 1 m'])
+    expect(rows[0]!.querySelector('.num')?.text).toContain('48 µmol')
+    expect(rows[0]!.querySelector('a.cite')?.getAttribute('href')).toBe('https://www.youtube.com/watch?v=aaaaaaaaaaa&t=433')
+    expect(rows[1]!.querySelectorAll('td')[1]?.text).toBe('–')
+  })
+  test('embeds the top review, with no channel or reviewer in its running text; the sources carry the titles', () => {
+    expect(reviews.querySelector('button.facade')?.getAttribute('data-youtube-id')).toBe('bbbbbbbbbbb')
+    expect(reviews.text).not.toContain('Example Scapes')
+    expect(reviews.text).not.toContain('Kênh Ví Dụ')
+    expect(dom.querySelector('.sources')?.text).toContain('Chihiros WRGB II Slim after 6 months')
+  })
+  test('a line the code controls gets its control block: what, where, the tool; our own test cited as ours', () => {
+    const c = dom.querySelector('.control')!
+    expect(c.querySelector('h2')?.text).toBe('Điều khiển bằng AquaTome')
+    expect(c.text).toContain('dòng WRGB II Slim')
+    expect(c.text).toContain('Chrome và Edge')
+    expect(c.text).toContain('Trình duyệt trên iPhone không dùng được Bluetooth')
+    expect(c.querySelector('a.tool')?.getAttribute('href')).toBe('/cong-cu/den-chihiros/')
+    const mark = c.querySelector('li a.cite')!
+    expect(mark.getAttribute('data-tip')).toBe('Ghi chép AquaTome tự thử')
+    expect(mark.getAttribute('href')).toContain('aquarium-device-control.md')
+  })
+  test('a light the code doesn\'t control gets no block, whatever else the page has', () => {
+    const week = page('/san-pham/week-aqua-l600-pro/')
+    expect(week.dom.querySelector('.control')).toBeNull()
+    expect(week.html).not.toContain('Điều khiển bằng AquaTome')
+  })
 })
 
 describe('photo gallery', () => {
@@ -711,12 +789,23 @@ describe('man-made fish (breeds)', () => {
     const { dom } = page('/ca/ca-dia/')
     const names = [...dom.querySelectorAll('section.breeds .n')].map(x => x.textContent)
     expect(names).toEqual(['Cá đĩa Pigeon Blood', 'Cá La Hán (Flowerhorn)'])
-    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed1.jpg')
+    expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('photos/a-red-discus-fish-Pb1Fixture1')
     expect(page('/ca/').dom.querySelector('section.breeds a[href="/ca/ca-la-han/"]')).toBeTruthy()
+  })
+  // The owner (2026-11-06): a breed's card shows its figures as a species' card does, from its own care card.
+  test("a breed's card shows its temperature and pH as a species' does, or says it has none", () => {
+    const cards = [...page('/ca/').dom.querySelectorAll('section.breeds .sc')]
+    const pigeon = cards.find(c => c.querySelector('.n')!.textContent === 'Cá đĩa Pigeon Blood')!
+    expect(pigeon.querySelector('.label dt')!.textContent).toBe('Nhiệt độ')
+    expect(pigeon.querySelector('.label dd')!.getAttribute('data-c')).toMatch(/^\d+,\d+$/)
+    expect(JSON.parse(pigeon.getAttribute('data-fig')!).tempC).toEqual({ min: Number(pigeon.querySelector('.label dd')!.getAttribute('data-c')!.split(',')[0]), max: Number(pigeon.querySelector('.label dd')!.getAttribute('data-c')!.split(',')[1]) })
+    const flowerhorn = cards.find(c => c.querySelector('.n')!.textContent === 'Cá La Hán (Flowerhorn)')!
+    expect(flowerhorn.querySelector('.label.none')!.textContent).toBe('Chưa có số liệu')
+    expect(JSON.parse(flowerhorn.getAttribute('data-fig')!)).toEqual({})
   })
   test('on the species list the breed cards lead the page: small pictures, loaded at once', () => {
     const img = page('/ca/').dom.querySelector('section.breeds img')!
-    expect(img.getAttribute('src')).toContain('/500px-')
+    expect(img.getAttribute('src')).toContain('&w=480&') // the lead's small copy: Unsplash's, at 480 px
     expect(img.getAttribute('loading')).toBe('eager')
     expect(page('/ca/ca-dia/').dom.querySelector('section.breeds img')!.getAttribute('loading')).toBe('lazy')
   })
@@ -756,7 +845,7 @@ test('every page has the language menu; a fish without other-language pages offe
   // The header's (computers) and the menu sheet's (phones).
   for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
     const links = page(path).dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual(['vi', 'id', 'th'])
+    expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual([...LANGS])
   }
   for (const menu of ['header', '#site-menu']) {
     const fish = page('/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)

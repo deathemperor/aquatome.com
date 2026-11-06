@@ -1,0 +1,91 @@
+{
+  "id": "channa-marulioides",
+  "native": {
+    "input": "3a328b1aec2cdb8b",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand (below the Isthmus of Kra), Malaysia, and Indonesia, including the Greater Sunda Islands.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand (below the Isthmus of Kra), Malaysia, and Indonesia, including the Greater Sunda Islands.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand (below the Isthmus of Kra), Malaysia, and Indonesia, including the Greater Sunda Islands.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "The emperor snakehead, Channa marulioides, is a large snakehead from southern Thailand, Malaysia and Indonesia, including Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "The emperor snakehead, Channa marulioides, is a large snakehead from southern Thailand, Malaysia and Indonesia, including Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "Tends to inhabit larger river channels and inland lakes such as the Danau Sentarum system in Kalimantan, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Greater Sunda Islands",
+        "source": "seriouslyfish",
+        "quote": "Native to southern Thailand (below the Isthmus of Kra), Malaysia, and Indonesia, including the Greater Sunda Islands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa marulioides",
+    "status": "ACCEPTED",
+    "taxonKey": 2391442,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

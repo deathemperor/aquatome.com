@@ -252,6 +252,7 @@ private struct ReadyCard: View {
 
       VStack(alignment: .leading, spacing: 10) {
         ClockFact()
+        LightOutletFact()
         // Not during a test or the preview: the screen says what the light shows (the record is for a link that drops).
         if let m = d?.manual, !lights.trying, !lights.isPlaying {
           Fact(icon: "hand.raised", warn: true) {

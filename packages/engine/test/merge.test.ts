@@ -154,3 +154,12 @@ test('quick facts: the figures this page gives the card, and the family, are dro
   const ph = mergeSpecies({}, page({ sections: [{ key: 'quickFacts', en: '<ul><li>pH: 6–7</li></ul>', vi: '<ul><li>pH: 6–7</li></ul>' }] }), ctx('glaser'))
   expect(ph.vi.sections['quickFacts:glaser']).toBe('<ul><li>pH: 6–7</li></ul>')
 })
+
+test('a page read again from a source keeps its range: only the range step changes it', () => {
+  const range = { native: { countries: ['BR'], regions: ['Rio Negro'], sources: ['seriouslyfish' as const] } }
+  const a = mergeSpecies({}, page(), ctx('seriouslyfish'))
+  const b = mergeSpecies({ ...a, entity: { ...a.entity, range } }, page(), ctx('glaser'))
+  expect(b.entity.range).toEqual(range)
+  expect(Object.keys(b.entity).indexOf('range')).toBe(Object.keys(b.entity).indexOf('places') + 1)
+  expect('range' in mergeSpecies({}, page(), ctx('glaser')).entity).toBe(false)
+})

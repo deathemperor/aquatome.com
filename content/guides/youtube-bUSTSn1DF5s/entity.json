@@ -1,0 +1,96 @@
+{
+  "id": "youtube-bUSTSn1DF5s",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=bUSTSn1DF5s",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carassius-auratus",
+    "pterophyllum-scalare",
+    "taxiphyllum-barbieri"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "bUSTSn1DF5s",
+    "title": "How to build an aquarium sump filter with a CONVERSION KIT",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 1046,
+    "publishedAt": "2024-05-05",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maaz5-CO-M0O7MzldTzRRhn",
+      "position": 65
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/bUSTSn1DF5s/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Cichlasoma sp.",
+      "Acarichthys sp.",
+      "Botia sp.",
+      "Ancistrus sp.",
+      "Carassius auratus",
+      "Pterophyllum scalare",
+      "Taxiphyllum barbieri",
+      "Pygocentrus sp."
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 2
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 3
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 10
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Sump là gì và vì sao nên dùng",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/bUSTSn1DF5s/t10.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khối nước sump đặt thấp bên dưới hệ thống bể."
+          },
+          {
+            "t": 39,
+            "url": "https://media.aquatome.com/video/bUSTSn1DF5s/t39.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Các bể xếp tầng nối với nhau bằng ống dẫn nước."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/bUSTSn1DF5s/p0-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/bUSTSn1DF5s/p0-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Sump acrylic nhiều ngăn lọc đặt dưới bể, có máy bơm và thiết bị đi kèm."
+        }
+      }
+    ]
+  }
+}

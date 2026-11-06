@@ -6,20 +6,29 @@
     "Cá Ancistrus khổng lồ",
     "Black Spiny Ashiura Pleco",
     "Azzura Pleco",
-    "Giant Ancistrus"
+    "Giant Ancistrus",
+    "Cá pleco gai đen Ashiura"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Megalancistrus barrae (Steindachner, 1910)</li><li><strong>Tên thường gọi:</strong> Black Spiny Ashiura Pleco, Azzura Pleco, Giant Ancistrus</li><li><strong>Nơi thu mẫu chuẩn:</strong> sông Rio São Francisco, gần Barra, Brazil.</li><li><strong>Tên đồng nghĩa:</strong> Ancistrus barrae</li><li><strong>Kích thước:</strong> 385 mm SL (chiều dài chuẩn, không tính vây đuôi)</li><li><strong>Nguồn gốc tên:</strong> Tên giống ghép từ tiếng Hy Lạp megas, megalos (lớn) và agkistron (lưỡi câu), ý là \"Ancistrus cỡ lớn\". Tên loài đặt theo sông Rio São Francisco gần Barra ở Brazil, nơi thu mẫu chuẩn.</li><li><strong>Sách đỏ IUCN:</strong> Ít quan tâm (lần đánh giá gần nhất năm 2018).</li></ul>",
     "notes:planetcatfish": "<p>Đây là một loài cá lau kính khổng lồ, đúng như cái tên giống của nó. Bạn có thể phân biệt loài này với các loài loricariid cỡ lớn khác nhờ cụm gai da (odontode) ở vùng gian nắp mang. Cụm gai này có thể bật xòe ra ngoài.</p><p>Màu nền của cá từ nâu sẫm đến đen. Cá xuất khẩu thường gặp hơn là loại màu đen. Loại này hay được bán dưới cái tên \"Megalancistrus etentaculatus\", vốn là một tên không hợp lệ (nomen nudum).</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông São Francisco, Brazil.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có thông tin. Đến nay chưa có báo cáo nào về chuyện cho loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftlichen Klasse v. 47 (no. 8) (for 10 Mar. 1910), pp 58.</p>"
+    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftlichen Klasse v. 47 (no. 8) (for 10 Mar. 1910), pp 58.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Tên thường gọi: Black Spiny Ashiura Pleco. Tên đồng nghĩa: Ancistrus barrae. Kích thước: 38,5 cm. Nhiệt độ: 20-27°C. pH: 6,0-7,5.</p><p>Megalancistrus là họ hàng gần của Pseudacanthicus. Cả cá đực lẫn cá cái đều có thân phủ đầy gai odontode. Điểm khác là vây lưng của Megalancistrus có nhiều tia mềm hơn, từ 10 đến 12 tia.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông São Francisco, Brazil. Nơi thu mẫu chuẩn: Rio São Francisco gần Barra, Brazil. Megalancistrus barrae sống ở hạ lưu và trung lưu sông São Francisco. Ở đó người ta ít khi gặp loài này, và số lượng cũng không nhiều. Một phần nguyên nhân có lẽ là do loài này khó bắt. Chưa ghi nhận mối đe dọa đáng kể nào với loài, nên nó được xếp vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "aquariumSize:scotcat": "<p>Loài này có tính lãnh thổ nên cần bể rất lớn. Trong bể cũng phải có chỗ trốn như lũa và hang lớn.</p>",
+    "diet:scotcat": "<p>Đây là loài ăn tạp. Bạn có thể cho ăn đồ đông lạnh như artemia, lăng quăng, tôm, trai và thịt cá, kèm thức ăn khô loại tốt. Ngoài ra chúng cũng ăn các loại thức ăn xanh có trong bể.</p>",
+    "dimorphism:scotcat": "<p>Cá đực có đầu rộng hơn, vây ngực dài hơn và thân thon hơn. Gai odontode của cá đực cũng dài hơn, rõ nhất là quanh vùng nắp mang.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài barrae lấy từ Rio São Francisco gần Barra ở Brazil. Đây là nơi thu mẫu chuẩn của loài.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Megalancistrus barrae. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2021).</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.92
     }
   }
 }

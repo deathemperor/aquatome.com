@@ -1,0 +1,39 @@
+{
+  "balloon-molly": [
+    "parent \"Common/shortfin molly (Poecilia sphenops)\" → poecilia-sphenops (\"Poecilia sphenops\"), 2026-11-04",
+    "parent \"Sailfin molly (white sailfin molly with the dwarf/balloon trait) (Poecilia latipinna)\" → poecilia-latipinna (\"Poecilia latipinna\"), 2026-11-04"
+  ],
+  "blood-parrot-cichlid": [
+    "parent \"Severum (Heros severus)\" → heros-severus (\"Heros severus\"), 2026-11-04"
+  ],
+  "crossback-golden-arowana": [
+    "basedOn → scleropages-formosus (\"Scleropages formosus\"), 2026-11-04"
+  ],
+  "electric-blue-ram": [
+    "basedOn → mikrogeophagus-ramirezi (\"Mikrogeophagus ramirezi\"), 2026-11-04"
+  ],
+  "glofish": [
+    "parent \"Cá ngựa vằn (Danio rerio)\" → danio-rerio (\"Danio rerio\"), 2026-11-04"
+  ],
+  "koi": [
+    "basedOn → cyprinus-rubrofuscus (\"Cyprinus rubrofuscus (Amur carp; formerly listed as Cyprinus carpio haematopterus)\"), 2026-11-04"
+  ],
+  "koi-angelfish": [
+    "basedOn → pterophyllum-scalare (\"Pterophyllum scalare\"), 2026-11-04"
+  ],
+  "mickey-mouse-platy": [
+    "basedOn → xiphophorus-maculatus (\"Xiphophorus maculatus\"), 2026-11-04"
+  ],
+  "pigeon-blood-discus": [
+    "basedOn → symphysodon-aequifasciatus (\"Symphysodon aequifasciatus\"), 2026-11-04"
+  ],
+  "platinum-angelfish": [
+    "basedOn → pterophyllum-scalare (\"Pterophyllum scalare\"), 2026-11-04"
+  ],
+  "red-tailed-golden-arowana": [
+    "basedOn → scleropages-formosus (\"Scleropages formosus\"), 2026-11-04"
+  ],
+  "super-red-arowana": [
+    "basedOn → scleropages-formosus (\"Scleropages formosus\"), 2026-11-04"
+  ]
+}

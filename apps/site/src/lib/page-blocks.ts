@@ -1,5 +1,6 @@
 import { HTMLElement, TextNode, parse, type Node } from 'node-html-parser'
 import type { Block, Image, Inline, Run } from '@aq/schema/app-page'
+import { UNSPLASH_LICENCE } from './unsplash'
 
 /**
  * A page's HTML as it's shown (after mentions, figures and the table of contents are put in) as the app's blocks
@@ -191,14 +192,23 @@ function image(img: HTMLElement | null, credit?: Image['credit']): Image | undef
   return { src, w: Math.round(w), h: Math.round(h), ...(alt ? { alt } : {}), ...(credit ? { credit } : {}) }
 }
 
-/** A photo in the text (lib/figures.ts, lib/video.ts): the page it shows, its caption, its credit as the © mark gives it. */
+/**
+ * A photo in the text (lib/figures.ts, lib/video.ts): the page it shows, its caption, its credit as the © mark gives it,
+ * or an Unsplash photo's line (.pic-by, lib/cite.ts photoMark: the photo's page in data-src, the name in data-author, the
+ * photographer's page a.author's).
+ */
 function figure(f: HTMLElement, unknown: Set<string>): Block | undefined {
   const cap = f.querySelector('figcaption')
   const mark = cap?.querySelector('a.cite.pic')
-  const credit = mark && mark.getAttribute('data-term') && mark.getAttribute('data-tip')
-    ? { text: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip')!, ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
-    : undefined
+  const by = cap?.querySelector('.pic-by')
+  const author = by?.querySelector('a.author')?.getAttribute('href')
+  const name = by?.getAttribute('data-author')
+  // A © without a tip names no licence (a photo a source let us use): its credit's licence is empty.
+  const credit = mark && mark.getAttribute('data-term')
+    ? { text: mark.getAttribute('data-term')!, licence: mark.getAttribute('data-tip') ?? '', ...(mark.getAttribute('href') ? { url: mark.getAttribute('href')! } : {}) }
+    : by ? { text: clean(by.textContent), licence: UNSPLASH_LICENCE, ...(by.getAttribute('data-src') ? { url: by.getAttribute('data-src')! } : {}), ...(author ? { authorUrl: author } : {}), ...(name ? { author: clean(name) } : {}) } : undefined
   mark?.remove()
+  by?.remove()
   const img = image(f.querySelector('img'), credit)
   if (!img) return undefined
   const a = f.querySelector('img')!.parentNode

@@ -1,0 +1,39 @@
+{
+  "id": "akysis-heterurus",
+  "native": {
+    "input": "798cf69404fa731c",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Batang Hari",
+        "source": "scotcat",
+        "quote": "Asia: Batang Hari River basin, eastern Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "Asia: Batang Hari River basin, eastern Sumatra.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis heterurus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340919,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}
