@@ -4,19 +4,21 @@ xcodebuild's -only-testing and -skip-testing arguments.
 
 `--full`: every flow, as main runs them (after merges, nightly and by hand) and a pull request labelled `ios-full`.
 Otherwise the changed paths of a pull request come on stdin, one a line. A pull request runs:
-- the smoke set (SMOKE, a few flows across the app's main journeys, in `app (1)`), when its change can reach any flow;
-- the whole class of each flow file it changes, in that class's job, so a check added or changed is seen to pass;
-- the page shots (PageShotsFlowTests, in `handbook (1)`), when its change can reach the pages, for their before and
-  after (docs/governance.md, Mobile apps rule 6);
+- the smoke set (SMOKE, a few flows across the app's main journeys), when its change can reach any flow;
+- the whole class of each flow file it changes, so a check added or changed is seen to pass;
+- the page shots (PageShotsFlowTests, in `handbook (1)`, which uploads them), when its change can reach the pages, for
+  their before and after (docs/governance.md, Mobile apps rule 6);
 - every flow, when it changes what selects and runs the flows, or the flows' shared code (MACHINERY).
+Those flows go into as few jobs as hold them (`pack`): each job builds the app and holds one of GitHub's five Macs. The
+light flows keep their two halves.
 The lists it reads (flow_lists.py: which job runs a class, and what each path can reach) aren't among them: a change to
 them alone runs no flow, and `--test` checks them on every run. The other flows its change can reach (REACH) run on main
 after the merge, and nightly; `left=` names their classes, for a notice. The owner's call of 2026-11-05: a pull
 request's run of every flow it reached held GitHub's Macs for one to two and a half hours.
 
 Prints `app=[halves]`, `app_1=`, `app_2=`, `handbook=[halves]`, `handbook_1=`, `handbook_2=`, `lights=[halves]`,
-`lights_1=`, `lights_2=` and `left=` for $GITHUB_OUTPUT: a job's half with no arguments is left out, and a job with no
-halves is skipped. `--test` checks how it picks (on stand-ins for the lists), what the lists decide for a few changes
+`lights_1=`, `lights_2=`, `left=` and `ran=` (what each job half runs, by class, for a notice) for $GITHUB_OUTPUT: a
+job's half with no arguments is left out, and a job with no halves is skipped. `--test` checks how it picks (on stand-ins for the lists), what the lists decide for a few changes
 (flow_lists.check), and that every flow named here or in the lists is in AquaTomeUITests; it prints nothing.
 
 A pull request with no paths runs every flow. A path under apps/ios/ that no rule names reaches every flow: the smoke
@@ -26,7 +28,7 @@ import json, os, re, sys
 
 sys.dont_write_bytecode = True  # importing the lists leaves no __pycache__ in the checkout
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from flow_lists import ALL, APP, HANDBOOK, KIT, NONE, REACH, UI, check as check_lists
+from flow_lists import ALL, APP, CLASS_SECONDS, FLOW_SECONDS, HANDBOOK, KIT, NONE, REACH, UI, check as check_lists
 
 TESTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', UI)
 
@@ -72,6 +74,17 @@ SMOKE = [
 ]
 
 
+# A pull request's flows go into as few jobs as hold them in PACK_SECONDS of tests each (about 30 minutes with the
+# build): on GitHub's Macs a job's build, from xcodebuild's start to its first test, took a median 4.8 minutes, 24% of
+# the flow jobs' time on 2026-11-06, and each job waits for one of the five Macs, which the pull requests' jobs did for
+# about an hour at a time. The page shots go in `handbook (1)`, whose step uploads them; then the rest, longest first,
+# into the first job with room, the jobs taken in PACK_ORDER. Past four jobs' worth, the rest join the least loaded.
+PACK_SECONDS = 1500
+# A flow of the smoke set: their median times below, 344 s for the ten.
+SMOKE_SECONDS = 35
+PACK_ORDER = ['app_1', 'handbook_2', 'app_2', 'handbook_1']
+
+
 # What selects and runs the flows, and the flows' shared code (a file of AquaTomeUITests that isn't a class's own, as
 # TabBar.swift, or a helper every flow's launch goes through): a pull request that changes them runs every flow, as only
 # a run of each job tries them. Not the lists (flow_lists.py says why).
@@ -103,6 +116,33 @@ def halves(one, two):
     return {'1': one, '2': two, 'halves': json.dumps([n for n, a in ((1, one), (2, two)) if a])}
 
 
+def seconds(test):
+    """What a class of flows, or one flow ('Class/test'), takes on GitHub's Macs: CLASS_SECONDS, or FLOW_SECONDS a test;
+    one of the smoke set's flows, SMOKE_SECONDS."""
+    if '/' in test:
+        return SMOKE_SECONDS if test in SMOKE else FLOW_SECONDS
+    if test in CLASS_SECONDS:
+        return CLASS_SECONDS[test]
+    path = os.path.join(TESTS_DIR, f'{test}.swift')
+    return FLOW_SECONDS * max(1, len(re.findall(r'func test\w*\(', open(path).read())) if os.path.exists(path) else 1)
+
+
+def pack(units):
+    """Units of flows (lists of tests, each unit kept in one job) into job halves: {job half: tests}."""
+    jobs, load = {}, {}
+    shots = [u for u in units if 'PageShotsFlowTests' in u]
+    rest = sorted((u for u in units if u not in shots), key=lambda u: (-sum(map(seconds, u)), u))
+    for unit in shots + rest:
+        secs = sum(map(seconds, unit))
+        job = 'handbook_1' if unit in shots else (
+            next((j for j in jobs if load[j] + secs <= PACK_SECONDS), None)
+            or next((j for j in PACK_ORDER if j not in jobs), None) or min(jobs, key=load.get))
+        jobs.setdefault(job, []).extend(unit)
+        load[job] = load.get(job, 0) + secs
+    # Classes first, then the smoke set's flows in their order.
+    return {j: sorted(t for t in ts if '/' not in t) + [t for t in SMOKE if t in ts] for j, ts in jobs.items()}
+
+
 def full():
     rest = [c for c in HANDBOOK if c not in HANDBOOK_FIRST]
     # Job `app`'s second half skips the others' flows rather than naming its own, so a new class runs in it.
@@ -128,21 +168,34 @@ def pick(paths):
     whole = {m.group(1) for p in paths if (m := FLOW_FILE.fullmatch(p)) and m.group(1) not in ELSEWHERE}
     if every or 'PageShotsFlowTests' in flows:
         whole.add('PageShotsFlowTests')
-    # The smoke set runs in `app (1)`, beside the classes there, so it adds no build; a whole class runs in its own job,
-    # the halves as main splits them.
+    # The smoke set runs as one unit, and each class whole; the light flows in their halves, as main splits them.
     smoke = [t for t in SMOKE if t.split('/')[0] not in whole]
-    app = [c for c in sorted(whole) if c not in HANDBOOK + ['LightFlowTests']]
-    handbook = halves(only(sorted(c for c in whole if c in HANDBOOK_FIRST)),
-                      only(sorted(c for c in whole if c in HANDBOOK and c not in HANDBOOK_FIRST)))
+    jobs = pack([[c] for c in sorted(whole) if c != 'LightFlowTests'] + ([smoke] if smoke else []))
     lights = full()[2] if 'LightFlowTests' in whole else halves('', '')
     left = 'every flow' if every else ' '.join(sorted({f.split('/')[0] for f in flows
                                                        if f not in smoke and f.split('/')[0] not in whole}))
-    app = halves(only([c for c in app if c in APP_FIRST] + smoke), only([c for c in app if c not in APP_FIRST]))
+    app, handbook = (halves(only(jobs.get(f'{n}_1', [])), only(jobs.get(f'{n}_2', []))) for n in ('app', 'handbook'))
     return (app, handbook, lights), left
 
 
+def described(args):
+    """A job half's xcodebuild arguments, by class: its classes, the smoke set's flows, other single flows."""
+    tests = re.findall(rf'-only-testing:{UI}/(\S+)', args)
+    if not tests:
+        return 'every flow not run elsewhere'
+    flows = [t for t in tests if '/' in t]
+    skipped = len(re.findall(r'-skip-testing:', args))
+    some = (f'the smoke set ({len(flows)} flows)' if set(flows) <= set(SMOKE) else
+            f'{len(flows)} flows of ' + ' and '.join(sorted({t.split('/')[0] for t in flows})))
+    return ', '.join(sorted(t for t in tests if '/' not in t) + ([some] if flows else []) +
+                     ([f'less {skipped} of its flows'] if skipped else []))
+
+
 def output(app, handbook, lights, left=''):
-    lines = [f'app={app["halves"]}', f'handbook={handbook["halves"]}', f'lights={lights["halves"]}', f'left={left}']
+    ran = '; '.join(f'{name} ({n}): {described(job[n])}' for name, job in (('app', app), ('handbook', handbook),
+                                                                           ('lights', lights)) for n in '12' if job[n])
+    lines = [f'app={app["halves"]}', f'handbook={handbook["halves"]}', f'lights={lights["halves"]}', f'left={left}',
+             f'ran={ran}']
     for name, job in (('app', app), ('handbook', handbook), ('lights', lights)):
         lines += [f'{name}_{n}={job[n]}' for n in '12']
     return '\n'.join(lines)
@@ -187,13 +240,14 @@ def test():
     # The lists aren't what selects the flows: a change to them alone runs none.
     assert not machinery('apps/ios/scripts/flow_lists.py')
     assert runs(['apps/ios/scripts/flow_lists.py']) == {} and left(['apps/ios/scripts/flow_lists.py']) == ''
-    # What the lists decide for a few changes.
-    check_lists(runs, left, reached)
+    # What the lists decide for a few changes: which flows run, in whichever job.
+    check_lists(lambda paths: sorted(t for tests in runs(paths).values() for t in tests), left, reached)
 
     # How a pull request's flows are picked, on stand-ins for the lists, so these hold whatever the lists say: the
     # classes are real (the halves and the smoke set name them), the paths made up. Last: the stand-ins stay.
     f = APP + 'StandIn/'
-    globals().update(HANDBOOK=HANDBOOK_FIRST + ['TankLifeFlowTests', 'OfflineFlowTests'], REACH={
+    globals().update(HANDBOOK=HANDBOOK_FIRST + ['TankLifeFlowTests', 'OfflineFlowTests'], FLOW_SECONDS=45, SMOKE_SECONDS=35, CLASS_SECONDS={
+        'PageShotsFlowTests': 1000, 'TankLifeFlowTests': 300, 'FactsCardFlowTests': 280, 'PlugFlowTests': 1200}, REACH={
         f + 'Start.swift': ALL, f + 'Frame/': [], f + 'Notes.md': NONE, f + 'Light/': ['LightFlowTests'],
         f + 'Tank/': ['TanksFlowTests', 'TankLifeFlowTests/testAFlowOutsideTheSmokeSet',
                       'TankCheckFlowTests/testWarnsWhenTheFishDontGoTogetherAndTheTankIsTooSmall'],
@@ -215,8 +269,8 @@ def test():
         assert runs(paths) == smoke, paths
     assert left([f + 'Frame/View.swift']) == ''
     # With the page shots when it can reach the pages (Mobile apps rule 6), or reach anything: a rule of every flow, a
-    # path under apps/ios/ no rule names.
-    shots = dict(smoke, handbook_1=['PageShotsFlowTests'])
+    # path under apps/ios/ no rule names. The smoke set (350 s) fits beside them (1,000 s): one job, `handbook (1)`.
+    shots = {'handbook_1': ['PageShotsFlowTests'] + SMOKE}
     for paths in ([f + 'Page/List.swift'], [f + 'Page/Card.swift'], [f + 'Start.swift'], [f + 'Unnamed.swift'],
                   ['apps/ios/Gemfile'], [f + 'Tank/Form.swift', f + 'Page/List.swift']):
         assert runs(paths) == shots, paths
@@ -227,23 +281,46 @@ def test():
                   [f'apps/ios/{UI}/StoreShotsFlowTests.swift', f'apps/ios/{UI}/PerformanceTests.swift'],
                   ['docs/governance.md', 'apps/site/src/pages/vi/index.astro', '.github/workflows/ci.yml']):
         assert runs(paths) == {} and left(paths) == '', paths
-    # A flow file runs its class, in its own job's half, so a check added or changed is seen to pass; the smoke set's
-    # others run in `app (1)`.
+    # A flow file runs its class whole, so a check added or changed is seen to pass, packed with the smoke set's others
+    # when they fit: one job.
     got = runs([f'apps/ios/{UI}/TankLifeFlowTests.swift'])
-    assert got == {'app_1': [t for t in SMOKE if not t.startswith('TankLife')], 'handbook_2': ['TankLifeFlowTests']}, got
+    assert got == {'app_1': ['TankLifeFlowTests'] + [t for t in SMOKE if not t.startswith('TankLife')]}, got
+    # A class with no time of its own counts FLOW_SECONDS a test: AccountFlowTests' ten, with the smoke set, fit.
     assert runs([f'apps/ios/{UI}/AccountFlowTests.swift']) == {
         'app_1': ['AccountFlowTests'] + [t for t in SMOKE if not t.startswith('Account')]}
-    assert runs([f'apps/ios/{UI}/PlugFlowTests.swift']) == {'app_1': SMOKE, 'app_2': ['PlugFlowTests']}
-    # A new class: in `app (2)`, as main's run puts it.
-    assert runs([f'apps/ios/{UI}/AFishIDFlowTests.swift']) == {'app_1': SMOKE, 'app_2': ['AFishIDFlowTests']}
+    # A new class, with no file yet: one test's worth.
+    assert runs([f'apps/ios/{UI}/AFishIDFlowTests.swift']) == {'app_1': ['AFishIDFlowTests'] + SMOKE}
+    # Past PACK_SECONDS (1,200 s and 350 s), a second job: the longest first, into `app (1)`, then the next in order.
+    got = runs([f'apps/ios/{UI}/PlugFlowTests.swift'])
+    assert got == {'app_1': ['PlugFlowTests'], 'handbook_2': SMOKE}, got
+    # A class counted by its tests: ReaderPostFlowTests' fourteen (630 s) don't fit beside the page shots (1,000 s), the
+    # smoke set (350 s) does.
+    got = runs([f'apps/ios/{UI}/ReaderPostFlowTests.swift', f + 'Page/List.swift'])
+    assert got == {'handbook_1': ['PageShotsFlowTests'] + SMOKE, 'app_1': ['ReaderPostFlowTests']}, got
+    # Past four jobs' worth, the rest join the least loaded: every class still runs once.
+    many = ['PlugFlowTests', 'PhotoViewerFlowTests', 'ReaderPostFlowTests', 'TanksFlowTests', 'AccountFlowTests']
+    globals()['CLASS_SECONDS'] = dict(CLASS_SECONDS, **{c: 1400 for c in many})
+    got = runs([f'apps/ios/{UI}/{c}.swift' for c in many])
+    assert sorted(got) == ['app_1', 'app_2', 'handbook_1', 'handbook_2'], got
+    assert sorted(t for ts in got.values() for t in ts) == sorted(many + [t for t in SMOKE if t.split('/')[0] not in many])
+    # Each to the least loaded: the fifth class to the first of four equal jobs, then the smoke set to the next.
+    assert got['app_1'] == ['AccountFlowTests', 'TanksFlowTests'], got
+    assert got['handbook_2'] == ['PhotoViewerFlowTests'] + [t for t in SMOKE if t.split('/')[0] not in many], got
+    globals()['CLASS_SECONDS'] = {k: v for k, v in CLASS_SECONDS.items() if k not in many} | {'PlugFlowTests': 1200}
+    # What each job half runs, by class, for the notice.
+    assert output(*pick([f'apps/ios/{UI}/PlugFlowTests.swift'])[0]).splitlines()[4] == (
+        'ran=app (1): PlugFlowTests; handbook (2): the smoke set (10 flows)')
+    # The light flows are never packed: both halves, as main runs them, and the rest packed apart.
     got = runs([f'apps/ios/{UI}/LightFlowTests.swift'])
     assert got['app_1'] == [t for t in SMOKE if not t.startswith('Light')], got
     assert got['lights_1'] == ['LightFlowTests/' + t for t in LIGHT_FIRST], got
     assert pick([f'apps/ios/{UI}/LightFlowTests.swift'])[0][2]['2'] == everything['lights']['2']
     # With the code it checks: its class and the page shots run; the other classes it reaches are left to main.
+    # The page shots in `handbook (1)` first, whose step uploads them; then the smoke set (315 s) beside them, and the
+    # facts card's class (280 s), which no longer fits there, in `app (1)`.
     paths = [f + 'Page/Card.swift', f'apps/ios/{UI}/FactsCardFlowTests.swift']
-    assert runs(paths) == {'app_1': [t for t in SMOKE if not t.startswith('FactsCard')],
-                           'handbook_1': ['FactsCardFlowTests', 'PageShotsFlowTests']}, runs(paths)
+    assert runs(paths) == {'handbook_1': ['PageShotsFlowTests'] + [t for t in SMOKE if not t.startswith('FactsCard')],
+                           'app_1': ['FactsCardFlowTests']}, runs(paths)
     assert left(paths) == 'NativePageFlowTests', left(paths)
     # What it leaves to main: the classes of the flows it reaches that it doesn't run, a smoke test's class among them
     # (TanksFlowTests), but not a flow the smoke set runs (the tank-mates check's).
