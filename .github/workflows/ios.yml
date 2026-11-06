@@ -142,6 +142,17 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
+      # Main's runs on the own Mac (`parallel`): the copies of its simulator that xcodebuild made, named "Clone <n> of" it,
+      # deleted, before the flows and after. A cancel or the hour's limit kills xcodebuild about ten seconds after asking
+      # it to stop, often before it deletes them, and three simulators left running would load someone's working Mac.
+      - name: The own Mac's simulator copies deleted
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       # The full suite: the main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights'
       # (job `lights`), the performance tests (job `perf`), and the App Store's screenshots (app-store.yml), which read
       # the live site. Each half runs its share. A pull request: whichever of its flows `pack` put in this half.
@@ -166,6 +177,14 @@ jobs:
       - name: The own Mac's simulator shut down
         if: always()
         run: apps/ios/scripts/wait-for-simulator.sh --done
+      - name: The own Mac's simulator copies deleted after
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
@@ -246,6 +265,17 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
+      # Main's runs on the own Mac (`parallel`): the copies of its simulator that xcodebuild made, named "Clone <n> of" it,
+      # deleted, before the flows and after. A cancel or the hour's limit kills xcodebuild about ten seconds after asking
+      # it to stop, often before it deletes them, and three simulators left running would load someone's working Mac.
+      - name: The own Mac's simulator copies deleted
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       # Retried once, as in job `app`, and for the same reason.
       - env:
           TESTS: ${{ needs.changes.outputs[format('handbook_{0}', matrix.half)] }}
@@ -262,6 +292,14 @@ jobs:
       - name: The own Mac's simulator shut down
         if: always()
         run: apps/ios/scripts/wait-for-simulator.sh --done
+      - name: The own Mac's simulator copies deleted after
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       # The pages' screenshots (PageShotsFlowTests, in the first half), a pull request's before (main's run) or after
       # (its own): see docs/governance.md. Only when this half ran them.
       - name: Page screenshots
