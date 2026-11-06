@@ -136,14 +136,14 @@ final class PageShotsFlowTests: XCTestCase {
     let app = launch(dark: dark, size: nil, ["-equipment"])
     let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", "Lọc")).firstMatch
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
-    for _ in 0..<8 where !(row.exists && row.isHittable) { app.swipeUp() }
+    repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(row.exists, "no kit on the home")
     for n in 1...2 {
       if n == 2 {
         row.tap()
         XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
         let all = app.descendants(matching: .any)["pages-all"]
-        for _ in 0..<12 where !(all.exists && all.isHittable) { app.swipeUp() }
+        repeatUntil(all.exists && all.isHittable, times: 12) { app.swipeUp() }
         all.tap()
         XCTAssertTrue(app.navigationBars["Loài cá cần lọc"].waitForExistence(timeout: 5), "the list didn't open")
       }

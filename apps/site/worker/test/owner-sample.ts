@@ -151,12 +151,11 @@ export const OVERVIEW: Overview = {
   wanted: WANTED, accounts: ACCOUNTS, hidden: HIDDEN, content: STATS, snapshots: SNAPSHOTS,
 }
 
-export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS }
-
 /**
  * Pages out of search for their score (dist/_ab/reviews.json), past the content page's list of 30: a review with several
  * notes, one, none, one of a version not kept, one whose own score isn't the page's, a page with no review kept, a page
- * the build has no title for. Not in CONTENT, whose JSON is the app's vectors.
+ * the build has no title for. In CONTENT too, so the app's vectors have the part (titled by their paths: CONTENT's stats
+ * have no titles for them).
  */
 export const LOW: LowScores = {
   v: 1, bar: 0.75,
@@ -179,6 +178,7 @@ export const LOW: LowScores = {
     ...Array.from({ length: 30 }, (_, i) => ({ path: `/ca/ca-${String(i).padStart(2, '0')}/`, kind: 'fish' as const, score: 0.74 })),
   ],
 }
+export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS, low: LOW }
 /** The sample's content with the build's titles for those pages, and readers for two of them. */
 export const LOW_CONTENT = {
   ...CONTENT, low: LOW,

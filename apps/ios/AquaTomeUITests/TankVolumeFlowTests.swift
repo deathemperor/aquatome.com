@@ -153,7 +153,7 @@ final class TankVolumeFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
-    for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    repeatUntil(guide.exists && guide.isHittable, times: 6) { app.swipeUp() }
     guide.tap()
     XCTAssertTrue(app.navigationBars["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the guide didn't open")
     let tool = app.descendants(matching: .any)["native-page"].buttons.matching(NSPredicate(format: "label BEGINSWITH 'Bể bao nhiêu lít?'")).firstMatch
@@ -178,7 +178,7 @@ final class TankVolumeFlowTests: XCTestCase {
   private func openTool() -> XCUIApplication {
     let app = launch()
     let tool = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Bể bao nhiêu lít?'")).firstMatch
-    for _ in 0..<10 where !(tool.exists && tool.isHittable) { app.swipeUp() }
+    repeatUntil(tool.exists && tool.isHittable, times: 10) { app.swipeUp() }
     tool.tap()
     XCTAssertTrue(app.navigationBars["Bể bao nhiêu lít?"].waitForExistence(timeout: 5), "the tool's screen didn't open")
     return app
@@ -189,7 +189,7 @@ final class TankVolumeFlowTests: XCTestCase {
     let row = app.scrollViews["shapes"]
     show(app, row, up: false)
     let b = row.buttons.matching(identifier: "shape").matching(NSPredicate(format: "label == %@", name)).firstMatch
-    for _ in 0..<6 where !(b.exists && b.isHittable) {
+    repeatUntil(b.exists && b.isHittable, times: 6) {
       let most = row.frame.width / 2 - 20
       drag(app, from: CGPoint(x: row.frame.midX, y: row.frame.midY), by: CGVector(dx: min(max(row.frame.midX - b.frame.midX, -most), most), dy: 0))
     }
@@ -236,7 +236,7 @@ final class TankVolumeFlowTests: XCTestCase {
   /// `e` scrolled into sight, clear of the bars and the keyboard. Dragged slowly, so the screen stops where it's let go
   /// (a swipe flings past), towards where `e` lies, or `up` (on down the screen) while the form hasn't drawn it.
   private func show(_ app: XCUIApplication, _ e: XCUIElement, up: Bool = true) {
-    for _ in 0..<12 where !shown(app, e) {
+    repeatUntil(shown(app, e), times: 12) {
       let keyboard = app.keyboards.firstMatch
       let top = app.frame.minY + 120, bottom = keyboard.exists ? keyboard.frame.minY : app.frame.maxY - 100
       let middle = (top + bottom) / 2, most = (bottom - top) / 2 - 20

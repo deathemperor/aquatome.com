@@ -43,6 +43,44 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertFalse(approve.exists, "still waiting to be approved")
   }
 
+  // A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
+  func testALongCellShowsTwoLinesUntilTapped() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    section(app, "Nội dung")
+    // The video guide's three notes, the third with `&` and `<don't>` in it, as written; the review's line said too.
+    let notes = app.buttons.matching(NSPredicate(format: "identifier == 'owner-fold' AND label CONTAINS 'Phụ đề tự động' AND label CONTAINS %@",
+                                                 "Keep them hedged & <don't> give")).firstMatch
+    XCTAssertTrue(notes.waitForExistence(timeout: 10), "no notes cell")
+    XCTAssertTrue(notes.label.contains("Đánh giá bài viết từ video, 03/11 · 3 nhận xét"), notes.label)
+    XCTAssertEqual(notes.value as? String, "Xem thêm")
+    // Down the section to its table, then across it to the notes' column: dragged and held, never flung, so it isn't
+    // scrolled past.
+    let window = app.windows.firstMatch.frame
+    func drag(_ from: CGVector, _ by: CGVector) {
+      let start = app.coordinate(withNormalizedOffset: .zero).withOffset(from)
+      start.press(forDuration: 0.05, thenDragTo: start.withOffset(by), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    repeatUntil(notes.isHittable, times: 24) {
+      let f = notes.frame
+      if f.minY > window.maxY - 200 { drag(CGVector(dx: window.midX, dy: window.height * 0.7), CGVector(dx: 0, dy: -window.height * 0.4)) }
+      else if f.minY < window.minY + 160 { drag(CGVector(dx: window.midX, dy: window.height * 0.3), CGVector(dx: 0, dy: window.height * 0.3)) }
+      else { drag(CGVector(dx: window.width * 0.85, dy: f.minY + 10), CGVector(dx: -window.width * 0.6, dy: 0)) }
+    }
+    XCTAssertTrue(notes.isHittable, "the notes cell isn't on screen")
+    let folded = notes.frame.height
+    // Tapped near its top, which stays put as it opens downwards.
+    notes.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)).tap()
+    let opened = expectation(for: NSPredicate(format: "value == 'Thu gọn'"), evaluatedWith: notes)
+    wait(for: [opened], timeout: 5)
+    XCTAssertGreaterThan(notes.frame.height, folded * 2, "not all of it")
+    notes.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)).tap()
+    let closed = expectation(for: NSPredicate(format: "value == 'Xem thêm'"), evaluatedWith: notes)
+    wait(for: [closed], timeout: 5)
+    XCTAssertEqual(notes.frame.height, folded, accuracy: 1, "not two lines again")
+  }
+
   func testRemovingAReadersPhotoAsksFirst() {
     let app = launch()
     signIn(app)
@@ -144,7 +182,7 @@ final class OwnerFlowTests: XCTestCase {
     // Signed out as a sync told the same is; the row stays, saying why it can't open. Under the ways to sign in, out of
     // view until scrolled to: the list makes its rows as they come into view.
     let row = app.descendants(matching: .any)["owner-dashboard"].firstMatch
-    for _ in 0..<6 where !row.exists { app.swipeUp() }
+    repeatUntil(row.exists, times: 6) { app.swipeUp() }
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the row went")
     XCTAssertTrue(row.label.contains("đăng nhập lại"), row.label)
     let message = app.staticTexts["account-message"]
@@ -152,7 +190,7 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertEqual(message.label, "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.")
 
     // Signed in again (its button back up the list): the dashboard opens as before.
-    for _ in 0..<6 where !app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists { app.swipeDown() }
+    repeatUntil(app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists, times: 6) { app.swipeDown() }
     signIn(app)
     let plain = expectation(for: NSPredicate(format: "NOT (label CONTAINS 'đăng nhập lại')"), evaluatedWith: row)
     wait(for: [plain], timeout: 10)
@@ -225,7 +263,7 @@ extension XCUIApplication {
   func scrollToAndTap(_ id: String, file: StaticString = #filePath, line: UInt = #line) {
     let e = descendants(matching: .any)[id].firstMatch
     XCTAssertTrue(e.waitForExistence(timeout: 10), "no \(id)", file: file, line: line)
-    for _ in 0..<6 where !e.isHittable { swipeUp() }
+    repeatUntil(e.isHittable, times: 6) { swipeUp() }
     e.tap()
   }
 
@@ -233,7 +271,7 @@ extension XCUIApplication {
   func openOwnersSection(_ name: String, file: StaticString = #filePath, line: UInt = #line) {
     XCTAssertTrue(buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load", file: file, line: line)
     let row = buttons.matching(NSPredicate(format: "identifier == 'owner-section' AND label == %@", name)).firstMatch
-    for _ in 0..<10 where !(row.exists && row.isHittable) { swipeUp() }
+    repeatUntil(row.exists && row.isHittable, times: 10) { swipeUp() }
     XCTAssertTrue(row.isHittable, "no section \(name)", file: file, line: line)
     row.tap()
   }
