@@ -1,4 +1,4 @@
-import { dropCardRepeats, figuresOffCard, linkTerms, type Content, type DataCardField, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
+import { dropCardRepeats, dropOffItems, figuresOffCard, linkTerms, litresOffCard, type Content, type DataCardField, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
 import { citeMark, withCite } from './cite'
 import type { Figure } from './figures'
 import type { Lang } from './i18n'
@@ -6,8 +6,13 @@ import { mentionIndex } from './mentions'
 import { rangeParts, type RangeParts } from './range'
 import { DISPLAY_ORDER } from './sections'
 
-/** The words before each figure in a "ghi khác bảng dữ liệu" note (Vietnamese: the page shows them through t()). */
-export const OFF_LABELS: Partial<Record<DataCardField, string>> = { tempC: 'nhiệt độ', ph: 'pH', gh: 'độ cứng', sizeCm: 'kích thước', tankCm: 'bể tối thiểu' }
+/**
+ * The words before each figure in a "ghi khác bảng dữ liệu" note (Vietnamese: the page shows them through t()). `tankL`:
+ * a tank given as a volume, in litres, against the card's minimum tank in cm.
+ */
+export const OFF_LABELS: Partial<Record<DataCardField | 'tankL', string>> = { tempC: 'nhiệt độ', ph: 'pH', gh: 'độ cứng', sizeCm: 'kích thước', tankCm: 'bể tối thiểu', tankL: 'bể tối thiểu' }
+/** The blocks whose volumes are tanks: a volume elsewhere is water to change or a filter's flow. */
+const TANK_KEYS = new Set(['quickFacts', 'aquariumSize'])
 
 /** `range`: a species' range, for its "Phân bố tự nhiên" (lib/range.ts), shown before the wild's sections. */
 export type SectionProps = { sections: Section[]; t: Translation; self?: string; selfNames?: string[]; figures?: Figure[]; card?: SpeciesEntity['dataCard']; range?: { id: string; name: string; range?: SpeciesRange } }
@@ -43,10 +48,11 @@ export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNa
     if (k === RANGE_BEFORE && range) wild = rangeParts(lang, c, range, mark)
     return { key, blocks: sections.filter(x => x.key === key).flatMap(x => {
       const text = t.sections[`${key}:${x.source}`]
-      const html = text && card && key === 'quickFacts' ? dropCardRepeats(x.html, text, x.source, card) : text
+      // A quick-facts line the card already gives goes, and so does one that says otherwise: the card is the page's figure.
+      const html = text && card && key === 'quickFacts' ? dropOffItems(card, x.source, dropCardRepeats(x.html, text, x.source, card)) : text
       if (!html) return []
       const name = c.sources[x.source]?.name ?? x.source
-      const off = card && key !== 'references' ? figuresOffCard(card, x.source, html) : []
+      const off = card && key !== 'references' ? [...figuresOffCard(card, x.source, html), ...(TANK_KEYS.has(key) ? litresOffCard(card, html) : [])] : []
       return [{ ...x, name, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
     }) }
   }).filter(x => x.blocks.length > 0)

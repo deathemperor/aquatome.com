@@ -1,7 +1,9 @@
 import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
 import { cleanAltNames } from './alt-names'
 import type { Taxon } from './gbif'
+import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
+import { isShop, withoutShopTalk } from './species-sources'
 
 // takenNames: other items' names as nameKey keys (two fish under one name can't be told apart, or picked by name in the tools).
 type Ctx = { source: SourceId; url: string; now: string; takenSlugs: Set<string>; takenNames?: Set<string>; quality?: Translation['quality'] }
@@ -41,6 +43,14 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   for (const s of page.sections) {
     const p = parts.get(s.key)
     parts.set(s.key, p ? { ...p, en: `${p.en}\n${s.en}`, vi: `${p.vi}\n${s.vi}` } : s)
+  }
+  // A shop's own talk ("we pick the best fish for our customers", "before purchase") stays off the page (species-sources.ts).
+  if (isShop(ctx.source)) {
+    for (const [k, p] of parts) {
+      const { en, tr } = withoutShopTalk(p.en, { vi: p.vi })
+      if (en) parts.set(k, { ...p, en, vi: tr.vi })
+      else parts.delete(k)
+    }
   }
   // Quick facts keep only what the data card doesn't: a figure this page gives the card is on the card (with each
   // source's own figure one tap away), and the page's header names the family. A list of nothing else goes.
@@ -120,7 +130,8 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
     photos: prev?.entity?.photos ?? [], mentions: prev?.entity?.mentions ?? [], updatedAt: ctx.now,
   }
   const name = page.guide.viTitle.replace(/\s+\|\s+.*$/, '') // a page's <title> often ends in " | its section"
-  return { entity, vi: { slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: page.guide.viBody, quality: ctx.quality ?? DEFAULT_QUALITY } }
+  // A guide that fixes a problem leads with the fix (guide-sections.ts).
+  return { entity, vi: { slug: prev?.vi?.slug ?? pickSlug(name, ctx.source, ctx.takenSlugs), name, altNames: [], sections: {}, body: fixFirst(name, page.guide.kind, page.guide.viBody), quality: ctx.quality ?? DEFAULT_QUALITY } }
 }
 
 /** Places the page mentions that don't exist yet, parents first. Names stay English until a translator pass names them. */
