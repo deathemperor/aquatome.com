@@ -1,6 +1,6 @@
 import type { Content } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
+import { cleanPhoto, featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
 
 const fish = (id: string, o: { places?: string[]; indexable?: boolean; photo?: boolean } = {}) => ({
   id, places: o.places ?? ['thailand'], sections: [], photos: o.photo === false ? [] : [{ url: `https://x/${id}.jpg` }],
@@ -72,7 +72,15 @@ test("the home page's native fish: those often recorded in the country lead, ahe
   const seen = (n: number) => ({ dataCard: {}, range: { records: { countries: [['TH', n]] } } })
   const c = {
     places: [{ id: 'thailand', parent: 'asia', t: { name: 'ไทย' } }],
-    species: [{ ...fish('betta-splendens'), ...seen(1) }, { ...fish('akysis-hendricksoni'), ...seen(40) }, { ...fish('rasbora-x'), ...seen(12) }, { ...fish('trichopodus-trichopterus'), dataCard: {} }],
+    species: [{ ...fish('betta-splendens'), ...seen(1) }, { ...fish('rasbora-x'), ...seen(12) }, { ...fish('akysis-hendricksoni'), ...seen(40) }, { ...fish('trichopodus-trichopterus'), dataCard: {} }],
   } as unknown as Content
+  // The most recorded first, whichever is better known.
   expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['akysis-hendricksoni', 'rasbora-x', 'betta-splendens', 'trichopodus-trichopterus'])
+})
+
+test('a card takes a photo it can crop whole before a strip wider than about 2:1', () => {
+  const strip = { url: 'https://x/strip.jpg', width: 640, height: 263, source: 'seriouslyfish' }
+  const whole = { url: 'https://x/whole.jpg', width: 800, height: 600, source: 'seriouslyfish' }
+  expect(cleanPhoto([strip, whole] as never)).toBe(whole)
+  expect(cleanPhoto([strip] as never)).toBe(strip)
 })

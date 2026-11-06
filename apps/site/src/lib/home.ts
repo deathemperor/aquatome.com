@@ -12,8 +12,14 @@ const PLANT_STAPLES = ['taxiphyllum-barbieri', 'microsorum-pteropus', 'vallisner
 /** Beginner guides on what most readers need first (cycling, water changes, easy fish and plants, ich): lead when they have a picture. */
 const LEAD_GUIDES = ['aquariumcoop-blogs-aquarium-fish-tank-cycling', 'aquariumcoop-blogs-aquarium-how-to-change-aquarium-water-correctly', 'aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras', 'aquariumcoop-blogs-aquarium-how-to-get-started-with-aquarium-plants', 'aquariumcoop-blogs-aquarium-betta-tank-setup', 'aquariumcoop-blogs-aquarium-how-to-treat-ich-on-freshwater-fish', 'aquariumcoop-blogs-aquarium-top-5-easy-aquarium-plants', 'aquariumcoop-blogs-aquarium-cory-catfish-care-guide']
 
-/** A photo without a source's watermark banner (Glaser stamps its name across the top), else the first. */
-export const cleanPhoto = (photos: Photo[]) => photos.find(p => p.source !== 'glaser') ?? photos[0]
+/** A photo a card can crop to its shape and keep the fish whole: not a strip wider than about 2:1. */
+const fitsCard = (p: Photo) => p.width <= p.height * 2.2
+
+/**
+ * A photo without a source's watermark banner (Glaser stamps its name across the top) that a card can crop whole, else
+ * one without the banner, else the first.
+ */
+export const cleanPhoto = (photos: Photo[]) => photos.find(p => p.source !== 'glaser' && fitsCard(p)) ?? photos.find(p => p.source !== 'glaser') ?? photos[0]
 
 /** Photos first, then the fullest profiles. */
 export const richest = (lang: Lang) => (a: Localized<SpeciesEntity>, b: Localized<SpeciesEntity>) =>
@@ -54,7 +60,8 @@ const LOCAL_RECORDS = 10
 
 /**
  * The language's country, its native fish with a clean photo and an indexable page, and how many its origin page lists.
- * Fish often recorded there lead (`local`), then well-known fish: the staples, then the popular list's, in its order.
+ * Fish often recorded there lead (`local`), the most recorded first; then well-known fish: the staples, then the popular
+ * list's, in its order.
  */
 export function nativeSpecies(lang: Lang, c: Content) {
   const place = c.places.find(p => p.id === HOME_PLACE[lang])
@@ -62,8 +69,10 @@ export function nativeSpecies(lang: Lang, c: Content) {
   const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
   const rank = (s: Localized<SpeciesEntity>) => (known.includes(s.id) ? known.indexOf(s.id) : known.length)
   const country = LANG[lang].countries[0]
-  const local = (s: Localized<SpeciesEntity>) => (s.range?.records?.countries.find(([k]) => k === country)?.[1] ?? 0) >= LOCAL_RECORDS
-  const species = all.filter(ok).sort((a, b) => Number(local(b)) - Number(local(a)) || rank(a) - rank(b) || richest(lang)(a, b))
+  const seen = (s: Localized<SpeciesEntity>) => s.range?.records?.countries.find(([k]) => k === country)?.[1] ?? 0
+  const local = (s: Localized<SpeciesEntity>) => seen(s) >= LOCAL_RECORDS
+  // The most recorded there first: a fish from one island's corner (lambchop rasbora, Phú Quốc) waits for the widespread.
+  const species = all.filter(ok).sort((a, b) => Number(local(b)) - Number(local(a)) || (local(a) ? seen(b) - seen(a) : 0) || rank(a) - rank(b) || richest(lang)(a, b))
   return { place, species, local, count: all.length }
 }
 

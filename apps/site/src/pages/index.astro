@@ -126,20 +126,20 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   {guides.length > 0 && (
     <section class="wrap block" aria-labelledby="guides-h">
       <div class="head"><h2 id="guides-h" class="h">{t('Hướng dẫn cơ bản')}</h2><a href="/vi/huong-dan/">{t('Tất cả hướng dẫn →')}</a></div>
-      <div class="grid">{guides.map((g, i) => <GuideCard g={g} photo={guidePhotos[i]} />)}</div>
+      <div class="grid">{guides.map((g, i) => <GuideCard g={g} photo={guidePhotos[i]} credit={false} />)}</div>
     </section>
   )}
 
   {videos.length > 0 && (
     <section class="wrap block" aria-labelledby="videos-h">
       <div class="head"><h2 id="videos-h" class="h">{t('Video hướng dẫn')}</h2><a href="/vi/video/">{t('Tất cả video →')}</a></div>
-      <div class="grid">{videos.map((g, i) => <GuideCard g={g} photo={videoPhotos[i]} />)}</div>
+      <div class="grid">{videos.map((g, i) => <GuideCard g={g} photo={videoPhotos[i]} credit={false} />)}</div>
     </section>
   )}
 
   {plants.length > 0 && (
     <section class="wrap block" aria-labelledby="plants-h">
-      <div class="head"><h2 id="plants-h" class="h">{t('Cây dễ trồng, không cần CO2')}</h2><a href="/vi/cay/">{t('Tất cả {n} cây →', { n: c.plants.length })}</a></div>
+      <div class="head"><h2 id="plants-h" class="h">{t('Cây dễ trồng, không bắt buộc CO2')}</h2><a href="/vi/cay/">{t('Tất cả {n} cây →', { n: c.plants.length })}</a></div>
       <div class="grid">{plants.map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
     </section>
   )}
@@ -202,7 +202,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .tx span { font-size: 0.9rem; line-height: 1.4; color: var(--c-ink-soft); }
   .tools a:hover b { color: var(--c-moss); }
 
-  .groups { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: var(--space-4) var(--space-3); }
+  .groups { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-4) var(--space-3); } /* 14 groups: two even rows */
   .groups a { display: block; text-decoration: none; color: inherit; font-size: 0.95rem; }
   .gp { display: block; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); margin-bottom: var(--space-2); }
   .gp img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
