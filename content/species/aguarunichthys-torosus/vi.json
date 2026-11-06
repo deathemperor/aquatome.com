@@ -18,14 +18,17 @@
     "diet:planetcatfish": "<p>Cá chịu ăn thức ăn viên khô, giun đất hoặc phi lê cá. Giun đất có lẽ là món ăn chính tốt nhất.</p>",
     "behaviour:planetcatfish": "<p>Đây là loài săn mồi. Con gì đủ nhỏ thì nó đều ăn. Loài này sống đơn độc và rất hung dữ với đồng loại. Nó chiếm giữ một vùng lãnh thổ rộng.</p><p>Cá nuôi chung phải đủ lớn để nó không coi là mồi. Bạn không cần lo chuyện tranh ăn, vì loài này săn mồi rất giỏi.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về chuyện loài này sinh sản.</p>",
-    "notes:planetcatfish": "<p>Về nguồn gốc tên gọi, Aguarun là tên một bộ tộc người da đỏ Peru sống ở Ecuador. Còn \"ichthys\" là tiếng Hy Lạp, nghĩa là cá.</p>"
+    "notes:planetcatfish": "<p>Về nguồn gốc tên gọi, Aguarun là tên một bộ tộc người da đỏ Peru sống ở Ecuador. Còn \"ichthys\" là tiếng Hy Lạp, nghĩa là cá.</p>",
+    "quickFacts:glaser": "<p>Aguarunichthys torosus là một loài cá da trơn săn mồi, được nhập về từ Peru. Mãi đến năm 1986 người ta mới phát hiện ra loài này. Cá trưởng thành dài khoảng 35 cm.</p>",
+    "notes:glaser": "<p>A. torosus có bộ đốm trên mình trông rất giống hoa văn của mấy loài mèo hoang sống trong rừng rậm.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.88,
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "glaser": 0.9
     }
   }
 }
