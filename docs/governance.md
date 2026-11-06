@@ -112,6 +112,11 @@ that would have caught it).
     step under parallel requests, its reservations, late spends, cut-off runs and refunds (`fishid-ledger.test.ts`);
     the search and the pages it opens (`fishid-agent-tools.test.ts`); every catalog page in exactly one facts shard of
     the build (`apps/site/test/fish-id.test.ts`).
+  - The chat's contract (`protocols/chat.openapi.json`), before its Worker: the recorded answers a fake server replays
+    (`protocols/chat-stream-*.sse`, `chat-rate.json`) of its shape, with each section's blocks of the page schema's, the
+    text before the blocks and `done` holding the same text, blocks and steps, and the contract naming each; a stream
+    with an event after its end, a block or tool it doesn't know, a card with a figure the app index doesn't have, or a
+    section with no blocks refused (`apps/site/worker/test/chat-stream.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
