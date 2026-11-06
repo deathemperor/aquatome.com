@@ -73,6 +73,33 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://aquatome.com/vi/nhom/catfish/") == nil)
 }
 
+@Test func aVietnamesePageAtTheRootOpensTheSameScreen() {
+  // The site without "/vi": the tools, a group and its numbered pages, and a page the index lists in either form.
+  #expect(screen("https://aquatome.com/cong-cu/be-cua-toi/#be-t1") == .tanks("t1"))
+  #expect(screen("https://www.aquatome.com/cong-cu/be-cua-toi") == .tanks(nil))
+  #expect(screen("https://aquatome.com/cong-cu/den-chihiros/") == .lights)
+  let hasGroup: (String) -> Bool = { $0 == "catfish" }
+  let group = { (s: String) in AppScreen.of(URL(string: s)!, site: site, group: hasGroup) }
+  #expect(group("https://aquatome.com/nhom/catfish/") == .group("catfish"))
+  #expect(group("https://aquatome.com/nhom/catfish/trang/2/") == .group("catfish"))
+  #expect(group("https://aquatome.com/nhom/catfish/?sort=size") == nil)
+  #expect(group("https://aquatome.com/nhom/killifish/") == nil)
+  #expect(group("https://aquatome.com/groups/catfish/") == nil)
+  // The index's paths in the root form, a link in either: `listed` is asked with the link's path, for the app to put
+  // in the index's form (HandbookModel.item(at:)).
+  let index: Set = ["/ca/ca-neon/", "/cong-cu/nuoi-chung/"]
+  let page = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: { index.contains(PathForm.atRoot.path($0)) }) }
+  #expect(page("https://aquatome.com/ca/ca-neon/") == .page("/ca/ca-neon/"))
+  #expect(page("https://aquatome.com/vi/ca/ca-neon") == .page("/vi/ca/ca-neon/"))
+  #expect(page("https://aquatome.com/cong-cu/nuoi-chung/") == .page("/cong-cu/nuoi-chung/"))
+  #expect(page("https://aquatome.com/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
+  #expect(page("https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
+  // Not Vietnamese pages: the other languages' tools at the root, the app's data, a shop link.
+  #expect(screen("https://aquatome.com/alat/akuarium-saya/") == nil)
+  #expect(page("https://aquatome.com/app/vi.json") == nil)
+  #expect(page("https://aquatome.com/go/shopee/1") == nil)
+}
+
 @Test func theFishIDToolInEachLanguageOpensTheAppsOwnScreen() {
   #expect(screen("https://aquatome.com/vi/cong-cu/nhan-dien-ca/") == .fishId)
   #expect(screen("https://aquatome.com/id/alat/kenali-ikan/") == .fishId)

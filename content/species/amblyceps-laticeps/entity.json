@@ -10,6 +10,111 @@
     "india",
     "khasi-hills"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: India, Assam, Khasi Hills.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species' distribution in India and Bangladesh is estimated at around 40,000 km².",
+          "countries": [
+            "BD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342849,
+      "total": 20,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          15
+        ],
+        [
+          "BD",
+          4
+        ],
+        [
+          "BT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          91.40625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          25.3125,
+          5,
+          5
+        ],
+        [
+          94.21875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          28.125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

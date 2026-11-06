@@ -10,6 +10,47 @@
     "china",
     "mengnai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Mengnai",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: River Mengnai, Yunnan Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Mengnai"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Described from specimens collected from a tributary of the upper Irrawaddy in western Yunnan Province, China.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11215193,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

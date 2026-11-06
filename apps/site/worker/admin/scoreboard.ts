@@ -316,7 +316,7 @@ export function summariseScoreboard(i: ScoreboardInput): Scoreboard {
 
 // ——— Words ———
 
-const shown = (v: number | null, unit: Unit) => (v === null ? '—' : unit === 'percent' ? `${fmt(v, 1)}%` : unit === 'per1000' ? fmt(v, 1) : fmt(v))
+const shown = (v: number | null, unit: Unit, f = fmt) => (v === null ? '—' : unit === 'percent' ? `${f(v, 1)}%` : unit === 'per1000' ? f(v, 1) : f(v))
 const metric = (s: Scoreboard, key: string) => s.metrics.find(m => m.key === key)!
 const LAST_SO_FAR = 'cùng lúc tuần trước'
 const LAST_WEEK = 'tuần trước'
@@ -324,15 +324,26 @@ const LAST_WEEK = 'tuần trước'
 const before = (m: Metric) => (m.lastSoFar !== null ? { v: m.lastSoFar, vs: LAST_SO_FAR } : m.last !== null ? { v: m.last, vs: LAST_WEEK } : undefined)
 
 /** The metrics the daily report leads with. */
-export const KEY_METRICS = ['answered', 'readers', 'searchShare', 'stepShare', 'shopPer1000']
+export const KEY_METRICS = ['answered', 'readers', 'searchShare', 'stepShare', 'shopPer1000'] as const
+/** Their names in English, which the daily report is in; docs/metrics.md defines each. */
+export const KEY_NAMES_EN: Record<(typeof KEY_METRICS)[number], string> = {
+  answered: 'Readers who found their answer',
+  readers: 'Readers',
+  searchShare: 'Readers from search',
+  stepShare: 'Sessions with a next step',
+  shopPer1000: 'Shop clicks per 1,000 readers',
+}
+/** The block's words and how it writes numbers: the dashboard's Vietnamese, or what the daily report gives (daily/compose.ts). */
+export type BlockWords = { title: string; names?: Record<(typeof KEY_METRICS)[number], string>; sameMoment: string; lastWeek: string; fmt: (n: number, d?: number) => string }
+const VI_WORDS: BlockWords = { title: 'Thành công', sameMoment: LAST_SO_FAR, lastWeek: 'cả tuần trước', fmt }
 /** A short block for the daily report: the north star and the key metrics, this week against last, and the page's address. */
-export function scoreboardBlock(s: Scoreboard): { title: string; lines: string[]; href: string } {
+export function scoreboardBlock(s: Scoreboard, w = VI_WORDS): { title: string; lines: string[]; href: string } {
   const lines = KEY_METRICS.map(key => {
     const m = metric(s, key)
-    const was = m.lastSoFar !== null ? `${LAST_SO_FAR} ${shown(m.lastSoFar, m.unit)}, ` : ''
-    return `${m.name}: ${shown(m.now, m.unit)} (${was}cả tuần trước ${shown(m.last, m.unit)})`
+    const was = m.lastSoFar !== null ? `${w.sameMoment} ${shown(m.lastSoFar, m.unit, w.fmt)}, ` : ''
+    return `${w.names?.[key] ?? m.name}: ${shown(m.now, m.unit, w.fmt)} (${was}${w.lastWeek} ${shown(m.last, m.unit, w.fmt)})`
   })
-  return { title: 'Thành công', lines, href: s.page }
+  return { title: w.title, lines, href: s.page }
 }
 
 // ——— The page ———

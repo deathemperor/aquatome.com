@@ -72,7 +72,7 @@ struct PageView: View {
               .disabled(!tanks.canEdit).accessibilityIdentifier("put-on-tank")
           }
           // Saved to read later, on this phone (the Tìm tab lists them).
-          let saved = handbook.reading.isSaved(item.path)
+          let saved = handbook.isSaved(item)
           Button { handbook.toggleSaved(item) } label: {
             Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
           }
@@ -263,8 +263,9 @@ private struct WebPage: UIViewRepresentable {
       // The stand-in isn't the page: not kept as its offline copy, which would outlast the test run.
       if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return }
       #endif
+      let file = PageStore.file(for: u, site: page.url)
       web.createWebArchiveData { result in
-        if case .success(let data) = result { try? data.write(to: PageStore.file(for: u), options: .atomic) }
+        if case .success(let data) = result { try? data.write(to: file, options: .atomic) }
       }
     }
 
@@ -272,7 +273,7 @@ private struct WebPage: UIViewRepresentable {
       // Another load took its place (the reader tapped on, or went back): nothing failed.
       if isInterruption(error) { return }
       let u = (error as NSError).userInfo[NSURLErrorFailingURLErrorKey] as? URL ?? page.url
-      if let data = try? Data(contentsOf: PageStore.file(for: u)) {
+      if let data = try? Data(contentsOf: PageStore.file(for: u, site: page.url)) {
         page.offline = true
         archive = web.load(data, mimeType: "application/x-webarchive", characterEncodingName: "utf-8", baseURL: u)
       } else {
@@ -284,10 +285,13 @@ private struct WebPage: UIViewRepresentable {
 
 /// Pages kept for offline reading, one web archive per address, in the caches folder (the system may clear it).
 enum PageStore {
-  static func file(for url: URL) -> URL {
+  /// A Vietnamese page's archive is named by its address under "/vi/" whichever form it's opened in (PathForm), as the
+  /// archives kept before the site moved those pages are: a page opened at one, or sent from one to the other, finds
+  /// its archive at the other.
+  static func file(for url: URL, site: URL) -> URL {
     let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("pages", isDirectory: true)
     try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-    let key = SHA256.hash(data: Data(url.absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
+    let key = SHA256.hash(data: Data(PathForm.underVi.url(url, site: site).absoluteString.utf8)).map { String(format: "%02x", $0) }.joined()
     return dir.appendingPathComponent("\(key).webarchive")
   }
 }

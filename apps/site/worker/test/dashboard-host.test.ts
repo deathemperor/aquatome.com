@@ -3,7 +3,7 @@ import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
 import { createSession } from '../accounts/session'
-import { hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
+import { CHANGELOG_PATH, hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
 import { APP_PAGES } from '../app-switch'
 import { putReport } from '../daily/log'
 import { handle, type Env } from '../index'
@@ -99,7 +99,7 @@ test('a valid token opens the dashboard: the overview at /, each page at /<key>/
   const html = await home.text()
   expect(isDashboard(html)).toBe(true)
   expect(html).toContain('href="/" aria-current="page"')
-  expect(WEB_PAGES).toEqual(expect.arrayContaining([SCOREBOARD_PATH, REPORT_PATH]))
+  expect(WEB_PAGES).toEqual(expect.arrayContaining([SCOREBOARD_PATH, REPORT_PATH, CHANGELOG_PATH]))
   for (const p of WEB_PAGES.filter(x => x !== '/_ab/')) {
     const key = p.slice('/_ab'.length)
     const r = await dash(key, {}, e)

@@ -1,5 +1,5 @@
 import { sessionOf } from '../accounts/session'
-import { ENTITY_RE, checkRules, parseComment } from './rules'
+import { ENTITY_RE, checkRules, parseComment, type CommentInput } from './rules'
 
 export type CommentsEnv = {
   DB?: D1Database
@@ -10,7 +10,9 @@ export type CommentsEnv = {
   /** Decree 147 hook: 'phone' requires a verified commenter (no provider wired yet). */
   COMMENT_VERIFICATION?: string
 }
-export type PublicComment = { id: string; name: string; body: string; helpful: boolean; createdAt: string; author: string }
+/** A comment's photo, once moderation has shown it (photos.ts postCommentWithPhoto): under the comment, credited to its name. */
+export type CommentPhoto = { id: string; url: string; thumb: string; width: number; height: number }
+export type PublicComment = { id: string; name: string; body: string; helpful: boolean; createdAt: string; author: string; photo?: CommentPhoto }
 type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
 
 const DAY_MS = 86_400_000
@@ -88,16 +90,23 @@ const live = (env: CommentsEnv): env is CommentsEnv & { DB: D1Database; TURNSTIL
 
 export { live as commentsLive }
 
-/** GET /_c?e=species:x → approved comments only, plus what the form needs. */
+type ListRow = { id: string; name: string; body: string; helpful: number; created_at: string; account_id: string | null; photo_id: string | null; url: string; thumb: string; width: number; height: number }
+
+/** GET /_c?e=species:x → approved comments only, each with its photo once that is approved too, plus what the form needs. */
 export async function listComments(url: URL, env: CommentsEnv): Promise<Response> {
   if (!live(env)) return off()
   const e = url.searchParams.get('e') ?? ''
   if (!ENTITY_RE.test(e)) return json({ error: 'bad entity' }, 400)
   const { results } = await env.DB.prepare(
-    `SELECT id, name, body, helpful, created_at, account_id FROM comments WHERE entity_ref = ? AND status = 'approved' ORDER BY created_at LIMIT 200`,
-  ).bind(e).all<{ id: string; name: string; body: string; helpful: number; created_at: string; account_id: string | null }>()
+    `SELECT c.id, c.name, c.body, c.helpful, c.created_at, c.account_id, p.id AS photo_id, p.url, p.thumb, p.width, p.height
+     FROM comments c LEFT JOIN photos p ON p.entity_ref = 'comment:' || c.id AND p.status = 'approved'
+     WHERE c.entity_ref = ? AND c.status = 'approved' ORDER BY c.created_at LIMIT 200`,
+  ).bind(e).all<ListRow>()
   const author = await authors(env.COMMENT_HMAC_KEY)
-  const comments: PublicComment[] = await Promise.all(results.map(async r => ({ id: r.id, name: r.name, body: r.body, helpful: r.helpful === 1, createdAt: r.created_at, author: await author(r) })))
+  const comments: PublicComment[] = await Promise.all(results.map(async r => ({
+    id: r.id, name: r.name, body: r.body, helpful: r.helpful === 1, createdAt: r.created_at, author: await author(r),
+    ...(r.photo_id ? { photo: { id: r.photo_id, url: r.url, thumb: r.thumb, width: r.width, height: r.height } } : {}),
+  })))
   return json({ comments, sitekey: env.TURNSTILE_SITEKEY, verification: env.COMMENT_VERIFICATION === 'phone' ? 'phone' : 'none' }, 200, { 'cache-control': 'public, max-age=60' })
 }
 
@@ -140,8 +149,19 @@ export async function postComment(req: Request, env: CommentsEnv, now: Date, ver
   const ip = req.headers.get('cf-connecting-ip')
   const token = typeof raw?.token === 'string' ? raw.token : ''
   if (!account && (!token || !(await verify(env.TURNSTILE_SECRET, token, ip, new URL(req.url).hostname)))) return json({ error: 'turnstile' }, 403)
+  const a = await admitComment(env, c, ip, account, now)
+  if ('reject' in a) return json({ error: a.reject }, 400)
+  await a.insert.run()
+  return json({ status: a.status, comment: a.comment }, 201)
+}
 
-  // Past either day's limit, the comment is held.
+/**
+ * A comment past its sender's checks: counted against its day (past either day's limit, it is held), checked for a
+ * duplicate and against the rules. Its row's insert is returned, not run, so a comment with a photo
+ * (photos.ts postCommentWithPhoto) stores both rows in one batch.
+ */
+export async function admitComment(env: CommentsEnv & { DB: D1Database; COMMENT_HMAC_KEY: string }, c: CommentInput, ip: string | null, account: string | undefined, now: Date):
+  Promise<{ reject: string } | { id: string; status: 'approved' | 'held'; insert: D1PreparedStatement; comment?: PublicComment }> {
   let postsToday = 0
   for (const rl of await dayKeys(env.COMMENT_HMAC_KEY, ip, account, now)) {
     const n = Number((await env.AB.get(rl)) ?? 0) + 1
@@ -152,14 +172,14 @@ export async function postComment(req: Request, env: CommentsEnv, now: Date, ver
     .bind(c.entityRef, c.body, new Date(now.getTime() - DAY_MS).toISOString()).first())
 
   const v = checkRules(c, { duplicate, postsToday })
-  if ('reject' in v) return json({ error: v.reject }, 400)
+  if ('reject' in v) return { reject: v.reject }
   const status = 'ok' in v ? 'approved' : 'held'
   const id = crypto.randomUUID()
   const createdAt = now.toISOString()
-  await env.DB.prepare(`INSERT INTO comments (id, entity_ref, name, body, status, helpful, reason, created_at, account_id) VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?)`)
-    .bind(id, c.entityRef, c.name, c.body, status, 'held' in v ? v.held : null, createdAt, account ?? null).run()
+  const insert = env.DB.prepare(`INSERT INTO comments (id, entity_ref, name, body, status, helpful, reason, created_at, account_id) VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?)`)
+    .bind(id, c.entityRef, c.name, c.body, status, 'held' in v ? v.held : null, createdAt, account ?? null)
   const comment: PublicComment | undefined = status === 'approved' ? { id, name: c.name, body: c.body, helpful: false, createdAt, author: await (await authors(env.COMMENT_HMAC_KEY))({ id, account_id: account ?? null }) } : undefined
-  return json({ status, comment }, 201)
+  return { id, status, insert, comment }
 }
 
 /** `reports`: each reader's reason for reporting it ('' when they gave none). */

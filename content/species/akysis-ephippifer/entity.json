@@ -11,6 +11,79 @@
     "chao-phraya",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Chao Phraya"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Thailand; Phitsanulork Province, Upper Chao Phraya.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Cambodia: Stung Santréa, 40 km from Pomnac.",
+          "countries": [
+            "KH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340912,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          2
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
