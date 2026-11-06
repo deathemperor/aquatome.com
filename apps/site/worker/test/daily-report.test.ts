@@ -1,4 +1,4 @@
-import { afterEach, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { createSession, sha256 } from '../accounts/session'
 import { deleteUser } from '../accounts/users'
 import { ADMIN_PAGES, SECTIONS } from '../dashboard'
@@ -10,6 +10,10 @@ import { testD1 } from './d1'
 import * as S from './owner-sample'
 
 afterEach(() => { vi.restoreAllMocks() })
+/** The scoreboard's load asks GitHub for its live-check issues (admin/scoreboard.ts queryChecks): none here, and no other request leaves. */
+const GITHUB_API = 'https://api.github.com/'
+const offline = async (u: string | URL | Request) => (String(u).startsWith(GITHUB_API) ? Response.json([]) : new Response('offline', { status: 599 }))
+beforeEach(() => { vi.spyOn(globalThis, 'fetch').mockImplementation(offline) })
 
 const REPO = 'https://github.com/deathemperor/aquatome.com'
 const TOKEN = 'dashtoken-0123456789'
@@ -219,11 +223,20 @@ test('the numbers come from the dashboard\'s loaders, in Vietnam\'s days; a part
   const r = stored(w)
   expect(r.text).toContain('Could not load readers')
   expect(r.text).toContain('Could not load the app\'s telemetry')
+  expect(r.text).toContain('SUCCESS, THIS WEEK\nCould not load the scoreboard\'s numbers.')
+  expect(r.text).toContain('Could not load the week\'s success numbers')
   err.mockRestore()
-  // No Analytics Engine yet: the app's line says so too.
+  // No Analytics Engine yet: the app's line says so too, and the scoreboard's.
   const x = world()
   await post(x.e)
   expect(stored(x).text).toContain('Could not load the app\'s telemetry')
+  expect(stored(x).text).toContain('Could not load the scoreboard\'s numbers.')
+  // Analytics Engine up and nothing counted yet: the week's numbers, from the scoreboard's own loader.
+  const y = world({ AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' })
+  fetch.mockImplementation(async u => (String(u).startsWith('https://api.cloudflare.com/') ? Response.json({ data: [] }) : offline(u)))
+  expect((await post(y.e)).status).toBe(200)
+  expect(stored(y).text).toMatch(/\nSUCCESS, THIS WEEK\n- Readers who found their answer: 0 \(/)
+  expect(stored(y).text).not.toContain('Could not load the week\'s success numbers')
 })
 
 // ——— As the owner set it: email, the phones' notification (daily/settings.ts, daily/push.ts) ———
@@ -247,7 +260,8 @@ async function pushing(answer: (url: string) => Response, email = true) {
   await w.db.prepare('INSERT OR IGNORE INTO users (id, created_at) VALUES (?, ?)').bind('owner-1', '2026-11-01T00:00:00Z').run()
   const app = await createSession(w.db, 'owner-1', 'app', new Date())
   for (const [token, environment] of [[PHONE_A, 'production'], [PHONE_B, 'sandbox']] as const) expect((await register(w.e, app, token, environment)).status).toBe(200)
-  const apns = vi.spyOn(globalThis, 'fetch').mockImplementation(async u => answer(String(u)))
+  const apns = vi.fn(async (u: string, _init?: RequestInit) => answer(u))
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (u, init) => (String(u).startsWith(GITHUB_API) ? offline(u) : apns(String(u), init)))
   return { ...w, apns, app }
 }
 

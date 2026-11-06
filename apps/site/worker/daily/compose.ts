@@ -5,7 +5,8 @@ import { chipOf, dayLabel, esc, lastDays } from '../admin/chart'
 import { added, type EntityKind, type Snapshot } from '../admin/content'
 import { inLang, items, perDay } from '../admin/content-page'
 import { alignDaily, at, MODERATION_MISSED_MS, todos, waitingEn, type Overview } from '../admin/pages'
-import { isFailed, REPORT_PATH, type Soft } from '../admin/shell'
+import { KEY_NAMES_EN, scoreboardBlock, type BlockWords, type Scoreboard } from '../admin/scoreboard'
+import { isFailed, REPORT_PATH, SCOREBOARD_PATH, type Soft } from '../admin/shell'
 import { dashboardUrl } from '../paths'
 import { clock, HOME_TZ } from '../admin/time'
 import { REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
@@ -15,7 +16,7 @@ export const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFrac
 const usd = (n: number) => `$${fmt(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
 
 /**
- * The owner's daily report, from what the dashboard's loaders returned and what daily-report.yml sent: needs care first,
+ * The owner's daily report, from what the dashboard's loaders returned and what daily-report.yml sent: the week's success numbers and needs care first,
  * then the day's biggest moves, what was built, and the numbers. In English, which the owner reads it in; days and times
  * in Vietnam's zone, numbers as the dashboard writes them. No reader's data: comments, names they typed, addresses and
  * account ids aren't in what it prints, and any address that comes in with GitHub's text is cut on the way out (`cleaned`).
@@ -43,7 +44,8 @@ type Line = { text: string; href?: string }
 type Built = { label: string; text: string; href?: string; lines?: Line[]; more?: number }
 type Table = { head: string[]; rows: string[][] }
 
-export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide }
+/** `scoreboard`: undefined when it couldn't load (a loaded one names in its own `failed` the parts that didn't). */
+export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide; scoreboard: Scoreboard | undefined }
 /** `first`: the first thing that needs care, for the phone's notification. */
 export type Composed = { subject: string; text: string; html: string; care: number; first?: string }
 
@@ -53,7 +55,7 @@ const when = (t: Date | string, now: Date) => clock(t, HOME_TZ, now)
 const careCount = (care: Care[]) => care.reduce((sum, c) => sum + (c.n ?? 1), 0)
 
 /** What needs the owner, each with where to deal with it. */
-export function needsCare({ now, overview: o, app, gh }: ComposeInput): Care[] {
+export function needsCare({ now, overview: o, app, gh, scoreboard }: ComposeInput): Care[] {
   const out: Care[] = []
   for (const f of gh.failing) out.push({ title: `${f.workflow} is failing`, text: `${plural(f.failures, 'failed run')} since ${when(f.since, now)}, no success after.`, href: f.url })
   if (gh.missing.length) out.push({ title: 'GitHub did not give part of this report', text: `Missing: ${gh.missing.join(', ')}. The counts they feed may be low.`, href: gh.runUrl })
@@ -71,7 +73,17 @@ export function needsCare({ now, overview: o, app, gh }: ComposeInput): Care[] {
     const crashes = app.versions.reduce((n, v) => n + v.crashes, 0)
     if (crashes) out.push({ title: `App: ${plural(crashes, 'crash', 'crashes')} in the last 24 hours`, text: app.versions.filter(v => v.crashes).map(v => `${v.version}: ${fmt(v.crashes)}`).join(', '), href: '/_ab/ung-dung/' })
   }
+  if (!scoreOf(scoreboard)) out.push({ title: 'Could not load the week\'s success numbers', href: SCOREBOARD_PATH })
   return out
+}
+
+const SUCCESS: BlockWords = { title: 'Success, this week', names: KEY_NAMES_EN, sameMoment: 'same point last week', lastWeek: 'all of last week', fmt }
+/** The scoreboard, when its key metrics could load: each of them is the readers' beacon's, whose failure its page puts above them. */
+const scoreOf = (s: Scoreboard | undefined) => (s && !s.failed.beacon ? s : undefined)
+/** The week's success numbers, the north star first, this week so far against last (admin/scoreboard.ts); or the line that says why not. */
+function success(s: Scoreboard | undefined): string[] | string {
+  const loaded = scoreOf(s)
+  return loaded ? scoreboardBlock(loaded, SUCCESS).lines : 'Could not load the scoreboard\'s numbers.'
 }
 
 /** The mean of the 7 whole days before yesterday, in a list whose last value is today; undefined when none of them counts. */
@@ -193,11 +205,12 @@ function appBlock(app: Soft<AppDay>): Table | string {
 
 // ——— Its two forms: one model, drawn as plain text and as HTML with inline styles, which is what Gmail on a phone keeps ———
 
-type Model = { title: string; lede: string; count: number; care: Care[]; highlights: string[]; built: Built[]; site: Table[]; app: Table | string; footer: Line[] }
+type Model = { title: string; lede: string; success: string[] | string; count: number; care: Care[]; highlights: string[]; built: Built[]; site: Table[]; app: Table | string; footer: Line[] }
 
 const textTable = (t: Table) => [`${t.head[0]}:`, ...t.rows.map(r => `  ${r[0]}: ${r[1]}${r[2] !== undefined ? ` (${t.head[2]} ${r[2]})` : ''}`)]
 function toText(m: Model): string {
-  const out = [m.title, m.lede, '', m.count ? `NEEDS CARE (${fmt(m.count)})` : 'NEEDS CARE: nothing']
+  const out = [m.title, m.lede, '', SUCCESS.title.toUpperCase(), ...(typeof m.success === 'string' ? [m.success] : m.success.map(l => `- ${l}`)), `Scoreboard: ${linkOf(SCOREBOARD_PATH)}`]
+  out.push('', m.count ? `NEEDS CARE (${fmt(m.count)})` : 'NEEDS CARE: nothing')
   m.care.slice(0, CARE_SHOWN).forEach((c, i) => {
     out.push(`${i + 1}. ${c.title}${c.text ? `: ${c.text}` : ''}`)
     const href = linkOf(c.href)
@@ -234,6 +247,7 @@ function htmlTable(t: Table): string {
   return `<table style="width:100%;border-collapse:collapse;margin:0 0 14px;font-size:14px"><tr>${t.head.map((h, i) => cell(h, i, 'th')).join('')}</tr>${t.rows.map(r => `<tr>${r.map((c, i) => cell(c, i, 'td')).join('')}</tr>`).join('')}</table>`
 }
 function toHtml(m: Model): string {
+  const score = typeof m.success === 'string' ? `<p style="margin:0">${esc(m.success)}</p>` : `<ul style="${LIST}">${m.success.map((l, i) => `<li style="margin:0 0 6px">${i ? esc(l) : `<b>${esc(l)}</b>`}</li>`).join('')}</ul>`
   const more = m.care.length > CARE_SHOWN ? `<p style="margin:0;color:${MUTED}">and ${fmt(m.care.length - CARE_SHOWN)} more</p>` : ''
   const care = m.care.length
     ? `<ol style="${LIST}">${m.care.slice(0, CARE_SHOWN).map(c => `<li style="margin:0 0 8px;${WRAP}">${anchor(c.title, c.href, true)}${c.text ? `<br><span style="color:${MUTED}">${esc(c.text)}</span>` : ''}</li>`).join('')}</ol>${more}`
@@ -246,6 +260,7 @@ function toHtml(m: Model): string {
   return `<div style="font:15px/1.5 ${FONT};color:${INK};background:#fff;max-width:640px;margin:0 auto;padding:16px">
 <h2 style="display:block;font:600 21px/1.25 ${FONT};color:${INK};margin:0 0 4px">${esc(m.title)}</h2>
 <p style="margin:0;color:${MUTED};font-size:13px">${esc(m.lede)}</p>
+${h3(SUCCESS.title)}${score}<p style="margin:8px 0 0">${anchor('Scoreboard', SCOREBOARD_PATH)}</p>
 ${h3(m.count ? `Needs care (${fmt(m.count)})` : 'Needs care', m.count ? RUST : INK)}${care}
 ${h3('Highlights')}${moves}
 ${h3('Built, last 24 hours')}${made}
@@ -274,6 +289,7 @@ export function compose(input: ComposeInput): Composed {
   const model: Model = {
     title: `AquaTome daily · ${day}`,
     lede: `Made ${when(now, now)}, Vietnam. GitHub: the last 24 hours. Site: yesterday, ${dayLabel(lastDays(now, 2, HOME_TZ)[0]!)}, against the 7 days before it.`,
+    success: success(input.scoreboard),
     count, care,
     highlights: highlights(stats),
     built: built(input),
