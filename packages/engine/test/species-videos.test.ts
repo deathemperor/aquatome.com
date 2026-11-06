@@ -54,7 +54,7 @@ function deps(calls: string[]) {
     if ('score' in props) return { score: 0.9, notes: [] } as T
     // A new page's writer cites facts; what a video adds to a page doesn't.
     if (JSON.stringify(a.schema).includes('"facts"')) return { sections: [{ key: 'notes', html: '<p>Loài được mô tả năm 2026.</p>', facts: ['f0', 'c0'] }] } as T
-    return { sections: [a.prompt.includes('Rêu Giáng Sinh') ? { key: 'maintenance', html: '<p>Rêu bám lũa sau vài tuần.</p>' } : { key: 'behaviour', html: '<p>Một người nuôi lâu năm thấy cá đực xòe vây khoe nhau mỗi sáng.</p>' }] } as T
+    return { sections: [a.prompt.includes('Rêu Giáng Sinh') ? { key: 'maintenance', html: '<p>Rêu bám lũa sau vài tuần.</p>' } : { key: 'behaviour', html: '<p>Một người nuôi lâu năm thấy cá đực xòe vây khoe nhau mỗi sáng, ở 75°F.</p>' }] } as T
   }
   const http = async (u: string) => (u.includes('/species/match') ? { matchType: 'NONE' } : u.includes('/species/search') ? { results: u.includes('Nanosphronemus') ? [{ canonicalName: 'Nanosphronemus gemma', rank: 'SPECIES', taxonomicStatus: 'ACCEPTED', order: 'Anabantiformes', family: 'Osphronemidae', genus: 'Nanosphronemus' }] : [] } : {})
   return {
@@ -95,7 +95,8 @@ test('species-videos: uploads vetted by title once; a few profiles a run, each t
   expect(e.videos).toEqual([{ youtubeId: 'A', title: 'Sawbwa resplendens – The Tiny Fish with a Big Story', durationSec: 300, lang: 'en' }])
   expect(e.updatedAt).toBe('2026-11-06')
   const vi = JSON.parse(await readFile(join(r, 'content/species/sawbwa-resplendens/vi.json'), 'utf8'))
-  expect(vi.sections['behaviour:aquatome']).toBe('<p>Một người nuôi lâu năm thấy cá đực xòe vây khoe nhau mỗi sáng.</p>')
+  // Metric only: a writer's °F is converted.
+  expect(vi.sections['behaviour:aquatome']).toMatch(/^<p>Một người nuôi lâu năm thấy cá đực xòe vây khoe nhau mỗi sáng, ở 24 ?°C\.<\/p>$/)
   expect(vi.quality).toEqual({ score: 0.9, indexable: true, bySource: { seriouslyfish: 0.9, aquatome: 0.9 } })
   // The plant page, found by a synonym: the same, with no list of videos.
   const p = PlantSchema.parse(JSON.parse(await readFile(join(r, 'content/plants/taxiphyllum-sp-christmas/entity.json'), 'utf8')))

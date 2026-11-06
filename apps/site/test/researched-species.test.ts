@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import type { Block } from '@aq/schema/app-page'
-import { fishDoc, listedPaths } from '../src/lib/app-page'
+import { fishDoc, listedPaths, sectionBlocks } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { sectionParts } from '../src/lib/section-parts'
 
@@ -37,6 +37,8 @@ test('AquaTome\'s own text cites each page it was researched from, numbered in t
   expect(html('notes')).not.toContain('dịch từ nguồn')
   expect(listed).toEqual([{ name: 'Meet the Jewel Gourami!', url: refs[1]!.url }, { name: 'A new genus of miniature labyrinth fish', url: refs[0]!.url }, { name: 'Museum catalogue', url: refs[2]!.url }])
   expect(note).toBe('Các phần trên dịch hoặc tổng hợp từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.')
+  // The app's copy reads a block ending in several marks as it reads one.
+  expect(sectionBlocks('vi', c, { sections: s.sections, t: s.t, card: s.dataCard, refs: s.refs }).unknown).toEqual([])
 })
 
 test('a researched fish\'s copy: credited to AquaTome\'s research, its card\'s figure named by its page', async () => {

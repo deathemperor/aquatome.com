@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { judgeQuality, mayPublish, plainText, PlantSchema, QUALITY_THRESHOLD, resolveDataCard, SECTION_ORDER, slugify, SpeciesSchema, speciesDepth, TranslationSchema, type DataCardField, type PlantEntity, type SectionKey, type SourceInfo, type SpeciesEntity } from '@aq/schema'
+import { judgeQuality, mayPublish, metricPage, plainText, PlantSchema, QUALITY_THRESHOLD, resolveDataCard, SECTION_ORDER, slugify, SpeciesSchema, speciesDepth, TranslationSchema, type DataCardField, type PlantEntity, type SectionKey, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { speciesResolver } from './breeds'
 import { appendChangelog } from './changelog'
 import { LlmError } from './claude'
@@ -124,7 +124,8 @@ export async function addFromVideo(root: string, d: Pick<SpeciesDeps, 'llm' | 'n
     entity = SpeciesSchema.parse({ ...s, sections, videos: video && !s.videos.some(x => x.youtubeId === video.youtubeId) ? [video, ...s.videos] : s.videos, refs, updatedAt: today })
   } else entity = PlantSchema.parse({ ...e, sections, refs, updatedAt: today })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
-  await writeFile(join(dir, 'vi.json'), `${JSON.stringify(TranslationSchema.parse({ ...t, sections: vi, quality }), null, 2)}\n`)
+  // Metric only, as every writer of these pages (metric.ts): what the video gives in °F or inches is converted here.
+  await writeFile(join(dir, 'vi.json'), `${JSON.stringify(TranslationSchema.parse(metricPage({ ...t, sections: vi, quality }, 'vi')), null, 2)}\n`)
   await logReviews(root, 'species', ref, tries, review, { now: d.now() })
   await appendChangelog(join(root, 'content'), [{ date: today, kind: kind === 'plants' ? 'plant' : 'species', id, source: 'aquatome', action: 'updated' }])
   return { done: 'added', score: review.score }
