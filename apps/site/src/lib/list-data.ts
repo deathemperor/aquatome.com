@@ -1,7 +1,7 @@
 import type { Content, GuideEntity, Localized, Photo, PlantEntity, SpeciesEntity } from '@aq/schema'
 import type { PlantIndexItem, SpeciesIndexItem } from '../scripts/filter'
 import { typeUses } from './equipment'
-import { GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { GUIDE_KIND_LABELS } from './format'
 import { leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
 import { smallSrc } from './img'
@@ -95,8 +95,10 @@ export function speciesLists(lang: Lang, c: Content): Map<string, Localized<Spec
 }
 
 /** A plant card's line: "Ánh sáng yếu, CO₂ không cần" (PlantCard). */
-export const plantMeta = (t: T, p: Localized<PlantEntity>) =>
-  t('Ánh sáng {light}, CO₂ {co2}', { light: t(PLANT_LABELS.light[p.light]!).toLowerCase(), co2: t(PLANT_LABELS.co2[p.co2]!).toLowerCase() })
+const LIGHT_WORDS: Record<string, string> = { low: 'Đèn yếu', medium: 'Đèn vừa', high: 'Đèn mạnh' }
+const CO2_WORDS: Record<string, string> = { none: 'không cần CO2', optional: 'có CO2 thì tốt hơn', required: 'cần CO2' }
+/** A plant card's line, as a keeper says it: "Đèn yếu, không cần CO2". */
+export const plantMeta = (t: T, p: Localized<PlantEntity>) => `${t(LIGHT_WORDS[p.light]!)}, ${t(CO2_WORDS[p.co2]!)}`
 
 /** The plant list's card pictures, in its order (lib/pictures.ts listPictures): two plants can share a photo. */
 export const plantPhotos = (c: Content) => listPictures(c, 'cay', c.plants, p => photosOf(p.photos))

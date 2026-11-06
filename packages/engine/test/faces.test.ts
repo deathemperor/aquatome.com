@@ -44,3 +44,16 @@ test('photos the owner rejected are dropped every cycle without being screened',
   expect(fetched).toEqual(['fish'])
   expect(JSON.parse(await readFile(page, 'utf8')).photos).toEqual([{ url: 'fish' }])
 })
+
+test("a video section's photo the owner rejected leaves its section every cycle; the section's stills stay", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'fv-'))
+  await mkdir(join(root, 'guides', 'v'), { recursive: true })
+  const page = join(root, 'guides', 'v', 'entity.json')
+  const figures = [{ heading: 'A', moments: [{ t: 1 }], photo: { url: 'statue' } }, { heading: 'B', moments: [], photo: { url: 'tank' } }]
+  await writeFile(page, JSON.stringify({ id: 'v', photos: [], video: { figures } }))
+  await writeFile(join(root, 'rejected.json'), JSON.stringify({ statue: 'a human figure' }))
+  const deps = { get: async (u: string) => new TextEncoder().encode(u), detect: async (fs: string[]) => fs.map(() => 0) }
+  const r = await dropFacePhotos(root, join(root, 'faces.json'), deps, join(root, 'rejected.json'))
+  expect(r.removed).toEqual(['guides/v/entity.json: statue'])
+  expect(JSON.parse(await readFile(page, 'utf8')).video.figures).toEqual([{ heading: 'A', moments: [{ t: 1 }] }, { heading: 'B', moments: [], photo: { url: 'tank' } }])
+})

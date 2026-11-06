@@ -25,7 +25,7 @@ const kinds = (['setup', 'care', 'plantCare', 'aquascaping', 'breeding', 'diseas
 const { start, startCovers, covers } = guideListPhotos(c)
 const firstCovers = covers.slice(0, PAGE)
 ---
-<Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Setup bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor([...startCovers, ...firstCovers].map(p => p ?? undefined))} creditsLater>
+<Browse title={t('Hướng dẫn')} heading={t('Hướng dẫn')} intro={t('Set bể, chăm sóc, sinh sản và trồng cây, từng bước một.')} credits={creditsFor([...startCovers, ...firstCovers].map(p => p ?? undefined))} creditsLater>
   {videos && <p class="vid">{t('Có cả')} <a href="/vi/video/">{t('video hướng dẫn')}</a>{t(': bài viết kèm video gốc, phụ đề tiếng Việt.')}</p>}
   {guides.length === 0 ? <p>{t('Chưa có hướng dẫn nào được xuất bản.')}</p> : <>
     {start.length > 0 && (

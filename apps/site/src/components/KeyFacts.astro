@@ -8,7 +8,7 @@ interface Props { card: SpeciesEntity['dataCard'] }
 const { t, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const facts = (['tempC', 'ph', 'tankCm', 'difficulty'] as const).map(field => {
-  const r = resolveDataCard(Astro.props.card[field] ?? [])
+  const r = resolveDataCard(Astro.props.card[field] ?? [], field)
   return { field, value: r?.value, conflict: !!r?.conflict }
 })
 const pair = (v: number | { min: number; max: number }) => (isRange(v) ? `${v.min},${v.max}` : `${v},${v}`)

@@ -91,7 +91,7 @@ test('species data card: one sources toggle, the disagreeing values marked, each
   const press = () => (info.project.name === 'phone' ? summary.tap() : summary.click())
   await press()
   await expect(by).toBeVisible()
-  await expect(by.locator('p')).toHaveText(/^(Mức mọi nguồn cùng khuyên|Mỗi nguồn ghi một mức)$/)
+  await expect(by.locator('p')).toHaveText('Mỗi nguồn ghi một mức')
   const items = by.locator('li')
   expect(await items.count(), 'one line per source').toBeGreaterThanOrEqual(2)
   for (const li of await items.all()) {

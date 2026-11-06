@@ -10,7 +10,7 @@ import { HERO } from '../lib/hero'
 import { creditsFor } from '../lib/credits'
 import { smallSrc } from '../lib/img'
 import { homeVideos } from '../lib/video'
-import { completeFirst, easyPlants, featuredSpecies, groupTiles, leadGuides, nativeSpecies, STEP_GUIDES } from '../lib/home'
+import { easyPlants, featuredSpecies, groupTiles, leadGuides, nativeCards, nativeSpecies, STEP_GUIDES } from '../lib/home'
 import { i18n } from '../lib/i18n'
 import { pagePictures, photosOf, takeEach } from '../lib/pictures'
 import { toolCards } from '../lib/tools'
@@ -22,7 +22,7 @@ const cycle = guideById(STEP_GUIDES.cycle)
 const water = guideById(STEP_GUIDES.water)
 // Three first steps; a step whose guide isn't published links nowhere and is dropped.
 const steps = [
-  cycle && { n: 1, title: t('Chạy chu trình nitơ'), text: t('Nuôi vi sinh trong bể vài tuần trước khi thả cá, để chất thải của cá không thành chất độc.'), href: `/vi/huong-dan/${cycle.t.slug}/` },
+  cycle && { n: 1, title: t('Chạy chu trình nitơ'), text: t('Nuôi vi sinh trước khi thả cá, đến khi đo amoniac và nitrit đều về 0. Thường mất vài tuần.'), href: `/vi/huong-dan/${cycle.t.slug}/` },
   { n: 2, title: t('Chọn cá hợp bể'), text: t('Nhập bể của bạn ở trên, hoặc bắt đầu từ những loài dễ nuôi.'), href: '/vi/ca/?difficultyMax=3' },
   water && { n: 3, title: t('Thay nước định kỳ'), text: t('Thay bao nhiêu, bao lâu một lần, và cách làm để cá không bị sốc.'), href: `/vi/huong-dan/${water.t.slug}/` },
 ].filter(x => !!x).map((x, i) => ({ ...x, n: i + 1 }))
@@ -34,8 +34,8 @@ const equipment = c.equipment
 // The tools a keeper comes back for; the rest are a tap away on the tools page.
 const tools = toolCards(t).filter(x => ['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#phan-bon', '/vi/cong-cu/den-chihiros/'].includes(x.href)).map(x => ({ ...x, href: x.href.startsWith('#') ? `/vi/cong-cu/${x.href}` : x.href }))
 const native = nativeSpecies(lang, c)
-// The country's own fish, besides those already featured above; full data cards first, like the featured ones.
-const nativeShown = completeFirst(native.species.filter(s => !featured.includes(s))).slice(0, 4)
+// The country's own fish, besides those already featured above.
+const nativeShown = nativeCards(lang, c, featured)
 // Every picture once, chosen in page order (lib/pictures.ts): a group's tile takes its next fish's photo when the
 // cards above show its best one.
 const pics = pagePictures(c)
@@ -139,7 +139,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
 
   {plants.length > 0 && (
     <section class="wrap block" aria-labelledby="plants-h">
-      <div class="head"><h2 id="plants-h" class="h">{t('Cây dễ trồng, không cần CO₂')}</h2><a href="/vi/cay/">{t('Tất cả {n} cây →', { n: c.plants.length })}</a></div>
+      <div class="head"><h2 id="plants-h" class="h">{t('Cây dễ trồng, không cần CO2')}</h2><a href="/vi/cay/">{t('Tất cả {n} cây →', { n: c.plants.length })}</a></div>
       <div class="grid">{plants.map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
     </section>
   )}
@@ -230,5 +230,6 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
     .groups li { flex: 0 0 calc(100% / 3.3); scroll-snap-align: start; } /* three cards and a slice of the fourth: the row reads as one that scrolls */
     .block { padding-top: var(--space-6); }
     .h { font-size: var(--step-2); }
+    .head { flex-direction: column; align-items: flex-start; } /* every section's "all" link under its heading: one rhythm down the page */
   }
 </style>

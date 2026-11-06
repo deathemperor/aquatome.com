@@ -3,7 +3,7 @@ import { resolveDataCard, type SpeciesEntity } from '@aq/schema'
 import { vnClimate, VN_WATER } from '../lib/climate'
 import { i18n } from '../lib/i18n'
 interface Props { card: SpeciesEntity['dataCard'] }
-const temp = resolveDataCard(Astro.props.card.tempC ?? [])
+const temp = resolveDataCard(Astro.props.card.tempC ?? [], 'tempC')
 const notes = temp ? vnClimate(temp.value) : []
 const c = (n: number) => `${n}`.replace('.', ',')
 const { t } = i18n(Astro.url)

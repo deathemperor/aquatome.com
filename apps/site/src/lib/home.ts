@@ -1,10 +1,12 @@
 import { POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
 import { guideImage, mentionIndex } from './mentions'
-import type { Lang } from './i18n'
+import { LANG, type Lang } from './i18n'
 
 
 /** Plants every beginner can grow: shown first. */
+/** A group's tile tries these first: most snail photos are museum shells on black, these show a living snail. */
+const GROUP_COVERS: Record<string, string[]> = { snails: ['radix-rubiginosa', 'peregriana-peregra', 'neripteron-auriculatum'] }
 const PLANT_STAPLES = ['taxiphyllum-barbieri', 'microsorum-pteropus', 'vallisneria', 'bucephalandra-sp', 'aegagropila-linnaei', 'bolbitis-heudelotii']
 
 /** Beginner guides on what most readers need first (cycling, water changes, easy fish and plants, ich): lead when they have a picture. */
@@ -31,7 +33,7 @@ function knownFirst(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
 
 /** The data card's core figures: temperature, pH, adult size and the smallest tank. */
 const CORE = ['tempC', 'ph', 'sizeCm', 'tankCm'] as const
-const complete = (s: Localized<SpeciesEntity>) => CORE.every(f => resolveDataCard(s.dataCard[f] ?? []) !== null)
+const complete = (s: Localized<SpeciesEntity>) => CORE.every(f => resolveDataCard(s.dataCard[f] ?? [], f) !== null)
 
 /** Species with all core figures first, in their order; one missing a figure only fills a spot nothing complete can. */
 export const completeFirst = (list: Localized<SpeciesEntity>[]) => [...list.filter(complete), ...list.filter(s => !complete(s))]
@@ -44,13 +46,32 @@ export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<Specie
 /** The reader's own country for each language: its native fish get a place on the home page. */
 const HOME_PLACE: Record<Lang, string> = { vi: 'vietnam', id: 'indonesia', th: 'thailand' }
 
-/** The language's country, its native fish with a clean photo and an indexable page, and how many its origin page lists. Well-known fish lead: the staples, then the popular list's, in its order. */
+/**
+ * A fish recorded in the wild in the language's country at least this often (GBIF): plainly one of its own. A source can
+ * name a country at the edge of a range (Japanese medaka, one Vietnamese record of 722).
+ */
+const LOCAL_RECORDS = 10
+
+/**
+ * The language's country, its native fish with a clean photo and an indexable page, and how many its origin page lists.
+ * Fish often recorded there lead (`local`), then well-known fish: the staples, then the popular list's, in its order.
+ */
 export function nativeSpecies(lang: Lang, c: Content) {
   const place = c.places.find(p => p.id === HOME_PLACE[lang])
   const all = place ? c.species.filter(s => s.places.includes(place.id)) : []
   const known = [...STAPLE_SPECIES, ...POPULAR.map(slugify)]
   const rank = (s: Localized<SpeciesEntity>) => (known.includes(s.id) ? known.indexOf(s.id) : known.length)
-  return { place, species: all.filter(ok).sort((a, b) => rank(a) - rank(b) || richest(lang)(a, b)), count: all.length }
+  const country = LANG[lang].countries[0]
+  const local = (s: Localized<SpeciesEntity>) => (s.range?.records?.countries.find(([k]) => k === country)?.[1] ?? 0) >= LOCAL_RECORDS
+  const species = all.filter(ok).sort((a, b) => Number(local(b)) - Number(local(a)) || rank(a) - rank(b) || richest(lang)(a, b))
+  return { place, species, local, count: all.length }
+}
+
+/** The home page's native fish: those often recorded there first, full data cards first within each; none featured above. */
+export function nativeCards(lang: Lang, c: Content, featured: Localized<SpeciesEntity>[], n = 4) {
+  const { species, local } = nativeSpecies(lang, c)
+  const left = species.filter(s => !featured.includes(s))
+  return [...completeFirst(left.filter(local)), ...completeFirst(left.filter(s => !local(s)))].slice(0, n)
 }
 
 /** The full species list in reading order: the well-known species first, then the best-documented. */
@@ -67,7 +88,9 @@ export function groupTiles(lang: Lang, c: Content, pics?: PictureSet): { group: 
   return Object.entries(GROUP_LABELS)
     .map(([group, label]) => {
       const members = c.species.filter(s => s.group === group)
-      const ranked = [...members].sort(richest(lang))
+      const first = GROUP_COVERS[group] ?? []
+      const cover = (x: Localized<SpeciesEntity>) => (first.includes(x.id) ? first.indexOf(x.id) : first.length)
+      const ranked = [...members].sort((a, b) => cover(a) - cover(b) || richest(lang)(a, b))
       const all = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? [])
       // A photo under 640 px wide is often an old, soft scan: it waits for every larger one.
       const photos = [...all.filter(p => p.width >= 640), ...all.filter(p => p.width < 640)]

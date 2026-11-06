@@ -94,7 +94,7 @@ const around = (s: string) => s.split(/\{\w+\}/) as [string, string]
           <div data-src-field={r.field} data-conflict={r.conflict ? 'true' : undefined}>
             <dt>{t(FIELD_LABELS[r.field])}{r.conflict && <span class="mark" aria-hidden="true" />}</dt>
             <dd>
-              {r.conflict && <p>{r.agreed ? t('Mức mọi nguồn cùng khuyên') : t('Mỗi nguồn ghi một mức')}</p>}
+              {r.conflict && <p>{t('Mỗi nguồn ghi một mức')}</p>}
               <ul>
                 {(r.conflict ? r.vals : r.vals.slice(0, 1)).map(v => {
                   const names = r.conflict ? [v.source] : r.sources

@@ -250,13 +250,13 @@ test('fish carry the tank-mates tool\'s figures and behaviour under the tool\'s 
 test('a breed that is a form of a species is checked as it (`of`), its own figures for its card; any other breed is a fish of its own', async () => {
   const vi = index('vi').items
   // A colour form of the discus: counted as the discus, so none of the tank-mates figures of its own; its card's figures
-  // as its page's card resolves them (the two sources' temperatures: the range both accept).
+  // as its page's card resolves them (the two sources' temperatures: the span they give between them).
   const pigeon = vi.find(i => i.id === 'pigeon-blood-discus')!
   expect(pigeon.of).toBe('symphysodon-aequifasciatus')
-  expect(pigeon.card).toEqual({ tempC: { min: 28, max: 30 }, sizeCm: 15 })
+  expect(pigeon.card).toEqual({ tempC: { min: 27, max: 31 }, sizeCm: 15 })
   const card = appPage(pigeon.path).dom.querySelectorAll('.datacard dl.card > div')
   expect(card.map(r => r.getAttribute('data-field'))).toEqual(Object.keys(pigeon.card!))
-  expect(card.map(r => r.querySelector('.v')!.getAttribute('data-c') ?? r.querySelector('.v')!.getAttribute('data-cm'))).toEqual(['28,30', '15,15'])
+  expect(card.map(r => r.querySelector('.v')!.getAttribute('data-c') ?? r.querySelector('.v')!.getAttribute('data-cm'))).toEqual(['27,31', '15,15'])
   // A hybrid with no figures: neither.
   const flowerhorn = vi.find(i => i.id === 'flowerhorn-cichlid')!
   expect(['of', 'card', 'tempC', 'sizeCm', 'temperament'].filter(k => k in flowerhorn)).toEqual([])
@@ -272,7 +272,7 @@ test('a breed that is a form of a species is checked as it (`of`), its own figur
   }
   const breed = c.breeds.find(b => b.id === 'pigeon-blood-discus')!
   const with_ = (breeds: Content['breeds'], species = c.species) => appIndex('vi', { ...c, breeds, species } as Content).items
-  const own = { tempC: { min: 28, max: 30 }, sizeCm: 15, card: { tempC: { min: 28, max: 30 }, sizeCm: 15 } }
+  const own = { tempC: { min: 27, max: 31 }, sizeCm: 15, card: { tempC: { min: 27, max: 31 }, sizeCm: 15 } }
   // Linked to no species, or a hybrid: a fish of its own, with its figures and no behaviour (the check says "unsure").
   for (const b of [{ ...breed, basedOn: undefined }, { ...breed, kind: 'hybrid' as const }]) {
     const item = with_([b]).find(i => i.id === b.id)!

@@ -22,12 +22,12 @@ const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const p = photo !== undefined ? photo : breed ? breed.photos[0] : cleanPhoto(s.photos)
 const card = breed ? careCard(breed).card : s.dataCard
-const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [])
-const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [])
-const diff = template ? { value: 1 } : resolveDataCard(card.difficulty ?? [])
+const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [], 'tempC')
+const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [], 'ph')
+const diff = template ? { value: 1 } : resolveDataCard(card.difficulty ?? [], 'difficulty')
 const t = temp && isRange(temp.value) ? temp.value : undefined
 const h = ph && isRange(ph.value) ? ph.value : undefined
-const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankCm: asNum(resolveDataCard(card.tankCm ?? [])?.value), difficulty: asNum(diff?.value) } : undefined
+const fig = breed ? { tempC: asRange(temp?.value), ph: asRange(ph?.value), tankCm: asNum(resolveDataCard(card.tankCm ?? [], 'tankCm')?.value), difficulty: asNum(diff?.value) } : undefined
 ---
 <article class="sc" data-fig={fig && JSON.stringify(fig)}>
   <a href={`/vi/ca/${(breed ?? s).t.slug}/`}>

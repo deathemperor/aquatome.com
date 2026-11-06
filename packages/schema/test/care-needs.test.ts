@@ -7,7 +7,7 @@ import { careNeeds, NEED_ORDER, resolveDataCard, type DataCardField, type NeedIn
 const FIXTURE = new URL('../../../apps/site/test/fixture-content/', import.meta.url)
 function fixture(id: string): NeedInput {
   const s = JSON.parse(readFileSync(new URL(`species/${id}/entity.json`, FIXTURE), 'utf8')) as SpeciesEntity
-  const r = (f: DataCardField) => resolveDataCard(s.dataCard[f] ?? [])?.value
+  const r = (f: DataCardField) => resolveDataCard(s.dataCard[f] ?? [], f)?.value
   const range = (v: Range | number | undefined) => (v === undefined ? undefined : typeof v === 'number' ? { min: v, max: v } : v)
   const num = (v: Range | number | undefined) => (v === undefined ? undefined : typeof v === 'number' ? v : v.max)
   const file = new URL(`traits/${id}.json`, FIXTURE)
@@ -32,11 +32,11 @@ test('discus: a 120 cm tank, acid water and warm water only are each hard', () =
   ])
 })
 
-test('cardinal tetra: soft acid water is hard, the sources\' shared temperature range is narrow, a school of 8 is medium', () => {
+test('cardinal tetra: soft acid water is hard, the sources\' temperatures together are wide, a school of 8 is medium', () => {
   expect(careNeeds(fixture('paracheirodon-axelrodi'))).toEqual([
     { key: 'space', level: 'easy', tankCm: 60, sizeCm: 5 },
     { key: 'water', level: 'hard', ph: { min: 4, max: 6 }, gh: { min: 1, max: 6 }, why: ['acid', 'soft'] },
-    { key: 'temperature', level: 'mid', tempC: { min: 24, max: 27 }, why: ['narrow'] },
+    { key: 'temperature', level: 'easy', tempC: { min: 23, max: 30 }, why: [] },
     { key: 'temperament', level: 'easy', temperament: 'peaceful', finNipper: false },
     { key: 'social', level: 'mid', schoolMin: 8 },
   ])

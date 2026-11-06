@@ -623,7 +623,7 @@
       "note": "cardinal tetra: all five needs; soft acid water is hard, the sources' shared temperature range is narrow",
       "species": "paracheirodon-axelrodi",
       "entry": {
-        "tempC": {"min": 24, "max": 27},
+        "tempC": {"min": 23, "max": 30},
         "ph": {"min": 4, "max": 6},
         "gh": {"min": 1, "max": 6},
         "sizeCm": 5,
@@ -641,7 +641,7 @@
           "gh": {"min": 1, "max": 6},
           "why": ["acid", "soft"]
         },
-        {"key": "temperature", "level": "mid", "tempC": {"min": 24, "max": 27}, "why": ["narrow"]},
+        {"key": "temperature", "level": "easy", "tempC": {"min": 23, "max": 30}, "why": []},
         {"key": "temperament", "level": "easy", "temperament": "peaceful", "finNipper": false},
         {"key": "social", "level": "mid", "schoolMin": 8}
       ],
@@ -649,21 +649,21 @@
         "vi": [
           ["Không gian", "Dễ", "bể từ 60 cm, cá dài 5 cm"],
           ["Nước", "Khó", "nước chua, nước mềm · pH 4–6, 1–6 dGH"],
-          ["Nhiệt độ", "Vừa", "khoảng nhiệt độ hẹp · 24–27°C"],
+          ["Nhiệt độ", "Dễ", "23–30°C"],
           ["Tính cách", "Dễ", "hiền"],
           ["Bầy đàn", "Vừa", "đàn từ 8 con"]
         ],
         "id": [
           ["Ruang", "Mudah", "akuarium mulai 60 cm, ikan sepanjang 5 cm"],
           ["Air", "Sulit", "air asam, air lunak · pH 4–6, 1–6 dGH"],
-          ["Suhu", "Sedang", "rentang suhu sempit · 24–27°C"],
+          ["Suhu", "Mudah", "23–30°C"],
           ["Perilaku", "Mudah", "damai"],
           ["Kelompok", "Sedang", "kelompok mulai 8 ekor"]
         ],
         "th": [
           ["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 60 cm, ปลายาว 5 cm"],
           ["น้ำ", "ยาก", "น้ำเป็นกรด, น้ำอ่อน · pH 4–6, 1–6 dGH"],
-          ["อุณหภูมิ", "ปานกลาง", "ช่วงอุณหภูมิแคบ · 24–27°C"],
+          ["อุณหภูมิ", "ง่าย", "23–30°C"],
           ["นิสัย", "ง่าย", "นิสัยสงบ"],
           ["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 8 ตัว"]
         ]

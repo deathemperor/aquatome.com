@@ -939,7 +939,7 @@
                 "field": "tempC",
                 "label": "Nhiệt độ",
                 "conflict": true,
-                "note": "Mức mọi nguồn cùng khuyên",
+                "note": "Mỗi nguồn ghi một mức",
                 "items": [
                   "Seriously Fish: 24–30°C",
                   "Aquarium Glaser: 23–27°C"
@@ -1022,6 +1022,21 @@
               "title": "Tránh",
               "items": [
                 {
+                  "path": "/vi/ca/ca-dia/",
+                  "name": "Cá đĩa",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Blue_Discus.jpg/500px-Blue_Discus.jpg",
+                    "w": 960,
+                    "h": 802,
+                    "credit": {
+                      "text": "Ảnh: Patrick Farrelly",
+                      "licence": "Public domain",
+                      "url": "https://commons.wikimedia.org/wiki/File:Blue_Discus.jpg"
+                    }
+                  },
+                  "why": "Lớn tới 15 cm, có thể ăn Cá neon vua"
+                },
+                {
                   "path": "/vi/ca/ca-apisto-cacatuoides/",
                   "name": "Cá apisto cacatuoides",
                   "img": {
@@ -1051,7 +1066,7 @@
               {
                 "label": "Mùa đông miền Bắc",
                 "ok": false,
-                "text": "Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 24°C."
+                "text": "Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 23°C."
               },
               {
                 "label": "Miền Nam",
@@ -1061,7 +1076,7 @@
               {
                 "label": "Mùa hè cả nước",
                 "ok": false,
-                "text": "Nước bể có thể lên 31°C, trên mức tối đa 27°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 30°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
               }
             ],
             "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
@@ -1704,7 +1719,7 @@
           {
             "t": "p",
             "c": [
-              "Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 24–27°C)."
+              "Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 23–30°C)."
             ]
           },
           {
@@ -2446,7 +2461,7 @@
                 "field": "tempC",
                 "label": "Nhiệt độ",
                 "conflict": true,
-                "note": "Mức mọi nguồn cùng khuyên",
+                "note": "Mỗi nguồn ghi một mức",
                 "items": [
                   "Trại cá đĩa A: 28–30°C",
                   "Diễn đàn B: 27–31°C"

@@ -1,6 +1,6 @@
 import type { Content } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { featuredSpecies, groupTiles, listOrder, nativeSpecies } from '../src/lib/home'
+import { featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
 
 const fish = (id: string, o: { places?: string[]; indexable?: boolean; photo?: boolean } = {}) => ({
   id, places: o.places ?? ['thailand'], sections: [], photos: o.photo === false ? [] : [{ url: `https://x/${id}.jpg` }],
@@ -60,4 +60,19 @@ test("a video guide's card picture: a photo from its sections, not a strip a car
   const withBare = { ...c, guides: [bare, ...c.guides] }
   expect(homeVideos(withBare).map(v => v.id)).not.toContain('bare')
   expect(homeVideos(withBare).length).toBeGreaterThan(0)
+})
+
+test("the snails' tile shows a living snail before a museum shell, whoever is better documented", () => {
+  const snail = (id: string, photos: number) => ({ ...fish(id), group: 'snails', photos: Array.from({ length: photos }, (_, i) => ({ url: `https://x/${id}-${i}.jpg`, width: 960, height: 720, source: 'commons' })) })
+  const c = { species: [snail('monetaria-annulus', 3), snail('radix-rubiginosa', 1)] } as unknown as Content
+  expect(groupTiles('vi', c)[0]!.photo?.url).toBe('https://x/radix-rubiginosa-0.jpg')
+})
+
+test("the home page's native fish: those often recorded in the country lead, ahead of a popular fish a source places at its edge", () => {
+  const seen = (n: number) => ({ dataCard: {}, range: { records: { countries: [['TH', n]] } } })
+  const c = {
+    places: [{ id: 'thailand', parent: 'asia', t: { name: 'ไทย' } }],
+    species: [{ ...fish('betta-splendens'), ...seen(1) }, { ...fish('akysis-hendricksoni'), ...seen(40) }, { ...fish('rasbora-x'), ...seen(12) }, { ...fish('trichopodus-trichopterus'), dataCard: {} }],
+  } as unknown as Content
+  expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['akysis-hendricksoni', 'rasbora-x', 'betta-splendens', 'trichopodus-trichopterus'])
 })
