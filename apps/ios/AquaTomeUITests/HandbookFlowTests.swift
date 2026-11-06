@@ -159,10 +159,10 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(all.isSelected, "not every kind to begin with")
     // Each kind whole, and how many it finds: all of them for “Tất cả”, as many as the rows.
     XCTAssertEqual(all.label, "Tất cả")
-    // The tools: "Bể của tôi" (its words say "bể cá") and fish ID ("Đây là cá gì?").
-    XCTAssertEqual(all.value as? String, "8")
-    XCTAssertEqual(rows(app), 8)
-    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 2)] {
+    // Three tools: "Bể của tôi" and the tank volume calculator, both about a "bể cá", and fish ID ("Đây là cá gì?").
+    XCTAssertEqual(all.value as? String, "9")
+    XCTAssertEqual(rows(app), 9)
+    for (kind, title, count) in [("fish", "Loài cá", 3), ("guide", "Hướng dẫn", 2), ("video", "Video", 2), ("tool", "Công cụ", 3)] {
       let c = chip(app, kind)
       XCTAssertTrue(c.exists, "no \(title)")
       XCTAssertEqual(c.label, title)
@@ -202,7 +202,7 @@ final class HandbookFlowTests: XCTestCase {
     // The next search starts with every kind, not the one picked for the last.
     field.typeText("ca")
     XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5) && chip(app, "all").isSelected, "still narrowed to the guides")
-    XCTAssertEqual(rows(app), 8)
+    XCTAssertEqual(rows(app), 9)
   }
 
   // "c" counted 2,183 over the 200 rows a search lists, with nothing saying so. Three to a page here (`-search-page`),
@@ -213,15 +213,15 @@ final class HandbookFlowTests: XCTestCase {
     search(app, "ca\n")
     let note = app.staticTexts["more-note"]
     XCTAssertTrue(note.waitForExistence(timeout: 5), "no word under the rows listed")
-    XCTAssertEqual(note.label, "Đang hiện 3 trong 8 kết quả. Gõ thêm để thu hẹp.")
-    XCTAssertEqual(chip(app, "all").value as? String, "8")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 9 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(chip(app, "all").value as? String, "9")
     app.buttons["more"].tap()
-    XCTAssertEqual(note.label, "Đang hiện 6 trong 8 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertEqual(note.label, "Đang hiện 6 trong 9 kết quả. Gõ thêm để thu hẹp.")
     app.buttons["more"].tap()
-    // "Xem thêm kết quả" lists the rest in the tap itself, with no search (MoreResults), as the 6 of 8 above is read
+    // "Xem thêm kết quả" lists the rest in the tap itself, with no search (MoreResults), as the 6 of 9 above is read
     // straight after its tap. Checked before the rows are counted, which scrolls the list away from the note.
     XCTAssertFalse(note.exists, "still short, with all of it listed")
-    XCTAssertEqual(rows(app), 8)
+    XCTAssertEqual(rows(app), 9)
     chip(app, "fish").tap()
     // The fish picked (what would leave a note if it had more than 3), then the note.
     let picked = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: chip(app, "fish"))
@@ -230,8 +230,8 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(rows(app), 3)
     // Another kind picked lists its best 3 again, not as many as the last one had.
     chip(app, "all").tap()
-    XCTAssertTrue(note.waitForExistence(timeout: 5), "all 8 listed again, not the best 3")
-    XCTAssertEqual(note.label, "Đang hiện 3 trong 8 kết quả. Gõ thêm để thu hẹp.")
+    XCTAssertTrue(note.waitForExistence(timeout: 5), "all 9 listed again, not the best 3")
+    XCTAssertEqual(note.label, "Đang hiện 3 trong 9 kết quả. Gõ thêm để thu hẹp.")
     XCTAssertEqual(rows(app), 3)
   }
 
@@ -317,9 +317,9 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
     search(app, "ca")
     XCTAssertTrue(chip(app, "all").waitForExistence(timeout: 5))
-    XCTAssertEqual(chip(app, "all").value as? String, "8")
+    XCTAssertEqual(chip(app, "all").value as? String, "9")
     let seen = screens(app)
-    XCTAssertEqual(Self.count(seen), 8, "\(seen)")
+    XCTAssertEqual(Self.count(seen), 9, "\(seen)")
   }
 
   // Counting each name once, a row listed twice counted as one.

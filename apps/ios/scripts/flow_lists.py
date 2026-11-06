@@ -11,7 +11,8 @@ UI = 'AquaTomeUITests'
 # The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check), run by
 # job `handbook`; job `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'VideoFlowTests',
+            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
+            'VideoFlowTests',
             'TelemetryFlowTests']
 
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
@@ -32,11 +33,11 @@ APP, KIT = 'apps/ios/AquaTome/', 'apps/ios/AquaTomeKit/'
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
 HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
                     'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests', 'VideoFlowTests']
-# The handbook's model and the kit's Handbook: its screens, and the tanks tab's parts that read it (the tank-mates check,
-# a tank's fish and plants, its guides).
+# The handbook's model and the kit's Handbook: its screens, the tanks tab's parts that read it (the tank-mates check,
+# a tank's fish and plants, its guides), and the tank volume tool, which search and a page's links open (AppScreen).
 # Also the anonymous statistics, which wait for the index's flag.
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
-                                     'TelemetryFlowTests']
+                                     'TankVolumeFlowTests', 'TelemetryFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
@@ -61,7 +62,8 @@ TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'Accou
              'NativePageFlowTests/testAGroupFromTheTanksTabOpensOnTheTanksTab',
              'NativePageFlowTests/testAToolItNamesOpensItsTab', 'HandbookFlowTests/testFiltersTheFishToMyTank',
              'HandbookFlowTests/testFiltersThePlantsToTheTanksLight',
-             'ReaderPostFlowTests/testABlockedPosterIsListedInTheTanksTab', 'TelemetryFlowTests'] + LIGHTS_ON_TANKS
+             'ReaderPostFlowTests/testABlockedPosterIsListedInTheTanksTab', 'TankVolumeFlowTests',
+             'TelemetryFlowTests'] + LIGHTS_ON_TANKS
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -92,6 +94,7 @@ REACH = {
     APP + 'Handbook/FactsCard.swift': ['FactsCardFlowTests', 'NativePageFlowTests', 'PageShotsFlowTests'],
     APP + 'Handbook/KeepOffline.swift': ['OfflineFlowTests'],
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
+    APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
     APP + 'Handbook/ReaderSafety.swift': ['ReaderPostFlowTests', 'NativePageFlowTests'],
     APP + 'Tanks/': TANKS_TAB,
     # It shows the owner's dashboard's row, and opens it.
@@ -121,9 +124,10 @@ REACH = {
     APP + 'Owner/': ['OwnerFlowTests', 'PageShotsFlowTests'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests'],
-    # Also the fish filtered to a tank (ShelfFilter reads its size).
+    # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
-                             'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank'] + LIGHTS_ON_TANKS,
+                             'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank',
+                             'TankVolumeFlowTests'] + LIGHTS_ON_TANKS,
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
                                    'OwnerFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
