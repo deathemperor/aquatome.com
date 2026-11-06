@@ -1,0 +1,58 @@
+{
+  "id": "betta-foerschi",
+  "native": {
+    "input": "26131c27bd165ae6",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta foerschi is a paternal mouthbrooding labyrinth fish from a handful of localities in Central and West Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from a handful of localities in Kalimantan Tengah (Central Kalimantan) province, and around the settlement of Kubu in Kalimantan Barat (Western Kalimantan) provinces, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Betta foerschi is a paternal mouthbrooding labyrinth fish from a handful of localities in Central and West Kalimantan, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mentaya River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mentaya River system, 250 kilometers northwest of Bandjarmasin, Borneo, Indonesia'.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta foerschi",
+    "status": "ACCEPTED",
+    "taxonKey": 2394047,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

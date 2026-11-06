@@ -60,6 +60,78 @@
       "kept": false
     }
   ],
+  "vi/guides/2hraquarist-blogs-algae-control-how-to-control-diatoms#2hraquarist": [
+    {
+      "at": "2026-11-06T18:27:16Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"nếu ... thì những bể này sẽ khổ\" → \"đã khổ\": slight tense/hypothetical shift",
+        "\"đạm dạng amoni\" → \"có đạm dạng amoni\": minor wording change",
+        "\"chưa chắc áp dụng thẳng\" vs \"không hẳn áp dụng thẳng được\": equivalent, no real loss",
+        "\"Lý do là...\" added explicit causal framing; BEFORE had \"vì\" so basically same"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-how-to-control-green-dust-algae#2hraquarist": [
+    {
+      "at": "2026-11-06T18:27:44Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "'bể thủy sinh' dropped from 'thành kính bể thủy sinh' (trivial)",
+        "'hệ sinh học' → 'hệ vi sinh' (slight nuance, acceptable hobby term)",
+        "'Hạ nhiệt độ... sẽ cải thiện rõ rệt' → 'thì tình hình sẽ cải thiện rõ rệt' (equivalent)",
+        "'theo EI' → 'châm phân theo EI' (clarification only)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-how-to-control-green-spot-algae#2hraquarist": [
+    {
+      "at": "2026-11-06T18:28:07Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"dù khi đã đóng thành lớp dày thì cũng khó làm hơn\" became \"lau cũng vất vả hơn\": it now mentions only wiping and drops \"cạo\" (scraping).",
+        "\"vì một trong hai lý do\" adds \"one of the two\", where BEFORE said \"vì hai lý do\" (both reasons). This is a slight shift.",
+        "\"Tảo chỉ bám vào khi cây yếu hoặc đang bị sốc\" is stronger than BEFORE's \"Cây yếu hay bị sốc thì tảo mới bám vào\". It is nearly the same, so only a minor nuance.",
+        "\"có nguy cơ bị tảo cao hơn\" became \"sẽ dễ bị tảo hơn\". This is a small softening of the risk wording."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae#2hraquarist": [
+    {
+      "at": "2026-11-06T18:28:34Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Minor: \"Cây khỏe vẫn sạch tảo\" became \"Cây đã khỏe thì vẫn sạch tảo\" - slight conditional nuance.",
+        "Minor: \"Thủ phạm là nền cũ\" is slightly stronger/more emphatic than the plain statement in BEFORE.",
+        "Minor: \"osmocote vốn dùng cho cây cạn\" adds \"vốn\", a negligible nuance."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae#2hraquarist": [
+    {
+      "at": "2026-11-06T18:28:51Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Giữ lịch vệ sinh bể\" became \"Vệ sinh bể\": the schedule nuance is slightly lost.",
+        "\"Muốn phân biệt nó với tảo chổi đen thì bạn nhìn vào sợi tảo\" adds a second-person instruction. The facts are unchanged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp#aquariumbreeder": [
     {
       "at": "2026-11-06T12:39:37Z",
@@ -98,6 +170,41 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-euthanize-your-snails-and-shrimp-humanely#aquariumbreeder": [
+    {
+      "at": "2026-11-06T18:29:42Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Intro: BEFORE lists 'bia hoặc dầu đinh hương, sau đó cho vào tủ đông, formalin hoặc cồn'. AFTER adds 'để gây mê trước', which is a small clarification rather than a new fact.",
+        "'Dầu đinh hương cũng dùng để gây mê tép được' became 'gây mê được cho tép': same meaning.",
+        "Lobster: 'Như vậy chúng sẽ không phải chịu cơn đau nào, nếu có' became 'nếu tôm hùm có biết đau thì chúng cũng không phải chịu cơn đau đó'. The hedge is kept, but the wording is slightly different.",
+        "'đừng chỉ dùng cách cấp đông hay luộc' became 'đừng chỉ cấp đông hay luộc không': same meaning.",
+        "'Dĩ nhiên chúng có thể chết rất nhanh' became 'Chúng có thể chết rất nhanh': 'Dĩ nhiên' is dropped, a negligible nuance.",
+        "Freezer: BEFORE says 'Thêm nữa, khi đông cứng hoàn toàn, nước nở ra khoảng 9%'. AFTER says 'nước còn nở ra khoảng 9%': the figure is kept.",
+        "Freezer: BEFORE says 'nhiệt độ hạ từ từ sẽ làm chậm quá trình trao đổi chất'. AFTER says 'quá trình trao đổi chất của chúng chậm lại': the cause is kept and the wording tweaked.",
+        "Conclusion: BEFORE says 'bia và dầu đinh hương là công cụ gây mê rẻ, có sẵn, tự nhiên, an toàn, và cũng là công cụ quan trọng nhất'. AFTER splits it and says 'hai thứ gây mê rẻ, dễ kiếm...'. The meaning is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species#aquariumbreeder": [
+    {
+      "at": "2026-11-06T18:30:44Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "BEFORE 'nước lợ' (brackish water) became 'độ mặn' (salinity) - slight meaning shift",
+        "'sống rất khỏe trong bể nuôi' became 'đặc biệt hợp với môi trường nuôi bể' - nuance changed",
+        "'Thả vài con làm điểm nhấn' - 'vài con' (a few) added, not in BEFORE",
+        "'chịu đựng' became 'lì' - register shift, minor",
+        "'Hy vọng bài này' became 'Mong là danh sách này' - trivial wording change"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-aquarium-co2-system#aquariumcoop": [
     {
       "at": "2026-11-06T12:41:16Z",
@@ -111,6 +218,84 @@
         "\"tan vào nước\" became \"tan hết\" – slight overstatement that bubbles dissolve completely.",
         "\"và nó còn góp phần tạo ra hiện tượng pearling\" became \"Oxy dồi dào còn góp phần...\" – subject made explicit, acceptable.",
         "\"Bộ khuếch tán nào làm cho bể cá\" – unchanged; \"đã được dùng\" to \"đã chạy\" for valves is fine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-water-testing#aquariumcoop": [
+    {
+      "at": "2026-11-06T18:31:26Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"thấy bể có gì lạ cũng bỏ qua luôn\": small nuance shift; BEFORE says people skip testing when they notice something odd, AFTER is slightly ambiguous but the meaning is mostly kept",
+        "\"trong bể có vài con chết\": BEFORE says \"mất vài con\" (lost a few), which could mean missing, so \"chết\" (died) is slightly more specific",
+        "\"Đồng\" item: the copper test purpose is split into two sentences, and \"hoặc để định liều\" becomes \"cũng dùng để định liều\"; the content is kept",
+        "\"Đây là chuyện đáng quan tâm vì\": mild added emphasis in the KH item",
+        "\"Cây ăn bớt nitrat nên bạn đỡ phải thay nước nhiều lần\": 'số lần phải thay nước giảm' is kept, but 'nhiều lần' is a small shift",
+        "\"Giữa mùa hè, bạn kiểm tra lại\": 'lại' is a slight addition"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-baby-fish-food#aquariumcoop": [
+    {
+      "at": "2026-11-06T18:32:06Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Có chúng thì cá con lớn nhanh và dễ qua được mấy tuần đầu đời\": \"dễ qua\" is a slight softening of \"giúp ... qua được\"",
+        "\"Cho ăn quá nhiều một lần rất dễ làm nước xấu đi\": \"rất dễ\" slightly stronger than \"dễ\"",
+        "\"nước bẩn rất nhanh\" is essentially the same as before; no real change",
+        "\"Nó còn chữa được các bệnh vặt\": split sentence, same meaning",
+        "\"Làm vậy thì lượng thức ăn mỗi lần luôn vừa phải\": \"luôn\" is a bit stronger than \"giữ ... ở mức vừa phải\"",
+        "\"Cho ăn chỉ là một khâu trong chuyện nuôi cá bột\": \"khỏe mạnh\" dropped, but it is repeated in the next sentence so the loss is trivial"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-freshwater-sharks#aquariumcoop": [
+    {
+      "at": "2026-11-06T18:32:38Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "'gây gổ với đồng loại' adds slight emphasis beyond 'giữ lãnh thổ dữ' (minor nuance).",
+        "'vây và đuôi thì đỏ hết' slightly intensifies 'đều đỏ' (very minor).",
+        "'rất nhiều chỗ bơi' vs 'nhiều chỗ để bơi' slightly stronger (minor).",
+        "'chúng chịu được pH khá rộng' vs 'quen với khoảng pH rộng' - minor shift in nuance."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-barbs#aquariumcoop": [
+    {
+      "at": "2026-11-06T18:33:21Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Barb ô vuông: BEFORE 'được xem là loài hiền' became 'thuộc nhóm hiền', a slight nuance shift only",
+        "Tiger barb: 'ít quấy cá khác hơn' kept, but the causal link is split into two sentences; meaning intact",
+        "Melon barb: 'Nên nuôi chúng' became 'Bạn nên nuôi chúng'; no change in meaning",
+        "No numbers, names or cautions found dropped or altered; all litre and cm figures match"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-astroblepus-from-peru-imported-en#glaser": [
+    {
+      "at": "2026-11-06T18:33:44Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"vị cựu giám tuyển của bảo tàng Warsaw\" became \"một cựu giám tuyển\": definiteness changed, minor nuance.",
+        "\"lần đầu tiên từ trước tới nay\" was split into a separate sentence \"Đây là lần đầu tiên hai loài này được nhập về\": it now says the two species were imported for the first time, where BEFORE says Astroblepus as a whole. Slightly changed emphasis, though close.",
+        "\"hiếm khi được thấy\" became \"hiếm ai từng thấy\": same meaning."
       ],
       "attempt": "first",
       "kept": true

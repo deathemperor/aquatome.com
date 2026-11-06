@@ -26,10 +26,11 @@
       ],
       "regions": [
         "Red River",
-        "Nam Ou",
-        "Hainan"
+        "Hainan",
+        "Nam Ou"
       ],
       "sources": [
+        "sprucepets",
         "seriouslyfish"
       ],
       "quotes": [
@@ -45,11 +46,18 @@
           "regions": []
         },
         {
+          "source": "sprucepets",
+          "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+          "countries": [],
+          "regions": [
+            "Red River"
+          ]
+        },
+        {
           "source": "seriouslyfish",
           "quote": "Type locality is given as 'China' but the type specimens appear to have been collected from the Red River drainage (probably the northern Vietnam section although the river originates in Yunnan province, China), and occurence records show that it's also been collected from numerous other localities in northern Vietnam, the Chinese provinces of Guangxi and Guangdong and the islands of Hainan, Hong Kong, and Taiwan.",
           "countries": [],
           "regions": [
-            "Red River",
             "Hainan"
           ]
         },

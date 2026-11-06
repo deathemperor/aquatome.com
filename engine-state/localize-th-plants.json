@@ -406,28 +406,27 @@
     "notes": []
   },
   "bucephalandra-sp": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ่ใบเข้ม",
-    "confidence": "low",
-    "score": 0.75,
-    "notes": [
-      "Source spells the genus \"Bucephelandra\" but the Thai adds \"Bucephalandra\"; this silently changes the Latin name. Keep the source spelling, or flag the typo, rather than correcting it unseen.",
-      "\"สลับกันไปตามช่วงเวลา\" is slightly wordy and adds \"alternating\". The source says \"at times\", so use something like \"บางช่วง\".",
-      "\"habitat\" in \"have the habitat ready\" is rendered as \"ตู้\". This is acceptable, but \"ที่อยู่/สภาพแวดล้อมสำหรับปลูก\" would be closer to the source.",
-      "\"ตู้ปลากัดแบบเรียบง่าย\" is fine, but \"your simple betta tanks\" could be more natural as \"ตู้เลี้ยงปลากัดทั่วไป\"."
-    ]
-  },
-  "bucephalandra-sp-dark-skeleton-king": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ่ Dark Skeleton King",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซ",
     "confidence": "medium",
     "score": 0.75,
     "notes": [
-      "Item 1: Latin name changed — source spells \"Bucephelandra\" but TH gives \"Bucephalandra\"; keep the Latin name as the source has it, or note the correction deliberately.",
-      "Item 1: \"Dark Achilles\" is left in Latin script with no Thai gloss; acceptable as a trade name, but \"มีอีกชื่อหนึ่งว่า\" could read more smoothly, e.g. \"หรือที่รู้จักกันในชื่อ\".",
-      "Item 3: \"habitat\" is rendered as \"ตู้\" (tank); the source says habitat, so \"ที่อยู่อาศัย/ตู้เลี้ยง\" would be more faithful. Meaning is still intact."
+      "Item 2: The added parenthetical \"(นักเลี้ยงในไทยมักเรียกสั้น ๆ ว่า บูเซ ซึ่งเป็นต้นเดียวกัน)\" isn't in the source. It adds a claim about Thai hobbyists. Drop it, or just write \"บูเซ\" where the source says \"Bucep\", for example \"Bucephalandra (บูเซ)\".",
+      "Item 2: \"ให้ภาพรวมของการจัดสมดุล\" is awkward for \"cho bố cục cân\". Use something like \"เพื่อให้องค์ประกอบของการจัดสมดุลกัน\" or \"เพื่อให้ภาพรวมการจัดดูสมดุล\".",
+      "Item 2: \"ใยหิน\" can read as asbestos. Consider \"ร็อกวูล\" or \"ใยหิน (rockwool)\" for the rockwool on potted plants.",
+      "Item 1: The source writes \"Bucephelandra\" and the translation writes \"Bucephalandra\". The correct spelling is fine, but it is a change to the Latin name as written."
+    ]
+  },
+  "bucephalandra-sp-dark-skeleton-king": {
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซป Dark Skeleton King",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: the source spells the genus 'Bucephelandra'. The Thai silently uses 'Bucephalandra', which is the correct spelling, so no change is needed.",
+      "Item 2: 'ผูกติดขอนไม้' says to tie the plant on, while the source says 'gắn' (attach). Consider 'ยึด/เกาะติดขอนไม้' so it also covers gluing."
     ]
   },
   "bucephalandra-sp-degori": {
@@ -487,10 +486,10 @@
     ]
   },
   "bucephalandra-sp-round-leaf": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ่ Round Leaf",
-    "confidence": "medium",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซ ราวด์ลีฟ",
+    "confidence": "low",
     "score": 0.95,
     "notes": []
   },
@@ -2028,6 +2027,19 @@
       "\"เหมาะมากกับพื้นผิวแนวราบ\": the English says \"horizontal surfaces\", but the sentence \"only spreads slowly horizontally\" has a logic problem in the source. The Thai \"แผ่ขยายออกด้านข้างได้ช้าเท่านั้น\" reads awkwardly. Rephrase it as \"แผ่ขยายไปด้านข้างได้ช้า\".",
       "\"บรรจุในถ้วยปิด\": \"closed cup\" is rendered literally. Use the hobby phrasing \"ถ้วยปิดสนิท\" or \"คัพ\" (tissue culture cup).",
       "\"ผูกมอสไว้กับหินก้อนเล็ก ๆ หรือผูกเป็นกระจุกเล็ก ๆ บนรากไม้\": \"Attach\" is rendered as \"ผูก\" (tie). Only the second half has \"in small bundles\", and that is covered. Consider \"ยึด\" or \"ผูกติด\" to be more neutral, since the moss can also be glued."
+    ]
+  },
+  "taxiphyllum-sp-spiky-moss": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "สไปกี้มอส",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 1: Height '3 - 10+ cm' vs item 2 '2-10 cm' is a source inconsistency, not a translation error; no change needed except consider keeping consistent.",
+      "Item 2: 'ถ้าจะอธิบายให้เห็นภาพที่สุดก็คือ' is a bit wordy for 'Best described as'; consider 'เรียกได้ว่าเป็นพี่ใหญ่ของ...'.",
+      "Item 2: 'คริสต์มาสมอส' is fine, but could add the common Thai hobby form 'Christmas Moss' in brackets for clarity.",
+      "Item 2: 'ขึ้นได้สวยที่สุด' for 'does best' slightly narrows meaning to looks; 'เติบโตได้ดีที่สุด' is closer."
     ]
   },
   "vallisneria": {

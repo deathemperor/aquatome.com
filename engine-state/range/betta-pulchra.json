@@ -1,0 +1,49 @@
+{
+  "id": "betta-pulchra",
+  "native": {
+    "input": "dca87724cc6becf4",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Pontian district, Johor state, southern Peninsular Malaysia, and is apparently restricted to southwestern Johor.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Described from Pontian district, Johor state, southern Peninsular Malaysia, and is apparently restricted to southwestern Johor.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta pulchra",
+    "status": "ACCEPTED",
+    "taxonKey": 2394002,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

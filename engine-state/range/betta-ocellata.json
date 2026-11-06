@@ -1,0 +1,80 @@
+{
+  "id": "betta-ocellata",
+  "native": {
+    "input": "abe1b8610e8d575a",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Malaysian state of Sabah in northeastern Borneo plus the northern tip of Kalimantan Timur (East Kalimantan), one of the four Indonesian provinces on the island.",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Malaysian state of Sabah in northeastern Borneo plus the northern tip of Kalimantan Timur (East Kalimantan), one of the four Indonesian provinces on the island.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan.",
+        "ok": true
+      },
+      {
+        "name": "Sebuku River",
+        "source": "seriouslyfish",
+        "quote": "Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan.",
+        "ok": true
+      },
+      {
+        "name": "Kinabatangan",
+        "source": "seriouslyfish",
+        "quote": "In the Kinabatangan drainage basin B. ocellata was collected from ox-bow lakes and lowland streams with turbid water.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta ocellata",
+    "status": "ACCEPTED",
+    "taxonKey": 2393994,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        24
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

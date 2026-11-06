@@ -1,8 +1,8 @@
 {
   "id": "trigonostigma-heteromorpha",
   "native": {
-    "input": "2553fb4b0e6b3590",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "8bd907c35d54ddf7",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "TH",
@@ -56,22 +56,27 @@
     "regions": [
       {
         "name": "Sumatra",
-        "source": "seriouslyfish",
-        "quote": "The harlequin, Trigonostigma heteromorpha, is a small cyprinid from southern Thailand, Peninsular Malaysia, Singapore and Sumatra.",
-        "ok": true
-      },
-      {
-        "name": "Sumatra",
         "source": "sprucepets",
         "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
         "ok": true
       },
       {
-        "name": "Peninsular Malaysia",
+        "name": "Sumatra",
         "source": "seriouslyfish",
-        "quote": "The harlequin, Trigonostigma heteromorpha, is a small cyprinid from southern Thailand, Peninsular Malaysia, Singapore and Sumatra.",
-        "ok": false,
-        "why": "a country"
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kuala Lumpur, Selangor, Malaysia', but this species is usually quoted as being native to southern Thailand, Peninsular Malaysia, Singapore, and the Greater Sunda islands of Borneo and Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Bintan",
+        "source": "seriouslyfish",
+        "quote": "While it certainly occurs on the island of Bintan in Riau Islands province, Sumatra, definitive information regarding the mainland is lacking other than a vague reference to the city of Medan in the north (the species is said to range throughout northern Sumatra).",
+        "ok": true
       }
     ],
     "disputed": [],

@@ -10,6 +10,76 @@
     "thailand",
     "narathiwat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Narathiwat province at the southern tip of Peninsular Thailand, and thus far known has not been recorded elsewhere.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394059,
+      "total": 17,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          -102.65625,
+          5.625,
+          2,
+          0
+        ],
+        [
+          98.4375,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          98.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          101.25,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

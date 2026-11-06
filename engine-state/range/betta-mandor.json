@@ -1,0 +1,65 @@
+{
+  "id": "betta-mandor",
+  "native": {
+    "input": "845f915839f60c30",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Betta mandor occurs in the forested blackwater peat-swamps of West Kalimantan, Borneo (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "At time of writing it has only been collected close to the villages of Mandor and Anjungan in the lower Kapuas River basin, West Kalimantan (Kalimantan Barat), Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "At time of writing it has only been collected close to the villages of Mandor and Anjungan in the lower Kapuas River basin, West Kalimantan (Kalimantan Barat), Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta mandor occurs in the forested blackwater peat-swamps of West Kalimantan, Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "At time of writing it has only been collected close to the villages of Mandor and Anjungan in the lower Kapuas River basin, West Kalimantan (Kalimantan Barat), Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta mandor",
+    "status": "ACCEPTED",
+    "taxonKey": 2394054,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

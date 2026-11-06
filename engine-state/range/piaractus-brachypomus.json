@@ -1,14 +1,14 @@
 {
   "id": "piaractus-brachypomus",
   "native": {
-    "input": "59e4423c873b7858",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "236b8aa5bdb3dd15",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "CO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
         "words": "Colombia",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
         "words": "Venezuela",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
         "words": "Peru",
         "ok": true
       },
@@ -32,7 +32,7 @@
         "code": "BO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
         "words": "Bolivia",
         "ok": true
       },
@@ -40,7 +40,7 @@
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
         "words": "Brazil",
         "ok": true
       },
@@ -80,22 +80,22 @@
         "code": "US",
         "status": "introduced",
         "source": "seriouslyfish",
-        "quote": "Juveniles mimic the red-bellied piranha and are sold small as 'vegetarian piranha', and releases by aquarists have left populations in the USA and elsewhere.",
+        "quote": "In colder climates they will obviously not survive, but populations exist in various states of the USA and several other countries as a result of releases by irresponsible aquarists.",
         "words": "USA",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Orinoco",
+        "name": "Rio Orinoco",
         "source": "seriouslyfish",
-        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
         "ok": true
       },
       {
         "name": "Amazon",
         "source": "seriouslyfish",
-        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "quote": "Native to the Rio Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
         "ok": true
       }
     ],

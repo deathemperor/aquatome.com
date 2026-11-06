@@ -13,6 +13,68 @@
     "mendarem",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BN",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Mendarem River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Brunei beauty, Betta macrostoma, is a large paternal mouthbrooding labyrinth fish endemic to Brunei and the northern tip of Sarawak, Borneo.",
+          "countries": [
+            "BN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Brunei there exist a number of known localities along the Mendarem River and in Labi rainforest, all in the administrative area of Labi which borders Sarawak to the south.",
+          "countries": [],
+          "regions": [
+            "Mendarem River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394042,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

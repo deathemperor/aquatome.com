@@ -10,6 +10,59 @@
     "thailand",
     "samut-sakhon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "It is native to brackish coastal waters of Thailand's Samut Sakhon and Samut Songkhram provinces, particularly around Mahachai.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193203,
+      "total": 201,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          201
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          12.65625,
+          195,
+          195
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
