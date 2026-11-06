@@ -175,6 +175,18 @@
       "min": 40,
       "max": 40,
       "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 3
+    },
+    {
+      "field": "lifeYears",
+      "min": 2,
+      "max": 3,
+      "source": 3
     }
   ],
   "keeping": [

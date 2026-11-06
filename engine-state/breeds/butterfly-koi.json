@@ -157,6 +157,24 @@
       "min": 91,
       "max": 102,
       "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 25,
+      "max": 35,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 25,
+      "max": 30,
+      "source": 3
     }
   ],
   "keeping": [
@@ -316,6 +334,11 @@
     {
       "url": "https://mytour.vn/vi/blog/bai-viet/ca-koi.html",
       "title": "Cá Koi – Mytour",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.furrycritter.com/pages/descriptions/fish/butterfly_koi.htm",
+      "title": "Butterfly Koi Care Guide - Furry Critter Network",
       "kind": "article"
     }
   ]

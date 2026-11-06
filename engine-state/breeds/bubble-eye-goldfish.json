@@ -148,6 +148,18 @@
       "min": 10,
       "max": 20.3,
       "source": 3
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 8
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 8
     }
   ],
   "keeping": [
@@ -308,6 +320,11 @@
       "url": "https://cakienghoanglam.com/ca-anh/ca-mat-ngoc/",
       "title": "Cá mắt ngọc: Vẻ đẹp mong manh của mắt bong bóng lạ",
       "kind": "shop"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/bubble-eye-goldfish",
+      "title": "The Bubble Eye Goldfish: A Delicate Fancy Fish for Cold-Water Aquariums",
+      "kind": "article"
     }
   ]
 }

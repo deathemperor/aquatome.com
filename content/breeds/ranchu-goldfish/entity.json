@@ -67,6 +67,21 @@
           "max": 15
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 11,
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 11,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
     ]
   },
   "photos": [
@@ -178,6 +193,12 @@
       "title": "Category:Ranchū - Wikimedia Commons",
       "kind": "other",
       "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/ranchu-goldfish",
+      "title": "Ranchu Goldfish Care & Species Profile - Fishkeeping World",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-29"

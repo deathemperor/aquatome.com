@@ -62,6 +62,21 @@
         "value": 15,
         "hidden": "shorter than twice the fish (7.6 cm)"
       }
+    ],
+    "difficulty": [
+      {
+        "source": 10,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 10,
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      }
     ]
   },
   "photos": [
@@ -156,6 +171,12 @@
       "title": "Halfmoon Fish Story",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.furrycritter.com/pages/descriptions/fish/betta_splendens_halfmoon.htm",
+      "title": "Halfmoon Betta Care Guide - Furry Critter Network",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

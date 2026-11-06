@@ -53,6 +53,32 @@
           "max": 20
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 10,
+        "value": 8
+      },
+      {
+        "source": 2,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 10,
+        "value": {
+          "min": 12,
+          "max": 12
+        }
+      },
+      {
+        "source": 11,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
     ]
   },
   "photos": [
@@ -127,6 +153,18 @@
       "title": "Nông dân Củ Chi nuôi cá dĩa – PLO",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.saltwaterfish.com/product-pigeon-blood-discus-symphysodon-aequifasciatus",
+      "title": "Pigeon Blood Discus – Saltwaterfish.com",
+      "kind": "shop",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://riverparkaquatics.co.uk/pigeon-blood-discus-symphysodon-aequifasciatus/",
+      "title": "Pigeon Blood Discus – Riverpark Aquatics",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

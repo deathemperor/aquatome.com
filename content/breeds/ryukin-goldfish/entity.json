@@ -78,6 +78,21 @@
         "source": 0,
         "value": 21
       }
+    ],
+    "difficulty": [
+      {
+        "source": 4,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 4,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
     ]
   },
   "photos": [

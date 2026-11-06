@@ -169,6 +169,18 @@
       "min": 5,
       "max": 7.6,
       "source": 3
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 3
+    },
+    {
+      "field": "lifeYears",
+      "min": 3,
+      "max": 5,
+      "source": 11
     }
   ],
   "keeping": [
@@ -331,6 +343,11 @@
     {
       "url": "https://thethaiger.com/news/national/animal-fights-along-with-betting-legalised-promoted-as-soft-power",
       "title": "Thailand to resume cockfights and other animal sports, gambling allowed - The Thaiger",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.furrycritter.com/pages/descriptions/fish/betta_splendens_plakat.htm",
+      "title": "Plakat Betta Care Guide - Furry Critter Network",
       "kind": "article"
     }
   ]

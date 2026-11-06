@@ -67,6 +67,15 @@
         "source": 2,
         "value": 200
       }
+    ],
+    "lifeYears": [
+      {
+        "source": 6,
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
     ]
   },
   "photos": [
@@ -128,6 +137,12 @@
       "title": "How do I choose a good quality RTG aro? – MonsterFishKeepers",
       "kind": "forum",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://snkaquapets.com/?p=38827",
+      "title": "Red Tail Golden Arowana (Scleropages formosus “Red Tail Golden”) (7+ inches) – SNK Aquapets",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

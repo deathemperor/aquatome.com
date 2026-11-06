@@ -44,6 +44,21 @@
           "max": 7.6
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 3,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 11,
+        "value": {
+          "min": 3,
+          "max": 5
+        }
+      }
     ]
   },
   "photos": [
@@ -144,6 +159,12 @@
       "title": "Thailand to resume cockfights and other animal sports, gambling allowed - The Thaiger",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.furrycritter.com/pages/descriptions/fish/betta_splendens_plakat.htm",
+      "title": "Plakat Betta Care Guide - Furry Critter Network",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

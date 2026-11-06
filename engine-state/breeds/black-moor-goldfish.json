@@ -194,6 +194,24 @@
       "min": 15,
       "max": 20,
       "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 10,
+      "source": 1
     }
   ],
   "keeping": [
@@ -338,6 +356,11 @@
       "url": "https://commons.wikimedia.org/wiki/File:Carassius_auratus_Black_Moor-edit1.jpg",
       "title": "File:Carassius auratus Black Moor-edit1.jpg – Wikimedia Commons",
       "kind": "other"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/black-moor-goldfish",
+      "title": "Black Moor Goldfish Care, Lifespan, Tank Size & Tank Mates – Fishkeeping World",
+      "kind": "article"
     }
   ]
 }

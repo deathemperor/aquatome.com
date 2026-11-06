@@ -168,6 +168,12 @@
       "min": 3,
       "max": 4,
       "source": 5
+    },
+    {
+      "field": "difficulty",
+      "min": 7,
+      "max": 7,
+      "source": 5
     }
   ],
   "keeping": [

@@ -94,6 +94,21 @@
         "source": 0,
         "value": 40
       }
+    ],
+    "difficulty": [
+      {
+        "source": 0,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 7,
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      }
     ]
   },
   "photos": [
@@ -176,6 +191,12 @@
       "title": "Blue Velvet Shrimp Care, Information & Pictures",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/blue-velvet-shrimp.php",
+      "title": "Blue Velvet Shrimp – The Shrimp Farm",
+      "kind": "breeder",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

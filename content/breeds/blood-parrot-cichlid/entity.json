@@ -64,6 +64,28 @@
         "source": 3,
         "value": 183
       }
+    ],
+    "lifeYears": [
+      {
+        "source": 3,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      {
+        "source": 6,
+        "value": {
+          "min": 10,
+          "max": 15
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": 7,
+        "value": 4
+      }
     ]
   },
   "photos": [
@@ -145,6 +167,18 @@
       "title": "Practical Fishkeeping continues its anti-dyed fish campaign",
       "kind": "article",
       "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.aquariumsource.com/blood-parrot-cichlid/",
+      "title": "Blood Parrot Cichlid Care – Aquarium Source",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://frags2fishes.com/freshwater/fish-freshwater/bloodredparrotcichlid/",
+      "title": "Blood Red Parrot Cichlid – Frags2Fishes",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-29"

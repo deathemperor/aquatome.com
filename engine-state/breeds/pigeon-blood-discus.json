@@ -112,6 +112,30 @@
       "min": 15,
       "max": 20,
       "source": 5
+    },
+    {
+      "field": "difficulty",
+      "min": 8,
+      "max": 8,
+      "source": 10
+    },
+    {
+      "field": "lifeYears",
+      "min": 12,
+      "max": 12,
+      "source": 10
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 11
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 2
     }
   ],
   "keeping": [
@@ -242,6 +266,16 @@
       "url": "https://plo.vn/nong-dan-cu-chi-nuoi-ca-dia-nuoi-choi-loi-hang-chuc-trieu-dong-post379548.html",
       "title": "Nông dân Củ Chi nuôi cá dĩa – PLO",
       "kind": "article"
+    },
+    {
+      "url": "https://www.saltwaterfish.com/product-pigeon-blood-discus-symphysodon-aequifasciatus",
+      "title": "Pigeon Blood Discus – Saltwaterfish.com",
+      "kind": "shop"
+    },
+    {
+      "url": "https://riverparkaquatics.co.uk/pigeon-blood-discus-symphysodon-aequifasciatus/",
+      "title": "Pigeon Blood Discus – Riverpark Aquatics",
+      "kind": "shop"
     }
   ]
 }

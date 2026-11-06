@@ -95,6 +95,21 @@
         "source": 1,
         "value": 50
       }
+    ],
+    "difficulty": [
+      {
+        "source": 2,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 2,
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      }
     ]
   },
   "photos": [],

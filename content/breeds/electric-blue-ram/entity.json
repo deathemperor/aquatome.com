@@ -90,6 +90,21 @@
           "max": 75
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 0,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 10,
+        "value": {
+          "min": 4,
+          "max": 5
+        }
+      }
     ]
   },
   "photos": [

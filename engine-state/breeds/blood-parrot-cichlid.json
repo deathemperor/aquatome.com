@@ -152,6 +152,24 @@
       "min": 183,
       "max": 183,
       "source": 3
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 3
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 6
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 7
     }
   ],
   "keeping": [
@@ -299,6 +317,16 @@
       "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/dont-say-i-love-you-with-hearts-or-flowers-this-valentines-day/",
       "title": "Practical Fishkeeping continues its anti-dyed fish campaign",
       "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumsource.com/blood-parrot-cichlid/",
+      "title": "Blood Parrot Cichlid Care – Aquarium Source",
+      "kind": "article"
+    },
+    {
+      "url": "https://frags2fishes.com/freshwater/fish-freshwater/bloodredparrotcichlid/",
+      "title": "Blood Red Parrot Cichlid – Frags2Fishes",
+      "kind": "shop"
     }
   ]
 }

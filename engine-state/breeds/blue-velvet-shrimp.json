@@ -145,6 +145,18 @@
       "min": 40,
       "max": 40,
       "source": 0
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 0
+    },
+    {
+      "field": "lifeYears",
+      "min": 1,
+      "max": 2,
+      "source": 7
     }
   ],
   "keeping": [
@@ -260,6 +272,11 @@
       "url": "https://www.buildyouraquarium.com/blue-velvet-shrimp/",
       "title": "Blue Velvet Shrimp Care, Information & Pictures",
       "kind": "article"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/blue-velvet-shrimp.php",
+      "title": "Blue Velvet Shrimp – The Shrimp Farm",
+      "kind": "breeder"
     }
   ]
 }

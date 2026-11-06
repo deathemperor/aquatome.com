@@ -52,6 +52,21 @@
           "max": 15
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 8,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 8,
+        "value": {
+          "min": 15,
+          "max": 15
+        }
+      }
     ]
   },
   "photos": [
@@ -115,6 +130,12 @@
       "title": "Lionhead goldfish - excessive facial tissue (UFAW Genetic Welfare Problems)",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/lionhead-goldfish",
+      "title": "Lionhead Goldfish Care & Species Profile",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"
