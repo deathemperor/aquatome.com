@@ -208,7 +208,7 @@ jobs:
           name: ios-perf
           path: build/perf.xcresult
           if-no-files-found: ignore
-  # The handbook's flows (HANDBOOK in flows-to-run.py): on their own runners, beside jobs `app` and `lights`. On 2026-11-01
+  # The handbook's flows (HANDBOOK in flow_lists.py): on their own runners, beside jobs `app` and `lights`. On 2026-11-01
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
   # build), with only the facts card added to main; the handbook stack (#313 to #341) adds more. Then this job alone
   # took 53 to 58 minutes on every pull request of 2026-11-03, and ran out of its hour with the tank volume flows
