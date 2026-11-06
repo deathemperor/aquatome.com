@@ -123,3 +123,23 @@ test('species-videos: uploads vetted by title once; a few profiles a run, each t
   const again = await speciesVideos(r, d, { only: ['A'] })
   expect(again.skipped).toEqual(['A Sawbwa resplendens – The Tiny Fish with a Big Story: skipped (species/sawbwa-resplendens): the page cites this video already'])
 })
+
+test('a video tried again (the owner\'s pick) after its part fell under the bar: the writer starts from that review\'s notes', async () => {
+  const r = await root()
+  const prompts: string[] = []
+  const d = deps([])
+  let low = true
+  const llm: Llm = async <T,>(a: { prompt: string; schema: object }) => {
+    const props = (a.schema as { properties: Record<string, unknown> }).properties
+    if ('kind' in props) return { kind: 'animal', species: 'Sawbwa resplendens', reason: 'x' } as T
+    if ('score' in props) return (low ? { score: 0.6, notes: ['"16 loài đặc hữu" conflicts with the page'] } : { score: 0.9, notes: [] }) as T
+    prompts.push(a.prompt)
+    return { sections: [{ key: 'habitat', html: '<p>Hồ Inle có nhiều loài đặc hữu.</p>' }] } as T
+  }
+  expect((await speciesVideos(r, { ...d, llm }, { only: ['A'] })).done).toEqual(['A Sawbwa resplendens – The Tiny Fish with a Big Story: low (species/sawbwa-resplendens, 0.6): "16 loài đặc hữu" conflicts with the page'])
+  expect(prompts[0]).not.toContain('16 loài đặc hữu')
+  low = false
+  prompts.length = 0
+  expect((await speciesVideos(r, { ...d, llm }, { only: ['A'] })).done).toEqual(['A Sawbwa resplendens – The Tiny Fish with a Big Story: added (species/sawbwa-resplendens, 0.9)'])
+  expect(prompts[0]).toContain('"16 loài đặc hữu" conflicts with the page')
+})

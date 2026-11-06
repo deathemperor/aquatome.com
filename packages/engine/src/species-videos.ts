@@ -6,7 +6,7 @@ import { speciesResolver } from './breeds'
 import { appendChangelog } from './changelog'
 import { LlmError } from './claude'
 import { ABOUT } from './planting'
-import { logReviews, type Review } from './review-log'
+import { logReviews, readReviews, reviewKey, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
 import { makeSpecies, pageVideo, reviewed, speciesTaxon, videoBlock, watchUrl, withNames, type SpeciesDeps, type VideoSource } from './species-research'
 import type { Finder, Found } from './video-discovery'
@@ -87,8 +87,10 @@ export async function addFromVideo(root: string, d: Pick<SpeciesDeps, 'llm' | 'n
     const r = await d.llm<Review>({ system: 'You check text written from a video against it. Reply only with JSON.', schema: REVIEW_SCHEMA, prompt: `${CHECK}\n\n${videoBlock(v)}\n\nPAGE:\n${page}\n\nNEW:\n${added}` })
     return withNames({ score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 8) }, plainText(added), [v.meta.channel])
   }
-  const { w, review, tries } = await reviewed(write, check)
   const ref = { id: `${kind}/${id}`, lang: 'vi', part: v.meta.id }
+  // Tried again (an owner's pick): the writer starts from the last review's notes when it was under the bar.
+  const last = (await readReviews(root, 'species'))[reviewKey(ref)]?.[0]
+  const { w, review, tries } = await reviewed(write, check, last && last.score < QUALITY_THRESHOLD ? last.notes : undefined)
   if (!w.sections.length) return { done: 'nothing new' }
   if (review.score < QUALITY_THRESHOLD) {
     await logReviews(root, 'species', ref, tries, undefined, { now: d.now() })

@@ -20,7 +20,8 @@ Quy tắc:
 - Thông số nào nằm trong missing thì viết thẳng là chưa có nguồn nào công bố, một lần, ở phần hợp nhất (thường là "waterConditions" hoặc "aquariumSize" nếu có, không thì "notes"). Không đoán, không đưa khoảng "thường gặp".
 - Giữ đúng mức chắc chắn của dữ kiện. Nguồn nói "có thể", "được cho là" thì viết như vậy.
 - Không tự đặt tên tiếng Việt cho loài. Gọi loài bằng tên khoa học, hoặc "loài này". Tên tiếng Anh chỉ nhắc khi dữ kiện có.
-- Không nhắc video, kênh, người làm video hay tên bài viết, trang báo nào. Trang đã ghi nguồn. Người mô tả loài trong phân loại học ("Britz, Tan & Rüber, 2026") thì giữ.
+- Không nhắc video, kênh, người làm video hay tên bài viết, trang báo nào. Trang đã ghi nguồn. Người mô tả loài trong phân loại học ("Britz, Tan & Rüber, 2026") thì giữ, gọi bằng tên hoặc "các nhà khoa học", không đoán giới tính của họ ("ba ông", "bà").
+- Dịch đúng tên vật liệu, thức ăn: không thay bằng một thứ khác nghe giống (alder cone là quả của cây alder, không phải quả trám). Không chắc tên tiếng Việt thì giữ tên gốc.
 - Không tiết lộ thêm chi tiết về nơi sống mà dữ kiện nói là được giữ kín.
 - Không viết giá. Không giọng quảng cáo, không giật tít.
 - Chỉ dùng hệ mét (°C, cm, lít). Dữ kiện ghi mm thì có thể giữ mm hoặc đổi ra cm.

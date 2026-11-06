@@ -55,6 +55,13 @@ test('no figure without a cited page: a card figure comes from a web page the re
   expect(c.places).toEqual([{ continent: 'Asia', country: 'Vietnam', region: 'Hue' }])
 })
 
+test('a name only a video gives must be in its title or description: its captions are machine-made and mishear names', () => {
+  const v: VideoSource = { meta: { id: 'iV3tUG5Vd4I', title: 'Meet the Jewel Gourami!', channel: 'C', description: 'A miniature fish from Vietnam.', durationSec: 1, embeddable: false, lang: 'en' }, transcript: 'The Vietnamese mini, or pearl gourami, is a dwarf gourami' }
+  const heard = { ...facts, enNames: [{ name: 'Jewel Gourami', source: 2 }, { name: 'pearl gourami', source: 2 }, { name: 'Jewel gourami', source: 5 }] }
+  expect(citeResearch(heard, [v]).enNames).toEqual(['Jewel Gourami', 'Jewel gourami'])
+  expect(citeResearch(heard).enNames).toEqual(['Jewel Gourami', 'pearl gourami', 'Jewel gourami'])
+})
+
 test('text written from a video never names it or its channel; a species\' describers may be named', () => {
   expect(namesVideo('Một người nuôi CHRIS LUKHAUP kể rằng…', ['CHRIS LUKHAUP'])).toEqual(['CHRIS LUKHAUP'])
   expect(namesVideo('Chris Lukhaup giới thiệu loài này trong video này.', ['CHRIS LUKHAUP'])).toEqual(['trong video', 'Chris Lukhaup'])
