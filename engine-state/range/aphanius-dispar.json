@@ -1,0 +1,290 @@
+{
+  "id": "aphanius-dispar",
+  "native": {
+    "input": "eaf9b2be7b9496dc",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "SD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "words": "Sudan",
+        "ok": true
+      },
+      {
+        "code": "ER",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "words": "Eritrea",
+        "ok": true
+      },
+      {
+        "code": "DJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "words": "Djibouti",
+        "ok": true
+      },
+      {
+        "code": "SA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "words": "Saudi Arabia",
+        "ok": true
+      },
+      {
+        "code": "SO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "words": "Somalia",
+        "ok": true
+      },
+      {
+        "code": "YE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "words": "Yemen",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has entered the eastern Mediterranean through the Suez Canal and is established on the coast of Israel.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fish from the Persian Gulf, the Gulf of Oman, the coasts of Pakistan and western India, inland Iran and Iraq (including Fallujah) were long included in this species and are now Aphaniops stoliczkanus (Freyhof et al., 2017).",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fish from the Persian Gulf, the Gulf of Oman, the coasts of Pakistan and western India, inland Iran and Iraq (including Fallujah) were long included in this species and are now Aphaniops stoliczkanus (Freyhof et al., 2017).",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fish from the Persian Gulf, the Gulf of Oman, the coasts of Pakistan and western India, inland Iran and Iraq (including Fallujah) were long included in this species and are now Aphaniops stoliczkanus (Freyhof et al., 2017).",
+        "words": "Iran",
+        "ok": true
+      },
+      {
+        "code": "IQ",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Fish from the Persian Gulf, the Gulf of Oman, the coasts of Pakistan and western India, inland Iran and Iraq (including Fallujah) were long included in this species and are now Aphaniops stoliczkanus (Freyhof et al., 2017).",
+        "words": "Iraq",
+        "ok": true
+      },
+      {
+        "code": "JO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The Dead Sea springs population in Israel and Jordan is A. richardsoni, and the Lake Afrera fish in Ethiopia is A. stiassnyae.",
+        "words": "Jordan",
+        "ok": true
+      },
+      {
+        "code": "ET",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The Dead Sea springs population in Israel and Jordan is A. richardsoni, and the Lake Afrera fish in Ethiopia is A. stiassnyae.",
+        "words": "Ethiopia",
+        "ok": true
+      },
+      {
+        "code": "AE",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "For example in the United Arab Emirates it has been introduced to freshwaters including agricultural runoff channels, bulldozed ponds, water tanks and cisterns as a form of mosquito control and has been shown to thrive in all these environments whereas in Lake Afera the salinity has been measured at 160g/L!",
+        "words": "United Arab Emirates",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Socotra",
+        "source": "seriouslyfish",
+        "quote": "Found around the coastlines of the Red Sea (Egypt, Sudan, Eritrea, Djibouti and western Saudi Arabia) and the Gulf of Aden (Somalia and Yemen, including Socotra).",
+        "country": "YE",
+        "ok": true
+      },
+      {
+        "name": "Lake Assal",
+        "source": "seriouslyfish",
+        "quote": "Inland populations can be found in Egypt (oases of Siwa and Al-Faiyum), Saudi Arabia (oases of Al-Hasa and Al-Kharj) and the salt lakes of the Afar Depression in Djibouti, including Lake Assal.",
+        "country": "DJ",
+        "ok": true
+      },
+      {
+        "name": "Afar Depression",
+        "source": "seriouslyfish",
+        "quote": "Inland populations can be found in Egypt (oases of Siwa and Al-Faiyum), Saudi Arabia (oases of Al-Hasa and Al-Kharj) and the salt lakes of the Afar Depression in Djibouti, including Lake Assal.",
+        "country": "DJ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IL"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphanius dispar",
+    "status": "ACCEPTED",
+    "taxonKey": 2348092,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        97
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        82
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        65
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        29
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        25
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        19
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        15
+      ],
+      [
+        "207b73bc-b799-49f1-9e94-fd1afc175170",
+        11
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        10
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        5
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "70a53441-4e44-4216-aac3-4e9d02e33212",
+        3
+      ],
+      [
+        "917715f5-0eb8-41fb-9436-99a1181a5b9b",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        2
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ],
+      [
+        "250e7bdf-217c-4480-974b-e80b926f3326",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "4da053cc-0615-4681-9845-b4c94e056770",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "8c30ff06-3b02-4f53-8f02-a0f6de1f7e71",
+        1
+      ],
+      [
+        "b929f23d-290f-4e85-8f17-764c55b3b284",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "EG",
+      "SD",
+      "ER",
+      "DJ",
+      "SA",
+      "SO",
+      "YE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

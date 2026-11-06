@@ -10,6 +10,79 @@
     "turkey",
     "lake-tuz"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [
+        "Lake Tuz",
+        "Büyük Menderes",
+        "Taurus mountains"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Anatolian toothcarp, Anatolichthys anatoliae, is a small killifish from central and western Anatolia in Turkey.",
+          "countries": [
+            "TR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Central and western Anatolia, Turkey where it can be found in freshwater springs, streams and small rivers feeding Lake Tuz as well as the Turkish Lakes (Göller Yöresi) region in the west Taurus mountains, around Lakes Eğirdir, Beyşehir and Kovada.",
+          "countries": [],
+          "regions": [
+            "Lake Tuz",
+            "Taurus mountains"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has also been recorded from various rivers, pools and swamps between the cities of Konya and Niğde, and further west from springs of the Büyük Menderes river system and its lower reaches in the Selçuk Plain.",
+          "countries": [],
+          "regions": [
+            "Büyük Menderes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11477416,
+      "total": 10,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TR",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          36.5625,
+          2,
+          2
+        ],
+        [
+          30.9375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          32.34375,
+          37.96875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

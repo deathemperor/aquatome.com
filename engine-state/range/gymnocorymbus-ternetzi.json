@@ -1,8 +1,8 @@
 {
   "id": "gymnocorymbus-ternetzi",
   "native": {
-    "input": "3f2d015a3ea90c9d",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "49ddd301bc4277b4",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "BR",
@@ -193,9 +193,5 @@
     ],
     "requests": 13,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

@@ -12,6 +12,124 @@
     "orinoco",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Río Casiquiare"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is a very flat-bodied Ancistrus from the Orinoco drainage in Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Venezuela: upper Orinoco River system from the río Cinaruco and further upstream to the río Casiquiare.",
+          "countries": [],
+          "regions": [
+            "Río Casiquiare"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961390,
+      "total": 32,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          19
+        ],
+        [
+          "CO",
+          11
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          11,
+          11
+        ],
+        [
+          -67.5,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

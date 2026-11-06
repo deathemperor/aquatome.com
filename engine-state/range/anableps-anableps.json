@@ -1,0 +1,239 @@
+{
+  "id": "anableps-anableps",
+  "native": {
+    "input": "58397f9169316e3e",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The four-eyed fish, Anableps anableps, is a viviparous fish of brackish mangrove coasts in north-eastern South America, from Venezuela to Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The four-eyed fish, Anableps anableps, is a viviparous fish of brackish mangrove coasts in north-eastern South America, from Venezuela to Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Parnaíba",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Gulf of Paria",
+        "source": "seriouslyfish",
+        "quote": "Occurs along much of the north-east South American coastline from the Gulf of Paria (the shallow, brackish inland sea which separates Trinidad and Tobago from Venezuela) through Guyana, Suriname and French Guiana and past the Amazon delta in Brazil as far as the Parnaíba River estuary at the border between the states of Maranhão and Piauí.",
+        "ok": true
+      },
+      {
+        "name": "Caeté",
+        "source": "seriouslyfish",
+        "quote": "Fieldwork by Brenner and Krumme (2007) in the Furo do Meio, a tidally-influenced tributary of the Caeté mangrove estuary located to the north of Bragança City, 200 km south of the Amazon delta, revealed that these daily migrations are entirely related to feeding (see 'diet').",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anableps anableps",
+    "status": "ACCEPTED",
+    "taxonKey": 2350683,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        85
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        80
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        56
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        38
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        9
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "0eb4ad83-f80d-4d86-83d8-f3a55ddd216f",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "640ae8b7-14b9-4188-894a-a2bc3821c752",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "7ad079e7-f905-444f-a228-01746e3b7c6b",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR",
+      "GY",
+      "SR",
+      "GF"
+    ],
+    "requests": 15,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

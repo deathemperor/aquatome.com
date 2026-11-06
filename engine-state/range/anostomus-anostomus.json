@@ -1,0 +1,148 @@
+{
+  "id": "anostomus-anostomus",
+  "native": {
+    "input": "5ab57f7393a2935e",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped headstander, Anostomus anostomus, is an anostomid from the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped headstander, Anostomus anostomus, is an anostomid from the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped headstander, Anostomus anostomus, is an anostomid from the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped headstander, Anostomus anostomus, is an anostomid from the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'South America', and this species is widespread throughout the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'South America', and this species is widespread throughout the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anostomus anostomus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355535,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        28
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        22
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        19
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        10
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        10
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR",
+      "VE",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

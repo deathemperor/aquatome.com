@@ -1,8 +1,8 @@
 {
   "id": "xiphophorus-maculatus",
   "native": {
-    "input": "372e7967a9d7b57f",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "bde7d76e5f928eb2",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "MX",
@@ -16,23 +16,15 @@
         "code": "MX",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
+        "quote": "The platy, Xiphophorus maculatus, is a livebearer from the Atlantic coastal plain of Mexico, Guatemala, Belize and Nicaragua.",
         "words": "Mexico",
-        "ok": true
-      },
-      {
-        "code": "NI",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
-        "words": "Nicaragua",
         "ok": true
       },
       {
         "code": "GT",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
+        "quote": "The platy, Xiphophorus maculatus, is a livebearer from the Atlantic coastal plain of Mexico, Guatemala, Belize and Nicaragua.",
         "words": "Guatemala",
         "ok": true
       },
@@ -40,8 +32,16 @@
         "code": "BZ",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Atlantic coastal plain of Mexico, Nicaragua, Guatemala, Belize.",
+        "quote": "The platy, Xiphophorus maculatus, is a livebearer from the Atlantic coastal plain of Mexico, Guatemala, Belize and Nicaragua.",
         "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The platy, Xiphophorus maculatus, is a livebearer from the Atlantic coastal plain of Mexico, Guatemala, Belize and Nicaragua.",
+        "words": "Nicaragua",
         "ok": true
       },
       {
@@ -178,6 +178,14 @@
         "source": "aquariumbreeder",
         "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
         "words": "Jamaica",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Introduced: Madagascar, Mauritius, Nigeria, Réunion, Kerala, Indonesia, Japan, Saudi Arabia, Singapore, Sri Lanka, Austria, Germany, Bahamas, Canada, Honduras, Jamaica, Puerto Rico, California, Colorado, Florida, Hawaii, Louisiana, Montana, Nevada, Texas, Palau, Paraíba, Colombia, and Peru.",
+        "words": "Puerto Rico",
         "ok": true
       },
       {
@@ -479,9 +487,5 @@
     ],
     "requests": 17,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

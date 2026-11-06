@@ -11,6 +11,97 @@
     "paraguay",
     "tebicuary"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PY"
+      ],
+      "regions": [
+        "Río Tebicuary-mi",
+        "La Plata",
+        "Paraná",
+        "Tebicuary"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: tributary of Río Tebicuary-mi, Salto Pirareta, Cordillera, Paraguay.",
+          "countries": [
+            "PY"
+          ],
+          "regions": [
+            "Río Tebicuary-mi"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: La Plata, Paraná, Paraguay and Tebicuary basins.",
+          "countries": [],
+          "regions": [
+            "La Plata",
+            "Paraná",
+            "Tebicuary"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961455,
+      "total": 22,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PY",
+          19
+        ],
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          16,
+          16
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          -54.84375,
+          -19.6875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

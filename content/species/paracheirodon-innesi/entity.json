@@ -26,13 +26,60 @@
         "Amazon",
         "Orinoco",
         "Putumayo",
-        "Solimões",
         "Purus",
-        "Napo"
+        "Ucayali"
       ],
       "sources": [
         "sprucepets",
         "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.",
+          "countries": [
+            "CO",
+            "BR",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Ucayali"
+          ]
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
+          "countries": [],
+          "regions": [
+            "Putumayo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+          "countries": [],
+          "regions": [
+            "Purus"
+          ]
+        }
       ]
     },
     "records": {

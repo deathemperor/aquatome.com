@@ -1,8 +1,8 @@
 {
   "id": "sahyadria-denisonii",
   "native": {
-    "input": "8808629555bd255b",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "feb2454e406c52d7",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "IN",
@@ -27,18 +27,6 @@
         "ok": true
       },
       {
-        "name": "Kallar",
-        "source": "seriouslyfish",
-        "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
-        "ok": true
-      },
-      {
-        "name": "Kuttiyadi",
-        "source": "seriouslyfish",
-        "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
-        "ok": true
-      },
-      {
         "name": "Bhavani",
         "source": "seriouslyfish",
         "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
@@ -48,6 +36,19 @@
         "name": "Bharatapuzha",
         "source": "seriouslyfish",
         "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
+        "ok": true
+      },
+      {
+        "name": "Chandragiri",
+        "source": "seriouslyfish",
+        "quote": "Its modern distribution is highly fragmented with small populations remaining in the Valapatanam, Chaliyar, Kallar, Karyangod, Kuttiyadi, Chandragiri, Sullya, Kuppam, Iritti, Anjarakandipuzha, Bhavani, and Bharatapuzha river systems.",
+        "ok": true
+      },
+      {
+        "name": "Manimala River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mundakayam, Travancore, India', which appears to correspond to the Manimala River near the town of Mundakayam in Kottayam District, Kerala state, southern India.",
+        "country": "IN",
         "ok": true
       }
     ],
@@ -85,9 +86,5 @@
     ],
     "requests": 11,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }
