@@ -4,10 +4,11 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { loadAll, QUALITY_THRESHOLD } from '@aq/schema'
 import { backfill, bulkEntries } from '../scripts/content-backfill'
-import { classify, computeContentStats, h1Of, licenceFamily, MAX_ATTEMPTS, photoOrigin, REWRITE_V } from '../scripts/content-stats'
-import { keepTotals, type ContentStats } from '../worker/admin/content-shape'
-import { DIST } from './dist'
+import { classify, computeContentStats, h1Of, lastReview, licenceFamily, lowScores, MAX_ATTEMPTS, OTHER_REVIEWS, outForScore, photoOrigin, QUALITY_BAR, REWRITE_V, SCORE_REVIEWS } from '../scripts/content-stats'
+import { keepTotals, type ContentStats, type LastReview, type LowScores } from '../worker/admin/content-shape'
+import { DIST, page } from './dist'
 
 const CONTENT = fileURLToPath(new URL('./fixture-content', import.meta.url))
 const ENGINE = fileURLToPath(new URL('./fixture-engine-state', import.meta.url))
@@ -126,6 +127,67 @@ test('the engine rules the stats mirror are the engine\'s', () => {
   expect(src('state.ts')).toContain(`export const MAX_ATTEMPTS = ${MAX_ATTEMPTS}\n`)
   expect(src('youtube.ts')).toContain(`s.attempts < ${MAX_ATTEMPTS} &&`)
   expect(src('vi-backfill.ts')).toContain(`export const REWRITE_V = ${REWRITE_V}\n`)
+  expect(QUALITY_BAR).toBe(QUALITY_THRESHOLD)
+  // Each kind of review the engine keeps either scores a page or doesn't: a new one fails here until it's one or the other.
+  const kinds = /export const REVIEW_KINDS = \[([\s\S]*?)\] as const/.exec(src('review-log.ts'))![1]!
+  expect([...kinds.matchAll(/^\s*'([a-z-]+)',$/gm)].map(m => m[1]).sort()).toEqual([...SCORE_REVIEWS, ...OTHER_REVIEWS].sort())
+})
+
+test('the pages out of search for their score, lowest first, each with its last review (engine-state/reviews, here stand-ins)', () => {
+  const low = lowScores({ contentRoot: CONTENT, engineState: ENGINE, publicBuild: false, pages: stats.pages })
+  expect(low.bar).toBe(0.75)
+  expect(low.pages.map(p => [p.path, p.kind, p.score, p.review?.kind, p.review?.at])).toEqual([
+    // The newest review of the version the page has, over an older one it no longer has.
+    ['/ca/ca-la-han/', 'breed', 0.6, 'breed', '2026-11-06T09:35:27Z'],
+    // The version kept, over a newer rewrite that wasn't kept.
+    ['/huong-dan/thay-nuoc-dung-cach/', 'guide', 0.6, 'translation', '2026-11-04T07:00:00Z'],
+    // A title's review doesn't score the page: none.
+    ['/thuat-ngu/gh/', 'glossary', 0.6, undefined, undefined],
+    // Reviewed in parts: the part under the bar says why, over a newer one that passed; the Indonesian page's isn't this one's.
+    ['/ca/ca-boraras-do/', 'fish', 0.61, 'translation', '2026-11-05T10:00:00Z'],
+  ])
+  expect(low.pages.at(-1)!.review).toEqual({
+    kind: 'translation', at: '2026-11-05T10:00:00Z', score: 0.61, kept: true,
+    notes: ['"Nhiệt độ 20–28°C" is not the source\'s range (24–28°C).', '"Cá sống theo đàn lớn ngoài tự nhiên" is not in the source: <cut it>.', 'Wording: "Đây là loài cá mà nhiều người yêu thích" is a calque. Rewrite it plainly.'],
+  })
+  // Cá ông tiên is out of search for being thin, at a passing score: not here.
+  expect(low.pages.map(p => p.path)).not.toContain('/ca/ca-ong-tien/')
+  // The build's file: the same pages, and no review, with no engine state beside the fixture content.
+  const built = JSON.parse(readFileSync(join(DIST, '_ab', 'reviews.json'), 'utf8')) as LowScores
+  expect(built.pages.map(p => [p.path, p.kind, p.score])).toEqual(low.pages.map(p => [p.path, p.kind, p.score]))
+  expect(built.pages.some(p => p.review)).toBe(false)
+  expect(lowScores({ contentRoot: CONTENT, publicBuild: false, pages: null }).pages).toEqual([])
+})
+
+test('a page listed is one the build keeps out of search for its score: noindex, and so judged by @aq/schema', async () => {
+  const listed = lowScores({ contentRoot: CONTENT, engineState: ENGINE, publicBuild: false, pages: stats.pages }).pages
+  for (const p of listed) expect(page(p.path).html, p.path).toContain('<meta name="robots" content="noindex')
+  const c = await loadAll({ root: CONTENT, lang: 'vi', publicBuild: false })
+  const judged = [...c.species, ...c.breeds, ...c.plants, ...c.guides, ...c.glossary, ...c.products].filter(x => !x.t.quality.indexable && x.t.quality.score < QUALITY_THRESHOLD)
+  expect(listed.map(p => p.path.split('/').at(-2)).sort()).toEqual(judged.map(x => x.t.slug).sort())
+})
+
+test('a page\'s score as the build judges it: a fish\'s or plant\'s shown sources, a fish\'s recorded thin, a passed page never', () => {
+  const all = () => true
+  const youtube = (s: string) => s === 'youtube'
+  expect(outForScore('guides', { score: 0.6, indexable: false }, all)).toBe(0.6)
+  // Out of search, but not for its score; a score recorded as passing.
+  expect(outForScore('guides', { score: 0.8, indexable: false }, all)).toBeUndefined()
+  expect(outForScore('guides', { score: 0.6, indexable: true }, all)).toBeUndefined()
+  expect(outForScore('species', undefined, all)).toBeUndefined()
+  // A public build scores a fish or a plant by the sources it shows; any other page by its own score.
+  const q = { score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6, youtube: 0.9 } }
+  expect(outForScore('species', q, all)).toBe(0.6)
+  expect(outForScore('species', q, youtube)).toBeUndefined()
+  expect(outForScore('plants', { score: 0.6, indexable: false, bySource: { seriouslyfish: 0.9, youtube: 0.6 } }, youtube)).toBe(0.6)
+  expect(outForScore('guides', q, youtube)).toBe(0.6)
+  // A fish recorded thin: its score alone decides.
+  expect(outForScore('species', { score: 0.6, indexable: false, reason: 'thin' }, all)).toBe(0.6)
+  expect(outForScore('species', { score: 0.8, indexable: false, reason: 'thin' }, all)).toBeUndefined()
+  // No review kept: the newest.
+  const t = (at: string, score: number, kept: boolean): LastReview => ({ kind: 'translation', at, score, notes: [], kept })
+  expect(lastReview([t('2026-11-01T00:00:00Z', 0.5, false), t('2026-11-03T00:00:00Z', 0.9, false)])!.at).toBe('2026-11-03T00:00:00Z')
+  expect(lastReview([])).toBeUndefined()
 })
 
 test('sources and photos: what each source gives the pages, and where photos come from', () => {
