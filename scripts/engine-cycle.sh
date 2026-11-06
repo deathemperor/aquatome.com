@@ -3,7 +3,7 @@
 # The steps come in four parts that run side by side, each publishing its own work, so one failing part loses only its
 # own: pages (new pages from every source but Seriously Fish, with their photos screened and
 # stored), sf (the same for Seriously Fish, whose ~1,800-page backlog would otherwise take most of the pages job),
-# photos (upkeep of the photos on every page), rewrite (older Vietnamese, and Indonesian and Thai species pages). No argument: all four, one after another.
+# photos (upkeep of the photos on every page), rewrite (older Vietnamese, and pages in the other languages). No argument: all four, one after another.
 # rewrite runs on GitHub (engine.yml). pages, sf and photos need macOS and run on the owner's Mac, each from its own clone
 # (install-engine-schedule.sh), so they never touch a development checkout and GitHub's few macOS runners stay the iOS app's.
 set -euo pipefail
@@ -93,6 +93,14 @@ if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
   pnpm engine plant-synonyms || log "plant-synonyms: failed"
+  # What YouTube reviews found, on PRODUCT_REVIEW_LIMIT product pages a cycle (candidates: product-reviews.ts): a vet, an
+  # extraction a review and a writing call, on top of a research call and a page for a product with none. So only with time
+  # left for that. Not behind SKIP_VIDEOS, which the Mac's parts set for video-cycle.sh's bursts: this is a few requests and
+  # would never run; it stops when YouTube throttles, marking nothing failed.
+  if [ -z "${ENGINE_ARGS:-}" ]; then
+    NEW_PAGES=; [ "$SECONDS" -lt $(( ${PRODUCT_PAGES_BEFORE_MINUTES:-170} * 60 )) ] || NEW_PAGES=--no-new-pages
+    YT_COOKIES_FROM="$(cat "$HOME/.config/aquatome/yt-cookies-from" 2>/dev/null || true)" pnpm engine product-reviews --limit "${PRODUCT_REVIEW_LIMIT:-1}" $NEW_PAGES || log "product-reviews: failed"
+  fi
   # SKIP_VIDEOS (GitHub Actions): the three YouTube steps run in video-cycle.sh on the owner's Mac instead.
   # Original Vietnamese guides from the YouTube playlists in engine-state/youtube-playlists.json (captions and metadata only).
   # Before discovery: a burst of searches makes YouTube throttle the caption fetches that follow.
@@ -209,6 +217,31 @@ if part rewrite; then
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
+  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live.
+  # After everything readers see, and each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES: they give
+  # first when a cycle runs long. A cycle starts every 3 hours and took 91-135 min in November 2026, so 135 leaves the
+  # longest step here (10 species, about 20 min) and the build, tests and push (about 6) inside the 170 min the next cycle
+  # waits for. They add about 40 min a cycle.
+  ahead() {
+    if [ "$SECONDS" -lt $(( ${AHEAD_BEFORE_MINUTES:-135} * 60 )) ]; then "$@" || log "$*: failed"
+    else log "$*: skipped, the cycle has run $(( SECONDS / 60 )) min"; fi
+  }
+  for lang in ms; do
+    # Most-read first. The rest at the others' pace; the first run's glossary (59 terms) and places (757, in 8 batches) are
+    # once only and short enough to go whole, but the buying guides take minutes each.
+    ahead pnpm engine localize --lang "$lang" --limit "${LOCALIZE_AHEAD_LIMIT:-10}"
+    ahead pnpm engine wikidata-names --lang "$lang"
+    ahead pnpm engine shop-names --lang "$lang"
+    ahead pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}"
+    ahead pnpm engine localize-glossary --lang "$lang"
+    ahead pnpm engine localize-places --lang "$lang"
+    ahead pnpm engine localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}"
+    ahead pnpm engine localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"
+    ahead pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"
+    ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
+  done
+  # Their UI text: no build asks for it, so the strings the served languages have, a share a cycle (two model calls).
+  ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-120}"
 fi
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"
@@ -222,7 +255,7 @@ if part photos; then
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
   pnpm engine audit || log "audit: failed"
 fi
-if [ -z "$(git status --porcelain -- content sources)" ]; then
+if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
   # cycle redoes that work. The site doesn't read them, so no build and no deploy.
   if [ -n "$(git status --porcelain -- engine-state docs/review)" ]; then

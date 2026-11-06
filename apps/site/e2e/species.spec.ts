@@ -324,3 +324,34 @@ test('species page on a phone: the strip\'s 8 thumbnails, 6 on a narrow screen, 
     for (const t of thumbs.filter(t => !t.shown)) expect(t.downloaded, `${width} px: #a${t.n}, not shown, not downloaded`).toBe(false)
   }
 })
+
+// What to buy: one shop picked for every search on the page. The links are written for Shopee (they work without the
+// script); picking Lazada points them all there, and says so to a screen reader.
+test('species page: the shop picker points every search at the shop picked', async ({ page }) => {
+  await page.goto('/ca/ca-neon-vua/')
+  const kit = page.locator('section.kit')
+  const links = kit.locator('a[data-go]')
+  await expect(links.first()).toHaveAttribute('href', /^\/go\/shopee\//)
+  await kit.getByRole('button', { name: 'Lazada' }).click()
+  await expect(kit.getByRole('button', { name: 'Lazada' })).toHaveAttribute('aria-pressed', 'true')
+  await expect(kit.getByRole('button', { name: 'Shopee' })).toHaveAttribute('aria-pressed', 'false')
+  for (const href of await links.evaluateAll(as => as.map(a => a.getAttribute('href')!))) expect(href).toMatch(/^\/go\/lazada\/\?k=/)
+  await expect(links.first().locator('[data-shop-name]')).toHaveText('Lazada')
+  // Every search is a 44 px target.
+  for (const h of await links.evaluateAll(as => as.map(a => a.getBoundingClientRect().height))) expect(h).toBeGreaterThanOrEqual(44)
+})
+
+// Shop links never push a page sideways, down to a 320 px screen (the width WCAG's reflow rule tests at): the equipment
+// page's "Mua … trên Shopee" line wraps, and the picker drops its label. They made /thiet-bi/loc/ 355 px and the product
+// page 336 px wide there. The product page is the build's first (the sitemap's on aquatome.com): products come and go
+// with the content, and the fixture's Oase BioMaster 350 isn't on the live site.
+test('shop links fit a 320 px screen', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 })
+  const product = sourcePages().find(p => /^\/san-pham\/[^/]+\/$/.test(p))
+  expect(product, 'a product page').toBeTruthy()
+  for (const path of ['/thiet-bi/loc/', product!, '/ca/ca-neon-vua/']) {
+    await page.goto(path)
+    await expect(page.locator('[data-shop-pick]').first()).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), path).toBeLessThanOrEqual(0)
+  }
+})

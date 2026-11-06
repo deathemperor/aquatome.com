@@ -1,0 +1,66 @@
+{
+  "id": "acrochordonichthys-septentrionalis",
+  "native": {
+    "input": "b0f185fb391d82c8",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Mae Klong chameleon catfish, Acrochordonichthys septentrionalis, is an akysid from western Thailand, possibly endemic to the Mae Klong drainage.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Khwae Noi River (often referred to as the River Kwai) in Kanchanaburi province, western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "There exist questionable records from the Bernam and Pahang rivers in northwestern and central Peninsular Malaysia, respectively.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "The Mae Klong chameleon catfish, Acrochordonichthys septentrionalis, is an akysid from western Thailand, possibly endemic to the Mae Klong drainage.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Khwae Noi",
+        "source": "seriouslyfish",
+        "quote": "Described from the Khwae Noi River (often referred to as the River Kwai) in Kanchanaburi province, western Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acrochordonichthys septentrionalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340867,
+    "datasets": [],
+    "native": [
+      "TH"
+    ],
+    "requests": 2,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

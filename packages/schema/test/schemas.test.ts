@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { SECTION_LABELS, SECTION_ORDER, SourcesSchema, SpeciesSchema, TranslationSchema } from '../src/index'
+import { GuideSchema, SECTION_LABELS, SECTION_ORDER, SourcesSchema, SpeciesSchema, TranslationSchema } from '../src/index'
 
 const minimal = {
   id: 'paracheirodon-axelrodi', scientificName: 'Paracheirodon axelrodi', order: 'Characiformes', family: 'Characidae',
@@ -32,4 +32,9 @@ test('the real sources.json parses, Facebook source included with a permission r
   const s = SourcesSchema.parse(raw)
   expect(s['facebook-jim']).toMatchObject({ name: 'Jim Cumming (Facebook)', publish: true })
   expect(s['facebook-jim']?.permission?.scope).toContain('photos')
+})
+test("a guide photo keeps its section's heading in a language the site doesn't serve yet", () => {
+  const photo = { url: 'https://m/1.webp', width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://x', section: { vi: 'Lọc', id: 'Filter', ms: 'Penapis' } }
+  const g = GuideSchema.parse({ id: 'g', kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://x', html: '', photos: [photo], mentions: [], updatedAt: '2026-11-06' })
+  expect(g.photos[0]!.section).toEqual({ vi: 'Lọc', id: 'Filter', ms: 'Penapis' })
 })

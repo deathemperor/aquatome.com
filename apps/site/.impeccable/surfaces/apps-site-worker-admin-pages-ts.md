@@ -5,7 +5,7 @@ primary_target: "apps/site/worker/admin/pages.ts"
 related_targets: ["apps/site/worker/admin/shell.ts","apps/site/worker/admin/chart.ts"]
 ---
 
-# Owner dashboard (/_ab/)
+# Owner dashboard (/_ab/ in the code, dashboard.aquatome.com once Access guards it)
 
 Scope: the owner's private dashboard, Operate mode. One reader: the owner, mostly on an iPhone, glancing several times a day, sometimes at a computer. Server-rendered HTML from the Worker (apps/site/worker/admin/*), Vietnamese, no client framework.
 

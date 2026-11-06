@@ -10,6 +10,156 @@
     "nicaragua",
     "lake-nicaragua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NI"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red devil cichlid, Amphilophus labiatus, is a large cichlid endemic to Lakes Nicaragua and Managua in Nicaragua, living near submerged rocks.",
+          "countries": [
+            "NI"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370147,
+      "total": 188,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TW",
+          134
+        ],
+        [
+          "NI",
+          39
+        ],
+        [
+          "US",
+          7
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "AU",
+          1
+        ],
+        [
+          "CA",
+          1
+        ],
+        [
+          "CR",
+          1
+        ],
+        [
+          "PR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          6,
+          0
+        ],
+        [
+          -115.3125,
+          39.375,
+          1,
+          0
+        ],
+        [
+          -87.1875,
+          11.25,
+          35,
+          35
+        ],
+        [
+          -85.78125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -85.78125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          45,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          71.71875,
+          18.28125,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          115.3125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          22.5,
+          25,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          108,
+          0
+        ],
+        [
+          144.84375,
+          -16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

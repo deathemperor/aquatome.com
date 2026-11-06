@@ -294,7 +294,7 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   }
   const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as { slug: string; name: string; nameFixed?: boolean } | null
   const name = localName(unescapePlain(w.name), prev, names, forWriter.name)
-  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), lang === 'id' ? 'ikan' : 'fish', taken)
+  const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/\s*\(.*\)\s*$/, ''), T.slugWords.fish, taken)
   // The Vietnamese page's own names are not names in this language, nor are its species' (cleanBreedAltNames).
   const viNames = new Set([vi.name, ...vi.altNames].map(n => n.toLowerCase()))
   const breeds = await breedNames(join(root, 'content'), lang)

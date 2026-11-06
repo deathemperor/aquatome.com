@@ -5,10 +5,13 @@ import { prefersMarkdown } from '../markdown'
 import { gonePage } from '../hidden'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
+import { LANGS } from '@aq/schema/langs'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
 const CHROME = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36'
 const browser = { 'user-agent': CHROME, 'accept-language': 'vi' }
+/** What a browser sends when a reader clicks a shop link on one of our pages. */
+const CLICK = { ...browser, 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'navigate' }
 
 function env(over: Partial<Env> = {}) {
   const points: unknown[] = []
@@ -115,7 +118,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
   const { ADMIN_PAGES } = await import('../dashboard')
   const { db, owner, reader, app } = await signedIn()
   const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc', ASSETS: assets } as Partial<Env>)
-  expect(ADMIN_PAGES).toHaveLength(11)
+  expect(ADMIN_PAGES).toHaveLength(12)
   // Nobody, the old token cookie, another reader's account, the owner's app session (a bearer), and the owner's cookie
   // under the dashboard token as a bearer (a bearer is read first, and opens no page).
   const visits: Record<string, string>[] = [browser, { ...browser, cookie: 'ab_token=tok' }, { ...browser, cookie: reader }, { ...browser, authorization: `Bearer ${app}` }, { ...browser, authorization: 'Bearer tok', cookie: owner }]
@@ -132,7 +135,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
       }
     }
     if (h.authorization !== 'Bearer tok') expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(404)
-    for (const p of ['/_ab/photos', '/_ab/hidden']) expect((await handle(new Request(`https://x.test${p}`, { method: 'POST', body: new URLSearchParams({ id: 'x', url: '/ca/x/', action: 'hide' }), headers: h }), e)).status, p).toBe(404)
+    for (const p of ['/_ab/photos', '/_ab/hidden', '/_ab/bao-cao/cai-dat']) expect((await handle(new Request(`https://x.test${p}`, { method: 'POST', body: new URLSearchParams({ id: 'x', url: '/ca/x/', action: 'hide', push: '1' }), headers: h }), e)).status, p).toBe(404)
     expect((await handle(get('/_ab/something-else/', h), e)).status).toBe(404)
     // The build's content stats (scripts/content-stats.ts) are a file in /_ab/: the Worker answers first, and never with it.
     expect((await handle(get('/_ab/content.json', h), e)).status).toBe(404)
@@ -193,9 +196,35 @@ test('/go/ redirects to search without D1, with D1 counts the click, 404s on jun
   expect((await handle(get('/go/shopee/?u=https://evil.test'), e)).status).toBe(404)
   const db = testD1()
   const waits: Promise<unknown>[] = []
-  await handle(get('/go/lazada/?k=loc&c=loc&e=guide:x'), { ...e, DB: db }, p => { waits.push(p) })
+  await handle(get('/go/lazada/?k=loc&c=loc&e=guide:x', CLICK), { ...e, DB: db }, p => { waits.push(p) })
   await Promise.all(waits)
   expect(await db.prepare('SELECT network, n FROM clicks_daily').first()).toEqual({ network: 'lazada', n: 1 })
+})
+
+// Found 2026-11-06: 65 clicks counted since 10-29 and not one beacon `aff` event, which a real click sends (checked in
+// Chromium and WebKit): whoever followed these links said they were a browser and ran no page. All of them still go to
+// the shop; only a click on one of our pages is counted.
+test('/go/ counts a click on one of our pages, not a browser-looking client that opens the address, nor the owner', async () => {
+  const { e } = env()
+  const counted = async (h: Record<string, string>) => {
+    const db = testD1()
+    const waits: Promise<unknown>[] = []
+    const r = await handle(get('/go/shopee/?k=neon', h), { ...e, DB: db }, p => { waits.push(p) })
+    expect(r.status).toBe(302)
+    await Promise.all(waits)
+    return (await db.prepare('SELECT COUNT(*) AS n FROM clicks_daily').first<{ n: number }>())!.n
+  }
+  expect(await counted(CLICK)).toBe(1)
+  // A crawler with a browser's user agent and Accept-Language: it has no Sec-Fetch headers, whatever Referer it adds.
+  expect(await counted(browser)).toBe(0)
+  expect(await counted({ ...browser, referer: 'https://x.test/ca/x/' })).toBe(0)
+  // A real browser, opened at the address (a crawler driving one, a link pasted in): no page of ours sent it.
+  expect(await counted({ ...browser, 'sec-fetch-site': 'none', 'sec-fetch-mode': 'navigate' })).toBe(0)
+  expect(await counted({ ...browser, 'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'navigate' })).toBe(0)
+  // A script on our page fetching the link is not a click either.
+  expect(await counted({ ...browser, 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'cors' })).toBe(0)
+  // The owner, as the beacon leaves the owner out (the flag cookie, worker/owner.ts).
+  expect(await counted({ ...CLICK, cookie: 'aq_lang=vi; aq_owner=1' })).toBe(0)
 })
 
 test('/go/ wraps the search link without D1, falls back when D1 breaks, never counts bots or HEAD', async () => {
@@ -209,8 +238,8 @@ test('/go/ wraps the search link without D1, falls back when D1 breaks, never co
   const db = testD1()
   const waits: Promise<unknown>[] = []
   const hit = (req: Request) => handle(req, { ...e, DB: db }, p => { waits.push(p) })
-  await hit(get('/go/shopee/?k=neon', { 'user-agent': 'Googlebot/2.1' }))
-  await hit(new Request('https://x.test/go/shopee/?k=neon', { method: 'HEAD', headers: browser }))
+  await hit(get('/go/shopee/?k=neon', { ...CLICK, 'user-agent': 'Googlebot/2.1' }))
+  await hit(new Request('https://x.test/go/shopee/?k=neon', { method: 'HEAD', headers: CLICK }))
   await Promise.all(waits)
   expect(await db.prepare('SELECT COUNT(*) AS n FROM clicks_daily').first()).toEqual({ n: 0 })
 })
@@ -337,13 +366,56 @@ test('agent discovery: API catalog as linkset+json; the home page and its langua
   expect((await handle(inCountry('ID', en), e)).headers.get('location')).toBe('/id/')
   expect((await handle(inCountry('TH', en), e)).headers.get('location')).toBe('/th/')
   expect((await handle(inCountry('VN', en), e)).status).toBe(200)
-  expect((await handle(inCountry('US', en), e)).status).toBe(200)
+  expect(await (await handle(inCountry('US', en), e)).text()).toContain('lang="en"') // the language chooser, below
   expect((await handle(inCountry('TH', { ...browser, 'accept-language': 'vi-VN,en;q=0.8' }), e)).status).toBe(200)
   expect((await handle(inCountry('ID', { ...en, cookie: 'aq_lang=vi' }), e)).status).toBe(200)
   expect((await handle(inCountry('ID', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)).status).toBe(200)
   expect(root.headers.get('link')).toContain('</.well-known/api-catalog>; rel="api-catalog"')
   expect(id.headers.get('link')).toContain('rel="api-catalog"')
   expect((await handle(get('/ca/'), e)).headers.get('link')).toBeNull()
+})
+
+test('a browser asking for none of our languages, from a country with none of them, is asked to choose; the pick is remembered and counted', async () => {
+  const { e, points } = env()
+  const at = (path: string, country: string, headers: Record<string, string>) => Object.assign(get(path, headers), { cf: { country } })
+  const en = { ...browser, 'accept-language': 'en-GB,en;q=0.9' }
+  const asked = await handle(at('/', 'GB', en), e)
+  const html = await asked.text()
+  expect(asked.status).toBe(200)
+  expect(html).toContain('<html lang="en">')
+  for (const l of LANGS) expect(html).toContain(`href="/?lang=${l}"`)
+  expect(asked.headers.get('cache-control')).toBe('private, no-store')
+  expect(asked.headers.get('vary')).toBe('Accept-Language, Cookie')
+  expect(asked.headers.get('link')).toContain('rel="api-catalog"')
+  expect(points).toEqual([{ blobs: ['', 'lang', '/', '', '', 'GB'], doubles: [1], indexes: ['GB'] }])
+  // The home page instead: a language of ours asked for or picked, a country with one of ours, no country known, a crawler.
+  const home = async (r: Request) => (await (await handle(r, e)).text()) === PAGE
+  expect(await home(at('/', 'GB', { ...en, 'accept-language': 'en-GB,vi;q=0.5' }))).toBe(true)
+  expect(await home(at('/', 'GB', { ...en, cookie: 'aq_lang=vi' }))).toBe(true)
+  expect(await home(at('/', 'VN', en))).toBe(true)
+  for (const unknown of ['XX', 'T1', '']) expect(await home(at('/', unknown, en)), unknown).toBe(true)
+  expect(await home(at('/', 'GB', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }))).toBe(true)
+  expect(await home(at('/', 'GB', { ...en, 'user-agent': `${CHROME} AquaTomeCheck/1` }))).toBe(true)
+  expect((await handle(at('/', 'GB', { ...en, cookie: 'aq_lang=th' }), e)).headers.get('location')).toBe('/th/')
+  expect(points).toHaveLength(1)
+  // A browser fetching / ahead of a click (the Vietnamese pages prefetch it) gets the chooser, uncounted.
+  for (const purpose of ['prefetch', 'prefetch;prerender']) expect(await (await handle(at('/', 'GB', { ...en, 'sec-purpose': purpose }), e)).text()).toContain('lang="en"')
+  expect(points).toHaveLength(1)
+  // Its links keep the address's query for the page they lead to.
+  expect(await (await handle(at('/?utm_source=x&a=1', 'GB', en), e)).text()).toContain('href="/?lang=th&amp;utm_source=x&amp;a=1"')
+  points.length = 1
+  // The pick: Indonesian or Thai, that language's home; Vietnamese, the home page itself (never back to the chooser,
+  // whose test a lost cookie would fail again); remembered as the language menu does, counted by country.
+  const id = await handle(at('/?lang=id&utm_source=x', 'GB', en), e)
+  expect([id.status, id.headers.get('location'), id.headers.get('set-cookie')]).toEqual([302, '/id/?utm_source=x', 'aq_lang=id; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
+  expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=id', '', '', 'GB'], doubles: [1], indexes: ['GB'] })
+  const vi = await handle(at('/?lang=vi', 'US', en), e)
+  expect([vi.status, await vi.text(), vi.headers.get('set-cookie')]).toEqual([200, PAGE, 'aq_lang=vi; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
+  expect(points.at(-1)).toEqual({ blobs: ['', 'lang', '/?lang=vi', '', '', 'US'], doubles: [1], indexes: ['US'] })
+  // A crawler's pick isn't counted; a language not ours is no pick.
+  await handle(at('/?lang=th', 'GB', { 'user-agent': 'Googlebot/2.1', 'accept-language': 'en' }), e)
+  expect(points).toHaveLength(3)
+  expect(await (await handle(at('/?lang=fr', 'GB', en), e)).text()).toContain('lang="en"')
 })
 
 test('hide a page from the dashboard: 410 for HTML, markdown and index.*; unhide brings it back', async () => {

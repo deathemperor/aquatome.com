@@ -1,0 +1,91 @@
+{
+  "id": "alestopetersius-brichardi",
+  "native": {
+    "input": "c858e737e438908c",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The cherry red Congo tetra, Alestopetersius brichardi, is an alestid from the middle Congo and tributaries such as the Busira and Ruki in DR Congo.",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Yangambi, Lake Yandja', Yangambi being a settlement located on the Congo River in Orientale province, Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A. brichardi appears to be known exclusively from the middle Congo including some tributaries such as the Busira and Ruki, and may also occur in affluents draining the Republic of Congo.",
+        "words": "Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "A. brichardi appears to be known exclusively from the middle Congo including some tributaries such as the Busira and Ruki, and may also occur in affluents draining the Republic of Congo.",
+        "ok": true
+      },
+      {
+        "name": "Busira",
+        "source": "seriouslyfish",
+        "quote": "A. brichardi appears to be known exclusively from the middle Congo including some tributaries such as the Busira and Ruki, and may also occur in affluents draining the Republic of Congo.",
+        "ok": true
+      },
+      {
+        "name": "Ruki",
+        "source": "seriouslyfish",
+        "quote": "A. brichardi appears to be known exclusively from the middle Congo including some tributaries such as the Busira and Ruki, and may also occur in affluents draining the Republic of Congo.",
+        "ok": true
+      },
+      {
+        "name": "Lake Yandja",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Yangambi, Lake Yandja', Yangambi being a settlement located on the Congo River in Orientale province, Democratic Republic of Congo.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Pool Malebo",
+        "source": "seriouslyfish",
+        "quote": "There exists a single account from Pool Malebo (Stanley Pool) but all other records relate to localities considerably further upriver.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CG"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Alestopetersius brichardi",
+    "status": "ACCEPTED",
+    "taxonKey": 2356112,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        18
+      ]
+    ],
+    "native": [
+      "CD",
+      "CG"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

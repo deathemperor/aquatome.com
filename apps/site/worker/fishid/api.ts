@@ -1,3 +1,4 @@
+import { LANGS } from '@aq/schema/langs'
 import type Anthropic from '@anthropic-ai/sdk'
 import { LIMITS, type Limits } from '../agent/loop'
 import { sessionOf } from '../accounts/session'
@@ -93,7 +94,6 @@ const json = (data: unknown, status = 200) => Response.json(data, { status, head
 const live = (env: FishIdEnv): env is Live => Boolean(parseKeys(env.ANTHROPIC_KEYS).entries.length && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY && env.DB && env.FISHID_LEDGER)
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
 const usdLimit = (env: FishIdEnv) => (Number(env.FISH_ID_USD_PER_DAY) > 0 ? Number(env.FISH_ID_USD_PER_DAY) : USD_PER_DAY)
-const LANGS: Lang[] = ['vi', 'id', 'th']
 
 /**
  * Each key's problem in KV (fishid:key:<hash>), gone by itself once it no longer applies (KV's TTL, and `until`): a key

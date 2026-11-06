@@ -1,0 +1,82 @@
+{
+  "id": "aguarunichthys-torosus",
+  "native": {
+    "input": "54b4e6b06f723560",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Marañón",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "This species is known only from the Río Marañón in the upper Amazon basin, Peru, and probably occurs in some tributaries draining into Peru from Ecuador.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "EC"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Aguarunichthys torosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338729,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

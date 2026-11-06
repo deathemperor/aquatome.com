@@ -1,0 +1,67 @@
+{
+  "id": "akysis-variegatus",
+  "native": {
+    "input": "cc307cac120ce214",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Northern Borneo and Mekong basin.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "scotcat",
+        "quote": "Asia: Northern Borneo and Mekong basin.",
+        "ok": true
+      },
+      {
+        "name": "Citarum",
+        "source": "scotcat",
+        "quote": "This species is known only from the Citarum River drainage in western Java, although it is also known from the upper Brantas River drainage in eastern Java from specimens collected in the 1960's.",
+        "ok": true
+      },
+      {
+        "name": "Brantas",
+        "source": "scotcat",
+        "quote": "This species is known only from the Citarum River drainage in western Java, although it is also known from the upper Brantas River drainage in eastern Java from specimens collected in the 1960's.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "scotcat",
+        "quote": "This species is known only from the Citarum River drainage in western Java, although it is also known from the upper Brantas River drainage in eastern Java from specimens collected in the 1960's.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID",
+        "KH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis variegatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340909,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}
