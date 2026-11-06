@@ -41,6 +41,57 @@
     "attempts": 3,
     "error": "no archived copy (HTTP 429)"
   },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-bba": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-bba"
+    ],
+    "updatedAt": "2026-11-06T03:30:20.833Z",
+    "hash": "8daf838801d2bbb19a28294f2768353e8cbec6330606a84a806335d13862ffff",
+    "processedHash": "8daf838801d2bbb19a28294f2768353e8cbec6330606a84a806335d13862ffff",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-cladophora": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-cladophora"
+    ],
+    "updatedAt": "2026-11-06T03:31:57.633Z",
+    "hash": "13ae298d27691d7492312fc157cb8838d1cdc67bd06698d60d48cb7cc44531f9",
+    "processedHash": "13ae298d27691d7492312fc157cb8838d1cdc67bd06698d60d48cb7cc44531f9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-cynobacteria": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-cynobacteria"
+    ],
+    "updatedAt": "2026-11-06T03:33:04.288Z",
+    "hash": "647d90c564cbf3653ed3f996b7e40693cb380c1ff04a3eefe6585df43ef4e0be",
+    "processedHash": "647d90c564cbf3653ed3f996b7e40693cb380c1ff04a3eefe6585df43ef4e0be",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-diatoms": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T03:34:22.916Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-green-dust-algae": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T03:34:28.113Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-green-spot-algae": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T03:34:33.318Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
     "entityIds": [],
     "updatedAt": "2026-11-04T21:58:22.460Z",

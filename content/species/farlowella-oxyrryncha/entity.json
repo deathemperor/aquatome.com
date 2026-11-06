@@ -7,15 +7,102 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "brazil",
+    "amazon"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 23
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<ul><li>IUCN status: Least Concern (2023)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>Not an easy catfish to keep, as there have been many unexplained deaths attributed to this species (and other Farlowella). It needs dedicated care from an experienced catfish keeper who has worked with this species or its close cousins from the easier-kept Sturisoma genus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins; coastal rivers of northeastern Brazil. Type locality: Rio Mamoré – Cachoeira da Bananeira [Brazil].</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>Needs a high oxygen content in the aquarium with regular water changes to keep the water in pristine condition. Prefers a dark substrate with dense vegetation, floating and long-leaved plants that it can hang on to.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>Temperature: 22–26°C. pH: 6.0–7.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>Mostly vegetarian, with algae being the main food source for adults and young fry, so vegetable-rich tablets should suffice.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>A very timid species. If housed with other inhabitants, avoid boisterous fish such as some barbs (such as tiger barbs) and definitely cichlids. Better companions are unobtrusive Corydoras species and small characins or rasboras.</p>"
+    },
     {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/farlowella_oxyrrhyncha_en/",
       "html": "<p>This extremely sharp-nosed needle sucker was imported from Peru for the first time, in very limited numbers.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>Etymology: the specific name oxyrryncha comes from the Greek oxys = 'sharp' or 'acute' and rhynchos = 'snout', alluding to the long snout.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats, so it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Ferraris, C.J. Jr., 2003. Loricariidae - Loricariinae (Armored catfishes). p. 330-350. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2022 ). Salvador, G.N. 2023. Farlowella oxyrryncha. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
@@ -42,7 +129,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wWAK0sQTs0w",
+      "title": "Farowella Oxyrryncha (ficha técnica)",
+      "durationSec": 291,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -59,5 +153,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-06"
 }
