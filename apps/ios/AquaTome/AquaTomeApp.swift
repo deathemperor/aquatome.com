@@ -84,6 +84,10 @@ struct AquaTomeApp: App {
       }
       // The tab bar shrinks out of the way while reading down a page, and comes back at the page's top or with a tap on it (iOS 26).
       .minimizingTabBarOnScroll()
+      #if DEBUG
+      // Whatever tab or page is showing, for the video tests: the pages' players still alive.
+      .background { PlayerCount() }
+      #endif
       .environment(lights)
       .environment(handbook)
       .environment(tanks)
