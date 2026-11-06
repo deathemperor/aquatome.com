@@ -343,11 +343,14 @@ final class HandbookModel {
       // `-vi-at-root`: the site has taken "/vi" out of its Vietnamese pages' addresses.
       let f = args.contains("-vi-at-root") ? HandbookIndex.fixtureAtRoot : .fixture
       // `-pages-count N`: the site has split its guides into N shards since the last launch.
-      let pages = args.firstIndex(of: "-pages-count").flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }.map { ["guide": $0] } ?? f.pages
+      let counted = args.firstIndex(of: "-pages-count").flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }.map { ["guide": $0] } ?? f.pages
+      // `-equipment`: the site lists a kind of kit too, with the many fish it's for, and has its page as blocks.
+      let kit = args.contains("-equipment")
+      let pages = kit ? counted.merging(["equipment": 1]) { a, _ in a } : counted
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
-      let items = args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items
+      let items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
       // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
       return .fixed(HandbookIndex(lang: f.lang, items: items, home: f.home, labels: f.labels, pages: pages, telemetry: args.contains("-site-telemetry"),
                                   latest: latest))
@@ -361,7 +364,9 @@ final class HandbookModel {
     #if DEBUG
     if case .fixed = source {
       let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
-      let pages = ProcessInfo.processInfo.arguments.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot : HandbookIndex.fixturePages
+      let launch = ProcessInfo.processInfo.arguments
+      let pages = launch.contains("-equipment") ? HandbookIndex.fixtureKitPages
+        : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot : HandbookIndex.fixturePages
       return PageCache(dir: dir, site: site, fetch: { _ in pages })
     }
     #endif
@@ -424,6 +429,10 @@ extension HandbookIndex {
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
   ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
 
+  /// UI tests' kit (`-equipment`): a kind of kit, and more fish needing it than its page lists in place.
+  static let fixtureKit: [Item] = [.init(kind: .equipment, name: "Lọc", path: "/vi/thiet-bi/loc/")]
+    + (1...40).map { .init(kind: .fish, contentId: "ca-thu-\($0)", name: "Cá thử \($0)", sub: "Piscis \($0)", path: "/vi/ca/ca-thu-\($0)/") }
+
   /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
   /// twice, updated then new.
   static let fixtureLatest = Latest(lang: "vi", entries: [
@@ -441,6 +450,11 @@ extension HandbookIndex {
           of: "symphysodon-aequifasciatus",
           card: .init(tempC: .init(min: 28, max: 30), ph: .init(min: 5.5, max: 7), sizeCm: 15, tankCm: 120, difficulty: 7)),
   ]
+
+  /// UI tests' page of a kind of kit (`-equipment`), as the site writes it.
+  static let fixtureKitPages = Data(#"""
+  {"v":1,"pages":{"/vi/thiet-bi/loc/":{"v":1,"kind":"equipment","path":"/vi/thiet-bi/loc/","title":"Lọc","meta":"40 loài cá cần · 2 loại · 1 bài viết","lead":{"src":"https://media.aquatome.com/a/loc.webp","w":1000,"h":667,"alt":"Lọc","credit":{"text":"Ảnh: Aquarium Co-op","licence":"dùng với sự cho phép","url":"https://example.org/photo/loc"}},"blocks":[{"t":"p","c":["Bộ lọc giữ nước trong và nuôi vi sinh xử lý chất thải của cá."]},{"t":"p","c":["Lọc làm ba việc: giữ cặn, nuôi vi sinh, tạo dòng chảy."]},{"t":"h","text":"Các loại lọc"},{"t":"h","text":"Lọc thùng","id":"loc-thung"},{"t":"figure","img":{"src":"https://media.aquatome.com/a/loc-thung.webp","w":960,"h":720,"alt":"Lọc thùng","credit":{"text":"Ảnh: Tác giả 6","licence":"CC BY 4.0","url":"https://example.org/photo/loc-thung"}}},{"t":"p","c":["Đặt ngoài bể, khỏe và êm, hợp bể từ 60 cm."]},{"t":"p","c":[{"text":"Chọn thế nào:","b":true}," Lưu lượng gấp 4 lần thể tích bể mỗi giờ."]},{"t":"p","c":["Đã tìm hiểu kỹ: ",{"text":"Oase BioMaster 350","href":"/vi/san-pham/oase-biomaster-350/"}]},{"t":"p","c":[{"text":"Mua lọc thùng trên Shopee","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng&c=loc&e=equipment%3Aloc"}]},{"t":"p","c":["Hay tìm: ",{"text":"lọc thùng mini","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+mini&c=loc&e=equipment%3Aloc"}]},{"t":"cards","title":"Loài dùng lọc thùng","items":[{"path":"/vi/ca/ca-neon/","name":"Cá neon"},{"path":"/vi/ca/ca-dia/","name":"Cá đĩa"}]},{"t":"p","c":["+38 loài"]},{"t":"h","text":"Lọc bọt biển","id":"loc-bot-bien"},{"t":"p","c":["Rẻ và hiền, hợp bể nhỏ và bể tép."]},{"t":"p","c":[{"text":"Chọn thế nào:","b":true}," Một miếng cho bể đến 40 lít."]},{"t":"h","text":"Cách chọn"},{"t":"list","items":[[{"t":"p","c":["Chọn theo cỡ bể và cá nuôi."]}]]},{"t":"h","text":"Sai lầm thường gặp"},{"t":"list","items":[[{"t":"p","c":["Rửa vật liệu lọc bằng nước máy."]}]]},{"t":"pages","title":"Loài cá cần lọc","paths":["/vi/ca/ca-thu-1/","/vi/ca/ca-thu-2/","/vi/ca/ca-thu-3/","/vi/ca/ca-thu-4/","/vi/ca/ca-thu-5/","/vi/ca/ca-thu-6/","/vi/ca/ca-thu-7/","/vi/ca/ca-thu-8/","/vi/ca/ca-thu-9/","/vi/ca/ca-thu-10/","/vi/ca/ca-thu-11/","/vi/ca/ca-thu-12/","/vi/ca/ca-thu-13/","/vi/ca/ca-thu-14/","/vi/ca/ca-thu-15/","/vi/ca/ca-thu-16/","/vi/ca/ca-thu-17/","/vi/ca/ca-thu-18/","/vi/ca/ca-thu-19/","/vi/ca/ca-thu-20/","/vi/ca/ca-thu-21/","/vi/ca/ca-thu-22/","/vi/ca/ca-thu-23/","/vi/ca/ca-thu-24/","/vi/ca/ca-thu-25/","/vi/ca/ca-thu-26/","/vi/ca/ca-thu-27/","/vi/ca/ca-thu-28/","/vi/ca/ca-thu-29/","/vi/ca/ca-thu-30/","/vi/ca/ca-thu-31/","/vi/ca/ca-thu-32/","/vi/ca/ca-thu-33/","/vi/ca/ca-thu-34/","/vi/ca/ca-thu-35/","/vi/ca/ca-thu-36/","/vi/ca/ca-thu-37/","/vi/ca/ca-thu-38/","/vi/ca/ca-thu-39/","/vi/ca/ca-thu-40/"]},{"t":"faq","title":"Hỏi đáp","items":[{"q":"Bao lâu rửa lọc một lần?","a":"Khoảng mỗi tháng, bằng nước bể."}]},{"t":"pages","title":"Bài viết liên quan","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"h","text":"Gợi ý mua hay gặp (1)"},{"t":"list","items":[[{"t":"p","c":[{"text":"lọc thùng mini","href":"/go/shopee/?k=l%E1%BB%8Dc+th%C3%B9ng+mini&c=loc&e=equipment%3Aloc"}]}]]},{"t":"p","c":["Liên kết tiếp thị — trang có thể nhận hoa hồng khi bạn mua qua liên kết."]}]}}}
+  """#.utf8)
 
   /// UI tests' pages: the neon guide as the site writes it (/app/pages/vi/guide-0.json), with each kind of block, links
   /// to the fixture's pages and a tool, a word's tip, and two parts in a row from a newer site the app can't draw; a

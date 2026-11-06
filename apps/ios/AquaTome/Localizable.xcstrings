@@ -5585,6 +5585,22 @@
         }
       }
     },
+    "Thiết bị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peralatan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อุปกรณ์"
+          }
+        }
+      }
+    },
     "Thiết kế khác": {
       "localizations": {
         "id": {
@@ -7021,6 +7037,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูทั้งหมด"
+          }
+        }
+      }
+    },
+    "Xem tất cả %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat semua %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูทั้งหมด %lld"
           }
         }
       }
