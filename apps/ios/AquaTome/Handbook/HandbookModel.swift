@@ -453,7 +453,8 @@ extension HandbookIndex {
       "Amazonas", "Araguaia", "Cuiabá", "Japurá", "Juruá", "Madeira", "Mato Grosso", "Negro", "Pantanal", "Pará", "Purus", "Rio Negro",
       "Rio Tapajós", "Rio Xingu", "São Paulo", "Tefé", "Tocantins", "Trombetas", "Uatumã", "Xingu",
     ]),
-    .init(id: "colombia", name: "Colombia", kind: .country, parent: "south-america"),
+    .init(id: "colombia", name: "Colombia", kind: .country, parent: "south-america",
+          kids: ["Amazonas", "Guaviare", "Meta", "Orinoco", "Putumayo", "Vaupés"]),
     .init(id: "peru", name: "Peru", kind: .country, parent: "south-america", kids: ["Nanay", "Ucayali"]),
   ])
 

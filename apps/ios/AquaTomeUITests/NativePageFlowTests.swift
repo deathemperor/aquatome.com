@@ -409,6 +409,34 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertEqual(app.buttons.matching(identifier: "shelf-link").allElementsBoundByIndex.map { $0.label }, ["Châu Á", "Nam Mỹ"])
   }
 
+  // At the largest text a country's few rivers and regions took more than their three lines, cut off with no way to
+  // the rest: "Xem thêm" came only with more than twelve of them.
+  func testAFewRiversCutOffAtTheLargestTextCanBeUnfolded() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openItem(app, "ca neon", "Cá neon")
+    let country = app.links["Peru"].firstMatch
+    reveal(app, country)
+    country.tap()
+    XCTAssertTrue(app.navigationBars["Peru"].waitForExistence(timeout: 5), "not the country's shelf")
+    XCTAssertTrue(app.staticTexts["shelf-words"].exists, "no rivers")
+    XCTAssertFalse(app.buttons["shelf-words-more"].exists, "more asked for with two rivers, all of them shown")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let continent = app.links["Nam Mỹ"].firstMatch
+    reveal(app, continent)
+    continent.tap()
+    XCTAssertTrue(app.navigationBars["Nam Mỹ"].waitForExistence(timeout: 5), "not the continent's shelf")
+    let colombia = app.buttons.matching(identifier: "shelf-link").matching(NSPredicate(format: "label == %@", "Colombia")).firstMatch
+    reveal(app, colombia)
+    colombia.tap()
+    XCTAssertTrue(app.navigationBars["Colombia"].waitForExistence(timeout: 5), "the country didn't open")
+    let words = app.staticTexts["shelf-words"], more = app.buttons["shelf-words-more"]
+    reveal(app, more)
+    let folded = words.frame.height
+    more.tap()
+    XCTAssertGreaterThan(words.frame.height, folded + 10, "the regions not unfolded")
+    XCTAssertFalse(more.exists)
+  }
+
   /// The tank-mates tool, set to this fish by the page's link: its web page in the app, fish and all (not the tool left
   /// empty, nor the browser).
   func testTheTankMatesToolOpensSetToTheFish() {

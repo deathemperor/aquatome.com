@@ -9,6 +9,9 @@ struct TaxaShelf: View {
   let page: HandbookShelves.Page
   /// A country's rivers and regions, all of them: three lines until the reader asks.
   @State private var allWords = false
+  /// Their line's height in three lines, and all of it, at its width: "Xem thêm" when they don't fit, however many they are.
+  @State private var three: CGFloat = 0
+  @State private var full: CGFloat = 0
 
   var body: some View {
     Group {
@@ -35,11 +38,20 @@ struct TaxaShelf: View {
       .accessibilityIdentifier("shelf-intro")
       links
       if !page.words.isEmpty {
+        let words = Text(verbatim: page.words.joined(separator: " · ")).font(.footnote)
         VStack(alignment: .leading, spacing: 4) {
-          Text(verbatim: page.words.joined(separator: " · ")).font(.footnote).foregroundStyle(.secondary)
+          words.foregroundStyle(.secondary)
             .lineLimit(allWords ? nil : 3)
+            .background {
+              ZStack {
+                words.lineLimit(3).fixedSize(horizontal: false, vertical: true).hidden()
+                  .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { three = $0 }
+                words.lineLimit(nil).fixedSize(horizontal: false, vertical: true).hidden()
+                  .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { full = $0 }
+              }
+            }
             .accessibilityIdentifier("shelf-words")
-          if !allWords && page.words.count > 12 {
+          if !allWords && full > three + 1 {
             Button("Xem thêm") { allWords = true }.font(.footnote).accessibilityIdentifier("shelf-words-more")
           }
         }
