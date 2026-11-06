@@ -257,7 +257,8 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | Module | What |
 | --- | --- |
 | `Chihiros` | Frames and replies (a port of the site's `apps/site/src/scripts/chihiros.ts`), the timeline's rules as the site's light page has them (`Plan.swift`: handles kept apart, ramps that fit, the day's curve, the day preview's pace; `Colour.swift`: the colour a mix shows, a tank lit by it, the looks), `LightSession` (the order and pace the light accepts, and going back to the schedule after levels set by hand), `FakeLight` (tests, simulator) |
-| `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
+| `WeekAqua` | Week Aqua lights of model code 5746 (docs/research/aquarium-device-control.md): the frames, the light told by its manufacturer data and name (other codes listed, never written to), `WeekAquaSession` (one light or a group, in the order the lights take: clock, manual mode, levels, timer, manual mode, each frame to every light, half a second apart; the lights never answer), `FakeWeekAqua` (tests, simulator) |
+| `ChihirosBLE` | CoreBluetooth: scan for lights (Chihiros and Week Aqua), connect, acknowledged writes; a Week Aqua light's frames go to `fff2` only, without response, never to its firmware-update service |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`) |
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a page named what was searched for first (by its name, scientific name or another name, as the site's search ranks it: "bảy màu" finds Cá bảy màu before Bảy màu Koi), a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore); the fish-ID tool's request and answers (`FishId`); what's new on the site (`Latest`, `/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`: its /vi/moi-cap-nhat/ list, each entry a page the index lists; `LatestFile` keeps it on the phone) |
@@ -276,8 +277,9 @@ counts only.
 
 The tests read `protocols/chihiros-vectors.json`, `protocols/tanks-vectors.json`, `protocols/tankmates-vectors.json`,
 `protocols/filter-vectors.json`, `protocols/search-vectors.json`, `protocols/page-vectors.json` and
-`protocols/unlisted-vectors.json`, the same vectors as the site's tests. A protocol or schema change updates the vectors
-and both implementations together.
+`protocols/unlisted-vectors.json`, the same vectors as the site's tests, and `protocols/weekaqua-vectors.json`, for the
+site to share when it drives Week Aqua lights. A protocol or schema change updates the vectors and both implementations
+together.
 
 ## Testing on a real light
 
@@ -294,3 +296,14 @@ swift run light-harness restore                      # always, at the end
 
 `restore` writes the owner's everyday schedule (12:00–20:00, 70% red/green/blue, 30-minute ramp) and checks the light
 reports it. Light names carry the device's address, so the harness doesn't print them; keep them out of the repository.
+
+Week Aqua lights (model code 5746 only; another code is listed, never connected to or written):
+
+```sh
+swift run light-harness weekaqua scan                                 # model codes, the end of each address
+swift run light-harness weekaqua write 54 114 57 117 02:50 02:40      # R G B UV (0–235), on, off: every 5746 light as one group
+swift run light-harness weekaqua write 0 0 235 0 02:50 02:40 --manual-bytes 2   # manual mode as FD F1 alone
+```
+
+They report nothing back, so check each write by eye. `weekaqua write 54 114 57 117 02:50 02:40` puts the owner's group back
+as WEEK AQUA leaves it.

@@ -152,6 +152,8 @@ REACH = {
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests'],
+    # Week Aqua lights, on the lights tab beside the Chihiros ones.
+    KIT + 'Sources/WeekAqua/': ['LightFlowTests'],
     # A Mac command line, not in the app: job `kit` builds it.
     KIT + 'Sources/light-harness/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE, 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
@@ -342,6 +344,7 @@ def test():
     got = reached([KIT + 'Sources/Tanks/TankStore.swift'])
     assert 'HandbookFlowTests/testFiltersTheFishToMyTank' in got and set(LIGHTS_ON_TANKS) <= got, got
     assert reached([APP + 'Lights/Radio.swift']) == reached([KIT + 'Sources/Chihiros/Frames.swift']) == {'LightFlowTests'}
+    assert reached([KIT + 'Sources/WeekAqua/WeekAquaSession.swift']) == {'LightFlowTests'}
     for card in ('LightsView.swift', 'LightOutlet.swift'):
         assert reached([APP + 'Lights/' + card]) == {'LightFlowTests', 'PageShotsFlowTests'}, card
     # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.
