@@ -3,9 +3,17 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
-import { chaptersFrom, parseTranscript, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, parseTranscript, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
+
+test("storyboardInterval: YouTube's seconds between tiles, from yt-dlp's tiles ÷ duration (real videos' storyboard specs)", () => {
+  // [duration, tiles, interval]: HLrQzpFLI5U, M0kds6giFrU, AsK_yxCXVrY, P7GTfHdl5E8, U9ovPRxMWk8, Ks0OQdOxYd8, ddIenwrxWgU, qaow2ai3eZM
+  for (const [d, n, i] of [[123, 63, 2], [356, 73, 5], [500, 101, 5], [539, 109, 5], [607, 123, 5], [761, 154, 5], [1033, 105, 10], [9155, 917, 10]] as const) {
+    expect(storyboardInterval(n / d, d)).toBe(i)
+  }
+  expect(storyboardInterval(0.25, 100)).toBe(4) // no interval gives the count: yt-dlp's own spacing
+})
 
 test('parseTranscript: ~30 s lines with m:ss stamps, blank events dropped', () => {
   const t = parseTranscript(JSON.stringify({ events: [ev(0, 'welcome back'), ev(5, '\n'), ev(12, 'algae tips'), ev(31, 'water  changes'), ev(75, 'light')] }))
