@@ -315,6 +315,13 @@ The layers above still check the result.
     Wired into every reviewer: video guides, source translations, the style rewrite, the reader's rewrites, title
     rewrites, breed pages, AquaTome's guides, product pages and their review summaries, quick summaries, and the
     Indonesian and Thai species, plant, glossary, place and equipment pages. The photo checks keep their own verdicts.
+  - **A video guide under the bar is edited, not written again** (`fixDraft`, `prompts/video-fix.md`): the editor gets
+    the transcript, the draft and the notes, fixes the passages they name and adds nothing. A broken edit leaves the
+    first draft. Its writer keeps to what the video says (no added steps or tips, the creator's opinions as opinions,
+    no closing recap, FAQ only on what the video answers), and the reviewer's notes are faults only, never a request to
+    add something. `packages/engine/scripts/eval-fidelity.ts` measures it on the guides under the bar. Found by the
+    owner (2026-11-06): a fresh draft fixed the old notes and invented new details, and every guide reviewed scored
+    0.50–0.70.
   - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
     `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
     run (under the bar, or any note for the pages checked against their research).
