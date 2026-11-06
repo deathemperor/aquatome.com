@@ -14,6 +14,15 @@ HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'Nati
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'VideoFlowTests',
             'TelemetryFlowTests']
 
+# What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
+# (flows-to-run.py): the sum of each test's median in the logs of 2026-11-06's runs, the flows' animations off. A class
+# not named here counts FLOW_SECONDS a test; light flows are never packed (their halves already fill a job each).
+CLASS_SECONDS = {'FactsCardFlowTests': 280, 'FishIdFlowTests': 486, 'HandbookFlowTests': 632,
+                 'NativePageFlowTests': 648, 'OfflineFlowTests': 225, 'PageShotsFlowTests': 1073, 'PlugFlowTests': 744,
+                 'ReadingFlowTests': 69, 'TankCheckFlowTests': 67, 'TankLifeFlowTests': 280, 'TelemetryFlowTests': 136,
+                 'VideoFlowTests': 330}
+FLOW_SECONDS = 45
+
 # What a path can reach. The longest prefix that matches a path decides: a list of flows (a class, or one of its
 # tests), with the smoke set; [] for the smoke set alone; ALL for every flow; NONE for no flow (job `kit`, `perf` or
 # another workflow checks it). Read from the flows (the screens and launch arguments each uses, the accessibility
@@ -119,9 +128,10 @@ REACH = {
                                    'OwnerFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
-    # A Mac command line, not in the app: job `kit` builds it.
+    # A Mac command line, not in the app: the kit's step in job `perf` builds it (job `kit`, nightly).
     KIT + 'Sources/light-harness/': NONE,
-    # Not in the app yet: job `kit` tests it. The light's flows, once the Đèn tab sends its commands.
+    # Not in the app yet: the kit's tests (job `perf`; `kit` nightly) test it. The light's flows, once the Đèn tab
+    # sends its commands.
     KIT + 'Sources/FishLamp/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
     # The owner's dashboard's flows read it: the stand-in server serves its replies.
@@ -136,8 +146,9 @@ REACH = {
 
 
 def check(runs, left, reached):
-    """What these lists decide for a few changes, from flows-to-run.py's test: `runs` gives a pull request's tests by job
-    half, `left` the classes it leaves to main, `reached` what main runs after the merge (a set, or ALL)."""
+    """What these lists decide for a few changes, from flows-to-run.py's test: `runs` gives the tests a pull request
+    runs, in whichever job (a sorted list: how they're packed into jobs is flows-to-run.py's, and its own test checks
+    that), `left` the classes it leaves to main, `reached` what main runs after the merge (a set, or ALL)."""
     # The smoke set alone: what every screen sits in, the light's radio, the tanks, the catalog's two flows.
     smoke = runs(['apps/ios/AquaTome.xcodeproj/project.pbxproj'])
     for paths in ([APP + 'OwnCopy.swift'], ['apps/ios/Config/Base.xcconfig'], [KIT + 'Sources/ChihirosBLE/Bluetooth.swift'],
@@ -147,7 +158,7 @@ def check(runs, left, reached):
         assert runs(paths) == smoke, paths
     # With the page shots: the pages, the light's card, the icons, and every flow's reach (the app's start, a path no
     # rule names).
-    shots = dict(smoke, handbook_1=['PageShotsFlowTests'])
+    shots = sorted(smoke + ['PageShotsFlowTests'])
     for paths in ([APP + 'Handbook/HomeList.swift'], [APP + 'Handbook/NativePage.swift'], [APP + 'Handbook/FactsCard.swift'],
                   [APP + 'Handbook/HandbookModel.swift'], [KIT + 'Sources/Handbook/Handbook.swift'],
                   [APP + 'Lights/LightsView.swift'], [APP + 'Lights/LightOutlet.swift'], [APP + 'AppIcon/AppIconPicker.swift'],
@@ -164,7 +175,7 @@ def check(runs, left, reached):
                    KIT + 'Sources/light-harness/main.swift', KIT + 'Sources/FishLamp/love-ecology.json',
                    'apps/ios/README.md'],
                   ['apps/ios/store/listing.json', 'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py']):
-        assert runs(paths) == {} and left(paths) == '', paths
+        assert runs(paths) == [] and left(paths) == '', paths
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
     assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_SCREENS) - {'PageShotsFlowTests'}))
     assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'
