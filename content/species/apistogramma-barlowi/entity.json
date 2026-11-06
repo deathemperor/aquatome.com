@@ -11,6 +11,70 @@
     "peru",
     "ampiyacu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ampiyacu",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Barlow's dwarf cichlid, Apistogramma barlowi, may be endemic to the Ampiyacu River system, an affluent of the Amazon in northeastern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Current knowledge indicates that this species may be endemic to the Ampiyacu River system, an affluent of the Amazon mainstream in northeastern Peru.",
+          "countries": [],
+          "regions": [
+            "Ampiyacu",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371249,
+      "total": 34,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          34
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -9.84375,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          -4.21875,
+          17,
+          17
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

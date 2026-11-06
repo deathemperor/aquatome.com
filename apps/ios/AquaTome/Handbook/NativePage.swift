@@ -653,14 +653,30 @@ private struct PagesBlock: View {
   var body: some View {
     let items = paths.compactMap(handbook.item(at:))
     if !items.isEmpty {
+      let shown = PageList.inPlace(items.count)
       VStack(alignment: .leading, spacing: 8) {
         Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader)
         // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one. In one panel, as the
         // page's other rows of pages (CardsPart) are.
         VStack(alignment: .leading, spacing: 0) {
-          ForEach(Array(items.enumerated()), id: \.element.id) { j, item in
+          ForEach(Array(items.prefix(shown).enumerated()), id: \.element.id) { j, item in
             if j > 0 { Divider().padding(.leading, 12) }
             Row(item: item, chevron: true, inPanel: true).buttonStyle(.plain)
+          }
+          // The whole list, in a list that draws its rows as they scroll in.
+          if shown < items.count {
+            Divider().padding(.leading, 12)
+            NavigationLink(value: Browse.pages(title, paths)) {
+              HStack {
+                Text("Xem tất cả \(items.count)")
+                Spacer()
+                Image(systemName: "chevron.right").foregroundStyle(.tertiary)
+              }
+              .padding(12)
+              .contentShape(.rect)
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("pages-all")
           }
         }
         .background(.fill.quaternary, in: .rect(cornerRadius: 12))

@@ -1,0 +1,78 @@
+{
+  "id": "aphyosemion-erythron",
+  "native": {
+    "input": "e7d67ea83da74a9d",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The reddish lyretail, Aphyosemion erythron, is a small killifish that appears endemic to southwestern Equatorial Guinea.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Río Muni, Equatorial Guinea and appears endemic to south-western parts of the country, with additional collections having occurred in the Río Aye, Río Ecucu and lower Río Benito drainages.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Muni",
+        "source": "seriouslyfish",
+        "quote": "Described from Río Muni, Equatorial Guinea and appears endemic to south-western parts of the country, with additional collections having occurred in the Río Aye, Río Ecucu and lower Río Benito drainages.",
+        "country": "GQ",
+        "ok": true
+      },
+      {
+        "name": "Río Aye",
+        "source": "seriouslyfish",
+        "quote": "Described from Río Muni, Equatorial Guinea and appears endemic to south-western parts of the country, with additional collections having occurred in the Río Aye, Río Ecucu and lower Río Benito drainages.",
+        "ok": true
+      },
+      {
+        "name": "Río Ecucu",
+        "source": "seriouslyfish",
+        "quote": "Described from Río Muni, Equatorial Guinea and appears endemic to south-western parts of the country, with additional collections having occurred in the Río Aye, Río Ecucu and lower Río Benito drainages.",
+        "ok": true
+      },
+      {
+        "name": "Río Benito",
+        "source": "seriouslyfish",
+        "quote": "Described from Río Muni, Equatorial Guinea and appears endemic to south-western parts of the country, with additional collections having occurred in the Río Aye, Río Ecucu and lower Río Benito drainages.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion erythron",
+    "status": "ACCEPTED",
+    "taxonKey": 5962389,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "GQ"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -1818,6 +1818,36 @@
       "Item 10: \"air dengan kimia dan suhu yang sama\" — awkward; use \"komposisi kimia air dan suhu yang sama\"."
     ]
   },
+  "aphanius-vladykovi": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Zagros pupfish",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "\"di kolam atau bak luar ruangan\" / \"wadah luar ruangan\": the English says \"outdoor tanks\". Adding \"kolam\" is an addition, and the wording shifts between terms. Use \"bak/akuarium luar ruangan\" consistently.",
+      "\"kurang berkembang baik\" is awkward for \"do not thrive well\". Use \"kurang dapat bertahan/tumbuh baik\" or \"tidak tumbuh optimal\".",
+      "\"atraksi pamer ikan jantan\" is awkward for \"displays of the males\". Use \"perilaku pamer/display ikan jantan\".",
+      "\"aquarist khusus\" for \"specialised aquarists\" is slightly off. Use \"aquarist spesialis\" or \"penghobi yang berspesialisasi\".",
+      "\"bisa mencapai panjang maksimal\" repeats the idea (\"bisa\" plus \"maksimal\"). Use \"mencapai panjang maksimal\".",
+      "\"Ikan yang dikembalikan ... paling sering menampilkan\" is stiff for \"most often show\". Use \"umumnya menampilkan\"."
+    ]
+  },
+  "aphanotorulus-unicolor": {
+    "at": "2026-11-06",
+    "from": "2026-11-05",
+    "name": "Unicolor Pleco",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"torulus = otot, tali kecil\" is fine, but \"Risiko Rendah (Least Concern)\" is OK; no real issue here.",
+      "Item 12: \"Uniknya\" for \"Astonishingly\" is slightly weak; prefer \"Mengherankan/Menariknya\".",
+      "Item 2: \"punya tonjolan-tonjolan\" is colloquial; use \"memiliki tonjolan\".",
+      "Item 3: \"Hidup di dasar berpasir\" fine, but \"Leopard Pleco\" drops the plural/hyphen of \"Leopard-Plecos\"; minor.",
+      "Item 16: \"cenderung membedakan spesies jauh lebih rinci\" is awkward for \"more splitting\"; use \"cenderung memecah menjadi lebih banyak spesies\".",
+      "Item 7: \"suhu yang lebih tinggi\" is vague; clarify as \"suhu air yang lebih hangat\"."
+    ]
+  },
   "aphyocharax-anisitsi": {
     "at": "2026-11-03",
     "from": "2026-11-03",
@@ -1834,6 +1864,233 @@
       "Item 4: \"si Bloodfin tetra\" adds a colloquial tone not in the source. Use \"yaitu Bloodfin tetra\".",
       "Item 12: \"sirip anusnya\" is stiff. \"Sirip dubur\" is the usual term.",
       "Item 13: \"sirip anus\" has the same problem. Use \"sirip dubur\"."
+    ]
+  },
+  "aphyocharax-nattereri": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Dawn Tetra",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "#11: \"GH 2–5°\" is ambiguous; use \"2–5 dGH\" to match the units used elsewhere.",
+      "#11: \"filter spons kecil bertenaga aerator\" is awkward; use \"filter spons kecil yang digerakkan udara (aerator)\".",
+      "#11: \"mikroworm\" is a non-standard rendering; use \"cacing mikro (microworm)\".",
+      "#11: \"naupli artemia\" is fine, but \"Indukan sebaiknya dipindahkan\" reads ambiguously. Say \"Induk dewasa sebaiknya dipindahkan\".",
+      "#9: \"gerombolan campuran\" sounds odd; use \"kelompok campuran\" or \"shoal campuran\".",
+      "#9: \"karasin lain\" and #2 \"karasid\" are inconsistent. Use one term, e.g. \"karasin\" for both.",
+      "#2/#6: \"Tutupnya harus benar-benar rapat...\" repeats the same point, as the English does. This is faithful but could be merged.",
+      "#6: \"Beberapa tanaman apung juga bagus\" is slightly terse; use \"juga sebaiknya ada\"."
+    ]
+  },
+  "aphyocharax-rathbuni": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Green Fire Tetra",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 5: 'Pencahayaan tidak terlalu penting' – English says lighting requirements are not critical; better 'Kebutuhan pencahayaan tidak khusus/tidak krusial'. Minor.",
+      "Item 10: 'Telur yang dihasilkan bisa mencapai 500 butir' fine, but 'sering kali pada pagi hari' omits 'first thing in the morning' (pagi-pagi sekali). Minor.",
+      "Item 10: 'Ikan ini memijah secara berkelompok dan menyebar telurnya' is okay but 'Group-spawning egg-scatterers' could be 'penyebar telur yang memijah berkelompok'. Minor.",
+      "Item 1/8: 'teman satu akuarium' is slightly awkward; 'ikan penghuni lain/tankmate' is more natural.",
+      "Item 8: 'Begitu pula, spesies bersirip panjang ... sebaiknya dihindari' – wording slightly stiff; 'robust, faster moving' translated as 'kuat dan gesit' is acceptable.",
+      "Item 5: 'kayu bogwood' and 'batu kerikil' – 'kayu bogwood' okay; 'pebbles' = 'kerikil/batu kali'. Minor.",
+      "Item 11: 'nama umum lain' for 'alternative vernacular name' fine; consider 'nama lokal'."
+    ]
+  },
+  "aphyosemion-australe": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Killifish Lyretail",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 9: \"ikan yang lebih agresif saat makan\" changes \"more vigorous fish\" and adds \"saat makan\". Use \"ikan yang lebih aktif/tangkas\" and drop the added feeding context.",
+      "Item 5: \"(satu jantan dan dua betina)\" is added detail that the English doesn't give. Remove it or keep it only as a neutral gloss.",
+      "Items 11 and 12: the text switches between \"burayak\" and \"anakan\" for fry. Use one consistent term, and note that \"burayak\" is less common among aquarium hobbyists."
+    ]
+  },
+  "aphyosemion-bitaeniatum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aphyosemion bitaeniatum",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"akuarium kecil sudah cukup\" adds a claim; the English only says \"small tank\" (a requirement note). Use \"akuarium kecil\" or \"cocok untuk akuarium kecil\".",
+      "Item 2: \"widely-distributed\" is rendered \"tersebar luas\", which is fine, but \"dianggap sebagai spesies lain\" loses \"represent\". Consider \"dianggap sebagai spesies yang berbeda\"."
+    ]
+  },
+  "aphyosemion-bivittatum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Killifish Bivittatum",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Two-banded lyretail\" left in English as a common name; fine as trade name, but could add a local rendering or keep it consistently. Minor.",
+      "Item 3: \"berpita\" atau \"bergaris\" adds a slight alternative for 'banded'; keep one term (e.g. 'berpita') for fidelity. Minor.",
+      "Item 1: \"SL\" is left unexplained; consider \"panjang standar (SL)\" for readability. Minor."
+    ]
+  },
+  "aphyosemion-bualanum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Bouala Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"Cameroon\" inside the quoted original locality is left in English, which is fine as a quote; elsewhere \"Kamerun\" is used, so keep this consistent or add a note. Very minor.",
+      "Item 3: \"kerabat satu genusnya\" is slightly awkward; consider \"spesies sekongenerik, A. elberti\" or \"satu genus\".",
+      "Item 1: \"Bouala lyretail\" could be given as a common name in italics or quotes. Minor, optional."
+    ]
+  },
+  "aphyosemion-celiae": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Celia's Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 4: \"rumah keluarga Epie\" adds \"keluarga\"; the English says only \"Epie's home\", so use \"rumah Epie\".",
+      "Item 4: \"menerima Scheel sebagai tamu\" is slightly stiff; \"menjamu Scheel\" or \"menampung Scheel\" would read more naturally."
+    ]
+  },
+  "aphyosemion-cognatum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Red-spotted Lyretail",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Specimen dari Lac Fwa ... juga diidentifikasi\" – \"juga\" is not in the source; consider removing it.",
+      "Item 1: \"Red-spotted lyretail\" and \"killifish\" are left in English; consider adding a local name or italicising, e.g. \"ikan killifish\"."
+    ]
+  },
+  "aphyosemion-congicum": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aphyosemion congicum",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"habitat aslinya belum bisa dipastikan\" changes \"natural range\" to habitat; use \"wilayah sebaran aslinya\", as in item 2.",
+      "Item 1: \"Congo lyretail\" is left in English with no gloss. Consider adding a local rendering or keeping it as an English trade name in quotes or brackets."
+    ]
+  },
+  "aphyosemion-decorsei": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aphyosemion decorsei",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"kemungkinan sebarannya juga meluas\" is slightly awkward; \"sehingga sebarannya kemungkinan juga meluas\" reads more naturally.",
+      "Item 1: \"ikan killifish\" is slightly redundant; \"killifish\" alone is fine.",
+      "Item 3: \"Yun.\" for \"Gr.\" is an unusual abbreviation; consider \"Yun.\" spelled out as \"Yunani\"."
+    ]
+  },
+  "aphyosemion-elberti": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Killifish Elberti",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "aphyosemion-erythron": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aphyosemion erythron",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Reddish lyretail\" is left in English; consider adding a local rendering or keeping it as a trade name in quotes/italic, e.g. \"lyretail merah\".",
+      "\"killifish\" is left untranslated; this is acceptable as a hobby term, but could be marked once as \"ikan killifish\"."
+    ]
+  },
+  "aphyosemion-gabunense": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Gabon Lyretail",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 5: \"trio (satu jantan dan dua betina)\" adds a composition the English doesn't state. Use just \"trio\" or leave it unexplained.",
+      "Item 11: \"Setiap hari diletakkan 10–20 telur\" is a little stiff. Consider \"Induk meletakkan 10–20 telur setiap hari\".",
+      "Item 11: \"Anakan\" (brood) and \"burayak\" (fry) are used for related ideas. Keep the terms consistent."
+    ]
+  },
+  "aphyosemion-hanneloreae": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Hannelore's Lyretail",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"second author Eduard Pürzl's wife\" is rendered \"istri penulis kedua deskripsi spesies ini\"; \"deskripsi spesies ini\" is an added detail (the English only says second author), so state simply \"istri penulis kedua, Eduard Pürzl\".",
+      "Item 3: \"berhias, sering berbentuk lira\" is slightly stiff for \"ornamented, often lyre-shaped\"; \"berhias\" could be \"berornamen\" or \"dihiasi\", and \"lira\" is fine.",
+      "Item 1: \"lyretail\" and \"killifish\" are left in English without italics or a gloss. Both are accepted hobby terms, but you could write \"ikan killifish\" and keep \"lyretail\" as the trade name.",
+      "Item 2: \"di tengah Pegunungan Du Chaillu\" is OK, but \"ada di seberang perbatasan\" is a little colloquial; \"ditemukan di seberang perbatasan\" is more natural."
+    ]
+  },
+  "aphyosemion-herzogi": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Herzog's Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Herzog's lyretail\" left in English; fine as trade name but could add Indonesian gloss. Minor.",
+      "Item 4: \"sukses\" in \"hasil koleksi ikannya yang sukses\" is slightly awkward; \"berhasil\" is more natural.",
+      "Item 4: \"Asosiasi Killifish Jerman\" is fine; \"menyerahkan\" is slightly stiff for \"kindly provided\" – \"menyediakan\" would be more natural."
+    ]
+  },
+  "aphyosemion-loennbergii": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Killifish Aphyosemion loennbergii",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"sebenarnya lebih luas\" adds nuance (\"actually\") not in the English; use \"Sebarannya di kawasan tersebut lebih luas\".",
+      "Item 4: \"sirip ekor ikan jantan anggota genus ini\" is slightly awkward; better \"sirip ekor jantan pada anggota genus ini\".",
+      "Item 1: \"killifish\" is left in English without italics or a gloss; consider adding a local term or \"(killifish)\" formatting consistently.",
+      "Item 2: \"yaitu juga di daerah aliran sungai\" is clumsy; use \"termasuk di daerah aliran sungai Lokundje dan Nyong\".",
+      "Item 2: the English says the river is \"now known as Kienké\"; the Indonesian \"Sungai 'Kribi'\" adds \"Sungai\" before the name, which is acceptable but the sentence lacks a subject like the English."
+    ]
+  },
+  "aphyosemion-mimbon": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aphyosemion mimbon",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"daerah aliran sungai di hulu\" is slightly awkward; \"drainage\" could be rendered \"daerah aliran sungai hulu\". Meaning is intact.",
+      "Item 1/2: \"anak sungai Mvé\" and \"Abanga, Mbei, Komo dan Nkam\" drop \"Sungai\". Use \"anak sungai dari Sungai Mvé\" and \"Sungai Abanga, Mbei, Komo, dan Nkam\" for clarity.",
+      "Item 2: \"anak sungai kecil Mvé\" is awkward. Use \"anak sungai kecil dari Sungai Mvé\".",
+      "Item 4: \"berhias, sering berbentuk seperti lira\" is slightly stiff. \"Berornamen, sering berbentuk lira\" would read more naturally.",
+      "Item 4: \"nama lokal untuk spesies Aphyosemion\" is acceptable, but \"nama daerah\" is more natural for \"vernacular name\".",
+      "Item 1: \"killifish\" is left in English. This is an accepted hobby term, but you could add italics or an explanation on first use."
+    ]
+  },
+  "aphyosemion-ogoense": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Killifish ogoense",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 11: 'Setiap hari diletakkan 10–20 telur' is passive and unclear about who lays them; better 'Betina meletakkan 10–20 telur per hari'.",
+      "Item 11: 'burayak' is used for fry, but 'anakan' is used earlier in the same text ('jumlah anakan'). Pick one term, e.g. 'burayak' or 'anakan ikan', for consistency.",
+      "Item 11: 'Dengan cara yang kedua' is vague. Say 'dengan metode gambut' so it is clear which method is meant.",
+      "Item 11: 'tidak sedang memijah memakan sebagian telur' is fine, but 'filter spons kecil bertenaga aerator' is awkward; use 'filter spons kecil berpenggerak udara (aerator)'.",
+      "Item 2/12: 'Broken-line lyretail' is left in English without a bracket or explanation. It is acceptable as a trade name, but it needs a consistent form.",
+      "Item 9: 'mengalahkan killi dalam berebut pakan' is a slight addition. The source only says 'outcompete', and 'terlalu agresif' also changes 'vigorous' (aktif/bertenaga).",
+      "Item 11: 'Telur yang terbasahi akan terangsang' is stiff; use 'terendam air akan merangsang penetasan'.",
+      "Item 8: 'Lebih menyukai pakan...' has a dropped subject; use 'Ikan ini lebih menyukai...'."
     ]
   },
   "apteronotus-albifrons": {

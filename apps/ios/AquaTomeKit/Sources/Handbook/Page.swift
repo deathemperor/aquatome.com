@@ -514,6 +514,12 @@ extension PageDoc {
   }
 }
 
+/// A page's list of other pages. One longer than 30 (the fish a kind of kit is for: over a thousand on the site) shows
+/// 12 in place and the rest a tap away, so what follows it on the page stays in reach.
+public enum PageList {
+  public static func inPlace(_ count: Int) -> Int { count > 30 ? 12 : count }
+}
+
 /// Whether to keep a shelf of pages for offline now: on Wi-Fi, go; on mobile data or in Low Data Mode, ask first; with
 /// no network or too little room on the phone, say so instead.
 public enum KeepPlan: Equatable, Sendable {

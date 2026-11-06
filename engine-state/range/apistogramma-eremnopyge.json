@@ -1,0 +1,76 @@
+{
+  "id": "apistogramma-eremnopyge",
+  "native": {
+    "input": "62b2e3f2fa7a8534",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from Loreto region in northeastern (Amazonian) Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Itaya",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma eremnopyge (A218) is a dwarf cichlid known only from Loreto region in northeastern Peru, in the Itaya, Nanay and Tapiche drainages.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Nanay",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma eremnopyge (A218) is a dwarf cichlid known only from Loreto region in northeastern Peru, in the Itaya, Nanay and Tapiche drainages.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Tapiche",
+        "source": "seriouslyfish",
+        "quote": "Apistogramma eremnopyge (A218) is a dwarf cichlid known only from Loreto region in northeastern Peru, in the Itaya, Nanay and Tapiche drainages.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "An additional population is known from the Río Tapiche, a tributary of the Río Ucayali located well over 150 km further south.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma eremnopyge",
+    "status": "ACCEPTED",
+    "taxonKey": 2371286,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        15
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

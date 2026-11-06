@@ -10,7 +10,8 @@ import { throttled } from './youtube'
 
 /**
  * YouTube's scrub-preview frames: sheets of rows × columns tiles. Tile k is the frame at k × `interval` seconds; `fps` is
- * yt-dlp's tiles ÷ duration, which a still's `t` has always been worked out from (k ÷ fps, rounded).
+ * yt-dlp's tiles ÷ duration, so k ÷ fps is not a second: a still's `t` was worked out that way (rounded) until
+ * 2026-11-07, up to 16 s early on a long video (`tileTime`).
  */
 export type Storyboard = { fps: number; interval: number; rows: number; columns: number; width: number; height: number; fragments: { url: string }[] }
 /** A direct video-only stream (at most 1280 px wide) to take frames from, with the user agent its address was issued to. */
@@ -62,8 +63,8 @@ export async function contactSheet(tiles: Buffer[], w: number, h: number, cols: 
   return sharp({ create: { width: cols * (w + 6), height: rows * (h + 6), channels: 3, background: '#fff' } }).composite(parts.flat()).jpeg({ quality: 85 }).toBuffer()
 }
 
-/** The second a still's tile shows: its `t` was k ÷ fps, rounded, and tile k is the frame at k × interval. */
-export const tileTime = (sb: Storyboard, t: number) => Math.round(t * sb.fps) * sb.interval
+/** The second a still's tile shows, for a still whose `t` was k ÷ fps, rounded (its address `t<t>…`): k × interval. */
+export const tileTime = (sb: Storyboard, t: number) => Math.round(Math.round(t * sb.fps) * sb.interval)
 
 /**
  * Whether a frame shows what a storyboard tile shows: both as 32×18 greys, a mean difference of at most 15 (of 255).
@@ -83,13 +84,13 @@ export async function sharpFrame(grab: ImageDeps['grab'], stream: Stream, at: nu
   return (await sameMoment(frame, tile)) ? frame : null
 }
 
-/** One storyboard frame at second t (nearest tile), as JPEG, with the second it shows (`at`). Sheets are fetched once each. */
+/** One storyboard frame at second t (nearest tile), as JPEG, with the second it shows (`at`, and `t` rounded). */
 function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
   const sheets = new Map<number, Promise<Uint8Array>>()
   const per = sb.rows * sb.columns
   const total = sb.fragments.length * per
   return async (t: number) => {
-    const k = Math.min(total - 1, Math.max(0, Math.round(t * sb.fps)))
+    const k = Math.min(total - 1, Math.max(0, Math.round(t / sb.interval)))
     const s = Math.floor(k / per)
     if (!sb.fragments[s]) return null
     if (!sheets.has(s)) sheets.set(s, get(sb.fragments[s]!.url))
@@ -99,7 +100,7 @@ function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
     const top = Math.floor(tile / sb.columns) * sb.height
     const meta = await sharp(sheet).metadata()
     if (left + sb.width > (meta.width ?? 0) || top + sb.height > (meta.height ?? 0)) return null // last sheet is partly empty
-    return { t: Math.round(k / sb.fps), at: k * sb.interval, jpg: await sharp(sheet).extract({ left, top, width: sb.width, height: sb.height }).jpeg({ quality: 90 }).toBuffer() }
+    return { t: Math.round(k * sb.interval), at: k * sb.interval, jpg: await sharp(sheet).extract({ left, top, width: sb.width, height: sb.height }).jpeg({ quality: 90 }).toBuffer() }
   }
 }
 
@@ -161,7 +162,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
         const f = join(dir, hd ? `${v.youtubeId}-${c.t}-hd.png` : `${v.youtubeId}-${c.t}.jpg`)
         await writeFile(f, hd ?? c.jpg)
         if ((await d.faces([f]))[0]) continue // no people in our pictures
-        const m = await d.media.put(`video/${v.youtubeId}/t${c.t}${hd ? '-hd' : ''}.webp`, hd ?? c.jpg)
+        const m = await d.media.put(`video/${v.youtubeId}/at${c.t}${hd ? '-hd' : ''}.webp`, hd ?? c.jpg)
         fig.moments.push({ t: c.t, url: m.url, width: m.width, height: m.height, caption: pk.caption.trim() })
         seen.add(c.t)
       }

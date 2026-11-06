@@ -10,6 +10,64 @@
     "peru",
     "nanay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Nanay",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The pantaloon cichlid, Apistogramma pantalone, is a small cichlid probably endemic to the Nanay river system in northern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is probably endemic to the Nanay River system, a tributary of the Amazon River in northern Peru.",
+          "countries": [],
+          "regions": [
+            "Nanay",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371226,
+      "total": 8,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

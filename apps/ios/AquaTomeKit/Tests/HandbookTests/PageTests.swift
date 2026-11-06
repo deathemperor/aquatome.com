@@ -459,3 +459,7 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
   #expect(!PageDoc.isYouTubeId("oHh1FU_k1j\u{00F3}"), "a letter outside A–Z")
   #expect(!PageDoc.isYouTubeId(""))
 }
+
+@Test func aListOfPagesShowsWholeUpToThirtyAndTwelveBeyond() {
+  #expect([0, 12, 30, 31, 1387].map(PageList.inPlace) == [0, 12, 30, 12, 12])
+}

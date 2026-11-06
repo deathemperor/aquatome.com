@@ -1,0 +1,79 @@
+{
+  "id": "apistogramma-barlowi",
+  "native": {
+    "input": "106dcf815bd877d5",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barlow's dwarf cichlid, Apistogramma barlowi, may be endemic to the Ampiyacu River system, an affluent of the Amazon in northeastern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge indicates that this species may be endemic to the Ampiyacu River system, an affluent of the Amazon mainstream in northeastern Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ampiyacu",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge indicates that this species may be endemic to the Ampiyacu River system, an affluent of the Amazon mainstream in northeastern Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge indicates that this species may be endemic to the Ampiyacu River system, an affluent of the Amazon mainstream in northeastern Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma barlowi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371249,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

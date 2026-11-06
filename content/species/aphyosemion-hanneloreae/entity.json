@@ -10,6 +10,46 @@
     "gabon",
     "ngounie"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is Malinga, located in the middle of the Du Chaillu mountain range in Ngounié province, southern Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4284385,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

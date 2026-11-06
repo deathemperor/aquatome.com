@@ -1,0 +1,186 @@
+{
+  "id": "apistogramma-steindachneri",
+  "native": {
+    "input": "9d3e5e376e98a564",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "A very similar fish is also known from the Cuyuni basin, eastern Venezuela, though it remains to be seen whether it's conspecific with A. steindachneri or not (see 'Notes').",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Demerara",
+        "source": "seriouslyfish",
+        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Mahaica",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Berbice",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Courantyne",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Coppename",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
+        "country": "SR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma steindachneri",
+    "status": "ACCEPTED",
+    "taxonKey": 2371295,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        48
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        30
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        29
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        22
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        21
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        19
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        1
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

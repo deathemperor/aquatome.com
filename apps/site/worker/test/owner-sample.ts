@@ -1,6 +1,6 @@
 import { lastDays } from '../admin/chart'
 import { summariseApp, type AppRows } from '../admin/app'
-import type { ContentReads, ContentStats, KindClicks, Snapshot, Talk, Totals } from '../admin/content'
+import type { ContentReads, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
 import type { ReportsData } from '../daily/page'
@@ -152,6 +152,39 @@ export const OVERVIEW: Overview = {
 }
 
 export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS }
+
+/**
+ * Pages out of search for their score (dist/_ab/reviews.json), past the content page's list of 30: a review with several
+ * notes, one, none, one of a version not kept, one whose own score isn't the page's, a page with no review kept, a page
+ * the build has no title for. Not in CONTENT, whose JSON is the app's vectors.
+ */
+export const LOW: LowScores = {
+  v: 1, bar: 0.75,
+  pages: [
+    {
+      path: '/huong-dan/bon-phan-ray/', kind: 'videoGuide', score: 0.5,
+      review: {
+        kind: 'video-guide', at: '2026-11-03T09:35:27Z', score: 0.5, kept: true,
+        notes: [
+          'Remove "Phụ đề tự động của video khá nhiễu, nên những chỗ không rõ được ghi là kinh nghiệm chung...": this mentions the video and its captions, which the guide must not do.',
+          'The transcript is very garbled, yet the guide states firm specifics. "Dư phân làm ráy yếu, nhũn và chết nhanh hơn" is only partly supported. Tone down or cut anything the transcript does not clearly back.',
+          '"Lá lớn có thể to gần gấp ba ngón tay" and "nuôi cả năm, thậm chí năm rưỡi" come from noisy lines. Keep them hedged & <don\'t> give the figure as firm.',
+        ],
+      },
+    },
+    { path: '/ca/ca-boraras-do/', kind: 'fish', score: 0.61, review: { kind: 'translation', at: '2026-11-02T10:00:00Z', score: 0.55, kept: true, notes: ['"Nhiệt độ 20–28°C" is not the source\'s range (24–28°C).'] } },
+    { path: '/id/ikan/ikan-boraras/', kind: 'fish', score: 0.62, review: { kind: 'localize', at: '2026-11-04T01:00:00Z', score: 0.62, kept: false, notes: ['The Indonesian name is the Vietnamese one.', 'Units: "inci" where the source has centimetres.'] } },
+    { path: '/thuat-ngu/gh/', kind: 'glossary', score: 0.7 },
+    { path: '/th/fish/pla-boraras/', kind: 'fish', score: 0.7, review: { kind: 'localize', at: '2026-11-04T01:00:00Z', score: 0.7, kept: true, notes: [] } },
+    ...Array.from({ length: 30 }, (_, i) => ({ path: `/ca/ca-${String(i).padStart(2, '0')}/`, kind: 'fish' as const, score: 0.74 })),
+  ],
+}
+/** The sample's content with the build's titles for those pages, and readers for two of them. */
+export const LOW_CONTENT = {
+  ...CONTENT, low: LOW,
+  stats: { ...STATS, pages: { videoGuide: [['/huong-dan/bon-phan-ray/', 'Bón phân cho ráy', 'youtube-x']], fish: [['/ca/ca-boraras-do/', 'Cá boraras đỏ', 'boraras-brigittae'], ['/id/ikan/ikan-boraras/', 'Ikan boraras merah', 'boraras-brigittae']], glossary: [['/thuat-ngu/gh/', 'GH', 'gh']] } } as ContentStats,
+  reads: { ...READS, readersOf: { '/ca/ca-boraras-do/': 12, '/thuat-ngu/gh/': 3, '/ca/ca-neon-vua/': 90 } },
+}
 
 /** The daily report's section: email on, push on with one phone, and the last three reports (the newest from before push). */
 export const REPORTS: ReportsData = {
