@@ -2,7 +2,7 @@ import Handbook
 import SwiftUI
 
 /// One shelf of the handbook: a fish group, a placement, a guide subject (nil: the whole kind), the video guides, the
-/// glossary, or the pages kept for reading offline.
+/// glossary, the pages kept for reading offline, or what's new on the site.
 enum Browse: Hashable {
   case fish(String?)
   case plants(String?)
@@ -10,6 +10,7 @@ enum Browse: Hashable {
   case videos
   case glossary
   case kept
+  case latest
 }
 
 /// A shelf's pages: fish and plants as photo cards in the site's order, filtered as the site's lists are; guides and
@@ -54,6 +55,8 @@ struct BrowseView: View {
             .accessibilityIdentifier("unkeep-all")
         }
       }
+    case .latest:
+      LatestList()
     case .glossary:
       List {
         ForEach(s.glossary(), id: \.letter) { group in
@@ -62,5 +65,39 @@ struct BrowseView: View {
       }
       .navigationTitle("Thuật ngữ")
     }
+  }
+}
+
+/// What's new on the site, as its list has it (/vi/moi-cap-nhat/): each page with the day it was added or updated and
+/// the source, newest first; the rest of the list on the web.
+private struct LatestList: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    List {
+      Section {
+        ForEach(handbook.latest) { row in
+          NavigationLink(value: row.item) {
+            VStack(alignment: .leading, spacing: 6) {
+              ItemRow(item: row.item)
+              Text(verbatim: Self.change(row.entry)).font(.caption).foregroundStyle(.secondary)
+            }
+            .accessibilityElement(children: .combine)
+          }
+          .accessibilityIdentifier("latest")
+        }
+      } footer: {
+        if let web = handbook.latestWeb {
+          Link("Xem tất cả trên aquatome.com", destination: web).font(.footnote).accessibilityIdentifier("latest-web")
+        }
+      }
+    }
+    .navigationTitle("Mới cập nhật")
+  }
+
+  /// "28/10/2026 · Cập nhật · Seriously Fish", as the site's list says it; an action this app doesn't know, no word.
+  static func change(_ e: Latest.Entry) -> String {
+    let word = e.isNew ? String(localized: "Mới") : e.isUpdate ? String(localized: "Cập nhật") : nil
+    return [e.shown, word, e.source].compactMap { $0 }.joined(separator: " · ")
   }
 }

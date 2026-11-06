@@ -35,6 +35,12 @@ final class HandbookModel {
   private var matcher = PageMatcher([])
   /// Every page by its path: what the reading list keeps.
   private var byPath: [String: HandbookIndex.Item] = [:]
+  /// What's new on the site as last read: none until read, and none from a site without it (the index names no file).
+  private var whatsNew: Latest?
+  /// Its entries with their pages in the index shown now, newest first.
+  var latest: [Latest.Row] { whatsNew?.rows { byPath[$0] } ?? [] }
+  /// The whole of what's new, on the web.
+  var latestWeb: URL? { whatsNew.flatMap { URL(string: $0.web, relativeTo: site)?.absoluteURL } }
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
   /// The reader's own comments shown at once, by page key, until the site's list has them (`readers`).
@@ -286,11 +292,16 @@ final class HandbookModel {
       // waits for it: AppLink).
       if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
       #endif
-      return use(ix, .ready)
+      use(ix, .ready)
+      #if DEBUG
+      if ix.latest != nil { whatsNew = HandbookIndex.fixtureLatest }
+      #endif
+      return
     }
     let file = Self.cacheFile(lang)
     if count == 0, let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) {
       use(ix, .offline)
+      if ix.latest != nil { whatsNew = latestFile.kept() }
     }
     do {
       let (data, response) = try await URLSession.shared.data(from: site.appendingPathComponent("app/\(lang).json"))
@@ -298,6 +309,13 @@ final class HandbookModel {
       let ix = try JSONDecoder().decode(HandbookIndex.self, from: data)
       try? data.write(to: file, options: .atomic)
       use(ix, .ready)
+      // What's new after it, the index shown without waiting; left for another tab, both are read again when it shows.
+      switch await latestFile.read(ix.latest) {
+      case .noList: whatsNew = nil
+      case .read(let l): whatsNew = l
+      case .failed: break
+      case .interrupted: return
+      }
       fetched = true
     } catch {
       // Left for another tab or page: tried again when the tab shows next, nothing to report.
@@ -305,6 +323,8 @@ final class HandbookModel {
       if count == 0 { status = .failed }
     }
   }
+
+  private var latestFile: LatestFile { LatestFile(file: Self.cacheFile("latest-\(lang)"), site: site, fetch: Self.fromSite) }
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
@@ -342,6 +362,11 @@ final class HandbookModel {
         let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
       }
+      // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
+      if args.contains("-whats-new") {
+        let f = HandbookIndex.fixture
+        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: f.pages, latest: "/app/latest/vi.json"))
+      }
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       if args.contains("-breeds") {
         let f = HandbookIndex.fixture
@@ -367,11 +392,14 @@ final class HandbookModel {
     var values = URLResourceValues()
     values.isExcludedFromBackup = true
     try? dir.setResourceValues(values)
-    return PageCache(dir: dir, site: site, fetch: { url in
-      let (data, response) = try await URLSession.shared.data(from: url)
-      guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
-      return data
-    })
+    return PageCache(dir: dir, site: site, fetch: fromSite)
+  }
+
+  /// A file of the site's, or why not.
+  private static let fromSite: @Sendable (URL) async throws -> Data = { url in
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
+    return data
   }
 
   private static func cacheFile(_ lang: String) -> URL {
@@ -416,6 +444,16 @@ extension HandbookIndex {
     "growth": ["slow": "Chậm", "medium": "Vừa", "fast": "Nhanh"],
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
   ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
+
+  /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
+  /// twice, updated then new.
+  static let fixtureLatest = Latest(lang: "vi", entries: [
+    .init(date: "2026-10-28", path: "/vi/ca/ca-neon/", action: "updated", source: "Seriously Fish"),
+    .init(date: "2026-10-27", path: "/vi/huong-dan/nuoi-ca-neon/", action: "new", source: "2Hr Aquarist"),
+    .init(date: "2026-10-27", path: "/vi/ca/khong-co/", action: "new", source: "Aquarium Glaser"),
+    .init(date: "2026-10-20", path: "/vi/cay/rotala-do/", action: "new", source: "Tropica"),
+    .init(date: "2026-10-12", path: "/vi/ca/ca-neon/", action: "new", source: "Seriously Fish"),
+  ], web: "/vi/moi-cap-nhat/")
 
   /// UI tests' breeds (`-breeds`): a form of the discus, as the site lists one: the species it's a form of, its own
   /// figures as its page's data card gives them, and none of the tank-mates figures (a tank check counts it as the discus).
