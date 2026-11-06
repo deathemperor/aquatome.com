@@ -1,0 +1,69 @@
+{
+  "id": "aplocheilus-parvus",
+  "native": {
+    "input": "78a6f35150244693",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Sri Lanka and Tamil Nadu state, southeastern India.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Sri Lanka and Tamil Nadu state, southeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aplocheilus parvus",
+    "status": "ACCEPTED",
+    "taxonKey": 2347847,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        24
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        15
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ]
+    ],
+    "native": [
+      "LK",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -10,6 +10,92 @@
     "colombia",
     "guaviare"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río Guaviare",
+        "Río Orteguaza",
+        "Orinoco",
+        "Amazon",
+        "Río Ariari",
+        "Río Caquetá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The redspot dwarf cichlid, Apistogramma alacrina, is from the Río Guaviare (Orinoco) and Río Orteguaza (Amazon) drainages in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río Guaviare",
+            "Río Orteguaza",
+            "Orinoco",
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Río Ariari within the Río Guaviare drainage, Meta Department, central Colombia, the Guaviare forming part of the much larger Río Orinoco system.",
+          "countries": [],
+          "regions": [
+            "Río Ariari"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from the Río Orteguaza in neighbouring Caquetá Department, an affluent of the Río Caquetá in the Amazon basin.",
+          "countries": [],
+          "regions": [
+            "Río Caquetá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371238,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CO",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,149 @@
+{
+  "id": "apistogramma-commbrae",
+  "native": {
+    "input": "9bb4fc010fc46487",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraguay River",
+        "source": "seriouslyfish",
+        "quote": "This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River.",
+        "ok": true
+      },
+      {
+        "name": "Paraná River",
+        "source": "seriouslyfish",
+        "quote": "This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River.",
+        "ok": true
+      },
+      {
+        "name": "Guaporé River",
+        "source": "seriouslyfish",
+        "quote": "There is also a population from the upper Guaporé River in western Brazil, a tributary of the upper Madeira River and thus part of the Amazon River system.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Madeira River",
+        "source": "seriouslyfish",
+        "quote": "There is also a population from the upper Guaporé River in western Brazil, a tributary of the upper Madeira River and thus part of the Amazon River system.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma commbrae",
+    "status": "ACCEPTED",
+    "taxonKey": 2371250,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        59
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        41
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        35
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        23
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        16
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        12
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "AR",
+      "BO",
+      "BR",
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "arnoldichthys-spilopterus",
+  "native": {
+    "input": "418a7df6b31c6094",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Nigeria, where it occurs in the Ogun and lower Niger river systems.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogun",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Nigeria, where it occurs in the Ogun and lower Niger river systems.",
+        "country": "NG",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Nigeria, where it occurs in the Ogun and lower Niger river systems.",
+        "country": "NG",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Arnoldichthys spilopterus",
+    "status": "ACCEPTED",
+    "taxonKey": 2356195,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        20
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ]
+    ],
+    "native": [
+      "NG"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

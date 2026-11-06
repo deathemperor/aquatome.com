@@ -10,6 +10,60 @@
     "peru",
     "tahuayo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Tahuayo",
+        "Río Tamshiyacu",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma norberti is a dwarf cichlid from the Río Tahuayo and Río Tamshiyacu, minor Amazon tributaries south of Iquitos in northeastern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Tahuayo",
+            "Río Tamshiyacu",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371307,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

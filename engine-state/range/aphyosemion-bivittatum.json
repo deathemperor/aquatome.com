@@ -1,0 +1,89 @@
+{
+  "id": "aphyosemion-bivittatum",
+  "native": {
+    "input": "e7cca4aa14e991bf",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its range includes the Korup and Cross River National Parks, and the type locality is close to a waterfall on the Ndian River in southwestern Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is close to a waterfall on the Ndian River in southwestern Cameroon, and appears restricted to the coastal plains either side of the border between Cameroon and Nigeria, including the Korup and Cross River National Parks.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is close to a waterfall on the Ndian River in southwestern Cameroon, and appears restricted to the coastal plains either side of the border between Cameroon and Nigeria, including the Korup and Cross River National Parks.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ndian River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is close to a waterfall on the Ndian River in southwestern Cameroon, and appears restricted to the coastal plains either side of the border between Cameroon and Nigeria, including the Korup and Cross River National Parks.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion bivittatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2348284,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        19
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "NG"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

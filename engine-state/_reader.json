@@ -668,6 +668,22 @@
     ],
     "ruled": "1db5169b1042095f"
   },
+  "vi/guides/aquariumbreeder-rotifers-profile-and-culture-guide": {
+    "at": "2026-11-06",
+    "hash": "5d7b52af625d69bc",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "trứng mùa hè, nở gần như ngay lập tức,",
+        "problem": "In the reproduction section, the parthenogenesis item and the sentence introducing the two egg types are missing. The list jumps straight from the opening paragraph to summer and winter eggs, so the reader can't tell what those eggs belong to.",
+        "fix": "- Sinh sản đơn tính (vô tính). Đây là cách sinh sản phổ biến nhất ở luân trùng. Con cái đẻ con mà không cần con đực thụ tinh. Trứng không thụ tinh phát triển thành phôi rồi nở thành cá thể mới. Nhờ vậy quần thể tăng rất nhanh khi điều kiện thuận lợi. Ngoài ra, một số loài còn đẻ được hai loại trứng:",
+        "field": "body"
+      }
+    ],
+    "ruled": "5d7b52af625d69bc"
+  },
   "vi/guides/aquariumbreeder-science-of-substrate-siphoning-in-aquaria-siphon-or-not": {
     "at": "2026-11-05",
     "hash": "5e73e5708cf0f483",
@@ -829,6 +845,41 @@
       }
     ],
     "ruled": "80cf7ff07a8f2fb6"
+  },
+  "vi/guides/aquariumbreeder-tank-lids-necessary-or-optional-pros-and-cons": {
+    "at": "2026-11-06",
+    "hash": "ec830a20b8771ffb",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "P1",
+        "quote": "không bị cong vênh và vẫn giữ được dáng vẻ ban đầu ngay cả khi…",
+        "problem": "The sentence in the price section stops mid-sentence. The source text is cut off at the same point.",
+        "fix": "Khi chọn nắp, người ta thường ưu tiên loại chắc chắn, không bị cong vênh và giữ được dáng vẻ ban đầu sau thời gian dài sử dụng.",
+        "rule": "A paragraph that ends with an ellipsis or with a conjunction such as 'khi' and no closing period.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Ưu điểm\n## 1. Ngăn cá nhảy ra ngoài",
+        "problem": "The numbered items use the same heading level as the 'Ưu điểm' and 'Nhược điểm' headings above them, so they don't read as sub-items of those sections.",
+        "fix": "### 1. Ngăn cá nhảy ra ngoài",
+        "rule": "Numbered headings that sit right after a non-numbered heading of the same level.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 2. Hạn chế ánh sáng",
+        "problem": "Under this lighting heading, the section mostly lists general drawbacks (maintenance, equipment, emersed plants) and covers little about lighting itself.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ec830a20b8771ffb"
   },
   "vi/guides/aquariumbreeder-tubifex-worms-profile-and-culture-guide": {
     "at": "2026-11-05",
@@ -1426,6 +1477,21 @@
       }
     ],
     "ruled": "f59259c7939e4d04"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-salt-for-sick-fish": {
+    "at": "2026-11-06",
+    "hash": "6500e6dd15a485a1",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "Sea salt farm at sunset",
+        "problem": "The photo shows a sea-salt farm, not a fish or aquarium salt, and the page tells readers not to use sea salt, so the image could mislead them.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "6500e6dd15a485a1"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-aquarium-shopping-list": {
     "at": "2026-11-05",
@@ -2178,6 +2244,12 @@
     ],
     "ruled": "fcdc73bbb787603e"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-tank-filters-which-one-should-you-get": {
+    "at": "2026-11-06",
+    "hash": "76f899823aeb92f1",
+    "findings": [],
+    "ruled": "76f899823aeb92f1"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-foreground-plants": {
     "at": "2026-11-03",
     "hash": "c6aecd923d432b08",
@@ -2317,6 +2389,12 @@
     "hash": "5397fe74a351763e",
     "findings": [],
     "ruled": "5397fe74a351763e"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-often-to-feed-fish": {
+    "at": "2026-11-06",
+    "hash": "39742946ffab9e95",
+    "findings": [],
+    "ruled": "39742946ffab9e95"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-care-for-aquarium-fish-while-on-vacation": {
     "at": "2026-11-02",
@@ -2685,6 +2763,12 @@
     "findings": [],
     "ruled": "b25a84a7250aebe5"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-mulm": {
+    "at": "2026-11-06",
+    "hash": "ff0c484585a80efa",
+    "findings": [],
+    "ruled": "ff0c484585a80efa"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-nano-fish": {
     "at": "2026-11-03",
     "hash": "81dcd325e4834ce4",
@@ -2850,6 +2934,32 @@
     "hash": "15cc566a47fef903",
     "findings": [],
     "ruled": "15cc566a47fef903"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-pre-filter-sponge": {
+    "at": "2026-11-06",
+    "hash": "ca0975f60629ad0f",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lặp lại bước 2 và bước 3 vài lần",
+        "problem": "The cleaning steps are a bullet list with no numbers, so the reader can't tell which steps are 'bước 2' and 'bước 3'.",
+        "fix": "Lặp lại việc bóp vắt mút và đổ nước bẩn vài lần",
+        "rule": "A sentence that points to 'bước N' inside a list whose items are not numbered.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Why You Need a Pre-Filter Sponge for Your Aquariums - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and doesn't describe what the photo shows.",
+        "rule": "A caption that matches a web page title pattern ending in ' - <site name>'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "ca0975f60629ad0f"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-quarantine-tank": {
     "at": "2026-11-01",
@@ -3070,6 +3180,103 @@
       }
     ],
     "ruled": "e177cb9aba7c986f"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-sponge-filters-the-easiest-fish-tank-filter-ever": {
+    "at": "2026-11-06",
+    "hash": "be06dad1fd870d71",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hai đầu nối nhỏ (phần G và F) sẽ chạm vào nhau.",
+        "problem": "The page's own parts list makes F a wide connector, so the two small connectors are G and H. The source has the same mistake.",
+        "fix": "Hai đầu nối nhỏ (phần G và H) sẽ chạm vào nhau.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Để rút ngắn thêm, lặp lại bước 1:",
+        "problem": "The text points to 'bước 1', but the steps are shown as an unnumbered bullet list, so the reader can't tell which step is meant.",
+        "rule": "A reference to 'bước N' inside or right after a bulleted list that has no numbers.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lặp lại bước 4 và 5 cho đến khi khối xốp gần như sạch cặn.",
+        "problem": "The cleaning steps are unnumbered bullets, so the reader can't tell which steps are 'bước 4 và 5'.",
+        "fix": "Lặp lại hai bước vắt xốp và thay nước ở trên cho đến khi khối xốp gần như sạch cặn.",
+        "rule": "A reference to 'bước N' inside or right after a bulleted list that has no numbers.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "(Xem video bên dưới để biết thêm chi tiết.)",
+        "problem": "The page has no video, so this line is left over from the source web page.",
+        "rule": "A mention of 'video bên dưới' or 'xem video' on a page that has no embedded video.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hãy xem video hướng dẫn để biết cách lắp lọc bọt biển Aquarium Co-Op và điều chỉnh chiều cao ống dẫn.",
+        "problem": "This points to a video that isn't on the page. It is left over from the source web page.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "hãy xem các dòng lọc bọt biển của chúng tôi và cho chúng tôi biết ý kiến của bạn!",
+        "problem": "This is the store's sales call-to-action left over from the source. On AquaTome it reads as if the handbook sells filters.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chúng tôi đã tự làm loại riêng với những cải tiến và tính năng mà chúng tôi luôn mong muốn",
+        "problem": "The text uses an unnamed 'chúng tôi', so readers would think AquaTome makes this filter, when the maker is Aquarium Co-Op.",
+        "fix": "Aquarium Co-Op đã tự làm loại riêng với những cải tiến và tính năng mà họ luôn mong muốn",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "giúp lọc được nâng liên tục",
+        "problem": "This is an awkward literal rendering of 'constant lift' and doesn't read naturally in Vietnamese.",
+        "fix": "giúp nước được đẩy lên đều đặn trong ống lọc",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thu giữ cặn bẩn trong bể một cách cơ học",
+        "problem": "'một cách + adjective' is a calque from English that the site's style bans.",
+        "fix": "giữ lại cặn bẩn trong bể (lọc cơ học)",
+        "rule": "The phrase 'một cách' followed by an adjective.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đúng, lọc bọt biển giúp làm sạch bể cá, nhưng về bản chất nó giống như một thùng rác thu gom chất thải và cần được đổ đi thỉnh thoảng.",
+        "problem": "The opening 'Đúng' answers a question nobody asked, and 'cần được đổ đi thỉnh thoảng' reads like a literal translation.",
+        "fix": "Lọc bọt biển giúp làm sạch bể, nhưng thực chất nó giống một thùng rác gom chất thải, thỉnh thoảng phải đem đổ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "be06dad1fd870d71"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-betta-fish-plants-for-your-aquarium": {
     "at": "2026-11-01",
@@ -3799,6 +4006,22 @@
     ],
     "ruled": "caba6204a1b68ffc"
   },
+  "vi/guides/aquatome-cach-chon-va-su-dung-may-loc-nuoc-loc-thung-cho-be-ca": {
+    "at": "2026-11-06",
+    "hash": "dacee962db5bcbc2",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một bên đã tự làm thử nghiệm để kiểm tra lại ý này và kết luận đây là ngộ nhận.",
+        "problem": "\"Một bên\" sounds odd here because no other party was mentioned. A native writer would say \"có người\".",
+        "fix": "Có người đã tự làm thử nghiệm để kiểm tra lại ý này và kết luận đây là ngộ nhận.",
+        "field": "body"
+      }
+    ],
+    "ruled": "dacee962db5bcbc2"
+  },
   "vi/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": {
     "at": "2026-11-02",
     "hash": "e61d6f3928b7bce6",
@@ -4015,6 +4238,23 @@
     ],
     "ruled": "b92fd7b708fe13a5"
   },
+  "vi/guides/aquatome-may-sui-oxy-cong-dung-co-ton-dien-khong-su-co-vao-nuoc-va-cach-tao-oxy-khi-khong": {
+    "at": "2026-11-06",
+    "hash": "cceabaf542befbaa",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-06",
+        "field": "body",
+        "score": 0.8,
+        "kept": true,
+        "problems": [
+          "The sentence is garbled. The clause 'vẫn kéo' doesn't connect to anything, so it is unclear what the battery pump replaces."
+        ]
+      }
+    ],
+    "ruled": "cceabaf542befbaa"
+  },
   "vi/guides/aquatome-ngo-doc-amoni-va-nitrit-trong-be-ca-dau-hieu-va-cach-cuu-ca": {
     "at": "2026-11-01",
     "hash": "5986a697e077db7a",
@@ -4095,6 +4335,58 @@
       }
     ],
     "ruled": "8b32268b678c5e10"
+  },
+  "vi/guides/glaser-en-07-carp-like-fishes-1-loaches-a-new-ornate-hillstream-loach-en": {
+    "at": "2026-11-06",
+    "hash": "c51db49746e9b694",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Dành cho khách hàng của chúng tôi: những con cá này có mã 455044 trong danh sách hàng.",
+        "problem": "This is the importer's stocklist note to its wholesale customers, left over from the source. A hobbyist reader may think AquaTome sells the fish under this code.",
+        "rule": "a sentence with a stocklist code or 'khách hàng của chúng tôi' / 'bán buôn' in body text",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Xin lưu ý rằng chúng tôi chỉ cung cấp cho kênh bán buôn.",
+        "problem": "The importer's note that it sells only to wholesalers is left over from the source and makes no sense on a handbook page.",
+        "rule": "a sentence mentioning 'bán buôn' (wholesale) supply terms in body text",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Giờ đây chúng tôi đã nhập được một trong số những loài đó.",
+        "problem": "'Chúng tôi' is the source's importer, but here it reads as if AquaTome itself imported the fish. The page doesn't say who 'we' is.",
+        "fix": "Gần đây, nhà nhập khẩu Aquarium Glaser đã đưa về được một trong số những loài đó.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Văn bản và hình ảnh: Frank Schäfer",
+        "problem": "The source's author credit line is left in the body text, which the site's style says to drop.",
+        "rule": "a line starting with 'Văn bản và hình ảnh:' or 'Text & photos:'",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cũng là một bổ sung thực sự giá trị cho thú chơi cá cảnh!",
+        "problem": "This is a word-for-word copy of the English 'a real enrichment' and reads unnaturally in Vietnamese.",
+        "fix": "Dù sao đi nữa, loài chạch suối vằn hoa này thật sự làm phong phú thêm thú chơi cá cảnh!",
+        "field": "body"
+      }
+    ],
+    "ruled": "c51db49746e9b694"
   },
   "vi/guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en": {
     "at": "2026-11-06",
@@ -4197,6 +4489,28 @@
     "findings": [],
     "ruled": "36d202b36ee48adb"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-myleus-sp-second-take-en": {
+    "at": "2026-11-06",
+    "hash": "a2e54cdec8e0bef4",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hai con này đã được đưa sang một bể ở phòng trưng bày.",
+        "problem": "The source says two of the fish went to the showroom tank, not the two pictured ones (the largest and the smallest).",
+        "fix": "Hai con trong lô đã được đưa sang một bể ở phòng trưng bày.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a2e54cdec8e0bef4"
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-nannostomus-eques-and-n-unifasciatus-two-odd-birds": {
+    "at": "2026-11-06",
+    "hash": "64f90b2c3aa69601",
+    "findings": [],
+    "ruled": "64f90b2c3aa69601"
+  },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-silver-dollars-en": {
     "at": "2026-11-03",
     "hash": "39c2ba0e4dd2fc05",
@@ -4275,6 +4589,39 @@
     "hash": "2425991f678e2db2",
     "findings": [],
     "ruled": "2425991f678e2db2"
+  },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-the-cory-season-has-started-en": {
+    "at": "2026-11-06",
+    "hash": "3941daa088a2f674",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mùa cá chuột Corydoras đã vào vụ ở khắp vùng Amazon.",
+        "problem": "'Mùa' and 'vào vụ' say the same thing twice, so the sentence sounds clumsy.",
+        "fix": "Mùa cá chuột Corydoras đã bắt đầu ở khắp vùng Amazon.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Các bản tin tới sẽ lần lượt giới thiệu từng loài.",
+        "problem": "This line is left over from the source's dealer newsletter. It promises upcoming newsletters that this handbook page will not have.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mỗi năm loài này chỉ xuất hiện trong một khoảng thời gian ngắn",
+        "problem": "Neon Green Stripe is a colour form of C. aeneus, not a separate species, but the page calls it 'loài này'.",
+        "fix": "Mỗi năm dạng cá này chỉ xuất hiện trong một khoảng thời gian ngắn",
+        "field": "body"
+      }
+    ],
+    "ruled": "3941daa088a2f674"
   },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hemiloricaria-bycatches": {
     "at": "2026-11-04",
@@ -5202,6 +5549,31 @@
       }
     ],
     "ruled": "879ed93d017407ea"
+  },
+  "vi/guides/seriouslyfish-articles-five-new-species-of-badis-described-from-west-bengal-india": {
+    "at": "2026-11-06",
+    "hash": "130510c66c9ac0d4",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Badis andrewraoi © Stefano Valdesalici",
+        "problem": "Photo credit lines from the original web page are left in the body text. Some sit beside the wrong section, for example 'B. kyanos ©' comes right before the B. andrewraoi paragraph.",
+        "rule": "A body line made only of a species name followed by '©' and a person's name is a leftover photo credit.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "B. soraya © Stefano Valdesalici",
+        "problem": "This leftover photo credit for B. soraya sits just before the B. kyanos paragraph, so it seems to label the wrong species.",
+        "rule": "A body line made only of a species name followed by '©' and a person's name is a leftover photo credit.",
+        "field": "body"
+      }
+    ],
+    "ruled": "130510c66c9ac0d4"
   },
   "vi/guides/seriouslyfish-articles-how-to-take-care-of-a-siamese-fighting-fish-betta-splendens": {
     "at": "2026-11-01",
@@ -7674,6 +8046,31 @@
     "findings": [],
     "ruled": "7e832ba7f9356ed1"
   },
+  "vi/guides/youtube-ddIenwrxWgU": {
+    "at": "2026-11-06",
+    "hash": "13d137d38b0fa116",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trên kệ chỉ đặt hai bể nano 30–55 lít nên tải không lớn.",
+        "problem": "Elsewhere the page says both tanks are 55-litre Dennerle Nano tanks and gives 35 litres as the smaller size, so '30–55 lít' doesn't match.",
+        "fix": "Trên kệ chỉ đặt hai bể nano khoảng 55 lít nên tải không lớn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua danh sách đồ cần cho hai bể nano khoảng 55 lít.",
+        "problem": "'đi qua danh sách' is a word-for-word copy of the English 'go through a list' and sounds unnatural in Vietnamese.",
+        "fix": "Bài này điểm qua những món đồ cần cho hai bể nano khoảng 55 lít.",
+        "field": "body"
+      }
+    ],
+    "ruled": "13d137d38b0fa116"
+  },
   "vi/guides/youtube-dS6AJL3CAt0": {
     "at": "2026-11-04",
     "hash": "b2307862be262f96",
@@ -8062,6 +8459,31 @@
       }
     ],
     "ruled": "4b11cd857b1ff590"
+  },
+  "vi/guides/youtube-FwandSa_Hrg": {
+    "at": "2026-11-06",
+    "hash": "e0521068535c1481",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "(30 × 5 × 10 cm, tức 244 cm khối). Trung bình mỗi inch khối thân cá nặng khoảng 10 g",
+        "problem": "30 × 5 × 10 cm is 1,500 cm³, not 244 cm³. The weight rate is given per cubic inch, so units are mixed and a reader cannot reproduce the 960 g result.",
+        "fix": "(30 × 5 × 10 cm, tức khoảng 1.500 cm khối). Trung bình mỗi cm khối thân cá nặng khoảng 0,6 g",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lọc thùng hay lọc treo hay ghi \"dùng cho bể 400 lít\".",
+        "problem": "The repeated \"hay\" reads awkwardly: the second \"hay\" means \"often\" but looks like \"or\".",
+        "fix": "Lọc thùng hay lọc treo thường ghi \"dùng cho bể 400 lít\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "e0521068535c1481"
   },
   "vi/guides/youtube-FWKn0tGZnoc": {
     "at": "2026-11-04",
@@ -8756,6 +9178,31 @@
       }
     ],
     "ruled": "5d576aea4de9b629"
+  },
+  "vi/guides/youtube-laTDG4Bc19U": {
+    "at": "2026-11-06",
+    "hash": "0b5099e3a6a6970d",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cách chỉnh tấm nhỏ giọt cho nước mưa đều và việc bảo dưỡng hằng ngày",
+        "problem": "The intro promises daily maintenance, but the maintenance section only covers swapping the pre-filter and gives no schedule.",
+        "fix": "cách chỉnh tấm nhỏ giọt cho nước mưa đều và việc bảo dưỡng",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là dấu hiệu cần nhìn vào.",
+        "problem": "This is an awkward, literal phrasing that a native reader would stumble on.",
+        "fix": "Đó là dấu hiệu bạn cần để ý.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0b5099e3a6a6970d"
   },
   "vi/guides/youtube-LFIB7o9BnFA": {
     "at": "2026-11-02",
@@ -10303,6 +10750,47 @@
       }
     ],
     "ruled": "d92a5be26e5bf877"
+  },
+  "vi/guides/youtube-YtbwYLCWjhA": {
+    "at": "2026-11-06",
+    "hash": "aa1d2792aa0c84d2",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Công thức dùng đơn vị mét rất đơn giản: dài × rộng × cao (tính bằng cm) chia cho 1.000",
+        "problem": "The formula is called 'đơn vị mét' (metre units), but it then uses centimetres; the intended meaning is 'hệ mét' (the metric system).",
+        "fix": "Công thức theo hệ mét rất đơn giản: dài × rộng × cao (tính bằng cm) chia cho 1.000",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cho tổng lưu lượng lọc qua bể gần 4 lần mỗi giờ",
+        "problem": "Two pumps at 9,100 L/h give 18,200 L/h, which turns over a 4,160 L tank about 4.4 times an hour, not 'nearly 4'.",
+        "fix": "cho tổng lưu lượng lọc qua bể hơn 4 lần mỗi giờ",
+        "field": "body"
+      }
+    ],
+    "ruled": "aa1d2792aa0c84d2"
+  },
+  "vi/guides/youtube-YTSQD4zZRpQ": {
+    "at": "2026-11-06",
+    "hash": "7219ebc219994202",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trừ dãy bể cách ly, mọi bể trong phòng nối vào cùng một hệ lọc.",
+        "problem": "The page says every tank except the quarantine row feeds the central filter, but the table says the stingray tank has its own sump that filters only that tank.",
+        "fix": "Trừ dãy bể cách ly và bể cá đuối có sump riêng, các bể còn lại trong phòng nối vào cùng một hệ lọc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7219ebc219994202"
   },
   "vi/guides/youtube-Yv6gkqeQ0aE": {
     "at": "2026-11-03",

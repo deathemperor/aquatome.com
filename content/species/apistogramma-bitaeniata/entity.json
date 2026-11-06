@@ -14,6 +14,174 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "CO",
+        "BR"
+      ],
+      "regions": [
+        "Marañón",
+        "Ucayali",
+        "Solimões",
+        "Madeira",
+        "Tapajós",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
+          "countries": [
+            "PE",
+            "BR"
+          ],
+          "regions": [
+            "Marañón",
+            "Ucayali",
+            "Solimões",
+            "Madeira",
+            "Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The existence of A. bitaeniata in the rio Madeira drainage is a relatively recent discovery and actually calls into question its identity since the original type locality of \"rio Madeira\" given by Pellegrin was amended to \"Colombia (Amazonas), environments of Leticia\" by Kullander (1980) because the species wasn't known to occur in the Madeira at that time.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371319,
+      "total": 57,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          36
+        ],
+        [
+          "BR",
+          19
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          26,
+          26
+        ],
+        [
+          -73.125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -70.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -67.5,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

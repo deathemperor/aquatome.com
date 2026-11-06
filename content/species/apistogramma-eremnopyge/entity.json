@@ -11,6 +11,81 @@
     "peru",
     "itaya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Itaya",
+        "Nanay",
+        "Tapiche",
+        "Ucayali"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from Loreto region in northeastern (Amazonian) Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma eremnopyge (A218) is a dwarf cichlid known only from Loreto region in northeastern Peru, in the Itaya, Nanay and Tapiche drainages.",
+          "countries": [],
+          "regions": [
+            "Itaya",
+            "Nanay",
+            "Tapiche"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "An additional population is known from the Río Tapiche, a tributary of the Río Ucayali located well over 150 km further south.",
+          "countries": [],
+          "regions": [
+            "Ucayali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371286,
+      "total": 26,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          26
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          15,
+          15
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

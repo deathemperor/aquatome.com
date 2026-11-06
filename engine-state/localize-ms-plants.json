@@ -159,5 +159,49 @@
       "Item 2: \"tumbuhan akuatik\" was added where the English only says \"plant\". This is minor and does no harm.",
       "Item 3: \"liat dan tegap\" is slightly awkward for leaves. Consider \"keras dan kukuh\" or \"tebal dan kuat\"."
     ]
+  },
+  "anubias-barteri-var-caladiifolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Caladiifolia",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Berizom\" is a bit unusual; prefer \"Berakar rizom\" or \"Rizom\" for \"Rhizomatous\".",
+      "\"Pokok induk\" is acceptable but \"tumbuhan induk\" is more natural; \"pasu segi empat 9 cm\" should be \"pasu segi empat sama 9 cm\".",
+      "\"Daunnya boleh hidup\" is slightly awkward; prefer \"Daunnya tahan selama beberapa tahun\"."
+    ]
+  },
+  "anubias-barteri-var-coffeifolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Coffeefolia",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Jenis: Berizom\" is acceptable, but \"Asal: Kultivar\" is slightly off; \"Asal usul: Kultivar\" would read more naturally.",
+      "\"Spesies Anubias nampaknya tumbuh begitu perlahan sehingga seolah-olah tidak sedar...\" is a little stiff. Consider \"hingga tidak menyedari bahawa ia telah tenggelam\"."
+    ]
+  },
+  "anubias-barteri-var-glabra": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Glabra",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "anubias-barteri-var-nana": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias barteri var. nana",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Cameroon\" is better written \"Cameroon\"/\"Kamerun\" in standard Malay; use \"Kamerun\" as the Malaysian standard form.",
+      "\"tumbuh subur dalam semua keadaan\" is slightly overstated/unnatural; consider \"boleh tumbuh dalam pelbagai keadaan\".",
+      "\"Ketinggian\" for plant height is better as \"Tinggi\"; minor.",
+      "\"jadi alga yang tumbuh perlahan berpeluang bertapak\" is clumsy; consider \"membolehkan alga yang tumbuh perlahan melekat pada daun\"."
+    ]
   }
 }
