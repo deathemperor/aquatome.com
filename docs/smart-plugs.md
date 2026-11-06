@@ -18,7 +18,9 @@ free IoT Core trial is for a person's own, non-commercial use. So AquaTome can't
 each reader brings their own. A request to Tuya for an authorization of Smart Life for AquaTome itself (as Home
 Assistant has, by QR code) is filed; if it comes through, it becomes another `PlugSource`, and nothing else changes.
 
-The setup, as the app's "Thiết lập ổ cắm" screen walks it (once, on a computer):
+The setup, as the app's "Thiết lập ổ cắm" screen walks it (once, on a computer). The screen opens from "Ổ cắm thông
+minh" in Bể của tôi's list, with the account, not from each tank: a tank shows its "Ổ cắm" only once there are keys,
+or plugs put on it before.
 
 1. Create a Tuya developer account at platform.tuya.com.
 2. Cloud → Development → Create Cloud Project: industry "Smart Home", development method "Smart Home", and the data

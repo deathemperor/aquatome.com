@@ -90,7 +90,14 @@ struct PlugForm: View {
         }
         if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(.red) }
         Section {
+          // On the button: iOS shows the question as a popover from the view it's on.
           Button("Gỡ khỏi bể", role: .destructive) { confirmRemove = true }.accessibilityIdentifier("remove-plug")
+            .confirmationDialog(String(localized: "Gỡ “\(d.nickname ?? String(localized: "Ổ cắm"))” khỏi bể?"), isPresented: $confirmRemove, titleVisibility: .visible) {
+              Button("Gỡ khỏi bể", role: .destructive) {
+                do { try tanks.removePlug(deviceId); done() } catch { failed = true }
+              }
+              .accessibilityIdentifier("confirm-remove-plug")
+            }
         } footer: {
           Text("Gỡ khỏi bể không bật tắt gì: ổ cắm vẫn chạy như cũ và vẫn ở trong Smart Life.")
         }
@@ -101,12 +108,6 @@ struct PlugForm: View {
       .toolbar {
         ToolbarItem(placement: .cancellationAction) { Button("Hủy") { done() } }
         ToolbarItem(placement: .confirmationAction) { Button("Lưu") { save(d) }.accessibilityIdentifier("save-plug") }
-      }
-      .confirmationDialog(String(localized: "Gỡ “\(d.nickname ?? String(localized: "Ổ cắm"))” khỏi bể?"), isPresented: $confirmRemove, titleVisibility: .visible) {
-        Button("Gỡ khỏi bể", role: .destructive) {
-          do { try tanks.removePlug(deviceId); done() } catch { failed = true }
-        }
-        .accessibilityIdentifier("confirm-remove-plug")
       }
     } else {
       ContentUnavailableView("Ổ cắm này đã được gỡ khỏi bể.", systemImage: "trash")
