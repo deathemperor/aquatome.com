@@ -58,6 +58,10 @@ figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top
   transition: color 0.15s ease-out, background-color 0.15s ease-out;
 }
 .cite::before { content: ''; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
+/* Marks side by side (a review's "2 3"): each one's 44 px reaches away from the other, never over it. */
+.cite:has(+ .cite)::before { left: auto; right: 0; transform: translateY(-50%); }
+.cite + .cite::before { left: 0; transform: translateY(-50%); }
+.cite + .cite:has(+ .cite)::before { left: 0; right: 0; width: auto; }
 .cite:hover, .cite:focus-visible, .cite[aria-describedby] { color: var(--c-paper); background: var(--c-moss); }
 .cite-line { margin: 0; }
 /* Small links on a line of their own (the breadcrumb, a fish's country, a credit line): the same 44 px, centred on each,
