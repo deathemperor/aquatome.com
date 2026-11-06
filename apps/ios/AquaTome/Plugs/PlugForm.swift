@@ -2,8 +2,9 @@ import Plugs
 import SwiftUI
 import Tanks
 
-/// "Thêm ổ cắm": one of the account's plugs (as last listed) put on this tank, then its outlets named. A plug already
-/// on a tank isn't offered: a strip is on one tank.
+/// "Thêm ổ cắm": one of the account's plugs (as last listed) put on this tank, then its outlets named. Every plug the
+/// Tuya project has is listed, so the list matches Smart Life's; one already on a tank says which and can't be picked:
+/// a strip is on one tank.
 struct AddPlug: View {
   let tankId: String
   @Environment(PlugsModel.self) private var plugs
@@ -15,18 +16,30 @@ struct AddPlug: View {
   var body: some View {
     NavigationStack {
       List {
-        let free = (plugs.board.list?.plugs ?? []).filter { tanks.tankOf(plug: $0.provider, $0.id) == nil }
+        let all = plugs.board.list?.plugs ?? []
         Section {
-          if free.isEmpty { Text("Mọi ổ cắm trong dự án Tuya đã ở trên một bể.").foregroundStyle(.secondary) }
-          ForEach(free) { p in
-            Button { add(p) } label: {
+          if all.allSatisfy({ tanks.tankOf(plug: $0.provider, $0.id) != nil }) {
+            Text("Mọi ổ cắm trong dự án Tuya đã ở trên một bể.").foregroundStyle(.secondary)
+          }
+          ForEach(all) { p in
+            if let on = tanks.tankOf(plug: p.provider, p.id) {
               VStack(alignment: .leading, spacing: 2) {
-                Text(p.name.isEmpty ? String(localized: "Ổ cắm") : p.name)
-                Text(p.online ? String(localized: "\(p.outlets.count) ổ") : String(localized: "\(p.outlets.count) ổ · Mất kết nối"))
+                Text(p.name.isEmpty ? String(localized: "Ổ cắm") : p.name).foregroundStyle(.secondary)
+                Text(on == tankId ? String(localized: "Đã ở bể này") : String(localized: "Đang ở bể “\(tanks.store.tank(on)?.name ?? "")”"))
                   .font(.caption).foregroundStyle(.secondary)
               }
+              .accessibilityElement(children: .combine)
+              .accessibilityIdentifier("plug-taken")
+            } else {
+              Button { add(p) } label: {
+                VStack(alignment: .leading, spacing: 2) {
+                  Text(p.name.isEmpty ? String(localized: "Ổ cắm") : p.name)
+                  Text(p.online ? String(localized: "\(p.outlets.count) ổ") : String(localized: "\(p.outlets.count) ổ · Mất kết nối"))
+                    .font(.caption).foregroundStyle(.secondary)
+                }
+              }
+              .accessibilityIdentifier("plug-choice")
             }
-            .accessibilityIdentifier("plug-choice")
           }
           if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(.red) }
         } footer: {
