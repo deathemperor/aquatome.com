@@ -60,6 +60,44 @@
   ],
   "vi/guides/youtube-P7GTfHdl5E8": [
     {
+      "at": "2026-11-06T10:33:51Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Wrong fact: 'Vi sinh nitrat hóa chuyển amoniac thành nitrit, rồi nitrit thành nitrat' is fine, but 'Amoniac và nitrit độc với cá' is added; acceptable. The real error: 'Nền trộn nhiều loại đất cho vào túi lưới, phủ cát rửa sạch lên trên' is OK, but the summary says 'đổ dốc về phía sau' and omits 'hoặc hai bên'. Minor.",
+        "Wrong: 'Thường thì cây thấp trồng trước, cây cao trồng sau' means planting order; the video says short plants go in the FRONT and tall plants at the BACK (vị trí). Rewrite as 'cây thấp đặt phía trước, cây cao phía sau'.",
+        "Wrong: 'Thêm lũa, đá phụ theo hướng của điểm nhấn. Cành nào vướng thì cắt bớt' is invented as a step; the video only says branches were in the way and the creator hesitated to cut. Also 'nên có chi tiết nhỏ thì bể trông sâu và rộng hơn' overstates; the video says details improve the sense of scale (tỉ lệ).",
+        "Invented advice: 'Thả ốc, tép trước, cá sau' and 'Khi bể đã chạy vi sinh và có đội dọn dẹp, bạn có thể thả ... chạch hồng' are not stated; the video only says the fish went home after tank was safe. Also 'nhớ phun sương' is fine but 'chọn vài loại cây bám dễ sống' is OK.",
+        "Invented: 'Đây là nhóm dễ trồng... Rửa ... đèn phải đủ' ('nên đèn phải phủ đủ') is not said; the video only says new growth is powered by light. Remove 'đèn phải đủ'.",
+        "FAQ 'Có cần cho nền vào túi lưới không? Không bắt buộc' invents a claim the video does not make; the creator only says soil tends to migrate without bags. Also the FAQ on 'lớp nhầy trắng' adds 'trắng' not in the video.",
+        "Overstated: 'Cách này đơn giản và rất chắc', 'Nền ... bể nào cũng trông sâu hơn' present the creator's opinions as firm facts; hedge them ('thường giúp...').",
+        "Mistranslation: 'Cây trên cạn ... hút chất dư trong nước tốt hơn' and 'lọc nước' heading are fine, but 'Tên loài tép này đặt theo Takashi Amano, người đặt nền móng' is a side trivia; and 'ốc ... là thành phần không thể thiếu' loses the 'tôi tin' hedge: write 'nhiều người cho rằng'.",
+        "Awkward phrasing: 'Nhỏ keo cho thấm đẫm bông', 'Rút nhíp ra theo hướng ngang' (video: exit from the side), 'Bể làm vậy trông tự nhiên hơn hẳn', 'Cây ăn bớt một phần' (cây hấp thụ). Polish into natural hobby Vietnamese.",
+        "Sections drift and repeat: the closing 'Bắt đầu từ đâu' and the FAQ largely repeat earlier text; the guide's title/intro lists 'chạy vi sinh' but never explains how long cycling takes, and never covers the 'cây hoa thị' reason well. Trim repeats."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T10:33:51Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Invented/unsupported: 'Bể mẫu ở đây cuối cùng thả cá chili rasbora và chạch hồng' refers to the video's tank; rewrite as a general suggestion (e.g. 'có thể thả cá chili rasbora, chạch hồng').",
+        "Invented: 'Chỗ dán khá nóng, nên cẩn thận với tay' and 'khi keo còn dính để che vết trắng' are not in the source; remove or soften (the 'vết trắng' detail is unsupported).",
+        "Invented: 'Bổ sung vi sinh nitrat hóa dạng chai bán sẵn' adds a product form not stated; say just 'vi sinh nitrat hóa'.",
+        "Invented: 'Amoniac và nitrit độc với cá' is fine as common knowledge, but 'Nếu nước đục hoặc nhiều cặn thì thay nước luôn' distorts the source ('a water change may be in order'); soften to 'có thể cần thay nước'.",
+        "Invented: 'Thêm vài mảng màu đỏ, cam' and 'xoay mặt đó ra phía người xem', 'tránh đặt chính giữa', 'Cảnh rộng hơn như cả một dãy núi' are embellishments; remove or generalize.",
+        "Wrong/unsupported: 'Rút nhíp ... để cây không bị kéo bật lên' and 'gỡ hết bông khoáng (rockwool)' go beyond the source ('rock wool' ok but 'cắm sâu vào nền' is added); keep to what was said.",
+        "Opinion stated as fact: snails being 'rất đáng nuôi' / 'an essential' and 'lũa spider wood... mốc trắng' tannin 'ngả vàng' in the FAQ conflicts with 'màu trà' in the body; make consistent and hedge ('nhiều người cho rằng').",
+        "Wrong subject: the 'Cây trồng trong nhà' and 'Vì sao bể mới chưa thả cá' sections are fine, but the intro line 'Mỗi bước có vài mẹo ... cho cả bể nano lẫn bể lớn hơn' is invented; drop it.",
+        "Awkward/translated phrasing: 'Có điểm tựa chắc rồi thì bạn cũng dám thử những kiểu dựng táo bạo hơn', 'Bố cục kiểu gì cũng hợp', 'Cái khác biệt nằm ở chỗ để vật liệu tự \"nói\"' read as calques; rewrite naturally.",
+        "Missing: the tip to spray epiphytes, plus the point that the chosen 'tép Amano' naming and the stone-carving/sanding detail are fine to skip, but the 'rửa sạch cát' step and sloping are repeated; tighten redundancy between summary bullets and the closing steps."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-06T09:35:27Z",
       "model": "sonnet",
       "score": 0.7,
