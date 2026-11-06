@@ -12,7 +12,7 @@ UI = 'AquaTomeUITests'
 # job `handbook`; job `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
-            'VideoFlowTests',
+            'TankMatesFlowTests', 'VideoFlowTests',
             'TelemetryFlowTests']
 
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
@@ -34,10 +34,11 @@ APP, KIT = 'apps/ios/AquaTome/', 'apps/ios/AquaTomeKit/'
 HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
                     'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests', 'VideoFlowTests']
 # The handbook's model and the kit's Handbook: its screens, the tanks tab's parts that read it (the tank-mates check,
-# a tank's fish and plants, its guides), and the tank volume tool, which search and a page's links open (AppScreen).
+# a tank's fish and plants, its guides), and the tank volume and tank-mates tools, which search and a page's links open
+# (AppScreen).
 # Also the anonymous statistics, which wait for the index's flag.
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
-                                     'TankVolumeFlowTests', 'TelemetryFlowTests']
+                                     'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
@@ -63,7 +64,7 @@ TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'Accou
              'NativePageFlowTests/testAToolItNamesOpensItsTab', 'HandbookFlowTests/testFiltersTheFishToMyTank',
              'HandbookFlowTests/testFiltersThePlantsToTheTanksLight',
              'ReaderPostFlowTests/testABlockedPosterIsListedInTheTanksTab', 'TankVolumeFlowTests',
-             'TelemetryFlowTests'] + LIGHTS_ON_TANKS
+             'TankMatesFlowTests', 'TelemetryFlowTests'] + LIGHTS_ON_TANKS
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -95,11 +96,14 @@ REACH = {
     APP + 'Handbook/KeepOffline.swift': ['OfflineFlowTests'],
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
+    # Its flows, and a fish page's link that opens it.
+    APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
     APP + 'Handbook/ReaderSafety.swift': ['ReaderPostFlowTests', 'NativePageFlowTests'],
     APP + 'Tanks/': TANKS_TAB,
     # It shows the owner's dashboard's row, and opens it.
     APP + 'Tanks/TanksView.swift': TANKS_TAB + ['OwnerFlowTests'],
-    APP + 'Tanks/TankCheckView.swift': ['TankCheckFlowTests',
+    # The check's section, which the tank-mates tool shows too.
+    APP + 'Tanks/TankCheckView.swift': ['TankCheckFlowTests', 'TankMatesFlowTests',
                                         'TankLifeFlowTests/testAddsAFishWithoutAPageByNameSendsItOnceAndKeepsItAfterARelaunch'],
     APP + 'Tanks/TankGuides.swift': ['TankLifeFlowTests', 'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',
                                      'NativePageFlowTests/testAGroupFromTheTanksTabOpensOnTheTanksTab'],
@@ -123,11 +127,11 @@ REACH = {
     # Its page shots too: the overview and a section.
     APP + 'Owner/': ['OwnerFlowTests', 'PageShotsFlowTests'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
-    KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests'],
+    KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank',
-                             'TankVolumeFlowTests'] + LIGHTS_ON_TANKS,
+                             'TankVolumeFlowTests', 'TankMatesFlowTests'] + LIGHTS_ON_TANKS,
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
                                    'OwnerFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
@@ -183,7 +187,7 @@ def check(runs, left, reached):
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
     assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_SCREENS) - {'PageShotsFlowTests'}))
     assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'
-    assert left([APP + 'Tanks/TankCheckView.swift']) == 'TankCheckFlowTests TankLifeFlowTests'
+    assert left([APP + 'Tanks/TankCheckView.swift']) == 'TankCheckFlowTests TankLifeFlowTests TankMatesFlowTests'
 
     # What a change reaches, which main runs after the merge (read from the flows and the app).
     assert reached([APP + 'AquaTomeApp.swift']) == reached([APP + 'FishID/FishIDView.swift']) == ALL
@@ -193,6 +197,9 @@ def check(runs, left, reached):
     got = reached([APP + 'Handbook/NativePage.swift'])
     assert {'OfflineFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp'} <= got, got
     assert reached([APP + 'Handbook/KeepOffline.swift']) == {'OfflineFlowTests'}
+    # The tank-mates tool: its own flows.
+    assert reached([APP + 'Handbook/TankMatesView.swift']) == {'TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'}
+    assert 'TankMatesFlowTests' in runs([f'apps/ios/{UI}/TankMatesFlowTests.swift'])
     assert reached([APP + 'Tanks/TankGuides.swift']) == {
         'TankLifeFlowTests', 'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',
         'NativePageFlowTests/testAGroupFromTheTanksTabOpensOnTheTanksTab'}

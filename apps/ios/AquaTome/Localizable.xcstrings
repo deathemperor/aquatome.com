@@ -1313,6 +1313,22 @@
         }
       }
     },
+    "Bỏ %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "นำ %@ ออก"
+          }
+        }
+      }
+    },
     "Bỏ chặn": {
       "localizations": {
         "id": {
@@ -1997,6 +2013,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เลือกตารางเวลาและสี"
+          }
+        }
+      }
+    },
+    "Chọn một bể của bạn để kiểm tra cùng cá đang có trong bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pilih salah satu akuarium Anda untuk memeriksanya bersama ikan yang sudah ada di dalamnya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เลือกตู้ของคุณเพื่อตรวจร่วมกับปลาที่อยู่ในตู้แล้ว"
           }
         }
       }
@@ -3713,6 +3745,22 @@
         }
       }
     },
+    "Gõ tên Việt hoặc tên khoa học": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ketik nama Indonesia atau nama ilmiah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "พิมพ์ชื่อไทยหรือชื่อวิทยาศาสตร์"
+          }
+        }
+      }
+    },
     "Gần như chắc chắn": {
       "localizations": {
         "id": {
@@ -4657,6 +4705,22 @@
         }
       }
     },
+    "Kiểm tra nuôi chung": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cek kecocokan ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตรวจการเลี้ยงปลารวม"
+          }
+        }
+      }
+    },
     "Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)": {
       "localizations": {
         "id": {
@@ -4957,6 +5021,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "สายพันธุ์ยอดนิยม"
+          }
+        }
+      }
+    },
+    "Loài đã chọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies terpilih"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลาที่เลือกไว้"
           }
         }
       }
@@ -6337,6 +6417,22 @@
         }
       }
     },
+    "Số con %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jumlah %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จำนวน%@"
+          }
+        }
+      }
+    },
     "Số con (nếu muốn)": {
       "localizations": {
         "id": {
@@ -6529,6 +6625,22 @@
         }
       }
     },
+    "Thêm 2 loài trở lên để xem có nuôi chung được không.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan 2 spesies atau lebih untuk melihat apakah bisa dipelihara bersama."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มปลาตั้งแต่ 2 ชนิดขึ้นไปเพื่อดูว่าเลี้ยงรวมกันได้ไหม"
+          }
+        }
+      }
+    },
     "Thêm bể": {
       "localizations": {
         "id": {
@@ -6589,6 +6701,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่มปลาหรือไม้น้ำ"
+          }
+        }
+      }
+    },
+    "Thêm loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มชนิดปลา"
+          }
+        }
+      }
+    },
+    "Thêm một loài nữa để so.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan satu spesies lagi untuk dibandingkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มปลาอีกหนึ่งชนิดเพื่อเปรียบเทียบ"
           }
         }
       }
@@ -8433,6 +8577,22 @@
         }
       }
     },
+    "con": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ekor"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตัว"
+          }
+        }
+      }
+    },
     "cạnh áp tường": {
       "localizations": {
         "id": {
@@ -9393,6 +9553,22 @@
         }
       }
     },
+    "Đã thêm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ditambahkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มแล้ว"
+          }
+        }
+      }
+    },
     "Đã thêm %lld bể từ tài khoản.": {
       "localizations": {
         "id": {
@@ -9613,6 +9789,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ครบ 50 ตู้แล้ว ลบตู้เก่าออกก่อนจึงจะเพิ่มได้"
+          }
+        }
+      }
+    },
+    "Đã đủ 6 loài: bỏ bớt một loài để thêm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah 6 spesies: hapus satu spesies untuk menambah yang lain."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ครบ 6 ชนิดแล้ว: นำออกหนึ่งชนิดก่อนจึงจะเพิ่มได้"
           }
         }
       }
