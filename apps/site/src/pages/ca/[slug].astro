@@ -46,7 +46,7 @@ const jsonld = [
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
-const { country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
+const { country, firstSource, researched, card, sources, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
 // What to buy (Vietnam's shops: Vietnamese pages only), after the care text, with a chip in the jump row; the tank row
 // says the minimum tank the data card gives.
 const kit = vn && s.productSlots.length > 0
@@ -76,11 +76,13 @@ const alternates = await alternatesOf('species', s.id)
       <h2 id="card-h" class="visually-hidden">{t('Bảng dữ liệu')}</h2>
       <details class="full" open>
         <summary><span class="label">{t('Xem đủ bảng')}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
-        <DataCard card={s.dataCard} sources={c.sources} traits={mates.self} />
+        <DataCard card={card} sources={sources} traits={mates.self} />
       </details>
       {/* Closed on a phone, where the key facts above it already answer; open on a computer (no toggle there). */}
       <script is:inline>(function (d) { var m = matchMedia('(max-width: 860px)'); var set = function () { d.open = !m.matches }; set(); m.addEventListener('change', set) })(document.currentScript.previousElementSibling)</script>
-      {firstSource && <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>}
+      {firstSource && (researched
+        ? <p class="srcline">{t('AquaTome tổng hợp từ')} <a href="#nguon">{t('{n} nguồn', { n: researched })}</a> {t('rồi tự viết')}.</p>
+        : <p class="srcline">{t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources: [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', '), date: s.updatedAt })}</p>)}
     </div>
     {vn && summary && <QuickSummary summary={summary} inside />}
     {s.photos.length > 0 && (
@@ -94,7 +96,7 @@ const alternates = await alternatesOf('species', s.id)
 
   {/* "Thông tin nhanh" folds on a phone, where the key facts and the summary above already give most of it: the first
       care question within three screens. */}
-  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} fold={['quickFacts']}>
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} refs={s.refs} fold={['quickFacts']}>
     {vn && <VnClimate slot="waterConditions" card={s.dataCard} />}
     {showMates ? <Companions slot="behaviour" {...mates} tool={tool} /> : <p slot="behaviour" class="srcline mates-tool"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
   </Sections>

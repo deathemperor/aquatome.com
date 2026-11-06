@@ -18,8 +18,8 @@ const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'u
 const INTL = readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8')
 
 type Sourced = { fact: string; source: number }
-const CARE_FIELDS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'] as const
-type CareField = (typeof CARE_FIELDS)[number]
+export const CARE_FIELDS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'] as const
+export type CareField = (typeof CARE_FIELDS)[number]
 type SourceKind = BreedEntity['sources'][number]['kind']
 /** What research found about one man-made fish: facts in the researcher's own words, each with the index of its source. */
 export type BreedFacts = {
@@ -58,8 +58,8 @@ const FACTS_SCHEMA = {
 export type BreedAsk = { name: string; kind?: BreedEntity['kind']; basedOn?: string }
 
 /** Difficulty and lifespan in a species' words (prompts/process.md), for what a breed's own sources say of it. */
-const DIFFICULTY = 'difficulty (1 = very easy … 8 = expert; convert the source\'s scale: a rating out of 10 or 5 as its share of 8, rounded (8/10 is 6, 3/5 is 5); its words so: very easy 1, easy or beginner 2, easy to moderate 3, moderate or intermediate 4, moderate to difficult 5, difficult or advanced 6, very difficult 7, expert only 8), one whole number (min = max)'
-const LIFE_YEARS = 'lifeYears in years (how long the fish lives in an aquarium, as the source states it: "4 years" is min = max = 4, "up to 5 years" is min = max = 5, "3 to 5 years" is 3–5; months as a fraction of a year; never inferred from anything else)'
+export const DIFFICULTY = 'difficulty (1 = very easy … 8 = expert; convert the source\'s scale: a rating out of 10 or 5 as its share of 8, rounded (8/10 is 6, 3/5 is 5); its words so: very easy 1, easy or beginner 2, easy to moderate 3, moderate or intermediate 4, moderate to difficult 5, difficult or advanced 6, very difficult 7, expert only 8), one whole number (min = max)'
+export const LIFE_YEARS = 'lifeYears in years (how long the fish lives in an aquarium, as the source states it: "4 years" is min = max = 4, "up to 5 years" is min = max = 5, "3 to 5 years" is 3–5; months as a fraction of a year; never inferred from anything else)'
 const ITS_OWN = 'Only a figure from a page about this fish (its care sheet, a breeder\'s, hobbyist\'s or shop\'s page on it): its rating of how hard this fish is to keep counts even when worded for its kind. Never a figure from a page about its species or a parent species (a species profile, the species\' encyclopedia article).'
 
 const researchPrompt = (a: BreedAsk) => `Research the aquarium fish "${a.name}" for a Vietnamese aquarium handbook. It is a man-made fish without a scientific name of its own: a hybrid, a line or colour form bred within one species, or a transgenic fish${a.kind ? ` (expected: ${a.kind})` : ''}. Use WebSearch and WebFetch. Search in English and in Vietnamese (the names Vietnamese hobbyists and shops use, Vietnamese forums and articles), and in the languages of the countries where it was developed when that helps.
@@ -98,7 +98,7 @@ notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Em
  * (process.ts), or a difficulty that isn't one figure. Temperature and difficulty in whole numbers (from °F, 18.3–22.2);
  * a lifespan always a range, as a species' (months as tenths of a year).
  */
-function careValue(c: { field: CareField; min: number; max: number }): Range | number | undefined {
+export function careValue(c: { field: CareField; min: number; max: number }): Range | number | undefined {
   const [lo, hi] = BOUNDS[c.field] ?? [NaN, NaN]
   const round = (v: number) => (c.field === 'tempC' || c.field === 'difficulty' ? Math.round(v) : c.field === 'lifeYears' ? Math.round(v * 10) / 10 : v)
   const min = round(Math.min(c.min, c.max))

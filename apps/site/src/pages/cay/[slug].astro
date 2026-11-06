@@ -54,7 +54,7 @@ const alternates = await alternatesOf('plants', p.id)
     </div>
   </header>
   {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={p.t.name} />}
-  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} />
+  <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} refs={p.refs} />
   {/* The guides that say more about it, then the shops (Vietnam's, Shopee/Lazada links: Vietnamese pages only). */}
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />
   <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />

@@ -73,7 +73,7 @@ function pagesBlock(lang: Lang, listed: Set<string>, title: string, viPaths: str
 export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { blocks: Block[]; unknown: string[] } {
   const t = translator(lang)
   const { range } = fmt(lang)
-  const { groups, refs, figAfter, wild, wildAt } = sectionParts(lang, c, props)
+  const { groups, refs, note, figAfter, wild, wildAt } = sectionParts(lang, c, props)
   const fig = (field: string, v: Range | number) => (field === 'tempC' ? `${range(v)}°C` : field === 'sizeCm' || field === 'tankCm' || field === 'tankL' ? `${range(v)} cm` : field === 'gh' ? `${range(v)} dGH` : range(v))
   const blocks: Block[] = []
   const unknown = new Set<string>()
@@ -108,8 +108,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
   if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
     blocks.push({
-      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })),
-      note: t('Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó.'),
+      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })), note,
     })
   }
   return { blocks, unknown: [...unknown].sort() }
@@ -179,7 +178,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const p = await speciesParts(lang, c, s)
   const lead = image(lang, s.photos[0], `${s.t.name}, ${s.scientificName}`)
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range } })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
   const why = avoidWhy(t, p.mates.self.name)
   const mate = (x: Localized<SpeciesEntity>) => { const img = image(lang, cleanPhoto(x.photos), undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, ...(img ? { img } : {}) } }
@@ -215,11 +214,11 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     sub: s.scientificName,
     where: p.country ? [`${s.family}, `, linked(lang, p.country.t.name, `/vi/nguon-goc/${p.country.parent}/${p.country.id}/`)] : [s.family],
     ...(s.t.altNames.length ? { aka: t('Tên khác: {names}', { names: s.t.altNames.join(', ') }) } : {}),
-    ...(p.firstSource ? { credit: [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
+    ...(p.firstSource ? { credit: p.researched ? [`${t('AquaTome tổng hợp từ')} `, { text: t('{n} nguồn', { n: p.researched }), href: '#nguon' }, ` ${t('rồi tự viết')}.`] : [t('Dịch và tổng hợp từ {sources}. Cập nhật {date}.', { sources, date: s.updatedAt })] } : {}),
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `species:${s.id}`), photos: photosKey(`species:${s.id}`) },
     blocks: [
-      ...trustBlock(t, lang, s.dataCard, c.sources),
+      ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
       mates,
       ...(p.vn ? climateBlock(t, s.dataCard) : []),
       ...galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath),
@@ -290,7 +289,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
   const lead = image(lang, p.photos[0], `${p.t.name}, ${p.scientificName}`)
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })) })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), refs: p.refs })
   return {
     v: PAGE_VERSION,
     kind: 'plant',

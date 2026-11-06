@@ -379,6 +379,27 @@ The layers above still check the result.
   number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
+- **A species no licensed source covers** (`pnpm engine species "<Genus species>" [--video id]`,
+  `packages/engine/src/species-research.ts`). Its taxon is GBIF's backbone match, an exact name only; a species too new
+  for the backbone is taken from GBIF's checklists when exactly one ACCEPTED SPECIES there has that name and a record (or
+  its genus's) gives its family (`gbif.ts` gbifSearchTaxon, never kept with the backbone's answers). Research cites
+  every fact, the videos asked for as primary sources (their description and what is said). The text is AquaTome's own
+  (source `aquatome`), each part citing the pages its facts come from (the species' `refs`), reviewed against the
+  research (kind `species`), one rewrite with the notes; a part never names a video or its channel. A data card figure
+  must come from a cited web page, in its words, inside the card's bounds, or it is left out, and the writer is told
+  which figures no page gives, so the page says they aren't published rather than guessing (`citeResearch`; the schema
+  refuses an AquaTome figure that names no page). A Vietnamese name only from a Vietnamese page. A video joins the page's
+  videos only when YouTube lets it be embedded; otherwise it is cited alone. Never over a page from a licensed source.
+  A new species is usually thin, so out of search until it isn't.
+- **Species-profile videos** (`pnpm engine species-videos`, each video cycle, `SPECIES_VIDEOS_LIMIT` a run,
+  `packages/engine/src/species-videos.ts`). Channels with a regular series of species profiles (`PROFILE_CHANNELS`,
+  chosen by the owner, apart from the guides' teaching channels) feed species and plant pages, never guides. Their new
+  uploads are vetted by title once (tank tours, builds, vlogs, expeditions, fairs and shop visits are left); a profile's
+  species is the scientific name its title or description gives, matched to a page or to GBIF, else it is skipped. A
+  species without a page gets one through the research above, the video a source; a page that has one gets only what the
+  video says and the page doesn't (its text and card), AquaTome's own words under the page's headings, citing the video,
+  reviewed against the video and the page, kept only at the bar. A plant without a page is left: its figures come from
+  licensed sources. Each video is tried once (`engine-state/_species-videos.json`). Asked by the owner (2026-11-06).
 - **A bred fish's difficulty and lifespan.** A breed's card gives how hard it is to keep (1–8) and how long it lives as
   a species' does, from pages about that line or hybrid (its care sheets, breeders' pages), each figure cited, never
   from a page about its species or a parent (`packages/engine/src/breeds.ts`). Its research asks for both, in the
