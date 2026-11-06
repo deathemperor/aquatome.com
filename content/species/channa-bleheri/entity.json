@@ -10,6 +10,65 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Dikrong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India, with the full extent of its distribution unclear.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is apparently restricted to the northern portion of Assam, while in Arunachal Pradesh it has been collected in the vicinity of Doimukh in the Dikrong river drainage.",
+          "countries": [],
+          "regions": [
+            "Dikrong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391447,
+      "total": 4,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

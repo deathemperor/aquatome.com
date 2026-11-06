@@ -1,0 +1,75 @@
+{
+  "id": "leporacanthicus-joselimai",
+  "native": {
+    "input": "8d857efbd732c482",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The sultan plec, Leporacanthicus joselimai (L264), is a suckermouth catfish from the Rio Tapajós in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Tapajós, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Both forms originate from the Rio Tapajós in Brazil, where they even occur syntopically.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Rio Tapajós, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "Both forms originate from the Rio Tapajós in Brazil, where they even occur syntopically.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leporacanthicus joselimai",
+    "status": "ACCEPTED",
+    "taxonKey": 2339392,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

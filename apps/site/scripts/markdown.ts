@@ -5,8 +5,9 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse } from 'node-html-parser'
 import TurndownService from 'turndown'
+import { APP_PAGES, appState } from '../worker/app-switch.ts'
 
-const DROP = 'script, style, noscript, template, svg, form, button, nav, .comments, .products'
+const DROP = 'script, style, noscript, template, svg, form, button, nav, .comments, .kit, [data-shop-pick], .app-invite'
 const td = new TurndownService({ headingStyle: 'atx', bulletListMarker: '-', codeBlockStyle: 'fenced' })
 // Card links (an <a> wrapping a heading and labels) become one list line: "- [heading](href) · label · label".
 td.addRule('card', {
@@ -53,7 +54,10 @@ const pages = (dir: string): string[] =>
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   let n = 0
-  for (const f of pages(fileURLToPath(new URL('../dist', import.meta.url)))) {
+  const dist = fileURLToPath(new URL('../dist', import.meta.url))
+  // The app page has none until the store launch (worker/app-switch.ts): its page is the owner's only.
+  const skip = appState(process.env.APP_INVITE_STATE) === 'on' ? [] : APP_PAGES.map(p => join(dist, p, 'index.html'))
+  for (const f of pages(dist).filter(f => !skip.includes(f))) {
     const md = toMarkdown(readFileSync(f, 'utf8'))
     if (md) { writeFileSync(f.replace(/\.html$/, '.md'), md); n++ }
   }

@@ -10,6 +10,206 @@
     "united-states",
     "apalachicola"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Altamaha River",
+        "St. Johns River",
+        "Apalachicola River",
+        "Dan River",
+        "Coosa River",
+        "Ocmulgee River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: Atlantic Slope from Dan River system in southern Virginia south to Altamaha River drainage in Georgia, and middle St. Johns River drainage in Florida, USA; Gulf Slope in Apalachicola River drainage in Georgia, Alabama and Florida, USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Altamaha River",
+            "St. Johns River",
+            "Apalachicola River",
+            "Dan River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Recently reported from upper Coosa River system in Georgia, USA.",
+          "countries": [],
+          "regions": [
+            "Coosa River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: South Fork of Ocmulgee River, at Flat Shoals, DeKalb County, Georgia, U.S.A.",
+          "countries": [],
+          "regions": [
+            "Ocmulgee River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340984,
+      "total": 1118,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "US",
+          1118
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          29.53125,
+          54,
+          54
+        ],
+        [
+          -85.78125,
+          30.9375,
+          35,
+          35
+        ],
+        [
+          -85.78125,
+          32.34375,
+          229,
+          229
+        ],
+        [
+          -85.78125,
+          33.75,
+          24,
+          24
+        ],
+        [
+          -84.375,
+          30.9375,
+          8,
+          8
+        ],
+        [
+          -84.375,
+          32.34375,
+          399,
+          399
+        ],
+        [
+          -84.375,
+          33.75,
+          139,
+          139
+        ],
+        [
+          -82.96875,
+          28.125,
+          11,
+          11
+        ],
+        [
+          -82.96875,
+          29.53125,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          30.9375,
+          14,
+          14
+        ],
+        [
+          -82.96875,
+          32.34375,
+          70,
+          70
+        ],
+        [
+          -82.96875,
+          33.75,
+          15,
+          15
+        ],
+        [
+          -82.96875,
+          35.15625,
+          6,
+          6
+        ],
+        [
+          -81.5625,
+          28.125,
+          2,
+          2
+        ],
+        [
+          -81.5625,
+          30.9375,
+          25,
+          25
+        ],
+        [
+          -81.5625,
+          32.34375,
+          38,
+          38
+        ],
+        [
+          -81.5625,
+          33.75,
+          12,
+          12
+        ],
+        [
+          -81.5625,
+          35.15625,
+          4,
+          4
+        ],
+        [
+          -80.15625,
+          35.15625,
+          21,
+          21
+        ],
+        [
+          -80.15625,
+          36.5625,
+          3,
+          3
+        ],
+        [
+          -78.75,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          35.15625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          39.375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -42,6 +42,7 @@ test('a published guide is read once more for every photo of its source, each in
   const old = (n: number) => ({ url: `https://m/old${n}.webp`, width: 1200, height: 800, licence: 'x', author: 'y', sourceUrl: URL_, source: 'sprucepets' })
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ source: 'sprucepets', sourceUrl: URL_, photos: [old(1), old(2), old(3)] }))
   await writeFile(join(dir, 'vi.json'), JSON.stringify({ body: VI.map(h => `<h3>${h}</h3><p>…</p>`).join('') }))
+  await writeFile(join(dir, 'ms.json'), JSON.stringify({ body: VI.map(h => `<h3>${h} (ms)</h3><p>…</p>`).join('') })) // a language the site doesn't serve yet
   // Read before the cap went: tried, but not since.
   await writeFile(join(root, 'engine-state', '_photo-backfill.json'), JSON.stringify({ [URL_]: '2026-10-30T00:00:00.000Z' }))
   const fish = ['Standard Goldfish (Carassius auratus)', 'Betta Fish (Betta splendens)', 'Mollies and Platies', 'Cory Catfish (Corydoras spp.)', 'Cherry Barb', 'White Cloud Mountain Minnows', 'Zebra Danio (Danio rerio)']
@@ -55,8 +56,16 @@ test('a published guide is read once more for every photo of its source, each in
   }
   const r = await backfillPhotos(root, deps, { kinds: ['guides'] })
   expect(r).toMatchObject({ pages: 1, errors: [] })
-  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as { photos: { section?: { vi: string } }[] }
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as { photos: { section?: { vi: string; ms?: string } }[] }
   expect(e.photos).toHaveLength(7) // every photo of its source page, in place of the 3 it kept from there
   expect(e.photos.slice(0, 7).map(p => p.section?.vi)).toEqual([VI[0], VI[1], VI[2], VI[3], VI[4], VI[5], undefined]) // the danio's heading isn't in this text
+  expect(e.photos[0]!.section?.ms).toBe(`${VI[0]} (ms)`)
   expect((await backfillPhotos(root, deps, { kinds: ['guides'] })).pages).toBe(0) // once
+})
+
+test("a guide photo gets its section in a language the site doesn't serve yet", () => {
+  const p = { url: 'gold', width: 1200, height: 800, licence: 'x', author: 'y', sourceUrl: 'z', heading: 'Standard Goldfish (Carassius auratus)' }
+  const body = (hs: string[]) => hs.map(h => `<h3>${h}</h3><p>…</p>`).join('')
+  const [out] = withSections([p], { vi: body(VI), ms: body(VI.map(h => `${h} (ms)`)) })
+  expect(out && 'section' in out ? out.section : undefined).toEqual({ vi: VI[0], ms: `${VI[0]} (ms)` })
 })

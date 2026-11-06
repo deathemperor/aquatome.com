@@ -1,0 +1,301 @@
+{
+  "id": "piaractus-brachypomus",
+  "native": {
+    "input": "59e4423c873b7858",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations are thriving in various parts of the world, mainly in Far Eastern countries such as China and Taiwan where it's farmed for eating.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations are thriving in various parts of the world, mainly in Far Eastern countries such as China and Taiwan where it's farmed for eating.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced into several Far Eastern countries for this purpose, including Thailand and Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced into several Far Eastern countries for this purpose, including Thailand and Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Juveniles mimic the red-bellied piranha and are sold small as 'vegetarian piranha', and releases by aquarists have left populations in the USA and elsewhere.",
+        "words": "USA",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The red-bellied pacu, Piaractus brachypomus, is a serrasalmid from the Orinoco and Amazon basins in Colombia, Venezuela, Peru, Bolivia and Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Piaractus brachypomus",
+    "status": "ACCEPTED",
+    "taxonKey": 2353225,
+    "datasets": [
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        135
+      ],
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        96
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        68
+      ],
+      [
+        "00d324d6-5211-47a1-a84d-82175f84e678",
+        52
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        44
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        39
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        35
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        24
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        22
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        10
+      ],
+      [
+        "175d2868-a330-4179-ba25-35da91a8214d",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "ce0f1750-ad92-46b7-b8c7-59033460de43",
+        5
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "ea920870-10cc-4c5a-8c68-761383c7e497",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        2
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "a2254f58-8bbf-41e6-ac4e-03d1683e0ce5",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8d8218b1-835d-43ef-ac2d-34c746277528",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE",
+      "PE",
+      "BO",
+      "BR"
+    ],
+    "requests": 15,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

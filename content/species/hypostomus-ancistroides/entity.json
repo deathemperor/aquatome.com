@@ -1,0 +1,114 @@
+{
+  "id": "hypostomus-ancistroides",
+  "scientificName": "Hypostomus ancistroides",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/",
+      "html": "<p>A slender, very rare Hypostomus imported from Paraguay. The subtropical species tolerates temperatures between 16 and 28°C and attains a maximum length of about 20-25 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_ancistroides_en/",
+      "html": "<p>Imported from Paraguay.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/63f773ba681dc775.webp",
+      "thumb": "https://media.aquatome.com/scotcat/63f773ba681dc775-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Junior Hübner / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "caption": "Hypostomus ancistroides: Rio Jaú, Brazil",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/efa106e4cb12df1e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/efa106e4cb12df1e-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Junior Hübner / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "caption": "Hypostomus ancistroides: Dorsal view-Rio Jaú, Brazil",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/61fbb00da2e20825.webp",
+      "thumb": "https://media.aquatome.com/scotcat/61fbb00da2e20825-480.webp",
+      "width": 500,
+      "height": 666,
+      "licence": "dùng với sự cho phép",
+      "author": "Junior Hübner / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "caption": "Hypostomus ancistroides: Ventral view-Rio Jaú, Brazil",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d43f978cd1928a77.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d43f978cd1928a77-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivan Sazima / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm",
+      "caption": "Hypostomus ancistroides",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kính"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kính",
+        "viên chìm cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

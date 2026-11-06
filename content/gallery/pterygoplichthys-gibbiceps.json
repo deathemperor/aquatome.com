@@ -2,6 +2,18 @@
   "id": "pterygoplichthys-gibbiceps",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/60696978.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60696978-480.webp",
+      "width": 1024,
+      "height": 471,
+      "licence": "CC BY-SA",
+      "author": "Ong Jyh Seng",
+      "sourceUrl": "https://www.inaturalist.org/photos/60696978",
+      "caption": "Cá lau kiếng vây cao màu vàng nâu đốm trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/bd15de29399366c3.webp",
       "thumb": "https://media.aquatome.com/commons/bd15de29399366c3-480.webp",
       "width": 1200,
@@ -74,6 +86,30 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/433031382.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/433031382-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Юлия Китовски",
+      "sourceUrl": "https://www.inaturalist.org/photos/433031382",
+      "caption": "Cá lau kiếng vây cao vân mạng nhện trong bể thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/314702483.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/314702483-480.webp",
+      "width": 1024,
+      "height": 612,
+      "licence": "CC BY",
+      "author": "Gold eagle Kroll",
+      "sourceUrl": "https://www.inaturalist.org/photos/314702483",
+      "caption": "Cá lau kiếng vây cao màu xám xanh trên nền sỏi xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/eedc2a5e422c0fcf.webp",
       "thumb": "https://media.aquatome.com/commons/eedc2a5e422c0fcf-480.webp",
       "width": 1200,
@@ -120,9 +156,33 @@
       "caption": "Cá lau kiếng vây cao đỏ lớn với vân mạng lưới trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/314702455.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/314702455-480.webp",
+      "width": 1024,
+      "height": 698,
+      "licence": "CC BY",
+      "author": "Gold eagle Kroll",
+      "sourceUrl": "https://www.inaturalist.org/photos/314702455",
+      "caption": "Cá lau kiếng vây cao bơi trên nền sỏi xanh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/256121460.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/256121460-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Mourad Harzallah",
+      "sourceUrl": "https://www.inaturalist.org/photos/256121460",
+      "caption": "Cá lau kiếng vây cao nằm trên nền sỏi sáng",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 30,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 39,
+  "updatedAt": "2026-11-04",
+  "builtAt": "2026-11-04"
 }

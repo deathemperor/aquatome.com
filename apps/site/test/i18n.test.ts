@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { isVietnamese, langOf, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
+import { OTHER_LANGS } from '@aq/schema/langs'
 
 test('a page file mounted in each language', () => {
   expect(routeIn('vi', 'index.astro')).toBe('/') // Vietnamese pages are at the root
@@ -91,7 +92,7 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   expect(localizePath('id', '/vi/gioi-thieu/bang-du-lieu/#do-kho')).toBe('/id/tentang/tabel-data/#do-kho')
   expect(localizePath('th', '/vi/gioi-thieu/bang-du-lieu/')).toBe('/th/about/data-table/')
   expect(toVi('/th/about/data-table/')).toBe('/vi/gioi-thieu/bang-du-lieu/')
-  for (const lang of ['id', 'th'] as const) expect(served(lang, '/vi/gioi-thieu/bang-du-lieu/#nhiet-do'), lang).toBe(true)
+  for (const lang of OTHER_LANGS) expect(served(lang, '/vi/gioi-thieu/bang-du-lieu/#nhiet-do'), lang).toBe(true)
   expect(toVi('/vi/ca/')).toBe('/vi/ca/')
   expect(toVi('/ca/x/anh/')).toBe('/vi/ca/x/anh/') // a Vietnamese page's address
   expect(toVi('/')).toBe('/vi/')
@@ -110,22 +111,21 @@ test('numbered pages: the page word in each language, for the guide and plant li
   expect(toVi('/id/tanaman/halaman/2/')).toBe('/vi/cay/trang/2/')
   expect(toVi('/th/groups/catfish/page/2/')).toBe('/vi/nhom/catfish/trang/2/')
   expect(toVi('/id/panduan/halaman/3/')).toBe('/vi/huong-dan/trang/3/')
-  for (const lang of ['id', 'th'] as const) for (const p of ['/vi/nhom/catfish/trang/2/', '/vi/cay/trang/2/']) expect(served(lang, p), `${lang} ${p}`).toBe(true)
+  for (const lang of OTHER_LANGS) for (const p of ['/vi/nhom/catfish/trang/2/', '/vi/cay/trang/2/']) expect(served(lang, p), `${lang} ${p}`).toBe(true)
   // A slug that is the page word stays a slug: only the word before a page number at the end is.
   expect(localizePath('id', '/vi/huong-dan/trang/')).toBe('/id/panduan/trang/')
   expect(localizePath('id', '/vi/ca/trang/anh/')).toBe('/id/ikan/trang/foto/')
 })
 
-test('licence: the stored permission note is translated, licence names are not', async () => {
-  const { licenceLabel, translator } = await import('../src/lib/i18n')
-  expect(licenceLabel(translator('id'), 'dùng với sự cho phép')).toBe('digunakan dengan izin')
-  expect(licenceLabel(translator('vi'), 'dùng với sự cho phép')).toBe('dùng với sự cho phép')
-  expect(licenceLabel(translator('th'), 'CC BY 4.0')).toBe('CC BY 4.0')
+test('licence: the stored permission note shows as none, licence names as they are', async () => {
+  const { licenceLabel } = await import('../src/lib/i18n')
+  expect(licenceLabel('dùng với sự cho phép')).toBe('')
+  expect(licenceLabel('CC BY 4.0')).toBe('CC BY 4.0')
 })
 
 test('every UI translation keeps its {placeholders} and Pagefind [PLACEHOLDERS]', async () => {
   const marks = (s: string) => [...s.matchAll(/\{\w+\}|\[[A-Z_]+\]/g)].map(m => m[0]).sort()
-  for (const lang of ['id', 'th']) {
+  for (const lang of OTHER_LANGS) {
     const dict = (await import(`../src/i18n/${lang}.json`)).default as Record<string, string>
     const lost = Object.entries(dict).filter(([vi, tr]) => marks(vi).join() !== marks(tr).join()).map(([vi]) => vi)
     expect(lost, lang).toEqual([])

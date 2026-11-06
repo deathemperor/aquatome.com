@@ -10,6 +10,46 @@
     "myanmar",
     "rakhine"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Channa pulchra occurs in Burma (Rakhine State), geographically close to Channa ornatipinnis.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391539,
+      "total": 2,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MM",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

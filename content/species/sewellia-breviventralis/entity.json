@@ -10,6 +10,46 @@
     "vietnam",
     "hue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Believed to be collected in the central Vietnamese province of Hue; the exact origin is unknown.",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205390,
+      "total": 9,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "VN",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          14.0625,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

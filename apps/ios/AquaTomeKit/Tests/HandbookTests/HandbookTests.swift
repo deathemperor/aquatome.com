@@ -64,8 +64,9 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
     .init(kind: .glossary, name: "Dung tích thực của bể", aka: ["Thể tích bể"], path: "/vi/thuat-ngu/dung-tich/"),
     .init(kind: .guide, name: "Tính thể tích bể", path: "/vi/huong-dan/tinh-the-tich-be/"),
   ])
-  // The name, then another name, then the page's own words.
-  #expect(names(s.find("the tich be")) == ["Tính thể tích bể", "Dung tích thực của bể", "Bể bao nhiêu lít?"])
+  // The name, then another name, then the page's own words ("the tich be" would be the glossary's other name whole,
+  // and a page named what was searched for comes first).
+  #expect(names(s.find("the tich")) == ["Tính thể tích bể", "Dung tích thực của bể", "Bể bao nhiêu lít?"])
   #expect(names(s.find("gallon")) == ["Bể bao nhiêu lít?"])
   #expect(names(s.find("gallon kinh", kind: .tool)) == ["Bể bao nhiêu lít?"])
   #expect(s.find("gallon", kind: .guide).isEmpty)
@@ -206,14 +207,15 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
 @Test func readsAFishsFiguresAndBehaviourUnderTheToolsNames() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[
-   {"kind":"fish","id":"paracheirodon-axelrodi","name":"Cá neon đỏ","path":"/vi/ca/ca-neon-do/","tempC":{"min":23,"max":27},"ph":{"min":4,"max":6},"gh":{"min":1,"max":6},"sizeCm":5,"tankCm":60,"temperament":"peaceful","schoolMin":8,"difficulty":3},
+   {"kind":"fish","id":"paracheirodon-axelrodi","name":"Cá neon đỏ","path":"/vi/ca/ca-neon-do/","tempC":{"min":23,"max":27},"ph":{"min":4,"max":6},"gh":{"min":1,"max":6},"sizeCm":5,"tankCm":60,"temperament":"peaceful","schoolMin":8,"difficulty":3,"lifeYears":{"min":5,"max":10}},
    {"kind":"fish","id":"puntigrus-tetrazona","name":"Cá xăng-đá","path":"/vi/ca/ca-xang-da/","sizeCm":7,"temperament":"shy","finNipper":true},
-   {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/","sizeCm":"5 cm","ph":{"min":6},"tankCm":60},
+   {"kind":"fish","id":"danio-rerio","name":"Cá ngựa vằn","path":"/vi/ca/ca-ngua-van/","sizeCm":"5 cm","ph":{"min":6},"tankCm":60,"lifeYears":"3 năm"},
    {"kind":"guide","name":"Nuôi cá neon trong bể nhỏ","path":"/vi/huong-dan/nuoi-ca-neon/"}
   ]}
   """#.utf8))
   #expect(ix.items.count == 4)
-  #expect(ix.items[0].facts == .init(tempC: .init(min: 23, max: 27), ph: .init(min: 4, max: 6), gh: .init(min: 1, max: 6), sizeCm: 5, tankCm: 60, temperament: "peaceful", schoolMin: 8, difficulty: 3))
+  #expect(ix.items[0].facts == .init(tempC: .init(min: 23, max: 27), ph: .init(min: 4, max: 6), gh: .init(min: 1, max: 6), sizeCm: 5, tankCm: 60, temperament: "peaceful", schoolMin: 8, difficulty: 3,
+                                  lifeYears: .init(min: 5, max: 10)))
   // A temperament this app doesn't know yet is kept as the site wrote it.
   #expect(ix.items[1].facts == .init(sizeCm: 7, temperament: "shy", finNipper: true))
   // A figure it can't read is left out, not the fish.
@@ -227,6 +229,25 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(json["sizeCm"] as? Double == 4 && json["finNipper"] as? Bool == true && (json["ph"] as? [String: Double]) == ["min": 6, "max": 7.5])
   #expect(json["tempC"] == nil && json["id"] as? String == "x")
   #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(item)) == item)
+}
+
+@Test func readsABreedsSpeciesAndItsOwnFiguresApart() throws {
+  let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
+  {"version":1,"lang":"vi","items":[
+   {"kind":"fish","id":"halfmoon-betta","name":"Cá betta Halfmoon","path":"/vi/ca/ca-betta-halfmoon/","of":"betta-splendens","card":{"tempC":{"min":24,"max":28},"sizeCm":6,"lifeYears":{"min":2,"max":3}}},
+   {"kind":"fish","id":"flowerhorn-cichlid","name":"Cá La Hán","path":"/vi/ca/ca-la-han/","sizeCm":30,"card":{"sizeCm":30}},
+   {"kind":"fish","id":"x","name":"X","path":"/vi/ca/x/","of":7,"card":"warm"}
+  ]}
+  """#.utf8))
+  // A form of a species: the species it is checked as, no figures of its own in `facts`, its card's figures apart.
+  #expect(ix.items[0].of == "betta-splendens" && !ix.items[0].facts.any)
+  #expect(ix.items[0].card == .init(tempC: .init(min: 24, max: 28), sizeCm: 6, lifeYears: .init(min: 2, max: 3)))
+  // A hybrid: a fish of its own.
+  #expect(ix.items[1].of == nil && ix.items[1].facts == .init(sizeCm: 30))
+  // What this app can't read is left out, not the fish.
+  #expect(ix.items.count == 3 && ix.items[2].of == nil && ix.items[2].card == nil)
+  // Kept on the phone as read.
+  #expect(try JSONDecoder().decode(HandbookIndex.Item.self, from: JSONEncoder().encode(ix.items[0])) == ix.items[0])
 }
 
 @Test func readsAGuidesSubjectAndTheFishItNames() throws {
@@ -284,8 +305,11 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(F.number(1200, vi) == "1.200" && F.number(1200, th) == "1,200") // thousands grouped, as the site groups them
   // The site's three steps of its 1–8 scale.
   #expect([1, 3, 4, 5, 6, 8].map { F.level($0) } == [.easy, .easy, .mid, .mid, .hard, .hard])
-  #expect(!F().any && !F(temperament: "shy").any)
-  #expect(F(temperament: "predator").any && F(difficulty: 2).any)
+  // The card holds the site's data card's figures: a temperament alone (shown with the tank-mates) is nothing to show.
+  #expect(!F().any && !F(temperament: "shy").any && !F(temperament: "predator").any)
+  #expect(F(difficulty: 2).any && F(lifeYears: .init(min: 1.5, max: 1.5)).any)
+  // A lifespan in months is a fraction of a year, written as the site writes it.
+  #expect(F.range(.init(min: 1.5, max: 1.5), vi) == "1,5" && F.range(.init(min: 3, max: 8), vi) == "3–8")
 }
 
 @Test func guidesAboutATanksFishTheMostOfThemFirst() {

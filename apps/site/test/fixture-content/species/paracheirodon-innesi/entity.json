@@ -11,6 +11,180 @@
     "colombia",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "PE",
+        "BR",
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Purus",
+        "Putumayo",
+        "Solimões",
+        "Napo"
+      ],
+      "sources": [
+        "sprucepets",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The neon tetra, Paracheirodon innesi, is a small characid from the Amazon basin in Colombia, Brazil and Peru, found in acidic forest streams.",
+          "countries": [
+            "CO",
+            "PE",
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "These records include occurrences in Jenaro Herrera District, Requena province (Río Ucayali drainage) and the Río Marañon in Peru, rio Japurá (known as the Río Caquetá in Colombia) in Colombia and Brazil, rio Javary (aka Yavarí) in Brazil, plus the ríos Curaray and Mazán (both tributary drainages of the Río Napo in Ecuador and Peru, respectively).",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Napo"
+          ]
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Neon tetras originated from the clear water and blackwater streams and tributaries in the Orinoco and Amazon river basins in Brazil, Columbia, and Peru.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The second cluster of populations occur several hundred kilometers to the east in the area around Codajás in Amazonas state, Brazil, plus the rio Purus, a tributary of the Amazon with its mouth located downstream of Codajás.",
+          "countries": [],
+          "regions": [
+            "Purus"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Here P. innesi is known from the lower rio Putumayo (aka Içá) and some small streams flowing into the rio Solimões downstream of Leticia.",
+          "countries": [],
+          "regions": [
+            "Putumayo",
+            "Solimões"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2353909,
+      "total": 39,
+      "fetched": "2026-11-04",
+      "countries": [
+        [
+          "BR",
+          12
+        ],
+        [
+          "PE",
+          12
+        ],
+        [
+          "VE",
+          12
+        ],
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          2.8125,
+          12,
+          0
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

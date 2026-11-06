@@ -1,0 +1,86 @@
+{
+  "id": "hemiancistrus-subviridis",
+  "native": {
+    "input": "78183170fab3d7dd",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiancistrus subviridis is a suckermouth catfish from the upper Orinoco and Casiquiare drainages in southern Venezuela, where it lives in cracks between granite rocks in flowing water.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Upper Orinoco and Casiquiare drainages in Amazonas state, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Catalog of Fishes also lists it from Colombia, where the Orinoco forms the border.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Upper Orinoco and Casiquiare drainages in Amazonas state, Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Upper Orinoco and Casiquiare drainages in Amazonas state, Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "río Ventuari",
+        "source": "seriouslyfish",
+        "quote": "It's known from the Orinoco upstream of the Atures rapids as far as the río Iguapo, from the río Ventuari, and from the río Casiquiare upstream of the río Siapa (Werneke et al., 2005).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiancistrus subviridis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340168,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        25
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

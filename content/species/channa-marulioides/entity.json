@@ -12,6 +12,90 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Danau Sentarum",
+        "Greater Sunda Islands"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern Thailand (below the Isthmus of Kra), Malaysia, and Indonesia, including the Greater Sunda Islands.",
+          "countries": [
+            "TH",
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Greater Sunda Islands"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The emperor snakehead, Channa marulioides, is a large snakehead from southern Thailand, Malaysia and Indonesia, including Borneo and Sumatra.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Tends to inhabit larger river channels and inland lakes such as the Danau Sentarum system in Kalimantan, Borneo.",
+          "countries": [],
+          "regions": [
+            "Danau Sentarum"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391442,
+      "total": 4,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          3
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

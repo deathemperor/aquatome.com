@@ -1,7 +1,8 @@
 import XCTest
 
 /// What the app costs a reader: launch time, the work and memory of flinging through a long list of fish. Each
-/// measurement is checked against apps/ios/perf-budgets.json by scripts/check-perf.py after the run (job `app`).
+/// measurement is checked against apps/ios/perf-budgets.json by scripts/check-perf.py after the run (job `app`). Launched
+/// with the animations on (not `launchForFlow`): what a reader waits for is part of what's measured.
 final class PerformanceTests: XCTestCase {
   private let args = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-large-handbook"]
 

@@ -1,69 +1,121 @@
 # Fish ID: accuracy by model
 
-2026-11-02, `packages/engine/scripts/fish-id-accuracy.ts`, seed 1. The tool's own prompt, schema and matching (`apps/site/worker/fishid/`).
+2026-11-05, `packages/engine/scripts/fish-id-accuracy.ts`, seed 1. The tool's own prompt, schema and matching (`apps/site/worker/fishid/`).
 
-200 photos with a known answer, one per page (photo check: shows the page's fish, typically): 25 breeds, 100 popular species, 75 species at random. Each shrunk to 1024 px JPEG, as the page sends a reader's photo.
+200 photos with a known answer, one per page (photo check: shows the page's fish, typically): 26 breeds, 100 popular species, 74 species at random. Each shrunk to 1024 px JPEG, as the page sends a reader's photo.
 
 - **Top-1 / top-3:** the right page is the first guess's / one of the guesses' (a breed's page for a breed).
 - **Breed's species:** for breed photos, the guess named the species the breed is a form of, or the breed.
 - **Not a fish / can't tell:** verdicts "other" and "unclear" (refusals counted as can't tell), on photos that all show a fish.
-- **Cost:** response usage × list price (models.md, 2026-11), per 1,000 photos.
+- **Cost:** response usage × list price (models.md and prompt-caching.md, 2026-11; the agent's cache reads and writes at theirs), every call of every photo, per 1,000 photos.
+- **Latency:** from the first call to the answer, on this machine (the agent's tools read content/ here, the Worker's its assets).
+- **Agent:** the agent the Worker runs with `FISH_ID_AGENT` on (apps/site/worker/fishid/agent.ts), its tools over content/, the test photo itself never among its reference photos. *Calls · tools · photos*: per photo, on average. *Stopped*: how many answered when Claude chose / were forced by the calls, tool-call, time or token limit / fell back to today's single call.
 
-| Model | Answered | Top-1 | Top-3 | Breed's species | Not a fish | Can't tell | Failed | Median latency | Cost / 1,000 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| claude-sonnet-5-5 | 200/200 | 47.0% | 63.0% | 88.0% | 0.0% | 0.0% | 0 | 8.0 s | $6.58 |
-| claude-opus-5-5 | 200/200 | 54.5% | 70.0% | 100.0% | 0.0% | 0.0% | 0 | 8.6 s | $13.59 |
+| Run | Answered | Top-1 | Top-3 | Breed's species | Not a fish | Can't tell | Failed | Median latency | p95 latency | Cost / 1,000 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| claude-opus-5-5 | 200/200 | 55.0% | 66.5% | 96.2% | 0.0% | 0.0% | 0 | 5.8 s | 8.7 s | $13.51 |
+| claude-opus-5-5, agent, 4 calls | 200/200 | 66.0% | 73.5% | 100.0% | 0.0% | 0.0% | 0 | 9.1 s | 14.0 s | $30.84 |
+| claude-opus-5-5, agent, 2 calls | 200/200 | 64.5% | 73.5% | 100.0% | 0.0% | 0.5% | 0 | 8.8 s | 12.2 s | $30.16 |
 
-Haiku 5.5, in the same test before the breed-matching fix: top-1 20.0%, top-3 31.0%, breed's species 80.0%, $0.42 per 1,000. Sonnet and Opus then were 44.0% / 57.5% and 53.0% / 67.5%; the fix moved both up.
+## The agent
 
-**The tool uses Opus 5.5** (`DEFAULT_MODEL`, apps/site/worker/fishid/claude.ts): right first time on 7 more photos in 100 than Sonnet, at about twice the price (300 photos a day at most: about $4). Most of what it still misses are look-alikes (green neon for neon, Betta brownorum for B. coccina), a breed it can't see (balloon belly), or a page photo it reads as another form (a red-tail golden on the Asian arowana page).
+| Run | Calls · tools · photos | Stopped: answer / calls / tools / time / tokens / fallback | Input read from cache | Top-1 against today's call: fixed / broken |
+| --- | ---: | --- | ---: | ---: |
+| claude-opus-5-5, agent, 4 calls | 2.0 · 1.4 · 1.8 | 198 / 2 / 0 / 0 / 0 / 0 | 42% | 29 / 7 |
+| claude-opus-5-5, agent, 2 calls | 1.9 · 1.3 · 1.6 | 24 / 175 / 0 / 0 / 0 / 1 | 40% | 30 / 11 |
 
-## claude-sonnet-5-5: the 20 worst misses
+**The agent passes the design's rule** (docs/superpowers/specs/2026-11-04-fish-id-agent-design.md), against today's call on the same 200 photos: top-1 55.0% → 66.0% (+11.0 points; the rule asks +5), top-3 66.5% → 73.5% (the rule: no worse), median 9.1 s (≤ 20 s), p95 14.0 s (≤ 40 s), $30.84 per 1,000 photos (≤ $70). It changed 36 first answers: 29 wrong to right, 7 right to wrong. It opens its top guess and the closest look-alikes in one round, then answers: 2.0 calls and 1.8 reference photos a photo on average, and 198 of 200 runs ended when Claude chose. The fixed two-call run (one round of pages, then the answer forced) is 1.5 points lower for about the same cost. `FISH_ID_AGENT` stays off until the site lead decides.
 
-| Page | Photo | Its answer | Top guess | Sure | Linked to |
-| --- | --- | --- | --- | ---: | --- |
-| [Cá cầu vồng Celebes](https://aquatome.com/vi/ca/ca-cau-vong-celebes/) | [photo](https://media.aquatome.com/commons/43027cbb342dcc46.webp) | Marosatherina ladigesi | Iriatherina werneri | 0.90 | iriatherina-werneri |
-| [Cá neon xanh lục](https://aquatome.com/vi/ca/ca-neon-xanh-luc/) | [photo](https://media.aquatome.com/seriouslyfish/b302817f6d8fa919.webp) | Paracheirodon simulans | Paracheirodon innesi | 0.88 | paracheirodon-innesi |
-| [Koi bướm (Butterfly koi)](https://aquatome.com/vi/ca/koi-buom/) | [photo](https://media.aquatome.com/commons/cf5fabd074a8edbc.webp) | breed | Cyprinus rubrofuscus (butterfly koi (long-fin) vàng trắng) | 0.85 | koi |
-| [Kim Long Hồng Vĩ (Red-tailed golden arowana)](https://aquatome.com/vi/ca/kim-long-hong-vi/) | [photo](https://media.aquatome.com/commons/8bf5b4bb6789f597.webp) | breed | Scleropages formosus (golden (cá rồng vàng)) | 0.85 | scleropages-formosus |
-| [Huyết Long (Super Red Arowana)](https://aquatome.com/vi/ca/huyet-long/) | [photo](https://media.aquatome.com/commons/38ccce4c480fc134.webp) | breed | Scleropages formosus (red arowana) | 0.85 | scleropages-formosus |
-| [Ốc ăn ốc](https://aquatome.com/vi/ca/oc-an-oc/) | [photo](https://media.aquatome.com/inaturalist/86335632.webp) | Anentome helena | Clea helena | 0.85 | — |
-| [Cá rồng châu Á](https://aquatome.com/vi/ca/ca-rong-chau-a/) | [photo](https://media.aquatome.com/seriouslyfish/25eed079586f976a.webp) | Scleropages formosus | Scleropages formosus (red-tail golden) | 0.85 | red-tailed-golden-arowana |
-| [Cá rô phi Mexico Herichthys carpintis](https://aquatome.com/vi/ca/ca-ro-phi-mexico-herichthys-carpintis/) | [photo](https://media.aquatome.com/inaturalist/142764458.webp) | Herichthys carpintis | Herichthys cyanoguttatus | 0.85 | herichthys-cyanoguttatus |
-| [Cá chim cánh cụt giả](https://aquatome.com/vi/ca/ca-chim-canh-cut-gia/) | [photo](https://media.aquatome.com/commons/ab85d1d115896b92.webp) | Thayeria boehlkei | Hyphessobrycon herbertaxelrodi | 0.80 | hyphessobrycon-herbertaxelrodi |
-| [Cá koi](https://aquatome.com/vi/ca/ca-koi-cyprinus/) | [photo](https://media.aquatome.com/commons/020bdc2d27a445ec.webp) | Cyprinus rubrofuscus | Cyprinus rubrofuscus (kohaku/yellow calico (Yamabuki Ogon)) | 0.80 | koi |
-| [Cá chuột panda](https://aquatome.com/vi/ca/ca-chuot-panda/) | [photo](https://media.aquatome.com/commons/4756ceeedd3cc5ce.webp) | Corydoras panda | Corydoras metae | 0.80 | same genus only |
-| [Cá chuột Brochis ngọc lục bảo](https://aquatome.com/vi/ca/ca-chuot-brochis-splendens/) | [photo](https://media.aquatome.com/commons/d8d1fa9b5ce8fb68.webp) | Corydoras splendens | Corydoras aeneus | 0.80 | corydoras-aeneus |
-| [Cá Jack Dempsey](https://aquatome.com/vi/ca/ca-jack-dempsey/) | [photo](https://media.aquatome.com/seriouslyfish/363884a2cb6d3626.webp) | Rocio octofasciata | Nandopsis octofasciatum (electric blue) | 0.80 | — |
-| [Cá thủy tinh Thái](https://aquatome.com/vi/ca/ca-thuy-tinh-thai/) | [photo](https://media.aquatome.com/inaturalist/569827389.webp) | Parambassis siamensis | Parambassis ranga | 0.70 | parambassis-ranga |
-| [Cá vàng đầu sư tử (Lionhead)](https://aquatome.com/vi/ca/ca-vang-dau-su-tu/) | [photo](https://media.aquatome.com/commons/8546a77b4bd70737.webp) | breed of Carassius auratus | Carassius auratus (oranda) | 0.60 | oranda-goldfish |
-| [Cá neon xanh](https://aquatome.com/vi/ca/ca-neon-xanh/) | [photo](https://media.aquatome.com/inaturalist/67091990.webp) | Paracheirodon innesi | Paracheirodon axelrodi | 0.60 | paracheirodon-axelrodi |
-| [Cá rồng Úc](https://aquatome.com/vi/ca/ca-rong-uc/) | [photo](https://media.aquatome.com/commons/aced773c6bfadb18.webp) | Scleropages jardinii | Scleropages formosus (green) | 0.60 | scleropages-formosus |
-| [Cá rasbora hengel](https://aquatome.com/vi/ca/ca-tam-giac-den-sang/) | [photo](https://media.aquatome.com/seriouslyfish/800b8549bd6f39a7.webp) | Trigonostigma hengeli | Trigonostigma espei | 0.60 | trigonostigma-espei |
-| [Cá aba aba](https://aquatome.com/vi/ca/ca-aba-aba/) | [photo](https://media.aquatome.com/commons/ef4c1680643909ab.webp) | Gymnarchus niloticus | Electrophorus voltai | 0.60 | — |
-| [Cá hút bùn buồm Trung Quốc](https://aquatome.com/vi/ca/ca-hong-dao-trung-quoc/) | [photo](https://media.aquatome.com/commons/165e664743accd64.webp) | Myxocyprinus asiaticus | Carassius auratus (ryukin) | 0.60 | ryukin-goldfish |
+Two things made these numbers kinder than readers' photos will be. The reference photos were the page's other photos, often from the same source as the test photo and sometimes from the same shoot (the test photo itself was never shown): the rerun below leaves those out. And the test photos were picked as typical of their page, which still holds. Latency is from this machine straight to the API; the Worker's calls go through the relay in eastern North America, and its tools read the deploy's assets instead of content/.
+
+## The leak-checked rerun
+
+Later on 2026-11-05, after the review asked for it. The agent is never shown a reference photo from the test photo's source page (`sourceUrl`), nor a near-copy of it (dHash within 10 bits, `content/picture-hashes.json`), as well as the test photo itself. 45 of the 200 test photos had such copies among the reference photos: 90 photos left out. The facts give 6 photos a page here so that 2 are still left after that; the build gives 2. The agent runs as it now ships: a 27 s limit, the next call's size guessed with the last answer and the tool results.
+
+main's content changed between the two runs (the day's engine pages and photo checks), so seed 1 picked a partly different 200. Today's call was run again on the same 200 as the agent:
+
+| Run | Answered | Top-1 | Top-3 | Breed's species | Median latency | p95 latency | Cost / 1,000 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| claude-opus-5-5 | 200/200 | 53.5% | 63.0% | 100.0% | 5.7 s | 8.5 s | $13.58 |
+| claude-opus-5-5, agent, 4 calls, leak-checked | 200/200 | 62.5% | 72.0% | 96.2% | 9.1 s | 13.7 s | $30.87 |
+
+The agent averaged 1.9 calls, 1.3 tool calls and 1.6 reference photos a photo; 199 runs ended when Claude chose, 1 on the time limit. 42% of its input came from the cache.
+
+**The agent still passes the rule, by less:** top-1 53.5% → 62.5% (+9.0 points, against +11.0 before the leak check), top-3 63.0% → 72.0%, median 9.1 s, p95 13.7 s, $30.87 per 1,000. The two runs' agent top-1, 66.0% then and 62.5% now, aren't on the same photos; the gain over today's call on the same photos is the number to read. `FISH_ID_AGENT` stays off until the site lead decides.
+
+Earlier runs, 2026-11-02 (the content has changed since, so the same seed picked a slightly different 200: 25 breeds, 75 at random): Sonnet 5.5 47.0% / 63.0%, 8.0 s, $6.58 per 1,000; Opus 5.5 54.5% / 70.0%, 8.6 s, $13.59. Haiku 5.5, before the breed-matching fix: 20.0% / 31.0%, $0.42. **The tool uses Opus 5.5** (`DEFAULT_MODEL`, apps/site/worker/fishid/claude.ts): right first time on 7 more photos in 100 than Sonnet, at about twice the price. Most of what today's call misses are look-alikes (green neon for neon, Betta brownorum for B. coccina), which is what the agent checks.
 
 ## claude-opus-5-5: the 20 worst misses
 
 | Page | Photo | Its answer | Top guess | Sure | Linked to |
 | --- | --- | --- | --- | ---: | --- |
-| [Cá rồng châu Á](https://aquatome.com/vi/ca/ca-rong-chau-a/) | [photo](https://media.aquatome.com/seriouslyfish/25eed079586f976a.webp) | Scleropages formosus | Scleropages formosus (red-tail golden) | 0.80 | red-tailed-golden-arowana |
-| [Cá aba aba](https://aquatome.com/vi/ca/ca-aba-aba/) | [photo](https://media.aquatome.com/commons/ef4c1680643909ab.webp) | Gymnarchus niloticus | Electrophorus electricus | 0.80 | — |
-| [Cá neon xanh lục](https://aquatome.com/vi/ca/ca-neon-xanh-luc/) | [photo](https://media.aquatome.com/seriouslyfish/b302817f6d8fa919.webp) | Paracheirodon simulans | Paracheirodon innesi | 0.80 | paracheirodon-innesi |
-| [Cá đĩa](https://aquatome.com/vi/ca/ca-dia/) | [photo](https://media.aquatome.com/commons/141b5ed40120bdfb.webp) | Symphysodon discus | Symphysodon aequifasciatus (red turquoise) | 0.80 | symphysodon-aequifasciatus |
-| [Cá rô phi Mexico Herichthys carpintis](https://aquatome.com/vi/ca/ca-ro-phi-mexico-herichthys-carpintis/) | [photo](https://media.aquatome.com/inaturalist/142764458.webp) | Herichthys carpintis | Herichthys cyanoguttatus | 0.80 | herichthys-cyanoguttatus |
-| [Cá rasbora glowlight](https://aquatome.com/vi/ca/ca-rasbora-den-do/) | [photo](https://media.aquatome.com/seriouslyfish/d39e9d8ce6109072.webp) | Trigonopoma pauciperforatum | Rasbora pauciperforata | 0.80 | same genus only |
-| [Cá platy](https://aquatome.com/vi/ca/ca-platy/) | [photo](https://media.aquatome.com/commons/d549e6b588815198.webp) | Xiphophorus maculatus | Xiphophorus maculatus (blue mickey/wagtail-type) | 0.75 | mickey-mouse-platy |
-| [Cá koi](https://aquatome.com/vi/ca/ca-koi-cyprinus/) | [photo](https://media.aquatome.com/commons/020bdc2d27a445ec.webp) | Cyprinus rubrofuscus | Cyprinus rubrofuscus (Kujaku/Ki Utsuri) | 0.75 | koi |
-| [Cá betta Brunei](https://aquatome.com/vi/ca/ca-betta-macrostoma/) | [photo](https://media.aquatome.com/seriouslyfish/5d77165291ef928d.webp) | Betta macrostoma | Betta channoides | 0.75 | betta-channoides |
-| [Cá betta brownorum](https://aquatome.com/vi/ca/ca-betta-brownorum/) | [photo](https://media.aquatome.com/seriouslyfish/e02f3c961e8ba97c.webp) | Betta brownorum | Betta coccina | 0.75 | betta-coccina |
-| [Cá bình tích balloon (Balloon molly)](https://aquatome.com/vi/ca/ca-binh-tich-balloon/) | [photo](https://media.aquatome.com/commons/1e680554b39cfd22.webp) | breed | Poecilia latipinna (white/silver sailfin) | 0.60 | poecilia-latipinna |
-| [Cá vàng đầu sư tử (Lionhead)](https://aquatome.com/vi/ca/ca-vang-dau-su-tu/) | [photo](https://media.aquatome.com/commons/8546a77b4bd70737.webp) | breed of Carassius auratus | Carassius auratus (ranchu) | 0.60 | ranchu-goldfish |
-| [Cá betta (cá xiêm)](https://aquatome.com/vi/ca/ca-betta/) | [photo](https://media.aquatome.com/seriouslyfish/abfbe7c7ace162ce.webp) | Betta splendens | Betta smaragdina | 0.60 | betta-smaragdina |
-| [Cá rồng Úc](https://aquatome.com/vi/ca/ca-rong-uc/) | [photo](https://media.aquatome.com/commons/aced773c6bfadb18.webp) | Scleropages jardinii | Scleropages formosus (green) | 0.60 | scleropages-formosus |
-| [Cá rasbora hengel](https://aquatome.com/vi/ca/ca-tam-giac-den-sang/) | [photo](https://media.aquatome.com/seriouslyfish/800b8549bd6f39a7.webp) | Trigonostigma hengeli | Trigonostigma espei | 0.60 | trigonostigma-espei |
-| [Cá hút bùn buồm Trung Quốc](https://aquatome.com/vi/ca/ca-hong-dao-trung-quoc/) | [photo](https://media.aquatome.com/commons/165e664743accd64.webp) | Myxocyprinus asiaticus | Carassius auratus (shubunkin / calico) | 0.60 | carassius-auratus |
-| [Cá Tropheus duboisi](https://aquatome.com/vi/ca/ca-tropheus-duboisi/) | [photo](https://media.aquatome.com/commons/61ef762fa6ff6440.webp) | Tropheus duboisi | Tropheus moorii (Yellow Blaze) | 0.60 | same genus only |
-| [Cá zebra đỏ](https://aquatome.com/vi/ca/ca-zebra-do/) | [photo](https://media.aquatome.com/commons/1d6bc088d6ebd455.webp) | Maylandia estherae | Labidochromis caeruleus (yellow) | 0.60 | labidochromis-caeruleus |
-| [Cá danio phát sáng](https://aquatome.com/vi/ca/ca-danio-phat-sang/) | [photo](https://media.aquatome.com/commons/3beec92879a0b656.webp) | Danio choprae | Devario kakhienensis | 0.60 | same genus only |
-| [Cá chó tetra](https://aquatome.com/vi/ca/ca-cho-tetra/) | [photo](https://media.aquatome.com/commons/18c074733142e7dd.webp) | Acestrorhynchus microlepis | Acestrorhynchus falcatus | 0.60 | acestrorhynchus-falcatus |
+| [Cá betta (cá xiêm)](https://aquatome.com/ca/ca-betta/) | [photo](https://media.aquatome.com/commons/2adae8349e1ed380.webp) | Betta splendens | Betta splendens (halfmoon) | 0.90 | halfmoon-betta |
+| [Koi bướm (Butterfly koi)](https://aquatome.com/ca/koi-buom/) | [photo](https://media.aquatome.com/commons/643145c43d453de9.webp) | breed | Cyprinus rubrofuscus (butterfly koi (longfin)) | 0.85 | koi |
+| [Cá rồng châu Á](https://aquatome.com/ca/ca-rong-chau-a/) | [photo](https://media.aquatome.com/commons/38ccce4c480fc134.webp) | Scleropages formosus | Scleropages formosus (Super Red) | 0.85 | super-red-arowana |
+| [Cá platy](https://aquatome.com/ca/ca-platy/) | [photo](https://media.aquatome.com/commons/d549e6b588815198.webp) | Xiphophorus maculatus | Xiphophorus maculatus (blue mickey / wagtail-like) | 0.80 | mickey-mouse-platy |
+| [Cá koi](https://aquatome.com/ca/ca-koi-cyprinus/) | [photo](https://media.aquatome.com/commons/0ec37eb1050a2800.webp) | Cyprinus rubrofuscus | Cyprinus rubrofuscus (doitsu (Yamabuki Doitsu / Kujaku)) | 0.80 | koi |
+| [Cá hút bùn buồm Trung Quốc](https://aquatome.com/ca/ca-hong-dao-trung-quoc/) | [photo](https://media.aquatome.com/commons/165e664743accd64.webp) | Myxocyprinus asiaticus | Carassius auratus (calico) | 0.80 | carassius-auratus |
+| [Cá pentazona](https://aquatome.com/ca/ca-barb-sau-soc/) | [photo](https://media.aquatome.com/commons/cdc824e83be01b1b.webp) | Desmopuntius hexazona | Desmopuntius pentazona | 0.80 | desmopuntius-pentazona |
+| [Cá bowfin](https://aquatome.com/ca/ca-bowfin/) | [photo](https://media.aquatome.com/commons/035a528e609accc0.webp) | Amia calva | Hoplias malabaricus | 0.75 | hoplias-malabaricus |
+| [Cá vàng đầu sư tử (Lionhead)](https://aquatome.com/ca/ca-vang-dau-su-tu/) | [photo](https://media.aquatome.com/commons/8546a77b4bd70737.webp) | breed of Carassius auratus | Carassius auratus (ranchu) | 0.60 | ranchu-goldfish |
+| [Cá dĩa bồ câu (Pigeon Blood discus)](https://aquatome.com/ca/ca-dia-bo-cau/) | [photo](https://media.aquatome.com/commons/d6e664993c58a1ab.webp) | breed | Symphysodon aequifasciatus (Red Melon / Checkerboard Pigeon) | 0.60 | symphysodon-aequifasciatus |
+| [Cá vàng Lưu kim (Ryukin)](https://aquatome.com/ca/ca-vang-luu-kim/) | [photo](https://media.aquatome.com/commons/503d7c93b8f75f8c.webp) | breed of Carassius auratus | Carassius auratus (fantail) | 0.60 | carassius-auratus |
+| [Ốc ăn ốc](https://aquatome.com/ca/oc-an-oc/) | [photo](https://media.aquatome.com/inaturalist/98492041.webp) | Anentome helena | Brachygobius doriae | 0.60 | brachygobius-doriae |
+| [Cá rồng Úc](https://aquatome.com/ca/ca-rong-uc/) | [photo](https://media.aquatome.com/inaturalist/485318860.webp) | Scleropages jardinii | Scleropages formosus (green) | 0.60 | scleropages-formosus |
+| [Cá aba aba](https://aquatome.com/ca/ca-aba-aba/) | [photo](https://media.aquatome.com/commons/fe45718a404011c1.webp) | Gymnarchus niloticus | Anguilla anguilla | 0.60 | — |
+| [Cá Tropheus duboisi](https://aquatome.com/ca/ca-tropheus-duboisi/) | [photo](https://media.aquatome.com/commons/7d4c2b3e6182f895.webp) | Tropheus duboisi | Tropheus moorii (Yellow band (Kaiser/Ikola)) | 0.60 | same genus only |
+| [Cá neon xanh lục](https://aquatome.com/ca/ca-neon-xanh-luc/) | [photo](https://media.aquatome.com/seriouslyfish/b302817f6d8fa919.webp) | Paracheirodon simulans | Paracheirodon innesi | 0.60 | paracheirodon-innesi |
+| [Cá thái hổ Siam](https://aquatome.com/ca/ca-thai-ho-siam/) | [photo](https://media.aquatome.com/commons/8bac445743996b73.webp) | Datnioides pulcher | Datnioides microlepis | 0.60 | datnioides-microlepis |
+| [Cá chuột Brochis](https://aquatome.com/ca/ca-chuot-brochis/) | [photo](https://media.aquatome.com/scotcat/29f757c021f23b69.webp) | Brochis multiradiatus | Corydoras aeneus | 0.60 | corydoras-aeneus |
+| [Cá chuột serratus](https://aquatome.com/ca/ca-chuot-serratus/) | [photo](https://media.aquatome.com/scotcat/904aebe99f5091de.webp) | Corydoras serratus | Corydoras aeneus | 0.60 | corydoras-aeneus |
+| [Cá chó tetra](https://aquatome.com/ca/ca-cho-tetra/) | [photo](https://media.aquatome.com/commons/18c074733142e7dd.webp) | Acestrorhynchus microlepis | Acestrorhynchus falcatus | 0.60 | acestrorhynchus-falcatus |
+
+## claude-opus-5-5, agent, 4 calls: the 20 worst misses
+
+| Page | Photo | Its answer | Top guess | Sure | Linked to |
+| --- | --- | --- | --- | ---: | --- |
+| [Cá betta (cá xiêm)](https://aquatome.com/ca/ca-betta/) | [photo](https://media.aquatome.com/commons/2adae8349e1ed380.webp) | Betta splendens | Betta splendens (halfmoon) | 0.92 | halfmoon-betta |
+| [Cá koi](https://aquatome.com/ca/ca-koi-cyprinus/) | [photo](https://media.aquatome.com/commons/0ec37eb1050a2800.webp) | Cyprinus rubrofuscus | Cyprinus rubrofuscus (doitsu (Kin Showa/Ochiba-like)) | 0.85 | koi |
+| [Cá rồng châu Á](https://aquatome.com/ca/ca-rong-chau-a/) | [photo](https://media.aquatome.com/commons/38ccce4c480fc134.webp) | Scleropages formosus | Scleropages formosus (Super Red) | 0.85 | super-red-arowana |
+| [Cá hút bùn buồm Trung Quốc](https://aquatome.com/ca/ca-hong-dao-trung-quoc/) | [photo](https://media.aquatome.com/commons/165e664743accd64.webp) | Myxocyprinus asiaticus | Carassius auratus (fantail) | 0.80 | carassius-auratus |
+| [Cá chuột serratus](https://aquatome.com/ca/ca-chuot-serratus/) | [photo](https://media.aquatome.com/scotcat/904aebe99f5091de.webp) | Corydoras serratus | Corydoras aeneus | 0.80 | corydoras-aeneus |
+| [Cá aba aba](https://aquatome.com/ca/ca-aba-aba/) | [photo](https://media.aquatome.com/commons/fe45718a404011c1.webp) | Gymnarchus niloticus | Anguilla anguilla | 0.75 | — |
+| [Cá bowfin](https://aquatome.com/ca/ca-bowfin/) | [photo](https://media.aquatome.com/commons/035a528e609accc0.webp) | Amia calva | Hoplias malabaricus | 0.75 | hoplias-malabaricus |
+| [Cá molly](https://aquatome.com/ca/ca-molly/) | [photo](https://media.aquatome.com/inaturalist/6286600.webp) | Poecilia sphenops | Poecilia latipinna | 0.70 | poecilia-latipinna |
+| [Cá barb maharaja](https://aquatome.com/ca/ca-barb-maharaja/) | [photo](https://media.aquatome.com/seriouslyfish/f8a183cffe694ca0.webp) | Puntius sahyadriensis | Barbodes semifasciolatus | 0.70 | barbodes-semifasciolatus |
+| [Cá Denticetopsis macilenta](https://aquatome.com/ca/ca-denticetopsis-macilenta/) | [photo](https://media.aquatome.com/scotcat/fe863224f3d99f32.webp) | Denticetopsis macilenta | Oncorhynchus mykiss | 0.70 | — |
+| [Cá chuột mõm dài phương Bắc](https://aquatome.com/ca/ca-chuot-corydoras-septentrionalis/) | [photo](https://media.aquatome.com/scotcat/644bd59318d5365f.webp) | Corydoras septentrionalis | Corydoras aeneus | 0.70 | corydoras-aeneus |
+| [Cá vàng đầu sư tử (Lionhead)](https://aquatome.com/ca/ca-vang-dau-su-tu/) | [photo](https://media.aquatome.com/commons/8546a77b4bd70737.webp) | breed of Carassius auratus | Carassius auratus (ranchu) | 0.60 | ranchu-goldfish |
+| [Ốc ăn ốc](https://aquatome.com/ca/oc-an-oc/) | [photo](https://media.aquatome.com/inaturalist/98492041.webp) | Anentome helena | Brachygobius doriae | 0.60 | brachygobius-doriae |
+| [Cá quả Trung Quốc](https://aquatome.com/ca/ca-loc-trung-quoc/) | [photo](https://media.aquatome.com/commons/940d5c4b49fcb3d8.webp) | Channa asiatica | Channa pulchra | 0.60 | channa-pulchra |
+| [Cá bay cáo](https://aquatome.com/ca/ca-bay-cao/) | [photo](https://media.aquatome.com/glaser/f4914bc51f9efaf3.webp) | Epalzeorhynchos kalopterus | Garra cambodgiensis | 0.60 | same genus only |
+| [Cá red devil](https://aquatome.com/ca/ca-red-devil/) | [photo](https://media.aquatome.com/commons/278c3bb48f9cc21a.webp) | Amphilophus labiatus | Heros severus (gold) | 0.60 | heros-severus |
+| [Cá trâm](https://aquatome.com/ca/ca-tram/) | [photo](https://media.aquatome.com/seriouslyfish/ee217bcb6a0117d4.webp) | Boraras urophthalmoides | Horadandia atukorali | 0.60 | horadandia-atukorali |
+| [Cá tetra hồng](https://aquatome.com/ca/ca-tetra-hong/) | [photo](https://media.aquatome.com/commons/612593bd78747901.webp) | Hyphessobrycon rosaceus | Hyphessobrycon bentosi | 0.60 | same genus only |
+| [Cá thái hổ Indonesia](https://aquatome.com/ca/ca-thai-ho-indonesia/) | [photo](https://media.aquatome.com/commons/3c736744cee17c47.webp) | Datnioides microlepis | Datnioides pulcher | 0.60 | datnioides-pulcher |
+| [Cá betta foerschi](https://aquatome.com/ca/ca-betta-foerschi/) | [photo](https://media.aquatome.com/seriouslyfish/f54eaa34f53a7a03.webp) | Betta foerschi | Betta smaragdina | 0.60 | betta-smaragdina |
+
+## claude-opus-5-5, agent, 2 calls: the 20 worst misses
+
+| Page | Photo | Its answer | Top guess | Sure | Linked to |
+| --- | --- | --- | --- | ---: | --- |
+| [Cá betta (cá xiêm)](https://aquatome.com/ca/ca-betta/) | [photo](https://media.aquatome.com/commons/2adae8349e1ed380.webp) | Betta splendens | Betta splendens (halfmoon) | 0.90 | halfmoon-betta |
+| [Cá rồng châu Á](https://aquatome.com/ca/ca-rong-chau-a/) | [photo](https://media.aquatome.com/commons/38ccce4c480fc134.webp) | Scleropages formosus | Scleropages formosus (red (super red)) | 0.88 | super-red-arowana |
+| [Cá koi](https://aquatome.com/ca/ca-koi-cyprinus/) | [photo](https://media.aquatome.com/commons/0ec37eb1050a2800.webp) | Cyprinus rubrofuscus | Cyprinus rubrofuscus (Doitsu (Kin Showa/Ginrin-like metallic)) | 0.85 | koi |
+| [Cá chuột serratus](https://aquatome.com/ca/ca-chuot-serratus/) | [photo](https://media.aquatome.com/scotcat/904aebe99f5091de.webp) | Corydoras serratus | Corydoras aeneus | 0.80 | corydoras-aeneus |
+| [Cá rasbora hengel](https://aquatome.com/ca/ca-tam-giac-den-sang/) | [photo](https://media.aquatome.com/commons/69b5033b122b728b.webp) | Trigonostigma hengeli | Trigonostigma somphongsi | 0.75 | trigonostigma-somphongsi |
+| [Cá hút bùn buồm Trung Quốc](https://aquatome.com/ca/ca-hong-dao-trung-quoc/) | [photo](https://media.aquatome.com/commons/165e664743accd64.webp) | Myxocyprinus asiaticus | Carassius auratus (comet/common, đang chuyển màu) | 0.75 | carassius-auratus |
+| [Cá rasbora espei](https://aquatome.com/ca/ca-rasbora-espei/) | [photo](https://media.aquatome.com/commons/df7054354a59aec1.webp) | Trigonostigma espei | Trigonostigma somphongsi | 0.75 | trigonostigma-somphongsi |
+| [Cá quả Trung Quốc](https://aquatome.com/ca/ca-loc-trung-quoc/) | [photo](https://media.aquatome.com/commons/940d5c4b49fcb3d8.webp) | Channa asiatica | Channa pulchra | 0.70 | channa-pulchra |
+| [Cá trâm](https://aquatome.com/ca/ca-tram/) | [photo](https://media.aquatome.com/seriouslyfish/ee217bcb6a0117d4.webp) | Boraras urophthalmoides | Horadandia atukorali | 0.70 | horadandia-atukorali |
+| [Cá rasbora mắt xanh](https://aquatome.com/ca/ca-thai-hong-dom-mat/) | [photo](https://media.aquatome.com/commons/774dddb37bbec0cf.webp) | Brevibora dorsiocellata | Rasbora dorsiocellata | 0.70 | same genus only |
+| [Cá betta Mandor](https://aquatome.com/ca/ca-betta-mandor/) | [photo](https://media.aquatome.com/seriouslyfish/07ff218fd6648c85.webp) | Betta mandor | Betta foerschi | 0.70 | betta-foerschi |
+| [Cá chuột Schwartz](https://aquatome.com/ca/ca-chuot-schwartz/) | [photo](https://media.aquatome.com/commons/f1e7a234d0cd9e4a.webp) | Corydoras schwartzi | Corydoras trilineatus | 0.70 | corydoras-trilineatus |
+| [Cá tetra barracuda Pantanal](https://aquatome.com/ca/ca-tetra-barracuda-pantanal/) | [photo](https://media.aquatome.com/inaturalist/63958823.webp) | Acestrorhynchus pantaneiro | Acestrorhynchus falcatus | 0.65 | acestrorhynchus-falcatus |
+| [Cá bảy màu Full Red (Full Red Guppy)](https://aquatome.com/ca/ca-bay-mau-full-red/) | [photo](https://media.aquatome.com/commons/edf520fcff7bbfbe.webp) | breed of Poecilia reticulata | Poecilia reticulata (red delta tail) | 0.60 | poecilia-reticulata |
+| [Cá vàng đầu sư tử (Lionhead)](https://aquatome.com/ca/ca-vang-dau-su-tu/) | [photo](https://media.aquatome.com/commons/8546a77b4bd70737.webp) | breed of Carassius auratus | Carassius auratus (ranchu) | 0.60 | ranchu-goldfish |
+| [Cá vàng Lưu kim (Ryukin)](https://aquatome.com/ca/ca-vang-luu-kim/) | [photo](https://media.aquatome.com/commons/503d7c93b8f75f8c.webp) | breed of Carassius auratus | Carassius auratus (fantail) | 0.60 | carassius-auratus |
+| [Ốc ăn ốc](https://aquatome.com/ca/oc-an-oc/) | [photo](https://media.aquatome.com/inaturalist/98492041.webp) | Anentome helena | Brachygobius doriae | 0.60 | brachygobius-doriae |
+| [Cá molly](https://aquatome.com/ca/ca-molly/) | [photo](https://media.aquatome.com/inaturalist/6286600.webp) | Poecilia sphenops | Poecilia latipinna | 0.60 | poecilia-latipinna |
+| [Cá nheo Synodontis petricola](https://aquatome.com/ca/ca-nheo-ren-petricola/) | [photo](https://media.aquatome.com/commons/0729c51cc067b013.webp) | Synodontis petricola | Synodontis multipunctatus | 0.60 | same genus only |
+| [Cá rồng Úc](https://aquatome.com/ca/ca-rong-uc/) | [photo](https://media.aquatome.com/inaturalist/485318860.webp) | Scleropages jardinii | Scleropages formosus (green) | 0.60 | scleropages-formosus |

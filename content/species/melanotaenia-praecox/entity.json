@@ -8,8 +8,55 @@
   "places": [
     "oceania",
     "indonesia",
-    "mamberamo"
+    "mamberamo",
+    "new-guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Mamberamo",
+        "New Guinea"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The neon dwarf rainbowfish, Melanotaenia praecox, is a small rainbowfish endemic to the Mamberamo river system in New Guinea, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Mamberamo",
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411715,
+      "total": 2,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          135,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -17,6 +64,13 @@
         "value": {
           "min": 23,
           "max": 28
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 27
         }
       }
     ],
@@ -42,6 +96,10 @@
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -54,6 +112,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ]
   },
@@ -65,10 +127,22 @@
       "html": "<p>The neon dwarf rainbowfish, Melanotaenia praecox, is a small rainbowfish endemic to the Mamberamo river system in New Guinea, Indonesia. It inhabits swiftly flowing tributaries of the main river and the surrounding swamps and marshes. Peaceful and small enough for many community aquaria, it shows its best colours in a heavily planted tank with floating plants to diffuse the light.</p><ul><li>Max size: 80 mm SL (3.1 in)</li><li>Aquarium size: 60 × 30 cm</li><li>Temperature: 23–28°C</li><li>pH: 6.8–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>The neon dwarf rainbowfish is an almond-shaped fish with an iridescent blue sheen. It is a hardy, active species with a mild disposition that suits many peaceful and semi-aggressive tank mates. It is beginner-friendly and one of the smallest Melanotaenia species.</p><p>Males have a shiny blue body with red-orange fins, whereas females have a silvery body with yellow fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-praecox",
       "html": "<p>Endemic to the Mamberamo river system, New Guinea, Indonesia. This is one of the largest river systems on the island, being over 2000 km long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>Melanotaenia praecox is found in streams and tributaries of the New Guinea rainforest.</p>"
     },
     {
       "key": "habitat",
@@ -77,10 +151,22 @@
       "html": "<p>Tends to inhabit swiftly flowing tributaries off the main river, as well as surrounding swamps and marshes. The fish congregate around areas of aquatic vegetation, or submerged roots and logs.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>The species comes from tropical habitats: streams and tributaries in the rainforest.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-praecox",
       "html": "<p>An active species, so despite its small size it requires an aquarium measuring at least 60 × 30 × 30 cm (24 × 12 × 12 in) - ~54 litres (~14 US gal).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>Because they are fast swimmers, a longer aquarium is recommended, such as a long tank of about 76 litres or a tank of about 110 litres at the minimum.</p><p>They look good in planted aquariums, and taller plants can help block line of sight when the males are tussling with each other. The foliage should not get too overgrown, because rainbowfish like open areas to swim freely.</p>"
     },
     {
       "key": "maintenance",
@@ -95,10 +181,22 @@
       "html": "<ul><li>Temperature: 23–28°C (73–82°F)</li><li>pH: 6.8–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>Temperature: 23–27°C.</p><p>They can handle a wide range of pH and GH, but prefer harder, alkaline water. Where tap water is relatively soft, crushed coral can be used to buffer the pH, and mineral supplements (e.g., Wonder Shell and Seachem Equilibrium) can be used to increase the GH.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-praecox",
       "html": "<p>Like most of its congeners, it's an unfussy, omnivorous species and will accept most dried, frozen and live foods. Regular feedings of the latter will help to ensure the fish exhibit their best colours.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>These omnivorous fish are very easy to feed and will eagerly eat anything dropped in the tank. Smaller foods that float or slowly sink suit them, such as frozen cyclops, brine shrimp and nano pellets. They also enjoy bloodworms, flakes and live foods.</p><p>The key is to offer a variety of foods so they receive a well-rounded diet with all the necessary nutrients.</p>"
     },
     {
       "key": "behaviour",
@@ -107,58 +205,98 @@
       "html": "<p>Very peaceful and suitable for many community aquaria given its relatively small size. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, dwarf cichlids, freshwater gobies, and catfish such as Corydoras. Like other rainbowfish it can be quite skittish and does far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>Rainbowfish are schooling fish that need at least 6 or more of the same species. Males are more brightly coloured than females; keep at least 1–2 females for every male to minimise squabbling. Males display their best colours and get a shiny stripe on the head when showing off in front of females.</p><p>With their deeper-bodied profile and quick speed, they go well with many similar-sized tank mates, from peaceful to semi-aggressive temperaments. They have been kept with angelfish, pearl gouramis, tetras, corydoras catfish and smaller cichlids. They will eat cherry shrimp, but seem to leave larger amano shrimp and filter shrimp alone.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-praecox",
       "html": "<p>Mature males are larger and exhibit brighter colouration than females. They also develop a much deeper body than females as they grow.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>Males have a shiny blue body with red-orange fins; females have a silvery body with yellow fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-praecox",
       "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer. The fry can prove somewhat tricky to raise in the early stages. The breeding aquarium should be at least 18\" long, and contain slightly hard, alkaline water with a pH of around 7.0 and a temperature of 24 – 26.5 °C (75 – 80 °F). A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants, such as java moss, or nylon spawning mops. No substrate is necessary.</p><p>The adult fish are best conditioned as a group in a separate aquarium with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and males will display to each other almost constantly. Select the fattest, best-coloured pair for breeding and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread.</p><p>The adults tend to eat the spawn, and it's easier to raise the fry in a separate aquarium, so it is recommended to check the plants or mops regularly and remove any eggs found to a raising tank containing water from the spawning tank. The eggs hatch in 7-10 days, depending on temperature. The minute fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface. Brood size is usually a little larger than with other rainbowfish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "html": "<p>Rainbowfish are egg scatterers and show no parental care. With fish of both sexes and good feeding, they can spawn every day, but the 1 mm eggs produce very tiny fry that can be hard to raise.</p><p>A floating spawning mop placed in the tank lets the adults lay eggs in the yarn strands. After a few days, fill a catch cup with water from the breeding tank and hang it on the inside of the tank to keep the water warm. Place the spawning mop full of eggs inside the catch cup and add an air stone to keep the water well oxygenated. To prevent fungal growth, some breeders add a couple of drops of methylene blue or a few cherry shrimp to help clean the eggs.</p><p>The eggs hatch in about a week. The fry must be fed 3–5 times a day with very tiny foods such as infusoria, vinegar eels, microworms and powdered fry food. Frequent water changes are also necessary to keep water quality high.</p><p>After two weeks, the fry should be large enough to eat live baby brine shrimp, the best food for healthy and fast growth.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
+      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
       "width": 960,
       "height": 745,
       "licence": "CC BY-SA 4.0",
       "author": "Raimond Spekking",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
-      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg",
-      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp"
+      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg"
     },
     {
       "url": "https://media.aquatome.com/commons/c815fb8a7fdb6337.webp",
+      "thumb": "https://media.aquatome.com/commons/c815fb8a7fdb6337-480.webp",
       "width": 960,
       "height": 611,
       "licence": "CC BY-SA 3.0",
       "author": "Anandarajkumar at en.wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_neon_rainbows.jpg",
-      "caption": "A pair of male dwarf neon rainbows in a home aquarium.",
-      "thumb": "https://media.aquatome.com/commons/c815fb8a7fdb6337-480.webp"
+      "caption": "A pair of male dwarf neon rainbows in a home aquarium."
     },
     {
       "url": "https://media.aquatome.com/commons/0d0275362610aa62.webp",
+      "thumb": "https://media.aquatome.com/commons/0d0275362610aa62-480.webp",
       "width": 960,
       "height": 640,
       "licence": "Public domain",
       "author": "MELANOTAENIA_PRAECOX.JPG: Leo-nie-weh-oh derivative work: Der Regenbogenfisch",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:MELANOTAENIA_PRAECOX_cropped.JPG",
-      "caption": "Melanotaenia praecox",
-      "thumb": "https://media.aquatome.com/commons/0d0275362610aa62-480.webp"
+      "caption": "Melanotaenia praecox"
     },
     {
       "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017.webp",
+      "thumb": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-480.webp",
       "width": 960,
       "height": 638,
       "licence": "CC BY-SA 4.0",
       "author": "7TP (Krzysztof Bartosik)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_praecox.jpg",
-      "caption": "Tęczanka neonowa (Melanotaenia praecox)",
-      "thumb": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-480.webp"
+      "caption": "Tęczanka neonowa (Melanotaenia praecox)"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/d14a75aafd9844d5.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/d14a75aafd9844d5-480.webp",
+      "width": 1000,
+      "height": 708,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "caption": "dwarf neon rainbowfish with live aquarium plants",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
+      "caption": "dwarf neon rainbowfish in community tank",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [],
@@ -191,5 +329,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-04"
 }

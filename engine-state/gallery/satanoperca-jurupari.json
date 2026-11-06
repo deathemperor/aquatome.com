@@ -14,12 +14,21 @@
   "File:Satanoperca jurupari 205516703.jpg",
   "File:Satanoperca-jurupari.jpg",
   "File:Satanoperca--jurupari.jpg",
-  "File:Fish fauna (10.3897-BDJ.11.e98632) Figure 5.jpg"
+  "File:Fish fauna (10.3897-BDJ.11.e98632) Figure 5.jpg",
+  "inat:205516703"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/ccdbe218afe70538.webp": "01010647078343da",
   "https://media.aquatome.com/commons/3249dcb2b033121c.webp": "936209968c8e9040",
   "https://media.aquatome.com/commons/ac65977605ff4e68.webp": "b33353931303c713"
  },
- "commons": "2026-11-02"
+ "commons": "2026-11-02",
+ "inat": {
+  "taxon": 342472,
+  "pass": "done",
+  "after": {
+   "research": 121451816,
+   "agree": 0
+  }
+ }
 }

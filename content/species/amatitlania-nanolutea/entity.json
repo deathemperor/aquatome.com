@@ -10,6 +10,60 @@
     "panama",
     "rio-guarumo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA"
+      ],
+      "regions": [
+        "Guarumo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Amatitlania nanolutea is a small Central American cichlid endemic to the Guarumo river basin in northwestern Panama.",
+          "countries": [
+            "PA"
+          ],
+          "regions": [
+            "Guarumo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9355336,
+      "total": 10,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PA",
+          9
+        ],
+        [
+          "CR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -82.96875,
+          8.4375,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -9,13 +9,54 @@
     "south-america",
     "peru",
     "rio-huallaga",
-    "venezuela"
+    "venezuela",
+    "huallaga",
+    "brazil",
+    "madeira",
+    "bolivia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -27,16 +68,70 @@
       "html": "<p>Corydoras armatus attains a maximum length of about 5 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<p>Hoplisoma armatum, long known as Corydoras armatus, is an armoured catfish from the Río Huallaga watershed in Peru, to which it may be endemic. Fish from the upper rio Madeira in Brazil and Bolivia have been traded as C. sp. 'dorsalis' and C. sp. 'ogawae' and are officially considered conspecific, although the two areas lie almost 2500 km apart. It can also be confused with H. loretoense but has a deeper body and a longer, slightly curved dorsal-fin spine.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_venezuela_en/",
       "html": "<p>The type specimens originated from Peru (Rio Huallaga). The species is now also imported from Venezuela, where the specimens look exactly like their Peruvian cousins. A similar form originates from Brazil (Rio Abuna, near the border to Bolivia), and a second similar form comes from Peru (Rio Nanay).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<p>Type description as given by Günther is 'Xeberos and Huallaga', which appears to correspond to the district of Jeberos in Alto Amazonas state, Peru and small province of Huallaga in San Martín region, respectively.</p><p>Both localities lie within the Río Huallaga watershed to which Hoplisoma armatum may be endemic.</p><p>The Huallaga is a tributary of the Río Marañón which later becomes the Amazon following its confluence with the Ucayali.</p><p>Records also exist from the upper Río Madeira system in Brazil and Bolivia, but see the 'Notes' section below.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_venezuela_en/",
       "html": "<p>Corydoras armatus belongs to the Corydoras species known to scientists for a very long time. It is the sixth described species of the genus, and the original description appeared in 1868. It appeared comparatively late in the hobby, in the 1990s, and is still a real rarity in the trade.</p><p>The specific name \"armatus\" means \"weaponed, armed\" and refers to the enormous dorsal spine. This spine makes the species almost unique, as only two other similar Corydoras are known.</p><p>One originates from Brazil (Rio Abuna, near the border to Bolivia). It was sometimes called \"Corydoras dorsalis\" and \"Corydoras ogawae\"; both names have no scientific relevance. This form has been given the number CW86. It can hardly be distinguished from the \"real\" C. armatus by coloration or any other feature, except the 2,500 km distance between the Rio Huallaga and the Rio Abuna and the larger spots on the body of CW86.</p><p>The second sibling species comes from Peru (Rio Nanay) and has the C-number C96. It can be easily recognized by a black stripe over the shoulder, right below the dorsal fin.</p><p>The fish from Venezuela were freshly imported as healthy, large specimens.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<p>Fish collected in the upper rio Maderia basin in Brazil and Bolivia have been traded under the invented names C. sp. 'dorsalis' and C. sp. 'ogawae' in the past, although are officially-considered conspecific with Hoplisoma armatum.</p><p>This appears to warrant investigation since the Río Huallaga in Peru, type locality of H. armatum, and collection localities in the upper Madeira are separated by a straight-line distance of almost 2500 km.</p><p>H. armatum may also be confused with H. loretoense but has a relatively deeper body and a longer, slightly curved (vs. shorter and straight) dorsal-fin spine.</p><p>Until 2024 this species was placed in Corydoras, then among the largest catfish genera with over 150 valid species. Dias et al. (2024) divided it into five genera and moved this species to Hoplisoma.</p><p>It is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes group due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Günther, A. (1868). Diagnoses of some new freshwater fishes from Surinam and Brazil, in the collection of the British Museum. Annals and Magazine of Natural History (Series 4) v. 1(6), 475-481</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li></ul>"
     }
   ],
   "photos": [],

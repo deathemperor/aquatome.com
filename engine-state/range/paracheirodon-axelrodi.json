@@ -1,0 +1,190 @@
+{
+  "id": "paracheirodon-axelrodi",
+  "native": {
+    "input": "0bd1c4c8dc4dc89d",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "introduced",
+        "source": "sprucepets",
+        "quote": "Manaus, in northern Brazil, is one such location.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare Canal",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Casiquiare Canal and parts of the Orinoco watershed in Venezuela, with the latter populations exhibiting some morphological differences compared with those from the Negro (see 'Notes').",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco River",
+        "source": "sprucepets",
+        "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "sprucepets",
+        "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paracheirodon axelrodi",
+    "status": "ACCEPTED",
+    "taxonKey": 2353911,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        32
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        20
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        17
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        15
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        8
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO",
+      "VE"
+    ],
+    "requests": 14,
+    "at": "2026-11-04T21:41:08.860Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-05T03:39:17.391Z",
+    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
+  }
+}

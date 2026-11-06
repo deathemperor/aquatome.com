@@ -1,0 +1,96 @@
+{
+  "id": "microdevario-kubotai",
+  "native": {
+    "input": "a5a4093cfd80aa41",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Ataran River",
+        "source": "seriouslyfish",
+        "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Suriya",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded in the Suriya (known as Hanthayaw in Myanmar) River basin, a headwater tributary of the Salween which rises in Tak province, Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Mae Khlong",
+        "source": "bwaquatics",
+        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microdevario kubotai",
+    "status": "ACCEPTED",
+    "taxonKey": 2363249,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

@@ -48,7 +48,7 @@ func phone(_ tanks: String...) throws -> TankStore {
   return s
 }
 func names(_ s: TankStore) -> [String] { s.liveTanks.map(\.name) }
-let noUser = AccountSession.on(providers: Providers(google: false, apple: true, email: true, passkey: true), turnstileSitekey: "sk", user: nil)
+let noUser = AccountSession.on(providers: Providers(google: true, apple: true, email: true, passkey: true), turnstileSitekey: "sk", user: nil)
 
 @Test("A nonce's SHA-256 in lowercase hex, as the server compares it")
 func nonceHash() {
@@ -73,6 +73,8 @@ func requests() async throws {
   let key = Data("cred-1".utf8)
   let handle = fake.addPasskey(key, to: "apple-3")
   _ = try await api.signInWithPasskey(FakeAccounts.assertion(for: try await api.passkeyChallenge(), credentialId: key, userHandle: handle))
+  let nonce = try await api.nonce()
+  _ = try await api.signInWithGoogle(idToken: "google-1|\(nonce)", nonce: nonce)
 
   for r in fake.requests {
     let what = "\(r.httpMethod!) \(r.url!.path)"
@@ -83,7 +85,7 @@ func requests() async throws {
     if r.httpMethod == "POST" { #expect(r.httpBody != nil, "\(what) has no body") }
     if r.httpBody != nil { #expect(r.value(forHTTPHeaderField: "Content-Type") == "application/json", "\(what)") }
     let body = r.httpBody.flatMap { try? JSON.parse($0).object }
-    if ["/api/v1/auth/apple", "/api/v1/auth/email/start", "/api/v1/auth/email/verify", "/api/v1/auth/passkey"].contains(r.url!.path) { #expect(body?["client"]?.string == "app", "\(what)") }
+    if ["/api/v1/auth/apple", "/api/v1/auth/google", "/api/v1/auth/email/start", "/api/v1/auth/email/verify", "/api/v1/auth/passkey"].contains(r.url!.path) { #expect(body?["client"]?.string == "app", "\(what)") }
     if r.url!.path == "/api/v1/account" { #expect(body?["apple"]?.object?["clientId"]?.string == "com.aquatome.app") }
     if ["/api/v1/tanks/sync", "/api/v1/account", "/api/v1/auth/logout", "/api/v1/account/passkey/options", "/api/v1/account/passkey"].contains(r.url!.path) {
       #expect(r.value(forHTTPHeaderField: "Authorization")?.hasPrefix("Bearer token-") == true, "\(what)")
@@ -92,7 +94,7 @@ func requests() async throws {
   #expect(Set(fake.requests.map { "\($0.httpMethod!) \($0.url!.path)" }) == [
     "GET /api/v1/session", "POST /api/v1/auth/nonce", "POST /api/v1/auth/apple", "POST /api/v1/tanks/sync",
     "DELETE /api/v1/account", "POST /api/v1/auth/logout", "POST /api/v1/auth/email/start", "POST /api/v1/auth/email/verify",
-    "POST /api/v1/auth/passkey/options", "POST /api/v1/auth/passkey",
+    "POST /api/v1/auth/passkey/options", "POST /api/v1/auth/passkey", "POST /api/v1/auth/google",
     "POST /api/v1/account/passkey/options", "POST /api/v1/account/passkey",
   ])
   // The Turnstile page the web view opens is the contract's too.

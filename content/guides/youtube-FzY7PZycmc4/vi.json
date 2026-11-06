@@ -1,0 +1,40 @@
+{
+  "slug": "tu-lam-ngan-loc-k1-tang-soi-cach-bo-tri-ong-vao-va-ong-ra",
+  "name": "Tự làm ngăn lọc K1 tầng sôi: cách bố trí ống vào và ống ra",
+  "altNames": [],
+  "sections": {},
+  "body": "<p>Lọc tầng sôi (moving bed, fluidized bed) dùng hạt K1 chuyển động liên tục trong nước để vi sinh bám và xử lý chất thải. Làm ngăn chứa K1 thì không khó. Cái khó là cho nước vào và ra sao cho hạt chuyển động đều, không dồn cục một chỗ và không bị hút vào cửa ra.</p><p>Bài này đi qua một thiết kế ngăn lọc K1 tự làm bằng tấm mica, co xuyên vách (bulkhead) và ống nhựa. Thiết kế đầu tiên chạy không ổn và đã được sửa lại. Bạn sẽ thấy vì sao nó hỏng, cách sửa và vài chi tiết nhỏ khi lắp.</p><h3>Thiết kế ban đầu hỏng ở đâu</h3><p>Ở bản đầu, nước vào từ một đầu, chui dưới vách ngăn thứ nhất vào ngăn K1 (ngăn lớn nhất). Sau đó nước chui dưới vách ngăn thứ hai rồi được bơm về bể chính.</p><p>Bố trí này gặp hai vấn đề:</p><ul><li>Ở phía cửa vào, vách ngăn đẩy hạt K1 ra xa chỗ nước vào.</li><li>Ở phía cửa ra, K1 dồn lại thành đống và kẹt ở đó.</li></ul><p>Nhiều khả năng nước chỉ luồn bên dưới lớp K1 rồi đi thẳng ra, không qua phần lớn hạt. Đây là cảm nhận khi quan sát chứ chưa đo đạc gì. Dù vậy, hai hiện tượng trên đủ để thấy cách cho nước chui dưới vách không hợp với K1.</p><h3>Thiết kế mới cho nước đi như thế nào</h3><p>Hướng dòng chảy tổng thể vẫn giữ nguyên, chỉ đổi cách nước vào và ra khỏi ngăn K1:</p><ol><li><strong>Cửa vào:</strong> nước không chui dưới vách nữa. Nước đi lên qua ống đứng rồi đổ ra phía trên lớp K1.</li><li><strong>Cửa ra:</strong> nước đi vào một ống đứng có rãnh, chảy xuống trong lòng ống rồi thoát qua đáy sang ngăn kế tiếp.</li></ol><p>Mục đích là để hạt K1 chuyển động nhờ sục khí, còn dòng bơm gần như không đụng tới hạt. Dòng nước chỉ đi qua chứ không quyết định cách hạt chuyển động.</p><h3>Làm vách cửa vào ra sao</h3><p>Vách cửa vào là một tấm mica. Dưới đáy tấm khoan lỗ gắn hai co xuyên vách. Mỗi co nối với một ống dựng lên tới gần mặt trên ngăn K1, đầu ống gắn co 90 độ để nước đổ ra ngang.</p><p>Nguyên tắc chạy rất đơn giản. Khi mực nước phía ngoài tấm mica cao hơn hoặc bằng đỉnh ống thì nước sẽ chảy ra ở đầu ống.</p><p>Trước khi tới hai co xuyên vách, nước đi qua một hai túi lọc (filter sock) và một lớp bông, mút để giữ cặn.</p><p>Các ống không dán keo. Nhờ vậy co 90 độ quay được theo nhiều hướng, và khi cần thì tháo ra cũng dễ. Ý định ban đầu là quay miệng co hướng ra sau để dòng nước thổi K1 bị kẹt sau vách ra ngoài. Khi chạy thật thì miệng co được quay về phía kính để K1 bớt dồn sau vách. Cách này có đỡ, nhưng vẫn còn một ít hạt đọng lại. Số hạt đó là K1 mới chưa có vi sinh. Bạn nên thử vài hướng xem hướng nào hợp với ngăn của mình.</p><h3>Làm ống thoát thế nào cho khỏi nghẹt</h3><p>Ống thoát cũng gắn vào co xuyên vách ở đáy. Ống dựng đứng, nước vào qua thân ống rồi chảy xuống. Lúc đầu định khoan thật nhiều lỗ trên ống, sau đó đổi sang xẻ rãnh dọc thân ống. Có hai lý do:</p><ul><li>Khoan nhiều lỗ thì tốn công.</li><li>Lỗ dễ nghẹt hơn, và lỗ càng nhỏ thì sức hút càng mạnh.</li></ul><p>Xẻ rãnh có vẻ là lựa chọn tốt hơn. Khi chạy thực tế thì không có hạt K1 nào dính vào ống thoát.</p><p>Các ống đứng ở cửa ra được đặt cách vách khoảng 7,5 cm. Khoảng cách này để bọt khí từ dây sục đi lên dọc vách không bị hút vào ống. Chuyện bọt bị hút vào chưa chắc đã xảy ra, đặt xa ra là để phòng hờ.</p><h3>Chuyển đổi khi bể đang chạy</h3><p>Nếu ngăn lọc đang chạy mà muốn sửa thì làm theo thứ tự này để không mất vi sinh:</p><ol><li>Tắt lọc.</li><li>Vớt K1 sang một bể khác và cho bể đó chạy tạm trong lúc thi công.</li><li>Lắp vách, co xuyên vách và ống. Không dán keo để sau này còn tháo ra chỉnh.</li><li>Cho K1 trở lại, châm nước và chạy lại.</li></ol><h3>Nhìn màu K1 để biết đã có vi sinh chưa</h3><p>Hạt K1 có vi sinh sẽ sẫm màu hơn hạt mới, dù hạt mới đã ngâm ướt. Nhưng không phải lúc nào K1 cũng chuyển sang màu nâu đậm như nhiều người thấy ở bể khác. Lượng vi sinh chỉ phát triển tới mức thức ăn trong bể cho phép. Bể ít cá mà dùng rất nhiều K1 thì hạt chỉ sẫm nhẹ rồi dừng ở đó. Chuyện này bình thường, không phải lọc chạy kém.</p><h3>Những điều rút ra khi chạy thử</h3><ul><li>Trong ngăn hình chữ nhật, cách nước vào và ra ảnh hưởng rất rõ tới chuyển động của K1.</li><li>Hạt K1 không chuyển động y hệt nhau mọi lúc. Hình dạng chuyển động thay đổi liên tục, đừng mong nó ổn định như máy.</li><li>Sục khí vẫn là phần cần chỉnh tiếp. Dự định là chạy dây sục dọc chu vi ngăn, nhưng đó mới là kế hoạch, chưa thử để biết kết quả.</li></ul><h3>Bắt đầu từ đâu</h3><ol><li>Quan sát ngăn K1 hiện tại xem hạt có dồn ở cửa ra hay bị đẩy khỏi cửa vào không.</li><li>Nếu có, đổi cửa vào thành ống đứng đổ nước phía trên lớp hạt, và cửa ra thành ống đứng xẻ rãnh.</li><li>Lắp ống không dán keo để còn xoay hướng miệng co và chỉnh vị trí ống.</li><li>Để sục khí làm hạt chuyển động, đừng dựa vào dòng bơm.</li></ol>",
+  "summary": [
+    "Kiểu ngăn lọc cho nước chui dưới vách ngăn hay làm K1 dồn cục ở cửa ra và đẩy hạt ra xa cửa vào.",
+    "Cho nước vào bằng ống dựng đứng, đổ ra phía trên lớp K1, rồi rút nước ra bằng ống đứng có rãnh, chảy xuống qua đáy.",
+    "Ống thoát nên xẻ rãnh thay vì khoan lỗ, vì lỗ dễ nghẹt và lỗ càng nhỏ thì sức hút càng mạnh.",
+    "Hạt K1 nên được sục khí làm cho chuyển động, dòng bơm gần như không tác động lên hạt.",
+    "Hạt K1 đã có vi sinh sẽ sẫm màu hơn hạt mới, nhưng mức sẫm còn tùy lượng thức ăn cho vi sinh trong bể."
+  ],
+  "faq": [
+    {
+      "q": "Vì sao K1 cứ dồn cục ở cửa ra của ngăn lọc?",
+      "a": "Khi nước ra bằng cách chui dưới vách ngăn, hạt K1 hay dồn và kẹt ở phía cửa ra. Đổi sang ống đứng xẻ rãnh, nước đi xuống trong lòng ống, thì hạt không còn dính vào ống thoát."
+    },
+    {
+      "q": "Ống thoát nên khoan lỗ hay xẻ rãnh?",
+      "a": "Xẻ rãnh dễ làm hơn khoan nhiều lỗ. Lỗ dễ nghẹt, và lỗ càng nhỏ thì sức hút càng mạnh."
+    },
+    {
+      "q": "K1 dùng lâu mà không chuyển nâu có phải lọc kém không?",
+      "a": "Không hẳn. Vi sinh chỉ phát triển tới mức thức ăn trong bể cho phép, nên bể ít cá mà nhiều K1 thì hạt chỉ sẫm nhẹ."
+    },
+    {
+      "q": "Nên dùng bơm hay sục khí để K1 chuyển động?",
+      "a": "Thiết kế này dùng sục khí làm hạt chuyển động. Dòng bơm chỉ đưa nước đi qua ngăn, gần như không tác động lên hạt."
+    }
+  ],
+  "cover": "Đi ống sao cho K1 sôi đều",
+  "quality": {
+    "score": 0.78,
+    "indexable": true,
+    "bySource": {
+      "youtube": 0.78
+    }
+  }
+}

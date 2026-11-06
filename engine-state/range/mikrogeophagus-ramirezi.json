@@ -1,0 +1,144 @@
+{
+  "id": "mikrogeophagus-ramirezi",
+  "native": {
+    "input": "8e63640e471eacfb",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The majority of literature suggests that this species is restricted to the Venezuelan and Colombian llanos of the Río Orinoco drainage, although one of the specimens in the images is said to have been collected in the rio Purus, Brazil, an Amazon tributary located some distance from that watershed.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mikrogeophagus ramirezi",
+    "status": "ACCEPTED",
+    "taxonKey": 2373104,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        186
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        43
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        24
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 14,
+    "at": "2026-11-04T21:41:08.860Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-05T03:39:17.391Z",
+    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
+  }
+}

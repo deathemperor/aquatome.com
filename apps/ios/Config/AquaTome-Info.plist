@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Merged with the keys Xcode writes (GENERATE_INFOPLIST_FILE): what has no build setting of its own. aquatome://
+	     opens the app from a web page, to the site's page it names (AppLink: aquatome://open?url=<the page>). -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.aquatome.app</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>aquatome</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -58,6 +58,8 @@ export type DayChart = {
   unit?: 'usd'
   /** The last day is today and not over yet: drawn lighter, said in its readout. */
   partialLast?: boolean
+  /** 'week': each of `days` is a week's Monday, and the chart says so. */
+  period?: 'week'
   /** What to say when every value is 0 or missing, or there are no days. */
   empty?: string
   /** Why a day has no value, said in its readout ("chưa lưu số liệu ngày này"). */
@@ -71,6 +73,8 @@ export type DayChart = {
  */
 export function dayChart(c: DayChart): string {
   const money = c.unit === 'usd'
+  const weekly = c.period === 'week'
+  const per = weekly ? 'tuần' : 'ngày'
   const format = c.format ?? (money ? usd : (n: number) => fmt(n))
   const prefix = c.tickPrefix ?? (money ? '$' : '')
   const n = c.days.length
@@ -101,9 +105,10 @@ export function dayChart(c: DayChart): string {
   const last = n - 1
   const dm = (i: number) => dayLabel(c.days[i]!)
   const dayName = (i: number) =>
-    c.partialLast && i === last ? `Hôm nay ${dm(i)}` : c.partialLast && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
+    weekly ? `Tuần ${dm(i)}`
+      : c.partialLast && i === last ? `Hôm nay ${dm(i)}` : c.partialLast && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
   const unrecorded = (i: number) => all.every(s => at(s, i) === null)
-  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ' · chưa hết ngày' : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
+  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ` · chưa hết ${per}` : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
   const shown = (v: number | null) => (v === null ? '—' : format(v))
 
   const seg = (cls: string[], b: number, h: number) => `<i class="${cls.join(' ')}" style="--b:${f2(b)};--h:${f2(h)}"></i>`
@@ -135,9 +140,9 @@ export function dayChart(c: DayChart): string {
     return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}">${marks}</li>`
   }).join('')
 
-  // Every seventh day back from the last (the overview's weeks), and the first when it stands clear of them.
+  // Every seventh day back from the last (the overview's weeks), or every fourth week, and the first when it stands clear of them.
   const labelled = new Set<number>()
-  for (let i = last; i >= 0; i -= 7) labelled.add(i)
+  for (let i = last; i >= 0; i -= weekly ? 4 : 7) labelled.add(i)
   if (Math.min(...labelled) >= 3) labelled.add(0)
   const xAxis = [...labelled].sort((a, b) => a - b).map(i => {
     const mid = (100 * (i + 0.5)) / n
@@ -147,16 +152,16 @@ export function dayChart(c: DayChart): string {
 
   const totals = all.map(s => c.days.reduce((t, _, i) => t + (at(s, i) ?? 0), 0))
   const key = (s: Series, k: number) => (all.length > 1 ? `<i class="key ${s === c.whole ? 'whole' : s.tone ?? `s${k + 1}`}"></i>` : '')
-  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}" aria-live="polite"><span class="when">${n} ngày</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
+  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${n} ${per}</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
 
   const heights = c.whole ? whole : up
   const peak = heights.indexOf(Math.max(...heights))
   const gaps = c.days.filter((_, i) => unrecorded(i)).length
-  const desc = `${n} ngày, từ ${dm(0)} đến ${dm(last)}. ${all.map((s, k) => `${s.label}: tổng ${format(totals[k]!)}`).join('; ')}. Cao nhất ngày ${dm(peak)}.${gaps ? ` ${fmt(gaps)} ngày không có số liệu.` : ''} Phím mũi tên đọc từng ngày.`
+  const desc = `${n} ${per}, từ ${dm(0)} đến ${dm(last)}. ${all.map((s, k) => `${s.label}: tổng ${format(totals[k]!)}`).join('; ')}. Cao nhất ${per} ${dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per} không có số liệu.` : ''} Phím mũi tên đọc từng ${per}.`
   const plot = `<div class="plot" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
 
-  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? ' (hôm nay)' : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
-  const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>Ngày</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
+  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? (weekly ? ' (tuần này)' : ' (hôm nay)') : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
+  const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Tuần' : 'Ngày'}</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
   return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}${readout}</figcaption>${plot}${table}</figure>`
 }
 

@@ -6,7 +6,7 @@ import UIKit
 /// offline once opened. The blocks become a few kinds of piece (styled text, photos, links to pages, the web page for a
 /// part it can't draw): one view per kind of block cost the app 90 kB. A page opens on its photo, across the screen,
 /// with its name under it; a fish's or plant's then answers its reader's questions in turn (what is it, can I keep it
-/// here, with what), before the detail, its photos and videos, its readers, where to go next and its sources.
+/// here, with what), then its photos, the detail, its videos, its readers, where to go next and its sources.
 struct NativePage: View {
   let pieces: [Piece]
   /// A fish's facts or a plant's care (FactsCard), where the page puts them (`.facts`).
@@ -103,7 +103,9 @@ struct NativePage: View {
   /// The space above a piece. A part that heads itself (a gallery) takes a heading's; one that may show nothing (the
   /// pages it names, its readers) puts its own above what it shows.
   private func gap(_ i: Int) -> CGFloat {
-    switch pieces[i] {
+    // The sources behind a species' facts, close under them.
+    if i > 0, case .more = pieces[i], case .facts = pieces[i - 1] { return 12 }
+    return switch pieces[i] {
     case .photo(_, _, _, _, _, _, _, true), .pages, .readers: 0
     case .text(_, _, .title): i == 0 ? 12 : 20
     case _ where i == 0: 12
@@ -224,9 +226,11 @@ struct NativePage: View {
     }
   }
 
-  /// The page as pieces: worked out once, when it's read, not on every redraw.
-  static func pieces(_ doc: PageDoc) -> [Piece] {
+  /// The page as pieces: worked out once, when it's read, not on every redraw. `traits`: a fish's temperament and
+  /// smallest school, from the index, for under its tank-mates' heading.
+  static func pieces(_ doc: PageDoc, traits: AttributedString? = nil) -> [Piece] {
     var out: [Piece] = []
+    let species = doc.kind == "fish" || doc.kind == "plant"
     // Its photo first, then its name and the lines under it: never a line above the name.
     if doc.video == nil, let lead = doc.lead { out.append(photo(lead, caption: [], href: nil, hero: true)) }
     out.append(.text(styled(doc.title, .pageTitle), look: .title))
@@ -234,7 +238,9 @@ struct NativePage: View {
     if let meta = doc.meta { out.append(.text(styled(meta, .subheadline, secondary: true), look: .line)) }
     if !doc.where.isEmpty { out.append(.text(styled(doc.where, font: .subheadline), look: .line)) }
     if let aka = doc.aka { out.append(.text(styled(aka, .subheadline, secondary: true), look: .line)) }
-    if !doc.credit.isEmpty { out.append(.text(styled(doc.credit, font: .footnote, secondary: true), look: .line)) }
+    let credit = Piece.text(styled(doc.credit, font: .footnote, secondary: true), look: .line)
+    // A species' credit goes under its facts, as on the site's page.
+    if !species, !doc.credit.isEmpty { out.append(credit) }
     if let v = doc.video {
       var cap = styled("\(v.title) · \(v.channel) · \(clock(v.durationSec))")
       if let s = v.subtitles { cap += styled("\n" + s, .caption.bold()) }
@@ -246,8 +252,12 @@ struct NativePage: View {
       out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
                         href: youtube(v.youtubeId, at: 0), play: true))
     }
-    let species = doc.kind == "fish" || doc.kind == "plant"
-    if species { out.append(.facts) }
+    if species {
+      // As the site's data card: the facts, the sources behind them, then whose text the page is.
+      out.append(.facts)
+      for b in doc.blocks { if case .trust = b { add(b, to: &out) } }
+      if !doc.credit.isEmpty { out.append(credit) }
+    }
     // A species' parts in the order its reader asks (rank), its readers before where to go next; a guide's as written.
     // A paragraph before a species' summary and sections is the tank-mates tool's link, sent alone when the page shows
     // no tank-mates: it goes where they would.
@@ -261,26 +271,31 @@ struct NativePage: View {
       // A run of parts it can't draw is one offer of the web page.
       if case .web = b { if !webBefore { out.append(.web) }; webBefore = true; continue }
       webBefore = false
+      if species, case .trust = b { continue }
+      let at = out.count
       add(b, to: &out)
+      // Under "Nuôi chung", before its fish, as the site's has them.
+      if case .mates = b, let traits { out.insert(.text(traits, look: .line), at: at + 1) }
     }
     if let readers { out.append(readers) }
     return out
   }
 
-  /// Where a species' block goes: the answer first (the summary), then where and with what it lives, the detail, its
-  /// photos and videos, where to go next, its sources last.
+  /// Where a species' block goes: the answer first (the summary), then where and with what it lives, its photos (where
+  /// the web page has them: after its climate and tank-mates, before the detail), the detail, its videos, where to go
+  /// next, its sources last.
   private static func rank(_ b: PageDoc.Block) -> Int {
     switch b {
     case .summary: 0
     case .climate: 1
     case .mates: 2
-    case .gallery: 4
+    case .gallery: 3
     case .videos: 5
     case .cards: 6
     case .pages: 7
     case .refs: 8
     case .trust: 9
-    default: 3
+    default: 4
     }
   }
 
@@ -336,7 +351,7 @@ struct NativePage: View {
       out.append(.web)
     case let .gallery(title, note, photos, strip, _):
       // No row on the page (too few photos for one): none here either.
-      if !strip.isEmpty { out.append(.gallery(title: title, note: note, photos: photos, strip: strip)) }
+      if !strip.isEmpty { out.append(GalleryViewer.row(title: title, note: note, photos: photos, strip: strip)) }
     case let .trust(title, legend, rows):
       // The mark on a figure the sources disagree on, in the warning colour, as its legend says.
       var dot = AttributedString("●")
@@ -416,12 +431,23 @@ private struct Tip {
   }
 }
 
-/// A photo's credit as the site gives it, wherever the app shows the photo: who took it, its licence, linking its own page.
-private func credit(_ img: PageDoc.Image) -> AttributedString? {
-  guard let c = img.credit else { return nil }
-  var line = AttributedString(c.licence.isEmpty ? c.text : c.text + " · " + c.licence)
+/// A photo's credit as the site gives it, wherever the app shows the photo: who took it, its licence, linking its own page;
+/// an Unsplash photo's, its photographer's name linking their page and "Unsplash" Unsplash's (PageDoc.Image.Credit).
+func credit(_ img: PageDoc.Image) -> AttributedString? {
+  img.credit.map { credit($0) }
+}
+
+/// A credit's line, each piece linking where it says. `photo` false: the photo's own page linked nowhere in it.
+func credit(_ c: PageDoc.Image.Credit, photo: Bool = true) -> AttributedString {
+  let parts = c.parts(photo: photo)
+  var line = parts.reduce(into: AttributedString()) { s, p in
+    var a = AttributedString(p.text)
+    a.link = p.link.flatMap(URL.init(string:))
+    // Some of the line linking and the rest not: its links underlined, as the site's are, so it's seen which words are.
+    if parts.count > 1, a.link != nil { a[AttributeScopes.SwiftUIAttributes.UnderlineStyleAttribute.self] = .single }
+    s += a
+  }
   line.font = .caption2
-  line.link = c.url.flatMap(URL.init(string:))
   return line
 }
 
@@ -475,7 +501,7 @@ private extension Font {
 }
 
 /// Other pages as rows in one panel (tank-mates, breeds), each with its photo, opening in the app or else on the web;
-/// under the rows, each photo's credit once, linking its own page (a link inside a row would be the row).
+/// under the rows, the photos' credits, linking each photo's own page (a link inside a row would be the row).
 private struct CardsPart: View {
   let title: String?
   let cards: [NativePage.Card]
@@ -483,10 +509,13 @@ private struct CardsPart: View {
   let good: Bool?
   let open: (URL) -> Void
   @ScaledMetric(relativeTo: .body) private var thumb: CGFloat = 56
+  /// The width each of a credit's numbers takes: 44 points to tap, as the app's other small controls have.
+  @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
+  private typealias CreditRow = (line: AttributedString, who: String, licence: String, profile: String?, urls: [String?])
 
   var body: some View {
     let thumbs = cards.contains { $0.img != nil }
-    let credits = cards.compactMap { $0.img.flatMap(credit) }.reduce(into: [AttributedString]()) { if !$0.contains($1) { $0.append($1) } }
+    let credits = creditRows
     VStack(alignment: .leading, spacing: 8) {
       if let title {
         HStack(spacing: 6) {
@@ -508,7 +537,51 @@ private struct CardsPart: View {
       }
       .background(.fill.quaternary, in: .rect(cornerRadius: 12))
       if !credits.isEmpty {
-        Text(credits.dropFirst().reduce(credits[0]) { $0 + AttributedString("\n") + $1 }).foregroundStyle(.secondary).tint(Color.secondary)
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(credits.indices, id: \.self) { creditRow(credits[$0]) }
+        }
+        .foregroundStyle(.secondary).tint(Color.secondary)
+      }
+    }
+  }
+
+  /// The cards' photos as the site's credits list has them: one row per line (an Unsplash photo's names its photographer),
+  /// licence and photographer's page (two Unsplash photographers can share a name), first seen first, each with its line (linking the photo's page while it's
+  /// the only one and no photographer's page is linked), who took them, their page and every photo's own page, the same
+  /// page once (nil: a photo without one).
+  private var creditRows: [CreditRow] {
+    cards.compactMap(\.img).reduce(into: []) { rows, img in
+      guard let c = img.credit else { return }
+      if let i = rows.firstIndex(where: { $0.who == c.text && $0.licence == c.licence && $0.profile == c.authorUrl }) {
+        if c.url == nil || !rows[i].urls.contains(c.url) {
+          rows[i].urls.append(c.url)
+          // Each photo's page is its number now: the line keeps a photographer's page and Unsplash's.
+          rows[i].line = credit(c, photo: false)
+        }
+      } else {
+        rows.append((credit(c, photo: c.authorUrl == nil), c.text, c.licence, c.authorUrl, [c.url]))
+      }
+    }
+  }
+
+  /// One photo: its line, linking its page. Several, or one whose line links its photographer's page (an Unsplash
+  /// photo's): the line once with how many, then a number for each linking its own page (none for a photo without one),
+  /// each read to VoiceOver as whose photo it is, as the site's are.
+  @ViewBuilder private func creditRow(_ row: CreditRow) -> some View {
+    if row.urls.count == 1 && row.profile == nil {
+      Text(row.line)
+    } else {
+      Text(row.line) + Text(verbatim: " · ").font(.caption2) + Text("\(row.urls.count) ảnh").font(.caption2)
+      LazyVGrid(columns: [GridItem(.adaptive(minimum: number), spacing: 0, alignment: .leading)], alignment: .leading, spacing: 0) {
+        ForEach(Array(row.urls.compactMap { $0.flatMap(URL.init(string:)) }.enumerated()), id: \.offset) { i, url in
+          Link(destination: url) {
+            // Small to the eye, 44 points to the finger.
+            Text(verbatim: String(i + 1)).font(.caption2).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
+          }
+          .accessibilityLabel(Text("\(row.who), ảnh \(i + 1)"))
+          .accessibilityRemoveTraits(.isButton)
+          .accessibilityAddTraits(.isLink)
+        }
       }
     }
   }
@@ -577,6 +650,7 @@ private struct GalleryRow: View {
   /// Readers' photos, each as the reader can report it or block who sent it (in the viewer); a page's own, none.
   var readers: [ReaderItem]?
   @State private var shown: Int?
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
@@ -587,7 +661,7 @@ private struct GalleryRow: View {
             let p = photos[i]
             let ratio = CGFloat(p.w) / CGFloat(p.h)
             VStack(alignment: .leading, spacing: 4) {
-              Button { shown = i } label: { PageImage(src: p.thumb ?? p.src, ratio: ratio, alt: p.alt).frame(height: 140) }
+              Button { show(i) } label: { PageImage(src: p.thumb ?? p.src, ratio: ratio, alt: p.alt).frame(height: 140) }
                 .buttonStyle(.plain)
                 // A photo without words of its own is still a button VoiceOver can name.
                 .accessibilityLabel(Text(verbatim: p.alt ?? title))
@@ -598,7 +672,7 @@ private struct GalleryRow: View {
           }
         }
       }
-      Button("Xem tất cả \(photos.count) ảnh") { shown = strip.first ?? 0 }
+      Button("Xem tất cả \(photos.count) ảnh") { show(strip.first ?? 0) }
         .buttonStyle(.bordered)
         .buttonBorderShape(.capsule)
         .controlSize(.small)
@@ -606,64 +680,17 @@ private struct GalleryRow: View {
         .accessibilityLabel(Text(verbatim: title + ", ") + Text("Xem tất cả \(photos.count) ảnh"))
         .accessibilityIdentifier(all)
     }
-    .sheet(isPresented: Binding(get: { shown != nil }, set: { if !$0 { shown = nil } })) {
+    // Full screen, on black (PhotoViewer).
+    .fullScreenCover(isPresented: Binding(get: { shown != nil }, set: { if !$0 { shown = nil } })) {
       GalleryViewer(title: title, note: note, photos: photos, readers: readers, index: shown ?? 0)
     }
   }
-}
 
-/// Every photo of a gallery, one at a time, each with who took it, its licence and its own page.
-private struct GalleryViewer: View {
-  let title: String
-  let note: String
-  let photos: [PageDoc.Image]
-  let readers: [ReaderItem]?
-  @State var index: Int
-  @Environment(HandbookModel.self) private var handbook
-  @Environment(\.dismiss) private var dismiss
-  @State private var reporting: ReaderItem?
-  @State private var blocking: ReaderItem?
-
-  var body: some View {
-    NavigationStack {
-      TabView(selection: $index) {
-        ForEach(photos.indices, id: \.self) { i in
-          let p = photos[i]
-          ScrollView {
-            VStack(alignment: .leading, spacing: 8) {
-              // Its words read once, under it, not as the picture's label too.
-              PageImage(src: p.src, ratio: CGFloat(p.w) / CGFloat(p.h))
-              if let alt = p.alt, !alt.isEmpty { Text(alt).font(.subheadline) }
-              if let c = credit(p) { Text(c) }
-            }
-            .padding()
-          }
-          .tag(i)
-        }
-      }
-      .tabViewStyle(.page(indexDisplayMode: .never))
-      .safeAreaInset(edge: .bottom) {
-        Text(verbatim: "\(index + 1)/\(photos.count)" + (note.isEmpty ? "" : " · \(note)")).font(.caption).foregroundStyle(.secondary).padding(8).frame(maxWidth: .infinity).background(.bar)
-      }
-      .navigationTitle(title)
-      .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem(placement: .primaryAction) { Button("Đóng") { dismiss() } }
-        // A reader's photo: report it, or block who sent it; then the viewer closes, and the row shows it no more.
-        if let readers, readers.indices.contains(index), !handbook.safety.isOwn(readers[index]) {
-          ToolbarItem(placement: .topBarLeading) { ReaderMenu(item: readers[index], reporting: $reporting, blocking: $blocking) }
-        }
-      }
-      .readerActions(reporting: $reporting, blocking: $blocking, inViewer: true) { dismiss() }
-      // A photo reported, the viewer closed some other way than its thanks, or before the report's answer came: hidden
-      // all the same.
-      .onAppear { handbook.safety.viewing = true }
-      .onDisappear {
-        handbook.safety.viewing = false
-        handbook.safety.hidePending()
-      }
-      .accessibilityIdentifier("gallery")
-    }
+  /// The viewer at photo `i`: sliding up, or with Reduce Motion there at once.
+  private func show(_ i: Int) {
+    var t = Transaction()
+    t.disablesAnimations = reduceMotion
+    withTransaction(t) { shown = i }
   }
 }
 
@@ -700,7 +727,7 @@ private struct ReadersPart: View {
           if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
           GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
-            PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
+            PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: PageDoc.Image.Credit(text: $0.name, licence: "", url: nil))
           }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init))
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.buttonStyle(.bordered).accessibilityIdentifier("post-photo") }
@@ -765,111 +792,6 @@ private struct ReadersPart: View {
       out += mark
     }
     return out + styled("\n" + c.body)
-  }
-}
-
-/// A picture of a page the app draws, the size the page gives it before it's here.
-struct PageImage: View {
-  let src: String
-  let ratio: CGFloat
-  var alt: String?
-  var corner: CGFloat = 10
-  @State private var image: UIImage?
-  /// None came (offline before it was kept, or gone from the site).
-  @State private var missing = false
-
-  var body: some View {
-    Rectangle().fill(.fill.tertiary)
-      .aspectRatio(ratio, contentMode: .fit)
-      .overlay {
-        if let image {
-          Image(uiImage: image).resizable().scaledToFill()
-        } else if missing {
-          // A photo's place, not an empty box.
-          Image(systemName: "photo").font(.title2).foregroundStyle(.tertiary)
-        }
-      }
-      .clipShape(.rect(cornerRadius: corner))
-      .accessibilityElement()
-      .accessibilityLabel(Text(verbatim: alt ?? ""))
-      // No words for it: VoiceOver reads the caption under it instead (a linked one, its button, as the caption).
-      .accessibilityHidden(alt == nil)
-      .task(id: src) {
-        image = await PageImages.load(src)
-        missing = image == nil
-      }
-  }
-}
-
-/// The pictures of pages the app draws, kept on the phone (up to 200 MB, in the caches folder) so a page read once
-/// shows them offline. Not bundled.
-enum PageImages {
-  static let session: URLSession = {
-    let c = URLSessionConfiguration.default
-    let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appending(path: "page-images")
-    c.urlCache = URLCache(memoryCapacity: 16 << 20, diskCapacity: 200 << 20, directory: dir)
-    c.requestCachePolicy = .returnCacheDataElseLoad
-    return URLSession(configuration: c)
-  }()
-
-  /// The pictures of pages kept for offline: in Application Support, which the system doesn't empty when the phone is
-  /// short of room (the caches folder it does), and not in the phone's backup (they're the site's, read again).
-  static let kept: KeptPictures = {
-    var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "kept-pictures")
-    try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-    var values = URLResourceValues()
-    values.isExcludedFromBackup = true
-    try? dir.setResourceValues(values)
-    return KeptPictures(dir: dir)
-  }()
-
-  static func load(_ src: String) async -> UIImage? {
-    #if DEBUG
-    // UI tests read no network; their screenshots (`-fixed-pictures`) show a stand-in where each photo goes.
-    if ProcessInfo.processInfo.arguments.contains("-fixed-pictures") { return fixedPicture(src) }
-    if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") { return nil }
-    #endif
-    if let data = kept.data(src) { return UIImage(data: data) }
-    guard let u = URL(string: src), let (data, _) = try? await session.data(from: u) else { return nil }
-    return UIImage(data: data)
-  }
-
-  /// Kept on the phone now, for a page kept for offline: true when it's there.
-  static func keep(_ src: String) async -> Bool {
-    #if DEBUG
-    if ProcessInfo.processInfo.arguments.contains("-fixed-handbook") {
-      // `-slow-keep`: each picture takes 20 s to come, so a test can act while a keep is on its way.
-      if ProcessInfo.processInfo.arguments.contains("-slow-keep") { try? await Task.sleep(for: .seconds(20)) }
-      return true
-    }
-    #endif
-    if kept.data(src) != nil { return true }
-    guard let u = URL(string: src), let (data, r) = try? await session.data(from: u), (r as? HTTPURLResponse)?.statusCode == 200 else { return false }
-    return kept.save(data, for: src)
-  }
-
-  #if DEBUG
-  /// A photo's stand-in in screenshots: water colours with a few soft lights, picked by its address, the same each run.
-  static func fixedPicture(_ src: String) -> UIImage {
-    let seed = src.unicodeScalars.reduce(UInt32(2166136261)) { ($0 ^ $1.value) &* 16777619 }
-    let hue = 0.45 + CGFloat(seed % 100) / 500
-    return UIGraphicsImageRenderer(size: CGSize(width: 600, height: 400)).image { c in
-      let colors = [UIColor(hue: hue, saturation: 0.7, brightness: 0.6, alpha: 1), UIColor(hue: hue + 0.05, saturation: 0.8, brightness: 0.2, alpha: 1)]
-      let gradient = CGGradient(colorsSpace: nil, colors: colors.map(\.cgColor) as CFArray, locations: nil)!
-      c.cgContext.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0, y: 400), options: [])
-      UIColor(white: 1, alpha: 0.12).setFill()
-      for i in 0..<6 {
-        let x = CGFloat(seed >> (i * 5) % 600), y = CGFloat(seed >> (i * 3) % 400), r = CGFloat(20 + seed >> i % 50)
-        c.cgContext.fillEllipse(in: CGRect(x: x - r, y: y - r, width: 2 * r, height: 2 * r))
-      }
-    }
-  }
-  #endif
-
-  /// Off the phone: a page no longer kept for offline.
-  static func forget(_ src: String) {
-    kept.remove(src)
-    if let u = URL(string: src) { session.configuration.urlCache?.removeCachedResponse(for: URLRequest(url: u)) }
   }
 }
 

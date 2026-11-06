@@ -233,10 +233,12 @@ const flat = async (url: string, end = 30) => {
 }
 
 /** Playlist search (YouTube's playlist filter) and a channel's playlists, via yt-dlp: no API key. */
-export const ytFinder: Finder = {
+export const ytFinder: Finder & { searchReviews(query: string): Promise<{ id: string; title: string; channel: string }[]> } = {
   search: q => flat(`https://www.youtube.com/results?search_query=${encodeURIComponent(q)}&sp=EgIQAw%253D%253D`),
   // Videos filter, 4–20 minutes (skips Shorts and clips).
   searchVideos: q => flat(`https://www.youtube.com/results?search_query=${encodeURIComponent(q)}&sp=EgQQARgD`, 40),
+  // Videos filter, any length (a long-term review runs past 20 minutes; product-reviews.ts checks the length itself).
+  searchReviews: q => flat(`https://www.youtube.com/results?search_query=${encodeURIComponent(q)}&sp=EgIQAQ%253D%253D`, 20),
   channel: h => flat(`https://www.youtube.com/@${h}/playlists`, 100),
   uploads: h => flat(`https://www.youtube.com/@${h}/videos`, 100),
   playlist: id => ytDlp.playlist(id),

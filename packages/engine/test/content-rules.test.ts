@@ -1,7 +1,10 @@
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, countMismatch, cutFurniture, dropEmptyHeadings, dropRepeats, emptySections, englishSentences, fixTranslation, furniture,
-  imperialUnits, labelSlips, leftoverMarkup, longFurniture, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
+  blocks, cardSlips, checkPages, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -198,6 +201,33 @@ test('numbered labels out of order are numbered again as they appear; counting u
   expect(renumberLabels(split)).toBe('<p><strong>Sai lầm</strong> 1: a</p><p><strong>Sai lầm</strong> 2: b</p><p>Sai lầm&nbsp;3: c</p>')
 })
 
+test('a sentence that only says the text is translated, adapted or used with permission: dropped, in each language', () => {
+  // Loaches Online's Botia guide (2026-11-05): the source's note under the article it reprints, translated.
+  const credit = 'Bài gốc của Emma Turner được đăng lần đầu trên Tropical World Magazine, số 9. www.tropicalworldmagazine.com.'
+  expect(dropPermissionNotes(`<p>Chúng chỉ đang ngủ thôi…</p><p>${credit} Được Loaches Online chuyển thể với sự cho phép.</p>`))
+    .toBe(`<p>Chúng chỉ đang ngủ thôi…</p><p>${credit}</p>`)
+  // A paragraph that is only the note goes; one in the middle leaves the sentences around it.
+  expect(dropPermissionNotes('<p>Cá cần nước mềm.</p><p>Dịch với sự cho phép của Seriously Fish.</p>')).toBe('<p>Cá cần nước mềm.</p>')
+  expect(dropPermissionNotes('<p>Nước mềm. Bài viết được dịch với sự cho phép của tác giả. Thay nước đều.</p>')).toBe('<p>Nước mềm. Thay nước đều.</p>')
+  expect(dropPermissionNotes('<p>Air lunak.</p><p>Diterjemahkan dengan izin dari Seriously Fish.</p>')).toBe('<p>Air lunak.</p>')
+  expect(dropPermissionNotes('<p>Diadaptasi oleh Loaches Online dengan izin.</p><p>Air lunak.</p>')).toBe('<p>Air lunak.</p>')
+  expect(dropPermissionNotes('<p>น้ำอ่อน</p><p>แปลโดยได้รับอนุญาตจาก Seriously Fish</p>')).toBe('<p>น้ำอ่อน</p>')
+  expect(dropPermissionNotes('<p>ดัดแปลงโดย Loaches Online โดยได้รับอนุญาต</p>')).toBe('')
+  // A sentence that only has the words stays: what is done with permission is not the text's translation or use.
+  for (const near of [
+    'Chỉ bắt cá ngoài tự nhiên với sự cho phép của cơ quan quản lý.',
+    'Hãy dùng thuốc với sự cho phép của bác sĩ thú y.',
+    'Cá được thả vào hồ với sự cho phép của ban quản lý, vì thế đàn cá phát triển nhanh.',
+    'Ikan liar hanya boleh ditangkap dengan izin dari dinas perikanan.',
+    'จับปลาจากธรรมชาติได้เฉพาะโดยได้รับอนุญาตจากหน่วยงาน',
+  ]) {
+    expect(isPermissionNote(near), near).toBe(false)
+    expect(dropPermissionNotes(`<p>${near}</p>`)).toBe(`<p>${near}</p>`)
+  }
+  // Nothing to drop: the text as it was, byte for byte.
+  expect(dropPermissionNotes('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')).toBe('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')
+})
+
 test('the source site\'s comments, comment form and related posts: found as headings or lines of their own, and cut', () => {
   expect(detected('<h3>7 ý kiến về “Infusoria”</h3><ul><li>a</li></ul><h3>12 thoughts on “Lava rock”</h3><p>Bài viết liên quan:</p><ul><li>x</li></ul><p>Leave a Reply</p>'))
     .toEqual(['7 ý kiến về “Infusoria”', '12 thoughts on “Lava rock”', 'Bài viết liên quan:', 'Leave a Reply'])
@@ -295,4 +325,57 @@ test('the real-content test holds a defect at zero only on the kinds of page its
   expect(findings.map(f => `${f.page.kind} ${f.rule}`)).toEqual(['guides headings', 'guides imperial', 'glossary headings', 'glossary imperial', 'equipment headings', 'equipment imperial'])
   // The sweep writes glossary text, not an equipment page; `pnpm engine metric` converts neither.
   expect(ratcheted(findings).map(f => `${f.page.kind} ${f.rule}`)).toEqual(['guides headings', 'guides imperial', 'glossary headings'])
+})
+
+// Malay is swept and fixed as the others are, so these read its words where they read Indonesian's.
+test("Malay's words: comments, related posts, counts, labels, references, the page saying, gallons and pounds", () => {
+  expect(detected('<h3>7 komen mengenai “Akuarium”</h3><ul><li>a</li></ul><p>Tinggalkan komen</p><p>Artikel berkaitan:</p><ul><li>x</li></ul><h3>Komen pembaca</h3>'))
+    .toEqual(['7 komen mengenai “Akuarium”', 'Tinggalkan komen', 'Artikel berkaitan:', 'Komen pembaca'])
+  expect(detected('<p>Tinggalkan komen jika anda ada soalan tentang akuarium ini.</p>')).toEqual([]) // in a sentence, the text's own
+  expect(titleCount('7 Petua menjaga akuarium')).toBe(7)
+  expect(titleCount('5 kesilapan pemula')).toBe(5)
+  expect(titleCount('10 tumbuhan akuatik mudah')).toBe(10)
+  expect(titleCount('Akuarium 60 liter')).toBeUndefined()
+  expect(labelSlips('<p>Kesilapan 1: x</p><p>Kesilapan 9: y</p><p>Kesilapan 2: z</p>')).toEqual(['"kesilapan" 1, 9, 2'])
+  expect(renumberLabels('<p>Petua 1: x</p><p>Petua 9: y</p><p>Petua 2: z</p>')).toBe('<p>Petua 1: x</p><p>Petua 2: y</p><p>Petua 3: z</p>')
+  expect(blocks('<h3>Rujukan</h3><p>Smith.</p>')[1]!.refs).toBe(true)
+  expect(sourcePagePhrases(page({ fields: [{ field: 'body', html: '<p>Laman ini menyebut ikan ini tenang.</p>' }] })).map(x => x.quote)).toEqual(['Laman ini menyebut ikan ini tenang.'])
+  expect(imperialUnits('akuarium 10 gelen').alone).toHaveLength(1)
+  expect(imperialUnits('seberat 2 paun').alone).toHaveLength(1)
+})
+
+test('the fixes made on write reach the stored files of a language the site doesn\'t serve yet', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rules-ms-'))
+  await mkdir(join(root, 'guides/g'), { recursive: true })
+  await writeFile(join(root, 'guides/g/ms.json'), JSON.stringify({ name: 'Cacing &amp; Kutu', altNames: [] }))
+  expect(await fixStored(root)).toEqual(['guides/g/ms.json'])
+  expect(JSON.parse(await readFile(join(root, 'guides/g/ms.json'), 'utf8')).name).toBe('Cacing & Kutu')
+})
+
+test('text written from videos never names a channel, a reviewer or the video', () => {
+  const channels = ['George Farmer', 'Cá Cảnh']
+  expect(namesSource('Theo George Farmer, đèn này đủ sáng.', channels)).toEqual(['George Farmer'])
+  expect(namesSource('Trong video, đèn được treo cách mặt nước 20 cm.', channels)).toEqual(['trong video'])
+  expect(namesSource('Người review thấy quạt khá ồn.', channels)).toEqual(['người review'])
+  expect(namesSource('Anh ấy thích đèn này.', channels)).toEqual(['anh ấy'])
+  // The summary's own word for its sources, a light's colour channels, the hobby: none of them a source named.
+  expect(namesSource('Hai bài review cùng thấy đèn đủ sáng.', channels)).toEqual([])
+  expect(namesSource('Chỉnh từng kênh màu trên đèn.', channels)).toEqual([])
+  expect(namesSource('Đèn hợp với bể cá cảnh gia đình.', channels)).toEqual([])
+})
+
+test('the rule reads a product\'s review lines and only pages written from videos', () => {
+  const lines = [{ field: 'reviews.agree.0', text: 'Theo Example Scapes, trong video quạt khá êm.' }]
+  expect(found(page({ kind: 'products', credited: ['Example Scapes'], lines }), 'names-source')).toEqual(['"trong video"', '"Example Scapes"'])
+  expect(found(page({ kind: 'products', lines }), 'names-source')).toEqual([])
+})
+
+test('a page saying AquaTome controls a product it doesn\'t: Week Aqua in progress', () => {
+  expect(claimsControl('Bạn có thể điều khiển đèn này bằng AquaTome.')).toBe(true)
+  expect(claimsControl('AquaTome hỗ trợ đèn này trên iPhone.')).toBe(true)
+  expect(claimsControl('AquaTome thử trên một chiếc WRGB II Slim.')).toBe(false)
+  expect(claimsControl('Đèn điều khiển bằng app của hãng qua Bluetooth.')).toBe(false)
+  const lines = [{ field: 'summary.0', text: 'Bạn có thể điều khiển đèn này bằng AquaTome.' }]
+  expect(found(page({ kind: 'products', control: false, lines }), 'control-claim')).toHaveLength(1)
+  expect(found(page({ kind: 'products', control: true, lines }), 'control-claim')).toEqual([])
 })

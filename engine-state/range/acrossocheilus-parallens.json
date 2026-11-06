@@ -1,0 +1,77 @@
+{
+  "id": "acrossocheilus-parallens",
+  "native": {
+    "input": "5853d4a2968f40c7",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Guangdong and Hainan provinces (principally Hainan Island), southern China, plus the island of Taiwan.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Guangdong and Hainan provinces (principally Hainan Island), southern China, plus the island of Taiwan.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Taiwan",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Guangdong and Hainan provinces (principally Hainan Island), southern China, plus the island of Taiwan.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acrossocheilus parallens",
+    "status": "ACCEPTED",
+    "taxonKey": 2366435,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

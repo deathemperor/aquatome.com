@@ -1,0 +1,77 @@
+{
+  "id": "corydoras-sterbai",
+  "native": {
+    "input": "11727fdd32221b9a",
+    "at": "2026-11-05T13:43:53.461Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Rio Guaporé, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sterba's cory, Hoplisoma sterbai, long known as Corydoras sterbai, is a peaceful armoured catfish from Bolivia and Brazil, marked with light spots on a dark head.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sterba's cory, Hoplisoma sterbai, long known as Corydoras sterbai, is a peaceful armoured catfish from Bolivia and Brazil, marked with light spots on a dark head.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Guaporé",
+        "source": "glaser",
+        "quote": "Rio Guaporé, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras sterbai",
+    "status": "ACCEPTED",
+    "taxonKey": 2342679,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T13:43:53.461Z"
+  }
+}

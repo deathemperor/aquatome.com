@@ -13,6 +13,87 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344304,
+      "total": 59,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ZM",
+          29
+        ],
+        [
+          "TZ",
+          20
+        ],
+        [
+          "CD",
+          9
+        ],
+        [
+          "BI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          2
+        ],
+        [
+          28.125,
+          -4.21875,
+          7
+        ],
+        [
+          29.53125,
+          -9.84375,
+          5
+        ],
+        [
+          29.53125,
+          -8.4375,
+          6
+        ],
+        [
+          29.53125,
+          -7.03125,
+          4
+        ],
+        [
+          29.53125,
+          -5.625,
+          17
+        ],
+        [
+          30.9375,
+          -9.84375,
+          18
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -218,16 +299,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_petricola_in_Ouwehands_Dierenpark_01.jpg",
       "caption": "Synodontis petricola (evenspotted catfish or pygmy leopard catfish) in Ouwehands Dierenpark",
       "thumb": "https://media.aquatome.com/commons/90ff72588ee35b18-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/976a0ca9a5a13619.webp",
-      "width": 886,
-      "height": 356,
-      "licence": "CC BY-SA 3.0",
-      "author": "Haps",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis-petricola-HT-25594.jpg",
-      "caption": "preserved holotype of Synodontis petricola in the Africamuseum Tervuren Belgium",
-      "thumb": "https://media.aquatome.com/commons/976a0ca9a5a13619-480.webp"
     },
     {
       "url": "https://media.aquatome.com/commons/70f0868406b91d56.webp",

@@ -11,6 +11,79 @@
     "chao-phraya",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Chao Phraya"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Thailand; Phitsanulork Province, Upper Chao Phraya.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Chao Phraya"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Cambodia: Stung Santréa, 40 km from Pomnac.",
+          "countries": [
+            "KH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340912,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          2
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -97,17 +170,6 @@
       "author": "Nonn Panitvong / ScotCat",
       "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
       "caption": "Akysis sp. ephippifer",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/8311dfc2d47c9776.webp",
-      "thumb": "https://media.aquatome.com/scotcat/8311dfc2d47c9776-480.webp",
-      "width": 500,
-      "height": 218,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/akysidae/akysis_ephippifer.htm",
-      "caption": "Akysis ephippifer",
       "source": "scotcat"
     }
   ],

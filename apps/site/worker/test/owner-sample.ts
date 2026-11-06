@@ -3,6 +3,7 @@ import { summariseApp, type AppRows } from '../admin/app'
 import type { ContentReads, ContentStats, KindClicks, Snapshot, Talk, Totals } from '../admin/content'
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
+import type { ReportsData } from '../daily/page'
 import type { Wanted } from '../wanted'
 
 /**
@@ -49,7 +50,7 @@ export const FISH = {
     call('2026-11-04 08:30:00', { sci: 'Trigonostigma heteromorpha', page: 'gone-page' }),
     call('2026-11-04 08:00:00', { outcome: 'rate', verdict: '', kh: '', tin: 0, tout: 0, usd: 0, guesses: 0, conf: 0, src: 'tank' }),
   ], NOW, TZ),
-  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x' },
+  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2 },
   pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
 }
 
@@ -76,10 +77,17 @@ export const WANTED: { names: Wanted[]; more: boolean } = {
   more: false,
 }
 
+/** A phone's APNs device token, as the app sends it (lowercase hex). */
+export const PUSH_TOKEN = '3b9a7c2e5d4f6a8b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b'
 export const PHOTO_WAITING = 'a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d'
 export const PHOTO_APPROVED = 'b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e'
 export const PHOTO_LIVE = 'c3d4e5f6-a7b8-4c9d-8e0f-2a3b4c5d6e7f'
-export const RECENT = [{ id: PHOTO_LIVE, entity_ref: 'species:paracheirodon-axelrodi', name: 'Minh', thumb: 'https://media.aquatome.com/p/c3d4-thumb.webp', created_at: '2026-11-03T10:00:00.000Z' }]
+export const PHOTO_MOVED = 'd4e5f6a7-b8c9-4d0e-9f1a-3b4c5d6e7f8a'
+export const RECENT = [
+  { id: PHOTO_LIVE, entity_ref: 'species:paracheirodon-axelrodi', moved_from: null, name: 'Minh', thumb: 'https://media.aquatome.com/p/c3d4-thumb.webp', created_at: '2026-11-03T10:00:00.000Z' },
+  // Sent on the neon's page; moderation found a goldfish and moved it there.
+  { id: PHOTO_MOVED, entity_ref: 'species:carassius-auratus', moved_from: 'species:paracheirodon-innesi', name: 'Thảo', thumb: 'https://media.aquatome.com/p/d4e5-thumb.webp', created_at: '2026-11-03T09:00:00.000Z' },
+]
 export const WAITING = [
   { id: PHOTO_WAITING, entity_ref: 'species:betta-splendens', name: 'Lan', created_at: '2026-11-04T08:34:00.000Z', ownerOk: false },
   { id: PHOTO_APPROVED, entity_ref: 'breed:betta-halfmoon', name: 'Hùng <3', created_at: '2026-11-04T07:00:00.000Z', ownerOk: true },
@@ -93,7 +101,7 @@ export const ACCOUNTS = {
 }
 
 const totals = (fish: number, plant: number, guide: number, id: number, th: number, sources: Record<string, number>): Totals =>
-  ({ kinds: { fish: [fish, id, th], plant: [plant, 0, 0], guide: [guide, id, 0] } as Totals['kinds'], built: null, sources, photos: { pages: 0, gallery: 0 } })
+  ({ kinds: { fish: { vi: fish, id, th }, plant: { vi: plant, id: 0, th: 0 }, guide: { vi: guide, id, th: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources, photos: { pages: 0, gallery: 0 } })
 export const SNAPSHOTS: Snapshot[] = [
   { day: days30[20]!, totals: totals(700, 90, 300, 100, 80, { seriouslyfish: 500, youtube: 120 }) },
   { day: days30[25]!, totals: totals(720, 92, 305, 130, 90, { seriouslyfish: 515, youtube: 125 }) },
@@ -103,7 +111,7 @@ const inv = (total: number, id = 0, th = 0) => ({ total, id, th })
 export const STATS = {
   v: 1, builtAt: '2026-11-04T06:00:00.000Z', publicBuild: true,
   inventory: { fish: inv(730, 150, 95), breed: inv(40), plant: inv(92), guide: inv(250, 20), videoGuide: inv(60), series: inv(5), glossary: inv(120), equipment: inv(0), place: inv(30), product: inv(0) },
-  built: { total: [1500, 300, 200], byKind: {} },
+  built: { total: { vi: 1500, id: 300, th: 200 }, byKind: {} },
   sources: { seriouslyfish: { name: 'Seriously Fish', fish: 520, plant: 0, guide: 0 }, youtube: { name: 'YouTube', fish: 0, plant: 0, guide: 132 } },
   photos: { pages: 2100, byOrigin: { commons: 900, inaturalist: 700 }, byLicence: { 'CC BY': 1000, CC0: 600 }, covered: { fish: { with: 600, of: 730 }, plant: { with: 80, of: 92 } }, waitingMirror: 14, gallery: { pages: 300, photos: 2400 } },
   engine: {
@@ -144,3 +152,14 @@ export const OVERVIEW: Overview = {
 }
 
 export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS }
+
+/** The daily report's section: email on, push on with one phone, and the last three reports (the newest from before push). */
+export const REPORTS: ReportsData = {
+  now: NOW, tz: TZ,
+  delivery: { settings: { email: true, push: true }, phones: 1, keyed: true },
+  xs: [
+    { id: '1003', when: '2026-11-04T00:00:00.000Z', subject: 'AquaTome daily · 4 Nov · 2 need care', sent: true, push: { sent: 1 }, care: 2 },
+    { id: '1002', when: '2026-11-03T00:00:00.000Z', subject: 'AquaTome daily · 3 Nov · nothing needs care', sent: false, why: 'E_RATE_LIMIT_EXCEEDED', push: { sent: 0, why: 'no_device' }, care: 0 },
+    { id: '1001', when: '2026-11-02T00:00:00.000Z', subject: 'AquaTome daily · 2 Nov · 1 needs care', sent: true, care: 1 },
+  ],
+}
