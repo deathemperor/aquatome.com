@@ -5218,6 +5218,13 @@
     "genus": "Chromidotilapia",
     "matchType": "EXACT"
   },
+  "Chromis viridis": {
+    "canonicalName": "Chromis viridis",
+    "order": "Perciformes",
+    "family": "Pomacentridae",
+    "genus": "Chromis",
+    "matchType": "EXACT"
+  },
   "Chromobotia macracantha": {
     "canonicalName": "Chromobotia macracanthus",
     "order": "Cypriniformes",
@@ -7431,6 +7438,13 @@
     "genus": "Edwardsiella",
     "matchType": "EXACT"
   },
+  "Egeria najas": {
+    "canonicalName": "Elodea najas",
+    "order": "Alismatales",
+    "family": "Hydrocharitaceae",
+    "genus": "Elodea",
+    "matchType": "EXACT"
+  },
   "Eichhornia crassipes": {
     "canonicalName": "Pontederia crassipes",
     "order": "Commelinales",
@@ -7717,6 +7731,13 @@
     "matchType": "FUZZY"
   },
   "Erithistes has": null,
+  "Erpetoichthys calabaricus": {
+    "canonicalName": "Erpetoichthys calabaricus",
+    "order": "Polypteriformes",
+    "family": "Polypteridae",
+    "genus": "Erpetoichthys",
+    "matchType": "EXACT"
+  },
   "Erromyzon kalotaenia": {
     "canonicalName": "Erromyzon kalotaenia",
     "order": "Cypriniformes",
@@ -8384,6 +8405,7 @@
     "matchType": "EXACT"
   },
   "Gex xanh": null,
+  "Ghi nhi": null,
   "Gibelion catla": {
     "canonicalName": "Gibelion catla",
     "order": "Cypriniformes",
@@ -9532,6 +9554,7 @@
     "genus": "Hydrolycus",
     "matchType": "EXACT"
   },
+  "Hydrophlox chrosomus": null,
   "Hygrophila angustifolia": {
     "canonicalName": "Hygrophila angustifolia",
     "order": "Lamiales",
@@ -10365,6 +10388,7 @@
   "Khi khay": null,
   "Khi kho": null,
   "Khi khoan": null,
+  "Khi khung": null,
   "Khi lau": null,
   "Khi mua": null,
   "Khi ngh": null,
@@ -10392,6 +10416,7 @@
   "Kho dinh": null,
   "Khoan hai": null,
   "Khoan khay": null,
+  "Khoan khi": null,
   "Khoan mua": null,
   "Khoan ngay": null,
   "Khoan nhanh": null,
@@ -10506,6 +10531,13 @@
   },
   "Kryptopterus geminus": {
     "canonicalName": "Kryptopterus geminus",
+    "order": "Siluriformes",
+    "family": "Siluridae",
+    "genus": "Kryptopterus",
+    "matchType": "EXACT"
+  },
+  "Kryptopterus minor": {
+    "canonicalName": "Kryptopterus minor",
     "order": "Siluriformes",
     "family": "Siluridae",
     "genus": "Kryptopterus",
@@ -10955,6 +10987,13 @@
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Pseudomystus",
+    "matchType": "EXACT"
+  },
+  "Lemna minor": {
+    "canonicalName": "Lemna minor",
+    "order": "Alismatales",
+    "family": "Araceae",
+    "genus": "Lemna",
     "matchType": "EXACT"
   },
   "Lentipes ikeae": {
@@ -11602,6 +11641,13 @@
     "genus": "Lysmata",
     "matchType": "EXACT"
   },
+  "Lythrurus fasciolaris": {
+    "canonicalName": "Lythrurus fasciolaris",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Lythrurus",
+    "matchType": "EXACT"
+  },
   "Machrobrachium lanchesteri": {
     "canonicalName": "Macrobrachium lanchesteri",
     "order": "Decapoda",
@@ -11707,6 +11753,7 @@
     "genus": "Macropodus",
     "matchType": "EXACT"
   },
+  "Macrostomas brunei": null,
   "Maharlu has": null,
   "Mai cua": null,
   "Mai provinces": null,
@@ -12527,6 +12574,13 @@
     "genus": "Moenkhausia",
     "matchType": "EXACT"
   },
+  "Moina macrocopa": {
+    "canonicalName": "Moina macrocopa",
+    "order": "Diplostraca",
+    "family": "Moinidae",
+    "genus": "Moina",
+    "matchType": "EXACT"
+  },
   "Monatsberichte der": null,
   "Monetaria moneta": {
     "canonicalName": "Monetaria moneta",
@@ -12991,6 +13045,20 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Hypsophrys",
+    "matchType": "EXACT"
+  },
+  "Neetroplus panamensis": {
+    "canonicalName": "Cryptoheros panamensis",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Cryptoheros",
+    "matchType": "EXACT"
+  },
+  "Nelumbo nucifera": {
+    "canonicalName": "Nelumbo nucifera",
+    "order": "Proteales",
+    "family": "Nelumbonaceae",
+    "genus": "Nelumbo",
     "matchType": "EXACT"
   },
   "Nemacheilus binotatus": {
@@ -13478,6 +13546,13 @@
   "Nitrat bao": null,
   "Nitrat cao": null,
   "Nitrat trong": null,
+  "Nitrospira moscoviensis": {
+    "canonicalName": "Nitrospira moscoviensis",
+    "order": "Nitrospirales",
+    "family": "Nitrospiraceae",
+    "genus": "Nitrospira",
+    "matchType": "EXACT"
+  },
   "Nobua oba": null,
   "Noemacheilus denisonii": {
     "canonicalName": "Schistura denisoni",
@@ -13543,6 +13618,13 @@
     "order": "Siluriformes",
     "family": "Claroteidae",
     "genus": "Notoglanidium",
+    "matchType": "EXACT"
+  },
+  "Notropis chrosomus": {
+    "canonicalName": "Notropis chrosomus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Notropis",
     "matchType": "EXACT"
   },
   "Noturus crypticus": {
@@ -14938,6 +15020,7 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
+  "Peaceful electric": null,
   "Peckoltia braueri": {
     "canonicalName": "Peckoltia braueri",
     "order": "Siluriformes",
@@ -15440,6 +15523,13 @@
   },
   "Piscinoodinium parasites": null,
   "Piscinoodinium pillulare": null,
+  "Pistia stratiotes": {
+    "canonicalName": "Pistia stratiotes",
+    "order": "Alismatales",
+    "family": "Araceae",
+    "genus": "Pistia",
+    "matchType": "EXACT"
+  },
   "Pisum sativum": {
     "canonicalName": "Lathyrus oleraceus",
     "order": "Fabales",
@@ -15460,6 +15550,12 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Planiloricaria",
+    "matchType": "EXACT"
+  },
+  "Planorbella duryi": {
+    "canonicalName": "Planorbella duryi",
+    "family": "Planorbidae",
+    "genus": "Planorbella",
     "matchType": "EXACT"
   },
   "Plata drainages": null,
@@ -16963,6 +17059,8 @@
     "genus": "Raiamas",
     "matchType": "EXACT"
   },
+  "Ram electric": null,
+  "Ramirezi electric": null,
   "Ranga has": null,
   "Ranunculus inundatus": {
     "canonicalName": "Ranunculus inundatus",
@@ -17680,6 +17778,13 @@
     "matchType": "EXACT"
   },
   "Salvador thu": null,
+  "Salvelinus alpinus": {
+    "canonicalName": "Salvelinus alpinus",
+    "order": "Salmoniformes",
+    "family": "Salmonidae",
+    "genus": "Salvelinus",
+    "matchType": "EXACT"
+  },
   "Salween located": null,
   "San martin": null,
   "Sanchezi para": null,
@@ -18336,6 +18441,13 @@
     "matchType": "EXACT"
   },
   "Sitzungsberichte der": null,
+  "Skiffia multipunctata": {
+    "canonicalName": "Skiffia multipunctata",
+    "order": "Cyprinodontiformes",
+    "family": "Goodeidae",
+    "genus": "Skiffia",
+    "matchType": "EXACT"
+  },
   "Soi xong": null,
   "Somileptes gongota": {
     "canonicalName": "Canthophrys gongota",
@@ -18534,6 +18646,13 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Sturisoma",
+    "matchType": "EXACT"
+  },
+  "Sturisoma panamense": {
+    "canonicalName": "Sturisomatichthys panamense",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Sturisomatichthys",
     "matchType": "EXACT"
   },
   "Sturisoma robustum": {

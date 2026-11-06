@@ -13,6 +13,82 @@
     "liberia",
     "saint-john"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SL",
+        "GN",
+        "LR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The African butterfly cichlid, Anomalochromis thomasi, is a dwarf cichlid from forest streams in Sierra Leone, Guinea and Liberia.",
+          "countries": [
+            "SL",
+            "GN",
+            "LR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372864,
+      "total": 13,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "SL",
+          9
+        ],
+        [
+          "GN",
+          3
+        ],
+        [
+          "LR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -12.65625,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -12.65625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

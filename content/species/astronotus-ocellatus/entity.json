@@ -41,11 +41,53 @@
       "regions": [
         "Amazon",
         "Orinoco",
+        "Negro",
+        "Madeira",
         "Solimões",
-        "Negro"
+        "Ucayali"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "sprucepets"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed in the Amazon region and has been recorded in Colombia, Venezuela, Bolivia, Ecuador, Peru, Brazil, French Guiana, Paraguay, Uruguay and Argentina.",
+          "countries": [
+            "CO",
+            "VE",
+            "BO",
+            "EC",
+            "PE",
+            "BR",
+            "GF",
+            "PY",
+            "UY",
+            "AR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
+          "countries": [],
+          "regions": [
+            "Negro",
+            "Madeira",
+            "Solimões",
+            "Ucayali"
+          ]
+        }
       ]
     },
     "records": {

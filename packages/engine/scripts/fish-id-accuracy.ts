@@ -19,6 +19,17 @@
  * (3: the Worker's 4 calls; 2: one search and one look, then the answer). --agent-only: the agent's rows only, not
  * today's call again (write it with --out, then put it beside the full run's).
  *
+ * --photo <file> (repeatable): instead of the 200, a reader's photo kept on this machine, run through the agent as the
+ * Worker runs it (its limits, the facts the build writes, every language's names), every step printed: what it searched,
+ * the pages it opened, each turn's tool calls and text, its answer and the pages it links. --expect <scientific name or
+ * page id>: says whether the answer has it first or in its top three. --box x,y,w,h: the part of the photo the reader
+ * boxed, as fractions of its width and height. --runs <n>: each photo n times (the same photo can be answered
+ * differently). --effort low|medium|high: the agent's effort (the Worker's: low). Nothing is written.
+ * --genera Betta,Corydoras,…: instead of the usual sample, species of these genera only, at random: the look-alikes of
+ * a big genus, which the usual sample (popular fish first) has few of.
+ *
+ *   … --photo ~/Desktop/fish.jpg --expect "Betta macrostoma" --runs 3
+ *
  * Keys: ~/.config/aquatome/anthropic-keys (or --keys), the Worker's ANTHROPIC_KEYS format: one per line, `<key>` or
  * `<key> <workspaceId>`. Never printed: the report and the log name a key by its hash only. Writes
  * docs/review/fish-id-accuracy.md (a dry run: /tmp/fish-id-accuracy.dry-run.md), results only.
@@ -31,11 +42,13 @@ import sharp from 'sharp'
 import { loadAll, type Photo } from '@aq/schema'
 import { smallSrc } from '../../../apps/site/src/lib/img'
 import { identifyWithAgent, type AgentOutcome } from '../../../apps/site/worker/fishid/agent'
-import { askClaude, costOf, readAnswer, type Answer } from '../../../apps/site/worker/fishid/claude'
+import { askClaude, costOf, DEFAULT_MODEL, readAnswer, type Answer } from '../../../apps/site/worker/fishid/claude'
 import { buildCatalog, type Catalog, type CatalogEntry } from '../../../apps/site/worker/fishid/catalog'
 import { buildFacts, type Facts } from '../../../apps/site/worker/fishid/facts'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { matchGuesses, type Result } from '../../../apps/site/worker/fishid/match'
+import { pageOf as pageOfKey } from '../../../apps/site/worker/fishid/agent-tools'
+import { LANGS } from '@aq/schema/langs'
 import { JPEG_QUALITY, MAX_SIDE } from '../../../apps/site/worker/fishid/photo'
 import { popularityOrder } from '../src/depth'
 import { popularFirst } from '../src/shops'
@@ -43,7 +56,7 @@ import { popularFirst } from '../src/shops'
 const ROOT = join(import.meta.dirname, '../../..')
 const { values: args } = parseArgs({
   options: {
-    models: { type: 'string', default: 'claude-haiku-5-5,claude-sonnet-5-5,claude-opus-5-5' },
+    models: { type: 'string' },
     n: { type: 'string', default: '200' },
     seed: { type: 'string', default: '1' },
     concurrency: { type: 'string', default: '4' },
@@ -53,10 +66,19 @@ const { values: args } = parseArgs({
     'agent-only': { type: 'boolean', default: false },
     'max-turns': { type: 'string', default: '3' },
     'dry-run': { type: 'boolean', default: false },
+    photo: { type: 'string', multiple: true },
+    expect: { type: 'string' },
+    box: { type: 'string' },
+    runs: { type: 'string', default: '1' },
+    effort: { type: 'string', default: 'low' },
+    genera: { type: 'string' },
   },
 })
+/** --genera: species of these genera only, at random (the seed's), for the look-alikes of a big genus. */
+const GENERA = new Set((args.genera ?? '').split(',').map(g => g.trim().toLowerCase()).filter(Boolean))
+const EFFORT = (['low', 'medium', 'high'] as const).find(e => e === args.effort) ?? 'low'
 const DRY = args['dry-run']
-const MODELS = args.models!.split(',').map(s => s.trim()).filter(Boolean)
+const MODELS = (args.models ?? (args.photo?.length ? DEFAULT_MODEL : 'claude-haiku-5-5,claude-sonnet-5-5,claude-opus-5-5')).split(',').map(s => s.trim()).filter(Boolean)
 const N = Number(args.n)
 const SEED = Number(args.seed)
 const OUT = args.out ?? (DRY ? '/tmp/fish-id-accuracy.dry-run.md' : join(ROOT, 'docs/review/fish-id-accuracy.md'))
@@ -104,6 +126,12 @@ async function pickPhotos(catalog: Catalog): Promise<Sample[]> {
   }
   const out: Sample[] = []
   const take = (s: Sample, why: Sample['why']) => { if (out.length < N && pages.delete(s.id)) out.push({ ...s, why }) }
+  if (GENERA.size) {
+    const genusOf = (id: string) => catalog.entries.find(e => e.id === id)?.sci?.split(' ')[0]?.toLowerCase() ?? ''
+    const pool = [...pages.values()].filter(s => s.kind === 'species' && GENERA.has(genusOf(s.id)))
+    while (out.length < N && pool.length) take(pool.splice(Math.floor(random() * pool.length), 1)[0]!, 'random')
+    return out
+  }
   // Breeds up to a quarter of the sample, popular species to half of it, then the spread.
   for (const s of [...pages.values()].filter(s => s.kind === 'breed').slice(0, Math.floor(N / 4))) take(s, 'breed')
   let popular = 0
@@ -159,7 +187,76 @@ const median = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); retu
 const pct = (n: number, d: number) => (d ? `${((100 * n) / d).toFixed(1)}%` : '–')
 const cell = (s: string) => s.replace(/\|/g, '\\|').replace(/\n/g, ' ')
 
+/** A reader's photo from this machine as the page sends it: the boxed part (x,y,w,h as fractions), at most 1024 px, JPEG. */
+async function prepareFile(path: string, box?: string): Promise<string> {
+  let img = sharp(await readFile(path)).rotate()
+  if (box) {
+    const [x, y, w, h] = box.split(',').map(Number)
+    const { width = 0, height = 0 } = await sharp(await img.toBuffer()).metadata()
+    img = sharp(await img.toBuffer()).extract({ left: Math.round(x! * width), top: Math.round(y! * height), width: Math.round(w! * width), height: Math.round(h! * height) })
+  }
+  return (await img.resize({ width: MAX_SIDE, height: MAX_SIDE, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: Math.round(JPEG_QUALITY * 100) }).toBuffer()).toString('base64')
+}
+
+/** A fetch that prints each of the agent's turns as it comes back: its tool calls and its text, cut short. */
+const tracing = (label: string): typeof fetch => (async (input: RequestInfo | URL, init?: RequestInit) => {
+  const r = await fetch(input, init)
+  type Block = { type: string; name?: string; input?: unknown; text?: string; thinking?: string }
+  const m = (await r.clone().json().catch(() => null)) as { content?: Block[] } | null
+  for (const b of m?.content ?? []) {
+    if (b.type === 'tool_use') console.log(`  ${label} → ${b.name} ${JSON.stringify(b.input)}`)
+    else if (b.type === 'text' && b.text) console.log(`  ${label} text: ${b.text.slice(0, 1200)}`)
+    else if (b.type === 'thinking' && b.thinking) console.log(`  ${label} thinking: ${b.thinking.replace(/\s+/g, ' ').slice(0, 600)}`)
+  }
+  return r
+}) as typeof fetch
+
+/** --photo: each file through the agent as the Worker runs it, printed step by step (see the top). */
+async function photoMode(files: string[]) {
+  const langs = await Promise.all(LANGS.map(async lang => ({ lang, pages: await loadAll({ root: join(ROOT, 'content'), lang, publicBuild: true }) })))
+  const vi = langs.find(l => l.lang === 'vi')!.pages
+  const catalog = buildCatalog(langs.map(l => ({ lang: l.lang, pages: l.pages, at: (p: string) => p })), p => p.url)
+  const facts = new Map(buildFacts(catalog, vi, smallSrc, { gallery: id => vi.galleries[id] ?? [] }).map(f => [f.id, f] as [string, Facts]))
+  const want = args.expect ? pageOfKey(catalog, args.expect) : undefined
+  if (args.expect && !want) console.log(`--expect ${args.expect}: no page in the handbook by that name or id`)
+  const { keys } = await loadKeys(await readFile(args.keys!, 'utf8').catch(() => ''))
+  if (!keys.length) { console.error(`No key in ${args.keys}`); process.exit(1) }
+  const store = memoryHealth()
+  const tally = { runs: 0, top1: 0, top3: 0, usd: 0 }
+  for (const file of files) {
+    const data = await prepareFile(file, args.box)
+    for (const model of MODELS) {
+      for (let run = 1; run <= Number(args.runs); run++) {
+        const label = `${file.split('/').pop()} #${run}`
+        console.log(`\n${label}: ${model}, effort ${EFFORT}${args.box ? `, box ${args.box}` : ''}`)
+        const t = Date.now()
+        const a = await identifyWithAgent({
+          healthy: await healthyKeys(keys, store, Date.now()), store, photo: { data, type: 'image/jpeg' }, model, lang: 'vi', fetch: tracing(label), effort: EFFORT,
+          tools: { catalog, facts: async id => facts.get(id) },
+          onStep: s => console.log(`  ${label} step: ${s.kind === 'search' ? `search "${s.query}"` : `open ${s.page.id}`}`),
+        })
+        const cost = costOf(model, a.spent)
+        tally.runs++; tally.usd += cost
+        console.log(`  ${label}: ${a.calls} calls, ${a.tools} tools, ${a.photos} reference photos, stopped ${a.stopped}${a.rechecked ? ', rechecked' : ''}, ${((Date.now() - t) / 1000).toFixed(1)} s, $${cost.toFixed(3)}`)
+        if (!a.ok) { console.log(`  ${label}: failed (${a.reason})`); continue }
+        const answer = readAnswer(a.message)
+        if (answer.refused) { console.log(`  ${label}: refused`); continue }
+        const results = matchGuesses(answer.id.guesses, catalog, 'vi')
+        answer.id.guesses.forEach((g, i) => console.log(`  ${label} guess ${i + 1}: ${g.scientificName}${g.variety ? ` (${g.variety})` : ''} ${g.confidence.toFixed(2)} → ${results[i]?.page?.id ?? '—'}: ${g.reason}`))
+        if (want) {
+          const at = results.findIndex(r => r.page?.id === want.id)
+          if (at === 0) tally.top1++
+          if (at >= 0) tally.top3++
+          console.log(`  ${label}: ${want.sci ?? want.id} ${at === 0 ? 'first' : at > 0 ? `guess ${at + 1}` : 'missed'}`)
+        }
+      }
+    }
+  }
+  console.log(`\n${tally.runs} runs${want ? `, ${want.sci ?? want.id}: first in ${tally.top1}, top three in ${tally.top3}` : ''}, $${tally.usd.toFixed(2)} spent`)
+}
+
 async function main() {
+  if (args.photo?.length) return photoMode(args.photo)
   const content = await loadAll({ root: join(ROOT, 'content'), lang: 'vi', publicBuild: true })
   const catalog = buildCatalog([{ lang: 'vi', pages: content, at: p => p }], p => p.url)
   const byId = new Map(catalog.entries.map(e => [e.id, e]))
@@ -211,7 +308,7 @@ async function main() {
         const t = Date.now()
         if (mode.turns) {
           const a = await identifyWithAgent({
-            healthy, store, photo: { data, type: 'image/jpeg' }, model, lang: 'vi', fetch: fake, limits: { calls: mode.turns + 1 },
+            healthy, store, photo: { data, type: 'image/jpeg' }, model, lang: 'vi', fetch: fake, limits: { calls: mode.turns + 1 }, effort: EFFORT,
             tools: { catalog, facts: async id => facts.get(id), exclude: leaks(sample) },
           }).catch((e: Error) => e)
           const ms = Date.now() - t

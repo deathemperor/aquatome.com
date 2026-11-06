@@ -1,6 +1,6 @@
 import { parse } from 'node-html-parser'
 import { slugify } from '@aq/schema/slug'
-import type { Content, GuideEntity, Localized, Photo, PictureSet, Series } from '@aq/schema'
+import { THUMB_WIDTH, thumbOf, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type Series } from '@aq/schema'
 import { translator, type Lang } from './i18n'
 import { photoMark } from './cite'
 
@@ -57,6 +57,16 @@ export function homeVideos(c: Content, n = 4): VideoGuide[] {
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
 /**
+ * A still the video's own frame (1200 px) also has its 480 px copy. The stills' grid (pages/huong-dan/[slug].astro, columns
+ * of 11rem or more in the text's width, the window's less 3rem): one a row below 412 px, two below 600 px, then three of
+ * at most 14rem. A storyboard tile (320 px or less) is drawn as it is.
+ */
+function stillSrcset(m: { url: string; width: number }): string {
+  const small = m.width > THUMB_WIDTH ? thumbOf(m.url) : undefined
+  return small ? ` srcset="${esc(small)} ${THUMB_WIDTH}w, ${esc(m.url)} ${m.width}w" sizes="(max-width: 411px) calc(100vw - 3rem), (max-width: 599px) calc(50vw - 1.875rem), 14rem"` : ''
+}
+
+/**
  * Each section's pictures after its first paragraph (or list): the open-licence photo, then stills from the video
  * whose buttons play the video from that moment (VideoPlayer's click handler).
  */
@@ -75,7 +85,7 @@ export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity[
       ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')}${photoMark(lang, f.photo)}</figcaption></figure>`
       : ''
     const moments = f.moments.length
-      ? `<div class="moments"><p class="mh">${t('Trong video')}</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">${t('Xem video từ')}</span> <img src="${esc(m.url)}" width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
+      ? `<div class="moments"><p class="mh">${t('Trong video')}</p><ul>${f.moments.map(m => `<li><button type="button" class="moment" data-t="${m.t}" data-vp-for="${esc(v.youtubeId)}"><span class="visually-hidden">${t('Xem video từ')}</span> <img src="${esc(m.url)}"${stillSrcset(m)} width="${m.width}" height="${m.height}" alt="" loading="lazy"> <span class="mt"><span aria-hidden="true">▶</span> ${clock(m.t)}</span> <span class="mc">${esc(m.caption)}</span></button></li>`).join('')}</ul></div>`
       : ''
     const after = h.nextElementSibling && ['P', 'UL', 'OL'].includes(h.nextElementSibling.tagName) ? h.nextElementSibling : h
     after.insertAdjacentHTML('afterend', `<div class="vfigs">${photo}${moments}</div>`)

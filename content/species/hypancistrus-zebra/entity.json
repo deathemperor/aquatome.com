@@ -8,9 +8,35 @@
   "lNumber": "L 46",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "xingu"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -19,10 +45,64 @@
       "html": "<ul><li>Origin: Brazil</li><li>Name: Hypancistrus zebra</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<ul><li>Common names: Zebra Pleco, L046</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>There are different views on whether L173 is a valid, different species that looks similar. It is not uncommon for some L173 to go through a developmental stage where they look like zebras to the untrained eye, but for those who know and work with both fish, there is a clear difference. L173 all have gold-rimmed eyes, whereas zebras never do, and L173 also gets much bigger than the zebra.</p><p>Since December 2004 the exportation of H. zebra has been forbidden.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Brazil: downstream of the Volta Grande (Big Bend) of the Xingu.</p><p>Hypancistrus zebra is endemic to Brazil, occurring in the Volta Grande region of the Xingu River, in the state of Pará. The main threat was excessive harvesting for the international ornamental fish trade, which led to the species being classified as Vulnerable in 2004. With the ban on the capture of this species, there has been an apparent recovery of the population, with specimens frequently observed in their natural environment, despite illegal fishing of specimens smuggled to Colombia, from where they are regularly exported. Currently, the main threat to the species is the construction of the Belo Monte Hydroelectric Power Plant. The known area of occurrence of the species is 392 km² and is entirely included in the area directly affected by this plant, which covers 407 km². Considering the construction of the Belo Monte plant, in a 10-year projection, given that the estimated generation time for the species is 2.5 years, a population reduction of over 80% can be inferred, with a very high risk of extinction, categorizing Hypancistrus zebra as Critically Endangered (CR) under criterion A3c (IUCN 2023).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>They are quite tolerant of water conditions as long as the water is kept clean and warm and water changes are kept up. A good tip when first buying them is to acclimatise them in a smaller tank before transferring them to the main aquarium; this way you can make sure that they are feeding well and are happy in the water conditions. You can decorate this tank with cave-like structures akin to the home where it will eventually reside.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Temperature: 26-28°C. pH: 6.0-7.0. The water should be well oxygenated owing to the higher temperatures that are best given to them.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Keeping the Zebra Pleco in the aquarium is not too much of a problem as long as you give them plenty of hiding places: caves, rounded boulders, plant pots and pipework. You could also add some wood to their tank, but according to some aquarists who have kept this species, it isn't totally necessary.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Not a true vegetarian, so more meaty foods need to be fed. This includes live bloodworm, frozen foods such as mussel, tubifex and bloodworm, and the usual tablet foods.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_zebra_l_46_double_tailfin_en/",
       "html": "<p>November 2006: At present we can offer, beside normal German-bred zebras (surely the most in-demand of all L-numbers), an individual with a doubled lower caudal fin. This change of the fin is probably due to a disturbance in the embryonic development. If someone hopes to breed a strain of \"veil-tailed zebras\" with this fish, it will probably end in disappointment. Nevertheless: absolutely unusual, a rarity among the L-numbers.</p><p>(Photo F. Schäfer, Text K. Diehl)</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Etymology: the specific name zebra refers to the stripes.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypancistrus zebra. The IUCN Red List of Threatened Species 2022. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. ScotCat Factsheet no. 56. Feb. 2001. twotankamin: per comm.</p>"
     }
   ],
   "photos": [
@@ -72,26 +152,72 @@
     },
     {
       "url": "https://media.aquatome.com/commons/c5a4aaa7cc784c54.webp",
+      "thumb": "https://media.aquatome.com/commons/c5a4aaa7cc784c54-480.webp",
       "width": 960,
       "height": 708,
       "licence": "CC BY-SA 3.0",
       "author": "Birger A",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypancistrus_zebra4305.jpg",
-      "caption": "Ungfisk av L-046 (Hypancistrus zebra) - Juvenile L-046 (Hypancistrus zebra)",
-      "thumb": "https://media.aquatome.com/commons/c5a4aaa7cc784c54-480.webp"
+      "caption": "Ungfisk av L-046 (Hypancistrus zebra) - Juvenile L-046 (Hypancistrus zebra)"
     },
     {
       "url": "https://media.aquatome.com/commons/5389c4a80616531b.webp",
+      "thumb": "https://media.aquatome.com/commons/5389c4a80616531b-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Peaceinpianos",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypancistrus_Zebra_Pleco_Juvenile.jpg",
-      "caption": "Captive bred juvenile Hypancistrus Zebra",
-      "thumb": "https://media.aquatome.com/commons/5389c4a80616531b-480.webp"
+      "caption": "Captive bred juvenile Hypancistrus Zebra"
     }
   ],
-  "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-05"
+  "videos": [
+    {
+      "youtubeId": "t6xLJXz3uYc",
+      "title": "How to Breed Zebra Plecos | L046 Zebra Pleco Breeding & Caring Guide | Serendib Aquatics",
+      "durationSec": 935,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8zdEP8CjfWE",
+      "title": "Zebra Plecos are easy to keep.. so I'm getting more! 🤭 - Update on Max the Zebra Pleco & Final Setup",
+      "durationSec": 1207,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "-ZoEzmJ9sDg",
+      "title": "Zebra Pleco - Hypancistrus Zebra - Freshwater Plecostomus Aquarium Fish Profile & Care Guide",
+      "durationSec": 329,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YKs8AUSzCBw",
+      "title": "Habitat natural e aquário biótopo de Hypancistrus zebra (L46)",
+      "durationSec": 245,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá pleco",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
 }

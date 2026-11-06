@@ -10,6 +10,54 @@
     "turkey",
     "k-z-l"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [
+        "Kızıl",
+        "Yeşil",
+        "Seyhan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Danford's toothcarp, Anatolichthys danfordii, is endemic to Turkey, in the middle and lower Kızıl, lower Yeşil and upper Seyhan river systems.",
+          "countries": [
+            "TR"
+          ],
+          "regions": [
+            "Kızıl",
+            "Yeşil",
+            "Seyhan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11684109,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          35.15625,
+          37.96875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

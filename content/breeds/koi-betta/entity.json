@@ -73,6 +73,32 @@
           "max": 20
         }
       }
+    ],
+    "difficulty": [
+      {
+        "source": 7,
+        "value": 4
+      },
+      {
+        "source": 8,
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 7,
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 2,
+          "max": 3
+        }
+      }
     ]
   },
   "photos": [
@@ -129,6 +155,18 @@
       "title": "Galaxy Koi Betta Strain Care Guide: Marble Pattern Heritage – gensou.sg",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/koi-betta",
+      "title": "Koi Betta Care Guide & Species Profile – Fishkeeping World",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://www.tankarium.com/koi-betta/",
+      "title": "Koi betta – Tankarium",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

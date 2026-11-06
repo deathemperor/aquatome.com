@@ -307,6 +307,26 @@ The layers above still check the result.
 
 - **Reviewed writing.** Each translation or guide is scored by a second model call against its source. A low score gets
   one rewrite with the notes; still low, the page is published but kept out of search (`quality.indexable`).
+  - **Every review leaves its trace** (`packages/engine/src/review-log.ts`): its kind, the page, its language, the date,
+    the reviewer's model, the score, the notes, which attempt (the first version, the rewrite, or a recheck of the page
+    as it is) and whether that version is the one on the page, in `engine-state/reviews/<kind>.json`. A page's newest
+    6 are kept, newest first. One key a page (and source, for a species' text from each), and each kind is one step's,
+    so the engine's parts and the video job never change one key and the files merge through the jsonmap driver.
+    Wired into every reviewer: video guides, source translations, the style rewrite, the reader's rewrites, title
+    rewrites, breed pages, AquaTome's guides, product pages and their review summaries, quick summaries, and the
+    Indonesian and Thai species, plant, glossary, place and equipment pages. The photo checks keep their own verdicts.
+  - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
+    `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
+    run (under the bar, or any note for the pages checked against their research).
+  - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
+    each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
+    What prompt fixes start from.
+  - **Pages reviewed before traces were kept** get theirs from `pnpm engine review-backfill`: a recheck of the page as
+    it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (video guides in the video job, the
+    owner's videos first; Vietnamese translations per source, Indonesian and Thai pages and place names in the rewrite
+    part). A guide translated from a source keeps no English to check against: it gets its notes when it is next
+    translated. Found by the owner (2026-11-06): their video guide scored 0.60 and nobody could say why; 175 of 471
+    video guides were in the same state.
 - **Page depth.** A species page made only from a shop listing, a dealer's note or a stub is thin. It is published but
   kept out of search (`quality.indexable` false, `quality.reason: "thin"`) until it is deep (`packages/schema/src/depth.ts`):
   - **deep** means it has an in-depth source, or it reaches the bar on its own:
@@ -345,6 +365,15 @@ The layers above still check the result.
   number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
+- **A bred fish's difficulty and lifespan.** A breed's card gives how hard it is to keep (1–8) and how long it lives as
+  a species' does, from pages about that line or hybrid (its care sheets, breeders' pages), each figure cited, never
+  from a page about its species or a parent (`packages/engine/src/breeds.ts`). Its research asks for both, in the
+  species prompt's words, with one table from a source's words (easy 2, moderate 4…) or a rating out of 10 or 5 to the
+  1–8 scale; `pnpm engine breed-care` (each cycle, `BREED_CARE_LIMIT`) gives a breed whose card lacks either one
+  research call for just those, once: the figures join its card and the research kept for `--redo`, its new sources its
+  sources, nothing else on the page changes, and `engine-state/_breed-care.json` keeps what each call found, with the
+  words it quoted from the source, or why it found none. Found by the owner (2026-11-06): no breed page had a
+  difficulty.
 - **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
   - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
   - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
@@ -413,6 +442,17 @@ The layers above still check the result.
       captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
       by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
       said so and the verdict was "yes".
+  - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
+    YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
+    shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
+    `t<sec>-hd.webp` with its 480 px copy. A tile's second is its number × YouTube's interval (2, 5 or 10 s), not the
+    `t` written from yt-dlp's tiles ÷ duration, which runs up to 16 s early on a long video, often another scene.
+    - A frame that can't be had leaves the tile, and `pnpm engine video-stills` (the Mac's video job, 12 guides a run)
+      tries it again, as it does for the guides written before (2026-11-06: 3,682 stills, half of them 160 px).
+    - It screens a frame as a new guide's, before uploading it: a face takes the still off the page; text keeps the
+      old still's watermark verdict or goes to the model, and a watermark takes the still off and onto
+      `_photo-rejected.json`. A frame of another moment leaves the tile for good (`engine-state/_video-stills.json`).
+    - Found by the owner (2026-11-06): the stills looked blurry and low-res, most of all on a computer.
   - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
     page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page
     or in the app's copy says "with permission" (owner, 2026-11-05; `apps/site/test/photo-permission.test.ts`). The
@@ -696,6 +736,7 @@ fixed forward first, in a PR of its own. Android
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
 | **Account client** (`AccountSync`) against `FakeAccounts`, the accounts server in process, and the contracts `protocols/accounts.openapi.json`, `protocols/talk.openapi.json` (a reader's comment and photo posted as the account, another's reported) and `protocols/fishid.openapi.json` (a photo identified as the account; the stand-in's every answer held to the contract's shape, as the site's tests hold the Worker's) | a fish-ID photo sent without the bearer, with an Origin or a Turnstile token, larger than the site's (1024 px, JPEG 0.85) or with its location or camera data, a box cut from the shrunk photo or from the photo as stored rather than as shown, an answer or refusal misread (the account's day, the site's day), our own copies not marked, a post without the fields its contract takes or with a Turnstile token, a report not sent as the account (or, signed out, as the site's page), an answer to it misread (a 404 that isn't the report's own taken as received), a block that stops holding once the site says who posted, a photo's consent sent when the reader gave none, a file part without its filename and type, a name or comment the Worker refuses unread let through (its lengths in UTF-16 units), a photo sent with its location or camera data or larger than the site's, an answer its contract gives a post misread, requests the server would refuse (a path or method not in the contract, a cookie or Origin, no JSON body, no `client: "app"`), a merge that lets a fast clock win or loses a change made during a sync, a Google sign-in Google would refuse (another client or redirect, no PKCE, a code exchanged without its verifier) or one that takes another sign-in's answer (its `state`), a refused record lost, an old session left open, busy not retried, a passkey answer the server's WebAuthn check would refuse (id and rawId differ, padded base64, another origin, a user handle that isn't the account's, a challenge used twice), a new passkey it would refuse (another origin, another account's challenge, one used twice, a passkey an account has) or take more than 10 minutes after a sign-in | same |
 | **Plugs** (`Plugs`): `TuyaPlugs` against `FakeTuya`, Tuya's cloud as its docs describe it (signatures checked, Tuya's two worked examples), and `PlugBoard` over it | a request Tuya would refuse, a token not kept or not replaced, a page of devices missed, the indicator light taken for an outlet, a switch that toggles, is sent twice, retried or queued, or goes to a plug listed offline, a state shown as asked instead of as the plug reported, an unconfirmed or lost switch not read again or read more than once, an older list answer putting an old state back, an expired trial or wrong keys not told apart, a plug record that keeps state or loses a newer client's keys, a strip's timers misread (a disabled one, one that switches on, or one that ran once on a day gone, taken for one that cuts the power; a zone told apart by its name rather than its time), read more than once while a light's card is open, a failed read not said, an outlet assumed for a light rather than picked, another maker's plug offered for one | same |
+| **Telemetry** (`Telemetry`) against `FakeCollector`, the Worker's endpoints in process, and the contract `protocols/app-telemetry.openapi.json` (sample batches and reports checked against its schema, and the app's own rules for what it sends against what the schema takes) | an event, batch or report the Worker would drop or refuse (a field it doesn't list, a mark, path, code or link out of its patterns, an envelope out of range), the app and the contract disagreeing on what may be sent, a field the privacy policy doesn't list (the field audit), a message or name sent where a code goes (a kind outside the app's fixed list, a refusal code outside the site's), a search's words in a path, an iOS report carrying more than the policy names (the region, low power mode, free text such as an exception's message, network, location, display, GPU or disk measures, other diagnostics, a field MetricKit doesn't write at any depth, a field of another shape) or sent with nothing in it, anything sent or written before the site's flag or with the reader's switch off, a request sent after a switch went off (on then off at once, or off while the queue is being sent), a queue that outlives the switch going off, batches over 100 or a queue over 500 (the oldest not dropped first), a retry before its wait, a refused batch retried, a batch sent under another session's id | same |
 | **Pages on the phone** (`PageCache`, `KeptPictures`, `HandbookPaths`), with the site stood in for | a guide read once not opening offline, a kept copy shown without the newer one read for next time (or read more than once a run), a page newer than its kept shard opened on the web, a kept shard of another shard count or one this app can't read used, a shelf's guide listed as kept before it and its pictures are whole, a stop that lets a guide on the list or reads further shards, a removal that deletes a shard or picture a kept guide still needs, kept pictures that don't outlast the run, a page kept, saved or read under "/vi/" lost or not opening offline once the index has the Vietnamese pages at the root (or back), a move of the kept shards cut short losing a page or not tried again, a link in either form not opening the app's screen for it | same |
 | **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working, by flow class: "UI flows, by class" under this table | `xcodebuild test` (jobs `app`, `handbook` for the handbook's flows and a tank's fish, plants, guides and tank-mates check, and `lights` for the light flows, each in two halves, on runners side by side, two at a time on the repository's own Mac (apps/ios/README.md); a test that hangs is stopped after ten minutes; on a pull request, the smoke set (ten flows across the main journeys), the classes of the flow files it edits and the page shots when its change can reach the pages, as `apps/ios/scripts/flows-to-run.py` decides, each job skipped when it has none; every flow on main after merges (a run that started is never cancelled; of those waiting, only the newest is kept, and it covers every merge since), every night on main, by hand, on a pull request labelled `ios-full`, and on one that changes `ios.yml`, the scripts that pick and run the flows or the flows' shared code); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `perf`, on every ready PR) |
@@ -737,6 +778,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 - `TankLifeFlowTests`: a fish put on a tank from under its name on its page, not from the bar (starting at its school size; one already there gets the new number), a plant put on a new tank, a fish added from the tank in the handbook's list, its number changed and a plant taken off, kept after a relaunch, the guides naming a tank's fish listed on it and opening, the video guides apart.
 
 - `TanksFlowTests`: add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a tank's fish and plants opening their pages, a store from a newer app or one it can't read left alone, adding again after a failed save.
+
+- `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, also from Bể của tôi with no tanks, signed out.
 
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 

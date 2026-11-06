@@ -1,0 +1,66 @@
+{
+  "id": "anatolichthys-danfordii",
+  "native": {
+    "input": "ea3c363d57e4bc7a",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Danford's toothcarp, Anatolichthys danfordii, is endemic to Turkey, in the middle and lower Kızıl, lower Yeşil and upper Seyhan river systems.",
+        "words": "Turkey",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kızıl",
+        "source": "seriouslyfish",
+        "quote": "Danford's toothcarp, Anatolichthys danfordii, is endemic to Turkey, in the middle and lower Kızıl, lower Yeşil and upper Seyhan river systems.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Yeşil",
+        "source": "seriouslyfish",
+        "quote": "Danford's toothcarp, Anatolichthys danfordii, is endemic to Turkey, in the middle and lower Kızıl, lower Yeşil and upper Seyhan river systems.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Seyhan",
+        "source": "seriouslyfish",
+        "quote": "Danford's toothcarp, Anatolichthys danfordii, is endemic to Turkey, in the middle and lower Kızıl, lower Yeşil and upper Seyhan river systems.",
+        "country": "TR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anatolichthys danfordii",
+    "status": "ACCEPTED",
+    "taxonKey": 11684109,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "TR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

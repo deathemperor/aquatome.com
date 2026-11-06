@@ -1,0 +1,197 @@
+{
+  "id": "andinoacara-pulcher",
+  "native": {
+    "input": "a505e7692b7bce40",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blue acara, Andinoacara pulcher, is a cichlid native to Trinidad and Tobago and parts of Venezuela.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blue acara, Andinoacara pulcher, is a cichlid native to Trinidad and Tobago and parts of Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Trinidad and Tobago plus parts of Venezuela, and has been introduced in various other countries.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Trinidad and Tobago plus parts of Venezuela, and has been introduced in various other countries.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Andinoacara pulcher",
+    "status": "ACCEPTED",
+    "taxonKey": 7525430,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        461
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        113
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        106
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        55
+      ],
+      [
+        "640ae8b7-14b9-4188-894a-a2bc3821c752",
+        47
+      ],
+      [
+        "9cc67633-537a-4acc-8d37-92feeaddb2cd",
+        32
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        32
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        17
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        16
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        13
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        7
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        6
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        5
+      ],
+      [
+        "1e78dfef-d315-4347-8e25-53550cdce5fe",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "2196fd54-22a3-406e-8480-cbee25349024",
+        3
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "28965184-3e9f-432f-8898-780e9183d526",
+        1
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ]
+    ],
+    "native": [
+      "TT",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

@@ -8,7 +8,7 @@ import { rewriteVi } from '../src/vi-rewrite'
 
 const put = async (root: string, path: string, v: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(v)) }
 async function setup(before = 0.8) {
-  const root = await mkdtemp(join(tmpdir(), 'aq-rw-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-rw-')), 'content') // engine-state beside it, as in the repository
   const sec = (key: string, source: string) => ({ key, source, sourceUrl: `https://${source}/x`, html: `<p>${key} in English</p>` })
   await put(root, 'species/x/entity.json', { id: 'x', sections: [sec('habitat', 'seriouslyfish'), sec('diet', 'seriouslyfish'), sec('references', 'seriouslyfish'), sec('diet', 'glaser')] })
   await put(root, 'species/x/vi.json', { slug: 'ca-x', name: 'Cá X', sections: { 'habitat:seriouslyfish': '<p>cũ</p>', 'diet:seriouslyfish': '<p>cũ</p>', 'references:seriouslyfish': '<p>Ref</p>', 'diet:glaser': '<p>cũ</p>' }, quality: { score: before, indexable: before >= 0.75, bySource: { seriouslyfish: before, glaser: 0.9 } } })
@@ -75,7 +75,7 @@ test('a model failure stops the run and leaves the page for next time; --limit b
 test('a long source split into chunks scores as its weakest kept chunk, or its old score where a chunk was not kept', async () => {
   const big = 'x'.repeat(7000)
   const make = async (scores: number[]) => {
-    const root = await mkdtemp(join(tmpdir(), 'aq-rw-'))
+    const root = join(await mkdtemp(join(tmpdir(), 'aq-rw-')), 'content') // engine-state beside it, as in the repository
     await put(root, 'species/x/entity.json', { id: 'x', sections: ['habitat', 'diet'].map(key => ({ key, source: 'seriouslyfish', sourceUrl: 'u', html: `<p>${big}</p>` })) })
     await put(root, 'species/x/vi.json', { slug: 'x', name: 'X', sections: { 'habitat:seriouslyfish': '<p>cũ</p>', 'diet:seriouslyfish': '<p>cũ</p>' }, quality: { score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 } } })
     const queue = [...scores]

@@ -10,6 +10,38 @@
     "vietnam",
     "bo-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Bô River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Bô River, Thua Thien-Hue Province, central Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Bô River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962837,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

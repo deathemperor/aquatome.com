@@ -1,21 +1,33 @@
 ---
 import type { Photo } from '@aq/schema'
 import type { Breed } from '../lib/breeds'
+import { i18n } from '../lib/i18n'
+import { cardPhoto } from '../lib/list-data'
 import SpeciesCard from './SpeciesCard.astro'
 /**
  * Breeds as the species list's cards, in its grid. Its pictures must be in the page's credits (each breed's first photo).
  * `bare`: inside a container that already has margins. `eager`: cards that load at once (the list leads the page).
+ * `first`: the cards drawn (the fish list's). The rest wait in a <template>, each with its photo's credit, for the page's
+ * script to add (pages/ca/index.astro): so the page's size doesn't grow with the breeds. Only the drawn cards' photos go in
+ * the page's credits; the script credits the others as they join the page.
  */
 /** `photos`: each card's picture, as its page chose them (lib/pictures.ts). */
-interface Props { breeds: Breed[]; heading: string; bare?: boolean; eager?: number; photos?: (Photo | null)[] }
-const { breeds, heading, bare, eager = 0, photos } = Astro.props
+interface Props { breeds: Breed[]; heading: string; bare?: boolean; eager?: number; photos?: (Photo | null)[]; first?: number }
+const { breeds, heading, bare, eager = 0, photos, first = breeds.length } = Astro.props
+const { t } = i18n(Astro.url)
+/** A card's picture, as SpeciesCard picks it. */
+const photoOf = (i: number) => (photos?.[i] !== undefined ? photos[i] : breeds[i]!.photos[0])
 ---
 {breeds.length > 0 && (
   <section class:list={["breeds", { wrap: !bare }]} aria-labelledby="breeds-h">
     <h2 id="breeds-h">{heading}</h2>
     <ul>
-      {breeds.map((x, i) => <li><SpeciesCard breed={x} eager={i < eager} photo={photos?.[i]} /></li>)}
+      {breeds.slice(0, first).map((x, i) => <li><SpeciesCard breed={x} eager={i < eager} photo={photos?.[i]} /></li>)}
     </ul>
+    {breeds.length > first && <>
+      <template>{breeds.slice(first).map((x, i) => { const p = photoOf(first + i); return <li data-credit={p ? JSON.stringify(cardPhoto(p)) : undefined}><SpeciesCard breed={x} photo={photos?.[first + i]} /></li> })}</template>
+      <p class="more"><button type="button">{t('Xem tất cả {n} cá lai và dòng cá cảnh', { n: breeds.length })}</button></p>
+    </>}
   </section>
 )}
 <style>
@@ -24,4 +36,8 @@ const { breeds, heading, bare, eager = 0, photos } = Astro.props
   /* SpeciesGrid's grid, so the two lists' cards are one size. */
   ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
   @media (max-width: 520px) { ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-3); } }
+  /* The species list's "Xem thêm" (FilterResults). */
+  .more { text-align: center; margin: var(--space-6) 0 0; }
+  .more button { min-height: 48px; padding: 0 1.5rem; font: 600 1rem var(--f-body); background: var(--c-plate); color: var(--c-ink); border: 1px solid var(--c-ink); cursor: pointer; }
+  .more button:hover { background: var(--c-ink); color: var(--c-paper); }
 </style>

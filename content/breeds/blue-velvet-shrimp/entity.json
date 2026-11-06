@@ -94,6 +94,32 @@
         "source": 0,
         "value": 40
       }
+    ],
+    "difficulty": [
+      {
+        "source": 0,
+        "value": 2
+      },
+      {
+        "source": 2,
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 7,
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      },
+      {
+        "source": 8,
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      }
     ]
   },
   "photos": [
@@ -176,6 +202,18 @@
       "title": "Blue Velvet Shrimp Care, Information & Pictures",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.aquariumsource.com/blue-velvet-shrimp/",
+      "title": "Blue Velvet Shrimp Care: The Complete Guide",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://fishkeepingadvice.com/blue-velvet-shrimp-care/",
+      "title": "Blue Velvet Shrimp (Fishkeeping Advice)",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

@@ -1,8 +1,8 @@
 {
   "id": "poecilia-sphenops",
   "native": {
-    "input": "a2fa7d747d25d2a7",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "471cfbbdbafe9539",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "VE",
@@ -334,9 +334,5 @@
     ],
     "requests": 17,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

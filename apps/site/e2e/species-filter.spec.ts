@@ -66,3 +66,43 @@ test('the fish list names its species where the hybrids end', async ({ page }) =
   const breeds = page.locator('section.breeds')
   if (await breeds.count()) expect((await breeds.boundingBox())!.y).toBeLessThan(box.y)
 })
+
+// The breed cards past the first ones wait in a template until asked for. Drawn, all 33 took the fish list past
+// Lighthouse's 1,500 elements on a phone and every deploy failed (2026-11-06). The fixture has fewer breeds than that:
+// the rest is checked where there are more, on aquatome.com (watch.yml). Read from the page, so it holds on both.
+const BREEDS = 10
+test('the fish list draws its first breed cards; "Xem tất cả" adds the rest, credited, focus on the first one added', async ({ page, errors }) => {
+  await page.goto('/ca/')
+  const section = page.locator('section.breeds')
+  const cards = section.locator('ul > li')
+  const drawn = await cards.count()
+  const waiting = await section.evaluate(s => [...(s.querySelector('template')?.content.querySelectorAll('li') ?? [])]
+    .map(li => ({ name: li.querySelector('.n')!.textContent!, href: li.querySelector('a')!.getAttribute('href')!, url: li.dataset.credit && (JSON.parse(li.dataset.credit) as { url: string }).url })))
+  const total = drawn + waiting.length
+  expect(drawn, 'breed cards drawn').toBe(Math.min(total, BREEDS))
+  const more = section.getByRole('button', { name: `Xem tất cả ${total} cá lai và dòng cá cảnh` })
+  if (!waiting.length) {
+    await expect(more).toHaveCount(0)
+    return
+  }
+
+  const hrefs = await cards.locator('.sc > a').evaluateAll(as => as.map(a => a.getAttribute('href')!))
+  await more.click()
+  await expect(section.locator('ul > li:visible')).toHaveCount(total)
+  await expect(cards.nth(drawn).locator('.sc > a')).toBeFocused()
+  await expect(more).toBeHidden()
+  expect(await cards.locator('.sc > a').evaluateAll(as => as.map(a => a.getAttribute('href')!)), 'every breed, in order').toEqual([...hrefs, ...waiting.map(w => w.href)])
+  const credited = await page.locator('#photo-credits a').evaluateAll(as => as.map(a => a.getAttribute('href')))
+  for (const w of waiting) if (w.url) expect(credited, `${w.name}'s photo credited`).toContain(w.url)
+
+  // A filter reads every breed: a search finds one past the first cards. With no filter left, the list is as it was.
+  const last = waiting.at(-1)!
+  await page.goto(`/ca/?q=${encodeURIComponent(last.name)}`)
+  await expect(page.locator('#species-count')).toHaveText(/loài phù hợp|Không có loài nào/)
+  await expect(section.locator('ul > li:visible').filter({ hasText: last.name }).first()).toBeVisible()
+  await expect(more).toBeHidden()
+  await page.getByRole('button', { name: 'Xóa lọc' }).click()
+  await expect(section.locator('ul > li:visible')).toHaveCount(drawn)
+  await expect(more).toBeVisible()
+  expect(errors).toEqual([])
+})

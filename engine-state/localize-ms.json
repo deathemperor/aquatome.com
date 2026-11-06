@@ -37,6 +37,31 @@
       "Item 29: 'turquoise' rendered 'biru firus' fine; 'oren' fine. Item 21/22: 'Species with body shapes ... ' in 22 omits 'similar' mismatch: English says 'body shapes or trailing finnage' (to avoid), MS adds 'serupa' – an added qualifier that is not in the source."
     ]
   },
+  "danio-rerio": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Zebra danio",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 27: 'lebih gelap dan lebih terang warnanya' reads as contradictory for 'darker and more intensely coloured'. Use 'lebih gelap dan warnanya lebih pekat/ketara'.",
+      "Item 13: '10-gallon (40-litre)' became '38 liter', but the later '40-litre tank' stays 40. Use one figure for the same tank size across the text.",
+      "Item 31: 'ikan keli' for 'catfishes' normally means Clarias to a Malaysian reader. Use 'ikan berkumis (catfish)' or just 'catfish'.",
+      "Item 33: the 'cross-reared' sentence is clumsy ('ikan yang dibesarkan bersama ikan bercorak lain (cross-reared) lebih menyukai corak ikan yang membesar bersamanya'). Rephrase so it says fish prefer the pattern of the fish they were raised with.",
+      "Item 24: 'larva' sits beside 'anak ikan' for the same life stage. Use one term consistently."
+    ]
+  },
+  "mikrogeophagus-ramirezi": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Ram",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 3: \"dataran yang dinaiki air secara bermusim\" is slightly awkward; \"dataran yang dilanda banjir bermusim\" reads more naturally.",
+      "Item 11: \"diatributkan kepada\" is awkward; use \"dikaitkan dengan\" or \"dikreditkan kepada\"."
+    ]
+  },
   "neocaridina-davidi": {
     "at": "2026-11-06",
     "from": "2026-10-28",
@@ -125,6 +150,23 @@
       "Item 8: 'terkenal sebagai yang paling cantik' weakens 'legendarily most beautiful'. Consider 'dikatakan legenda sebagai yang paling cantik' or 'terkenal secara legenda sebagai yang paling cantik'."
     ]
   },
+  "symphysodon-discus": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Ikan Discus",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "#10: 'sirip dubur' for 'anal fin' is fine, but 'Jalur biru ... meliputi sirip dorsal dan sirip dubur' is OK; however 'sirip dorsal, sirip ventral dan sirip dubur' mixes English loan and Malay terms — use consistent 'sirip belakang/dorsal', 'sirip perut/ventral', 'sirip dubur'.",
+      "#4: 'ditanam dengan baik' is awkward/ambiguous for 'well planted' (tank with many plants); use 'ditanam dengan banyak tumbuhan' or 'berpenanaman tumbuhan yang baik'. Also 'tangki' vs 'akuarium' inconsistent, and 'penapisan yang baik' repeats 'baik'.",
+      "#4: 'Discus tidak suka perubahan ... semakin perlahan perubahan itu berlaku' is acceptable; but 'liter' should be 'liter/L' consistently (fine).",
+      "#6: 'flake' left in English; use 'makanan serpai kering (flake)'. 'Jika diberi makan flake kering sahaja' adds 'sahaja' (only), which slightly shifts 'On a diet of dry flake' - acceptable but 'makan daripada badan induk' should be 'makan daripada sisi badan induk'.",
+      "#5: 'akuarium bertumbuhan yang sudah lama stabil' is awkward for 'well-established planted aquarium'; use 'akuarium berumput/tumbuhan yang sudah matang (established)'.",
+      "#7: 'pada musim bertelur' for 'at spawning time' — 'semasa waktu bertelur' is more natural; 'Sangat aman' should be 'Sangat jinak/tidak agresif'.",
+      "#8: 'Pada musim bertelur' similarly; 'papila genital ... tirus' fine. 'roe (eggs)' simplified to 'telur' - fine.",
+      "#1: 'kekal sebagai tambahan yang cantik' is literal; 'remain a beautiful addition' better as 'tetap menjadi pilihan yang menarik'."
+    ]
+  },
   "trigonostigma-heteromorpha": {
     "at": "2026-11-06",
     "from": "2026-11-01",
@@ -142,6 +184,33 @@
       "Item 18: 'ikan keli' for 'catfishes' is misleading in Malaysia (keli means Clarias); use 'ikan duri/catfish' or 'ikan keli kecil (catfish)'.",
       "Item 23: 'kekerasan 1–5 °H' is awkward; use dGH. 'mengurat' for male courtship is colloquial; use 'mengurat' or 'pamer pasangan' more neutrally.",
       "Item 6: 'Rasbora ialah famili ikan air tawar sejati' – rasboras are not a family in the source's sense, but it follows the source, so no fix is needed."
+    ]
+  },
+  "xiphophorus-hellerii": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Swordtail",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"dari aras laut hingga kira-kira 1500 m dari aras laut\" is repetitive. Use \"dari aras laut hingga kira-kira 1500 m\".",
+      "Item 23: \"asid lemak perlu\" and \"asid amino perlu\" are non-standard. Use \"asid lemak/amino penting (esensial)\".",
+      "Item 3: \"Perangai: aman\" and \"Aras dalam tangki\" are acceptable but a little stiff. \"Sifat/Tingkah laku\" and \"Aras renang\" are more natural."
+    ]
+  },
+  "xiphophorus-maculatus": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Platy",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "#25: \"copulation usually takes place\" is rendered \"persenyawaan biasanya berlaku\" (fertilization). Use \"persetubuhan\" or \"kawin/mengawan\". Fertilization is a separate step, covered under \"Persenyawaan\".",
+      "#25: \"Mengurat\" for courtship is colloquial and sounds odd in a handbook. Use \"pertunangan/pemikatan\" or \"tingkah laku pemikat\".",
+      "#18: \"flake\" is left in English. Use \"makanan serpihan\" or \"flake (makanan serpihan)\". The same applies in #20 for \"Medaka ricefish\", which should be \"ikan medaka\".",
+      "#27: \"Famili: Poeciliidae; order: Cyprinodontiformes\" mixes English and Malay. Use \"Order\" consistently, or \"Famili ... ; Order ...\" in the same style.",
+      "#20: \"pameran sisi\" for \"lateral displays\" is stiff. Use \"paparan sisi\" or \"menunjuk-nunjuk dari sisi\".",
+      "#18: \"Ikan ini aktif pada waktu siang\" is fine. However, \"makanan ikan komersial\" and \"mengutip makanan\" are slightly awkward. Use \"makanan komersial\" and \"mengambil makanan\"."
     ]
   }
 }
