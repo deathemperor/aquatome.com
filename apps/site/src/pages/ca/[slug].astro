@@ -92,7 +92,9 @@ const alternates = await alternatesOf('species', s.id)
   </header>
   <JumpChips items={chips} drop={['#muc-reproduction', '#gal-h']} />
 
-  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }}>
+  {/* "Thông tin nhanh" folds on a phone, where the key facts and the summary above already give most of it: the first
+      care question within three screens. */}
+  <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} fold={['quickFacts']}>
     {vn && <VnClimate slot="waterConditions" card={s.dataCard} />}
     {showMates ? <Companions slot="behaviour" {...mates} tool={tool} /> : <p slot="behaviour" class="srcline mates-tool"><a href={tool}>{t('Kiểm tra nuôi chung với loài khác →')}</a></p>}
   </Sections>

@@ -79,6 +79,18 @@ describe('species page', () => {
     expect(items[0]!.text).toMatch(/^Nguồn gốc: Rio Negro, Brazil\d$/) // and its source's mark
     expect(page('/ca/ca-neon-xanh/').dom.querySelector('section[data-section="quickFacts"]')).toBeNull() // nothing but the card's
   })
+  // On aquatome.com "Thông tin nhanh" ran to 1.5 screens before the first care question, repeating the key facts and the
+  // summary: a phone folds it under its heading. Open in the HTML (search, the Markdown copy), its heading the section's.
+  test('quick facts fold under their heading, open in the HTML; the other sections don\'t', () => {
+    const fold = dom.querySelector('#muc-quickFacts > details.fold')!
+    expect(fold.hasAttribute('open')).toBe(true)
+    expect(fold.querySelector(':scope > summary > h2')?.text).toBe('Thông tin nhanh')
+    expect(fold.querySelector('.prose[data-source="glaser"]')).not.toBeNull()
+    expect(fold.nextElementSibling?.tagName).toBe('SCRIPT')
+    expect(dom.querySelectorAll('.body details.fold').length).toBe(1)
+    expect(dom.querySelector('#muc-waterConditions > h2')).not.toBeNull()
+    expect(page('/cay/ray-nana/').dom.querySelector('details.fold')).toBeNull()
+  })
   test('a block stating a figure the card shows otherwise says which source it follows, with both figures', () => {
     const note = dom.querySelector('section[data-section="waterConditions"] p.off')!
     expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 24–27°C).')

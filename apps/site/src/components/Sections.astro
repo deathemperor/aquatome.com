@@ -2,6 +2,7 @@
 import type { Range, SectionKey } from '@aq/schema'
 import GlossaryTip from './GlossaryTip.astro'
 import RangeBlock from './RangeBlock.astro'
+import PhoneFold from './PhoneFold.astro'
 import { getContent } from '../lib/content'
 import { figureHtml } from '../lib/figures'
 import { DISPLAY_ORDER, QUESTION_LABELS } from '../lib/sections'
@@ -13,8 +14,10 @@ import { i18n } from '../lib/i18n'
  * put together in lib/section-parts.ts, which the app's copy of the page reads too.
  * A slot named after a section (a species' tank mates under "behaviour", Vietnam's climate under "waterConditions") goes
  * at the end of that section, or where it would be when the page has none. The sources' own reference lists ("Tài liệu
- * tham khảo") go in the source list, which is one closed block after the text. */
-type Props = SectionProps
+ * tham khảo") go in the source list, which is one closed block after the text.
+ * `fold`: sections whose text a phone folds under their heading (PhoneFold.astro). */
+type Props = SectionProps & { fold?: SectionKey[] }
+const { fold = [] } = Astro.props
 // `t` is the entity's translation (a prop): the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
@@ -32,7 +35,8 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
     {wild && i === wildAt && <section data-section="range" id="muc-range"><h2>{wild.title}</h2><RangeBlock part={wild} /></section>}
     {sec !== biblio && (
       <section data-section={sec.key} id={`muc-${sec.key}`}>
-        <h2>{tr(QUESTION_LABELS[sec.key])}</h2>
+        <PhoneFold on={fold.includes(sec.key)}>
+        <h2 slot="head">{tr(QUESTION_LABELS[sec.key])}</h2>
         {sec.blocks.map(b => (<>
           {b.off.length > 0 && (
             <p class="off" data-source={b.source} data-pagefind-ignore>
@@ -48,6 +52,7 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
           )}
           <div class="prose" data-source={b.source} set:html={b.vi} />
         </>))}
+        </PhoneFold>
         {SLOTS.includes(sec.key) && <div class="slotted"><slot name={sec.key} /></div>}
       </section>
     )}
@@ -98,7 +103,9 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
   .refs summary:hover .n { color: var(--c-ink); }
   .refs .chev { position: absolute; right: var(--space-2); top: calc(50% - 8px); color: var(--c-ink-soft); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
   .refs details[open] .chev { transform: rotate(180deg); }
-  .refs details[open] > summary { margin-bottom: var(--space-3); }
+  .refs details[open] > summary { margin-bottom: var(--space-3); padding-bottom: var(--space-2); border-bottom: 1px solid var(--c-rule); }
+  /* The row's rule is the summary's, the width of the column, open only (handbook.css rules the heading, hence its weight). */
+  :global(:root:not(#_)) .refs summary h2 { border-bottom: 0; padding-bottom: 0; }
   .body .biblio { display: block; margin-top: var(--space-4); padding-bottom: 0; font-size: var(--step--1); color: var(--c-ink-soft); }
   .biblio h3 { font-size: var(--step-1); margin-bottom: var(--space-2); color: var(--c-ink); }
   .biblio .prose :global(p) { line-height: 1.6; overflow-wrap: anywhere; }
