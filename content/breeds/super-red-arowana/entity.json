@@ -68,6 +68,28 @@
         "value": 150,
         "hidden": "shorter than twice the fish (90 cm)"
       }
+    ],
+    "difficulty": [
+      {
+        "source": 9,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 10,
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      },
+      {
+        "source": 9,
+        "value": {
+          "min": 20,
+          "max": 20
+        }
+      }
     ]
   },
   "photos": [
@@ -166,6 +188,18 @@
       "title": "Preventing drop eye – MonsterFishKeepers",
       "kind": "forum",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/red-arowana",
+      "title": "Red Arowana Care Guide: A Fishkeeper's Crown Jewel? – Fishkeeping World",
+      "kind": "article",
+      "at": "2026-11-06"
+    },
+    {
+      "url": "https://theaquariumparadise.com/fishes/super-red-arowana",
+      "title": "super red arowana – The Aquarium Paradise",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

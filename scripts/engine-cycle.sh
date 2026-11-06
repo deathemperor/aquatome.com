@@ -182,6 +182,9 @@ if part rewrite; then
   # 60 a cycle (a Sonnet call each, about 12 GBIF requests each): the 1,458 species' maps in about 3 days, not 9
   # (owner, 2026-11-06: the maps weren't showing on the web yet; 60 had them).
   pnpm engine range --limit "${RANGE_LIMIT:-60}" --records "${RANGE_RECORDS:-60}" || log "range: failed"
+  # A bred fish's difficulty and lifespan from its own sources (breeds.ts breedCare): a breed whose card lacks either
+  # (one written by older code, or whose research found neither) gets one research call, once. No call once all are tried.
+  pnpm engine breed-care --limit "${BREED_CARE_LIMIT:-2}" || log "breed-care: failed"
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.

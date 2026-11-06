@@ -824,6 +824,21 @@ describe('man-made fish (breeds)', () => {
     expect(flowerhorn.querySelector('.label.none')!.textContent).toBe('Chưa có số liệu')
     expect(JSON.parse(flowerhorn.getAttribute('data-fig')!)).toEqual({})
   })
+  // The owner (2026-11-06): no bred fish's page said how hard it is to keep. Its own sources' figure, as a species'.
+  test("a breed's data card gives its difficulty (the word, N/8, why) and lifespan as a species' does, and its card on the fish list the difficulty the filter reads", () => {
+    const { dom } = page('/ca/ca-vang-oranda/')
+    const diff = dom.querySelector('.datacard .card [data-field="difficulty"]')!
+    expect(diff.querySelector('summary .diff')!.textContent).toBe('Dễ')
+    expect(diff.querySelector('summary .n')!.textContent).toBe('3/8')
+    expect(diff.querySelector('summary .q')!.textContent).toBe('Vì sao?')
+    expect(diff.querySelectorAll('.needs li[data-need]').map(li => li.getAttribute('data-need'))).toEqual(['space', 'water', 'temperature'])
+    expect(dom.querySelector('.datacard .card [data-field="lifeYears"] .v')!.textContent).toBe('10–15 năm')
+    expect(dom.querySelector('.trust [data-src-field="difficulty"]')!.textContent).toContain('Bài D')
+    expect(dom.querySelector('.trust [data-src-field="lifeYears"]')!.textContent).toContain('Trại cá vàng E')
+    const card = [...page('/ca/').dom.querySelectorAll('section.breeds .sc')].find(c => c.querySelector('.n')!.textContent === 'Cá vàng Oranda')!
+    expect(card.querySelector('.lvl .diff')!.textContent).toBe('Dễ')
+    expect(JSON.parse(card.getAttribute('data-fig')!)).toEqual({ tempC: { min: 18, max: 24 }, ph: { min: 6.5, max: 7.5 }, difficulty: 3 })
+  })
   test('on the species list the breed cards lead the page: small pictures, loaded at once', () => {
     const img = page('/ca/').dom.querySelector('section.breeds img')!
     expect(img.getAttribute('src')).toContain('&w=480&') // the lead's small copy: Unsplash's, at 480 px

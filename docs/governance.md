@@ -345,6 +345,15 @@ The layers above still check the result.
   number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
+- **A bred fish's difficulty and lifespan.** A breed's card gives how hard it is to keep (1–8) and how long it lives as
+  a species' does, from pages about that line or hybrid (its care sheets, breeders' pages), each figure cited, never
+  from a page about its species or a parent (`packages/engine/src/breeds.ts`). Its research asks for both, in the
+  species prompt's words, with one table from a source's words (easy 2, moderate 4…) or a rating out of 10 or 5 to the
+  1–8 scale; `pnpm engine breed-care` (each cycle, `BREED_CARE_LIMIT`) gives a breed whose card lacks either one
+  research call for just those, once: the figures join its card and the research kept for `--redo`, its new sources its
+  sources, nothing else on the page changes, and `engine-state/_breed-care.json` keeps what each call found, with the
+  words it quoted from the source, or why it found none. Found by the owner (2026-11-06): no breed page had a
+  difficulty.
 - **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
   - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
   - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
