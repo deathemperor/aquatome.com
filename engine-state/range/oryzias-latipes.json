@@ -1,0 +1,313 @@
+{
+  "id": "oryzias-latipes",
+  "native": {
+    "input": "4978fa4e263549b5",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "CU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).",
+        "words": "Cuba",
+        "ok": true
+      },
+      {
+        "code": "KZ",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).",
+        "words": "Kazakhstan",
+        "ok": true
+      },
+      {
+        "code": "TM",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).",
+        "words": "Turkmenistan",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).",
+        "words": "Iran",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).",
+        "words": "Russia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ryuku Islands",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Honshu",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "HK"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias latipes",
+    "status": "ACCEPTED",
+    "taxonKey": 2368377,
+    "datasets": [
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        167
+      ],
+      [
+        "8a10929f-9729-408b-ad1a-2a86d56fa9e0",
+        94
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        60
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        48
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        48
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        45
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        35
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        27
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        23
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        20
+      ],
+      [
+        "dc878d3c-ebc2-4b95-824b-2209fb3f38f4",
+        20
+      ],
+      [
+        "59f905d4-fd46-4e45-a80d-ea519e91114d",
+        18
+      ],
+      [
+        "b1a45d42-f677-473b-93d1-f93b117efe1e",
+        17
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        14
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        12
+      ],
+      [
+        "edc4e7a9-0970-4113-8ab5-fcaca780ee2e",
+        11
+      ],
+      [
+        "c35d9a99-9a4b-44e7-8c92-7b5fe302318b",
+        10
+      ],
+      [
+        "58a115ae-a7f9-4657-b54d-5611437083c0",
+        8
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        8
+      ],
+      [
+        "fd799ab3-7c13-4fc6-aa85-08df09364385",
+        4
+      ],
+      [
+        "505f6b2f-67d7-4934-8746-2ec1f1cfbb97",
+        3
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        3
+      ],
+      [
+        "bbbebe9f-6dd5-41b3-a314-3877920d26f2",
+        3
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        2
+      ],
+      [
+        "bfff7519-92f1-4ed2-afa3-5655e91fc2a2",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5f8cfa10-8dcc-470a-a9a0-5800bfe6e5b7",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "84899ff6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "85b8ed3c-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "JP",
+      "LA",
+      "VN",
+      "CN",
+      "TW",
+      "KR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

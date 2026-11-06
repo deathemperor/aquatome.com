@@ -1,0 +1,376 @@
+{
+  "found": true,
+  "species": [
+    "Symphysodon aequifasciata",
+    "Sahyadria denisonii",
+    "Cyprinus carpio",
+    "Carassius auratus",
+    "Amphiprion ocellaris",
+    "Moina macrocopa",
+    "Artemia"
+  ],
+  "sources": [
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquarium-fish/nutritional-diseases-of-fish",
+      "title": "Nutritional Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://agris.fao.org/search/en/records/67598195c7a957febdf99816",
+      "title": "How Ornamental Fish Get Their Color",
+      "kind": "university"
+    },
+    {
+      "url": "https://en.wikivet.net/Vitamin_C_Deficiency_-_Fish",
+      "title": "Vitamin C Deficiency - Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.sera.de/en/product/freshwater-aquarium/sera-discus-color-granules",
+      "title": "sera Discus Color Granules | sera",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.jbl.de/cs-cz/blog/detail/236",
+      "title": "Professional tip: Do white koi need different food to red-and-white or orange-coloured koi?",
+      "kind": "maker"
+    },
+    {
+      "url": "https://archives.starbulletin.com/2000/08/07/news/oceanwatch.html",
+      "title": "Animals need carotenoids for color",
+      "kind": "article"
+    },
+    {
+      "url": "https://vjol.info.vn/tckhcnthuysan/article/view/134297",
+      "title": "Đánh giá khả năng cải thiện màu sắc trên cá hồng mi Ấn Độ (Sahyadria denisonii) khi bổ sung astaxanthin vào thức ăn",
+      "kind": "paper"
+    },
+    {
+      "url": "https://agris.fao.org/search/en/records/675987afc7a957febdfae223",
+      "title": "Culture Techniques of Moina: The Ideal Daphnia for Feeding Freshwater Fish Fry",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.tfhmagazine.com/articles/freshwater/a-scientific-economic-and-commonsense-approach-to-brine-shrimp-hatching",
+      "title": "A Scientific, Economic, and Common-Sense Approach to Brine Shrimp Hatching",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquahouse.vn/cho-ca-an-gi-de-len-mau/",
+      "title": "Cho cá ăn gì để lên màu đẹp? Bí quyết giúp cá rực rỡ khỏe mạnh",
+      "kind": "other"
+    },
+    {
+      "url": "https://parosphromenus-project.org/forums/reply/re-moina-7/",
+      "title": "Re: Moina",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/mau-sac-ca-dia-tu-cac-loai-thuc-an-dac-biet.237518/",
+      "title": "Màu sắc cá dĩa từ các loại thức ăn đặc biệt",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/artemia-thuc-an-thich-hop-cho-ca-bot.129/",
+      "title": "Artemia - thức ăn thích hợp cho cá bột",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/bo-bo-moina-thuc-an-thich-hop-cho-ca-bot.213/",
+      "title": "Bo bo (moina) - thức ăn thích hợp cho cá bột",
+      "kind": "forum"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Fish colour is mostly set by genetics, but fish cannot make red, orange, yellow, green and some blue pigments themselves; they get them from food.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Fish kept in aquariums or recirculating systems without pigment in their diet fade and lose their bright colours.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Plants and algae can make carotenoids but animals cannot, so carotenoid-based colour fades when the food lacks them.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "In University of Hawaii trials, swordtails, rainbowfish, mollies and cichlids showed clearly stronger colours within one week of carotenoid feeding.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "The colour gained from carotenoid additives faded again once the additives were stopped.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Different fish species process carotenoids differently.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Carotenes and astaxanthins strengthen yellowish and reddish tones in fish skin.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Metallic, shimmering (structural) colours depend on light, not pigment, and food does not change them (JBL).",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Too much natural colourant in the feed can turn a white koi pink.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "JBL says red koi need extra colour-enhancing ingredients, while orange koi and goldfish do not.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Carotenes come from sources such as carrots, and astaxanthins from prey animals such as krill and brine shrimp.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "In a Ho Chi Minh City trial on about 6 cm Sahyadria denisonii, astaxanthin at 20, 30 or 40 mg/kg feed was fed for 90 days.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "In that trial, redness (a* value) was highest at 40 mg/kg (5.53), then 30 mg/kg (3.45), 20 mg/kg (1.65) and the control (0.45).",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "The authors recommend 40 mg astaxanthin per kg feed for 3 months to improve the colour of Sahyadria denisonii.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "In the Sahyadria denisonii trial, astaxanthin did not change survival or growth significantly.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "The astaxanthin colour trial on Sahyadria denisonii was done by the Center for Research and Development of High-Tech Agriculture in Ho Chi Minh City (2022).",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "sera Discus Color Granules contain 175 mg astaxanthin per kg of food, from Haematococcus algae.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "sera Discus Color Granules also contain 4% krill meal, 0.5% Gammarus meal, and paprika, spirulina, spinach and carrots.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "sera advises feeding its discus colour food once or twice daily, only as much as the fish eat within a short time.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "sera says its colour granules are meant to be fed alongside a staple food.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Discus have a short gut, so sera advises feeding sparingly and using food that does not swell in the stomach.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Discus can be fussy eaters and may need to be switched to a new food gradually.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Fish need ascorbic acid (vitamin C) delivered in their feed, and most fish feeds should be supplemented with a stabilized form.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Many fish cannot make vitamin C because they lack the enzyme L-gulonolactone oxidase.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Most commercial feed ingredients contain little or no vitamin C, and it breaks down by oxidation during processing and storage.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Vitamin C deficiency causes 'broken back disease'; severely affected fish show extreme scoliosis.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Bent or deformed gill cartilage seen on a wet mount at the 10× objective may point to past vitamin C deficiency.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Vitamin C deficiency signs include lordosis, scoliosis, deformed opercula and gill lamellae, bleeding, and slow wound healing.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Bleeding from vitamin C deficiency is often preceded by reduced appetite and lethargy.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Spinal deformities seen on X-ray may also come from injury or genetics, not only vitamin C deficiency.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Vitamin C deficiency is treated by vitamin C supplementation, taking losses during feed processing and storage into account.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "More stable forms of vitamin C, with phosphate or sulfate attached, have been developed to reduce losses.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Vitamin C-deficient fish are more prone to bacterial infections, so infections should be dealt with promptly.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Poor nutrition can cause poor growth, deformities, a weaker immune system, fatty liver (hepatic lipidosis) and impaired metabolism.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Fatty liver can result from starvation, too much carbohydrate or fat in the diet, or rancid feed.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed a variety of live and commercial foods.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Adult fish need about 3% of body weight daily for maintenance; fry and fingerlings up to 5%.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Store dry feed in a pest-proof container in a cool, low-humidity place.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "High heat and humidity degrade feed and cause mould, possible mycotoxins and rancidity.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Throw away opened feed kept at room temperature after 2 months, and commercial feed stored frozen after 6 months.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Throw away commercial frozen foods (brine shrimp, bloodworms, mysids, glassworms) after 1 year.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Do not refreeze frozen feed after it has thawed.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Bottom dwellers such as loricariids and Corydoras should be target-fed, not left to eat leftovers.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Brine shrimp eggs hatch best at about 80–84°F; below 78°F hatching can take up to 36 hours, and above about 86°F the nauplii suffocate.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Lange and Hellweg's hatching brine is 2 tablespoons of salt and 1 teaspoon of Epsom salt in 1.4 liters of warm water (specific gravity about 1.019).",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "The hatching water should be pH 8 or higher; with soft water, about ¼ teaspoon of baking soda per liter may be needed.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Most brine shrimp eggs hatch within 18–24 hours.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Lange and Hellweg add three drops of unscented chlorine bleach to kill contaminants on the egg casings, instead of full decapsulation.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Newly hatched nauplii do not feed and live on their fat; by the end of the first instar their body fat can drop by up to 39%.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Nauplii are most nutritious in about the first 12 hours, so hatch fresh ones daily instead of storing them.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "UF/IFAS fact sheet FA024 by Rottmann, Graves, Watson and Yanong covers culturing Moina (water fleas) as food for freshwater fish fry.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "The Moina fact sheet points to Moina's high reproduction rate and tolerance of varied conditions as advantages for culture.",
+      "source": 7
+    },
+    {
+      "section": "other",
+      "fact": "A Parosphromenus Project post says Moina macrocopa is the species most often recommended for culture.",
+      "source": 10
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shop blogs list artemia, trùn chỉ (tubifex), trùn huyết (bloodworm), lăng quăng (mosquito larvae), bo bo (Moina) and tảo xoắn (spirulina) as colour foods.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam, colour-enhancing pellets are sold as 'cám tăng màu', e.g. IPick koi food labelled 'Tăng Trọng Tăng Màu'.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names: 'cá dĩa' = discus (Symphysodon); 'thức ăn kích màu' = colour-enhancing food.",
+      "source": 11
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names: 'trứng artemia' = Artemia cysts; 'ấu trùng' = nauplii; 'tách vỏ trứng' = decapsulation; 'cá bột' = fry.",
+      "source": 12
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names: 'bo bo' = Moina; 'rận nước' = Daphnia; 'trùng bánh xe' = rotifer.",
+      "source": 13
+    }
+  ]
+}

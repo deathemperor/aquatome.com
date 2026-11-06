@@ -1,0 +1,15 @@
+---
+import type { AppPlacement } from '../lib/app'
+import { storeLink } from '../lib/app'
+import { i18n } from '../lib/i18n'
+
+/**
+ * Apple's "Download on the App Store" badge in the page's language, as Apple's marketing tools give it
+ * (src/assets/app-store/, served by pages/ung-dung/[badge].svg.ts), at 44 px high: Apple's minimum is 40. Its parent
+ * leaves a quarter of its height clear around it, as Apple's guidelines ask. Lazy: inside a hidden invitation it isn't fetched.
+ */
+interface Props { ct: AppPlacement; lazy?: boolean }
+const { ct, lazy = true } = Astro.props
+const { t, lang } = i18n(Astro.url)
+---
+<a class="app-store-badge" href={storeLink(ct)}><img src={`/ung-dung/app-store-${lang}.svg`} width="132" height="44" alt={t('Tải về trên App Store')} loading={lazy ? 'lazy' : undefined} /></a>

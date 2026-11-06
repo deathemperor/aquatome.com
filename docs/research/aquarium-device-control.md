@@ -4,6 +4,10 @@ For: AquaTome (aquatome.com), VN / ID / TH audience
 Date: 2026-10-31
 Scope: which aquarium devices an AquaTome app could connect to and control over Bluetooth or Wi-Fi, and in what order to support them.
 
+Corrected 2026-11-06 by [smart-tank-and-budget.md](smart-tank-and-budget.md): Jebao MDP and MDC pumps now have local Home
+Assistant integrations, a Vietnamese shop lists a Neptune Apex doser, and Tuya's own pricing page confirms the trial
+edition is not for commercial use. The lines below are as first written.
+
 ---
 
 ## TL;DR

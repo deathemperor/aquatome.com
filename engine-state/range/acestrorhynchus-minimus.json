@@ -1,0 +1,116 @@
+{
+  "id": "acestrorhynchus-minimus",
+  "native": {
+    "input": "962bc678e0fb1358",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "However, that species is not listed so far to occur in Peru, so we decided to name the fish “cf. minimus”.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acestrorhynchus minimus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355565,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        85
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        27
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        25
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        21
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        20
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        16
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        15
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

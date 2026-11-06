@@ -12,6 +12,63 @@
     "thailand",
     "tak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween",
+        "Ataran",
+        "Hanthayaw"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens were collected from the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) River basin, Kayin/Karen State, Myanmar and another population was later discovered in the Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+          "countries": [],
+          "regions": [
+            "Ataran",
+            "Hanthayaw"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368030,
+      "total": 4,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "MM",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          14.0625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

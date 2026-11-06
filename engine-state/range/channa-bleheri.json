@@ -1,0 +1,62 @@
+{
+  "id": "channa-bleheri",
+  "native": {
+    "input": "2d6d721553872bbd",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India, with the full extent of its distribution unclear.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India, with the full extent of its distribution unclear.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Dikrong",
+        "source": "seriouslyfish",
+        "quote": "It is apparently restricted to the northern portion of Assam, while in Arunachal Pradesh it has been collected in the vicinity of Doimukh in the Dikrong river drainage.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa bleheri",
+    "status": "ACCEPTED",
+    "taxonKey": 2391447,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

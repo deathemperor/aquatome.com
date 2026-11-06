@@ -15,6 +15,187 @@
     "cape-york-peninsula",
     "fly-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "PG",
+        "AU"
+      ],
+      "regions": [
+        "New Guinea",
+        "Fly River",
+        "Cape York Peninsula",
+        "Jardine River"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Merauke, Irian Jaya, Indonesia' which corresponds to modern day Merauke Regency, Papua province, Indonesia, on the island of New Guinea.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland.",
+          "countries": [
+            "PG"
+          ],
+          "regions": [
+            "New Guinea",
+            "Fly River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Australia records exist from numerous river basins of the Cape York Peninsula, Queensland state, plus the Northern Territory to the west, including the Arafura wetland in Arnhem Land.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "Cape York Peninsula"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "In Australia, Threadfin Rainbowfish occur in the Jardine River swamps, and in some river systems on the western and eastern sides of Cape York Peninsula.",
+          "countries": [],
+          "regions": [
+            "Jardine River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411742,
+      "total": 189,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "AU",
+          164
+        ],
+        [
+          "PG",
+          15
+        ],
+        [
+          "ID",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          0,
+          5,
+          5
+        ],
+        [
+          133.59375,
+          -12.65625,
+          47,
+          47
+        ],
+        [
+          135,
+          -14.0625,
+          9,
+          9
+        ],
+        [
+          135,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          139.21875,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          140.625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          140.625,
+          -8.4375,
+          6,
+          6
+        ],
+        [
+          140.625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -15.46875,
+          10,
+          10
+        ],
+        [
+          142.03125,
+          -14.0625,
+          14,
+          14
+        ],
+        [
+          142.03125,
+          -12.65625,
+          34,
+          34
+        ],
+        [
+          142.03125,
+          -11.25,
+          44,
+          44
+        ],
+        [
+          142.03125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

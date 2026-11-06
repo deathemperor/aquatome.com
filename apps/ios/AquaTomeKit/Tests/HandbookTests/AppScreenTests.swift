@@ -85,3 +85,33 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   // Without what the app has (a web page's own links), as before.
   #expect(screen("https://aquatome.com/vi/nhom/catfish/") == nil)
 }
+
+@Test func theFishIDToolInEachLanguageOpensTheAppsOwnScreen() {
+  #expect(screen("https://aquatome.com/vi/cong-cu/nhan-dien-ca/") == .fishId)
+  #expect(screen("https://aquatome.com/id/alat/kenali-ikan/") == .fishId)
+  #expect(screen("https://www.aquatome.com/th/tools/fish-id") == .fishId)
+  #expect(screen("https://example.com/vi/cong-cu/nhan-dien-ca/") == nil)
+}
+
+/// Vietnamese at the site's root, as its pages link and as it is served (apps/site/src/lib/i18n.ts): the same screens as
+/// its /vi/ form, and a page found in the index in whichever form the index lists it.
+@Test func aVietnamesePageAtTheSitesRootOpensAsItsViFormDoes() {
+  #expect(screen("https://aquatome.com/cong-cu/be-cua-toi/#be-t1") == .tanks("t1"))
+  #expect(screen("https://www.aquatome.com/cong-cu/be-cua-toi") == .tanks(nil))
+  #expect(screen("https://aquatome.com/cong-cu/den-chihiros/") == .lights)
+  #expect(screen("https://aquatome.com/cong-cu/nhan-dien-ca/") == .fishId)
+  let hasGroup: (String) -> Bool = { $0 == "catfish" }
+  #expect(AppScreen.of(URL(string: "https://aquatome.com/nhom/catfish/trang/2/")!, site: site, group: hasGroup) == .group("catfish"))
+  // The index's /vi/ form today, its root form once the site moves it.
+  let vi = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: { $0 == "/vi/ca/ca-neon/" }) }
+  #expect(vi("https://aquatome.com/ca/ca-neon/") == .page("/vi/ca/ca-neon/"))
+  #expect(vi("https://aquatome.com/ca/ca-neon") == .page("/vi/ca/ca-neon/"))
+  let atRoot = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: { $0 == "/ca/ca-neon/" }) }
+  #expect(atRoot("https://aquatome.com/ca/ca-neon/") == .page("/ca/ca-neon/"))
+  #expect(atRoot("https://aquatome.com/vi/ca/ca-neon/") == .page("/ca/ca-neon/"))
+  // Another language's pages keep their own form; the site's home and its other pages aren't the app's.
+  #expect(AppScreen.of(URL(string: "https://aquatome.com/id/ca/ca-neon/")!, site: site, listed: { $0 == "/vi/ca/ca-neon/" }) == nil)
+  #expect(vi("https://aquatome.com/") == nil)
+  #expect(vi("https://aquatome.com/go/shopee/abc") == nil)
+  #expect(screen("https://aquatome.com/nhom/catfish/") == nil)
+}

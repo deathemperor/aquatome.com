@@ -19,7 +19,7 @@ export type Readers = {
 }
 
 const num = (x: number | string) => Number(x) || 0
-export const isReader = (s: Session) => num(s.scroll) >= 50 || num(s.t) >= 30
+export const isReader = (s: Pick<Session, 't' | 'scroll'>) => num(s.scroll) >= 50 || num(s.t) >= 30
 const top = <T>(m: Map<string, T>, by: (x: T) => number, n: number) => [...m].sort((a, b) => by(b[1]) - by(a[1]) || a[0].localeCompare(b[0])).slice(0, n)
 
 /** Where a visit came from: a search engine or site by name, "(trực tiếp)" without a referrer. */
@@ -29,6 +29,9 @@ export function sourceOf(host: string): string {
   const m = h.match(/(?:^|\.)(google|bing|duckduckgo|yahoo|coccoc|facebook|zalo|youtube|tiktok|reddit|chatgpt|perplexity)\.[a-z.]+$/)
   return m ? m[1]! : h
 }
+
+/** A search engine's address (www.google.com.vn, the Google app's com.google.android.googlequicksearchbox). Chat assistants are not search. */
+export const isSearch = (host: string) => /(?:^|\.)(?:google|bing|duckduckgo|yahoo|coccoc|yandex|baidu|ecosia|brave|naver)\.[a-z.]+$/.test(host)
 
 /** `tz`: the zone whose days the daily counts follow (the viewer's, admin/time.ts). */
 export function summariseReaders(sessions: Session[], views: View[], days: number, tz = 'UTC'): Readers {
@@ -74,7 +77,7 @@ export function summariseReaders(sessions: Session[], views: View[], days: numbe
 
 export const SESSIONS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, min(timestamp) AS first,
   SUM(IF(blob2 = 'view', _sample_interval, 0)) AS pages, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll
-FROM ${table} WHERE timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid FORMAT JSON`
+FROM ${table} WHERE blob2 != 'lang' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid FORMAT JSON`
 const VIEWS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, blob5 AS ref, blob6 AS cc, SUM(_sample_interval) AS views
 FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p, ref, cc FORMAT JSON`
 

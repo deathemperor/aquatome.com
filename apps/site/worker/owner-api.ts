@@ -1,6 +1,8 @@
 import { HOME_TZ, validZone } from './admin/time'
 import { overviewJson } from './admin/pages'
-import { appVisitor, loadOverview, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
+import { appSession, loadOverview, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
+import { addDevice, removeDevices, tokenBody } from './daily/push'
+import { setSettings, settingsChange } from './daily/settings'
 import { deleteKept } from './fishid/kept'
 import { NOT_ONE_PAGE, setHidden } from './hidden'
 import { approveByOwner, photosLive, removePhoto } from './photos'
@@ -8,10 +10,11 @@ import { approveByOwner, photosLive, removePhoto } from './photos'
 /**
  * The owner's dashboard as JSON, for the iOS app to draw natively (protocols/owner-dashboard.openapi.json): the
  * overview's to-dos and areas, each /_ab/ page as blocks (from the same load as the page, dashboard.ts), and the pages'
- * three actions. Only the owner's app session, as a bearer, opens it. Without a live app session (none, one that ended,
- * a web session's token, the dashboard token, the cookie): 401 signed_out, as the accounts API says it. Another
- * account's app: 404, as for a path that isn't there. That check comes first, so nobody else learns the paths. A part
- * that throws (D1, KV, R2) is 503 unavailable. Never stored, never indexed.
+ * actions; and the daily report's delivery and the phones it notifies (daily/settings.ts, daily/push.ts;
+ * docs/contracts/owner-push.md until the contract has them). Only the owner's app session, as a bearer, opens it.
+ * Without a live app session (none, one that ended, a web session's token, the dashboard token, the cookie): 401
+ * signed_out, as the accounts API says it. Another account's app: 404, as for a path that isn't there. That check comes
+ * first, so nobody else learns the paths. A part that throws (D1, KV, R2) is 503 unavailable. Never stored, never indexed.
  */
 
 /** The viewer's IANA time zone, which the app sends; Vietnam's when it sends none or one this runtime doesn't know. */
@@ -41,7 +44,7 @@ export async function ownerApi(req: Request, url: URL, env: AdminEnv, now = new 
 }
 
 async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<Response> {
-  const who = await appVisitor(req, env, now)
+  const { who, session } = await appSession(req, env, now)
   if (who === 'none') return fail(401, 'signed_out')
   if (who !== 'owner') return notFound()
   const path = url.pathname
@@ -74,6 +77,23 @@ async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<
     if (typeof body?.path !== 'string' || typeof body.hide !== 'boolean' || (body.note !== undefined && typeof body.note !== 'string')) return fail(400, 'bad_request', 'path (chuỗi), hide (true/false), note (tuỳ chọn).')
     const page = await setHidden(env.AB, body.path, body.hide, (body.note as string | undefined) ?? '', now)
     return page ? reply({ ok: true, path: page, hidden: body.hide }) : fail(400, 'not_a_page', NOT_ONE_PAGE)
+  }
+  if (path === '/api/owner/report-settings') {
+    if (req.method !== 'POST') return method('POST')
+    const change = settingsChange(await json(req))
+    if (!change) return fail(400, 'bad_request', 'email và/hoặc push (true/false).')
+    const { settings, changed } = await setSettings(env.AB, change)
+    return reply({ ok: true, changed, ...settings })
+  }
+  if (path === '/api/owner/push-token') {
+    // POST at each launch while the app's row is on (the time moves, no second copy), tied to this session: a report goes
+    // only to a phone whose session is still live. DELETE when the row is turned off or the owner signs out.
+    if (req.method !== 'POST' && req.method !== 'DELETE') return method('POST, DELETE')
+    const adding = req.method === 'POST'
+    const t = tokenBody(await json(req), adding)
+    if (!t) return fail(400, 'bad_request', adding ? 'token (hex chữ thường), environment ("sandbox" hoặc "production").' : 'token (hex chữ thường).')
+    const changed = adding ? await addDevice(env.AB, t.token, t.environment!, session!.id, now) : await removeDevices(env.AB, [t.token])
+    return reply({ ok: true, changed })
   }
   const shot = SHOT.exec(path)
   if (shot) {

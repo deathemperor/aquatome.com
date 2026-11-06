@@ -1,0 +1,70 @@
+{
+  "id": "acheilognathus-tonkinensis",
+  "native": {
+    "input": "23c607de0036380a",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species originates from southern China, Vietnam and Laos.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species originates from southern China, Vietnam and Laos.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species originates from southern China, Vietnam and Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acheilognathus tonkinensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2359380,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

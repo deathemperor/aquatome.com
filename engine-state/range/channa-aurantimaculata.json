@@ -1,0 +1,56 @@
+{
+  "id": "channa-aurantimaculata",
+  "native": {
+    "input": "3c7fb00d76ed7d87",
+    "at": "2026-11-05T16:38:28.515Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa aurantimaculata",
+    "status": "ACCEPTED",
+    "taxonKey": 2391454,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T16:38:28.515Z"
+  }
+}

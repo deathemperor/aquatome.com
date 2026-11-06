@@ -1,0 +1,962 @@
+{
+  "id": "xiphophorus-hellerii",
+  "native": {
+    "input": "4f06af3120e9fb81",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Mexico, central Guatemala, southern Belize, and northwestern Honduras.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Mexico, central Guatemala, southern Belize, and northwestern Honduras.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Mexico, central Guatemala, southern Belize, and northwestern Honduras.",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Mexico, central Guatemala, southern Belize, and northwestern Honduras.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "JM",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Jamaica",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Puerto Rico",
+        "ok": true
+      },
+      {
+        "code": "MQ",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Martinique",
+        "ok": true
+      },
+      {
+        "code": "BS",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Bahamas",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "AT",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Austria",
+        "ok": true
+      },
+      {
+        "code": "CZ",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Czech Republic",
+        "ok": true
+      },
+      {
+        "code": "HU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Hungary",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Iran",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "NA",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Namibia",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "ZW",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Zimbabwe",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Zambia",
+        "ok": true
+      },
+      {
+        "code": "MG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "RE",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Réunion",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "HK",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Hong Kong",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "GU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Guam",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "NC",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "New Caledonia",
+        "ok": true
+      },
+      {
+        "code": "FJ",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Countries or territories in which feral populations exist include Panama, Colombia, Brazil, Peru, Jamaica, Puerto Rico, Martinique, Bahamas, United States, Hawaii, Austria, Czech Republic, Hungary, Israel, Iran, Democratic Republic of the Congo, Namibia, South Africa, Zimbabwe, Zambia, Madagascar, Réunion, India, Sri Lanka, Singapore, China, Hong Kong, Taiwan, Japan, Indonesia, Guam, Papua New Guinea, Australia, New Caledonia, and Fiji.",
+        "words": "Fiji",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: Mexico and Central America",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Although considered native to Belize, Guatemala, Honduras and Mexico, this species is now found in more than 35 countries worldwide.",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Although considered native to Belize, Guatemala, Honduras and Mexico, this species is now found in more than 35 countries worldwide.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Although considered native to Belize, Guatemala, Honduras and Mexico, this species is now found in more than 35 countries worldwide.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Although considered native to Belize, Guatemala, Honduras and Mexico, this species is now found in more than 35 countries worldwide.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "CA",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Canada",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Puerto Rico",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "GU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Guam",
+        "ok": true
+      },
+      {
+        "code": "FJ",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Fiji",
+        "ok": true
+      },
+      {
+        "code": "CZ",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Czech Republic",
+        "ok": true
+      },
+      {
+        "code": "HU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Hungary",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "IT",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Italy",
+        "ok": true
+      },
+      {
+        "code": "GB",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "United Kingdom",
+        "ok": true
+      },
+      {
+        "code": "PL",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Poland",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "HK",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Hong Kong",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "SY",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Syria",
+        "ok": true
+      },
+      {
+        "code": "JO",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Jordan",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has been introduced and become established in, for example, southern Florida, California, the Lake Mead area of Arizona and Nevada, Hawaii, Canada, Puerto Rico, Africa, Sri Lanka, Australia, Guam, Fiji, Czech Republic, Hungary, Germany, Italy, United Kingdom, Poland, Israel, Hong Kong, Egypt, Syria, Jordan and even Iran.",
+        "words": "Iran",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This unusual Green Swordtail originates from the surroundings of the Golden Stream preserve in Belize.",
+        "words": "Belize",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Nautla",
+        "source": "seriouslyfish",
+        "quote": "Its known range extends south from the Río Nautla (alternatively referred to as the Río Filobobos) in central Veracruz state, Mexico, to the Rio Usumacinta drainage in Guatemala, the Río Sarstún (aka Sarstoon) at the border between Guatemala and Belize, and the ríos Copán and Chamelecón in Honduras.",
+        "country": "MX",
+        "ok": true
+      },
+      {
+        "name": "Rio Usumacinta",
+        "source": "seriouslyfish",
+        "quote": "Its known range extends south from the Río Nautla (alternatively referred to as the Río Filobobos) in central Veracruz state, Mexico, to the Rio Usumacinta drainage in Guatemala, the Río Sarstún (aka Sarstoon) at the border between Guatemala and Belize, and the ríos Copán and Chamelecón in Honduras.",
+        "country": "GT",
+        "ok": true
+      },
+      {
+        "name": "Río Sarstún",
+        "source": "seriouslyfish",
+        "quote": "Its known range extends south from the Río Nautla (alternatively referred to as the Río Filobobos) in central Veracruz state, Mexico, to the Rio Usumacinta drainage in Guatemala, the Río Sarstún (aka Sarstoon) at the border between Guatemala and Belize, and the ríos Copán and Chamelecón in Honduras.",
+        "ok": true
+      },
+      {
+        "name": "Copán",
+        "source": "seriouslyfish",
+        "quote": "Its known range extends south from the Río Nautla (alternatively referred to as the Río Filobobos) in central Veracruz state, Mexico, to the Rio Usumacinta drainage in Guatemala, the Río Sarstún (aka Sarstoon) at the border between Guatemala and Belize, and the ríos Copán and Chamelecón in Honduras.",
+        "country": "HN",
+        "ok": true
+      },
+      {
+        "name": "Chamelecón",
+        "source": "seriouslyfish",
+        "quote": "Its known range extends south from the Río Nautla (alternatively referred to as the Río Filobobos) in central Veracruz state, Mexico, to the Rio Usumacinta drainage in Guatemala, the Río Sarstún (aka Sarstoon) at the border between Guatemala and Belize, and the ríos Copán and Chamelecón in Honduras.",
+        "country": "HN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus hellerii",
+    "status": "ACCEPTED",
+    "taxonKey": 8246728,
+    "datasets": [
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        795
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        203
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        173
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        151
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        121
+      ],
+      [
+        "a9576a23-3690-4c27-8d19-0db353957177",
+        121
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        104
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        101
+      ],
+      [
+        "092c3e3f-a7d3-4e23-b343-839829f4d1b3",
+        85
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        73
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        65
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        62
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        60
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        59
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        58
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        49
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        45
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        32
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        27
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        27
+      ],
+      [
+        "8008770e-f762-11e1-a439-00145eb45e9a",
+        26
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        25
+      ],
+      [
+        "97255e25-4983-4e2b-bf18-2127d29e12a9",
+        25
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        25
+      ],
+      [
+        "8049bed0-f762-11e1-a439-00145eb45e9a",
+        23
+      ],
+      [
+        "872b0fcc-d7dc-44c8-8175-f5bf18cc28a1",
+        20
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        19
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        18
+      ],
+      [
+        "c5b513a4-45a6-4564-88b0-111015ea1c41",
+        18
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        17
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        17
+      ],
+      [
+        "01f5d83c-91b1-4473-a67c-c86b35705d4d",
+        16
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        16
+      ],
+      [
+        "5b7d4716-3ee7-4abb-a770-365e33c8b82c",
+        15
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        12
+      ],
+      [
+        "ff98132c-b720-4304-a68c-390968b991f7",
+        12
+      ],
+      [
+        "bcd192c2-18bf-44a8-a9df-80f92a1cb76d",
+        10
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        10
+      ],
+      [
+        "80cdb1cc-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "e7e019c6-5582-47ee-ae97-32e4cd66d4c6",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        9
+      ],
+      [
+        "29b5289f-109b-4d45-b84f-2870c6590344",
+        8
+      ],
+      [
+        "7f6f33a0-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        8
+      ],
+      [
+        "7fc7f94a-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "0160cea6-4ff3-46a1-880d-de8c3a48f1e9",
+        6
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "7817af75-45c3-4050-a4f8-9a10c3da91c5",
+        5
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        5
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        4
+      ],
+      [
+        "55523b80-b0f3-4f08-ab18-3b01323bd2f4",
+        4
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        4
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "d74f14ea-0bd6-42e9-b62e-e490b21a9ab4",
+        4
+      ],
+      [
+        "ebab8ef5-b3b3-440e-a79f-cc4cf8a5180c",
+        4
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        3
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        3
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        3
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        3
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        3
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "7f962910-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "a2254f58-8bbf-41e6-ac4e-03d1683e0ce5",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "e56a116e-0cfc-4382-a772-162ac2a44a7c",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "038b9c13-f1ad-49e0-aeea-4458e0b6dcbe",
+        1
+      ],
+      [
+        "0c0258d8-e503-4d57-9734-92aad4072dd2",
+        1
+      ],
+      [
+        "2da4d785-ad98-40bd-9cd9-2285c19285e9",
+        1
+      ],
+      [
+        "3601a96a-c1aa-4cf3-ae65-1c0cccdf342f",
+        1
+      ],
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        1
+      ],
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "707b24b9-3ad8-4031-ad1d-2b81d76fef0c",
+        1
+      ],
+      [
+        "7f6b3fe8-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d37631a4-f113-42bf-abd6-10f034777748",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ],
+      [
+        "e5687c66-55a2-4f5f-82aa-1838d9e67470",
+        1
+      ],
+      [
+        "f54c7015-c3ef-4e82-ba6a-df21b42d37d8",
+        1
+      ]
+    ],
+    "native": [
+      "MX",
+      "GT",
+      "BZ",
+      "HN"
+    ],
+    "requests": 17,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

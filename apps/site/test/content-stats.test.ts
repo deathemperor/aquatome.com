@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { backfill, bulkEntries } from '../scripts/content-backfill'
 import { classify, computeContentStats, h1Of, licenceFamily, MAX_ATTEMPTS, photoOrigin, REWRITE_V } from '../scripts/content-stats'
-import type { ContentStats } from '../worker/admin/content-shape'
+import { keepTotals, type ContentStats } from '../worker/admin/content-shape'
 import { DIST } from './dist'
 
 const CONTENT = fileURLToPath(new URL('./fixture-content', import.meta.url))
@@ -27,21 +27,22 @@ test('inventory: items per kind in content/, and how many have an Indonesian and
   expect(stats.inventory).toEqual({
     fish: { total: 9, id: 0, th: 0 }, breed: { total: 2, id: 0, th: 0 }, plant: { total: 4, id: 0, th: 0 },
     guide: { total: 7, id: 0, th: 0 }, videoGuide: { total: 2, id: 0, th: 0 }, series: { total: 2, id: 0, th: 0 },
-    glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 1, id: 0, th: 0 },
+    glossary: { total: 4, id: 0, th: 0 }, equipment: { total: 1, id: 0, th: 0 }, place: { total: 12, id: 0, th: 0 }, product: { total: 6, id: 0, th: 0 },
   })
 })
 
 test('built pages: every index.html under /, /id/ and /th/, by kind, each with its h1 and its item', () => {
-  // 134 pages, as markdown.ts counts them (every page under the three languages).
-  expect(stats.built!.total).toEqual([96, 19, 19])
-  expect(stats.built!.byKind).toMatchObject({ fish: [9, 0, 0], breed: [2, 0, 0], plant: [4, 0, 0], guide: [7, 0, 0], videoGuide: [2, 0, 0], glossary: [4, 0, 0], series: [1, 0, 0], gallery: [3, 0, 0], tool: [6, 6, 6], other: [5, 4, 4] })
+  // 142 pages, as markdown.ts counts them (every page under the three languages).
+  expect(stats.built!.total).toEqual({ vi: 102, id: 20, th: 20 })
+  const n = (vi: number, id = 0, th = 0) => ({ vi, id, th })
+  expect(stats.built!.byKind).toMatchObject({ fish: n(9), breed: n(2), plant: n(4), guide: n(7), videoGuide: n(2), glossary: n(4), series: n(1), gallery: n(3), tool: n(6, 6, 6), other: n(6, 5, 5) })
   expect(stats.pages!.fish).toContainEqual(['/ca/ca-neon-vua/', 'Cá neon vua', 'paracheirodon-axelrodi'])
   expect(stats.pages!.breed).toContainEqual(['/ca/ca-la-han/', 'Cá La Hán (Flowerhorn)', 'flowerhorn-cichlid'])
   expect(stats.pages!.videoGuide).toContainEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', 'Bón phân cho cây thủy sinh', 'youtube-r53ZQW0m8VM'])
   expect(stats.pages!.place).toContainEqual(['/nguon-goc/asia/china/', 'Trung Quốc', 'china'])
   expect(stats.pages!.list).toContainEqual(['/th/fish/', 'ทุกสายพันธุ์'])
-  // Only the about pages (the site's and its data card's), contact, privacy and sign-in pages are "other": every other page has its kind.
-  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/privacy/'])
+  // Only the about pages (the site's and its data card's), contact, privacy, sign-in and app pages are "other": every other page has its kind.
+  expect(stats.pages!.other!.map(r => r[0]).sort()).toEqual(['/chinh-sach-bao-mat/', '/dang-nhap/', '/gioi-thieu/', '/gioi-thieu/bang-du-lieu/', '/id/aplikasi/', '/id/kebijakan-privasi/', '/id/kontak/', '/id/tentang/', '/id/tentang/tabel-data/', '/lien-he/', '/th/about/', '/th/about/data-table/', '/th/contact/', '/th/mobile-app/', '/th/privacy/', '/ung-dung/'])
   expect(Buffer.byteLength(JSON.stringify(stats.totals))).toBeLessThan(1024)
 })
 
@@ -169,10 +170,11 @@ test('backfill: each past day\'s totals from the last commit of the day, as entr
     git('2026-10-30T23:00:00Z', 'add', '-A')
     git('2026-10-30T23:00:00Z', 'commit', '-qm', 'two')
     const days = backfill(repo, 'HEAD', '2026-10-31')
-    expect(days.map(d => [d.day, d.totals.kinds.fish, d.totals.sources.youtube])).toEqual([['2026-10-28', [1, 0, 0], 1], ['2026-10-29', [1, 0, 0], 1], ['2026-10-30', [2, 1, 0], 2]])
+    expect(days.map(d => [d.day, d.totals.kinds.fish, d.totals.sources.youtube])).toEqual([['2026-10-28', { vi: 1, id: 0, th: 0 }, 1], ['2026-10-29', { vi: 1, id: 0, th: 0 }, 1], ['2026-10-30', { vi: 2, id: 1, th: 0 }, 2]])
     expect(days.every(d => d.totals.built === null)).toBe(true)
     const entries = bulkEntries(days)
-    expect(entries[0]).toEqual({ key: 'stats:2026-10-28', value: JSON.stringify(days[0]!.totals), metadata: days[0]!.totals })
+    const kept = keepTotals(days[0]!.totals)
+    expect(entries[0]).toEqual({ key: 'stats:2026-10-28', value: JSON.stringify(kept), metadata: kept })
     // Today is the daily snapshot's.
     expect(backfill(repo, 'HEAD', '2026-10-30').map(d => d.day)).toEqual(['2026-10-28', '2026-10-29'])
   } finally {

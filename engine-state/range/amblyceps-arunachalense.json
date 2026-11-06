@@ -1,0 +1,55 @@
+{
+  "id": "amblyceps-arunachalense",
+  "native": {
+    "input": "92c0307a26bd38b5",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Brahmaputra River basin, Arunachal Pradesh and Mizoram, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "scotcat",
+        "quote": "Asia: Brahmaputra River basin, Arunachal Pradesh and Mizoram, India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Dikrong",
+        "source": "scotcat",
+        "quote": "It is known only from the Dikrong and Subansiri rivers, and subsequent surveys in other areas have not revealed its presence elsewhere.",
+        "ok": true
+      },
+      {
+        "name": "Subansiri",
+        "source": "scotcat",
+        "quote": "It is known only from the Dikrong and Subansiri rivers, and subsequent surveys in other areas have not revealed its presence elsewhere.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amblyceps arunachalense",
+    "status": "ACCEPTED",
+    "taxonKey": 11162964,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

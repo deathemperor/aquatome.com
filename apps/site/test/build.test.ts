@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { DIST, page } from './dist'
 import { VI_SECTIONS } from '../worker/paths'
+import { LANGS } from '@aq/schema/langs'
 
 describe('species page', () => {
   const { html, dom } = page('/ca/ca-neon-vua/')
@@ -39,7 +40,7 @@ describe('species page', () => {
   test('jump row: the main parts this page has, in page order, each to its section', () => {
     const links = dom.querySelectorAll('nav.jump a')
     expect(links.map(a => [a.text, a.getAttribute('href')])).toEqual([
-      ['Ảnh', '#gal-h'], ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Sinh sản', '#muc-reproduction'],
+      ['Ảnh', '#gal-h'], ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Sinh sản', '#muc-reproduction'], ['Mua đồ', '#mua-do'],
     ])
     for (const a of links) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
   })
@@ -96,11 +97,24 @@ describe('species page', () => {
     expect(marks[0]!.getAttribute('data-term')).toBe(list[0]!.querySelector('a')!.text)
     expect(dom.querySelector('.body .credit')).toBeNull()
   })
-  test('product slots are sponsored /go/ links carrying the placement', () => {
-    const a = dom.querySelector('a[href^="/go/shopee/?k="]')
-    expect(a?.getAttribute('rel')).toContain('sponsored')
-    expect(a?.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
-    expect(dom.querySelector('a[href^="/go/tiki/?k="]')).not.toBeNull()
+  // What to buy: right after the care text (not at the foot of the page by the comments), one row a kind of thing, each
+  // search a sponsored /go/ link to Shopee that the page's picker can point at Lazada or Tiki (e2e/species.spec.ts).
+  test('what to buy: after the care text, sponsored /go/ links carrying the placement, one shop picked for all', () => {
+    const kit = dom.querySelector('section.kit')!
+    expect(kit.querySelector('h2')?.text).toBe('Chuẩn bị để nuôi Cá neon vua')
+    expect(kit.querySelector('h2')?.getAttribute('id')).toBe('mua-do')
+    const links = kit.querySelectorAll('a[data-go]')
+    expect(links.length).toBeGreaterThan(0)
+    for (const a of links) {
+      expect(a.getAttribute('href')).toMatch(/^\/go\/shopee\/\?k=/)
+      expect(a.getAttribute('rel')).toContain('sponsored')
+      expect(a.getAttribute('href')).toContain('e=species%3Aparacheirodon-axelrodi')
+    }
+    const kinds = kit.querySelectorAll('.rows > li .what').map(w => w.childNodes[0]!.text)
+    expect(new Set(kinds).size, 'one row a kind').toBe(kinds.length)
+    expect(kit.querySelectorAll('[data-shop-pick] button').map(b => b.getAttribute('data-shop'))).toEqual(['shopee', 'lazada', 'tiki'])
+    const order = [...html.matchAll(/id="(muc-reproduction|mua-do|comments-h)"/g)].map(m => m[1])
+    expect(order).toEqual(['muc-reproduction', 'mua-do', 'comments-h'])
     expect(html).not.toMatch(/href="https:\/\/(shopee\.vn|www\.lazada\.vn|tiki\.vn)/)
   })
   test('"Nuôi ở Việt Nam" box: heater for the northern winter, convertible temperatures', () => {
@@ -612,6 +626,61 @@ describe('product page', () => {
   test('indexable products are in the sitemap', () => {
     expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/san-pham/oase-biomaster-350/</loc>')
   })
+  test('a product with no reviews and no control shows neither block', () => {
+    expect(dom.querySelector('.reviews')).toBeNull()
+    expect(dom.querySelector('.control')).toBeNull()
+  })
+})
+
+describe('a product page\'s reviews and control', () => {
+  const { dom } = page('/san-pham/chihiros-wrgb-ii-slim/')
+  const reviews = dom.querySelector('.reviews')!
+  test('says what it is: a summary of its reviews, not our own test', () => {
+    expect(reviews.querySelector('.reviews-note')?.text).toContain('tóm tắt 2 bài review trên YouTube, không phải AquaTome tự thử')
+  })
+  test('each claim marks its video at the second it was said, numbered as the source list numbers it', () => {
+    const list = dom.querySelectorAll('.sources ol a').map(a => a.getAttribute('href'))
+    const marks = reviews.querySelectorAll('li').find(li => li.querySelector('a.cite'))!.querySelectorAll('a.cite')
+    expect(marks.map(a => a.getAttribute('href'))).toEqual(['https://www.youtube.com/watch?v=aaaaaaaaaaa&t=95', 'https://www.youtube.com/watch?v=bbbbbbbbbbb&t=212'])
+    expect(marks.map(a => a.text)).toEqual(['https://www.youtube.com/watch?v=aaaaaaaaaaa', 'https://www.youtube.com/watch?v=bbbbbbbbbbb'].map(u => String(list.indexOf(u) + 1)))
+    // Not the wording of a text we translated with permission: a review we summarize, at its moment.
+    expect(marks[0]!.getAttribute('data-tip')).toBe('YouTube · 1:35')
+    expect(marks[0]!.getAttribute('data-more')).toBe('Xem đoạn này ↗')
+  })
+  test('where they differ, side by side; what one found, on its own', () => {
+    expect(reviews.querySelector('.differ dt')?.text).toBe('Tiếng quạt')
+    expect(reviews.querySelectorAll('.differ dd')).toHaveLength(2)
+    expect(reviews.text).toContain('Chỉ một bài nhắc tới')
+  })
+  test('the figures a reviewer measured, how, cited; none where nothing was said about how', () => {
+    const rows = reviews.querySelectorAll('.measured tbody tr')
+    expect(rows.map(r => r.querySelector('th')?.text)).toEqual(['PAR ở nền, cách đèn 30 cm', 'Độ ồn ở 1 m'])
+    expect(rows[0]!.querySelector('.num')?.text).toContain('48 µmol')
+    expect(rows[0]!.querySelector('a.cite')?.getAttribute('href')).toBe('https://www.youtube.com/watch?v=aaaaaaaaaaa&t=433')
+    expect(rows[1]!.querySelectorAll('td')[1]?.text).toBe('–')
+  })
+  test('embeds the top review, with no channel or reviewer in its running text; the sources carry the titles', () => {
+    expect(reviews.querySelector('button.facade')?.getAttribute('data-youtube-id')).toBe('bbbbbbbbbbb')
+    expect(reviews.text).not.toContain('Example Scapes')
+    expect(reviews.text).not.toContain('Kênh Ví Dụ')
+    expect(dom.querySelector('.sources')?.text).toContain('Chihiros WRGB II Slim after 6 months')
+  })
+  test('a line the code controls gets its control block: what, where, the tool; our own test cited as ours', () => {
+    const c = dom.querySelector('.control')!
+    expect(c.querySelector('h2')?.text).toBe('Điều khiển bằng AquaTome')
+    expect(c.text).toContain('dòng WRGB II Slim')
+    expect(c.text).toContain('Chrome và Edge')
+    expect(c.text).toContain('Trình duyệt trên iPhone không dùng được Bluetooth')
+    expect(c.querySelector('a.tool')?.getAttribute('href')).toBe('/cong-cu/den-chihiros/')
+    const mark = c.querySelector('li a.cite')!
+    expect(mark.getAttribute('data-tip')).toBe('Ghi chép AquaTome tự thử')
+    expect(mark.getAttribute('href')).toContain('aquarium-device-control.md')
+  })
+  test('a light the code doesn\'t control gets no block, whatever else the page has', () => {
+    const week = page('/san-pham/week-aqua-l600-pro/')
+    expect(week.dom.querySelector('.control')).toBeNull()
+    expect(week.html).not.toContain('Điều khiển bằng AquaTome')
+  })
 })
 
 describe('photo gallery', () => {
@@ -776,7 +845,7 @@ test('every page has the language menu; a fish without other-language pages offe
   // The header's (computers) and the menu sheet's (phones).
   for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
     const links = page(path).dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual(['vi', 'id', 'th'])
+    expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual([...LANGS])
   }
   for (const menu of ['header', '#site-menu']) {
     const fish = page('/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)

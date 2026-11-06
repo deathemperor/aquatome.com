@@ -3,24 +3,24 @@ import { goLink } from '../lib/format'
 import type { GearRow } from '../lib/gear'
 import { clock } from '../lib/video'
 import { i18n } from '../lib/i18n'
+import ShopPicker from './ShopPicker.astro'
 interface Props { rows: GearRow[]; youtubeId?: string; heading: string; entity?: string }
 const { rows, youtubeId, heading, entity } = Astro.props
 const { t } = i18n(Astro.url)
 ---
 {rows.length > 0 && (
   <section class="wrap gear" aria-labelledby="gear-h">
-    <h2 id="gear-h">{heading}</h2>
+    <div class="head">
+      <h2 id="gear-h">{heading}</h2>
+      <ShopPicker />
+    </div>
     <ul>
       {rows.map(r => (
         <li>
           <span class="cat">{r.page ? <a href={r.page}>{r.label}</a> : r.label}</span>
           <span class="name">{r.product ? <a href={r.product}>{r.name}</a> : r.name}</span>
           {r.t !== undefined && youtubeId ? <button type="button" class="seek" data-t={r.t} data-vp-for={youtubeId} aria-label={t('Xem đoạn {time} trong video', { time: clock(r.t) })}>{clock(r.t)}</button> : <span />}
-          <span class="shops">
-            <a href={goLink('shopee', r.keyword, r.category, entity)} rel="sponsored nofollow noopener" target="_blank">Shopee</a>
-            <a href={goLink('lazada', r.keyword, r.category, entity)} rel="sponsored nofollow noopener" target="_blank">Lazada</a>
-            <a href={goLink('tiki', r.keyword, r.category, entity)} rel="sponsored nofollow noopener" target="_blank">Tiki</a>
-          </span>
+          <a class="shop" href={goLink('shopee', r.keyword, r.category, entity)} rel="sponsored nofollow noopener" target="_blank" data-go><span class="visually-hidden">{t('Tìm {name} trên', { name: r.name })} </span><span data-shop-name>Shopee</span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
         </li>
       ))}
     </ul>
@@ -29,14 +29,18 @@ const { t } = i18n(Astro.url)
 )}
 <style>
   .gear { padding-bottom: var(--space-6); }
-  h2 { font-size: var(--step-2); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-3); }
+  .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-3) var(--space-5); padding-bottom: var(--space-3); border-bottom: 2px solid var(--c-ink); }
+  h2 { font-size: var(--step-2); margin: 0; }
   ul { list-style: none; margin: 0; padding: 0; }
-  li { display: grid; grid-template-columns: 7rem 1fr 4rem auto; gap: var(--space-3); align-items: baseline; padding-block: var(--space-3); border-bottom: 1px dotted var(--c-rule); }
+  li { display: grid; grid-template-columns: 7rem 1fr 4rem auto; gap: var(--space-3); align-items: center; padding-block: var(--space-2); border-bottom: 1px dotted var(--c-rule); }
   .cat { font-size: var(--step--1); color: var(--c-ink-faint); }
   .name { font-weight: 500; }
   .seek { font: inherit; font-size: 0.85rem; font-variant-numeric: tabular-nums; background: none; border: 1px solid var(--c-rule); border-radius: 999px; padding: 2px 10px; min-height: 32px; color: var(--c-ink); cursor: pointer; }
   .seek:hover { border-color: var(--c-ink); }
-  .shops { display: flex; gap: var(--space-3); font-size: 0.9rem; }
+  .shop { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; min-width: 6.5rem; padding: 0 var(--space-4); border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); color: var(--c-ink); font-size: 0.9rem; font-weight: 500; text-decoration: none; }
+  .shop:hover { border-color: var(--c-ink); }
+  .shop:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .shop svg { flex: none; color: var(--c-ink-soft); }
   .note { font-size: 0.75rem; color: var(--c-ink-faint); margin-top: var(--space-2); }
-  @media (max-width: 560px) { li { grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); } .cat { grid-column: 1 / -1; } .shops { grid-column: 1 / -1; } }
+  @media (max-width: 560px) { li { grid-template-columns: 1fr auto; gap: var(--space-1) var(--space-3); padding-block: var(--space-3); } .cat { grid-column: 1 / -1; } .shop { grid-column: 1 / -1; justify-self: start; } }
 </style>

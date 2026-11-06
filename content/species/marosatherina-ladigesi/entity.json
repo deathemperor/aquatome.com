@@ -10,6 +10,56 @@
     "indonesia",
     "sulawesi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Celebes rainbowfish, Marosatherina ladigesi, is a rainbowfish from the island of Sulawesi (formerly Celebes) in Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The island of Sulawesi (formerly known as Celebes, hence the common name of the fish), Indonesia.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2412071,
+      "total": 1,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

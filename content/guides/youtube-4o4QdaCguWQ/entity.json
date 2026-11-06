@@ -1,0 +1,109 @@
+{
+  "id": "youtube-4o4QdaCguWQ",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=4o4QdaCguWQ",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "osteoglossum-bicirrhosum"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "4o4QdaCguWQ",
+    "title": "Moving my MONSTER FISH!!!",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 1935,
+    "publishedAt": "2014-06-01",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 43
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/4o4QdaCguWQ/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [
+      "Osteoglossum bicirrhosum"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 2745
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 1812
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 1555
+      },
+      {
+        "category": "den",
+        "t": 1711
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Dời hệ lọc sang bể mới ra sao",
+        "moments": [
+          {
+            "t": 1488,
+            "url": "https://media.aquatome.com/video/4o4QdaCguWQ/t1488.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Thùng lọc xanh chứa đầy vật liệu lọc vi sinh ngập trong nước."
+          },
+          {
+            "t": 1498,
+            "url": "https://media.aquatome.com/video/4o4QdaCguWQ/t1498.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bàn tay cầm vật liệu lọc đã ngả màu, lấy từ thùng lọc."
+          }
+        ]
+      },
+      {
+        "heading": "Vớt và thả cá rồng thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p3-ZV8yMDEyXzMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p3-ZV8yMDEyXzMuanBn-480.webp",
+          "width": 960,
+          "height": 509,
+          "licence": "CC BY-SA 3.0",
+          "author": "Karelj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
+          "caption": "Cá rồng bơi trong bể, thân dài và vảy lớn, dễ bật khỏi mặt nước."
+        }
+      },
+      {
+        "heading": "Vớt cá đuối mà không bị đâm, không làm cá sốc",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/4o4QdaCguWQ/p4-4NjgyMTIyKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/4o4QdaCguWQ/p4-4NjgyMTIyKS5qcGc-480.webp",
+          "width": 960,
+          "height": 636,
+          "licence": "CC BY 2.0",
+          "author": "shankar s. from Dubai, United Arab Emirates",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
+          "caption": "Cặp cá đuối nằm sát đáy cát trong bể, đuôi có ngòi độc."
+        }
+      }
+    ]
+  }
+}

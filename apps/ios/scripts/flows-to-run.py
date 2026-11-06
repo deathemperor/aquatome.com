@@ -28,7 +28,7 @@ TESTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', UI)
 # The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check), run by
 # job `handbook`; job `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'TankVolumeFlowTests']
+            'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests']
 # The first half, run by `handbook (1)` with the page shots; `handbook (2)` runs the rest of HANDBOOK, so a class added
 # there later runs in it. Split by their times on #400's run of 2026-11-03 (the whole job past its hour): 1,647 s here,
 # 1,182 s in the rest before the tank volume flows' 605 s join it.
@@ -72,7 +72,7 @@ NONE, ALL = None, 'all'
 APP, KIT = 'apps/ios/AquaTome/', 'apps/ios/AquaTomeKit/'
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
 HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests']
+                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests']
 # The handbook's model and the kit's Handbook: its screens, the tanks tab's parts that read it (the tank-mates check,
 # a tank's fish and plants, its guides), and the tank volume tool, which search and a page's links open (AppScreen).
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
@@ -143,16 +143,17 @@ REACH = {
     APP + 'Lights/LightsView.swift': ['LightFlowTests', 'PageShotsFlowTests'],
     APP + 'Lights/LightOutlet.swift': ['LightFlowTests', 'PageShotsFlowTests'],
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
-    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests'],
+    # Fish ID sends as the reader's account (signed out, its sign-in comes first).
+    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests'],
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name).
-    APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
+    APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank',
                              'TankVolumeFlowTests'] + LIGHTS_ON_TANKS,
-    KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests'],
+    KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests'],
     # A Mac command line, not in the app: job `kit` builds it.
@@ -354,6 +355,11 @@ def test():
     assert reached([APP + 'Localizable.xcstrings']) == {
         'HandbookFlowTests/testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo',
         'LightFlowTests/testTheWriteBarKeepsItsTimesWholeBesideALongerButton'}
+    # Fish ID: its screen is the handbook's, and it sends as the reader's account.
+    assert 'FishIdFlowTests' in reached([APP + 'Handbook/HomeList.swift'])
+    for p in (APP + 'Handbook/FishIdView.swift', KIT + 'Sources/Handbook/FishId.swift', APP + 'Account/AccountModel.swift',
+              KIT + 'Sources/AccountSync/Accounts.swift'):
+        assert 'FishIdFlowTests' in reached([p]), p
     # The full suite: both halves of each.
     assert everything['handbook']['halves'] == everything['lights']['halves'] == '[1, 2]'
 

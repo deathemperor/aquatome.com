@@ -1,0 +1,67 @@
+{
+  "id": "youtube-T2W_g09jCc4",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=T2W_g09jCc4",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "astronotus-ocellatus"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "T2W_g09jCc4",
+    "title": "I built an AQUARIUM out of WOOD! The king of DIY - Part 2",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 539,
+    "publishedAt": "2021-01-24",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 25
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/T2W_g09jCc4/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Astronotus ocellatus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Pond Armor",
+        "t": 160
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Hoàn thiện bên ngoài cho bể và chân liền một khối",
+        "moments": [
+          {
+            "t": 0,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/t0.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cận cảnh phần tường sơn đen xám, mặt ngoài hoàn thiện liền khối."
+          },
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/t10.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Mặt tủ sơn đen xám nổi bật so với màu tường."
+          }
+        ]
+      }
+    ]
+  }
+}

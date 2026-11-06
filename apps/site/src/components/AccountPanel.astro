@@ -1,5 +1,6 @@
 ---
 import { i18n } from '../lib/i18n'
+import AppInvite from './AppInvite.astro'
 
 /**
  * The site's sign-in (scripts/account-panel.ts initAccount): on "Bể của tôi", where it syncs the tanks, and alone on
@@ -54,6 +55,7 @@ const {
     </form>
     <p class="fine">{t('Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều.')} <a href="/vi/chinh-sach-bao-mat/#tai-khoan">{t('Chính sách bảo mật')}</a></p>
   </div>
+  {lead && <AppInvite ct="site-tanks" text={t('Chưa có ứng dụng AquaTome? Tải về cho iPhone, iPad.')} />}
   <details id="acc-leave" class="leave" hidden>
     <summary>{t('Xóa tài khoản')}</summary>
     <p>{t('Xóa ngay tài khoản, các cách đăng nhập và mọi bể lưu trong tài khoản. Không khôi phục được. Bể trên trình duyệt này vẫn còn.')}</p>
