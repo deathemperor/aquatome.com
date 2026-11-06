@@ -112,6 +112,8 @@ REACH = {
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # A Mac command line, not in the app: job `kit` builds it.
     KIT + 'Sources/light-harness/': NONE,
+    # Not in the app yet: job `kit` tests it. The light's flows, once the Đèn tab sends its commands.
+    KIT + 'Sources/FishLamp/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE, 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request.
@@ -148,7 +150,8 @@ def check(runs, left, reached):
     for paths in (['protocols/tanks-vectors.json', 'apps/ios/perf-budgets.json', APP + 'InfoPlist.xcstrings',
                    KIT + 'Tests/TanksTests/StoreTests.swift', 'apps/ios/scripts/testflight-notes.py',
                    'apps/ios/scripts/check-strings.py', 'apps/ios/scripts/check-perf.py',
-                   KIT + 'Sources/light-harness/main.swift', 'apps/ios/README.md'],
+                   KIT + 'Sources/light-harness/main.swift', KIT + 'Sources/FishLamp/love-ecology.json',
+                   'apps/ios/README.md'],
                   ['apps/ios/store/listing.json', 'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py']):
         assert runs(paths) == {} and left(paths) == '', paths
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.

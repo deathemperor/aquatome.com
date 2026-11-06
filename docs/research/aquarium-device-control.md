@@ -376,7 +376,7 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
   - The light accepted old sequence numbers.
   - It sent no echo for these repeats. Our guess is that it relays only messages it hasn't seen before.
   - **Messages we build are ignored.** We took the same off/on messages and changed only the sequence byte to unused values. Both were scrambled correctly, and the light did nothing.
-    - Byte 0 XOR `0x1A` is a counter that goes up by 1 per command. Replays with older counters still worked, so the light isn't simply rejecting old counters.
+    - Byte 0 XOR `0x1A` is a counter that goes up by 1 per command. (In the 2026-11-06 colour taps, green's also had bit `0x40` set, and the light took it.) Replays with older counters still worked, so the light isn't simply rejecting old counters.
     - We also built off/on with the very next counter after the app's last one. The light ignored those too, so it isn't a "counter within a window" rule either.
     - The 4 bytes that change on every on/off (bytes 16–19) are probably a signature over the message. They are not a Unix timestamp, and no CRC-32 variant matches. Bytes 20–21 match no standard CRC-16.
   - On 2026-11-06 the Mac replayed off, on and each colour, and the light followed every one and echoed them.

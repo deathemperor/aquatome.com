@@ -2,8 +2,8 @@ import Foundation
 
 /// The Love Ecology light the Fish lamp app drives: by broadcast, not a connection (docs/research/aquarium-device-control.md).
 /// Fish lamp sends each command as a list of 12 16-bit service UUIDs, `0x004E` first, then 22 bytes as 11 little-endian
-/// UUIDs. The light takes a recorded command played back, not one built (bytes 16–21 look like a signature), so the app
-/// plays back the owner's own recordings (`love-ecology.json`). Pure: the app advertises the list.
+/// UUIDs. The light takes a recorded command played back, not one built (an on or off's bytes 16–19 look like a
+/// signature), so the app plays back the owner's own recordings (`love-ecology.json`). Pure: the app advertises the list.
 public enum FishLamp {
   public struct Command: Sendable, Equatable, Identifiable {
     /// "off", "on", or a colour: "white", "red", "orange", "yellow", "green", "cyan", "blue", "magenta".
@@ -18,7 +18,7 @@ public enum FishLamp {
       ["004E"] + stride(from: 0, to: sent.count, by: 2).map { String(format: "%02X%02X", sent[$0 + 1], sent[$0]) }
     }
 
-    /// The bytes unscrambled: byte 0 as is, each later one XOR (the byte before it, less its index less one).
+    /// The bytes unscrambled: `plain[0] = sent[0]`, then `plain[i] = sent[i] ^ ((sent[i-1] - (i-1)) & 0xFF)`.
     public var plain: [UInt8] {
       sent.indices.map { i in i == 0 ? sent[0] : sent[i] ^ UInt8(truncatingIfNeeded: Int(sent[i - 1]) - (i - 1)) }
     }
