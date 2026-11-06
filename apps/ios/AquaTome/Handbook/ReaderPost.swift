@@ -1,5 +1,4 @@
 import Handbook
-import PhotosUI
 import SwiftUI
 import Telemetry
 
@@ -26,7 +25,8 @@ struct ReaderPost: View {
   /// The name's field shown: no name kept yet, "Đổi", or a name the site refused. A kept name is a line saying so.
   @State private var naming = false
   @State private var text = ""
-  @State private var picked: PhotosPickerItem?
+  @State private var picked: PickedPhoto?
+  @State private var library = false
   @State private var jpeg: Data?
   /// The photo as sent, decoded once for its preview.
   @State private var preview: UIImage?
@@ -95,7 +95,7 @@ struct ReaderPost: View {
       #endif
       guard let picked else { return }
       if said == .unreadable { said = nil }
-      let data = try? await picked.loadTransferable(type: Data.self)
+      let data = picked.data
       // Shrunk off the main thread: a phone's photo is tens of megapixels.
       let small = await Task.detached(priority: .userInitiated) { data.flatMap { Readers.shrink($0) } }.value
       // Another photo picked meanwhile: that one's.
@@ -128,7 +128,14 @@ struct ReaderPost: View {
               TextField("Bình luận", text: $text, axis: .vertical).lineLimit(4...12)
                 .focused($typing, equals: .body).accessibilityIdentifier("post-body")
             } else {
-              PhotosPicker(selection: $picked, matching: .images) { Label("Ảnh", systemImage: "photo") }.accessibilityIdentifier("post-pick")
+              Button { library = true } label: { Label("Ảnh", systemImage: "photo") }.accessibilityIdentifier("post-pick")
+                .sheet(isPresented: $library) {
+                  ImagePicker(source: .photoLibrary, picked: { data in
+                    library = false
+                    picked = PickedPhoto(data: data)
+                  }, cancelled: { library = false })
+                  .ignoresSafeArea()
+                }
               if reading {
                 HStack(spacing: 8) { ProgressView(); Text("Đang chuẩn bị ảnh…") }.foregroundStyle(.secondary)
               } else if said == .unreadable {

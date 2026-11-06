@@ -1,6 +1,5 @@
 import AccountSync
 import Handbook
-import PhotosUI
 import SwiftUI
 
 /// Pushed on the Tìm tab for the fish-ID screen (AppScreen.fishId).
@@ -15,8 +14,9 @@ struct FishIdView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @State private var tool = Tool.checking
-  @State private var picked: PhotosPickerItem?
+  @State private var picked: PickedPhoto?
   @State private var camera = false
+  @State private var library = false
   /// The photo as picked, full size: a box is cut from it.
   @State private var original: Data?
   /// The whole photo shrunk: what goes without a box, and its preview.
@@ -78,8 +78,8 @@ struct FishIdView: View {
     .task {
       guard tool == .checking else { return }
       #if DEBUG
-      // UI tests can't drive the system's photo picker: an item picked as the picker picks one (`load` reads it).
-      if Self.picksTestPhoto { picked = PhotosPickerItem(itemIdentifier: Self.testItem) }
+      // UI tests can't drive the system's photo picker: a photo picked as the picker picks one.
+      if Self.picksTestPhoto { picked = PickedPhoto(data: Self.testPhoto) }
       #endif
       await ask()
     }
@@ -87,17 +87,24 @@ struct FishIdView: View {
     // take the guesses and the box away and cost another identification to get them back.
     .onChange(of: picked) { _, item in
       guard let item else { return }
-      Task { await take { await load(item) } }
+      Task { await take { item.data } }
     }
     .task(id: box) { await cut() }
     .fullScreenCover(isPresented: $camera) {
-      CameraPicker { data in
+      ImagePicker(source: .camera, picked: { data in
         camera = false
         guard let data else { return }
         // The library's photo is no longer the one shown: picking it again is a change.
         picked = nil
         Task { await take { data } }
-      }
+      }, cancelled: { camera = false })
+      .ignoresSafeArea()
+    }
+    .sheet(isPresented: $library) {
+      ImagePicker(source: .photoLibrary, picked: { data in
+        library = false
+        picked = PickedPhoto(data: data)
+      }, cancelled: { library = false })
       .ignoresSafeArea()
     }
   }
@@ -148,7 +155,7 @@ struct FishIdView: View {
           .disabled(sending)
           .accessibilityIdentifier("fish-id-camera")
       }
-      PhotosPicker(selection: $picked, matching: .images) { Label("Chọn ảnh có sẵn", systemImage: "photo.on.rectangle") }
+      Button { library = true } label: { Label("Chọn ảnh có sẵn", systemImage: "photo.on.rectangle") }
         .disabled(sending)
         .accessibilityIdentifier("fish-id-library")
     } footer: {
@@ -249,14 +256,6 @@ struct FishIdView: View {
     said = small == nil ? String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.") : nil
   }
 
-  /// A photo picked from the library, as data.
-  private func load(_ item: PhotosPickerItem) async -> Data? {
-    #if DEBUG
-    if item.itemIdentifier == Self.testItem { return Self.testPhoto }
-    #endif
-    return try? await item.loadTransferable(type: Data.self)
-  }
-
   /// The box's part, cut from the full-size photo and shrunk as the whole one is.
   private func cut() async {
     part = nil
@@ -331,9 +330,8 @@ struct FishIdView: View {
   private static var ownCopy: String? { OwnCopy.isOurs ? AccountsClient.ourCopy : nil }
 
   #if DEBUG
-  /// `-picked-photo`: a library item picked as the screen opens, read as `testPhoto`.
+  /// `-picked-photo`: `testPhoto` picked as the screen opens.
   static let picksTestPhoto = ProcessInfo.processInfo.arguments.contains("-picked-photo")
-  static let testItem = "ui-test-photo"
 
   /// A 1600 × 1200 photo of a fish, to box and send.
   static var testPhoto: Data? {
@@ -490,29 +488,5 @@ private struct GuessRow: View {
       (guess.page != nil ? Text("Không phải? \(n) loài \(g) khác trong cẩm nang") : Text("\(n) loài \(g) có trong cẩm nang"))
         .font(.subheadline.weight(.semibold))
     }
-  }
-}
-
-/// The camera, for a photo taken now (SwiftUI has none). The simulator has no camera: its button isn't shown there.
-private struct CameraPicker: UIViewControllerRepresentable {
-  let taken: (Data?) -> Void
-
-  func makeUIViewController(context: Context) -> UIImagePickerController {
-    let c = UIImagePickerController()
-    c.sourceType = .camera
-    c.delegate = context.coordinator
-    return c
-  }
-  func updateUIViewController(_ c: UIImagePickerController, context: Context) {}
-  func makeCoordinator() -> Coordinator { Coordinator(taken) }
-
-  final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    let taken: (Data?) -> Void
-    init(_ taken: @escaping (Data?) -> Void) { self.taken = taken }
-    // Its orientation goes with the JPEG, and is applied as it's shrunk.
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-      taken((info[.originalImage] as? UIImage)?.jpegData(compressionQuality: 0.9))
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) { taken(nil) }
   }
 }
