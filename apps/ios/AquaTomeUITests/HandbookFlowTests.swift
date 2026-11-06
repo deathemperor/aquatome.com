@@ -365,7 +365,7 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch("-whats-new")
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let all = app.descendants(matching: .any)["all-latest"]
-    for _ in 0..<6 where !(all.exists && all.isHittable) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
     XCTAssertTrue(all.label.hasSuffix("28/10/2026"), all.label)
     all.tap()
     XCTAssertTrue(app.navigationBars["Mới cập nhật"].waitForExistence(timeout: 5))
@@ -389,7 +389,7 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch()
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let contact = app.descendants(matching: .any)["contact"]
-    for _ in 0..<12 where !(contact.exists && contact.isHittable) { app.swipeUp() }
+    repeatUntil(contact.exists && contact.isHittable, times: 12) { app.swipeUp() }
     XCTAssertTrue(contact.exists, "not at the home's end")
     XCTAssertFalse(app.descendants(matching: .any)["all-latest"].exists)
   }
