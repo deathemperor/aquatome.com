@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { drawnKinds, levelBlocks, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
-import { appEquipment, appGlossary, appGuides, appPlants, appSeries, appSpecies, type AppIndex } from '../src/lib/app-index'
+import { appBreeds, appEquipment, appGlossary, appGuides, appPlants, appSeries, appSpecies, type AppIndex } from '../src/lib/app-index'
 import { appPages, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { GUIDE_KIND_LABELS } from '../src/lib/format'
@@ -174,11 +174,11 @@ test('each page of each kind is in the shard its path names, the shards hold not
     const { counts } = shardsOf(await appPages(lang, c))
     expect(ix.shards ?? {}, lang).toEqual(Object.fromEntries(Object.entries(counts).map(([k, n]) => [k, { n, level: PAGE_LEVELS[k as PageDoc['kind']] }])))
     expect(ix.pages ?? {}, lang).toEqual(counts.guide ? { guide: counts.guide } : {})
-    // A kind's pages are the ones the index lists of it (a breed is listed as a fish, and has no page here yet).
+    // A kind's pages are the ones the index lists of it (a breed is listed as a fish, and has its page as one).
     const at = (vi: string) => appPath(lang, vi)
     const want: Record<PageDoc['kind'], string[]> = {
       guide: ix.items.filter(i => i.kind === 'guide').map(i => i.path),
-      fish: appSpecies(lang, c).map(s => at(`/vi/ca/${s.t.slug}/`)),
+      fish: [...appSpecies(lang, c), ...appBreeds(lang, c)].map(s => at(`/vi/ca/${s.t.slug}/`)),
       plant: appPlants(lang, c).map(p => at(`/vi/cay/${p.t.slug}/`)),
       glossary: appGlossary(lang, c).map(g => at(`/vi/thuat-ngu/${g.t.slug}/`)),
       video: appSeries(lang, c).map(({ s }) => at(`/vi/video/${s.vi.slug}/`)),
