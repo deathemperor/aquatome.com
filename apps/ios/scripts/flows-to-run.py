@@ -49,7 +49,7 @@ LIGHT_FIRST = [
     'testTheLightsOwnScheduleIsNeverShownAsWhatItRuns', 'testThePlanIsKeptWithoutALight',
     'testTheWriteBarStaysInViewAndSaysWhatWillBeWritten', 'testWritesAPresetThenAnotherThenUndoesBackToTheFirst',
     'testWritingAScheduleEndsTheManualLevels']
-# The first half of job `app` (every other flow), run by `app (1)` with a pull request's smoke set; `app (2)` runs the
+# The first half of job `app` (every other flow) on main's runs, by `app (1)`; `app (2)` runs the
 # rest, so a class added later runs there. Split by their times on GitHub's Macs in #553's run of 2026-11-05 (the whole
 # job stopped at its hour, about a minute a test): about 2,000 s here, 2,070 in the rest, counting the tests that run
 # never reached at their class's average. Measured again with the flows' animations off (#549's run 42023734393, where
@@ -58,8 +58,8 @@ APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests']
 # Run elsewhere: the performance tests by job `perf`, the App Store's screenshots by app-store.yml.
 ELSEWHERE = ['PerformanceTests', 'StoreShotsFlowTests']
 
-# On every pull request that changes the app, in job `app`: one or two flows a journey, chosen by their time on GitHub's
-# Macs (the median of 5 to 7 runs, 2026-11-02 to 04): 344 s together, under 6 minutes after the build.
+# On every pull request that changes the app, packed with its other flows: one or two flows a journey, chosen by their
+# time on GitHub's Macs (the median of 5 to 7 runs, 2026-11-02 to 04): 344 s together, under 6 minutes after the build.
 SMOKE = [
     'HandbookFlowTests/testTheChihirosToolOpensTheLightsTab',  # the app starts, a search, the lights tab (18 s)
     'HandbookFlowTests/testTheMyTanksToolOpensTheTanksTab',  # the tanks tab (15 s)

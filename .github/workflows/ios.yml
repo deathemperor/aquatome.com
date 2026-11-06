@@ -80,7 +80,8 @@ jobs:
               python3 apps/ios/scripts/flows-to-run.py > "$RUNNER_TEMP/flows"
             tee -a "$GITHUB_OUTPUT" < "$RUNNER_TEMP/flows"
             # What each job runs, by class: a job's name no longer says which flows it holds.
-            echo "::notice title=Flows by job::$(sed -n 's/^ran=//p' "$RUNNER_TEMP/flows")"
+            ran=$(sed -n 's/^ran=//p' "$RUNNER_TEMP/flows")
+            if [ -n "$ran" ]; then echo "::notice title=Flows by job::$ran"; fi
             left=$(sed -n 's/^left=//p' "$RUNNER_TEMP/flows")
             if [ -n "$left" ]; then
               echo "::notice title=Left to main::main's run after the merge runs the other flows this change can reach: $left. The label ios-full runs them on this pull request: ask for it on a change to a model many flows share (LightsModel, HandbookModel's fixture, AccountModel)"
@@ -118,7 +119,7 @@ jobs:
         working-directory: apps/ios/AquaTomeKit
   # In two halves, as `handbook` and `lights` are (APP_FIRST in flows-to-run.py): on GitHub's Macs the whole job takes
   # about a minute a test, and #553's run of it was stopped at its hour with 42 of 56 passed and none failed
-  # (2026-11-05). A pull request's smoke set runs in the first half.
+  # (2026-11-05). A pull request's flows are packed into as few job halves as hold them (`pack` in flows-to-run.py).
   app:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: other flows"
@@ -135,8 +136,7 @@ jobs:
       - run: apps/ios/scripts/wait-for-simulator.sh
       # The full suite: the main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights'
       # (job `lights`), the performance tests (job `perf`), and the App Store's screenshots (app-store.yml), which read
-      # the live site. A pull request: the smoke set, and the classes of the flow files it edits that are none of those.
-      # Each half runs its share.
+      # the live site. Each half runs its share. A pull request: whichever of its flows `pack` put in this half.
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
@@ -222,9 +222,8 @@ jobs:
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
   # build), with only the facts card added to main; the handbook stack (#313 to #341) adds more. Then this job alone
   # took 53 to 58 minutes on every pull request of 2026-11-03, and ran out of its hour with the tank volume flows
-  # (#400): in two halves since, as the light flows are. On a pull request, a half runs only the classes of that half
-  # whose flow files it edits, and the page shots in the first, and a half with none is left out (`halves` in
-  # flows-to-run.py).
+  # (#400): in two halves since, as the light flows are. On a pull request, a half runs whichever of its flows `pack`
+  # (flows-to-run.py) put there, the page shots always in the first, and a half with none is left out.
   handbook:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: handbook and tank-life flows"

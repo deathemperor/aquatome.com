@@ -239,8 +239,8 @@ Debug builds, so they don't see it.
 - **A pull request** runs the smoke set, ten flows across the app's main journeys (the app starts and its tabs open, a
   search opens a page the app draws, a fish's facts, a tank made and a fish put on it, the tank-mates check, the fake
   light connected and a preset written, a sign-in on the stand-in server, a shelf kept for offline: about 6 minutes
-  after the build), when its change can reach any flow. With it: the whole class of each flow file it edits, in that
-  class's job, so a check added or changed is seen to pass; and the page shots, when its change can reach the pages
+  after the build), when its change can reach any flow. With it: the whole class of each flow file it edits, so a
+  check added or changed is seen to pass; and the page shots, when its change can reach the pages
   (governance rule 6). The other flows its change can reach run on main after the merge: `scripts/flow_lists.py`
   maps the app's folders and files to them, and the job "which flows this change needs" names their classes in a
   notice. Label the pull request `ios-full` to run them on it, as on a change to a model many flows share
