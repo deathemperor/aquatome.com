@@ -185,8 +185,6 @@ struct OwnerDraw {
   }
 }
 
-/// A form's fields, each under its label, and its button: sent as a button's request is; emptied once the server took
-/// it, kept to fix when it didn't.
 /// At most `width` across, wrapped to its whole height. `frame(maxWidth:)` passes a sideways scroll view's unlimited
 /// width on as it is, so a table's grid measured each cell as one line and cut it there.
 private struct Capped: Layout {
@@ -201,6 +199,8 @@ private struct Capped: Layout {
   }
 }
 
+/// A form's fields, each under its label, and its button: sent as a button's request is; emptied once the server took
+/// it, kept to fix when it didn't.
 struct OwnerForm: View {
   let form: Owner.Form
   let working: Bool

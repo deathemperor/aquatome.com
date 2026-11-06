@@ -477,7 +477,8 @@ func standInReportSettings() async throws {
   #expect(try JSON.parse(again).object?["changed"] == .bool(false))
 
   // Refused as the Worker refuses: not true or false, nothing named, or something else named.
-  let bad: [[String: Any]] = [["push": "yes"], [:], ["sms": true]]
+  // "yes" is a vector's own request, answered as recorded; "no" reaches the stand-in's own check.
+  let bad: [[String: Any]] = [["push": "yes"], ["push": "no"], [:], ["sms": true]]
   for b in bad {
     let refused = await failure { try await mine.run(Owner.Action(label: "x", method: "POST", path: "/api/owner/report-settings", body: b)) }
     #expect(refused == "\(OwnerError.refused("bad_request", message: "email và/hoặc push (true/false)."))", "\(b)")
