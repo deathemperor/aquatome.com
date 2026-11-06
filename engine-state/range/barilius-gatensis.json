@@ -1,0 +1,103 @@
+{
+  "id": "barilius-gatensis",
+  "native": {
+    "input": "6aed43bda767e577",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Bharathapuzha",
+        "source": "seriouslyfish",
+        "quote": "Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Tamiraparani",
+        "source": "seriouslyfish",
+        "quote": "Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Chalakudy",
+        "source": "seriouslyfish",
+        "quote": "Current records suggest it to be endemic to and occur throughout the Western Ghats mountains, southern India, with records from both east and west-flowing river systems including the Sharavathi and Bhagra rivers in Karnataka state, Chalakudy, Periyar and Bharathapuzha in Kerala state, and Cauvery and Tamiraparani in Tamil Nadu state.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius gatensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2363303,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

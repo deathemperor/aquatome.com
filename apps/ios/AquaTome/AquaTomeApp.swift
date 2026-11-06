@@ -1,6 +1,7 @@
 import AccountSync
 import Handbook
 import SwiftUI
+import Telemetry
 import WebKit
 
 @main
@@ -10,6 +11,7 @@ struct AquaTomeApp: App {
   @State private var tanks: TanksModel
   @State private var account: AccountModel
   @State private var plugs: PlugsModel
+  @State private var telemetry: TelemetryModel
   @State private var tab = Tab.handbook
   @State private var tanksPath = NavigationPath()
   @State private var handbookPath = NavigationPath()
@@ -17,7 +19,16 @@ struct AquaTomeApp: App {
   @State private var opening: AppLink?
   @Environment(\.scenePhase) private var phase
 
-  enum Tab { case tanks, handbook, lights }
+  enum Tab {
+    case tanks, handbook, lights
+    var screen: Screen {
+      switch self {
+      case .tanks: .tanks
+      case .handbook: .handbook
+      case .lights: .lights
+      }
+    }
+  }
 
   init() {
     #if DEBUG
@@ -26,6 +37,7 @@ struct AquaTomeApp: App {
     if ProcessInfo.processInfo.arguments.contains("-reset-defaults"), let id = Bundle.main.bundleIdentifier {
       UserDefaults.standard.removePersistentDomain(forName: id)
       WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast) {}
+      try? FileManager.default.removeItem(at: TelemetryModel.file)
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     // The UI flows (`-no-animations`): after each tap or swipe XCUITest waits for the app to be idle, UIKit's animations
@@ -39,13 +51,22 @@ struct AquaTomeApp: App {
     _handbook = State(initialValue: handbook)
     let tanks = TanksModel()
     _tanks = State(initialValue: tanks)
-    _lights = State(initialValue: LightsModel(radio: AquaTomeApp.radio(), tanks: tanks))
+    let lights = LightsModel(radio: AquaTomeApp.radio(), tanks: tanks)
+    _lights = State(initialValue: lights)
     let (account, wanted) = AquaTomeApp.server(tanks)
     _account = State(initialValue: account)
     // What a save puts on a tank without a page, that no page has, is sent as wanted.
     tanks.wanted = wanted
     tanks.hasPage = { handbook.page(for: $0) != nil }
-    _plugs = State(initialValue: AquaTomeApp.plugs())
+    let plugs = AquaTomeApp.plugs()
+    _plugs = State(initialValue: plugs)
+    // Each records where it knows how an action went.
+    let telemetry = TelemetryModel(lang: handbook.lang)
+    _telemetry = State(initialValue: telemetry)
+    handbook.telemetry = telemetry.telemetry
+    tanks.telemetry = telemetry.telemetry
+    lights.telemetry = telemetry.telemetry
+    plugs.telemetry = telemetry.telemetry
   }
 
   var body: some Scene {
@@ -63,11 +84,16 @@ struct AquaTomeApp: App {
       }
       // The tab bar shrinks out of the way while reading down a page, and comes back at the page's top or with a tap on it (iOS 26).
       .minimizingTabBarOnScroll()
+      #if DEBUG
+      // Whatever tab or page is showing, for the video tests: the pages' players still alive.
+      .background { PlayerCount() }
+      #endif
       .environment(lights)
       .environment(handbook)
       .environment(tanks)
       .environment(account)
       .environment(plugs)
+      .environment(telemetry)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
       // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.
@@ -83,11 +109,29 @@ struct AquaTomeApp: App {
       .onChange(of: tanks.store) { account.changed() }
       .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
       .task { await OwnCopy.check() }
+      // After the first screen: iOS's reports, and sending every 30 s once the site (its index read fresh this launch)
+      // and the reader allow it.
+      .task { await telemetry.start() }
+      .onChange(of: handbook.siteTelemetry, initial: true) { if let on = handbook.siteTelemetry { telemetry.siteAllows(on) } }
+      .onChange(of: tab, initial: true) { telemetry.telemetry.record(.view(tab.screen)) }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
-      .onChange(of: phase) { if phase == .background { lights.leave() } else if phase == .active { lights.returned() } }
+      .onChange(of: phase) {
+        if phase == .background { lights.leave(); telemetry.leave() } else if phase == .active { lights.returned() }
+      }
       // The page shots' dark run (PageShotsFlowTests): the runner's own appearance setting doesn't reach the app.
       .preferredColorScheme(Self.testScheme)
       .appIconsForTests()
+      #if DEBUG
+      .background {
+        // What the stand-in Worker received, and whether the queue's file is on the phone, for the UI tests to read
+        // (debug builds only).
+        VStack {
+          Text(verbatim: telemetry.received.isEmpty ? "none" : telemetry.received.joined(separator: " | ")).accessibilityIdentifier("telemetry-received")
+          Text(verbatim: telemetry.queueKept ? "kept" : "none").accessibilityIdentifier("telemetry-queue")
+        }
+        .font(.system(size: 1)).opacity(0.01)
+      }
+      #endif
     }
   }
 
@@ -116,11 +160,18 @@ struct AquaTomeApp: App {
     case .page(let path):
       // A page the app draws linking to another: pushed on the tab it's in.
       guard let item = handbook.item(at: path) else { return }
-      if tab == .tanks { tanksPath.append(item) } else { tab = .handbook; handbookPath.append(item) }
+      push(item)
     case .group(let group):
       // A group named in a page's text: its shelf, pushed on the tab the page is in.
-      if tab == .tanks { tanksPath.append(Browse.fish(group)) } else { tab = .handbook; handbookPath.append(Browse.fish(group)) }
+      push(Browse.fish(group))
+    case .tankVolume(let query):
+      push(VolumeTool(query: query))
     }
+  }
+
+  /// A screen pushed on the tab in front: the tanks tab, else the Tìm tab.
+  private func push(_ value: some Hashable) {
+    if tab == .tanks { tanksPath.append(value) } else { tab = .handbook; handbookPath.append(value) }
   }
 
   /// The link from outside waiting, if any: the home's top, with no search; a shop outside, as a page's link opens it;

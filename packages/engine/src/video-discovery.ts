@@ -35,7 +35,7 @@ export const QUERIES = [
  * even with a full queue, and written first after the owner's picks. A handle is someone's: @KingofDIY is a stranger's
  * channel, The king of DIY is @thekingofdiy.
  */
-export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'GeorgeFarmerStudios', 'MDFishTanks', 'thekingofdiy', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist']
+export const CHANNELS = ['MJAquascaping', 'AquariumCoOp', 'SerpaDesign', 'GeorgeFarmerStudios', 'MDFishTanks', 'thekingofdiy', 'KGTropicals', 'RachelOLeary', 'girltalksfish', 'PrimeTimeAquatics', 'TheSmallScape', 'BucePlant', '2HrAquarist', 'indoorecosystem']
 
 const FILE = (root: string) => join(root, 'engine-state/youtube-playlists.json')
 const VFILE = (root: string) => join(root, 'engine-state/youtube-videos.json')

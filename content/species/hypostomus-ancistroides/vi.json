@@ -4,14 +4,20 @@
   "altNames": [],
   "sections": {
     "quickFacts:glaser": "<p>Đây là một loài Hypostomus có thân thon dài, rất hiếm gặp, được nhập về từ Paraguay. Vì là cá vùng cận nhiệt đới nên nó chịu được nhiệt độ từ 16 đến 28°C. Cá trưởng thành dài tối đa khoảng 20–25 cm.</p>",
-    "distribution:glaser": "<p>Cá được nhập về từ Paraguay.</p>"
+    "distribution:glaser": "<p>Cá được nhập về từ Paraguay.</p>",
+    "quickFacts:scotcat": "<ul><li>Tình trạng bảo tồn: Ít quan tâm (LC) (IUCN 2022)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Tietê và lưu vực sông Ribeira de Iguape, Brazil. Địa điểm mẫu chuẩn là Rio Tatuhy, một nhánh bờ trái của Rio Sorocaba, thuộc hệ Rio Piracicaba, bang São Paulo [Brazil].</p><p>Hypostomus ancistroides phân bố rộng, thường gặp và có số lượng nhiều ngoài tự nhiên. Hiện chưa ghi nhận mối đe dọa đáng kể nào với quần thể của loài, vì vậy IUCN xếp nó vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "maintenance:scotcat": "<p>Đây là một trong những loài nhỏ nhất của giống này. Nếu có bể lớn thì nó là một ứng viên nuôi khá ổn. Phần lớn các loài trong giống này ăn uống rất bừa bộn, nên bạn cần giữ nước sạch và có lọc tốt. Với loài này, nên nuôi ở nhiệt độ nước thấp hơn một chút.</p>",
+    "diet:scotcat": "<p>Trong bể, loài này ăn được đủ loại thức ăn: thức ăn thực vật, viên nén, viên chìm và thức ăn dạng vảy loại tốt.</p>",
+    "notes:scotcat": "<p>Mô tả: Thân cao. Chiều dài chuẩn (SL) bằng 4,2 đến 4,7 lần chiều cao thân lớn nhất và bằng 9,8 đến 10,0 lần chiều cao cuống đuôi. Miệng nằm ở phía dưới. Màu nền nâu, trên thân có các mảng nâu sẫm, nhất là ở vùng lưng. Các vây màu nâu sẫm, điểm đốm đen.</p><p>Từ nguyên: Tên loài ancistroides là từ Tân Latinh, ghép từ eidos (hình dạng). Cái tên này chỉ việc loài cá trông giống một số loài thuộc giống Ancistrus.</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypostomus ancistroides. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2020. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2020).</p>"
   },
   "quality": {
-    "score": 0.95,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.95
-    },
-    "reason": "thin"
+      "glaser": 0.95,
+      "scotcat": 0.85
+    }
   }
 }

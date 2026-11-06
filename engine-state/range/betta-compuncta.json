@@ -1,0 +1,35 @@
+{
+  "id": "betta-compuncta",
+  "native": {
+    "input": "02cfa4f3c0c8125b",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta compuncta",
+    "status": "ACCEPTED",
+    "taxonKey": 2394026,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

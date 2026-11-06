@@ -1,0 +1,75 @@
+{
+  "id": "aphyosemion-splendopleure",
+  "native": {
+    "input": "33b3597fc56e935d",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "No type locality details were provided in the original description but Meinken (1930) lists the town of Tiko, southwestern Cameroon, in his redescription.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's currently considered to occur in lowland, coastal areas from the southeastern tip of Nigeria, throughout western Cameroon and Equatorial Guinea and into northwestern Gabon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's currently considered to occur in lowland, coastal areas from the southeastern tip of Nigeria, throughout western Cameroon and Equatorial Guinea and into northwestern Gabon.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's currently considered to occur in lowland, coastal areas from the southeastern tip of Nigeria, throughout western Cameroon and Equatorial Guinea and into northwestern Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion splendopleure",
+    "status": "ACCEPTED",
+    "taxonKey": 2348228,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        56
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "NG",
+      "GQ",
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -24,11 +24,51 @@
         "Rio Negro",
         "Orinoco",
         "Casiquiare Canal",
-        "Orinoco River"
+        "Orinoco River",
+        "Vaupés"
       ],
       "sources": [
         "seriouslyfish",
         "sprucepets"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+          "countries": [
+            "BR",
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the Casiquiare Canal and parts of the Orinoco watershed in Venezuela, with the latter populations exhibiting some morphological differences compared with those from the Negro (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Casiquiare Canal"
+          ]
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its current confirmed range extends westwards (upriver) from the area around the municipality of Santa Isabel do Rio Negro (formerly Tapuruquara) in the middle rio Negro basin, Brazil, to lower parts of the Ríos Vaupés (aka Uaupés in Brazil), Içana, Guaviare, Inírida, Meta and Vichada.",
+          "countries": [],
+          "regions": [
+            "Vaupés"
+          ]
+        }
       ]
     },
     "records": {
@@ -496,8 +536,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể thủy sinh 60x30"
+        "bể cá 60cm"
       ]
     },
     {

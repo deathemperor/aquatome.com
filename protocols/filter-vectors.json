@@ -31,16 +31,20 @@
   "breeds": [
     {"name": "Cá La Hán", "tempC": {"min": 26, "max": 30}, "ph": {"min": 6.5, "max": 7.8}},
     {"name": "Cá đĩa Pigeon Blood", "tempC": {"min": 28, "max": 31}, "ph": {"min": 5.5, "max": 7}, "tankCm": 120},
-    {"name": "Betta Koi"}
+    {"name": "Betta Koi"},
+    {"name": "Cá vàng Oranda", "tempC": {"min": 18, "max": 24}, "difficulty": 2}
   ],
   "breedCases": [
-    {"note": "nothing set: every breed stays", "query": {}, "kept": ["Cá La Hán", "Cá đĩa Pigeon Blood", "Betta Koi"]},
+    {"note": "nothing set: every breed stays", "query": {}, "kept": ["Cá La Hán", "Cá đĩa Pigeon Blood", "Betta Koi", "Cá vàng Oranda"]},
     {"note": "a name search keeps the names that match", "query": {"text": "la han"}, "kept": ["Cá La Hán"]},
     {"note": "a temperature both ranges hold; the breed with none is out, not a maybe", "query": {"tempC": 29}, "kept": ["Cá La Hán", "Cá đĩa Pigeon Blood"]},
     {"note": "a temperature only one range holds", "query": {"tempC": 27}, "kept": ["Cá La Hán"]},
     {"note": "a tank: the one with a tank figure that fits; one without a tank figure is out", "query": {"tankCm": 150}, "kept": ["Cá đĩa Pigeon Blood"]},
     {"note": "a tank shorter than the breed's own", "query": {"tankCm": 100}, "kept": []},
-    {"note": "a difficulty: no breed has one, so none stays", "query": {"difficultyMax": 3}, "kept": []},
+    {"note": "a difficulty: the breed whose own is at or under it; one with none is out, not a maybe", "query": {"difficultyMax": 3}, "kept": ["Cá vàng Oranda"]},
+    {"note": "a difficulty under the breed's own", "query": {"difficultyMax": 1}, "kept": []},
+    {"note": "a difficulty equal to the breed's own", "query": {"difficultyMax": 2}, "kept": ["Cá vàng Oranda"]},
+    {"note": "a pH at one breed's top: a range holds both its ends; the breeds with none are out", "query": {"ph": 7}, "kept": ["Cá La Hán", "Cá đĩa Pigeon Blood"]},
     {"note": "a name and a temperature: both must hold", "query": {"text": "dia", "tempC": 29}, "kept": ["Cá đĩa Pigeon Blood"]},
     {"note": "a group hides every breed", "query": {"group": "cichlids"}, "kept": []}
   ]

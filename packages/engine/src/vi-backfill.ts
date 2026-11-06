@@ -1,8 +1,9 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { QUALITY_THRESHOLD, judgeQuality, metricPage } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { reviewRewrite, reviewTranslation } from './quality'
+import { lastKept, logReviews, TEXT_KINDS, type PageRef, type Review } from './review-log'
 import { METRIC_KINDS } from './metric'
 import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
 
@@ -65,6 +66,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
  * old Vietnamese's meaning (≥ threshold). Names, slugs and data never change. Stops on a model failure (usage limit).
  */
 export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp }) {
+  const root = dirname(contentRoot)
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
@@ -79,6 +81,9 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
     // Per source: its score before this run, and the scores of the chunks kept (a long source is several chunks).
     const orig = (src?: string) => (src ? vi.quality?.bySource?.[src] : undefined) ?? vi.quality?.score ?? 0
     const kept = new Map<string, { scores: number[]; all: boolean }>()
+    // Each group's reviews, kept once the page is written (a failed page keeps none of its rewrites).
+    const reviewed: { page: PageRef; tries: Review[]; kept?: Review }[] = []
+    const log = (written: boolean) => Promise.all(reviewed.map(r => logReviews(root, 'vi-rewrite', r.page, r.tries, written ? r.kept : undefined, { now: d.now() })))
     try {
       for (const g of job.groups) {
         const opts = { ...d.opts, ...(g.source && names[g.source] ? { source: names[g.source]!.name } : {}) }
@@ -86,19 +91,27 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         const review = (m: Map<string, string>) => hasEn
           ? reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: m.get(p.id)! })))
           : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! })))
-        let next = await rewriteVi(d.llm, g.parts, opts)
+        // What the last review of this text on the site found, when it was under the bar, goes to the writer.
+        const page = { id: job.id, lang: 'vi', ...(g.source ? { part: g.source } : {}) }
+        const before = await lastKept(root, page, TEXT_KINDS)
+        let next = await rewriteVi(d.llm, g.parts, { ...opts, ...(before && before.score < QUALITY_THRESHOLD && before.notes.length ? { notes: before.notes } : {}) })
         const first = await review(next)
-        let score = first.score
+        let best = first
         // Below the bar: one more try with the reviewer's notes (as for video guides); the better of the two counts.
-        if (score < QUALITY_THRESHOLD) {
+        const tries = [first]
+        if (first.score < QUALITY_THRESHOLD) {
           const again = await rewriteVi(d.llm, g.parts, { ...opts, notes: first.notes })
           const r = await review(again)
-          if (r.score > score) { next = again; score = r.score }
+          tries.push(r)
+          if (r.score > first.score) { next = again; best = r }
         }
+        const score = best.score
         scores.push(score)
         const k = kept.get(g.source ?? '') ?? { scores: [], all: true }
         kept.set(g.source ?? '', k)
-        if (!(score >= QUALITY_THRESHOLD || (hasEn && score > orig(g.source)))) { k.all = false; continue }
+        const keep = score >= QUALITY_THRESHOLD || (hasEn && score > orig(g.source))
+        reviewed.push({ page, tries, kept: keep ? best : undefined })
+        if (!keep) { k.all = false; continue }
         if (hasEn) k.scores.push(score)
         rewritten++
         for (const p of g.parts) {
@@ -122,12 +135,14 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         }
       }
     } catch (e) {
+      await log(false)
       if (e instanceof LlmError) { report.stopped = `${job.id}: ${e.message}`; break }
       state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V }
       report.failed.push(`${job.id}: ${(e as Error).message}`)
       continue
     }
     if (rewritten) await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(job.kind) ? metricPage(vi, 'vi') : vi, null, 2)}\n`)
+    await log(true)
     state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V }
     ;(rewritten ? report.done : report.kept).push(`${job.id} (${rewritten}/${job.groups.length}, ${scores.map(s => s.toFixed(2)).join(' ')})`)
     await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)

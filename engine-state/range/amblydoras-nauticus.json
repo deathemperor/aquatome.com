@@ -1,8 +1,8 @@
 {
   "id": "amblydoras-nauticus",
   "native": {
-    "input": "ad1511c3cb86f1a9",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "2069fc09c2c3940a",
+    "at": "2026-11-06T12:17:30.771Z",
     "claims": [
       {
         "code": "PE",
@@ -18,6 +18,14 @@
         "source": "planetcatfish",
         "quote": "Type locality: Nauta, Peru.",
         "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
+        "words": "Brazil",
         "ok": true
       }
     ],
@@ -54,6 +62,12 @@
         "name": "Amazon",
         "source": "planetcatfish",
         "quote": "South America: Upper Amazon River basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazonia",
+        "source": "glaser",
+        "quote": "One of the most common species of Doradidae in Amazonia.",
         "ok": true
       }
     ],
@@ -103,9 +117,10 @@
       ]
     ],
     "native": [
-      "PE"
+      "PE",
+      "BR"
     ],
     "requests": 12,
-    "at": "2026-11-06T01:44:56.709Z"
+    "at": "2026-11-06T12:17:30.771Z"
   }
 }

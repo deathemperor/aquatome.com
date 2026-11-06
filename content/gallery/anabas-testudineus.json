@@ -14,18 +14,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/330904380.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/330904380-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Utain Pummarin",
-      "sourceUrl": "https://www.inaturalist.org/photos/330904380",
-      "caption": "Ba con cá rô đồng sống trong thùng nước màu xanh",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/455287801.webp",
       "thumb": "https://media.aquatome.com/inaturalist/455287801-480.webp",
       "width": 1024,
@@ -48,6 +36,18 @@
       "caption": "Cá rô đồng sống bơi trong thùng nước",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/427337940.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/427337940-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Navapol Komanasin",
+      "sourceUrl": "https://www.inaturalist.org/photos/427337940",
+      "caption": "Hai con cá rô đồng bơi trong chậu nhựa xanh",
+      "best": true,
+      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/617710483.webp",
@@ -182,7 +182,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 160,
-  "updatedAt": "2026-11-03",
-  "builtAt": "2026-11-03"
+  "seen": 166,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

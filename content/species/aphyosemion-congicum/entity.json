@@ -10,6 +10,67 @@
     "democratic-republic-of-the-congo",
     "kwango"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Kwango",
+        "Gamba",
+        "Kasai"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Congo lyretail, Aphyosemion congicum, is a killifish from western Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It may be restricted to the area between the Kwango and Gamba rivers, the latter a tributary of the former, in western Democratic Republic of Congo.",
+          "countries": [],
+          "regions": [
+            "Kwango",
+            "Gamba"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Kwango is itself a tributary of the Kasai, an affluent of the Congo.",
+          "countries": [],
+          "regions": [
+            "Kasai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348291,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

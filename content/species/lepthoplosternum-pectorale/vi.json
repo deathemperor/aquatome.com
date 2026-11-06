@@ -2,21 +2,32 @@
   "slug": "ca-hoplosternum-lun",
   "name": "Cá hoplosternum lùn",
   "altNames": [
-    "Dwarf Hoplosternum"
+    "Dwarf Hoplosternum",
+    "Cá chuột hoplo lùn",
+    "Dwarf Hoplo"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Nhóm Hoplosternum thuộc họ cá da trơn có giáp, nên có họ hàng gần với Corydoras và các loài cùng nhóm. Cũng như Corydoras, chúng là cá cảnh dễ nuôi và xem rất thú vị. Tiếc là phần lớn các loài trong nhóm này lớn khá to. Vì vậy, với bể nhỏ thì các loài thuộc chi Lepthoplosternum là lựa chọn hợp nhất. Cá trong chi này dài tối đa khoảng 8 cm, nhưng mới 5 cm (tính cả đuôi) là chúng đã trưởng thành hoàn toàn.</p><p>Kích thước cá thường bán: 4-5 cm.</p>",
     "distribution:glaser": "<p>Nguồn gốc: Paraguay.</p>",
     "maintenance:glaser": "<p>Cá hoplosternum lùn nuôi y như cách người ta vẫn nuôi các loài cá chuột (Corydoras) cùng vùng, chẳng hạn C. paleatus và C. aeneus.</p>",
     "dimorphism:glaser": "<p>Cá đực có gai vây ngực to dày lên và chuyển màu vàng cam.</p>",
-    "notes:glaser": "<p>Trong các sách cá cảnh cũ, loài này mang tên Hoplosternum pectoralis.</p><p>Từ nguyên: Lepthoplosternum nghĩa là \"Hoplosternum nhỏ\". Hoplosternum là tên một chi cá da trơn có giáp khác. Còn pectorale ám chỉ gai vây ngực dày lên ở cá đực của loài này.</p>"
+    "notes:glaser": "<p>Trong các sách cá cảnh cũ, loài này mang tên Hoplosternum pectoralis.</p><p>Từ nguyên: Lepthoplosternum nghĩa là \"Hoplosternum nhỏ\". Hoplosternum là tên một chi cá da trơn có giáp khác. Còn pectorale ám chỉ gai vây ngực dày lên ở cá đực của loài này.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Dwarf Hoplo</li><li>Danh sách Đỏ IUCN: Ít quan ngại (IUCN 2023)</li></ul>",
+    "distribution:scotcat": "<p>Loài này sống ở Nam Mỹ, trong lưu vực sông Paraguay. Địa điểm thu mẫu chuẩn là Monte Sociedad, thuộc vùng Chaco của Paraguay.</p><p>Mọi giống khác trong phân họ Callichthyinae đều có mặt ở phần phía bắc lục địa Nam Mỹ, tức phía bắc sông Amazon. Các loài Lepthoplosternum thì không. Các loài hiện được ghi nhận gồm: L. altamazonicum ở thượng lưu sông Amazon thuộc Peru, L. beni ở trung lưu sông Madeira, L. pectorale ở sông Paraguay và L. tordilho ở lưu vực laguna dos Patos, miền nam Brazil (Roberto E. Reis).</p>",
+    "behaviour:scotcat": "<p>Đây là loài hiền, sống tốt trong bể trồng cây miễn là còn chừa khoảng trống cho cá bơi. Bạn có thể thả nó vào bể cộng đồng trồng cây khá dễ dàng. Cá không lớn bằng Megalechis thoracata hay Hoplosternum littorale và cũng không có tính hung hăng.</p>",
+    "waterConditions:scotcat": "<p>Loài này có nguồn gốc từ miền nam lục địa Nam Mỹ. Vì vậy nó ưa nhiệt độ ở mức mát của vùng nhiệt đới, tức là dưới 24°C.</p>",
+    "diet:scotcat": "<p>Giống phần lớn các loài hoplo, cá cần khẩu phần đa dạng gồm thức ăn đông lạnh, thức ăn sống và cám vảy loại tốt. Cho gì nó cũng ăn gần hết. Bạn nhớ duy trì thay nước đều đặn.</p>",
+    "reproduction:scotcat": "<p>Đây là loài làm tổ bọt. Cá cái đẻ trứng vào đám cây thủy sinh nổi hoặc vào một tấm nắp xốp polystyrene thả nổi trên mặt nước. Cá vẫn có thể tìm cách đẻ ngay trong bể cộng đồng. Nếu thấy chúng đẻ, bạn nên chuyển cặp cá sang bể sinh sản riêng. Có như vậy cá bột mới sống sót được trước những bạn cùng bể đang dòm ngó.</p>",
+    "dimorphism:scotcat": "<p>Cá đực có gai vây ngực dày hơn cá cái.</p>",
+    "notes:scotcat": "<p>Về hình dáng, loài này trông giống Callichthys callichthys nhưng nhỏ hơn. Thân nó không dẹt bằng, còn mắt thì to hơn.</p><p>Tên loài pectorale nói đến bộ vây ngực dài ở cá trưởng thành.</p><p>Thông tin về loài này còn ít. Dù vậy, nó phân bố rộng và khó có khả năng gặp mối đe dọa nghiêm trọng. Vì thế IUCN xếp loài này vào mức Ít quan ngại (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Lepthoplosternum pectorale. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 30. Dec. 1998.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.9
+    }
   }
 }

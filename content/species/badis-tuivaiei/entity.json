@@ -10,6 +10,89 @@
     "india",
     "barak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Barak",
+        "Ichamati",
+        "Ganges"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Tuivai and Irang rivers, both tributaries of the Barak River in Manipur state, northeastern India and also recorded from the section of the Tuivai flowing through Mizoram state.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Barak"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Barak comprises part of the Ganges River system while the Wahumiam is a tributary of the Ichamati River which forms the border between India and Bangladesh for part of its length.",
+          "countries": [],
+          "regions": [
+            "Ichamati",
+            "Ganges"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389462,
+      "total": 11,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          10
+        ],
+        [
+          "BD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          90,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          23.90625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +220,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

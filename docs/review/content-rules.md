@@ -5,7 +5,7 @@ Indonesian and Thai (`packages/engine/src/content-rules.ts`, docs/governance.md)
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 4023 (Vietnamese 2552, Indonesian 739, Thai 732). Imperial units
+Pages checked: 4469 (Vietnamese 2734, Indonesian 871, Thai 864). Imperial units
 beside a metric figure: feet 2, gallon 8.
 
 ## Numbered headings broken or miscounted (1)
@@ -72,11 +72,11 @@ A product page saying AquaTome controls it, when the code doesn't (@aq/schema co
 
 - none
 
-## Markdown, HTML or entities left in the text (0)
+## Markdown, HTML or entities left in the text (1)
 
 **bold**, "## heading", [link](…), `code` or a tag written out as text; "&amp;" in a title, summary or FAQ, or an entity escaped twice in the text (both fixed when the engine writes the page, listed until then).
 
-- none
+- [id · Warna Ikan Hias Pudar: Pakan Penambah Warna, Vitamin C & Cara Memberi Pakan](https://aquatome.com/id/panduan/warna-ikan-hias-pudar/) — "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"
 
 ## A paragraph repeated on the page (0)
 
@@ -108,7 +108,7 @@ A species or plant photo whose caption names another species the site has a page
 
 - none
 
-## A photo caption that may name another fish (21)
+## A photo caption that may name another fish (20)
 
 A caption naming a Latin name in a genus the site has, that no page has, or another page's species with words saying the fish may still be the page's ("in a batch of", "here with"). Listed, not removed: `pnpm engine check-photos --only <id>` looks again. Checked on the Vietnamese page.
 
@@ -131,7 +131,6 @@ A caption naming a Latin name in a genus the site has, that no page has, or anot
 - [vi · Cá trê nói chuyện nâu sô-cô-la](https://aquatome.com/ca/ca-tre-noi-chuyen-nau-so-co-la/) — Platydoras armatulus: "This species is most often seen among shipments of Platydoras armatulus or Agam…"
 - [vi · Cá trê suối Thành Đô](https://aquatome.com/ca/ca-tre-suoi-thanh-do/) — Liobagrus chengduensis: "Liobagrus chengduensis: paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Dorsal view-paratype"; Liobagrus chengduensis: "Liobagrus chengduensis: Ventral view-paratype"
 - [vi · Cá vòi voi Campylomormyrus compressirostris](https://aquatome.com/ca/ca-voi-voi-campylomormyrus-compressirostris/) — Campylomormyrus rhynchophorus: "Campylomormyrus rhynchophorus at the Tokyo Tower Aquarium"
-- [vi · Cá vược công](https://aquatome.com/ca/ca-vuoc-cong/) — Cichla monoculus: "Cichla monoculus en:Category:Cichlid images"
 - [vi · Bucephalandra diabolica 'Kedagang'](https://aquatome.com/cay/bucephalandra-diabolica-kedagang/) — Bucephalandra spatha: "Bucephalandra spatha, submerged, one day before fully opening, with filaments a…"
 
 ## Data card values outside sane bounds (0)

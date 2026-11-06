@@ -10,6 +10,68 @@
     "gabon",
     "ogooue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ogooué",
+        "Mpassa",
+        "Léconi-Djouya",
+        "Batéké plateau"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Aphyosemion rectogoense is a killifish known only from the Batéké plateau region and surrounding area in southeastern Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Batéké plateau region and surrounding area in southeastern Gabon where it's been recorded from the Léconi-Djouya and upper Mpassa rivers, these forming a portion of the much larger Ogooué basin.",
+          "countries": [],
+          "regions": [
+            "Ogooué",
+            "Mpassa",
+            "Léconi-Djouya",
+            "Batéké plateau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348196,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

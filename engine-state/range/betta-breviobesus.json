@@ -1,0 +1,42 @@
+{
+  "id": "betta-breviobesus",
+  "native": {
+    "input": "610671c98c8e2768",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Kalimantan",
+        "source": "bwaquatics",
+        "quote": "Found in Kalimantan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta breviobesus",
+    "status": "ACCEPTED",
+    "taxonKey": 2394011,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

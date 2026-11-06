@@ -1,0 +1,51 @@
+{
+  "id": "astyanax-kennedyi",
+  "native": {
+    "input": "125442c2f3ceb029",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kennedy's tetra, Astyanax kennedyi, is a small characid endemic to the upper Amazon basin in Peru, around the city of Iquitos.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the upper Amazon basin in Peru, around the city of Iquitos.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the upper Amazon basin in Peru, around the city of Iquitos.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astyanax kennedyi",
+    "status": "ACCEPTED",
+    "taxonKey": 5204398,
+    "datasets": [],
+    "native": [
+      "PE"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

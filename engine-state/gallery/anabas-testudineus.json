@@ -223,14 +223,19 @@
   "File:78Ambassis interrupta Anabas testudineus 20.jpg",
   "File:78Ambassis interrupta Anabas testudineus 21.jpg",
   "File:Anabas testudineus (climbing perch); Channa striata (striped snakehead).jpg",
-  "File:Histoire naturelle des poissons (Anabas testudineus).jpg"
+  "File:Histoire naturelle des poissons (Anabas testudineus).jpg",
+  "inat:55708605",
+  "inat:377083318",
+  "inat:377083343",
+  "inat:427337940",
+  "inat:427337974",
+  "inat:575812052"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/771f9afef1d694dc.webp": "d9cc8f0f1f190400",
   "https://media.aquatome.com/commons/08ee0f6d699ca1de.webp": "700c9c3973640554",
   "https://media.aquatome.com/commons/5ee0b7e9baa2a50f.webp": "6064d49aae8efc24",
   "https://media.aquatome.com/inaturalist/52464852.webp": "b08c9c3933640554",
-  "https://media.aquatome.com/inaturalist/330904380.webp": "fdddef763c98f2fd",
   "https://media.aquatome.com/inaturalist/455287801.webp": "1709cdf31929898f",
   "https://media.aquatome.com/inaturalist/350454848.webp": "e1933968da02c4b1",
   "https://media.aquatome.com/inaturalist/617710483.webp": "0707070797974408",
@@ -243,14 +248,15 @@
   "https://media.aquatome.com/inaturalist/617719812.webp": "1f0d392d981c3c0c",
   "https://media.aquatome.com/inaturalist/724929492.webp": "f6c4d131781b2ef6",
   "https://media.aquatome.com/inaturalist/724929523.webp": "ce767163e1b5ae73",
-  "https://media.aquatome.com/inaturalist/724929562.webp": "c5278bca8a1b0a09"
+  "https://media.aquatome.com/inaturalist/724929562.webp": "c5278bca8a1b0a09",
+  "https://media.aquatome.com/inaturalist/427337940.webp": "73d3c7dd9f13191b"
  },
  "inat": {
   "taxon": 93987,
-  "pass": "agree",
+  "pass": "done",
   "after": {
    "research": 409540018,
-   "agree": 0
+   "agree": 367898946
   }
  },
  "commons": "2026-11-03"

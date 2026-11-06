@@ -10,6 +10,31 @@
     "indonesia",
     "melak"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2394026,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          115.3125,
+          0,
+          1
+        ],
+        [
+          115.3125,
+          1.40625,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

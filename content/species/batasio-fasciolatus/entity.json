@@ -12,6 +12,81 @@
     "bhutan",
     "tista"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BT"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Tista"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species was obtained from North Bengal in India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Tista River basin, Brahmaputra River system, India and Bhutan.",
+          "countries": [
+            "BT"
+          ],
+          "regions": [
+            "Tista"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Batasio fasciolatus was described from the Brahmaputra River drainage in West Bengal, India (Ng 2006).",
+          "countries": [],
+          "regions": [
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338628,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

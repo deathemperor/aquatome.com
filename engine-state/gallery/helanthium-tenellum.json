@@ -37,7 +37,9 @@
   "File:Helanthium tenellum iNat-438373302.jpg",
   "File:Helanthium tenellum-1-veda aquarium-bengaluru-India.jpg",
   "File:Helanthium tenellum-2-veda aquarium-bengaluru-India.jpg",
-  "File:Helanthium tenellum-3-veda aquarium-bengaluru-India.jpg"
+  "File:Helanthium tenellum-3-veda aquarium-bengaluru-India.jpg",
+  "flickr:17549772842",
+  "flickr:16929491034"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/853f5a2524c40929.webp": "d4f83b1b0a5965bc",
@@ -62,7 +64,8 @@
   "https://media.aquatome.com/inaturalist/557413905.webp": "9a91cd5b3724c453",
   "https://media.aquatome.com/inaturalist/544093758.webp": "88d9d3dbe737f135",
   "https://media.aquatome.com/inaturalist/557413921.webp": "590c18092d6a5af9",
-  "https://media.aquatome.com/inaturalist/51288985.webp": "72665b73a2a4c688"
+  "https://media.aquatome.com/inaturalist/51288985.webp": "72665b73a2a4c688",
+  "https://live.staticflickr.com/8858/16929491034_15979a2d19_b.jpg": "35ec7e0b80a89253"
  },
  "inat": {
   "taxon": 204326,
@@ -76,5 +79,9 @@
  "gbif": {
   "key": 2864529,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-06"
 }

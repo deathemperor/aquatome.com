@@ -61,8 +61,9 @@ final class LightFlowTests: XCTestCase {
     // The second needs no confirmation (the first is known), and can be undone.
     tap(app, "preset-settled")
     tap(app, "write")
-    XCTAssertFalse(app.alerts.firstMatch.waitForExistence(timeout: 1), "asked again with a known schedule on the light")
+    // Written without asking: had it asked, nothing would be written until answered.
     expect(app, "notice", contains: "Đã ghi: bật 12:00, tắt 20:00.")
+    XCTAssertFalse(app.alerts.firstMatch.exists, "asked again with a known schedule on the light")
     expect(app, "notice-action", contains: "Hoàn tác")
     tap(app, "notice-action")
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
@@ -130,10 +131,17 @@ final class LightFlowTests: XCTestCase {
     let light = app.buttons["tank-light"].firstMatch
     XCTAssertTrue(light.waitForExistence(timeout: 5), "the light on the tank can't be tapped")
     light.tap()
+    // On Đèn: the tap has done what it does, and a second connection would be looking for the light by now.
+    let lightsTab = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: app.tabBars.buttons["Đèn"])
+    XCTAssertEqual(XCTWaiter().wait(for: [lightsTab], timeout: 5), .completed, "the light didn't open on the Đèn tab")
+    // A second connection clears the notice before its first wait (LightsModel's connect(saved:)), and the tap's task has
+    // run by the time the tab shows: the first connection's "Đã kết nối", still there at once, means none started.
+    let notice = element(app, "notice")
+    let said = notice.exists ? notice.label : "nothing"
+    XCTAssertTrue(said.contains("Đã kết nối"), "a second connection started: the notice says \(said)")
     let looking = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Đang tìm'")).firstMatch
-    XCTAssertFalse(looking.waitForExistence(timeout: 3), "a second connection started")
+    XCTAssertFalse(looking.exists, "a second connection started")
     XCTAssertEqual(element(app, "frames").label, written, "a second connection started")
-    expect(app, "notice", contains: "Đã kết nối")
     XCTAssertTrue(element(app, "disconnect").exists, "the light was let go")
   }
 
@@ -443,7 +451,7 @@ final class LightFlowTests: XCTestCase {
     // The day preview too: once it has sent its first levels (manual mode, off before 12:00), it stops there.
     tap(app, "play")
     expectFrames(app, ".* 05 12 ff ff .. \\| 5a 01 08 .. .. 05 0b ff ff .. \\| .*")
-    XCTAssertFalse(element(app, "notice").waitForExistence(timeout: 1), "the last notice still showing as the preview starts")
+    XCTAssertFalse(element(app, "notice").exists, "the last notice still showing as the preview starts")
     leaveAndComeBack(app)
     expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
     expect(app, "notice", lacks: "Xong") // stopped, not played to its end
@@ -512,7 +520,7 @@ final class LightFlowTests: XCTestCase {
     tap(app, "quick-auto")
     expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
     expectFrames(app, ".* 5a 01 08 .. .. 05 12 ff ff ..")
-    XCTAssertFalse(element(app, "hand").waitForExistence(timeout: 1), "still kept as set by hand after “Theo lịch”")
+    XCTAssertFalse(element(app, "hand").exists, "still kept as set by hand after “Theo lịch”")
   }
 
   func testTheWriteBarStaysInViewAndSaysWhatWillBeWritten() {
@@ -586,8 +594,8 @@ final class LightFlowTests: XCTestCase {
     expect(app, "summary", contains: "13:00–19:00 · 40% · 6 tiếng")
     expectFrames(app, ".* 07 00 28 .. \\| 5a 01 07 .. .. 07 01 28 .. \\| 5a 01 07 .. .. 07 02 28 ..")
     tap(app, "write")
-    XCTAssertFalse(app.alerts.firstMatch.waitForExistence(timeout: 1), "asked again with a known schedule on the light")
     expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    XCTAssertFalse(app.alerts.firstMatch.exists, "asked again with a known schedule on the light")
     expectFrames(app, ".*a5 01 13 .. .. 19 0d 00 13 00 1e 7f 28 28 28 ff .*")
     // Written again, it is the one in use, first, with its name; nothing is listed twice.
     rows = savedRows(app)
@@ -805,23 +813,32 @@ final class LightFlowTests: XCTestCase {
     let bar = app.navigationBars.firstMatch
     let top = bar.exists ? bar.frame.maxY + 8 : window.minY
     let bottom = min(window.maxY - window.height / 5, pinned - 16)
+    let third = window.height / 3
+    // The content moves about half again as far as the finger (446 pt for a 291 pt drag on the iPhone 17 simulator CI
+    // uses, the large title not counted): a drag shortened by that much lands at the band's middle, and one that misses
+    // still ends nearer, whatever that ratio is up to three.
+    let carry: CGFloat = 1.5
     for _ in 0..<20 {
       let f = e.exists ? e.frame : nil
       if let f, f.minY > top, f.maxY < bottom { break }
-      // Not built yet (off the screen): down the screen first, then back up.
-      let up = f.map { $0.midY > (top + bottom) / 2 } ?? (downs < 8)
-      if up { downs += 1 }
-      drag(app, up: up)
+      // To the middle of the clear band, as far as a drag goes. A fixed drag of about a third moved the content past the
+      // band each time (the quick actions: 20 drags, up and down, then a tap where they happened to be). Not built yet
+      // (off the screen): down the screen first, then back up.
+      if let f {
+        drag(app, by: max(-third, min(third, ((top + bottom) / 2 - f.midY) / carry)))
+      } else {
+        drag(app, by: downs < 8 ? -third : third)
+        downs += 1
+      }
     }
     return e
   }
 
-  /// A third of the screen, dragged at its right edge (clear of sliders and handles) and held: no coasting, so the next
-  /// tap lands where the element was seen.
-  private func drag(_ app: XCUIApplication, up: Bool) {
-    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: up ? 0.65 : 0.3))
-    let b = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: up ? 0.3 : 0.65))
-    a.press(forDuration: 0.05, thenDragTo: b, withVelocity: .default, thenHoldForDuration: 0.2)
+  /// A drag of `dy` points (up when negative) at the screen's right edge, clear of sliders and handles, held before it
+  /// lets go so the content settles where the next read finds it.
+  private func drag(_ app: XCUIApplication, by dy: CGFloat) {
+    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? 0.65 : 0.3))
+    a.press(forDuration: 0.05, thenDragTo: a.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
   }
 
   private func tap(_ app: XCUIApplication, _ id: String) {

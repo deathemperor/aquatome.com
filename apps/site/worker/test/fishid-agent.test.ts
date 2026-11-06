@@ -137,7 +137,7 @@ const CHECKED = { verdict: 'fish', guesses: [
   { ...NEON.guesses[1], id: null },
 ] }
 const apiError = (status: number, type: string, msg: string, headers: Record<string, string> = {}) => Response.json({ type: 'error', error: { type, message: msg } }, { status, headers })
-const fields = (p: Point) => ({ outcome: p.blobs[0], key: p.blobs[2], stopped: p.blobs[9], input: p.doubles[0], output: p.doubles[1], cost: p.doubles[2], attempts: p.doubles[4], turns: p.doubles[7], tools: p.doubles[8], refs: p.doubles[9] })
+const fields = (p: Point) => ({ outcome: p.blobs[0], key: p.blobs[2], stopped: p.blobs[9], input: p.doubles[0], output: p.doubles[1], cost: p.doubles[2], attempts: p.doubles[4], turns: p.doubles[7], tools: p.doubles[8], refs: p.doubles[9], rechecked: p.doubles[10] })
 const today = () => new Date().toISOString().slice(0, 10)
 /** Each reader's count today, in the ledger. */
 const readerCount = (l: ReturnType<typeof memoryLedger>) => Object.values(l.day()?.readers ?? {})
@@ -190,6 +190,30 @@ test('the agent on: a page the answer names without checking still links by its 
   const body = await (await run(post(), e, deps(c.fetch))).json() as { steps?: unknown; results: { page?: { id: string } }[] }
   expect(body.steps).toBeUndefined()
   expect(body.results.map(r => r.page?.id ?? null)).toEqual(['paracheirodon-innesi', null])
+})
+
+test('the agent on: an answer under 0.6 sure is sent back once with its genus\'s species; the answer after it is the reader\'s, logged as rechecked', async () => {
+  const { e, points } = agentEnv()
+  const unsure = { verdict: 'fish', guesses: [{ scientificName: 'Betta splendens', commonName: 'Betta', variety: null, confidence: 0.4, reason: 'Thân đỏ.', id: null }] }
+  const sure = { verdict: 'fish', guesses: [{ ...unsure.guesses[0], confidence: 0.85, id: 'betta-splendens' }] }
+  const c = claude([() => message(unsure, 'end_turn', CACHED), () => message(sure, 'end_turn', CACHED)])
+  const body = await (await run(post(), e, deps(c.fetch))).json() as { results: { confidence: number; page?: { id: string } }[] }
+  expect(body.results.map(r => [r.page?.id, r.confidence])).toEqual([['betta-splendens', 0.85]])
+  expect(c.calls).toHaveLength(2)
+  const messages = (c.calls[1]!.body as { messages: { role: string; content: { type: string; text?: string }[] }[] }).messages
+  expect(messages.map(m => m.role)).toEqual(['user', 'assistant', 'user'])
+  const sent = messages[2]!.content[0]!.text!
+  expect(sent).toMatch(/^Your top guess is only 0\.40 sure\./)
+  expect(sent).toContain('"betta-splendens"')
+  expect(sent).not.toContain('halfmoon-betta')
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'answer', turns: 2, rechecked: 1 })
+
+  // Sure enough: one call, logged as not rechecked.
+  const { e: e2, points: p2 } = agentEnv()
+  const d = claude([() => message(sure, 'end_turn', CACHED)])
+  await run(post(), e2, deps(d.fetch))
+  expect(d.calls).toHaveLength(1)
+  expect(fields(p2[0]!)).toMatchObject({ turns: 1, rechecked: 0 })
 })
 
 test('the agent on: a call after the first fails → its key set aside as the rotation would, and today\'s single call answers on the next key', async () => {

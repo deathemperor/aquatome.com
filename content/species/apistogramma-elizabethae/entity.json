@@ -11,6 +11,60 @@
     "brazil",
     "rio-uaupes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Uaupés",
+        "Rio Içana"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma elizabethae is a dwarf cichlid from the rio Uaupés and adjacent rio Içana, both tributaries of the upper rio Negro in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Rio Uaupés",
+            "Rio Içana"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371263,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -161,8 +215,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

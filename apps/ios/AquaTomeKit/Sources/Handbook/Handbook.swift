@@ -19,14 +19,18 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   /// The places with an origin page, in the order the pages list them: the continents (/vi/nguon-goc/<id>/) and the
   /// countries under one (/vi/nguon-goc/<parent>/<id>/). Empty from a site older than that.
   public let places: [Place]
+  /// Whether the site takes the app's anonymous telemetry (`telemetry: true`): absent or anything else, it doesn't, and
+  /// the app sends none. The one place the app reads it.
+  public let telemetry: Bool
   /// What's new on the site (Latest): its file's path ("/app/latest/vi.json"), where the language's site has the page;
   /// nil from one without it.
   public let latest: String?
 
-  /// `video`: a series of video guides (its page lists them). `taxon`, `origin`: a taxon page (/vi/phan-loai/…) or an
-  /// origin page (/vi/nguon-goc/…), drawn as the app's shelf of the fish it lists. Never in the index: the app makes
-  /// them from its fish (HandbookShelves.page(at:)).
-  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, taxon, origin }
+  /// `video`: a series of video guides (its page lists them). `equipment`: a kind of kit (filters, lights), the site's
+  /// /vi/thiet-bi/<category>/. `taxon`, `origin`: a taxon page (/vi/phan-loai/…) or an origin page (/vi/nguon-goc/…),
+  /// drawn as the app's shelf of the fish it lists. Never in the index: the app makes them from its fish
+  /// (HandbookShelves.page(at:)).
+  public enum Kind: String, Codable, Sendable, CaseIterable { case fish, plant, guide, glossary, tool, video, equipment, taxon, origin }
 
   public struct Item: Codable, Sendable, Hashable, Identifiable {
     public let kind: Kind
@@ -310,9 +314,10 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   }
 
   public init(version: Int = 1, lang: String, items: [Item], home: Home? = nil, labels: Labels = Labels(), pages: [String: Int] = [:],
-              places: [Place] = [], latest: String? = nil) {
+              places: [Place] = [], telemetry: Bool = false, latest: String? = nil) {
     self.version = version; self.lang = lang; self.items = items; self.home = home; self.labels = labels; self.pages = pages
-    self.places = places; self.latest = latest
+    self.places = places; self.telemetry = telemetry
+    self.latest = latest
   }
 
   /// The index format this app reads. A site that changes it on purpose bumps `version`; the app then keeps its copy.
@@ -346,6 +351,7 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       }
     }
     self.places = places
+    telemetry = ((try? c.decodeIfPresent(Bool.self, forKey: .telemetry)) ?? nil) ?? false
     latest = (try? c.decodeIfPresent(String.self, forKey: .latest)) ?? nil
   }
 
@@ -358,11 +364,12 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     if !labels.words.isEmpty { try c.encode(labels, forKey: .labels) }
     if !pages.isEmpty { try c.encode(pages, forKey: .pages) }
     if !places.isEmpty { try c.encode(places, forKey: .places) }
+    if telemetry { try c.encode(telemetry, forKey: .telemetry) }
     try c.encodeIfPresent(latest, forKey: .latest)
   }
 
   // The copy kept on the phone writes `pages` alone: the kinds this app draws, already chosen.
-  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards, places, latest }
+  private enum CodingKeys: String, CodingKey { case version, lang, items, home, labels, pages, shards, places, telemetry, latest }
   private struct Skipped: Decodable { init(from decoder: any Decoder) {} }
   /// The kinds an app knowing `level` draws itself, of the site's `shards`, with their shard counts: those at that level
   /// or a lower one (protocols/page-vectors.json, `levels`).

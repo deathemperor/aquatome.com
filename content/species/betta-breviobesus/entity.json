@@ -10,6 +10,50 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Kalimantan"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Found in Kalimantan.",
+          "countries": [],
+          "regions": [
+            "Kalimantan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394011,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          -1.40625,
+          1
+        ],
+        [
+          112.5,
+          0,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

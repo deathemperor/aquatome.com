@@ -113,5 +113,131 @@
       "\"tangki\" is acceptable, but \"akuarium\" is the more usual term in Malaysia for \"di dalam tangki\"; consider \"di dalam akuarium\".",
       "\"penggemar akuarium\" could be the more common \"hobiis akuarium\" or \"peminat akuarium\"."
     ]
+  },
+  "anubias-barteri-mini-coin": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Mini Coin",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"sama mudah ditanam seperti induknya, dan oleh itu tidak suka cahaya terang\": the English is itself odd, but the Malay keeps the illogical \"dan oleh itu\". Rephrase it to say it is as easy to grow as the parent plant and likewise dislikes bright light, e.g. \"... dan seperti induknya, tidak menyukai cahaya terang\".",
+      "\"ditemui di nurseri tumbuhan akuarium Tropica\": \"found at\" is ambiguous. \"ditemui di\" is acceptable, but \"nurseri tumbuhan akuarium\" adds \"tumbuhan\" (plant), which is not in the source. Use \"nurseri akuarium Tropica\" or \"ditemui oleh/di Tropica\".",
+      "\"kuku jari kelingking\" is fine, but \"Anubias yang paling kecil\" loses \"very smallest\". Use \"antara Anubias yang paling kecil sekali\".",
+      "\"Ketinggian: 3 - 10+ cm\" is fine. \"Asal: kultivar\" would be better as \"Asal usul: kultivar\" or \"Jenis: kultivar\".",
+      "\"diikat pada batu\": \"attached\" is better rendered as \"dilekatkan/diikat\", which is fine. \"anak pokok baharu\" for \"new plants\" is acceptable. \"batang menjalar (rizom)\" is acceptable."
+    ]
+  },
+  "anubias-barteri-nana": {
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "Anubias nana",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"dengan sangat perlahan\" renders \"nhẹ tay\" (gently). Use \"dengan lembut\" or \"perlahan-lahan dan lembut\"; the tension is the point, not the speed.",
+      "Item 2: the source text is Vietnamese, not English. The meaning is still fully kept."
+    ]
+  },
+  "anubias-barteri-petite": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Petite",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is the more usual hobby term: use \"akuarium\" instead of \"dalam tangki\" in item 1 and \"tangki yang lebih besar\" in item 2.",
+      "\"tidak cerewet dan juga tidak suka cahaya yang terlalu terang\" reads awkwardly. Suggest \"tidak cerewet ... dan tidak memerlukan cahaya yang terlalu terang\", since the English says it does not appreciate high light intensity.",
+      "\"sehingga akarnya dapat mencengkam\" is fine in meaning. \"Tumbuhan yang sesuai\" starting the last paragraph is a fragment. Suggest \"Tumbuhan ideal untuk landskap mini...\"."
+    ]
+  },
+  "anubias-barteri-var-barteri": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias barteri",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tangki\" is acceptable, but \"akuarium\" is more natural for hobbyists.",
+      "Item 2: \"tumbuhan akuatik\" was added where the English only says \"plant\". This is minor and does no harm.",
+      "Item 3: \"liat dan tegap\" is slightly awkward for leaves. Consider \"keras dan kukuh\" or \"tebal dan kuat\"."
+    ]
+  },
+  "anubias-barteri-var-caladiifolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Caladiifolia",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Berizom\" is a bit unusual; prefer \"Berakar rizom\" or \"Rizom\" for \"Rhizomatous\".",
+      "\"Pokok induk\" is acceptable but \"tumbuhan induk\" is more natural; \"pasu segi empat 9 cm\" should be \"pasu segi empat sama 9 cm\".",
+      "\"Daunnya boleh hidup\" is slightly awkward; prefer \"Daunnya tahan selama beberapa tahun\"."
+    ]
+  },
+  "anubias-barteri-var-coffeifolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Coffeefolia",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Jenis: Berizom\" is acceptable, but \"Asal: Kultivar\" is slightly off; \"Asal usul: Kultivar\" would read more naturally.",
+      "\"Spesies Anubias nampaknya tumbuh begitu perlahan sehingga seolah-olah tidak sedar...\" is a little stiff. Consider \"hingga tidak menyedari bahawa ia telah tenggelam\"."
+    ]
+  },
+  "anubias-barteri-var-glabra": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Glabra",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "anubias-barteri-var-nana": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias barteri var. nana",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Cameroon\" is better written \"Cameroon\"/\"Kamerun\" in standard Malay; use \"Kamerun\" as the Malaysian standard form.",
+      "\"tumbuh subur dalam semua keadaan\" is slightly overstated/unnatural; consider \"boleh tumbuh dalam pelbagai keadaan\".",
+      "\"Ketinggian\" for plant height is better as \"Tinggi\"; minor.",
+      "\"jadi alga yang tumbuh perlahan berpeluang bertapak\" is clumsy; consider \"membolehkan alga yang tumbuh perlahan melekat pada daun\"."
+    ]
+  },
+  "anubias-barteri-var-nana-kirin": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Nana Kirin",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tangki\" is acceptable, but \"akuarium\" would be more consistent with item 2.",
+      "Item 3: \"bujur telur\" is fine, but \"berbentuk bujur\" or \"bujur telur\" alone reads more naturally. \"diilhamkan daripada naga Asia\" could be \"diilhamkan oleh naga Asia\"."
+    ]
+  },
+  "anubias-barteri-var-nana-pinto": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Nana Pinto",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Minor: 'Keperluan cahaya: Sederhana' is fine, but 'Sederhana' could be 'Sederhana' (ok); consider 'Anubias barteri' italicised as Latin name for consistency.",
+      "Minor: 'aquascape' could be 'aquascape' with Malay 'susun atur akuarium' in brackets for clarity."
+    ]
+  },
+  "anubias-gracilis": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias gracilis",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"saiznya akan menjadi agak besar\": English says \"significant size\", so \"agak besar\" (fairly large) is too weak. Use \"sangat besar\" or \"jauh lebih besar\".",
+      "\"jika ditanam begitu\": this is a little loose. \"jika dibiarkan tumbuh begitu\" or \"dengan cara ini\" is closer to the source."
+    ]
   }
 }

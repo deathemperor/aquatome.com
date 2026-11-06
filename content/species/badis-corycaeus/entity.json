@@ -10,6 +10,71 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis corycaeus is a badid known only from the upper Ayeyarwady River basin in northern Myanmar, including nearby Lake Indawgyi.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Lake Indawgyi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To date the species is known only from the upper Ayeyarwady River basin in northern Myanmar.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389458,
+      "total": 43,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          43
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          13,
+          13
+        ],
+        [
+          95.625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          29,
+          29
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -171,8 +236,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

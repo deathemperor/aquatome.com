@@ -1,0 +1,87 @@
+{
+  "id": "apistogramma-gibbiceps",
+  "native": {
+    "input": "7f4e626c5dc0806d",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blackline apisto, Apistogramma gibbiceps, is a dwarf cichlid from the Rio Branco and middle Rio Negro basins in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Branco and middle Rio Negro basins in the Brazilian states of Roraima and Amazonas.",
+        "words": "Brazilian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Branco",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Branco and middle Rio Negro basins in the Brazilian states of Roraima and Amazonas.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Branco and middle Rio Negro basins in the Brazilian states of Roraima and Amazonas.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma gibbiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 2371231,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        33
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

@@ -13,6 +13,72 @@
     "yunnan",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "CN"
+      ],
+      "regions": [
+        "Red River",
+        "Thái Bình",
+        "Sông Kỳ Cùng",
+        "Mã",
+        "Lam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Bagarius rutilus is a sisorid catfish from the Red River and other drainages of northern Vietnam and Yunnan in southern China, possibly also Laos.",
+          "countries": [
+            "VN",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Red River in northern Vietnam and Yunnan province, southern China, plus the Thái Bình, Sông Kỳ Cùng, Mã and Lam rivers in Vietnam and possibly the Nam Xam and Nam Ma drainages in Laos.",
+          "countries": [],
+          "regions": [
+            "Red River",
+            "Thái Bình",
+            "Sông Kỳ Cùng",
+            "Mã",
+            "Lam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341216,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VN",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -153,7 +219,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể kính cỡ lớn 200cm"
+        "bể cá 200cm"
       ]
     }
   ],

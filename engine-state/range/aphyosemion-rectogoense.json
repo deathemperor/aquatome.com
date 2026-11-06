@@ -1,0 +1,74 @@
+{
+  "id": "aphyosemion-rectogoense",
+  "native": {
+    "input": "bca2606ee7e2bee6",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Aphyosemion rectogoense is a killifish known only from the Batéké plateau region and surrounding area in southeastern Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Batéké plateau region and surrounding area in southeastern Gabon where it's been recorded from the Léconi-Djouya and upper Mpassa rivers, these forming a portion of the much larger Ogooué basin.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogooué",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Batéké plateau region and surrounding area in southeastern Gabon where it's been recorded from the Léconi-Djouya and upper Mpassa rivers, these forming a portion of the much larger Ogooué basin.",
+        "ok": true
+      },
+      {
+        "name": "Mpassa",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Batéké plateau region and surrounding area in southeastern Gabon where it's been recorded from the Léconi-Djouya and upper Mpassa rivers, these forming a portion of the much larger Ogooué basin.",
+        "ok": true
+      },
+      {
+        "name": "Léconi-Djouya",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Batéké plateau region and surrounding area in southeastern Gabon where it's been recorded from the Léconi-Djouya and upper Mpassa rivers, these forming a portion of the much larger Ogooué basin.",
+        "ok": true
+      },
+      {
+        "name": "Batéké plateau",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Batéké plateau region and surrounding area in southeastern Gabon where it's been recorded from the Léconi-Djouya and upper Mpassa rivers, these forming a portion of the much larger Ogooué basin.",
+        "country": "GA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion rectogoense",
+    "status": "ACCEPTED",
+    "taxonKey": 2348196,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

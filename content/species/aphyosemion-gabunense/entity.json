@@ -10,6 +10,50 @@
     "gabon",
     "ogooue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ogooué"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from close to the city of Lambarené, western Gabon, and thought endemic to the lower Ogooué river basin, including the tributary Ngounie drainage.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Ogooué"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4284383,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          -1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +181,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 30 lít"
+        "bể cá 50cm"
       ]
     },
     {

@@ -13,6 +13,63 @@
     "colombia",
     "guaviare"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Río Guaviare",
+        "Río Ventuari"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known as L239 before description, Baryancistrus beggini is a small loricariid from the Orinoco and lower río Guaviare in Venezuela and Colombia.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Orinoco",
+            "Río Guaviare"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
+          "countries": [],
+          "regions": [
+            "Río Ventuari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339923,
+      "total": 11,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          2.8125,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -199,8 +256,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

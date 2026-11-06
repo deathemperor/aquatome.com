@@ -10,6 +10,54 @@
     "india",
     "pamba"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Pamba",
+        "Chittar",
+        "Kallada"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Malabar batasio, Batasio travancoria, is a bagrid catfish endemic to southern Kerala, India, in the Pamba, Chittar and Kallada drainages.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Pamba",
+            "Chittar",
+            "Kallada"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338643,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -175,17 +223,6 @@
       "sourceUrl": "https://www.scotcat.com/bagridae/batasio_travancoria.htm",
       "caption": "Batasio travancoria",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/080765d96e840ba8.webp",
-      "thumb": "https://media.aquatome.com/scotcat/080765d96e840ba8-480.webp",
-      "width": 500,
-      "height": 281,
-      "licence": "dùng với sự cho phép",
-      "author": "Andrew Rao / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/batasio_travancoria.htm",
-      "caption": "Batasio travancoria",
-      "source": "scotcat"
     }
   ],
   "videos": [],
@@ -193,8 +230,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30 cm",
-        "bể cá 108 lít"
+        "bể cá 120cm"
       ]
     },
     {

@@ -1,0 +1,39 @@
+{
+  "id": "aulonocara-ethelwynnae",
+  "native": {
+    "input": "c385a33ebeea3c0c",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi where it was described from and only occurs around 'Chitendi Island', now normally referred to as Chitande island plus a short stretch of coastline between Ngara and Chilumba along the lake's northwestern shoreline.",
+        "ok": true
+      },
+      {
+        "name": "Chitande Island",
+        "source": "seriouslyfish",
+        "quote": "The northern aulonocara, Aulonocara ethelwynnae, is a cichlid endemic to Lake Malawi, known only from Chitande Island and the nearby northwest shore.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aulonocara ethelwynnae",
+    "status": "ACCEPTED",
+    "taxonKey": 2370491,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

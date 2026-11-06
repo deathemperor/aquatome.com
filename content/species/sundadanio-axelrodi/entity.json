@@ -8,7 +8,9 @@
   "places": [
     "asia",
     "indonesia",
-    "kalimantan"
+    "kalimantan",
+    "malaysia",
+    "sarawak"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +19,13 @@
         "value": {
           "min": 22,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
         }
       }
     ],
@@ -27,6 +36,13 @@
           "min": 4,
           "max": 6
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 6.5
+        }
       }
     ],
     "gh": [
@@ -36,6 +52,31 @@
           "min": 0,
           "max": 5
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
       }
     ]
   },
@@ -47,10 +88,10 @@
       "html": "<p>Sundadanio axelrodi, also known as the Blue Axelrodi Rasbora or Neon Blue Danio, is a stunning little freshwater fish that is a perfect addition to a nano tank.</p>"
     },
     {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>Sundadanio axelrodi is a miniature cyprinid from Borneo, where it inhabits black water streams and pools associated with forest peat swamps. Originally described as Rasbora axelrodi, it is the only member of its genus. Several colour forms exist depending on locality, normally labelled 'red', 'green' or 'blue', and they are best not mixed. Very peaceful but timid, it does best alone or with similarly sized species, in a group of at least 20-30.</p>"
     },
     {
       "key": "distribution",
@@ -59,10 +100,22 @@
       "html": "<p>They are native to the blackwater peat swamps of Borneo and Sumatra in Southeast Asia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations. Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island. It exists in several colour forms depending on locality; fish from the south and east of Sarawak state in Malaysian Borneo are green/blue in colour while those found in the west are red/orange, for example. It would be useful if these variants were labelled with the collection details by hobbyists and scientists alike in order to preserve bloodlines and maintain greater accuracy, although normally they are just labelled with the distinguishing colour, e.g. 'red', 'green' or 'blue'.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
       "html": "<p>These fish thrive in dim, acidic water (pH around 4.0) stained brown with tannins from decomposing leaves and vegetation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>Inhabits black water streams and pools associated with ancient forest peat swamps. The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate is scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly-lit due to the forest canopy above and dense marginal vegetation. Across much of Southeast Asia these precious biotopes are under threat from rubber/palm oil plantations, building developments and other human activities.</p>"
     },
     {
       "key": "aquariumSize",
@@ -71,10 +124,28 @@
       "html": "<p>While a small tank as low as 12.5 liters (3 gallons) can house a group, a 29.5 liter (8 gallons) tank is recommended for easier water parameter maintenance.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>A group can be housed and will breed in a tank with dimensions of only 30 × 20 × 20 cm (12.5 litres), although water quality may become an issue unless strictly monitored. Something measuring around 45 × 20 × 20 cm (29.5 litres) or more is preferable for long-term care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>Best kept in a densely-planted tank and is an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and driftwood roots or branches to diffuse the light entering the tank also seems to be appreciated and adds a more natural feel. Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current. To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice, to which can be added a few driftwood roots and branches, placed in such a way that plenty of shady spots are formed. If driftwood of the desired shape cannot be found, common beech or oak is safe to use if thoroughly dried and stripped of bark.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and, as well as offering even more cover for the fish, brings with it the growth of microbe colonies as decomposition occurs. These tiny creatures can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for blackwater fish species such as this. Leaves can be left in the tank to break down fully or removed and replaced every few weeks. Allow the wood and leaves to stain the water.</p><p>A small net bag filled with aquarium-safe peat can also be added to the filter or hung over the edge of the tank to aid in the simulation of black water conditions. Alternatively obtain some genuine peat fibre and simply drop a few handfuls into the tank. This will become completely saturated with water after a few days and sink to the bottom where it can look really effective. Provided a good routine of water maintenance is practiced no adverse effects should occur using either peat or leaves in an aquarium.</p><p>Fairly dim lighting should be used to simulate the conditions the fish would encounter in nature. Aquatic plants that can survive under such conditions can be added, such as Microsorum pteropus, Taxiphyllum barbieri or Cryptocorynes, and a few patches of floating vegetation would be really useful to diffuse the light entering the tank too.</p><p>Note that this fish should not be added to a biologically immature tank as it can be susceptible to swings in water chemistry, and a regime of regular, small (10% or less of tank volume) water changes is recommended in order to minimise stress.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p><strong>WARNING!</strong> These fish do not appreciate changes in water condition.</p><ul><li>Temperature: 22-28°C (72-82°F)</li><li>pH: 4.0-6.0</li><li>Hardness: Soft, ideally below 5 dGH. We keep them in around 60 TDS.</li></ul>"
+      "html": "<p><strong>WARNING!</strong> These fish do not appreciate changes in water condition.</p><ul><li>Temperature: 22-28°C (72-82°F)</li><li>pH: 4.0-6.0</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: requires strictly acidic conditions within the range 4.0–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -84,9 +155,9 @@
     },
     {
       "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "html": "<p>Sundadanio axelrodi are omnivores with a carnivorous tendency. They primarily eat small insects and crustaceans in the wild. In the aquarium, they should be fed a variety of small live or frozen foods such as brine shrimp, daphnia, or bloodworms. They may also learn to accept high-quality flake foods. We feed our fish pellets.</p>"
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>Presumably feeds on small aquatic crustaceans, worms, insect larvae and other zooplankton in nature. It can be a little picky in the aquarium and may not accept dried foods, although in some cases they will learn to take them over time. At any rate they should always be offered regular meals of small live or frozen fare such as Artemia nauplii, Daphnia, grindal, micro and chopped bloodworm in order to develop ideal colour and conditioning.</p><p>Newly-imported specimens are often in poor condition and can be difficult to acclimatise to aquarium life. Small live foods are therefore recommended as an initial diet, with dry and frozen products being introduced as the fish become settled.</p>"
     },
     {
       "key": "behaviour",
@@ -95,31 +166,118 @@
       "html": "<p>Tank mates: Sundadanio axelrodi are peaceful fish and can be good tank mates for other peaceful nano fish such as Celestial Danios, Harlequin Rasboras, or Corydoras catfish. Avoid housing them with large or aggressive fish that could prey on them.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>It is very peaceful but does not make an ideal community fish due to its small size and rather timid nature. It will do best when maintained alone or with similarly-sized species that enjoy comparable water conditions such as Boraras, Eirmotus, Trigonostigma. If geography is not an issue it will probably also thrive alongside small South American characins such as Nannostomus anduzei, N. mortenthaleri, Paracheirodon simulans, Hyphessobrycon amandae or perhaps Lepidarchus adonis from western Africa.</p><p>It's a schooling species by nature and really should be kept in a group of at least 20-30 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one another for female attention.</p><p>Mixing the different colour forms is not advised, as unnecessary hybridisation might occur.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>Externally, mature males are more colourful and noticeably slimmer than females. In some colour forms they also exhibit dark colouration in the anterior portion of the anal fin whereas in others the same area is red, while females have a colourless anal fin.</p><p>This species also exhibits unique dimorphism in musculature and structure of the pectoral girdle, skeleton and Weberian apparatus, allowing males to produce audible croaking/chirruping sounds when stressed (Conway and Britz, 2007). These can be heard when the fish is removed from the water (highly unrecommended; see 'notes' section) or in the aquarium during dominance battles between rival males. The authors hypothesised that the sounds are produced either by grinding the modified 5th pectoral fin ray against the cleithrum or using the \"bulbous\" muscle tissue like a drum. Such adaptations are thought to be unique among the Teleostei group of ray-finned fishes and may be involved in both sexual and hierarchical display behaviour.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
       "html": "<p>Breeding Sundadanio axelrodi in a home aquarium can be challenging. However, it can be done in a separate breeding tank with very soft, acidic water (pH around 5.0) and spawning mops.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>This species has not been bred often in the hobby, which is probably down to the fact it does not appreciate fluctuating water conditions, making it difficult to arrange separate spawning/rearing tanks. Reports do exist, however, and the greatest successes have been when the adult fish are maintained alone as a good-sized group in heavily-planted, mature aquaria.</p><p>The pH should ideally be below 6.0 with other parameters within the ranges suggested here, the most important factor being that they remain stable. The simulation of blackwater conditions using leaves and real peat fibre is thought to be highly beneficial due to the microorganisms which proliferate in such set-ups. Bright lighting is best avoided. Feed the fish with plenty of live and frozen foods and they should come into spawning condition, and if the tank contains the requisite balance between cover, water conditions and microfauna, fry should start to appear without further intervention.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<p>This species was initially described as Rasbora axelrodi and is referred to as such in older literature, but in 1999 was moved into the new genus Sundadanio where it remains the monotype. Its wider placement within the family Cyprinidae is still not fully resolved. Following Rüber et al. (2007) it is most closely-related to the miniature species of the genus Paedocypris, the two genera characteristically lacking bones in the roof of the skull as well as exhibiting genetic similarities. However in some tests conducted during phylogenetic studies by Mayden et al. (2007) and Fang et al. (2009) it was unexpectedly recovered as the sister group to the subfamily Cyprininae, which includes such genera as Puntius, Garra, Epalzeorhynchos, Labeo, Carassius and Sawbwa. In others it occupied a position within the Danioninae, being recovered variously as sister to Danionella (by Mayden et al.) or Paedocypris (by Fang et al./Rüber et al.). Based on current knowledge the latter placement seems the more likely, and there are some shared morphological aspects of the lower jaw between Sundadanio and other danionins which further imply their relatedness.</p><p>Its small adult size evolved via a process known as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL. Among bony fishes cyprinids are one of the few groups in which this phenomenon occurs repeatedly, with all Barboides, Danionella, Microdevario, Microrasbora, Horadandia, Boraras, Paedocypris, Sawbwa and Sundadanio species representing miniaturised taxa along with a few members of Danio, Laubuca and Rasbora. All show a preference for still or slow-moving waters, often in nutrient-poor habitats such as forest peat swamps. The anatomical structure of miniaturised cyprinids can vary greatly; there are two principal 'groupings' with some species possessing intermediate features to some degree. The first contains those fishes which though small are essentially proportionally dwarfed versions of their larger relatives, e.g. Barboides, Microdevario, Microrasbora, Horadandia, Boraras, Sawbwa, Sundadanio, Danio, Laubuca and Rasbora. The other includes those in which anatomical development stops at a point where adults still resemble a larval form of their larger ancestor, i.e. Danionella and Paedocypris. The latter are usually referred to as 'developmentally truncated' or 'paedomorphic' and are thought to have evolved via a process known as 'progenetic paedomorphosis', i.e. paedomorphosis brought about by accelerated maturation. They typically exhibit a simplified skeletal structure along with species-specific morphological peculiarities such as the tooth-like projections in male Danionella dracula. Britz et al. (2009) consider that developmental truncation may have facilitated the development of such novelties \"by freeing large parts of the skeleton from developmental constraints, dissociating developmentally linked pathways and creating a greater potential for more dramatic changes\".</p><p>Take note that S. axelrodi does not react well upon being exposed to the air. When transporting the fish try to transfer it to the bag or container underwater if possible, and any net used should be of the softest, finest grade available. Acclimatisation is best done slowly using a drip-method or similar. It is not really a good choice for newcomers to the hobby as it requires rather stringent water conditions but is not difficult to keep provided these needs can be met.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "html": "<ul><li>Conway, K. W. and R. Britz (2007). Sexual dimorphism of the Weberian apparatus and pectoral girdle in Sundadanio axelrodi (Ostariophysi: Cyprinidae). Journal of Fish Biology 71, 1562-1570.</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/a35e0a75156ada02.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a35e0a75156ada02-480.webp",
+      "width": 857,
+      "height": 408,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "caption": "Male of Sundadanio axelrodi 'blue'.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/2395a075ae4601b6.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/2395a075ae4601b6-480.webp",
+      "width": 640,
+      "height": 260,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "caption": "Male of S. axelrodi 'red'; origin unknown.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3e5b742f31a87938.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3e5b742f31a87938-480.webp",
+      "width": 747,
+      "height": 478,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sundadanio-axelrodi",
+      "caption": "Another habitat of the species in Sibu District, Sarawak.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/bwaquatics/90b99c99ef09416d.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/90b99c99ef09416d-480.webp",
       "width": 1200,
       "height": 675,
       "licence": "dùng với sự cho phép",
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/sundadanio-axelrodi-blue-neon-rasbora",
-      "source": "bwaquatics",
-      "thumb": "https://media.aquatome.com/bwaquatics/90b99c99ef09416d-480.webp"
+      "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "nnXoxeVVMbc",
+      "title": "Neon Blue Rasbora: What I Learned",
+      "durationSec": 484,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9Dwz2rhkdws",
+      "title": "The Ecosystem Cube w/ Axelrod Rasbora (AMAZING NO WATER CHANGE Aquarium Aquascape Tutorial)",
+      "durationSec": 1237,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "KpRj75FYiow",
+      "title": "Meet the Smallest Fish You Can Keep! Danionellas & Sundadanios: A Blue Neon Rasbora Care Guide!",
+      "durationSec": 1019,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AkoozqM_evI",
+      "title": "A Tiny Fish with Intense Color! The Neon Blue Rasbora Care and Breeding",
+      "durationSec": 536,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nano 30 lít",
-        "bể thủy sinh mini"
+        "bể cá 30cm"
       ]
     },
     {
@@ -144,5 +302,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-06"
 }

@@ -2,7 +2,7 @@ import Handbook
 import SwiftUI
 
 /// The handbook: before a search, a home arranged as the site arranges it (HomeList: fish by group, plants by where
-/// they go, guides by subject, the tools, the glossary); while searching, every page that matches, of one kind if
+/// they go, guides by subject, equipment, the tools, the glossary); while searching, every page that matches, of one kind if
 /// picked. A page opens as the app draws it (guides), the site's page, or the app's own screen for it (the Chihiros
 /// tool is the Lights tab, "Bể của tôi" the tanks tab, the fish-ID tool a screen of its own).
 struct HandbookView: View {
@@ -42,6 +42,7 @@ struct HandbookView: View {
       .navigationTitle("Tìm")
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }
       .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url) }
       .overlay {
@@ -253,6 +254,7 @@ extension HandbookIndex.Kind {
     case .glossary: String(localized: "Thuật ngữ")
     case .tool: String(localized: "Công cụ")
     case .video: String(localized: "Video")
+    case .equipment: String(localized: "Thiết bị")
     case .taxon: String(localized: "Phân loại")
     case .origin: String(localized: "Nguồn gốc")
     }
@@ -265,6 +267,7 @@ extension HandbookIndex.Kind {
     case .glossary: "character.book.closed"
     case .tool: "wrench.and.screwdriver"
     case .video: "play.rectangle"
+    case .equipment: "gearshape"
     case .taxon: "list.bullet.indent"
     case .origin: "globe.asia.australia"
     }

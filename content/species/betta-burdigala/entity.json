@@ -10,6 +10,38 @@
     "indonesia",
     "bangka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bangka"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta burdigala is a small bubble-nesting labyrinth fish endemic to the island of Bangka, off the east coast of Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bangka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393987,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -93,12 +125,6 @@
       "html": "<p>Betta burdigala is a small bubble-nesting labyrinth fish endemic to the island of Bangka, off the east coast of Sumatra, Indonesia. A stenotypic inhabitant of peat swamps and blackwater streams, it belongs to the B. coccina group and is most similar to B. uberis. The species is exceptionally rare in the hobby, and many fish traded or pictured under its name are B. uberis or another congener.</p>"
     },
     {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Be sure to have the habitat ready before purchase.</p>"
-    },
-    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-burdigala",
@@ -139,12 +165,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-burdigala",
       "html": "<ul><li>Temperature: 22–30°C (72–86°F)</li><li>pH: 4.0–6.0</li><li>Hardness: 0–5 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Carnivorous. The seller currently feeds them live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -212,8 +232,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

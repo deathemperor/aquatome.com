@@ -1,0 +1,228 @@
+{
+  "id": "synodontis-multipunctatus",
+  "scientificName": "Synodontis multipunctatus",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 35
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Synodontis multipunctatus is a Synodontis catfish endemic to Lake Tanganyika, where it swims in large shoals. It is one of the only fish known to practise brood parasitism: it lays its eggs among those of a mouthbrooding cichlid, and the young catfish devour the host's eggs. It is bred quite often in aquaria, with cichlids from Lake Malawi or Victoria as hosts, and should be kept in a group of four or more.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>This species is endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>This species is endemic to Lake Tanganyika, where it is found swimming in large shoals.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Standard length: 15 cm SL. Aquarium base: 120 × 30 cm.</p><p>120 × 30 × 30 cm, around 108 litres, is the minimum as it should be kept in a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Should be housed in a Lake Tanganyika biotope setup, with piles of rocks arranged to form caves and areas of open water for swimming. Dim lighting will encourage the fish to be seen more often.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.5–8.5</li><li>Hardness: 15–35 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Should not be kept with any fish so small as to be considered food, but makes a good addition to a community of hard water cichlids, ideally mouthbrooding species of Rift Lake origin. It should be kept in a group of four or more, as single specimens are often very secretive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Mature females are plumper than males. Male fish also have a higher, more pointed dorsal fin.</p><p>It can also be sexed by examining the genital papillae, but this is not for the amateur. The fish should be held ventral side up in the palm of the hand. The dorsal fin should be taken between the middle and ring fingers in order to avoid being pierced by the sharp dorsal fin rays. The genital area is concealed beneath the pelvic fins and can be exposed by gently pulling on the caudal fin. A male will exhibit an extended papilla which should be pointed and ridged. The spermatoduct can be seen on the caudal side. Females also have a clearly visible papilla but it is more rounded and the oviduct is on the opposite side to the male's spermatoduct.</p><p>Most species of medium/large Synodontis can be sexed using this method, but most species take 2 years or more to reach sexual maturity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Unlike the majority of the genus, S. multipunctatus is bred quite often in aquaria and provides a fascinating insight into a unique breeding strategy to the fishkeeper lucky enough to witness a spawning. It is one of the only fish known to exhibit a method of spawning known as brood parasitism, the others also being Tanganyikan Synodontis species. The catfish times its spawning to coincide with that of a 'host' mouthbrooding cichlid and lays its eggs among those of the host fish. The Synodontis eggs hatch much quicker than the cichlids' and the young catfish quickly devour all the mouthbrooder's eggs. The unwitting cichlid then guards the fry as if they were its own.</p><p>This can be achieved in aquaria relatively easily. First, a breeding aquarium must be set up, as if there are other species in the tank the Synodontis eggs may also be eaten. It should contain piles of rocks or caves in the form of terracotta pots, but should be simpler in design than a standard Tanganyikan tank, because the adult fish will need to be removed after spawning.</p><p>A suitable host species must be chosen. Good choices are small Haplochromine cichlids of Lakes Victoria or Malawi. Both sets of fish should then be brought into condition on a diet of live and frozen foods, and the water must be kept very clean with minimal nitrates.</p><p>The male will keep a close eye on the behaviour of the cichlids and when breeding behaviour is exhibited, will go and collect the female. If she accepts the situation as suitable, some chasing between the catfish will occur as they wait for the cichlids to lay their eggs. As soon as the cichlids begin spawning, the catfish will rush in and deposit their own eggs and sperm, often eating as many cichlid eggs as they can. This may happen several times, as the male cichlid will usually defend the spawning site vigorously.</p><p>Once the cichlids have finished spawning, the female cichlid will pick up all the eggs, including those of the catfish, to mouthbrood them. At this point, the adult catfish can be removed. The Synodontis eggs typically hatch in about 3 days and their first food is the cichlid eggs and any early-hatching cichlid fry. Once they have been released from the mouth of the unwitting mother cichlid, the hosts can also be removed. The fry feed voraciously on brine shrimp nauplii until they are big enough to accept larger food items.</p><p>Breeding in aquaria has also been recorded in the absence of a host species, although it is uncommon. This is also likely to occur in nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-multipunctatus",
+      "html": "<p>Non-Tanganyikan cichlid hosts are recommended because a successful captive spawning using Tanganyikan cichlid species has never been recorded. This may be due to an evolutionary process observed in the lake, in which many cichlid species appear to have learned to avoid S. multipunctatus when breeding, similar to the rejection of alien eggs by the host species in brood-parasitising birds. Because no brood-parasitising catfish occur in either Lake Malawi or Lake Victoria, species from these lakes make ideal host fish in aquaria, as they have no learned response to the presence of S. multipunctatus when spawning.</p><p>S. multipunctatus does not necessarily require that its eggs are mouthbrooded by another species, as captive spawnings have occurred when no host fish was present. It seems likely that this also occurs in the lake, as the population size of this species is large and relatively few eggs are deposited successfully during brood parasitism. A female S. multipunctatus is capable of producing several hundred eggs, but in surveys relatively few mouthbrooding cichlids were found to be carrying catfish eggs. Considering this together with the learned behaviour in cichlids, it makes sense to suppose that this species also spawns openly, as with many other Synodontis.</p><p>A stunning species found swimming in large shoals in its natural habitat. Many individuals offered for sale today are captive bred. Also referred to as the Many-spotted Synodontis.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/a523573da8a717cf.webp",
+      "width": 960,
+      "height": 361,
+      "licence": "CC BY 2.0",
+      "author": "Mario Rubio García",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis-multipunctatus.jpg",
+      "caption": "Cuckoo catfish (Synodontis multipunctatus)",
+      "thumb": "https://media.aquatome.com/commons/a523573da8a717cf-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/39eea7aa83036409.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_89.jpg",
+      "caption": "Poisson chat coucou (Synodontis multipunctata) Poisson à l'Aquarium du palais de la Porte Dorée.",
+      "thumb": "https://media.aquatome.com/commons/39eea7aa83036409-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ef5fe0be4526b5b9.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_de_la_Porte_Dor%C3%A9e_-_Poisson_91.jpg",
+      "caption": "Poisson chat coucou (Synodontis multipunctata) à l'Aquarium du palais de la Porte Dorée.",
+      "thumb": "https://media.aquatome.com/commons/ef5fe0be4526b5b9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b550709d223178a4.webp",
+      "width": 960,
+      "height": 507,
+      "licence": "Public domain",
+      "author": "J. Green",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_multipunctatus_J._Green.jpg",
+      "caption": "Synodontis multipunctatus",
+      "thumb": "https://media.aquatome.com/commons/b550709d223178a4-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pnDa7bAkypc",
+      "title": "Synodontis multipunctatus #fish #catfish #fishtank #aquarium #aquascape #plantedtank #cichlids",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OwT18H42CAU",
+      "title": "Synodontis multipunctatus #fish #aquarium #catfish",
+      "durationSec": 4,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pT4ThJfNc3w",
+      "title": "Synodontis multipunctatus, a brood parasite upon mouthbrooding cichlids, only known example",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Zdt-sOlvBsg",
+      "title": "Killer Cuckoo Catfish - Cute Baby Synodontis multipunctatus (Tanganyika)",
+      "durationSec": 189,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc ngoài bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nheo",
+        "thức ăn cá cichlid Tanganyika"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

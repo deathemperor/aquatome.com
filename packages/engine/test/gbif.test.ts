@@ -52,3 +52,44 @@ test('GBIF photos: observations and living collections, not iNaturalist\'s copy;
   expect(p.cands[0]!.url).toMatch(/^https:\/\/api\.gbif\.org\/v1\/image\/cache\/fit-in\/1200x\/occurrence\/1\/media\/[0-9a-f]{32}$/)
   expect(p.next).toBe(100)
 })
+
+// GBIF's checklists for a species too new for the backbone (2026-11-06: Nanosphronemus gemma, ZooBank's and WoRMS's).
+const ZOOBANK = { key: 342200259, canonicalName: 'Nanosphronemus gemma', rank: 'SPECIES', taxonomicStatus: 'ACCEPTED', genus: 'Nanosphronemus', parentKey: 342200258 }
+const WORMS = { key: 337702446, canonicalName: 'Nanosphronemus gemma', rank: 'SPECIES', taxonomicStatus: 'ACCEPTED', order: 'Anabantiformes', family: 'Osphronemidae', genus: 'Nanosphronemus', parentKey: 337702445 }
+const searching = (results: object[], genus: object = {}) => {
+  const urls: string[] = []
+  return { urls, http: async (u: string) => { urls.push(u); return u.includes('/species/search') ? { results } : u.includes('/species/match') ? { matchType: 'NONE' } : genus } }
+}
+
+test('a species the backbone lacks: one ACCEPTED SPECIES of exactly that name in the checklists, placed by a record that gives its family', async () => {
+  const { gbifSearchTaxon } = await import('../src/gbif')
+  const s = searching([ZOOBANK, WORMS, { ...WORMS, canonicalName: 'Nanosphronemus gemmae' }])
+  expect(await gbifSearchTaxon('Nanosphronemus gemma', s.http)).toEqual({ canonicalName: 'Nanosphronemus gemma', order: 'Anabantiformes', family: 'Osphronemidae', genus: 'Nanosphronemus', matchType: 'SEARCH' })
+  expect(s.urls[0]).toBe('https://api.gbif.org/v1/species/search?q=Nanosphronemus%20gemma&rank=SPECIES&status=ACCEPTED&limit=50')
+  // No record gives the family: its genus's does.
+  const g = searching([ZOOBANK], { canonicalName: 'Nanosphronemus', rank: 'GENUS', order: 'Anabantiformes', family: 'Osphronemidae' })
+  expect((await gbifSearchTaxon('Nanosphronemus gemma', g.http))?.family).toBe('Osphronemidae')
+  expect(g.urls[1]).toBe('https://api.gbif.org/v1/species/342200258')
+})
+
+test('the checklists\' fallback stays narrow: a near name, a synonym, another rank, no family anywhere, or two families give nothing', async () => {
+  const { gbifSearchTaxon } = await import('../src/gbif')
+  const none = async (results: object[], genus: object = {}) => gbifSearchTaxon('Nanosphronemus gemma', searching(results, genus).http)
+  expect(await none([{ ...WORMS, canonicalName: 'Nanosphronemus gemmae' }])).toBeNull()
+  expect(await none([{ ...WORMS, canonicalName: 'nanosphronemus gemma' }])).toBeNull()
+  expect(await none([{ ...WORMS, taxonomicStatus: 'SYNONYM' }])).toBeNull()
+  expect(await none([{ ...WORMS, rank: 'SUBSPECIES' }])).toBeNull()
+  expect(await none([ZOOBANK], { canonicalName: 'Nanosphronemus', rank: 'GENUS' })).toBeNull()
+  expect(await none([WORMS, { ...WORMS, key: 1, family: 'Anabantidae' }])).toBeNull()
+  expect(await none([])).toBeNull()
+})
+
+test('a species page\'s taxon: the backbone\'s exact name first; a fuzzy match is never taken, the checklists are asked instead', async () => {
+  const { speciesTaxon } = await import('../src/species-research')
+  const exact = { matchType: 'EXACT', rank: 'SPECIES', status: 'ACCEPTED', canonicalName: 'Sawbwa resplendens', order: 'Cypriniformes', family: 'Cyprinidae', genus: 'Sawbwa' }
+  expect(await speciesTaxon('Sawbwa resplendens', async () => exact)).toMatchObject({ canonicalName: 'Sawbwa resplendens', matchType: 'EXACT' })
+  const urls: string[] = []
+  const fuzzy = async (u: string) => { urls.push(u); return u.includes('/match') ? { ...exact, matchType: 'FUZZY', canonicalName: 'Nanochromis gemma' } : { results: [WORMS] } }
+  expect(await speciesTaxon('Nanosphronemus gemma', fuzzy)).toMatchObject({ canonicalName: 'Nanosphronemus gemma', family: 'Osphronemidae', matchType: 'SEARCH' })
+  expect(urls.some(u => u.includes('/species/search'))).toBe(true)
+})

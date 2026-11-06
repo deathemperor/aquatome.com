@@ -10,6 +10,50 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The scarlet badis, Dario dario, is a tiny badid from tributaries of the Brahmaputra in West Bengal and Assam, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389480,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          25.3125,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -290,8 +334,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40 lít",
-        "bể thủy sinh nhỏ"
+        "bể cá 50cm"
       ]
     },
     {

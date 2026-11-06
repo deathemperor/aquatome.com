@@ -1,0 +1,77 @@
+{
+  "id": "betta-coccina",
+  "native": {
+    "input": "83bfa056c1356425",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from a number of localities in Jambi and Riau provinces on the island of Sumatra, Indonesia, and Johor state, Peninsular Malaysia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from a number of localities in Jambi and Riau provinces on the island of Sumatra, Indonesia, and Johor state, Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known from a number of localities in Jambi and Riau provinces on the island of Sumatra, Indonesia, and Johor state, Peninsular Malaysia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Known from a number of localities in Jambi and Riau provinces on the island of Sumatra, Indonesia, and Johor state, Peninsular Malaysia.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta coccina",
+    "status": "ACCEPTED",
+    "taxonKey": 2394018,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

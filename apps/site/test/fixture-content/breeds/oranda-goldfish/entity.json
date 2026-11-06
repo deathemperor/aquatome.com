@@ -1,0 +1,62 @@
+{
+ "id": "oranda-goldfish",
+ "kind": "variety",
+ "parents": [],
+ "care": {
+  "tempC": [
+   {
+    "source": 0,
+    "value": {
+     "min": 18,
+     "max": 24
+    }
+   }
+  ],
+  "ph": [
+   {
+    "source": 0,
+    "value": {
+     "min": 6.5,
+     "max": 7.5
+    }
+   }
+  ],
+  "sizeCm": [
+   {
+    "source": 1,
+    "value": 20
+   }
+  ],
+  "difficulty": [
+   {
+    "source": 0,
+    "value": 3
+   }
+  ],
+  "lifeYears": [
+   {
+    "source": 1,
+    "value": {
+     "min": 10,
+     "max": 15
+    }
+   }
+  ]
+ },
+ "photos": [],
+ "sources": [
+  {
+   "url": "https://caresheet.example/oranda",
+   "title": "Bài D",
+   "kind": "article",
+   "at": "2026-11-06"
+  },
+  {
+   "url": "https://breeder.example/oranda",
+   "title": "Trại cá vàng E",
+   "kind": "breeder",
+   "at": "2026-11-06"
+  }
+ ],
+ "updatedAt": "2026-11-06"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "apistogramma-pantalone",
+  "native": {
+    "input": "f2604370843e9c33",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The pantaloon cichlid, Apistogramma pantalone, is a small cichlid probably endemic to the Nanay river system in northern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is probably endemic to the Nanay River system, a tributary of the Amazon River in northern Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nanay",
+        "source": "seriouslyfish",
+        "quote": "This species is probably endemic to the Nanay River system, a tributary of the Amazon River in northern Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "This species is probably endemic to the Nanay River system, a tributary of the Amazon River in northern Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma pantalone",
+    "status": "ACCEPTED",
+    "taxonKey": 2371226,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

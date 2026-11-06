@@ -10,6 +10,73 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo",
+        "Santik"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known only from parts of the River Kapuas basin, Kalimantan Barat (West Kalimantan), Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its range extends east and slightly northwards from Sanggau as far as Putussibau, the type locality being within the River Santik watershed.",
+          "countries": [],
+          "regions": [
+            "Santik"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394022,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          112.5,
+          0,
+          7,
+          7
+        ],
+        [
+          113.90625,
+          -2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +204,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá betta"
+        "bể cá 50cm"
       ]
     },
     {

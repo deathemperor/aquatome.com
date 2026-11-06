@@ -10,6 +10,71 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Dibru"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis assamensis is a badid from the Brahmaputra River basin in Assam state, northeast India, and the largest species in its genus.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The neotype was collected from a slow-moving forest stream in the Dibru River drainage, and it is a slow-moving, retiring fish that more boisterous tankmates can outcompete for food.",
+          "countries": [],
+          "regions": [
+            "Dibru"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389466,
+      "total": 15,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          4,
+          4
+        ],
+        [
+          91.40625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -182,8 +247,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 75cm",
-        "bể cá 80x30"
+        "bể cá 80cm"
       ]
     },
     {

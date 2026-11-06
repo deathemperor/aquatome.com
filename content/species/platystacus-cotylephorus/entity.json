@@ -11,12 +11,22 @@
     "guyana",
     "essequibo",
     "brazil",
-    "amapa"
+    "amapa",
+    "french-guiana",
+    "suriname",
+    "trinidad-and-tobago"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 25
@@ -30,12 +40,44 @@
           "min": 6,
           "max": 8.2
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8.2
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 31.8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 32
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 12,
+          "max": 30
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -47,16 +89,52 @@
       "html": "<ul><li>Scientific name: Platystacus cotylephorus Bloch, 1794</li><li>Size: 318 mm (12.5\") SL</li><li>Temperature: 22–25°C</li><li>pH: 6.0–8.2</li><li>Type locality: none</li></ul><p>The mottled colouration is very variable, almost to the point that no two individuals look exactly the same.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>The banded banjo catfish, Platystacus cotylephorus, is an aspredinid catfish from estuarine and coastal waters of northern South America and Trinidad. Largely inactive and secretive, it is camouflaged to resemble a dead leaf and emerges only after dark, often lying buried in muddy substrates of fresh or brackish mangroves. During the spawning season females develop fleshy stalks called cotylephores on the belly, to which the eggs are attached until they hatch.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
       "html": "<p>Central and South America: Venezuela to northern Brazil (including the lower portions of coastal rivers). Found in Venezuela Caribbean waters, Guyana waters, coastal rivers of the Guianas, Amapá State waters and Pará State waters.</p><p>IUCN Red List: Least Concern (last assessed 2020).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>Inhabits estuarine and coastal waters, where it occurs in both fresh and brackish conditions, particularly silt-laden mangroves. It's often found buried in muddy substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>A largely inactive species requiring relatively little space. A tank measuring 120 × 30 × 30 cm (~108 litres) is adequate.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>Requires plenty of hiding places and dim lighting. Use sand as substrate, as the fish will partially bury themselves during daylight hours. Provide cover in the form of bogwood, branches and smooth rocks. The addition of some non-toxic, dried leaves (beech works well) would replicate the natural environment of the fish. The addition of salt is not essential, but it can be kept under brackish conditions if you wish.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
       "html": "<p>Temperature 22–25°C. pH 6.0–8.2. Although the fish tolerates lower pH, it should really be kept as near to neutral as possible. Water should be medium hard.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 6.0–8.2, preferably around neutral. It won't do well in very acidic water.</li><li>Hardness: 12–30 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -71,10 +149,22 @@
       "html": "<p>A nocturnal scavenger. Will eat most food after lights out. Can be tempted to eat frozen foods during the day.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>Not a fussy feeder, and readily takes most foods that sink to the bottom. It relishes live and frozen foods such as bloodworm, earthworms etc., as well as sinking dried foods. Add food after lights out to ensure it receives its share.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
       "html": "<p>Will eat small fish and shrimps but is otherwise entirely docile.</p><p>Suggested tankmates: small to medium sized hardy fish, preferably from the Amazon, that do not mind the higher pH and hardness this species prefers. Care should be taken to avoid fish that will pick at the unmoving, partly buried catfish.</p><p>This species can produce bark-like sounds by quickly moving the pectoral fins. These sounds are probably used to locate each other during mating periods and certainly when being attacked.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>It will eat small fish, but is peaceful with anything too large to be considered food. Tankmates that enjoy similar water conditions should be selected, such as livebearers, Central American cichlids and rainbowfish. In the brackish community it can be kept with archerfish, scats, monos, gobies and chromides. It's very peaceful towards its own kind, and can be kept both singly or in groups.</p>"
     },
     {
       "key": "dimorphism",
@@ -83,58 +173,62 @@
       "html": "<p>Females appear more brown than black with very little or no mottling. Males by contrast are darker and show high-contrast mottling. Mature males have larger pectoral fins than equally aged females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>Mature males have a much longer dorsal fin spine and larger pectoral fins than females. Colour is not a reliable guide.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
       "html": "<p>Not reported in the home aquarium, but evidence exists of the method of reproduction. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>Not yet fully achieved in aquaria, although the occasional egg-carrying female has been imported, and fry subsequently raised. Thought to spawn in brackish water, although some reports suggest it migrates into freshwater at some stage in the breeding cycle. It has a very interesting form of brood care. During the spawning season females develop a large number of fleshy stalks, known as cotylephores, on their bellies. The eggs are attached to these until they hatch, and it's thought that they may act in a similar way to the umbilical cord in mammals, providing the developing embryos with nutrients or oxygen. This would make sense given the oxygen and nutrient-deprived habitats in which the fish are often found.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<p>Not a particularly good catfish for the general community tank, as it's a largely inactive, secretive species that will only emerge and become active under cover of darkness. It is, nonetheless, an interesting aquarium subject for the enthusiast, exhibiting an incredible degree of camouflage. It's designed to resemble a dead leaf, and usually will not even swim to escape a net. When released into the aquarium will simply drift in the current until it hits the bottom. All members of the family occasionally shed their skins, although the exact reasons for this aren't known. They also have a novel method of propulsion, taking in water through the mouth and expelling it through the gills to provide thrust.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
       "html": "<p>Naturgeschichte der ausländischen Fische v. 8, pp 54, Pl. 372.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
+      "html": "<ul><li>Schäfer, F. (2019). Platystacus cotylephorus Aquarium Glaser. aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3 accessed 10 October 2026</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/c7cb091292e3e63a.webp",
-      "width": 960,
-      "height": 654,
-      "licence": "Public domain",
-      "author": "Berger, Daniel; Berger, F. G.; Bloch, Marcus Elieser; Bodenehr, G.; Bodenehr, George; Buchhandlung der Realschule; Darchow, C.; Gursch, C. F.; Hesse; Krüger; Rosenberg, F. C. W.; Schmidt, A. F.; Schmidt, F. G.; Schmidt, Friedrich Wilhelm; Schmidt, Johann Gottlieb; Schmidt, Ludwig",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:D._Marcus_Elieser_Bloch%27s,_aus%C3%BCbenden_Arztes_zu_Berlin_..._Oeconomische_Naturgeschichte_der_Fische_Deutschlands_(20929387835).jpg",
-      "caption": "D. Marcus Elieser Bloch's, ausübenden Arztes zu Berlin ... Oeconomische Naturgeschichte der Fische Deutschlands ...",
-      "thumb": "https://media.aquatome.com/commons/c7cb091292e3e63a-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7f4d34259f7d3333.webp",
-      "width": 960,
-      "height": 817,
-      "licence": "Public domain",
-      "author": "Strack, F.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naturgeschichte_in_Bildern_mit_erl%C3%A4uterndem_Text_(Taf._CXVIII)_(6059226530).jpg",
-      "caption": "/^J/^' cxvin",
-      "thumb": "https://media.aquatome.com/commons/7f4d34259f7d3333-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/084583952c57c175.webp",
+      "thumb": "https://media.aquatome.com/commons/084583952c57c175-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC0",
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platystacus_cotylephorus_-_Peitschenwels.jpg",
-      "caption": "Banded banjo",
-      "thumb": "https://media.aquatome.com/commons/084583952c57c175-480.webp"
+      "caption": "Banded banjo"
     },
     {
       "url": "https://media.aquatome.com/commons/2d833d8483277784.webp",
+      "thumb": "https://media.aquatome.com/commons/2d833d8483277784-480.webp",
       "width": 960,
       "height": 676,
       "licence": "CC0",
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platystacus_cotylephorus_01.jpg",
-      "caption": "The Banded banjo in the aquaqrium",
-      "thumb": "https://media.aquatome.com/commons/2d833d8483277784-480.webp"
+      "caption": "The Banded banjo in the aquaqrium"
     }
   ],
   "videos": [],
@@ -142,8 +236,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá đáy cát"
+        "bể cá 120cm"
       ]
     },
     {
@@ -168,5 +261,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }

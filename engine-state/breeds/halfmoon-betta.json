@@ -141,6 +141,30 @@
       "min": 15,
       "max": 15,
       "source": 5
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 10
+    },
+    {
+      "field": "lifeYears",
+      "min": 3,
+      "max": 3,
+      "source": 10
+    },
+    {
+      "field": "difficulty",
+      "min": 1,
+      "max": 1,
+      "source": 5
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 8
     }
   ],
   "keeping": [
@@ -278,6 +302,11 @@
     {
       "url": "https://bettahalfmoon-fightingfish.blogspot.com/2013/04/halfmoon-betta.html",
       "title": "Halfmoon Fish Story",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/halfmoon-betta-fish",
+      "title": "Halfmoon Betta Fish Care & Species Guide",
       "kind": "article"
     }
   ]

@@ -108,7 +108,7 @@ final class ViAtRootFlowTests: XCTestCase {
 
   /// Scrolled into view half a screen at a time, as NativePageFlowTests does.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<24 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

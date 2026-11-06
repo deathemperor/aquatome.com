@@ -10,6 +10,54 @@
     "turkey",
     "lake-salda"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [
+        "Lake Salda",
+        "Taurus",
+        "Anatolia"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Salda in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+          "countries": [
+            "TR"
+          ],
+          "regions": [
+            "Lake Salda",
+            "Taurus",
+            "Anatolia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11836669,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          36.5625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -182,7 +230,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x30cm",
         "bể cá 120cm"
       ]
     },

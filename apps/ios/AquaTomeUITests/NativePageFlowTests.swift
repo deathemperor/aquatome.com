@@ -69,7 +69,7 @@ final class NativePageFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
-    for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    repeatUntil(guide.exists && guide.isHittable, times: 6) { app.swipeUp() }
     guide.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the guide isn't drawn by the app")
     let neon = app.links["neon"].firstMatch
@@ -216,11 +216,12 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists)
   }
 
-  /// A fish's page as the site writes it for the app, in the order its reader asks: where it's from and its other names
-  /// under its name, the sources behind its figures under its facts (as the site's data card has them), the summary as
-  /// one paragraph with the mistakes keepers make, the Vietnamese climate, its tank-mates (its temperament and smallest
-  /// school first), its gallery (each photo credited) before the detail, as the web page has it, its videos, its
-  /// breeds, then the sources' terms, last. Each is found further down than the one before (`reveal` only scrolls
+  /// A fish's page as the site writes it for the app, in the order the site's page on a phone has it: where it's from
+  /// and its other names under its name, the sources behind its figures under its facts (as the site's data card has
+  /// them, the dot only where their gap matters), the summary as one paragraph with the mistakes keepers make, the care
+  /// text ("Thông tin nhanh" folded, the Vietnamese climate at the end of the water section, its tank-mates where "Nuôi
+  /// chung" is or would be, its temperament and smallest school first), its gallery (each photo credited) after the
+  /// text, its videos, its breeds, then the sources' terms, last. Each is found further down than the one before (`reveal` only scrolls
   /// down). All of it drawn: no part left to the web.
   func testAFishIsDrawnByTheAppWithEachOfItsParts() {
     let app = launch()
@@ -231,17 +232,46 @@ final class NativePageFlowTests: XCTestCase {
     let sources = app.descendants(matching: .any)["page-more"]
     reveal(app, sources)
     sources.tap()
-    XCTAssertTrue(text(app, "Seriously Fish: 20–26°C").waitForExistence(timeout: 2), "the sources behind a figure don't open")
-    reveal(app, text(app, "Cá nhỏ, hiền, hợp bể cộng đồng"))
+    let trust = text(app, "Seriously Fish: 20–26°C")
+    XCTAssertTrue(trust.waitForExistence(timeout: 2), "the sources behind a figure don't open")
+    // The dot only where the sources' gap could change how the fish is kept, as the site's card has it: the tanks (60
+    // against 45 cm), not the temperatures (20–26 against 22–28°C, which overlap).
+    XCTAssertTrue(trust.label.contains("Bể tối thiểu ●"), "no dot on the tanks: \(trust.label)")
+    XCTAssertFalse(trust.label.contains("Nhiệt độ ●"), "a dot on temperatures that overlap: \(trust.label)")
+    // As the site's page on a phone reads: the summary, then the care text, "Thông tin nhanh" folded under its heading.
+    let summary = text(app, "Cá nhỏ, hiền, hợp bể cộng đồng")
+    reveal(app, summary)
     reveal(app, text(app, "Thả vài con"))
-    reveal(app, text(app, "Mùa đông miền Bắc"))
+    let quick = app.descendants(matching: .any)["page-fold"]
+    reveal(app, quick)
+    XCTAssertGreaterThan(quick.frame.minY, summary.frame.maxY, "the quick facts above the summary")
+    XCTAssertFalse(text(app, "Tên thường gọi: Cá neon").exists, "the quick facts not folded")
+    quick.tap()
+    XCTAssertTrue(text(app, "Tên thường gọi: Cá neon").waitForExistence(timeout: 2), "the quick facts don't open")
+    // The climate at the end of the water section, which it answers; the tank-mates where "Nuôi chung với con gì?"
+    // would be (the page has no such section): after the food, before breeding.
+    let water = text(app, "Nước cần thế nào?")
+    reveal(app, water)
+    let climate = text(app, "Mùa đông miền Bắc")
+    reveal(app, climate)
+    let food = text(app, "Cho ăn gì?")
+    reveal(app, food)
+    XCTAssertGreaterThan(climate.frame.minY, water.frame.maxY, "the climate above the water section")
+    XCTAssertLessThan(climate.frame.maxY, food.frame.minY, "the climate after the next section")
     // Its temperament and smallest school under "Nuôi chung", as the site has them: not in the facts.
-    reveal(app, text(app, "Tính cách: Hiền · Đàn tối thiểu: 6 con"))
+    let traits = text(app, "Tính cách: Hiền · Đàn tối thiểu: 6 con")
+    reveal(app, traits)
     reveal(app, text(app, "Lớn tới 15 cm, có thể ăn Cá neon"))
     XCTAssertTrue(card(app, "Cá ngựa vằn").exists, "no fish to keep with it")
     XCTAssertTrue(app.links["Jane Doe"].exists, "a card's photo without its credit")
+    let breeding = text(app, "Sinh sản ra sao?")
+    reveal(app, breeding)
+    XCTAssertGreaterThan(traits.frame.minY, food.frame.maxY, "the tank-mates above the food")
+    XCTAssertLessThan(traits.frame.maxY, breeding.frame.minY, "the tank-mates after breeding")
+    // The photos after the care text, as the site's page on a phone has them.
     let all = app.buttons["gallery-all"]
     reveal(app, all)
+    XCTAssertGreaterThan(all.frame.minY, breeding.frame.maxY, "the photos above the care text's end")
     XCTAssertEqual(all.label, "Ảnh Cá neon, Xem tất cả 3 ảnh", "not read with whose photos they are")
     XCTAssertTrue(app.links["Ảnh: Tác giả 1 · CC BY 2.0"].exists, "a photo in the row without its credit")
     all.tap()
@@ -257,13 +287,8 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["3/3 · 3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở."].waitForExistence(timeout: 3), "not on the last photo")
     XCTAssertTrue(app.links["Ảnh: Tác giả 3 · CC BY 4.0"].waitForExistence(timeout: 3), "a photo without its credit")
     app.buttons["Đóng"].tap()
-    // The photos before the detail, as the web page has them (under its climate and tank-mates), not after it: read once
-    // the viewer has gone, which would cover the heading.
     let closed = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: app.descendants(matching: .any)["gallery"])
     XCTAssertEqual(XCTWaiter().wait(for: [closed], timeout: 5), .completed, "the viewer stayed open")
-    let detail = text(app, "Nước cần thế nào?")
-    if detail.exists && detail.isHittable { XCTAssertGreaterThan(detail.frame.minY, all.frame.maxY, "the photos under the detail") }
-    reveal(app, detail)
     reveal(app, text(app, "Đàn neon trong bể thủy sinh"))
     reveal(app, card(app, "Cá neon vàng"))
     reveal(app, text(app, "Các phần trên dịch từ những nguồn này."))
@@ -300,7 +325,7 @@ final class NativePageFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
     app.buttons["tank"].firstMatch.tap()
     let guide = app.buttons.matching(identifier: "tank-guide").firstMatch
-    for _ in 0..<6 where !(guide.exists && guide.isHittable) { app.swipeUp() }
+    repeatUntil(guide.exists && guide.isHittable, times: 6) { app.swipeUp() }
     guide.tap()
     app.links["neon"].firstMatch.tap()
     XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "the link didn't open the fish")
@@ -426,8 +451,9 @@ final class NativePageFlowTests: XCTestCase {
     openItem(app, "rotala", "Rotala đỏ")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5))
     for _ in 0..<4 { app.swipeUp() }
-    // Its readers' content is read once the page is open: given time to come, none does.
-    XCTAssertFalse(text(app, "Thảo luận").waitForExistence(timeout: 3), "comments shown for a plant that has none")
+    // Its readers' content is read once the page is open: once the site has answered, none shows.
+    XCTAssertTrue(app.descendants(matching: .any)["readers-read"].waitForExistence(timeout: 5), "the plant's readers weren't read")
+    XCTAssertFalse(text(app, "Thảo luận").exists, "comments shown for a plant that has none")
     XCTAssertFalse(text(app, "Ảnh bạn đọc").exists)
   }
 
@@ -442,6 +468,9 @@ final class NativePageFlowTests: XCTestCase {
     let app = launch()
     openItem(app, "rotala", "Rotala đỏ")
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the plant isn't drawn by the app")
+    XCTAssertTrue(text(app, "Tên khác: Rotala tròn lá").exists, "no other names")
+    // A plant's "Thông tin nhanh" open, as the site's plant page has it: only a fish's folds.
+    XCTAssertTrue(text(app, "Cây thân mọc nhanh").exists, "a plant's quick facts folded")
     XCTAssertTrue(text(app, "Cần ánh sáng mạnh").exists)
     app.navigationBars.buttons.element(boundBy: 0).tap()
     let field = app.searchFields.firstMatch
@@ -596,7 +625,7 @@ final class NativePageFlowTests: XCTestCase {
   /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past; only down, so parts found
   /// one after another are in that order on the page.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<24 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

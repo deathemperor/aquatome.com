@@ -17,6 +17,7 @@ const base = {
   viAltNames: z.array(z.string()).default([]),
   group: z.string().optional(),
   lNumber: z.string().optional(),
+  variety: z.string().default(''),
   places: z.array(z.object({ continent: z.string(), country: z.string().optional(), region: z.string().optional() })).default([]),
   dataCard: z.object({ tempC: Range, ph: Range, gh: Range, sizeCm: z.number(), tankCm: z.number(), difficulty: z.number().int().min(1).max(8), lifeYears: Range }).partial().default({}),
   plant: z.object({ difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]), light: z.enum(['low', 'medium', 'high']), co2: z.enum(['none', 'optional', 'required']), growth: z.enum(['slow', 'medium', 'fast']), placement: z.array(z.enum(PLACEMENT)) }).optional(),
