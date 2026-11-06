@@ -118,7 +118,12 @@ that would have caught it).
     with an event after its end, a block or tool it doesn't know, a card with a figure the app index doesn't have, or a
     section with no blocks refused (`apps/site/worker/test/chat-stream.test.ts`); every heading in the app's copy of a
     page on the built web page with the same id, where the site's chat draws a section from
-    (`apps/site/test/chat-sections.test.ts`).
+    (`apps/site/test/chat-sections.test.ts`). The chat's agent, before its handler: the handbook searched by names as
+    readers type them, a page's outline and one section read by heading id, the reader's tanks read, every tool's input
+    and the answer's schema what structured outputs take; each block filled from the app index and the app's page copies
+    and of the contract's shape (a breed's card with its species' figures, a breed in a tank-mates link as its species),
+    a pick the handbook doesn't have dropped with its reason while the rest go out, and a turn's steps, request and
+    filled blocks on a fake Claude (`apps/site/worker/test/chat-agent.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
