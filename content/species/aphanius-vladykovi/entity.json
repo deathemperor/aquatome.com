@@ -10,6 +10,46 @@
     "iran",
     "boldaji"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Aphanius vladykovi inhabits only a small area in Iran; the exact collecting site of the strain is Boldaji.",
+          "countries": [
+            "IR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348147,
+      "total": 8,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          50.625,
+          30.9375,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

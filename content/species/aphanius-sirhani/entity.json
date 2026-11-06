@@ -10,6 +10,58 @@
     "jordan",
     "azraq"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "JO"
+      ],
+      "regions": [
+        "Wadi Sirhan",
+        "Azraq Oasis"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Azraq toothcarp, Aphaniops sirhani, is endemic to what remains of Azraq Oasis in the Wadi Sirhan valley of the Syrian Desert, Jordan.",
+          "countries": [
+            "JO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A. sirhani is endemic to what remains of Azraq Oasis in the Wadi Sirhan valley of the Syrian Desert.",
+          "countries": [],
+          "regions": [
+            "Wadi Sirhan",
+            "Azraq Oasis"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348091,
+      "total": 44,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "JO",
+          44
+        ]
+      ],
+      "cells": [
+        [
+          36.5625,
+          30.9375,
+          44,
+          44
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

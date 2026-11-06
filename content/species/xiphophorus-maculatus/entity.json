@@ -20,15 +20,35 @@
     "native": {
       "countries": [
         "MX",
-        "NI",
         "GT",
-        "BZ"
+        "BZ",
+        "NI"
       ],
       "regions": [],
       "sources": [
         "glaser",
         "seriouslyfish",
         "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This platy originates from the Mexican state of Tabasco, where this population was first found by Dutch ornamental fish enthusiasts and brought to Europe.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The platy, Xiphophorus maculatus, is a livebearer from the Atlantic coastal plain of Mexico, Guatemala, Belize and Nicaragua.",
+          "countries": [
+            "GT",
+            "BZ",
+            "NI"
+          ],
+          "regions": []
+        }
       ]
     },
     "records": {

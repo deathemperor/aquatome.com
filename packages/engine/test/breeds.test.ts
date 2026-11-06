@@ -3,8 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
-import type { Llm } from '../src/claude'
-import { breedPhotos, localizeBreed, makeBreed, type BreedFacts } from '../src/breeds'
+import { LlmError, type Llm } from '../src/claude'
+import { breedCare, breedPhotos, localizeBreed, makeBreed, type BreedFacts } from '../src/breeds'
 import type { GalleryDeps } from '../src/gallery'
 
 const facts: BreedFacts = {
@@ -228,4 +228,114 @@ test('localizeBreed in Malay: addressed by its name, and a name a species has ta
   expect(await localizeBreed(r, ms, 'x-hybrid', 'ms')).toMatchObject({ slug: 'ikan-kacukan-x-ikan' })
   expect(prompts[0]).toContain('Malaysia')
   expect(JSON.parse(await readFile(join(r, 'content/breeds/x-hybrid/ms.json'), 'utf8')).body).toBe('<p>Suhu 20 °C.</p>')
+})
+
+// The owner (2026-11-06): no bred fish's page gave how hard it is to keep, nor how long it lives.
+const writer: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'Cá vàng Ranchu', altNames: [], summary: [], body: '', faq: [] }) as T
+
+test("makeBreed: research asks for the breed's own difficulty (1–8) and lifespan; a difficulty one whole number, a lifespan a range", async () => {
+  const r = await root()
+  const asked: { prompt: string; schema: object }[] = []
+  const researched: BreedFacts = { ...facts, care: [
+    { field: 'difficulty', min: 2.6, max: 2.6, source: 0 }, // a whole number
+    { field: 'difficulty', min: 3, max: 5, source: 2 }, // not one figure: left out
+    { field: 'lifeYears', min: 10, max: 10, source: 0 }, // "up to 10 years": a range, as a species'
+    { field: 'lifeYears', min: 0.1, max: 0.1, source: 2 }, // outside the bounds
+    { field: 'lifeYears', min: 15, max: 8, source: 2 }, // upside down
+  ] }
+  const research: Llm = async <T,>(a: { prompt: string; schema: object }) => (asked.push(a), researched as T)
+  await makeBreed(r, { research, llm: writer, gallery: gallery([]) }, { name: 'Ranchu goldfish' })
+  expect(asked[0]!.prompt).toContain('difficulty (1 = very easy … 8 = expert')
+  expect(asked[0]!.prompt).toContain('lifeYears in years (how long the fish lives in an aquarium')
+  expect(asked[0]!.prompt).toContain('Never a figure from a page about its species or a parent species')
+  const care = (asked[0]!.schema as { properties: { care: { items: { properties: { field: { enum: string[] } } } } } }).properties.care
+  expect(care.items.properties.field.enum).toEqual(expect.arrayContaining(['difficulty', 'lifeYears']))
+  const e = JSON.parse(await readFile(join(r, 'content/breeds/ranchu-goldfish/entity.json'), 'utf8'))
+  expect(e.care).toEqual({ difficulty: [{ source: 0, value: 3 }], lifeYears: [{ source: 0, value: { min: 10, max: 10 } }, { source: 1, value: { min: 8, max: 15 } }] })
+})
+
+test('breed-care: a breed whose card lacks a difficulty or lifespan gets them from one cited research call; nothing else on the page changes; a second run changes nothing; a --redo keeps them', async () => {
+  const r = await root()
+  const d = { research: (async () => facts) as Llm, llm: writer, gallery: gallery([]) }
+  await makeBreed(r, d, { name: 'Ranchu goldfish' })
+  // A breed with both already: never researched.
+  await mkdir(join(r, 'content/breeds/done-fish'), { recursive: true })
+  await writeFile(join(r, 'content/breeds/done-fish/entity.json'), JSON.stringify({ id: 'done-fish', kind: 'variety', parents: [], care: { difficulty: [{ source: 0, value: 2 }], lifeYears: [{ source: 0, value: { min: 3, max: 5 } }] }, photos: [], sources: [{ url: 'https://x.example', title: 'X', kind: 'article', at: '2026-10-30' }], updatedAt: '2026-10-30' }, null, 1))
+  const file = join(r, 'content/breeds/ranchu-goldfish/entity.json')
+  const before = JSON.parse(await readFile(file, 'utf8'))
+  const asked: string[] = []
+  const found = {
+    figures: [
+      { field: 'difficulty', min: 2.6, max: 2.6, source: 0, quote: 'Care level: easy' },
+      { field: 'lifeYears', min: 10, max: 15, source: 1, quote: 'lives 10 to 15 years' }, // a source the page cites (with a slash)
+      { field: 'lifeYears', min: 5, max: 5, source: 2, quote: 'x' }, // a marketplace page: never
+      { field: 'lifeYears', min: 300, max: 300, source: 0, quote: 'x' }, // outside the bounds
+      { field: 'difficulty', min: 2, max: 4, source: 0, quote: 'x' }, // not one figure
+    ],
+    sources: [
+      { url: 'https://caresheet.example/ranchu', title: 'Ranchu care sheet', kind: 'article' },
+      { url: 'https://article.example/', title: 'Article', kind: 'article' },
+      { url: 'https://shopee.vn/ranchu', title: 'Shop', kind: 'shop' },
+    ],
+    none: '',
+  }
+  const research: Llm = async <T,>(a: { prompt: string }) => (asked.push(a.prompt), found as T)
+  const now = () => new Date('2026-11-06T00:00:00Z')
+  const out = await breedCare(r, research, { now })
+  expect(asked).toHaveLength(1)
+  expect(asked[0]).toContain('"Ranchu goldfish"')
+  expect(asked[0]).toContain('of Carassius auratus') // what it is a form of, whose figures aren't its own
+  expect(asked[0]).toContain('https://breeder.example') // its page's sources, looked at first
+  expect(asked[0]).toContain('difficulty (1 = very easy … 8 = expert')
+  expect(asked[0]).toContain('Never a figure from a page about its species or a parent species')
+  expect(asked[0]).toContain('If sources disagree, keep each figure with its own source')
+  expect(out.done).toEqual(['ranchu-goldfish: difficulty 3: "Care level: easy" (https://caresheet.example/ranchu); lifeYears 10–15: "lives 10 to 15 years" (https://article.example/)'])
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  expect(e.care.difficulty).toEqual([{ source: 2, value: 3 }])
+  expect(e.care.lifeYears).toEqual([{ source: 1, value: { min: 10, max: 15 } }])
+  expect(e.sources).toEqual([...before.sources, { url: 'https://caresheet.example/ranchu', title: 'Ranchu care sheet', kind: 'article', at: '2026-11-06' }])
+  const { difficulty: _d, lifeYears: _l, ...care } = e.care
+  expect({ ...e, care, sources: before.sources }).toEqual(before)
+  // The research kept for --redo has them too, its new source after the others.
+  const kept = JSON.parse(await readFile(join(r, 'engine-state/breeds/ranchu-goldfish.json'), 'utf8')) as BreedFacts
+  expect(kept.sources.map(s => s.url)).toEqual([...facts.sources.map(s => s.url), 'https://caresheet.example/ranchu'])
+  expect(kept.care.slice(-2)).toEqual([{ field: 'difficulty', min: 3, max: 3, source: 3 }, { field: 'lifeYears', min: 10, max: 15, source: 2 }])
+
+  const files = ['content/breeds/ranchu-goldfish/entity.json', 'content/breeds/done-fish/entity.json', 'engine-state/breeds/ranchu-goldfish.json', 'engine-state/_breed-care.json']
+  const snapshot = () => Promise.all(files.map(f => readFile(join(r, f), 'utf8')))
+  const first = await snapshot()
+  expect(JSON.parse(first[3]!)).toEqual({ 'ranchu-goldfish': { at: '2026-11-06', added: out.done[0]!.replace('ranchu-goldfish: ', '').split('; ') } })
+  expect(await breedCare(r, research, { now })).toEqual({ done: [], none: [], failed: [], stopped: '' })
+  expect(asked).toHaveLength(1)
+  expect(await snapshot()).toEqual(first)
+
+  await makeBreed(r, d, { name: 'Ranchu goldfish' }, { reuse: true })
+  const redone = JSON.parse(await readFile(file, 'utf8'))
+  expect({ difficulty: redone.care.difficulty, lifeYears: redone.care.lifeYears }).toEqual({ difficulty: e.care.difficulty, lifeYears: e.care.lifeYears })
+  expect(redone.sources.map((s: { url: string }) => s.url)).toEqual(e.sources.map((s: { url: string }) => s.url))
+})
+
+test("breed-care: a breed no source gives figures for is tried once, with why; out of the model's limit it stops and records nothing", async () => {
+  const r = await root()
+  for (const id of ['a-fish', 'b-fish']) {
+    await mkdir(join(r, 'content/breeds', id), { recursive: true })
+    await writeFile(join(r, 'content/breeds', id, 'entity.json'), JSON.stringify({ id, kind: 'hybrid', parents: [], care: {}, photos: [], sources: [], updatedAt: '2026-10-30' }, null, 2))
+  }
+  const now = () => new Date('2026-11-06T00:00:00Z')
+  const tried = join(r, 'engine-state/_breed-care.json')
+  const limited: Llm = async () => { throw new LlmError('claude failed (1): usage limit reached') }
+  expect((await breedCare(r, limited, { now })).stopped).toMatch(/^a-fish: claude failed/)
+  await expect(readFile(tried, 'utf8')).rejects.toThrow()
+  let calls = 0
+  const nothing: Llm = async <T,>() => (calls++, { figures: [], sources: [], none: 'No breeder or care sheet gives either for this hybrid.' } as T)
+  expect(await breedCare(r, nothing, { now, limit: 1 })).toEqual({ done: [], none: ['a-fish: No breeder or care sheet gives either for this hybrid.'], failed: [], stopped: '' })
+  await breedCare(r, nothing, { now, only: ['a-fish'] })
+  expect(calls).toBe(1)
+  await breedCare(r, nothing, { now })
+  expect(calls).toBe(2)
+  expect(JSON.parse(await readFile(tried, 'utf8'))).toEqual({
+    'a-fish': { at: '2026-11-06', added: [], none: 'No breeder or care sheet gives either for this hybrid.' },
+    'b-fish': { at: '2026-11-06', added: [], none: 'No breeder or care sheet gives either for this hybrid.' },
+  })
+  expect(JSON.parse(await readFile(join(r, 'content/breeds/a-fish/entity.json'), 'utf8')).care).toEqual({})
 })

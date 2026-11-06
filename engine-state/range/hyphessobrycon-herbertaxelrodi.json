@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-herbertaxelrodi",
   "native": {
-    "input": "a8c91b00de47af9c",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "f0c5202978077ea9",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "BR",
@@ -15,8 +15,8 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
+        "source": "aquariumcoop",
+        "quote": "This South American fish comes from the Paraguay River basin in Brazil.",
         "words": "Brazil",
         "ok": true
       },
@@ -31,31 +31,38 @@
     ],
     "regions": [
       {
-        "name": "Rio Paraguai",
+        "name": "Paraguai",
         "source": "seriouslyfish",
-        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
+        "quote": "The black neon tetra, Hyphessobrycon herbertaxelrodi, is a characid from the upper rio Paraguai in Mato Grosso and Mato Grosso do Sul, Brazil.",
         "country": "BR",
         "ok": true
       },
       {
         "name": "Pantanal",
         "source": "seriouslyfish",
-        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
+        "quote": "It is widespread north and south of the Pantanal, favouring minor tributaries, headwater rivers, oxbows and seasonal floodplains.",
         "ok": true
       },
       {
-        "name": "Rio Taquari",
+        "name": "Taquari",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Coxim on the Rio Taquary [= Taquari], Rio Paraguay [= Paraguai] basin, Mato Grosso, Brazil'.",
         "country": "BR",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "ok": true
       },
       {
-        "name": "Rio Sepotuba",
+        "name": "Sepotuba",
         "source": "seriouslyfish",
-        "quote": "For example, it has been collected from small streams draining to the upper rio Sepotuba in Mato Grosso state, itself a tributary of the upper rio Paraguai.",
+        "quote": "The Sepotuba empties into the Paraguai main channel around 500 kilometres upstream of the Taquiri, thus the species is assumed to occur in other drainages between them.",
         "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "aquariumcoop",
+        "quote": "This South American fish comes from the Paraguay River basin in Brazil.",
+        "country": "BR",
+        "ok": false,
+        "why": "a country"
       }
     ],
     "disputed": [],
@@ -122,9 +129,5 @@
     ],
     "requests": 13,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

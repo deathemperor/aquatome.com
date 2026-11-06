@@ -11,12 +11,13 @@ import { compact, link, sciKey, words, type Linked } from './match'
  */
 export type Step = { kind: 'search'; query: string } | { kind: 'look'; page: Linked }
 
-/** Entries a search returns at most. */
+/** Entries a search returns at most; a genus's listing, which gives each page's marks to read against the photo, more. */
 export const SEARCH_MAX = 12
+export const GENUS_MAX = 80
 
 type Hit = { e: CatalogEntry; score: number }
 /** A page as a search lists it: text only, Vietnamese name (every page has one), what a breed is a form of. */
-const listed = (e: CatalogEntry) => ({ id: e.id, kind: e.kind, ...(e.sci ? { sci: e.sci } : {}), name: e.name.vi, ...(e.basedOn ? { basedOn: e.basedOn } : {}) })
+const listed = (e: CatalogEntry, marks = false) => ({ id: e.id, kind: e.kind, ...(e.sci ? { sci: e.sci } : {}), name: e.name.vi, ...(e.basedOn ? { basedOn: e.basedOn } : {}), ...(marks && e.look ? { look: e.look } : {}) })
 
 /** A page's names to search: every language's, a breed's other names, and the parts of "Cá betta Halfmoon (Halfmoon betta)". */
 const namesOf = (e: CatalogEntry) => [...new Set([...Object.values(e.name), ...(e.alt ?? [])].flatMap(n => [n, ...n.split(/[()]/)]).map(n => n.trim()).filter(Boolean))]
@@ -53,7 +54,8 @@ export function searchCatalog(c: Catalog, q: { query?: string | null; genus?: st
     }
   }
   const ranked = [...scored.values()].sort((a, b) => b.score - a.score || (a.e.sci ?? a.e.name.vi).localeCompare(b.e.sci ?? b.e.name.vi))
-  return { hits: ranked.slice(0, SEARCH_MAX).map(h => h.e), more: Math.max(0, ranked.length - SEARCH_MAX) }
+  const max = g ? GENUS_MAX : SEARCH_MAX
+  return { hits: ranked.slice(0, max).map(h => h.e), more: Math.max(0, ranked.length - max) }
 }
 
 /** A page's facts as Claude reads them: short lines, then its reference photos; `available`: the photos it could have shown. */
@@ -64,6 +66,7 @@ export function entryContent(e: CatalogEntry, f: Facts | undefined, refs: string
   if (f?.names?.length) lines.push(`Also called: ${f.names.join('; ')}`)
   if (f?.sizeCm) lines.push(`Adult size: ${f.sizeCm} cm`)
   if (f?.from?.length) lines.push(`From: ${f.from.join(', ')}`)
+  if (f?.look) lines.push(`Marks: ${f.look}`)
   if (f?.text) lines.push(`Sources: ${f.text}`)
   lines.push(refs.length ? `Reference photos: ${refs.length}, below.` : available ? 'Reference photos: none, the limit for this identification is reached.' : 'Reference photos: none on this page.')
   return [{ type: 'text', text: lines.join('\n') }, ...refs.map((url): Anthropic.ImageBlockParam => ({ type: 'image', source: { type: 'url', url } }))]
@@ -78,6 +81,8 @@ export type ToolDeps = {
   exclude?: (src: string) => boolean
   /** A page's facts couldn't be read (`facts` threw): the Worker counts it. */
   onFactsMissing?: () => void
+  /** The genera already listed in this run, shared with the agent's second look (agent.ts recheckOf); a new set if none. */
+  listed?: Set<string>
 }
 
 /**
@@ -95,11 +100,19 @@ export function pageOf(c: Catalog, key: string): CatalogEntry | undefined {
   return c.entries.find(e => e.kind !== 'breed' && [e.sci, ...(e.syn ?? [])].some(n => n && sciKey(n).binomial === k.binomial && sciKey(n).full === sciKey(n).binomial))
 }
 
+/** A genus's species or plants in the handbook (never its breeds), each with its marks, as JSON; '' when the handbook has none of it. */
+export function genusMarks(c: Catalog, genus: string, without?: string): string {
+  const hits = searchCatalog(c, { genus }).hits.filter(e => e.kind !== 'breed' && e.id !== without)
+  return hits.length ? JSON.stringify(hits.map(e => listed(e, true))) : ''
+}
+
 export function fishIdTools(d: ToolDeps): Tool<Step>[] {
+  /** The genera already listed in this run (search_handbook's genus, or a page get_entry opened): each once. */
+  const listedGenera = d.listed ?? new Set<string>()
   const nullable = (description: string) => ({ type: ['string', 'null'], description })
   const search: Tool<Step> = {
     name: 'search_handbook',
-    description: 'Search the handbook\'s fish, shrimp, snail and plant pages by name, or list a genus\'s pages. Give a query (a scientific name, synonym or common name in any language) or a genus, and null for the other. Returns up to 12 pages as JSON: id, kind (species, breed, plant), sci, name (Vietnamese), basedOn (for a breed: what it is a form of). Text only: open a page with get_entry to see it.',
+    description: 'Search the handbook\'s fish, shrimp, snail and plant pages by name, or list a genus\'s pages. Give a query (a scientific name, synonym or common name in any language) or a genus, and null for the other. Returns pages as JSON: id, kind (species, breed, plant), sci, name (Vietnamese), basedOn (for a breed: what it is a form of); up to 12 for a query. A genus lists all its pages (up to 80), each species with look: what its sources say tells it from the others (colours, marks, English). Text only: open a page with get_entry to see its photos.',
     input_schema: {
       type: 'object',
       additionalProperties: false,
@@ -111,9 +124,11 @@ export function fishIdTools(d: ToolDeps): Tool<Step>[] {
       return q ? { kind: 'search', query: q.slice(0, 100) } : undefined
     },
     run: async input => {
-      const { hits, more } = searchCatalog(d.catalog, { query: input.query as string | null, genus: input.genus as string | null })
+      const genus = input.genus as string | null
+      if (genus) listedGenera.add(sciKey(genus).genus)
+      const { hits, more } = searchCatalog(d.catalog, { query: input.query as string | null, genus })
       if (!hits.length) return 'No page matches. Try the genus, a synonym or another name; the handbook may not have this one.'
-      return `${JSON.stringify(hits.map(listed))}${more ? `\n${more} more: narrow the search.` : ''}`
+      return `${JSON.stringify(hits.map(e => listed(e, Boolean(genus))))}${more ? `\n${more} more: narrow the search.` : ''}`
     },
   }
   const entry: Tool<Step> = {
@@ -139,7 +154,15 @@ export function fishIdTools(d: ToolDeps): Tool<Step>[] {
         return [{ type: 'text', text: `${e.id} (${e.kind}): ${e.name.vi}${e.sci ? `, ${e.sci}` : ''}\nThis page's facts and reference photos can't be read just now: judge by its name.` }]
       }
       const photos = (f?.photos ?? []).filter(src => !d.exclude?.(src))
-      return entryContent(e, f, photos.slice(0, Math.min(PHOTOS_PER_PAGE, Math.max(0, ctx.photosLeft))), photos.length)
+      const content = entryContent(e, f, photos.slice(0, Math.min(PHOTOS_PER_PAGE, Math.max(0, ctx.photosLeft))), photos.length)
+      // The rest of a species' genus with their marks, once a run: the species the agent didn't think of, to read against the photo.
+      const genus = e.kind === 'species' && e.sci ? sciKey(e.sci).genus : ''
+      if (!genus || listedGenera.has(genus)) return content
+      listedGenera.add(genus)
+      const others = genusMarks(d.catalog, genus, e.id)
+      if (!others) return content
+      const name = genus[0]!.toUpperCase() + genus.slice(1)
+      return [...content, { type: 'text', text: `The other ${(JSON.parse(others) as unknown[]).length} species of ${name} in the handbook, each with what its sources say tells it apart:\n${others}` }]
     },
   }
   return [search, entry]

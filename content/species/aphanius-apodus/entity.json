@@ -10,6 +10,66 @@
     "algeria",
     "tellian-atlas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "DZ"
+      ],
+      "regions": [
+        "Tellian Atlas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to a small region of the Tellian Atlas mountains in northeastern Algeria, between the cities of Constantine and Batna.",
+          "countries": [
+            "DZ"
+          ],
+          "regions": [
+            "Tellian Atlas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348086,
+      "total": 32,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "DZ",
+          30
+        ],
+        [
+          "US",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -102.65625,
+          32.34375,
+          2,
+          0
+        ],
+        [
+          2.8125,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          5.625,
+          35.15625,
+          29,
+          29
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

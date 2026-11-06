@@ -3457,6 +3457,22 @@
         }
       }
     },
+    "Gửi thống kê ẩn danh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim statistik anonim"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งสถิติแบบไม่ระบุตัวตน"
+          }
+        }
+      }
+    },
     "Gửi ảnh": {
       "localizations": {
         "id": {
@@ -7517,6 +7533,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/privacy/#nhan-dien-ca"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/vi/chinh-sach-bao-mat/#thong-ke-ung-dung": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kebijakan-privasi/#thong-ke-ung-dung"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/privacy/#thong-ke-ung-dung"
           }
         }
       }

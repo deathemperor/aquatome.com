@@ -3,7 +3,9 @@
   "name": "Cá trê banjo",
   "altNames": [
     "Cá banjo",
-    "Banjo catfish"
+    "Banjo catfish",
+    "Cá banjo hai tia",
+    "Two Rayed Banjo Catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá trê banjo hợp với người thích cá hiền, ít động. Nếu không thật sự cần, chúng gần như nằm yên một chỗ, không nhích đi lấy một chút. Amaralia hypsiura dài khoảng 12 cm. Bạn nhận ra loài này dễ dàng nhờ vây lưng rất nhỏ, gần như thoái hóa.</p>",
@@ -11,14 +13,20 @@
     "distribution:glaser": "<p>Loài này phân bố rất rộng ở Nam Mỹ. Những cá thể nói đến ở đây có nguồn gốc từ Venezuela.</p>",
     "diet:glaser": "<p>Khi nghiên cứu loài mới, các nhà khoa học phát hiện mọi loài Amaralia gần như chỉ ăn trứng của các loài cá khác và cá con mới nở còn mang túi noãn hoàng lớn. Con mồi thường gặp nhất rõ ràng là cá họ Loricariidae.</p>",
     "behaviour:glaser": "<p>Khi bị quấy, Amaralia gập đuôi ép sát vào một bên thân. Lúc đó trông nó giống hệt một hạt đậu, chẳng hạn hạt Mucuna sp.</p>",
-    "notes:glaser": "<p>Cho đến gần đây, chi Amaralia chỉ có một loài được công nhận là A. hypsiura. Nay đã có thêm loài thứ hai là A. oviraptor, được mô tả từ hệ sông Paraná-Paraguay. Nhìn bề ngoài, loài này gần như giống hệt A. hypsiura.</p>"
+    "notes:glaser": "<p>Cho đến gần đây, chi Amaralia chỉ có một loài được công nhận là A. hypsiura. Nay đã có thêm loài thứ hai là A. oviraptor, được mô tả từ hệ sông Paraná-Paraguay. Nhìn bề ngoài, loài này gần như giống hệt A. hypsiura.</p>",
+    "quickFacts:scotcat": "<p>Tên thường gọi: Two Rayed Banjo Catfish. Họ: Aspredinidae. Kích thước: 13 cm. Nhiệt độ: 22–24°C. pH: 6,0–8,0.</p><p>Danh sách đỏ IUCN: Ít quan tâm (Least Concern). Thông tin về loài này vẫn còn ít, nhưng loài phân bố rộng và không gặp mối đe dọa lớn nào nên được xếp vào mức này (IUCN 2021).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon, Bolivia, Brazil, Colombia, Peru, Ecuador. Nơi thu mẫu chuẩn: Rio Branco, Amazonas.</p>",
+    "maintenance:scotcat": "<p>Loài này thích bể yên tĩnh, có chỗ khuất, và nên nuôi chung với các loài hiền.</p>",
+    "diet:scotcat": "<p>Cá ăn động vật không xương sống cỡ nhỏ và trùng chỉ. Thức ăn dạng viên nén cá cũng chịu ăn. Ngoài tự nhiên, Amaralia gần như chỉ ăn trứng và cá bột mới nở, còn mang túi noãn hoàng lớn, của các loài cá khác.</p>",
+    "notes:scotcat": "<p>Tính đến năm 2020, chi này mới chỉ có hai loài được mô tả. Loài còn lại là Amaralia oviraptor Friel &amp; Carvalho, 2016, sống ở hệ thống sông Paraná-Paraguay. Còn A. hypsiura thì phân bố xa hơn về phía bắc. Hai loài trông gần như giống hệt nhau. Các loài trong chi Amaralia có vây lưng mảnh, chỉ có 2 tia. Ngoài ra, có vẻ còn một loài ở Venezuela chưa được mô tả.</p><p>Từ nguyên: tên chi Amaralia ghép từ hậu tố -ia (thuộc về) với tên Afrânio do Amaral (1894–1982). Ông là nhà bò sát học, đồng thời là chuyên gia về huyết thanh kháng nọc độc. Tên chi được đặt để ghi nhận công trình của ông về lịch sử tự nhiên Brazil. Tên loài hypsiura ghép từ hypselos (cao) và oura (đuôi), ý chỉ cuống đuôi dày (hay cao) của loài cá này.</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Frederico, R.G. 2021. Amaralia hypsiura. The IUCN Red List of Threatened Species 2021.</p><p>Grant, S. (2021): Banjos, Dorads and Woodcats. Aspredinidae, Doradidae and Auchenipteridae Catfishes. ATS-Aquashop, Neustadt am Rübenberge: 1-300.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

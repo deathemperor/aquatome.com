@@ -102,6 +102,18 @@
       "min": 15,
       "max": 15,
       "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 8
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 10,
+      "source": 8
     }
   ],
   "keeping": [
@@ -212,6 +224,11 @@
     {
       "url": "https://dauaquarium.com/ca-than-tien-platinum/",
       "title": "Cá Thần Tiên Platinum – Dau Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.saltwaterfish.com/product-platinum-angelfish-pterophyllum-scalare",
+      "title": "Platinum Angelfish – saltwaterfish.com",
       "kind": "shop"
     }
   ]

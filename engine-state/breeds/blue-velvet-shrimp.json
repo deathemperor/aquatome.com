@@ -145,6 +145,30 @@
       "min": 40,
       "max": 40,
       "source": 0
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 0
+    },
+    {
+      "field": "difficulty",
+      "min": 3,
+      "max": 3,
+      "source": 2
+    },
+    {
+      "field": "lifeYears",
+      "min": 1,
+      "max": 2,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 1,
+      "max": 2,
+      "source": 8
     }
   ],
   "keeping": [
@@ -259,6 +283,16 @@
     {
       "url": "https://www.buildyouraquarium.com/blue-velvet-shrimp/",
       "title": "Blue Velvet Shrimp Care, Information & Pictures",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.aquariumsource.com/blue-velvet-shrimp/",
+      "title": "Blue Velvet Shrimp Care: The Complete Guide",
+      "kind": "article"
+    },
+    {
+      "url": "https://fishkeepingadvice.com/blue-velvet-shrimp-care/",
+      "title": "Blue Velvet Shrimp (Fishkeeping Advice)",
       "kind": "article"
     }
   ]
