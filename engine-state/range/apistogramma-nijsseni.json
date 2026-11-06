@@ -1,0 +1,82 @@
+{
+  "id": "apistogramma-nijsseni",
+  "native": {
+    "input": "60e124936a72c0c9",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known in the trade as the 'panda dwarf cichlid', Apistogramma nijsseni is from tributaries of the Río Ucayali in Loreto Region, northern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Carahuayte",
+        "source": "seriouslyfish",
+        "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Yavarí",
+        "source": "seriouslyfish",
+        "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma nijsseni",
+    "status": "ACCEPTED",
+    "taxonKey": 2371246,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

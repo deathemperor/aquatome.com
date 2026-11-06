@@ -1,6 +1,6 @@
-import { LANGS, OTHER_LANGS, type Lang } from '@aq/schema/langs'
-import type { ContentReads, ContentStats, EntityKind, GapKey, KindClicks, PageKind, Snapshot, Talk, Totals } from './content'
-import { dayChart, esc, fmt, lastDays, meter, rankTable, tiles, type DayChart, type Ranked, type Tile } from './chart'
+import { LANGS, OTHER_LANGS, prefixedLang, type Lang } from '@aq/schema/langs'
+import type { ContentReads, ContentStats, EntityKind, GapKey, KindClicks, LastReview, LowPage, LowScores, PageKind, Snapshot, Talk, Totals } from './content'
+import { dayChart, dayLabel, esc, fmt, lastDays, meter, rankTable, tiles, type DayChart, type Ranked, type Tile } from './chart'
 import { cellOf, chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
 import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, hourMinute, localDay, sameClock, timeTag } from './time'
@@ -51,7 +51,12 @@ const savedNote = (now: Date, tz: string) => {
   return `lúc ${hourMinute(at, tz)} ${localDay(at, tz) > day ? 'sáng hôm sau' : 'cùng ngày'}`
 }
 
-export type ContentPage = { now: Date; stats: Soft<ContentStats>; reads: Soft<ContentReads>; talk: Soft<Talk>; clicks: Soft<KindClicks>; snapshots: Soft<Snapshot[]>; /** The viewer's time zone (admin/time.ts). */ tz?: string }
+export type ContentPage = {
+  now: Date; stats: Soft<ContentStats>; reads: Soft<ContentReads>; talk: Soft<Talk>; clicks: Soft<KindClicks>; snapshots: Soft<Snapshot[]>
+  /** The pages out of search for their score (dist/_ab/reviews.json); none drawn without it, as a build before it. */
+  low?: Soft<LowScores | undefined>
+  /** The viewer's time zone (admin/time.ts). */ tz?: string
+}
 
 const JUMP = [['tong', 'Tổng'], ['tang', 'Tăng thêm'], ['engine', 'Engine'], ['thieu', 'Còn thiếu'], ['anh', 'Ảnh'], ['doc', 'Người đọc'], ['binh-luan', 'Bình luận'], ['affiliate', 'Affiliate'], ['nguon', 'Nguồn']] as const
 const link = (path: string, title: string) => `<a href="${esc(path)}">${esc(title)}</a>`
@@ -66,7 +71,7 @@ export function contentPage(c: ContentPage): string {
   const s = c.stats
   body += `<p class="lede">${contentLede(s, c.now, tz)}</p>
 <nav class="jump" aria-label="Các phần của trang"><ul>${JUMP.map(([id, label]) => `<li><a href="#${id}">${label}</a></li>`).join('')}</ul></nav>`
-  body += totalsHtml(s) + growthHtml(c.now, s, c.snapshots, tz) + engineHtml(c.now, s, tz) + gapsHtml(s) + photosHtml(s) + readsHtml(c.reads) + talkHtml(c.talk) + clicksHtml(c.clicks, c.now, tz) + sourcesHtml(s)
+  body += totalsHtml(s) + growthHtml(c.now, s, c.snapshots, tz) + engineHtml(c.now, s, tz) + gapsHtml(s, c.low, c.reads, tz) + photosHtml(s) + readsHtml(c.reads) + talkHtml(c.talk) + clicksHtml(c.clicks, c.now, tz) + sourcesHtml(s)
   return page('/_ab/noi-dung/', 'Nội dung', body, c.now, tz)
 }
 
@@ -77,7 +82,7 @@ export function contentSection(c: ContentPage): Section {
   const s = c.stats
   return {
     title: 'Nội dung',
-    blocks: [note(textOf(contentLede(s, c.now, tz))), ...totalsBlocks(s), ...growthBlocks(c.now, s, c.snapshots, tz), ...engineBlocks(c.now, s, tz), ...gapsBlocks(s), ...photosBlocks(s), ...readsBlocks(c.reads), ...talkBlocks(c.talk), ...clicksBlocks(c.clicks, c.now, tz), ...sourcesBlocks(s)],
+    blocks: [note(textOf(contentLede(s, c.now, tz))), ...totalsBlocks(s), ...growthBlocks(c.now, s, c.snapshots, tz), ...engineBlocks(c.now, s, tz), ...gapsBlocks(s, c.low, c.reads, tz), ...photosBlocks(s), ...readsBlocks(c.reads), ...talkBlocks(c.talk), ...clicksBlocks(c.clicks, c.now, tz), ...sourcesBlocks(s)],
   }
 }
 
@@ -241,7 +246,7 @@ function gapsParts(s: ContentStats) {
   }).filter(x => x.gaps.length)
 }
 
-function gapsHtml(s: ContentStats): string {
+function gapsHtml(s: ContentStats, low: ContentPage['low'], reads: Soft<ContentReads>, tz: string): string {
   const block = (x: ReturnType<typeof gapsParts>[number]) => {
     const rows = x.gaps.map(g => {
       const by = g.by ? ` <span class="muted">${g.by}</span>` : ''
@@ -250,17 +255,94 @@ function gapsHtml(s: ContentStats): string {
     }).join('')
     return `<section class="gap"><h3 class="sub-h">${x.title}</h3><ul class="gaps">${rows}</ul></section>`
   }
-  return `<section aria-labelledby="thieu"><h2 id="thieu">Còn thiếu</h2><p class="note">${GAPS_NOTE}</p><div class="split">${gapsParts(s).map(block).join('')}</div></section>`
+  return `<section aria-labelledby="thieu"><h2 id="thieu">Còn thiếu</h2><p class="note">${GAPS_NOTE}</p><div class="split">${gapsParts(s).map(block).join('')}</div>${lowHtml(s, low, reads, tz)}</section>`
 }
 /** Each kind: its heading, then each gap as a figure and, folded under it, the first pages to fix. */
-function gapsBlocks(s: ContentStats): Block[] {
+function gapsBlocks(s: ContentStats, low: ContentPage['low'], reads: Soft<ContentReads>, tz: string): Block[] {
   return [heading('Còn thiếu', 2, 'thieu'), note(GAPS_NOTE), ...gapsParts(s).flatMap(x => [
     heading(textOf(x.title), 3),
     ...x.gaps.flatMap(g => [
       figures([{ label: textOf(`${g.label}${g.by ? ` ${g.by}` : ''}`), value: fmt(g.n), sub: g.share, meter: g.meter }]),
       ...(g.summary ? [table(['Trang'], g.top.map(([path, name]) => [{ text: name, href: path }]), { folded: g.summary })] : []),
     ]),
-  ])]
+  ]), ...lowBlocks(s, low, reads, tz)]
+}
+
+/** The pages out of search for their score listed, the rest counted. */
+const LOW_LIST = 30
+const LOW_TITLE = 'Ẩn khỏi tìm kiếm vì điểm thấp'
+const NO_LOW = 'danh sách trang điểm thấp (reviews.json)'
+const LOW_NONE = 'Không có trang nào.'
+const NO_REVIEW = 'Chưa lưu lần đánh giá nào.'
+const NO_NOTES = 'Không có nhận xét.'
+/** What each of the engine's reviews read (scripts/content-stats.ts SCORE_REVIEWS). */
+const REVIEWED: Record<string, string> = {
+  'video-guide': 'bài viết từ video', translation: 'bản dịch từ nguồn', 'vi-rewrite': 'bản viết lại tiếng Việt', breed: 'trang giống cá', topic: 'bài AquaTome',
+  product: 'trang sản phẩm', localize: 'bản dịch', glossary: 'bản dịch thuật ngữ', equipment: 'bản dịch hướng dẫn thiết bị',
+}
+const langName = (l: Lang) => (l === 'vi' ? LANG_VI.vi : `tiếng ${LANG_VI[l]}`)
+
+/**
+ * "Ẩn khỏi tìm kiếm vì điểm thấp": how many pages of each kind, then the first LOW_LIST, the most read first when the
+ * readers loaded (else the lowest score), each with its kind and language, score, readers, and what its last review found.
+ */
+function lowParts(s: ContentStats, low: LowScores, reads: Soft<ContentReads>, tz: string) {
+  const title = new Map(Object.values(s.pages ?? {}).flatMap(rows => rows.map(r => [r[0], r[1]] as const)))
+  const readers = isFailed(reads) ? undefined : reads.readersOf
+  const langOf = (p: LowPage) => prefixedLang(p.path) ?? 'vi'
+  const kinds = new Map<PageKind, Partial<Record<Lang, number>>>()
+  for (const p of low.pages) {
+    const k = kinds.get(p.kind) ?? {}
+    k[langOf(p)] = (k[langOf(p)] ?? 0) + 1
+    kinds.set(p.kind, k)
+  }
+  const count = (by: Partial<Record<Lang, number>>) => LANGS.reduce((n, l) => n + (by[l] ?? 0), 0)
+  const read = (p: LowPage) => readers?.[p.path] ?? 0
+  const pages = [...low.pages].sort((a, b) => read(b) - read(a) || a.score - b.score || a.path.localeCompare(b.path))
+  const meta = (r: LastReview, score: number) => `Đánh giá ${REVIEWED[r.kind] ?? r.kind}, ${dayLabel(localDay(r.at, tz))}${r.score !== score ? `, ${fmt(r.score, 2)} điểm` : ''}${r.notes.length > 1 ? ` · ${fmt(r.notes.length)} nhận xét` : ''}${r.kept ? '' : ' · bản này không được giữ'}`
+  return {
+    note: `Lần đánh giá chất lượng cho dưới ${fmt(low.bar, 2)} điểm, nên trang không có trong Google và sitemap cho tới khi được viết lại đạt điểm. Nhận xét là của bước đánh giá tự động, bằng tiếng Anh. ${readers && !isFailed(reads) ? `Trang nhiều người đọc nhất trong ${reads.days} ngày lên trước, rồi điểm thấp nhất.` : 'Chưa có số người đọc: điểm thấp nhất lên trước.'}`,
+    tiles: [...kinds].sort((a, b) => count(b[1]) - count(a[1])).map(([kind, by]) => ({ label: KIND[kind], value: fmt(count(by)), sub: LANGS.filter(l => by[l]).map(l => `${LANG_VI[l]} ${fmt(by[l]!)}`).join(' · ') })) as Tile[],
+    head: ['Trang', 'Loại', 'Điểm', ...(readers ? ['Người đọc'] : []), 'Nhận xét gần nhất'],
+    rows: pages.slice(0, LOW_LIST).map(p => ({
+      path: p.path, title: title.get(p.path) ?? p.path, kind: KIND[p.kind], lang: langName(langOf(p)), score: fmt(p.score, 2),
+      readers: readers ? fmt(read(p)) : undefined, notes: p.review?.notes, meta: p.review && meta(p.review, p.score),
+    })),
+    rest: low.pages.length > LOW_LIST ? `Và ${fmt(low.pages.length - LOW_LIST)} trang khác.` : '',
+  }
+}
+
+/** A review's notes: the first, two lines of it until opened, the rest under it; then which review, when. */
+function whyHtml(notes: string[] | undefined, meta: string | undefined): string {
+  if (!notes || meta === undefined) return `<td class="why muted">${NO_REVIEW}</td>`
+  const [first, ...rest] = notes
+  const body = !first ? `<p class="muted">${NO_NOTES}</p>`
+    : !rest.length ? `<p>${esc(first)}</p>`
+    : `<details><summary data-more="Xem cả ${fmt(notes.length)} nhận xét"><span>${esc(first)}</span></summary>\n<ul>${rest.map(n => `<li>${esc(n)}</li>`).join('\n')}</ul></details>`
+  return `<td class="why">${body}\n<small>${esc(meta)}</small></td>`
+}
+
+function lowHtml(s: ContentStats, low: ContentPage['low'], reads: Soft<ContentReads>, tz: string): string {
+  if (low === undefined) return ''
+  const out = `<section class="low"><h3 class="sub-h">${LOW_TITLE}</h3>`
+  if (isFailed(low)) return `${out}${failedBox(NO_LOW, low)}</section>`
+  if (!low.pages.length) return `${out}<p class="muted">${LOW_NONE}</p></section>`
+  const p = lowParts(s, low, reads, tz)
+  const rows = p.rows.map(r => `<tr><th>${link(r.path, r.title)}</th><td class="k">${esc(r.kind)} <span class="muted">${esc(r.lang)}</span></td><td class="s">${r.score}</td>${r.readers === undefined ? '' : `<td class="r">${r.readers}</td>`}${whyHtml(r.notes, r.meta)}</tr>`).join('')
+  return `${out}<p class="note">${esc(p.note)}</p>${tiles(p.tiles)}
+<div class="scroll"><table class="low-t">${headHtml(p.head)}<tbody>${rows}</tbody></table></div>${p.rest ? `<p class="note">${p.rest}</p>` : ''}</section>`
+}
+function lowBlocks(s: ContentStats, low: ContentPage['low'], reads: Soft<ContentReads>, tz: string): Block[] {
+  if (low === undefined) return []
+  const out = [heading(LOW_TITLE, 3)]
+  if (isFailed(low)) return [...out, failedNote(NO_LOW, low)]
+  if (!low.pages.length) return [...out, note(LOW_NONE, 'muted')]
+  const p = lowParts(s, low, reads, tz)
+  const rows = p.rows.map((r): Cell[] => [
+    { text: r.title, href: r.path }, { text: r.kind, sub: r.lang }, { text: r.score }, ...(r.readers === undefined ? [] : [{ text: r.readers }]),
+    r.notes && r.meta !== undefined ? { text: r.notes.length ? r.notes.join('\n') : NO_NOTES, sub: r.meta } : { text: NO_REVIEW, tone: 'muted' },
+  ])
+  return [...out, note(p.note), figures(p.tiles), table(p.head, rows), ...(p.rest ? [note(p.rest)] : [])]
 }
 
 const LICENCE_HEAD = ['Giấy phép', 'Ảnh']

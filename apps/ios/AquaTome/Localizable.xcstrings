@@ -6273,6 +6273,22 @@
         }
       }
     },
+    "Thiết bị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peralatan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อุปกรณ์"
+          }
+        }
+      }
+    },
     "Thiết kế khác": {
       "localizations": {
         "id": {
@@ -7761,6 +7777,22 @@
         }
       }
     },
+    "Xem tất cả %lld": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat semua %lld"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูทั้งหมด %lld"
+          }
+        }
+      }
+    },
     "Xem tất cả %lld ảnh": {
       "localizations": {
         "id": {
@@ -8385,6 +8417,22 @@
         }
       }
     },
+    "Đang chuẩn bị ảnh…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menyiapkan foto…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังเตรียมภาพ…"
+          }
+        }
+      }
+    },
     "Áp máy sát kính sạch cho bớt lóa và vết bẩn.": {
       "localizations": {
         "id": {
@@ -8413,22 +8461,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่น่าจะใช่"
-          }
-        }
-      }
-    },
-    "Đang chuẩn bị ảnh…": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Menyiapkan foto…"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "กำลังเตรียมภาพ…"
           }
         }
       }
@@ -8701,6 +8733,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "วัดขนาดภายในตู้ (หักความหนากระจกออก) ปริมาณน้ำจริงคิดเป็น %@ ของปริมาตร หลังปูพื้น วางหินและขอนไม้ และเว้นขอบด้านบน ความหนากระจกคำนวณสำหรับกระจกธรรมดา (กระจกโฟลต ไม่ใช่กระจกเทมเปอร์) ค่าความปลอดภัย 3.8 ใช้กับตู้ทรงสี่เหลี่ยมเท่านั้น ตู้สั่งทำควรปรึกษาช่างเพิ่มเติม"
+          }
+        }
+      }
+    },
+    "Đang ở bể “%@”": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ada di akuarium “%@”"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยู่บนตู้ “%@”"
           }
         }
       }
@@ -9233,6 +9281,22 @@
         }
       }
     },
+    "Đã ở bể này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah di akuarium ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยู่บนตู้นี้แล้ว"
+          }
+        }
+      }
+    },
     "Đèn": {
       "localizations": {
         "id": {
@@ -9697,22 +9761,6 @@
         }
       }
     },
-    "Đăng nhập tài khoản aquatome.com để nhận diện cá qua ảnh.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Masuk ke akun aquatome.com untuk mengenali ikan dari foto."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เข้าสู่ระบบบัญชี aquatome.com เพื่อระบุชนิดปลาจากรูปภาพ"
-          }
-        }
-      }
-    },
     "Đăng với tên %@": {
       "localizations": {
         "id": {
@@ -9725,6 +9773,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "โพสต์ในชื่อ %@"
+          }
+        }
+      }
+    },
+    "Đăng nhập tài khoản aquatome.com để nhận diện cá qua ảnh.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masuk ke akun aquatome.com untuk mengenali ikan dari foto."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้าสู่ระบบบัญชี aquatome.com เพื่อระบุชนิดปลาจากรูปภาพ"
           }
         }
       }

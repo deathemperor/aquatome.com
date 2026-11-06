@@ -10,6 +10,68 @@
     "nigeria",
     "niger"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [
+        "Ogun"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Nigeria, where it occurs in the Ogun and lower Niger river systems.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Ogun"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356195,
+      "total": 22,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "NG",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          5.625,
+          4.21875,
+          13,
+          13
+        ],
+        [
+          5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1931,6 +1931,52 @@
       "\"cup tertutup\" leaves \"cup\" in English. \"wadah/cup tertutup\" or \"kemasan cup tertutup\" would read more naturally."
     ]
   },
+  "salvinia-minima": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Salvinia minima",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Daun yang pucat\": the English \"Light leaves\" means pale/light-coloured leaves. The translation is acceptable but could be clearer, e.g. \"daun berwarna pucat/terang\".",
+      "\"kosmopolitan (tersebar luas di banyak wilayah dunia)\": the added gloss is not in the source. Keep just \"kosmopolitan\" in #1, or drop the gloss.",
+      "\"Berbagai jenis Salvinia\": \"varieties\" is better as \"spesies/varietas Salvinia\".",
+      "\"Tanaman ini membantu mencegah alga ... menyerap nutrisi\": \"using nutrients\" is rendered as \"menyerap\", which is fine. \"paku air apung\" could be the more common \"paku apung\"."
+    ]
+  },
+  "schismatoglottis-prietoi": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Schismatoglottis prietoi",
+    "confidence": "medium",
+    "score": 0.97,
+    "notes": []
+  },
+  "selaginella-uncinata": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Selaginella uncinata",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"paku rane\" is a questionable rendering of \"moss fern\"; better use \"paku-pakuan lumut\" or \"selaginella (paku lumut)\" for clarity.",
+      "\"hobiis\" is non-standard; use \"penghobi\" or \"hobiis akuascape/terarium\" as commonly written, e.g. \"penghobi\".",
+      "\"layout\" and \"hardscape\" left as English; consider \"tata letak\" and \"elemen hardscape (batu/kayu)\".",
+      "\"Tinggi: 1–10+ cm\" is fine, but \"Kebutuhan cahaya\" could be \"Kebutuhan pencahayaan\" (minor)."
+    ]
+  },
+  "shinnersia-rivularis": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Shinnersia",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 6: \"Cukup tanam cukup dalam di substrat\" repeats \"cukup\" and reads clumsily. Rephrase, e.g. \"Tanam cukup dalam di substrat supaya tidak mengapung\".",
+      "Item 3: \"bahkan sudah mapan di Eropa\" is unnatural for \"established\". Use \"telah menetap/bernaturalisasi di Eropa\".",
+      "Item 8: \"arus yang lembut paling optimal\" is slightly stilted. Use \"arus yang pelan/lembut paling ideal\"."
+    ]
+  },
   "staurogyne-repens": {
     "at": "2026-10-30",
     "from": "2026-10-30",

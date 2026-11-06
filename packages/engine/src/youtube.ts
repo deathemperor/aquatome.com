@@ -52,6 +52,7 @@ const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url),
 const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
+const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
 const str = { type: 'string' }
 const DRAFT_SCHEMA = {
   type: 'object', required: ['relevant', 'kind', 'viTitle', 'summary', 'body', 'faq', 'chapters'],
@@ -306,7 +307,7 @@ const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[], style?:
   `Mô tả video:\n${m.description.slice(0, 1500)}`,
   `Ngôn ngữ video: ${LANG_NAME[m.lang ?? 'en'] ?? m.lang}.${m.lang === 'vi' ? ' Video bằng tiếng Việt: tuyệt đối không chép lại câu nói trong bản ghi; viết lại hoàn toàn bằng lời của bạn, sắp xếp theo cấu trúc bài hướng dẫn.' : ''}`,
   `Bản ghi:\n${transcript.slice(0, 120_000)}`,
-  ...(notes?.length ? [`Bản trước bị người duyệt chấm thấp. Sửa theo các ghi chú sau:\n${notes.map(n => `- ${n}`).join('\n')}`] : []),
+  ...(notes?.length ? [`Bản trước bị người duyệt chấm thấp vì các lỗi dưới đây (câu trích là của bản trước). Viết bài mới từ bản ghi và đừng lặp lại chúng:\n${notes.map(n => `- ${n}`).join('\n')}`] : []),
 ].join('\n\n')
 
 const SYSTEM = 'Bạn viết bài hướng dẫn thủy sinh bằng tiếng Việt. Chỉ trả lời bằng JSON.'
@@ -321,6 +322,17 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
   const e = await llm<Draft>({ system: 'Bạn là biên tập viên tiếng Việt. Chỉ trả lời bằng JSON.', prompt: `${EDIT}\n\n${STYLE}\n\nBài cần biên tập (JSON):\n${JSON.stringify(d)}`, schema: DRAFT_SCHEMA, model })
   const same = e.relevant && usable(e) && e.summary.length === d.summary.length && e.faq.length === d.faq.length && e.chapters.length === d.chapters.length
   return same ? { ...e, kind: d.kind, relevant: d.relevant } : d
+}
+
+/**
+ * The reviewer's notes applied to the draft they are about, checked against the transcript: what the video doesn't say goes,
+ * nothing new comes in. A fresh draft fixed the old notes and brought new inventions. null: the edit came back broken.
+ */
+export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string } = {}): Promise<Draft | null> {
+  const own = o.lang === 'vi' ? ['Video bằng tiếng Việt: không chép lại câu nói trong bản ghi; chỗ nào sửa thì viết bằng lời của bạn.'] : []
+  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `Ghi chú của người duyệt:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
+  if (!e.relevant || !usable(e)) return null
+  return { ...e, kind: d.kind, relevant: d.relevant, chapters: e.chapters.length === d.chapters.length ? e.chapters : d.chapters }
 }
 
 const namesSource = (d: Draft, channel: string) => {
@@ -374,7 +386,7 @@ export type VideoReport = { written: string[]; skipped: string[]; errors: string
 
 /**
  * Each playlist video not done yet → an original Vietnamese guide (guides/youtube-<id>/), reviewed against the transcript
- * and rewritten once with the reviewer's notes if it scores low (then published unindexed, like translations).
+ * and, if it scores low, edited once where the reviewer's notes point (then published unindexed, like translations).
  */
 /** redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. only: these video ids. */
 export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; only?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
@@ -435,9 +447,9 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       const tries = [await reviewDraft(llm, transcript!, d, m)]
       let kept = tries[0]!
       if (gate(kept.score, false) === 'retry') {
-        const again = await write(kept.notes)
-        // A broken rewrite keeps the first draft and its score.
-        if (again.relevant && usable(again)) { d = again; kept = await reviewDraft(llm, transcript!, d, m); tries.push(kept) }
+        const fixed = await fixDraft(llm, transcript!, d, kept.notes, { ...opts.write, lang })
+        // A broken edit keeps the first draft and its score.
+        if (fixed) { d = fixed; kept = await reviewDraft(llm, transcript!, d, m); tries.push(kept) }
       }
       const score = kept.score
       // The guide sits under the video: a slip like "trong video" or "Theo <channel>" gets an editor pass, which states it directly.

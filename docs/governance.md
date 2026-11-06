@@ -315,12 +315,26 @@ The layers above still check the result.
     Wired into every reviewer: video guides, source translations, the style rewrite, the reader's rewrites, title
     rewrites, breed pages, AquaTome's guides, product pages and their review summaries, quick summaries, and the
     Indonesian and Thai species, plant, glossary, place and equipment pages. The photo checks keep their own verdicts.
+  - **A video guide under the bar is edited, not written again** (`fixDraft`, `prompts/video-fix.md`): the editor gets
+    the transcript, the draft and the notes, fixes the passages they name and adds nothing. A broken edit leaves the
+    first draft. Its writer keeps to what the video says (no added steps or tips, the creator's opinions as opinions,
+    no closing recap, FAQ only on what the video answers), and the reviewer's notes are faults only, never a request to
+    add something. `packages/engine/scripts/eval-fidelity.ts` measures it on the guides under the bar. Found by the
+    owner (2026-11-06): a fresh draft fixed the old notes and invented new details, and every guide reviewed scored
+    0.50–0.70.
   - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
     `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
     run (under the bar, or any note for the pages checked against their research).
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.
+  - **On the owner's dashboard:** the content page's "Còn thiếu" lists the pages out of search for their score,
+    counted by kind and language, the most read first (else the lowest score), 30 of them, each with its score and its
+    last review's notes (one of the version the page has, under the bar if a part is, the newest). The build writes
+    them to `dist/_ab/reviews.json` (`apps/site/scripts/content-stats.ts` `lowScores`), a file only the Worker reads,
+    judging a page as `@aq/schema`'s loader does: the test holds the list to the loader's judgement and to each page's
+    noindex, each of the engine's review kinds to scoring a page or not, and the page and its app blocks to each other
+    (`apps/site/test/content-stats.test.ts`, `worker/test/dashboard.test.ts`, `owner-api.test.ts`).
   - **Pages reviewed before traces were kept** get theirs from `pnpm engine review-backfill`: a recheck of the page as
     it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (video guides in the video job, the
     owner's videos first; Vietnamese translations per source, Indonesian and Thai pages and place names in the rewrite
@@ -445,8 +459,13 @@ The layers above still check the result.
   - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
     YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
     shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
-    `t<sec>-hd.webp` with its 480 px copy. A tile's second is its number × YouTube's interval (2, 5 or 10 s), not the
-    `t` written from yt-dlp's tiles ÷ duration, which runs up to 16 s early on a long video, often another scene.
+    `at<sec>-hd.webp` with its 480 px copy. A tile's second is its number × YouTube's interval (2, 5 or 10 s), not its
+    number ÷ yt-dlp's tiles-per-second, which runs up to 16 s early on a long video, often another scene.
+    - A still's `t`, the "▶ mm:ss" under it and the second the video plays from (on the page and in the app), is that
+      second (`video-images.test.ts`). Stills stored before carry the early one and their address keeps it (`t<t>.webp`,
+      `t<t>-hd.webp`): `pnpm engine video-stills` sets each guide's from those addresses, once (`timed` in
+      `engine-state/_video-stills.json`; twice would change nothing), guides with nothing else to do first. Found
+      2026-11-06: the labels and the play buttons were up to 16 s early.
     - A frame that can't be had leaves the tile, and `pnpm engine video-stills` (the Mac's video job, 12 guides a run)
       tries it again, as it does for the guides written before (2026-11-06: 3,682 stills, half of them 160 px).
     - It screens a frame as a new guide's, before uploading it: a face takes the still off the page; text keeps the
@@ -755,7 +774,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `FishIdFlowTests`: the fish-ID tool opening the app's own screen (a photo picked and sent as the reader's account, a fish boxed and only that part sent, cut from the photo at full size, the guesses as the site shows them, a guess's page and its genus's pages opening in the app and back from one the guesses and the box as they were, signed out the sign-in first and then the tool with the photo kept, the account's day used up, the site's day used up, accounts off and no network each said in the site's words, a long wait said as it goes with the photo kept as it was, no answer in the request's time not taken for no network, a session refused while still signed in said).
 
-- `HandbookFlowTests`: search the handbook (no accents, other names, one kind, a tool by its page's own words, a page opens (drawn by the app when the site writes it as blocks; else the web page, a stand-in for the site's naming its path), the Chihiros tool, the "Bể của tôi" tool), browse it from its home (a fish group, every fish, the plants by where they go, the glossary by letter, the video series and the video guides on a shelf of their own with their length, not among the written guides), the fish filtered to one of the reader's tanks as the site's list filters them (those missing a figure listed after) and the plants to the tank's light; what's new as the site lists it (newest first, a page added then updated there twice, a row opening its page, a link to the whole list), and no row for it from a site whose index names none.
+- `HandbookFlowTests`: search the handbook (no accents, other names, one kind, a tool by its page's own words, a page opens (drawn by the app when the site writes it as blocks; else the web page, a stand-in for the site's naming its path), the Chihiros tool, the "Bể của tôi" tool), browse it from its home (a fish group, every fish, the plants by where they go, the glossary by letter, the video series and the video guides on a shelf of their own with their length, not among the written guides), the fish filtered to one of the reader's tanks as the site's list filters them (those missing a figure listed after) and the plants to the tank's light; what's new as the site lists it (newest first, a page added then updated there twice, a row opening its page, a link to the whole list), and no row for it from a site whose index names none; a kind of kit drawn by the app, from the home, with its types' shop links, its long list of fish a tap away and what follows it in reach.
 
 - `LightFlowTests`: the lights screen as the site's Chihiros page (a new light connected with its setup steps; the light's own schedule never shown as running or put in the form; a clock seven hours slow and one lost in a power cut set right; a preset written, then another without asking, then undone back to the first; the write bar in view at the top and the end of the screen, saying what will be written; a schedule written before used again, also while a colour is tried on the light, with the last six listed, and none for a light that dropped; the light kept on a tank with the schedule written to it; a saved light listed after a relaunch and connected with what was written to it; the plan kept without a light; presets by tank type, the chosen one marked, keeping the colour mix; the day's on, off and ramp handles dragged (off held two ramps after on), the ramp menu, the hours advice, and the schedule they write; colour looks, one brightness and each colour; a colour tried on the light, then its schedule again; the day previewed on the light, stopped at once or played whole to full and off, then its schedule again; leaving the app mid-test or mid-preview sending one frame only, last, after levels already on their way, and leaving "Tắt đèn" as it is; disconnecting mid-test or mid-preview sending the scene mode before the link drops, and a light that drops mid-test kept as set by hand until "Theo lịch"; Tắt đèn and Sáng hết, then back to the schedule; a dropped light, also one dropped while being read, connected again without a scan; the frames "Theo lịch" sends (the written schedule again, or only the scene mode); a light renamed and forgotten; no Bluetooth, with planning still open; a write ending manual levels; old firmware refused; disconnect, also mid-connect); the outlet a light is plugged into picked on its card (the one named for a light offered first) and its timer that cuts the power warned of beside a clock lost in the cut (in the plug's zone, said so, on a phone in another), and none once Smart Life turns the timer off, the pick taken back (asked again, after a launch too), a light said not to be on a smart plug not asked again on this phone and picked after all.
 
@@ -763,7 +782,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `OfflineFlowTests`: a shelf of guides kept for reading offline, at once on Wi-Fi, listed in one place on the home and let go of there, asked first on mobile data, stopped with nothing half-kept, also from the shelf left and come back to, stopped by removing the kept pages, no longer listed once the site splits its pages anew, not started with too little room.
 
-- `PageShotsFlowTests`: a fish, a plant, a guide and the fish-ID screen screenshotted top to bottom for a change's before and after.
+- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after.
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
@@ -801,8 +820,8 @@ Rules (as for the site):
    old reason, or removed.
 6. **A change to how a screen looks shows it before and after**, so its author critiques their own work against them
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
-   pages top to bottom (a fish, a plant and a guide, in light and dark, and the fish's top in large text) and the
-   fish-ID screen with its guesses, light and dark, with
+   pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, and the fish's top in large text), the
+   fish-ID screen with its guesses, light and dark, the home's section for kit and a long list's whole list, with
    stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, and the lights tab's card with its
    outlet's warning (the fake light and the stand-in Tuya cloud). Job `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs

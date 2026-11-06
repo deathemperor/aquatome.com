@@ -1,0 +1,68 @@
+{
+  "id": "aphyosemion-loennbergii",
+  "native": {
+    "input": "a01ae0f02f22b203",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the 'Kribi', now known as Kienké, river, southwestern Cameroon and has a wider distribution in the region, occurring in the Lokundje and Nyong drainages.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nyong",
+        "source": "seriouslyfish",
+        "quote": "Described from the 'Kribi', now known as Kienké, river, southwestern Cameroon and has a wider distribution in the region, occurring in the Lokundje and Nyong drainages.",
+        "ok": true
+      },
+      {
+        "name": "Lokundje",
+        "source": "seriouslyfish",
+        "quote": "Described from the 'Kribi', now known as Kienké, river, southwestern Cameroon and has a wider distribution in the region, occurring in the Lokundje and Nyong drainages.",
+        "ok": true
+      },
+      {
+        "name": "Kienké",
+        "source": "seriouslyfish",
+        "quote": "Described from the 'Kribi', now known as Kienké, river, southwestern Cameroon and has a wider distribution in the region, occurring in the Lokundje and Nyong drainages.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion loennbergii",
+    "status": "ACCEPTED",
+    "taxonKey": 2348282,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        36
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

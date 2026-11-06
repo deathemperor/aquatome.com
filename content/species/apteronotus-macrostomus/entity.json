@@ -12,6 +12,102 @@
     "guyana",
     "essequibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Meta"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish offered in the hobby originate from Colombia and belong with highest probability to Apteronotus macrostomus.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This species comes from the surroundings of the city Villavicencio at the Rio Meta, where numerous ornamental fish catchers are active.",
+          "countries": [],
+          "regions": [
+            "Rio Meta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2401872,
+      "total": 40,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          26
+        ],
+        [
+          "CO",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          7.03125,
+          4,
+          0
+        ],
+        [
+          -71.71875,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          17,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -12,6 +12,118 @@
     "gabon",
     "ogooue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GQ",
+        "GA"
+      ],
+      "regions": [
+        "Ogooué",
+        "Mitemele River",
+        "Komo",
+        "Mbei"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears restricted to the area between the lower Mitemele River, Equatorial Guinea and the lower Ogooué basin in Gabon, including coastal drainages such as the Mbei, Komo and Gabon watersheds in between.",
+          "countries": [
+            "GQ",
+            "GA"
+          ],
+          "regions": [
+            "Ogooué",
+            "Mitemele River",
+            "Komo",
+            "Mbei"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348243,
+      "total": 30,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CD",
+          22
+        ],
+        [
+          "GA",
+          5
+        ],
+        [
+          "GQ",
+          2
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          0,
+          3,
+          3
+        ],
+        [
+          8.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          12.65625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -5.625,
+          19,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

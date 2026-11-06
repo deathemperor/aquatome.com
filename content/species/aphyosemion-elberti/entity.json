@@ -13,6 +13,131 @@
     "mambere",
     "nigeria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "CF",
+        "NG"
+      ],
+      "regions": [
+        "Sanaga",
+        "Mambéré",
+        "Lebo River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red-barred lyretail, Aphyosemion elberti, is a killifish from central Cameroon and the upper Mambéré basin in the Central African Republic.",
+          "countries": [
+            "CM",
+            "CF"
+          ],
+          "regions": [
+            "Mambéré"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' range is currently understood to extend from eastern Nigeria across central Cameroon (via the Sanaga River system of which the Mbam is a tributary) and across the border into Central African Republic (upper Mambéré basin).",
+          "countries": [
+            "NG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its range follows the Sanaga River system across Cameroon.",
+          "countries": [],
+          "regions": [
+            "Sanaga"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was described from 'Jade Plateau, Cameroon', this apparently corresponding to the Lebo River which lies in what is now the Central African Republic and presumably forms part of the Mambéré headwaters.",
+          "countries": [],
+          "regions": [
+            "Lebo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348341,
+      "total": 71,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CM",
+          68
+        ],
+        [
+          "DE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          9.84375,
+          5.625,
+          12,
+          12
+        ],
+        [
+          9.84375,
+          50.625,
+          3,
+          0
+        ],
+        [
+          11.25,
+          4.21875,
+          23,
+          23
+        ],
+        [
+          11.25,
+          5.625,
+          17,
+          17
+        ],
+        [
+          11.25,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

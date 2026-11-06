@@ -447,3 +447,7 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
   #expect(KeepPlan.of(online: true, expensive: false, constrained: false, freeBytes: nil) == .go, "room unknown")
   #expect(KeepPlan.of(online: false, expensive: false, constrained: false, freeBytes: room) == .offline)
 }
+
+@Test func aListOfPagesShowsWholeUpToThirtyAndTwelveBeyond() {
+  #expect([0, 12, 30, 31, 1387].map(PageList.inPlace) == [0, 12, 30, 12, 12])
+}

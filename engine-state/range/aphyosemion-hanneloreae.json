@@ -1,0 +1,57 @@
+{
+  "id": "aphyosemion-hanneloreae",
+  "native": {
+    "input": "37b9c5c242256b1c",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Malinga, located in the middle of the Du Chaillu mountain range in Ngounié province, southern Gabon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "This lies very close to Republic of the Congo, and the species may also occur across the border.",
+        "words": "Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Du Chaillu mountains",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Malinga, located in the middle of the Du Chaillu mountain range in Ngounié province, southern Gabon.",
+        "country": "GA",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion hanneloreae",
+    "status": "ACCEPTED",
+    "taxonKey": 4284385,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}
