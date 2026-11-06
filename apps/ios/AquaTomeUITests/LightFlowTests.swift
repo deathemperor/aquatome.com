@@ -813,7 +813,7 @@ final class LightFlowTests: XCTestCase {
     for _ in 0..<20 {
       let f = e.exists ? e.frame : nil
       if let f, f.minY > top, f.maxY < bottom { break }
-      // To the middle of the clear band, as far as a drag goes. A fixed third of the screen moved the content past the
+      // To the middle of the clear band, as far as a drag goes. A fixed drag of about a third moved the content past the
       // band each time (the quick actions: 20 drags, up and down, then a tap where they happened to be). Not built yet
       // (off the screen): down the screen first, then back up.
       if let f {
