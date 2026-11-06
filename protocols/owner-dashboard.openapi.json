@@ -581,7 +581,7 @@
     },
     "/api/owner/push-token": {
       "post": {
-        "summary": "This phone gets the daily report's notification: the app's own row (\"Nhận thông báo trên máy này\") sends it at each launch while on, and when turned on. An upsert: the same token again moves its last-seen time. The server keeps the 10 phones seen last, each tied to the app session that posted it last (it stores the session's id, never the bearer), and before each report drops every token whose session is no longer live, and any APNs answers 410 or 400 BadDeviceToken for.",
+        "summary": "This phone gets the daily report's notification: the app's own row (\"Nhận thông báo báo cáo trên máy này\") sends it at each launch while on, when turned on, and after each sign-in (the new session has none). An upsert: the same token again moves its last-seen time. The server keeps the 10 phones seen last, each tied to the app session that posted it last (it stores the session's id, never the bearer), and before each report drops every token whose session is no longer live, and any APNs answers 410 or 400 BadDeviceToken for. What the phone then gets: the Notification schema.",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -1811,6 +1811,56 @@
           "message": {
             "type": "string",
             "description": "Vietnamese, to show the owner."
+          }
+        }
+      },
+      "Notification": {
+        "description": "The daily report's notification, as APNs gets it from the Worker for each phone registered (/api/owner/push-token) in a live session of the owner's, when a report is made (07:00 Vietnam time, or a run started by hand) and the push switch is on. Sent with apns-topic com.aquatome.app, apns-push-type alert and apns-collapse-id daily-report-<the report's id>, so a report pushed twice doesn't stack. No sound or badge.",
+        "type": "object",
+        "required": [
+          "aps",
+          "url"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "aps": {
+            "type": "object",
+            "required": [
+              "alert",
+              "thread-id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "alert": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "body"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "const": "AquaTome"
+                  },
+                  "body": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 400,
+                    "description": "The report's subject, then on a line of its own the first thing that needs care, if there is one; English, as the report is. Cut to 400 characters, ending in an ellipsis."
+                  }
+                }
+              },
+              "thread-id": {
+                "type": "string",
+                "const": "daily-report"
+              }
+            }
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://aquatome\\.com/_ab/bao-cao/[^/?#]+/$",
+            "description": "The report's page on the dashboard. The app opens it on a tap, and ignores a url that isn't https on aquatome.com; signed out on the web, the page asks the owner to sign in and comes back."
           }
         }
       }

@@ -16,8 +16,13 @@ public final class OwnerPush {
   @ObservationIgnored private let owner: OwnerAccess
   @ObservationIgnored private let defaults: UserDefaults
   @ObservationIgnored private let environment: String
-  /// The token sent this launch (sent again only if APNs gives another).
-  @ObservationIgnored private var sentNow: String?
+  /// The token sent this launch, and in which of the owner's eras: sent again if APNs gives another, or if the session
+  /// it went with is gone (the site keeps a token with the session that sent it; signed in again, it has none).
+  @ObservationIgnored private var sentNow: Registered?
+  private struct Registered: Equatable {
+    let token: String
+    let era: Int
+  }
   static let wantedKey = "owner.push.wanted"
   /// The token the site was last given from this phone, kept across launches: what a turn-off or a sign-out takes back.
   static let sentKey = "owner.push.sent"
@@ -50,10 +55,12 @@ public final class OwnerPush {
   public func send() async {
     guard owner.isOwner == true else { return }
     guard wanted else { return await takeBack() }
-    guard let token, token != sentNow else { return }
+    guard let token else { return }
+    let now = Registered(token: token, era: owner.era)
+    guard now != sentNow else { return }
     do {
       try await owner.ask { try await $0.pushToken(token, environment: self.environment) }
-      sentNow = token
+      sentNow = now
       defaults.set(token, forKey: Self.sentKey)
       // Turned off while it was on its way: taken back at once.
       if !wanted { await takeBack() }
@@ -66,16 +73,19 @@ public final class OwnerPush {
 
   /// Before the account signs out (its session still good): the site stops sending to this phone.
   public func signingOut() async {
-    await takeBack()
+    await takeBack(again: false)
     sentNow = nil
   }
 
-  private func takeBack() async {
+  /// `again`: turned on again while the take-back was on its way, sent again once it's done (a send meanwhile found it
+  /// still sent).
+  private func takeBack(again: Bool = true) async {
     guard let sent = defaults.string(forKey: Self.sentKey) else { return }
     do {
       try await owner.ask { try await $0.pushToken(sent, environment: nil) }
       defaults.removeObject(forKey: Self.sentKey)
       sentNow = nil
+      if again, wanted { await send() }
     } catch {
       // Kept, to take back at the next sync: the site may still send to this phone until then.
       await ended(error)

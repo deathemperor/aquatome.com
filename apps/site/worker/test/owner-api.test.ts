@@ -687,7 +687,7 @@ test('the report\'s delivery from the app: the section\'s buttons set it as the 
   expect(JSON.parse(w.ab.m.get('report-settings')!.value)).toEqual({ email: false, push: true })
   // Push on with no phone registered, and no APNs key: said, with what to do; the buttons turn them back.
   expect(how(await section())).toEqual([
-    { kind: 'note', text: 'Email: đang tắt. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được. Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo trên máy này”.', tone: 'bad' },
+    { kind: 'note', text: 'Email: đang tắt. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được. Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo báo cáo trên máy này”.', tone: 'bad' },
     { kind: 'actions', actions: [{ label: 'Bật email', method: 'POST', path: '/api/owner/report-settings', body: { email: true } }, { label: 'Tắt thông báo', method: 'POST', path: '/api/owner/report-settings', body: { push: false } }] },
   ])
   // A phone registered and the key set: where it goes.
@@ -784,8 +784,10 @@ async function replies(): Promise<Reply[]> {
     ['signed out: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['not the owner: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['unregister a phone', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN }],
+    ['unregister a phone: a token that isn\'t lowercase hex', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN.toUpperCase() }],
     ['turn the report\'s notification on', 'POST', '/api/owner/report-settings', { push: true }],
     ['a report setting that isn\'t true or false', 'POST', '/api/owner/report-settings', { push: 'yes' }],
+    ['report settings that change neither', 'POST', '/api/owner/report-settings', {}],
   ]
   const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
   for (const [name, method, path, body] of actions) {
@@ -815,10 +817,13 @@ test('the samples the app\'s fake server serves are the Worker\'s replies, and t
     expect(res, `${r.name}: ${r.status}`).toBeDefined()
     expect(misfits(r.body, res.content['application/json'].schema), r.name).toEqual([])
     if (r.request.body !== undefined) {
-      // What's taken fits the contract; a refusal may be of what the contract doesn't allow (a token that isn't hex).
+      // What's refused as a bad request is what the contract doesn't allow (a token that isn't hex, another field): one
+      // thing, when it's neither of the choices. Anything else fits it, taken or refused for another reason.
       const m = misfits(r.request.body, op.requestBody.content['application/json'].schema)
-      if (r.status < 400) expect(m, r.name).toEqual([])
-      else if (r.name.includes('neither')) expect(m, r.name).toEqual([expect.any(String)])
+      if (r.status === 400 && (r.body as { error?: string }).error === 'bad_request') {
+        expect(m.length, r.name).toBeGreaterThan(0)
+        if (r.name.includes('neither')) expect(m, r.name).toEqual([expect.any(String)])
+      } else expect(m, r.name).toEqual([])
     }
   }
 })

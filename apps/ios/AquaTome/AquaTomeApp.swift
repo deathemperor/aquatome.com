@@ -116,6 +116,13 @@ struct AquaTomeApp: App {
       .task { await telemetry.start() }
       .onChange(of: handbook.siteTelemetry, initial: true) { if let on = handbook.siteTelemetry { telemetry.siteAllows(on) } }
       .onChange(of: tab, initial: true) { telemetry.telemetry.record(.view(tab.screen)) }
+      // Whether the account signed in is the owner's (the dashboard's row, OwnerEntry), when it changes and after each sync
+      // (which also says the phone is online again); the owner's, this phone's token for the daily report, if it's wanted
+      // and not sent with this session yet. Whichever tab is open: the notifications don't wait for the Tanks tab.
+      .task(id: "\(account.user?.id ?? "")|\(account.syncs)") {
+        await account.owner.check()
+        await account.push.send()
+      }
       // The owner's notifications turned on here: this launch's token, sent once the owner is known (OwnerPush).
       .task {
         notifications.received = { token in Task { await account.push.received(token) } }

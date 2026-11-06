@@ -62,9 +62,11 @@ public final class FakeOwner {
       return try json(e["status"]!.int!, b)
     }
     let refused = { () throws -> (Int, Data, String) in
-      // The Worker's own refusal of a request to this path, else of one like it, else a plain one.
+      // The Worker's own refusal of a request to this path (with this method, else another), else of one like it, else a
+      // plain one.
       let refusals = self.replies.filter { $0["status"]?.int == 400 }
-      let e = refusals.first { $0["request"]?.object?["path"]?.string == path }
+      let e = refusals.first { $0["request"]?.object?["path"]?.string == path && $0["request"]?.object?["method"]?.string == method }
+        ?? refusals.first { $0["request"]?.object?["path"]?.string == path }
         ?? refusals.first { ($0["request"]?.object?["path"]?.string).map { self.alike($0, path) } == true }
       return try e?["body"].map { try json(400, $0) } ?? error(400, "bad_request")
     }

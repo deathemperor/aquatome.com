@@ -3,7 +3,7 @@ import Testing
 @testable import AccountSync
 
 /// The push-token requests the phone sent as the stand-in got them, and what the next one meets: `fail` answers it as
-/// no network does, `ends` as a session that's over (401); `during` runs while a POST is on its way.
+/// no network does, `ends` as a session that's over (401); `during` runs while it's on its way.
 @MainActor final class Sent {
   var requests: [(method: String, body: String)] = []
   var fail = false
@@ -24,7 +24,7 @@ import Testing
     let (fail, ends, during) = await MainActor.run {
       sent.requests.append((r.httpMethod ?? "", body))
       defer { sent.fail = false; sent.ends = false; sent.during = nil }
-      return (sent.fail, sent.ends, r.httpMethod == "POST" ? sent.during : nil)
+      return (sent.fail, sent.ends, sent.during)
     }
     if fail { throw URLError(.notConnectedToInternet) }
     if ends { return (Data(#"{"error":"signed_out"}"#.utf8), HTTPURLResponse(url: r.url!, statusCode: 401, httpVersion: nil, headerFields: nil)!) }
@@ -141,6 +141,49 @@ func aFailedOrRacedTakeBackIsDoneLater() async throws {
   #expect(!racing.wanted)
   #expect(fake.owner?.pushTokens == [:])
   #expect(sent.requests.suffix(2).map(\.method) == ["POST", "DELETE"])
+}
+
+@MainActor @Test("Turned on again while the take-back is on its way: sent again once it's done")
+func onAgainDuringATakeBackSendsAgain() async throws {
+  let d = store()
+  let (fake, access, sent, _) = try await pushing("ui-apple", defaults: d)
+  let owner = access()
+  await owner.check()
+  let push = OwnerPush(owner: owner, environment: "production", defaults: d)
+  await push.received(apnsToken)
+  await push.want(true)
+  sent.during = { await push.want(true) }
+  await push.want(false)
+  #expect(push.wanted)
+  #expect(sent.requests.map(\.method) == ["POST", "DELETE", "POST"])
+  #expect(fake.owner?.pushTokens == [apnsHex: "production"])
+  // Signing out takes it back and sends nothing after, though it's still wanted on this phone.
+  await push.signingOut()
+  #expect(sent.requests.map(\.method) == ["POST", "DELETE", "POST", "DELETE"])
+  #expect(fake.owner?.pushTokens == [:])
+}
+
+@MainActor @Test("Signed in again after the session ended, in the same launch: the token goes again, with the new session")
+func signedInAgainSendsAgain() async throws {
+  let d = store()
+  let (fake, access, sent, who) = try await pushing("ui-apple", defaults: d)
+  let owner = access()
+  await owner.check()
+  let push = OwnerPush(owner: owner, environment: "production", defaults: d)
+  await push.want(true)
+  await push.received(apnsToken)
+  #expect(sent.requests.count == 1)
+  // Another request was told the session is over; the owner signs in again.
+  await owner.failed(OwnerError.signedOut, overview: false)
+  #expect(who.ends == 1)
+  await push.send()
+  #expect(sent.requests.count == 1)
+  who.now = ("ui-apple", try await signIn(client(fake), "ui-apple").token)
+  await owner.check()
+  await push.send()
+  #expect(sent.requests.map(\.method) == ["POST", "POST"])
+  await push.send()
+  #expect(sent.requests.count == 2)
 }
 
 @MainActor @Test("A session over while sending signs the account out, as a sync told so does")

@@ -26,14 +26,9 @@ struct OwnerRoute: Hashable {
 }
 
 extension View {
-  /// On the navigation stack that shows OwnerEntry: where the dashboard opens, and the check of the account signed in
-  /// (when it changes, and after each sync, which also says the phone is online again).
-  func ownerDashboard(_ account: AccountModel) -> some View {
+  /// On the navigation stack that shows OwnerEntry: where the dashboard opens. Whether the row shows is checked app-wide
+  /// (AquaTomeApp), whichever tab is open.
+  func ownerDashboard() -> some View {
     navigationDestination(for: OwnerRoute.self) { OwnerScreen(key: $0.key, anchor: $0.anchor) }
-      .task(id: "\(account.user?.id ?? "")|\(account.syncs)") {
-        await account.owner.check()
-        // The owner known: this phone's token for the daily report, if it's wanted and not sent this launch.
-        await account.push.send()
-      }
   }
 }

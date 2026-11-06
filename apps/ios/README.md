@@ -60,7 +60,7 @@ overview answers 200 sees the row; its photos stay in memory, never on the phone
 "Nhận thông báo báo cáo trên máy này" brings the 07:00 daily report to this phone as a notification (`OwnerPush`,
 `OwnerNotifications`): turned on, iOS asks first; the phone's APNs token (lowercase hex, `sandbox` from a debug build,
 `production` from TestFlight and the App Store) goes to `POST /api/owner/push-token` with the owner's session once a
-launch, and is taken back (`DELETE`) when it's turned off or before the account signs out. A tap opens the report,
+launch and again after each sign-in (the site keeps it with the session), whichever tab is open, and is taken back (`DELETE`) when it's turned off or before the account signs out. A tap opens the report,
 an aquatome.com page over https, in the browser. Whether the site sends it at all is its own "Báo cáo" section's.
 A debug build on the simulator (every UI and performance test) gets a stand-in server, Apple sheet, Google page and token
 endpoint (`FakeGoogle`; `-fake-google cancel` closes the page), passkey sheet and Turnstile check inside the app instead
