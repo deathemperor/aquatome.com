@@ -5,10 +5,10 @@ import { chipOf, dayLabel, esc, lastDays } from '../admin/chart'
 import { added, type EntityKind, type Snapshot } from '../admin/content'
 import { inLang, items, perDay } from '../admin/content-page'
 import { alignDaily, at, MODERATION_MISSED_MS, todos, waitingEn, type Overview } from '../admin/pages'
-import { isFailed, REPORT_PATH, type Soft } from '../admin/shell'
+import { CHANGELOG_PATH, isFailed, REPORT_PATH, type Soft } from '../admin/shell'
 import { dashboardUrl } from '../paths'
 import { clock, HOME_TZ } from '../admin/time'
-import { REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
+import { AREAS, REPO_URL, type GitHubSide, type Item, type Listed, type Runs } from './github'
 
 /** Numbers as the report's English reads them, 2.1, 1,234, $0.11; the dashboard writes them the Vietnamese way (admin/chart.ts). */
 export const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
@@ -40,7 +40,8 @@ export type Care = { title: string; text?: string; href?: string; n?: number }
 /** A measure yesterday against the 7 whole days before it. `moves`: it may be a highlight. */
 export type Stat = { label: string; value: number; base?: number; show?: (n: number) => string; note?: string; moves: boolean }
 type Line = { text: string; href?: string }
-type Built = { label: string; text: string; href?: string; lines?: Line[]; more?: number }
+/** `groups`: lines under labels of their own (what changed, by area); `link`: one link after them. */
+type Built = { label: string; text: string; href?: string; lines?: Line[]; more?: number; groups?: { label: string; lines: string[] }[]; link?: Line }
 type Table = { head: string[]; rows: string[][] }
 
 export type ComposeInput = { now: Date; overview: Overview; app: Soft<AppDay>; gh: GitHubSide }
@@ -147,6 +148,21 @@ function contentAdded(o: Overview): string | undefined {
   return `Added ${dayLabel(before.day)} to ${dayLabel(last.day)}: ${what.length ? what.join('; ') : 'nothing'}.`
 }
 
+/**
+ * What changed for readers, app users and the content (scripts/changelog.mjs): the site's, the app's and the engine's
+ * lines, each newest first and once, and the change log's link; never a PR's number or link.
+ */
+function whatChanged(gh: GitHubSide): Built {
+  const newest = [...gh.changes].sort((a, b) => Date.parse(b.at) - Date.parse(a.at))
+  const groups = AREAS.flatMap(area => {
+    const lines = [...new Set(newest.filter(c => c.area === area).map(c => c.text))]
+    return lines.length ? [{ label: area, lines }] : []
+  })
+  // With part of GitHub's answer missing (needs care says which), none found isn't none made.
+  const text = groups.length ? '' : gh.missing.length ? 'None found, but GitHub did not give part of this report.' : 'No product changes.'
+  return { label: 'What changed', text, groups, link: { text: 'Change log', href: CHANGELOG_PATH } }
+}
+
 const itemLines = (l: Listed, n: number): Pick<Built, 'lines' | 'more'> => ({ lines: l.items.slice(0, n).map((i: Item) => ({ text: `#${i.number} ${i.title}`, href: i.url })), more: Math.max(0, l.total - Math.min(n, l.items.length)) })
 
 function built({ now, overview: o, gh }: ComposeInput): Built[] {
@@ -156,9 +172,9 @@ function built({ now, overview: o, gh }: ComposeInput): Built[] {
   const addedText = contentAdded(o)
   const tf = gh.testflight
   return [
+    whatChanged(gh),
     { label: 'Deploys', text: `${runsText(gh.deploys)}.${live ? ` Live: ${live.sha}, deployed ${when(live.at, now)}.` : ''}${madeAt}`, ...(live ? { href: live.url } : {}) },
     { label: 'Content pushes', text: `Engine: ${plural(gh.engine.runs, 'cycle')}, ${fmt(gh.engine.failed)} failed. ${plural(gh.commits.total, 'content commit')}${parts ? ` (${parts})` : ''}.`, lines: addedText ? [{ text: addedText }] : [] },
-    { label: `Merged PRs (${fmt(gh.merged.total)})`, text: gh.merged.total ? '' : 'none.', ...itemLines(gh.merged, 50) },
     { label: 'App builds', text: `ios.yml: ${runsText(gh.ios)}. TestFlight: ${tf.uploads.length ? `${plural(tf.uploads.length, 'upload')} (build ${tf.uploads.map(u => u.build).join(', ')})` : 'no upload'}${tf.failed ? `, ${fmt(tf.failed)} failed` : ''}. App Store: ${runsText(gh.appStore)}.`, ...(tf.uploads[0] ? { href: tf.uploads[0].url } : {}) },
     { label: 'Live checks', text: `${runsText(gh.watch)}.${gh.notes ? ` ${plural(gh.notes, 'review note')} open.` : ''}` },
     { label: 'Open PRs', text: `${fmt(gh.prs.ready.total)} ready, ${fmt(gh.prs.draft.total)} draft.`, ...itemLines(gh.prs.ready, PRS_SHOWN) },
@@ -211,6 +227,8 @@ function toText(m: Model): string {
     if (href) out.push(`  ${href}`)
     for (const l of b.lines ?? []) out.push(`- ${l.text}${linkOf(l.href) ? ` ${linkOf(l.href)}` : ''}`)
     if (b.more) out.push(`- and ${fmt(b.more)} more`)
+    for (const g of b.groups ?? []) out.push(`  ${g.label}:`, ...g.lines.map(l => `  - ${l}`))
+    if (b.link) out.push(`  ${b.link.text}: ${linkOf(b.link.href) ?? ''}`)
   }
   out.push('', 'SITE', ...m.site.flatMap(textTable), '', 'APP', ...(typeof m.app === 'string' ? [m.app] : textTable(m.app)), '', ...m.footer.map(l => `${l.text}: ${linkOf(l.href) ?? ''}`))
   return out.join('\n')
@@ -241,7 +259,9 @@ function toHtml(m: Model): string {
   const moves = m.highlights.length ? `<ul style="${LIST}">${m.highlights.map(h => `<li style="margin:0 0 6px">${esc(h)}</li>`).join('')}</ul>` : '<p style="margin:0">No big moves.</p>'
   const made = m.built.map(b => {
     const sub = [...(b.lines ?? []).map(l => anchor(l.text, l.href)), ...(b.more ? [`and ${fmt(b.more)} more`] : [])]
-    return `<p style="margin:0 0 ${sub.length ? 4 : 10}px;${WRAP}"><b>${esc(b.label)}</b>${b.text ? `: ${esc(b.text)}` : ''}${linkOf(b.href) ? ` ${anchor('run', b.href)}` : ''}</p>${sub.length ? `<ul style="${LIST};margin-bottom:10px">${sub.map(s => `<li style="margin:0 0 4px;${WRAP}">${s}</li>`).join('')}</ul>` : ''}`
+    const groups = (b.groups ?? []).map(g => `<p style="margin:0 0 2px;color:${MUTED};font-size:13px;font-weight:600">${esc(g.label)}</p><ul style="${LIST};margin-bottom:8px">${g.lines.map(l => `<li style="margin:0 0 4px;${WRAP}">${esc(l)}</li>`).join('')}</ul>`).join('')
+    const link = b.link ? `<p style="margin:0 0 10px">${anchor(b.link.text, b.link.href)}</p>` : ''
+    return `<p style="margin:0 0 ${sub.length || groups || link ? 4 : 10}px;${WRAP}"><b>${esc(b.label)}</b>${b.text ? `: ${esc(b.text)}` : ''}${linkOf(b.href) ? ` ${anchor('run', b.href)}` : ''}</p>${sub.length ? `<ul style="${LIST};margin-bottom:10px">${sub.map(s => `<li style="margin:0 0 4px;${WRAP}">${s}</li>`).join('')}</ul>` : ''}${groups}${link}`
   }).join('')
   return `<div style="font:15px/1.5 ${FONT};color:${INK};background:#fff;max-width:640px;margin:0 auto;padding:16px">
 <h2 style="display:block;font:600 21px/1.25 ${FONT};color:${INK};margin:0 0 4px">${esc(m.title)}</h2>
@@ -261,7 +281,7 @@ ${h3('App')}${typeof m.app === 'string' ? `<p style="margin:0">${esc(m.app)}</p>
  */
 const ADDRESS = /[^\s<>"'(),;:]+@[^\s<>"'(),;:]+\.[A-Za-z]{2,}/g
 const OTHER_SITE = /\b(?:https?:\/\/|www\.)(?!(?:[a-z0-9-]+\.)?aquatome\.com\b|github\.com\b)[^\s<>"'&]+/gi
-const cleaned = (s: string) => s.replace(ADDRESS, '[address removed]').replace(OTHER_SITE, '[link removed]')
+export const cleaned = (s: string) => s.replace(ADDRESS, '[address removed]').replace(OTHER_SITE, '[link removed]')
 
 const SHORT_DAY = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', timeZone: HOME_TZ })
 

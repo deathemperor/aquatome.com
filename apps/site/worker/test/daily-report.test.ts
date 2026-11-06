@@ -1,7 +1,9 @@
 import { afterEach, expect, test, vi } from 'vitest'
 import { createSession, sha256 } from '../accounts/session'
 import { deleteUser } from '../accounts/users'
+import { NAV, WEB_PAGES } from '../admin/shell'
 import { ADMIN_PAGES, SECTIONS } from '../dashboard'
+import { addChanges, CHANGELOG_KEY } from '../daily/changelog'
 import { LOG_PREFIX, LOG_TTL, type Report } from '../daily/log'
 import { addDevice, TOKENS_KEY } from '../daily/push'
 import { SETTINGS_KEY } from '../daily/settings'
@@ -19,7 +21,7 @@ const OFF = { push: { sent: 0, why: 'push_off' } }
 const nothing = { total: 0, items: [] }
 const runs = { runs: 0, failed: 0 }
 const body = (runId = '1001', over: Record<string, unknown> = {}) => JSON.stringify({
-  runId, runUrl: `${REPO}/actions/runs/${runId}`, since: '2026-11-05T00:00:00Z', missing: [], merged: nothing, deploys: runs, engine: runs, commits: { total: 0, parts: [] },
+  runId, runUrl: `${REPO}/actions/runs/${runId}`, since: '2026-11-05T00:00:00Z', missing: [], changes: [], deploys: runs, engine: runs, commits: { total: 0, parts: [] },
   ios: runs, testflight: { uploads: [], failed: 0 }, appStore: runs, watch: runs, failing: [], issues: nothing, notes: 0, prs: { ready: nothing, draft: nothing }, ...over,
 })
 
@@ -83,13 +85,13 @@ test('a body of the wrong shape, or too large, is refused and nothing is stored 
 
 test('the send: from the report\'s own sender to REPORT_TO, text and HTML; the same report in the log for 90 days', async () => {
   const w = world()
-  expect((await post(w.e, body('1001', { merged: { total: 1, items: [{ number: 575, title: 'docs: x', url: `${REPO}/pull/575` }] } }))).status).toBe(200)
+  expect((await post(w.e, body('1001', { changes: [{ area: 'Site', text: 'Readers can attach one photo to a comment.', at: '2026-11-05T10:00:00Z' }] }))).status).toBe(200)
   const mail = w.send.mock.calls[0]![0]
   expect(mail.to).toBe(ADDRESS)
   expect(mail.from).toEqual({ email: 'bao-cao@aquatome.com', name: 'AquaTome' })
   expect(mail.subject).toMatch(/^AquaTome daily · \d+ \w+ · \d+ needs? care$/)
-  expect(mail.text).toContain('#575 docs: x')
-  expect(mail.html).toContain(`<a href="${REPO}/pull/575"`)
+  expect(mail.text).toContain('  Site:\n  - Readers can attach one photo to a comment.')
+  expect(mail.html).toContain('Readers can attach one photo to a comment.</li>')
   const put = w.ab.m.get(`${LOG_PREFIX}1001`)!
   expect(put.opts?.expirationTtl).toBe(90 * 86_400)
   expect(LOG_TTL).toBe(90 * 86_400)
@@ -479,4 +481,129 @@ test('the log is a section of the app too, reached on the web from its rail (onc
   }
   // A phone's overview hides the rail: the page itself links it.
   expect((await (await open(w.e, '/_ab/', c)).text()).split('<main>')[1]).toContain('href="/_ab/bao-cao/"')
+})
+
+// ——— The product change log ———
+
+const change = (area: string, text: string, at: string) => ({ area, text, at })
+const changesKept = (w: ReturnType<typeof world>) => JSON.parse(w.ab.m.get(CHANGELOG_KEY)!.value) as unknown[]
+
+test('the change log: the report adds its changes to KV before it sends, each once, cut as the mail is', async () => {
+  const w = world()
+  const order: string[] = []
+  const put = w.ab.ns.put.bind(w.ab.ns)
+  Object.assign(w.ab.ns, { put: async (k: string, v: string, o?: Put['opts']) => { order.push(k); return put(k, v, o) } })
+  w.send.mockImplementation(async () => { order.push('send'); return { messageId: 'm1' } })
+  const a = change('Site', 'Readers can attach one photo to a comment.', '2026-11-05T10:00:00Z')
+  const b = change('App', `Write to ${ADDRESS} or see https://tracker.test/p`, '2026-11-05T09:00:00Z')
+  expect((await post(w.e, body('1001', { changes: [a, b] }))).status).toBe(200)
+  expect(order).toEqual([CHANGELOG_KEY, 'send', `${LOG_PREFIX}1001`])
+  const cutB = { ...b, text: 'Write to [address removed] or see [link removed]' }
+  expect(changesKept(w)).toEqual([a, cutB])
+  // No expiry on the key: a year is kept by the entries' own dates (below).
+  expect(w.ab.m.get(CHANGELOG_KEY)!.opts?.expirationTtl).toBeUndefined()
+  // The same run again, then a run by hand within the day with the same pull requests and a new one: each kept once.
+  await post(w.e, body('1001', { changes: [a, b] }))
+  const c = change('Engine', 'Guides keep their photos.', '2026-11-05T20:00:00Z')
+  await post(w.e, body('1002', { changes: [c, a, b] }))
+  expect(changesKept(w)).toEqual([c, a, cutB])
+  // A day with none writes nothing.
+  const quiet = world()
+  await post(quiet.e)
+  expect(quiet.ab.m.has(CHANGELOG_KEY)).toBe(false)
+})
+
+test('the change log keeps a year: what is older leaves on the next write; nothing new, nothing written', async () => {
+  const w = world()
+  const now = new Date('2026-11-06T00:00:00Z')
+  const old = change('Site', 'Old.', '2025-11-01T00:00:00Z')
+  const recent = change('Site', 'Recent.', '2025-11-07T00:00:00Z')
+  w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([recent, old]) })
+  const put = vi.spyOn(w.ab.ns, 'put')
+  expect(await addChanges(w.ab.ns, [], now)).toBe(0)
+  expect(await addChanges(w.ab.ns, [recent as never], now)).toBe(0)
+  expect(put).not.toHaveBeenCalled()
+  const fresh = change('App', 'New.', '2026-11-05T00:00:00Z')
+  expect(await addChanges(w.ab.ns, [fresh as never], now)).toBe(1)
+  expect(changesKept(w)).toEqual([fresh, recent])
+})
+
+test('the change log: a write that fails sends nothing; the next try writes it, then sends', async () => {
+  const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const w = world()
+  const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { put: vi.fn(async () => { throw new Error('KV 429') }) }) } as unknown as Env
+  const changes = [change('Site', 'One.', '2026-11-05T10:00:00Z')]
+  expect((await post(down, body('1001', { changes }))).status).toBe(503)
+  expect(w.send).not.toHaveBeenCalled()
+  expect((await post(w.e, body('1001', { changes }))).status).toBe(200)
+  expect(w.send).toHaveBeenCalledTimes(1)
+  expect(changesKept(w)).toEqual(changes)
+  log.mockRestore()
+})
+
+test('the change log page: nothing yet', async () => {
+  const w = world()
+  const { owner: c } = await owner(w)
+  const r = await open(w.e, '/_ab/thay-doi/', c)
+  expect(r.status).toBe(200)
+  expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
+  const html = await r.text()
+  expect(html).toContain('<h1>Thay đổi sản phẩm</h1>')
+  expect(html).toContain('aria-current="page">Thay đổi sản phẩm<')
+  expect(html).toContain('Chưa có thay đổi nào.')
+})
+
+const heads = (html: string) => html.split('<section><h3>').slice(1).map(d => d.split('</h3>')[0])
+
+test('the change log page: by the day each merged in the viewer\'s zone, newest first; the site, the app, the engine; each line once; escaped', async () => {
+  const w = world()
+  const { owner: c } = await owner(w)
+  w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([
+    change('App', 'The app opens links.', '2026-11-05T10:00:00Z'),
+    change('Engine', 'Guides keep their photos.', '2026-11-05T20:00:00Z'), // 06/11 03:00 in Vietnam
+    change('Site', 'Shop links fit <small> phones.', '2026-11-05T16:00:00Z'), // 05/11 23:00
+    change('Site', 'Readers can search.', '2026-11-05T09:00:00Z'),
+    change('Site', 'Readers can search.', '2026-11-05T08:00:00Z'),
+  ]) })
+  const html = await (await open(w.e, '/_ab/thay-doi/', c)).text()
+  expect(heads(html)).toEqual(['Thứ Sáu · 06/11/2026', 'Thứ Năm · 05/11/2026'])
+  const days = html.split('<section><h3>').slice(1)
+  expect(days[0]).toContain('<li><p>Guides keep their photos.</p><small>Engine nội dung</small></li>')
+  expect([...days[1]!.matchAll(/<li><p>(.*?)<\/p><small>(.*?)<\/small>/g)].map(m => [m[1], m[2]])).toEqual([
+    ['Shop links fit &lt;small&gt; phones.', 'Trang web'], ['Readers can search.', 'Trang web'], ['The app opens links.', 'Ứng dụng'],
+  ])
+  // A viewer in New York: every one of them on the 5th.
+  const ny = await (await open(w.e, '/_ab/thay-doi/', `${c}; aq_tz=America%2FNew_York`)).text()
+  expect(heads(ny)).toEqual(['Thứ Năm · 05/11/2026'])
+})
+
+test('the change log page: a key that can\'t be read says so in its place', async () => {
+  const log = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const w = world()
+  const { owner: c } = await owner(w)
+  const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { get: async () => { throw new Error('KV down') } }) } as unknown as Env
+  const html = await (await open(down, '/_ab/thay-doi/', c)).text()
+  expect(html).toContain('Không tải được nhật ký thay đổi.<code>KV down</code>')
+  log.mockRestore()
+})
+
+test('the change log page: the owner\'s alone; on the web dashboard\'s rail, outside NAV and the app\'s sections', async () => {
+  const w = world()
+  const { owner: c, reader } = await owner(w)
+  w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([change('Site', 'secret change', '2026-11-05T10:00:00Z')]) })
+  for (const [cookie, status] of [[undefined, 200], [reader, 403]] as const) {
+    const r = await open(w.e, '/_ab/thay-doi/', cookie)
+    const html = await r.text()
+    expect(r.status).toBe(status)
+    expect(html).not.toContain('secret')
+    expect(html).not.toContain('Các mục quản trị')
+  }
+  // The dashboard token opens no page.
+  expect(await (await handle(new Request('https://x.test/_ab/thay-doi/', { headers: { ...browser, authorization: `Bearer ${TOKEN}` } }), w.e)).text()).not.toContain('secret')
+  expect(await (await open(w.e, '/_ab/thay-doi/', c)).text()).toContain('secret change')
+  // NAV and SECTIONS are the iOS app's contract (protocols/owner-dashboard.openapi.json): the page is the web's alone.
+  expect(NAV.map(([p]) => p)).not.toContain('/_ab/thay-doi/')
+  expect(SECTIONS.map(s => s.key)).not.toContain('thay-doi')
+  expect(WEB_PAGES).toContain('/_ab/thay-doi/')
+  expect(await (await open(w.e, '/_ab/', c)).text()).toContain('<li><a href="/_ab/thay-doi/">Thay đổi sản phẩm</a></li>')
 })

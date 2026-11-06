@@ -37,6 +37,26 @@ jobs:
           echo "site checks: $site, AI review: $review"
           echo "site=$site" >> "$GITHUB_OUTPUT"
           echo "review=$review" >> "$GITHUB_OUTPUT"
+  # A pull request says what it changes for readers, app users and the content, in its body's "## Changelog" section
+  # (AGENTS.md, "Pull requests"; scripts/changelog.mjs): the daily report and the change log read it. The body is read as
+  # it is now, not as the event had it, so a body fixed after the push passes when this job is run again. fix.yml's PRs
+  # and the engine's content pass as they are; a push to main or a run started by hand has no PR, and passes.
+  changelog:
+    name: The pull request says its product change (## Changelog)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: github.event_name == 'pull_request'
+        with:
+          persist-credentials: false
+          sparse-checkout: scripts
+      - name: Read the pull request's body and check its Changelog section
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: gh pr view "$PR" -R "$GITHUB_REPOSITORY" --json author,title,body,files | node scripts/changelog.mjs check
   checks:
     name: Unit tests, typecheck and browser checks
     needs: changes
@@ -149,9 +169,10 @@ jobs:
           name: site-page-shots
           path: apps/site/page-shots
   # The check main's ruleset requires, by this exact name: green when every site check passed, or when the change is
-  # iOS-only and they were skipped. A failed or cancelled check, or a failed `changes`, fails it.
+  # iOS-only and they were skipped, and the PR's Changelog section reads well. A failed or cancelled check, or a failed
+  # `changes`, fails it.
   test:
-    needs: [changes, checks, lighthouse]
+    needs: [changes, checks, lighthouse, changelog]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -162,8 +183,10 @@ jobs:
           SITE: ${{ needs.changes.outputs.site }}
           CHECKS: ${{ needs.checks.result }}
           LIGHTHOUSE: ${{ needs.lighthouse.result }}
+          CHANGELOG: ${{ needs.changelog.result }}
         run: |
-          echo "changes: $CHANGES, site checks needed: $SITE, checks: $CHECKS, lighthouse: $LIGHTHOUSE"
+          echo "changes: $CHANGES, site checks needed: $SITE, checks: $CHECKS, lighthouse: $LIGHTHOUSE, changelog: $CHANGELOG"
+          [ "$CHANGELOG" = success ] || { echo "The PR body's Changelog section: see the changelog job for what to add."; exit 1; }
           [ "$CHANGES" = success ] || exit 1
           if [ "$SITE" = true ]; then
             [ "$CHECKS" = success ] && [ "$LIGHTHOUSE" = success ] || exit 1

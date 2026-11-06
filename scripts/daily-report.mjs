@@ -5,11 +5,14 @@
 // AB_DASH_TOKEN. DRY_RUN=1 prints the JSON instead of posting it (GITHUB_REPOSITORY=owner/name to try it locally).
 import { execFileSync } from 'node:child_process'
 import { pathToFileURL } from 'node:url'
+import { productChanges, sectionLines, titleQualifies } from './changelog.mjs'
 
 const REPORT_URL = 'https://aquatome.com/_ab/report'
 const DAY_MS = 86_400_000
 const MAX_LIST = 50
 const MAX_TITLE = 200
+/** Product changes: a few lines a pull request, so more than MAX_LIST (github.ts reads the same bound). */
+const MAX_CHANGES = 100
 /** A conclusion that counts as failed. Cancelled and skipped runs say nothing either way. */
 const BAD = new Set(['failure', 'timed_out', 'startup_failure'])
 const NOT_RUN = new Set(['cancelled', 'skipped'])
@@ -73,6 +76,9 @@ function failing(raw, since) {
 /** What each `content:` commit is: "content: engine pages 2026-11-05" → "engine pages". */
 const commitPart = s => s.replace(/^content:\s*/, '').replace(/\s*\d{4}-\d{2}-\d{2}.*$/, '').slice(0, 60) || 'other'
 
+/** Pull requests merged since `since` (ms). */
+const merged = (closed, since) => closed.filter(p => p.merged_at && ms(p.merged_at) >= since)
+
 /** What GitHub gave, as the Worker reads it (apps/site/worker/daily/github.ts). `now`: a Date. */
 export function summarise(raw, { now, runId, runUrl }) {
   const since = now.getTime() - DAY_MS
@@ -96,7 +102,7 @@ export function summarise(raw, { now, runId, runUrl }) {
   return {
     runId, runUrl, since: new Date(since).toISOString(),
     missing: raw.missing.slice(0, MAX_LIST).map(clip),
-    merged: listed(raw.closed.filter(p => p.merged_at && ms(p.merged_at) >= since).sort((a, b) => ms(b.merged_at) - ms(a.merged_at))),
+    changes: productChanges(merged(raw.closed, since), raw.files).slice(0, MAX_CHANGES),
     deploys: { ...count('deploy.yml'), ...(live ? { live: { sha: live.head_sha.slice(0, 7), url: live.html_url, at: live.created_at } } : {}) },
     engine: count('engine.yml'),
     commits: { total: content.length, parts: [...parts].sort((a, b) => b[1] - a[1]).slice(0, MAX_LIST).map(([name, n]) => ({ name, n })) },
@@ -139,10 +145,16 @@ export function read(api, repo, now) {
   for (const r of runs['testflight.yml'] ?? []) {
     if (ms(r.created_at) >= ms(since)) jobs[r.id] = get(`the jobs of TestFlight run ${r.id}`, `repos/${repo}/actions/runs/${r.id}/jobs?per_page=100`, { jobs: [] }).jobs
   }
+  const closed = get('the merged pull requests', `repos/${repo}/pulls?state=closed&sort=updated&direction=desc&per_page=100`, [])
+  // A merged PR without a Changelog section falls back to its title, labelled by the files it touched (scripts/changelog.mjs).
+  /** @type {Record<number, string[]>} */
+  const prFiles = {}
+  for (const p of merged(closed, ms(since))) {
+    if (!sectionLines(p.body) && titleQualifies(p.title)) prFiles[p.number] = pages(`the files of pull request ${p.number}`, `repos/${repo}/pulls/${p.number}/files?per_page=100`).map(f => f.filename)
+  }
   return {
-    runs, jobs,
+    runs, jobs, closed, files: prFiles,
     commits: get('the commits', `repos/${repo}/commits?sha=main&since=${since}&per_page=100`, []),
-    closed: get('the merged pull requests', `repos/${repo}/pulls?state=closed&sort=updated&direction=desc&per_page=100`, []),
     open: pages('the open pull requests', `repos/${repo}/pulls?state=open&per_page=100`),
     issues: pages('the open issues', `repos/${repo}/issues?state=open&per_page=100`),
     missing,

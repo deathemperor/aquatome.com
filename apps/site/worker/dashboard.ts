@@ -19,8 +19,9 @@ import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview,
 } from './admin/pages'
-import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { CHANGELOG_PATH, hostPath, isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
+import { changelogPage, loadChangelog } from './daily/changelog'
 import { loadReports, reportPage, reportsPage, reportsSection, SETTINGS_FORM } from './daily/page'
 import type { PushEnv } from './daily/push'
 import { setSettings, type ReportSettings } from './daily/settings'
@@ -203,6 +204,8 @@ const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage
 /** One daily report as it was sent (daily/page.ts), under the log's section: a page of the web dashboard alone. */
 const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(\\d{1,20})/$`)
 const reportHtml = (id: string): Load<string | undefined> => (env, _url, now, tz) => reportPage(env.AB, id, now, tz)
+/** The product change log (daily/changelog.ts): web only, outside NAV, as the scoreboard. */
+const changelogHtml: Load<string> = async (env, _url, now, tz) => changelogPage(await loadChangelog(env.AB, now, tz))
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
@@ -352,7 +355,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
 
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
   const report = REPORT_PAGE.exec(key)
-  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : undefined
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : key === CHANGELOG_PATH ? changelogHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   // Moved to its own host once Access guards it. A bearer asked for something else, and gets what it always got. Never
