@@ -1,0 +1,177 @@
+{
+  "id": "youtube-oc5mid3nQLY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=oc5mid3nQLY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "oc5mid3nQLY",
+    "title": "HOW TO: TV Aquarium",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 909,
+    "publishedAt": "2013-04-14",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62maxRP9hUzeWSR2NsoCK0prQ",
+      "position": 15
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/oc5mid3nQLY/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "t": 879
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t10.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Chiếc tivi CRT loại tủ đứng bằng gỗ, dùng làm tủ cho bể cá."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oc5mid3nQLY/p0-VuZV8yMDIyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/oc5mid3nQLY/p0-VuZV8yMDIyLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "DogsRNice",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dynatron_Ether_Sovereign_at_the_Early_Television_Museum_June_2022.jpg",
+          "caption": "Tivi CRT cũ loại tủ đứng bằng gỗ, kiểu thường được cho không."
+        }
+      },
+      {
+        "heading": "Tháo vỏ và linh kiện điện",
+        "moments": [
+          {
+            "t": 287,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t287.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Tháo tấm lưng ván ép của chiếc tivi đời cũ."
+          },
+          {
+            "t": 356,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t356.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bên trong tivi sau khi tháo lưng, thấy bo mạch và bóng hình."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oc5mid3nQLY/p1-uX1NjcmVlbi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/oc5mid3nQLY/p1-uX1NjcmVlbi5qcGc-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 3.0",
+          "author": "0Ihavenousername0",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:CRT_Television_Screen.jpg",
+          "caption": "Dây điện và cuộn dây đồng bên trong thiết bị cũ đã tháo vỏ."
+        }
+      },
+      {
+        "heading": "Xả khí trong bóng hình thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oc5mid3nQLY/p2-lscy0yMjEyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/oc5mid3nQLY/p2-lscy0yMjEyLmpwZw-480.webp",
+          "width": 960,
+          "height": 960,
+          "licence": "CC BY-SA 4.0",
+          "author": "Raimond Spekking",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mini_Star_416_-_cathode_ray_tube_with_deflection_coils-2212.jpg",
+          "caption": "Bóng hình CRT nhìn nghiêng, thấy cổ ống và đầu ống thủy tinh nhỏ phía sau."
+        }
+      },
+      {
+        "heading": "Tách mặt kính trước khỏi bóng",
+        "moments": [
+          {
+            "t": 632,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t632.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bóng hình bằng kính với viền kim loại, nửa sau đục, nửa trước trong."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oc5mid3nQLY/p3-lscy0yMjEyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/oc5mid3nQLY/p3-lscy0yMjEyLmpwZw-480.webp",
+          "width": 960,
+          "height": 960,
+          "licence": "CC BY-SA 4.0",
+          "author": "Raimond Spekking",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mini_Star_416_-_cathode_ray_tube_with_deflection_coils-2212.jpg",
+          "caption": "Bóng hình CRT có mặt kính trước trong, nửa sau đục và viền kim loại quanh bóng."
+        }
+      },
+      {
+        "heading": "Chuẩn bị tủ tivi trước khi lắp bể",
+        "moments": [
+          {
+            "t": 642,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t642.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Kính đáy bể có mặt đáy bóng hình cong đặt trên mặt tủ."
+          },
+          {
+            "t": 652,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t652.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khung gỗ bên trong tủ, chỗ cần chêm gỗ gia cố chân tủ."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/oc5mid3nQLY/p4-bGV2aXNpb24uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/oc5mid3nQLY/p4-bGV2aXNpb24uanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Nord68",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:1950%27s_television.jpg",
+          "caption": "Tủ tivi gỗ có cánh đóng kín, kiểu tủ thường dùng để đặt bể."
+        }
+      },
+      {
+        "heading": "Ghép kính và dán silicone",
+        "moments": [
+          {
+            "t": 840,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t840.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bơm silicone dọc mép kính trong tủ gỗ để dán các tấm kính."
+          },
+          {
+            "t": 860,
+            "url": "https://media.aquatome.com/video/oc5mid3nQLY/t860.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Dựng tấm kính phẳng vào sát mặt kính tivi trong tủ."
+          }
+        ]
+      }
+    ]
+  }
+}

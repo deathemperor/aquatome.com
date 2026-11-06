@@ -1,9 +1,12 @@
 /**
  * The handbook's pages the fish-ID tool can link a guess to: every species, breed and plant page, built with the site
  * (src/pages/app/fish-id.json.ts → /app/fish-id.json) and read by the Worker from its assets, so it is always the pages
- * that are live. The accuracy script builds the same from content/. Plain shapes only: no @aq/schema or Cloudflare types.
+ * that are live. The accuracy script builds the same from content/. Plain shapes only: no Cloudflare types, and of
+ * @aq/schema only the language table's type.
  */
-export type Lang = 'vi' | 'id' | 'th'
+import type { Lang } from '@aq/schema/langs'
+
+export type { Lang }
 export type CatalogEntry = {
   id: string
   kind: 'species' | 'breed' | 'plant'

@@ -10,6 +10,56 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391454,
+      "total": 13,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "IN",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          10,
+          10
+        ],
+        [
+          94.21875,
+          26.71875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

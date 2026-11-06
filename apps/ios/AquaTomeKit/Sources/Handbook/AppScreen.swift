@@ -7,6 +7,8 @@ public enum AppScreen: Equatable, Sendable {
   case tanks(String?)
   /// The Chihiros light page: the app's Lights tab.
   case lights
+  /// The fish-ID tool: the app's own screen for it, which asks as the reader's account.
+  case fishId
   /// A page the app index lists, by its path ("/vi/ca/ca-neon/"): the app's screen for it, on the tab in front.
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
@@ -17,22 +19,32 @@ public enum AppScreen: Equatable, Sendable {
   /// group), also those groups' pages.
   public static func of(_ url: URL, site: URL, listed: (String) -> Bool = { _ in false }, group: (String) -> Bool = { _ in false }) -> AppScreen? {
     guard ["http", "https"].contains(url.scheme?.lowercased() ?? ""), bare(url.host) == bare(site.host) else { return nil }
-    switch url.pathComponents.filter({ $0 != "/" }).joined(separator: "/") {
+    // The site's Vietnamese is at its root ("/ca/ca-neon/"), and its old /vi/ form still leads there; the app index keeps
+    // the /vi/ form until the site moves it (apps/site/src/lib/i18n.ts, APP_VI_ROOT). Either form is read.
+    var parts = url.pathComponents.filter { $0 != "/" }
+    let root = !["vi", "id", "th"].contains(parts.first ?? "")
+    if root { parts.insert("vi", at: 0) }
+    switch parts.joined(separator: "/") {
     // apps/site/src/lib/i18n.ts: the tools section and each page's segment in each language.
     case "vi/cong-cu/be-cua-toi", "id/alat/akuarium-saya", "th/tools/my-tanks":
       let id = url.fragment(percentEncoded: false).flatMap { $0.hasPrefix("be-") ? String($0.dropFirst(3)) : nil }
       return .tanks(id?.isEmpty == false ? id : nil)
     case "vi/cong-cu/den-chihiros", "id/alat/lampu-chihiros", "th/tools/chihiros-light":
       return .lights
+    case "vi/cong-cu/nhan-dien-ca", "id/alat/kenali-ikan", "th/tools/fish-id":
+      return .fishId
     default:
       // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
       // app shows it: the web takes it whole.
       guard url.query == nil else { return nil }
-      if let g = Self.group(url.pathComponents.filter { $0 != "/" }), group(g) { return .group(g) }
-      // The index's paths end in "/", as the site's pages do; a link may leave it off.
+      if let g = Self.group(parts), group(g) { return .group(g) }
+      // The index's paths end in "/", as the site's pages do; a link may leave it off. The page as the index lists it, in
+      // whichever form.
       let path = url.path(percentEncoded: false)
       let page = path.hasSuffix("/") ? path : path + "/"
-      return listed(page) ? .page(page) : nil
+      let other = root ? "/vi" + page : page.hasPrefix("/vi/") ? String(page.dropFirst(3)) : nil
+      if listed(page) { return .page(page) }
+      return other.flatMap { listed($0) ? .page($0) : nil }
     }
   }
 

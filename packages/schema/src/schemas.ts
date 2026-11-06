@@ -1,9 +1,10 @@
 import { z } from 'zod'
 import { isCountryCode } from './countries'
+import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from './langs'
 import { byCount, CELL_DEG } from './range'
 
 export const SOURCE_IDS = ['seriouslyfish', 'planetcatfish', 'loachesonline', 'glaser', 'bwaquatics', '2hraquarist', 'aquariumcoop', 'sprucepets', 'aquariumbreeder', 'tropica', 'scotcat', 'facebook-jim', 'panitvong', 'cryptspages', 'diendancacanh', 'youtube', 'aquatome', 'aquazonefish', 'aquahouse', 'chothuysinh', 'cacanhtailoc'] as const
-export const LANGS = ['vi', 'id', 'th'] as const
+export { LANGS, WRITTEN_LANGS } from './langs'
 
 export const SECTION_ORDER = ['quickFacts', 'beforeYouBuy', 'distribution', 'habitat', 'aquariumSize', 'maintenance', 'waterConditions', 'equipment', 'diet', 'behaviour', 'dimorphism', 'reproduction', 'notes', 'references'] as const
 
@@ -131,7 +132,8 @@ export const VideoRef = z.object({
  * A guide's photo can name the section it illustrates, by the h3 each language's text gives it (translations are written
  * on their own, so their headings differ): the page puts it under that heading.
  */
-const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), id: z.string().optional(), th: z.string().optional() }).optional() })
+const sectionIn = Object.fromEntries(WRITTEN_OTHER_LANGS.map(l => [l, z.string().optional()])) as Record<WrittenOtherLang, z.ZodOptional<z.ZodString>>
+const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...sectionIn }).optional() })
 export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),
   source: SourceId, sourceUrl: z.string(), html: z.string(), photos: z.array(GuidePhoto), mentions: z.array(z.string()), updatedAt: z.string(),
@@ -181,12 +183,17 @@ const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })
 /**
  * One product (brand + model), the same in every language and market: its specs and variants, each fact pointing at the
- * source it came from (manufacturer, shops, reviews). Written from facts only, never from a shop's text.
+ * source it came from (manufacturer, shops, reviews, `test`: AquaTome's own test notes). Written from facts only, never
+ * from a shop's text.
+ * `reviews`: the YouTube reviews its Vietnamese page summarizes (engine product-reviews.ts), the top one first (the page
+ * embeds it); each is a source of kind `video`. `channel` is kept to hold the text to the content rule that it never
+ * names one; the page's source list shows titles.
  */
 export const ProductSchema = z.object({
   id: z.string(), brand: z.string(), model: z.string(), category: z.string(), type: z.string().optional(),
   specs: z.array(ProductSpec), variants: z.array(z.object({ name: z.string(), specs: z.array(ProductSpec) })),
-  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['manufacturer', 'shop', 'review', 'video', 'forum', 'other']), at: z.string() })),
+  sources: z.array(z.object({ url: WebUrl, title: z.string(), kind: z.enum(['manufacturer', 'shop', 'review', 'video', 'forum', 'test', 'other']), at: z.string() })),
+  reviews: z.object({ checkedAt: z.string(), videos: z.array(Video.extend({ channel: z.string() })) }).optional(),
   updatedAt: z.string(),
 })
 /** A product's prices in one market (content/products/<id>/<market>.json): shops' own listings, each dated. */
@@ -215,6 +222,14 @@ export const MarketSchema = z.object({
   prices: z.array(z.object({ shop: z.string(), url: WebUrl, variant: z.string().optional(), price: z.number(), at: z.string() })),
 })
 
+/**
+ * A claim's source on a product page: the source's address, not its place in the list, as research can list the sources
+ * again; `t`: for a video, the second the claim was said.
+ */
+const ProductCite = z.object({ url: WebUrl, t: z.number().int().nonnegative().optional() })
+/** Plain text and the sources behind it: the site draws the marks. */
+const CitedText = z.object({ text: z.string().min(1), cites: z.array(ProductCite).min(1) })
+
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
   body: z.string().optional(), definition: z.string().optional(),
@@ -226,6 +241,16 @@ export const TranslationSchema = z.object({
   parents: z.array(z.string()).optional(),
   /** Products: names for the spec keys in this language. */
   labels: z.record(z.string(), z.string()).optional(),
+  /**
+   * Products: what the YouTube reviews found (engine product-reviews.ts). `agree`: said by two reviews or more; `differ`:
+   * where they part, each side its own; `single`: said by one; `measured`: figures a reviewer measured, how, and where.
+   */
+  reviews: z.object({
+    agree: z.array(CitedText), differ: z.array(z.object({ topic: z.string().min(1), sides: z.array(CitedText).min(2) })), single: z.array(CitedText),
+    measured: z.array(z.object({ what: z.string().min(1), value: z.string().min(1), how: z.string(), cite: ProductCite })),
+  }).optional(),
+  /** Products: what AquaTome found trying the product itself, cited to its test notes. */
+  tested: z.array(CitedText).optional(),
   /** Owner-chosen main name: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */

@@ -1,6 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { POPULAR, POPULAR_BREEDS, slugify, STAPLE_SPECIES } from '@aq/schema'
+import { LANGS, POPULAR, POPULAR_BREEDS, slugify, STAPLE_SPECIES } from '@aq/schema'
 import { shopIds, type ShopLang } from './shops'
 
 export type GalleryKind = 'species' | 'plants' | 'breeds'
@@ -48,7 +48,7 @@ async function coverage(root: string, kind: GalleryKind): Promise<Map<string, nu
  * rest; within a tier, list order, then the pages most sources write about. A gallery is a file by page id
  * (content/gallery/<id>.json), so an id two kinds share stops the plan rather than give both pages one gallery.
  */
-export async function galleryPlan(root: string, langs: ShopLang[] = ['vi', 'id', 'th']): Promise<PlanItem[]> {
+export async function galleryPlan(root: string, langs: ShopLang[] = [...LANGS]): Promise<PlanItem[]> {
   const pages = { species: await coverage(root, 'species'), plants: await coverage(root, 'plants'), breeds: await coverage(root, 'breeds') }
   const shop: Record<GalleryKind, string[]> = { species: await shopIds(root, langs), plants: await shopIds(root, langs, 'plants'), breeds: POPULAR_BREEDS }
   const popular = POPULAR.map(slugify)

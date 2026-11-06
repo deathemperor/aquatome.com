@@ -1,0 +1,175 @@
+{
+  "id": "thorichthys-meeki",
+  "native": {
+    "input": "e1743730f8e60f59",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The firemouth cichlid, Thorichthys meeki, is a Central American cichlid from Mexico's Atlantic slope and the Yucatán south into Belize and Guatemala.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The firemouth cichlid, Thorichthys meeki, is a Central American cichlid from Mexico's Atlantic slope and the Yucatán south into Belize and Guatemala.",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The firemouth cichlid, Thorichthys meeki, is a Central American cichlid from Mexico's Atlantic slope and the Yucatán south into Belize and Guatemala.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Naturalised populations exist in Hawaii (since 1940), and Puerto Rico (since the late 2000s), plus there are reports from Arizona and Florida states, USA.",
+        "words": "USA",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Tonalá",
+        "source": "seriouslyfish",
+        "quote": "Its natural range extends eastward from the Río Tonalá system near Coatzacoalcos, on Mexico's Atlantic slope, through the states of Veracruz, Chiapas, Tabasco, around the Yucatán Peninsula, then southward into northern Belize and Guatemala.",
+        "country": "MX",
+        "ok": true
+      },
+      {
+        "name": "Yucatán Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Its natural range extends eastward from the Río Tonalá system near Coatzacoalcos, on Mexico's Atlantic slope, through the states of Veracruz, Chiapas, Tabasco, around the Yucatán Peninsula, then southward into northern Belize and Guatemala.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PR",
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Thorichthys meeki",
+    "status": "ACCEPTED",
+    "taxonKey": 2370898,
+    "datasets": [
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        337
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        241
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        104
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        82
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        65
+      ],
+      [
+        "8049bed0-f762-11e1-a439-00145eb45e9a",
+        64
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        56
+      ],
+      [
+        "803bf32c-f762-11e1-a439-00145eb45e9a",
+        39
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        32
+      ],
+      [
+        "9a0983a1-55dc-4492-bd6c-4085a36dcddc",
+        28
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        13
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        13
+      ],
+      [
+        "8040fad4-f762-11e1-a439-00145eb45e9a",
+        12
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        6
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        4
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "7817af75-45c3-4050-a4f8-9a10c3da91c5",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "803fc628-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MX",
+      "BZ",
+      "GT"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

@@ -4,6 +4,7 @@ import { groupCredits } from '../src/lib/credits'
 import { figureHtml } from '../src/lib/figures'
 import { htmlBlocks } from '../src/lib/page-blocks'
 import { page } from './dist'
+import { OTHER_LANGS } from '@aq/schema/langs'
 
 // Unsplash's API guidelines: wherever an Unsplash photo shows, "Photo by <name> on Unsplash", the name linking the
 // photographer's Unsplash page and "Unsplash" its home, both with our UTM. The fixture has one as the Pigeon Blood
@@ -26,7 +27,7 @@ test('an Unsplash photo\'s mark is its line in view: the photographer\'s page an
   expect(photoCredit('vi', MAI)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl, authorUrl: MAI.authorUrl, author: 'Mai Lin' })
   expect(photoCredit('vi', noPage)).toEqual({ text: 'Ảnh: Mai Lin trên Unsplash', licence: 'Unsplash License', url: MAI.sourceUrl, author: 'Mai Lin' })
   // The name as shown, for the app to link that text (Foto: … di Unsplash, ภาพ: … บน Unsplash) without parsing the words.
-  for (const lang of ['id', 'th'] as const) { const c = photoCredit(lang, MAI); expect(c.text).toContain(c.author!) }
+  for (const lang of OTHER_LANGS) { const c = photoCredit(lang, MAI); expect(c.text).toContain(c.author!) }
 })
 
 test('in the app\'s copy, a figure of an Unsplash photo has its credit as the page does, and not in its caption', () => {
@@ -35,6 +36,14 @@ test('in the app\'s copy, a figure of an Unsplash photo has its credit as the pa
     const [b] = htmlBlocks(figureHtml('vi', { photo: p, label: 'Cá đĩa Pigeon Blood', href: '/vi/ca/ca-dia-pigeon-blood/' })).blocks
     expect(b).toMatchObject({ t: 'figure', img: { credit: photoCredit('vi', p) }, caption: [{ text: 'Cá đĩa Pigeon Blood', href: '/vi/ca/ca-dia-pigeon-blood/' }] })
   }
+})
+
+test('in the app\'s copy, a photographer\'s name is spaced as the credit line shows it, so the line holds the name', () => {
+  const spaced = { ...MAI, author: ' Mai \n  Lin ', url: 'https://images.unsplash.com/photo-1?ixid=x&w=1280', width: 1280, height: 960 }
+  const [b] = htmlBlocks(figureHtml('vi', { photo: spaced, label: 'Cá đĩa', href: '/vi/ca/ca-dia/' })).blocks
+  const credit = (b as { img: { credit: { text: string; author?: string } } }).img.credit
+  expect(credit.author).toBe('Mai Lin')
+  expect(credit.text).toContain(credit.author)
 })
 
 test('a CC photo\'s mark and credit are as before', () => {
@@ -85,7 +94,8 @@ test('the gallery page: each Unsplash photo carries its photographer\'s page for
   ])
   const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.textContent)).flat().find((x: { '@type': string }) => x['@type'] === 'ImageGallery')
   expect(ld.image.map((i: { creator: unknown }) => i.creator)).toEqual([
-    ...[2, 3, 4, 5, 6].map(n => ({ '@type': 'Person', name: `Người chụp ${n}` })),
+    ...[2, 3, 4, 5].map(n => ({ '@type': 'Person', name: `Người chụp ${n}` })),
+    { '@type': 'Person', name: 'vnreddevil / Diễn Đàn Cá Cảnh' },
     { '@type': 'Person', name: 'Jo Park', url: `https://unsplash.com/@jopark?${UTM}` },
     { '@type': 'Person', name: 'Sam Reyes' },
   ])

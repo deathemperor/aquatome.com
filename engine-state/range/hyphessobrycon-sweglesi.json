@@ -1,0 +1,143 @@
+{
+  "id": "hyphessobrycon-sweglesi",
+  "native": {
+    "input": "b8f09195fdfba549",
+    "at": "2026-11-05T16:38:28.515Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red phantom tetra, Megalamphodus sweglesi, is a small characid endemic to the upper and middle Río Orinoco watershed in Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red phantom tetra, Megalamphodus sweglesi, is a small characid endemic to the upper and middle Río Orinoco watershed in Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The red phantom tetra, Megalamphodus sweglesi, is a small characid endemic to the upper and middle Río Orinoco watershed in Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Río Cinaruco",
+        "source": "seriouslyfish",
+        "quote": "One example of a natural habitat is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon sweglesi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354560,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        21
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        16
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        15
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        14
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        13
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        8
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        2
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T16:38:28.515Z"
+  }
+}

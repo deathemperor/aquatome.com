@@ -15,6 +15,78 @@
     "vietnam",
     "dong-nai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mae Klong",
+        "Chao Phraya",
+        "Mekong",
+        "Đồng Nai"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mae Klong",
+            "Chao Phraya",
+            "Mekong",
+            "Đồng Nai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5210836,
+      "total": 8,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TH",
+          7
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

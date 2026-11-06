@@ -1,0 +1,157 @@
+{
+  "id": "chitala-ornata",
+  "native": {
+    "input": "190e0a87ba60af1a",
+    "at": "2026-11-05T16:38:28.515Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to Myanmar and the Philippines, where it is cultured for food, and the U.S.A., where a population has become established in Palm Beach County, Florida state.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to Myanmar and the Philippines, where it is cultured for food, and the U.S.A., where a population has become established in Palm Beach County, Florida state.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to Myanmar and the Philippines, where it is cultured for food, and the U.S.A., where a population has become established in Palm Beach County, Florida state.",
+        "words": "U.S.A.",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chitala ornata",
+    "status": "ACCEPTED",
+    "taxonKey": 2402260,
+    "datasets": [
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        37
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        22
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH",
+      "VN"
+    ],
+    "requests": 15,
+    "at": "2026-11-05T16:38:28.515Z"
+  }
+}

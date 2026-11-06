@@ -60,7 +60,7 @@ test('pages print times in the viewer\'s zone, never "(UTC)", with the script th
   expect(photos).toContain('<time datetime="2026-11-04T08:34:00.000Z">04/11 15:34</time>')
   expect(photos).not.toContain('UTC')
   expect(photos).toContain('<html lang="vi" data-tz="Asia/Ho_Chi_Minh">')
-  expect(photos).toContain("document.cookie=c+'; Path=/_ab; Max-Age=31536000; SameSite=Lax; Secure'")
+  expect(photos).toContain("document.cookie=c+'; Path=/; Max-Age=31536000; SameSite=Lax; Secure'")
   const hidden = hiddenPage({ '/ca/x/': { at: '2026-11-04T08:34:00.000Z' } }, NOW, 'Europe/Berlin')
   expect(hidden).toContain('>04/11 09:34</time>')
   expect(hidden).toContain('data-tz="Europe/Berlin"')

@@ -1,9 +1,10 @@
+import { OTHER_LANGS } from '@aq/schema/langs'
 export type CommentInput = { entityRef: string; name: string; body: string }
 export type RuleContext = { duplicate: boolean; postsToday: number }
 export type Verdict = { ok: true } | { held: string } | { reject: string }
 
 /** A page's discussion: "species:x" (Vietnamese), "id:species:x" / "th:species:x" (Indonesian, Thai). */
-export const ENTITY_RE = /^(?:(?:id|th):)?(species|breed|plant|guide):[A-Za-z0-9_-]{1,140}$/
+export const ENTITY_RE = new RegExp(`^(?:(?:${OTHER_LANGS.join('|')}):)?(species|breed|plant|guide):[A-Za-z0-9_-]{1,140}$`)
 const MAX_POSTS_PER_DAY = 5
 /** Obvious spam/abuse vocabulary only — Claude's daily pass handles the nuance. */
 const BLOCKED = ['casino', 'cá cược', 'nhà cái', 'cho vay', 'vay tiền', 'xổ số', 'lô đề', 'viagra', 'zalo:', 'telegram:',

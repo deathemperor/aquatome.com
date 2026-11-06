@@ -89,6 +89,40 @@
     ],
     "ruled": "7d8ace662d61562a"
   },
+  "vi/guides/aquariumbreeder-50-underwater-red-plants-for-your-tank": {
+    "at": "2026-11-05",
+    "hash": "748a32135a213585",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| 38. Limnophila aromatica",
+        "problem": "The table lists Limnophila aromatica twice (#34 and #38) with different difficulty, size and colour, so readers get two different specs for the same plant.",
+        "rule": "The same species name appears twice in one table.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Các bài viết liên quan:",
+        "problem": "A 'related articles' block left over from the web page lists English titles that are not links. The other sections had the same block removed, but this one was kept.",
+        "rule": "A line starting with 'Các bài viết liên quan' followed by list items.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thứ thật sự giữ mắt người xem lại là sự tương phản",
+        "problem": "'giữ mắt' is an unnatural calque of 'catches the eye'. A Vietnamese reader would expect 'hút mắt'.",
+        "fix": "thứ thật sự hút mắt người xem lại là sự tương phản",
+        "field": "body"
+      }
+    ],
+    "ruled": "748a32135a213585"
+  },
   "vi/guides/aquariumbreeder-7-signs-your-crayfish-is-suffering-from-stress": {
     "at": "2026-11-01",
     "hash": "307604ca83d14f35",
@@ -161,6 +195,57 @@
       }
     ],
     "ruled": "48e7162bd9225701"
+  },
+  "vi/guides/aquariumbreeder-cyclops-profile-and-culture-guide": {
+    "at": "2026-11-05",
+    "hash": "9e8cf3d0c4a2bf2e",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cyclops có thể là nguồn thức ăn sống bổ dưỡng cho nhiều loài động vật thủy sinh, gồm:",
+        "problem": "The list item for fish (fry, small and juvenile fish such as guppies, tetras and bettas) is missing, so the warning about fry follows straight after the colon and the list starts with amphibians.",
+        "fix": "Thêm: \"- Cá. Nhiều loài cá, nhất là cá bột, cá nhỏ và cá con, hưởng lợi khi ăn Cyclops, ví dụ cá bảy màu, cá tetra và cá betta.\"",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cho Cyclops ăn các loại thức ăn nuôi như men, bột mì hoặc yến mạch.",
+        "problem": "The setup steps say to feed yeast, flour or oatmeal. The feeding section says Cyclops are predators that do not filter-feed and should get green algae or spirulina, so the page gives two conflicting diets.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Con cái đẻ trứng, trứng bám vào nền hoặc các vật khác trong nước.",
+        "problem": "This says eggs are laid onto the substrate. The reproduction section says the female carries fertilized eggs in sacs on her body until they hatch.",
+        "fix": "Con cái mang trứng trong hai túi trứng hai bên bụng cho tới khi trứng nở.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nhìn chung, nuôi Cyclops tại nhà là cách đơn giản, tiết kiệm để có thức ăn sống cho cá.",
+        "problem": "This closing paragraph sits under the comparison heading, right after the page says culturing Cyclops is not the best choice and lists its drawbacks, so the section contradicts itself.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nuôi Cyclops vẫn có thể là một thú vui thú vị và có ích",
+        "problem": "\"thú vui thú vị\" repeats the same idea and reads awkwardly.",
+        "fix": "nuôi Cyclops vẫn là một thú vui hay và có ích",
+        "rule": "Flag the phrase \"thú vui thú vị\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "9e8cf3d0c4a2bf2e"
   },
   "vi/guides/aquariumbreeder-how-to-cycle-a-tank-the-dark-start-method": {
     "at": "2026-11-05",
@@ -444,6 +529,48 @@
     "findings": [],
     "ruled": "6aca6da910f6aaa4"
   },
+  "vi/guides/aquariumbreeder-microworms-profile-and-how-to-culture-as-live-food": {
+    "at": "2026-11-05",
+    "hash": "b0a15aec8380c020",
+    "findings": [],
+    "ruled": "b0a15aec8380c020"
+  },
+  "vi/guides/aquariumbreeder-misconception-of-liquid-carbon-in-aquarium-products": {
+    "at": "2026-11-05",
+    "hash": "39f9e6ef0facd358",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Seachem Flourish Excel",
+        "problem": "The four numbered product headings are at the same level as the page's main section headings, so they read as numbered sections of the page rather than brands listed under 'Glutaraldehyde trong các sản phẩm thủy sinh'.",
+        "fix": "### 1. Seachem Flourish Excel (and likewise ### for items 2–4)",
+        "rule": "Numbered headings at the same level as the unnumbered headings around them.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Tác dụng nhanh\n| Không tích tụ",
+        "problem": "The pros/cons table has broken into one cell per line, so the columns are lost. As a result 'Không tích tụ' reads as a drawback when the page earlier presents it as a benefit.",
+        "fix": "| Ưu điểm | Nhược điểm |\n|---|---|\n| Khống chế tảo | Độc |\n| Thêm nguồn carbon | Hiệu quả hạn chế (lượng carbon rất thấp) |\n| Dễ dùng | Có thể hại cây |\n| Tác dụng nhanh, không tích tụ | |",
+        "rule": "Lines that start with '|' but have no closing pipe or separator row (a table that has lost its formatting).",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Carbon dioxide chỉ tồn tại ở dạng khí, còn carbon thì không.",
+        "problem": "Earlier the page says CO2 turns liquid under high pressure (50 bar) and is sold in pressurised cylinders, so saying it exists only as a gas contradicts that.",
+        "fix": "Ở điều kiện thường, carbon dioxide là chất khí, còn carbon là chất rắn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "39f9e6ef0facd358"
+  },
   "vi/guides/aquariumbreeder-problems-of-the-planted-tanks-and-liebigs-law-of-the-minimum": {
     "at": "2026-11-01",
     "hash": "085d7c3bd96d2bf7",
@@ -460,6 +587,148 @@
       }
     ],
     "ruled": "085d7c3bd96d2bf7"
+  },
+  "vi/guides/aquariumbreeder-profile-gorilla-crabs-in-reef-tanks": {
+    "at": "2026-11-05",
+    "hash": "6dbaf8528d0f4520",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "high",
+        "part": "P1",
+        "quote": "## 3. Bắt tay bằng đèn pin ánh sáng đỏ",
+        "problem": "\"Bắt tay\" means \"shake hands\" in Vietnamese. The heading means catching the crabs by hand.",
+        "fix": "## 3. Bắt bằng tay với đèn pin ánh sáng đỏ",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Cua ngọc lục bảo\n| Cua khỉ đột\n| Kích thước",
+        "problem": "The comparison table is flattened so each cell is on its own line, and the header row has no empty first cell. The reader can't tell which value goes in which row or column.",
+        "fix": "| | Cua ngọc lục bảo | Cua khỉ đột |\n|---|---|---|\n| Kích thước | Lớn hơn | Nhỏ hơn |\n| Lông | Chỉ có ở chân | Có ở mai, càng và chân |\n| Màu sắc | Chỉ có màu xanh lục | Rất đa dạng, từ nâu đến vàng nhạt |\n| Càng | Xanh lục | Đầu càng đen |",
+        "rule": "Several lines in a row that start with \"| \" and each hold only one cell.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Tránh dùng hóa chất",
+        "problem": "The five numbered methods use the same heading level as their parent section \"Cách bắt cua khỉ đột ra khỏi bể\", so they read as separate sections instead of items under it.",
+        "fix": "### 1. Tránh dùng hóa chất",
+        "rule": "Numbered headings at the same level as the heading just before them, which has no text under it.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Giữ ly nghiêng ít nhất 30%",
+        "problem": "A tilt angle is given as a percentage when it should be in degrees.",
+        "fix": "Giữ ly nghiêng ít nhất 30 độ",
+        "rule": "An angle or tilt word next to a % sign.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6dbaf8528d0f4520"
+  },
+  "vi/guides/aquariumbreeder-profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks": {
+    "at": "2026-11-05",
+    "hash": "1db5169b1042095f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ấu trùng chủ động săn và ăn các sinh vật nhỏ dưới nước.",
+        "problem": "The life-cycle section says the larvae hunt actively, but the larvae feeding section says they are passive ambush hunters.",
+        "fix": "Ấu trùng săn và ăn các sinh vật nhỏ dưới nước.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bọ cánh cứng lặn thích thịt. Bạn đặt một cái đĩa nông và một nguồn sáng sát mặt nước qua đêm.",
+        "problem": "The trap advice says the beetles like meat but never tells the reader to bait the dish with meat, so the reader can't follow the instructions as written.",
+        "fix": "bọ cánh cứng lặn thích thịt. Bạn đặt một cái đĩa nông có mồi thịt và một nguồn sáng sát mặt nước qua đêm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chúng ăn xác chết, chất hữu cơ đang phân hủy hoặc xác động vật",
+        "problem": "\"Xác chết\" and \"xác động vật\" mean the same thing here, so the list repeats itself.",
+        "fix": "chúng ăn chất hữu cơ đang phân hủy hoặc xác động vật",
+        "field": "body"
+      }
+    ],
+    "ruled": "1db5169b1042095f"
+  },
+  "vi/guides/aquariumbreeder-science-of-substrate-siphoning-in-aquaria-siphon-or-not": {
+    "at": "2026-11-05",
+    "hash": "5e73e5708cf0f483",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cây thủy sinh ăn dinh dưỡng và giữ nước tốt rất nhiều",
+        "problem": "\"Giữ nước tốt\" reads as 'retain water' instead of 'keep water quality good', and the sentence is clumsy.",
+        "fix": "Cây thủy sinh hút rất nhiều dinh dưỡng và làm chất lượng nước tốt lên rõ rệt",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bọt khí. Như đã nói ở trên, mùi giống mùi lưu huỳnh có thể là dấu hiệu nền đang ở trạng thái kỵ khí",
+        "problem": "The item is labelled 'gas bubbles', but its text is about a sulphur-like smell, and the page never mentioned that smell earlier.",
+        "fix": "Bọt khí. Bọt khí sủi lên từ nền, kèm mùi giống mùi lưu huỳnh, có thể là dấu hiệu nền đang ở trạng thái kỵ khí và cần hút.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Lượng chất thải (bioload)",
+        "problem": "The numbered factor headings 1–5 sit at the same level as their parent heading 'Những yếu tố cần cân nhắc', so they look like separate sections instead of its sub-items.",
+        "fix": "### 1. Lượng chất thải (bioload)",
+        "rule": "Numbered headings that come right after an intro heading at the same level, when that intro promises a list of factors.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-05",
+        "field": "body",
+        "score": 0.62,
+        "kept": false,
+        "problems": [
+          "\"Giữ nước tốt\" reads as 'retain water' instead of 'keep water quality good', and the sentence is clumsy."
+        ]
+      }
+    ],
+    "ruled": "5e73e5708cf0f483"
+  },
+  "vi/guides/aquariumbreeder-seed-shrimp-profile-ostracods-in-shrimp-and-fish-tank": {
+    "at": "2026-11-05",
+    "hash": "e2e4d630250a5cef",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Con trưởng thành có tới 8 đôi chi, chưa kể các chi dùng để giao phối.",
+        "problem": "The page gives up to 8 pairs of limbs here but says 'Ostracod có 7 đôi phần phụ đã biến đổi' later in the same part, without explaining the difference.",
+        "fix": "Con trưởng thành có tới 7–8 đôi phần phụ tùy loài, chưa kể các chi dùng để giao phối.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e2e4d630250a5cef"
   },
   "vi/guides/aquariumbreeder-snail-sleep-a-closer-look-at-their-resting-behavior": {
     "at": "2026-11-05",
@@ -616,6 +885,47 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/aquariumbreeder-vinegar-eels-profile-and-culture-guide-3-methods": {
+    "at": "2026-11-05",
+    "hash": "9556f5d7a6559d5e",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Khi nước đã trong hẳn thì gạn bỏ phần nước đục.",
+        "problem": "The step says to pour off the cloudy water once the water is already completely clear, so the step contradicts itself. It should mean: once the worms have settled, pour off the cloudy water on top.",
+        "fix": "Khi giun đã lắng hết xuống đáy thì gạn bỏ phần nước đục phía trên.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Kích thích cá ăn theo bản năng tự nhiên\n| Sống được vài ngày trong nước ngọt",
+        "problem": "The flattened pros/cons table has an odd number of cells. As a result, the advantages 'Sống được vài ngày trong nước ngọt' and 'Bơi ở tầng giữa và tầng trên' land in the disadvantages column or are left without a pair.",
+        "rule": "A two-column table whose number of body cells is odd.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Thu hoạch giun giấm",
+        "problem": "The harvesting steps belong to Method 1, but they appear as a separate top-level heading between 'Phương pháp 1' and 'Phương pháp 2'. This makes it look like a separate method or a general section.",
+        "fix": "Thu hoạch (phương pháp 1)",
+        "rule": "A heading that is not numbered, placed between two numbered 'Phương pháp N' headings.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9556f5d7a6559d5e"
+  },
+  "vi/guides/aquariumbreeder-water-mites-profile-water-mites-in-shrimp-and-fish-tank": {
+    "at": "2026-11-05",
+    "hash": "fd1966a6dfa10dd4",
+    "findings": [],
+    "ruled": "fd1966a6dfa10dd4"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners": {
     "at": "2026-11-01",
@@ -995,6 +1305,30 @@
     "findings": [],
     "ruled": "d9d9298c82a7e47d"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-angelfish-care-guide": {
+    "at": "2026-11-05",
+    "hash": "cd35a6958568c9d9",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Giá cá chênh nhau khá nhiều, từ rẻ cho đến rất đắt.",
+        "problem": "The section titled 'how much do angelfish cost' gives no price at all because the source's figures were lost, so the heading promises an answer the section doesn't give.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for Freshwater Angelfish – The Feisty Angel of the Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title rather than a description of the photo, so it doesn't confirm the image shows the fish.",
+        "rule": "a caption that repeats the source article's title ending with the publisher's name",
+        "field": "caption"
+      }
+    ],
+    "ruled": "cd35a6958568c9d9"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-anubias-rot": {
     "at": "2026-11-01",
     "hash": "d78bf7c0c613c977",
@@ -1158,6 +1492,73 @@
     "findings": [],
     "ruled": "fecc016282b72978"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-beginner-planted-aquarium": {
+    "at": "2026-11-05",
+    "hash": "29fa635ab96ff119",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mỗi loài cây cần lượng phân nền khác nhau.",
+        "problem": "The source does not say each species needs a different amount of root tabs, only that some plants need them.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bạn nên dành thời gian xoay xở hardscape",
+        "problem": "'xoay xở' means to cope or manage, not to rearrange objects.",
+        "fix": "bạn nên dành thời gian sắp xếp lại hardscape",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phông đen được chuộng hơn cả",
+        "problem": "The source gives this only as the authors' own preference, and the page turns it into a general fact.",
+        "fix": "Phông đen là lựa chọn đáng cân nhắc",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nền là chuyện dân chơi thủy sinh cãi nhau nhiều nhất.",
+        "problem": "The source calls substrate 'another hotly contested topic', not the most contested one.",
+        "fix": "Nền cũng là chuyện dân chơi thủy sinh hay cãi nhau.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có nắp là cách đơn giản nhất để cá, tép và ốc không lỡ nhảy",
+        "problem": "The source says a lid is 'a simple way', not the simplest way.",
+        "fix": "có nắp là cách đơn giản để cá, tép và ốc không lỡ nhảy",
+        "field": "body"
+      }
+    ],
+    "ruled": "29fa635ab96ff119"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-betta-fish-care-guide": {
+    "at": "2026-11-05",
+    "hash": "7cda83fdaa6cf828",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lời khuyên quan trọng nhất là đừng nuôi betta theo kiểu tiết kiệm.",
+        "problem": "The closing advice for the whole page sits under the heading about betta loneliness and tank mates, so it reads as part of that answer.",
+        "fix": "## Lời khuyên cuối\nLời khuyên quan trọng nhất là đừng nuôi betta theo kiểu tiết kiệm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7cda83fdaa6cf828"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-betta-fish-enrichment": {
     "at": "2026-11-02",
     "hash": "c27d77d496b7fbfb",
@@ -1209,6 +1610,22 @@
     "hash": "bd6fe356bac76d2a",
     "findings": [],
     "ruled": "bd6fe356bac76d2a"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-blood-parrot-cichlid": {
+    "at": "2026-11-05",
+    "hash": "49236c289b8f1787",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for Blood Parrot Cichlids – The Hybrid with a Tiny Mouth - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of the photo.",
+        "rule": "A caption that matches the source page title or ends with a site name such as ' - Aquarium Co-Op'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "49236c289b8f1787"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-blue-green-algae": {
     "at": "2026-11-02",
@@ -1285,6 +1702,55 @@
       }
     ],
     "ruled": "37a47dce87f311d4"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-care-guide-for-fancy-goldfish": {
+    "at": "2026-11-05",
+    "hash": "29b481944dfe0bc6",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-05",
+        "field": "body",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "'Cá vàng thường' reads as 'goldfish usually have single tails', not 'common goldfish', so it seems to contradict the next sentence about fancy goldfish."
+        ]
+      }
+    ],
+    "ruled": "29b481944dfe0bc6"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-care-guide-for-kuhli-loaches": {
+    "at": "2026-11-05",
+    "hash": "195fab485aabc95b",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for Kuhli Loaches – The Coolest Oddball Fish for Beginners - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of the photo, so the image may be a banner rather than a photo of the fish.",
+        "rule": "A caption that matches the source article's title or ends with the site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "195fab485aabc95b"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-caring-african-dwarf-frogs": {
+    "at": "2026-11-05",
+    "hash": "873714cae865d5a3",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "ếch lùn châu Phi sẽ chết nếu bị ra khỏi nước",
+        "problem": "'Bị ra khỏi nước' is unnatural Vietnamese.",
+        "fix": "ếch lùn châu Phi sẽ chết nếu bị đưa ra khỏi nước",
+        "field": "body"
+      }
+    ],
+    "ruled": "873714cae865d5a3"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-cherry-shrimp-tankmates": {
     "at": "2026-11-04",
@@ -1388,6 +1854,12 @@
     ],
     "ruled": "8f9d1fb14657ab3e"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-clown-loach": {
+    "at": "2026-11-05",
+    "hash": "8ca8525387182f62",
+    "findings": [],
+    "ruled": "8ca8525387182f62"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-co2-in-planted-aquariums": {
     "at": "2026-11-04",
     "hash": "96f965a2721dc415",
@@ -1416,11 +1888,33 @@
     ],
     "ruled": "72b704db74fcbfe6"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-cory-catfish-care-guide": {
+    "at": "2026-11-05",
+    "hash": "d83b79f48abc932d",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một ý tưởng thả cá: bể 76 lít có thể nuôi một đàn cá chuột ở đáy",
+        "problem": "The source's 20 gallons is written as 75 litres in one paragraph and as 76 litres in the next.",
+        "fix": "Một ý tưởng thả cá: bể 75 lít có thể nuôi một đàn cá chuột ở đáy",
+        "field": "body"
+      }
+    ],
+    "ruled": "d83b79f48abc932d"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-daphnia-culturing-how-to-raise-daphnia": {
     "at": "2026-11-02",
     "hash": "4b7023dca9da164c",
     "findings": [],
     "ruled": "4b7023dca9da164c"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-discus-care-guide": {
+    "at": "2026-11-05",
+    "hash": "58bcddb41c721f3c",
+    "findings": [],
+    "ruled": "58bcddb41c721f3c"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-dither-fish": {
     "at": "2026-11-02",
@@ -1615,6 +2109,75 @@
     ],
     "ruled": "0ba76a440acfda5a"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-tank-cycling": {
+    "at": "2026-11-05",
+    "hash": "fcdc73bbb787603e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "que thử đa chỉtiêu",
+        "problem": "Missing space between two words.",
+        "fix": "que thử đa chỉ tiêu",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "ban đầu nên làm mỗi một hoặc hai ngày",
+        "problem": "This is a word-for-word translation of 'every day or two' and reads awkwardly in Vietnamese.",
+        "fix": "lúc đầu nên đo mỗi ngày hoặc hai ngày một lần",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Càng là lý do để chọn bể thủy sinh!",
+        "problem": "The sentence has no subject and reads as a garbled rendering of 'All the more reason'.",
+        "fix": "Đó càng là lý do để chọn bể thủy sinh!",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đây là những phương pháp hiệu quả tốt",
+        "problem": "'hiệu quả tốt' is an unnatural word pairing in Vietnamese.",
+        "fix": "đây là những phương pháp cho kết quả tốt",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Cycling có cá (fish-in)",
+        "problem": "The three methods use the same heading level as 'Cách cycling bể cá' instead of sitting under it as subheadings, so the parent section looks empty.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "hãy xem phần giải thích đầy đủ của Aquarium Co-Op",
+        "problem": "This is a leftover pointer to a linked article, and the page has no link for the reader to follow.",
+        "rule": "A sentence telling the reader to 'xem phần giải thích' with no link on the page.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Freshwater Fish Tank Cycling - How to Prepare for New Fish - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and does not describe what the photo shows.",
+        "rule": "A caption that matches the source page title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "fcdc73bbb787603e"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-foreground-plants": {
     "at": "2026-11-03",
     "hash": "c6aecd923d432b08",
@@ -1647,6 +2210,22 @@
       }
     ],
     "ruled": "fee04e804b0eeefd"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-glofish": {
+    "at": "2026-11-05",
+    "hash": "501bbff7f2119991",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for GloFish – Fluorescent Fish for Beginners - Aquarium Co-Op",
+        "problem": "This caption is the source article's title and site name. It doesn't say what the photo shows.",
+        "rule": "A caption that contains the source site's name or matches the source article's title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "501bbff7f2119991"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-goldfish-food": {
     "at": "2026-11-01",
@@ -1684,6 +2263,38 @@
       }
     ],
     "ruled": "5000a33e48875b93"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-guppy-care-guide": {
+    "at": "2026-11-05",
+    "hash": "e61f553161fdebcc",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhiệt độ nước quyết định thẳng tuổi thọ và tốc độ sinh sản của chúng.",
+        "problem": "\"Quyết định thẳng\" reads as an awkward, word-for-word rendering of \"directly impact\" and is not natural Vietnamese.",
+        "fix": "Nhiệt độ nước ảnh hưởng trực tiếp đến tuổi thọ và tốc độ sinh sản của chúng.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e61f553161fdebcc"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-hatchetfish": {
+    "at": "2026-11-05",
+    "hash": "2914ac4f4d64ca38",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for Hatchetfish – Oddball Schooling Fish with Wings - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of what the photo shows.",
+        "rule": "A caption that ends with ' - Aquarium Co-Op' or another site name, so it reads as a page title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "2914ac4f4d64ca38"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-high-tech-plants": {
     "at": "2026-11-02",
@@ -1755,6 +2366,12 @@
     "findings": [],
     "ruled": "768f60acbd4bf4d2"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-get-started-with-aquarium-plants": {
+    "at": "2026-11-05",
+    "hash": "ede4d436d27102e0",
+    "findings": [],
+    "ruled": "ede4d436d27102e0"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-pick-the-best-planted-aquarium-light": {
     "at": "2026-11-01",
     "hash": "b57e2096763257ea",
@@ -1770,6 +2387,22 @@
       }
     ],
     "ruled": "b57e2096763257ea"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-plant": {
+    "at": "2026-11-05",
+    "hash": "2ed9539e44dfff42",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Quick Guide: How to Plant Live Aquarium Plants - Aquarium Co-Op",
+        "problem": "The caption is just the source article's title, so it doesn't say what the photo shows.",
+        "rule": "A caption that matches the source article's title or ends with a site name after a dash.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "2ed9539e44dfff42"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-plant-anubias-or-java-fern-on-rocks": {
     "at": "2026-11-02",
@@ -1938,6 +2571,12 @@
     ],
     "ruled": "84573ff55404c169"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-iron-fertilizer": {
+    "at": "2026-11-05",
+    "hash": "6fb4f9f4212e1c44",
+    "findings": [],
+    "ruled": "6fb4f9f4212e1c44"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-is-a-nano-aquarium-right-for-me": {
     "at": "2026-11-01",
     "hash": "a4b06ab0f991a4a8",
@@ -2034,6 +2673,12 @@
     ],
     "ruled": "111a9a2ce43dce0c"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-molly-fish-care": {
+    "at": "2026-11-05",
+    "hash": "b25a84a7250aebe5",
+    "findings": [],
+    "ruled": "b25a84a7250aebe5"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-nano-fish": {
     "at": "2026-11-03",
     "hash": "81dcd325e4834ce4",
@@ -2046,17 +2691,74 @@
     "findings": [],
     "ruled": "b6fd6fd277d000fc"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras": {
+    "at": "2026-11-05",
+    "hash": "9957ff8d63b970b4",
+    "findings": [],
+    "ruled": "9957ff8d63b970b4"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-nerite-snail-care": {
+    "at": "2026-11-05",
+    "hash": "74a1ac50df80bef0",
+    "findings": [],
+    "ruled": "74a1ac50df80bef0"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-nitrogen-cycle": {
+    "at": "2026-11-05",
+    "hash": "a1ea842667ad35f3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "- Bước 1. Mỗi lần cá đi vệ sinh, nước trong bể lại có thêm một ít amoniac.",
+        "problem": "The five steps of the cycle continue the candy-colour bullet list with no lead-in, so the steps read as more items in the colour key.",
+        "fix": "Thêm một câu dẫn trước các bước, ví dụ: \"Chu trình diễn ra theo các bước sau:\"",
+        "rule": "A bullet list where items start with \"Bước 1.\" directly follow unnumbered bullet items in the same list with no line between them.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a1ea842667ad35f3"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria": {
+    "at": "2026-11-05",
+    "hash": "894ebfe5c460fe4e",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "thường dùng làm cây tiền cảnh đến trung cảnh, hoặc làm cây hậu cảnh trong hồ nano",
+        "problem": "The source calls C. lutea a midground or background plant in nano tanks and never says foreground.",
+        "fix": "thường dùng làm cây trung cảnh hoặc hậu cảnh trong hồ nano",
+        "field": "body"
+      }
+    ],
+    "ruled": "894ebfe5c460fe4e"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-paludarium-plants": {
     "at": "2026-11-04",
     "hash": "3470c7153d39a107",
     "findings": [],
     "ruled": "3470c7153d39a107"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-pencilfish": {
+    "at": "2026-11-05",
+    "hash": "5336f61fa5ea9e57",
+    "findings": [],
+    "ruled": "5336f61fa5ea9e57"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-pest-snails": {
     "at": "2026-11-01",
     "hash": "3c4939520aa56304",
     "findings": [],
     "ruled": "3c4939520aa56304"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-ph-gh-kh": {
+    "at": "2026-11-05",
+    "hash": "b0f3e4aef94a6508",
+    "findings": [],
+    "ruled": "b0f3e4aef94a6508"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-planted-aquarium-substrate": {
     "at": "2026-11-01",
@@ -2115,6 +2817,28 @@
     ],
     "ruled": "663a8dd01f79c741"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-platy-care-guide": {
+    "at": "2026-11-05",
+    "hash": "1b9efef71d785035",
+    "findings": [],
+    "ruled": "1b9efef71d785035"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-pleco-care-guide": {
+    "at": "2026-11-05",
+    "hash": "93f8a5240c0c20e2",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for Plecos – The Mighty Armored Catfish - Aquarium Co-Op",
+        "problem": "The caption is just the source article's title and site name, so it says nothing about what the photo shows.",
+        "rule": "A caption that matches the source page title or ends with a site or brand name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "93f8a5240c0c20e2"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-pothos": {
     "at": "2026-11-02",
     "hash": "15cc566a47fef903",
@@ -2151,6 +2875,38 @@
       }
     ],
     "ruled": "b9c082fd5faf3828"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-ram-cichlid-care-guide": {
+    "at": "2026-11-05",
+    "hash": "6cf3539bef562151",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for German Blue Rams – Housing, Breeding, and More - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, not a description of the photo.",
+        "rule": "A caption that is the same as the source page title or contains the publisher's site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "6cf3539bef562151"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-rasbora-hets-and-espei-rasboras-great-for-planted-aquariums": {
+    "at": "2026-11-05",
+    "hash": "4e6f3d6a3a6cc6c0",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "cho ăn thức ăn sống như trùn chỉ nhỏ, daphnia (rận nước), bọ gậy hoặc artemia",
+        "problem": "The source lists only daphnia, mosquito larvae and brine shrimp as live foods. Tubifex worms (trùn chỉ) were added and are not supported by the source.",
+        "fix": "cho ăn thức ăn sống như daphnia (rận nước), bọ gậy hoặc artemia",
+        "field": "body"
+      }
+    ],
+    "ruled": "4e6f3d6a3a6cc6c0"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-repashy-gel-fish-food": {
     "at": "2026-11-02",
@@ -2217,6 +2973,12 @@
       }
     ],
     "ruled": "f9699d09d0f0f766"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-shell-dwellers": {
+    "at": "2026-11-05",
+    "hash": "d1d98537bd812317",
+    "findings": [],
+    "ruled": "d1d98537bd812317"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-shrimp-food": {
     "at": "2026-11-01",
@@ -3206,6 +3968,41 @@
     ],
     "ruled": "2d3b92a6f89622a9"
   },
+  "vi/guides/aquatome-khu-clo-nuoc-may-cho-be-ca-cac-cach-va-cach-nao-an-toan": {
+    "at": "2026-11-05",
+    "hash": "b92fd7b708fe13a5",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hai nguồn ghi thời gian khác nhau. Các nguồn nhắc tới cách này để đuổi clo.",
+        "problem": "These are leftover drafting notes about the sources, not advice for the reader. They break the paragraph and repeat the point.",
+        "fix": "Thời gian sục khí mỗi nơi khuyên một khác, từ 12 đến 24 tiếng. Cách này chỉ đuổi được clo.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "cách mà dữ kiện có nói tới là sục khí mạnh trong xô ít nhất 12 tiếng",
+        "problem": "\"Dữ kiện có nói tới\" reads like the writer's notes on the source data and is unnatural for a reader.",
+        "fix": "Còn với clo, bạn có thể sục khí thật mạnh cho xô nước ít nhất 12 tiếng (có nơi khuyên 24 tiếng).",
+        "rule": "a page sentence containing \"dữ kiện\" or \"nguồn\" used as a subject referring to the page's own sources",
+        "field": "faq.0.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L4",
+        "quote": "Thời gian phơi nước bao lâu thì đủ thì không có số liệu.",
+        "problem": "Awkward sentence with two \"thì\" clauses that reads like machine translation.",
+        "fix": "Hiện chưa có số liệu cho biết phơi nước bao lâu thì hết clo.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "b92fd7b708fe13a5"
+  },
   "vi/guides/aquatome-ngo-doc-amoni-va-nitrit-trong-be-ca-dau-hieu-va-cach-cuu-ca": {
     "at": "2026-11-01",
     "hash": "5986a697e077db7a",
@@ -3355,6 +4152,12 @@
     "findings": [],
     "ruled": "8cc54f64e553cf61"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-two-beautiful-pyrrhulinas-from-peru-en": {
+    "at": "2026-11-05",
+    "hash": "625c03f34785749b",
+    "findings": [],
+    "ruled": "625c03f34785749b"
+  },
   "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en": {
     "at": "2026-11-05",
     "hash": "f9fa7efee5cc3a86",
@@ -3378,6 +4181,12 @@
     "hash": "26f87ae2dc93d92c",
     "findings": [],
     "ruled": "26f87ae2dc93d92c"
+  },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en": {
+    "at": "2026-11-05",
+    "hash": "2425991f678e2db2",
+    "findings": [],
+    "ruled": "2425991f678e2db2"
   },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hemiloricaria-bycatches": {
     "at": "2026-11-04",
@@ -3768,6 +4577,22 @@
       }
     ]
   },
+  "vi/guides/loachesonline-articles-lepidocephalichthys-thermalis-spawning-behavior": {
+    "at": "2026-11-05",
+    "hash": "658feffa5379212e",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có một lần, trứng được gom khỏi lá cây đem ấp riêng",
+        "problem": "The source only says the eggs were collected off the plant leaves. It says nothing about hatching them in a separate tank, and it does not say this happened only once.",
+        "fix": "Trứng được gom khỏi lá cây",
+        "field": "body"
+      }
+    ],
+    "ruled": "658feffa5379212e"
+  },
   "vi/guides/loachesonline-articles-my-clown-loach-aquarium": {
     "at": "2026-11-01",
     "hash": "478071d93c244c58",
@@ -3895,6 +4720,31 @@
       }
     ],
     "ruled": "4f49a6a51715d31e"
+  },
+  "vi/guides/seriouslyfish-articles-a-basic-guide-to-the-hamburger-mattenfilter": {
+    "at": "2026-11-05",
+    "hash": "31e79fe941b46610",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Các mẫu trong bài dùng bơm mô-tơ đơn giản.",
+        "problem": "The source's 'simply because' became 'simple motor pumps', which suggests a basic type of pump rather than a simple reason.",
+        "fix": "Các mẫu trong bài dùng bơm mô-tơ, đơn giản vì tiếng ồn của bơm màng thật sự không chịu nổi.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có hai nhược điểm nhỏ, không được ưa lắm.",
+        "problem": "This clause is awkward and reads like a machine translation of 'I don't like', with no clear subject.",
+        "fix": "Tuy vậy, thiết kế cơ bản này có hai nhược điểm nhỏ khá khó chịu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "31e79fe941b46610"
   },
   "vi/guides/seriouslyfish-articles-africhthy-the-interview": {
     "at": "2026-11-01",
@@ -4395,6 +5245,39 @@
     ],
     "ruled": "5ad6a1a1995a1644"
   },
+  "vi/guides/seriouslyfish-articles-phallusy-or-foe-the-myth-of-the-candiru": {
+    "at": "2026-11-05",
+    "hash": "3cd4fe3b3e9b33cf",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một con Vandellia sp. ở sông Tocantins, Brazil, bụng căng đầy máu sau khi vừa hút máu vật chủ. © Adam Carvalho",
+        "problem": "A photo caption with its credit line was left in the body text as the opening paragraph. It repeats C1 and reads as a stray line.",
+        "rule": "A body paragraph that ends in a © credit line.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hình vẽ Vandellia spp. của Cuvier & Valenciennes năm 1846.",
+        "problem": "This caption for a drawing sits in the middle of the text, but the page has no such drawing.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Không phải họ hàng nào của candiru cũng sống ký sinh. Đây là Trichomycterus zonatus (Eigenmann, 1918). © Adam Carvalho",
+        "problem": "A photo caption with its credit line was left in the body text. It repeats C2, and 'Đây là' points to a photo that isn't in the text.",
+        "rule": "A body paragraph that ends in a © credit line.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3cd4fe3b3e9b33cf"
+  },
   "vi/guides/seriouslyfish-articles-pupfish-form-evolutionary-mountain-ranges": {
     "at": "2026-11-01",
     "hash": "a8d6dbeb815eba08",
@@ -4877,6 +5760,46 @@
     ],
     "ruled": "a3496c416e2972b2"
   },
+  "vi/guides/sprucepets-cichlids-diverse-aquatic-life-4058856": {
+    "at": "2026-11-05",
+    "hash": "70ec567a0fe95461",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C7",
+        "quote": "Pepper corydora sifting through substrate",
+        "problem": "The photo shows a Corydoras catfish, which is not a cichlid, on a page about the cichlid family.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C8",
+        "quote": "Two silver arowana in a planted aquarium",
+        "problem": "Arowanas are not cichlids, so this photo doesn't fit a page about cichlids.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C9",
+        "quote": "Red-Bellied Piranha",
+        "problem": "A piranha is not a cichlid, so this photo doesn't fit a page about cichlids.",
+        "field": "caption"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "trong đó có artemia mọc trên đá và cây",
+        "problem": "Artemia are brine shrimp and do not grow on rocks or plants. The fry graze on algae and biofilm. The page repeats this mistake from the source.",
+        "fix": "trong đó có rêu và màng vi sinh bám trên đá và cây",
+        "field": "body"
+      }
+    ],
+    "ruled": "70ec567a0fe95461"
+  },
   "vi/guides/sprucepets-common-fish-names-beginning-with-m-1378548": {
     "at": "2026-11-01",
     "hash": "9678bb6fb51dc53a",
@@ -5186,6 +6109,22 @@
       }
     ]
   },
+  "vi/guides/sprucepets-methylene-blue-1379926": {
+    "at": "2026-11-05",
+    "hash": "8ebc4f04b8844ae0",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nắp mang đập nhanh (dân chơi gọi là gilling)",
+        "problem": "The page claims Vietnamese hobbyists call this 'gilling'. The source only says the movement is 'known as gilling', and Vietnamese hobbyists don't use that English term.",
+        "fix": "nắp mang đập nhanh",
+        "field": "body"
+      }
+    ],
+    "ruled": "8ebc4f04b8844ae0"
+  },
   "vi/guides/sprucepets-platy-types-1381066": {
     "at": "2026-11-01",
     "hash": "9fa1708c42ca9264",
@@ -5282,6 +6221,61 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/sprucepets-triggerfish-family-balistidae-profile-2925851": {
+    "at": "2026-11-05",
+    "hash": "e14dd1b24a401c92",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C2",
+        "quote": "Freckled Hawkfish",
+        "problem": "The photo shows a hawkfish, not a triggerfish.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C3",
+        "quote": "Pepper corydora sifting through substrate",
+        "problem": "The photo shows a freshwater Corydoras, which has nothing to do with this triggerfish page.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "Two silver arowana in a planted aquarium",
+        "problem": "The photo shows freshwater arowanas, not triggerfish.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C5",
+        "quote": "Electric blue heap fish with light blue scales and dark blue stripes",
+        "problem": "The photo shows a freshwater cichlid, not a triggerfish.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C6",
+        "quote": "Angel Fish Swimming in fishtank with floating plants ( Pterophyllum scalare)",
+        "problem": "The photo shows a freshwater angelfish, not a triggerfish.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C7",
+        "quote": "Red-Bellied Piranha",
+        "problem": "The photo shows a piranha, not a triggerfish.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "e14dd1b24a401c92"
   },
   "vi/guides/sprucepets-types-of-rainbow-fish-5272300": {
     "at": "2026-11-01",
@@ -5428,6 +6422,48 @@
       }
     ],
     "ruled": "f571f9395553b10d"
+  },
+  "vi/guides/sprucepets-why-do-betta-fish-fight-5183979": {
+    "at": "2026-11-05",
+    "hash": "74ce5bfdf0c283b3",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C3",
+        "quote": "Pepper corydora sifting through substrate",
+        "problem": "The photo shows a Corydoras catfish, not a betta, on a page about betta aggression.",
+        "rule": "A caption that names a species other than the page's subject species.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "Two silver arowana in a planted aquarium",
+        "problem": "The photo shows silver arowana, which is a different species and has nothing to do with betta behaviour.",
+        "rule": "A caption that names a species other than the page's subject species.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C5",
+        "quote": "Female guppy with dropsy pinecone scales",
+        "problem": "The photo shows a guppy with dropsy, which is another species and a disease the page doesn't cover.",
+        "rule": "A caption that names a species other than the page's subject species.",
+        "field": "caption"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Betta đang xòe mang.",
+        "problem": "A photo caption from the source page was left in the body text as a standalone line.",
+        "field": "body"
+      }
+    ],
+    "ruled": "74ce5bfdf0c283b3"
   },
   "vi/guides/youtube-_AfM2Mwdig4": {
     "at": "2026-11-01",
@@ -5641,6 +6677,12 @@
     ],
     "ruled": "ecd88a93367ce2b2"
   },
+  "vi/guides/youtube-43bSNzlX9Fo": {
+    "at": "2026-11-05",
+    "hash": "54ad3f4a3b4d0964",
+    "findings": [],
+    "ruled": "54ad3f4a3b4d0964"
+  },
   "vi/guides/youtube-49xcIOK1F1s": {
     "at": "2026-11-04",
     "hash": "f077c78310b93b3f",
@@ -5825,6 +6867,31 @@
     "findings": [],
     "ruled": "4f0d5d689689b53f"
   },
+  "vi/guides/youtube-9TtB817u8eE": {
+    "at": "2026-11-05",
+    "hash": "f812811e50106a20",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L8",
+        "quote": "Không nên tự làm. Tường chịu lực mà cắt sai có thể ảnh hưởng kết cấu nhà",
+        "problem": "The FAQ question asks about brick walls and load-bearing walls, but the answer covers only load-bearing walls and says nothing about brick walls. Brick is the most common kind of wall in Vietnam.",
+        "fix": "Không nên tự làm. Tường gạch khó cắt và cần thợ, còn tường chịu lực mà cắt sai có thể ảnh hưởng kết cấu nhà, nên chỉ thợ chuyên nghiệp mới nên làm.",
+        "field": "faq.0.a"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L4",
+        "quote": "giữ lại một ổ cắm ở phía bể cho lọc và đèn",
+        "problem": "The summary says the socket on the tank side powers the filter and the light, but the body text says the light can take power from another socket higher up.",
+        "fix": "giữ lại một ổ cắm ở phía bể cho lọc và thiết bị",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "f812811e50106a20"
+  },
   "vi/guides/youtube-9WaC5d14Ij0": {
     "at": "2026-11-05",
     "hash": "f958f41ccbf3ba51",
@@ -5973,11 +7040,70 @@
     "findings": [],
     "ruled": "a06d673ce4833953"
   },
+  "vi/guides/youtube-C4W86NMP3CU": {
+    "at": "2026-11-05",
+    "hash": "0edc778d0353837c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L12",
+        "quote": "Ví dụ co 2 cm dùng mũi khoảng 38 mm.",
+        "problem": "The FAQ pairs the 38 mm hole saw with a 2 cm bulkhead, but the body (P1) pairs it with a phi 27 bulkhead, so the two parts give different sizes for the same example.",
+        "fix": "Ví dụ co ren phi 27 thì dùng mũi khoảng 38 mm.",
+        "field": "faq.2.a"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hạ nó xuống khoảng mức 4,5, tùy độ dày kính.",
+        "problem": "In Vietnamese, \"4,5\" reads as the decimal 4.5, but a drill clutch has whole-number settings, so this most likely means \"setting 4 or 5\".",
+        "fix": "Hạ nó xuống khoảng mức 4 hoặc 5, tùy độ dày kính.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Kính mỏng có rất nhiều thứ có thể sai và dễ nứt hơn hẳn.",
+        "problem": "This is a word-for-word rendering of the English \"a lot can go wrong\" and reads as machine translation.",
+        "fix": "Khoan kính mỏng dễ gặp trục trặc hơn và kính cũng dễ nứt hơn hẳn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy về mặt kỹ thuật không ai khoan kính cường lực cả.",
+        "problem": "\"Về mặt kỹ thuật\" is a literal calque of \"technically\", and the sentence reads unnaturally.",
+        "fix": "Vì vậy kính cường lực coi như không khoan được.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên đừng chỉ dựa vào nó",
+        "problem": "\"Nên đừng\" is the \"so don't\" calque that the site's style guide forbids.",
+        "fix": "Vì vậy không thể chỉ dựa vào mỗi cách này.",
+        "rule": "Flag the phrase \"nên đừng\" anywhere in Vietnamese text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0edc778d0353837c"
+  },
   "vi/guides/youtube-c86hMeJfPms": {
     "at": "2026-11-01",
     "hash": "f48b2a840f080e21",
     "findings": [],
     "ruled": "f48b2a840f080e21"
+  },
+  "vi/guides/youtube-caJQsEJ5QBc": {
+    "at": "2026-11-05",
+    "hash": "9d20806d0f96925e",
+    "findings": [],
+    "ruled": "9d20806d0f96925e"
   },
   "vi/guides/youtube-CdDl8zqe1j8": {
     "at": "2026-11-01",
@@ -6402,6 +7528,28 @@
       }
     ],
     "ruled": "92554132520388aa"
+  },
+  "vi/guides/youtube-EXF0vtu0bqI": {
+    "at": "2026-11-05",
+    "hash": "fd180c76f5cf9582",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Có đột biến làm cây khỏe và lì hơn, buce (Bucephalandra) là ví dụ hay được nhắc đến.",
+        "problem": "Bucephalandra is a separate genus, not a mutant line of Anubias, so a reader is led to think buce is a kind of ráy. The table repeats the error.",
+        "fix": "Có đột biến làm cây khỏe và lì hơn, chịu thay đổi môi trường tốt hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "fd180c76f5cf9582"
+  },
+  "vi/guides/youtube-EY0zUe_wTeY": {
+    "at": "2026-11-05",
+    "hash": "aa95a8e00fd86f24",
+    "findings": [],
+    "ruled": "aa95a8e00fd86f24"
   },
   "vi/guides/youtube-FAccJ8TTIAs": {
     "at": "2026-11-01",
@@ -7615,11 +8763,42 @@
     ],
     "ruled": "71b67a837005feb2"
   },
+  "vi/guides/youtube-qslR6wr0Rhk": {
+    "at": "2026-11-05",
+    "hash": "528578297fcd7f22",
+    "findings": [],
+    "ruled": "528578297fcd7f22"
+  },
   "vi/guides/youtube-qWK5E1c6qak": {
     "at": "2026-11-03",
     "hash": "43bc63885066efbc",
     "findings": [],
     "ruled": "43bc63885066efbc"
+  },
+  "vi/guides/youtube-qzPVpr89Ugo": {
+    "at": "2026-11-05",
+    "hash": "63fd2467546d1ab4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bên dưới còn có phong cách bể Hà Lan, bể biotope, bể blackwater và bể bán cạn (paludarium).",
+        "problem": "'Bên dưới' reads as a literal carry-over and leaves it unclear whether these styles are extra categories or subcategories of the six.",
+        "fix": "Ngoài ra còn có các hạng mục riêng cho bể Hà Lan, bể biotope, bể blackwater và bể bán cạn (paludarium).",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "The Green Machine đã ngừng ra clip mới từ một năm trước",
+        "problem": "'One year ago' has no fixed date, so the claim goes out of date and readers can't tell when the channel actually stopped.",
+        "rule": "Flag relative time expressions such as 'X năm trước' that have no absolute date.",
+        "field": "body"
+      }
+    ],
+    "ruled": "63fd2467546d1ab4"
   },
   "vi/guides/youtube-r9rJ8JljJC0": {
     "at": "2026-11-02",
@@ -7636,6 +8815,41 @@
       }
     ],
     "ruled": "30e739e9d0312d8f"
+  },
+  "vi/guides/youtube-rho_cQXD7yA": {
+    "at": "2026-11-05",
+    "hash": "a7e6bff670c55f1f",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể cỡ 40 x 40 x 40 cm (khoảng 68 lít) hay 40 x 40 x 80 cm (khoảng 144 lít)",
+        "problem": "The volumes don't match the sizes: 40x40x40 cm is about 64 L and 40x40x80 cm is about 128 L.",
+        "fix": "Bể cỡ 40 x 40 x 40 cm (khoảng 64 lít) hay 40 x 40 x 80 cm (khoảng 128 lít)",
+        "rule": "Multiply the cm dimensions next to a litre figure and flag it when the litre figure is off by more than 5%.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Pha sẵn đủ keo trong chai trước khi bắt đầu",
+        "problem": "'Pha' means mixing, but this solvent cement is just poured into the applicator bottle, not mixed.",
+        "fix": "Đổ sẵn đủ keo vào chai trước khi bắt đầu",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Keo làm mép mica mềm ra như sệt.",
+        "problem": "'Mềm ra như sệt' is an awkward phrase. A Vietnamese writer would say the edge softens and turns gooey.",
+        "fix": "Keo làm mép mica mềm sệt ra.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a7e6bff670c55f1f"
   },
   "vi/guides/youtube-rifv8Rz3dqM": {
     "at": "2026-11-04",
@@ -8062,6 +9276,31 @@
     "findings": [],
     "ruled": "8491f489a82eac90"
   },
+  "vi/guides/youtube-vl1Lx9iWDYU": {
+    "at": "2026-11-05",
+    "hash": "4228581c554c5f5f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "thì nên thay trước hoặc sau giờ bật đèn để pH không dao động mạnh",
+        "problem": "\"Sau giờ bật đèn\" means after the light comes on, which is the time the text says to avoid. The body says to change water before the light comes on or after it turns off.",
+        "fix": "thì nên thay trước giờ bật đèn hoặc sau giờ tắt đèn để pH không dao động mạnh",
+        "field": "summary.0"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể để nhiệt độ phòng khoảng 21 đến 22°C, phần lớn cá vẫn sống tốt.",
+        "problem": "In Vietnam, Indonesia and Thailand, room temperature is usually 27 to 30°C, not 21 to 22°C, so readers would be misled about what room temperature means for their tank.",
+        "fix": "Ở xứ lạnh, bể để nhiệt độ phòng khoảng 21 đến 22°C thì phần lớn cá vẫn sống tốt. Ở mình, nhiệt độ phòng thường cao hơn nhiều, nên bạn cứ giữ bể càng mát càng tốt trong mức cá chịu được.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4228581c554c5f5f"
+  },
   "vi/guides/youtube-vlm_GLWSpMo": {
     "at": "2026-11-04",
     "hash": "d6602fac9d684c3c",
@@ -8414,6 +9653,32 @@
       }
     ],
     "ruled": "dbd313a7eeca5c83"
+  },
+  "vi/guides/youtube-Z09QE4PpB9Q": {
+    "at": "2026-11-05",
+    "hash": "94f2e67bbe1b91a2",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| khoảng 985",
+        "problem": "The table items add up to 400+35+300+100+10+130 = 975 USD, not 985.",
+        "fix": "| khoảng 975",
+        "rule": "Sum the numeric rows of a cost table and compare the result with its total row.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L8",
+        "quote": "đủ cho khoảng 1.135 lít nước, và mùa đông vẫn còn dư",
+        "problem": "The body says 500 W is slightly more than needed but will be needed in winter, while the FAQ says there is still spare capacity in winter.",
+        "fix": "đủ cho khoảng 1.135 lít nước, kể cả vào mùa đông",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "94f2e67bbe1b91a2"
   },
   "vi/guides/youtube-Z2Wv0RxD67g": {
     "at": "2026-11-04",

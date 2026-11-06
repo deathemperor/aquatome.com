@@ -1,23 +1,17 @@
 ---
-import { linkTerms } from '@aq/schema'
 import Browse from '../../layouts/Browse.astro'
 import ProductSlots from '../../components/ProductSlots.astro'
+import ShopPicker from '../../components/ShopPicker.astro'
 import PagedSpecies from '../../components/PagedSpecies.astro'
 import PlantCard from '../../components/PlantCard.astro'
 import GuideCard from '../../components/GuideCard.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
-import { categoriesIn, normKeyword, type CategoryUse } from '../../lib/equipment'
+import { categoriesIn, type CategoryUse } from '../../lib/equipment'
+import { equipmentParts } from '../../lib/equipment-page'
 import { alternatesWhere } from '../../lib/alternates'
-import { categoryLabel, goLink } from '../../lib/format'
-import { creditsFor } from '../../lib/credits'
-import { pagePictures, takeEach } from '../../lib/pictures'
-import { kitPictures, speciesListPhotos, speciesLists } from '../../lib/list-data'
 import { PAGE } from '../../scripts/filter-list'
 import { smallSrc } from '../../lib/img'
-import { guideImages, guidesMentioning, mentionIndex } from '../../lib/mentions'
-import { creatorsUse } from '../../lib/gear'
-import { productHref } from '../../lib/products'
 import { i18n, langOf } from '../../lib/i18n'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const lang = langOf(routePattern)
@@ -26,71 +20,43 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { u } = Astro.props as { u: CategoryUse }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
-// Every picture once, in page order (lib/list-data.ts kitPictures): the kit's, each type's, the fish beside each type, the
-// plants, then the fish list's first page as its data file has it, then the guides.
-const { g, types, plants, typePhotos, whoPhotos, plantPhotos, above } = kitPictures(lang, c, u.category)
-const label = g?.name ?? t(categoryLabel(u.category))
-const entity = `equipment:${u.category}`
-const guides = guidesMentioning(c, entity).slice(0, 6)
-// Brands and models the video guides use for this kind of kit (engine video-items).
-const used = creatorsUse(lang, c, u.category)
-// Products with their own page (engine product), per type of this kit.
-const picks = (type: string) => c.products.filter(p => p.category === u.category && p.type === type)
-// The species suggesting this kit, a page at a time (components/PagedSpecies).
-const users = speciesLists(lang, c).get(`thiet-bi/${u.category}`) ?? []
-const plantsPage = u.category === 'cay-thuy-sinh'
-const needCo2 = plants.filter(p => p.co2 === 'required').length
-// Editorial text links glossary terms, species and other equipment once each, never this page.
-const targets = mentionIndex(c).targets
-const seen = new Set([entity])
-const link = (html: string) => linkTerms(html, targets, 'ml', seen).html
-const intro = g ? link(g.intro) : ''
-// The shop searches the most species and plants suggest, most first: a page of them (each species and plant page lists its
-// own). Every one any of them suggests made the list grow with the catalogue.
-const suggested = new Map<string, number>()
-for (const x of [...c.species, ...c.plants]) for (const k of new Set(x.productSlots.filter(s => s.category === u.category).flatMap(s => s.keywords.map(normKeyword)))) suggested.set(k, (suggested.get(k) ?? 0) + 1)
-const keywords = [...suggested].sort((a, b) => b[1] - a[1]).slice(0, PAGE).map(([k]) => k)
-const shops = ['shopee', 'lazada', 'tiki'] as const
-const SHOP_NAMES = { shopee: 'Shopee', lazada: 'Lazada', tiki: 'Tiki' }
+const parts = equipmentParts(lang, c, u)
+const { g, vn, label, entity, intro, chips, kinds, choose, mistakes, faq: answers, creators, plants, plantsMore, users, userPhotos, guides, keywords, credits } = parts
 const faq = g && g.faq.length > 0 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []
-const userPhotos = plantsPage ? [] : speciesListPhotos(lang, c, `thiet-bi/${u.category}`, users).slice(0, PAGE)
-const pics = pagePictures(c)
-for (const p of [...above, ...userPhotos]) pics.add(p?.url)
-const guidePhotos = takeEach(pics, guides, x => guideImages(c, x))
-const credits = creditsFor([g?.hero, ...typePhotos, ...whoPhotos.flat(), ...plantPhotos, ...userPhotos, ...guidePhotos].map(p => p ?? undefined))
-// Shop links, shop keywords and the gear Vietnamese videos use are for the Vietnamese market: that page only.
-const vn = lang === 'vi'
 const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.equipment.some(e => e.category === u.category && (e.quality?.indexable ?? true)))
 ---
-<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits} creditsLater={!plantsPage && users.length > PAGE} noindex={g?.quality ? !g.quality.indexable : false} alternates={alternates}>
+<Browse title={g ? t('{label}: chọn loại nào, dùng cho loài nào', { label }) : label} heading={label} description={g?.lead} crumbs={[['/vi/thiet-bi/', t('Thiết bị')]]} jsonld={faq} image={g?.hero.url} credits={credits} creditsLater={users.length > PAGE} noindex={g?.quality ? !g.quality.indexable : false} alternates={alternates}>
   {g && (
     <header class="hero">
       <img src={g.hero.url} width={g.hero.width} height={g.hero.height} alt={label} fetchpriority="high" />
       <div>
         <p class="lead">{g.lead}</p>
-        <ul class="chips">{users.length > 0 && <li>{t('{n} loài cá cần', { n: users.length })}</li>}{plants.length > 0 && <li>{t('{n} loài cây', { n: plants.length })}</li>}<li>{t('{n} loại', { n: g.types.length })}</li>{guides.length > 0 && <li>{t('{n} bài viết', { n: guides.length })}</li>}</ul>
+        <ul class="chips">{chips.map(x => <li>{x}</li>)}</ul>
         <div class="intro" set:html={intro} />
       </div>
     </header>
   )}
 
-  {types.length > 0 && <>
-    <h2 class="h">{t('Các loại {label}', { label: label.toLowerCase() })}</h2>
+  {kinds.length > 0 && <>
+    <div class="typeshead">
+      <h2 class="h">{parts.kindsTitle}</h2>
+      {vn && <ShopPicker />}
+    </div>
     <div class="types">
-      {types.map((ty, k) => (
-        <article class:list={['type', { bare: !typePhotos[k] }]} id={ty.id}>
-          {typePhotos[k] && <div class="ph"><img src={smallSrc(typePhotos[k])} width={typePhotos[k].width} height={typePhotos[k].height} alt={ty.name} loading="lazy" /></div>}
+      {kinds.map(ty => (
+        <article class:list={['type', { bare: !ty.photo }]} id={ty.id}>
+          {ty.photo && <div class="ph"><img src={smallSrc(ty.photo)} width={ty.photo.width} height={ty.photo.height} alt={ty.name} loading="lazy" /></div>}
           <div class="body">
             <h3>{ty.name}</h3>
-            <p set:html={link(ty.desc)} />
+            <p set:html={ty.desc} />
             <p class="pick"><strong>{t('Chọn thế nào:')}</strong> {ty.pick}</p>
-            {picks(ty.id).length > 0 && <p class="picks">{t('Đã tìm hiểu kỹ:')} {picks(ty.id).map(p => <a href={productHref(p)}>{p.brand} {p.model}</a>)}</p>}
-            {vn && <p class="buy">{t('Mua')} <em>{ty.buy}</em>: {shops.map(s => <a href={goLink(s, ty.buy, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{SHOP_NAMES[s]}</a>)}</p>}
-            {vn && ty.keywords.length > 1 && <p class="more">{t('Hay tìm:')} {ty.keywords.filter(k => k !== ty.buy).slice(0, 4).map(k => <a href={goLink('shopee', k, u.category, entity)} rel="sponsored nofollow noopener" target="_blank">{k}</a>)}</p>}
-            {ty.species.length > 0 && (
-              <ul class="who" aria-label={t('Loài dùng {name}', { name: ty.name.toLowerCase() })}>
-                {ty.species.slice(0, 6).map((s, i) => { const p = whoPhotos[k]![i]; return <li><a href={`/vi/ca/${s.t.slug}/`}>{p && <img src={smallSrc(p)} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li> })}
-                {ty.species.length > 6 && <li class="n">{t('+{n} loài', { n: ty.species.length - 6 })}</li>}
+            {ty.picks.length > 0 && <p class="picks">{t('Đã tìm hiểu kỹ:')} {ty.picks.map(p => <a href={p.href}>{p.name}</a>)}</p>}
+            {ty.buy && <p class="buy"><a href={ty.buy.href} rel="sponsored nofollow noopener" target="_blank" data-go>{t('Mua')} <em>{ty.buy.text}</em> <span class="on">{t('trên')} <span data-shop-name>Shopee</span></span><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></p>}
+            {ty.searches.length > 0 && <p class="more">{t('Hay tìm:')} {ty.searches.map(x => <a href={x.href} rel="sponsored nofollow noopener" target="_blank" data-go>{x.text}<span class="visually-hidden"> ({t('trên')} <span data-shop-name>Shopee</span>)</span></a>)}</p>}
+            {ty.who.length > 0 && (
+              <ul class="who" aria-label={ty.whoTitle}>
+                {ty.who.map(({ s, photo: p }) => <li><a href={`/vi/ca/${s.t.slug}/`}>{p && <img src={smallSrc(p)} alt="" width="40" height="40" loading="lazy" />}{s.t.name}</a></li>)}
+                {ty.whoMore > 0 && <li class="n">{t('+{n} loài', { n: ty.whoMore })}</li>}
               </ul>
             )}
           </div>
@@ -101,42 +67,42 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
 
   {g && (
     <div class="two">
-      <section><h2 class="h">{t('Cách chọn')}</h2><ul class="tips">{g.choose.map(x => <li set:html={link(x)} />)}</ul></section>
-      <section><h2 class="h">{t('Sai lầm thường gặp')}</h2><ul class="tips warn">{g.mistakes.map(x => <li set:html={link(x)} />)}</ul></section>
+      <section><h2 class="h">{t('Cách chọn')}</h2><ul class="tips">{choose.map(x => <li set:html={x} />)}</ul></section>
+      <section><h2 class="h">{t('Sai lầm thường gặp')}</h2><ul class="tips warn">{mistakes.map(x => <li set:html={x} />)}</ul></section>
     </div>
   )}
 
-  {vn && used.length > 0 && (
+  {creators.length > 0 && (
     <section class="creators">
       <h2 class="h">{t('Dân chơi dùng gì trong video')}</h2>
-      <ul>{used.slice(0, 10).map(x => (
-        <li><strong>{x.product ? <a href={x.product}>{x.name}</a> : x.name}</strong> <span class="n">{t('{n} video', { n: x.guides.length })}</span> {x.guides.slice(0, 3).map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
+      <ul>{creators.map(x => (
+        <li><strong>{x.product ? <a href={x.product}>{x.name}</a> : x.name}</strong> <span class="n">{t('{n} video', { n: x.count })}</span> {x.guides.map(v => <a href={`/vi/huong-dan/${v.t.slug}/`}>{v.t.name}</a>)}</li>
       ))}</ul>
     </section>
   )}
 
   {plants.length > 0 && <>
-    <h2 class="h">{plantsPage ? t('Cây thủy sinh trên AquaTome') : t('Cây cần CO2')}</h2>
-    <div class="plants">{plants.slice(0, PAGE).map((p, i) => <PlantCard p={p} photo={plantPhotos[i]} />)}</div>
-    {plants.length > PAGE && (plantsPage || needCo2 > 0) && <p class="list"><a href={plantsPage ? '/vi/cay/' : '/vi/cay/?co2=required'}>{plantsPage ? t('Xem cả {n} loài cây', { n: plants.length }) : t('Xem cả {n} loài cây bắt buộc có CO₂', { n: needCo2 })}</a></p>}
+    <h2 class="h">{parts.plantsTitle}</h2>
+    <div class="plants">{plants.map(({ p, photo }) => <PlantCard p={p} photo={photo} />)}</div>
+    {plantsMore && <p class="list"><a href={plantsMore.href}>{plantsMore.text}</a></p>}
   </>}
-  {!plantsPage && users.length > 0 && <>
-    <h2 class="h">{t('Loài cá cần {label}', { label: label.toLowerCase() })}</h2>
+  {users.length > 0 && <>
+    <h2 class="h">{parts.usersTitle}</h2>
     <PagedSpecies species={users} list={`thiet-bi/${u.category}`} photos={userPhotos} />
   </>}
 
-  {g && g.faq.length > 0 && <>
+  {answers.length > 0 && <>
     <h2 class="h">{t('Hỏi đáp')}</h2>
-    <div class="faq">{g.faq.map(f => <details><summary>{f.q}</summary><p set:html={link(f.a)} /></details>)}</div>
+    <div class="faq">{answers.map(f => <details><summary>{f.q}</summary><p set:html={f.html} /></details>)}</div>
   </>}
 
   {guides.length > 0 && <>
     <h2 class="h">{t('Bài viết liên quan')}</h2>
-    <div class="guides">{guides.map((x, i) => <GuideCard g={x} photo={guidePhotos[i]} />)}</div>
+    <div class="guides">{guides.map(x => <GuideCard g={x.g} photo={x.photo} />)}</div>
   </>}
 
   {vn && (
-    <details class="all"><summary>{t('Gợi ý mua hay gặp ({n})', { n: keywords.length })}</summary>
+    <details class="all"><summary>{parts.keywordsTitle}</summary>
       <ProductSlots slots={[{ category: u.category, keywords }]} heading={t('Gợi ý mua')} entity={entity} />
     </details>
   )}
@@ -157,7 +123,16 @@ const alternates = await alternatesWhere(`/vi/thiet-bi/${u.category}/`, x => x.e
   .type h3 { font-size: var(--step-1); margin: 0 0 var(--space-2); }
   .type p { margin: 0 0 var(--space-2); max-width: var(--measure); }
   .pick { color: var(--c-ink-soft); }
-  .buy a, .more a { margin-left: var(--space-2); }
+  .typeshead { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-3) var(--space-5); margin: var(--space-7) 0 var(--space-4); }
+  .typeshead .h { margin: 0; }
+  .buy a { display: inline-block; box-sizing: border-box; min-height: 44px; max-width: 100%; padding: 0.6rem var(--space-4); border: 1px solid var(--c-rule); border-radius: 22px; background: var(--c-plate); color: var(--c-ink); font-weight: 500; line-height: 1.5; text-decoration: none; }
+  .buy a:hover { border-color: var(--c-ink); }
+  .buy a:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .buy .on { font-weight: 400; color: var(--c-ink-soft); }
+  .buy svg { margin-left: var(--space-1); vertical-align: -2px; color: var(--c-ink-soft); }
+  .more { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+  .more a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-3); border: 1px solid var(--c-rule); border-radius: 999px; color: var(--c-ink-soft); text-decoration: none; }
+  .more a:hover { border-color: var(--c-ink); color: var(--c-ink); }
   .more { font-size: 0.85rem; color: var(--c-ink-faint); }
   .who { list-style: none; padding: 0; margin: var(--space-3) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
   .who a { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.15rem 0.7rem 0.15rem 0.15rem; border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); text-decoration: none; font-size: 0.85rem; }

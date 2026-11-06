@@ -1,0 +1,10 @@
+---
+import { ownerReveal } from '../lib/app'
+
+/**
+ * Lines only the owner sees (the aq_owner flag), while the app's switch is 'owner': kept in a <template>, so readers,
+ * crawlers, the site's search, the markdown copy and the link checks never meet them, and put in the page by the script
+ * after it.
+ */
+---
+<template data-owner-only data-pagefind-ignore="all"><slot /></template><script is:inline set:html={ownerReveal} />

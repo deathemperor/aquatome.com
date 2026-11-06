@@ -1,5 +1,5 @@
 ---
-import type { Localized, SpeciesEntity } from '@aq/schema'
+import { resolveDataCard, type Localized, type SpeciesEntity } from '@aq/schema'
 import Base from '../../layouts/Base.astro'
 import Nav from '../../components/Nav.astro'
 import DataCard from '../../components/DataCard.astro'
@@ -46,6 +46,10 @@ const jsonld = [
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
 const { country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
+// What to buy (Vietnam's shops: Vietnamese pages only), after the care text, with a chip in the jump row; the tank row
+// says the minimum tank the data card gives.
+const kit = vn && s.productSlots.length > 0
+const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
 const alternates = await alternatesOf('species', s.id)
 ---
 <Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos].map(p => p ?? undefined))}>
@@ -75,12 +79,13 @@ const alternates = await alternatesOf('species', s.id)
       {vn && <VnClimate card={s.dataCard} />}
     </div>
   </header>
-  <JumpChips items={jumps} />
+  <JumpChips items={kit ? [...jumps, { href: '#mua-do', label: t('Mua đồ') }] : jumps} />
 
   {/* A page with no photo of its own has a one-column top: its thumbnails stay below it, the page's width. */}
   {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} />}
   {vn && summary && <QuickSummary summary={summary} />}
   <Sections sections={text.sections} t={text.t} self={`species:${s.id}`} selfNames={[s.scientificName, s.t.name, ...s.t.altNames]} figures={figures.map(photo => ({ photo }))} card={s.dataCard} range={{ id: s.id, name: s.t.name, range: s.range }} />
+  {kit && <div class="wrap"><ProductSlots slots={s.productSlots} heading={t('Chuẩn bị để nuôi {name}', { name: s.t.name })} entity={`species:${s.id}`} tankCm={typeof tank === 'number' ? tank : undefined} /></div>}
   <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
@@ -88,12 +93,7 @@ const alternates = await alternatesOf('species', s.id)
   <VideoFacade videos={videos} />
   <ReaderPhotos entity={`species:${s.id}`} name={s.t.name} />
 
-  {vn ? (
-    <div class="wrap two">
-      <ProductSlots slots={s.productSlots} entity={`species:${s.id}`} />
-      <Comments entity={`species:${s.id}`} />
-    </div>
-  ) : <div class="wrap"><Comments entity={`species:${s.id}`} /></div>}
+  <div class="wrap"><Comments entity={`species:${s.id}`} /></div>
 </Base>
 <style>
   .crumb { font-size: 0.85rem; color: var(--c-ink-faint); padding-top: var(--space-4); }
@@ -112,7 +112,6 @@ const alternates = await alternatesOf('species', s.id)
   .alt { font-size: 0.85rem; color: var(--c-ink-faint); margin: var(--space-2) 0 0; }
   .facts { margin-top: var(--space-4); }
   .srcline { font-size: 0.85rem; color: var(--c-ink-soft); margin-top: var(--space-3); }
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
   /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
      show it whole, else its last part (the thumbnails, or the photo alone). On a tall screen a column with thumbnails is
      as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end first.
@@ -129,7 +128,7 @@ const alternates = await alternatesOf('species', s.id)
   }
   @media (max-width: 860px) {
     /* minmax(0, …): nothing in the column (the thumbnails' heading, a long word) can widen it past the screen. */
-    .top, .two { grid-template-columns: minmax(0, 1fr); }
+    .top { grid-template-columns: minmax(0, 1fr); }
     .top { grid-template-rows: none; grid-template-areas: 'id' 'photo' 'facts' 'strip'; }
     .side { display: contents; }
     .side > :global(.strip) { grid-area: strip; }

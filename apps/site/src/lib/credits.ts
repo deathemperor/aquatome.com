@@ -1,15 +1,16 @@
 import type { Photo } from '@aq/schema'
+import { licenceLabel } from './i18n'
 
 /** `authorUrl`: the photographer's own page, an Unsplash photo's (lib/unsplash.ts). */
 export type Credit = { author: string; authorUrl?: string; licence: string; sourceUrl: string; what: string }
 
-/** One footer credit per distinct photo shown on a page (CC BY / BY-SA require attribution). */
+/** One footer credit per distinct photo shown on a page (CC BY / BY-SA require attribution), with its licence as shown. */
 export function creditsFor(photos: (Photo | undefined)[], what = 'Ảnh'): Credit[] {
   const seen = new Set<string>()
   return photos.flatMap(p => {
     if (!p || seen.has(p.url)) return []
     seen.add(p.url)
-    return [{ author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: p.licence, sourceUrl: p.sourceUrl, what }]
+    return [{ author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), sourceUrl: p.sourceUrl, what }]
   })
 }
 

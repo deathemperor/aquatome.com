@@ -13,6 +13,92 @@
     "mekong",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "LA",
+        "KH"
+      ],
+      "regions": [
+        "Mekong River",
+        "Thu Bon",
+        "Huong",
+        "Tra Khuc",
+        "Ve",
+        "An Lao"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "aquariumcoop"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to Vietnam where it's known from the provinces of Thua Thien-Hue (Huong river drainage), Quang Nam (Thu Bon river), Quang Ngai (Tra Khuc and Ve rivers) and Binh Dinh (An Lao river).",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Thu Bon",
+            "Huong",
+            "Tra Khuc",
+            "Ve",
+            "An Lao"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rainboth (1996) reported it to occur in the Khone Falls on the Mekong River in Laos, close to the border with Cambodia, and it can apparently be found in some hill streams of that area.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Mekong River"
+          ]
+        },
+        {
+          "source": "aquariumcoop",
+          "quote": "Originally found in tropical regions of Vietnam, Laos and Cambodia.",
+          "countries": [
+            "KH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205384,
+      "total": 123,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "VN",
+          123
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          14.0625,
+          13,
+          13
+        ],
+        [
+          106.875,
+          15.46875,
+          99,
+          99
+        ],
+        [
+          108.28125,
+          14.0625,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
