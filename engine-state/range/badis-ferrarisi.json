@@ -1,0 +1,62 @@
+{
+  "id": "badis-ferrarisi",
+  "native": {
+    "input": "9488450e9984935b",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Ayeyarwady River drainage in Myanmar although the full extent of its distribution remains unclear.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Ayeyarwady River drainage in Myanmar although the full extent of its distribution remains unclear.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Chindwin",
+        "source": "seriouslyfish",
+        "quote": "Kalaymyo lies on the Chindwin River, a major tributary of the Ayeyarwady, and the fish are reported to be found in the Myittha drainage which feeds it.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Badis ferrarisi",
+    "status": "ACCEPTED",
+    "taxonKey": 2389476,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        21
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

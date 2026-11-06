@@ -10,6 +10,47 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Maleri Islands"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi where it's known from Usisya, Nkhomo reef, Benga (to the south of Chia lagoon), the Maleri Islands and Chipoka, all located along the lake's western shoreline.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi",
+            "Maleri Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370481,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

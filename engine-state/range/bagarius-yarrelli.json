@@ -1,0 +1,190 @@
+{
+  "id": "bagarius-yarrelli",
+  "native": {
+    "input": "b811b4b22cf651d9",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "FishBase lists Cambodia, China, Indonesia, Laos, Malaysia, Myanmar, Thailand and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Khlong",
+        "source": "seriouslyfish",
+        "quote": "Bagarius lica is a very large sisorid catfish from Southeast Asia, from the Mae Khlong to the Dong Nai drainages and south through the Malay Peninsula to Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "Bagarius lica is a very large sisorid catfish from Southeast Asia, from the Mae Khlong to the Dong Nai drainages and south through the Malay Peninsula to Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Bagarius lica is a very large sisorid catfish from Southeast Asia, from the Mae Khlong to the Dong Nai drainages and south through the Malay Peninsula to Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Bagarius lica is a very large sisorid catfish from Southeast Asia, from the Mae Khlong to the Dong Nai drainages and south through the Malay Peninsula to Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Bagarius lica is a very large sisorid catfish from Southeast Asia, from the Mae Khlong to the Dong Nai drainages and south through the Malay Peninsula to Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Bagarius lica is a very large sisorid catfish from Southeast Asia, from the Mae Khlong to the Dong Nai drainages and south through the Malay Peninsula to Sumatra, Borneo and Java.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "MM"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Bagarius yarrelli",
+    "status": "ACCEPTED",
+    "taxonKey": 2341213,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        33
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        15
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        12
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        1
+      ]
+    ],
+    "native": [
+      "KH",
+      "CN",
+      "ID",
+      "LA",
+      "MY",
+      "MM",
+      "TH",
+      "VN"
+    ],
+    "requests": 13,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

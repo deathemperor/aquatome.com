@@ -1,0 +1,66 @@
+{
+  "id": "aspidoras-pauciradiatus",
+  "native": {
+    "input": "4e5d537a63a3f4d8",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Araquaia near Aruana, 14°58'S, 51°04'W, Goias State, Brazil', and this species appears restricted to the upper Araguaia basin.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Araguaia",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Araquaia near Aruana, 14°58'S, 51°04'W, Goias State, Brazil', and this species appears restricted to the upper Araguaia basin.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "The species originates from the Rio Negro basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aspidoras pauciradiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342547,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        37
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

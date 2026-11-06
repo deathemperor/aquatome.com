@@ -40,6 +40,12 @@ struct BrowseView: View {
       List(guides) { Row(item: $0) }
         .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn"))
         .toolbar { KeepOffline(items: guides) }
+        #if DEBUG
+        .background {
+          // For the UI tests (debug builds only): how many keeps are still at work.
+          Text(verbatim: "\(handbook.keepsWorking)").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("keeps-working")
+        }
+        #endif
     case .videos:
       List(s.videoGuides) { Row(item: $0) }
         .navigationTitle("Video")

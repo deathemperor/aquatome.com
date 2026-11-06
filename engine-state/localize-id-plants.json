@@ -1977,29 +1977,51 @@
       "Item 8: \"arus yang lembut paling optimal\" is slightly stilted. Use \"arus yang pelan/lembut paling ideal\"."
     ]
   },
+  "solenostoma-tetragonum": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Pearl Moss",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Kecepatan tumbuh\" is fine, but \"layout\" could be \"tata letak\" for natural Indonesian. This is minor.",
+      "\"liverwort\" is left in English; consider adding the Indonesian \"lumut hati\" in brackets for readers who don't know the term. This is minor.",
+      "\"rata-rata tinggi setelah dua bulan\" reads slightly awkwardly; \"tinggi rata-rata setelah dua bulan\" is more natural."
+    ]
+  },
+  "spirodela-polyrrhiza": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Giant Duckweed",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"aquarist\" is left in English; use \"aquascaper\" or \"penghobi akuarium\" instead.",
+      "\"Daunnya\" for \"fronds\": duckweed has thalli, not true leaves. This is acceptable, but \"talus\" or \"daun\" is fine and not a real error.",
+      "\"Kebutuhan cahaya\": \"Tuntutan cahaya\" is not needed. The current wording is fine."
+    ]
+  },
   "staurogyne-repens": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "Staurogyne repens",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "#8: \"Otocinclus\" drops \"catfish\" from \"Otocinclus catfish\"; use \"ikan sapu-sapu Otocinclus\" or \"Otocinclus (catfish)\".",
-      "#8: \"(MTS)\" was added after \"siput Malaysian trumpet\". It isn't in the source, so remove it or write the local name \"keong/siput trumpet Malaysia\".",
-      "#7: \"(tabung)\" was added after \"sistem CO2 bertekanan\". It isn't in the source, so remove it.",
-      "#9: \"jatuh ke tanah\" for \"fall onto the soil\" sounds odd for an aquarium. Use \"jatuh ke substrat\"."
+      "Item 9: \"White Mountain minnow (white cloud)\" adds an alias that is not in the source. Keep only the name, or use the common local name.",
+      "Item 9: \"Karena lembut dan disukai pemakan tanaman\" is a loose rendering of \"delicate and palatable\". Something like \"Karena daunnya lembut dan enak dimakan\" is clearer."
     ]
   },
   "taxiphyllum-alternans": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "Taiwan Moss",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.75,
     "notes": [
-      "\"percabangan\" for \"branching nodes\" loses the nodes detail; consider \"lebih banyak buku percabangan\" or \"titik percabangan\".",
-      "\"Moss ini\" is fine, but \"Java moss\" and \"Taiwan moss\" could be given as \"lumut Jawa\"/\"Java moss\" consistently; minor.",
-      "\"burayak\" is a regional term for fry; \"anakan ikan\" or \"benih\" is more common among Indonesian hobbyists."
+      "Item 4: \"Be sure to have the habitat ready before purchase\" is translated as \"Pastikan tempatnya sudah siap\". \"Tempatnya\" is vague. Use \"habitatnya\" or \"akuarium/penataannya\".",
+      "Item 5: \"family Isopterygium\" is kept as written, but Isopterygium is a genus, not a family. The source error is carried over. Consider \"genus\" if the translator may correct it, or flag it.",
+      "Item 3: \"diikat ke kayu\" is fine, but \"Attaching\" could be \"ditempelkan/diikat\". \"menyamarkan peralatan\" for \"hiding installations\" is slightly narrow. \"instalasi/perlengkapan\" would be closer."
     ]
   },
   "taxiphyllum-barbieri": {

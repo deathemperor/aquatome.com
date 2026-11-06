@@ -1,0 +1,122 @@
+{
+  "id": "bangana-behri",
+  "native": {
+    "input": "63d5f9ea6cc8841c",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "In its native range, the Mekong basin, the species is a highly demanded food fish.",
+        "ok": true
+      },
+      {
+        "name": "Sekong",
+        "source": "seriouslyfish",
+        "quote": "It undergoes seasonal migrations, moving upstream into the Sekong, Sesan, and Srepok rivers in May and June, at the onset of the wet season, and returning downstream during the dry months between November and February.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bangana behri",
+    "status": "ACCEPTED",
+    "taxonKey": 2361256,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "CN",
+      "LA",
+      "VN",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

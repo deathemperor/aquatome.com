@@ -28,7 +28,7 @@ final class HandbookFlowTests: XCTestCase {
       app.swipeUp()
     }
     XCTAssertFalse(item(app, "Cá ngựa vằn").exists, "every fish on the home")
-    for _ in 0..<8 where !shelf(app, "Cichlid").isHittable { app.swipeDown() }
+    repeatUntil(shelf(app, "Cichlid").isHittable, times: 8) { app.swipeDown() }
     // Hittable while still under the top bar, where a tap lands on the status bar and only scrolls: once more, to the top.
     app.swipeDown()
     shelf(app, "Cichlid").tap()
@@ -78,7 +78,7 @@ final class HandbookFlowTests: XCTestCase {
   func testFiltersThePlantsToTheTanksLight() {
     let app = launch()
     let all = app.descendants(matching: .any)["all-plants"]
-    for _ in 0..<4 where !(all.exists && all.isHittable) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 4) { app.swipeUp() }
     all.tap()
     XCTAssertTrue(item(app, "Rotala đỏ").waitForExistence(timeout: 5))
     app.buttons["filter"].tap()
@@ -108,7 +108,7 @@ final class HandbookFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(id)", "-AppleLocale", "id_ID", "-reset-defaults", "-fixed-handbook"]
     app.launchForFlow()
     let all = app.descendants(matching: .any)["all-videos"]
-    for _ in 0..<8 where !(all.exists && all.isHittable) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 8) { app.swipeUp() }
     all.tap()
     let video = item(app, "Cách hạn chế rêu hại")
     XCTAssertTrue(video.waitForExistence(timeout: 5))
@@ -118,7 +118,7 @@ final class HandbookFlowTests: XCTestCase {
   func testVideosHaveAShelfOfTheirOwn() {
     let app = launch()
     let all = app.descendants(matching: .any)["all-videos"]
-    for _ in 0..<8 where !(all.exists && all.isHittable) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(item(app, "Rêu hại từ A đến Z").exists, "no video series on the home")
     all.tap()
     XCTAssertTrue(app.navigationBars["Video"].waitForExistence(timeout: 5))
@@ -128,7 +128,7 @@ final class HandbookFlowTests: XCTestCase {
     // Not among the written guides, as on the site's guide list.
     app.navigationBars.buttons.element(boundBy: 0).tap()
     let guides = app.descendants(matching: .any)["all-guides"]
-    for _ in 0..<8 where !(guides.exists && guides.isHittable) { app.swipeDown() }
+    repeatUntil(guides.exists && guides.isHittable, times: 8) { app.swipeDown() }
     guides.tap()
     XCTAssertTrue(item(app, "Nuôi cá neon").waitForExistence(timeout: 5))
     XCTAssertFalse(item(app, "Cách hạn chế rêu hại").exists, "a video among the written guides")
@@ -218,10 +218,15 @@ final class HandbookFlowTests: XCTestCase {
     app.buttons["more"].tap()
     XCTAssertEqual(note.label, "Đang hiện 6 trong 9 kết quả. Gõ thêm để thu hẹp.")
     app.buttons["more"].tap()
-    XCTAssertFalse(note.waitForExistence(timeout: 1), "still short, with all of it listed")
+    // "Xem thêm kết quả" lists the rest in the tap itself, with no search (MoreResults), as the 6 of 9 above is read
+    // straight after its tap. Checked before the rows are counted, which scrolls the list away from the note.
+    XCTAssertFalse(note.exists, "still short, with all of it listed")
     XCTAssertEqual(rows(app), 9)
     chip(app, "fish").tap()
-    XCTAssertFalse(note.waitForExistence(timeout: 1), "short of a kind that has only 3")
+    // The fish picked (what would leave a note if it had more than 3), then the note.
+    let picked = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isSelected == true"), object: chip(app, "fish"))
+    XCTAssertEqual(XCTWaiter().wait(for: [picked], timeout: 5), .completed, "the fish not picked")
+    XCTAssertFalse(note.exists, "short of a kind that has only 3")
     XCTAssertEqual(rows(app), 3)
     // Another kind picked lists its best 3 again, not as many as the last one had.
     chip(app, "all").tap()
@@ -283,7 +288,7 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(all.isHittable, "“Xem tất cả” out of reach")
     all.tap()
     // Back up to the chips, from below the search field (at this size it reaches a fifth of the way down).
-    for _ in 0..<3 where !(chip(app, "all").exists && chip(app, "all").isHittable) { drag(list, from: 0.3, to: 0.6) }
+    repeatUntil(chip(app, "all").exists && chip(app, "all").isHittable, times: 3) { drag(list, from: 0.3, to: 0.6) }
     XCTAssertTrue(chip(app, "all").exists && chip(app, "all").isSelected, "not back to every kind")
   }
 
@@ -346,7 +351,7 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     // The last section: drawn once it's scrolled to.
     let all = app.descendants(matching: .any)["all-glossary"]
-    for _ in 0..<6 where !(all.exists && all.isHittable) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
     all.tap()
     XCTAssertTrue(app.navigationBars["Thuật ngữ"].waitForExistence(timeout: 5))
     XCTAssertTrue(app.staticTexts["Đ"].exists, "no letter")
@@ -360,7 +365,7 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch("-whats-new")
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let all = app.descendants(matching: .any)["all-latest"]
-    for _ in 0..<6 where !(all.exists && all.isHittable) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
     XCTAssertTrue(all.label.hasSuffix("28/10/2026"), all.label)
     all.tap()
     XCTAssertTrue(app.navigationBars["Mới cập nhật"].waitForExistence(timeout: 5))
@@ -384,7 +389,7 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch()
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let contact = app.descendants(matching: .any)["contact"]
-    for _ in 0..<12 where !(contact.exists && contact.isHittable) { app.swipeUp() }
+    repeatUntil(contact.exists && contact.isHittable, times: 12) { app.swipeUp() }
     XCTAssertTrue(contact.exists, "not at the home's end")
     XCTAssertFalse(app.descendants(matching: .any)["all-latest"].exists)
   }

@@ -1,0 +1,144 @@
+{
+  "id": "babylonia-spirata",
+  "native": {
+    "input": "64a1f422bcfb3116",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Babylonia spirata is widely distributed in the Indo-Pacific region, especially from the Western Indian Ocean to Bali, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "In India, these snails have been recorded from the southeast and southwest coasts and in waters around the Andaman and Nicobar Islands.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bali",
+        "source": "aquariumbreeder",
+        "quote": "Babylonia spirata is widely distributed in the Indo-Pacific region, especially from the Western Indian Ocean to Bali, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Andaman and Nicobar Islands",
+        "source": "aquariumbreeder",
+        "quote": "In India, these snails have been recorded from the southeast and southwest coasts and in waters around the Andaman and Nicobar Islands.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Babylonia spirata",
+    "status": "ACCEPTED",
+    "taxonKey": 4601537,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        47
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        16
+      ],
+      [
+        "2b74f1d8-d1c0-4f88-a869-18507c65cf59",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        6
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "f5783452-6ff5-4bef-8f30-9adfeba81bd7",
+        3
+      ],
+      [
+        "18680b2b-84db-4d45-8acd-0b0e9467fb33",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "ead6339f-39f8-46be-b059-d1c48d88ab29",
+        2
+      ],
+      [
+        "038b6cf8-4c53-4bf3-961e-9fe6c57b813e",
+        1
+      ],
+      [
+        "19841134-3010-4cdf-8be5-24e0e21c0b76",
+        1
+      ],
+      [
+        "417f4d21-959b-4773-90a2-c38d1822d873",
+        1
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "85487457-e02f-4dee-95ea-8dc0d220c52d",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "d962a7dc-2183-4824-bb88-5e0ba14ec62d",
+        1
+      ],
+      [
+        "e5d2aed2-a177-46ba-9ea8-c349160a4c2d",
+        1
+      ],
+      [
+        "ff2ed94e-45ee-4dde-8e1f-0a4798f61a12",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "IN"
+    ],
+    "requests": 14,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

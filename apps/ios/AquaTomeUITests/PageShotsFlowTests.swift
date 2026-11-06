@@ -112,7 +112,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchForFlow()
     let row = app.descendants(matching: .any)["all-latest"]
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
-    for _ in 0..<8 where !(row.exists && row.isHittable) { app.swipeUp() }
+    repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(row.exists, "no row for what's new")
     for n in 1...2 {
       if n == 2 {
@@ -194,7 +194,7 @@ final class PageShotsFlowTests: XCTestCase {
     sign.tap()
     let send = app.descendants(matching: .any)["fish-id-send"].firstMatch
     XCTAssertTrue(send.waitForExistence(timeout: 10), "no tool")
-    for _ in 0..<6 where !send.isHittable { app.swipeUp() }
+    repeatUntil(send.isHittable, times: 6) { app.swipeUp() }
     send.tap()
     XCTAssertTrue(app.descendants(matching: .any)["fish-id-guess"].firstMatch.waitForExistence(timeout: 10), "no guesses")
     // From the top: the screen scrolls to the guesses when they come.
@@ -361,7 +361,7 @@ final class PageShotsFlowTests: XCTestCase {
     let page = lightness(XCUIScreen.main.screenshot().image)
     XCTAssertEqual(page < 0.5, dark, "\(name)'s page isn't \(dark ? "dark" : "light"): \(page)")
     let photo = app.buttons["Đàn cá neon trong bể"].firstMatch
-    for _ in 0..<24 where !(photo.exists && photo.isHittable) {
+    repeatUntil(photo.exists && photo.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)
