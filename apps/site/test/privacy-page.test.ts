@@ -25,3 +25,12 @@ test('the privacy page says a comment can carry a photo, checked as reader photo
   expect(page('/id/kebijakan-privasi/').dom.textContent).toContain('Anda juga dapat melampirkan satu foto saat berkomentar')
   expect(page('/th/privacy/').dom.textContent).toContain('คุณยังแนบรูปหนึ่งรูปเมื่อแสดงความคิดเห็นได้')
 })
+
+// The page promises its date moves with its text (section 8): the comment-photo sentences moved it to 6 November 2026.
+test('the privacy page\'s date is the last approved edit\'s, in every language and the English block', () => {
+  const updated = (path: string) => page(path).dom.querySelector('.updated')?.textContent
+  expect(updated('/chinh-sach-bao-mat/')).toBe('Cập nhật: 06/11/2026')
+  expect(updated('/id/kebijakan-privasi/')).toBe('Diperbarui: 06/11/2026')
+  expect(updated('/th/privacy/')).toBe('อัปเดต: 06/11/2026')
+  expect(page('/chinh-sach-bao-mat/').dom.textContent).toContain('Last updated: 6 November 2026.')
+})
