@@ -26,7 +26,27 @@
   "File:Amphilophus 705.jpg",
   "File:Amphilophus 697.jpg",
   "File:Amphilophus Citrinellus x Paraneetroplus–Synspilus.jpg",
-  "File:Plots from a salinity trial testing the effect of extended exposure to high salinity on juvenile blood parrot cichlids.png"
+  "File:Plots from a salinity trial testing the effect of extended exposure to high salinity on juvenile blood parrot cichlids.png",
+  "inat:111129249",
+  "inat:185311020",
+  "inat:185316389",
+  "inat:186676291",
+  "inat:208200461",
+  "inat:273072167",
+  "inat:273072196",
+  "inat:273072234",
+  "inat:344115231",
+  "inat:344115233",
+  "inat:346596853",
+  "inat:428209550",
+  "inat:428209610",
+  "inat:525669468",
+  "inat:528925114",
+  "inat:636367237",
+  "inat:158476985",
+  "inat:303370476",
+  "inat:303370503",
+  "inat:346195128"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/027604f397079fd5.webp": "0f071f0f0d1e3e33",
@@ -51,7 +71,20 @@
   "https://media.aquatome.com/commons/4fc20c7c5a57beac.webp": "2f2f0f0707038a86",
   "https://media.aquatome.com/commons/89d4bb7e563f046d.webp": "3747470787473387",
   "https://media.aquatome.com/commons/c8ddae0620f4cffe.webp": "ed4f9f978f9f9a8d",
-  "https://media.aquatome.com/commons/7bf485340c06d82b.webp": "cdcc8f0786c2629c"
+  "https://media.aquatome.com/commons/7bf485340c06d82b.webp": "cdcc8f0786c2629c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/111129249/large.jpg": "24250d0f3f4b060f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/636367237/large.jpg": "d8ed59eab21bc3f2",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/303370476/large.jpg": "c1666e1b296e1595",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/303370503/large.jpg": "15434b8c848ba538",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/346195128/large.jpeg": "b1b83236361f0685"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 208884,
+  "pass": "done",
+  "after": {
+   "research": 348887187,
+   "agree": 409871951
+  }
+ }
 }

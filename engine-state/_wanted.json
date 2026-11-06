@@ -1402,15 +1402,6 @@
     ],
     "mentions": 2
   },
-  "rasbora-paucisqualis": {
-    "name": "Rasbora paucisqualis",
-    "mentionedIn": [
-      "species/barilius-ornatus",
-      "species/barilius-signicaudus"
-    ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_paucisqualis_en/"
-  },
   "barilius-barila": {
     "name": "Barilius barila",
     "mentionedIn": [
@@ -1463,9 +1454,10 @@
     "name": "Pseudancistrus pectegenitor",
     "mentionedIn": [
       "species/baryancistrus-beggini",
-      "species/baryancistrus-demantoides"
+      "species/baryancistrus-demantoides",
+      "species/pseudacanthicus-pitanga"
     ],
-    "mentions": 2
+    "mentions": 3
   },
   "pseudolithoxus-dumus": {
     "name": "Pseudolithoxus dumus",
@@ -2050,14 +2042,6 @@
     ],
     "mentions": 1
   },
-  "hyphessobrycon-flammeus": {
-    "name": "Hyphessobrycon flammeus",
-    "mentionedIn": [
-      "guides/aquariumcoop-blogs-aquarium-midwater-schooling-fish"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-flammeus-gold-2/"
-  },
   "neothauma-tanganyicense": {
     "name": "Neothauma tanganyicense",
     "mentionedIn": [
@@ -2129,13 +2113,6 @@
       "guides/youtube-VJ_EZRwwFZg"
     ],
     "mentions": 3
-  },
-  "moina-macrocopa": {
-    "name": "Moina macrocopa",
-    "mentionedIn": [
-      "guides/aquatome-thuc-an-giup-ca-len-mau-dep-va-vitamin-cho-ca"
-    ],
-    "mentions": 1
   },
   "labeo-parvus": {
     "name": "Labeo parvus",
@@ -3639,14 +3616,6 @@
     ],
     "mentions": 1
   },
-  "cherax-snowden": {
-    "name": "Cherax snowden",
-    "mentionedIn": [
-      "species/cherax-holthuisi"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-snowden-irianto-red-and-cherax-holthuisi/"
-  },
   "cherax-cainii": {
     "name": "Cherax cainii",
     "mentionedIn": [
@@ -4489,14 +4458,6 @@
     ],
     "mentions": 1
   },
-  "apistogramma-uaupesi": {
-    "name": "Apistogramma uaupesi",
-    "mentionedIn": [
-      "species/laetacara-fulvipinnis"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_uaupesi_en/"
-  },
   "harttia-leiopleura": {
     "name": "Harttia leiopleura",
     "mentionedIn": [
@@ -4720,14 +4681,6 @@
       "species/notoglanidium-macrostoma"
     ],
     "mentions": 1
-  },
-  "oreichthys-crenuchoides": {
-    "name": "Oreichthys crenuchoides",
-    "mentionedIn": [
-      "species/oreichthys-cosuatis"
-    ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/oreichthys_crenuchoides_spec_hifin__en/"
   },
   "oryzias-melastigma": {
     "name": "Oryzias melastigma",
@@ -5179,14 +5132,10 @@
   },
   "pseudacanthicus-pirarara": {
     "name": "Pseudacanthicus pirarara",
-    "mentionedIn": [],
-    "mentions": 0
-  },
-  "notropis-chrosomus": {
-    "name": "Notropis chrosomus",
-    "mentionedIn": [],
-    "mentions": 0,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/newly_arrived_notropis_chrosomus_en/"
+    "mentionedIn": [
+      "species/pseudacanthicus-pitanga"
+    ],
+    "mentions": 1
   },
   "cyprinus-carpio": {
     "name": "Cyprinus carpio",
@@ -5202,12 +5151,6 @@
     "name": "Sturisomatichthys panamense",
     "mentionedIn": [],
     "mentions": 0
-  },
-  "planorbella-duryi": {
-    "name": "Planorbella duryi",
-    "mentionedIn": [],
-    "mentions": 0,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/planorbella-duryi-2/"
   },
   "melanoides-tuberculata": {
     "name": "Melanoides tuberculata",
@@ -5251,5 +5194,42 @@
     ],
     "mentions": 1,
     "onSource": "https://www.seriouslyfish.com/species/eirmotus-insignis"
+  },
+  "marisa-cornuarietis": {
+    "name": "Marisa cornuarietis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-can-i-put-snails-in-an-uncycled-tank"
+    ],
+    "mentions": 1,
+    "onSource": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/"
+  },
+  "brotia-pagodula": {
+    "name": "Brotia pagodula",
+    "mentionedIn": [
+      "guides/aquariumbreeder-can-i-put-snails-in-an-uncycled-tank"
+    ],
+    "mentions": 1,
+    "onSource": "https://aquariumbreeder.com/brotia-pagodula-snail-detailed-guide-care-diet-and-breeding/"
+  },
+  "amaralia-oviraptor": {
+    "name": "Amaralia oviraptor",
+    "mentionedIn": [
+      "species/amaralia-hypsiura"
+    ],
+    "mentions": 1
+  },
+  "notropis-rubricroceus": {
+    "name": "Notropis rubricroceus",
+    "mentionedIn": [
+      "species/notropis-chrosomus"
+    ],
+    "mentions": 1
+  },
+  "planorbarius-corneus": {
+    "name": "Planorbarius corneus",
+    "mentionedIn": [
+      "species/planorbella-duryi"
+    ],
+    "mentions": 1
   }
 }

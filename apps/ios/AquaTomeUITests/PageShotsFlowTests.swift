@@ -9,8 +9,9 @@ import XCTest
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; what's new, its row on the home then its list, and kit's section on the home then a long list's whole
-/// list, light and dark; and Bể của tôi, empty and with a tank. Each checks only that its screen opened: what it shows,
-/// the other flows check.
+/// list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
+/// overview, a section with charts and tables, and the daily report's settings. Each checks only that its screen opened:
+/// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -27,6 +28,9 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAppIcons() { shootIcons("icons-light") }
   func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
+  func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
+  func testAnOwnersSection() { shootOwner("owner-section-light", section: "Nhận diện cá") }
+  func testTheDailyReportsSettings() { shootOwner("owner-report-light", section: "Báo cáo hằng ngày", shows: "owner-action") }
   func testSigningIn() { shootSignIn("sign-in-light") }
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
   func testFishId() { shootFishId("fish-id-light") }
@@ -211,6 +215,21 @@ final class PageShotsFlowTests: XCTestCase {
     let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", row)).firstMatch
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
+  }
+
+  /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
+  /// `shows`: what the section has once it's loaded.
+  private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart") {
+    let app = launch(dark: false, size: nil, XCUIApplication.standInOwner)
+    app.openTab("Bể của tôi")
+    app.signInWithStandInApple()
+    app.scrollToAndTap("owner-dashboard")
+    XCTAssertTrue(app.buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
+    if let section {
+      app.openOwnersSection(section)
+      XCTAssertTrue(app.descendants(matching: .any)[shows].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
+    }
+    capture(app, name, dark: false, large: false, screens: 16)
   }
 
   /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.

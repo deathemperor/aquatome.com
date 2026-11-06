@@ -93,6 +93,13 @@
           "min": 27,
           "max": 30
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -100,6 +107,13 @@
         "source": "seriouslyfish",
         "value": {
           "min": 7,
+          "max": 8
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
           "max": 8
         }
       }
@@ -111,17 +125,32 @@
           "min": 10,
           "max": 20
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 8,
+          "max": 20
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 10
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
+        "value": 120
+      },
+      {
+        "source": "aquariumcoop",
         "value": 120
       }
     ],
@@ -129,6 +158,19 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
       }
     ]
   },
@@ -140,10 +182,28 @@
       "html": "<p>Boeseman's rainbowfish, Melanotaenia boesemani, is a rainbowfish from Indonesia, known only from the Ajamaru lakes and nearby Lakes Hain and Aitinjo. One of the most popular rainbowfish in the hobby, it is almost always sold as farmed stock from the Far East and Eastern Europe. The species is rare in nature and on the IUCN red list, and collection of breeding stock for the trade has had a massively detrimental effect on it. The drab juveniles usually offered for sale can take over 12 months to colour up.</p><ul><li>Max size: 110 mm SL (4 in)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 27–30°C (81–86°F)</li><li>pH: 7.0–8.0</li><li>Hardness: 10–20 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<ul><li>Males grow to about 10 cm; females stay around 8 cm.</li><li>Temperature: 24–28°C; pH 6–8; hardness 8–20 dGH.</li><li>Lifespan: about 5–8 years on average, with some reports of 13–15 years.</li><li>Keep in groups of six or more, with slightly more females than males.</li><li>Omnivore.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>Melanotaenia boesemani has the classic rainbowfish profile with its pointed snout, deep-bodied profile, and large, distinct scales. It is currently endangered in the wild, so the Boeseman's rainbowfish sold in the aquarium hobby are all captive-bred.</p><p>The rainbowfish seen at the pet store are usually 5 cm juveniles that look washed out and barely resemble the adults. It can take up to a year of good care and high-quality foods for them to color up, but the results are well worth the wait.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-boesemani",
       "html": "<p>Indonesia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>This species is found in mountain lakes and tributaries in West Papua, Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -152,10 +212,22 @@
       "html": "<p>Has a very limited natural range, being known only from an area of three lakes known as Ajamaru, in the remote Vogelkop Peninsula of Irian Jaya, and from nearby Lakes Hain and Aitinjo. The rainbows tend to congregate in the clear shallows of the lakes, where aquatic vegetation grows very densely. The lakes are characterised by hard, alkaline water (pH 8.0-9.0), although the fish are also found in some surrounding tributaries with wildly different water chemistry (pH 6.0-6.5).</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>It usually dwells in the shallower areas where lots of vegetation grows.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-boesemani",
       "html": "<p>An active species requiring an aquarium measuring at least 120 × 30 × 30 cm (48 × 12 × 12 in), about 108 litres (29 US gal).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>A densely planted tank with areas of open space for swimming is appreciated. One of their favorite pastimes is traversing back and forth along the entire length of the aquarium, so a tank at least 1.2 m in length is recommended once they are fully grown.</p>"
     },
     {
       "key": "maintenance",
@@ -170,10 +242,22 @@
       "html": "<ul><li>Temperature: 27–30°C (81–86°F). Strictly a tropical species.</li><li>pH: 7.0-8.0. It will not do well in soft, acidic conditions.</li><li>Hardness: 10-20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>Boesemani rainbowfish are very hardy and tolerate a broad spectrum of water parameters. A tropical temperature of 24–28°C is suggested. They can go warmer, but higher temperatures tend to shorten their lifespan.</p><p>Although they originate from mildly alkaline waters, they easily handle a pH of 6–8 and enjoy harder water of 8–20 dGH. If tap water is softer, consider adding a mineral supplement such as Wonder Shell or Seachem Equilibrium.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-boesemani",
       "html": "<p>Unfussy and will accept most dried, frozen and live foods. Regular feedings of the latter will help to ensure the fish exhibit their best colours.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>These omnivores are not picky and will eat anything dropped in the tank, but they prefer meatier foods if given the choice. For optimal health, provide a variety of dry, frozen, and live foods.</p><p>Rainbowfish have smaller mouths in proportion to their bodies, so feed appropriately sized foods such as krill flakes, Vibra Bites, frozen bloodworms, daphnia, and brine shrimp.</p>"
     },
     {
       "key": "behaviour",
@@ -182,16 +266,34 @@
       "html": "<p>Very peaceful, but can disturb smaller or slow-moving fish with its rapid movements and relatively large size. Good tankmates include other similarly-sized rainbowfish, characins, danios, barbs, and catfish such as Corydoras. It can also be kept with many species of Rift Lake cichlid, due to its water requirements. Boeseman's rainbowfish can be quite skittish and do far better when kept in a shoal of at least 6-8, preferably more. The males will also be encouraged to display their best colours in the company of conspecifics. Obviously a suitably-sized aquarium would be required for a very large group.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>They tend to stay in the middle to upper half of the water column, so keep a tight lid on the tank to prevent escapes.</p><p>As a shoaling fish, keep six or more of the same species, ideally with slightly more females than males so the males display their best colors.</p><p>Because of their high activity level, keep them with other fast swimmers of comparable size, such as other rainbowfish, loaches, barbs, peaceful catfish, gouramis, danios, and medium-sized livebearers. Given the chance, they will eat cherry shrimp, baby fish, and anything else that fits in their mouths.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-boesemani",
       "html": "<p>Mature males are larger and exhibit brighter colouration than females. They also develop a much deeper body than females as they grow.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>Males display an iridescent blue front half and orange back half. Females are less colorful, have a slimmer body, and tend to stay around 8 cm long.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-boesemani",
       "html": "<p>As with other members of the genus, this is not a difficult species to breed, being an egg scatterer, although the fry can prove somewhat tricky to raise. The breeding aquarium should be at least 30\" (about 76 cm) long, and contain slightly hard, alkaline water with a pH of around 7.5 and a temperature of 26.5–29°C (80–84°F). A small air-powered filter will provide sufficient oxygenation and flow. The tank should be filled with fine-leaved plants such as java moss, or nylon spawning mops. No substrate is necessary.</p><p>The adult fish are best conditioned in a group in a separate aquarium, with plenty of live and frozen foods. As the fish come into condition, the females will appear noticeably plumper, and males will display to each other almost constantly. Select the fattest, best-coloured pair for spawning and introduce them to the spawning tank. A small raise in temperature can often induce spawning. The pair will spawn for a period of several weeks, laying batches of eggs each day. These are attached to surfaces by a small thread.</p><p>Although the adults tend not to eat the spawn, it's easier to raise the fry in a separate aquarium, so it is recommended to check the plants or mops regularly and remove any eggs found to a raising tank containing water from the spawning tank. The eggs hatch in 7-12 days, depending on temperature, and the tiny fry initially require infusoria-type food, before graduating onto free swimming foods, such as brine shrimp nauplii, after a week or so. Sinking foods are unsuitable as the fry tend to stay very close to the water surface.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "html": "<p>Boesemanis are one of the easier rainbowfish to spawn, but their tiny fry can be difficult to raise. Make sure you have both males and females, and condition them with heavier feedings. Set up a spawning tank with slightly alkaline pH, a warmer temperature, and a sponge filter that won't suck up the fry.</p><p>Place the adults in the tank with a DIY spawning mop. The male develops a white stripe on his head and does a shimmying dance to attract a female. Each day they release a small batch of eggs. After 7–10 days, remove either the parents or the eggs to prevent the adults from preying on the fry.</p><p>Three to five times a day, feed the newborns powdered fry food, vinegar eels, infusoria, and other minuscule foods. Keep the water clean with small, frequent water changes to remove uneaten food. Eventually move them to baby brine shrimp, which helps them grow fast and healthy. Boesemani rainbowfish have a longer grow-out time than many other fish.</p>"
     },
     {
       "key": "notes",
@@ -202,47 +304,116 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/0b716619bab2b290.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/0b716619bab2b290-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "caption": "Care Guide for Boesemani Rainbowfish — Tank Setup, Breeding, and More - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/54c668e6b938ba1a.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/54c668e6b938ba1a-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "caption": "Boesemani Rainbow Decal Sticker - Aquarium Co - Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/da95bd93512e6dff.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/da95bd93512e6dff-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "caption": "Boeseman's rainbowfish (Melanotaenia boesemani)",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/3a9595e225aa7ad2.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/3a9595e225aa7ad2-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish",
+      "caption": "Boesemani rainbowfish in planted community tank",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/22ea9186a5d8cacc.webp",
+      "thumb": "https://media.aquatome.com/commons/22ea9186a5d8cacc-480.webp",
       "width": 960,
       "height": 561,
       "licence": "CC BY-SA 3.0",
       "author": "H. Zell",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_boesemani_-_Karlsruhe_Zoo_01.jpg",
-      "caption": "Melanotaenia boesemani Allen & Cross, 1980, Boeseman's rainbowfish; Karlsruhe Zoo, Karlsruhe, Germany.",
-      "thumb": "https://media.aquatome.com/commons/22ea9186a5d8cacc-480.webp"
+      "caption": "Melanotaenia boesemani Allen & Cross, 1980, Boeseman's rainbowfish; Karlsruhe Zoo, Karlsruhe, Germany."
     },
     {
       "url": "https://media.aquatome.com/commons/8e0fb8760f0ae040.webp",
+      "thumb": "https://media.aquatome.com/commons/8e0fb8760f0ae040-480.webp",
       "width": 960,
       "height": 1117,
       "licence": "CC0",
       "author": "CurtisD519",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bosemani_Rainbow_Fish_Pair.jpg",
-      "caption": "Female above. Male below. (Other Names; Boseman’s, Boeseman, Boesemani)",
-      "thumb": "https://media.aquatome.com/commons/8e0fb8760f0ae040-480.webp"
+      "caption": "Female above. Male below. (Other Names; Boseman’s, Boeseman, Boesemani)"
     },
     {
       "url": "https://media.aquatome.com/commons/476b1bc57ac58be5.webp",
+      "thumb": "https://media.aquatome.com/commons/476b1bc57ac58be5-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "FakirNL",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_boesemani_in_Ouwehands_Dierenpark.jpg",
-      "caption": "Melanotaenia boesemani (Boeseman's rainbowfish) in Ouwehands Dierenpark",
-      "thumb": "https://media.aquatome.com/commons/476b1bc57ac58be5-480.webp"
+      "caption": "Melanotaenia boesemani (Boeseman's rainbowfish) in Ouwehands Dierenpark"
     },
     {
       "url": "https://media.aquatome.com/commons/1cae66a04b31d50d.webp",
+      "thumb": "https://media.aquatome.com/commons/1cae66a04b31d50d-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaeniidae_Melanotaenia_boesemani_1.jpg",
-      "caption": "Melanotaenia boesemani BOESEMAN'S RAINBOWFISH. Palmengarten Frankfurt.",
-      "thumb": "https://media.aquatome.com/commons/1cae66a04b31d50d-480.webp"
+      "caption": "Melanotaenia boesemani BOESEMAN'S RAINBOWFISH. Palmengarten Frankfurt."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wY3ys_VE5nI",
+      "title": "Boesemani Rainbowfish Care Guide: Everything you need to know about keeping these gorgeous fish",
+      "durationSec": 903,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "0-8mQJHDPWA",
+      "title": "Boesemani Rainbowfish Care Guide | Tank Size, Diet, Tank Mates & Breeding",
+      "durationSec": 777,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NQ6rzKtDBP8",
+      "title": "How I Bred Melanotaenia Boesemani at Home",
+      "durationSec": 468,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7QbcUUzekPA",
+      "title": "Boesemani Rainbowfish - Amazing Freshwater Aquarium Fish",
+      "durationSec": 414,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -273,5 +444,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }
