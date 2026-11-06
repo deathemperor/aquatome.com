@@ -1,10 +1,10 @@
 import type { DataCardField, Range } from '@aq/schema'
-import { LOCALE, type Lang } from './i18n'
+import { LANG, type Lang } from './i18n'
 
 export const isRange = (v: Range | number): v is Range => typeof v === 'object'
 /** Numbers as the page's language writes them (vi, id: 1.234,5; th: 1,234.5). */
 export function fmt(lang: Lang) {
-  const nf = new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 1 })
+  const nf = new Intl.NumberFormat(LANG[lang].locale, { maximumFractionDigits: 1 })
   const num = (n: number) => nf.format(n)
   const range = (v: Range | number) => (isRange(v) ? (v.min === v.max ? num(v.min) : `${num(v.min)}–${num(v.max)}`) : num(v))
   return { num, range }
@@ -20,7 +20,7 @@ export const FIELD_LABELS: Record<DataCardField, string> = {
 export const FIELD_ORDER: DataCardField[] = ['tempC', 'ph', 'gh', 'sizeCm', 'lifeYears', 'tankCm', 'difficulty']
 
 export const CATEGORY_LABELS: Record<string, string> = {
-  'be-ca': 'Bể cá', loc: 'Lọc', 'thuc-an': 'Thức ăn', suoi: 'Sưởi', 'cay-thuy-sinh': 'Cây thủy sinh', 'phan-nen': 'Nền và lá', den: 'Đèn', co2: 'CO2', 'test-nuoc': 'Bộ test nước',
+  'be-ca': 'Bể cá', loc: 'Lọc', 'thuc-an': 'Thức ăn', suoi: 'Sưởi', 'cay-thuy-sinh': 'Cây thủy sinh', 'phan-nen': 'Nền và lá', den: 'Đèn', co2: 'CO2', 'test-nuoc': 'Bộ test nước', 'o-cam': 'Ổ cắm thông minh',
 }
 export const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? c
 

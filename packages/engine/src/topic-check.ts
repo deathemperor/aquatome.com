@@ -2,12 +2,13 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { WRITTEN_LANGS } from '@aq/schema'
 import type { Llm } from './claude'
 
 /**
  * Guides keep to the subject their title promises. Some videos drift into another subject near the end, and the guide
  * written from one followed it (a lighting-hours guide with sections on pre-filters). Each guide whose text is new or
- * changed, in each language it has (Vietnamese, Indonesian, Thai: AquaTome's own guides are written separately in each),
+ * changed, in each language it has (AquaTome's own guides are written separately in each, one the site doesn't serve yet too),
  * is read by the model (title, then each section's heading and opening); sections about another subject are dropped,
  * with the FAQ questions and summary points only about them. Never more than half of a guide's sections: that guide is
  * only reported.
@@ -24,7 +25,6 @@ const SCHEMA = {
 type Verdict = { offTopic: { section: number; reason: string }[]; faq?: number[]; summary?: number[] }
 type Guide = { name: string; body: string; summary?: string[]; faq?: { q: string; a: string }[] } & Record<string, unknown>
 
-const LANGS = ['vi', 'id', 'th'] as const
 const text = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
 const bodyHash = (body: string) => createHash('sha1').update(body).digest('hex').slice(0, 16)
 const hash = (g: Guide) => bodyHash(g.body)
@@ -55,7 +55,7 @@ export async function topicCheck(root: string, llm: Llm, opts: { limit: number; 
   const ids = (await readdir(join(root, 'content', 'guides')).catch(() => [] as string[])).filter(id => !opts.only || opts.only.includes(id)).sort()
   const report = { checked: [] as string[], trimmed: [] as { id: string; dropped: string[] }[], held: [] as string[], failed: [] as string[] }
   // One state entry per guide and language: the Vietnamese under the guide's id, the others as `<id>:<lang>`.
-  const files = ids.flatMap(id => LANGS.map(lang => ({ id, key: lang === 'vi' ? id : `${id}:${lang}`, file: join(root, 'content', 'guides', id, `${lang}.json`) })))
+  const files = ids.flatMap(id => WRITTEN_LANGS.map(lang => ({ id, key: lang === 'vi' ? id : `${id}:${lang}`, file: join(root, 'content', 'guides', id, `${lang}.json`) })))
   for (const { key: id, file } of files) {
     if (report.checked.length + report.failed.length >= opts.limit) break
     const g = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as Guide | null

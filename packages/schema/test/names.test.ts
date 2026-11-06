@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { nameKey } from '../src/index'
+import { WRITTEN_LANGS } from '../src/langs'
 
 // Two items of one kind under one name can't be told apart in lists, and typing the name in the tank-mates checker adds
 // neither. Species and breeds share /ca/, so they count as one kind. Holds for the real content (the engine runs this
@@ -20,7 +21,7 @@ function clashes(root: string, lang: string, kinds: string[]): string[] {
   return [...by.values()].filter(xs => xs.length > 1).map(xs => xs.join(' = '))
 }
 
-for (const [label, rel] of Object.entries(ROOTS)) for (const lang of ['vi', 'id', 'th']) for (const kinds of KINDS) {
+for (const [label, rel] of Object.entries(ROOTS)) for (const lang of WRITTEN_LANGS) for (const kinds of KINDS) {
   test(`${label}: no two ${kinds.join(' or ')} share a ${lang} name`, () => {
     expect(clashes(fileURLToPath(new URL(rel, import.meta.url)), lang, kinds)).toEqual([])
   })

@@ -76,7 +76,7 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   expect(refs?.items.map(r => [r.title, r.url]) ?? [], d.path).toEqual(li.map(l => [txt(l.querySelector('a')), l.querySelector('a')!.getAttribute('href')]))
   if (refs) expect(refs.note, d.path).toBe(txt(dom.querySelector('.body .refs .note')))
   expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite, .body #muc-range a.cite').length)
-  for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch với sự cho phép của nguồn$/)
+  for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch từ nguồn$/)
   // The sections under their questions, with the ids the page's jump row links.
   expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
 }

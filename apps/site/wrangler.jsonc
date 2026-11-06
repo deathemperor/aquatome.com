@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  // Production: https://aquatome.com. www and the old staging host 301 to it (CANONICAL_HOST).
+  // Production: https://aquatome.com. www and the old staging host 301 to it (CANONICAL_HOST). dashboard.aquatome.com is the owner's dashboard.
   // The Worker collects beacon events, comments and reader photos, and serves the /_ab dashboard; everything else is plain static assets.
   "name": "aquatome",
   "main": "worker/index.ts",
@@ -12,13 +12,20 @@
     "run_worker_first": [
       "/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi", "/vi/*",
       "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
-      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/video/*",
-      "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*"
+      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/ung-dung/*", "/video/*", "/id/aplikasi/*", "/th/mobile-app/*",
+      "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*",
+      // The dashboard's own host (worker/dashboard-host.ts): its pages at /<key>/ (shell.ts WEB_PAGES; "/" and "/ung-dung/*"
+      // are above), a page's JSON and its robots.txt. Without its line a page there is the site's 404 page, the Worker never
+      // asked, so a page added to the dashboard adds its line here (a test names it). No negative patterns: one wins over
+      // every positive rule, an app page's included. What skips the Worker on that host carries noindex (public/_headers).
+      "/noi-dung/*", "/doc-gia/*", "/nhan-dien-ca/*", "/anh-nhan-dien/*", "/affiliate/*", "/muon-co/*", "/anh-ban-doc/*", "/an-trang/*",
+      "/tai-khoan/*", "/thanh-cong/*", "/bao-cao/*", "/thanh-cong.json", "/robots.txt"
     ]
   },
   // The owner's dashboard (/_ab/) opens only to the owner's account signed in on the site: secret OWNER_ACCOUNTS, the
   // account ids, comma-separated. Secret AB_DASH_TOKEN is the build's and scripts' bearer token (/_ab/hidden.json and the
   // admin APIs); it no longer opens the dashboard.
+  // With ACCESS_TEAM_DOMAIN and ACCESS_AUD set (vars, below) the pages move to dashboard.aquatome.com, behind Cloudflare Access.
   // Affiliate catalog, click counts and comments. Schema: `wrangler d1 migrations apply aquatome --remote`.
   // Comments also need secrets TURNSTILE_SECRET and COMMENT_HMAC_KEY; without them /_c answers 503 and the section stays hidden.
   // Accounts for saved tanks (/api/v1/*, worker/accounts/): ACCOUNTS "on" (unset: off; "preview": the owner only). Needs the
@@ -38,7 +45,9 @@
   // uploads bucket under diagnostics/ (a lifecycle rule deletes them).
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }, { "binding": "APP_EVENTS", "dataset": "aquatome_app" }],
   "triggers": { "crons": ["17 20 * * *"] },
-  "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com"] }],
+  // Sign-in codes, and the daily report (worker/daily, POST /_ab/report), which goes to the secret REPORT_TO. Without that
+  // secret the report is kept on the dashboard, marked not sent.
+  "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com", "bao-cao@aquatome.com"] }],
   "vars": {
     "CANONICAL_HOST": "aquatome.com",
     "CF_ACCOUNT_ID": "76f1666bfa8377c4a6ecd1c8993a37df",
@@ -51,10 +60,16 @@
     "PASSKEYS": "on",
     // Fish ID as an agent (worker/fishid/agent.ts): on since it passed the design's rule on the leak-checked 200 photos
     // (docs/review/fish-id-accuracy.md): top-1 53.5% → 62.5%, median 9.1 s, $30.87 per 1,000. "0" or removed: today's call.
-    "FISH_ID_AGENT": "1"
+    "FISH_ID_AGENT": "1",
+    // Cloudflare Access on dashboard.aquatome.com (worker/access.ts): the team domain (<team>.cloudflareaccess.com) and the
+    // Access app's audience tag. While either is empty, that host refuses everything and /_ab/ here is still the dashboard.
+    // Set them here, not on Cloudflare's dashboard: each deploy writes this file's vars over what's there.
+    "ACCESS_TEAM_DOMAIN": "",
+    "ACCESS_AUD": ""
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
-    { "pattern": "www.aquatome.com", "zone_name": "aquatome.com", "custom_domain": true }
+    { "pattern": "www.aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },
+    { "pattern": "dashboard.aquatome.com", "zone_name": "aquatome.com", "custom_domain": true }
   ]
 }

@@ -1,0 +1,117 @@
+{
+  "id": "youtube-6497twA1KLg",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=6497twA1KLg",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carassius-auratus"
+  ],
+  "updatedAt": "2026-11-05",
+  "video": {
+    "youtubeId": "6497twA1KLg",
+    "title": "Which One Cycles Your Aquarium Faster? [Data Nerd Video]",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 1530,
+    "publishedAt": "2026-02-25",
+    "chapters": [],
+    "series": {
+      "id": "PLNM4mDAXGxWztcos8KO9aqqiXjPDY2w9n",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/6497twA1KLg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Carassius auratus"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Aquarium Co-Op",
+        "model": "Live Aquarium Bacteria Starter Culture",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Zyme 7",
+        "t": 2
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Fishless Fuel",
+        "t": 2
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "Aquarium Co-Op",
+        "model": "ammonia test strips",
+        "t": 270
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "brand": "Aquarium Co-Op",
+        "model": "multi test strips",
+        "t": 270
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 150
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 810
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Thử nghiệm được bố trí ra sao",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/6497twA1KLg/t10.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể nuôi cá có lọc xốp và lớp sứ lọc trắng dưới đáy."
+          }
+        ]
+      },
+      {
+        "heading": "Đợt 2: nước ấm và liều amoniac 1 ppm hay 2 ppm",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6497twA1KLg/p2-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/6497twA1KLg/p2-ha3dhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Ewkaa",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+          "caption": "Máy sưởi bể cá dạng thanh có giác hút, dùng giữ nước ấm ổn định."
+        }
+      },
+      {
+        "heading": "Đợt 3: so với vi sinh chai và nền có sẵn vi sinh",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/6497twA1KLg/t20.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Bể cá vàng với nền sỏi trắng và hai ống lọc đen."
+          }
+        ]
+      }
+    ]
+  }
+}

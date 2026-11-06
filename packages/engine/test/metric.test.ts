@@ -17,13 +17,14 @@ test('fish, plant, breed and guide pages in every language come out in metric; o
     'species/d/vi.json': page({ 'diet:seriouslyfish': '<p>Ăn tạp, 24 °C.</p>' }),
     'guides/e/vi.json': page({}, { body: '<p>Bể 20 gallon long.</p>', summary: ['Ống PVC ¾ inch.'] }),
     'guides/e/th.json': page({}, { body: '<p>ลดลงราว 15°F ภายในหนึ่งชั่วโมง</p>' }),
+    'guides/e/ms.json': page({}, { body: '<p>Akuarium 1,000 gelen, 2.5 inci.</p>' }),
     'glossary/f/vi.json': page({}, { definition: 'Bể 10 gallon.' }),
   }
   for (const [f, v] of Object.entries(files)) {
     await mkdir(join(root, f, '..'), { recursive: true })
     await writeFile(join(root, f), `${JSON.stringify(v, null, 2)}\n`)
   }
-  expect(await metricPages(root)).toEqual(['species/a/vi', 'species/a/th', 'plants/b/vi', 'breeds/c/id', 'guides/e/vi', 'guides/e/th'])
+  expect(await metricPages(root)).toEqual(['species/a/vi', 'species/a/th', 'plants/b/vi', 'breeds/c/id', 'guides/e/vi', 'guides/e/th', 'guides/e/ms'])
   const read = async (f: string) => JSON.parse(await readFile(join(root, f), 'utf8'))
   expect((await read('species/a/vi.json')).sections).toEqual({ 'quickFacts:seriouslyfish': '<li>Nhiệt độ: 20–30°C</li>', 'references:seriouslyfish': '<p>Smith (1990) 12 in.</p>' })
   expect((await read('species/a/th.json')).sections['quickFacts:bwaquatics']).toBe('<li>ขนาดสูงสุด: ประมาณ 12.5 ซม.</li>')
@@ -31,6 +32,7 @@ test('fish, plant, breed and guide pages in every language come out in metric; o
   expect(await read('breeds/c/id.json')).toMatchObject({ body: '<p>Minimal 114 L.</p>', summary: ['Akuarium 38 liter.'], faq: [{ q: 'Suhu?', a: '24 °C.' }] })
   expect(await read('guides/e/vi.json')).toMatchObject({ body: '<p>Bể khoảng 75 lít (76 × 30 × 30 cm).</p>', summary: ['Ống PVC phi 27.'] })
   expect((await read('guides/e/th.json')).body).toBe('<p>ลดลงราว 8°C ภายในหนึ่งชั่วโมง</p>') // a change of 15 °F, not a temperature
+  expect((await read('guides/e/ms.json')).body).toBe('<p>Akuarium 3,800 liter, 6.5 cm.</p>') // a language the site doesn't serve yet, in its own number marks
   expect((await read('glossary/f/vi.json')).definition).toBe('Bể 10 gallon.') // not a page this pass writes
   expect(await metricPages(root)).toEqual([]) // done: nothing to change the second time
 })

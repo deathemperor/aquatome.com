@@ -1,0 +1,116 @@
+{
+  "id": "balantiocheilos-melanopterus",
+  "native": {
+    "input": "2624803722c68131",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', and work by Ng and Kottelat published in 2007 (see 'Notes') confirmed that contrary to much of the published information this species does not occur in Indochina and is restricted to Borneo, Sumatra and possibly Peninsular Malaysia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', and work by Ng and Kottelat published in 2007 (see 'Notes') confirmed that contrary to much of the published information this species does not occur in Indochina and is restricted to Borneo, Sumatra and possibly Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', and work by Ng and Kottelat published in 2007 (see 'Notes') confirmed that contrary to much of the published information this species does not occur in Indochina and is restricted to Borneo, Sumatra and possibly Peninsular Malaysia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Bandjarmasin, Borneo, Indonesia', and work by Ng and Kottelat published in 2007 (see 'Notes') confirmed that contrary to much of the published information this species does not occur in Indochina and is restricted to Borneo, Sumatra and possibly Peninsular Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "A pelagic species primarily occurring in rivers but also natural lakes such as the Danau Sentarum system.",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "For example it is now thought extirpated from the Batang Hari river drainage, Sumatra, and in the Danau Sentarum National Park, Borneo, numbers have been declining steadily since 1975.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Balantiocheilos melanopterus",
+    "status": "ACCEPTED",
+    "taxonKey": 2363816,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "651665d4-2e15-43b8-a226-adf26413a0cd",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 13,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

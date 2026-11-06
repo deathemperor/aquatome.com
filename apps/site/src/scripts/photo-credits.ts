@@ -26,18 +26,18 @@ export function creditPhoto(p: CardPhoto) {
     for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v)
     return e
   }
-  // As lib/i18n licenceLabel: the permission note is stored in Vietnamese; licence names (CC BY…) stay as they are.
-  const licence = p.licence === 'dùng với sự cho phép' ? ct('dùng với sự cho phép') : p.licence
-  // As the footer: an Unsplash row is its line, its photos numbers once the name links the photographer's page.
+  // As the footer: an Unsplash row is its line, its photos numbers once the name links the photographer's page; then the
+  // licence (none for a photo a source let us use) and the count.
   const unsplash = isUnsplash(p.licence)
   const nums = urls.length > 1 || (unsplash && !!p.authorUrl)
   const who = unsplash
     ? unsplashParts(ct('Ảnh: {author} trên {site}'), p.author, { ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(nums ? {} : { photo: p.url }) })
       .map(x => (x.href ? el('a', x.text, { ...(x.cls ? { class: x.cls } : {}), href: x.href, rel: 'noopener' }) : x.text))
     : [urls.length === 1 ? el('a', p.author, { href: p.url, rel: 'noopener' }) : el('strong', p.author)]
+  const more = [p.licence, nums ? ct('{n} ảnh', { n: urls.length }) : ''].filter(Boolean).join(' · ')
   row.replaceChildren(
     ...who,
-    el('span', ` · ${licence}${nums ? ` · ${ct('{n} ảnh', { n: urls.length })}` : ''}`, { class: 'lic' }),
+    ...(more ? [el('span', ` · ${more}`, { class: 'lic' })] : []),
   )
   if (nums) {
     const numbers = row.appendChild(el('span', '', { class: 'nums' }))

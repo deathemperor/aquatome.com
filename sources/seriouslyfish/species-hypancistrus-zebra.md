@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/hypancistrus-zebra
 title: Hypancistrus zebra (Zebra Plec) · Seriously Fish
-fetchedAt: 2026-11-05T16:26:39.664Z
+fetchedAt: 2026-11-05T23:01:27.446Z
 hash: 2fd5f55f38c5a39a623b65c311d3b09d2bddda73a0471fd8cb0a8e83dd4ac212
 ---
 
