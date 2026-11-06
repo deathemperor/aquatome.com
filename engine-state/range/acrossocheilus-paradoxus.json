@@ -1,0 +1,133 @@
+{
+  "id": "acrossocheilus-paradoxus",
+  "native": {
+    "input": "3dbe032ff18b9e10",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Taiwan banded barb, Acrossocheilus paradoxus, is a cyprinid native to Taiwan, where it occurs throughout western and northeastern river drainages.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Taiwan, where it occurs throughout western and northeastern river drainages, plus Fujian and Zhejiang provinces, mainland China.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Taiwan, where it occurs throughout western and northeastern river drainages, plus Fujian and Zhejiang provinces, mainland China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acrossocheilus paradoxus",
+    "status": "ACCEPTED",
+    "taxonKey": 2366388,
+    "datasets": [
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        4284
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        3329
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        126
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        52
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        27
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        24
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        21
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        19
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "7bff8305-a1e3-4e5b-bbc3-4afe04006b88",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        2
+      ],
+      [
+        "26ae0930-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "3a3aae4c-5895-4ba5-b3ba-d5f7d924478d",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "TW",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "akysis-maculipinnis",
+  "native": {
+    "input": "e7b85ec078c0f3a0",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Chantaboon, Southeast Siam' which corresponds to modern day Chanthaburi Province, eastern Thailand and presumably the river drainage of the same name.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's apparently restricted to this area with distribution extending into southwestern Cambodia, though to date we've been unable to locate any definitive record pertaining to the latter country.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phrya (Thailand) basins as well as basins around the upper Gulf of Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phrya (Thailand) basins as well as basins around the upper Gulf of Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phrya",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phrya (Thailand) basins as well as basins around the upper Gulf of Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis maculipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340897,
+    "datasets": [],
+    "native": [
+      "TH"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

@@ -2,6 +2,7 @@ import { expect, test } from 'vitest'
 import { lastDays } from '../admin/chart'
 import { summariseApp, type AppDay } from '../admin/app'
 import type { Overview } from '../admin/pages'
+import type { Metric, Scoreboard } from '../admin/scoreboard'
 import { compose, highlights, needsCare, siteStats, type ComposeInput, type Stat } from '../daily/compose'
 import { dashboardUrl } from '../paths'
 import { parseGitHubSide, type GitHubSide } from '../daily/github'
@@ -37,7 +38,14 @@ function gh(over: Partial<GitHubSide> = {}): GitHubSide {
     failing: [], issues: nothing, notes: 0, prs: { ready: nothing, draft: nothing }, ...over,
   }
 }
-const input = (over: Partial<ComposeInput> = {}): ComposeInput => ({ now: NOW, overview: quiet(), app: noApp, gh: gh(), ...over })
+const metric = (key: string, unit: Metric['unit'], now: number | null, lastSoFar: number | null, last: number | null): Metric => ({ key, name: `Tên tiếng Việt ${key}`, group: 'reach', unit, now, lastSoFar, last, weeks: [] })
+/** The week's scoreboard as loadScoreboard gives it; its names are the page's Vietnamese, which the report doesn't print. */
+const SCORE: Scoreboard = {
+  v: 1, at: NOW.toISOString(), tz: TZ, page: dashboardUrl('/_ab/thanh-cong/'), docs: '', weeks: [], countingFrom: '2026-11-05T03:10:00Z', northStar: 'answered',
+  metrics: [metric('answered', 'count', 12, 9, 20), metric('readers', 'count', 1234, 1000, 2500), metric('sessions', 'count', 4000, 3000, 6000), metric('searchShare', 'percent', 66.6667, 50, 40), metric('stepShare', 'percent', 33.3333, null, 25), metric('shopPer1000', 'per1000', 2.5, 0, null)],
+  countries: { now: [], last: [] }, failed: {}, notYet: [],
+}
+const input = (over: Partial<ComposeInput> = {}): ComposeInput => ({ now: NOW, overview: quiet(), app: noApp, gh: gh(), scoreboard: SCORE, ...over })
 const titles = (i: ComposeInput) => needsCare(i).map(c => c.title)
 
 test('a quiet day: nothing needs care, and the subject says so', () => {
@@ -46,6 +54,42 @@ test('a quiet day: nothing needs care, and the subject says so', () => {
   expect(r.subject).toBe('AquaTome daily · 6 Nov · nothing needs care')
   expect(r.text).toContain('NEEDS CARE: nothing')
   expect(r.text).toContain('No big moves.')
+})
+
+const SCOREBOARD_URL = dashboardUrl('/_ab/thanh-cong/')
+test('success, this week: first, the north star and the key metrics in English, this week so far against the same point and all of last week, and the scoreboard\'s link', () => {
+  const r = compose(input())
+  const lines = [
+    'Readers who found their answer: 12 (same point last week 9, all of last week 20)',
+    'Readers: 1,234 (same point last week 1,000, all of last week 2,500)',
+    'Readers from search: 66.7% (same point last week 50.0%, all of last week 40.0%)',
+    'Sessions with a next step: 33.3% (all of last week 25.0%)',
+    'Shop clicks per 1,000 readers: 2.5 (same point last week 0.0, all of last week —)',
+  ]
+  expect(r.text).toContain(['', 'SUCCESS, THIS WEEK', ...lines.map(l => `- ${l}`), `Scoreboard: ${SCOREBOARD_URL}`, '', 'NEEDS CARE: nothing'].join('\n'))
+  expect(r.html).toContain(`<b>${lines[0]}</b>`)
+  for (const l of lines.slice(1)) expect(r.html).toContain(`>${l}</li>`)
+  expect(r.html).toContain(`<a href="${SCOREBOARD_URL}" style="color:#2f6b4f">Scoreboard</a>`)
+  expect(r.html.indexOf('Success, this week')).toBeLessThan(r.html.indexOf('Needs care'))
+  expect(`${r.text}${r.html}`).not.toMatch(VIETNAMESE)
+  expect(r.care).toBe(0)
+})
+
+test('success, this week: a scoreboard that couldn\'t load, or whose readers\' numbers didn\'t, says so in its place and in what needs care; the report still goes', () => {
+  for (const scoreboard of [undefined, { ...SCORE, failed: { beacon: 'Chưa cấu hình AE_API_TOKEN.' } }]) {
+    const r = compose(input({ scoreboard }))
+    expect(r.text).toContain(`SUCCESS, THIS WEEK\nCould not load the scoreboard's numbers.\nScoreboard: ${SCOREBOARD_URL}`)
+    expect(r.html).toContain('Could not load the scoreboard&#39;s numbers.')
+    expect(r.text).not.toContain('Readers who found their answer')
+    expect(needsCare(input({ scoreboard }))).toEqual([{ title: 'Could not load the week\'s success numbers', href: '/_ab/thanh-cong/' }])
+    expect(r.subject).toBe('AquaTome daily · 6 Nov · 1 needs care')
+    // Its error stays on its page.
+    expect(`${r.text}${r.html}`).not.toMatch(VIETNAMESE)
+  }
+  // Another part (GitHub's issues, say) isn't one the key metrics read.
+  const checks = input({ scoreboard: { ...SCORE, failed: { checks: 'GitHub 403' } } })
+  expect(compose(checks).text).toContain('- Readers: 1,234')
+  expect(needsCare(checks)).toEqual([])
 })
 
 test('needs care: failures with no later success, open problem issues and what GitHub would not give come first, each with its link', () => {
@@ -104,12 +148,12 @@ const VIETNAMESE = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếề
 test('needs care: the overview\'s to-dos, each of them, in English with the page\'s link', () => {
   const F = { failed: 'x' }
   const failed = { ...S.OVERVIEW, readers: F, clicks: F, fish: F, keys: F, photos: F, waiting: F, wanted: F, accounts: F, hidden: F, content: F, snapshots: F }
-  for (const overview of [S.OVERVIEW, failed]) {
-    const r = compose({ now: S.NOW, overview, app: noApp, gh: gh() })
+  for (const [overview, scoreboard] of [[S.OVERVIEW, SCORE], [failed, undefined]] as const) {
+    const r = compose({ now: S.NOW, overview, app: noApp, gh: gh(), scoreboard })
     expect(`${r.subject}\n${r.text}\n${r.html}`).not.toMatch(VIETNAMESE)
   }
-  expect(titles({ now: S.NOW, overview: S.OVERVIEW, app: noApp, gh: gh() })).toEqual(['1 Anthropic key resting', '2Hr Aquarist needs you to pass a browser check'])
-  expect(titles({ now: S.NOW, overview: failed, app: noApp, gh: gh() })).toEqual([
+  expect(titles({ now: S.NOW, overview: S.OVERVIEW, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual(['1 Anthropic key resting', '2Hr Aquarist needs you to pass a browser check'])
+  expect(titles({ now: S.NOW, overview: failed, app: noApp, gh: gh(), scoreboard: SCORE })).toEqual([
     'Could not read the Anthropic keys\' state', 'Could not load readers', 'Could not load affiliate clicks', 'Could not load the fish ID log', 'Could not load comments and accounts',
     'Could not load the moderation queues', 'Could not load reader photos', 'Could not load the wanted names', 'Could not load the hidden pages', 'Could not load the content totals', 'Could not load the daily content totals',
   ])
@@ -188,8 +232,9 @@ test('what changed: the site\'s, the app\'s and the engine\'s lines, each newest
   const log = dashboardUrl('/_ab/thay-doi/')
   expect(text).toContain(['What changed', '  Site:', '  - Shop links fit a 320 px screen.', '  - Readers can attach one photo to a comment.', '  App:', '  - The Tìm home lists what\'s new on the site.', '  Engine:', '  - Guides keep their photos.', `  Change log: ${log}`, 'Deploys: '].join('\n'))
   expect(text.match(/attach one photo/g)).toHaveLength(1)
-  // First of what was built, before the machinery's counts.
-  expect(text.indexOf('What changed')).toBeLessThan(text.indexOf('Deploys:'))
+  // After the week's success and what needs care; first of what was built, before the machinery's counts.
+  const at = (x: string) => text.indexOf(x)
+  expect([at('SUCCESS, THIS WEEK'), at('NEEDS CARE'), at('What changed'), at('Deploys:')].every((x, i, xs) => x >= 0 && (i === 0 || x > xs[i - 1]!))).toBe(true)
   expect(text).not.toMatch(/#\d|\/pull\//)
   expect(html).toMatch(/<b>What changed<\/b><\/p><p[^>]*>Site<\/p><ul[^>]*><li[^>]*>Shop links fit a 320 px screen\.<\/li><li[^>]*>Readers can attach one photo to a comment\.<\/li><\/ul><p[^>]*>App<\/p>/)
   expect(html).toContain(`<a href="${log}" style="color:#2f6b4f">Change log</a>`)
@@ -221,7 +266,7 @@ test('the app: one line while it has sent nothing; a table once it has', () => {
 
 test('what a report may carry: no address, no picture, links only to aquatome.com and github.com, what GitHub sent escaped', () => {
   const hostile = 'mail reader.one+x@example.com <script>alert(1)</script> <img src=https://tracker.test/p.gif> see www.tracker.test/x'
-  const r = compose({ now: S.NOW, overview: S.OVERVIEW, app: { ...S.APP, sessions: 1 }, gh: gh({
+  const r = compose({ now: S.NOW, overview: S.OVERVIEW, app: { ...S.APP, sessions: 1 }, scoreboard: SCORE, gh: gh({
     failing: [{ workflow: hostile, url: `${REPO}/actions/runs/7`, since: '2026-11-03T15:00:00Z', failures: 1 }],
     issues: { total: 1, items: [{ number: 1, title: hostile, url: `${REPO}/issues/1` }] },
     changes: [{ area: 'Site', text: hostile, at: '2026-11-05T10:00:00Z' }],
@@ -245,7 +290,7 @@ test('what a report may carry: no address, no picture, links only to aquatome.co
 })
 
 test('every dashboard link goes through one helper', () => {
-  const r = compose({ now: S.NOW, overview: S.OVERVIEW, app: { ...S.APP, sessions: 1 }, gh: gh() })
+  const r = compose({ now: S.NOW, overview: S.OVERVIEW, app: { ...S.APP, sessions: 1 }, gh: gh(), scoreboard: SCORE })
   expect(r.html).toContain(`href="${dashboardUrl('/_ab/nhan-dien-ca/#key')}"`)
   expect(r.html).toContain(`href="${dashboardUrl('/_ab/bao-cao/')}"`)
   expect(r.text).toContain(dashboardUrl('/_ab/ung-dung/'))

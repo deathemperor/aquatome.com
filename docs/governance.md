@@ -159,10 +159,11 @@ that would have caught it).
     title or link of its own, and a body the Worker reads (`apps/site/test/daily-report.test.ts`). A PR's changes are
     its body's `## Changelog` lines (several, `none`, odd spacing, an example in a code block not one), else its title
     for a `feat` or `fix` outside the ci, test, docs and chore scopes and not the engine's content, labelled by its files:
-    any in `apps/ios/` App, else any in `packages/engine/` Engine, else Site (`changelog.test.ts`). The composer: what
-    needs care, the highlights, what changed by area (each line once, newest first, the change log's link; "No product
-    changes." only when GitHub gave everything), the app with no data yet, and no address, picture or link to another
-    site in a report (`daily-compose.test.ts`). `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
+    any in `apps/ios/` App, else any in `packages/engine/` Engine, else Site (`changelog.test.ts`). The composer: the
+    week's success numbers first, in English, or why they're missing, what needs care, the highlights, what changed by
+    area (each line once, newest first, the change log's link; "No product changes." only when GitHub gave everything),
+    the app with no data yet, and no address, picture or link to another site in a report (`daily-compose.test.ts`).
+    `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
     id even at the same moment, and the recipient in nothing but the send; email off, push on (with no key, no phone, a
     refusal alone or beside a mail sent), neither sent twice; a phone whose session ended (signed out, expired, the
     account deleted or no longer the owner's) dropped unsent, one registered again in a new session kept; the log page, each row saying what went out; the page's

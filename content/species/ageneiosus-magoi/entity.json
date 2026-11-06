@@ -10,6 +10,96 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Venezuela; Orinoco basin.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344547,
+      "total": 45,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          43
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          19,
+          19
+        ],
+        [
+          -70.3125,
+          8.4375,
+          11,
+          11
+        ],
+        [
+          -68.90625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

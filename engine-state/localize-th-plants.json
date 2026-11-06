@@ -1799,16 +1799,59 @@
       "\"โตแบบหยาบและยืดยาวเก้งก้าง\" is awkward; consider \"โตหยาบและเรียวยืดไม่สวย\"."
     ]
   },
-  "rotala-macrandra": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "โรทาล่า มาแครนดร้า",
+  "riccardia-chamedryfolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ริคคาร์เดีย",
     "confidence": "medium",
-    "score": 0.88,
+    "score": 0.75,
     "notes": [
-      "\"ปลาเสือเชอร์รี่\" for cherry barbs: \"ปลาเสือ\" usually means tiger barb. Use \"ปลาตะเพียนเชอร์รี่\" or \"ปลาเชอร์รี่บาร์บ\".",
-      "\"ปลาสอด\" for mollies: use \"ปลาโมลลี่\" (or \"ปลาสอดโมลลี่\"), because \"ปลาสอด\" usually means swordtail.",
-      "\"ใส่ปุ๋ยน้ำในปริมาณน้อย (แบบ lean)\": the English \"lean\" is left in. \"ปุ๋ยน้ำ\" also narrows \"water-column fertilization\" to liquid fertilizer only. Consider \"ใส่ปุ๋ยในน้ำแบบเน้นปริมาณน้อย (lean dosing)\"."
+      "Item 2: \"แพตช์\" is transliterated jargon; use a more natural Thai like \"ผืน/กอ/บริเวณที่มีพื้นผิวชัดเจน\" (same in item 3 \"สร้างแพตช์ที่หนาแน่น\").",
+      "Item 3: \"Its rich green color\" translated as \"สีเขียวเข้ม\" (dark green); \"rich\" means vivid/deep green, so \"สีเขียวสด/เขียวเข้มสวย\" fits better.",
+      "Item 3: \"ปูเป็นพรมหน้าตู้\" adds \"หน้าตู้\" (front of tank) not in the source; use \"ปูเป็นพรม\".",
+      "Item 3: \"ลงตัวและเซ็ตตัวมานานแล้ว\" is awkward; rephrase as \"ดูเป็นตู้ที่จัดมานานและเข้าที่แล้ว\".",
+      "Item 3: \"Slow growth: minimal maintenance required\" → \"ดูแลน้อย\" is terse; use \"ต้องการการดูแลน้อยมาก\".",
+      "Item 2: \"low to moderate lighting\" → \"แสงน้อยถึงปานกลาง\" is fine, but item 1 lists light demand as High, a source inconsistency; consider keeping both as in source."
+    ]
+  },
+  "riccia-fluitans": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ริคเซีย",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": []
+  },
+  "rotala-indica-bonsai": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า บอนไซ",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"ไม้ต้น (ไม้ข้อ)\" is slightly odd for \"Stem plant\"; use just \"ไม้ข้อ\" or \"พรรณไม้น้ำแบบลำต้น\".",
+      "Item 1: \"ลงตู้ได้สองเดือน\" is fine in meaning, but \"สายพันธุ์ปรับปรุง (cultivar)\" is a bit clumsy; consider \"สายพันธุ์คัดพิเศษ (cultivar)\".",
+      "Item 3: \"อธิบายได้ดีที่สุดว่าเป็น ... ในแบบที่ทรงกะทัดรัดและโตปานกลาง\" is stiff, so rephrase more naturally, e.g. \"เปรียบได้กับ Bacopa caroliniana ที่ต้นกะทัดรัดและโตปานกลาง\".",
+      "Item 3: \"โรทาล่า 'บอนไซ'\" is inconsistent with the Latin name kept earlier; keep \"Rotala 'Bonsai'\" unchanged."
+    ]
+  },
+  "rotala-macrandra": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า มาครันดร้า",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 9, 'Leaves are mainly red... tan': 'น้ำตาลอ่อน' for tan is fine, but 'Leggy bottom leaves' became 'ใบล่างร่วงจนโคนต้นโกร๋น' — acceptable; the real errors are below.",
+      "Item 9 pearling: 'ฟองออกซิเจนเล็กๆ เกิดขึ้นที่ปลายใบ' is OK, but 'Chlorosis (pale leaves)' became 'ใบเหลืองซีด'. Pale is not necessarily yellow, so use 'ใบซีด'.",
+      "Item 9 fish list: 'clown loaches' is translated 'ปลาหมูข้างลาย'. That is the wrong species. Use 'ปลาโลช่าตัวตลก' or 'ปลาหมูอารีย์'.",
+      "Item 9 fish list: 'tetras' is translated 'ปลาเตตร้า' and 'otocinclus' as 'ปลาอ็อตโต'. Use 'ปลาเท트้า' and 'ปลาอ็อตโต' consistently, or 'ปลาซัคเกอร์อ็อตโต'. Also 'Japanese trapdoor snails' as 'หอยแทรปดอร์ญี่ปุ่น' and 'Malaysian trumpet snails' as 'หอยเจดีย์' are non-standard.",
+      "Item 9 shrimp list: 'ghost shrimp' is translated 'กุ้งฝอยใส'. That is a different local shrimp. Use 'กุ้งแก้ว' or 'กุ้งโกสต์'.",
+      "Item 9: 'Mini butterfly' ... 'magenta-red' is rendered 'แดงอมม่วง'. Magenta is closer to 'แดงอมชมพูม่วง'. Minor.",
+      "Items 3 and 8: 'Rotala macrandra เป็นไม้น้ำที่เลี้ยงยาก' for 'Lighting: ... is demanding' narrows the meaning. The sentence is about lighting, so use 'ต้องการแสงมาก'.",
+      "Item 8: 'hold ammonia' (aqua soil) is translated literally as 'กักเก็บแอมโมเนีย'. Keep it, but 'เปื่อยละลาย' for 'melt' is fine. Check that 'ส่วนล่างของต้นอาจเปื่อยละลาย' reads naturally.",
+      "Item 9: 'Disinfect the plantlets (if not grown in vitro)' is translated 'ต้นเนื้อเยื่อ'. Use 'ต้นไม้เนื้อเยื่อ (tissue culture)'. Also 'Untie the bunch' is translated 'แกะกำ'; better 'แกะมัด'.",
+      "Item 9: 'Dutch' and 'Nature' aquascape styles are left in English. Use 'ดัตช์' or 'เนเชอร์สไตล์' in Thai."
     ]
   },
   "rotala-rotundifolia": {

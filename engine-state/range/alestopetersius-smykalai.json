@@ -1,0 +1,66 @@
+{
+  "id": "alestopetersius-smykalai",
+  "native": {
+    "input": "ebeed38b41d9e4e6",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be restricted to the Imo and Niger drainages in Nigeria but the full extent of its distribution is unclear.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be restricted to the Imo and Niger drainages in Nigeria but the full extent of its distribution is unclear.",
+        "country": "NG",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Imo",
+        "source": "seriouslyfish",
+        "quote": "This species appears to be restricted to the Imo and Niger drainages in Nigeria but the full extent of its distribution is unclear.",
+        "country": "NG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Alestopetersius smykalai",
+    "status": "ACCEPTED",
+    "taxonKey": 2356128,
+    "datasets": [
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        13
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ]
+    ],
+    "native": [
+      "NG"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

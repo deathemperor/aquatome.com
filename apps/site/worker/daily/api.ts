@@ -3,7 +3,7 @@ import { queryAppDay } from '../admin/app'
 import { soft, unset } from '../admin/shell'
 import { HOME_TZ } from '../admin/time'
 import { readCapped } from '../comments/api'
-import { ae, bearerOk, liveOwnerApps, loadOverview, type AdminEnv } from '../dashboard'
+import { ae, bearerOk, liveOwnerApps, loadOverview, loadScoreboard, type AdminEnv } from '../dashboard'
 import { addChanges } from './changelog'
 import { compose, type Composed } from './compose'
 import { parseGitHubSide, type GitHubSide } from './github'
@@ -64,11 +64,13 @@ async function deliver(env: DailyEnv, r: Composed): Promise<{ sent: boolean; why
 
 async function composeNow(env: DailyEnv, url: URL, now: Date, gh: GitHubSide): Promise<Composed> {
   const a = ae(env)
-  const [overview, app] = await Promise.all([
+  const [overview, app, scoreboard] = await Promise.all([
     loadOverview(env, url, now, HOME_TZ),
     a ? soft('app', queryAppDay(a.account, a.token)) : unset('Analytics Engine'),
+    // Its parts fail on their own, as on its page; a Scoreboard has a `failed` of its own, so a load that throws is undefined, not soft()'s.
+    loadScoreboard(env, url, now).catch((e: unknown) => { console.error('admin scoreboard:', e); return undefined }),
   ])
-  return compose({ now, overview, app, gh })
+  return compose({ now, overview, app, gh, scoreboard })
 }
 
 /** Not sent, as asked or for want of somewhere to send it: a day's report kept, not a failure. */
