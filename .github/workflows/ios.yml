@@ -187,7 +187,7 @@ jobs:
       - name: Performance tests
         run: >-
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
-          -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
+          -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/perf.xcresult CODE_SIGNING_ALLOWED=NO
           -only-testing:AquaTomeUITests/PerformanceTests
       # Every string the app shows is translated into Indonesian and Thai.

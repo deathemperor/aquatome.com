@@ -47,8 +47,17 @@ fi
 # Some runners don't list the simulator yet when the job starts: xcodebuild then stops at once with "Unable to find a
 # device matching the provided destination specifier", on the same image a passing run used (twice on 2026-10-31).
 # Wait for it, up to two minutes; the list goes in the log if it never shows.
+# Then it boots, in the background, while the job builds the app (about five minutes): a first boot on these runners
+# takes minutes, and paid inside the first test's app launch it ran past XCUITest's 60 s launch budget ("Failed to
+# launch … Timed out", twice on 2026-11-06; Wikipedia and Home Assistant boot early for the same reason). The job's
+# xcodebuild is sent to this one simulator by AQ_CI_DEST.
 for i in $(seq 1 24); do
-  xcrun simctl list devices available -j | jq -e '[.devices | to_entries[] | select(.key | endswith("iOS-26-5")) | .value[] | select(.name == "iPhone 17")] | length > 0' >/dev/null && exit 0
+  udid=$(xcrun simctl list devices available -j | jq -r '[.devices | to_entries[] | select(.key | endswith("iOS-26-5")) | .value[] | select(.name == "iPhone 17")][0].udid // empty')
+  if [ -n "$udid" ]; then
+    [ -n "$GITHUB_ENV" ] && echo "AQ_CI_DEST=platform=iOS Simulator,id=$udid" >> "$GITHUB_ENV"
+    nohup xcrun simctl bootstatus "$udid" -b >/dev/null 2>&1 &
+    exit 0
+  fi
   sleep 5
 done
 xcrun simctl list devices available
