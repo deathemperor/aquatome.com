@@ -2,6 +2,7 @@ import Foundation
 import Observation
 import Plugs
 import Tanks
+import Telemetry
 
 /// The reader's smart plugs (docs/smart-plugs.md): the Tuya project keys kept on this phone, the source they open
 /// (Tuya's cloud, called by the phone; no AquaTome account), and the board the tank screens show. Without keys there
@@ -28,6 +29,8 @@ final class PlugsModel {
   @ObservationIgnored private let source: (TuyaKeys) -> TuyaPlugs
   /// Where the plugs come from, with the keys kept here; nil without keys. A light's card reads its outlet's timers from it.
   @ObservationIgnored private(set) var current: TuyaPlugs?
+  /// The app's anonymous telemetry: how each switch went, never which plug. The app sets it.
+  @ObservationIgnored var telemetry: Telemetry?
 
   init(store: TuyaKeyStore = TuyaKeyStore(), source: @escaping (TuyaKeys) -> TuyaPlugs = { TuyaPlugs(keys: $0) }) {
     self.store = store
@@ -38,6 +41,15 @@ final class PlugsModel {
       UserDefaults.standard.set(true, forKey: "plugs.installed")
     }
     if let keys = store.read() { use(keys) }
+    board.switched = { [weak self] outcome in
+      let event: Event = switch outcome {
+      case .confirmed: .action(.plugSwitch, ok: true)
+      case .unconfirmed: .action(.plugSwitch, ok: false, kind: .unconfirmed)
+      case .unknown: .action(.plugSwitch, ok: false, kind: .unknown)
+      case .refused(let e): .action(.plugSwitch, ok: false, kind: Event.Kind(e))
+      }
+      self?.telemetry?.record(event)
+    }
   }
 
   /// The tank screen opened, or the reader pulled to refresh.
