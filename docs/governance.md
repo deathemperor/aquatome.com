@@ -17,14 +17,16 @@ that would have caught it).
 
 - `pnpm test`: the site built from `apps/site/test/fixture-content`, checked as HTML (vitest).
   - The app's copy of each page (`/app/pages/`, `protocols/page.schema.json`) against `protocols/page-vectors.json`,
-    which the app's tests read too (its fish, plant and video series pages are the fixture build's, and the test fails
-    when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the app
-    would have to send to the web. Each guide's, fish's, plant's, glossary term's, video series' and equipment category's
-    copy is held to its built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, for a fish
-    the data card's sources, tank mates, climate, gallery and breeds, and for a series its whole line (counts, playlist
-    and channel) as its credit and its guides in order; an equipment category's every part in the page's order, its shop
-    links as built (Shopee) and Vietnamese only, with the affiliate note beside them, and the fish that need it one list,
-    however long.
+    which the app's tests read too (its fish, breed, plant and video series pages are the fixture build's, and the test
+    fails when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the
+    app would have to send to the web. Each guide's, fish's, breed's, plant's, glossary term's, video series' and equipment
+    category's copy is held to its built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its
+    numbered sources, for a fish the data card's sources, tank mates, climate, gallery and breeds, for a breed what it is
+    a form of, a hybrid's parents, the card's sources, its gallery, summary, text, lines, questions, guides and sources,
+    for a series its whole line (counts, playlist and channel) as its credit and its guides in order, and for an
+    equipment category every part in the page's order, its shop links as built (Shopee) and Vietnamese only, with the
+    affiliate note beside them, and the fish that need it one list, however long. Every link a copy has to a fish or a
+    breed the index lists opens that page's copy.
   - Which app draws which kind: the app index's `shards` gives each kind's shard count and **level**
     (`PAGE_LEVELS` in `apps/site/src/lib/app-page.ts`; the rule in `packages/schema/src/app-page.ts`, cases in
     `page-vectors.json` `levels`):
@@ -41,7 +43,10 @@ that would have caught it).
   - The app index (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) against the built pages: its fish, plants,
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
     shard, and so are its equipment categories, named as their pages name them; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
-    with what each lists, and `labels` say what those pages say.
+    with what each lists, and `labels` say what those pages say. A breed's `card` is its page's data card; a breed that
+    is a form of a listed species (its `basedOn`, through a parent breed) has that species' id as `of` and no tank-mates
+    figures of its own, being checked as that species; a hybrid, or a breed linked to no listed species, has its figures
+    and no behaviour, a fish of its own.
   - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
     `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
     first 200, each a page the app index lists; the index names the file (`latest`) only where the site has the page.
@@ -143,19 +148,30 @@ that would have caught it).
     for word), and the overview's to-dos, areas and last days what the overview shows; each button makes the request
     its page's form makes; a part that throws is 503; the times follow the zone the app sends; and
     `protocols/owner-dashboard-vectors.json`, the replies the app's fake server serves, are the Worker's own
-    (`UPDATE_VECTORS=1` rewrites them) (`apps/site/worker/test/owner-api.test.ts`).
+    (`UPDATE_VECTORS=1` rewrites them) (`apps/site/worker/test/owner-api.test.ts`). The daily report's section: every
+    block it sends, in each of its states, one the contract describes; its buttons set the delivery as the page's form
+    does; and the phones the report notifies (`POST`/`DELETE /api/owner/push-token`: kept once with the time, a bad token
+    refused), the same session only (`docs/contracts/owner-push.md` until the contract has the two paths).
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
-    and logged on `/_ab/bao-cao/`, a page the app's section list leaves out. The collector on GitHub's JSON: a cycle told
-    from the engine's hourly check, a workflow failing with no later success, what GitHub won't give named rather than
-    counted as none, the retries, and a body the Worker reads (`apps/site/test/daily-report.test.ts`). The composer: what
+    and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
+    collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
+    what GitHub won't give named rather than counted as none, the retries, and a body the Worker reads
+    (`apps/site/test/daily-report.test.ts`). The composer: what
     needs care, the highlights, the app with no data yet, and no address, picture or link to another site in a report
     (`daily-compose.test.ts`). `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
-    id even at the same moment, and the recipient in nothing but the send; the log page (`daily-report.test.ts`).
+    id even at the same moment, and the recipient in nothing but the send; email off, push on (with no key, no phone, a
+    refusal alone or beside a mail sent), neither sent twice; a phone whose session ended (signed out, expired, the
+    account deleted or no longer the owner's) dropped unsent, one registered again in a new session kept; the log page, each row saying what went out; the page's
+    form, the owner's alone (`daily-report.test.ts`), on the dashboard's host too, behind Access and from the page only
+    (`dashboard-host.test.ts`). The push: the settings, the phones kept and capped, the APNs token
+    (ES256, the key's id, the team) checked against a generated key, the alert, each host, and APNs' answers (410 and
+    BadDeviceToken drop a phone), with no token or key in a log (`daily-push.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools), and the owner's dashboard: a chart's day read by a tap, the pointer or the keys, and times following a
     device set to another zone (`dashboard-charts.spec.ts`, local only); moving around it on its own host, a form's real
-    headers, the owner flag reaching the site (`dashboard-host.spec.ts`, local; live, that a stranger gets nothing).
+    headers, the owner flag reaching the site (`dashboard-host.spec.ts`, local; live, that a stranger gets nothing); the
+    daily report's email and push switched from its page (`dashboard-report.spec.ts`, local only).
   - **Page checks** on one or two pages of every kind, found from the build (a new kind of page is covered from its first
     build):
     - status 200 and a title

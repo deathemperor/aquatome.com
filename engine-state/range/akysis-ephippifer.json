@@ -1,0 +1,65 @@
+{
+  "id": "akysis-ephippifer",
+  "native": {
+    "input": "b554deee270fcd18",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Thailand; Phitsanulork Province, Upper Chao Phraya.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Cambodia: Stung Santréa, 40 km from Pomnac.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "scotcat",
+        "quote": "Asia: Thailand; Phitsanulork Province, Upper Chao Phraya.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis ephippifer",
+    "status": "ACCEPTED",
+    "taxonKey": 2340912,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

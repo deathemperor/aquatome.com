@@ -1,0 +1,49 @@
+{
+  "id": "akysis-brachybarbatus",
+  "native": {
+    "input": "b96aeb7866a201ce",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Southeast Asia: Lancangjiang [Mekong] River (Yunnan, China).",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Southeast Asia: Lancangjiang [Mekong] River (Yunnan, China).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Lancang Jiang",
+        "source": "scotcat",
+        "quote": "The species is native to the lower Lancang Jiang basin in Menglian County and Mengla County, Yunnan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Akysis brachybarbatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340893,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

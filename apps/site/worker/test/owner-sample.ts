@@ -3,6 +3,7 @@ import { summariseApp, type AppRows } from '../admin/app'
 import type { ContentReads, ContentStats, KindClicks, Snapshot, Talk, Totals } from '../admin/content'
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
+import type { ReportsData } from '../daily/page'
 import type { Wanted } from '../wanted'
 
 /**
@@ -76,6 +77,8 @@ export const WANTED: { names: Wanted[]; more: boolean } = {
   more: false,
 }
 
+/** A phone's APNs device token, as the app sends it (lowercase hex). */
+export const PUSH_TOKEN = '3b9a7c2e5d4f6a8b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b'
 export const PHOTO_WAITING = 'a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d'
 export const PHOTO_APPROVED = 'b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e'
 export const PHOTO_LIVE = 'c3d4e5f6-a7b8-4c9d-8e0f-2a3b4c5d6e7f'
@@ -149,3 +152,14 @@ export const OVERVIEW: Overview = {
 }
 
 export const CONTENT = { now: NOW, tz: TZ, stats: STATS, reads: READS, talk: TALK, clicks: KIND_CLICKS, snapshots: SNAPSHOTS }
+
+/** The daily report's section: email on, push on with one phone, and the last three reports (the newest from before push). */
+export const REPORTS: ReportsData = {
+  now: NOW, tz: TZ,
+  delivery: { settings: { email: true, push: true }, phones: 1, keyed: true },
+  xs: [
+    { id: '1003', when: '2026-11-04T00:00:00.000Z', subject: 'AquaTome daily · 4 Nov · 2 need care', sent: true, push: { sent: 1 }, care: 2 },
+    { id: '1002', when: '2026-11-03T00:00:00.000Z', subject: 'AquaTome daily · 3 Nov · nothing needs care', sent: false, why: 'E_RATE_LIMIT_EXCEEDED', push: { sent: 0, why: 'no_device' }, care: 0 },
+    { id: '1001', when: '2026-11-02T00:00:00.000Z', subject: 'AquaTome daily · 2 Nov · 1 needs care', sent: true, care: 1 },
+  ],
+}

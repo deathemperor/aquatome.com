@@ -1,0 +1,64 @@
+{
+  "id": "amatitlania-nanolutea",
+  "native": {
+    "input": "7cc69f622757a889",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Amatitlania nanolutea is a small Central American cichlid endemic to the Guarumo river basin in northwestern Panama.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Guarumo",
+        "source": "seriouslyfish",
+        "quote": "Amatitlania nanolutea is a small Central American cichlid endemic to the Guarumo river basin in northwestern Panama.",
+        "country": "PA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amatitlania nanolutea",
+    "status": "ACCEPTED",
+    "taxonKey": 9355336,
+    "datasets": [
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "PA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

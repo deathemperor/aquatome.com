@@ -1,0 +1,52 @@
+{
+  "id": "altolamprologus-calvus",
+  "native": {
+    "input": "419dd64a8c546005",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Altolamprologus calvus",
+    "status": "ACCEPTED",
+    "taxonKey": 2372761,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        20
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

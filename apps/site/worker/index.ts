@@ -58,6 +58,9 @@ export interface Env {
   MEDIA?: R2Bucket
   /** Who the daily report goes to (a secret, worker/daily): never logged, stored or answered. */
   REPORT_TO?: string
+  /** The APNs auth key (.p8 contents) and its id (secrets, worker/daily/push.ts): without them the report's push is skipped. */
+  APNS_KEY?: string
+  APNS_KEY_ID?: string
 }
 type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & FishIdEnv
 const MAX_EVENT_BYTES = 4096

@@ -1834,9 +1834,45 @@
       "\"cup tertutup\": 'closed cup' left as English; consider 'cup tertutup (closed cup)' or 'wadah/cup tertutup'."
     ]
   },
+  "riccardia-chamedryfolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Riccardia",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"Tropica’s 1-2-Grow! range\" is omitted; add the product line mention (e.g., \"bagian dari seri 1-2-Grow! dari Tropica\").",
+      "Item 3: \"Mudah ditempel di mana saja\" overstates \"Versatile attachment: great for rocks and driftwood\"; use \"Fleksibel ditempel: cocok untuk batu dan kayu\".",
+      "Item 3: \"Warna hijaunya yang pekat\" is fine, but \"tampilan alami yang rapi dan halus\" adds \"rapi\" to \"refined, organic look\"; keep it close to the source.",
+      "Item 3: \"yang sudah matang dan lama berdiri\" adds \"lama berdiri\"; \"mature, established feel\" is simpler as \"kesan matang dan mapan\"."
+    ]
+  },
+  "riccia-fluitans": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Riccia",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"cup tertutup\" in item 3 is fine, but \"Tanaman air\" for \"Aquarium plant\" could be \"Tanaman akuarium\" to match the source.",
+      "Item 3: \"Riccia memberikan\" replaces the pronoun \"it\" with the name; acceptable, but \"Tanaman ini\" would be closer."
+    ]
+  },
+  "rotala-indica-bonsai": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Rotala indica 'Bonsai'",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "\"Kecepatan tumbuh: Lambat\" is fine, but item 3 says the plant is \"moderate growing\"; this conflicts with the source's own \"Slow\", so keep each as in the original. No error to fix here.",
+      "\"sesering mungkin\" means \"as often as possible\", which is stronger than \"trim it often\". Use \"sering\" or \"secara rutin\".",
+      "\"rumpunnya atau karpetnya jadi lebih rapat\" is slightly awkward. Prefer \"agar rumpun atau karpetnya lebih rapat\"."
+    ]
+  },
   "rotala-macrandra": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "Rotala macrandra",
     "confidence": "high",
     "score": 0.95,
