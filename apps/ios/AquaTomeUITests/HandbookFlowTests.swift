@@ -400,7 +400,7 @@ final class HandbookFlowTests: XCTestCase {
     let app = launch("-equipment")
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let kit = item(app, "Lọc")
-    for _ in 0..<8 where !(kit.exists && kit.isHittable) { app.swipeUp() }
+    repeatUntil(kit.exists && kit.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(kit.label.contains("Thiết bị"), kit.label)
     kit.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
@@ -408,11 +408,11 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Các loại lọc"].exists, "no types")
     XCTAssertTrue(app.staticTexts["Lọc thùng"].exists, "no type")
     let buy = app.links["Mua lọc thùng trên Shopee"]
-    for _ in 0..<4 where !buy.exists { app.swipeUp() }
+    repeatUntil(buy.exists, times: 4) { app.swipeUp() }
     XCTAssertTrue(buy.exists, "no shop link")
     // Twelve of the forty, then the whole list; what follows it is a few swipes away.
     let all = app.descendants(matching: .any)["pages-all"]
-    for _ in 0..<12 where !(all.exists && all.isHittable) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 12) { app.swipeUp() }
     XCTAssertTrue(all.isHittable, "no way to the whole list")
     XCTAssertTrue(all.label.contains("40"), all.label)
     XCTAssertTrue(item(app, "Cá thử 12").exists, "fewer than twelve in place")
@@ -423,12 +423,12 @@ final class HandbookFlowTests: XCTestCase {
     all.tap()
     XCTAssertTrue(app.navigationBars["Loài cá cần lọc"].waitForExistence(timeout: 5))
     let last = item(app, "Cá thử 40")
-    for _ in 0..<12 where !(last.exists && last.isHittable) { app.swipeUp(velocity: .fast) }
+    repeatUntil(last.exists && last.isHittable, times: 12) { app.swipeUp(velocity: .fast) }
     XCTAssertTrue(last.isHittable, "not the whole list")
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    for _ in 0..<4 where !question.exists { app.swipeUp() }
+    repeatUntil(question.exists, times: 4) { app.swipeUp() }
     XCTAssertTrue(question.exists, "no questions after the list")
-    for _ in 0..<6 where !(note.exists && note.isHittable) { app.swipeUp() }
+    repeatUntil(note.exists && note.isHittable, times: 6) { app.swipeUp() }
     XCTAssertTrue(note.exists && note.isHittable, "the page's end out of reach")
   }
 
