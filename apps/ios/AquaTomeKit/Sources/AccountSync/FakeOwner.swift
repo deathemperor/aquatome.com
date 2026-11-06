@@ -5,7 +5,8 @@ import Tanks
 
 /// The owner's dashboard on the stand-in server (`FakeAccounts.owner`): the replies of protocols/owner-dashboard-vectors.json,
 /// which the Worker's own code wrote, and the buttons' changes made to them, so a section read again after one shows it
-/// (a photo approved or removed, a page hidden or back, a kept fish-ID photo deleted), and the app section's switch. Who
+/// (a photo approved or removed, a page hidden or back, a kept fish-ID photo deleted, the daily report's email or
+/// notifications turned off or on), and the app section's switch. Who
 /// gets in, as the Worker decides: no session the server takes, 401 `signed_out`; a session of an account that isn't the
 /// owner's, 404 `not_found`. The photos' private addresses are 404 to anyone but the owner, and once the photo is gone.
 @MainActor
@@ -19,6 +20,8 @@ public final class FakeOwner {
   public var storageDownAtNextSection = false
   private let replies: [[String: JSON]]
   private var sections: [String: JSON] = [:]
+  /// The daily report's delivery, as the vectors' section shows it: email and phone notifications on, to one phone.
+  private var report = (email: true, push: true)
 
   /// "Đã duyệt" in the Worker's words, on a waiting photo the owner approved.
   static let approved = "Đã duyệt · đăng trong lượt duyệt tới"
@@ -57,8 +60,10 @@ public final class FakeOwner {
       return try json(e["status"]!.int!, b)
     }
     let refused = { () throws -> (Int, Data, String) in
-      // The Worker's own refusal of a request like it, else a plain one.
-      let e = self.replies.first { $0["status"]?.int == 400 && ($0["request"]?.object?["path"]?.string).map { self.alike($0, path) } == true }
+      // The Worker's own refusal of a request to this path, else of one like it, else a plain one.
+      let refusals = self.replies.filter { $0["status"]?.int == 400 }
+      let e = refusals.first { $0["request"]?.object?["path"]?.string == path }
+        ?? refusals.first { ($0["request"]?.object?["path"]?.string).map { self.alike($0, path) } == true }
       return try e?["body"].map { try json(400, $0) } ?? error(400, "bad_request")
     }
     let parts = path.split(separator: "/").map(String.init) // api, owner, …
@@ -109,9 +114,38 @@ public final class FakeOwner {
       guard page.hasPrefix("/"), !["/", "/id/", "/th/"].contains(page) else { return try refused() }
       hidden(page, hide ? b["note"]?.string.map { String($0.prefix(200)) } ?? "" : nil)
       return try json(200, .object(["ok": .bool(true), "path": .string(page), "hidden": .bool(hide)]))
+    case ("POST", "report-settings"):
+      // The daily report's email or phone notifications, or both, on or off.
+      let flag = { (v: JSON?) -> Bool? in if case .bool(let on)? = v { on } else { nil } }
+      guard let b = body?.object, !b.isEmpty, b.allSatisfy({ ["email", "push"].contains($0.key) && flag($0.value) != nil }) else { return try refused() }
+      let before = report
+      report = (flag(b["email"]) ?? report.email, flag(b["push"]) ?? report.push)
+      reportShown()
+      return try json(200, .object(["ok": .bool(true), "changed": .bool(report != before), "email": .bool(report.email), "push": .bool(report.push)]))
     default:
       return try error(404, "not_found")
     }
+  }
+
+  /// The daily report's section ("bao-cao") after a change: its delivery line and its two buttons, in the Worker's
+  /// words (daily/page.ts).
+  private func reportShown() {
+    guard var s = sections["bao-cao"]?.object, let blocks = s["blocks"]?.array else { return }
+    let phone = report.push ? "đang bật, gửi đến 1 điện thoại." : "đang tắt."
+    let button = { (label: String, key: String, on: Bool) -> JSON in
+      .object(["label": .string(label), "method": .string("POST"), "path": .string("/api/owner/report-settings"), "body": .object([key: .bool(on)])])
+    }
+    s["blocks"] = .array(blocks.map { b in
+      guard var o = b.object else { return b }
+      if o["kind"]?.string == "note", o["text"]?.string?.hasPrefix("Email:") == true {
+        o["text"] = .string("Email: \(report.email ? "đang bật" : "đang tắt"). Thông báo trên điện thoại: \(phone)")
+      } else if o["kind"]?.string == "actions", o["actions"]?.array?.first?.object?["path"]?.string == "/api/owner/report-settings" {
+        o["actions"] = .array([button(report.email ? "Tắt email" : "Bật email", "email", !report.email),
+                               button(report.push ? "Tắt thông báo" : "Bật thông báo", "push", !report.push)])
+      }
+      return .object(o)
+    })
+    sections["bao-cao"] = .object(s)
   }
 
   /// Every photo the sections show.

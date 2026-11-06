@@ -91,6 +91,22 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertEqual(said.label, "Chỉ ẩn được một trang của trang web (không phải trang chủ).")
   }
 
+  func testTheOwnerTurnsTheDailyReportsEmailOffThenOnAgain() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    section(app, "Báo cáo hằng ngày")
+    let said = text(app, "label BEGINSWITH 'Email: đang bật.'")
+    XCTAssertTrue(said.waitForExistence(timeout: 10), "the report's delivery isn't said")
+    XCTAssertTrue(said.label.contains("Thông báo trên điện thoại: đang bật"), said.label)
+    button(app, "Tắt email").tap()
+    // Read again: off, and the button turns it back on.
+    XCTAssertTrue(text(app, "label BEGINSWITH 'Email: đang tắt.'").waitForExistence(timeout: 10), "not said off")
+    button(app, "Bật email").tap()
+    XCTAssertTrue(said.waitForExistence(timeout: 10), "not said on again")
+    XCTAssertTrue(button(app, "Tắt email").exists)
+  }
+
   func testStorageDownSaysSoAndTriesAgain() {
     let app = launch("-owner-storage-down")
     signIn(app)
@@ -165,6 +181,13 @@ final class OwnerFlowTests: XCTestCase {
   /// A text by its words: a part's lines are one text, its first line first.
   private func text(_ app: XCUIApplication, _ predicate: String) -> XCUIElement {
     app.staticTexts.matching(NSPredicate(format: predicate)).firstMatch
+  }
+
+  /// A button of the section's, by its words, once it's there.
+  private func button(_ app: XCUIApplication, _ label: String) -> XCUIElement {
+    let b = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == %@", label)).firstMatch
+    XCTAssertTrue(b.waitForExistence(timeout: 10), "no \(label)")
+    return b
   }
 
   private func back(_ app: XCUIApplication) {

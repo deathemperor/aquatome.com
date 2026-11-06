@@ -8,8 +8,8 @@ import XCTest
 /// light and dark, at the default and the largest text size, with more found than listed, and with a kind picked that
 /// it finds none of, at both sizes; the app's icon picker; the lights tab's card for the fake light, its clock lost,
 /// warning of its outlet's timer on the stand-in Tuya cloud; what's new, its row on the home then its list, light and
-/// dark; and the owner's dashboard on the stand-in server, its overview and a section with charts and tables. Each
-/// checks only that its screen opened: what it shows, the other flows check.
+/// dark; and the owner's dashboard on the stand-in server, its overview, a section with charts and tables, and the daily
+/// report's settings. Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -28,6 +28,7 @@ final class PageShotsFlowTests: XCTestCase {
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
   func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
   func testAnOwnersSection() { shootOwner("owner-section-light", section: "Nhận diện cá") }
+  func testTheDailyReportsSettings() { shootOwner("owner-report-light", section: "Báo cáo hằng ngày", shows: "owner-action") }
   func testSigningIn() { shootSignIn("sign-in-light") }
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
   func testFishId() { shootFishId("fish-id-light") }
@@ -147,7 +148,8 @@ final class PageShotsFlowTests: XCTestCase {
   }
 
   /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
-  private func shootOwner(_ name: String, section: String?) {
+  /// `shows`: what the section has once it's loaded.
+  private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart") {
     let app = launch(dark: false, size: nil, XCUIApplication.standInOwner)
     app.openTab("Bể của tôi")
     app.signInWithStandInApple()
@@ -155,7 +157,7 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
     if let section {
       app.openOwnersSection(section)
-      XCTAssertTrue(app.descendants(matching: .any)["owner-chart"].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
+      XCTAssertTrue(app.descendants(matching: .any)[shows].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
     }
     capture(app, name, dark: false, large: false, screens: 16)
   }

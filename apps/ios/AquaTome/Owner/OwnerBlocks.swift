@@ -140,7 +140,7 @@ struct OwnerDraw {
   private func cell(_ c: Owner.Link) -> AnyView {
     var t = Text(verbatim: c.title).foregroundStyle(c.to != nil ? Color.accentColor : c.tone.color)
     if let s = c.text { t = t + Text(verbatim: "\n" + s).font(.caption).foregroundStyle(.secondary) }
-    return go(c.to, AnyView(t.accessibilityLabel(Text(verbatim: said(c.title, c.text, c.tone.said))).frame(maxWidth: 240, alignment: .leading)), "")
+    return go(c.to, AnyView(Capped(width: 240) { t.accessibilityLabel(Text(verbatim: said(c.title, c.text, c.tone.said))) }), "")
   }
 
   /// A photo or a hidden page, with its buttons.
@@ -187,6 +187,20 @@ struct OwnerDraw {
 
 /// A form's fields, each under its label, and its button: sent as a button's request is; emptied once the server took
 /// it, kept to fix when it didn't.
+/// At most `width` across, wrapped to its whole height. `frame(maxWidth:)` passes a sideways scroll view's unlimited
+/// width on as it is, so a table's grid measured each cell as one line and cut it there.
+private struct Capped: Layout {
+  let width: CGFloat
+
+  func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+    subviews.first?.sizeThatFits(ProposedViewSize(width: min(proposal.width ?? width, width), height: nil)) ?? .zero
+  }
+
+  func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+    subviews.first?.place(at: bounds.origin, proposal: ProposedViewSize(width: bounds.width, height: nil))
+  }
+}
+
 struct OwnerForm: View {
   let form: Owner.Form
   let working: Bool

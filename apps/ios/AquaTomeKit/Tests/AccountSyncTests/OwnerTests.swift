@@ -441,6 +441,49 @@ func standInButtons() async throws {
   #expect(refused == "\(OwnerError.refused("not_a_page", message: "Chỉ ẩn được một trang của trang web (không phải trang chủ)."))")
 }
 
+@MainActor @Test("The stand-in's daily report: its email and notifications turned off and on, in the Worker's words; a value that isn't true or false refused")
+func standInReportSettings() async throws {
+  let (fake, api) = ownerServer()
+  let mine = try await api.signedIn("ui-apple")
+  func shown() async throws -> (line: String?, buttons: [Owner.Action]) {
+    let s = try await mine.section("bao-cao")
+    return (s.blocks.compactMap { if case .note(let t, _) = $0, t.hasPrefix("Email:") { t } else { nil } }.first,
+            s.blocks.flatMap { b -> [Owner.Action] in if case .actions(let a) = b { a } else { [] } })
+  }
+  var now = try await shown()
+  #expect(now.line == "Email: đang bật. Thông báo trên điện thoại: đang bật, gửi đến 1 điện thoại.")
+  #expect(now.buttons.map(\.label) == ["Tắt email", "Tắt thông báo"])
+  try await mine.run(now.buttons[0])
+  now = try await shown()
+  #expect(now.line == "Email: đang tắt. Thông báo trên điện thoại: đang bật, gửi đến 1 điện thoại.")
+  #expect(now.buttons.map(\.label) == ["Bật email", "Tắt thông báo"])
+  try await mine.run(now.buttons[1])
+  now = try await shown()
+  #expect(now.line == "Email: đang tắt. Thông báo trên điện thoại: đang tắt.")
+  #expect(now.buttons.map(\.label) == ["Bật email", "Bật thông báo"])
+  try await mine.run(now.buttons[0])
+  #expect(try await shown().buttons.map(\.label) == ["Tắt email", "Bật thông báo"])
+
+  // The reply: what each is now, and whether this request changed it.
+  let turnOn = ownerReplies.first { $0["name"]?.string == "turn the report's notification on" }!
+  var r = URLRequest(url: AccountsClient.site.appending(path: "api/owner/report-settings"))
+  r.httpMethod = "POST"
+  r.httpBody = try turnOn["request"]!.object!["body"]!.data()
+  r.setValue("Bearer " + (try await signIn(client(fake), "ui-apple")).token, forHTTPHeaderField: "Authorization")
+  let (body, reply) = try await fake.send(r)
+  let answer = try JSON.parse(body)
+  #expect(reply.statusCode == 200 && answer == turnOn["body"])
+  let (again, _) = try await fake.send(r)
+  #expect(try JSON.parse(again).object?["changed"] == .bool(false))
+
+  // Refused as the Worker refuses: not true or false, nothing named, or something else named.
+  let bad: [[String: Any]] = [["push": "yes"], [:], ["sms": true]]
+  for b in bad {
+    let refused = await failure { try await mine.run(Owner.Action(label: "x", method: "POST", path: "/api/owner/report-settings", body: b)) }
+    #expect(refused == "\(OwnerError.refused("bad_request", message: "email và/hoặc push (true/false)."))", "\(b)")
+  }
+}
+
 @MainActor @Test("The app section's switch reads it from its address: our own test builds, then readers' again")
 func standInSwitch() async throws {
   let (fake, api) = ownerServer()
