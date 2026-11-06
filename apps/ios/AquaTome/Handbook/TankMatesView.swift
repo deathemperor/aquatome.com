@@ -182,10 +182,12 @@ struct TankMatesView: View {
     size = link.size
   }
 
-  /// A fish picked: its school size (a breed's species'), else one, as the site's tool starts it.
+  /// A fish picked: what its school still lacks (TankMatesLink.start), a species alone at its school size as the site's
+  /// tool starts it.
   private func add(_ item: HandbookIndex.Item) {
     guard chosen.count < TankMatesLink.maxFish, !chosen.contains(where: { $0.id == item.path }) else { return }
-    let n = TankMatesLink.start(item) { handbook.page($0) }
+    let had = chosen.compactMap { c in c.species.flatMap { handbook.page($0) }.map { (item: $0, count: c.count) } }
+    let n = TankMatesLink.start(item, species: { handbook.page($0) }, chosen: had)
     chosen.append(Chosen(id: item.path, name: item.name, species: item.contentId, typed: String(n), count: n))
   }
 }

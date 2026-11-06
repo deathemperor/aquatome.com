@@ -56,6 +56,24 @@ private func picked(_ query: String?) -> [String] { link(query).fish.map { "\(Ta
   #expect(TankMatesLink.start(goldNeon) { _ in nil } == 1)
 }
 
+// The check counts a species and its breeds as one fish, with one school: a second of them starts at what that school
+// still lacks, not at a school of its own.
+@Test func aSpeciesAndItsBreedsShareOneSchool() {
+  #expect(picked("ca=ca-neon:6,ca-neon-vang") == ["ca-neon:6", "ca-neon-vang:1"])
+  #expect(picked("ca=ca-neon:4,ca-neon-vang") == ["ca-neon:4", "ca-neon-vang:2"])
+  // A number the link gives counts wherever it is.
+  #expect(picked("ca=ca-neon-vang,ca-neon:6") == ["ca-neon-vang:1", "ca-neon:6"])
+  #expect(picked("ca=ca-neon-vang,ca-neon") == ["ca-neon-vang:6", "ca-neon:1"])
+  // Another fish's school is its own.
+  #expect(picked("ca=ca-ngua-van:5,ca-neon-vang") == ["ca-ngua-van:5", "ca-neon-vang:6"])
+  let byId = Dictionary(uniqueKeysWithValues: index.compactMap { i in i.contentId.map { ($0, i) } })
+  #expect(TankMatesLink.start(goldNeon, species: { byId[$0] }, chosen: [(neon, 6)]) == 1)
+  #expect(TankMatesLink.start(neon, species: { byId[$0] }, chosen: [(goldNeon, 2)]) == 4)
+  #expect(TankMatesLink.start(goldNeon, species: { byId[$0] }, chosen: [(danio, 5)]) == 6)
+  // A breed whose species the index lacks is a fish of its own to the check, with no school size.
+  #expect(TankMatesLink.start(goldNeon, species: { _ in nil }, chosen: [(neon, 6)]) == 1)
+}
+
 @Test func unknownFishAndRepeatsAreLeftOutAndSixAtMost() {
   #expect(picked("ca=ca-mong:4,ca-neon:6") == ["ca-neon:6"])
   #expect(picked("ca=ca-mong") == [])
