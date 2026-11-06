@@ -164,7 +164,7 @@ final class TankMatesFlowTests: XCTestCase {
   /// A fish from the tool's search of the handbook's fish.
   private func add(_ app: XCUIApplication, _ query: String, _ name: String) {
     let add = app.buttons["add-mate"]
-    for _ in 0..<4 where !(add.exists && add.isHittable) { app.swipeDown() }
+    repeatUntil(add.exists && add.isHittable, times: 4) { app.swipeDown() }
     add.tap()
     // The sheet's own field, tapped: the Tìm tab's, under the sheet, is a search field too.
     let field = app.searchFields.matching(NSPredicate(format: "placeholderValue == %@", "Gõ tên Việt hoặc tên khoa học")).firstMatch
@@ -194,7 +194,7 @@ final class TankMatesFlowTests: XCTestCase {
   /// Scrolled down to: a form draws only the rows near the screen. Says whether it's there.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) -> Bool {
     if e.waitForExistence(timeout: 3) && e.isHittable { return true }
-    for _ in 0..<8 where !(e.exists && e.isHittable) { app.swipeUp() }
+    repeatUntil(e.exists && e.isHittable, times: 8) { app.swipeUp() }
     return e.exists && e.isHittable
   }
 
