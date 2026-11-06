@@ -72,22 +72,72 @@
     "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/how-to-control-diatoms": {
-    "entityIds": [],
-    "updatedAt": "2026-11-06T03:34:22.916Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-diatoms"
+    ],
+    "updatedAt": "2026-11-06T11:11:38.201Z",
+    "hash": "146598e9e85b8124faf9be31228459002021b7360c00b0eae2eac7ce503f8e5f",
+    "processedHash": "146598e9e85b8124faf9be31228459002021b7360c00b0eae2eac7ce503f8e5f",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/how-to-control-green-dust-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-green-dust-algae"
+    ],
+    "updatedAt": "2026-11-06T11:15:18.056Z",
+    "hash": "ebbe4c9f00db8ea72c11c5369c3d8d98c718659ce392450c0f7dac29be95f3a8",
+    "processedHash": "ebbe4c9f00db8ea72c11c5369c3d8d98c718659ce392450c0f7dac29be95f3a8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-green-spot-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-green-spot-algae"
+    ],
+    "updatedAt": "2026-11-06T11:17:17.032Z",
+    "hash": "0fada2aa8b48db7f3685f70c7247f06f0bb5702631b21d1cc2abbacd43267126",
+    "processedHash": "0fada2aa8b48db7f3685f70c7247f06f0bb5702631b21d1cc2abbacd43267126",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-misc-green-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-control-misc-green-algae"
+    ],
+    "updatedAt": "2026-11-06T11:19:14.939Z",
+    "hash": "1f467f6d33d0bf6bf4c2a598c03205d3593657f4094c9acd8286b93ea573dbe6",
+    "processedHash": "1f467f6d33d0bf6bf4c2a598c03205d3593657f4094c9acd8286b93ea573dbe6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-get-rid-of-staghorn-algae": {
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae"
+    ],
+    "updatedAt": "2026-11-06T11:21:52.698Z",
+    "hash": "29d5ce059e8378079d80d96646a43acd070a558b96d7b19cde8625d010e2e24c",
+    "processedHash": "29d5ce059e8378079d80d96646a43acd070a558b96d7b19cde8625d010e2e24c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/how-to-remove-brown-algae-diatoms-planted-aquarium": {
     "entityIds": [],
-    "updatedAt": "2026-11-06T03:34:28.113Z",
+    "updatedAt": "2026-11-06T11:23:35.593Z",
     "status": "error",
     "attempts": 1,
     "error": "fetch failed"
   },
-  "https://www.2hraquarist.com/blogs/algae-control/how-to-control-green-spot-algae": {
+  "https://www.2hraquarist.com/blogs/algae-control/localized-algae-problems": {
     "entityIds": [],
-    "updatedAt": "2026-11-06T03:34:33.318Z",
+    "updatedAt": "2026-11-06T11:23:37.905Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/prevent-algae-growth": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T11:23:43.104Z",
     "status": "error",
     "attempts": 1,
     "error": "fetch failed"

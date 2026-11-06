@@ -7,13 +7,36 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "chile"
+    "chile",
+    "biobio"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 24
+      },
+      {
+        "source": "scotcat",
+        "value": 24
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.7,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -25,10 +48,34 @@
       "html": "<p>Nematogenys inermis (Guichenot, 1848). Family: Nematogenyidae. Type locality: Chile. Maximum size: 240 mm (9.4 inches) SL. IUCN Red List category: Critically Endangered (last assessed 2021).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<ul><li>Common name: Mountain Catfish</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>This species is very rare in the aquatic hobby. There is not much information on keeping it in the aquarium, as it has never been exported due to its rarity. The IUCN Red List assesses it as Critically Endangered; a population decline of 90% is suspected over the past 12 years, and urgent conservation measures are needed.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
       "html": "<p>South America: Chile.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>South America: isolated localities in Concepción, Rancagua and Angol, Chile. Formerly widespread throughout much of Central Chile. Type locality: Chile.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>The genus is endemic to some rivers in Chile. The species is presently considered extinct in almost all Chilean rivers, with the exception of some relatively undisturbed coastal catchments. Its probable extinction has been documented in the middle course of the Biobío River, and it was reported in Laguna Grande San Pedro in the Biobío Region up to the nineties, but sampling between March 2018 and February 2019 did not capture a single individual there. These changes may be attributed to water quality and habitat deterioration. Habitat alteration due to water extraction, contamination and river regulation is still in place and expected to intensify, and the species is endemic to central regions of Chile that are highly vulnerable to climate change.</p>"
     },
     {
       "key": "reproduction",
@@ -37,45 +84,101 @@
       "html": "<p>There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>Nematogenys contains a single species, N. inermis. It has no adipose fin and the caudal fin is short and rounded. It was previously placed in the Trichomycteridae. A fossil from the Miocene, continental fluviolacustrine deposits of the upper Cura–Mallín Formation (37–39°S), Chile, was described and named Nematogenys cuivi (Azpelicueta &amp; Rubilar, 1997). Etymology: the specific name inermis is Latin for unarmed, referring to the absence of opercular spines, which distinguished it from presumed congeners in Trichomycterus at the time of description.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1150",
       "html": "<p>Fauna Chilena.... in Gay., pp 312, Pl. 9 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. T.F.H. Publications. de Pínna, M.C.C., 2003. Nematogenyidae (mountain catfishes). In Reis, Kullander and Ferraris (eds.) Checklist of the Freshwater Fishes of South and Central America. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil. Zootaxa 1418:1-628. Froese, R. and D. Pauly. 2017. FishBase. Górski, K. 2023. Nematogenys inermis. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/269040e6209e50b7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/269040e6209e50b7-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Iván Valdebenito Isler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "caption": "Nematogenys inermis: Dorsal head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/47d64956a7984f07.webp",
+      "thumb": "https://media.aquatome.com/scotcat/47d64956a7984f07-480.webp",
+      "width": 500,
+      "height": 387,
+      "licence": "dùng với sự cho phép",
+      "author": "Iván Valdebenito Isler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "caption": "Nematogenys inermis: Ventral mouth view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/655996881d6d6bfc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/655996881d6d6bfc-480.webp",
+      "width": 500,
+      "height": 207,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "caption": "Nematogenys inermis: Line drawing by W. S. Atkinson from Eigenmann 1927: Pl VII",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/953d1e8f9741a0ac.webp",
+      "thumb": "https://media.aquatome.com/scotcat/953d1e8f9741a0ac-480.webp",
+      "width": 500,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "labrigo / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm",
+      "caption": "Nematogenys inermis: Calle Gerona 2092, Chillán, Bío-Bío, CL",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/de6fc3d3c3245737.webp",
+      "thumb": "https://media.aquatome.com/commons/de6fc3d3c3245737-480.webp",
       "width": 960,
       "height": 705,
       "licence": "Public domain",
       "author": "J. H. Richard",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nematogenys_inermis.jpg",
-      "caption": "Nematogenys inermis",
-      "thumb": "https://media.aquatome.com/commons/de6fc3d3c3245737-480.webp"
+      "caption": "Nematogenys inermis"
     },
     {
       "url": "https://media.aquatome.com/commons/a7875cd8204ddfd5.webp",
+      "thumb": "https://media.aquatome.com/commons/a7875cd8204ddfd5-480.webp",
       "width": 960,
       "height": 385,
       "licence": "Public domain",
       "author": "Girard, Charles, 1822-1895",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Contributions_to_the_fauna_of_Chile_(Nematogenys_inermis).jpg",
-      "caption": "Nematogenys inermis",
-      "thumb": "https://media.aquatome.com/commons/a7875cd8204ddfd5-480.webp"
+      "caption": "Nematogenys inermis"
     },
     {
       "url": "https://media.aquatome.com/commons/f8120e5f9661b611.webp",
+      "thumb": "https://media.aquatome.com/commons/f8120e5f9661b611-480.webp",
       "width": 960,
       "height": 591,
       "licence": "CC0",
       "author": "Internet Archive Book Images",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ictalurus_punctatus_pectoral_fin_first_ray.jpg",
-      "caption": "Title: Bonner zoologische Monographien Identifier: bonnerzoo202519861987bonn Year: 1971 (1970s) Authors: Subjects: Zoology Publisher: Bonn, Zoologisches Forschungsinstitut und Museum Alexander Koenig ",
-      "thumb": "https://media.aquatome.com/commons/f8120e5f9661b611-480.webp"
+      "caption": "Title: Bonner zoologische Monographien Identifier: bonnerzoo202519861987bonn Year: 1971 (1970s) Authors: Subjects: Zoology Publisher: Bonn, Zoologisches Forschungsinstitut und Museum Alexander Koenig "
     }
   ],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

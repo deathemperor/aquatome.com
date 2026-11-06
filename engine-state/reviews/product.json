@@ -1,0 +1,35 @@
+{
+  "vi/products/chihiros-wrgb-ii-slim": [
+    {
+      "at": "2026-11-06T13:48:03Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"đã ghi trong bảng phía trên\" refers to a table that is not in the page; minor unsupported reference.",
+        "\"Trong hộp chỉ có chân hợp kim để đặt đèn lên thành bể\" omits the adapter and Bluetooth controller that are included, so \"only\" is inaccurate.",
+        "\"Nếu bạn trồng cây khó tính hoặc bể sâu thì bản WRGB II thường hợp hơn\" is supported only by the alternatives entry; fine, but \"bể sâu\" in the Slim fit section is slightly extrapolated.",
+        "\"Thân đèn mỏng được làm ra cho bể cây...\" is supported. \"Kaokui ... dòng giá rẻ\" is supported.",
+        "\"Bể dài đúng 45 cm nằm ở ranh giới... một nguồn ghi Slim 30 dùng cho 30–45\" is supported by the facts, but the page adds an interpretation of the overlap that the facts do not state."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T13:48:03Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Đèn sẽ gọn hơn hẳn trên kệ thấp hay trong góc phòng\" - not in facts; invented benefit.",
+        "\"Đó là cái giá cho thân đèn mỏng và giá rẻ hơn\" - the facts do not say the lower output is a trade-off for the thin body.",
+        "\"Nếu muốn treo đèn lên trần hay giá ... vì hộp không có sẵn\" - 'ceiling or rack' is not in the facts; the facts say only that the hanging kit is sold separately.",
+        "\"Ít nhất một shop không bảo hành khi đèn vào nước hoặc bị rơi\" - roughly supported, but 'vỡ' in the FAQ is a small stretch.",
+        "\"Trường hợp này chưa rõ nguyên nhân\" - the facts do not say the cause is unknown; this is an added statement.",
+        "\"đèn sẽ sáng lên và tối dần thay vì bật tắt cái rụp\" - the description of the gradual change is elaboration beyond 'sunrise/sunset simulation'.",
+        "\"Điểm mạnh là thân đèn rất mỏng\" - the thin body is supported (15 mm), but the page leaves out the specs.",
+        "\"Kaokui ... giá mềm\" and \"Week Aqua ... bán ở chính các shop có Chihiros\" - mostly supported; 'giá mềm' is a loose paraphrase of 'budget'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}

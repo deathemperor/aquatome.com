@@ -74,19 +74,6 @@ Hợp với người có chỗ đặt bể dài từ 120 cm và muốn nuôi ri�
 Kiểm tra:
 - "cá thường chỉ có qua nhà nhân giống chuyên biệt hoặc hiệp hội": the page only says they are hard to find in shops and "đôi khi có thể có qua" (sometimes available via) specialist breeders or societies. The summary turns that hedge into "usually only available through" them.
 
-## Cá lông gà (Apteronotus albifrons)
-id: `apteronotus-albifrons`
-
-Hợp với người có chỗ đặt bể dài từ 180 cm (cỡ 180 × 60 × 60 cm, khoảng 648 lít) và chịu nuôi lâu dài, vì cá lớn tới 50 cm. Nước 23–28 °C, pH 6–8, độ cứng 5–10 dGH; nên có nhiều chỗ trốn, ánh sáng mờ, nền cát mềm. Khó nhất là độ khó 6/8: cá nhạy khi nước xấu đi nên cần lọc tốt và bảo dưỡng đều, nghiêm ngặt.
-
-- Mua cá con vì thấy dễ thương mà chưa tính tới lúc cá lớn tới 50 cm; hãy chuẩn bị bể dài 180 cm từ đầu.
-- Thả chung với cá nhỏ; cá lớn có thể ăn chúng, nên chỉ nuôi cùng loài hiền mà cá không nuốt vừa miệng.
-- Nuôi một cặp trong bể vừa; cá thống trị bắt nạt con yếu đến mức con yếu bỏ ăn và héo mòn, nên nuôi một con hoặc nuôi nhóm trong bể rất lớn.
-
-Kiểm tra:
-- "Nuôi một cặp trong bể vừa": the page does not link the pair problem to a medium-sized tank. It only says that if you keep just a pair, the dominant fish bullies the weaker one. The "bể vừa" condition is invented.
-- "cá thống trị bắt nạt con yếu đến mức con yếu bỏ ăn và héo mòn": the page hedges with "thường" (usually bullies, usually doesn't eat). The summary states it as a certainty.
-
 ## Cá tetra hai chấm (Astyanax bimaculatus)
 id: `astyanax-bimaculatus`
 
@@ -119,15 +106,6 @@ Cá sấu hỏa tiễn Cuba (Atractosteus tristoechus) không hợp với bể g
 - Nuôi chung với cá nhỏ vừa miệng thì cá sẽ bị coi là thức ăn; nên nuôi riêng, hoặc chỉ nuôi cùng cá không hung dữ, cỡ tương đương và không bị nuốt trọn.
 - Cho ăn tim bò hoặc thịt gà gây tích mỡ và thoái hóa nội tạng về lâu dài; nên cho tôm, cá ống cát đông lạnh, cá lớn thì cho cá nguyên con.
 - Dùng cá mồi sống làm thức ăn thường xuyên dễ đưa bệnh và ký sinh trùng vào bể; hãy cho cá nhịn đói ngắn để tập ăn đồ chết, chỉ dùng cá mồi khi cực đoan và cách ly chúng ít nhất hai tuần.
-
-## Cá sấu hỏa tiễn nhiệt đới (Atractosteus tropicus)
-id: `atractosteus-tropicus`
-
-Cá sấu hỏa tiễn nhiệt đới (Atractosteus tropicus) không hợp với bể gia đình. Cá lớn tới 125 cm, sống vài thập kỷ, cần bể dài tối thiểu 200 cm, nên chỉ hợp hệ trưng bày công cộng rất lớn. Nước 22–28 °C, pH 6–8,5, độ cứng 5–25 dGH, dòng chảy và ánh sáng không nên quá mạnh. Độ khó 5/8, khó nhất là chỗ nuôi đủ lớn cho cả đời cá, rồi tới chuyện tập cá mới về chịu ăn đồ chết.
-
-- Mua cá con khi chưa có chỗ nuôi lâu dài: chỉ nuôi khi có hệ thống dài ít nhất 200 cm và tính tới việc cá lớn tới 125 cm.
-- Cho ăn tim bò hoặc thịt gà: dùng tôm, cá đông lạnh hoặc cá nguyên con, vì thịt động vật có vú làm cá tích mỡ và thoái hóa cơ quan.
-- Thả chung với cá nhỏ: nuôi riêng, hoặc chỉ ghép cá không hung dữ, cỡ tương đương và không bị nuốt vừa.
 
 ## Cá Batrochoglanis (Batrochoglanis villosus)
 id: `batrochoglanis-villosus`
@@ -505,6 +483,18 @@ Cá hút bùn buồm Trung Quốc (Myxocyprinus asiaticus) chỉ hợp người 
 - Để nước ấm gần ngưỡng trên trong thời gian dài: giữ 15,5–21 °C, vì có báo cáo cá bị nấm trong bể và nguyên nhân có thể là nước quá nóng.
 - Để chất thải hữu cơ tích tụ và dòng yếu: dùng lọc ngoài, bơm tạo dòng, lọc quay vòng nước bể 8–12 lần mỗi giờ để nước luôn sạch và giàu oxy.
 
+## Cá chạch suối Rueppell (Nemacheilus rueppelli)
+id: `nemacheilus-rueppelli`
+
+Hợp với người đã có chút kinh nghiệm (độ khó 5/8) và thích set bể kiểu suối. Cá dài 8,5 cm, cần bể dài từ 90 cm (đáy 90 × 30 cm, khoảng 81 lít). Nước 20–25 °C, pH 7–7,5, độ cứng 2–12 dGH. Khó nhất là giữ nước thật sạch, giàu oxy và có dòng chuyển động, vì cá không chịu được chất bẩn hữu cơ tích tụ.
+
+- Để nước tích bẩn: thay 30–50% nước mỗi tuần và dùng lọc máy, máy tạo dòng hoặc sủi oxy để nước luôn giàu oxy.
+- Nuôi lẻ một hai con: nên mua từ bốn con trở lên, vì cá hiền với đồng loại và có vẻ thích sống theo nhóm.
+- Chỉ cho ăn thức ăn khô: cho ăn hằng ngày thức ăn sống hoặc đông lạnh cỡ nhỏ như Daphnia, Artemia, trùng huyết, thức ăn khô chỉ nên là phần phụ.
+
+Kiểm tra:
+- "thức ăn khô chỉ nên là phần phụ": the page only says not to feed dry food alone ("không nên chỉ cho ăn mỗi loại này") and that fish accept it. It never says dry food should be only a minor part of the diet, so this advice is invented.
+
 ## Cá rô phi Mozambique (Oreochromis mossambicus)
 id: `oreochromis-mossambicus`
 
@@ -663,6 +653,18 @@ Cá trê lũa (Sorubimichthys planiceps) hợp với người nuôi có kinh ngh
 
 Kiểm tra:
 - "chỉ nuôi cùng cá da trơn cỡ lớn như họ Pimelodidae hoặc Doradidae": the page says the fish can live with any species that has similar water needs and is big enough not to be swallowed. It only offers these catfish families as suggestions ("gợi ý"). "Chỉ" turns a suggestion into an exclusive rule.
+
+## Cá trê lông Synodontis clarias (Synodontis clarias)
+id: `synodontis-clarias`
+
+Cá trê lông Synodontis clarias hợp với người có bể lớn, vì cá trưởng thành đạt 30 cm. Hồ sơ không nêu thông số nước hay bể tối thiểu, nên cần tìm thêm trước khi mua. Điểm khó nhất là cá rất hiếm khi được xuất khẩu để nuôi cảnh, nên khó tìm mua.
+
+- Đừng mua cá con rồi chỉ nhìn màu hiện tại; cá con có màu rất khác cá trưởng thành, nên cần biết trước cá lớn sẽ có thân xám đá phiến và vây đuôi đỏ.
+- Đừng chọn bể theo kích thước cá con mới nhập; hãy tính bể cho con trưởng thành 30 cm.
+
+Kiểm tra:
+- "hợp với người có bể lớn": the page and card say nothing about tank size or who the fish suits. This is an inference from adult size, not stated on the page.
+- "Đừng chọn bể theo kích thước cá con mới nhập; hãy tính bể cho con trưởng thành 30 cm": the page gives no tank-sizing advice, so this mistake and fix are not on the page. The summary itself says the page gives no tank figures.
 
 ## Cá da trơn Highway (Tachysurus trilineatus)
 id: `tachysurus-trilineatus`

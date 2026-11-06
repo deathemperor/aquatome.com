@@ -331,11 +331,14 @@
   },
   "https://www.aquariumcoop.com/blogs/aquarium/aquarium-water-testing": {
     "lastmod": "2025-12-18T13:56:07-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-06T04:45:00.386Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.aquariumcoop.com/blogs/aquarium/aquarium-water-testing\", waiting until \"domcontentloaded\"\n"
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-aquarium-water-testing"
+    ],
+    "updatedAt": "2026-11-06T12:26:28.164Z",
+    "hash": "a63ab7400df72e2b3037fda43f058b17cbb060bdfac95ad1d96651693661d7ea",
+    "processedHash": "a63ab7400df72e2b3037fda43f058b17cbb060bdfac95ad1d96651693661d7ea",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.aquariumcoop.com/blogs/aquarium/baby-brine-shrimp": {
     "lastmod": "2026-08-11T12:55:11-07:00",
@@ -345,6 +348,17 @@
     "updatedAt": "2026-10-31T02:12:44.954Z",
     "hash": "2a160fffabc2ddd1c49a8b981547c321b4b9bcc158c0178b7b7b85461a2b37a8",
     "processedHash": "2a160fffabc2ddd1c49a8b981547c321b4b9bcc158c0178b7b7b85461a2b37a8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/baby-fish-food": {
+    "lastmod": "2025-12-18T13:56:14-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-baby-fish-food"
+    ],
+    "updatedAt": "2026-11-06T12:41:10.706Z",
+    "hash": "5fe253b742fc6cba54e23b4e7407a62a1329e9c7a18739e4839768ec3661a9c7",
+    "processedHash": "5fe253b742fc6cba54e23b4e7407a62a1329e9c7a18739e4839768ec3661a9c7",
     "status": "processed",
     "attempts": 0
   },
@@ -477,6 +491,17 @@
     "updatedAt": "2026-10-30T23:19:32.426Z",
     "hash": "0b9e4ae7124c3e8b9179ec280f7e97224886c165509feb2022a99e0c8aa4ca26",
     "processedHash": "0b9e4ae7124c3e8b9179ec280f7e97224886c165509feb2022a99e0c8aa4ca26",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/boesemani-rainbowfish": {
+    "lastmod": "2025-12-18T13:56:11-08:00",
+    "entityIds": [
+      "species/melanotaenia-boesemani"
+    ],
+    "updatedAt": "2026-11-06T12:34:54.443Z",
+    "hash": "a39ad8caa1d962739b7247fbffdbb739b2083e94ad1d3cf715364cb03eac0cc3",
+    "processedHash": "a39ad8caa1d962739b7247fbffdbb739b2083e94ad1d3cf715364cb03eac0cc3",
     "status": "processed",
     "attempts": 0
   },
@@ -917,6 +942,17 @@
     "updatedAt": "2026-10-30T17:42:09.276Z",
     "hash": "f6d77939f27f2f4978ab5ee1bff4a1bd6b8d5a5b890fd95a821cb0e005f8b3e9",
     "processedHash": "f6d77939f27f2f4978ab5ee1bff4a1bd6b8d5a5b890fd95a821cb0e005f8b3e9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumcoop.com/blogs/aquarium/freshwater-sharks": {
+    "lastmod": "2025-12-18T13:56:12-08:00",
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-freshwater-sharks"
+    ],
+    "updatedAt": "2026-11-06T12:38:16.635Z",
+    "hash": "37c4408a457d652450fe34f84db2bc82515e463c3d02026991178202438f3b67",
+    "processedHash": "37c4408a457d652450fe34f84db2bc82515e463c3d02026991178202438f3b67",
     "status": "processed",
     "attempts": 0
   },
@@ -1483,11 +1519,14 @@
   },
   "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish": {
     "lastmod": "2025-12-18T13:56:08-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-06T04:45:47.239Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.aquariumcoop.com/blogs/aquarium/oscar-fish\", waiting until \"domcontentloaded\"\n"
+    "entityIds": [
+      "species/astronotus-ocellatus"
+    ],
+    "updatedAt": "2026-11-06T12:29:34.579Z",
+    "hash": "766c64e2d7962ed63e1a38e32acff57e6f29d57c31d5742a4133b8d20ae93b19",
+    "processedHash": "766c64e2d7962ed63e1a38e32acff57e6f29d57c31d5742a4133b8d20ae93b19",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria": {
     "lastmod": "2025-12-18T13:51:55-08:00",
@@ -1808,11 +1847,14 @@
   },
   "https://www.aquariumcoop.com/blogs/aquarium/top-10-barbs": {
     "lastmod": "2025-12-18T13:56:10-08:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-06T04:46:39.603Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.aquariumcoop.com/blogs/aquarium/top-10-barbs\", waiting until \"domcontentloaded\"\n"
+    "entityIds": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-barbs"
+    ],
+    "updatedAt": "2026-11-06T12:31:59.789Z",
+    "hash": "784d2794c55772be67b95eb6c5e2084efae1ebc6a69db70f577b34a8abbf10d7",
+    "processedHash": "784d2794c55772be67b95eb6c5e2084efae1ebc6a69db70f577b34a8abbf10d7",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.aquariumcoop.com/blogs/aquarium/top-10-betta-fish-plants-for-your-aquarium": {
     "lastmod": "2025-12-18T13:54:00-08:00",
