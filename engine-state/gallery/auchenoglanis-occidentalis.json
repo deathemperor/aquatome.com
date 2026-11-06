@@ -12,19 +12,33 @@
   "File:Bagres Ocellés (7).jpg",
   "File:Bagres Ocellés (1).jpg",
   "File:Bagres Ocellés (8).jpg",
-  "File:Bagres Ocellés (9b).jpg"
+  "File:Bagres Ocellés (9b).jpg",
+  "inat:53146578",
+  "inat:53146588",
+  "inat:53146624"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/b048cf319b46178b.webp": "c3c387879fb30757",
   "https://media.aquatome.com/scotcat/61b09f956d1c8846.webp": "3c7ebfd78eeeb62f",
-  "https://media.aquatome.com/scotcat/18666fd17520163e.webp": "929aaae2c6ce86f4",
   "https://media.aquatome.com/scotcat/f96051c32847a8aa.webp": "83caa55266d8b127",
-  "https://upload.wikimedia.org/wikipedia/commons/7/7c/Auchenoglanis_occidentalis_01.jpg": "9e2e0e1f0f433d5c",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Auchenoglanis_occidentalis_01_by_Line1.JPG/1280px-Auchenoglanis_occidentalis_01_by_Line1.JPG": "4df3982741687878",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Auchenoglanisoccidentalis.jpg/1280px-Auchenoglanisoccidentalis.jpg": "05330906c3207019",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Giraffe_Catfish_%28Auchenoglanis_occidentalis%29_-_GRB.JPG/1280px-Giraffe_Catfish_%28Auchenoglanis_occidentalis%29_-_GRB.JPG": "e6eafebbecec3a6e",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Bagres_Ocell%C3%A9s_%288%29.jpg/1280px-Bagres_Ocell%C3%A9s_%288%29.jpg": "d483c71c744d8b26",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Bagres_Ocell%C3%A9s_%289b%29.jpg/1280px-Bagres_Ocell%C3%A9s_%289b%29.jpg": "6139bff2603030d4"
+  "https://media.aquatome.com/commons/7f265d542dca0e56.webp": "05221906e3207019",
+  "https://media.aquatome.com/commons/f5b2eb86c75cb4d8.webp": "e6eefebbfce4386e",
+  "https://media.aquatome.com/commons/6c8f7735e066b384.webp": "9e2e0e0f1f433d5c",
+  "https://media.aquatome.com/commons/3a28ac8326527d52.webp": "4df3bc2740687838",
+  "https://media.aquatome.com/commons/d0078c860969e587.webp": "d482c79c660d0b16",
+  "https://media.aquatome.com/commons/e182266a53838490.webp": "7139fff2603024d4"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 94905,
+  "pass": "done",
+  "after": {
+   "research": 33814751,
+   "agree": 32935942
+  }
+ },
+ "gbif": {
+  "key": 2337341,
+  "next": null
+ }
 }
