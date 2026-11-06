@@ -33,12 +33,13 @@ final class HandbookModel {
   private var pages: [String: HandbookIndex.Item] = [:]
   /// The page a tank's entry without a page is shown as, by its scientific name.
   private var matcher = PageMatcher([])
-  /// Every page by its path: what the reading list keeps.
-  private var byPath: [String: HandbookIndex.Item] = [:]
+  /// Every page by its path, and what the reader keeps on this phone by path (the pages saved to read later and read
+  /// last, the pages kept for offline), one set per language: all in the index's form, moved when it changes.
+  private let paths: HandbookPaths
   /// What's new on the site as last read: none until read, and none from a site without it (the index names no file).
   private var whatsNew: Latest?
-  /// Its entries with their pages in the index shown now, newest first.
-  var latest: [Latest.Row] { whatsNew?.rows { byPath[$0] } ?? [] }
+  /// Its entries with their pages in the index shown now, newest first (looked up in the index's form).
+  var latest: [Latest.Row] { whatsNew?.rows { paths.item(at: $0) } ?? [] }
   /// The whole of what's new, on the web.
   var latestWeb: URL? { whatsNew.flatMap { URL(string: $0.web, relativeTo: site)?.absoluteURL } }
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
@@ -51,20 +52,12 @@ final class HandbookModel {
   private(set) var labels = HandbookIndex.Labels()
   /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
   private var shardCounts: [String: Int] = [:]
-  /// Pages saved to read later, and the ones read last (kept in the app's settings, on this phone, one list per
-  /// language: the pages are this language's).
-  private(set) var reading: ReadingList
-  /// The pages kept for reading offline, each whole on the phone (KeepPages), newest first: on this phone, one list per
-  /// language.
-  private(set) var kept: [String]
   /// Keeps on their way, by shelf (KeepOffline's key): how many pictures are in, of how many. Here, not on the shelf's
   /// screen, so a shelf left and opened again still shows its keep and can stop it.
   private(set) var keeping: [String: (done: Int, of: Int)] = [:]
   private var runs: [String: Task<Void, Never>] = [:]
   /// A keep that ended with some pages not kept (kept, of how many), for its shelf to say once.
   private var short: [String: (Int, Int)] = [:]
-  /// Each kind's shard count when its pages were kept: with another, the kept shards are other files.
-  private var keptCounts: [String: Int]
   private let source: Source
   /// The pages the app draws itself, kept on the phone.
   private let drawn: PageCache
@@ -84,10 +77,8 @@ final class HandbookModel {
   init(source: Source = HandbookModel.defaultSource(), preferred: [String] = Bundle.main.preferredLocalizations) {
     self.source = source
     lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
-    reading = UserDefaults.standard.data(forKey: "handbook.reading.\(lang)").flatMap { try? JSONDecoder().decode(ReadingList.self, from: $0) } ?? ReadingList()
-    kept = UserDefaults.standard.stringArray(forKey: "handbook.kept.\(lang)") ?? []
-    keptCounts = UserDefaults.standard.dictionary(forKey: "handbook.kept.counts.\(lang)") as? [String: Int] ?? [:]
     drawn = Self.pageCache(source, site: site)
+    paths = HandbookPaths(lang: lang, cache: drawn)
     #if DEBUG
     if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
     #endif
@@ -113,7 +104,8 @@ final class HandbookModel {
   /// The page as blocks, from the phone or the site; nil when the web page is to show instead.
   func doc(_ item: HandbookIndex.Item) async -> PageDoc? {
     guard let count = shardCounts[item.kind.rawValue] else { return nil }
-    return await drawn.doc(path: item.path, kind: item.kind.rawValue, lang: lang, count: count)
+    await paths.settled()
+    return await drawn.doc(path: paths.shardPath(item.path), kind: item.kind.rawValue, lang: lang, count: count)
   }
 
   /// A page's readers' comments and photos, from the site (Readers): each nil when the page has none to ask for or the
@@ -146,26 +138,23 @@ final class HandbookModel {
     return data
   }
 
-  /// The page at a path the index lists ("/vi/ca/ca-neon/").
-  func item(at path: String) -> HandbookIndex.Item? { byPath[path] }
+  /// The page at a path the index lists ("/vi/ca/ca-neon/"), the path in either form (PathForm): a link from a page
+  /// read before the site moved its Vietnamese pages, or after.
+  func item(at path: String) -> HandbookIndex.Item? { paths.item(at: path) }
 
   /// Keeps these pages for reading offline: the shards they're in, read from the site now, then every picture in them,
   /// telling how many pictures are kept so far. Returns how many of the pages are on the phone.
   /// A stop (the task cancelled) ends it; a page counts as kept only once it's whole on the phone (KeepPages).
   func keep(_ items: [HandbookIndex.Item], progress: (_ done: Int, _ of: Int) -> Void) async -> Int {
-    await KeepPages.run(items.map(\.path), docs: { _ in
+    await KeepPages.run(items.map { paths.shardPath($0.path) }, docs: { _ in
+      await paths.settled()
       var docs: [PageDoc] = []
       for (kind, list) in Dictionary(grouping: items, by: \.kind) {
         guard let count = shardCounts[kind.rawValue] else { continue }
-        docs += await drawn.keep(list.map(\.path), kind: kind.rawValue, lang: lang, count: count)
+        docs += await drawn.keep(list.map { paths.shardPath($0.path) }, kind: kind.rawValue, lang: lang, count: count)
       }
       return docs
-    }, picture: { await PageImages.keep($0) }, kept: { path in
-      kept.removeAll { $0 == path }
-      kept.insert(path, at: 0)
-      if let kind = byPath[path]?.kind.rawValue { keptCounts[kind] = shardCounts[kind] }
-      saveKept()
-    }, progress: progress)
+    }, picture: { await PageImages.keep($0) }, kept: { paths.markKept($0, counts: shardCounts) }, progress: progress)
   }
 
   /// Starts keeping a shelf's pages (`shelf`: its key), unless that shelf's keep is on its way.
@@ -191,15 +180,10 @@ final class HandbookModel {
   /// How a shelf's last keep fell short (kept, of how many), once: then forgotten.
   func takeShort(_ shelf: String) -> (Int, Int)? { short.removeValue(forKey: shelf) }
 
-  private func saveKept() {
-    UserDefaults.standard.set(kept, forKey: "handbook.kept.\(lang)")
-    UserDefaults.standard.set(keptCounts, forKey: "handbook.kept.counts.\(lang)")
-  }
-
-  func isKept(_ item: HandbookIndex.Item) -> Bool { kept.contains(item.path) }
+  func isKept(_ item: HandbookIndex.Item) -> Bool { paths.isKept(item) }
 
   /// The pages kept for offline that the index has now.
-  var keptItems: [HandbookIndex.Item] { ReadingList.items(kept, in: byPath, kind: nil) }
+  var keptItems: [HandbookIndex.Item] { paths.keptItems }
 
   /// Pages no longer kept for offline: off the list, then their pictures and the shards no kept page is in deleted from
   /// the phone (not what a page still kept needs).
@@ -207,31 +191,22 @@ final class HandbookModel {
   func unkeep(_ items: [HandbookIndex.Item]) async {
     let running = Array(runs.values)
     for shelf in Array(runs.keys) { stopKeeping(shelf) }
-    let gone = Set(items.map(\.path))
-    kept.removeAll { gone.contains($0) }
-    saveKept()
+    paths.unmark(items)
     for t in running { await t.value }
     for (kind, list) in Dictionary(grouping: items, by: \.kind) {
       guard let count = shardCounts[kind.rawValue] else { continue }
-      await forget(list.map(\.path), kind: kind.rawValue, count: count)
+      await forget(list.map { paths.shardPath($0.path) }, kind: kind.rawValue, count: count)
     }
   }
 
-  private func forget(_ paths: [String], kind: String, count: Int) async {
-    let staying = kept.filter { byPath[$0]?.kind.rawValue == kind }
-    for src in await drawn.forget(paths, keeping: staying, kind: kind, lang: lang, count: count) { PageImages.forget(src) }
+  private func forget(_ gone: [String], kind: String, count: Int) async {
+    await paths.settled()
+    for src in await drawn.forget(gone, keeping: paths.kept(of: kind), kind: kind, lang: lang, count: count) { PageImages.forget(src) }
   }
 
-  /// The site split a kind's pages anew: the kept shards are another count's files, so that kind's kept pages are no
-  /// longer on the phone as the app reads them. They come off the list (kept again from their shelf), and the old files go.
+  /// The site split a kind's pages anew: that kind's kept pages come off the list (HandbookPaths), and their old files go.
   private func dropKeptOfOtherCounts() {
-    for (kind, old) in keptCounts where shardCounts[kind] != old {
-      let paths = kept.filter { byPath[$0]?.kind.rawValue == kind }
-      kept.removeAll { paths.contains($0) }
-      keptCounts[kind] = nil
-      saveKept()
-      Task { await forget(paths, kind: kind, count: old) }
-    }
+    for d in paths.dropOtherCounts(shardCounts) { Task { await forget(d.paths, kind: d.kind, count: d.count) } }
   }
 
   func url(_ item: HandbookIndex.Item) -> URL { URL(string: item.path, relativeTo: site)!.absoluteURL }
@@ -243,8 +218,8 @@ final class HandbookModel {
   func page(for e: UnlistedEntry) -> HandbookIndex.Item? { matcher.page(kind: e.kind, sci: e.sci).flatMap { pages[$0] } }
 
   /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
-  func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { ReadingList.items(reading.saved, in: byPath, kind: kind) }
-  func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { ReadingList.items(reading.recent, in: byPath, kind: kind, limit: limit) }
+  func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { paths.saved(kind) }
+  func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { paths.recent(kind, limit: limit) }
 
   /// Guides that name these fish and plants (a tank's), the most of them first, then in name order: the written ones,
   /// and the ones made from videos apart, as a species page on the site lists them.
@@ -254,7 +229,7 @@ final class HandbookModel {
   }
 
   func read(_ item: HandbookIndex.Item) {
-    change { $0.read(item.path) }
+    paths.read(item)
     #if DEBUG
     // UI tests (`-pages-later`): the index says which kinds the app draws only once a page has opened.
     if let ix = pagesLater {
@@ -263,12 +238,8 @@ final class HandbookModel {
     }
     #endif
   }
-  func toggleSaved(_ item: HandbookIndex.Item) { change { $0.toggleSaved(item.path) } }
-
-  private func change(_ edit: (inout ReadingList) -> Void) {
-    edit(&reading)
-    UserDefaults.standard.set(try? JSONEncoder().encode(reading), forKey: "handbook.reading.\(lang)")
-  }
+  func toggleSaved(_ item: HandbookIndex.Item) { paths.toggleSaved(item) }
+  func isSaved(_ item: HandbookIndex.Item) -> Bool { paths.isSaved(item) }
 
   /// The fish and plants a tank can list, for `query` (all of them for none).
   func life(_ query: String) -> [HandbookIndex.Item] {
@@ -331,7 +302,7 @@ final class HandbookModel {
     searching.search = search
     pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
     matcher = PageMatcher(index: ix.items)
-    byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
+    paths.use(ix)
     shardCounts = ix.pages
     dropKeptOfOtherCounts()
     shelves = HandbookShelves(ix)
@@ -357,22 +328,21 @@ final class HandbookModel {
     let args = ProcessInfo.processInfo.arguments
     if args.contains("-large-handbook") { return .fixed(.large) }
     if args.contains("-fixed-handbook") {
+      // `-vi-at-root`: the site has taken "/vi" out of its Vietnamese pages' addresses.
+      let f = args.contains("-vi-at-root") ? HandbookIndex.fixtureAtRoot : .fixture
       // `-pages-count N`: the site has split its guides into N shards since the last launch.
       if let i = args.firstIndex(of: "-pages-count"), i + 1 < args.count, let n = Int(args[i + 1]) {
-        let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
       }
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
       if args.contains("-whats-new") {
-        let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: f.pages, latest: "/app/latest/vi.json"))
       }
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       if args.contains("-breeds") {
-        let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items + HandbookIndex.fixtureBreeds, home: f.home, labels: f.labels, pages: f.pages))
       }
-      return .fixed(.fixture)
+      return .fixed(f)
     }
     #endif
     return .site
@@ -383,7 +353,8 @@ final class HandbookModel {
     #if DEBUG
     if case .fixed = source {
       let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
-      return PageCache(dir: dir, site: site, fetch: { _ in HandbookIndex.fixturePages })
+      let pages = ProcessInfo.processInfo.arguments.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot : HandbookIndex.fixturePages
+      return PageCache(dir: dir, site: site, fetch: { _ in pages })
     }
     #endif
     var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "pages")
@@ -498,6 +469,21 @@ extension HandbookIndex {
   "/vi/cay/rotala-do/":{"v":1,"kind":"plant","path":"/vi/cay/rotala-do/","title":"Rotala đỏ","sub":"Rotala rotundifolia","lead":{"src":"https://media.aquatome.com/a/rotala.webp","w":1200,"h":900,"alt":"Rotala đỏ, Rotala rotundifolia","credit":{"text":"Ảnh: Tropica","licence":"","url":"https://example.org/photo/rotala"}},"talk":{"comments":"plant:rotala-rotundifolia"},"blocks":[{"t":"h","text":"Trồng và chăm","id":"muc-care"},{"t":"p","c":["Cần ánh sáng mạnh để lên màu đỏ."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Tropica","url":"https://example.org/rotala"}]}]},
   "/vi/thuat-ngu/dem-ph/":{"v":1,"kind":"glossary","path":"/vi/thuat-ngu/dem-ph/","title":"Đệm pH","blocks":[{"t":"p","c":["Tiếng Anh: pH buffer"]},{"t":"p","c":["Khả năng giữ pH của nước khi có thêm axit."]}]}}}
   """#.utf8)
+
+  /// UI tests (`-vi-at-root`): the fixture and its pages with the Vietnamese pages at the root, as the site has them
+  /// once it takes "/vi" out of their addresses: every path and link that starts "/vi/" without it, but one. The video
+  /// series' card for its guide stays under "/vi/", as in a page kept on the phone from before.
+  static let fixtureAtRoot: HandbookIndex = {
+    let e = JSONEncoder()
+    e.outputFormatting = .withoutEscapingSlashes
+    return try! JSONDecoder().decode(HandbookIndex.self, from: atRoot(e.encode(fixture)))
+  }()
+  static let fixturePagesAtRoot = Data(String(decoding: atRoot(fixturePages), as: UTF8.self)
+    .replacingOccurrences(of: #"{"path":"/huong-dan/cach-han-che-reu-hai/""#, with: #"{"path":"/vi/huong-dan/cach-han-che-reu-hai/""#).utf8)
+  /// Only a string that starts with the path: not the "/vi/" in a YouTube picture's address.
+  private static func atRoot(_ json: Data) -> Data {
+    Data(String(decoding: json, as: UTF8.self).replacingOccurrences(of: #""/vi/"#, with: #""/"#).utf8)
+  }
 
   /// UI tests' readers' content, by the address the app asks for it: the neon's comments (one a good answer) and two
   /// readers' photos, as the site's Worker answers. The plant asks too, and the site has none for it.
