@@ -1,0 +1,93 @@
+{
+  "id": "baryancistrus-beggini",
+  "native": {
+    "input": "8e9ef45c110a3599",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known as L239 before description, Baryancistrus beggini is a small loricariid from the Orinoco and lower río Guaviare in Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known as L239 before description, Baryancistrus beggini is a small loricariid from the Orinoco and lower río Guaviare in Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Known as L239 before description, Baryancistrus beggini is a small loricariid from the Orinoco and lower río Guaviare in Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Río Guaviare",
+        "source": "seriouslyfish",
+        "quote": "Known as L239 before description, Baryancistrus beggini is a small loricariid from the Orinoco and lower río Guaviare in Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Río Ventuari",
+        "source": "seriouslyfish",
+        "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Baryancistrus beggini",
+    "status": "ACCEPTED",
+    "taxonKey": 2339923,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        8
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

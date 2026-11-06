@@ -50,14 +50,15 @@ struct AccountSection: View {
         Button("Xóa tài khoản", role: .destructive) { confirmDelete = true }
           .disabled(account.working)
           .accessibilityIdentifier("delete-account")
+          // On the button: iOS shows the question as a popover from the view it's on.
+          .confirmationDialog(String(localized: "Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên máy này vẫn còn."), isPresented: $confirmDelete, titleVisibility: .visible) {
+            Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
+          }
         AccountMessage()
       } header: {
         Text("Đồng bộ giữa các thiết bị")
       } footer: {
         Text("Xóa tài khoản là xóa ngay tài khoản, các cách đăng nhập và mọi bể lưu trong tài khoản. Bể trên máy này vẫn còn.")
-      }
-      .confirmationDialog(String(localized: "Xóa vĩnh viễn tài khoản và các bể trong tài khoản? Bể trên máy này vẫn còn."), isPresented: $confirmDelete, titleVisibility: .visible) {
-        Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
       }
     }
   }

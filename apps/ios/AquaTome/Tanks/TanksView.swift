@@ -56,6 +56,7 @@ struct TanksView: View {
             }
             AccountSection()
             OwnerEntry()
+            PlugKeysSection()
             BlockedSection()
             TelemetrySwitch()
           }
@@ -71,6 +72,7 @@ struct TanksView: View {
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .ownerDashboard(account)
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
@@ -155,7 +157,17 @@ private struct TankDetail: View {
         }
         PlugsSection(tank: t)
         Section {
+          // On the button: iOS shows the question as a popover from the view it's on.
           Button("Xóa bể", role: .destructive) { confirmDelete = true }.accessibilityIdentifier("delete")
+            .confirmationDialog(
+              lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
+              isPresented: $confirmDelete, titleVisibility: .visible
+            ) {
+              Button("Xóa", role: .destructive) {
+                try? tanks.delete(id)
+                dismiss()
+              }
+            }
         }
       }
       .readsPlugs()
@@ -165,15 +177,6 @@ private struct TankDetail: View {
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
       .sheet(isPresented: $editing) { TankForm(editing: t) }
       .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
-      .confirmationDialog(
-        lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
-        isPresented: $confirmDelete, titleVisibility: .visible
-      ) {
-        Button("Xóa", role: .destructive) {
-          try? tanks.delete(id)
-          dismiss()
-        }
-      }
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
     }

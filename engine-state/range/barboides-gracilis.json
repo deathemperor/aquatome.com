@@ -1,0 +1,115 @@
+{
+  "id": "barboides-gracilis",
+  "native": {
+    "input": "489fa44fbdaf5474",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barboides gracilis is a miniature cyprinid from coastal West and Central Africa, ranging from Benin through Nigeria and Cameroon to Equatorial Guinea.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barboides gracilis is a miniature cyprinid from coastal West and Central Africa, ranging from Benin through Nigeria and Cameroon to Equatorial Guinea.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barboides gracilis is a miniature cyprinid from coastal West and Central Africa, ranging from Benin through Nigeria and Cameroon to Equatorial Guinea.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barboides gracilis is a miniature cyprinid from coastal West and Central Africa, ranging from Benin through Nigeria and Cameroon to Equatorial Guinea.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in small coastal rivers and streams in Benin, southern Nigeria, Cameroon and Equatorial Guinea.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in small coastal rivers and streams in Benin, southern Nigeria, Cameroon and Equatorial Guinea.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in small coastal rivers and streams in Benin, southern Nigeria, Cameroon and Equatorial Guinea.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It occurs in small coastal rivers and streams in Benin, southern Nigeria, Cameroon and Equatorial Guinea.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barboides gracilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2360908,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        17
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        1
+      ]
+    ],
+    "native": [
+      "BJ",
+      "NG",
+      "CM",
+      "GQ"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

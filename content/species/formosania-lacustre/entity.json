@@ -1,0 +1,245 @@
+{
+  "id": "formosania-lacustre",
+  "scientificName": "Formosania lacustre",
+  "order": "Cypriniformes",
+  "family": "Balitoridae",
+  "genus": "Formosania",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "taiwan",
+    "lake-candidius",
+    "china",
+    "fujian"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>The tasseled-mouth loach, Formosania lacustris, is a gastromyzontid from Taiwan and some coastal drainages of Fujian Province, mainland China. An obligate dweller of swiftly-flowing streams and headwaters, it clings to rocks in riffles and runs using its flattened head and body and horizontal paired fins. The genus was formerly Crossostoma, and colour and pattern vary with locality and age.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Described from Lake Candidius, Nantou County, Taiwan and has since been recorded from various parts of the island including the counties of Taipei, Ilan, Yilan, Hsinchu, Miaoli and Taichung.</p><p>More recently it's been discovered in some coastal drainages of Fujian Province, mainland China. Colour and patterning vary depending on locality and age of the specimen.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>An obligate dweller of swiftly-flowing streams and headwaters containing clear, oxygen-saturated water, it particularly inhabits riffles and runs and according to studies shows a preference for shallower zones.</p><p>Substrates are generally composed of gravel, rocks, boulders or bedrock carpeted with a rich biofilm formed by algae and other micro-organisms.</p><p>Aquatic plants are uncommon and while riparian vegetation may be present this fish is most abundant in unshaded or partially-shaded zones.</p><p>Sympatric species in Taiwan include Hemimyzon formosanum, Sinogastromyzon puliensis, Rhinogobius brunneus, R. candidianus, Acrossocheilus formosanus and Zacco pachycephalus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Standard length: 120 mm SL (12 cm). Aquarium base: 120 × 30 cm. Volume: ~108 litres.</p><p>Minimum base dimensions of 120 × 30 cm or equivalent are recommended.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Most importantly the water must be clean and well-oxygenated so we suggest the use of an over-sized filter as a minimum requirement.</p><p>Turnover should ideally be 10-15 times per hour so additional powerheads, airstones, etc. should also be employed as necessary.</p><p>Base substrate can either be of gravel, sand or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Aged driftwood can also be used but avoid new pieces since these usually leach tannins that discolour the water and reduce the effectiveness of artificial lighting, an unwanted side-effect since the latter should be strong to promote the growth of algae and associated microorganisms.</p><p>Exposed filter sponges will also be grazed, and some enthusiasts maintain an open filter in the tank specifically to provide an additional food source.</p><p>Although rarely a feature of the natural habitat aquatic plants can be used with adaptable genera such as Microsorum, Crinum and Anubias spp. likely to fare best. The latter are particularly useful as their leaves tend to attract algal growth and provide additional cover.</p><p>Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>While regular partial water changes are essential aufwuchs can be allowed to grow on all surfaces except perhaps the viewing pane.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–12 dGH</li></ul><p>Temperature: Can tolerate higher temperatures provided its oxygen requirements are maintained but for general aquarium care a value of 20–24°C is recommended.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Little is known of this species' natural diet although presumably it feeds on crustaceans, insect larvae and other invertebrates since it shows a preference for small, meaty items such as bloodworm, Artemia, Mysis, etc. in captivity.</p><p>Algae doesn't appear to be taken in great quantities but some sinking dried foods are accepted.</p><p>Gastromyzontids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a continual, easily-obtainable source of suitable foods in the absence of competitors if they're to recover.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Largely peaceful although its environmental requirements limit the choice of suitable tankmates somewhat, so research your choices before purchase in order to be sure.</p><p>Species inhabiting similar natural waters include Barilius, Garra, Devario, some Rasbora, Rhinogobius, Sicyopterus and Stiphodon gobies plus catfishes like Glyptothorax, Akysis and Oreoglanis.</p><p>Many loaches from the family Nemacheilidae, Balitoridae and Gastromyzontidae are also suitable although harmless squabbles may occur with the latter group in particular.</p><p>In terms of conspecifics it's loosely gregarious so buy a group of 4 or more if you want to see its most interesting behaviour.</p><p>It's territorial to an extent with some individuals appearing more protective of their space than others (often a prime feeding spot); this may be related to gender since males in some related species are known to be more aggressive than females.</p><p>At any rate physical damage is rare and such battles are very entertaining to watch.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Sexually mature females should be larger and fuller-bodied than males, and when spawning males develop tubercules on the head.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>Presumably a seasonal spawner in nature but nothing has been recorded in aquaria as far as we know.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<p>This species is a relatively recent introduction to the aquarium hobby and only traded sporadically.</p><p>The genus name was previously Crossostoma but this has been shown to be pre-occupied by a genus of gastropod so in 2006 was changed to Formosania. Members are most closely-related to the similar-looking Vanmanenia species, and within the genus F. lacustris to F. fascicauda and F. stigmata, respectively.</p><p>Like all balitorids Formosania spp. possess specialised morphology adapted to life in fast-flowing water; the paired fins are orientated horizontally, head and body flattened.</p><p>These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead 'crawl' their way over and under rocks.</p><p>The family Gastromyzontidae is currently considered valid as per Kottelat (2012).</p><p>It contains a number of genera which had formerly been included in several families and subfamilies, most recently Balitoridae, of which the most well-known in the aquarium hobby include Beaufortia, Formosania, Gastromyzon, Pseudogastromyzon, Hypergastromyzon, Liniparhomaloptera, Sewellia, and Vanmanenia.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "html": "<ul><li>Chen, I-S, and Y-C Chang (2005). A Photographic Guide to the Inland-water Fishes of Taiwan: Vol. 1 Cypriniformes. The Sueichan Press, i-xx + 1-284</li><li>Novák, J., L. Hanel and O. Rícan (2006). Formosania a replacement name for Crossostoma Sauvage, 1878 (Teleostei), a junior synonym of Crossostoma Morris &amp; Lycett, 1851 (Gastropoda). Cybium 30 (1), 92</li><li>Wang, T. Y., C. S. Tzeng, H. Y. Teng and T. Chang (2007). Phylogeography and Identification of a 187-bp-Long Duplication within the Mitochondrial Control Region of Formosania lacustre (Teleostei: Balitoridae). Zoological Studies 46(5), 569-582</li><li>Yu, S-L and T-W Lee (2005). Habitat segregation by fishes in western Taiwan rivers. Journal of Applied Ichthyology 21(6), 531-534</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3216dcd6ba3b5bbd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3216dcd6ba3b5bbd-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "caption": "Newly-introduced specimens may also exhibit pale colouration...",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1e3e63b3bda7fea3.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1e3e63b3bda7fea3-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "caption": "...but begin to develop normal colouration once settled.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/764d87d6838cbd67.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/764d87d6838cbd67-480.webp",
+      "width": 800,
+      "height": 530,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "caption": "A glance at the mouthparts reveals the origin of this species' vernacular name.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/be16b6a01a1b594d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/be16b6a01a1b594d-480.webp",
+      "width": 800,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/formosania-lacustris",
+      "caption": "As in many balitorids the head/body are flattened and paired fins orientated horizontally.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "CB9q_XI2d9E",
+      "title": "Albonubes - Formosania Lacustre",
+      "durationSec": 512,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HXWu7_1mY5g",
+      "title": "1090807七堵瑪陵坑溪纓口臺鰍（Formosania lacustre） 覓食",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "B5uM4otHvRk",
+      "title": "#BADC2022 / Riffles of Huang Rou Creek, Nantou, Taiwan, 220 L",
+      "durationSec": 160,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nbJTVDyFhkA",
+      "title": "1080807七堵友蚋溪上游俗稱石貼仔的櫻口臺鰍（Formosania lacustre）",
+      "durationSec": 29,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài 120x30"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc ngoài công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi cuội",
+        "đá cuội thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

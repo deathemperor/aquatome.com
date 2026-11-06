@@ -10,6 +10,65 @@
     "indonesia",
     "jambi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Alai River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta falx is a small paternal mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, where most collections come from Jambi province.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Sumatra, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is within the Alai River watershed, Jambi.",
+          "countries": [],
+          "regions": [
+            "Alai River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394000,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          -2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +196,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá nhỏ nuôi betta"
+        "bể cá 60cm"
       ]
     },
     {

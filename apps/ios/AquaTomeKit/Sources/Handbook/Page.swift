@@ -188,11 +188,13 @@ public struct PageDoc: Sendable {
   }
 
   /// One figure's sources: `field` is the index's name for it (tempC, ph, gh, sizeCm, tankCm, difficulty); where the
-  /// sources disagree (`conflict`), each one's own figure and which the facts show (`note`).
+  /// sources disagree (`conflict`), each one's own figure and which the facts show (`note`); `marked`, they disagree by
+  /// enough to change how the fish is kept (the site's card puts its dot on these only).
   public struct TrustRow: Sendable {
     public let field: String
     public let label: String
     public let conflict: Bool
+    public let marked: Bool
     public let note: String?
     public let items: [String]
 
@@ -200,6 +202,7 @@ public struct PageDoc: Sendable {
       guard let o = v as? [String: Any], let field = o["field"] as? String, let label = o["label"] as? String, let items = o["items"] as? [String] else { return nil }
       self.field = field; self.label = label; self.items = items
       conflict = o["conflict"] as? Bool ?? false
+      marked = o["marked"] as? Bool ?? false
       note = o["note"] as? String
     }
   }

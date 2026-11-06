@@ -1,4 +1,15 @@
 {
+  "ancistrus-dolichopterus": {
+    "at": "2026-11-06",
+    "from": "2026-11-04",
+    "name": "Starlight Bristlenose",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Items 1 and 8: \"territorial\" is left as an English loanword. Use \"mempertahankan wilayah\" or \"bersifat wilayah\" for more natural Malay.",
+      "Item 7: \"bahan yang lebih berprotein\" is looser than \"meatier ingredients\". \"bahan berasaskan daging\" is closer."
+    ]
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-06",
     "from": "2026-10-30",
@@ -18,6 +29,17 @@
       "Item 6: the Malay omits the volume note '(~143 US gal)', which is fine as an imperial figure. No fix needed."
     ]
   },
+  "balantiocheilos-melanopterus": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Bala shark",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 6: \"tangki yang langsung kosong\" is awkward; use \"tangki tanpa sebarang hiasan\" or \"tangki yang kosong sepenuhnya\".",
+      "Item 9: \"secara longgar\" is added to \"shoaling\", which the English does not say. Use plain \"berkawan/berkelompok (shoaling)\"."
+    ]
+  },
   "betta-splendens": {
     "at": "2026-11-06",
     "from": "2026-11-01",
@@ -35,6 +57,23 @@
       "Item 18: 'Brine shrimp' rendered 'Artemia' and 'Glassworm' left in English; add Malay/hobby equivalents e.g. 'cacing kaca'. 'flake' left in English in several items; 'serpihan' is common alternative.",
       "Item 27: 'Tukar air perlu dibuat dalam kuantiti kecil' awkward; 'sehingga telur betina habis' ok. 'milt' left untranslated - use 'sperma/air mani ikan'.",
       "Item 29: 'turquoise' rendered 'biru firus' fine; 'oren' fine. Item 21/22: 'Species with body shapes ... ' in 22 omits 'similar' mismatch: English says 'body shapes or trailing finnage' (to avoid), MS adds 'serupa' – an added qualifier that is not in the source."
+    ]
+  },
+  "corydoras-aeneus": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Bronze Cory",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 12: the 'sting' that 'can be very painful' is rendered as \"'sengatan'nya boleh menjadi sangat sakit\". It reads awkwardly. Use \"'sengatan'nya amat menyakitkan\".",
+      "Item 12: \"ikan keli 'berperisai'\" drops the English 'armoured' or 'mailed' pairing. This is minor. 'Mailed' is not translated separately.",
+      "Item 11: spawning mop, alder cone, methylene blue and microworm are left in English. Add a Malay gloss or use a local term, e.g. 'kon alder' and 'cacing mikro'.",
+      "Item 12: \"Taksonomi kumpulan ini boleh mengelirukan\" is fine. However \"hasil line-breeding\" and \"secara line-breeding\" leave English in place. Consider 'pembiakan baka sejalur' or a bracketed English term.",
+      "Item 4: \"sepanjang tahun\" for 'over the years' is imprecise. Use 'selama bertahun-tahun'.",
+      "Item 5: 'liter' should be 'liter' or 'L' in Malaysian usage. This is acceptable but 'liter' is common. Check that 80 × 30 cm with 72 litres is consistent with the source's unstated depth.",
+      "Item 10: \"membesar lebih besar\" is repetitive. Use 'tumbuh lebih besar'.",
+      "Item 12: 'rising to the surface to take in gulps of air' is rendered with 'anda'. Use a neutral form such as 'kadangkala ikan ini kelihatan naik ke permukaan'."
     ]
   },
   "cyprinus-rubrofuscus": {
@@ -67,6 +106,25 @@
       "Item 31: 'ikan keli' for 'catfishes' normally means Clarias to a Malaysian reader. Use 'ikan berkumis (catfish)' or just 'catfish'.",
       "Item 33: the 'cross-reared' sentence is clumsy ('ikan yang dibesarkan bersama ikan bercorak lain (cross-reared) lebih menyukai corak ikan yang membesar bersamanya'). Rephrase so it says fish prefer the pattern of the fish they were raised with.",
       "Item 24: 'larva' sits beside 'anak ikan' for the same life stage. Use one term consistently."
+    ]
+  },
+  "epalzeorhynchos-bicolor": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Red Tail Shark",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 4: '243 liter' is wrong spelling in Malaysian Malay; use 'liter' is acceptable but check conversion: 120×45 cm base is stated as around 243 litres in source, kept as is, fine. Main issue elsewhere.",
+      "Item 11: 'Terdapat juga mutasi anerythristic (tiada pigmen merah)' leaves English 'anerythristic' untranslated; use e.g. 'mutasi anerithristik' or 'tanpa pigmen merah'.",
+      "Item 11: 'flake' left in English in item 7 ('bersama flake, granul kering'); use 'serpihan' or 'makanan kepingan'.",
+      "Item 7: 'kutu air' for Daphnia is acceptable but 'aufwuchs' is left untranslated; add explanation e.g. 'biofilem dan alga berlekat (aufwuchs)'.",
+      "Item 7: 'Kacang pis yang dikupas' - peas should be shelled/'dikeluarkan kulitnya'; fine, but 'meragut aufwuchs, iaitu memakan alga...' mis-structures the sentence: aufwuchs grazer feeding on algae etc.; rephrase.",
+      "Item 8: 'sifat wilayah' awkward; use 'bersifat teritorial/mempertahankan kawasan'. Also 'loach' left in English; use 'ikan loach' with local term 'ikan pasir/loceng' or consistently bracket.",
+      "Item 8: 'tangki komuniti' vs 'akuarium komuniti' inconsistent; 'berkemungkinan hidup bersendirian' changes 'probably' fine but 'iaitu semasa musim mengawan' reads as only mating season restriction - OK.",
+      "Item 8: 'ikan segenus' for congenerics fine; 'lebih suka bergaduh' ok.",
+      "Item 11: 'berkacuk' for hybridised is non-standard in fish context; use 'kacukan/hibrid'. 'Genetic sport' translated as 'variasi genetik spontan' is acceptable.",
+      "Item 1/6: 'Kekerasan air (GH): 2–15 dGH' adds 'GH' label not in source; minor."
     ]
   },
   "gymnocorymbus-ternetzi": {
@@ -201,6 +259,21 @@
       "Item 4/5: \"lembangan utama Amazon\" is fine, but \"Timur Jauh\" and \"dalam hobi ini\" are literal. Prefer \"Asia Timur\" and \"dalam dunia hobi akuarium\".",
       "Item 3: \"munisipaliti\" is a stiff loanword. Use \"perbandaran\" or \"daerah\" Santa Isabel.",
       "Item 13: \"induk yang baik\" for \"good parents\" is fine, but \"ditukar kepada makanan anak ikan komersial\" is awkward. Use \"beralih kepada makanan anak ikan yang dijual di pasaran\"."
+    ]
+  },
+  "pterygoplichthys-pardalis": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Ikan bandaraya",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 4: the source says 'Liposarcus pardalis' but item 11 says the genus is now Pterygoplichthys. The translation keeps the source's Liposarcus, which is fine. Consider no change.",
+      "Item 3: 'Kerana itulah lebih seronok lagi' is slightly informal and loosely renders 'All the more beautiful'. Consider 'Oleh itu, lebih menarik lagi untuk memperoleh...'.",
+      "Item 11: 'tersalah dijual' is awkward for 'miss sold'. Use 'sering dijual secara salah sebagai' or 'sering tersilap dilabel sebagai'.",
+      "Item 11: 'tahun sembilan puluhan' is slightly clumsy. Use 'awal tahun 1990-an'.",
+      "Item 7: 'membesar terlalu besar' is repetitive. Use 'tumbuh terlalu besar'. 'tangki' is fine, but 'akuarium' is more common in Malaysia.",
+      "Item 10: the English term 'flake' is left in the Malay text. Use 'makanan kepingan (flake)' or similar."
     ]
   },
   "puntigrus-tetrazona": {

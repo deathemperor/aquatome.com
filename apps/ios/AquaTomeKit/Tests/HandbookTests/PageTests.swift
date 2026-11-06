@@ -88,6 +88,7 @@ private func json(_ b: PageDoc.Block) -> [String: Any] {
     o["rows"] = rows.map { r in
       var j: [String: Any] = ["field": r.field, "label": r.label, "items": r.items]
       if r.conflict { j["conflict"] = true }
+      if r.marked { j["marked"] = true }
       j["note"] = r.note
       return j
     }

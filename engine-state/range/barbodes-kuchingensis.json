@@ -1,0 +1,78 @@
+{
+  "id": "barbodes-kuchingensis",
+  "native": {
+    "input": "2a458497638dcbac",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from '18 miles east of Kuching, Sarawak state, Borneo, East Malaysia' and apparently endemic to western Borneo with a range extending into the Indonesian province of West Kalimantan (Kalimantan Barat) where it's known from the Kapuas River system, including the lake system of Danau Sentarum.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from '18 miles east of Kuching, Sarawak state, Borneo, East Malaysia' and apparently endemic to western Borneo with a range extending into the Indonesian province of West Kalimantan (Kalimantan Barat) where it's known from the Kapuas River system, including the lake system of Danau Sentarum.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "The false spanner barb, Barbodes kuchingensis, is a cyprinid apparently endemic to western Borneo, from Sarawak into the Kapuas system.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Described from '18 miles east of Kuching, Sarawak state, Borneo, East Malaysia' and apparently endemic to western Borneo with a range extending into the Indonesian province of West Kalimantan (Kalimantan Barat) where it's known from the Kapuas River system, including the lake system of Danau Sentarum.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "Described from '18 miles east of Kuching, Sarawak state, Borneo, East Malaysia' and apparently endemic to western Borneo with a range extending into the Indonesian province of West Kalimantan (Kalimantan Barat) where it's known from the Kapuas River system, including the lake system of Danau Sentarum.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbodes kuchingensis",
+    "status": "ACCEPTED",
+    "taxonKey": 8074510,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

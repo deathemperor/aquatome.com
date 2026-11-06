@@ -115,9 +115,9 @@
     ]
   },
   "anubias-barteri-nana": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "อนูเบียสนานา",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "อนูเบียส นานา",
     "confidence": "high",
     "score": 0.95,
     "notes": []
@@ -431,15 +431,16 @@
     ]
   },
   "bucephalandra-sp-degori": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "บูเซ เดโกริ",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "บูเซป ดีโกริ",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "Item 3: \"ก่อนซื้อต้นไม้มาลง\" adds \"plants\" and \"put in the tank\", which the source doesn't say. Use a plainer wording such as \"ก่อนสั่งซื้อ\" or \"ก่อนซื้อ\".",
-      "Item 1: the Latin name was changed from the source spelling \"Bucephelandra\" to \"Bucephalandra\". The corrected spelling is probably right, but the translator should confirm it knowingly. The Thai transliteration \"บูเซฟาลันดรา\" is fine.",
-      "Item 1: \"ปริมาณ\" for \"Portion\" is slightly stiff. A more natural Thai wording is \"ขนาดต่อชุด\" or \"จำนวนที่ได้รับ\"."
+      "#1: Thai writes \"Bucephalandra\" while the source has \"Bucephelandra\". Latin names should stay unchanged, so either keep the source spelling or confirm the correction on purpose.",
+      "#1: \"เติบโตแบบจมน้ำ\" sounds like the plant is drowning. Use \"เติบโตใต้น้ำ (submersed)\" and \"เติบโตเหนือน้ำ/โผล่พ้นน้ำ (emersed)\".",
+      "#2: \"ปลูกในกระถาง\" for \"cây chậu\" (potted plants) is a bit off. Hobbyists usually say \"ต้นที่ปลูกในถ้วย/ถ้วยปลูก\" for tissue-culture or nursery plants.",
+      "#2: \"กระจายไปวางตามจุดอื่นอย่างทั่วถึง\" is stiff. Use something like \"วางกระจายตามจุดอื่นๆ ให้สมดุล\"."
     ]
   },
   "bucephalandra-sp-mini-melawi": {
@@ -1999,17 +2000,34 @@
     ]
   },
   "taxiphyllum-barbieri": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "มอสจาวา",
     "confidence": "high",
-    "score": 0.75,
+    "score": 0.7,
     "notes": [
-      "Item 2: \"ถูกลืมทิ้งไว้ในถังนานถึงสองเดือน\" — source says \"bucket\" (ถัง/xัง) and \"in the tank\" is not stated; use \"ถัง/xังน้ำ\" is fine but avoid confusion with aquarium tank \"ตู้\"; consider \"ในถังน้ำ (xัง)\" to distinguish from \"ตู้ปลา\".",
-      "Item 2: \"มอสในตู้ปลาดูเป็นระเบียบ\" — fine, but \"ให้เล็มแต่งเล็กน้อย\" for \"quick trim\" could be \"ตัดแต่งคร่าว ๆ\"; \"ไม่ทำให้การเติบโตในภายหลังเสียหาย\" is stiff, use \"ไม่กระทบการเติบโตต่อไป\".",
-      "Item 2: \"ตะไคร่ขน\" for hair algae is acceptable but \"ตะไคร่ขนผม/สาหร่ายเส้นผม\" is also used; and \"กินปุยสีขาวนั้นจนหมดอย่างเพลิดเพลิน\" is slightly awkward, try \"กินปุยสีขาวนั้นจนหมดอย่างเอร็ดอร่อย\".",
-      "Item 3: \"กุ้งก็ชอบที่มีที่ให้อาศัย\" — \"nest\" is better rendered as \"ที่วางไข่/ที่ทำรัง\" or \"ที่เกาะอาศัยเลี้ยงลูก\"; \"เก็บกินทำความสะอาดมอสอย่างเบามือ\" is awkward, try \"ช่วยแทะเล็มทำความสะอาดมอสอย่างอ่อนโยน\".",
-      "Item 4: \"เส้นสีเขียวฝอย ๆ ลอยอยู่เหนือกรวด\" — \"wisps resting above the gravel\" means resting, not floating; use \"พาดอยู่เหนือกรวด\" to avoid repeating \"ลอย\"."
+      "Item 3: \"ลืมต้นไม้ไว้ในถัง\" – \"bucket\" is a bucket (xô/กะละมัง/ถังน้ำ), and \"plant\" here is the moss; use \"ลืมมอสไว้ในถังน้ำ\" so it isn't confused with the aquarium. \"ถัง\" alone is ambiguous.",
+      "Item 3: \"มอสในตู้ปลา\" – the source says \"in the tank\" (the aquarium it is in), fine, but \"เล็มสั้น ๆ\" for \"a quick trim\" loses the meaning of a quick/easy trim; use \"ตัดแต่งสั้น ๆ\" or \"ตัดแต่งเล็กน้อย\".",
+      "Item 3: \"white fluff\" is rendered as \"ปุยสีขาว\"; the source says shrimp eat the fluff of hair algae, so name it as the algae (\"ตะไคร่ขนสีขาวฟู\") rather than a separate fluff.",
+      "Item 6: \"ไม้เลื้อยไอวี่\" – ivy is better as \"ไอวี่\" or \"ไม้เลื้อยอย่างไอวี่\"; \"เส้นสีเขียวพลิ้ว\" for \"green wisps\" is awkward; use \"เส้นใยสีเขียวพลิ้วไหว\".",
+      "Item 6: \"สามารถคลุมหรือผูกไว้กับกิ่งไม้ได้ทั้งในระดับสูงและต่ำ\" – \"drape over\" should be \"พาดคลุมกิ่งไม้\"; this wording is vague.",
+      "Item 5: \"กุ้งก็ชอบที่มีที่ให้อาศัย\" – \"nest\" is rendered as \"live in\"; use \"ที่วางไข่/ที่ทำรัง\" if the sense is nesting, or \"ที่เกาะพักอาศัย\".",
+      "Item 7: \"South-East Asia\" is \"เอเชียตะวันออกเฉียงใต้\" (correct), but \"ไม่ค่อยเรื่องมาก\" is colloquial for a handbook; use \"ไม่ต้องการการดูแลมาก\". Also \"มอสจะเติบโตหนา 3–10 ซม.\" is fine, but \"ในตู้เพาะพันธุ์ ... ชั้นดี\" is slightly literary.",
+      "Item 1: \"ใช้ได้หลากหลาย\" for \"versatile\" is vague; use \"ปรับใช้ได้หลายแบบ/จัดตู้ได้หลากหลาย\". \"ไม่มีราก\" – source says \"does not root\", better \"ไม่หยั่งราก\" (it has rhizoids).",
+      "Item 1: \"ส่วนปลายที่เป็นสีเขียวอ่อนคือส่วนที่งอกใหม่\" – OK in meaning, but \"indicate\" is better as \"แสดงถึงการเติบโตใหม่\"."
+    ]
+  },
+  "taxiphyllum-sp-flame-moss": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "เฟลมมอส",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"ลงตู้ได้สองเดือน\" is fine, but the height is inconsistent: item 1 says 3–10+ cm and item 2 says 5–15 cm. This is in the source, so keep it. No fix is needed there.",
+      "\"เหมาะมากกับพื้นผิวแนวราบ\": the English says \"horizontal surfaces\", but the sentence \"only spreads slowly horizontally\" has a logic problem in the source. The Thai \"แผ่ขยายออกด้านข้างได้ช้าเท่านั้น\" reads awkwardly. Rephrase it as \"แผ่ขยายไปด้านข้างได้ช้า\".",
+      "\"บรรจุในถ้วยปิด\": \"closed cup\" is rendered literally. Use the hobby phrasing \"ถ้วยปิดสนิท\" or \"คัพ\" (tissue culture cup).",
+      "\"ผูกมอสไว้กับหินก้อนเล็ก ๆ หรือผูกเป็นกระจุกเล็ก ๆ บนรากไม้\": \"Attach\" is rendered as \"ผูก\" (tie). Only the second half has \"in small bundles\", and that is covered. Consider \"ยึด\" or \"ผูกติด\" to be more neutral, since the moss can also be glued."
     ]
   },
   "vallisneria": {

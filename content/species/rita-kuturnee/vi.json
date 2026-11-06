@@ -1,6 +1,6 @@
 {
   "slug": "ca-rita-deccan",
-  "name": "Cá Rita Deccan",
+  "name": "Cá rita Deccan",
   "altNames": [
     "Deccan Rita"
   ],
@@ -14,13 +14,25 @@
     "dimorphism:planetcatfish": "<p>Cá đực có nhú sinh dục dài nằm ngay trước vây hậu môn.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi.</p>",
     "notes:planetcatfish": "<p>Các loài cá lăng (họ Bagridae) thuộc chi Rita Bleeker, 1854 sống ở những con sông lớn khắp tiểu lục địa Ấn Độ và Myanmar. Chúng có thể dài tới 1500 mm TL (Talwar và Jhingran, 1991). Tuy vậy, cá trưởng thành người ta hay gặp thường chỉ khoảng 200-300 mm SL. Theo Mo (1991), chi này được nhận diện qua các đặc điểm phái sinh chung sau: chỉ có một cặp râu hàm dưới, bộ máy Weber kéo dài và gắn chặt bằng đường khớp vào xương chẩm nền, và ống cảm giác trên xương sau thái dương nằm kín bên trong xương.</p><p>Răng vòm miệng xếp thành hai dải mảnh hình lưỡi liềm. Gai vây lưng trơn ở mặt trước, chỉ có vài răng cưa ở phần gốc.</p>",
-    "references:planetcatfish": "<p>Proceedings of the Zoological Society of London 1838 (pt 6) (for 27 Nov. 1838), pp 164.</p>"
+    "references:planetcatfish": "<p>Proceedings of the Zoological Society of London 1838 (pt 6) (for 27 Nov. 1838), pp 164.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá rita Deccan (Rita kuturnee) là một loài cá da trơn họ Bagridae, sống ở các hệ thống sông lớn của Ấn Độ. Cá có thể dài khoảng 26 cm SL (chiều dài chuẩn, đo từ mõm đến gốc đuôi). Các loài Rita ít khi xuất hiện trong giới chơi cá cảnh. Loài này khá hiền nên hợp với bể cộng đồng gồm các loài cỡ lớn, như các loài barb to, cichlid khỏe và cá loricariid. Tuy vậy, cá nhỏ hơn nó sẽ bị ăn.</p>",
+    "distribution:seriouslyfish": "<p>Ấn Độ.</p>",
+    "habitat:seriouslyfish": "<p>Cá sống ở các hệ thống sông lớn.</p>",
+    "aquariumSize:seriouslyfish": "<p>Bể tối thiểu 120 × 30 × 30 cm, tức khoảng 108 lít. Bể lớn hơn thì càng tốt.</p>",
+    "maintenance:seriouslyfish": "<p>Cách bày bể không quá quan trọng, nhưng cá phải có chỗ để trốn. Bạn có thể xếp lũa thành hốc, đặt chậu hoa hoặc thả vài đoạn ống PVC. Nếu mặt nước có cây nổi che bớt ánh sáng chiếu xuống nền, cá sẽ ra ngoài thường xuyên hơn.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 22–27°C</li><li>pH: 6.0–7.0</li><li>Độ cứng: 5–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Cá ăn không kén. Nó nhận gần hết các loại thức ăn sống, đông lạnh và thức ăn khô cỡ nhỏ. Bạn nên cho ăn đa dạng.</p>",
+    "behaviour:seriouslyfish": "<p>Đây là loài cá da trơn khỏe mạnh nhưng khá hiền, rất hợp làm cá tầng đáy trong bể cộng đồng nuôi các loài cỡ lớn. Có điều cá nhỏ hơn nó sẽ bị ăn. Bạn cùng bể hợp lý gồm vài loài barb lớn như Tinfoil hay Lemon-finned, các loài cichlid khỏe và cá loricariid. Trong bể lớn, bạn có thể nuôi cá theo đàn, nhưng mỗi con cần có một chỗ trú riêng làm nhà.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực có nhú sinh dục khá dài, nằm ngay trước vây hậu môn.</p>",
+    "reproduction:seriouslyfish": "",
+    "notes:seriouslyfish": "<p>Các loài Rita ít khi xuất hiện trong giới chơi cá cảnh. Nếu tìm được, R. kuturnee là một con cá tầng đáy rất ổn cho bể cộng đồng có các loài khỏe khác.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "seriouslyfish": 0.85
     }
   }
 }

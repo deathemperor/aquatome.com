@@ -1,0 +1,184 @@
+{
+  "id": "barbronia-weberi",
+  "native": {
+    "input": "ed7841c7a4aa2b50",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "AF",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+        "words": "Afghanistan",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "IT",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "In recent years the Asian leech has established populations on every continent except Antarctica. It was introduced to South and North America, Australia, New Zealand and Europe (Italy, England, Hungary, Austria and Germany).",
+        "words": "Italy",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "aquariumbreeder",
+        "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "aquariumbreeder",
+        "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "aquariumbreeder",
+        "quote": "Originally, Barbronia weberi had a native range from Afghanistan and Pakistan to Java, Sumatra, Borneo, India and Southern China.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbronia weberi",
+    "status": "ACCEPTED",
+    "taxonKey": 2307447,
+    "datasets": [
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        42
+      ],
+      [
+        "1671ddfb-1f8a-4d24-ab4d-50adb89af001",
+        5
+      ],
+      [
+        "78888b83-0b6b-4836-b5a4-dca31206b993",
+        5
+      ],
+      [
+        "9346821c-3672-47d1-b3eb-ea9175fa1280",
+        4
+      ],
+      [
+        "b5192815-5e90-45b4-a17d-62856a3ead51",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "6b3f90ff-fc9a-4962-9605-8a79b81193e7",
+        2
+      ],
+      [
+        "75a45d89-5ab2-470c-90df-b15417bf26dc",
+        2
+      ],
+      [
+        "cbaceeb5-5f37-45cf-a1e9-6e38717aec3d",
+        2
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        2
+      ],
+      [
+        "f125a967-5524-4bac-82a2-cab4b5ab76cb",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "37f48e00-1fe8-11dc-b461-b8a03c50a862",
+        1
+      ],
+      [
+        "450da506-9d95-4d64-95bd-61e15e507c06",
+        1
+      ],
+      [
+        "50743314-a455-4f64-b5d5-8a4e816aeec6",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7dd54a40-20a3-4f73-b0f6-4b7e3be3764f",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "e0fa07ae-74d9-44b1-8e05-5785482ccad2",
+        1
+      ],
+      [
+        "ee0b9239-78c2-42a1-9603-9b0a184752ea",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f5cb509c-00bb-42f5-aafb-59b631722d60",
+        1
+      ]
+    ],
+    "native": [
+      "AF",
+      "PK",
+      "IN",
+      "CN"
+    ],
+    "requests": 17,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

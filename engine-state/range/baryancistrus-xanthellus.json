@@ -1,0 +1,107 @@
+{
+  "id": "baryancistrus-xanthellus",
+  "native": {
+    "input": "f869b1f4629cdcf1",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Xingu basin where it inhabits a section of the river's main channel known as 'Volta Grande do rio Xingu' which lies between Belo Monte falls and the mouth of the rio Iriri in Pará state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the rio Xingu basin where it inhabits a section of the river's main channel known as 'Volta Grande do rio Xingu' which lies between Belo Monte falls and the mouth of the rio Iriri in Pará state, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Iriri",
+        "source": "seriouslyfish",
+        "quote": "The Iriri is a major tributary of the Xingu and B. xanthellus has also been recorded along its mid-to-lower course with that population coded L177.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "All these gold seams originate from the Rio Xingu and its tributaries.",
+        "ok": true
+      },
+      {
+        "name": "Iriri River",
+        "source": "glaser",
+        "quote": "L177 is collected in a tributary of the Xingu, the Iriri River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Baryancistrus xanthellus",
+    "status": "ACCEPTED",
+    "taxonKey": 6167964,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        94
+      ],
+      [
+        "99a7ee0d-5607-4d11-996f-da6f3685f61a",
+        31
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

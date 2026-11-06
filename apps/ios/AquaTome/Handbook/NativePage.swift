@@ -6,8 +6,9 @@ import UIKit
 /// A page the app draws itself from the site's blocks (PageDoc, kept on the phone by PageCache): the site's page, read
 /// offline once opened. The blocks become a few kinds of piece (styled text, photos, links to pages, the web page for a
 /// part it can't draw): one view per kind of block cost the app 90 kB. A page opens on its photo, across the screen,
-/// with its name under it; a fish's or plant's then answers its reader's questions in turn (what is it, can I keep it
-/// here, with what), then its photos, the detail, its videos, its readers, where to go next and its sources.
+/// with its name under it; a fish's or plant's then its facts, the summary (the answer), the care text ("Thông tin
+/// nhanh" folded, the climate and tank-mates in the sections they answer), then its photos, its videos, its readers,
+/// where to go next and its sources, as the site's page on a phone has them.
 struct NativePage: View {
   let pieces: [Piece]
   /// A fish's facts or a plant's care (FactsCard), where the page puts them (`.facts`).
@@ -56,6 +57,9 @@ struct NativePage: View {
     case gallery(title: String, note: String, photos: [PageDoc.Image], strip: [Int])
     /// Text shown once its title is tapped (the sources behind each figure).
     case more(String, AttributedString)
+    /// A section whose text shows once its heading is tapped ("Thông tin nhanh", which the facts and the summary above
+    /// mostly give), as the site's page folds it on a phone. `anchor`, the heading's id.
+    case fold(AttributedString, anchor: String?, AttributedString)
     /// Lines each marked fine or a warning (the climate in each region, keepers' mistakes), under a title, with a note.
     case notes(String?, [Note], note: String?)
     /// Where a fish's facts or a plant's care go: under its name.
@@ -131,7 +135,7 @@ struct NativePage: View {
     case .text(_, _, .title): i == 0 ? 12 : 20
     case _ where i == 0: 12
     case .text(_, _, .line): 4
-    case .text(_, _, .heading), .gallery: 40
+    case .text(_, _, .heading), .gallery, .fold: 40
     case .text(_, _, .subheading), .facts, .more: 24
     case .cards(.some, _, _): 20
     default: 12
@@ -181,6 +185,17 @@ struct NativePage: View {
         Text(title).font(.headline)
       }
       .accessibilityIdentifier("page-more")
+    case let .fold(heading, anchor, text):
+      DisclosureGroup {
+        Text(text).lineSpacing(3).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 12)
+      } label: {
+        // In the text's colour, as the page's other headings: only the chevron in the tint, which the links in the
+        // text keep too.
+        Text(heading).foregroundStyle(Color.primary).accessibilityAddTraits(.isHeader)
+      }
+      .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
+      .id(anchor ?? "piece-\(i)")
+      .accessibilityIdentifier("page-fold")
     case let .notes(title, notes, note):
       VStack(alignment: .leading, spacing: 8) {
         if let title { Text(title).font(.headline).accessibilityAddTraits(.isHeader) }
@@ -291,44 +306,107 @@ struct NativePage: View {
       for b in doc.blocks { if case .trust = b { add(b, to: &out) } }
       if !doc.credit.isEmpty { out.append(credit) }
     }
-    // A species' parts in the order its reader asks (rank), its readers before where to go next; a guide's as written.
-    // A paragraph before a species' summary and sections is the tank-mates tool's link, sent alone when the page shows
-    // no tank-mates: it goes where they would.
+    // A species' parts in the order its reader asks (rank); a guide's as written. A fish's page (one with tank-mates or
+    // the tank-mates tool's link, which a breed's hasn't) reads as the site's on a phone: the summary, the care text,
+    // then its photos (`answerFirst`), its climate and tank-mates at the end of the sections they answer (slot). The
+    // tool's link is a paragraph before the summary and sections, sent alone when the page shows no tank-mates: it goes
+    // where they would. A plant's or a breed's: the summary, a breed's line before it (its parents), the photos, the text.
     let lead = doc.blocks.firstIndex { if case .summary = $0 { true } else if case .heading = $0 { true } else { false } } ?? doc.blocks.count
-    let ranks = doc.blocks.indices.map { i in if case .paragraph = doc.blocks[i], i < lead { 2 } else { rank(doc.blocks[i]) } }
-    let blocks = species ? doc.blocks.indices.sorted { (ranks[$0], $0) < (ranks[$1], $1) }.map { doc.blocks[$0] } : doc.blocks
+    let slot = { (i: Int) -> String? in
+      switch doc.blocks[i] {
+      case .climate: "waterConditions"
+      case .mates: "behaviour"
+      // The tool's link alone (fishDoc's), not a breed's line naming its parents.
+      case let .paragraph(runs) where i < lead && runs.count == 1 && runs[0].href != nil: "behaviour"
+      default: nil
+      }
+    }
+    let answerFirst = doc.kind == "fish" && doc.blocks.indices.contains { slot($0) != nil }
+    let rank = { (b: PageDoc.Block, i: Int) in Self.rank(b, answerFirst: answerFirst, lead: species && i < lead) }
+    var order = doc.blocks.indices.map { $0 }
+    if species {
+      order = order.filter { !answerFirst || slot($0) == nil }.sorted { (rank(doc.blocks[$0], $0), $0) < (rank(doc.blocks[$1], $1), $1) }
+      if answerFirst {
+        let slotted = doc.blocks.indices.filter { slot($0) != nil }.sorted { (sectionOrder.firstIndex(of: slot($0)!)!, $0) < (sectionOrder.firstIndex(of: slot($1)!)!, $1) }
+        for i in slotted { order.insert(i, at: place(slot(i)!, in: order.map { doc.blocks[$0] })) }
+      }
+    }
     var readers = doc.talk.map { Piece.readers($0, name: doc.title) }
     var webBefore = false
-    for b in blocks {
-      if species, rank(b) > 5, let r = readers { out.append(r); readers = nil }
+    var at = 0
+    while at < order.count {
+      let b = doc.blocks[order[at]]
+      at += 1
+      if species, rank(b, order[at - 1]) > 6, let r = readers { out.append(r); readers = nil }
       // A run of parts it can't draw is one offer of the web page.
       if case .web = b { if !webBefore { out.append(.web) }; webBefore = true; continue }
       webBefore = false
       if species, case .trust = b { continue }
-      let at = out.count
+      // A fish's "Thông tin nhanh" folded under its heading, as the site's page on a phone has it, when all of it is
+      // text: its blocks up to the next heading, photo, or climate or tank-mates put after it. Else open, as it was.
+      if answerFirst, case let .heading(text, id) = b, id == "muc-quickFacts" {
+        var part: [Piece] = []
+        var end = at
+        while end < order.count, slot(order[end]) == nil, rank(doc.blocks[order[end]], order[end]) == 3 {
+          if case .heading = doc.blocks[order[end]] { break }
+          if case .figure = doc.blocks[order[end]] { break }
+          add(doc.blocks[order[end]], to: &part)
+          end += 1
+        }
+        let texts = part.compactMap { if case let .text(t, _, _) = $0 { t } else { nil } }
+        if !part.isEmpty, texts.count == part.count {
+          out.append(.fold(styled(text, .pageHeading), anchor: id, texts.dropFirst().reduce(texts[0]) { $0 + AttributedString("\n\n") + $1 }))
+          at = end
+          continue
+        }
+      }
+      let before = out.count
       add(b, to: &out)
       // Under "Nuôi chung", before its fish, as the site's has them.
-      if case .mates = b, let traits { out.insert(.text(traits, look: .line), at: at + 1) }
+      if case .mates = b, let traits { out.insert(.text(traits, look: .line), at: before + 1) }
     }
     if let readers { out.append(readers) }
     return out
   }
 
-  /// Where a species' block goes: the answer first (the summary), then where and with what it lives, its photos (where
-  /// the web page has them: after its climate and tank-mates, before the detail), the detail, its videos, where to go
-  /// next, its sources last.
-  private static func rank(_ b: PageDoc.Block) -> Int {
+  /// The site's order of a species' sections (DISPLAY_ORDER, apps/site/src/lib/sections.ts), each heading's id
+  /// `muc-<key>`: where the climate and tank-mates go when the page has no section of their own.
+  private static let sectionOrder = ["quickFacts", "beforeYouBuy", "aquariumSize", "waterConditions", "maintenance", "equipment", "diet", "behaviour",
+                                     "dimorphism", "reproduction", "distribution", "habitat", "notes", "references"]
+
+  /// Where a part that answers section `key` goes among a fish's blocks (in rank order), as the site's page puts it
+  /// (Sections.astro): at the end of that section, before the photo the site puts between it and the next; else where it
+  /// would be, before the first section that comes after it (one the order doesn't name, such as the wild range, counts
+  /// as after); else at the end of the care text.
+  private static func place(_ key: String, in blocks: [PageDoc.Block]) -> Int {
+    let mine = sectionOrder.firstIndex(of: key)!
+    var inside = false
+    for (i, b) in blocks.enumerated() {
+      if rank(b, answerFirst: true, lead: false) > 3 { return i }
+      if inside, case .figure = b { return i }
+      guard case let .heading(_, id) = b, let id, id.hasPrefix("muc-") else { continue }
+      let k = String(id.dropFirst(4))
+      if inside { return i }
+      if k == key { inside = true; continue }
+      if (sectionOrder.firstIndex(of: k) ?? .max) > mine { return i }
+    }
+    return blocks.count
+  }
+
+  /// Where a species' block goes: the answer first (the summary), then the text; a fish's photos after it, as the site's
+  /// page on a phone has them (`answerFirst`), a plant's or breed's before it, after a breed's line under its summary
+  /// (`lead`: a paragraph before the summary and sections); then its videos, where to go next, its sources last.
+  private static func rank(_ b: PageDoc.Block, answerFirst: Bool, lead: Bool) -> Int {
     switch b {
     case .summary: 0
-    case .climate: 1
-    case .mates: 2
-    case .gallery: 3
-    case .videos: 5
-    case .cards: 6
-    case .pages: 7
-    case .refs: 8
-    case .trust: 9
-    default: 4
+    case .paragraph where lead: 1
+    case .gallery: answerFirst ? 4 : 2
+    case .videos: 6
+    case .cards: 7
+    case .pages: 8
+    case .refs: 9
+    case .trust: 10
+    default: 3
     }
   }
 
@@ -390,9 +468,10 @@ struct NativePage: View {
       var dot = AttributedString("●")
       dot.foregroundColor = Color.warning
       var text = AttributedString()
-      if let legend, rows.contains(where: \.conflict) { text += dot + styled(" " + legend + "\n\n", .footnote, secondary: true) }
+      // Only where the sources disagree by enough to change how the fish is kept (`marked`), as the site's card has it.
+      if let legend, rows.contains(where: \.marked) { text += dot + styled(" " + legend + "\n\n", .footnote, secondary: true) }
       for (i, r) in rows.enumerated() {
-        text += styled((i > 0 ? "\n\n" : "") + r.label + (r.conflict ? " " : ""), .subheadline.bold()) + (r.conflict ? dot : AttributedString())
+        text += styled((i > 0 ? "\n\n" : "") + r.label + (r.marked ? " " : ""), .subheadline.bold()) + (r.marked ? dot : AttributedString())
         if let note = r.note { text += styled("\n" + note, .footnote, secondary: true) }
         text += styled(r.items.map { "\n" + $0 }.joined(), .subheadline)
       }

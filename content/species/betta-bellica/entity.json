@@ -12,6 +12,108 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Malay Peninsula",
+        "Kinta River",
+        "Perak River"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Wild-caught Betta bellica from Malaysia, from the Betta bellica complex.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The slender betta, Betta bellica, is a bubble-nesting labyrinth fish from Peninsular Malaysia and northeastern Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs throughout the provinces of Terengganu, Perak, Selangor, Pahang and Johor in Peninsular Malaysia, plus the provinces of Utara and Riau in northeastern Sumatra, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species was first recorded from a heavily-vegetated forest swamp in Perak Province on the Malay Peninsula, and since its rediscovery in 1996 has most often been found in peat swamp forests and associated black water streams, although it does also occur in freshwater swamp forest.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The original type locality was 'Malaysia: Pengkalan-Pegou, on Kinta River, 150 km upstream of mouth of Perak River'.",
+          "countries": [],
+          "regions": [
+            "Kinta River",
+            "Perak River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394004,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -197,8 +299,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể cá betta"
+        "bể cá 80cm"
       ]
     },
     {

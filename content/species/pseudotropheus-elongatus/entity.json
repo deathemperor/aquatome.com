@@ -8,7 +8,9 @@
   "places": [
     "africa",
     "tanzania",
-    "mbamba-bay"
+    "mbamba-bay",
+    "malawi",
+    "lake-malawi"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +19,13 @@
         "value": {
           "min": 22,
           "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
         }
       }
     ],
@@ -27,18 +36,48 @@
           "min": 8,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 13.5
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
       }
     ]
   },
@@ -50,10 +89,28 @@
       "html": "<p>The former large genus Pseudotropheus is currently divided into four genera: Pseudotropheus, Maylandia, Tropheops and Chindongo.</p><p>The type species of the genus Chindongo, C. bellicosus, which was described together with the genus in 2016, is one of the most combative mbuna of all. The species name \"bellicosus\" means \"belligerent\"! Chindongo includes the species C. ater, C. bellicosus, C. cyaneus, C. demasoni, C. elongatus, C. flavus, C. heteropictus, C. longior, C. minutus, C. saulosi and C. socolofi.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>The elongate mbuna, Chindongo elongatus, is a slender cichlid endemic to Lake Malawi, found in Mbamba Bay and Nkata Bay. Over 30 different forms occur in the lake and they hybridise freely, so they should not be mixed in the aquarium. In nature females defend territories containing 'gardens' of algae. One of the most aggressive and territorial mbuna, it is not recommended for the beginner.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
       "html": "<p>Chindongo elongatus was described in 1956 on the basis of specimens from Mbamba Bay (Tanzania).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>Endemic to Lake Malawi. It is found in Mbamba Bay and Nkata Bay.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>It inhabits shallow water in rocky areas, commonly being found in association with small rocks. Its habitats are characterised by having little or no sediment.</p>"
     },
     {
       "key": "aquariumSize",
@@ -62,10 +119,28 @@
       "html": "<p>Aquaria should be as large and well-structured as possible.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>Adult size: 13.5 cm SL. Aquarium base: 120 × 38 cm. Volume: ~137 litres (120 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>Use piles of rocks to form cave-like structures and hiding places, leaving areas of open water for swimming. A substrate of sand is preferable. Algal growth should not be discouraged.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
       "html": "<p>Temperatures of 22-26°C, good water care, pH above 8.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -74,20 +149,75 @@
       "html": "<p>A high-fiber diet that does not neglect the plant component.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>It will accept most foods offered but vegetable matter in the form of spirulina flakes, blanched spinach, nori etc. should form a large proportion of the diet. This can be supplemented with live and frozen varieties. Never feed beefheart or any other red meat as it interferes with the digestive system of these fish.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
       "html": "<p>A beautiful but aggressive species. Keep in groups, ideally from 10 specimens upwards.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>One of the most aggressive and territorial mbuna. It should not be kept with peace loving species such as Peacocks or Utaka but it can be combined with other mbuna provided they do not resemble it in patterning. The tank should be overcrowded to reduce aggression and territory formation. It is incredibly aggressive towards others of the same species and the presence of heterospecifics helps to dissipate this. However a very large tank is required in order to keep more than one male and even then it is likely that the sub-dominant male(s) will be killed. At least 4-6 females should be kept per male for their own safety!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>Adult males are usually larger and have brighter egg spots on the anal fin than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>Possible but not easy. Maternal mouthbrooder. It should be spawned in a species tank in a harem of one male and at least 4-6 females. A 120 cm aquarium is a good size (although larger is preferable) and this should be furnished as suggested above, along with some flat stones and areas of open substrate to act as potential spawning sites. Make sure plenty of hiding places are provided as the male may kill females that are not ready to spawn. The pH should be around 8.2-8.5 and the temperature 25 – 26.5 °C. The fish should be conditioned with plenty of live and frozen foods. The male fish will clean and then display around his chosen spawning site, showing intense colour, and attempt to entice females to mate with him. He is very aggressive in his pursuits and it is in order to dissipate this aggression that this species is spawned in a harem. When a female is willing, she will approach the spawning site and lay her eggs there, after which she picks them up in her mouth. The male fish has egg-shaped spots on his anal fin and the female is attracted to these. When she tries to add them to the brood in her mouth she actually receives milt from the male, thus fertilising the eggs. The female will carry the eggs for around 3-4 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation or harassment by the males. However, it is recommended that holding females are removed, as the male will usually not leave them alone. Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them from that point as this usually results in a larger number of fry. The fry are large enough to take brine shrimp nauplii from birth. If they are left with the mother she will actively protect them for a few days after which they are permitted to remain in her territory.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/chindongo-elongatus-formerly-pseudotropheus-elongatus/",
       "html": "<p>Chindongo species are among the smallest mbuna and, at least in the wild, barely grow to over 8 cm in length. In the aquarium, however, they can grow 50% larger. Care and breeding are simple if the basic rules of mbuna care are complied with. Captive-bred specimens from South-East Asia are available.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/chindongo-elongatus",
+      "html": "<p>Over 30 different forms of this species occur in Lake Malawi. These should not be mixed in the aquarium as they will hybridise freely. C. elongatus differs morphologically from other mbuna, being relatively slender and elongate. In nature females protect territories which contain 'gardens' of algae which they leave to breed before returning once they are holding eggs. Juvenile fish from previous spawns also inhabit the territory, protecting it when the female is away. This species is not recommended for the beginner due to its violent nature, but does make a good aquarium subject for the advanced aquarist.</p>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hPKC34TJzuo",
+      "title": "Elongatus Neon Spot",
+      "durationSec": 11,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "HFEz-z24h70",
+      "title": "Pseudotropheus Elongatus Mpanga🇲🇼",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4JRk-DGLGBM",
+      "title": "Chindongo elongatus mphanga female",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1k0v7TwLBKk",
+      "title": "Pseudotropheus Elongatus Mpanga F1",
+      "durationSec": 104,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -116,5 +246,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

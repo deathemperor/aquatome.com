@@ -1,0 +1,114 @@
+{
+  "id": "belodontichthys-dinema",
+  "native": {
+    "input": "8be8a0083e0f0331",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Malay Peninsula, Sumatra and Borneo, in Malaysia and Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Malay Peninsula, Sumatra and Borneo, in Malaysia and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Older records from the Mekong and Chao Phraya basins in Thailand, Laos, Cambodia and Vietnam belong to B. truncatus.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Older records from the Mekong and Chao Phraya basins in Thailand, Laos, Cambodia and Vietnam belong to B. truncatus.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Older records from the Mekong and Chao Phraya basins in Thailand, Laos, Cambodia and Vietnam belong to B. truncatus.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Older records from the Mekong and Chao Phraya basins in Thailand, Laos, Cambodia and Vietnam belong to B. truncatus.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Known from the Malay Peninsula, Sumatra and Borneo, in Malaysia and Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known from the Malay Peninsula, Sumatra and Borneo, in Malaysia and Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known from the Malay Peninsula, Sumatra and Borneo, in Malaysia and Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "In Borneo it's recorded from the Kapuas basin in West Kalimantan, including the lakes of the upper Kapuas (Roberts, 1989; Kottelat and Widjanarti, 2005), and in Sumatra from the central part of the island (Tan and Ng, 2000).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Belodontichthys dinema",
+    "status": "ACCEPTED",
+    "taxonKey": 2337806,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        31
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

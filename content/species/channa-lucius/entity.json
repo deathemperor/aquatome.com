@@ -1,0 +1,230 @@
+{
+  "id": "channa-lucius",
+  "scientificName": "Channa lucius",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Channa",
+  "group": "other",
+  "places": [
+    "asia",
+    "cambodia",
+    "tonle-sap",
+    "indonesia",
+    "kapuas",
+    "laos",
+    "mekong",
+    "malaysia",
+    "endau",
+    "myanmar",
+    "tenasserim",
+    "thailand",
+    "chao-phraya",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<ul><li>Needs a very large tank</li><li>Best kept as a pair</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The forest snakehead, Channa lucius, is a predatory snakehead from Indochina, Peninsular Malaysia and the Greater Sunda Islands. Also referred to as the 'splendid' or 'shiny' snakehead, it occurs on Sumatra, Borneo and Java, grows to 40 cm SL and favours forest swamps and tributaries. Like others in the genus it breathes atmospheric air, and it needs a dimly-lit tank with plenty of cover and a tightly-fitting lid, since Channa spp. are notorious for their ability to escape.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<p>Currently understood to have an enormous natural range extending east and southwards from the Mekong River system throughout much of Indochina including Laos, Cambodia, Vietnam, Thailand, Myanmar, and Peninsular Malaysia plus the Greater Sunda Islands of Sumatra, Borneo and Java and a number of smaller islands in the region.</p><p>Type locality is given simply as 'Java, Indonesia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<p>A generalist which has been collected in many different types of habitat although it does tend to avoid very fast-flowing water and displays a preference for forest swamps and tributaries.</p><p>Like others in the genus it can tolerate hypoxic conditions due to its ability to breathe atmospheric air (see 'Notes').</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<p>Standard length: 40 cm SL. Aquarium base: 150 × 60 cm. Volume: ~540 litres.</p><p>An aquarium with base measuring at least 150 × 60 cm is recommended.</p><p>Water depth is less important but should not be less than 30 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<p>Prefers a dimly-lit aquarium with plenty of cover in the form of live plants, driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots.</p><p>Surface vegetation such as Ceratopteris spp. is also appreciated and makes the fish less inclined to conceal themselves.</p><p>It's essential to use a tightly-fitting cover since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<ul><li>Temperature: 20–30°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<p>An obligate predator feeding mostly on smaller fishes and insects in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Some specimens even accept dried foods although these should never form the staple diet.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<p>A biparental free spawner with the eggs simply floating at the surface post-spawning.</p><p>Both male and female remain with the fry for an extended period of time.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<p>This species is sometimes referred to as 'splendid' or 'shiny' snakehead.</p><p>Members of the family Channidae are commonly referred to as 'snakeheads' due to possession of large scales on the head of most species which are reminiscent of the epidermal scales (cephalic plates) on the heads of snakes.</p><p>There currently exist over 30 valid species but diversity within the group is likely to prove significantly greater.</p><p>All Channa spp. possess supplementary breathing apparatus in the form of paired suprabranchial chambers located behind and above the gills, although these are not labyrinthic but lined with respiratory epithelium.</p><p>These chambers allow the fish to breathe atmospheric air and survive in hypoxic conditions or even out of the water for a considerable period of time, and in aquaria they are often seen rising to the surface to take gulps of air.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "html": "<ul><li>Cuvier, G. and A. Valenciennes. (1831). Histoire naturelle des poissons. Tome septième. Livre septième. Des Squamipennes. Livre huitième. Des poissons à pharyngiens labyrinthiformes. Histoire naturelle des poissons. v. 7, 1-531</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Musikasinthorn, P. and Y. Taki (2001). Channa siamensis (Günther, 1861), a junior synonym of Channa lucius (Cuvier in Cuvier and Valenciennes, 1831). Ichthyological Research 48, 319-324</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4e44ce770be2977c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4e44ce770be2977c-480.webp",
+      "width": 600,
+      "height": 353,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "caption": "Channa lucius NP",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0c1007c037183262.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0c1007c037183262-480.webp",
+      "width": 840,
+      "height": 415,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "caption": "Specimen measuring 290 mm SL from Dari Sabung Tanjakan, Sajad, Sambas. West Kalimantan (Kalimantan Barat) province, Indonesia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f3bf0b0b39072d02.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f3bf0b0b39072d02-480.webp",
+      "width": 750,
+      "height": 423,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/channa-lucius",
+      "caption": "Specimen from Taninthayi Region, southern Myanmar, where this species was first recorded in 2007.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "5NvCBApDjW0",
+      "title": "Channa lucius. The marvelous FOREST SNAKEHEAD! (Leopard Aquatic G038A)",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "S57c5lfcPjo",
+      "title": "ALHAMDULILLAH FULL! MASUKIN CHANNA LUCIUS KE AQUARIUM BESAR",
+      "durationSec": 604,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3IfLNEzNle0",
+      "title": "Channa Lucius flaring tangan || single tank #channa #ikangabushias #channamaru",
+      "durationSec": 15,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "DaDZNwKn59Q",
+      "title": "Channa Lucius Live Feeding (Splended Snakehead)",
+      "durationSec": 34,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn có nắp"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc cho bể 500 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá lóc",
+        "tôm tươi đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

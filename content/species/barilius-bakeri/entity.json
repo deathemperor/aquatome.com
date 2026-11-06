@@ -10,6 +10,96 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Periyar",
+        "Kabini",
+        "Chalakudy",
+        "Pampa",
+        "Chittar"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Western Ghats mountains, southwestern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Kerala state records exist from the Periyar, Kabini, Chalakudy, Valapatanam, Chaliyar, Neyyar, Pampa, Vamanapuram, Kallada, Ithikkara, Karamana, Bharatapuzha, Muvattupuzha, Meenachil, Manimala, Achankovil, Pambar, Chandragiri, Karyangode, Kuppam, and Bahavani river systems.",
+          "countries": [],
+          "regions": [
+            "Periyar",
+            "Kabini",
+            "Chalakudy",
+            "Pampa"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Karnataka it is known from the Indira Gandhi Wildlife Sanctuary, and in Tamil Nadu the Chittar, Periyar, and Pampa river basins.",
+          "countries": [],
+          "regions": [
+            "Chittar"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363276,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          13
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          75.9375,
+          9.84375,
+          6,
+          6
+        ],
+        [
+          98.4375,
+          18.28125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -196,7 +286,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn",
         "bể cá 150cm"
       ]
     },

@@ -160,11 +160,18 @@ struct AquaTomeApp: App {
     case .page(let path):
       // A page the app draws linking to another: pushed on the tab it's in.
       guard let item = handbook.item(at: path) else { return }
-      if tab == .tanks { tanksPath.append(item) } else { tab = .handbook; handbookPath.append(item) }
+      push(item)
     case .group(let group):
       // A group named in a page's text: its shelf, pushed on the tab the page is in.
-      if tab == .tanks { tanksPath.append(Browse.fish(group)) } else { tab = .handbook; handbookPath.append(Browse.fish(group)) }
+      push(Browse.fish(group))
+    case .tankVolume(let query):
+      push(VolumeTool(query: query))
     }
+  }
+
+  /// A screen pushed on the tab in front: the tanks tab, else the Tìm tab.
+  private func push(_ value: some Hashable) {
+    if tab == .tanks { tanksPath.append(value) } else { tab = .handbook; handbookPath.append(value) }
   }
 
   /// The link from outside waiting, if any: the home's top, with no search; a shop outside, as a page's link opens it;

@@ -10,6 +10,96 @@
     "sri-lanka",
     "mahaweli"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Mahaweli",
+        "Kelani",
+        "Kalu",
+        "Nilwala"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Ceylonese combtail, Belontia signata, is a labyrinth fish endemic to the central and southern river systems of Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Sri Lanka where it occurs throughout central and southern river systems including the Mahaweli, Kelani, Kalu and Nilwala drainages.",
+          "countries": [],
+          "regions": [
+            "Mahaweli",
+            "Kelani",
+            "Kalu",
+            "Nilwala"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394196,
+      "total": 35,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "LK",
+          33
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          5.625,
+          2,
+          2
+        ],
+        [
+          78.75,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          5.625,
+          27,
+          27
+        ],
+        [
+          80.15625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +227,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 120x30"
+        "bể cá 120cm"
       ]
     },
     {

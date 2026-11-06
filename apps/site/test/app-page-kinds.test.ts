@@ -177,8 +177,8 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     // "Nguồn và độ tin cậy": every field's sources, each source's own figure where they disagree, and no figure else.
     const trust = one(d, 'trust')
     const rows = dom.querySelectorAll('.datacard .by > div')
-    expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
-      r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
+    expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
+      r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
     ]))
     // Tank mates: who and why, as the page's chips, and the tool set to this fish.
     const mates = one(d, 'mates')
@@ -258,8 +258,8 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       // "Nguồn và độ tin cậy", as the card's.
       const trust = one(d, 'trust')
       const rows = dom.querySelectorAll('.datacard .by > div')
-      expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
-        r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
+      expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
+        r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
       ]))
       // The gallery's strip; its gallery page's photos when it has one.
       const g = one(d, 'gallery')
@@ -395,6 +395,7 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
     const { dom } = appPage(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
+    expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
     expect(d.talk, d.path).toEqual(talk(dom))
     expect(d.talk?.comments, d.path).toBeTruthy()

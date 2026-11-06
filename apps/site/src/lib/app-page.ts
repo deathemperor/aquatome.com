@@ -148,6 +148,7 @@ function trustBlock(t: T, lang: Lang, card: SpeciesEntity['dataCard'], sources: 
     rows: rows.map(r => ({
       field: r.field, label: t(FIELD_LABELS[r.field]),
       ...(r.conflict ? { conflict: true as const, note: r.agreed ? t('Mức mọi nguồn cùng khuyên') : t('Mỗi nguồn ghi một mức') } : {}),
+      ...(r.marked ? { marked: true as const } : {}),
       items: (r.conflict ? r.vals : r.vals.slice(0, 1)).map(v => {
         const names = r.conflict ? [v.source] : r.sources
         const tail = r.conflict ? `: ${range(v.value)}${unit(r.field)}` : names.length > 1 ? ` · ${t('cùng một mức')}` : ''
@@ -296,6 +297,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
     path: appPath(lang, `/vi/cay/${p.t.slug}/`),
     title: p.t.name,
     sub: p.scientificName,
+    ...(p.t.altNames.length ? { aka: t('Tên khác: {names}', { names: p.t.altNames.join(', ') }) } : {}),
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `plant:${p.id}`) },
     blocks: [

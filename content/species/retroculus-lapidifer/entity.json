@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-tocantins"
+    "rio-tocantins",
+    "tocantins"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +18,13 @@
         "value": {
           "min": 22,
           "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 32
         }
       }
     ],
@@ -27,24 +35,52 @@
           "min": 5.5,
           "max": 6.8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 20
       }
     ],
     "tankCm": [
       {
         "source": "glaser",
         "value": 150
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 210
       }
     ],
     "difficulty": [
       {
         "source": "glaser",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
       }
     ]
   },
@@ -54,6 +90,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
       "html": "<ul><li>pH and hardness: soft and slightly acidic for care and breeding</li><li>Diet: omnivorous</li><li>Social behavior: relatively peaceful cichlid with a distinct social structure</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<ul><li>Aquarium base: at least 210 × 60 cm</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul><p>Retroculus lapidifer is a rheophilic cichlid from the rio Tocantins and Araguaia systems and nearby coastal drainages of northeastern Brazil. It lives in rapids and fast-flowing stretches of clear water rivers, and needs a set-up designed to resemble a flowing river, with a base of at least 210 by 60 cm and water of 26 to 32 °C. A biparental substrate-spawner, it has been bred in aquaria and is available in the trade on a sporadic basis.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -68,10 +110,22 @@
       "html": "<p>Brazil (Rio Tocantins/Rio Araguaia).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>Inhabits rivers draining into the Atlantic Ocean in the northeast of the country, south of the Amazon. The majority of records pertain to the rio Tocantins system, its major tributary the rio Araguaia, and affluents within both these basins including the rios das Mortes, do Coco, Itacaiúnas, Paraupebas, Maranhão, and Santa Teresa.</p><p>It also occurs in the rio Capim within the rio Guamá watershed and the rio Gurupi, a smaller coastal drainage.</p><p>Type locality is 'Falls of the Rio Araguaya, Brazil'.</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
       "html": "<p>In the wild, these fish live in close proximity to rapids. When danger threatens, they flee into the strong current, where it is difficult for predators to follow them. Once the danger has passed, they like to rest in calm or still water. In their natural habitat, temperatures ranging from 21.5 to 35°C have been recorded.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>This species is rheophilic and occurs in rapids or fast-flowing stretches of clear water rivers. Such habitats typically contain many boulders of varying sizes, and still pools with substrates of sand or gravel in marginal zones.</p>"
     },
     {
       "key": "aquariumSize",
@@ -80,10 +134,22 @@
       "html": "<p>For breeding, an aquarium with a base area of at least 150 x 80 cm (preferably larger) is required, since the nest pit is approximately 60 cm in diameter. Retroculus lapidifer grows to about 20–25 cm in length.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>An aquarium with a base measuring at least 210 × 60 cm or equivalent is required (about 756 litres).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
       "html": "<p>The swim bladder in Retroculus is atrophied, making it impossible for them to float freely in the water. Strong filtration and good water flow are important in the aquarium—also because Retroculus are very sensitive to pollution—but it is essential to provide resting areas as well. The substrate should consist mainly of fine sand, which the fish often sift through in search of food.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>Retroculus spp. are unsuitable for the standard community aquarium, and should be maintained in a set-up designed to resemble a flowing river. The substrate should be composed of soft sand mixed with small pebbles if the aim is to breed the fish (see 'Reproduction'). Rocks, boulders, roots, branches, and aquatic plants can also be added, although the latter should be hardy species which can be grown attached to items of décor.</p><p>These cichlids are intolerant of organic waste, and require spotless water in order to thrive. High levels of dissolved oxygen and water movement are also recommended, meaning additional powerheads, pumps, etc., should be employed as necessary. A linear flow pump would also be a useful addition, while weekly water changes of 30-70% should be considered mandatory.</p><p>Wild examples can be delicate and sensitive to white spot/ich post-import, so a lengthy quarantine period may be required.</p>"
     },
     {
       "key": "waterConditions",
@@ -92,10 +158,22 @@
       "html": "<p>The water should be soft and slightly acidic (pH 5.5 to 6.8). These fish are adaptable when it comes to water temperature: in an aquarium, 22–28°C is appropriate; for breeding, the temperature should be about 2°C higher.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<ul><li>Temperature: 26–32°C; this species will not thrive in cooler water.</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
       "html": "<p>These fish are not picky eaters; they will consume any standard fish food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>The diet of wild individuals is dominated by benthic aquatic invertebrates, particularly chironomid (midge), trichoptera (caddisfly), and ephemeroptera (Mayfly) larvae.</p><p>In the aquarium offer high quality, fine-grade prepared foods plus live or frozen chironomid larvae (bloodworm), Tubifex, Artemia, Gammarus, mosquito larvae, small earthworms, etc. At least some of the dried products should contain a high proportion of vegetable matter such as Spirulina or similar. Both home-made and proprietary gelatine-based foods are also proven to work well. For the best growth rate and condition offer 3-5 small meals per day rather than a single large portion.</p><p>Retroculus spp. are primarily benthivorous, but also feed readily on items suspended in the water flow, small fishes, etc., in addition to sifting mouthfuls of substrate through the gills to extract edible items.</p>"
     },
     {
       "key": "behaviour",
@@ -104,26 +182,103 @@
       "html": "<p>Retroculus should always be kept in a group of at least four individuals; otherwise, they become shy. Relatively peaceful cichlid with a distinct social structure.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>Relatively peaceful unless breeding but may predate on smaller tankmates, and best-maintained alongside peaceful pelagic fishes rather than other benthic species in all but the largest aquaria.</p><p>It is sociable and tends to exist in loose aggregations outside reproductive periods, with juveniles in particular displaying strong grouping instincts. Ideally a group of 5-8 individuals should be purchased, and these will form a noticeable dominance hierarchy. When maintained in smaller numbers weaker specimens can become the target of excessive antagonism by dominant individuals, or the group may fail to settle and behave nervously.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>Adult male individuals are noticeably more slender than females, this being most pronounced in the region between ventral and anal fins which is virtually straight in males, rounded in females. In addition, the ventral fins are enlarged in mature males, and seem to be used in territorial displays during which they are used to support the fish so making it appear larger than its rival(s).</p><p>Nuptial specimens intensify in overall colour pattern, displaying black pigmentation on the lips, ventral portion of the head and body as far as the ventral fins, and ventral fins themselves.</p><p>Juveniles and subadults display no external sexual dimorphism.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
       "html": "<p>The scientific species name “lapidifer” means “stone-bearer,” because it was already known as early as 1855 that these animals spawn in nests made of stones. The fish carry stones to the nest one by one in their mouths. In the aquarium, these fish have spawned on several occasions, and it has also been possible to raise the fry.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>Biparental substrate-spawner that has been bred in aquaria. There does not appear to be any particular trigger for the reproductive process, with the main requirements being good diet and stringent maintenance regime involving large weekly water changes.</p><p>Unless sexed adults are available it is best to begin with a group of young fish and allow pairs to form naturally, and a degree of patience is also required since it can be at least a year, often two or more, until they become sexually mature.</p><p>Courtship is initiated by the male, often several days before eggs are deposited, and once a pair has formed they work together to excavate one or more large pits in the substrate. Spawning normally occurs in one of these, with the female extruding batches of eggs before the male moves in to fertilise them. This process is repeated numerous times until 200 or more have been deposited.</p><p>The eggs are extremely adhesive and quickly become covered in sand grains. Once spawning is complete they are covered in a layer of small pebbles, small pieces of driftwood, or other debris. Alternatively, they may be placed into a pile of such material constructed prior to spawning. This 'nest' is typically moved to other locations on a regular basis during incubation, with the adults either using the original pits or excavating new ones.</p><p>After 3-4 days the eggs begin to hatch. The fry remain in or close to the nest, but not buried, until their yolk sacs have been fully-absorbed. There are observations to suggest that the eggs become less adhesive and clear of sand particles just prior to hatching (D. Ullisch, pers. comm.). Once free-swimming they can be offered Artemia nauplii and similarly-sized foods. Some pairs have been observed to direct the fry back to the nest before dark, with this behaviour continuing for a couple of weeks post-spawning. They have also been seen to agitate patches of substrate, presumably in order to disturb prey items for the fry.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/retroculus-lapidifer-2/",
       "html": "<p>Despite their outward resemblance, Retroculus are not closely related to the Geophagus species but form their own subfamily, the Retroculinae. They are considered the most primitive cichlids among the New World species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<p>This species is available in the ornamental trade on a sporadic basis.</p><p>It can be distinguished from congeners by the following combination of characters: dorsal-fin with 15-17 hard rays, 10-11 soft rays; anal-fin with 3 hard rays, 6-7 soft rays; 36-39 scales in the midlateral series; 10-13 gill rakers present on the fifth ceratobranchial (vs. absent in R. acherontos and R. xinguensis); no conspicuous dark bars on the caudal-fin (vs. present in R. septentrionalis and R. xinguensis, faint and slender in R. acherontos).</p><p>Retroculus is regarded as the earliest diverging lineage of Neotropical cichlids and sister taxon to the genus Cichla, with this clade considered basal to the remaining neotropical cichlids. Despite the apparent resemblance, it is not a member of the putative subfamily Geophaginae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "html": "<ul><li>Eigenmann, C. H. and W. L. Bray (1894). A revision of the American Cichlidae. Annals of the New York Academy of Sciences 7(4), 607-624</li><li>Landim, M. I., C. R. Moreira, and C. A. Figueiredo (2015). Retroculus acherontos, a new species of cichlid fish (Teleostei) from the Rio Tocantins basin. Zootaxa 3973(2), 369-380</li><li>Moreira, S. S. and J. Zuanon (2002). Dieta de Retroculus lapidifer (Perciformes: Cichlidae), um peixe reofílico do Rio Araguaia, estado do Tocantins, Brasil. Acta Amazonica 32(4), 691-705</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Kullander, S. O. (1998). A phylogeny and classification of the South American Cichlidae (Teleostei: Perciformes). In: Malabarba, L. R. , R. E. Reis, R. P. Vari, Z. M. S. de Lucena and C. A. S. Lucena (eds). Phylogeny and classification of Neotropical fishes. EDIPUCRS, Porto Alegre, 461-498</li><li>Leo Smith, W., P. Chakrabarty, and J. S. Sparks (2008). Phylogeny, taxonomy, and evolution of Neotropical cichlids (Teleostei: Cichlidae: Cichlinae). Cladistics 24, 625-641</li><li>López-Fernández, H., K. O. Winemiller, and R. L. Honeycutt (2010). Multilocus phylogeny and rapid radiations in Neotropical cichlid fishes (Perciformes: Cichlidae: Cichlinae). Molecular Phylogenetics and Evolution 55, 1070-1086</li><li>Stiassny, M. (1987). Cichlid familial intrarelationships and the placement of neotropical genus Cichla (Perciformes, Labroidei). Journal of Natural History 21(5), 1311-1331</li><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Castelnau, F. L. (1855). Poissons. In: Animaux nouveaux or rares recueillis pendant l'expédition dans les parties centrales de l'Amérique du Sud, de Rio de Janeiro a Lima, et de Lima au Para; exécutée par ordre du gouvernement Français pendant les années 1843 a 1847 ... Part 7, Zoologie. Paris (P. Bertrand). v. 2, i-xii + 1-112</li><li>Newman, L. (2007). Keeping and Breeding Retroculus xinguensis Gosse 1971. Cichlid News 16(1), Available online at: http://cichlidnews.com/issues/2007jan/retroculus.html</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/812eeb77aee4c65f.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/812eeb77aee4c65f-480.webp",
+      "width": 820,
+      "height": 521,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "caption": "Subadult specimen from the Singapore aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f4cf63383c3186fd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f4cf63383c3186fd-480.webp",
+      "width": 602,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/retroculus-lapidifer",
+      "caption": "Eggs of R. lapidifer.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "qzFNDM2IRoQ",
+      "title": "053 Retroculus Lapidifer and  Geophagus Argryrostictus",
+      "durationSec": 279,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uoxd8mL3NvA",
+      "title": "056 Retroculus Lapidifer and Geophagus Argryrostictus",
+      "durationSec": 191,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YloF-BEhaCM",
+      "title": "Retroculus lapidifer breeding",
+      "durationSec": 218,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9aSRcfneNWU",
+      "title": "retroculus lapidifer aquarium",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150x80 cm",
-        "bể cá lớn cho cichlid"
+        "bể cá 150cm"
       ]
     },
     {
@@ -146,5 +301,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }
