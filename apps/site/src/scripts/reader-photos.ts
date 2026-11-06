@@ -39,10 +39,10 @@ function viewReaderPhotos(list: HTMLElement, photos: ShownPhoto[]) {
  * After sending: the photo just sent stays in view, and its take-back link is text to keep (selectable, with a copy
  * button), not a link to tap. Tapped, it opened the page that removes the photo, which readers took for "see my photo".
  */
-function showSent(box: HTMLElement, photo: Blob, name: string, link: string) {
+export function showSent(box: HTMLElement, photo: Blob, name: string, link: string, keepId = 'rp-keep') {
   if (box.dataset.url) URL.revokeObjectURL(box.dataset.url)
   const url = (box.dataset.url = URL.createObjectURL(photo))
-  box.innerHTML = `<img src="${url}" alt="${escapeHtml(ct('Ảnh của {name}', { name }))}"><p id="rp-keep">${escapeHtml(ct('Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):'))}</p><div class="keep"><input readonly aria-labelledby="rp-keep" value="${escapeHtml(link)}"><button type="button">${escapeHtml(ct('Chép link'))}</button></div>`
+  box.innerHTML = `<img src="${url}" alt="${escapeHtml(ct('Ảnh của {name}', { name }))}"><p id="${keepId}">${escapeHtml(ct('Muốn gỡ ảnh sau này? Lưu link riêng này (chỉ hiện một lần):'))}</p><div class="keep"><input readonly aria-labelledby="${keepId}" value="${escapeHtml(link)}"><button type="button">${escapeHtml(ct('Chép link'))}</button></div>`
   const field = box.querySelector('input')!
   const copy = box.querySelector('button')!
   field.addEventListener('focus', () => field.select())
@@ -80,7 +80,7 @@ export async function shrink(file: Blob, maxSide = MAX_SIDE, quality = 0.88, reg
   }
 }
 
-const ERRORS: Record<string, string> = {
+export const ERRORS: Record<string, string> = {
   turnstile: ct('Không qua được kiểm tra chống spam, vui lòng thử lại.'),
   rate: ct('Bạn đã gửi đủ 5 ảnh hôm nay. Hãy quay lại ngày mai.'),
   'not an image': ct('Chỉ nhận ảnh JPEG, PNG hoặc WebP.'),

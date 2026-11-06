@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
-import { judgePrompt, moderatePhotos, MOVE_CONFIDENCE, photoPages, VERDICT_SCHEMA, WHY, type PhotoAdmin, type PhotoDecision, type Verdict } from '../src/reader-photos'
+import { commentPrompt, judgePrompt, moderatePhotos, MOVE_CONFIDENCE, photoPages, VERDICT_SCHEMA, WHY, type PhotoAdmin, type PhotoDecision, type Verdict } from '../src/reader-photos'
 
 const jpeg = (w: number, h: number) => sharp({ create: { width: w, height: h, channels: 3, background: { r: 30, g: 90, b: 160 } } }).jpeg().toBuffer()
 
@@ -204,4 +204,42 @@ test('the codes a turned-down photo carries are the ones the app words (protocol
   const talk = JSON.parse(readFileSync(new URL('../../../protocols/talk.openapi.json', import.meta.url), 'utf8')) as { components: { schemas: { Why: { enum: string[] } } } }
   expect([...WHY]).toEqual(talk.components.schemas.Why.enum)
   expect(VERDICT_SCHEMA.properties.why.enum).toEqual(['none', ...WHY])
+})
+
+// A comment's photo (apps/site/worker/comments/photo.ts) goes with what its reader wrote: a sick fin, a tank, a filter.
+// No page to find, no species asked, never moved; faces, adverts, unsafe and not-a-photo still turn it down.
+test('a comment\'s photo skips the species check: no page needed, judged without one, a species verdict ignored, never moved; the other rules still remove it', async () => {
+  const raw = await jpeg(800, 600)
+  const decisions: PhotoDecision[] = []
+  const prompts: Record<string, string> = {}
+  const verdicts: Record<string, Verdict> = {
+    tank: { approve: true, reason: 'a planted tank', why: 'none', species: '', confidence: 0 },
+    goldfish: wrong('Carassius auratus', 0.99),
+    ad: { approve: false, reason: 'shop phone number', why: 'advert', species: '', confidence: 0 },
+    drawing: { approve: false, reason: 'a drawing', why: 'not_photo', species: '', confidence: 0 },
+    unsafe: { approve: false, reason: 'cruel', why: 'unsafe', species: '', confidence: 0 },
+  }
+  const ids = [...Object.keys(verdicts), 'face']
+  const r = await moderatePhotos({
+    queue: async () => ids.map(id => ({ id, entity_ref: `comment:c-${id}`, name: 'n', created_at: '', moved_from: null, reports: id === 'tank' ? ['spam'] : [] })),
+    raw: async () => raw, put: async () => {}, decide: async d => { decisions.push(...d); return { applied: d.length, ignored: 0 } },
+  }, {
+    page: ref => { throw new Error(`no page is looked up: ${ref}`) },
+    find: () => GOLDFISH,
+    faces: async f => f.map(x => (x.endsWith('face.webp') ? 1 : 0)),
+    judge: async (file, prompt) => { const id = file.split('/').pop()!.replace('.webp', ''); prompts[id] = prompt; return verdicts[id]! },
+  })
+  expect(r).toEqual({ off: false, queued: 6, approved: 2, removed: 4, failed: 0 })
+  expect(decisions.map(d => [d.id, d.action, d.why ?? null, d.entity ?? null])).toEqual([
+    ['tank', 'approve', null, null], ['goldfish', 'approve', null, null], ['ad', 'remove', 'advert', null],
+    ['drawing', 'remove', 'not_photo', null], ['unsafe', 'remove', 'unsafe', null], ['face', 'remove', 'face', null],
+  ])
+  // One look each, with the comment's prompt: no species named or asked about; a report's reasons as for any photo.
+  expect(Object.keys(prompts)).toEqual(Object.keys(verdicts))
+  for (const p of Object.values(prompts)) {
+    expect(p.startsWith(commentPrompt())).toBe(true)
+    expect(p).not.toMatch(/plausibly|\{\{SPECIES\}\}|species page/)
+  }
+  expect(prompts.tank).toBe(commentPrompt(['spam']))
+  expect(commentPrompt()).not.toContain('"species"')
 })

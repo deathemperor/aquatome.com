@@ -87,6 +87,11 @@ that would have caught it).
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
     and a report that takes a post down only from a signed-in reader and never once the moderation has kept it
     (`apps/site/worker/test/talk.test.ts`).
+  - A comment's photo (`docs/contracts/comment-photo.md`): the comment and its photo stored together or not at all, a
+    refused file or a photo past readers' photos' day leaving no comment, the photo under its comment only once both
+    are public and never among a page's readers' photos, removed with its comment, never moved, and deleted by its link,
+    the reader's own list and the account (`apps/site/worker/test/comment-photos.test.ts`); judged without the species
+    check (`packages/engine/test/reader-photos.test.ts`); shown and sent on a fish's page (`e2e/comment-photos.spec.ts`).
   - The fish identifier's answers, the page's and the app's (its session as a bearer, no Origin or Turnstile), against
     `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
     and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted

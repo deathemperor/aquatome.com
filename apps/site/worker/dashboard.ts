@@ -10,14 +10,15 @@ import { queryReaderDays, queryReaders } from './readers'
 import { queryAsks } from './lang-ask'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
 import { queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
-import { clicksByKind, listSnapshots, loadContentStats, queryContentReads, talkByPage } from './admin/content'
+import { clicksByKind, listSnapshots, loadContentStats, pagesByRef, queryContentReads, talkByPage } from './admin/content'
+import { commentPages } from './comments/photo'
 import { contentPage, contentSection } from './admin/content-page'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
 import { appPage, appSection, queryApp } from './admin/app'
 import type { Section } from './admin/blocks'
 import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
-  photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview,
+  photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview, type RecentPhoto, type WaitingPhoto,
 } from './admin/pages'
 import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
@@ -146,6 +147,20 @@ const contentOf = async (env: AdminEnv, origin: string) => {
   const s = await soft('content', loadContentStats(env.ASSETS, origin))
   return s === undefined ? { failed: 'Bản build này chưa có content.json.' } : s
 }
+/**
+ * Comments' photos on /_ab/anh-ban-doc/, each given its comment's page (`comment`): the page's key, and its address
+ * from this build's content.json, read only when there is such a photo.
+ */
+async function markCommentPhotos(env: AdminEnv, origin: string, photos: (RecentPhoto | WaitingPhoto)[]): Promise<void> {
+  if (!env.DB || !photos.some(p => p.entity_ref.startsWith('comment:'))) return
+  const pages = await commentPages(env.DB, photos)
+  const stats = env.ASSETS ? await soft('content', loadContentStats(env.ASSETS, origin)) : undefined
+  const paths = stats && !isFailed(stats) ? pagesByRef(stats) : undefined
+  for (const p of photos) {
+    const page = pages.get(p.id)
+    if (page) p.comment = { page, ...(paths?.get(page) ? { path: paths.get(page)!.path } : {}) }
+  }
+}
 export const ae = (env: AdminEnv) => (env.AE_API_TOKEN && env.CF_ACCOUNT_ID ? { account: env.CF_ACCOUNT_ID, token: env.AE_API_TOKEN } : undefined)
 
 type Load<T> = (env: AdminEnv, url: URL, now: Date, tz: string) => Promise<T>
@@ -245,8 +260,9 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
     return { now, tz, clicks, summary }
   }, d => affiliatePage(d.clicks, d.summary, d.now, d.tz), d => affiliateSection(d.clicks, d.summary, d.now, d.tz)),
   '/_ab/muon-co/': view(async (env, _url, now, tz) => ({ now, tz, w: await soft('wanted', listWanted(env.AB)) }), d => wantedPage(d.now, d.w, d.tz), d => wantedSection(d.now, d.w, d.tz)),
-  '/_ab/anh-ban-doc/': view(async (env, _url, now, tz) => {
+  '/_ab/anh-ban-doc/': view(async (env, url, now, tz) => {
     const [xs, waiting] = await Promise.all([soft('photos', recentPhotos(env)), soft('waiting photos', waitingPhotos(env))])
+    await soft('comment photos', markCommentPhotos(env, url.origin, [...(Array.isArray(xs) ? xs : []), ...(Array.isArray(waiting) ? waiting : [])]))
     return { now, tz, xs, waiting }
   }, d => photosPage(d.xs, d.waiting, d.now, d.tz), d => photosSection(d.xs, d.waiting, d.now, d.tz)),
   '/_ab/an-trang/': view(async (env, _url, now, tz) => ({ now, tz, h: await soft('hidden', loadHidden(env.AB, true)) }), d => hiddenPage(d.h, d.now, d.tz), d => hiddenSection(d.h, d.now, d.tz)),

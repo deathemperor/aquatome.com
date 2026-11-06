@@ -22,7 +22,7 @@ type Siteverify = typeof siteverify
 export type PublicPhoto = { id: string; name: string; url: string; thumb: string; width: number; height: number; createdAt: string; author: string }
 
 export const MAX_BYTES = 8 * 1024 * 1024
-const MAX_PER_DAY = 5
+export const MAX_PER_DAY = 5
 export const MEDIA_BASE = 'https://media.aquatome.com'
 export const SPECIES_RE = /^(species|breed):[a-z0-9-]{1,140}$/
 /** Why moderation turned a photo down (protocols/talk.openapi.json, Why); 'withdrawn' (the reader took it back) is never listed. */
@@ -49,7 +49,7 @@ export function sniff(b: Uint8Array): 'image/jpeg' | 'image/png' | 'image/webp' 
 
 const hex = (buf: ArrayBuffer) => [...new Uint8Array(buf)].map(x => x.toString(16).padStart(2, '0')).join('')
 export const sha256 = async (s: string) => hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))
-const token = () => btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(24)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+export const token = () => btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(24)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
 
 /** GET /_p?e=species:x → approved photos, newest first, plus the Turnstile site key for the form. */
 export async function listPhotos(url: URL, env: PhotosEnv): Promise<Response> {
@@ -251,11 +251,11 @@ export async function photosAdmin(req: Request, url: URL, env: PhotosEnv, now: D
       if (!(await env.MEDIA.head(fullKey(d.id))) || !(await env.MEDIA.head(thumbKey(d.id)))) continue // files first, then publish
       if (d.entity !== undefined && (typeof d.entity !== 'string' || !MOVE_RE.test(d.entity))) continue
       // Moved: the page it was sent for is kept, however often it moves (SET reads the row as it was), and forgotten if it
-      // goes back there; the photo shows on the right one.
+      // goes back there; the photo shows on the right one. A comment's photo never moves (comments/photo.ts).
       const to = d.entity ?? null
       const r = await env.DB.prepare(`UPDATE photos SET status = 'approved', url = ?1, thumb = ?2, width = ?3, height = ?4, reason = ?5, why = NULL, decided_at = ?6,
           moved_from = CASE WHEN ?7 IS NOT NULL AND ?7 != entity_ref THEN NULLIF(COALESCE(moved_from, entity_ref), ?7) ELSE moved_from END, entity_ref = COALESCE(?7, entity_ref)
-        WHERE id = ?8 AND status IN ('pending', 'approved')`)
+        WHERE id = ?8 AND status IN ('pending', 'approved') AND (?7 IS NULL OR entity_ref NOT LIKE 'comment:%')`)
         .bind(`${MEDIA_BASE}/${fullKey(d.id)}`, `${MEDIA_BASE}/${thumbKey(d.id)}`, d.width, d.height, d.reason.slice(0, 300), now.toISOString(), to, d.id).run()
       // Published: the owner's approval is spent, so a later report is judged.
       if ((r.meta.changes ?? 0) > 0) { applied++; await Promise.all([env.UPLOADS.delete(`pending/${d.id}`), env.AB.delete(okKey(d.id))]) }
