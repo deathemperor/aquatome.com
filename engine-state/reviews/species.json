@@ -1,0 +1,178 @@
+{
+  "vi/species/nanosphronemus-gemma": [
+    {
+      "at": "2026-11-06T16:36:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Một nhóm người Việt mê thiên nhiên\" – facts say only 'Vietnamese nature enthusiasts'; 'nhóm' is minor embellishment.",
+        "\"Các nhà khoa học công bố cùng lúc một chi mới và một loài mới\" – supported (new genus and species).",
+        "\"Trong tiếng Anh, loài này có các tên Jewel Gourami, Minigourami \\\"Vietnam\\\" và Pho Xua Gourami\" – supported by names list.",
+        "\"Bảng dữ liệu ghi độ cứng 2 dGH\" – supported by the figures card (c2), though no source states it in the facts text; fine.",
+        "\"Có lô cá đến tay người chơi qua một nhà bán sỉ ở Đức\" – facts say the video presenter obtained his fish from a German wholesaler; generalised to 'a batch'/'người chơi'.",
+        "\"các loại ấu trùng nauplii\" listed as separate food from brine shrimp – facts list 'newly hatched brine shrimp, nauplii', ambiguous; minor.",
+        "\"Chi mới khác mọi chi cá rô, cá sặc khác\" – facts say 'other anabantoid genera'; minor rewording.",
+        "\"cũng là một loài rất nhỏ\" about P. ornaticauda – facts say 'tiny', so supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T16:36:33Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Các nhà khoa học mô tả cùng lúc một chi mới và một loài mới\" is supported in substance, so no issue there.",
+        "\"Một nhóm người Việt mê thiên nhiên\" - the facts say \"Vietnamese nature enthusiasts\"; this is fine.",
+        "\"Nhiệt độ và pH trong bảng dữ liệu là các số đo ngoài tự nhiên này\" is a stated inference. It is plausible, but the facts do not say it.",
+        "\"Bạn làm chua nhẹ nước bằng lá khô\" - the facts say \"leaves\". They don't say dried leaves, but this is minor.",
+        "\"một lớp lá khô dưới nền\" - the facts say \"a layer of leaves\". \"Dried\" and \"on the substrate\" are added details.",
+        "\"Đó chỉ là để tham khảo thêm, còn các điểm ở trên vẫn là phần chính\" is an editorial caveat. The facts don't contain it.",
+        "\"một loài cũng rất nhỏ\" for Parosphromenus ornaticauda - the facts say \"tiny\", so this is fine.",
+        "\"các loại ấu trùng nauplii\" is listed as a separate food from the brine shrimp. That follows the facts' wording.",
+        "\"Artemia mới nở là thức ăn chính\" - the facts say \"Artemia nauplii are the main food\". This is acceptable.",
+        "The care-section figure of 2 dGH (c2) is not stated in the page. That is an omission, not an invented claim."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:30:39Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Vây lưng có XIX–XXI tia gai và 2–3 tia mềm\" / anal \"XX–XXIV tia gai và 4–5 tia mềm\": facts give only the counts XIX–XXI+2–3, spines vs soft rays interpretation is mild inference.",
+        "\"Ba ông xếp nó vào một chi mới và mô tả chi lẫn loài cùng một lúc\": roughly supported, fine.",
+        "\"Nếu bạn mới chơi, đây chưa phải loài để bắt đầu\": beginner advice not stated in facts (only that importer classes it for specialists).",
+        "\"Trong tiếng Anh, cá có vài tên gọi như Jewel Gourami hay Vietnamese mini gourami\": supported by names list.",
+        "\"nhóm cá sặc nhỏ nhất từng biết\": facts say one of the smallest known gouramis; page's 'nhóm... nhỏ nhất' is slightly turned.",
+        "\"Chi này khác mọi chi cá rô, cá sặc\": facts say differs from all other anabantoid genera; 'cá rô' is a loose rendering.",
+        "\"ấu trùng giáp xác (nauplii)\" listed as separate food from artemia; and \"Lăng quăng đỏ\" for bloodworm larvae is a loose translation.",
+        "\"một loài cũng rất nhỏ\" for P. ornaticauda is supported ('tiny').",
+        "Hardness (dGH 2) figure is not mentioned on the page, which is fine; \"Nước... rất mềm\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:30:39Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Bắt cá lên là màu phai ngay, nên nhìn cá trong vợt hay trong túi sẽ không thấy hết vẻ đẹp\" - embellishment beyond 'fish lose their colour when caught' (net/bag is invented).",
+        "\"nên khi thay nước bạn cần pha cho nước mới thật sát nước cũ\" - water-change advice is not in the facts.",
+        "\"Cá bé cỡ này cần nhiều chỗ khuất mới thấy yên\" - unsupported care rationale.",
+        "\"Bạn đừng trông vào cám viên\" - pellet-food advice not in facts; facts only say it often refuses dry food.",
+        "\"Độ cứng ghi trong bảng là khoảng 2 dGH\" - the 2 dGH figure is on the card, but no source states it; presented as given and not tied to the natural habitat.",
+        "\"Đây là cá Việt Nam\" - overstated; facts only say it is known from near Huế.",
+        "\"quả trám (alder cone)\" - alder cones are not Canarium (quả trám); mistranslation.",
+        "\"Parosphromenus ornaticauda, một loài cũng rất nhỏ\" - acceptable, but the 'ornaticauda' care comparison is carried as the only guidance.",
+        "\"Ba ông mô tả nó là một chi mới và một loài mới cùng lúc\" - fine; but 'cá sặc tí hon' is an unsupported generalisation about the name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/sawbwa-resplendens#8D2Wn53DSsg": [
+    {
+      "at": "2026-11-06T16:41:58Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[notes] 'cá không hẳn trụi vảy. Chúng vẫn có một lớp vảy' – the video says only a very weak scaly covering; 'không hẳn trụi vảy' is framed as a correction, and 'Vì vậy người ta mới đặt tên' is roughly said, but the page already says 'không có vảy', so this contradicts the page without clearly saying it is the video's difference.",
+        "[notes] Etymology of Sawbwa/resplendens is fine, but 'rất hợp với những con đực lên màu đẹp' is ok; the contradiction with page on scales is not flagged as video vs page.",
+        "[aquariumSize] 'rộng hơn hẳn mức tối thiểu hay được khuyên' – video does not say it compares with other recommendations; the page's 60 cm tank (54 L) vs 80 L difference is not stated plainly as video differing from page.",
+        "[aquariumSize] 'Một người đã nuôi loài này một thời gian' is acceptable as one keeper, but 'bể nano quá chật' and 'bể nên có' lean toward a rule.",
+        "[diet] 'Ngoài Daphnia và Artemia' – Daphnia and Artemia are already on the page; cyclops, mosquito larvae and small frozen foods are fine, but 'frozen very small' partly overlaps page's 'thức ăn sống và đông lạnh cỡ nhỏ'.",
+        "[diet] 'cyclops (một loại giáp xác nhỏ)' – the explanation is not from the video; 'lăng quăng' is a translation-ish choice for mosquito larvae.",
+        "[habitat] UNESCO figures (43 species, 16 endemic) conflict with the page's 'chín loài cá' endemic, but the difference is not flagged as the video's differing claim.",
+        "Missing: the video's 18–22°C/pH 6–8 matches the page (not repeated, good), but the video's 'không giữ bể quá ấm' is not used; no major omissions penalised."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:41:58Z",
+      "model": "sonnet",
+      "score": 0.35,
+      "notes": [
+        "\"thấy cá vẫn có vảy\" – the video never says the keeper saw scales; it says the scale covering is very weak and gives the names 'naked minnow'. The claim is invented and contradicts the page, which says the fish has no scales.",
+        "\"Lớp vảy chỉ rất mỏng và yếu\" – the video says 'very weak scaly covering', but this is attributed to the keeper's observation. It is the video's general statement, not the keeper's experience.",
+        "\"thường chỉ dài 3–3,5 cm\" – the page already says sizeCm 3.5 and gives a different maximum of 4–5 cm. The video's 3–3.5 cm is an agreement with other sources, not a keeper's own observation. The NEW text does not say plainly that it differs from the page's 4–5 cm.",
+        "\"nhiều hơn con số chín loài thường được nêu\" – the video never mentions nine species. This is a comparison with the page that the video does not make. The 16 endemic species figure also covers all endemics, not just fish, so the comparison is shaky.",
+        "\"Một người đã nuôi loài này một thời gian khuyên dùng bể từ 80 lít trở lên\" – the 80 L is a recommendation from the video. It differs from the page's 60 cm (54 L) minimum, but NEW does not say so. The wording is vague and reads like a translation.",
+        "[notes] \"thân ánh xanh kim loại pha bạc … Mũi chúng đỏ rực, còn chóp vây đuôi đỏ hoặc đỏ cam\" – the red head and red tail-fin spots are already on the page under dimorphism. The video's 'red snout' is a slight variation, but it mostly repeats the page.",
+        "[diet] \"Ngoài Daphnia và Artemia\" – the page already lists Daphnia and Artemia, but the added cyclops, mosquito larvae and tiny frozen foods are supported. This part is fine.",
+        "Missing: the video's temperature advice of 18–22 °C and pH 6–8 is already on the page, so omitting it is correct. The video's 'tank not too warm' point is also already on the page."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:40:03Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "[notes] \"Sawbwa barb\" and \"naked rasbora\" are said in the video, but the page already lists similar names, so this is partly repeated.",
+        "[notes] \"Chuyện vảy thì có người mô tả khác. Ở trên ghi cá không có vảy\" - the comparison with the page is fine, but \"có người mô tả\" is vague and reads awkwardly; it is not written as one keeper's own view.",
+        "[notes] \"Những cái tên có chữ 'naked' bắt nguồn từ đặc điểm này\" - the video says this, but the page already links 'naked' to the missing scales, so it adds little.",
+        "[habitat] \"Con số này khác với con số chín loài cá đặc hữu ghi ở trên\" - the page says nine endemic fish; the video's 16 comes from UNESCO. The contrast is stated, but 'ghi ở trên' phrasing is meta and translation-like.",
+        "[aquariumSize] \"Một người đã nuôi loài này một thời gian\" - the video says 'at least 80 litres' as the speaker's recommendation; 'phải từ 80 lít trở lên' turns it into a firm rule, and 'chứ không phải khoảng 54 lít' is added by the writer.",
+        "[aquariumSize] The 80 L advice is reported as 'theo người này' once, but 'cần bể lớn hơn mức ghi ở trên' stays stiff and translation-like.",
+        "[diet] \"cyclops và lăng quăng\" - the video does list cyclops and small mosquito larvae, so this is OK. The page already lists Daphnia and Artemia, and 'lăng quăng' is a regional word.",
+        "Missing: the video's 3–3.5 cm size differs from the page's 4–5 cm maximum, and the writer didn't note it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:40:03Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Thật ra cá không hẳn trần trụi. Thân cá vẫn có vảy\" contradicts the page, which says the fish has no scales; the video only says the scale covering is very weak. The difference from the page is not stated plainly.",
+        "\"naked minnow\" and \"Asian rummynose\" overlap with names already on the page. \"naked rasbora\" is not on the page, so that one is fine.",
+        "\"Ngoài các tên đã kể\" refers to names listed elsewhere; this is awkward and presents the video's list as new information.",
+        "\"Một người nuôi loài này đã lâu khuyên… bể nên có thể tích từ 80 lít trở lên\" differs from the page (60 cm tank, about 54 L) but never says so. The video says 80 L minimum; the writer should have stated the difference plainly.",
+        "\"Con cái có màu bạc ánh ô liu\" is close to the video's \"silver-olive\", but the page already says the female is olive to light brown. This is partly redundant.",
+        "\"Chóp vây đuôi con đực có màu đỏ tươi hoặc đỏ cam\" largely repeats the page's red caudal spots and red lobes. It adds little that is new.",
+        "\"cyclops, ấu trùng muỗi cỡ nhỏ\" is supported by the video. \"Ngoài Daphnia và Artemia\" is fine, but the page already lists small frozen foods.",
+        "The 43 species and 16 endemic figures come from the video. The page says nine endemic fish, so the conflict is not flagged. \"Hiện có… theo số liệu của UNESCO\" is attributed correctly."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:37:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[notes] \"Trang này ghi loài không có vảy. Có người nuôi lại mô tả khác...\" refers to the page itself and sets up a contradiction; awkward meta-commentary, not a hobbyist's natural writing.",
+        "[distribution] \"Con số này cao hơn mức chín loài cá đặc hữu mà trang đang ghi\" is a comparison with the page, not a video statement. The video also doesn't give nine, and 16 endemic species is all species, not only fish on the page's count.",
+        "[notes] \"Có người nuôi lại mô tả khác\" presents the video keeper as 'some keeper'; it hedges and is an odd framing of a single keeper's view.",
+        "[notes] Common names 'naked rasbora', 'naked minnow' and 'Sawbwa barb' are in the video, but 'Ngoài các tên thương mại quen thuộc' is vague. The page already has 'naked microrasbora' and the 'naked' meaning.",
+        "[dimorphism] \"Có người nuôi tả thân con đực ánh kim xanh lam pha bạc\" duplicates what the page already says (male blue sheen, female olive/beige). It adds little that is new.",
+        "[diet] The cyclops gloss \"giáp xác chân chèo cỡ nhỏ\" is not in the video. \"ấu trùng muỗi cỡ nhỏ\" is fine.",
+        "[dimorphism] \"con cái màu bạc ánh ô liu\" is OK (silver-olive), but 'Có người nuôi tả' is unneeded attribution of a shared observation."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-06T16:37:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[aquariumSize] \"Một người nuôi loài này khá lâu\" / \"người này khuyên\" / \"Theo họ\" – refers to the video's keeper as a person; talks about the video's maker and presents one keeper's advice",
+        "[aquariumSize] \"ít nhất 80 lít\" is one keeper's recommendation; framing as comparison against page figure (54 L) is a contrast with the page, not a neutral fact",
+        "[aquariumSize] \"đừng nuôi trong bể nano quá chật\" is one keeper's opinion given as advice",
+        "[notes] Meaning of genus name (Burmese title prince/chief) and resplendens Latin 'shining' — fine in video, but 'hoàng thân hay thủ lĩnh' is OK; no problem except stylistic",
+        "[diet] \"Ngoài Daphnia và Artemia\" – cyclops and mosquito larvae are in video, but 'lăng quăng (bọ gậy)' is a loose rendering of 'small mosquito larvae'",
+        "[dimorphism] \"xanh lam pha bạc\" ok; but \"Đực và cái khác nhau rõ đến mức... hai loài\" repeats page's already stated strong dimorphism (page says male and female look very different)",
+        "[dimorphism] \"Mút vây đuôi ... đỏ tươi hoặc đỏ cam\" largely duplicates page's red caudal spots on males, little new"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ]
+}
