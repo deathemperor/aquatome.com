@@ -1,0 +1,60 @@
+{
+  "id": "tridensimilis-brevis",
+  "scientificName": "Tridensimilis brevis",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Tridensimilis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tridensimilis_brevis_en-2/",
+      "html": "<p>A charming, tiny, free-swimming dwarf catfish (maximum length: 2-3 cm).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tridensimilis_brevis_en-2/",
+      "html": "<p>The fish imported originate from Paraguay.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể nuôi cá trê lùn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia nở"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

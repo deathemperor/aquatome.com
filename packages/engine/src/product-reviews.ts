@@ -1,8 +1,9 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { CHIHIROS_LINES, chihirosLine, controlOf, modelWords, nameKey, PLUG_FAMILIES, ProductSchema, slugify, toMetric, TranslationSchema, type ProductEntity, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { logReviews } from './review-log'
 import { claimsControl, namesSource } from './content-rules'
 import { makeProduct, type ProductAsk } from './products'
 import { fixNames, has, words } from './review-names'
@@ -306,15 +307,16 @@ export function mergeWritten(w: Written, reviews: ReviewInput[], tests: TestFact
 }
 
 /** The one writing call (a second only when the first breaks a rule). */
-export async function writeReviews(llm: Llm, t: ReviewTarget, reviews: ReviewInput[], tests: TestFact[], options: { channels: string[]; controlled: boolean; testUrl?: string; catalog?: NameCatalog; model?: string }): Promise<Merged & { calls: number }> {
+export async function writeReviews(llm: Llm, t: ReviewTarget, reviews: ReviewInput[], tests: TestFact[], options: { channels: string[]; controlled: boolean; testUrl?: string; catalog?: NameCatalog; model?: string }): Promise<Merged & { calls: number; /** Each writing's problems, in order: the checks' notes. */ tries: string[][] }> {
   const o = { ...options, name: `${t.brand} ${t.model}` }
   const call = (notes?: string[]) => llm<Written>({
     system: 'Bạn viết phần tóm tắt các bài review sản phẩm bằng tiếng Việt, chỉ từ dữ kiện được đưa. Chỉ trả lời bằng JSON.', schema: WRITE_SCHEMA, model: o.model ?? 'opus',
     prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước phạm các lỗi sau. Viết lại, sửa hết:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\nSản phẩm: ${t.brand} ${t.model}\n\n--- ĐẦU VÀO ---\n${JSON.stringify(inputFor(reviews, tests), null, 1)}`,
   })
   const first = mergeWritten(await call(), reviews, tests, o)
-  if (!first.problems.length) return { ...first, calls: 1 }
-  return { ...mergeWritten(await call(first.problems), reviews, tests, o), calls: 2 }
+  if (!first.problems.length) return { ...first, calls: 1, tries: [first.problems] }
+  const second = mergeWritten(await call(first.problems), reviews, tests, o)
+  return { ...second, calls: 2, tries: [first.problems, second.problems] }
 }
 
 /**
@@ -391,6 +393,9 @@ export async function reviewProduct(contentRoot: string, d: ReviewDeps & { now: 
   const nextVi: Translation = TranslationSchema.parse({ ...rest, ...(reviews ? { reviews } : {}), ...(tested?.length ? { tested } : {}) })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(next, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(nextVi, null, 2)}\n`)
+  // The code's checks pass or fail (a point that fails is left out): 1 or 0, their problems the notes. The last writing is on the page.
+  const tries = m.tries.map(p => ({ score: p.length ? 0 : 1, notes: p }))
+  await logReviews(dirname(contentRoot), 'product-reviews', { id: `products/${id}`, lang: 'vi' }, tries, tries.at(-1), { model: 'code', now: d.now() })
   return { ...out, written: true }
 }
 

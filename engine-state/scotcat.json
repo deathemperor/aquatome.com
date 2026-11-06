@@ -558,11 +558,14 @@
     "attempts": 0
   },
   "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:52:22.215Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
+    "entityIds": [
+      "species/amaralia-hypsiura"
+    ],
+    "updatedAt": "2026-11-06T03:44:59.610Z",
+    "hash": "c708c603bbb6f8e047707a1dc3b44f2696ff02b9aa0a59c0ff4901f9487f10c6",
+    "processedHash": "c708c603bbb6f8e047707a1dc3b44f2696ff02b9aa0a59c0ff4901f9487f10c6",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
@@ -681,6 +684,16 @@
     "updatedAt": "2026-11-04T06:48:27.569Z",
     "hash": "78bd780fb653513baa5c9b2324d202f03df4d548d2295826e026ae4ff0b687d2",
     "processedHash": "78bd780fb653513baa5c9b2324d202f03df4d548d2295826e026ae4ff0b687d2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/callichthyidae/hoplosternum_punctatum.htm": {
+    "entityIds": [
+      "species/hoplosternum-punctatum"
+    ],
+    "updatedAt": "2026-11-06T03:49:35.983Z",
+    "hash": "a2571038efa63492acb7767de679b5a4dcf04843183555466086c0e195d9fcca",
+    "processedHash": "a2571038efa63492acb7767de679b5a4dcf04843183555466086c0e195d9fcca",
     "status": "processed",
     "attempts": 0
   },
@@ -875,11 +888,14 @@
     "attempts": 0
   },
   "https://www.scotcat.com/loricariidae/farlowella_oxyrryncha.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:52:48.004Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
+    "entityIds": [
+      "species/farlowella-oxyrryncha"
+    ],
+    "updatedAt": "2026-11-06T03:48:12.600Z",
+    "hash": "aba91479538639976b2b887c17f08cd6b366004c7c4c2e8418fdf54624adc971",
+    "processedHash": "aba91479538639976b2b887c17f08cd6b366004c7c4c2e8418fdf54624adc971",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/loricariidae/farlowella_platorynchus.htm": {
     "entityIds": [
@@ -951,6 +967,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm": {
+    "entityIds": [
+      "species/hypancistrus-zebra"
+    ],
+    "updatedAt": "2026-11-06T03:52:08.701Z",
+    "hash": "2b5c3847e7c707f40d35e66697284b93a14a28bcde74165badc7419eba7a8203",
+    "processedHash": "2b5c3847e7c707f40d35e66697284b93a14a28bcde74165badc7419eba7a8203",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/hypoptopoma_gulare.htm": {
     "entityIds": [
       "species/hypoptopoma-gulare"
@@ -968,6 +994,16 @@
     "updatedAt": "2026-11-04T13:33:35.241Z",
     "hash": "69f939cbbd1d165134308e954add7c2816638cdb5b6371e79654d2411674b46a",
     "processedHash": "69f939cbbd1d165134308e954add7c2816638cdb5b6371e79654d2411674b46a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_ancistroides.htm": {
+    "entityIds": [
+      "species/hypostomus-ancistroides"
+    ],
+    "updatedAt": "2026-11-06T03:53:59.828Z",
+    "hash": "d94534e1648f6462d0ed1ed544cf43652c46b0374f48bd32c52b1c1893532e42",
+    "processedHash": "d94534e1648f6462d0ed1ed544cf43652c46b0374f48bd32c52b1c1893532e42",
     "status": "processed",
     "attempts": 0
   },
@@ -1160,11 +1196,14 @@
     "attempts": 0
   },
   "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm": {
-    "entityIds": [],
-    "updatedAt": "2026-11-05T23:52:40.776Z",
-    "status": "error",
-    "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 7 at 8am (Asia/Saigon)"
+    "entityIds": [
+      "species/batrochoglanis-raninus"
+    ],
+    "updatedAt": "2026-11-06T03:46:43.161Z",
+    "hash": "5f704d25bac7428ca7e39b62dfe3f9de90f292843f5b766e75a4a0d31459f5ba",
+    "processedHash": "5f704d25bac7428ca7e39b62dfe3f9de90f292843f5b766e75a4a0d31459f5ba",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_villosus.htm": {
     "entityIds": [

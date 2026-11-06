@@ -1,0 +1,67 @@
+{
+  "id": "trachydoras-paraguayensis",
+  "scientificName": "Trachydoras paraguayensis",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Trachydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachydoras_paraguayensis_en/",
+      "html": "<p>T. paraguayensis grows to around 10 cm long and can be kept in the same way as a larger species of Corydoras. This means: a peaceful fish, undemanding regarding food and likes to swim in company of its own kind.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachydoras_paraguayensis_en/",
+      "html": "<p>This charming species of thorny catfish comes from Paraguay.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cảnh 200 lít"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên thức ăn cá đáy"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài bể 100cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

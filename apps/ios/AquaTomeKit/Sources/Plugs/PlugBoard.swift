@@ -57,6 +57,8 @@ public final class PlugBoard {
   private var reported: [Outlet: (on: Bool?, at: Int)] = [:]
   private var foundOffline: [String: Int] = [:]
   private var outcomes: [Outlet: (outcome: Outcome, at: Int)] = [:]
+  /// Told how each switch went (the app's anonymous telemetry): the outcome alone, not the plug or the outlet.
+  @ObservationIgnored public var switched: ((Outcome) -> Void)?
 
   public init() {}
 
@@ -144,6 +146,7 @@ public final class PlugBoard {
   private func note(_ o: Outlet, _ outcome: Outcome) {
     tick += 1
     outcomes[o] = (outcome, tick)
+    switched?(outcome)
   }
 
   private func forget() {

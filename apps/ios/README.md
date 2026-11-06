@@ -141,6 +141,42 @@ categories, a free price in every territory, the content rights, the age rating 
 The script never submits the app for review, attaches a build or releases it: its requests for those are refused before
 they're sent. The App Review contact is entered on the App Store Connect website, never here.
 
+## Anonymous telemetry
+
+What the privacy policy lists, to aquatome.com's own Worker, nothing to anyone else (`AquaTomeKit/Sources/Telemetry`,
+to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the requests):
+
+- **Events**, in batches of up to 100 with the app's version, iOS's version, the phone's model (`iPhone17,3`), the
+  language and a session id made anew at each launch and never reused for another launch (a batch waiting in the queue
+  keeps its launch's): `view` (a page opened, drawn by the app or as
+  the web page, by its path; a tab, a tank's screen, a shelf), and on a page the app draws, `scroll` (50 and 90%) and
+  `time` (30, 60 and 180 s on the screen with the app in front), the site beacon's marks, and `aff` (a shop link
+  tapped); and `action` (`light.connect`, `light.write`, `plug.switch`, `tank.add`, `post.comment`, `post.photo`, and
+  `fishid` once its screen is in: whether it worked and why not, as a code from a fixed list, `Event.Kind`, or a post's
+  refusal by the site's code from a list, else `other`; never an error's text). No account, name, device address or
+  name, tank name, search text or photo. An event the contract wouldn't take isn't sent (`Event.fits`); `ContractTests`
+  checks the app's rules against the contract's schema, and fails when they differ.
+- **iOS's reports** (MetricKit), cut down to what the privacy policy names by an allow-list at every level
+  (`Diagnostic.kept`; a field it doesn't name, or of another shape, is dropped, and a report left empty isn't sent): of a day's measures,
+  the build, iOS's version, the model and the quit, hang, launch and memory measures; crashes and hangs with their call
+  stacks, their codes or length, and no free text. The region, low power mode, network, cellular, location, display,
+  GPU, disk and animation measures and other kinds of diagnostics never leave the phone. In a
+  `{kind, app, os, device, payload}` wrapper; one over 1 MiB isn't sent.
+- **When**: every 30 s and when the app goes to the background, off the main thread. They wait in a file in the caches
+  folder (500 events at most, the oldest dropped; 8 reports). After a failure the next try waits 30 s, doubling up to 30
+  minutes; a batch refused as it is, or for too many this hour (429), is dropped. Our own copies are marked as their
+  page views are (`OwnCopy`), and the Worker stores theirs as tests.
+- **Off** until the site's index, read fresh at this launch, says `telemetry: true` (`HandbookIndex.telemetry`; the
+  copy kept from an earlier launch doesn't count; absent or false, the app drops what waits and records nothing), and
+  whenever the reader turns off "Gửi thống kê ẩn danh" (for now in Bể của tôi, whatever it shows; in Tài khoản once the
+  app has that tab). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
+  what waits is dropped.
+
+On the simulator the requests go to a stand-in Worker (`FakeCollector`), shown to the UI tests as `telemetry-received`
+(`TelemetryFlowTests`), and whether the queue's file is on the phone as `telemetry-queue`; `-site-telemetry` gives the
+fixed index the site's flag, `-index-kept-only` reads only the copy kept from an earlier launch (the site's never
+comes), and `-telemetry-down` makes the stand-in answer 503.
+
 ## Performance budgets
 
 `AquaTomeUITests/PerformanceTests` measures launch (to the first screen answering touches) and flinging through 800 fish
@@ -270,6 +306,7 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a page named what was searched for first (by its name, scientific name or another name, as the site's search ranks it: "bảy màu" finds Cá bảy màu before Bảy màu Koi), a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore); the fish-ID tool's request and answers (`FishId`); what's new on the site (`Latest`, `/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`: its /vi/moi-cap-nhat/ list, each entry a page the index lists; `LatestFile` keeps it on the phone) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code. A breed that is a form of a species (`of` in the index) goes to it as that species, and the check makes a species and its breeds one fish |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; Google's sign-in without its SDK (`GoogleOAuth`: its page, its answer, the code exchanged with PKCE); `FakeAccounts`, the server in process, and `FakeGoogle`, Google's page and token endpoint in process (tests, simulator), the fish-ID tool's too |
+| `Telemetry` | The app's anonymous telemetry (below): the events the privacy policy lists, the queue and its sending, the site's and the reader's switches; `FakeCollector`, the Worker's endpoints in process (tests, simulator) |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
 
 ```sh

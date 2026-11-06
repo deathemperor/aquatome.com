@@ -40,7 +40,7 @@ test('marketplaces and their short links are never fetched', async () => {
 })
 
 test('makeProduct: research, then a page written from the facts only, checked against them; entity, Vietnamese and market files', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   const prompts: string[] = []
   const research: Llm = async <T,>() => facts as T
   const llm: Llm = async <T,>(a: { prompt: string; schema: object }) => {
@@ -65,13 +65,13 @@ test('makeProduct: research, then a page written from the facts only, checked ag
 })
 
 test('a product research could not find is skipped, nothing written', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   const r = await makeProduct(root, { research: (async () => ({ ...facts, found: false })) as Llm, llm: (async () => { throw new Error('not called') }) as Llm, get, now: () => new Date() }, { brand: 'X', model: 'Y', category: 'loc', kind: 'Lọc' })
   expect(r.skipped).toContain('not found')
 })
 
 test('a page that goes beyond the facts is rewritten once with the notes; the better-grounded one is kept', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   const prompts: string[] = []
   const scores = [0.6, 0.85]
   const llm: Llm = async <T,>(a: { prompt: string; schema: object }) => {
@@ -86,7 +86,7 @@ test('a page that goes beyond the facts is rewritten once with the notes; the be
 })
 
 test('research is kept; --redo rewrites from it without searching again', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   let searches = 0
   const research: Llm = async <T,>() => { searches++; return facts as T }
   const llm: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'x', summary: [], body: '', faq: [], labels: {} }) as T
@@ -99,7 +99,7 @@ test('research is kept; --redo rewrites from it without searching again', async 
 })
 
 test('makeProduct leaves the reviews\' work alone: research lists its sources again, the spec numbers follow them, cites stay', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   const dir = join(root, 'products/sunsun-hbl-802')
   await mkdir(dir, { recursive: true })
   const video = 'https://www.youtube.com/watch?v=aaaaaaaaaaa'
@@ -117,7 +117,7 @@ test('makeProduct leaves the reviews\' work alone: research lists its sources ag
 })
 
 test('makeProduct can ask for a Vietnamese shop\'s price first: none, no writing and no page', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   let writes = 0
   const llm: Llm = async <T,>() => { writes++; return {} as T }
   const r = await makeProduct(root, { research: async <T,>() => ({ ...facts, prices: [] }) as T, llm, get, now: () => new Date('2026-11-06T00:00:00Z') }, { brand: 'Oase', model: 'Filtosmart 100', category: 'loc', kind: 'Lọc' }, { requireShopPrice: true })

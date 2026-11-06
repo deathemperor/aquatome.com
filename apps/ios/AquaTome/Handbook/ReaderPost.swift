@@ -1,6 +1,7 @@
 import Handbook
 import PhotosUI
 import SwiftUI
+import Telemetry
 
 /// A reader's comment, or photo of the page's species, posted from the app as their aquatome.com account
 /// (protocols/talk.openapi.json), in place of the site's form and its Turnstile check; signed out, the sign-in first.
@@ -16,6 +17,7 @@ struct ReaderPost: View {
   let shown: (Readers.Comment) -> Void
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.dismiss) private var dismiss
   /// The name the reader last posted under, kept on this phone for the next post (the account keeps no name).
   @AppStorage("readers.name") private var who = ""
@@ -237,6 +239,14 @@ struct ReaderPost: View {
         : Readers.post(photo: key, name: draft, consent: consent, jpeg: jpeg ?? Data(), site: handbook.site, token: token, version: version)
     }.map { Readers.answer($0.0, status: $0.1) }
     sending = false
+    // How it went, for the app's anonymous telemetry: the server's answer alone (here, where it's known), never the text.
+    let action: Action = kind == .comment ? .postComment : .postPhoto
+    switch answer {
+    case .shown?, .held?, .received?: telemetry.telemetry.record(.action(action, ok: true))
+    case let .refused(code)?: telemetry.telemetry.record(.action(action, refused: code))
+    case .signedOut?: telemetry.telemetry.record(.action(action, ok: false, kind: .signedOut))
+    case nil: telemetry.telemetry.record(.action(action, ok: false, kind: .noAnswer))
+    }
     switch answer {
     case let .shown(c)?:
       shown(c)

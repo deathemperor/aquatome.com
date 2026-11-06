@@ -185,6 +185,10 @@ if part rewrite; then
   # A bred fish's difficulty and lifespan from its own sources (breeds.ts breedCare): a breed whose card lacks either
   # (one written by older code, or whose research found neither) gets one research call, once. No call once all are tried.
   pnpm engine breed-care --limit "${BREED_CARE_LIMIT:-2}" || log "breed-care: failed"
+  # Pages under the bar whose review left no notes (written before reviews were kept, engine-state/reviews/), reviewed
+  # again as they are, nothing rewritten: REVIEW_BACKFILL_LIMIT model calls a kind (video guides: video-cycle.sh). Before
+  # rewrite-vi, which starts a page from its last review's notes.
+  pnpm engine review-backfill --kind translation,localize,places --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
   # Older Vietnamese rewritten in the site's style, a few pages a cycle, each kept only if the reviewer passes it.
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.
@@ -257,6 +261,9 @@ if part photos; then
   # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
   pnpm engine audit || log "audit: failed"
+  # What the quality reviews found (engine-state/reviews/): pages under the bar and their most common faults, per kind
+  # (docs/review/reviews.md), what prompt fixes start from.
+  pnpm engine reviews || log "reviews: failed"
 fi
 if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next

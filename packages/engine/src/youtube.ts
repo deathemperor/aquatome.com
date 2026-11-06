@@ -10,6 +10,7 @@ import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
+import { lastKept, logReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
@@ -297,7 +298,7 @@ const namesSource = (d: Draft, channel: string) => {
   return /tác giả|người làm video|trong video|theo video|video này/.test(text) || (!!channel.trim() && text.includes(`theo ${channel.trim().toLowerCase()}`))
 }
 
-export async function reviewDraft(llm: Llm, transcript: string, d: Draft, m?: VideoMeta) {
+export async function reviewDraft(llm: Llm, transcript: string, d: Pick<Draft, 'viTitle' | 'summary' | 'body' | 'faq'>, m?: Pick<VideoMeta, 'title' | 'channel' | 'lang'>) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
   const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
@@ -396,15 +397,19 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       if (why) { await set(vid, { status: 'skipped', entityIds: [], error: why }); report.skipped.push(`${vid}: ${why}`); failedInARow = 0; return false }
 
       const write = (notes?: string[]) => writeDraft(llm, m, transcript!, { ...opts.write, notes })
-      let d = await write()
+      // A redo starts from what the last review of the guide on the site found, when it was under the bar.
+      const before = opts.redo ? await lastKept(root, { id: `guides/youtube-${vid}`, lang: 'vi' }, ['video-guide']) : undefined
+      let d = await write(before && gate(before.score, false) === 'retry' ? before.notes : undefined)
       if (!d.relevant) { await set(vid, { status: 'skipped', entityIds: [], error: 'not a guide' }); report.skipped.push(`${vid}: not a guide`); failedInARow = 0; return false }
       if (!usable(d)) throw new Error('draft without a title or body')
-      let { score, notes } = await reviewDraft(llm, transcript!, d, m)
-      if (gate(score, false) === 'retry') {
-        const again = await write(notes)
+      const tries = [await reviewDraft(llm, transcript!, d, m)]
+      let kept = tries[0]!
+      if (gate(kept.score, false) === 'retry') {
+        const again = await write(kept.notes)
         // A broken rewrite keeps the first draft and its score.
-        if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
+        if (again.relevant && usable(again)) { d = again; kept = await reviewDraft(llm, transcript!, d, m); tries.push(kept) }
       }
+      const score = kept.score
       // The guide sits under the video: a slip like "trong video" or "Theo <channel>" gets an editor pass, which states it directly.
       if (namesSource(d, m.channel)) d = await editDraft(llm, d, opts.write?.model)
 
@@ -435,6 +440,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
       await appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }])
+      await logReviews(root, 'video-guide', { id: `guides/${id}`, lang: 'vi' }, tries, kept, { now: deps.now() })
       await set(vid, { status: 'processed', entityIds: [id] })
       report.written.push(`${id} (${score.toFixed(2)})`)
       redone.add(vid)
