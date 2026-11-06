@@ -21,12 +21,32 @@
           "min": 10,
           "max": 10
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 20.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -36,6 +56,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
       "html": "<ul><li>Origin: Argentina</li><li>Available size: 3-4 cm</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm",
+      "html": "<p>Family: Auchenipteridae. Common name: Paraguay Shark-cat. Adult size: 20.5 cm. Temperature: 18–24 °C. pH: 6.5–7.2.</p><p>The genus Auchenipterus is closely related and similar to Epapterus and Pseudepapterus. It is distinguished from all species except A. brachyurus by the following combination of characters: anal fin origin posterior to the middle of the body; and caudal fin without a terminal band, but with a chevron-shaped dark mask near the base of each lobe.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -48,6 +74,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
       "html": "<p>In nature it lives in the La Plata basin of Argentina, Brazil, Paraguay and Uruguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm",
+      "html": "<p>South America: La Plata River basin. Known only from the Rio de La Plata drainage. In the Rio Paraná, the species has been recorded above the junction of the Rio Paraguay. Type locality: Paraguay.</p>"
     },
     {
       "key": "aquariumSize",
@@ -68,10 +100,34 @@
       "html": "<p>They can be fed with any food for carnivorous fishes that fits the mouth. Plants are not eaten.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm",
+      "html": "<p>Can be fed most aquarium fare such as good quality flake, white worm, tablet and pellet foods and frozen foods such as bloodworm. Better to feed at lights out until they get accustomed to the daytime feeding regime, when they may very well join in.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
       "html": "<p>The fish should be kept in swarms that swim around the whole day. Other species are ignored as long as they are too large to be taken as food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm",
+      "html": "<p>Good community catfish with normal sized tankmates, but not to be trusted with small tetras, for instance, which will be picked off at night on its twilight patrols.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm",
+      "html": "<p>Etymology: the specific name nigripinnis: niger (L.), dark or black; pinnis, Neo-Latin adjective of pinna (L.), fin, i.e., finned, referring to the \"deep black\" pectoral and ventral fins.</p><p>This species will not be seen too often in the hobby. It can be kept at lower temperatures due to its southern habitat.</p><p>IUCN Red List: the species seems to be abundant and faces no direct threats. It is also widely distributed. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ferraris, C.J. Jr., 1999. The South American catfish genus Auchenipterus Valenciennes, 1840 (Ostariophysi: Siluriformes: Auchenipteridae) : monopoly and relationships, with a revisionary study. Zoological Journal. Vol. 126, Part 4, 1999.</p><p>Frederico, R.G. 2023. Auchenipterus nigripinnis. The IUCN Red List of Threatened Species 2023.</p><p>ScotCat Factsheet no. 219. Sept. 2014.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [

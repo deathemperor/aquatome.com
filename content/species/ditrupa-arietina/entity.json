@@ -15,7 +15,8 @@
     "ecuador",
     "napo",
     "colombia",
-    "caqueta"
+    "caqueta",
+    "amazon"
   ],
   "dataCard": {
     "tempC": [
@@ -49,6 +50,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 6
       }
     ],
     "difficulty": [
@@ -66,10 +71,28 @@
       "html": "<p>The skunk cory, Brochis arcuata, long known as Corydoras arcuatus, is an armoured catfish from the upper Amazon region in Brazil, Peru, Ecuador and Colombia. It is among the more popular Corydoras in the hobby and is also known as the 'arched cory' or C020. Several similar-looking congeners exist, particularly Hoplisoma urucu, in which the black body stripe ends behind the eye, and the larger C. narcissus from the rio Purus.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>Brochis (sub-clade 3) arcuata Elwin, 1938. Also known as CW036 and Super Arcuatus Cory. Size: 6 cm SL. A peaceful, shoaling, community fish.</p><p>Etymology: the specific epithet refers to its bowed colour pattern (arcuatus = bowed, as in bent like an archer's bow).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>Corydoras arcuatus is very similar to C. granti, and specimens of C. granti are often sold by pet stores under the name C. arcuatus.</p><p>The colour pattern forms an even arch (hence the scientific name) of dark stripe from the snout to the lower back. Sometimes the cleithrum will have an iridescent gold or bronze color. C. arcuatus can be distinguished by having a longer, straight snout, whereas C. granti has a shorter, more rounded snout. Also, the posterior margin of the pectoral fin spine of C. arcuatus has serrations pointing toward the origin of the spine (toward the body), whereas these serrations point toward the spine tip on C. granti. Finally, when full grown, C. arcuatus is a larger species than C. granti.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-arcuata",
       "html": "<p>This species was described from an aquarium specimen so its type locality is unknown although the holotype is said to be from '? Teffe, Amazon' which would appear to correspond to the city of Tefé in Amazonas state, Brazil, some 500 km west of Manaus on the rio Solimões.</p><p>It's generally considered to occur throughout the upper Amazon region in Brazil, Peru, Ecuador, and Colombia, upriver of the confluence between the Río Negro and Amazon main channel.</p><p>In the Negro it's known to range upstream as far as São Gabriel da Cachoeira.</p><p>Records thus exist from the Solimões, Purus, Japurá, Caquetá, Yavarí, Tefé, Napo and Ucayali drainage basins although it's worth noting that a number of similar-looking fishes also exist in the region, and only some of them are described to science (see 'Notes').</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>South America: Upper Amazon River basin. Amazon, Middle Amazon (Solimoes), Purus.</p><p>Type locality: Amazon River (aquarium specimen).</p>"
     },
     {
       "key": "maintenance",
@@ -84,10 +107,22 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>Ideally substrate should be sand, but rounded gravel is an imperfect alternative. Avoid keeping over rough edged (chipped) gravel, as this will increase the risk of damage to the fish's barbels when it tries to dig.</p><p>Substrate should be bordered with driftwood and aquatic plants, leaving an open area for them to search for food and swim. The shade provided by overhanging rock work, arching bogwood, tall or floating plants is all that is required to settle these fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-arcuata",
       "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>Will readily accept all prepared foods that reach the bottom of the aquarium such as tablets, granules and larger flakes. Live (or frozen) foods such as bloodworm, white worm, grindal worm (Enchytraeus), Daphnia and Tubifex are readily accepted and good for conditioning groups of fish for spawning.</p>"
     },
     {
       "key": "behaviour",
@@ -96,10 +131,28 @@
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>A peaceful, shoaling, community fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-arcuata",
       "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>Females grow larger and are more full-bodied; this is best observed from above the fish. Males will typically have more pointed, as opposed to more rounded, fin tips as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
       "key": "notes",
@@ -112,6 +165,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-arcuata",
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li><li>Britto, M. R., W. B. Wosiacki, and L. F. A. Montag (2009). A new species of Corydoradinae catfish (Ostariophysi: Siluriformes: Callichthyidae) from Rio Solimões Basin, Brazil. Copeia 2009(4), 684-689</li><li>Elwin, M. G. (1938). Corydoras arcuatus sp. n., an Amazonian catfish. Annals and Magazine of Natural History (Series 11) v. 3 (no. 13), 126-128</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1273",
+      "html": "<p>Annals and Magazine of Natural History (Series 11) v. 3 (no. 13), pp 126, Pl. 3.</p>"
     }
   ],
   "photos": [

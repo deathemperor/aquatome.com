@@ -1,0 +1,57 @@
+{
+  "id": "noturus-elegans",
+  "scientificName": "Noturus elegans",
+  "order": "Siluriformes",
+  "family": "Ictaluridae",
+  "genus": "Noturus",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "green-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 8.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<ul><li>Scientific name: Noturus elegans Taylor, 1969</li><li>Common name: Elegant Madtom</li><li>Type locality: Fallen Timber Creek, 13 km southeast of Glasgow, at state highway 90, Barren County, Kentucky, U.S.A.</li><li>IUCN Red List: Least Concern (last assessed 2012)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>North America: restricted to the Green River drainage in Kentucky and Tennessee, USA. Individuals from the Duck River originally allocated to N. elegans are N. fasciatus, the latter restricted to the Duck River system and two minor tributaries of the lower arm of the Tennessee River, Tennessee.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>Unreported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>Etymology: from the Greek notos, meaning back, and oura, meaning tail, in reference to the confluent adipose and caudal fins. The specific epithet refers to its handsome or elegant colour pattern.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1265",
+      "html": "<p>Bulletin of the United States National Museum No. 282, pp 150, Pls. 4 (figs. 5-6), 12.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-06"
+}
