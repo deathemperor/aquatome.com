@@ -159,7 +159,7 @@ test('the page: drawn for a 60 cm mid-range tank without a script, in each langu
     if (lang === 'vi') {
       // One per part the site has a shop search for, through /go/, marked as sponsored.
       expect(shops.length).toBe(PARTS.filter(x => x.category).length)
-      for (const h of shops) expect(h).toMatch(/^\/go\/shopee\/\?k=[^&]+&c=[a-z-]+&e=tool%3Adu-toan-be$/)
+      for (const h of shops) expect(h).toMatch(/^\/go\/shopee\/\?k=[^&]+&c=[a-z0-9-]+&e=tool%3Adu-toan-be$/)
       expect(dom.querySelector('a[data-go]')!.getAttribute('rel')).toContain('sponsored')
       expect(dom.querySelector('[data-shop-pick]')).not.toBeNull()
     } else {

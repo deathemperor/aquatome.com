@@ -51,14 +51,17 @@ test('setup budget: another size by its sides or its litres; the electricity in 
   await expect(page.locator('#db-hint')).toBeHidden()
   await expect(page.locator('#db-over')).toBeVisible()
 
-  const month = page.locator('#db-month')
+  // Another country's electricity in its own currency, on a line of its own: never added to the đồng.
+  const power = page.locator('#db-month-power')
+  await expect(power).toBeHidden()
   await page.locator('select[name=nuoc]').selectOption('id')
   await expect(page.locator('select[name=bac] option')).toHaveCount(3)
-  await expect(month).toContainText('IDR')
+  await expect(power).toContainText('IDR')
+  await expect(page.locator('#db-month')).not.toContainText('IDR')
   await expect(page.locator('tr[data-run=dien] .price')).toContainText('IDR')
   await page.locator('select[name=nuoc]').selectOption('vn')
   await expect(page.locator('select[name=bac] option')).toHaveCount(5)
-  await expect(month).not.toContainText('IDR')
+  await expect(power).toBeHidden()
 })
 
 test('setup budget: fits a 320 px phone in every language; shop links only where the shops are', async ({ page }, info) => {
@@ -69,6 +72,9 @@ test('setup budget: fits a 320 px phone in every language; shop links only where
     await expect(page.locator('tr[data-part=thong-minh]')).toBeVisible()
     const wide = await page.evaluate(() => document.documentElement.scrollWidth)
     expect(wide, `${path}: no sideways scroll at 320 px`).toBeLessThanOrEqual(320)
+    // The three tiers stay one control, on one row, with the longest names (Indonesian's broke onto two rows once).
+    const tops = await page.locator('.seg').evaluateAll(els => els.map(e => Math.round(e.getBoundingClientRect().top)))
+    expect(new Set(tops).size, `${path}: the tiers on one row`).toBe(1)
     expect(await page.locator('a[data-go]').count(), path).toBe(path === PATH ? 7 : 0)
   }
 })

@@ -17,6 +17,8 @@ const every = plan({ ...start, co2: true, smart: true })!
 const tariff = TARIFFS[country]
 const vnd = (r: readonly [number, number]) => money(r, 'VND', t, locale)
 const monthText = p.currency === 'VND' ? vnd(p.month) : t('{a}, cộng tiền điện {b}', { a: vnd(p.month), b: money(p.power, p.currency, t, locale) })
+// Another country's electricity isn't added to the đồng: in the summary, a line of its own under them.
+const powerApart = p.currency === 'VND' ? '' : t('cộng tiền điện {b}', { b: money(p.power, p.currency, t, locale) })
 const kwhText = (k: readonly [number, number], rate: number) => `${new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(k[0])}–${new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(k[1])} kWh × ${rateText(rate, tariff.currency, locale)}`
 const date = readDate(locale)
 const litres = (l: number, w: number, h: number) => new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(litresOf({ l, w, h }))
@@ -63,7 +65,7 @@ const countries: Country[] = ['vn', 'id', 'th']
     <section class="sum" aria-label={t('Tổng chi phí')}>
       <div class="figs" aria-live="polite">
         <p class="fig"><span class="k">{t('Mua sắm ban đầu')}</span> <strong id="db-total">{vnd(p.total)}</strong></p>
-        <p class="fig"><span class="k">{t('Mỗi tháng')}</span> <strong id="db-month">{monthText}</strong></p>
+        <p class="fig"><span class="k">{t('Mỗi tháng')}</span> <strong id="db-month">{vnd(p.month)}</strong> <span class="plus" id="db-month-power" hidden={!powerApart}>{powerApart}</span></p>
       </div>
       <!-- Written by the script when they apply, so the page's text copy (scripts/markdown.ts) doesn't carry them. -->
       <p class="hint" id="db-hint" hidden></p>
@@ -195,7 +197,10 @@ const countries: Country[] = ['vn', 'id', 'th']
     }
     const month = p.currency === 'VND' ? vnd(p.month) : ct('{a}, cộng tiền điện {b}', { a: vnd(p.month), b: money(p.power, p.currency, ct, locale) })
     $('db-total').textContent = $('db-parts-total').textContent = vnd(p.total)
-    $('db-month').textContent = $('db-run-total').textContent = month
+    $('db-month').textContent = vnd(p.month)
+    $('db-run-total').textContent = month
+    $('db-month-power').hidden = p.currency === 'VND'
+    $('db-month-power').textContent = p.currency === 'VND' ? '' : ct('cộng tiền điện {b}', { b: money(p.power, p.currency, ct, locale) })
     const run = (id: string) => tool.querySelector<HTMLTableRowElement>(`tr[data-run="${id}"]`)!
     run('dien').querySelector('.what')!.textContent = `${nf(p.kwh[0])}–${nf(p.kwh[1])} kWh × ${rateText(p.rate, p.currency, locale)}`
     run('dien').querySelector('.price')!.textContent = money(p.power, p.currency, ct, locale)
@@ -252,10 +257,10 @@ const countries: Country[] = ['vn', 'id', 'th']
   .own input { width: 6.5rem; }
   .own .or { font-size: 0.85rem; color: var(--c-ink-faint); padding-bottom: 0.7rem; }
   input[type=number], select { font: inherit; font-size: 1rem; min-height: 2.75rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); }
-  .tiers { display: flex; flex-wrap: wrap; }
-  .tiers legend { flex-basis: 100%; }
-  .seg { position: relative; flex: 1 1 0; }
-  .seg span { display: flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: 0 var(--space-3); border: 1px solid var(--c-rule); margin-left: -1px; font-weight: 500; text-align: center; cursor: pointer; }
+  /* Three equal segments on one row however long a language's names: a name wraps inside its own. */
+  .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .seg { position: relative; display: grid; }
+  .seg span { display: flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: var(--space-1) var(--space-2); border: 1px solid var(--c-rule); margin-left: -1px; font-weight: 500; text-align: center; cursor: pointer; }
   .seg:first-of-type span { border-radius: 8px 0 0 8px; margin-left: 0; }
   .seg:last-of-type span { border-radius: 0 8px 8px 0; }
   .seg:has(input:checked) span { position: relative; background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
@@ -270,6 +275,8 @@ const countries: Country[] = ['vn', 'id', 'th']
   .fig { display: grid; gap: 0.1rem; margin: 0; }
   .fig .k { font-size: var(--step--1); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--c-cardinal); }
   .fig strong { font-family: var(--f-display); font-size: var(--step-3); font-weight: 450; line-height: 1.15; font-variant-numeric: tabular-nums; }
+  .fig .plus { font-size: 0.95rem; color: var(--c-ink-soft); font-variant-numeric: tabular-nums; }
+  .fig .plus[hidden] { display: none; }
   .read, .hint, .warn { font-size: var(--step--1); color: var(--c-ink-soft); margin: var(--space-2) 0 0; max-width: var(--measure); }
   .warn { color: var(--c-cardinal); }
   #db-tool.waiting .figs, #db-tool.waiting .list tbody, #db-tool.waiting .list tfoot { opacity: 0.4; }
