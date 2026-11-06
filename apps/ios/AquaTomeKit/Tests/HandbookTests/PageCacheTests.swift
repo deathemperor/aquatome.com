@@ -202,3 +202,126 @@ private func docOf(_ path: String, _ pictures: [String]) -> PageDoc { PageShard(
   kept.remove(src)
   #expect(KeptPictures(dir: dir).data(src) == nil)
 }
+
+/// The site took "/vi" out of its addresses: each page lives in the shard its new path falls in.
+@Test func aPageKeptUnderViOpensOfflineUnderItsRootPathAndBack() async {
+  let root = "/huong-dan/nuoi-ca-neon/"
+  #expect(PageDoc.shard(of: neon, count: 32) != PageDoc.shard(of: root, count: 32), "the move would be untested")
+  let dir = tmp()
+  #expect(await cache(dir, Site(shard("Cá neon sống theo đàn."))).keep([neon], kind: "guide", lang: "vi", count: 32).count == 1)
+  // Next run, offline, the index at the root.
+  let c = cache(dir, Site(nil))
+  await c.move(to: .atRoot, lang: "vi")
+  let doc = await c.doc(path: root, kind: "guide", lang: "vi", count: 32)
+  #expect(text(doc) == "Cá neon sống theo đàn." && doc?.path == root)
+  #expect(await c.doc(path: neon, kind: "guide", lang: "vi", count: 32) == nil, "still under /vi/")
+  // Moved again in the same form, nothing changes; moved back, it's where it was.
+  await c.move(to: .atRoot, lang: "vi")
+  #expect(text(await c.doc(path: root, kind: "guide", lang: "vi", count: 32)) == "Cá neon sống theo đàn.")
+  await c.move(to: .underVi, lang: "vi")
+  #expect(text(await cache(dir, Site(nil)).doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Cá neon sống theo đàn.")
+  // Another language's shards are left alone.
+  await c.move(to: .atRoot, lang: "id")
+  #expect(text(await cache(dir, Site(nil)).doc(path: neon, kind: "guide", lang: "vi", count: 32)) == "Cá neon sống theo đàn.")
+}
+
+@Test func aPageOnThePhoneInBothFormsKeepsTheOneReadInTheNewForm() async {
+  let root = "/huong-dan/nuoi-ca-neon/"
+  let dir = tmp(), s = Site(shard("Cũ."))
+  let c = cache(dir, s)
+  _ = await c.doc(path: neon, kind: "guide", lang: "vi", count: 32)
+  // The site moved first: its shard now holds the page at its root path.
+  await s.set(try! JSONSerialization.data(withJSONObject: ["v": 1, "pages": [
+    root: ["v": 1, "kind": "guide", "path": root, "title": "Nuôi cá neon trong bể nhỏ", "blocks": [["t": "p", "c": ["Mới."]]]],
+  ]] as [String: Any]))
+  #expect(text(await c.doc(path: root, kind: "guide", lang: "vi", count: 32)) == "Mới.")
+  await c.move(to: .atRoot, lang: "vi")
+  await s.set(nil)
+  #expect(text(await cache(dir, s).doc(path: root, kind: "guide", lang: "vi", count: 32)) == "Mới.")
+}
+
+/// Two guides that swap shards when "/vi" goes: each shard is where one leaves and the other arrives.
+private func swapping(count: Int) -> (String, String) {
+  let guides = (0..<200).map { "/vi/huong-dan/g\($0)/" }
+  let moves = { (p: String, from: Int, to: Int) in
+    PageDoc.shard(of: p, count: count) == from && PageDoc.shard(of: PathForm.atRoot.path(p), count: count) == to
+  }
+  return (guides.first { moves($0, 0, 1) }!, guides.first { moves($0, 1, 0) }!)
+}
+
+/// Shards 0 and 1 of three kept on the phone, as the site writes them: `a` in 0, `b` in 1.
+private func keptSwapping(_ dir: URL) throws -> (String, String) {
+  let (a, b) = swapping(count: 3)
+  let folder = dir.appending(path: "vi")
+  try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+  try shardOf([(a, [])]).write(to: folder.appending(path: "guide-3-0.json"))
+  try shardOf([(b, [])]).write(to: folder.appending(path: "guide-3-1.json"))
+  return (a, b)
+}
+
+@Test func aMoveCutShortLosesNoPageAndTheNextOneFinishes() async throws {
+  let dir = tmp()
+  let (a, b) = try keptSwapping(dir)
+  // The second file the move writes fails (a full phone): nothing moves, and both guides still open offline as they were.
+  let writes = Writes(failing: 2)
+  let failing = PageCache(dir: dir, site: site, fetch: { _ in throw URLError(.notConnectedToInternet) }, write: { try writes.write($0, $1) })
+  #expect(await failing.move(to: .atRoot, lang: "vi") == false)
+  for p in [a, b] { #expect(await failing.doc(path: p, kind: "guide", lang: "vi", count: 3)?.path == p, "\(p) lost") }
+  let files = try FileManager.default.contentsOfDirectory(atPath: dir.appending(path: "vi").path(percentEncoded: false)).sorted()
+  #expect(files == ["guide-3-0.json", "guide-3-1.json"], "a half-done move left behind")
+  // The next move finishes: each guide at its root path, in its new shard.
+  let next = cache(dir, Site(nil))
+  #expect(await next.move(to: .atRoot, lang: "vi"))
+  for p in [a, b] { #expect(await next.doc(path: PathForm.atRoot.path(p), kind: "guide", lang: "vi", count: 3) != nil, "\(p) not moved") }
+  #expect(await next.doc(path: a, kind: "guide", lang: "vi", count: 3) == nil)
+}
+
+/// A move stopped while putting its new files in place: the one not yet in place is read by the next move, then goes.
+@Test func theNewFilesOfAMoveCutShortAreTakenByTheNext() async throws {
+  let dir = tmp(), folder = dir.appending(path: "vi")
+  let (a, b) = try keptSwapping(dir)
+  // b's new file has taken shard 0's place (a's old one); a's new file is still beside shard 1, which holds b's old page.
+  let ra = PathForm.atRoot.path(a)
+  try shardOf([(ra, [])]).write(to: folder.appending(path: "guide-3-1.0a1b2c3d.json"))
+  try shardOf([(PathForm.atRoot.path(b), [])]).write(to: folder.appending(path: "guide-3-0.json"))
+  let next = cache(dir, Site(nil))
+  #expect(await next.move(to: .atRoot, lang: "vi"))
+  #expect(await next.doc(path: ra, kind: "guide", lang: "vi", count: 3) != nil)
+  #expect(await next.doc(path: PathForm.atRoot.path(b), kind: "guide", lang: "vi", count: 3) != nil)
+  #expect(try FileManager.default.contentsOfDirectory(atPath: folder.path(percentEncoded: false)).sorted() == ["guide-3-0.json", "guide-3-1.json"])
+}
+
+/// A page in the new form both in its shard and in a new file a move left (its rename failed), the shard read from the
+/// site since: the shard's copy, the newer, is kept, whatever the left file's name.
+@Test func theShardsOwnCopyOutlastsOneAMoveLeftBehind() async throws {
+  let (_, b) = swapping(count: 3)
+  let rb = PathForm.atRoot.path(b)
+  #expect(PageDoc.shard(of: rb, count: 3) == 0)
+  let one = { (text: String) in
+    try! JSONSerialization.data(withJSONObject: ["v": 1, "pages": [
+      rb: ["v": 1, "kind": "guide", "path": rb, "title": "Rêu", "blocks": [["t": "p", "c": [text]]]],
+    ]] as [String: Any])
+  }
+  for run in ["00000000", "0a1b2c3d", "ffffffff"] {
+    let dir = tmp(), folder = dir.appending(path: "vi")
+    try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+    try one("Mới.").write(to: folder.appending(path: "guide-3-0.json"))
+    try one("Cũ.").write(to: folder.appending(path: "guide-3-0.\(run).json"))
+    let c = cache(dir, Site(nil))
+    #expect(await c.move(to: .atRoot, lang: "vi"))
+    #expect(text(await c.doc(path: rb, kind: "guide", lang: "vi", count: 3)) == "Mới.", "\(run): the left file's copy kept")
+    #expect(try FileManager.default.contentsOfDirectory(atPath: folder.path(percentEncoded: false)) == ["guide-3-0.json"])
+  }
+}
+
+/// Writes files, the `failing`th one (from 1) failing.
+private final class Writes: @unchecked Sendable {
+  private var n = 0
+  private let failing: Int
+  init(failing: Int) { self.failing = failing }
+  func write(_ data: Data, _ url: URL) throws {
+    n += 1
+    if n == failing { throw CocoaError(.fileWriteOutOfSpace) }
+    try data.write(to: url, options: .atomic)
+  }
+}

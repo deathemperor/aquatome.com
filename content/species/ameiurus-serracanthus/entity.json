@@ -10,6 +10,120 @@
     "united-states",
     "suwannee"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Suwannee",
+        "Apalachicola",
+        "Ochlockonee",
+        "St. Marks",
+        "St. Andrews Bay",
+        "Gulf Coastal Plain"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: Gulf Coastal Plain in Suwannee, St. Marks, Ochlockonee, Apalachicola and St. Andrews Bay drainages of northern Florida, southern Georgia and southeastern Alabama in the USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Suwannee",
+            "Apalachicola",
+            "Ochlockonee",
+            "St. Marks",
+            "St. Andrews Bay",
+            "Gulf Coastal Plain"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340987,
+      "total": 277,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "US",
+          277
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          37.96875,
+          2,
+          2
+        ],
+        [
+          -87.1875,
+          29.53125,
+          10,
+          10
+        ],
+        [
+          -87.1875,
+          32.34375,
+          6,
+          6
+        ],
+        [
+          -87.1875,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          29.53125,
+          125,
+          125
+        ],
+        [
+          -85.78125,
+          30.9375,
+          29,
+          29
+        ],
+        [
+          -85.78125,
+          32.34375,
+          15,
+          15
+        ],
+        [
+          -84.375,
+          29.53125,
+          37,
+          37
+        ],
+        [
+          -84.375,
+          30.9375,
+          5,
+          5
+        ],
+        [
+          -84.375,
+          39.375,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          29.53125,
+          46,
+          46
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

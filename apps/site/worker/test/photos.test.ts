@@ -116,6 +116,44 @@ test('without the buckets or secrets the API answers 503 and the section stays h
   expect(r.status).toBe(503)
 })
 
+// A fish's gallery page and its own page list its readers' photos 60 at a time ("Xem thêm" asks for the older ones),
+// and only its own: never a photo another page shows, nor one sent with a comment (`comment:<id>`).
+test('a fish\'s photos list 60 at a time, newest first, then the older ones by `next`; never a comment\'s or another page\'s', async () => {
+  const { e, db } = env()
+  const FISH = 'species:paracheirodon-innesi'
+  const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
+  const at = (min: number) => new Date(Date.UTC(2026, 9, 1) + min * 60_000).toISOString()
+  const add = (n: number, entity: string, time: string, status = 'approved') => db.prepare(
+    `INSERT INTO photos (id, entity_ref, name, status, url, thumb, width, height, delete_hash, created_at) VALUES (?, ?, 'Lộc', ?, 'u', 't', 1200, 900, 'h', ?)`,
+  ).bind(id(n), entity, status, time).run()
+  // 64 of the fish's, one a minute; the 60th and 61st newest (photos 5 and 4) sent in the same millisecond, where the
+  // first answer stops.
+  for (let n = 1; n <= 64; n++) await add(n, FISH, at(n === 4 ? 5 : n))
+  // Newer than all of them: a comment's photos, another fish's, a breed's, and the fish's own still waiting.
+  await add(101, 'comment:c1', at(100))
+  await add(102, 'comment:c2', at(101))
+  await add(103, 'species:betta-splendens', at(102))
+  await add(104, 'breed:betta-halfmoon', at(103))
+  await add(105, FISH, at(104), 'pending')
+  type Listed = { photos: { id: string }[]; next?: string }
+  const list = async (q = '') => {
+    const r = await handle(new Request(`https://x.test/_p?e=${FISH}${q}`), e)
+    return { status: r.status, body: (await r.json()) as Listed }
+  }
+  const newest = Array.from({ length: 64 }, (_, i) => id(64 - i)) // ids order the two of one time: photo 5, then 4
+  const first = await list()
+  expect(first.body.photos.map(p => p.id)).toEqual(newest.slice(0, 60))
+  expect(first.body.next).toBe(`${at(5)}~${id(5)}`)
+  const rest = await list(`&before=${encodeURIComponent(first.body.next!)}`)
+  expect(rest.body.photos.map(p => p.id)).toEqual(newest.slice(60))
+  expect(rest.body).not.toHaveProperty('next')
+  // Exactly 60 left: no `next`, so no "Xem thêm" that would find nothing.
+  const sixty = await list(`&before=${encodeURIComponent(`${at(61)}~${id(61)}`)}`)
+  expect(sixty.body.photos.map(p => p.id)).toEqual(newest.slice(4))
+  expect(sixty.body).not.toHaveProperty('next')
+  for (const bad of ['', 'x', at(5), `${at(5)}~`, `${at(5)}~${id(5)}' OR 1=1`]) expect((await list(`&before=${encodeURIComponent(bad)}`)).status, bad).toBe(400)
+})
+
 const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 1, 2, 3])
 const sent = async (e: Env, file = new File([JPEG], 'a.jpg')) => ((await (await handle(upload({ ...ok, file }), e)).json()) as { id: string }).id
 const admin = (e: Env, path: string, init: RequestInit = {}) => handle(new Request(`https://x.test/_p/admin/${path}`, { ...init, headers: { authorization: 'Bearer tok' } }), e)

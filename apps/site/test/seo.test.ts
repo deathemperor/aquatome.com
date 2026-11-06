@@ -94,6 +94,9 @@ test('markdown for agents: every page has index.md — front matter, headings, f
   expect(md).toMatch(/^-\s+\*\*Nhiệt độ:\*\* \d/m)
   expect(md).not.toMatch(/<[a-z][^>]*>/)
   expect(md).not.toContain('Gửi bình luận')
+  // Readers' photos load live: neither the fish's copy nor its gallery's has their section.
+  expect(md).not.toContain('Ảnh bạn đọc')
+  expect(readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'anh', 'index.md'), 'utf8')).not.toContain('Ảnh bạn đọc')
   expect(md).not.toContain('/go/')
   expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
   // The app page has none while it's the owner's (worker/app-switch.ts).
