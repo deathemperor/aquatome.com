@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-06). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
-| shop | 60 | 129 | 77 | 24 | 30 | 200 |
+| shop | 60 | 131 | 77 | 24 | 30 | 202 |
 | popular | 40 | 19 | 0 | 0 | 1 | 18 |
-| covered | 30 | 339 | 3 | 9 | 12 | 339 |
-| rest | 20 | 959 | 95 | 0 | 2 | 1052 |
+| covered | 30 | 363 | 3 | 9 | 12 | 363 |
+| rest | 20 | 992 | 95 | 0 | 3 | 1084 |
 
-## Short of target: every source read (54)
+## Short of target: every source read (66)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -44,7 +44,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/bolbitis-heudelotii | shop | 0 | 60 |
 | breeds/black-moor-goldfish | shop | 6 | 60 |
 | species/sahyadria-denisonii | shop | 26 | 60 |
-| plants/vesicularia-ferriei | shop | 6 | 60 |
+| plants/vesicularia-ferriei | shop | 0 | 60 |
 | breeds/bubble-eye-goldfish | shop | 6 | 60 |
 | species/glossolepis-incisus | shop | 6 | 60 |
 | breeds/halfmoon-betta | shop | 30 | 60 |
@@ -58,6 +58,18 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/alternanthera-reineckii | shop | 3 | 60 |
 | breeds/koi-betta | shop | 1 | 60 |
 | plants/ludwigia-arcuata | shop | 36 | 60 |
+| breeds/full-red-guppy | shop | 2 | 60 |
+| species/puntigrus-tetrazona | shop | 22 | 60 |
+| plants/taxiphyllum-barbieri | shop | 4 | 60 |
+| breeds/koi-guppy | shop | 0 | 60 |
+| species/corydoras-aeneus | shop | 27 | 60 |
+| breeds/dumbo-ear-guppy | shop | 0 | 60 |
+| species/chromobotia-macracanthus | shop | 21 | 60 |
+| plants/aegagropila-linnaei | shop | 32 | 60 |
+| breeds/super-red-arowana | shop | 8 | 60 |
+| species/corydoras-paleatus | shop | 26 | 60 |
+| plants/cryptocoryne-wendtii | shop | 5 | 60 |
+| breeds/red-tailed-golden-arowana | shop | 8 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
 | species/corydoras-caudimaculatus | shop | 0 | 60 |
 | species/synodontis-petricola | shop | 2 | 60 |

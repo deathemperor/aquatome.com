@@ -10,6 +10,52 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Singen River",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "A new species of the Indo-Burmese genus Badis was described in late 2011 from the Singen River, Brahmaputra basin in Arunachal Pradesh, India, raising the number of formally described species to sixteen.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Singen River",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6168883,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          25.3125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

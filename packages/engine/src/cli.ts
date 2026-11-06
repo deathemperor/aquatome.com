@@ -63,6 +63,7 @@ import { localizeCaptions } from './captions'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
+import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
@@ -364,13 +365,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'sweep') {
   // The content rules' safe fixes on every page, each cycle before the build (sweep.ts): the source site's comments and
   // related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another fish or a map
-  // taken off the page, card figures out of bounds hidden, titles promising a count the text lacks rewritten (--titles N
+  // taken off the page, card figures out of bounds hidden, shops' own talk and pages about one variety taken off species pages, tank searches written from the card, titles promising a count the text lacks rewritten (--titles N
   // model rewrites a run, reviewer-gated; 0: none) or their number dropped, species' other names kept to their own,
   // breeds linked to the species pages their research names, breeds' other names kept to their own.
   const titles = Number(values.titles ?? 3)
   const r = await sweep(ROOT, titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {})
-  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`)]) console.log(x)
+  console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`)]) console.log(x)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
@@ -534,6 +535,12 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const r = await breedPhotos(ROOT, galleryDeps(), { limit: values.limit ? Number(values.limit) : 10 })
   console.log(`breed-photos: ${r.done.length} breeds, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
+} else if (cmd === 'planting') {
+  // Where it goes and how to plant it, for plant pages that say neither (planting.ts): written from the page and the
+  // video guides that cover the plant, reviewed, kept at the bar; each plant once. pnpm engine planting [--limit N] [--only id,id] [--redo]
+  const r = await writePlanting(ROOT, claudeCli, { limit: Number(values.limit ?? 5), ...(values.only ? { only: values.only.split(',') } : {}), redo: !!values.redo, model: process.env.PLANTING_MODEL ?? 'opus' })
+  console.log(`planting: ${r.written.length} written, ${r.none.length} with nothing to go on, ${r.low.length} under the bar, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of [...r.written.map(x => `written: ${x}`), ...r.none.map(x => `nothing to go on: ${x}`), ...r.low.map(x => `under the bar: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
 } else if (cmd === 'breed-care') {
   // Difficulty and lifespan for breed pages whose card lacks either, from their own sources: a research call a breed,
   // once (engine-state/_breed-care.json). pnpm engine breed-care [--only id,id] [--limit N]

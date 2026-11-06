@@ -1,0 +1,60 @@
+{
+  "id": "badis-tuivaiei",
+  "native": {
+    "input": "7a78ba96ce6ab8c9",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tuivai and Irang rivers, both tributaries of the Barak River in Manipur state, northeastern India and also recorded from the section of the Tuivai flowing through Mizoram state.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Barak",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tuivai and Irang rivers, both tributaries of the Barak River in Manipur state, northeastern India and also recorded from the section of the Tuivai flowing through Mizoram state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Ichamati",
+        "source": "seriouslyfish",
+        "quote": "The Barak comprises part of the Ganges River system while the Wahumiam is a tributary of the Ichamati River which forms the border between India and Bangladesh for part of its length.",
+        "ok": true
+      },
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "The Barak comprises part of the Ganges River system while the Wahumiam is a tributary of the Ichamati River which forms the border between India and Bangladesh for part of its length.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Badis tuivaiei",
+    "status": "ACCEPTED",
+    "taxonKey": 2389462,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

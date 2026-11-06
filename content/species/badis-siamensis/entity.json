@@ -10,6 +10,46 @@
     "thailand",
     "ranong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis siamensis is a badid endemic to Peninsular Thailand, collected only from river systems draining the western coastline.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389474,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

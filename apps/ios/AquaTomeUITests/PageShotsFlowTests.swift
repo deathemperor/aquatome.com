@@ -9,8 +9,9 @@ import XCTest
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; what's new, its row on the home then its list, and kit's section on the home then a long list's whole
-/// list, light and dark; and Bể của tôi, empty and with a tank. Each checks only that its screen opened: what it shows,
-/// the other flows check.
+/// list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
+/// overview, a section with charts and tables, and the daily report's settings. Each checks only that its screen opened:
+/// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -27,6 +28,9 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAppIcons() { shootIcons("icons-light") }
   func testTheAppIconsInTheDark() { shootIcons("icons-dark", dark: true) }
   func testALightsCardWarningOfItsOutletsTimer() { shootLightCard("light-outlet") }
+  func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
+  func testAnOwnersSection() { shootOwner("owner-section-light", section: "Nhận diện cá") }
+  func testTheDailyReportsSettings() { shootOwner("owner-report-light", section: "Báo cáo hằng ngày", shows: "owner-action") }
   func testSigningIn() { shootSignIn("sign-in-light") }
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
   func testFishId() { shootFishId("fish-id-light") }
@@ -112,7 +116,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchForFlow()
     let row = app.descendants(matching: .any)["all-latest"]
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
-    for _ in 0..<8 where !(row.exists && row.isHittable) { app.swipeUp() }
+    repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(row.exists, "no row for what's new")
     for n in 1...2 {
       if n == 2 {
@@ -194,7 +198,7 @@ final class PageShotsFlowTests: XCTestCase {
     sign.tap()
     let send = app.descendants(matching: .any)["fish-id-send"].firstMatch
     XCTAssertTrue(send.waitForExistence(timeout: 10), "no tool")
-    for _ in 0..<6 where !send.isHittable { app.swipeUp() }
+    repeatUntil(send.isHittable, times: 6) { app.swipeUp() }
     send.tap()
     XCTAssertTrue(app.descendants(matching: .any)["fish-id-guess"].firstMatch.waitForExistence(timeout: 10), "no guesses")
     // From the top: the screen scrolls to the guesses when they come.
@@ -211,6 +215,21 @@ final class PageShotsFlowTests: XCTestCase {
     let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", row)).firstMatch
     XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(row)")
     item.tap()
+  }
+
+  /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
+  /// `shows`: what the section has once it's loaded.
+  private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart") {
+    let app = launch(dark: false, size: nil, XCUIApplication.standInOwner)
+    app.openTab("Bể của tôi")
+    app.signInWithStandInApple()
+    app.scrollToAndTap("owner-dashboard")
+    XCTAssertTrue(app.buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
+    if let section {
+      app.openOwnersSection(section)
+      XCTAssertTrue(app.descendants(matching: .any)[shows].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
+    }
+    capture(app, name, dark: false, large: false, screens: 16)
   }
 
   /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.
@@ -361,7 +380,7 @@ final class PageShotsFlowTests: XCTestCase {
     let page = lightness(XCUIScreen.main.screenshot().image)
     XCTAssertEqual(page < 0.5, dark, "\(name)'s page isn't \(dark ? "dark" : "light"): \(page)")
     let photo = app.buttons["Đàn cá neon trong bể"].firstMatch
-    for _ in 0..<24 where !(photo.exists && photo.isHittable) {
+    repeatUntil(photo.exists && photo.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

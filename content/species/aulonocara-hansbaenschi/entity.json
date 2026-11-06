@@ -11,6 +11,36 @@
     "lake-malawi",
     "mozambique"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Thumbi West Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi where it's known from just four localities: Masinje (type locality), Fort Maguire, Mara Point and Thumbi West Island.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi",
+            "Thumbi West Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370482,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -8,6 +8,11 @@ export type SourceConfig = {
    * general pet-care site, whose countries count only for a species no specialist source covers.
    */
   tier: 'specialist' | 'general'
+  /**
+   * A shop's or importer's own pages (its products, its stock news): a block that speaks as the shop or sells stays off
+   * species and plant pages (species-sources.ts shopTalk).
+   */
+  shop?: true
   discover: { kind: 'sitemap'; urls: string[] } | { kind: 'crawl'; start: string[]; scope?: string } | { kind: 'archive'; prefix: string }
   /** 'archive': read through the Internet Archive's latest copies (the site's own pages sit behind a browser check). */
   via?: 'archive'
@@ -38,8 +43,8 @@ export const SOURCES: SourceConfig[] = [
   // Cloudflare challenges every request (2026-10-29), so the Cat-eLog is read from the Internet Archive's copies.
   { id: 'planetcatfish', tier: 'specialist', discover: { kind: 'archive', prefix: 'planetcatfish.com/common/species.php' }, via: 'archive', keepQuery: true, contentSelector: '#main-page', include: /^https:\/\/www\.planetcatfish\.com\/common\/species\.php\?species_id=\d+$/, delayMs: POLITE },
   { id: 'loachesonline', tier: 'specialist', discover: { kind: 'crawl', start: ['https://www.loaches.com/species-index', 'https://www.loaches.com/articles', 'https://www.loaches.com/care'] }, include: /loaches\.com\/(species-index|articles|care|disease-treatment)\/[a-z0-9-]+/, exclude: /\/species-index\/(photos|photo-search|pictorial-species-search-index|species-index|loach-species-index-front-page)(\/|$)|\/(images|sendto_form|@@[a-z-]+|login_form|search)(\/|$)/, contentSelector: '#content', profiles: /\/species-index\//, delayMs: POLITE },
-  { id: 'glaser', tier: 'specialist', discover: { kind: 'sitemap', urls: ['https://www.aquariumglaser.de/sitemap_index.xml'] }, include: /aquariumglaser\.de\/en\/[a-z0-9-]+\/[a-z0-9-]+/, exclude: /\/(category|tag|page|author)\//, delayMs: POLITE },
-  { id: 'bwaquatics', tier: 'specialist', discover: { kind: 'sitemap', urls: ['https://bwaquatics.com/sitemap.xml'] }, include: /bwaquatics\.com\/products\/[a-z0-9-]+$/, exclude: /\/products\/test$/, delayMs: POLITE },
+  { id: 'glaser', tier: 'specialist', shop: true, discover: { kind: 'sitemap', urls: ['https://www.aquariumglaser.de/sitemap_index.xml'] }, include: /aquariumglaser\.de\/en\/[a-z0-9-]+\/[a-z0-9-]+/, exclude: /\/(category|tag|page|author)\//, delayMs: POLITE },
+  { id: 'bwaquatics', tier: 'specialist', shop: true, discover: { kind: 'sitemap', urls: ['https://bwaquatics.com/sitemap.xml'] }, include: /bwaquatics\.com\/products\/[a-z0-9-]+$/, exclude: /\/products\/test$/, delayMs: POLITE },
   // Cloudflare challenges the engine's browser on every request (2026-10-29 on), so its articles are read from the Internet Archive's copies.
   { id: '2hraquarist', tier: 'specialist', discover: { kind: 'archive', prefix: '2hraquarist.com/blogs/' }, via: 'archive', include: /^https:\/\/www\.2hraquarist\.com\/blogs\/[a-z0-9-]+\/[a-z0-9-]+$/, delayMs: POLITE },
   { id: 'aquariumcoop', tier: 'specialist', discover: { kind: 'sitemap', urls: ['https://www.aquariumcoop.com/sitemap.xml'] }, include: /aquariumcoop\.com\/blogs\/aquarium\/[a-z0-9-]+$/, delayMs: POLITE },

@@ -1,0 +1,80 @@
+{
+  "id": "bagrichthys-majusculus",
+  "native": {
+    "input": "85398976b67f6026",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mun River, Ubon Ratchathani Province, eastern Thailand, a tributary of the Mekong River, and is known only from the Mekong and Chao Phraya systems.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from Mekong tributaries in Laos and presumably occurs in Cambodia as well.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It has been recorded from Mekong tributaries in Laos and presumably occurs in Cambodia as well.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mun River, Ubon Ratchathani Province, eastern Thailand, a tributary of the Mekong River, and is known only from the Mekong and Chao Phraya systems.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mun River, Ubon Ratchathani Province, eastern Thailand, a tributary of the Mekong River, and is known only from the Mekong and Chao Phraya systems.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bagrichthys majusculus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338051,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

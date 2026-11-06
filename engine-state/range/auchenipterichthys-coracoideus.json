@@ -1,0 +1,155 @@
+{
+  "id": "auchenipterichthys-coracoideus",
+  "native": {
+    "input": "c7b28e4565583fa7",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The midnight catfish, Auchenipterichthys coracoideus, is an auchenipterid catfish from the Peruvian and Brazilian Amazon and the Essequibo drainage.",
+        "words": "Peruvian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The midnight catfish, Auchenipterichthys coracoideus, is an auchenipterid catfish from the Peruvian and Brazilian Amazon and the Essequibo drainage.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Described from Iquitos in northeastern Peru but current knowledge suggests it to be widely-distributed in the upper and central parts of the Peruvian/Brazilian Amazon basin plus the Essequibo drainage in Brazil and Guyana.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenipterichthys coracoideus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344721,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        27
+      ],
+      [
+        "3f6e022f-240e-4288-b655-84d5904d4ca6",
+        25
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        15
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        13
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        12
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        8
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

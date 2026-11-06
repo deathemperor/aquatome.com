@@ -12,6 +12,62 @@
     "mozambique",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MW"
+      ],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mpanga Rocks, Chilumba, Lake Malawi [Lake Nyasa], Malawi'.",
+          "countries": [
+            "MW"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi, where it is widely distributed along both east and west coastlines.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370511,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MW",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          4,
+          4
+        ],
+        [
+          33.75,
+          -11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,124 @@
+{
+  "id": "bagrichthys-obscurus",
+  "native": {
+    "input": "d44c00019123818b",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Bagrichthys obscurus Ng, 1999. Maximum size 249 mm (9.8\") SL. Type locality: Lam Chi, 1.5 km below highway 23 bridge, 4 km west of Selaphum, Roi Et Province, Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Roi Et province, northeastern Thailand and distributed throughout the Chao Phraya, Bang Pakong and Mekong watersheds.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from parts of the latter in Cambodia and Vietnam and presumably also occurs in Laos.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from parts of the latter in Cambodia and Vietnam and presumably also occurs in Laos.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from parts of the latter in Cambodia and Vietnam and presumably also occurs in Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "planetcatfish",
+        "quote": "Asia: Chao Phraya, Bang Pakong and Mekong drainages in Indochina.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "planetcatfish",
+        "quote": "Asia: Chao Phraya, Bang Pakong and Mekong drainages in Indochina.",
+        "ok": true
+      },
+      {
+        "name": "Bang Pakong",
+        "source": "planetcatfish",
+        "quote": "Asia: Chao Phraya, Bang Pakong and Mekong drainages in Indochina.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Described from Roi Et province, northeastern Thailand and distributed throughout the Chao Phraya, Bang Pakong and Mekong watersheds.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Described from Roi Et province, northeastern Thailand and distributed throughout the Chao Phraya, Bang Pakong and Mekong watersheds.",
+        "ok": true
+      },
+      {
+        "name": "Bang Pakong",
+        "source": "seriouslyfish",
+        "quote": "Described from Roi Et province, northeastern Thailand and distributed throughout the Chao Phraya, Bang Pakong and Mekong watersheds.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bagrichthys obscurus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338055,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        15
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH",
+      "VN",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}
