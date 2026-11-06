@@ -49,26 +49,26 @@ Earlier runs, 2026-11-02 (the content has changed since, so the same seed picked
 
 The owner's photo of a Betta macrostoma came back as a coccina-group betta or a licorice gourami, 0.3 to 0.45 sure, in three runs out of three: the handbook has its page, but the agent names a fish from memory and then checks, and it never thought of this one. Two changes:
 
-- **Marks.** Each species' and plant's page carries its sources' sentences on colour and pattern, those that tell it from others first, counts and measures left out (`apps/site/worker/fishid/look.ts`): about 200 characters in the page list, 320 on the page. A genus listing shows every species with its marks (up to 80, a query still 12), and a species' page lists the other species of its genus with theirs, once a run. 1,287 of the 1,666 pages have marks; the page list grows from 420 KB to 635 KB.
-- **A second look.** An answer Claude chose with its top guess under 0.6 sure, with 12 s left, is sent back once with the marks of its guesses' genera (two at most): it answers again, opening a page first if one fits better. The log says when (double11), and the dashboard's recent runs show it.
-
-The owner's photo, four runs: Betta macrostoma first in 4, at 0.80 to 0.85.
+- **Marks.** Each species' and plant's page carries its sources' sentences on colour and pattern, those that tell it from others first, counts, measures and conservation status left out (`apps/site/worker/fishid/look.ts`): about 200 characters in the page list, 320 on the page. A genus listing shows every species with its marks (up to 80, a query still 12), and a species' page lists the other species of its genus with theirs, once a run. 1,229 of the 1,633 species and plants have marks (plants: 109 of 175, their leaves' colours counting); the page list grows from 420 KB to 643 KB.
+- **A second look.** An answer Claude chose with its top guess under 0.6 sure, with 12 s left, is sent back once with the marks of its guesses' genera (two at most; a genus the run has already listed is named, not sent again). It answers again, opening a page first if one fits better. If what follows fails, runs out of time or is cut short, the first answer stands. The log says when it happened (double11), and the dashboard's recent runs show it.
 
 Production's agent against this one, same photos, same keys, the same day. The 200 are seed 1's pick from today's content (a partly different 200 from the runs above):
 
 | Run | Answered | Top-1 | Top-3 | Median latency | p95 latency | Cost / 1,000 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 200 photos, production | 200/200 | 65.5% | 73.0% | 7.7 s | 12.4 s | $29.84 |
-| 200 photos, marks and second look | 200/200 | 69.0% | 77.0% | 7.6 s | 18.5 s | $37.77 |
+| 200 photos, marks and second look | 199/200 | 68.0% | 76.5% | 7.8 s | 16.8 s | $33.54 |
 | 40 photos of big genera, production | 40/40 | 47.5% | 52.5% | 8.5 s | 13.2 s | $31.44 |
 | 40 photos of big genera, marks only | 40/40 | 52.5% | 60.0% | 9.3 s | 16.4 s | $43.89 |
-| 40 photos of big genera, marks and second look | 40/40 | 52.5% | 67.5% | 10.4 s | 21.7 s | $68.98 |
+| 40 photos of big genera, marks and second look | 40/40 | 55.0% | 65.0% | 10.1 s | 20.6 s | $58.44 |
 
-The big genera: 40 species at random from Betta, Corydoras, Apistogramma, Hyphessobrycon, Aphyosemion, Rasbora, Channa, Parosphromenus, Pethia, Badis, Melanotaenia and Nannostomus, where a look-alike the agent doesn't think of is likeliest. A run sent back often opens a page before it answers again, so more runs end on the calls limit: 13 of the 200 (production: 1), 10 of the 40 big genera (production: 0).
+The one of 200 not answered failed on this machine's network (`fetch failed`), not in the agent. The big genera: 40 species at random from Betta, Corydoras, Apistogramma, Hyphessobrycon, Aphyosemion, Rasbora, Channa, Parosphromenus, Pethia, Badis, Melanotaenia and Nannostomus, where a look-alike the agent doesn't think of is likeliest.
 
-**It passes the design's rule against production's agent:** top-1 +3.5 points on the 200 (+5 on the big genera), top-3 +4.0 (+15), median 7.6 s, p95 18.5 s, $37.77 per 1,000 (≤ $70). The second look costs most where it helps most: on the big genera it is $69 per 1,000, near the rule's limit, for 7.5 more points of top-3. Medium effort did better on the big genera (55.0% / 65.0%) but timed out on 2 of 40 photos; it stays low.
+**What it buys:** on typical photos, no worse and a little better (top-1 +2.5 points, top-3 +3.5; one photo is 0.5 points, so this is within a sample's noise); on big genera, top-1 +7.5 and top-3 +12.5. Median 7.8 s, p95 16.8 s and $33.54 per 1,000 on the 200, $58 on the big genera, within the design's limits (≤ 20 s, ≤ 40 s, ≤ $70). The owner's photo, four runs: Betta macrostoma first in 3, at 0.80 to 0.85; the fourth opened other Betta pages and stayed with Betta rubra at 0.45. Medium effort did better on the big genera before the second look (55.0% / 65.0% with marks alone) but timed out on 2 of 40 photos; it stays low.
 
-Many wrong answers sit at exactly 0.60, just over the line (5 of the big genera's 19 misses listed). Moving the line to 0.65 would send those back too, at more cost; not tried. These runs cost about $26 at list price. One of the four eval keys was out of credit throughout and was set aside.
+The review of this change found the second look could lose the first answer when the call after it failed, IUCN status lines read as marks ("Red List") on about 80 pages, plants' leaf colours dropped as keeping words, and a genus list sent twice; the runs above are after the fixes. Before them, on the same photos: 69.0% / 77.0% on the 200 for $37.77, 52.5% / 67.5% on the big genera for $68.98, and the owner's photo first in 4 of 4.
+
+Many wrong answers sit at exactly 0.60, just over the line (5 of the big genera's 19 misses listed before the fixes). Moving the line to 0.65 would send those back too, at more cost; not tried. These runs cost about $35 at list price. One of the four eval keys was out of credit throughout and was set aside.
 
 ## claude-opus-5-5: the 20 worst misses
 
