@@ -11,6 +11,7 @@ struct PlugsSection: View {
   @Environment(PlugsModel.self) private var plugs
   @Environment(TanksModel.self) private var tanks
   @State private var adding = false
+  @State private var settingUp = false
 
   var body: some View {
     let on = tanks.plugs(in: tank)
@@ -18,7 +19,7 @@ struct PlugsSection: View {
       Section {
         ForEach(on) { d in PlugRows(device: d) }
         if plugs.dataCenter == nil {
-          Text("Chưa có khóa Tuya: thiết lập ở cuối danh sách Bể của tôi.").foregroundStyle(.secondary).accessibilityIdentifier("plugs-no-keys")
+          Text("Chưa có khóa Tuya: thiết lập ở mục “Ổ cắm thông minh” trong Bể của tôi.").foregroundStyle(.secondary).accessibilityIdentifier("plugs-no-keys")
         } else {
           status
           if let l = plugs.board.list, !l.plugs.isEmpty {
@@ -33,15 +34,24 @@ struct PlugsSection: View {
     }
   }
 
-  /// The list being read, a failed read, or nothing in the project to put on a tank.
+  /// The list being read, a failed read, or nothing in the project to put on a tank; a problem with the keys' button by
+  /// it, as its words send the reader to them.
   @ViewBuilder private var status: some View {
     if let e = plugs.board.listError {
       Text(PlugProblem.text(e)).foregroundStyle(.red).accessibilityIdentifier("plugs-problem")
+      keys
     } else if let l = plugs.board.list {
-      if l.plugs.isEmpty { Text(PlugProblem.empty(l)).foregroundStyle(.secondary).accessibilityIdentifier("plugs-problem") }
+      if l.plugs.isEmpty {
+        Text(PlugProblem.empty(l)).foregroundStyle(.secondary).accessibilityIdentifier("plugs-problem")
+        keys
+      }
     } else if plugs.board.loading {
       HStack { ProgressView(); Text("Đang đọc ổ cắm…").foregroundStyle(.secondary) }
     }
+  }
+
+  private var keys: some View {
+    Button("Khóa Tuya") { settingUp = true }.accessibilityIdentifier("plug-setup").sheet(isPresented: $settingUp) { PlugSetup() }
   }
 }
 

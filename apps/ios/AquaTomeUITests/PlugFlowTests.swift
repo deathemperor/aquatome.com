@@ -32,7 +32,7 @@ final class PlugFlowTests: XCTestCase {
     app.buttons["setup-done"].tap()
     XCTAssertFalse(element(app, "plugs-intro").waitForExistence(timeout: 2), "still saying what plugs need")
     openTank(app)
-    XCTAssertTrue(reveal(app, element(app, "add-plug")).exists, "the tank doesn't offer the plugs")
+    addPlug(app, "Ổ cắm bể 60")
     back(app)
     // Removed: back to setting up; nothing on the tank is lost.
     tap(app, "plug-setup")
@@ -45,8 +45,10 @@ final class PlugFlowTests: XCTestCase {
     XCTAssertTrue(waitGone(element(app, "keys-saved")), "the keys weren't removed")
     app.buttons["setup-done"].tap()
     XCTAssertTrue(reveal(app, element(app, "plugs-intro")).exists)
+    // The plug stays on the tank, saying where the keys are set up; nothing more is offered.
     openTank(app)
-    XCTAssertTrue(reveal(app, app.buttons["delete"]).exists, "the end of the tank not reached")
+    XCTAssertTrue(reveal(app, element(app, "plugs-no-keys")).exists, "not told where the keys are set up")
+    XCTAssertTrue(element(app, "plug-name").exists, "the plug went with the keys")
     XCTAssertFalse(element(app, "add-plug").exists)
   }
 
@@ -220,8 +222,10 @@ final class PlugFlowTests: XCTestCase {
   /// From Bể của tôi's list, the tank's screen.
   private func openTank(_ app: XCUIApplication) {
     let tank = app.buttons["tank"].firstMatch
-    XCTAssertTrue(tank.waitForExistence(timeout: 5), "no tank")
-    if !tank.isHittable { repeatUntil(tank.isHittable, times: 4) { app.swipeDown() } }
+    _ = tank.waitForExistence(timeout: 5)
+    // Rows scrolled above the screen aren't made: up the list until it's there.
+    repeatUntil(tank.exists && tank.isHittable, times: 4) { app.swipeDown() }
+    XCTAssertTrue(tank.isHittable, "no tank")
     tank.tap()
   }
 
