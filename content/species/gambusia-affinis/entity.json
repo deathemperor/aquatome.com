@@ -1,0 +1,162 @@
+{
+  "id": "gambusia-affinis",
+  "scientificName": "Gambusia affinis",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Gambusia",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico",
+    "united-states"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>The western mosquitofish, Gambusia affinis, is a livebearer native to Mexico and the southern USA. It has been introduced to over 60 countries to control mosquitoes, often with detrimental effects, since it also preys on small crustaceans and the eggs and young of other fishes. It was long thought to be the same species as G. holbrooki. Hyper-competitive and a notorious fin nipper, it is best kept in a species tank.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>Mexico and southern USA. Thriving populations exist in over 60 countries worldwide, where it has usually been introduced as a form of biological mosquito control.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>Over its natural range, it is usually found in shallow, heavily-vegetated marginal areas of still or sluggish bodies of water. It can also be found in brackish conditions in some areas.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>A single pair of these can be kept in a tank as small as 30cm x 20cm x 20cm - 12.5 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>A gently-filtered, heavily planted setup suits it best. The plants will not only make the fish less shy, but will give any fry somewhere to hide from the adults. Other decor can be added as you wish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<ul><li>Temperature: 18–27°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–30 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>Unfussy and omnivorous, it will accept most foods offered. It's particularly fond of small live or frozen varieties such as brine shrimp or Daphnia, and the diet should contain a good proportion of these.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>Not a good choice for the community tank. It's a hyper-competitive species, and will steal food from tankmates and intimidate smaller fish. It's also a notorious fin nipper. Keep it alone in a species tank, and even then expect to see plenty of bickering if more than one male is being kept.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>The male possesses a gonopodium and is much smaller than the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>Very easy. It's nigh on impossible to stop this species breeding if both sexes are present in an aquarium. Water parameters are unimportant, provided they are within the ranges stated above. If you want to raise the fry it's better to use a separate tank as the parents will hunt and eat them. The easiest way to do this is to remove gravid females to a separate raising tank, returning them to the main tank once they have given birth. Gestation takes around 4 weeks and between 10 and 100 fry may be produced. These are easy to raise, and can be fed brine shrimp nauplii, microworm and powdered flake from birth. Bear in mind, you may have trouble even giving fry away, as the species is not a particularly popular fish in the hobby. It is also very fecund. Females become sexually active only a few weeks after birth, and can produce several hundred fry each year.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/gambusia-affinis",
+      "html": "<p>For many years G. affinis was thought to be the same species as the Eastern Mosquitofish, G. holbrooki, but has since been given distinct species status. They can be distinguished by several means. In G. holbrooki the leading ray of the males' gonopodium has a serrated edge, the dorsal fin usually has 7 rays and males also generally have a higher degree of dark spotting on the body than G. affinis males. Male G. affinis also lack the serrated leading ray of the gonopodium and this species usually has only 6 dorsal rays. Both species are incredibly hardy and adaptable, and have been introduced into waters all around the world in order to control mosquito populations. Sadly, this has often resulted in detrimental effects on ecosystems, as they are also voracious predators of small crustaceans and the eggs and young of other fish species. Although they do feed on the aquatic larval and pupal forms of mosquitos, it is now thought that they are no more effective than native species in many instances.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 30cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá nhỏ",
+        "lọc sủi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "bo bo đông lạnh",
+        "thức ăn cá bảy màu"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh dễ trồng",
+        "rong đuôi chó"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

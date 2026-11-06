@@ -28,7 +28,7 @@ export type SpeciesListItem = Omit<SpeciesIndexItem, 'gh' | 'sizeCm'> & { photo?
 /** The filter's figures, and the card's name, line about light and CO₂ (in the page's language) and photo. */
 export type PlantListItem = PlantIndexItem & { name: string; scientificName: string; meta: string; photo?: CardPhoto }
 
-const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl })
+export const cardPhoto = (p: Photo): CardPhoto => ({ src: smallSrc(p), w: p.width, h: p.height, author: p.author, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), licence: licenceLabel(p.licence), url: p.sourceUrl })
 
 /** Species as a list's data file has them, with the photo each card shows (`photos`, the list's: lib/pictures.ts listPictures). */
 export const speciesItems = (species: Localized<SpeciesEntity>[], photos: (Photo | null)[]): SpeciesListItem[] => species.map((s, n) => {

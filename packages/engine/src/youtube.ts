@@ -10,10 +10,11 @@ import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
+import { lastKept, logReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
-import type { Storyboard } from './video-images'
+import type { Storyboard, Stream, VideoFrames } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
 import { seconds } from './videos'
 
@@ -219,12 +220,42 @@ export function ytApi(key: string, get: (url: string) => Promise<unknown> = asyn
   }
 }
 
-/** The largest storyboard (scrub-preview frames) YouTube lists for a video; its sheet URLs are signed, so use them right away. */
-export async function ytStoryboard(id: string): Promise<Storyboard | null> {
-  const d = JSON.parse(await run(['-J', watch(id)]))
-  const sb = ((d.formats ?? []) as (Storyboard & { format_note?: string })[]).filter(f => f.format_note === 'storyboard' && f.fragments?.length).sort((a, b) => b.width - a.width)[0]
-  return sb ? { fps: sb.fps, rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null
+/**
+ * Seconds between storyboard tiles. YouTube's storyboard gives it (2, 5 or 10 s so far), but yt-dlp passes on only tiles
+ * ÷ duration as `fps`. The tile count is ceil(duration ÷ interval) + 1, so the interval is the one that gives that count.
+ */
+export function storyboardInterval(fps: number, duration: number): number {
+  const n = Math.round(fps * duration)
+  return [1, 2, 5, 10, 15, 20, 30, 60].find(i => Math.ceil(duration / i) + 1 === n) ?? 1 / fps
 }
+
+/**
+ * One yt-dlp call for a video's pictures: its largest storyboard (sheet URLs are signed, so use them right away) and a
+ * stream to take frames from, the widest video-only https format up to 1280 px, H.264 first (ffmpeg decodes it
+ * anywhere), with the user agent yt-dlp was given it for.
+ */
+export async function ytFrames(id: string): Promise<VideoFrames> {
+  const d = JSON.parse(await run(['-J', watch(id)]))
+  type Format = Storyboard & { format_note?: string; url?: string; protocol?: string; vcodec?: string; acodec?: string; http_headers?: Record<string, string> }
+  const formats = (d.formats ?? []) as Format[]
+  const sb = formats.filter(f => f.format_note === 'storyboard' && f.fragments?.length).sort((a, b) => b.width - a.width)[0]
+  const avc = (f: Format) => Number(f.vcodec!.startsWith('avc1'))
+  const v = formats.filter(f => f.url && f.protocol === 'https' && f.vcodec && f.vcodec !== 'none' && (!f.acodec || f.acodec === 'none') && f.width > 0 && f.width <= 1280)
+    .sort((a, b) => b.width - a.width || avc(b) - avc(a))[0]
+  const ua = v?.http_headers?.['User-Agent']
+  return {
+    storyboard: sb ? { fps: sb.fps, interval: storyboardInterval(sb.fps, Number(d.duration)), rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null,
+    stream: v ? { url: v.url!, ...(ua ? { userAgent: ua } : {}) } : null,
+  }
+}
+
+/** The stream's frame at `sec` seconds, as PNG. ffmpeg seeks by range requests, so only the part around it is downloaded. */
+export const ytGrab = (s: Stream, sec: number) => new Promise<Uint8Array>((resolve, reject) =>
+  execFile('ffmpeg', ['-nostdin', '-loglevel', 'error', ...(s.userAgent ? ['-user_agent', s.userAgent] : []), '-ss', sec.toFixed(3), '-i', s.url, '-frames:v', '1', '-c:v', 'png', '-f', 'image2pipe', '-'], { encoding: 'buffer', maxBuffer: 64 * 1024 * 1024, timeout: 60_000 }, (e, out, err) => {
+    if (e) reject(new Error(`ffmpeg: ${(err.toString() || e.message).trim().split('\n').pop()}`))
+    else if (!out.length) reject(new Error('ffmpeg: no frame'))
+    else resolve(new Uint8Array(out))
+  }))
 
 const flat = async (url: string, end = 30) => {
   const d = JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url]))
@@ -297,7 +328,7 @@ const namesSource = (d: Draft, channel: string) => {
   return /tác giả|người làm video|trong video|theo video|video này/.test(text) || (!!channel.trim() && text.includes(`theo ${channel.trim().toLowerCase()}`))
 }
 
-export async function reviewDraft(llm: Llm, transcript: string, d: Draft, m?: VideoMeta) {
+export async function reviewDraft(llm: Llm, transcript: string, d: Pick<Draft, 'viTitle' | 'summary' | 'body' | 'faq'>, m?: Pick<VideoMeta, 'title' | 'channel' | 'lang'>) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
   const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
@@ -396,15 +427,19 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       if (why) { await set(vid, { status: 'skipped', entityIds: [], error: why }); report.skipped.push(`${vid}: ${why}`); failedInARow = 0; return false }
 
       const write = (notes?: string[]) => writeDraft(llm, m, transcript!, { ...opts.write, notes })
-      let d = await write()
+      // A redo starts from what the last review of the guide on the site found, when it was under the bar.
+      const before = opts.redo ? await lastKept(root, { id: `guides/youtube-${vid}`, lang: 'vi' }, ['video-guide']) : undefined
+      let d = await write(before && gate(before.score, false) === 'retry' ? before.notes : undefined)
       if (!d.relevant) { await set(vid, { status: 'skipped', entityIds: [], error: 'not a guide' }); report.skipped.push(`${vid}: not a guide`); failedInARow = 0; return false }
       if (!usable(d)) throw new Error('draft without a title or body')
-      let { score, notes } = await reviewDraft(llm, transcript!, d, m)
-      if (gate(score, false) === 'retry') {
-        const again = await write(notes)
+      const tries = [await reviewDraft(llm, transcript!, d, m)]
+      let kept = tries[0]!
+      if (gate(kept.score, false) === 'retry') {
+        const again = await write(kept.notes)
         // A broken rewrite keeps the first draft and its score.
-        if (again.relevant && usable(again)) { d = again; score = (await reviewDraft(llm, transcript!, d, m)).score }
+        if (again.relevant && usable(again)) { d = again; kept = await reviewDraft(llm, transcript!, d, m); tries.push(kept) }
       }
+      const score = kept.score
       // The guide sits under the video: a slip like "trong video" or "Theo <channel>" gets an editor pass, which states it directly.
       if (namesSource(d, m.channel)) d = await editDraft(llm, d, opts.write?.model)
 
@@ -435,6 +470,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
       await appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }])
+      await logReviews(root, 'video-guide', { id: `guides/${id}`, lang: 'vi' }, tries, kept, { now: deps.now() })
       await set(vid, { status: 'processed', entityIds: [id] })
       report.written.push(`${id} (${score.toFixed(2)})`)
       redone.add(vid)

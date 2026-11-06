@@ -3,6 +3,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Range, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { lastKept, logReviews } from './review-log'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
@@ -212,12 +213,16 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the page on the site found, as the rewrite below does.
+  const before = kept ? await lastKept(root, { id: `breeds/${id}`, lang: 'vi' }, ['breed']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   // Any claim beyond the facts: one rewrite with the checker's notes; the better-grounded page is kept.
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
 
@@ -266,6 +271,7 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
+  await logReviews(root, 'breed', { id: `breeds/${id}`, lang: 'vi' }, tries, review, { now: d.gallery.now() })
   if (photos.length > 4) {
     await mkdir(join(content, 'gallery'), { recursive: true })
     await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: photos.slice(4), seen, updatedAt: today }), null, 2)}\n`)
@@ -293,11 +299,15 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese PAGE', `${T.lang} PAGE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the page on the site found.
+  const before = o.redo ? await lastKept(root, { id: `breeds/${id}`, lang }, ['breed']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
   // Breeds share /ca/ with the species: an address and a name neither has in this language.
@@ -325,6 +335,7 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     ...(prev?.nameFixed ? { nameFixed: true } : {}),
   }, lang))
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+  await logReviews(root, 'breed', { id: `breeds/${id}`, lang }, tries, review)
   return { id, slug, score: review.score, notes: review.notes }
 }
 

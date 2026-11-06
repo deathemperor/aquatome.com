@@ -8,15 +8,24 @@ import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
 import { throttled } from './youtube'
 
-/** YouTube's scrub-preview frames: sheets of rows × columns tiles, one tile every 1/fps seconds. */
-export type Storyboard = { fps: number; rows: number; columns: number; width: number; height: number; fragments: { url: string }[] }
+/**
+ * YouTube's scrub-preview frames: sheets of rows × columns tiles. Tile k is the frame at k × `interval` seconds; `fps` is
+ * yt-dlp's tiles ÷ duration, which a still's `t` has always been worked out from (k ÷ fps, rounded).
+ */
+export type Storyboard = { fps: number; interval: number; rows: number; columns: number; width: number; height: number; fragments: { url: string }[] }
+/** A direct video-only stream (at most 1280 px wide) to take frames from, with the user agent its address was issued to. */
+export type Stream = { url: string; userAgent?: string }
+/** What one yt-dlp call tells about a video's pictures. */
+export type VideoFrames = { storyboard: Storyboard | null; stream: Stream | null }
 export type ImageDeps = {
   llm: Llm
   /** Claude looking at one image file (a numbered contact sheet). */
   look: <T>(file: string, prompt: string, schema: object) => Promise<T>
   /** Faces per image file (macOS Vision). */
   faces: (files: string[]) => Promise<number[]>
-  storyboard: (youtubeId: string) => Promise<Storyboard | null>
+  frames: (youtubeId: string) => Promise<VideoFrames>
+  /** The stream's frame at that second, as an image (ffmpeg). */
+  grab: (stream: Stream, sec: number) => Promise<Uint8Array>
   transcript: (youtubeId: string, lang?: string) => Promise<string | null>
   commons: (search: string) => Promise<Photo[]>
   get: (url: string) => Promise<Uint8Array>
@@ -53,7 +62,28 @@ export async function contactSheet(tiles: Buffer[], w: number, h: number, cols: 
   return sharp({ create: { width: cols * (w + 6), height: rows * (h + 6), channels: 3, background: '#fff' } }).composite(parts.flat()).jpeg({ quality: 85 }).toBuffer()
 }
 
-/** One storyboard frame at second t (nearest tile), as JPEG. Sheets are fetched once each. */
+/** The second a still's tile shows: its `t` was k ÷ fps, rounded, and tile k is the frame at k × interval. */
+export const tileTime = (sb: Storyboard, t: number) => Math.round(t * sb.fps) * sb.interval
+
+/**
+ * Whether a frame shows what a storyboard tile shows: both as 32×18 greys, a mean difference of at most 15 (of 255).
+ * Measured on 31 stills of 3 videos (2026-11-06): the frame at the tile's second 2–9, the video's other stills 28 and up.
+ */
+export async function sameMoment(a: Uint8Array, b: Uint8Array): Promise<boolean> {
+  const grey = (x: Uint8Array) => sharp(x).greyscale().resize(32, 18, { fit: 'fill' }).raw().toBuffer()
+  const [p, q] = await Promise.all([grey(a), grey(b)])
+  let d = 0
+  for (let i = 0; i < p.length; i++) d += Math.abs(p[i]! - q[i]!)
+  return d / p.length <= 15
+}
+
+/** The video's own frame for a tile at `at` seconds; null when it doesn't show the tile's moment. A failed grab throws. */
+export async function sharpFrame(grab: ImageDeps['grab'], stream: Stream, at: number, tile: Uint8Array): Promise<Uint8Array | null> {
+  const frame = await grab(stream, at)
+  return (await sameMoment(frame, tile)) ? frame : null
+}
+
+/** One storyboard frame at second t (nearest tile), as JPEG, with the second it shows (`at`). Sheets are fetched once each. */
 function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
   const sheets = new Map<number, Promise<Uint8Array>>()
   const per = sb.rows * sb.columns
@@ -69,7 +99,7 @@ function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
     const top = Math.floor(tile / sb.columns) * sb.height
     const meta = await sharp(sheet).metadata()
     if (left + sb.width > (meta.width ?? 0) || top + sb.height > (meta.height ?? 0)) return null // last sheet is partly empty
-    return { t: Math.round(k / sb.fps), jpg: await sharp(sheet).extract({ left, top, width: sb.width, height: sb.height }).jpeg({ quality: 90 }).toBuffer() }
+    return { t: Math.round(k / sb.fps), at: k * sb.interval, jpg: await sharp(sheet).extract({ left, top, width: sb.width, height: sb.height }).jpeg({ quality: 90 }).toBuffer() }
   }
 }
 
@@ -106,7 +136,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
   const transcript = await d.transcript(v.youtubeId, v.lang ?? 'en')
   if (!transcript) throw new Error('no transcript')
   const plan = (await d.llm<{ sections: { times: number[]; query: string }[] }>({ system: 'You plan pictures for a guide. Reply only with JSON.', prompt: planPrompt(v.title, secs, transcript), schema: PLAN_SCHEMA })).sections
-  const sb = await d.storyboard(v.youtubeId)
+  const { storyboard: sb, stream } = await d.frames(v.youtubeId)
   const frameAt = sb ? frames(sb, d.get) : null
   const out: Figure[] = []
   const seen = new Set<number>()
@@ -126,10 +156,12 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
       for (const pk of picks) {
         const c = uniq[pk.n - 1]
         if (!c || !pk.caption?.trim()) continue
-        const f = join(dir, `${v.youtubeId}-${c.t}.jpg`)
-        await writeFile(f, c.jpg)
+        // The video's own frame at the tile's second; else the tile, which `pnpm engine video-stills` tries again.
+        const hd = stream ? await sharpFrame(d.grab, stream, c.at, c.jpg).catch(err => { if (throttled(err)) throw err; return null }) : null
+        const f = join(dir, hd ? `${v.youtubeId}-${c.t}-hd.png` : `${v.youtubeId}-${c.t}.jpg`)
+        await writeFile(f, hd ?? c.jpg)
         if ((await d.faces([f]))[0]) continue // no people in our pictures
-        const m = await d.media.put(`video/${v.youtubeId}/t${c.t}.webp`, c.jpg)
+        const m = await d.media.put(`video/${v.youtubeId}/t${c.t}${hd ? '-hd' : ''}.webp`, hd ?? c.jpg)
         fig.moments.push({ t: c.t, url: m.url, width: m.width, height: m.height, caption: pk.caption.trim() })
         seen.add(c.t)
       }

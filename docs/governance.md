@@ -307,6 +307,26 @@ The layers above still check the result.
 
 - **Reviewed writing.** Each translation or guide is scored by a second model call against its source. A low score gets
   one rewrite with the notes; still low, the page is published but kept out of search (`quality.indexable`).
+  - **Every review leaves its trace** (`packages/engine/src/review-log.ts`): its kind, the page, its language, the date,
+    the reviewer's model, the score, the notes, which attempt (the first version, the rewrite, or a recheck of the page
+    as it is) and whether that version is the one on the page, in `engine-state/reviews/<kind>.json`. A page's newest
+    6 are kept, newest first. One key a page (and source, for a species' text from each), and each kind is one step's,
+    so the engine's parts and the video job never change one key and the files merge through the jsonmap driver.
+    Wired into every reviewer: video guides, source translations, the style rewrite, the reader's rewrites, title
+    rewrites, breed pages, AquaTome's guides, product pages and their review summaries, quick summaries, and the
+    Indonesian and Thai species, plant, glossary, place and equipment pages. The photo checks keep their own verdicts.
+  - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
+    `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
+    run (under the bar, or any note for the pages checked against their research).
+  - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
+    each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
+    What prompt fixes start from.
+  - **Pages reviewed before traces were kept** get theirs from `pnpm engine review-backfill`: a recheck of the page as
+    it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (video guides in the video job, the
+    owner's videos first; Vietnamese translations per source, Indonesian and Thai pages and place names in the rewrite
+    part). A guide translated from a source keeps no English to check against: it gets its notes when it is next
+    translated. Found by the owner (2026-11-06): their video guide scored 0.60 and nobody could say why; 175 of 471
+    video guides were in the same state.
 - **Page depth.** A species page made only from a shop listing, a dealer's note or a stub is thin. It is published but
   kept out of search (`quality.indexable` false, `quality.reason: "thin"`) until it is deep (`packages/schema/src/depth.ts`):
   - **deep** means it has an in-depth source, or it reaches the bar on its own:
@@ -422,6 +442,17 @@ The layers above still check the result.
       captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
       by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
       said so and the verdict was "yes".
+  - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
+    YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
+    shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
+    `t<sec>-hd.webp` with its 480 px copy. A tile's second is its number × YouTube's interval (2, 5 or 10 s), not the
+    `t` written from yt-dlp's tiles ÷ duration, which runs up to 16 s early on a long video, often another scene.
+    - A frame that can't be had leaves the tile, and `pnpm engine video-stills` (the Mac's video job, 12 guides a run)
+      tries it again, as it does for the guides written before (2026-11-06: 3,682 stills, half of them 160 px).
+    - It screens a frame as a new guide's, before uploading it: a face takes the still off the page; text keeps the
+      old still's watermark verdict or goes to the model, and a watermark takes the still off and onto
+      `_photo-rejected.json`. A frame of another moment leaves the tile for good (`engine-state/_video-stills.json`).
+    - Found by the owner (2026-11-06): the stills looked blurry and low-res, most of all on a computer.
   - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
     page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page
     or in the app's copy says "with permission" (owner, 2026-11-05; `apps/site/test/photo-permission.test.ts`). The
@@ -690,7 +721,8 @@ The iOS app (`apps/ios`, SwiftUI) is checked by `ios.yml` on every PR and push t
 site's engine isn't queued behind every push to a draft. Mark a PR ready when it's done and checked locally, and merge
 it when the iOS jobs pass. A PR runs the UI flows in part: the smoke set, the classes of the flow files it edits, and
 the page shots when its change can reach the pages; every flow when it changes `ios.yml`, the scripts that pick and run
-the flows, or the flows' shared code (the owner's call of 2026-11-05, as a PR's run of every flow its change could
+the flows (not the lists they read, `apps/ios/scripts/flow_lists.py`, which their `--test` checks on every run), or the
+flows' shared code (the owner's call of 2026-11-05, as a PR's run of every flow its change could
 reach held GitHub's Macs for one to two and a half hours). Main runs every flow after merges (batched: of the runs
 waiting, only the newest is kept) and each night, and a PR labelled `ios-full` runs them all too
 (`apps/ios/README.md`): ask for it on a change to a model many flows share (LightsModel, HandbookModel's fixture,
@@ -706,7 +738,7 @@ fixed forward first, in a PR of its own. Android
 | **Plugs** (`Plugs`): `TuyaPlugs` against `FakeTuya`, Tuya's cloud as its docs describe it (signatures checked, Tuya's two worked examples), and `PlugBoard` over it | a request Tuya would refuse, a token not kept or not replaced, a page of devices missed, the indicator light taken for an outlet, a switch that toggles, is sent twice, retried or queued, or goes to a plug listed offline, a state shown as asked instead of as the plug reported, an unconfirmed or lost switch not read again or read more than once, an older list answer putting an old state back, an expired trial or wrong keys not told apart, a plug record that keeps state or loses a newer client's keys, a strip's timers misread (a disabled one, one that switches on, or one that ran once on a day gone, taken for one that cuts the power; a zone told apart by its name rather than its time), read more than once while a light's card is open, a failed read not said, an outlet assumed for a light rather than picked, another maker's plug offered for one | same |
 | **Telemetry** (`Telemetry`) against `FakeCollector`, the Worker's endpoints in process, and the contract `protocols/app-telemetry.openapi.json` (sample batches and reports checked against its schema, and the app's own rules for what it sends against what the schema takes) | an event, batch or report the Worker would drop or refuse (a field it doesn't list, a mark, path, code or link out of its patterns, an envelope out of range), the app and the contract disagreeing on what may be sent, a field the privacy policy doesn't list (the field audit), a message or name sent where a code goes (a kind outside the app's fixed list, a refusal code outside the site's), a search's words in a path, an iOS report carrying more than the policy names (the region, low power mode, free text such as an exception's message, network, location, display, GPU or disk measures, other diagnostics, a field MetricKit doesn't write at any depth, a field of another shape) or sent with nothing in it, anything sent or written before the site's flag or with the reader's switch off, a request sent after a switch went off (on then off at once, or off while the queue is being sent), a queue that outlives the switch going off, batches over 100 or a queue over 500 (the oldest not dropped first), a retry before its wait, a refused batch retried, a batch sent under another session's id | same |
 | **Pages on the phone** (`PageCache`, `KeptPictures`, `HandbookPaths`), with the site stood in for | a guide read once not opening offline, a kept copy shown without the newer one read for next time (or read more than once a run), a page newer than its kept shard opened on the web, a kept shard of another shard count or one this app can't read used, a shelf's guide listed as kept before it and its pictures are whole, a stop that lets a guide on the list or reads further shards, a removal that deletes a shard or picture a kept guide still needs, kept pictures that don't outlast the run, a page kept, saved or read under "/vi/" lost or not opening offline once the index has the Vietnamese pages at the root (or back), a move of the kept shards cut short losing a page or not tried again, a link in either form not opening the app's screen for it | same |
-| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working, by flow class: "UI flows, by class" under this table | `xcodebuild test` (jobs `app`, `handbook` for the handbook's flows and a tank's fish, plants, guides and tank-mates check, and `lights` for the light flows, `handbook` and `lights` each in two halves, on runners side by side, two at a time on the repository's own Mac (apps/ios/README.md); a test that hangs is stopped after ten minutes; on a pull request, the smoke set (ten flows across the main journeys), the classes of the flow files it edits and the page shots when its change can reach the pages, as `apps/ios/scripts/flows-to-run.py` decides, each job skipped when it has none; every flow on main after merges (a run that started is never cancelled; of those waiting, only the newest is kept, and it covers every merge since), every night on main, by hand, on a pull request labelled `ios-full`, and on one that changes the app's start, `ios.yml` or the scripts that pick and run the flows); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
+| **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working, by flow class: "UI flows, by class" under this table | `xcodebuild test` (jobs `app`, `handbook` for the handbook's flows and a tank's fish, plants, guides and tank-mates check, and `lights` for the light flows, each in two halves, on runners side by side, two at a time on the repository's own Mac (apps/ios/README.md); a test that hangs is stopped after ten minutes; on a pull request, the smoke set (ten flows across the main journeys), the classes of the flow files it edits and the page shots when its change can reach the pages, as `apps/ios/scripts/flows-to-run.py` decides, each job skipped when it has none; every flow on main after merges (a run that started is never cancelled; of those waiting, only the newest is kept, and it covers every merge since), every night on main, by hand, on a pull request labelled `ios-full`, and on one that changes `ios.yml`, the scripts that pick and run the flows or the flows' shared code); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `perf`, on every ready PR) |
 | **Performance budgets** (`apps/ios/perf-budgets.json`): launch to the first responsive screen, the CPU time and peak memory of flinging through 800 fish, the archived app's size; each test's median against its budget | the app getting slower, heavier or bigger without anyone deciding it should | `PerformanceTests` and `apps/ios/scripts/check-perf.py` (job `perf`, always on GitHub's Macs, on every ready PR and every push to main; not nightly, as each change was measured by its PR's run); on a PR, `--tightens-only` against main's budgets |
 | **Signing**: the app archived, signed and exported as for the App Store | signing that stopped working (certificates, profiles, entitlements); App Store Connect's own checks run at the upload on main | `testflight.yml`, on a PR that changes the project, `Config/` or the workflow; on main it uploads |
