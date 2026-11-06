@@ -110,8 +110,9 @@ export const Gallery = z.object({
 /**
  * What each figure on a fish's data card rests on (the site's "Nguồn và độ tin cậy"), in the card's order. The figures
  * themselves are the app index's (`facts`), so they aren't repeated here. A row names the sources that give the figure
- * (`items`); where they disagree (`conflict`, the card's dot, explained by `legend`), each source's own figure and which
- * one the card shows (`note`).
+ * (`items`); where they disagree (`conflict`), each source's own figure and which one the card shows (`note`); where
+ * they disagree by enough to change how the fish is kept (`marked`, the card's dot, explained by `legend`; gapMatters in
+ * the site's lib/card-rows.ts). An app from before `marked` puts the dot on every `conflict`.
  */
 export const Trust = z.object({
   t: z.literal('trust'),
@@ -122,6 +123,7 @@ export const Trust = z.object({
     field: z.string(),
     label: z.string(),
     conflict: z.literal(true).optional(),
+    marked: z.literal(true).optional(),
     note: z.string().optional(),
     items: z.array(z.string()),
   })),
