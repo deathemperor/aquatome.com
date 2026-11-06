@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import { cleanPhoto, featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
 
 const fish = (id: string, o: { places?: string[]; indexable?: boolean; photo?: boolean } = {}) => ({
-  id, places: o.places ?? ['thailand'], sections: [], photos: o.photo === false ? [] : [{ url: `https://x/${id}.jpg` }],
+  id, places: o.places ?? ['thailand'], sections: [], photos: o.photo === false ? [] : [{ url: `https://x/${id}.jpg`, width: 800, height: 600 }],
   t: { name: id, quality: { indexable: o.indexable ?? true } },
 })
 
@@ -93,4 +93,15 @@ test("the home page's videos: one of each subject before a second of any", async
   const part = (id: string, kind: typeof g.kind, position: number): typeof g => ({ ...g, id, kind, video: { ...g.video!, series: { ...g.video!.series!, position } } })
   const guides = [part('build-1', 'setup', 0), part('build-2', 'setup', 1), part('build-3', 'setup', 2), part('plants', 'plantCare', 3)]
   expect(homeVideos({ ...c, guides: [...guides, ...c.guides.filter(x => !x.video)] }, 2).map(v => v.id)).toEqual(['build-1', 'plants'])
+})
+
+test("the home page's native fish: one whose photos are all strips waits", () => {
+  const c = {
+    places: [{ id: 'thailand', parent: 'asia', t: { name: 'ไทย' } }],
+    species: [
+      { ...fish('trigonostigma-espei'), dataCard: {}, photos: [{ url: 'https://x/strip.jpg', width: 640, height: 263 }], range: { records: { countries: [['TH', 50]] } } },
+      { ...fish('akysis-hendricksoni'), dataCard: {}, photos: [{ url: 'https://x/a.jpg', width: 800, height: 600 }], range: { records: { countries: [['TH', 20]] } } },
+    ],
+  } as unknown as Content
+  expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['akysis-hendricksoni'])
 })

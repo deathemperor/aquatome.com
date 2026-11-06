@@ -76,10 +76,11 @@ export function nativeSpecies(lang: Lang, c: Content) {
   return { place, species, local, count: all.length }
 }
 
-/** The home page's native fish: those often recorded there first, full data cards first within each; none featured above. */
+/** The home page's native fish: those often recorded there first, full data cards first within each; none featured above, none with only strip photos. */
 export function nativeCards(lang: Lang, c: Content, featured: Localized<SpeciesEntity>[], n = 4) {
   const { species, local } = nativeSpecies(lang, c)
-  const left = species.filter(s => !featured.includes(s))
+  // A fish whose photos are all strips would show as a headless slice of body: it waits for a photo.
+  const left = species.filter(s => !featured.includes(s) && s.photos.some(fitsCard))
   return [...completeFirst(left.filter(local)), ...completeFirst(left.filter(s => !local(s)))].slice(0, n)
 }
 
