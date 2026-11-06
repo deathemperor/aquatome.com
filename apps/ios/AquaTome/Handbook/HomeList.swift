@@ -135,8 +135,8 @@ private struct Tools: View {
 
   private var tiles: [HandbookIndex.Item] {
     let tools = handbook.shelves.all(.tool)
-    // The tools page: the one every other tool's page is under.
-    let page = tools.first { t in tools.allSatisfy { $0.path.hasPrefix(t.path) } }
+    // The tools page: the one every other tool's page is under (and there are others).
+    let page = tools.first { t in tools.count > 1 && tools.allSatisfy { $0.path.hasPrefix(t.path) } }
     return tools.filter { item in
       guard item.path != page?.path else { return false }
       switch AppScreen.of(handbook.url(item), site: handbook.site) {

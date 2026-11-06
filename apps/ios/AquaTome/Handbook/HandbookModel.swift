@@ -424,6 +424,8 @@ extension HandbookIndex {
           video: 1755),
     .init(kind: .video, name: "Rêu hại từ A đến Z", sub: "MJ Aquascaping", path: "/vi/video/reu-hai-tu-a-den-z/", parts: 1),
     .init(kind: .glossary, name: "Đệm pH", path: "/vi/thuat-ngu/dem-ph/"),
+    // The tools page, which lists them all: no tile of its own on Tìm.
+    .init(kind: .tool, name: "Công cụ", path: "/vi/cong-cu/"),
     .init(kind: .tool, name: "Đèn Chihiros", path: "/vi/cong-cu/den-chihiros/", short: "Đèn Chihiros"),
     .init(kind: .tool, name: "Bể của tôi", path: "/vi/cong-cu/be-cua-toi/", words: ["Bể của tôi: sổ ghi bể cá, cây và lịch đèn"], short: "Bể của tôi"),
     .init(kind: .tool, name: "Kiểm tra nuôi chung", path: "/vi/cong-cu/nuoi-chung/", short: "Nuôi chung"),

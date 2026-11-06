@@ -48,7 +48,12 @@ final class HandbookFlowTests: XCTestCase {
     app.navigationBars.buttons.element(boundBy: 0).tap()
     // Below the tools and the fish (a lazy list draws only what's on screen).
     let back = shelf(app, "Hậu cảnh")
-    repeatUntil(back.exists && back.isHittable, times: 4) { app.swipeUp() }
+    repeatUntil(back.exists && back.isHittable, times: 6) {
+      // Half a screen at a time, without a fling, so it isn't scrolled past or left under the bar.
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow,
+               thenHoldForDuration: 0.1)
+    }
     back.tap()
     XCTAssertTrue(item(app, "Rotala đỏ").waitForExistence(timeout: 5))
     XCTAssertFalse(item(app, "Cá đĩa").exists)
@@ -360,6 +365,7 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertEqual(card.label, "Đây là cá gì?, Chụp hoặc chọn ảnh: cá, tép, ốc hay cây")
     let tiles = app.buttons.matching(identifier: "tool-tile")
     XCTAssertTrue(tiles.firstMatch.waitForExistence(timeout: 5), "no tiles")
+    // Not the tools page, nor the lights' and the tanks' tools (tabs), nor fish ID (the card).
     XCTAssertEqual(tiles.allElementsBoundByIndex.map { $0.label }, ["Nuôi chung", "Thể tích bể", "Dự toán chi phí"], "not the index's tools, by their short names")
     // Two to a row, under the card.
     let f = tiles.allElementsBoundByIndex.map { $0.frame }
