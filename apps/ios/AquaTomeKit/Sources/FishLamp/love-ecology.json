@@ -1,5 +1,5 @@
 {
-  "$comment": "The owner's Love Ecology light (\"Aquarium Light III\" in the Fish lamp app), its commands as Fish lamp broadcast them on 2026-11-06, recorded on a Mac and played back to the light from it. Each is the 22 bytes after the 0x004E UUID, as sent (scrambled). They carry the owner's Fish lamp app's 4-byte ID: committed with the owner's OK. The light accepts them played back, not ones built: docs/research/aquarium-device-control.md.",
+  "$comment": "The owner's Love Ecology light (\"Aquarium Light III\" in the Fish lamp app), its commands as Fish lamp broadcast them on 2026-11-06, recorded on a Mac and played back to the light from it. Each is the 22 bytes after the 0x004E UUID, as sent (scrambled). They carry the 4-byte ID the owner's Fish lamp app sends (the light was never paired): committed with the owner's OK. The light accepts them played back, not ones built: docs/research/aquarium-device-control.md.",
   "commands": [
     {"id": "off", "sent": "64 63 62 63 57 6f 4c 76 6f 67 a1 68 5d 51 44 36 31 98 62 59 ba ea"},
     {"id": "on", "sent": "65 62 61 5c 6e 56 77 41 3a 33 d5 34 29 1d 10 02 a6 54 c9 eb 23 62"},

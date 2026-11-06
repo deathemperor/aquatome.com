@@ -361,7 +361,7 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
     | 0 | rolling sequence |
     | 1 | `07` from the phone, `06` in the light's echo |
     | 2–3 | the light it's for: `00 03` for the one the app calls "Aquarium Light III", `ff ff` for its Master Control (every light) |
-    | 4–7 | a 4-byte ID, the same in every message, Master Control's too: it belongs to the owner's Fish lamp app, not the light |
+    | 4–7 | a 4-byte ID, the same in every message, Master Control's too: it comes from the Fish lamp app, not the light. The owner never paired the light, so either every copy of the app sends the same ID, or the light doesn't check it. Untested which |
     | 8–9 | command |
     | 10–15 | parameters |
     | 16–19 | 4 changing bytes on on/off; zeros on `02 07` |
@@ -381,7 +381,7 @@ The owner's lights, tested from a MacBook with Python and [bleak](https://github
     - The 4 bytes that change on every on/off (bytes 16–19) are probably a signature over the message. They are not a Unix timestamp, and no CRC-32 variant matches. Bytes 20–21 match no standard CRC-16.
   - On 2026-11-06 the Mac replayed off, on and each colour, and the light followed every one and echoed them.
   - So for now this light supports **replay only**: an app could record a user's own commands from Fish lamp and play them back.
-    - AquaTome does that for the owner's light: `apps/ios/AquaTomeKit/Sources/FishLamp/love-ecology.json` holds their recordings, committed with their OK. They carry the owner's app ID, so they are the owner's alone; whether another owner's light would take them is untested.
+    - AquaTome does that for the owner's light: `apps/ios/AquaTomeKit/Sources/FishLamp/love-ecology.json` holds their recordings, committed with their OK. Whether another owner's light would take them is untested.
   - Building arbitrary commands would mean finding the signature, most likely by reverse-engineering the app. That is a bigger job, with the ToS risk in 3.7. It is not worth it for v1.
 - The format is not one that [ha-ble-adv](https://github.com/NicoIIT/ha-ble-adv) (MIT) decodes. Its codecs use other headers (Zhi Jia / Zhi Guang `F9 08 49` / `22 9D`, Mantra `4E 6F`). The payload is scrambled, so decoding it needs labelled captures (known on/off and brightness steps).
 - What this means for the app:
