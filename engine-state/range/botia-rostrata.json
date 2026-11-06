@@ -1,0 +1,116 @@
+{
+  "id": "botia-rostrata",
+  "native": {
+    "input": "ac0c73f02c8eb975",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "B. rostrata Günther, 1868 - Native to the lower Ganges and middle to lower Brahmaputra river basins in northern India and Bangladesh; apparent occurrences in Myanmar and China almost certainly refer to misidentified B. histrionica.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "B. rostrata Günther, 1868 - Native to the lower Ganges and middle to lower Brahmaputra river basins in northern India and Bangladesh; apparent occurrences in Myanmar and China almost certainly refer to misidentified B. histrionica.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "B. rostrata Günther, 1868 - Native to the lower Ganges and middle to lower Brahmaputra river basins in northern India and Bangladesh; apparent occurrences in Myanmar and China almost certainly refer to misidentified B. histrionica.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "B. rostrata Günther, 1868 - Native to the lower Ganges and middle to lower Brahmaputra river basins in northern India and Bangladesh; apparent occurrences in Myanmar and China almost certainly refer to misidentified B. histrionica.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "B. rostrata Günther, 1868 - Native to the lower Ganges and middle to lower Brahmaputra river basins in northern India and Bangladesh; apparent occurrences in Myanmar and China almost certainly refer to misidentified B. histrionica.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "B. rostrata Günther, 1868 - Native to the lower Ganges and middle to lower Brahmaputra river basins in northern India and Bangladesh; apparent occurrences in Myanmar and China almost certainly refer to misidentified B. histrionica.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Mahananda River",
+        "source": "seriouslyfish",
+        "quote": "Its precise distribution has always been questionable though, with type locality given simply as 'Bengal, India', and current knowledge suggesting that in India it occurs in the Mahananda River, West Bengal and Bihar states plus the Garo-Khasi hill range, Meghalaya state (likely including the Simsang, aka Someshwari, and Shella river drainages).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Garo-Khasi hill range",
+        "source": "seriouslyfish",
+        "quote": "Its precise distribution has always been questionable though, with type locality given simply as 'Bengal, India', and current knowledge suggesting that in India it occurs in the Mahananda River, West Bengal and Bihar states plus the Garo-Khasi hill range, Meghalaya state (likely including the Simsang, aka Someshwari, and Shella river drainages).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Padma",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it probably inhabits tributaries of the Padma (Ganges) and the Surma-Meghna river systems although Grant (2007) notes that some or all of these different populations may turn out to represent distinct species with further work.",
+        "country": "BD",
+        "ok": true
+      },
+      {
+        "name": "Surma-Meghna",
+        "source": "seriouslyfish",
+        "quote": "In Bangladesh it probably inhabits tributaries of the Padma (Ganges) and the Surma-Meghna river systems although Grant (2007) notes that some or all of these different populations may turn out to represent distinct species with further work.",
+        "country": "BD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia rostrata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368025,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

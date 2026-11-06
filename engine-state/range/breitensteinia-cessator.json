@@ -1,0 +1,74 @@
+{
+  "id": "breitensteinia-cessator",
+  "native": {
+    "input": "2a50007abef51098",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Indonesia (Sumatra and Borneo, Greater Sunda Island rivers).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "planetcatfish",
+        "quote": "Asia: Indonesia (Sumatra and Borneo, Greater Sunda Island rivers).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Indonesia (Sumatra and Borneo, Greater Sunda Island rivers).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Kapuas River near Sebruang, Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Breitensteinia cessator",
+    "status": "ACCEPTED",
+    "taxonKey": 2340927,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

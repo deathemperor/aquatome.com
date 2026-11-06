@@ -57,6 +57,36 @@
       "kept": true
     }
   ],
+  "vi/plants/bucephalandra-sp-mini-melawi": [
+    {
+      "at": "2026-11-06T21:35:45Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Mấy tuần đầu\": the INPUT says \"giai đoạn đầu\" of a newly set-up tank (bể mới). It gives no number of weeks, and the passage leaves out the new-tank context.",
+        "\"hoặc thả thêm cây nổi để chúng hút bớt dinh dưỡng dư\": the INPUT says only fast-growing plants absorb excess nutrients. Floating plants are said to grow fast because they take CO2 from the air, not to absorb nutrients.",
+        "\"chứ không phải dưới nền\": the INPUT never says not to plant it in the substrate. This is inferred from \"sống bám trên lũa, đá\".",
+        "\"Cây chậu mua về thường còn dính bông đá\": the rock-wool advice is a general tip for potted plants. The plant's page describes it as sold in rhizome portions (Single/Double/Triple), so this may not apply to this plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/bucephalandra-sp-red-cherry": [
+    {
+      "at": "2026-11-06T21:35:27Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"không trồng xuống nền như cây thường\" is a caution the INPUT never gives. The INPUT only says the plant grows attached to driftwood or rock (\"sống bám trên lũa, đá\").",
+        "\"phải gỡ hết bông đá\" is stronger than the source, which says to remove the rock wool \"càng nhiều càng tốt\" (as much as possible).",
+        "\"mấy tuần đầu\" is a time frame the source doesn't give. The source only says \"giai đoạn đầu\" (the early stage).",
+        "\"hút bớt dinh dưỡng dư\" weakens the source, which says fast-growing plants \"hút hết dinh dưỡng dư\" (absorb all the excess nutrients). The fact is still broadly intact."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/bucephalandra-sp-round-leaf": [
     {
       "at": "2026-11-06T18:22:13Z",
@@ -67,6 +97,20 @@
         "\"khều hết bông đá\" goes further than the source, which says \"gỡ đi càng nhiều càng tốt\" and \"khều từng chút\".",
         "The rock-wool section assumes a potted plant, but the product page lists \"Quy cách: 3 thân rễ\" (3 rhizomes). The 'if potted' condition keeps it accurate, but it's a weak fit for this plant.",
         "\"hút bớt phân dư\" changes the source's \"hút hết dinh dưỡng dư\" (says \"phân\" instead of \"dinh dưỡng\", \"bớt\" instead of \"hết\"). The meaning survives but the wording is looser."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/eleocharis-parvula": [
+    {
+      "at": "2026-11-06T21:35:09Z",
+      "model": "opus",
+      "score": 0.82,
+      "notes": [
+        "\"Thảm thường mất khoảng 2–3 tháng mới kín\": the hairgrass guide gives 2–3 months for growing without CO2, and the CO2 video says about three months. The passage drops that condition while also advising stable CO2.",
+        "\"cỏ lên chậm hơn hẳn\": the source only says \"lên chậm hơn\". Adding \"hẳn\" makes the slowdown sound much bigger than the INPUT does.",
+        "\"thành một thảm thấp\": the Tropica text says \"thảm dày\". Changing it to \"thấp\" shifts the meaning a little."
       ],
       "attempt": "first",
       "kept": true

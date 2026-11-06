@@ -1,21 +1,23 @@
 {
   "slug": "eleocharis-parvula",
-  "name": "Eleocharis parvula",
+  "name": "Dwarf Hairgrass",
   "altNames": [
-    "Dwarf Hairgrass",
-    "Hairgrass Parvula",
-    "Hair Grass",
-    "Rumput Rambut"
+    "Eleocharis parvula",
+    "Hairgrass",
+    "Dwarf Hair Grass",
+    "Hairgrass Mini"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li>Tipe: stolon</li><li>Asal: kosmopolitan</li><li>Tinggi: 3–10+ cm (rata-rata tinggi setelah dua bulan di akuarium)</li></ul>",
-    "notes:tropica": "<p>Eleocharis berukuran pendek yang membentuk geragih (runner) tidak jauh dari tanaman induknya. Tanaman ini paling cantik jika ditanam dalam rumpun-rumpun kecil yang berjarak cukup rapat satu sama lain, yang lama-kelamaan akan membentuk hamparan tanaman yang padat. Tanaman latar depan yang ideal, sama cocoknya untuk akuarium besar maupun kecil.</p>"
+    "quickFacts:tropica": "<ul><li>Tipe: Geragih (stolon)</li><li>Asal: Kosmopolitan</li><li>Tinggi: 3–10+ cm (rata-rata tinggi setelah dua bulan di akuarium)</li></ul>",
+    "maintenance:aquatome": "<ul><li><strong>Penempatan:</strong> Dwarf hairgrass adalah tanaman latar depan yang cocok untuk akuarium besar maupun kecil. Tanaman ini mengeluarkan geragih dekat pangkalnya, jadi lama-kelamaan rumpun-rumpunnya akan menyatu menjadi karpet rendah. Di bagian yang ternaungi kayu apung, pertumbuhannya jauh lebih lambat.</li><li><strong>Substrat:</strong> Kerikil biasa tidak cocok untuk tanaman ini. Sebaiknya hamparkan substrat aktif/pupuk dasar setebal minimal 5 cm, butiran kasar di bawah dan butiran halus di atas. Akar tanaman jauh lebih mudah menembus lapisan butiran halus.</li><li><strong>Cara menanam:</strong> Potong rumpun menjadi banyak rumpun kecil, tapi setiap rumpun harus masih punya sejumput daun. Setelah itu tanam satu per satu dengan pinset membentuk pola kisi, cukup rapat dan berjarak sama. Menanam dengan tangan tetap bisa, hanya saja karpetnya akan sulit tumbuh merata.</li><li><strong>Minggu-minggu pertama:</strong> Tanaman yang baru datang lalu layu memutih belum tentu mati. Tanam saja, jaga lampu dan CO2 tetap stabil, lalu tunggu sampai tunas baru muncul. Karpet biasanya butuh sekitar 2–3 bulan untuk menutup rapat, jadi wajar kalau di awal kelihatan jarang-jarang.</li></ul>",
+    "notes:tropica": "<p>Eleocharis yang tumbuh rendah dan membentuk geragih di dekat tanaman induknya. Tanaman ini paling indah bila ditanam dalam rumpun-rumpun kecil yang cukup rapat satu sama lain, yang lama-kelamaan akan menjadi hamparan tanaman yang padat. Tanaman latar depan yang ideal, sama cocoknya untuk akuarium besar maupun kecil.</p>"
   },
   "quality": {
-    "score": 0.75,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "tropica": 0.75
+      "tropica": 0.95,
+      "aquatome": 0.95
     }
   }
 }

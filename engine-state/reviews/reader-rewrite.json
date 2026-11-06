@@ -45,5 +45,33 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/guides/youtube-0KkgA9W52kQ#body": [
+    {
+      "at": "2026-11-06T21:49:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Nắp bể là nắp tự đóng\" (self-closing lid) changed to \"Nắp bể cũng là nắp tự làm\" (DIY lid): different fact.",
+        "\"khu vực phía trên bể gần như không bị động tới\" (top area barely touched) became \"được để trống\" (left empty): meaning changed.",
+        "\"Vì thế\" (so) in BEFORE refers to the scratches from hitting the bar. AFTER says \"Cũng vì cá hay nhảy\" (because fish jump), so the causal link is changed.",
+        "Tank dimensions reordered (length first) but values are correct; no issue."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-7DFk4bnIxEg#body": [
+    {
+      "at": "2026-11-06T21:51:26Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Dropped the parenthetical '(đổi ra khoảng 15 cm, chỉ là quy đổi gần đúng)'. It was a redundant, awkward conversion note, so removing it is harmless.",
+        "'tính theo' became 'tùy vào', and 'Lượng ống' became 'Số ống'. These are minor wording changes with the same meaning."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

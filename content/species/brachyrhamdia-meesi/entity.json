@@ -12,6 +12,106 @@
     "peru",
     "madre-de-dios"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Río Madre de Dios"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brachyrhamdia meesi is a small heptapterid catfish described from near Belém, at the mouth of the Amazon in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its precise distribution is unclear, with one record from the Río Madre de Dios basin in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Madre de Dios"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343648,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          5
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
