@@ -2,7 +2,7 @@ import { LANGS, prefixedLang } from '@aq/schema/langs'
 import { withoutVi } from '../paths'
 import { isReader, querySessions, type Session } from '../readers'
 import { COUNTED, EVENTS, eventsSql, num } from './ae'
-import { keepTotals, readKept, type ByLang, type ContentStats, type EntityKind, type KeptTotals, type Lang, type PageKind, type PageRow, type Totals } from './content-shape'
+import { keepTotals, readKept, type ByLang, type ContentStats, type EntityKind, type KeptTotals, type Lang, type LowScores, type PageKind, type PageRow, type Totals } from './content-shape'
 
 export type * from './content-shape'
 
@@ -23,6 +23,20 @@ export async function loadContentStats(assets: Fetcher, origin: string): Promise
   if (!r.ok) return undefined // the build's 404 page
   const s = (await r.json()) as ContentStats
   if (s?.v !== 1) throw new Error(`content.json v${String(s?.v)}: this Worker reads v1`)
+  return s
+}
+
+export const REVIEWS_PATH = '/_ab/reviews.json'
+
+/**
+ * The pages out of search for their score (dist/_ab/reviews.json, scripts/content-stats.ts lowScores), read as content.json
+ * is and answered 404 to everyone else the same way. Undefined without the file: the build predates it.
+ */
+export async function loadLowScores(assets: Fetcher, origin: string): Promise<LowScores | undefined> {
+  const r = await assets.fetch(new Request(new URL(REVIEWS_PATH, origin)))
+  if (!r.ok) return undefined // the build's 404 page
+  const s = (await r.json()) as LowScores
+  if (s?.v !== 1 || !Array.isArray(s.pages)) throw new Error(`reviews.json v${String(s?.v)}: this Worker reads v1`)
   return s
 }
 
@@ -66,6 +80,8 @@ export type ContentReads = {
   unread: { n: number; byKind: Partial<Record<PageKind, number>>; pages: PageInfo[] }
   /** Views of addresses this build doesn't have (an old address, a removed page, a typo). */
   elsewhere: { views: number; paths: number }
+  /** Readers per built page that had one, by its path: what orders the pages out of search (content-page.ts). */
+  readersOf?: Record<string, number>
 }
 
 /** The page index joined with Analytics Engine's sessions and page views. Pure: the query is queryContentReads. */
@@ -111,6 +127,7 @@ export function joinReads(stats: ContentStats, sessions: Session[], views: PageV
     top,
     unread: { n: unread.length, byKind: unreadByKind, pages: unread.slice(0, o.unreadList ?? 100) },
     elsewhere: { views: [...elsewhere.values()].reduce((a, b) => a + b, 0), paths: elsewhere.size },
+    readersOf: Object.fromEntries([...per].filter(([, x]) => x.readers.size).map(([path, x]) => [path, x.readers.size])),
   }
 }
 

@@ -321,6 +321,13 @@ The layers above still check the result.
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.
+  - **On the owner's dashboard:** the content page's "Còn thiếu" lists the pages out of search for their score,
+    counted by kind and language, the most read first (else the lowest score), 30 of them, each with its score and its
+    last review's notes (one of the version the page has, under the bar if a part is, the newest). The build writes
+    them to `dist/_ab/reviews.json` (`apps/site/scripts/content-stats.ts` `lowScores`), a file only the Worker reads,
+    judging a page as `@aq/schema`'s loader does: the test holds the list to the loader's judgement and to each page's
+    noindex, each of the engine's review kinds to scoring a page or not, and the page and its app blocks to each other
+    (`apps/site/test/content-stats.test.ts`, `worker/test/dashboard.test.ts`, `owner-api.test.ts`).
   - **Pages reviewed before traces were kept** get theirs from `pnpm engine review-backfill`: a recheck of the page as
     it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (video guides in the video job, the
     owner's videos first; Vietnamese translations per source, Indonesian and Thai pages and place names in the rewrite

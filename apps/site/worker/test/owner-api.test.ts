@@ -5,7 +5,7 @@ import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
 import type { Action, Block, FormField, Section } from '../admin/blocks'
-import { contentPage, contentSection } from '../admin/content-page'
+import { contentPage, contentSection, type ContentPage } from '../admin/content-page'
 import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewJson,
   overviewPage, photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection,
@@ -31,6 +31,15 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ...(() => {
       const c = { ...S.CONTENT, tz: 'America/New_York', snapshots: [S.SNAPSHOTS[0]!], stats: { ...S.STATS, engine: null, sources: {}, gaps: {} }, reads: { ...S.READS, byKind: [], top: [], unread: { n: 0, byKind: {}, pages: [] }, elsewhere: { views: 0, paths: 0 } } }
       return [['empty, elsewhere', () => contentPage(c), () => contentSection(c)] as [string, () => string, () => Section]]
+    })(),
+    ...(() => {
+      const v = (name: string, c: ContentPage): [string, () => string, () => Section] => [name, () => contentPage(c), () => contentSection(c)]
+      return [
+        v('out of search', S.LOW_CONTENT),
+        v('out of search, no readers, elsewhere', { ...S.LOW_CONTENT, reads: F, tz: 'America/New_York' }),
+        v('out of search, none', { ...S.LOW_CONTENT, low: { v: 1, bar: 0.75, pages: [] } }),
+        v('out of search failed', { ...S.LOW_CONTENT, low: F }),
+      ]
     })(),
   ],
   'doc-gia': [
@@ -321,8 +330,8 @@ test('the overview: its to-dos, areas, their note and the last days are the page
 
 // ——— The Worker: who opens it, and the replies ———
 
-/** The fixture build's content.json (pnpm test builds the site first), as the Worker reads it through ASSETS. */
-const contentJson = () => readFileSync(fileURLToPath(new URL('../../dist/_ab/content.json', import.meta.url).href), 'utf8')
+/** The fixture build's content.json and reviews.json (pnpm test builds the site first), as the Worker reads them through ASSETS. */
+const builtFile = (name: string) => readFileSync(fileURLToPath(new URL(`../../dist/_ab/${name}`, import.meta.url).href), 'utf8')
 const DASH_TOKEN = 'dashtoken-0123456789abcdefABCDEF'
 function kv() {
   const m = new Map<string, { value: string; metadata?: unknown }>()
@@ -366,8 +375,8 @@ async function worker(over: Partial<Record<string, unknown>> = {}) {
   await uploads.bucket.put(`fish-id/anon/${S.KEPT_ANON}`, new Uint8Array([0xff, 0xd8, 2]), meta('other', new Date(now.getTime() - 7_200_000).toISOString()))
   const ab = kv()
   await ab.ns.put('hidden', JSON.stringify({ '/ca/ca-x/': { at: '2026-11-03T03:00:00.000Z', note: 'ảnh nhầm loài' } }))
-  const body = contentJson()
-  const assets = { fetch: async (r: Request) => (new URL(r.url).pathname === '/_ab/content.json' ? new Response(body, { headers: { 'content-type': 'application/json' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } })) }
+  const files: Record<string, string> = { '/_ab/content.json': builtFile('content.json'), '/_ab/reviews.json': builtFile('reviews.json') }
+  const assets = { fetch: async (r: Request) => { const body = files[new URL(r.url).pathname]; return body ? new Response(body, { headers: { 'content-type': 'application/json' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } }
   const e = {
     ASSETS: assets, AB: ab.ns, DB: db, UPLOADS: uploads.bucket, MEDIA: media.bucket, EVENTS: { writeDataPoint: () => {} },
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: DASH_TOKEN, OWNER_ACCOUNTS: 'owner-1', ...over,
@@ -474,6 +483,16 @@ test('every section through the Worker: the contract\'s shape, as its page says 
       }
     }
   }
+  // The content page's pages out of search for their score, from the build's reviews.json: the fixture's four, lowest
+  // first (Analytics Engine has no readers), none with a review (no engine state beside the fixture's content).
+  const content = (await (await call(w.e, 'GET', '/api/owner/sections/noi-dung', bearer(w.ownerApp))).json()) as Section
+  const at = content.blocks.findIndex(b => b.kind === 'heading' && b.text === 'Ẩn khỏi tìm kiếm vì điểm thấp')
+  const low = content.blocks.slice(at).find(b => b.kind === 'table')
+  const none = 'Chưa lưu lần đánh giá nào.'
+  expect(low?.kind === 'table' && low.rows.map(r => r.map(c => c.href ?? c.text))).toEqual([
+    ['/ca/ca-la-han/', 'Giống cá', '0,60', '0', none], ['/huong-dan/thay-nuoc-dung-cach/', 'Bài viết', '0,60', '0', none],
+    ['/thuat-ngu/gh/', 'Thuật ngữ', '0,60', '0', none], ['/ca/ca-boraras-do/', 'Cá', '0,61', '0', none],
+  ])
   const photos = (await (await call(w.e, 'GET', '/api/owner/sections/anh-ban-doc', bearer(w.ownerApp))).json()) as Section
   const items = photos.blocks.filter(b => b.kind === 'photos').flatMap(b => (b.kind === 'photos' ? b.items : []))
   expect(items.map(p => [p.id, p.src, p.actions.map(a => a.label)])).toEqual([[S.PHOTO_WAITING, `/_ab/anh/${S.PHOTO_WAITING}`, ['Duyệt', 'Gỡ']], [S.PHOTO_LIVE, 'https://media.aquatome.com/readers/x-480.webp', ['Gỡ']]])
