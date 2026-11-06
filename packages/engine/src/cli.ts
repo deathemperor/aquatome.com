@@ -51,6 +51,7 @@ import { gbifClient } from './range-records'
 import { topicCheck } from './topic-check'
 import { COVER_SCHEMA, videoCovers } from './video-covers'
 import { videoImages } from './video-images'
+import { videoStills } from './video-stills'
 import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
 import { VI_WRITE } from './vi-rewrite'
@@ -66,7 +67,7 @@ import { localizeTopic, makeTopic } from './topics'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
-import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytStoryboard } from './youtube'
+import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
@@ -448,10 +449,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   for (const e of r.errors) console.log(`error: ${e}`)
   await covers({})
-  // Pictures per section: video stills (storyboard frames) + an open-licence Commons photo, picked by Claude, no faces.
+  // Pictures per section: video stills (picked on storyboard tiles, then the video's own frames) + an open-licence Commons photo, picked by Claude, no faces.
   const get = async (u: string) => { const res = await fetch(u); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const im = await videoImages(join(ROOT, 'content'), {
-    llm: claudeCli, faces: visionFaces, storyboard: ytStoryboard, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
+    llm: claudeCli, faces: visionFaces, frames: ytFrames, grab: ytGrab, transcript: async (id, lang) => (await ytDlp.transcript(id, lang)) ?? (await ytDlp.transcribe!(id, lang)), commons: q => searchCommons(q, http, 6), get, media: media(),
     look: (file, prompt, schema) => claudeVision({ system: 'You pick pictures for an aquarium guide. Reply only with JSON.', prompt, schema, file }),
   }, { limit: Number(process.env.VIDEO_IMAGES_LIMIT ?? 40) })
   console.log(`images: ${im.done.length} guides, ${im.failed.length} failed`)
@@ -502,6 +503,15 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const d of r.done) console.log(values['dry-run'] ? JSON.stringify(d, null, 1) : `product-reviews: ${d.id}: ${d.written ? 'written' : d.note}, ${d.videos.length} reviews, ${d.calls} model calls${d.renamed?.length ? `, renamed ${d.renamed.join(', ')}` : ''}`)
   for (const s of r.skipped) console.log(`skipped: ${s}`)
   if (r.stopped) console.log(`stopped: ${r.stopped}`)
+} else if (cmd === 'video-stills') {
+  // Older video guides' stills (storyboard tiles) become the video's own frames, screened as a new guide's (video-stills.ts).
+  const r = await videoStills(ROOT, {
+    frames: ytFrames, grab: ytGrab, faces: visionFaces, read: files => visionText(files), media: media(), now: () => new Date(),
+    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
+  }, { limit: Number(values.limit ?? 15), ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
+  for (const x of [...r.done, ...r.dropped.map(x => `dropped: ${x}`), ...r.kept.map(x => `kept as a tile: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+  console.log(`video-stills: ${r.done.length} guides, ${r.dropped.length} stills dropped, ${r.kept.length} kept as tiles, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'video-items') {
   // Species and kit in video guides written before extraction: pnpm engine video-items [--limit N] (one transcript fetch each).
   const r = await backfillVideoItems(join(ROOT, 'content'), {

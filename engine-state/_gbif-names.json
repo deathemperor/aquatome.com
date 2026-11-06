@@ -20318,5 +20318,75 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
-  "Zwei neue": null
+  "Zwei neue": null,
+  "Acanthophthalmus shelfordii": {
+    "canonicalName": "Pangio shelfordii",
+    "order": "Cypriniformes",
+    "family": "Cobitidae",
+    "genus": "Pangio",
+    "matchType": "FUZZY"
+  },
+  "Clarias gariepinus": {
+    "canonicalName": "Clarias gariepinus",
+    "order": "Siluriformes",
+    "family": "Clariidae",
+    "genus": "Clarias",
+    "matchType": "EXACT"
+  },
+  "Ctenopoma multispine": {
+    "canonicalName": "Ctenopoma multispine",
+    "order": "Perciformes",
+    "family": "Anabantidae",
+    "genus": "Ctenopoma",
+    "matchType": "EXACT"
+  },
+  "Eirmotus insignis": {
+    "canonicalName": "Eirmotus insignis",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Eirmotus",
+    "matchType": "EXACT"
+  },
+  "Gattungen der": null,
+  "Melanoides tuberculata": {
+    "canonicalName": "Melanoides tuberculata",
+    "family": "Thiaridae",
+    "genus": "Melanoides",
+    "matchType": "EXACT"
+  },
+  "Nothobranchius rubroreticulatus": {
+    "canonicalName": "Nothobranchius rubroreticulatus",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Nothobranchius",
+    "matchType": "EXACT"
+  },
+  "Nothobranchus rachovii": {
+    "canonicalName": "Nothobranchius rachovii",
+    "order": "Cyprinodontiformes",
+    "family": "Nothobranchiidae",
+    "genus": "Nothobranchius",
+    "matchType": "FUZZY"
+  },
+  "Otocinclus batmani": {
+    "canonicalName": "Otocinclus batmani",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Otocinclus",
+    "matchType": "EXACT"
+  },
+  "Parosphromenus opallios": {
+    "canonicalName": "Parosphromenus opallios",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Parosphromenus",
+    "matchType": "EXACT"
+  },
+  "Semaprochilodus insignis": {
+    "canonicalName": "Semaprochilodus insignis",
+    "order": "Characiformes",
+    "family": "Prochilodontidae",
+    "genus": "Semaprochilodus",
+    "matchType": "EXACT"
+  }
 }

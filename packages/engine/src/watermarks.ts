@@ -78,6 +78,21 @@ Below is the text a machine reader found on each photo, with where it sits. It m
 ${photos.map(p => `${p.n}: ${p.ocr.length ? p.ocr.map(l => `"${l.t}" (${l.at})`).join('; ') : 'no text found'}`).join('\n')}
 For each photo n: watermark (true/false), kind (one of the above, "none" if not added), what: a few words on what was added and where (e.g. "Aquarium Glaser banner, top"), or what the text is if it belongs to the scene.`
 
+/** The text Vision read on a photo as its screen entry keeps it: what the model is shown. */
+export const ocrOf = (lines: TextLine[]): WatermarkEntry['ocr'] => lines.slice(0, 8).map(t => ({ t: t.t.slice(0, 60), c: t.c, at: at(t) }))
+
+/** The model's verdicts on up to 6 photos with the text read on each, from one numbered sheet written to `file`; undefined where it gave none. */
+export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr'] }[], file: string, look: WatermarkDeps['look']): Promise<(Required<Omit<WatermarkEntry, 'ocr'>> | undefined)[]> {
+  await writeFile(file, await contactSheet(photos.map(x => x.b), 640, 480, 2, 'contain'))
+  const v = await look(file, prompt(photos.map((x, j) => ({ n: j + 1, ocr: x.ocr }))))
+  const out: (Required<Omit<WatermarkEntry, 'ocr'>> | undefined)[] = photos.map(() => undefined)
+  for (const p of v.photos ?? []) {
+    if (!photos[p.n - 1] || typeof p.watermark !== 'boolean') continue
+    out[p.n - 1] = { watermark: p.watermark, kind: p.watermark ? p.kind : 'none', what: String(p.what ?? '').slice(0, 120) }
+  }
+  return out
+}
+
 const isRef = (x: unknown): x is { url: string } => !!x && typeof x === 'object' && typeof (x as { url: unknown }).url === 'string'
 
 /** Photos a content file shows: `photos` lists (pages, galleries), equipment heroes and type photos, video guides' stills and photos. */
@@ -143,7 +158,7 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
     got.forEach((x, i) => {
       const l = lines[i]
       if (!l) { report.failed.push(`${x.url}: unreadable`); return }
-      cache[x.url] = { ocr: l.slice(0, 8).map(t => ({ t: t.t.slice(0, 60), c: t.c, at: at(t) })) } // what the model is shown
+      cache[x.url] = { ocr: ocrOf(l) }
       report.read++
     })
     await Promise.all(got.map(x => rm(x.file, { force: true })))
@@ -159,15 +174,8 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
       for (const url of s) { const f = join(dir, `s${i}-${ok.length}`); if (await fetchTo(url, f)) ok.push({ url, b: await readFile(f) }) }
       if (!ok.length) return
       try {
-        const sheet = join(dir, `sheet-${i}.jpg`)
-        await writeFile(sheet, await contactSheet(ok.map(x => x.b), 640, 480, 2, 'contain'))
-        const v = await d.look(sheet, prompt(ok.map((x, j) => ({ n: j + 1, ocr: cache[x.url]!.ocr }))))
-        for (const p of v.photos ?? []) {
-          const x = ok[p.n - 1]
-          if (!x || typeof p.watermark !== 'boolean') continue
-          cache[x.url] = { ...cache[x.url]!, watermark: p.watermark, kind: p.watermark ? p.kind : 'none', what: String(p.what ?? '').slice(0, 120) }
-          report.judged++
-        }
+        const v = await judgeSheet(ok.map(x => ({ b: x.b, ocr: cache[x.url]!.ocr })), join(dir, `sheet-${i}.jpg`), d.look)
+        v.forEach((r, j) => { if (r) { cache[ok[j]!.url] = { ...cache[ok[j]!.url]!, ...r }; report.judged++ } })
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= err.message
         else report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
