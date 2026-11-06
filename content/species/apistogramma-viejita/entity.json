@@ -10,6 +10,61 @@
     "colombia",
     "meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Meta",
+        "Orinoco",
+        "Rio Yucao"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red edge apisto, Apistogramma viejita, is a dwarf cichlid from the upper Meta basin, part of the Orinoco system in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Meta",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is known from a tributary of the Rio Yucao, federal state of Meta, Colombia.",
+          "countries": [],
+          "regions": [
+            "Rio Yucao"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371304,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

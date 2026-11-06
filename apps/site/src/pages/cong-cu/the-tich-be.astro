@@ -4,6 +4,7 @@ import SaveToTank from '../../components/SaveToTank.astro'
 import { GALLON_L, SHAPES, glassKg, glassThickness, shapeVolume, type ShapeId } from '../../scripts/volume'
 import { WATER_SHARE } from '../../scripts/calc'
 import { i18n } from '../../lib/i18n'
+import { READY_TANKS } from '@aq/schema'
 
 const { t, locale } = i18n(Astro.url)
 
@@ -24,10 +25,8 @@ const ICON: Record<ShapeId, string> = {
 }
 const ids = Object.keys(SHAPES) as ShapeId[]
 
-// Sizes shops here sell ready-made (length × width × height, cm).
-const SIZES: [number, number, number][] = [[30, 20, 20], [40, 25, 25], [50, 30, 30], [60, 30, 36], [70, 35, 40], [80, 40, 45], [90, 45, 45], [100, 50, 50], [120, 50, 55], [150, 60, 60]]
 const fmt = (n: number, d = 0) => new Intl.NumberFormat(locale, { maximumFractionDigits: d }).format(n)
-const rows = SIZES.map(([l, w, h]) => {
+const rows = READY_TANKS.map(([l, w, h]) => {
   const v = shapeVolume('chu-nhat', { l, w, h }, t) as { litres: number }
   const glass = glassThickness(l, h).order ?? 19
   const water = v.litres * WATER_SHARE

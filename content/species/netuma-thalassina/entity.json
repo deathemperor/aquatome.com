@@ -17,12 +17,25 @@
     "mekong",
     "oceania",
     "australia",
-    "japan"
+    "japan",
+    "india",
+    "indonesia",
+    "sumatra",
+    "malaysia",
+    "china",
+    "papua-new-guinea"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 26,
           "max": 29
@@ -33,6 +46,19 @@
       {
         "source": "planetcatfish",
         "value": 185
+      },
+      {
+        "source": "scotcat",
+        "value": 180
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
       }
     ]
   },
@@ -50,10 +76,28 @@
       "html": "<p>Western Indian Ocean: known with certainty from the Red Sea and the northwestern Indian Ocean. A closely related form occurs in the Philippines and Gulf of Thailand. The wider distribution usually given for this species stems from misidentifications of similar species overlapping its range. Also reported from Australia, Polynesia and Japan and rarely in the Mekong delta.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "html": "<p>Eastern Africa, south and southeast Asia to New Guinea and Australia: India, Thailand, Vietnam, Indonesia, Malaysia, Philippines, China, Papua New Guinea and Australia. Type locality: Massawa, Eritrea, Red Sea (Bagrus thalassinus Rüppell, 1837).</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1103",
       "html": "<p>A marine species often found in estuaries, but rarely enters freshwater. Reported to occasionally ascend into fresh water.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "html": "<p>Known with certainty from the Red Sea and the northwestern Indian Ocean. A closely related form occurs in the Philippines and Gulf of Thailand. The wider distribution usually given for this species stems from misidentifications of similar species overlapping its range. Also reported from Australia, Polynesia and Japan and rarely in the Mekong delta.</p><p>A marine species often found in estuaries, but rarely enters freshwater. Typically euryhaline. Reported to occasionally ascend into fresh water. Recorded at temperatures ranging from 26-29°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "html": "<ul><li>Temperature: 26-29°C</li><li>pH: 7.0-8.5</li></ul>"
     },
     {
       "key": "diet",
@@ -62,58 +106,98 @@
       "html": "<p>Feeds mainly on crabs, prawns, mantis shrimps (Squilla species) but also on fishes and mollusks.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "html": "<p>Feeds mainly on crabs, prawns, mantis shrimps (Squilla species) but also on fishes and mollusks. An important food fish. Marketed mostly fresh; often dried.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1103",
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "html": "<p>Etymology: The genus name Netuma is a Tamil word meaning \"dance\". The specific name thalassina means \"of the sea\"; a marine and brackish-water catfish described from the Red Sea.</p><p>IUCN Red List: This widely distributed, locally abundant species occurs in a variety of coastal habitats. It is a valued fishery resource in many parts of its range and is experiencing overexploitation on a local level in areas where fishing effort is high (e.g., India, South Sumatra and Pakistan). Exploitation is not suspected to be driving a global population decline approaching 30% at this time; therefore, it is listed as Least Concern with a recommendation to research life history and reduce fishing effort in areas where it is heavily targeted and generally improve fisheries management (IUCN 2024).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1103",
       "html": "<p>Neue Wirbelthiere zu der Fauna von Abyssinien gehörig. Fische des Rothen Meeres, pp 75, Pl. 20 (fig. 2).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "html": "<ul><li>Bucol, A. &amp; Carpenter, K.E. 2024. Netuma thalassina. The IUCN Red List of Threatened Species 2024.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009).</li><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/b1893bd478f94c5d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b1893bd478f94c5d-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "caption": "Netuma thalassina: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3faae0b106abc201.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3faae0b106abc201-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/netuma_thalassina.htm",
+      "caption": "Netuma thalassina: juvenile",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/c10308c782320004.webp",
+      "thumb": "https://media.aquatome.com/commons/c10308c782320004-480.webp",
       "width": 900,
       "height": 447,
       "licence": "Public domain",
       "author": "Acarie Baron",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Netuma_thalassina.jpg",
-      "caption": "Netuma thalassina",
-      "thumb": "https://media.aquatome.com/commons/c10308c782320004-480.webp"
+      "caption": "Netuma thalassina"
     },
     {
       "url": "https://media.aquatome.com/commons/8ac6eb0c12bdc35c.webp",
+      "thumb": "https://media.aquatome.com/commons/8ac6eb0c12bdc35c-480.webp",
       "width": 960,
       "height": 655,
       "licence": "Public domain",
       "author": "Rüppell, Eduard",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neue_Wirbelthiere_zu_der_Fauna_von_Abyssinien_geh%C3%B6rig_(Taf._20_Fig.1-4)_BHL37140511.jpg",
-      "caption": "Neue Wirbelthiere zu der Fauna von Abyssinien gehörig / Fig. Name in text Accepted name (May 2016) 1 Belone platura Rüppell Platybelone argalus platura 2 Bagrus thalassinus Rüppell Netuma thalassina 3",
-      "thumb": "https://media.aquatome.com/commons/8ac6eb0c12bdc35c-480.webp"
+      "caption": "Neue Wirbelthiere zu der Fauna von Abyssinien gehörig / Fig. Name in text Accepted name (May 2016) 1 Belone platura Rüppell Platybelone argalus platura 2 Bagrus thalassinus Rüppell Netuma thalassina 3"
     },
     {
       "url": "https://media.aquatome.com/commons/69cbf1bf302685c8.webp",
+      "thumb": "https://media.aquatome.com/commons/69cbf1bf302685c8-480.webp",
       "width": 960,
       "height": 655,
       "licence": "Public domain",
       "author": "Rüppell, Eduard",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neue_Wirbelthiere_zu_der_Fauna_von_Abyssinien_geh%C3%B6rig_(Taf._20_Fig.1-4)_(6815460722).jpg",
-      "caption": "\\. VsT V^ '",
-      "thumb": "https://media.aquatome.com/commons/69cbf1bf302685c8-480.webp"
+      "caption": "\\. VsT V^ '"
     },
     {
       "url": "https://media.aquatome.com/commons/32ee98d443d158bd.webp",
+      "thumb": "https://media.aquatome.com/commons/32ee98d443d158bd-480.webp",
       "width": 960,
       "height": 450,
       "licence": "Public domain",
       "author": "Robert Mintern",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arius_thalassinus_Mintern_104.jpg",
-      "caption": "Netuma thalassina syn. Arius thalassinusThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Arius thalassinus",
-      "thumb": "https://media.aquatome.com/commons/32ee98d443d158bd-480.webp"
+      "caption": "Netuma thalassina syn. Arius thalassinusThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Arius thalassinus"
     }
   ],
   "videos": [
@@ -125,5 +209,5 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-06"
 }

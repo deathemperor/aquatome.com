@@ -10,6 +10,138 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Enim",
+        "Lamatang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens were collected from the confluence of the Lamatang and Enim rivers, Palambang Province, Sumatra, Indonesia and the species may be endemic to Sumatra though it is traditionally considered to range into Borneo, Java and Indochina.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra",
+            "Enim",
+            "Lamatang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338046,
+      "total": 26,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          16
+        ],
+        [
+          "KH",
+          5
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

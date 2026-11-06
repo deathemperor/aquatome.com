@@ -3,9 +3,18 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
-import { chaptersFrom, parseTranscript, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { logReviews, readReviews } from '../src/review-log'
+import { chaptersFrom, parseTranscript, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
+
+test("storyboardInterval: YouTube's seconds between tiles, from yt-dlp's tiles ÷ duration (real videos' storyboard specs)", () => {
+  // [duration, tiles, interval]: HLrQzpFLI5U, M0kds6giFrU, AsK_yxCXVrY, P7GTfHdl5E8, U9ovPRxMWk8, Ks0OQdOxYd8, ddIenwrxWgU, qaow2ai3eZM
+  for (const [d, n, i] of [[123, 63, 2], [356, 73, 5], [500, 101, 5], [539, 109, 5], [607, 123, 5], [761, 154, 5], [1033, 105, 10], [9155, 917, 10]] as const) {
+    expect(storyboardInterval(n / d, d)).toBe(i)
+  }
+  expect(storyboardInterval(0.25, 100)).toBe(4) // no interval gives the count: yt-dlp's own spacing
+})
 
 test('parseTranscript: ~30 s lines with m:ss stamps, blank events dropped', () => {
   const t = parseTranscript(JSON.stringify({ events: [ev(0, 'welcome back'), ev(5, '\n'), ev(12, 'algae tips'), ev(31, 'water  changes'), ev(75, 'light')] }))
@@ -110,6 +119,33 @@ test('no English track is a skip; a broken rewrite keeps the first draft', async
   expect((await read(root2, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
 })
 
+test('a low score gets one edit of that draft, from the transcript and the notes, not a fresh draft', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const first = { ...draft('Bản đầu'), faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }, { q: 'Câu video không trả lời?', a: 'Bịa.' }] }
+  const fixed = { ...draft('Bản đã sửa'), kind: 'care', faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }] }
+  const { d, calls } = deps(root, { scores: [0.6, 0.8], drafts: [first, fixed] })
+  await videoGuides(d, { playlists: ['PL1'] })
+  const writer = calls.prompts.filter(p => p.includes('Bản ghi:'))
+  expect(writer).toHaveLength(2)
+  const edit = writer[1]!
+  expect(edit).toContain('algae grows with too much light') // the transcript, to check the draft against
+  expect(edit).toContain('"viTitle":"Bản đầu"') // the draft itself
+  expect(edit).toContain('- "Ánh sáng" is vague') // what to fix in it
+  expect(edit).not.toContain('Tiêu đề video') // not the writer's brief: nothing to write afresh from
+  // The edit may drop an invented FAQ question; what kind of guide it is stays the first draft's.
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản đã sửa', faq: [{ q: 'Bao lâu thay nước?' }], quality: { score: 0.8 } })
+  expect((await read(root, 'content/guides/youtube-a1/entity.json')).kind).toBe('plantCare')
+})
+
+test('an edit that is broken, not a guide or loses chapters keeps the first draft and its score, or its chapter names', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root, { scores: [0.6], drafts: [draft('Bản đầu'), { ...draft('Bản sửa'), relevant: false }] }).d, { playlists: ['PL1'] })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
+  const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root2, { scores: [0.6, 0.7], drafts: [draft('Bản đầu'), { ...draft('Bản sửa'), chapters: ['Mở đầu'] }] }).d, { playlists: ['PL1'] })
+  expect(await read(root2, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản sửa', chapters: ['Mở đầu', 'Thay nước'], quality: { score: 0.7 } })
+})
+
 test('a guide that still names the creator or the video gets one editor pass; the writer is not given the channel', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const named = { ...draft('Bản đầu'), body: `<p>Bể được set trong video chỉ dùng cây in vitro.</p><p>${LONG}</p>` }
@@ -126,6 +162,34 @@ test('a guide that still names the creator or the video gets one editor pass; th
   const clean = deps(await mkdtemp(join(tmpdir(), 'yt-')))
   await videoGuides(clean.d, { playlists: ['PL1'] })
   expect(clean.calls.prompts.filter(p => p.includes('Bài cần biên tập'))).toEqual([])
+})
+
+test('every review of a guide is kept: the first draft\'s and the rewrite\'s, with the one on the page marked', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root, { scores: [0.6, 0.8], drafts: [draft('Bản đầu'), draft('Bản sửa')] }).d, { playlists: ['PL1'] })
+  expect((await read(root, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản sửa', quality: { score: 0.8 } })
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']).toEqual([
+    { at: '2026-10-29T10:00:00Z', model: 'sonnet', score: 0.8, notes: ['"Ánh sáng" is vague'], attempt: 'rewrite', kept: true },
+    { at: '2026-10-29T10:00:00Z', model: 'sonnet', score: 0.6, notes: ['"Ánh sáng" is vague'], attempt: 'first', kept: false },
+  ])
+})
+
+test('--redo tells the writer what the last review of the guide on the site found, when it was under the bar', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root, { scores: [0.6, 0.6] }).d, { playlists: ['PL1'] })
+  // The guide on the site scored 0.6 (its rewrite kept); a later recheck found what is wrong with it.
+  const found = { score: 0.62, notes: ['Says CO2 is optional; the transcript says it is needed for carpeting plants'] }
+  await logReviews(root, 'video-guide', { id: 'guides/youtube-a1', lang: 'vi' }, [found], found, { now: new Date('2026-11-01T00:00:00Z'), recheck: true })
+  const again = deps(root)
+  await videoGuides(again.d, { playlists: ['PL1'], redo: true })
+  const writer = again.calls.prompts.find(p => p.includes('Bản ghi:'))!
+  expect(writer).toContain('Bản trước bị người duyệt chấm thấp')
+  expect(writer).toContain('- Says CO2 is optional; the transcript says it is needed for carpeting plants')
+
+  // Its last review passed (0.9 now): the next redo writes from the transcript alone.
+  const third = deps(root)
+  await videoGuides(third.d, { playlists: ['PL1'], redo: true })
+  expect(third.calls.prompts.find(p => p.includes('Bản ghi:'))).not.toContain('Bản trước bị người duyệt chấm thấp')
 })
 
 test('redo rewrites each written guide once, in the series it is in, even after a failed later attempt; other playlists get no series', async () => {
@@ -220,9 +284,9 @@ test('single videos are written after playlists, without a series', async () => 
   expect((await read(root, 'content/guides/youtube-s1/entity.json')).video.series).toBeUndefined()
 })
 
-test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer and reviewer, lang kept', async () => {
+test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer, reviewer and editor, lang kept', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
-  const { d, calls } = deps(root, { videos: { a1: { lang: 'vi' } } })
+  const { d, calls } = deps(root, { videos: { a1: { lang: 'vi' } }, scores: [0.6, 0.8] })
   const langs: (string | undefined)[] = []
   const orig = d.yt.transcript
   d.yt.transcript = async (id, lang) => { langs.push(lang); return orig(id) }
@@ -230,6 +294,7 @@ test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer 
   expect(langs).toEqual(['vi'])
   expect(calls.prompts.some(p => p.includes('Ngôn ngữ video: tiếng Việt') && p.includes('không chép lại câu nói'))).toBe(true)
   expect(calls.prompts.some(p => p.includes('spoken in vi') && p.includes('copied from it'))).toBe(true)
+  expect(calls.prompts.find(p => p.includes('Bài cần sửa'))).toContain('không chép lại câu nói')
   expect((await read(root, 'content/guides/youtube-a1/entity.json')).video.lang).toBe('vi')
 })
 

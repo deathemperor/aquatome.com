@@ -5,6 +5,7 @@ import { EquipmentSchema, QUALITY_THRESHOLD } from '@aq/schema'
 import { isVietnamese } from '@aq/schema/text'
 import { LlmError, type Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
+import { lastKept, logReviews } from './review-log'
 import { sanitizeHtml } from './sanitize'
 
 const WRITE = readFileSync(new URL('./prompts/equipment-intl.md', import.meta.url), 'utf8')
@@ -28,10 +29,11 @@ const fill = (s: string, lang: TargetLang) => s.replaceAll('{{LANG}}', TARGETS[l
  * is kept, indexable at the usual threshold). content/equipment/<lang>/<category>.json keeps the guide's photos and type
  * matching as they are. Guides already done are skipped unless redo.
  */
-export async function localizeEquipment(root: string, llm: Llm, lang: TargetLang, o: { only?: string[]; redo?: boolean; model?: string } = {}) {
+export async function localizeEquipment(root: string, llm: Llm, lang: TargetLang, o: { only?: string[]; redo?: boolean; model?: string; /** Stop after this many guides made. */ limit?: number } = {}) {
   const dir = join(root, 'content/equipment')
   const report = { done: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '' }
   for (const f of (await readdir(dir)).filter(f => f.endsWith('.json')).sort()) {
+    if (report.done.length >= (o.limit ?? Infinity)) break
     const cat = f.replace(/\.json$/, '')
     if (o.only && !o.only.includes(cat)) continue
     const out = join(dir, lang, f)
@@ -53,11 +55,15 @@ export async function localizeEquipment(root: string, llm: Llm, lang: TargetLang
         const left = isVietnamese(JSON.stringify(w))
         return { score: left ? Math.min(0.5, Number(r.score) || 0) : Math.min(1, Math.max(0, Number(r.score) || 0)), notes: [...(left ? ['Vietnamese text is left in the translation: translate it or leave it out.'] : []), ...(r.notes ?? [])].slice(0, 10) }
       }
-      let w = await write([])
+      // A redo starts from what the last review of the guide on the site found, as the rewrite below does.
+      const before = o.redo ? await lastKept(root, { id: `equipment/${cat}`, lang }, ['equipment']) : undefined
+      let w = await write(before?.notes ?? [])
       let r = await review(w)
+      const tries = [r]
       if (r.score < QUALITY_THRESHOLD || r.notes.length) {
         const again = await write(r.notes)
         const r2 = await review(again)
+        tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
       }
       const types = vi.types.map(t => {
@@ -73,6 +79,7 @@ export async function localizeEquipment(root: string, llm: Llm, lang: TargetLang
       })
       await mkdir(join(dir, lang), { recursive: true })
       await writeFile(out, `${JSON.stringify(t, null, 2)}\n`)
+      await logReviews(root, 'equipment', { id: `equipment/${cat}`, lang }, tries, r)
       report.done.push(`${cat}: ${t.name} (${r.score})${r.notes.length ? `\n  - ${r.notes.join('\n  - ')}` : ''}`)
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = `${cat}: ${err.message}`; break }

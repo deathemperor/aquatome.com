@@ -1,0 +1,206 @@
+{
+  "id": "acheilognathus-macropterus",
+  "native": {
+    "input": "2b187babe0900828",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to China, the Korean peninsula, northern Vietnam, and southeastern Russia.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to China, the Korean peninsula, northern Vietnam, and southeastern Russia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to China, the Korean peninsula, northern Vietnam, and southeastern Russia.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to, and is considered invasive, in Japan.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Korean peninsula",
+        "source": "seriouslyfish",
+        "quote": "Native to China, the Korean peninsula, northern Vietnam, and southeastern Russia.",
+        "ok": true
+      },
+      {
+        "name": "Yangtze River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Chang Jiang [Yangtze River], China'.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Amur",
+        "source": "seriouslyfish",
+        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Hainan Island",
+        "source": "seriouslyfish",
+        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Dongting Lake",
+        "source": "seriouslyfish",
+        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Tai Lake",
+        "source": "seriouslyfish",
+        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KP",
+        "KR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acheilognathus macropterus",
+    "status": "ACCEPTED",
+    "taxonKey": 2359405,
+    "datasets": [
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        387
+      ],
+      [
+        "721ec3cb-78b5-42b9-9ad1-57fe90b75e6f",
+        97
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        76
+      ],
+      [
+        "d74d1313-04f6-4e91-8732-b6d5282416dc",
+        37
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        19
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        19
+      ],
+      [
+        "58a115ae-a7f9-4657-b54d-5611437083c0",
+        10
+      ],
+      [
+        "c35d9a99-9a4b-44e7-8c92-7b5fe302318b",
+        10
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "8a10929f-9729-408b-ad1a-2a86d56fa9e0",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "fd799ab3-7c13-4fc6-aa85-08df09364385",
+        3
+      ],
+      [
+        "116e8fa0-9c0f-43e3-9765-d0a2b040d9c5",
+        2
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        2
+      ],
+      [
+        "59f905d4-fd46-4e45-a80d-ea519e91114d",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN",
+      "RU"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

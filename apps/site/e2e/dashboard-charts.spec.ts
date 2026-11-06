@@ -1,7 +1,10 @@
 import type { Page } from '@playwright/test'
 import { lastDays } from '../worker/admin/chart'
+import { contentPage } from '../worker/admin/content-page'
 import { accountsPage, photosPage } from '../worker/admin/pages'
+import { scoreboardPage, summariseScoreboard, weeksTo } from '../worker/admin/scoreboard'
 import { viewerZone } from '../worker/admin/time'
+import { LOW_CONTENT } from '../worker/test/owner-sample'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
 
@@ -19,6 +22,64 @@ async function serve(page: Page, path: string, html: (tz: string) => string) {
     await route.fulfill({ contentType: 'text/html; charset=utf-8', body: html(tz) })
   })
 }
+
+/** A scoreboard over the weeks after the readers' count began, drawn from sample rows as the Worker draws it. */
+const SCORE_NOW = new Date('2026-11-18T05:00:00Z')
+const scoreboard = () => summariseScoreboard({
+  now: SCORE_NOW, owners: [], clicks: { days: [], clicks: [] }, app: { sessions: [], actions: [], crashes: [] }, content: { failed: 'x' }, snapshots: [], checks: [],
+  community: { tanks: [], comments: [], photos: [] },
+  beacon: weeksTo(SCORE_NOW).slice(-3).flatMap((monday, w) => Array.from({ length: 3 * (w + 1) }, (_, i) => [
+    { sid: `s${w}-${i}`, t: 'view', p: '/ca/ca-betta/', ref: 'www.google.com', cc: 'VN', first: `${monday} 03:00:00`, v: 1, n: 1 },
+    { sid: `s${w}-${i}`, t: 'time', p: '/ca/ca-betta/', ref: '', cc: 'VN', first: `${monday} 03:00:30`, v: 30, n: 1 },
+  ]).flat()),
+})
+
+test('the scoreboard reads a week off its chart, and fits a 320 px screen', async ({ page, errors, isMobile }) => {
+  test.skip(LIVE, 'the live dashboard opens only to the owner')
+  await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
+  await page.goto('/_ab/thanh-cong/')
+  await expect(page.getByRole('heading', { level: 1, name: 'Thành công' })).toBeVisible()
+  const chart = page.locator('figure[aria-labelledby="w-star-t"]')
+  await expect(chart.locator('.readout .when')).toHaveText('12 tuần')
+  await expect(chart.locator('.readout b')).toHaveText('18')
+  const column = chart.locator('.cols li').nth(10)
+  if (isMobile) await column.tap()
+  else await column.hover()
+  await expect(chart.locator('.readout .when')).toHaveText('Tuần 09/11')
+  await expect(chart.locator('.readout b')).toHaveText('6')
+  // A week before the count began says so instead of a zero.
+  await expect(chart.locator('.cols li').first()).toHaveClass(/\bmiss\b/)
+  for (const width of [320, 412, 800, 1280]) {
+    await page.setViewportSize({ width, height: 800 })
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `${width} px`).toBeLessThanOrEqual(0)
+  }
+  expect(errors).toEqual([])
+})
+
+test('the content page\'s pages out of search: a page\'s notes open on a tap or a click, and the list fits a 320 px screen', async ({ page, errors, isMobile }) => {
+  test.skip(LIVE, 'the live dashboard opens only to the owner')
+  await serve(page, '/_ab/noi-dung/', tz => contentPage({ ...LOW_CONTENT, tz }))
+  await page.goto('/_ab/noi-dung/')
+  const low = page.locator('section.low')
+  await expect(low.getByRole('heading', { level: 3, name: 'Ẩn khỏi tìm kiếm vì điểm thấp' })).toBeVisible()
+  // The video guide's three notes: the first, cut to two lines, and how many there are; the rest once opened.
+  const why = low.locator('tbody tr').nth(2).locator('td.why')
+  const summary = why.locator('summary')
+  const first = summary.locator('span')
+  const line = await first.evaluate(e => parseFloat(getComputedStyle(e).lineHeight))
+  expect((await first.boundingBox())!.height).toBeLessThanOrEqual(2 * line + 1)
+  await expect(why.locator('ul li').first()).toBeHidden()
+  if (isMobile) await summary.tap()
+  else await summary.click()
+  await expect(why.locator('ul li')).toHaveCount(2)
+  await expect(why.locator('ul li').first()).toBeVisible()
+  expect((await first.boundingBox())!.height).toBeGreaterThan(2 * line + 1)
+  for (const width of [320, 412, 800, 1280]) {
+    await page.setViewportSize({ width, height: 800 })
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), `${width} px`).toBeLessThanOrEqual(0)
+  }
+  expect(errors).toEqual([])
+})
 
 test.describe('in Vietnam', () => {
   test.use({ timezoneId: 'Asia/Ho_Chi_Minh' })

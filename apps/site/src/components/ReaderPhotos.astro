@@ -1,14 +1,18 @@
 ---
 // Readers' own photos of this species. Loaded client-side from the Worker; stays hidden until the API answers.
+// `gallery`: under a gallery page's photos (pages/ca/[slug]/anh.astro), inside the page's margins already, and loaded
+// once those photos have.
 import { i18n } from '../lib/i18n'
 import { photosKey } from '../lib/talk'
-interface Props { entity: string; name: string }
-const { entity, name } = Astro.props
+interface Props { entity: string; name: string; gallery?: boolean }
+const { entity, name, gallery } = Astro.props
 const { t } = i18n(Astro.url)
 ---
-<section class="wrap rp" data-reader-photos data-entity={photosKey(entity)} aria-labelledby="rp-h" hidden>
+<section class:list={[!gallery && 'wrap', 'rp']} data-reader-photos data-entity={photosKey(entity)} data-later={gallery ? '' : undefined} aria-labelledby="rp-h" hidden>
   <h2 id="rp-h">{t('Ảnh bạn đọc')}</h2>
   <ul class="list" data-list></ul>
+  <button type="button" class="more" data-more hidden>{t('Xem thêm')}</button>
+  <div class="invite">
   <p class="empty" data-empty>{t('Chưa có ảnh nào. Bạn nuôi {name}? Gửi một tấm ảnh cho mọi người cùng xem.', { name })}</p>
   <details class="send">
     <summary>{t('Gửi ảnh {name} của bạn', { name })}</summary>
@@ -23,10 +27,19 @@ const { t } = i18n(Astro.url)
       <p class="rules">{t('Không cần tài khoản. Ảnh được kiểm duyệt trước khi hiện: ảnh có người, không đúng loài hoặc không phù hợp sẽ bị loại. Vị trí GPS và thông tin máy trong ảnh được xóa trước khi gửi.')}</p>
     </form>
   </details>
+  </div>
 </section>
 <script>
   import { mountReaderPhotos } from '../scripts/reader-photos'
-  document.querySelectorAll<HTMLElement>('[data-reader-photos]').forEach(s => void mountReaderPhotos(s))
+  // Under a gallery (data-later): once the page and its photos have loaded and the browser is idle, or at once when it
+  // was reloaded with a reader's photo open.
+  const reopened = () => (history.state as { viewer?: unknown } | null)?.viewer === 'reader'
+  document.querySelectorAll<HTMLElement>('[data-reader-photos]').forEach(s => {
+    if (s.dataset.later === undefined || reopened()) return void mountReaderPhotos(s)
+    const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(() => void mountReaderPhotos(s), { timeout: 2000 }) : setTimeout(() => void mountReaderPhotos(s)))
+    if (document.readyState === 'complete') idle()
+    else addEventListener('load', idle, { once: true })
+  })
 </script>
 <style>
   .rp { padding-block: var(--space-6); }
@@ -38,9 +51,15 @@ const { t } = i18n(Astro.url)
   .list :global(button:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
   .list :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
   .empty, .rules { color: var(--c-ink-soft); }
+  .list + .more { margin-top: var(--space-4); border: 1px solid var(--c-ink); background: var(--c-plate); color: var(--c-ink); }
   .send { margin-top: var(--space-4); max-width: var(--measure); }
+  /* No photos yet: the line and the send button are one invitation, set apart from the discussion's own empty line below. */
+  .invite:has(> .empty:not([hidden])) { max-width: var(--measure); padding: var(--space-4); border: 1px dashed var(--c-ink-faint); background: var(--c-plate); }
+  .invite > .empty { margin: 0; }
+  .invite:has(> .empty:not([hidden])) > .send { margin-top: var(--space-3); }
   .send summary { display: inline-block; cursor: pointer; min-height: 44px; line-height: 44px; padding: 0 var(--space-4); border: 1px solid var(--c-ink); background: var(--c-plate); font-weight: 600; }
-  form { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); margin-top: var(--space-4); }
+  /* Not while `hidden` (no Turnstile, or the phone check on): a display of its own would show it anyway. */
+  form:not([hidden]) { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); margin-top: var(--space-4); }
   label { display: grid; gap: var(--space-1); font-weight: 600; min-width: 0; }
   label.check { display: flex; gap: var(--space-2); align-items: flex-start; font-weight: 400; }
   label.check input { margin-top: 0.3em; min-width: 20px; min-height: 20px; }
@@ -52,7 +71,7 @@ const { t } = i18n(Astro.url)
   .msg { overflow-wrap: anywhere; }
   .rules { font-size: var(--step--1); }
   /* The photo just sent, and its take-back link to keep (scripts/reader-photos.ts showSent). */
-  .sent { display: grid; gap: var(--space-2); }
+  .sent:not([hidden]) { display: grid; gap: var(--space-2); }
   .sent :global(img) { width: 160px; max-width: 100%; height: auto; padding: 4px; background: var(--c-mat); box-shadow: 0 1px 2px rgb(29 42 34 / 0.12); }
   .sent :global(p) { margin: 0; }
   .sent :global(.keep) { display: flex; gap: var(--space-2); min-width: 0; }

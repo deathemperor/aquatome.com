@@ -1,0 +1,148 @@
+{
+  "id": "aphyocharax-rathbuni",
+  "native": {
+    "input": "c1a08a211c69df1a",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found in Brazil, Paraguay, Argentina and Uruguay, in streams and rivers shaded by floating or overhanging vegetation.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found in Brazil, Paraguay, Argentina and Uruguay, in streams and rivers shaded by floating or overhanging vegetation.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found in Brazil, Paraguay, Argentina and Uruguay, in streams and rivers shaded by floating or overhanging vegetation.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found in Brazil, Paraguay, Argentina and Uruguay, in streams and rivers shaded by floating or overhanging vegetation.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraguay",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Paraguay, Paraná and Uruguay river drainages in Brazil, Paraguay, Argentina and Uruguay.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Paraguay, Paraná and Uruguay river drainages in Brazil, Paraguay, Argentina and Uruguay.",
+        "ok": true
+      },
+      {
+        "name": "Uruguay",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Paraguay, Paraná and Uruguay river drainages in Brazil, Paraguay, Argentina and Uruguay.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyocharax rathbuni",
+    "status": "ACCEPTED",
+    "taxonKey": 2353648,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        214
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        174
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        139
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        58
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        30
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        20
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        18
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "AR",
+      "UY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

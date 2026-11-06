@@ -1,8 +1,9 @@
 import Handbook
 import SwiftUI
+import Telemetry
 
 /// One shelf of the handbook: a fish group, a placement, a guide subject (nil: the whole kind), the video guides, the
-/// glossary, or the pages kept for reading offline.
+/// glossary, the pages kept for reading offline, what's new on the site, or the whole of a page's long list of pages.
 enum Browse: Hashable {
   case fish(String?)
   case plants(String?)
@@ -10,6 +11,8 @@ enum Browse: Hashable {
   case videos
   case glossary
   case kept
+  case latest
+  case pages(String, [String])
 }
 
 /// A shelf's pages: fish and plants as photo cards in the site's order, filtered as the site's lists are; guides and
@@ -17,8 +20,13 @@ enum Browse: Hashable {
 struct BrowseView: View {
   let browse: Browse
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
 
   var body: some View {
+    shelf.onAppear { telemetry.telemetry.record(.view(.shelf)) }
+  }
+
+  @ViewBuilder private var shelf: some View {
     let s = handbook.shelves
     switch browse {
     case .fish(let group):
@@ -32,6 +40,12 @@ struct BrowseView: View {
       List(guides) { Row(item: $0) }
         .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn"))
         .toolbar { KeepOffline(items: guides) }
+        #if DEBUG
+        .background {
+          // For the UI tests (debug builds only): how many keeps are still at work.
+          Text(verbatim: "\(handbook.keepsWorking)").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("keeps-working")
+        }
+        #endif
     case .videos:
       List(s.videoGuides) { Row(item: $0) }
         .navigationTitle("Video")
@@ -54,6 +68,11 @@ struct BrowseView: View {
             .accessibilityIdentifier("unkeep-all")
         }
       }
+    case .latest:
+      LatestList()
+    case let .pages(title, paths):
+      List(paths.compactMap(handbook.item(at:))) { Row(item: $0) }
+        .navigationTitle(title)
     case .glossary:
       List {
         ForEach(s.glossary(), id: \.letter) { group in
@@ -62,5 +81,39 @@ struct BrowseView: View {
       }
       .navigationTitle("Thuật ngữ")
     }
+  }
+}
+
+/// What's new on the site, as its list has it (/vi/moi-cap-nhat/): each page with the day it was added or updated and
+/// the source, newest first; the rest of the list on the web.
+private struct LatestList: View {
+  @Environment(HandbookModel.self) private var handbook
+
+  var body: some View {
+    List {
+      Section {
+        ForEach(handbook.latest) { row in
+          NavigationLink(value: row.item) {
+            VStack(alignment: .leading, spacing: 6) {
+              ItemRow(item: row.item)
+              Text(verbatim: Self.change(row.entry)).font(.caption).foregroundStyle(.secondary)
+            }
+            .accessibilityElement(children: .combine)
+          }
+          .accessibilityIdentifier("latest")
+        }
+      } footer: {
+        if let web = handbook.latestWeb {
+          Link("Xem tất cả trên aquatome.com", destination: web).font(.footnote).accessibilityIdentifier("latest-web")
+        }
+      }
+    }
+    .navigationTitle("Mới cập nhật")
+  }
+
+  /// "28/10/2026 · Cập nhật · Seriously Fish", as the site's list says it; an action this app doesn't know, no word.
+  static func change(_ e: Latest.Entry) -> String {
+    let word = e.isNew ? String(localized: "Mới") : e.isUpdate ? String(localized: "Cập nhật") : nil
+    return [e.shown, word, e.source].compactMap { $0 }.joined(separator: " · ")
   }
 }

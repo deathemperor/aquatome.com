@@ -1,0 +1,82 @@
+{
+  "id": "ancistrus-formoso",
+  "native": {
+    "input": "3782a784d18cf4d5",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Ancistrus formoso Sabino & Trajano, 1997. Common name: Blind Cave Bristlenose. Maximum size 79 mm (3.1\") SL. Type locality: Buraco do Ducho cave, Serra da Bodoquena, Município de Bonito, Mato Grosso do Sul, Brazil. IUCN Red List: Vulnerable (last assessed 2018).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay, Upper Paraguay and Formoso drainage basins, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay, Upper Paraguay and Formoso drainage basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay, Upper Paraguay and Formoso drainage basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay, Upper Paraguay and Formoso drainage basins, Brazil.",
+        "country": "BR",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Formoso",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay, Upper Paraguay and Formoso drainage basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus formoso",
+    "status": "ACCEPTED",
+    "taxonKey": 5961421,
+    "datasets": [
+      [
+        "9343010e-8261-4bd9-9314-bf2faf34f4e7",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

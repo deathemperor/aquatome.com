@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm
 title: Batrochoglanis raninus (Valenciennes, 1840)
-fetchedAt: 2026-11-05T17:00:15.976Z
+fetchedAt: 2026-11-06T03:46:50.492Z
 hash: 5f704d25bac7428ca7e39b62dfe3f9de90f292843f5b766e75a4a0d31459f5ba
 ---
 

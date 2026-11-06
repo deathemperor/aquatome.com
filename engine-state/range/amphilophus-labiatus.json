@@ -1,0 +1,121 @@
+{
+  "id": "amphilophus-labiatus",
+  "native": {
+    "input": "c740ed897cc15343",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red devil cichlid, Amphilophus labiatus, is a large cichlid endemic to Lakes Nicaragua and Managua in Nicaragua, living near submerged rocks.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Lakes of Nicaragua and Managua in Nicaragua, Central America.",
+        "words": "Nicaragua",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Nicaragua",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Lakes of Nicaragua and Managua in Nicaragua, Central America.",
+        "country": "NI",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Managua",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Lakes of Nicaragua and Managua in Nicaragua, Central America.",
+        "country": "NI",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilophus labiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2370147,
+    "datasets": [
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        121
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        12
+      ],
+      [
+        "f29ab192-5964-40ae-a397-fa48ffdf0661",
+        12
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "968dfa3e-3614-4bab-a3b5-e9209bdd6078",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "NI"
+    ],
+    "requests": 15,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "chihiros-wrgb-ii-slim",
+  "brand": "Chihiros",
+  "model": "WRGB II Slim",
+  "category": "den",
+  "type": "thuy-sinh",
+  "specs": [{ "key": "Power", "value": "30 W", "source": 0 }],
+  "variants": [],
+  "sources": [
+    { "url": "https://www.chihirosaquatic.example/wrgb-ii-slim", "title": "Chihiros WRGB II Slim", "kind": "manufacturer", "at": "2026-11-06" },
+    { "url": "https://www.youtube.com/watch?v=aaaaaaaaaaa", "title": "Chihiros WRGB II Slim after 6 months", "kind": "video", "at": "2026-11-06" },
+    { "url": "https://www.youtube.com/watch?v=bbbbbbbbbbb", "title": "Đánh giá đèn Chihiros WRGB 2 Slim", "kind": "video", "at": "2026-11-06" },
+    { "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31", "title": "Ghi chép thử nghiệm của AquaTome: điều khiển đèn thủy sinh qua Bluetooth (31/10/2026)", "kind": "test", "at": "2026-11-06" }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-06",
+    "videos": [
+      { "youtubeId": "bbbbbbbbbbb", "title": "Đánh giá đèn Chihiros WRGB 2 Slim", "durationSec": 612, "lang": "vi", "channel": "Kênh Ví Dụ" },
+      { "youtubeId": "aaaaaaaaaaa", "title": "Chihiros WRGB II Slim after 6 months", "durationSec": 905, "lang": "en", "channel": "Example Scapes" }
+    ]
+  },
+  "updatedAt": "2026-11-06"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "anatolichthys-villwocki",
+  "native": {
+    "input": "e773ec6c7d33a340",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Sakarya River basin including Lake Çavuşçu (Çavuşçu Göl) in western central Turkey.",
+        "words": "Turkey",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sakarya River",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Sakarya River basin including Lake Çavuşçu (Çavuşçu Göl) in western central Turkey.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Lake Çavuşçu",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Sakarya River basin including Lake Çavuşçu (Çavuşçu Göl) in western central Turkey.",
+        "country": "TR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anatolichthys villwocki",
+    "status": "ACCEPTED",
+    "taxonKey": 11630324,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "TR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

@@ -80,6 +80,28 @@
         "source": 5,
         "value": 80
       }
+    ],
+    "difficulty": [
+      {
+        "source": 9,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 9,
+        "value": {
+          "min": 10,
+          "max": 12
+        }
+      },
+      {
+        "source": 4,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
     ]
   },
   "photos": [
@@ -179,6 +201,12 @@
       "title": "The most technical standard with how to raise King Kamfa fish – Fishforums",
       "kind": "forum",
       "at": "2026-10-29"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/flowerhorn-cichlid",
+      "title": "Flowerhorn Cichlid – Fishkeeping World",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-29"

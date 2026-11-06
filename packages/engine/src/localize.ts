@@ -2,7 +2,9 @@ import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, nameKey, POPULAR, QUALITY_THRESHOLD, slugify, STAPLE_SPECIES, TranslationSchema, type Section } from '@aq/schema'
+import { OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
+import { itemReviews, lastKept, logReviews, type Review } from './review-log'
 import { pickSlug } from './merge'
 import { shopIds } from './shops'
 import { sanitizeHtml } from './sanitize'
@@ -13,17 +15,37 @@ const GLOSSARY = readFileSync(new URL('./prompts/localize-glossary.md', import.m
 const GLOSSARY_REVIEW = readFileSync(new URL('./prompts/localize-glossary-review.md', import.meta.url), 'utf8')
 const PLACES = readFileSync(new URL('./prompts/localize-places.md', import.meta.url), 'utf8')
 
-/** Site languages besides Vietnamese, and how each is written. */
+/**
+ * The languages the engine translates into (the language table's, served or not): how each is written, and its word for
+ * an address when a page's name gives none (slugWords: as its section words, or English where those are English).
+ *
+ * Malay is Malaysia's written form, which shares its spelling rules and much of its grammar with Indonesian but not its
+ * everyday words. Seen in Malaysian writing about the hobby: ikan hiasan, ikan laga, ikan pelaga, gupi and guppy, penternak,
+ * makanan ikan, makanan hidup, akuarium, pelet, artemia, klorin, kualiti air, kedai ikan hiasan, RM with no space and a
+ * decimal point (Utusan Malaysia 2021, 2024; Sinar Harian 2026); bakteria, ikan emas, "240 liter" (Wikipedia Bahasa
+ * Melayu); tangki, penapisan biologi, tumbuhan hidup (akuariyom.blogspot.com); "Akuarium 3 Kaki", pam udara (mudah.my
+ * listings' titles); penapis (Kamus Dewan). Where it parts from Indonesian: Utusan Malaysia, 19 Oct 2024 (jenama/merk,
+ * percuma/gratis, kedai ubat/apotek, pejabat/kantor, peti ais/kulkas); the number marks: CLDR's ms locale. The rest
+ * (pemanas, tukar air, kitaran nitrogen, kuarantin, kekerasan air, sarang buih, baja, cacing darah, kutu air) is standard
+ * Malay no hobby page we could read confirmed: Lowyat's forum and mudah.my's listings refuse automated readers.
+ */
 export const TARGETS = {
   id: {
     lang: 'Indonesian (Bahasa Indonesia)', country: 'Indonesia', place: 'indonesia',
     style: `Style: natural, plain Bahasa Indonesia, friendly but not slangy, addressing the reader neutrally (no "gue/lo"). Use the words Indonesian aquarists use: akuarium, ikan hias, tanaman air, aquascape, filter, suhu, pH, kesadahan (GH), ganti air, siklus nitrogen, karantina, pakan. Decimal comma (1,5), ranges with an en dash (22–26 °C). Live and frozen foods as Indonesian shops name them: cacing darah (bloodworm), cacing sutra (tubifex), kutu air (daphnia, moina), artemia (brine shrimp), pelet, pakan serpihan (flakes). Bubble nest: sarang busa. Ich / white spot: penyakit bintik putih (white spot). Hillstream loaches and stone-clinging stream fish: hillstream loach, never a made-up "loach sungai".`,
+    slugWords: { fish: 'ikan', guide: 'panduan', term: 'istilah' },
   },
   th: {
     lang: 'Thai', country: 'Thailand', place: 'thailand',
     style: `Style: natural, plain written Thai, neutral and polite without spoken particles (no ครับ/ค่ะ). Use the words Thai aquarists use: ตู้ปลา, ปลาสวยงาม, ไม้น้ำ, อุณหภูมิ, ค่า pH, ความกระด้าง (GH), เปลี่ยนน้ำ, ระบบกรอง, วงจรไนโตรเจน, กักโรค, อาหารปลา. Decimal point (1.5), ranges with an en dash (22–26 °C); units in running text the Thai way (ซม., ลิตร), the symbols °C and pH as they are. Live and frozen foods as Thai shops name them: หนอนแดง (bloodworm), ไส้เดือนน้ำ (tubifex), ไรแดง (moina, daphnia), ไรทะเล (brine shrimp, artemia), อาหารเม็ด (pellets), อาหารแผ่น (flakes). Bubble nest: หวอด.`,
+    slugWords: { fish: 'fish', guide: 'guide', term: 'term' },
   },
-} as const
+  ms: {
+    lang: 'Malay (Bahasa Melayu as written in Malaysia)', country: 'Malaysia', place: 'malaysia',
+    style: `Style: natural, plain Malaysian Malay, friendly but not slangy, addressing the reader neutrally ("anda" only where needed, in lower case; no "awak", "korang" or "kamu"). This is not Indonesian: spelling and everyday words are Malaysia's. Use the words Malaysian keepers and shops use: akuarium, tangki, ikan hiasan, tumbuhan akuatik, penapis, pam udara, pemanas, aquascape, suhu, pH, kekerasan air (GH), tukar air, kitaran nitrogen, bakteria, kuarantin, makanan ikan, baja, kedai ikan hiasan, penternak. Write wang, kerana, bahawa, boleh, cuba, sahaja, betul, haiwan, kualiti, kuantiti, aktiviti, peratus, minit, ammonia, klorin; never the Indonesian uang, karena, bahwa, bisa, coba, saja, benar (for "correct"), hewan, kualitas, kuantitas, aktivitas, persen, menit, amonia, bakteri, tanaman air, ikan hias, ganti air, siklus nitrogen, karantina, kesadahan, pakan, pupuk, saringan, toko, gratis, merek. Decimal point (1.5) and comma for thousands (1,000), ranges with an en dash (22–26 °C). Metric only, in cm and liter: Malaysian shops size a tank in kaki ("akuarium 3 kaki"), but give its size in cm. Money, where a text has any, in ringgit with no space (RM25, RM3.5 juta), never Rp. Live and frozen foods as Malaysian shops name them: cacing darah (bloodworm), cacing tubifex (tubifex), kutu air (daphnia, moina), artemia (brine shrimp), pelet (pellets), flake (flakes). Betta: ikan laga or ikan pelaga, never cupang. Guppy: guppy or ikan gupi. Bubble nest: sarang buih, never sarang busa. Ich / white spot: penyakit bintik putih (white spot). Hillstream loaches and stone-clinging stream fish: hillstream loach, never a made-up word-for-word name.`,
+    slugWords: { fish: 'ikan', guide: 'panduan', term: 'istilah' },
+  },
+} as const satisfies Record<WrittenOtherLang, { lang: string; country: string; place: string; style: string; slugWords: Record<'fish' | 'guide' | 'term', string> }>
 export type TargetLang = keyof typeof TARGETS
 
 /** Species found wild in a place (content/places id): listed under it, or under a region, river or island inside it. */
@@ -44,12 +66,12 @@ export async function nativeTo(root: string, place: string): Promise<Set<string>
 
 /**
  * The order species pages get translated in: the staples, what the country's fish shops sell (shops.ts), the most-kept
- * fish, pages another site language already has (so the sites end up with the same fish), the country's own wild fish,
- * then the rest.
+ * fish, pages a language the site serves already has (so the sites end up with the same fish), the country's own wild
+ * fish, then the rest.
  */
 export async function speciesOrder(root: string, lang: TargetLang): Promise<string[]> {
   const all = (await readdir(join(root, 'content/species'))).sort()
-  const others = (Object.keys(TARGETS) as TargetLang[]).filter(l => l !== lang)
+  const others = OTHER_LANGS.filter(l => l !== lang)
   const has = async (id: string) => (await readdir(join(root, 'content/species', id)).catch(() => [] as string[])).some(f => others.some(l => f === `${l}.json`))
   const elsewhere = (await Promise.all(all.map(async id => ((await has(id)) ? id : '')))).filter(Boolean)
   return [...new Set([...STAPLE_SPECIES, ...await shopIds(root, [lang]), ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
@@ -97,10 +119,17 @@ async function write(llm: Llm, lang: TargetLang, species: string, parts: { id: s
   return { ...r, parts: out }
 }
 
-async function review(llm: Llm, lang: TargetLang, parts: { id: string; en: string }[], done: Map<string, string>) {
+/** A page's translation against its English parts (0–1, notes); a part left out is shown as such. */
+export async function review(llm: Llm, lang: TargetLang, parts: { id: string; en: string }[], done: Map<string, string>) {
   const pairs = parts.map((p, i) => `### ${i + 1}\nEN:\n${p.en}\n${lang.toUpperCase()}:\n${done.get(p.id) || '(left out)'}`).join('\n\n')
   const r = await llm<{ score: number; notes: string[] }>({ system: `You are a strict English→${TARGETS[lang].lang} translation reviewer. Reply only with JSON.`, prompt: `${fill(REVIEW, lang)}\n\n${pairs.slice(0, 80_000)}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
+}
+
+/** Only text whose source allows translation (its permission scope says so) is translated. */
+export async function translatableIn(root: string): Promise<(source: string) => boolean> {
+  const sourceInfo = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8')) as Record<string, { permission?: { scope: string[] } }>
+  return source => !!sourceInfo[source]?.permission?.scope.includes('translation')
 }
 
 /**
@@ -123,9 +152,7 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
     if (t.slug) taken.add(t.slug) // a page's own address in here is harmless: a page with a file keeps its address
     if (t.name) names.set(`${k}/${id}`, nameKey(t.name))
   }
-  // Only text whose source allows translation (its permission scope says so) is translated.
-  const sourceInfo = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8')) as Record<string, { permission?: { scope: string[] } }>
-  const translatable = (source: string) => !!sourceInfo[source]?.permission?.scope.includes('translation')
+  const translatable = await translatableIn(root)
   const save = async () => {
     await mkdir(join(root, 'engine-state'), { recursive: true })
     await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
@@ -150,11 +177,15 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const species = `${e.scientificName}${e.family ? ` (family ${e.family})` : ''}${english !== e.scientificName ? `, in English "${english}"` : ''}${vi ? `, sold in Vietnam as "${vi}"` : ''}. ${kind === 'plants'
         ? 'The names are for exactly this plant: a cultivar or variety keeps its cultivar or variety name (as sellers write it, e.g. "Anubias Mini Coin"), never just the species name'
         : 'The names are for the species as a whole, never for one strain, colour form or hybrid the text may describe'}`
-      let w = await write(llm, lang, species, parts, [], o.model)
+      // A redo starts from what the last review of the page on the site found, when it was under the bar.
+      const before = o.redo ? await lastKept(root, { id: `${kind}/${id}`, lang }, ['localize']) : undefined
+      let w = await write(llm, lang, species, parts, before && before.score < QUALITY_THRESHOLD ? before.notes : [], o.model)
       let r = await review(llm, lang, parts, w.parts)
+      const tries = [r]
       if (r.score < QUALITY_THRESHOLD) {
         const again = await write(llm, lang, species, parts, r.notes, o.model)
         const r2 = await review(llm, lang, parts, again.parts)
+        tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
       }
       // A page keeps its address once made (a redo never moves it); Thai script has no Latin slug, so Thai pages are
@@ -175,6 +206,7 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       }, lang))
       names.set(`${kind}/${id}`, nameKey(name))
       await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+      await logReviews(root, 'localize', { id: `${kind}/${id}`, lang }, tries, r, o.now ? { now: o.now() } : {})
       state[id] = { at: (o.now?.() ?? new Date()).toISOString().slice(0, 10), from: e.updatedAt, name, confidence: w.nameConfidence, score: r.score, notes: r.notes }
       await save() // after every page: a stopped batch doesn't redo what it finished
       report.done.push(`${id}: ${name} (${w.nameConfidence}, ${r.score})`)
@@ -227,11 +259,15 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
       return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
     }
     try {
-      let w = await write([])
+      // A redo starts from what the last reviews of these terms on the site found, when they were under the bar.
+      const before = o.redo ? (await Promise.all(batch.map(x => lastKept(root, { id: `glossary/${x.id}`, lang }, ['glossary'])))).filter(t => !!t && t.score < QUALITY_THRESHOLD).flatMap(t => t!.notes) : []
+      let w = await write([...new Set(before)])
       let r = await review(w)
+      const tries = [r]
       if (r.score < QUALITY_THRESHOLD) {
         const again = await write(r.notes)
         const r2 = await review(again)
+        tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
       }
       report.reviews.push(`${batch[0]!.id}…: ${r.score}${r.notes.length ? `\n  - ${r.notes.join('\n  - ')}` : ''}`)
@@ -240,13 +276,16 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
         const name = got?.name.trim() ?? ''
         const definition = got?.definition.replace(/<[^>]+>/g, '').trim() ?? ''
         if (!name || !definition) { report.failed.push(`${x.id}: left out`); continue }
-        const slug = x.slug ?? pickSlug(lang === 'th' || !slugify(name) ? x.en : name, lang === 'id' ? 'istilah' : 'term', taken)
+        const slug = x.slug ?? pickSlug(lang === 'th' || !slugify(name) ? x.en : name, TARGETS[lang].slugWords.term, taken)
         taken.add(slug)
         const t = TranslationSchema.parse({
           slug, name, altNames: [...new Set(got!.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 4), sections: {}, definition,
           quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD },
         })
         await writeFile(join(dir, x.id, `${lang}.json`), `${JSON.stringify(t, null, 2)}\n`)
+        // The batch's score is each term's; its notes, the ones about this term or none in particular.
+        const mine = itemReviews(tries, r, batch.map(y => [y.id, y.en, y.vi.name, w.terms.find(t => t.id === y.id)?.name ?? '']), batch.indexOf(x))
+        await logReviews(root, 'glossary', { id: `glossary/${x.id}`, lang }, mine.tries, mine.kept)
         report.done.push(x.id)
       }
     } catch (err) {
@@ -271,6 +310,22 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
 const PLACES_SCHEMA = { type: 'object', required: ['places'], properties: { places: { type: 'array', items: { type: 'object', required: ['id', 'name'], properties: { id: { type: 'string' }, name: { type: 'string' } } } } } }
 const VIETNAMESE = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i
 
+/** A place's line for the writer and the reviewer: its id, kind, where it is and its Vietnamese name. */
+export async function placeLine(dir: string, id: string): Promise<{ id: string; line: string }> {
+  const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { kind: string; parent?: string }
+  const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
+  return { id, line: `### ${id} (${e.kind}${e.parent ? `, in ${e.parent}` : ''}): ${vi.name ?? id}` }
+}
+
+/** A batch of place names in the language, as an atlas there writes them (0–1; notes: the wrong ones, quoted). */
+export async function reviewPlaces(llm: Llm, lang: TargetLang, batch: { id: string; line: string }[], named: Map<string, string>): Promise<Review> {
+  const r = await llm<{ score: number; notes: string[] }>({
+    system: `You check ${TARGETS[lang].lang} place names. Reply only with JSON.`, schema: REVIEW_SCHEMA,
+    prompt: `Score 0–1 how correct these ${TARGETS[lang].lang} place names are, as an atlas in ${TARGETS[lang].country} writes them (1.0 all right; below 0.75 any wrong place, or a name not in ${TARGETS[lang].lang}). notes: the wrong ones, quoted.\n\n${batch.map(x => `${x.line} → ${named.get(x.id) || '(none)'}`).join('\n')}`,
+  })
+  return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
+}
+
 /**
  * Place names (continents, countries, rivers, regions) in another site language, in batches, each batch checked once by
  * a reviewer. content/places/<id>/<lang>.json (addressed by the place's id, as in Vietnamese). A place left without a
@@ -281,9 +336,7 @@ export async function localizePlaces(root: string, llm: Llm, lang: TargetLang, o
   const todo: { id: string; line: string }[] = []
   for (const id of (await readdir(dir)).sort()) {
     if (!o.redo && (await readFile(join(dir, id, `${lang}.json`), 'utf8').then(() => true, () => false))) continue
-    const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { kind: string; parent?: string }
-    const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
-    todo.push({ id, line: `### ${id} (${e.kind}${e.parent ? `, in ${e.parent}` : ''}): ${vi.name ?? id}` })
+    todo.push(await placeLine(dir, id))
   }
   const report = { done: [] as string[], failed: [] as string[], stopped: '', reviews: [] as string[] }
   const size = o.batch ?? 100
@@ -292,17 +345,17 @@ export async function localizePlaces(root: string, llm: Llm, lang: TargetLang, o
     try {
       const w = await llm<{ places: { id: string; name: string }[] }>({ system: `You name places in ${TARGETS[lang].lang}. Reply only with JSON.`, schema: PLACES_SCHEMA, model: o.model, prompt: `${fill(PLACES, lang)}\n\n--- PLACES ---\n${batch.map(x => x.line).join('\n')}` })
       const named = new Map(w.places.map(p => [p.id, p.name.trim()]))
-      const r = await llm<{ score: number; notes: string[] }>({
-        system: `You check ${TARGETS[lang].lang} place names. Reply only with JSON.`, schema: REVIEW_SCHEMA,
-        prompt: `Score 0–1 how correct these ${TARGETS[lang].lang} place names are, as an atlas in ${TARGETS[lang].country} writes them (1.0 all right; below 0.75 any wrong place, or a name not in ${TARGETS[lang].lang}). notes: the wrong ones, quoted.\n\n${batch.map(x => `${x.line} → ${named.get(x.id) || '(none)'}`).join('\n')}`,
-      })
-      const score = Math.min(1, Math.max(0, Number(r.score) || 0))
-      report.reviews.push(`${batch[0]!.id}…: ${score}${r.notes?.length ? `\n  - ${r.notes.slice(0, 10).join('\n  - ')}` : ''}`)
+      const checked = await reviewPlaces(llm, lang, batch, named)
+      const score = checked.score
+      report.reviews.push(`${batch[0]!.id}…: ${score}${checked.notes.length ? `\n  - ${checked.notes.join('\n  - ')}` : ''}`)
       for (const x of batch) {
         const name = named.get(x.id) ?? ''
         if (!name || VIETNAMESE.test(name)) { report.failed.push(`${x.id}: no name`); continue }
         const t = TranslationSchema.parse({ slug: x.id, name, altNames: [], sections: {}, quality: { score, indexable: score >= QUALITY_THRESHOLD } })
         await writeFile(join(dir, x.id, `${lang}.json`), `${JSON.stringify(t, null, 2)}\n`)
+        // The batch's score is each place's; its notes, the ones about this place or none in particular.
+        const mine = itemReviews([checked], checked, batch.map(y => [y.id, y.line.replace(/^### [^:]*: /, ''), named.get(y.id) ?? '']), batch.indexOf(x))
+        await logReviews(root, 'places', { id: `places/${x.id}`, lang }, mine.tries, mine.kept)
         report.done.push(x.id)
       }
     } catch (err) {

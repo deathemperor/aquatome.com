@@ -1,0 +1,44 @@
+{
+  "id": "ancharius-fuscus",
+  "native": {
+    "input": "3cd02605ab9a0c36",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: widely distributed along eastern-draining rivers of Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancharius fuscus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338036,
+    "datasets": [
+      [
+        "84dbaec2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "MG"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

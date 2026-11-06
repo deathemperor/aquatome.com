@@ -7,13 +7,252 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "bolivia",
+    "amazon",
+    "brazil",
+    "colombia",
+    "peru",
+    "ecuador"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BO",
+        "BR",
+        "CO",
+        "PE",
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Branco"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The specimens described here originate from Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador.",
+          "countries": [
+            "BO",
+            "BR",
+            "CO",
+            "PE",
+            "EC"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Rio Branco, Amazonas.",
+          "countries": [],
+          "regions": [
+            "Rio Branco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202435,
+      "total": 34,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          22
+        ],
+        [
+          "GY",
+          5
+        ],
+        [
+          "BO",
+          3
+        ],
+        [
+          "PE",
+          2
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          -50.625,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
       }
     ]
   },
@@ -23,6 +262,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amaralia-hypsiura/",
       "html": "<p>Banjo catfishes are subjects for lovers of calm fishes. These creatures will not swim even an inch if it is not absolutely necessary. Amaralia hypsiura attains a length of about 12 cm and can be easily recognized by the much reduced dorsal fin.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
+      "html": "<p>Common name: Two Rayed Banjo Catfish. Family: Aspredinidae. Size: 13 cm. Temperature: 22–24°C. pH: 6.0–8.0.</p><p>IUCN Red List: despite the limited information available on this species, it is assessed as Least Concern due to its wide range and lack of major threats (IUCN 2021).</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -37,10 +282,28 @@
       "html": "<p>The species has a very wide distribution in South America. The specimens described here originate from Venezuela.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
+      "html": "<p>South America: Amazon river basin, Bolivia, Brazil, Colombia, Peru, Ecuador. Type locality: Rio Branco, Amazonas.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
+      "html": "<p>Prefers a secluded tank with non-aggressive tank mates.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amaralia-hypsiura/",
       "html": "<p>While researching the new species it was found that all Amaralia feed almost exclusively on eggs and freshly hatched young fish with a large yolk sac of other fish species, most often obviously on loricariids.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
+      "html": "<p>Small invertebrates and tubifex. Tablet foods are also taken. In their natural habitat Amaralia feed almost exclusively on eggs and freshly hatched young fish with a large yolk sac of other fish species.</p>"
     },
     {
       "key": "behaviour",
@@ -53,6 +316,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amaralia-hypsiura/",
       "html": "<p>Until recently only one species was recognized in Amaralia, namely A. hypsiura, but a second species, A. oviraptor, has now been described from the Paraná-Paraguay-system. It looks almost identical to A. hypsiura.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
+      "html": "<p>There are only two described species in the genus (2020), the other one being Amaralia oviraptor Friel &amp; Carvalho, 2016, which is found in the Paraná-Paraguay system whereas A. hypsiura is found further north. The two species are nearly identical. The Amaralia genus have a slender 2 rayed dorsal fin. There also appears to be an undescribed species from Venezuela.</p><p>Etymology: the genus name Amaralia: -ia, belonging to herpetologist (and anti-venom serum expert) Afrânio do Amaral (1894–1982), in honour of his work in Brazilian natural history. The specific name hypsiura: hypselos, high or tall; oura, tailed, referring to the thick (or high) caudal peduncle.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Frederico, R.G. 2021. Amaralia hypsiura. The IUCN Red List of Threatened Species 2021.</p><p>Grant, S. (2021): Banjos, Dorads and Woodcats. Aspredinidae, Doradidae and Auchenipteridae Catfishes. ATS-Aquashop, Neustadt am Rübenberge: 1-300.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -61,17 +336,6 @@
       "thumb": "https://media.aquatome.com/scotcat/a9c2536984720967-480.webp",
       "width": 500,
       "height": 295,
-      "licence": "dùng với sự cho phép",
-      "author": "Robin Warne / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
-      "caption": "Amaralia hypsiura",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/a74aec4d6da376d5.webp",
-      "thumb": "https://media.aquatome.com/scotcat/a74aec4d6da376d5-480.webp",
-      "width": 500,
-      "height": 338,
       "licence": "dùng với sự cho phép",
       "author": "Robin Warne / ScotCat",
       "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
@@ -88,20 +352,34 @@
       "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
       "caption": "Amaralia hypsiura",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/80a71915df5b21ee.webp",
-      "thumb": "https://media.aquatome.com/scotcat/80a71915df5b21ee-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm",
-      "caption": "Amaralia hypsiura: dorsal view",
-      "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kDM1SGuRa8Y",
+      "title": "Amaralia hypsiura",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FCDs8U74Vu8",
+      "title": "Amaralia hypsiura",
+      "durationSec": 32,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1B3KzMz8cP4",
+      "title": "RARE FISH Amaralia hypsiura Predatory Fish Keepers forum",
+      "durationSec": 136,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xEmPbMdnJ8o",
+      "title": "RARE feeding footage Amaralia hypsiura Two Rayed Banjo Catfish Predatory Fish forum",
+      "durationSec": 136,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -123,5 +401,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-06"
 }

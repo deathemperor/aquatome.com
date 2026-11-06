@@ -71,3 +71,12 @@ test('AquaTome guides are written separately in each language: the Indonesian an
   expect(splitSections(after.body).sections).toHaveLength(5)
   expect((await read(root, 'aquatome-light')).body).toBe(`${h('Đèn')}${h('Lọc')}`)
 })
+
+test("a guide in a language the site doesn't serve yet is read too, under its own key", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'tc-ms-'))
+  await mkdir(join(root, 'content/guides/lighting'), { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'content/guides/lighting/ms.json'), JSON.stringify(guide))
+  const r = await topicCheck(root, (async () => ({ offTopic: [] })) as never, { limit: 5 })
+  expect(r.checked).toEqual(['lighting:ms'])
+})

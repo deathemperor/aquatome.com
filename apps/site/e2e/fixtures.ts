@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test'
+import { test as base, expect, type Page } from '@playwright/test'
 
 /**
  * Every check runs offline from third parties (ads, analytics, video, photo hosts): only the site itself loads, so a
@@ -22,3 +22,9 @@ export { expect }
 export const VIETNAMESE = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i
 /** Vietnamese that belongs on other languages' pages: a decree's official number. */
 export const VIETNAMESE_ALLOWED = [/\d+\/\d{4}\/NĐ-CP/g, /Tiếng Việt/g]
+
+/** A fish page's full data card, open: a phone has it closed under the key facts ("Xem đủ bảng"); a computer, open. */
+export async function openCard(page: Page) {
+  const fold = page.locator('.facts details.full')
+  if (await fold.count() && !(await fold.evaluate(d => (d as HTMLDetailsElement).open))) await fold.locator(':scope > summary').click()
+}

@@ -30,6 +30,7 @@ struct AccountSection: View {
         Button("Đồng bộ ngay") { Task { await account.sync() } }
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
+          .accessibilityValue(ownerForTests)
         if account.offersPasskey {
           Button("Thêm passkey") { Task { await account.addPasskey() } }
             .disabled(account.working || account.signingInAgain)
@@ -59,6 +60,15 @@ struct AccountSection: View {
         Button("Xóa tài khoản vĩnh viễn", role: .destructive) { Task { await account.deleteAccount() } }
       }
     }
+  }
+
+  /// The UI tests wait here for the owner's dashboard to have asked about this account; nothing in a release build.
+  private var ownerForTests: String {
+    #if DEBUG
+    account.owner.isOwner.map { $0 ? "owner" : "not owner" } ?? ""
+    #else
+    ""
+    #endif
   }
 
   /// The UI tests wait for a sync by this count; nothing for VoiceOver in a release build.
@@ -144,8 +154,8 @@ private struct Fine: View {
         // A list footer is grey already.
         .foregroundStyle(centered ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))
       HStack(spacing: 16) {
-        Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan"))!)
-        Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!)
+        Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan"))!)
+        Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!)
       }
     }
     .multilineTextAlignment(centered ? .center : .leading)

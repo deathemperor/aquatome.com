@@ -1,0 +1,98 @@
+{
+  "id": "aphyosemion-herzogi",
+  "native": {
+    "input": "e3f7413af7eb3a81",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Herzog's lyretail, Aphyosemion herzogi, is a killifish described from northern Gabon and also found in Equatorial Guinea and southern Cameroon.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Herzog's lyretail, Aphyosemion herzogi, is a killifish described from northern Gabon and also found in Equatorial Guinea and southern Cameroon.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Herzog's lyretail, Aphyosemion herzogi, is a killifish described from northern Gabon and also found in Equatorial Guinea and southern Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogooué",
+        "source": "seriouslyfish",
+        "quote": "In Gabon it occurs in the Ivindo and Okano drainages, both tributaries of the Ogooué system.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Ivindo",
+        "source": "seriouslyfish",
+        "quote": "In Gabon it occurs in the Ivindo and Okano drainages, both tributaries of the Ogooué system.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Okano",
+        "source": "seriouslyfish",
+        "quote": "In Gabon it occurs in the Ivindo and Okano drainages, both tributaries of the Ogooué system.",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Benito River",
+        "source": "seriouslyfish",
+        "quote": "It is also known from the upper parts of some Benito River tributaries in Equatorial Guinea and from the Ntem River in Cameroon.",
+        "country": "GQ",
+        "ok": true
+      },
+      {
+        "name": "Ntem River",
+        "source": "seriouslyfish",
+        "quote": "It is also known from the upper parts of some Benito River tributaries in Equatorial Guinea and from the Ntem River in Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion herzogi",
+    "status": "ACCEPTED",
+    "taxonKey": 2348388,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ]
+    ],
+    "native": [
+      "GA",
+      "GQ",
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

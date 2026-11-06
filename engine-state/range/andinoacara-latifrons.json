@@ -1,0 +1,180 @@
+{
+  "id": "andinoacara-latifrons",
+  "native": {
+    "input": "f1a6ed86b62b1622",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The animals described here are German offspring descended from parent fish caught in the Rio Atrato in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Atrato",
+        "source": "glaser",
+        "quote": "The animals described here are German offspring descended from parent fish caught in the Rio Atrato in Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Andinoacara latifrons",
+    "status": "ACCEPTED",
+    "taxonKey": 7856519,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        1312
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        396
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        184
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        125
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        49
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        34
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        21
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        11
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        11
+      ],
+      [
+        "1a017764-ffb6-4880-801f-27e209a1f7e0",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "22615daa-7f09-4a71-8cdf-d168170e67dd",
+        5
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "9d17ddab-7d47-4ef7-bb28-ee90b593249c",
+        3
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        3
+      ],
+      [
+        "14e51da8-2284-4fc6-8c9b-0146681910b9",
+        2
+      ],
+      [
+        "6a3aa184-0a82-41f1-bdef-dfb9eea5310e",
+        2
+      ],
+      [
+        "80099991-9ab4-4c95-9105-1c6b144f9406",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        2
+      ],
+      [
+        "36a3db3b-b0dd-4e6a-8c8b-c75e8261aaad",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "5cd7bc3e-3c7d-49a2-8619-70e8e692177b",
+        1
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a42f9427-5b5e-4531-90e2-1a1f30cdb813",
+        1
+      ],
+      [
+        "d7d23b73-9119-494d-b3ca-40da6f7bd3ed",
+        1
+      ],
+      [
+        "dc0c723c-3713-4e1a-aa55-61ade632b15c",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 14,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

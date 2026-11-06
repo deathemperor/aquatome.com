@@ -10,6 +10,61 @@
     "turkey",
     "lake-ac"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [
+        "Lake Acı",
+        "Anatolia",
+        "Taurus mountains"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Acı toothcarp, Anatolichthys transgrediens, is endemic to the Lake Acı basin in the Turkish Lakes region of southwestern Anatolia, Turkey.",
+          "countries": [
+            "TR"
+          ],
+          "regions": [
+            "Lake Acı",
+            "Anatolia"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Lake Acı (often spelled \"Aci\") basin in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey where it has been considered critically endangered by the IUCN since 1996.",
+          "countries": [],
+          "regions": [
+            "Taurus mountains"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11688543,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          36.5625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

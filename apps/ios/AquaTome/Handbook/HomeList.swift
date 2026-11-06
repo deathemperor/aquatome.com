@@ -3,7 +3,7 @@ import SwiftUI
 
 /// The handbook before a search, as the site's home and lists arrange it: what the reader saved and read last; fish by
 /// group, then the well-known ones; plants by where they go, then easy ones; the first guides, then guides by subject;
-/// the video series and every video guide; the tools; the glossary. Each way in leads to one shelf of pages
+/// the video series and every video guide; equipment; the tools; the glossary. Each way in leads to one shelf of pages
 /// (BrowseView), never to everything at once.
 struct HomeList: View {
   @Environment(HandbookModel.self) private var handbook
@@ -39,6 +39,7 @@ struct HomeList: View {
 /// The ways into each kind, as the site's home and lists arrange them.
 private struct Shelves: View {
   let shelves: HandbookShelves
+  @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
     Section {
@@ -79,6 +80,11 @@ private struct Shelves: View {
       }
     }
 
+    let kit = shelves.all(.equipment)
+    if !kit.isEmpty {
+      Section("Thiết bị") { ForEach(kit) { Row(item: $0) } }
+    }
+
     let tools = shelves.all(.tool)
     if !tools.isEmpty {
       Section("Công cụ") { ForEach(tools) { Row(item: $0) } }
@@ -86,9 +92,19 @@ private struct Shelves: View {
     Section("Thuật ngữ") {
       AllLink(browse: .glossary, count: shelves.all(.glossary).count, title: "Tất cả", id: "all-glossary")
     }
+    // What's new on the site, as its menu and footer offer it, with the day of its newest: the list stops at the site's
+    // 200, so a count would say nothing.
+    if let newest = handbook.latest.first {
+      Section {
+        NavigationLink(value: Browse.latest) {
+          LabeledContent { Text(verbatim: newest.entry.shown).monospacedDigit() } label: { Text("Mới cập nhật") }
+        }
+        .accessibilityIdentifier("all-latest")
+      }
+    }
     // How to reach AquaTome, signed in or not: the site's contact page, in the browser.
     Section {
-      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!).accessibilityIdentifier("contact")
+      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!).accessibilityIdentifier("contact")
     }
   }
 }

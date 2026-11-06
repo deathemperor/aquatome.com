@@ -27,6 +27,21 @@
         "source": 4,
         "value": 15
       }
+    ],
+    "difficulty": [
+      {
+        "source": 8,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 8,
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
     ]
   },
   "photos": [
@@ -37,6 +52,7 @@
       "height": 853,
       "licence": "Unsplash License",
       "author": "Nuri Hasanah",
+      "authorUrl": "https://unsplash.com/@adha_nuri?utm_source=aquatome&utm_medium=referral",
       "sourceUrl": "https://unsplash.com/photos/blue-and-white-fish-in-water-4Bhgie8hYiU?utm_source=aquatome&utm_medium=referral",
       "report": "https://api.unsplash.com/photos/4Bhgie8hYiU/download?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NXx8cGxhdGludW0lMjBhbmdlbGZpc2h8ZW58MXx8fHwxNzkzMzc5NDc3fDA",
       "caption": "Cá thần tiên platinum màu trắng bạc bơi trong bể trồng cây"
@@ -48,6 +64,7 @@
       "height": 1920,
       "licence": "Unsplash License",
       "author": "Nuri Hasanah",
+      "authorUrl": "https://unsplash.com/@adha_nuri?utm_source=aquatome&utm_medium=referral",
       "sourceUrl": "https://unsplash.com/photos/white-and-gray-fish-in-water-KbVtV-KQ_-U?utm_source=aquatome&utm_medium=referral",
       "report": "https://api.unsplash.com/photos/KbVtV-KQ_-U/download?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8N3x8cGxhdGludW0lMjBhbmdlbGZpc2h8ZW58MXx8fHwxNzkzMzc5NDc3fDA",
       "caption": "Hai cá thần tiên platinum trắng bạc trong bể thủy sinh"
@@ -101,6 +118,12 @@
       "title": "Cá Thần Tiên Platinum – Dau Aquarium",
       "kind": "shop",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.saltwaterfish.com/product-platinum-angelfish-pterophyllum-scalare",
+      "title": "Platinum Angelfish – saltwaterfish.com",
+      "kind": "shop",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

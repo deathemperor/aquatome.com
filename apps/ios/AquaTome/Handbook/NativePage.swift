@@ -1,5 +1,6 @@
 import Handbook
 import SwiftUI
+import Telemetry
 import UIKit
 
 /// A page the app draws itself from the site's blocks (PageDoc, kept on the phone by PageCache): the site's page, read
@@ -16,12 +17,20 @@ struct NativePage: View {
   let web: () -> Void
   /// Told whether the page's name is on the screen (iOS 18 on): the bar shows it only once it has scrolled away.
   var nameInView: (Bool) -> Void = { _ in }
+  /// The page's path on the site, for the app's anonymous telemetry (PageReading).
+  var path: String?
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
+  @Environment(\.scenePhase) private var phase
+  /// This page being read: how far down and how long, its shop links (made when it first shows).
+  @State private var reading: PageReading?
   @Environment(\.openScreen) private var openScreen
   @State private var tip: Tip?
   /// A page of the site the app can't show itself (one the index leaves out, a tool set by the link): the web page, in
   /// the app.
   @State private var onSite: URL?
+  /// Its videos' player, one at a time (PagePlayer).
+  @State private var player = PagePlayer()
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
   @AccessibilityFocusState private var focus: String?
 
@@ -35,6 +44,8 @@ struct NativePage: View {
     /// above its name.
     case photo(src: String, ratio: CGFloat, alt: String?, caption: AttributedString, credit: AttributedString? = nil, href: URL?, play: Bool = false,
                hero: Bool = false)
+    /// A video, played in the page (VideoSlot); its caption's chapters seek it.
+    case video(id: String, title: String, caption: AttributedString)
     /// Other pages the index lists, each opening in the app.
     case pages(String, [String])
     /// Other pages as rows drawn from what they carry (tank-mates, breeds), each opening in the app, or else on the web;
@@ -89,8 +100,18 @@ struct NativePage: View {
       }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
+      // A chapter or a still tapped: its video in view.
+      .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
+    .environment(player)
     .accessibilityIdentifier("native-page")
+    .onAppear {
+      if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
+      reading?.shown(true)
+    }
+    .onDisappear { reading?.shown(false) }
+    .onChange(of: phase) { reading?.inFront(phase == .active) }
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
@@ -145,6 +166,8 @@ struct NativePage: View {
         if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
         if let credit { Text(credit).foregroundStyle(.secondary).tint(Color.secondary).padding(.horizontal, hero ? nil : 0) }
       }
+    case let .video(id, title, caption):
+      VideoSlot(id: id, title: title, caption: caption)
     case let .pages(title, paths):
       PagesBlock(title: title, paths: paths)
     case let .cards(title, cards, good):
@@ -204,6 +227,15 @@ struct NativePage: View {
     case "page-tip":
       tip = Tip(url)
       return .handled
+    case "page-video":
+      // A chapter or a still: the page's player at its time; a video the page doesn't show, on YouTube.
+      guard let (id, at) = PagePlayer.asked(url) else { return .handled }
+      if pieces.contains(where: { if case let .video(v, _, _) = $0 { v == id } else { false } }) {
+        player.ask(id, at: at, lang: handbook.lang, site: handbook.site)
+      } else {
+        UIApplication.shared.open(youtube(id, at: at))
+      }
+      return .handled
     default:
       let u = url.scheme == nil ? URL(string: url.relativeString, relativeTo: handbook.site)?.absoluteURL ?? url : url
       if let screen = AppScreen.of(u, site: handbook.site, listed: { handbook.item(at: $0) != nil },
@@ -213,6 +245,7 @@ struct NativePage: View {
       }
       // A shop: outside, as the site opens it in a new tab (not a page here that only redirects away).
       if ShopLink.is(u, site: handbook.site) {
+        reading?.tapped(u)
         Task { await OwnCopy.open(u, site: handbook.site) }
         return .handled
       }
@@ -245,12 +278,12 @@ struct NativePage: View {
       var cap = styled("\(v.title) · \(v.channel) · \(clock(v.durationSec))")
       if let s = v.subtitles { cap += styled("\n" + s, .caption.bold()) }
       for ch in v.chapters ?? [] {
-        var line = AttributedString("\n\(clock(ch.at))  \(ch.title)")
-        line.link = youtube(v.youtubeId, at: ch.at)
-        cap += line
+        // The link its line alone, not the line break before it: tapped and read where it shows.
+        var line = AttributedString("\(clock(ch.at))  \(ch.title)")
+        line.link = PagePlayer.link(v.youtubeId, at: ch.at)
+        cap += AttributedString("\n") + line
       }
-      out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"), caption: cap,
-                        href: youtube(v.youtubeId, at: 0), play: true))
+      out.append(.video(id: v.youtubeId, title: v.title, caption: cap))
     }
     if species {
       // As the site's data card: the facts, the sources behind them, then whose text the page is.
@@ -317,7 +350,7 @@ struct NativePage: View {
       out.append(.text(styled(title, .headline), look: .subheading))
       for s in items {
         out.append(.photo(src: s.img.src, ratio: CGFloat(s.img.w) / CGFloat(s.img.h), alt: s.img.alt, caption: styled("\(clock(s.at)) · \(s.caption)"),
-                          href: youtube(id, at: s.at), play: true))
+                          href: PagePlayer.link(id, at: s.at), play: true))
       }
     case let .summary(title, items, paragraph, mistakes, by):
       out.append(.text(styled(title, .pageHeading), look: .heading))
@@ -384,8 +417,7 @@ struct NativePage: View {
       out.append(.text(styled(title, .pageHeading), look: .heading))
       for v in items {
         let length = v.durationSec > 0 ? " · \(clock(v.durationSec))" : ""
-        out.append(.photo(src: PageDoc.thumbnail(v.youtubeId), ratio: 16 / 9, alt: String(localized: "Phát video: \(v.title)"),
-                          caption: styled("\(v.title)\(length) · \(v.lang)"), href: youtube(v.youtubeId, at: 0), play: true))
+        out.append(.video(id: v.youtubeId, title: v.title, caption: styled("\(v.title)\(length) · \(v.lang)")))
       }
     }
   }
@@ -431,12 +463,23 @@ private struct Tip {
   }
 }
 
-/// A photo's credit as the site gives it, wherever the app shows the photo: who took it, its licence, linking its own page.
+/// A photo's credit as the site gives it, wherever the app shows the photo: who took it, its licence, linking its own page;
+/// an Unsplash photo's, its photographer's name linking their page and "Unsplash" Unsplash's (PageDoc.Image.Credit).
 func credit(_ img: PageDoc.Image) -> AttributedString? {
-  guard let c = img.credit else { return nil }
-  var line = AttributedString(c.licence.isEmpty ? c.text : c.text + " · " + c.licence)
+  img.credit.map { credit($0) }
+}
+
+/// A credit's line, each piece linking where it says. `photo` false: the photo's own page linked nowhere in it.
+func credit(_ c: PageDoc.Image.Credit, photo: Bool = true) -> AttributedString {
+  let parts = c.parts(photo: photo)
+  var line = parts.reduce(into: AttributedString()) { s, p in
+    var a = AttributedString(p.text)
+    a.link = p.link.flatMap(URL.init(string:))
+    // Some of the line linking and the rest not: its links underlined, as the site's are, so it's seen which words are.
+    if parts.count > 1, a.link != nil { a[AttributeScopes.SwiftUIAttributes.UnderlineStyleAttribute.self] = .single }
+    s += a
+  }
   line.font = .caption2
-  line.link = c.url.flatMap(URL.init(string:))
   return line
 }
 
@@ -500,7 +543,7 @@ private struct CardsPart: View {
   @ScaledMetric(relativeTo: .body) private var thumb: CGFloat = 56
   /// The width each of a credit's numbers takes: 44 points to tap, as the app's other small controls have.
   @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
-  private typealias CreditRow = (line: AttributedString, who: String, licence: String, urls: [String?])
+  private typealias CreditRow = (line: AttributedString, who: String, licence: String, profile: String?, urls: [String?])
 
   var body: some View {
     let thumbs = cards.contains { $0.img != nil }
@@ -534,27 +577,30 @@ private struct CardsPart: View {
     }
   }
 
-  /// The cards' photos as the site's credits list has them: one row per author and licence, first seen first, each with
-  /// its line (linking the photo's page while it's the only one), who took them and every photo's own page, the same
+  /// The cards' photos as the site's credits list has them: one row per line (an Unsplash photo's names its photographer),
+  /// licence and photographer's page (two Unsplash photographers can share a name), first seen first, each with its line (linking the photo's page while it's
+  /// the only one and no photographer's page is linked), who took them, their page and every photo's own page, the same
   /// page once (nil: a photo without one).
   private var creditRows: [CreditRow] {
     cards.compactMap(\.img).reduce(into: []) { rows, img in
-      guard let line = credit(img), let c = img.credit else { return }
-      if let i = rows.firstIndex(where: { $0.who == c.text && $0.licence == c.licence }) {
+      guard let c = img.credit else { return }
+      if let i = rows.firstIndex(where: { $0.who == c.text && $0.licence == c.licence && $0.profile == c.authorUrl }) {
         if c.url == nil || !rows[i].urls.contains(c.url) {
           rows[i].urls.append(c.url)
-          rows[i].line.link = nil
+          // Each photo's page is its number now: the line keeps a photographer's page and Unsplash's.
+          rows[i].line = credit(c, photo: false)
         }
       } else {
-        rows.append((line, c.text, c.licence, [c.url]))
+        rows.append((credit(c, photo: c.authorUrl == nil), c.text, c.licence, c.authorUrl, [c.url]))
       }
     }
   }
 
-  /// One photo: its line, linking its page. Several: the line once with how many, then a number for each linking its
-  /// own page (none for a photo without one), each read to VoiceOver as whose photo it is, as the site's are.
+  /// One photo: its line, linking its page. Several, or one whose line links its photographer's page (an Unsplash
+  /// photo's): the line once with how many, then a number for each linking its own page (none for a photo without one),
+  /// each read to VoiceOver as whose photo it is, as the site's are.
   @ViewBuilder private func creditRow(_ row: CreditRow) -> some View {
-    if row.urls.count == 1 {
+    if row.urls.count == 1 && row.profile == nil {
       Text(row.line)
     } else {
       Text(row.line) + Text(verbatim: " · ").font(.caption2) + Text("\(row.urls.count) ảnh").font(.caption2)
@@ -607,14 +653,30 @@ private struct PagesBlock: View {
   var body: some View {
     let items = paths.compactMap(handbook.item(at:))
     if !items.isEmpty {
+      let shown = PageList.inPlace(items.count)
       VStack(alignment: .leading, spacing: 8) {
         Text(title).font(.pageHeading).accessibilityAddTraits(.isHeader)
         // As in a list of results: a tool opens its tab (AppScreen), a page pushes on this one. In one panel, as the
         // page's other rows of pages (CardsPart) are.
         VStack(alignment: .leading, spacing: 0) {
-          ForEach(Array(items.enumerated()), id: \.element.id) { j, item in
+          ForEach(Array(items.prefix(shown).enumerated()), id: \.element.id) { j, item in
             if j > 0 { Divider().padding(.leading, 12) }
             Row(item: item, chevron: true, inPanel: true).buttonStyle(.plain)
+          }
+          // The whole list, in a list that draws its rows as they scroll in.
+          if shown < items.count {
+            Divider().padding(.leading, 12)
+            NavigationLink(value: Browse.pages(title, paths)) {
+              HStack {
+                Text("Xem tất cả \(items.count)")
+                Spacer()
+                Image(systemName: "chevron.right").foregroundStyle(.tertiary)
+              }
+              .padding(12)
+              .contentShape(.rect)
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("pages-all")
           }
         }
         .background(.fill.quaternary, in: .rect(cornerRadius: 12))
@@ -695,6 +757,12 @@ private struct ReadersPart: View {
   @State private var reporting: ReaderItem?
   @State private var blocking: ReaderItem?
   @State private var managing = false
+  #if DEBUG
+  /// This page's read has ended (answered, or failed): only then can a UI test say the page shows none (debug builds).
+  /// Each time the page shows, it reads again and this is false until that read ends. It says nothing of the section
+  /// shown for posting: that one shows whenever accounts are open, read or not.
+  @State private var answered = false
+  #endif
 
   var body: some View {
     // Posting needs an account: where the site has none, a section with nothing in it would only be empty.
@@ -713,7 +781,7 @@ private struct ReadersPart: View {
           if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
           GalleryRow(title: String(localized: "Ảnh bạn đọc"), note: "", photos: shownPhotos.map {
-            PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: ($0.name, "", nil))
+            PageDoc.Image(src: $0.url, w: $0.width, h: $0.height, alt: String(localized: "Ảnh của \($0.name)"), thumb: $0.thumb, credit: PageDoc.Image.Credit(text: $0.name, licence: "", url: nil))
           }, strip: Array(shownPhotos.indices.prefix(10)), all: "readers-all", readers: shownPhotos.map(ReaderItem.init))
         }
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.buttonStyle(.bordered).accessibilityIdentifier("post-photo") }
@@ -751,12 +819,23 @@ private struct ReadersPart: View {
     }
     // Its own space above, when it shows anything (or says what it hides): none for a page with no readers' part.
     .padding(.top, showsPhotos || showsComments || hidden > 0 ? 40 : 0)
+    #if DEBUG
+    .background {
+      if answered { Text(verbatim: "read").font(.system(size: 1)).fixedSize().opacity(0.01).accessibilityIdentifier("readers-read") }
+    }
+    #endif
     .task(id: talk) {
       // Read again each time the page shows; one that fails (offline, or left before it came) keeps what was shown.
+      #if DEBUG
+      answered = false
+      #endif
       let (c, p) = await handbook.readers(talk)
       guard !Task.isCancelled else { return }
       if let c { comments = c }
       if let p { photos = p }
+      #if DEBUG
+      answered = true
+      #endif
     }
     .sheet(item: $posting) { kind in
       ReaderPost(kind: kind, key: (kind == .comment ? talk.comments : talk.photos) ?? "", name: name) { c in
@@ -795,6 +874,24 @@ private struct InView: ViewModifier {
   func body(content: Content) -> some View {
     if #available(iOS 18, *), let report {
       content.onScrollVisibilityChange(threshold: 0.3, report)
+    } else {
+      content
+    }
+  }
+}
+
+/// Reports the share of the page seen down to as it scrolls past each of the site beacon's marks, 50 and 90% (iOS 18
+/// on; as the site's pages measure it: the bottom of the screen against the page's height).
+private struct SeenDown: ViewModifier {
+  let report: (Double) -> Void
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content.onScrollGeometryChange(for: Int.self) { g in
+        let share = g.contentSize.height > 0 ? 100 * g.visibleRect.maxY / g.contentSize.height : 0
+        return Event.depths.last { share >= Double($0) } ?? 0
+      } action: { _, mark in
+        report(Double(mark) / 100)
+      }
     } else {
       content
     }

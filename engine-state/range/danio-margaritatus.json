@@ -1,0 +1,76 @@
+{
+  "id": "danio-margaritatus",
+  "native": {
+    "input": "b4275f755c0cafd6",
+    "at": "2026-11-05T16:38:28.515Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "It is native to Southeast Asia, specifically the Shan State in Myanmar, and was first discovered in 2006 by a German aquarist named Tanja Schwedt.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The celestial pearl danio, Danio margaritatus, is a miniature cyprinid from the Salween drainage in Shan State, eastern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's since been found in waters associated with the Salween (aka Thanlwin) River throughout southern Shan and even across the border in northern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "It's since been found in waters associated with the Salween (aka Thanlwin) River throughout southern Shan and even across the border in northern Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio margaritatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2362708,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T16:38:28.515Z"
+  }
+}

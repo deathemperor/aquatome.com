@@ -9,12 +9,14 @@ export function placeTip(term: Box, w: number, h: number, viewW: number, viewH: 
 }
 
 /** Glossary terms, and source marks (lib/cite.ts: a text source's number, a photo's ©), which use the same card. */
-const SEL = 'a.gl[data-tip], a.cite[data-tip]'
+// A photo's © has no tip when it has no licence to name: its card is its author and the link to the photo's page.
+const SEL = 'a.gl[data-tip], a.cite[data-tip], a.cite.pic'
 
 /**
  * Glossary terms in the text (a.gl, dotted underline, with data-term / data-tip): hovering or focusing one shows what it
- * means and a click still opens its page. On a touch screen the first tap shows the card, with a link to the page; a second
- * tap on the term opens it too.
+ * means and a click still opens its page. On a touch screen a tap shows the card, with a link to the page, and a second
+ * tap on the term closes it: only the card's link leaves the page, so a finger that misses (a data card's label, a
+ * source's mark) never does.
  */
 export function initGlossaryTips() {
   if (!document.querySelector(SEL)) return
@@ -32,9 +34,12 @@ export function initGlossaryTips() {
   function show(a: HTMLAnchorElement, tapped: boolean) {
     const name = document.createElement('strong')
     name.textContent = a.dataset.term ?? a.textContent
-    const text = document.createElement('p')
-    text.textContent = a.dataset.tip!
-    tip.replaceChildren(name, text)
+    tip.replaceChildren(name)
+    if (a.dataset.tip) {
+      const text = document.createElement('p')
+      text.textContent = a.dataset.tip
+      tip.append(text)
+    }
     if (tapped) {
       const more = document.createElement('a')
       more.href = a.href
@@ -80,7 +85,10 @@ export function initGlossaryTips() {
   document.addEventListener('focusout', e => { if (termOf(e) === open && !tip.classList.contains('tapped')) hide() })
   document.addEventListener('click', e => {
     const a = termOf(e)
-    if (a && touch && open !== a) { e.preventDefault(); show(a, true) }
+    if (!a || !touch) return
+    e.preventDefault()
+    if (open === a) hide()
+    else show(a, true)
   })
   document.addEventListener('keydown', e => { touch = false; if (e.key === 'Escape') hide() })
   addEventListener('resize', hide)

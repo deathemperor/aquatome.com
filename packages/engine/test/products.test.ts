@@ -1,4 +1,4 @@
-import { mkdtemp, readFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -40,7 +40,7 @@ test('marketplaces and their short links are never fetched', async () => {
 })
 
 test('makeProduct: research, then a page written from the facts only, checked against them; entity, Vietnamese and market files', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   const prompts: string[] = []
   const research: Llm = async <T,>() => facts as T
   const llm: Llm = async <T,>(a: { prompt: string; schema: object }) => {
@@ -65,13 +65,13 @@ test('makeProduct: research, then a page written from the facts only, checked ag
 })
 
 test('a product research could not find is skipped, nothing written', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   const r = await makeProduct(root, { research: (async () => ({ ...facts, found: false })) as Llm, llm: (async () => { throw new Error('not called') }) as Llm, get, now: () => new Date() }, { brand: 'X', model: 'Y', category: 'loc', kind: 'Lọc' })
   expect(r.skipped).toContain('not found')
 })
 
 test('a page that goes beyond the facts is rewritten once with the notes; the better-grounded one is kept', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   const prompts: string[] = []
   const scores = [0.6, 0.85]
   const llm: Llm = async <T,>(a: { prompt: string; schema: object }) => {
@@ -86,7 +86,7 @@ test('a page that goes beyond the facts is rewritten once with the notes; the be
 })
 
 test('research is kept; --redo rewrites from it without searching again', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'aq-pr-'))
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
   let searches = 0
   const research: Llm = async <T,>() => { searches++; return facts as T }
   const llm: Llm = async <T,>(a: { schema: object }) => ('score' in ((a.schema as { properties: object }).properties) ? { score: 0.9, notes: [] } : { name: 'x', summary: [], body: '', faq: [], labels: {} }) as T
@@ -96,4 +96,32 @@ test('research is kept; --redo rewrites from it without searching again', async 
   await makeProduct(root, d, ask, { factsDir: join(root, 'state'), reuse: true })
   expect(searches).toBe(1)
   expect(JSON.parse(await readFile(join(root, 'state/sunsun-hbl-802.json'), 'utf8')).specs[0].value).toBe('500 L/h')
+})
+
+test('makeProduct leaves the reviews\' work alone: research lists its sources again, the spec numbers follow them, cites stay', async () => {
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
+  const dir = join(root, 'products/sunsun-hbl-802')
+  await mkdir(dir, { recursive: true })
+  const video = 'https://www.youtube.com/watch?v=aaaaaaaaaaa'
+  const reviews = { agree: [], differ: [], single: [{ text: 'Một bài review thấy máy êm.', cites: [{ url: video, t: 90 }] }], measured: [] }
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ id: 'sunsun-hbl-802', brand: 'Sunsun', model: 'HBL-802', category: 'loc', specs: [], variants: [], sources: [{ url: video, title: 'Review', kind: 'video', at: '2026-10-01' }], reviews: { checkedAt: '2026-10-01', videos: [{ youtubeId: 'aaaaaaaaaaa', title: 'Review', durationSec: 600, lang: 'en', channel: 'Example' }] }, updatedAt: '2026-10-01' }))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ slug: 'sunsun-hbl-802', name: 'Lọc', altNames: [], sections: {}, reviews, quality: { score: 0.9, indexable: true } }))
+  const research: Llm = async <T,>() => facts as T
+  const llm: Llm = async <T,>(a: { schema: object }) => ('score' in (a.schema as { properties: object }).properties ? { score: 0.9, notes: [] } : { name: 'Lọc treo', summary: ['Hợp bể nhỏ.'], body: '<p>Bể nhỏ.</p>', faq: [], labels: {} }) as T
+  await makeProduct(root, { research, llm, get, now: () => new Date('2026-11-06T00:00:00Z') }, { brand: 'Sunsun', model: 'HBL-802', category: 'loc', kind: 'Lọc treo' })
+  const entity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  expect(entity.sources.map((s: { url: string }) => s.url)).toEqual(['https://maker.example', 'https://a.example/hbl', 'https://review.example', video])
+  expect(entity.specs.find((x: { key: string }) => x.key === 'Noise').source).toBe(2)
+  expect(entity.reviews.videos[0].youtubeId).toBe('aaaaaaaaaaa')
+  expect(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')).reviews).toEqual(reviews)
+})
+
+test('makeProduct can ask for a Vietnamese shop\'s price first: none, no writing and no page', async () => {
+  const root = join(await mkdtemp(join(tmpdir(), 'aq-pr-')), 'content') // engine-state beside it, as in the repository
+  let writes = 0
+  const llm: Llm = async <T,>() => { writes++; return {} as T }
+  const r = await makeProduct(root, { research: async <T,>() => ({ ...facts, prices: [] }) as T, llm, get, now: () => new Date('2026-11-06T00:00:00Z') }, { brand: 'Oase', model: 'Filtosmart 100', category: 'loc', kind: 'Lọc' }, { requireShopPrice: true })
+  expect(r).toEqual({ id: '', skipped: 'Oase Filtosmart 100: no Vietnamese shop shows a price' })
+  expect(writes).toBe(0)
+  await expect(readFile(join(root, 'products/oase-filtosmart-100/entity.json'), 'utf8')).rejects.toThrow()
 })

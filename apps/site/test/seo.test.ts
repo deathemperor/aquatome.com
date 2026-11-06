@@ -5,6 +5,8 @@ import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
 import { DIST, page } from './dist'
 import { VI_SECTIONS } from '../worker/paths'
+import { LANGS } from '@aq/schema/langs'
+import { APP_PAGES, APP_STATE } from '../src/lib/app'
 
 const htmlFiles = (dir: string): string[] =>
   readdirSync(dir).flatMap(f => { const p = join(dir, f); return statSync(p).isDirectory() ? htmlFiles(p) : p.endsWith('.html') ? [p] : [] })
@@ -22,7 +24,7 @@ test('every vi page has exactly one canonical and a vi hreflang', () => {
 })
 test('every page has one non-empty h1', () => {
   // Every language's pages (not the redirects: /go/…).
-  const bad = ['vi', 'id', 'th'].flatMap(langFiles).filter(f => {
+  const bad = LANGS.flatMap(langFiles).filter(f => {
     const h1 = readFileSync(f, 'utf8').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/g) ?? []
     return h1.length !== 1 || !h1[0]!.replace(/<[^>]+>/g, '').trim()
   })
@@ -92,9 +94,14 @@ test('markdown for agents: every page has index.md — front matter, headings, f
   expect(md).toMatch(/^-\s+\*\*Nhiệt độ:\*\* \d/m)
   expect(md).not.toMatch(/<[a-z][^>]*>/)
   expect(md).not.toContain('Gửi bình luận')
+  // Readers' photos load live: neither the fish's copy nor its gallery's has their section.
+  expect(md).not.toContain('Ảnh bạn đọc')
+  expect(readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'anh', 'index.md'), 'utf8')).not.toContain('Ảnh bạn đọc')
   expect(md).not.toContain('/go/')
   expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
-  expect(langFiles('vi').every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
+  // The app page has none while it's the owner's (worker/app-switch.ts).
+  const owners = APP_STATE === 'owner' ? APP_PAGES.map(p => join(DIST, p, 'index.html')) : []
+  expect(langFiles('vi').filter(f => !owners.includes(f)).every(f => existsSync(f.replace(/\.html$/, '.md')))).toBe(true)
 })
 test('agent discovery files: llms.txt, OpenAPI, skills index whose digest matches the SKILL.md bytes', () => {
   expect(readFileSync(join(DIST, 'llms.txt'), 'utf8')).toMatch(/^# AquaTome\n\n> /)

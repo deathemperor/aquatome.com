@@ -5,12 +5,13 @@ import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
 import type { Action, Block, FormField, Section } from '../admin/blocks'
-import { contentPage, contentSection } from '../admin/content-page'
+import { contentPage, contentSection, type ContentPage } from '../admin/content-page'
 import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewJson,
   overviewPage, photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection,
 } from '../admin/pages'
 import { ADMIN_PAGES, SECTIONS, sectionKey } from '../dashboard'
+import { reportsPage, reportsSection, type ReportsData } from '../daily/page'
 import { contract } from './contract'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
@@ -31,11 +32,27 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
       const c = { ...S.CONTENT, tz: 'America/New_York', snapshots: [S.SNAPSHOTS[0]!], stats: { ...S.STATS, engine: null, sources: {}, gaps: {} }, reads: { ...S.READS, byKind: [], top: [], unread: { n: 0, byKind: {}, pages: [] }, elsewhere: { views: 0, paths: 0 } } }
       return [['empty, elsewhere', () => contentPage(c), () => contentSection(c)] as [string, () => string, () => Section]]
     })(),
+    ...(() => {
+      const v = (name: string, c: ContentPage): [string, () => string, () => Section] => [name, () => contentPage(c), () => contentSection(c)]
+      return [
+        v('out of search', S.LOW_CONTENT),
+        v('out of search, no readers, elsewhere', { ...S.LOW_CONTENT, reads: F, tz: 'America/New_York' }),
+        v('out of search, none', { ...S.LOW_CONTENT, low: { v: 1, bar: 0.75, pages: [] } }),
+        v('out of search failed', { ...S.LOW_CONTENT, low: F }),
+      ]
+    })(),
   ],
   'doc-gia': [
     ['sample', () => readersPage(S.NOW, S.READERS, S.TZ), () => readersSection(S.NOW, S.READERS, S.TZ)],
     ['not set up', () => readersPage(S.NOW, undefined, S.TZ), () => readersSection(S.NOW, undefined, S.TZ)],
     ['failed', () => readersPage(S.NOW, F, S.TZ), () => readersSection(S.NOW, F, S.TZ)],
+    ...(() => {
+      const asks = { days: 14, rows: [{ cc: 'GB', shown: 5, picked: { vi: 2, id: 0, th: 1 } }, { cc: 'US', shown: 3, picked: { vi: 0, id: 0, th: 0 } }] }
+      return [
+        ['language chooser', () => readersPage(S.NOW, S.READERS, S.TZ, asks), () => readersSection(S.NOW, S.READERS, S.TZ, asks)],
+        ['language chooser failed', () => readersPage(S.NOW, S.READERS, S.TZ, F), () => readersSection(S.NOW, S.READERS, S.TZ, F)],
+      ] as [string, () => string, () => Section][]
+    })(),
   ],
   'ung-dung': [
     ['sample', () => appPage(S.NOW, false, S.APP, S.TZ), () => appSection(false, S.APP)],
@@ -82,6 +99,23 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['sample', () => accountsPage(S.ACCOUNTS, S.NOW, S.TZ), () => accountsSection(S.ACCOUNTS, S.NOW, S.TZ)],
     ['failed', () => accountsPage(F, S.NOW, S.TZ), () => accountsSection(F, S.NOW, S.TZ)],
   ],
+  'bao-cao': (() => {
+    const r = (name: string, d: ReportsData): [string, () => string, () => Section] => [name, () => reportsPage(d), () => reportsSection(d)]
+    return [
+      r('sample', S.REPORTS),
+      r('push on with no phone and no key, email off, none yet', { ...S.REPORTS, delivery: { settings: { email: false, push: true }, phones: 0, keyed: false }, xs: [] }),
+      r('push on with phones but no key', { ...S.REPORTS, delivery: { settings: { email: true, push: true }, phones: 2, keyed: false } }),
+      r('as before push, elsewhere', { ...S.REPORTS, tz: 'America/New_York', delivery: { settings: { email: true, push: false }, phones: 0, keyed: false } }),
+      r('both off, a report sent nowhere, one in part', {
+        ...S.REPORTS, delivery: { settings: { email: false, push: false }, phones: 1, keyed: true },
+        xs: [
+          { id: '1005', when: '2026-11-04T01:00:00.000Z', subject: 's <b>', sent: false, why: 'email_off', push: { sent: 0, why: 'push_off' }, care: 0 },
+          { id: '1004', when: '2026-11-04T00:30:00.000Z', subject: 't', sent: false, why: 'email_off', push: { sent: 1, why: 'TooManyRequests' }, care: 3 },
+        ],
+      }),
+      r('failed', { ...S.REPORTS, delivery: F, xs: F }),
+    ]
+  })(),
 }
 
 test('every dashboard page but the overview has a JSON form, under its path\'s name, in the contract and the samples', () => {
@@ -120,6 +154,7 @@ const REQUEST: Record<string, (v: Record<string, string>) => Omit<Req, 'label'>>
   '/_ab/photos': v => ({ method: 'POST', path: `/api/owner/photos/${v.id}`, body: { action: v.action } }),
   '/_ab/hidden': v => ({ method: 'POST', path: '/api/owner/hidden', body: { ...(v.url ? { path: v.url } : {}), hide: v.action !== 'unhide' } }),
   '/_ab/anh-nhan-dien/xoa': v => ({ method: 'DELETE', path: `/api/owner/fishid-shots/${v.who}/${v.id}` }),
+  '/_ab/bao-cao/cai-dat': v => ({ method: 'POST', path: '/api/owner/report-settings', body: Object.fromEntries(Object.entries(v).map(([k, x]) => [k, x === '1'])) }),
 }
 /** A form's field as the API names it. */
 const FIELD: Record<string, string> = { url: 'path' }
@@ -141,10 +176,10 @@ function formOf(f: HTMLElement): Form {
   }))
   return { method: req.method, path: req.path, fields, ...(req.body ? { body: req.body } : {}), submit: label }
 }
-/** What the page draws, in its order: headings (an h2's id with it), tiles (and the gaps' counts), charts, tables (and folded page lists), rows with buttons, forms. */
+/** What the page draws, in its order: headings (an h2's id with it), tiles (and the gaps' counts), charts, tables (and folded page lists, and lists of rows that each open a page), rows with buttons, forms, and buttons on their own (a form with nothing to fill). */
 function fromHtml(html: string) {
   const main = dom(html)
-  const out = { title: txt(main.querySelector('h1')), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], links: main.querySelectorAll('a').map(a => a.getAttribute('href') ?? ''), text: txt(main) }
+  const out = { title: txt(main.querySelector('h1')), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], actions: [] as Req[], links: main.querySelectorAll('a').map(a => a.getAttribute('href') ?? ''), text: txt(main) }
   const cell = (c: HTMLElement) => {
     const a = c.querySelectorAll('a')
     return { text: txt(c), ...(a.length === 1 && txt(a[0]) === txt(c) ? { href: a[0]!.getAttribute('href')! } : {}) }
@@ -155,7 +190,12 @@ function fromHtml(html: string) {
       const tag = n.tagName
       if ((tag === 'H2' || tag === 'H3') && !n.id.endsWith('-t')) out.headings.push(`${tag[1]} ${txt(n)}${tag === 'H2' && n.id ? ` #${n.id}` : ''}`)
       else if (tag === 'FORM') {
-        out.forms.push(formOf(n))
+        if (n.querySelectorAll('input, textarea').some(i => i.getAttribute('type') !== 'hidden')) out.forms.push(formOf(n))
+        else out.actions.push(...n.querySelectorAll('button').map(requestOf))
+        continue
+      }
+      else if (tag === 'UL' && n.classList.contains('areas')) {
+        out.tables.push({ rows: n.querySelectorAll('li').map(li => [cell(li)]) })
         continue
       }
       else if (tag === 'FIGURE' && n.getAttribute('aria-labelledby')?.endsWith('-t')) {
@@ -199,7 +239,7 @@ function fromHtml(html: string) {
 /** The same, from the blocks. */
 const reqOf = (a: Action): Req => ({ label: a.label, method: a.method, path: a.path, ...(a.body ? { body: a.body } : {}) })
 function fromJson(s: Section, withColumns: (t: Tab) => boolean) {
-  const out = { title: norm(s.title), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], switches: [] as { on: boolean; href: string }[], notes: [] as string[] }
+  const out = { title: norm(s.title), headings: [] as string[], figures: [] as Fig[], charts: [] as string[], tables: [] as Tab[], acts: [] as ActRow[], actsEmpty: [] as string[], forms: [] as Form[], actions: [] as Req[], switches: [] as { on: boolean; href: string }[], notes: [] as string[] }
   for (const b of s.blocks as Block[]) {
     if (b.kind === 'heading') out.headings.push(`${b.level} ${norm(b.text)}${b.anchor ? ` #${b.anchor}` : ''}`)
     else if (b.kind === 'figures') out.figures.push(...b.items.map(f => ({ label: norm(f.label), value: f.value, ...(f.sub ? { sub: norm(f.sub) } : {}), ...(f.delta ? { delta: norm(f.delta.text) } : {}) })))
@@ -215,6 +255,7 @@ function fromJson(s: Section, withColumns: (t: Tab) => boolean) {
         : { text: norm([x.path, x.note ?? '', x.since].join(' ')), buttons: x.actions.map(reqOf) })
     } else if (b.kind === 'form') out.forms.push({ method: b.method, path: b.path, fields: b.fields, ...(b.body ? { body: b.body } : {}), submit: b.submit })
     else if (b.kind === 'switch') out.switches.push({ on: b.on, href: b.href })
+    else if (b.kind === 'actions') out.actions.push(...b.actions.map(reqOf))
     else if (b.kind === 'note') out.notes.push(b.text)
   }
   return out
@@ -224,18 +265,20 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
   test(`${key}: the blocks say what the page shows, from the same data`, () => {
     for (const [name, html, json] of variants) {
       const h = fromHtml(html())
-      const j = fromJson(json(), t => !t.folded || t.columns?.[0] !== 'Trang')
+      // A page's list of pages, and the report log's list of reports, have no column heads; their tables do.
+      const j = fromJson(json(), t => (t.folded ? t.columns?.[0] !== 'Trang' : t.columns?.[0] !== 'Báo cáo'))
       const at = `${key}, ${name}`
       expect(j.title, at).toBe(h.title)
       expect(j.headings, at).toEqual(h.headings)
       expect(j.figures, at).toEqual(h.figures)
       expect(j.charts, at).toEqual(h.charts)
-      // A page's list of pages has no column heads; its table does.
       expect(j.tables, at).toEqual(h.tables)
       // Each button makes the request its page's form makes (owner-api.ts), with the page's words.
       expect(j.acts, at).toEqual(h.acts)
       expect(j.actsEmpty, at).toEqual(h.actsEmpty)
       expect(j.forms, at).toEqual(h.forms)
+      // A button on its own makes the request its page's form's button makes.
+      expect(j.actions, at).toEqual(h.actions)
       // The page's link to its other form (the app's test builds) is a switch: on when that link goes back to the plain page.
       const own = h.links.filter(l => l === `/_ab/${key}/` || l.startsWith(`/_ab/${key}/?`))
       expect(j.switches, at).toEqual(own.map(l => ({ on: !l.includes('?'), href: `/api/owner/sections/${key}${l.slice(`/_ab/${key}/`.length)}` })))
@@ -287,8 +330,8 @@ test('the overview: its to-dos, areas, their note and the last days are the page
 
 // ——— The Worker: who opens it, and the replies ———
 
-/** The fixture build's content.json (pnpm test builds the site first), as the Worker reads it through ASSETS. */
-const contentJson = () => readFileSync(fileURLToPath(new URL('../../dist/_ab/content.json', import.meta.url).href), 'utf8')
+/** The fixture build's content.json and reviews.json (pnpm test builds the site first), as the Worker reads them through ASSETS. */
+const builtFile = (name: string) => readFileSync(fileURLToPath(new URL(`../../dist/_ab/${name}`, import.meta.url).href), 'utf8')
 const DASH_TOKEN = 'dashtoken-0123456789abcdefABCDEF'
 function kv() {
   const m = new Map<string, { value: string; metadata?: unknown }>()
@@ -332,8 +375,8 @@ async function worker(over: Partial<Record<string, unknown>> = {}) {
   await uploads.bucket.put(`fish-id/anon/${S.KEPT_ANON}`, new Uint8Array([0xff, 0xd8, 2]), meta('other', new Date(now.getTime() - 7_200_000).toISOString()))
   const ab = kv()
   await ab.ns.put('hidden', JSON.stringify({ '/ca/ca-x/': { at: '2026-11-03T03:00:00.000Z', note: 'ảnh nhầm loài' } }))
-  const body = contentJson()
-  const assets = { fetch: async (r: Request) => (new URL(r.url).pathname === '/_ab/content.json' ? new Response(body, { headers: { 'content-type': 'application/json' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } })) }
+  const files: Record<string, string> = { '/_ab/content.json': builtFile('content.json'), '/_ab/reviews.json': builtFile('reviews.json') }
+  const assets = { fetch: async (r: Request) => { const body = files[new URL(r.url).pathname]; return body ? new Response(body, { headers: { 'content-type': 'application/json' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } }
   const e = {
     ASSETS: assets, AB: ab.ns, DB: db, UPLOADS: uploads.bucket, MEDIA: media.bucket, EVENTS: { writeDataPoint: () => {} },
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: DASH_TOKEN, OWNER_ACCOUNTS: 'owner-1', ...over,
@@ -440,6 +483,16 @@ test('every section through the Worker: the contract\'s shape, as its page says 
       }
     }
   }
+  // The content page's pages out of search for their score, from the build's reviews.json: the fixture's four, lowest
+  // first (Analytics Engine has no readers), none with a review (no engine state beside the fixture's content).
+  const content = (await (await call(w.e, 'GET', '/api/owner/sections/noi-dung', bearer(w.ownerApp))).json()) as Section
+  const at = content.blocks.findIndex(b => b.kind === 'heading' && b.text === 'Ẩn khỏi tìm kiếm vì điểm thấp')
+  const low = content.blocks.slice(at).find(b => b.kind === 'table')
+  const none = 'Chưa lưu lần đánh giá nào.'
+  expect(low?.kind === 'table' && low.rows.map(r => r.map(c => c.href ?? c.text))).toEqual([
+    ['/ca/ca-la-han/', 'Giống cá', '0,60', '0', none], ['/huong-dan/thay-nuoc-dung-cach/', 'Bài viết', '0,60', '0', none],
+    ['/thuat-ngu/gh/', 'Thuật ngữ', '0,60', '0', none], ['/ca/ca-boraras-do/', 'Cá', '0,61', '0', none],
+  ])
   const photos = (await (await call(w.e, 'GET', '/api/owner/sections/anh-ban-doc', bearer(w.ownerApp))).json()) as Section
   const items = photos.blocks.filter(b => b.kind === 'photos').flatMap(b => (b.kind === 'photos' ? b.items : []))
   expect(items.map(p => [p.id, p.src, p.actions.map(a => a.label)])).toEqual([[S.PHOTO_WAITING, `/_ab/anh/${S.PHOTO_WAITING}`, ['Duyệt', 'Gỡ']], [S.PHOTO_LIVE, 'https://media.aquatome.com/readers/x-480.webp', ['Gỡ']]])
@@ -572,6 +625,132 @@ test('the two private images take the owner\'s app session too, never stored or 
   expect(w.uploads.m.size).toBe(3)
 })
 
+// ——— The daily report's delivery: docs/contracts/owner-push.md until the contract has its two paths ———
+
+test('bao-cao: every block its section sends, in each of its states, is one the contract describes', () => {
+  for (const [name, , json] of VARIANTS['bao-cao']!) {
+    const blocks = json().blocks
+    for (const b of blocks) expect(misfits(b, { $ref: '#/components/schemas/Block' }), `${name}: ${JSON.stringify(b)}`).toEqual([])
+    // Its buttons are the actions block's alone, each a POST of one switch.
+    for (const b of blocks) if (b.kind === 'actions') for (const a of b.actions) expect([a.method, a.path, Object.keys(a.body!).length, a.tone], name).toEqual(['POST', '/api/owner/report-settings', 1, undefined])
+  }
+})
+
+/** An error as the accounts API says them: `{error, message?}`, the contract's Error. */
+const errorOf = async (r: Response) => {
+  expect([r.headers.get('cache-control'), r.headers.get('x-robots-tag')]).toEqual(['no-store', 'noindex, nofollow'])
+  const b = await r.json()
+  expect(misfits(b, { $ref: '#/components/schemas/Error' })).toEqual([])
+  return b as { error: string; message?: string }
+}
+const TOKEN_A = 'a1'.repeat(32)
+const TOKEN_B = 'b2'.repeat(32)
+
+test('the report\'s delivery and the phones it notifies: only the owner\'s app session; without a live one 401 signed_out, another account\'s 404, and nothing changes', async () => {
+  const w = await worker()
+  const calls: [string, string, unknown][] = [
+    ['POST', '/api/owner/report-settings', { push: true }], ['POST', '/api/owner/push-token', { token: TOKEN_A, environment: 'production' }], ['DELETE', '/api/owner/push-token', { token: TOKEN_A }],
+  ]
+  const who: [Record<string, string>, number, string][] = [
+    [{}, 401, 'signed_out'], [bearer(w.ownerWeb), 401, 'signed_out'], [{ cookie: `__Host-aq_session=${w.ownerWeb}` }, 401, 'signed_out'], [bearer(DASH_TOKEN), 401, 'signed_out'],
+    [bearer(w.ended), 401, 'signed_out'], [bearer(w.signedOut), 401, 'signed_out'], [bearer(w.readerApp), 404, 'not_found'],
+  ]
+  for (const [h, status, error] of who) {
+    for (const [method, path, body] of calls) {
+      const r = await call(w.e, method, path, h, body)
+      expect([r.status, await errorOf(r)], `${JSON.stringify(h)} ${method} ${path}`).toEqual([status, { error }])
+    }
+  }
+  expect(w.ab.m.has('report-settings')).toBe(false)
+  expect(w.ab.m.has('push-tokens')).toBe(false)
+  // The web page's form stays the cookie's: the app's bearer can't post it.
+  const form = await handle(new Request('https://x.test/_ab/bao-cao/cai-dat', { method: 'POST', headers: bearer(w.ownerApp), body: new URLSearchParams({ push: '1' }) }), w.e)
+  expect(form.status).toBe(404)
+  expect(w.ab.m.has('report-settings')).toBe(false)
+})
+
+test('the report\'s delivery from the app: the section\'s buttons set it as the page\'s form does, and the section says it after', async () => {
+  const w = await worker()
+  const section = async () => (await (await call(w.e, 'GET', '/api/owner/sections/bao-cao', bearer(w.ownerApp))).json()) as Section
+  const how = (s: Section) => s.blocks.slice(s.blocks.findIndex(b => b.kind === 'heading' && b.text === 'Nhận báo cáo') + 1, s.blocks.findIndex(b => b.kind === 'heading' && b.text === 'Các báo cáo'))
+  // Unset: email on, push off, as before push.
+  expect(how(await section())).toEqual([
+    { kind: 'note', text: 'Email: đang bật. Thông báo trên điện thoại: đang tắt.', tone: 'plain' },
+    { kind: 'actions', actions: [{ label: 'Tắt email', method: 'POST', path: '/api/owner/report-settings', body: { email: false } }, { label: 'Bật thông báo', method: 'POST', path: '/api/owner/report-settings', body: { push: true } }] },
+  ])
+  // Each button pressed as the app presses it.
+  for (const a of (how(await section())[1] as { actions: Action[] }).actions) {
+    const r = await call(w.e, a.method, a.path, bearer(w.ownerApp), a.body)
+    expect([r.status, r.headers.get('cache-control')]).toEqual([200, 'no-store'])
+    expect(await r.json()).toEqual({ ok: true, changed: true, email: false, push: a.body!.push === true })
+  }
+  expect(JSON.parse(w.ab.m.get('report-settings')!.value)).toEqual({ email: false, push: true })
+  // Push on with no phone registered, and no APNs key: said, with what to do; the buttons turn them back.
+  expect(how(await section())).toEqual([
+    { kind: 'note', text: 'Email: đang tắt. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được. Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo trên máy này”.', tone: 'bad' },
+    { kind: 'actions', actions: [{ label: 'Bật email', method: 'POST', path: '/api/owner/report-settings', body: { email: true } }, { label: 'Tắt thông báo', method: 'POST', path: '/api/owner/report-settings', body: { push: false } }] },
+  ])
+  // A phone registered and the key set: where it goes.
+  await call(w.e, 'POST', '/api/owner/push-token', bearer(w.ownerApp), { token: TOKEN_A, environment: 'production' })
+  const keyed = { ...w.e, APNS_KEY: 'k', APNS_KEY_ID: 'K1', APPLE_TEAM_ID: 'T1' } as unknown as Env
+  const s = (await (await call(keyed, 'GET', '/api/owner/sections/bao-cao', bearer(w.ownerApp))).json()) as Section
+  expect(how(s)[0]).toEqual({ kind: 'note', text: 'Email: đang tắt. Thông báo trên điện thoại: đang bật, gửi đến 1 điện thoại.', tone: 'plain' })
+  // Already so: nothing written, said so.
+  expect(await (await call(w.e, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), { email: false, push: true })).json()).toEqual({ ok: true, changed: false, email: false, push: true })
+  for (const bad of [{}, { email: 'no' }, { push: 1 }, { email: true, quiet: true }, 'x', [], null]) {
+    const r = await call(w.e, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), bad)
+    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'email và/hoặc push (true/false).' }])
+  }
+  const get = await call(w.e, 'GET', '/api/owner/report-settings', bearer(w.ownerApp))
+  expect([get.status, get.headers.get('allow'), await errorOf(get)]).toEqual([405, 'POST', { error: 'method' }])
+  // KV down: unavailable, and nothing changes.
+  vi.spyOn(console, 'error').mockImplementation(() => {})
+  const down = { ...w.e, AB: Object.assign(Object.create(w.ab.ns), { put: async () => { throw new Error('KV down') } }) } as unknown as Env
+  const r = await call(down, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), { email: true })
+  expect([r.status, (await errorOf(r)).error]).toEqual([503, 'unavailable'])
+  expect(JSON.parse(w.ab.m.get('report-settings')!.value)).toEqual({ email: false, push: true })
+})
+
+test('a phone registers for the report\'s notification: kept once with its environment and the last time it said so; DELETE removes it; a bad token is refused', async () => {
+  const w = await worker()
+  const tokens = () => JSON.parse(w.ab.m.get('push-tokens')?.value ?? '{}') as Record<string, { environment: string; seen: string; session: string }>
+  const send = (method: string, body: unknown) => call(w.e, method, '/api/owner/push-token', bearer(w.ownerApp), body)
+  expect(await (await send('POST', { token: TOKEN_A, environment: 'production' })).json()).toEqual({ ok: true, changed: true })
+  const first = tokens()[TOKEN_A]!
+  // Tied to the session it came in: its id (the bearer's hash), never the bearer.
+  const { sha256 } = await import('../accounts/session')
+  expect(first).toEqual({ environment: 'production', seen: expect.stringMatching(/^\d{4}-\d\d-\d\dT/), session: await sha256(w.ownerApp) })
+  expect(JSON.stringify(tokens())).not.toContain(w.ownerApp)
+  // Each launch posts it again: the time moves, no second copy.
+  await new Promise(r => setTimeout(r, 5))
+  expect(await (await send('POST', { token: TOKEN_A, environment: 'production' })).json()).toEqual({ ok: true, changed: false })
+  expect(Object.keys(tokens())).toEqual([TOKEN_A])
+  expect(tokens()[TOKEN_A]!.seen > first.seen).toBe(true)
+  // A debug build on another phone; then the first phone moves to a debug build.
+  expect(await (await send('POST', { token: TOKEN_B, environment: 'sandbox' })).json()).toEqual({ ok: true, changed: true })
+  expect(await (await send('POST', { token: TOKEN_A, environment: 'sandbox' })).json()).toEqual({ ok: true, changed: true })
+  expect(Object.fromEntries(Object.entries(tokens()).map(([t, d]) => [t, d.environment]))).toEqual({ [TOKEN_A]: 'sandbox', [TOKEN_B]: 'sandbox' })
+  // Turned off on a phone, or signed out: removed; again, nothing to remove.
+  expect(await (await send('DELETE', { token: TOKEN_A })).json()).toEqual({ ok: true, changed: true })
+  expect(await (await send('DELETE', { token: TOKEN_A })).json()).toEqual({ ok: true, changed: false })
+  expect(Object.keys(tokens())).toEqual([TOKEN_B])
+  const POST_SAYS = 'token (hex chữ thường), environment ("sandbox" hoặc "production").'
+  for (const bad of [
+    { token: TOKEN_A.toUpperCase(), environment: 'production' }, { token: 'a1b2', environment: 'production' }, { token: `${TOKEN_A}a`, environment: 'production' }, { token: 'zz'.repeat(32), environment: 'production' },
+    { token: 'a1'.repeat(101), environment: 'production' }, { token: TOKEN_A }, { token: TOKEN_A, environment: 'development' }, { token: TOKEN_A, environment: 'production', name: 'x' }, 'x', [], null,
+  ]) {
+    const r = await send('POST', bad)
+    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: POST_SAYS }])
+  }
+  for (const bad of [{ token: 'nope' }, { token: TOKEN_B, environment: 'sandbox' }, {}]) {
+    const r = await send('DELETE', bad)
+    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'token (hex chữ thường).' }])
+  }
+  expect(Object.keys(tokens())).toEqual([TOKEN_B])
+  const get = await call(w.e, 'GET', '/api/owner/push-token', bearer(w.ownerApp))
+  expect([get.status, get.headers.get('allow'), await errorOf(get)]).toEqual([405, 'POST, DELETE', { error: 'method' }])
+})
+
 // ——— The app's samples: protocols/owner-dashboard-vectors.json ———
 
 type Reply = { name: string; request: { method: string; path: string; headers?: Record<string, string>; body?: unknown }; status: number; body: unknown }
@@ -596,10 +775,21 @@ async function replies(): Promise<Reply[]> {
     ['signed out', 'GET', '/api/owner/dashboard', undefined],
     ['not the owner', 'GET', '/api/owner/dashboard', undefined],
     ['storage down', 'GET', '/api/owner/dashboard', undefined],
+    // The daily report's phones and delivery (docs/contracts/owner-push.md until the contract has the two paths).
+    ['register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
+    ['register the same phone again', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
+    ['register a phone: a token that isn\'t lowercase hex', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN.toUpperCase(), environment: 'production' }],
+    ['register a phone: another field', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production', name: 'iPhone' }],
+    ['register a phone: an environment that is neither', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'development' }],
+    ['signed out: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
+    ['not the owner: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
+    ['unregister a phone', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN }],
+    ['turn the report\'s notification on', 'POST', '/api/owner/report-settings', { push: true }],
+    ['a report setting that isn\'t true or false', 'POST', '/api/owner/report-settings', { push: 'yes' }],
   ]
   const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
   for (const [name, method, path, body] of actions) {
-    const h = name === 'signed out' ? {} : name === 'not the owner' ? bearer(w.readerApp) : bearer(w.ownerApp)
+    const h = name.startsWith('signed out') ? {} : name.startsWith('not the owner') ? bearer(w.readerApp) : bearer(w.ownerApp)
     const e = name === 'storage down' ? ({ ...w.e, DB: { prepare: () => { throw new Error('D1 down') } } } as unknown as Env) : w.e
     const r = await call(e, method, path, h, body)
     out.push({ name, request: { method, path, ...(body === undefined ? {} : { body }) }, status: r.status, body: await r.json() })
@@ -608,10 +798,12 @@ async function replies(): Promise<Reply[]> {
   return out
 }
 
+/** Paths the app uses before the contract lists them (docs/contracts/owner-push.md): the native lead moves them in. */
+const PENDING = new Set(['/api/owner/push-token', '/api/owner/report-settings'])
 test('the samples the app\'s fake server serves are the Worker\'s replies, and the contract\'s (UPDATE_VECTORS=1 rewrites them)', async () => {
   const now = { replies: await replies() }
   const file = {
-    $comment: 'Generated by apps/site/worker/test/owner-api.test.ts from apps/site/worker/test/owner-sample.ts (UPDATE_VECTORS=1 pnpm test): the owner dashboard\'s replies (protocols/owner-dashboard.openapi.json) at 2026-11-04T09:00:00Z in Asia/Ho_Chi_Minh, for the app\'s fake server and UI tests. Each `request` is what the app sends (with the owner\'s bearer; "signed out" with none, "not the owner" with another account\'s, "storage down" while D1 is down), each `body` what the Worker answers. Photo and page ids are the sample\'s.',
+    $comment: 'Generated by apps/site/worker/test/owner-api.test.ts from apps/site/worker/test/owner-sample.ts (UPDATE_VECTORS=1 pnpm test): the owner dashboard\'s replies (protocols/owner-dashboard.openapi.json) at 2026-11-04T09:00:00Z in Asia/Ho_Chi_Minh, for the app\'s fake server and UI tests. Each `request` is what the app sends (with the owner\'s bearer; "signed out" with none, "not the owner" with another account\'s, "storage down" while D1 is down), each `body` what the Worker answers. Photo and page ids are the sample\'s. /api/owner/push-token and /api/owner/report-settings follow docs/contracts/owner-push.md until the contract has them.',
     ...now,
   }
   if (process.env.UPDATE_VECTORS) writeFileSync(VECTORS, `${JSON.stringify(file, null, 2)}\n`)
@@ -620,6 +812,12 @@ test('the samples the app\'s fake server serves are the Worker\'s replies, and t
   // One reply per section, the overview, and each action; every one the contract's.
   expect(kept.replies.filter(r => r.name.startsWith('section ')).map(r => r.request.path.split('/').at(-1))).toEqual(KEYS)
   for (const r of kept.replies) {
+    if (PENDING.has(r.request.path)) {
+      // Not in the contract yet: held to docs/contracts/owner-push.md, an error as the contract's Error.
+      expect(r.status >= 400 ? misfits(r.body, { $ref: '#/components/schemas/Error' }) : [], r.name).toEqual([])
+      if (r.status === 200) expect(r.body, r.name).toMatchObject({ ok: true, changed: expect.any(Boolean) })
+      continue
+    }
     const op = api.paths[opOf(r.request.path)][r.request.method.toLowerCase()]
     const res = op.responses[String(r.status)]
     expect(res, `${r.name}: ${r.status}`).toBeDefined()

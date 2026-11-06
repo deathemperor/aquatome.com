@@ -1,0 +1,203 @@
+{
+  "id": "parambassis-ranga",
+  "native": {
+    "input": "63ef891f485c294a",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "India, Pakistan, Nepal, Bangladesh, Myanmar, Thailand, Malaysia and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced to Japan and Hong Kong.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parambassis ranga",
+    "status": "ACCEPTED",
+    "taxonKey": 2387235,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        70
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        69
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        52
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        42
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        23
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        6
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "a255c20a-10de-4bb7-8ba8-10ba413a9845",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "PK",
+      "NP",
+      "BD",
+      "MM",
+      "TH",
+      "MY",
+      "KH"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

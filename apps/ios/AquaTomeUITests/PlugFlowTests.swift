@@ -62,9 +62,12 @@ final class PlugFlowTests: XCTestCase {
     field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 50) + "Lọc thùng")
     app.buttons["save-plug"].tap()
     XCTAssertTrue(app.staticTexts["Lọc thùng"].waitForExistence(timeout: 5), "the label isn't shown")
-    // A strip is on one tank: it isn't offered again.
+    // Every plug the project has is listed; one on a tank says so and can't be picked again: a strip is on one tank.
     tap(app, "add-plug")
     XCTAssertTrue(app.navigationBars["Thêm ổ cắm"].waitForExistence(timeout: 5))
+    let taken = app.descendants(matching: .any).matching(identifier: "plug-taken").matching(NSPredicate(format: "label BEGINSWITH %@", "Ổ cắm bể 60")).firstMatch
+    XCTAssertTrue(taken.waitForExistence(timeout: 5), "a plug on a tank left out of the list")
+    XCTAssertTrue(taken.label.contains("Đã ở bể này"), taken.label)
     XCTAssertFalse(choice(app, "Ổ cắm bể 60").exists, "a plug already on a tank offered again")
     app.buttons["Hủy"].firstMatch.tap()
     app.terminate()
@@ -74,6 +77,28 @@ final class PlugFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Lọc thùng"].waitForExistence(timeout: 5), "the plug wasn't kept on the tank")
     XCTAssertTrue(outlet(app, "switch_1").waitForExistence(timeout: 5))
     XCTAssertEqual(outlet(app, "switch_1").value as? String, "1")
+  }
+
+  func testAPlugOnAnotherTankIsListedByThatTanksName() {
+    let app = launch()
+    addPlug(app, "Ổ cắm bể 60")
+    // A second tank: the strip on "Bể 60" is in its list too, naming that tank, and can't be picked there.
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tap(app, "add-row")
+    let field = app.textFields["name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no tank form")
+    field.tap()
+    field.typeText("Bể 30")
+    app.buttons["save"].tap()
+    let other = app.buttons.matching(identifier: "tank").matching(NSPredicate(format: "label CONTAINS %@", "Bể 30")).firstMatch
+    XCTAssertTrue(other.waitForExistence(timeout: 5), "no second tank")
+    other.tap()
+    tap(app, "add-plug")
+    XCTAssertTrue(app.navigationBars["Thêm ổ cắm"].waitForExistence(timeout: 5))
+    let taken = app.descendants(matching: .any).matching(identifier: "plug-taken").matching(NSPredicate(format: "label BEGINSWITH %@", "Ổ cắm bể 60")).firstMatch
+    XCTAssertTrue(taken.waitForExistence(timeout: 5), "a plug on another tank left out of the list")
+    XCTAssertTrue(taken.label.contains("Đang ở bể “Bể 60”"), taken.label)
+    XCTAssertFalse(choice(app, "Ổ cắm bể 60").exists, "a plug on another tank offered")
   }
 
   func testSwitchesAnOutletAndShowsWhatThePlugConfirmed() {
@@ -248,7 +273,7 @@ final class PlugFlowTests: XCTestCase {
   @discardableResult
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) -> XCUIElement {
     _ = e.waitForExistence(timeout: 3)
-    for _ in 0..<8 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 8) {
       app.swipeUp()
       _ = e.waitForExistence(timeout: 1)
     }

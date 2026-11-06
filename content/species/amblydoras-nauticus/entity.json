@@ -8,8 +8,143 @@
   "places": [
     "south-america",
     "peru",
-    "amazon"
+    "amazon",
+    "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Marañón",
+        "Ucayali",
+        "Tigre",
+        "Amazonia"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon",
+            "Marañón",
+            "Ucayali",
+            "Tigre"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "One of the most common species of Doradidae in Amazonia.",
+          "countries": [],
+          "regions": [
+            "Amazonia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344001,
+      "total": 19,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          13
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -75,10 +210,22 @@
       "html": "<ul><li>Scientific name: Amblydoras nauticus (Cope, 1874)</li><li>Type locality: Nauta, Peru.</li><li>Synonyms: Anadoras nauticus, Zathorax nauticus</li><li>Etymology: Amblydoras comes from the Greek amblys, meaning blunt, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the non-serrated dorsal spine.</li><li>Size: 75 mm (3\") SL.</li><li>IUCN Red List: Least Concern (last assessed 2014).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amblydoras_nauticus_en/",
+      "html": "<ul><li>Origin: Brazil</li><li>Available size: 4–6 cm</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
       "html": "<p>Reasonably easy to identify, although young fish can look quite variable. Some degree of sexual dichromatism exists, and the males bear a resemblance to the larger Anadoras grypus. Very often sold under the incorrect name of Amblydoras hancockii.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amblydoras_nauticus_en/",
+      "html": "<p>Amblydoras nauticus are very nice, peaceful and undemanding catfish for aquaria which can be recommended even for beginners in the hobby.</p>"
     },
     {
       "key": "distribution",
@@ -91,6 +238,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
       "html": "<p>South America: Upper Amazon River basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amblydoras_nauticus_en/",
+      "html": "<p>One of the most common species of Doradidae in Amazonia.</p>"
     },
     {
       "key": "habitat",
@@ -151,6 +304,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1059",
       "html": "<p>A perfect community tank resident. As with all doradids, it does well with its conspecifics and other members of the same family. Can be kept with anything from tetras to medium-sized cichlids.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/amblydoras_nauticus_en/",
+      "html": "<p>Catfishes have no scales. But many species have bony plates that cover and protect the body. In the family Doradidae these plates are sometimes additionally armored by spines.</p><p>The species is not very popular by the natives, because the fish often do not swim away when a wading person comes along. Instead they erect the sharp, hard and serrated spine of the dorsal fin. In case one steps on that weapon: ouch!</p>"
     },
     {
       "key": "dimorphism",
@@ -277,5 +436,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }

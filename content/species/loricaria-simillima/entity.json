@@ -9,7 +9,14 @@
     "south-america",
     "orinoco",
     "amazon",
-    "la-plata"
+    "la-plata",
+    "venezuela",
+    "ecuador",
+    "peru",
+    "brazil",
+    "paraguay",
+    "argentina",
+    "canelos"
   ],
   "dataCard": {
     "tempC": [
@@ -18,6 +25,20 @@
         "value": {
           "min": 24,
           "max": 27
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
         }
       }
     ],
@@ -28,12 +49,59 @@
           "min": 6,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.6,
+          "max": 7.8
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      },
+      {
+        "source": "scotcat",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
       }
     ]
   },
@@ -45,10 +113,22 @@
       "html": "<ul><li>Total length: 25 cm</li><li>Water: medium hard</li><li>Omnivore</li><li>Mouthbrooder; the male guards the eggs and larvae</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>The marbled whiptail, Loricaria simillima, is a whiptail catfish recorded from Venezuela, Ecuador, Peru, Brazil, Paraguay and Argentina. There is a great deal of uncertainty about its identity, and several species or subspecies are probably involved, with darker fish collected from blackwaters and lighter ones from whitewater habitats. The fish in the trade is quite possibly not L. simillima at all. It has been bred in aquaria and shows parental care.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_en/",
       "html": "<p>Loricaria simillima has a very wide distribution in South America. It is found in the Orinoco, Amazon and La Plata basins. Origin: central South America.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>Apparently a most widespread species. It's been collected in Venezuela, Ecuador, Peru, Brazil, Paraguay and Argentina. With further study, some of these recordings may prove to be separate species.</p>"
     },
     {
       "key": "habitat",
@@ -57,16 +137,40 @@
       "html": "<p>As a result of this large range, many different colour forms are known, which differ clearly in coloration and pattern. The species occurs in different water types.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>Inhabits a range of habitats, including whitewater and blackwater streams, rivers and tributaries. Water chemistry in these can vary from soft and acidic to medium hard and fairly alkaline.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_en/",
       "html": "<p>With a total length of 25 cm they should be kept in not too small tanks.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>Not terribly active, so a pair could be kept in a tank measuring around 75cm x 30cm x 30cm - 67.5 litres. Larger quarters would be needed for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>The actual choice of decor isn't really critical as long as there are plenty of shaded spots and hiding places. The fish seem to prefer a soft, sandy substrate, though, to which can be added bits of driftwood, smooth rocks, lengths of pvc pipe etc. as you wish. Live plants won't be harmed so these can also be used to add further cover.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_en/",
       "html": "<p>Medium-hard water with a pH of 6–8 and temperatures between 24 and 27°C is sufficient. Blackwater forms are more demanding in maintenance and breeding than fish originating from white water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 5.6–7.8</li><li>Hardness: 1–20 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -81,16 +185,88 @@
       "html": "<p>As omnivorous fish they are rather undemanding in their nutrition; tablet food, flakes and frozen food are accepted.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>Omnivorous but mainly feeds on aquatic invertebrates in nature, so offer plenty of live and frozen foods such as bloodworm, daphnia, chopped earthworm etc. This diet can be supplemented with dried sinking foods and the occasional slice of cucumber or courgette.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>A very quiet species, to the point that it will be out-competed for food by more vigorous tankmates. It's best kept with small characins, peaceful cichlids and catfish such as Corydoras or other Loricariids (avoiding the very territorial ones). It's quite amicable with conspecifics and usually does well when kept in a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>Males develop greatly enlarged mouthparts as they mature.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_en/",
       "html": "<p>They are mouthbrooders; the male guards the eggs and larvae.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>Has been bred in aquaria, though not with any great regularity. It's well worth a shot if you can get hold some though, as the method of breeding is most intriguing. The best idea is to buy a small group to give yourself the best chance of obtaining a pair. Keep them in a tank set up as suggested above, with no tankmates except perhaps a shoal of a small characin species to act as dither fish. Feed the fish a good, varied diet and make weekly partial water changes of 40-50% to bring them into spawning condition. Spawning occurs at night. The exact details of this are unknown, but it's obvious if a spawn has occured, as the male will be seen carrying a brood of eggs in his lower 'lip'. It's best to either remove the male to a separate tank, or remove the other fish at this point, in order to avoid predation of the fry. The male retains the eggs for around 10-15 days. During this time he keeps them ventilated with movements of his mouthparts. Parental care can be variable and the eggs may be eaten or released early by some individuals, whereas others will hold onto them steadfastly. If the eggs are incubated for the full term, the resultant fry will need another 2-3 days to absorb their yolk sacs before they require feeding, at which point they're big enough to take brine shrimp nauplii, microworm and crushed dried foods. As well as being very sensitive to changes in water chemistry, the fry are particularly susceptible to starvation, but a combination of rigorous water maintenance, along with constant access to food will see them reach 2.5cm in length quite quickly.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_simillima_en/",
       "html": "<p>Loricaria comes from the Latin \"lorica\", the chest protector of a Roman legionnaire, i.e. \"one that wears a chest protector\". simillima is Latin for \"very similar\", referring to the similarity of the species to L. cataphracta.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/loricaria-simillima",
+      "html": "<p>The pictures here show the fish that is most commonly referred to as L. simillima, but there is a great deal of uncertainty surrounding its true identity. As suggested above, it seems unlikely that its natural distribution is so wide, and we are probably dealing with several species or subspecies. This argument is strengthened by the fact that several differently coloured fish are imported as this species, with darker specimens being collected from acidic blackwaters and lighter fish hailing from sediment-rich whitewater habitats. Furthermore, it is unclear as to what the original holotype of the species actually looks like, as the description is basic to say the least. Unfortunately the type specimens are now very old and have lost their patterning. These were collected from an isolated river in Ecuador that does not link to any other river system and where collection for the trade never occurs. All this means that the species shown here is quite possibly not L. simillima at all! Thankfully despite all the confusion the fish makes a great aquarium subject, and its fascinating parental care makes it an ideal choice for a breeding project.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (IUCN 2023). Despite the little information available on this species, it has a wide range and no apparent threats.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>South America: Amazon, Orinoco and La Plata River basins. Type locality: Canelos, e. Ecuador.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>As this species grows to 25 cm, a large aquarium of around 120 cm is required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>Soft substrate such as sand is beneficial. A common Loricariid in the hobby which is not too difficult to keep.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>Breeding is similar to other members of the genus (read more in Evers, H.-G. &amp; I. Seidel, see reference).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<p>This genus is identified by the teeth of the upper mandible being twice as long as the lower mandible. The upper lip is short, its edge covered by numerous thin, simple, bifurcate or, more rarely, trifurcate barbels. The lower lip has small papillae with long filaments along the edge. The leading ray of the pectoral fins is longer and the upper first spine of the caudal fin is extended. This species is very similar to Loricaria cataphracta from the Guyana highlands and Loricaria lata.</p><p>Etymology: the specific name simillima is Latin for very similar, as it was described as similar to L. cataphracta.</p><p>This genus can sometimes be difficult to identify to species. Depending on the catchment area there may be differences in colouration and markings. There is a similar species from the Rio Atabapo, a river dividing Venezuela and Colombia, which has not been described yet and goes under the name Loricaria sp. \"Rio Atabapo\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
+      "html": "<ul><li>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. P.944.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Salvador, G.N. 2023. Loricaria simillima. The IUCN Red List of Threatened Species 2023.</li></ul>"
     }
   ],
   "photos": [
@@ -115,29 +291,34 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/loricaria_simillima.htm",
       "caption": "Loricaria simillima",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5377260d03d03a66.webp",
-      "width": 960,
-      "height": 1206,
-      "licence": "CC BY 4.0",
-      "author": "Florencia Brancolini, Priscilla Minotti, Lucila Protogino, Hugo López, and Claudio Baigún",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_from_R%C3%ADo_Pilcomayo_National_Park_(5_of_7).png",
-      "caption": "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(49) Pimelodella laticeps;(50) Rhamdia quelen;(51) Tridentopsis cahuali;(52) Callichthys callichthys;(53) Corydoras ",
-      "thumb": "https://media.aquatome.com/commons/5377260d03d03a66-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b6b8c344ec243ab0.webp",
-      "width": 880,
-      "height": 324,
-      "licence": "CC BY 4.0",
-      "author": "Florencia Brancolini, Priscilla Minotti, Lucila Protogino, Hugo López, and Claudio Baigún",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_fauna_from_R%C3%ADo_Pilcomayo_National_Park_(5_of_7)_(clipped).png",
-      "caption": "Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(49) Pimelodella laticeps;(50) Rhamdia quelen;(51) Tridentopsis cahuali;(52) Callichthys callichthys;(53) Corydoras ",
-      "thumb": "https://media.aquatome.com/commons/b6b8c344ec243ab0-480.webp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "j8VI-Ayx-GQ",
+      "title": "🐟 Loricaria simillima",
+      "durationSec": 10,
+      "lang": "cs"
+    },
+    {
+      "youtubeId": "FpG6JlhiucY",
+      "title": "Loricaria Spawning Times Two",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tj6HnfDDGFw",
+      "title": "Loricaria simillima.",
+      "durationSec": 235,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "jxLWjUVLY7g",
+      "title": "Vatoz Vlog #52 (Loricaria Simillima Yumurtladı)",
+      "durationSec": 621,
+      "lang": "tr"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -161,5 +342,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-06"
 }

@@ -7,12 +7,20 @@
   "group": "labyrinth",
   "places": [
     "asia",
-    "indonesia"
+    "indonesia",
+    "kalimantan-tengah"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 28
@@ -26,6 +34,13 @@
           "min": 3.5,
           "max": 6
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 6.5
+        }
       }
     ],
     "gh": [
@@ -35,11 +50,22 @@
           "min": 0,
           "max": 3
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 4
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
+        "value": 3
+      },
+      {
+        "source": "seriouslyfish",
         "value": 3
       }
     ],
@@ -47,6 +73,16 @@
       {
         "source": "bwaquatics",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
       }
     ]
   },
@@ -56,6 +92,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-opallios",
       "html": "<ul><li>IUCN Red List: Endangered (severely threatened by peat-swamp destruction and agricultural conversion).</li><li>Wild-caught, highly specialized and endangered.</li><li>Adults reach approximately 3 cm (≈ 1.2″) standard length.</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems. It appeared in the trade on a handful of occasions as P. sp. 'Sukamara' before its description, and occurs alongside P. linkei at Sukamara. A stenotypic inhabitant of peat swamp forests and blackwater streams, it appears in danger of extinction.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -70,16 +112,46 @@
       "html": "<p>The Opal Licorice Gourami is endemic to Central Kalimantan in Indonesian Borneo. It has a highly restricted natural distribution.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>Endemic to Central Kalimantan (Kalimantan Tengah) province, Borneo, Indonesia although the full extent of its range remains somewhat unclear.</p><p>Initial collections were from the southwestern tip of the province, in the Jelai Bila river basin near Sukamara and Lamand basin close to Pangkalan Bun, both of which are tributaries within the Arut drainage, while it's subsequently been recorded in the Benipah river system further east.</p><p>Type locality is 'Area of Pangkalanbun, Arut River basin, 2°04'S, 111°36'E, Kalimati, Kalimantan Tengah, Borneo'.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-opallios",
       "html": "<p>This species inhabits extremely soft, acidic peat-swamp streams with almost no measurable mineral content. These waters are darkly stained by decomposing leaves and peat, with dense forest canopy allowing very little light to reach the surface. Its remaining peat-swamp habitat is being lost to drainage, fire, and agricultural development.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>A stenotypic inhabitant of peat swamp forests and associated blackwater streams, in some of which it occurs sympatrically with the congener P. linkei.</p><p>In unaltered habitats the dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic materials, the dissolved mineral content generally negligible and pH as low as 3.0 or 4.0.</p><p>Unfortunately in many cases it now survives only in remnants of heavily-modified peat swamps such as irrigation ditches and roadside canals and appears in danger of extinction.</p><p>The habitat at Sukumara, at which it occurs sympatrically with the congener P. linkei, comprises a pool with the majority of surrounding vegetation cleared for agriculture and a wooden footbridge constructed across it.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>An aquarium with base dimensions of 40 × 20 cm (about 16 litres) or equivalent is sufficient for a pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, and clay plant pots, lengths of piping or even plastic camera-film containers can be included to provide further shelter and potential spawning sites.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>Like others in the genus this species does best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>Filtration need not be too strong, with an air-powered sponge filter or similar adequate, and since this species tends to be maintained in pairs a filter may not be required at all provided the fish are not overfed and maintenance is stringent.</p><p>The latter must include small weekly water changes of 5-10% aquarium volume with irregular or larger changes not recommended.</p><p>All Parosphromenus spp. require acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>It goes without saying that these fishes are sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-opallios",
       "html": "<p>Extremely soft, acidic water is essential for wild-caught specimens.</p><ul><li>pH 3.5–6.0</li><li>GH 0–3 °d</li><li>KH 0–1 °d</li><li>TDS preferably below 70 ppm</li><li>Temperature: 22–28 °C (72–82 °F); approximately 24–26 °C (75–79 °F) is suitable for routine maintenance.</li></ul><p>For breeding, a pH of 4.0–4.5 and very low conductivity are strongly preferred. Use reverse-osmosis or similarly low-mineral water prepared with leaf litter and appropriate botanicals. Never attempt to lower the pH rapidly. Establish the correct water chemistry before introducing the fish and monitor pH carefully when KH is nearly zero. Avoid sudden temperature changes and maintain a warm, humid layer of air beneath a tightly fitted lid.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 3.0–6.5</li><li>Hardness: 1–4 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -94,10 +166,22 @@
       "html": "<p>A specialized micropredator that strongly prefers live food. Offer a varied diet including:</p><ul><li>Live baby brine shrimp</li><li>Moina and small daphnia</li><li>Grindal worms</li><li>Microworms</li><li>Small mosquito larvae</li><li>Live cyclops and other tiny aquatic invertebrates</li></ul><p>Frozen foods may eventually be accepted, but dried flakes and pellets are usually refused. A dependable supply of small live foods is essential for conditioning, maintaining body weight, and encouraging reproduction.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>This species is chiefly a micropredator feeding on tiny aquatic invertebrates, therefore in the aquarium it must be offered a variety of small live foods such as Artemia nauplii, Daphnia, Moina, mosquito larvae, micro worm, etc.</p><p>Frozen foods are sometimes accepted but not considered sufficiently nutritious while the majority of dried products are normally refused.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-opallios",
       "html": "<p>Secretive and delicate. Best kept as a single pair or species-only breeding group. If tankmates are necessary, choose only tiny, peaceful blackwater fishes such as:</p><ul><li>Boraras</li><li>Sundadanio</li><li>Very small, gentle rasboras</li></ul><p>Avoid larger fish, active feeders, shrimp that may disturb spawning caves, and territorial species. Never mix different Parosphromenus species. Females can be extremely difficult to identify, and closely related species may hybridize. Maintaining accurate species and collection-location information is important for conservation breeding.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>Not recommended for the general community aquarium for reasons already touched upon.</p><p>Its care requirements, disposition, and especially conservation status dictate that it should be maintained alone or alongside a group of small, peaceful cyprinids such as Boraras or Sundadanio spp.</p><p>Likewise, different Parosphromenus spp. should not be kept together since the females of many are very difficult to tell apart and some are undoubtedly capable of hybridising.</p><p>A mixed-sex group can be maintained if you wish although most breeders prefer to maintain it in sexed pairs since some fry may survive alongside their parents but not usually if other adults are present.</p>"
     },
     {
       "key": "dimorphism",
@@ -106,28 +190,64 @@
       "html": "<p>When in breeding condition, males develop iridescent blue-green fin margins, intense blue bands, deep black markings, and rich red coloration in the dorsal, anal, and caudal fins. Females can be extremely difficult to identify.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>In males the dorsal, anal and caudal have a black subdistal band bordered marginally by a thin greenish-bluish margin and proximally by a blue iridescent band, the latter being very narrow in the caudal.</p><p>The proximal portion of the dorsal and anal fins is black proximally, fading into red distally, and the posterior edge of the dorsal-fin is red.</p><p>The proximal portion of the caudal-fin is black, merging into a bright red patch.</p><p>The pelvic fins are blue with a blue filamentous tip with a black distal blotch, while the pectoral fins are hyaline.</p><p>Nuptial males exhibit an overall more intense colour pattern.</p><p>Females are far less colourful and lack the colourful blue bands in the dorsal, anal and caudal fins, while the posterior edge of the dorsal appears more rounded than in males.</p><p>Nuptial females lose the majority of their markings and take on a pale, yellowish colour pattern plus both nuptial males and females exhibit an oblique dark bar running through the eye.</p><p>Both sexes are also capable of rapidly changing colour depending on mood and become significantly darker when aggressive, for example.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-opallios",
       "html": "<p>A cave-spawning species with paternal care. The male selects and defends a small cave formed beneath leaf litter, wood, or another enclosed surface. Suitable artificial spawning sites include small clay caves, narrow tubes, or inverted photographic film containers.</p><p>During courtship, the male displays his iridescent fins and performs a distinctive head-down posture. The pair spawns inside the cave, where the eggs are attached to the ceiling. The male guards and tends the eggs until they hatch and continues guarding the larvae until they become free-swimming.</p><p>Newly free-swimming fry require microscopic foods such as:</p><ul><li>Paramecium</li><li>Infusoria</li><li>Rotifers</li><li>Vinegar eels</li><li>Microworms</li><li>Newly hatched baby brine shrimp as they grow</li></ul><p>Very soft water, abundant humic substances, and a low bacterial load are particularly important for successful egg development.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>Normally spawns in small caves or among leaf litter and forms temporary pair bonds with the male solely responsible for egg and brood-care.</p><p>Parosphromenus spp. have been grouped arbitrarily based on courtship behaviour in males which adopt a 'head-down', 'head-up', or 'horizontal' position depending on species.</p><p>P. opallios belongs to the former, more speciose, assemblage in which the male assumes a near-vertical position with the head lowermost and fins splayed during nuptial displays.</p><p>Sexually-active males form small territories at the centre of which is a small cave normally formed from leaf litter in nature, although in aquaria any suitable structure may be chosen (see Maintenance).</p><p>They then attempt to attract females in the vicinity to enter the cave via spectacular displays as described above.</p><p>Eggs and milt are released in batches during a series of embraces in which the male wraps its body around that of the female.</p><p>Some males construct a rudimentary bubble nest inside the cave while others do not, but either way both male and female attempt to attach the eggs to the ceiling after they are released.</p><p>Subsequent spawning embraces may dislodge eggs from the roof of the cave, and inexperienced adults sometimes simply eat them so a degree of patience may be required until the fish get things right.</p><p>Following a successful spawn the female leaves the cave and proceeds to defend the surrounding area while the male tends to the brood.</p><p>Incubation is normally 24-36 hours with the fry mobile around 4-6 days later.</p><p>They initially swim without direction and the male will collect and return them to the 'nest' but after 3-5 additional days are fully free-swimming and leave the cave at which point parental care ceases.</p><p>They may require Paramecium, rotifers or similar as a first food but are quickly able to accept Artemia nauplii and suchlike.</p><p>If the aquarium is well-structured they can often be raised alongside the parents but in more basic set-ups should be removed and grown on elsewhere.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-opallios",
       "html": "<p>As wild-caught fish, they require extremely slow acclimation. Match the aquarium closely to their shipping water and make any necessary changes gradually. New arrivals may be pale, reclusive, or unwilling to eat. Provide dense cover, dim lighting, multiple caves, and live food immediately. Closely monitor for weight loss, rapid breathing, clamped fins, or disease following importation.</p><p>This species is listed as Endangered and has a highly restricted natural distribution.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<p>This species is sometimes collected and distributed by private aquarists and has appeared in the aquarium trade on a handful of occasions where it was referred to as P. sp. 'Sukamara' prior to description.</p><p>It can be told apart from congeners by the colour pattern in live males (see Sexual dimorphism) plus possession of 11-13 spinous dorsal-fin rays and 6-8 soft dorsal-fin rays, 11-12 spinous and 10-11 soft anal-fin rays.</p><p>Aquarists often refer to Parosphromenus spp. collectively as 'liquorice/licorice gouramis' or 'paros'.</p><p>The genus occurs in southern (peninsular) Thailand, Peninsular Malaysia, Sumatra (Indonesia, including the islands of Bintan, Bangka and the Riau Archipelago), and Borneo (Malaysia and Indonesia).</p><p>All members are small-growing inhabitants of freshwater swamps and associated streams, and the grouping was considered to be monotypic, containing only P. deissneri (Bleeker, 1859), for almost a century.</p><p>Additional taxa have been described on a sporadic basis since the 1950s and there currently exist 20 recognised members with more likely to follow.</p><p>Despite the generic name the results of phylogenetic analyses by Rüber et al. (2006) suggest that Parosphromenus is most closely-related to Betta or Trichopsis in an evolutionary sense.</p><p>All three of these are sometimes included in the putative subfamily Macropodusinae alongside Macropodus, Pseudosphromenus and Malpulutta.</p><p>Like others in the suborder Anabantoidei members possess an accessory breathing organ known as the labyrinth organ, formed by a modification of the first gill arch and consisting of many highly-vascularised, folded flaps of skin.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>The structure of the organ varies in complexity between species tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p><p>While some labyrinth fishes can be observed taking regular gulps of air from the surface others, including Parosphromenus spp., do so less often.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "html": "<ul><li>Kottelat, M. and P. K. L. Ng (2005). Diagnoses of six new species of Parosphromenus (Teleostei: Osphronemidae) from Malay Peninsula and Borneo, with notes on other species. Raffles Bulletin of Zoology Supplement 13, 101-113</li><li>Schindler, I. and H. Linke (2012). Two new species of the genus Parosphomenus (Teleostei: Osphonemidae) from Sumatra. Vertebrate Zoology 62(3), 399-406</li><li>Finke, P. (ed.) The Parosphromenus Project. World Wide Web electronic publication, http://www.parosphromenus-project.org, Accessed on 13.02.10</li><li>Rüber, L, R. Britz and R. Zardoya (2006). Molecular phylogenetics and evolutionary diversification of labyrinth fishes (Perciformes: Anabantoidei). Systematic Biology 55(3), 374-397</li></ul>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/d3b0ac3456c75e79.webp",
-      "width": 960,
-      "height": 439,
-      "licence": "CC BY 4.0",
-      "author": "Royal Ontario Museum",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_opallios.png",
-      "caption": "photo of Parosphromenus opallios",
-      "thumb": "https://media.aquatome.com/commons/d3b0ac3456c75e79-480.webp"
+      "url": "https://media.aquatome.com/seriouslyfish/31e6a39c3a62288a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/31e6a39c3a62288a-480.webp",
+      "width": 795,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "caption": "Non-nuptial male individual; population unconfirmed.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6d300b82faa8083b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6d300b82faa8083b-480.webp",
+      "width": 800,
+      "height": 534,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-opallios",
+      "caption": "Another non-nuptial male.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -163,5 +283,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-06"
 }

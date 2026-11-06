@@ -10,6 +10,193 @@
     "united-states",
     "roanoke"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Savannah River",
+        "Roanoke River",
+        "Altamaha River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Savannah River drainage, near Anderson, South Carolina, U.S.A.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Savannah River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "North America: Atlantic Piedmont and Coastal Plain from the Roanoke River drainage in Virginia, USA to the Altamaha River drainage in Georgia, USA.",
+          "countries": [],
+          "regions": [
+            "Roanoke River",
+            "Altamaha River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340966,
+      "total": 721,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "US",
+          721
+        ]
+      ],
+      "cells": [
+        [
+          -123.75,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          32.34375,
+          22,
+          22
+        ],
+        [
+          -85.78125,
+          33.75,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          32.34375,
+          123,
+          123
+        ],
+        [
+          -84.375,
+          33.75,
+          309,
+          309
+        ],
+        [
+          -84.375,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          40.78125,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          30.9375,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          32.34375,
+          24,
+          24
+        ],
+        [
+          -82.96875,
+          33.75,
+          81,
+          81
+        ],
+        [
+          -82.96875,
+          35.15625,
+          40,
+          40
+        ],
+        [
+          -81.5625,
+          30.9375,
+          6,
+          6
+        ],
+        [
+          -81.5625,
+          32.34375,
+          19,
+          19
+        ],
+        [
+          -81.5625,
+          33.75,
+          18,
+          18
+        ],
+        [
+          -81.5625,
+          35.15625,
+          27,
+          27
+        ],
+        [
+          -80.15625,
+          33.75,
+          8,
+          8
+        ],
+        [
+          -80.15625,
+          35.15625,
+          21,
+          21
+        ],
+        [
+          -80.15625,
+          36.5625,
+          5,
+          5
+        ],
+        [
+          -78.75,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          36.5625,
+          4,
+          4
+        ],
+        [
+          -77.34375,
+          36.5625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

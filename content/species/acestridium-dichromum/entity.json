@@ -12,6 +12,110 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco",
+        "Casiquiare Canal"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The green whiptail, Acestridium dichromum, is a small loricariid catfish from the upper rio Negro in Brazil and the upper Orinoco in Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the upper rio Negro basin in Brazil, upper Orinoco in Venezuela and drainages between them, including the Casiquiare Canal.",
+          "countries": [],
+          "regions": [
+            "Casiquiare Canal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339441,
+      "total": 23,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "VE",
+          19
+        ],
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          2
+        ],
+        [
+          -68.90625,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

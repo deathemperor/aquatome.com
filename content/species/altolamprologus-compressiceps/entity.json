@@ -13,6 +13,163 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZM",
+        "BI",
+        "TZ",
+        "CD"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the town of Kinyamkolo, now known as Mpulungu, located in Zambia at the southern tip of Lake Tanganyika.",
+          "countries": [
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "\"Burundi red fin\", collected at the north-eastern extremity of the lake in Burundi.",
+          "countries": [
+            "BI"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "\"black cheek\" from Cape Kagobo, Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "\"gold\" from Kiku, Democratic Republic of the Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The compressed cichlid, Altolamprologus compressiceps, is a substrate-spawning cichlid endemic to Lake Tanganyika, where it lives among rocky rubble.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372765,
+      "total": 115,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ZM",
+          51
+        ],
+        [
+          "CD",
+          28
+        ],
+        [
+          "TZ",
+          24
+        ],
+        [
+          "BI",
+          7
+        ],
+        [
+          "MW",
+          4
+        ],
+        [
+          "SS",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          7,
+          7
+        ],
+        [
+          28.125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          28.125,
+          -4.21875,
+          20,
+          20
+        ],
+        [
+          29.53125,
+          -9.84375,
+          16,
+          16
+        ],
+        [
+          29.53125,
+          -8.4375,
+          11,
+          11
+        ],
+        [
+          29.53125,
+          -7.03125,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          -5.625,
+          10,
+          10
+        ],
+        [
+          29.53125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          31,
+          31
+        ],
+        [
+          30.9375,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          33.75,
+          -15.46875,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

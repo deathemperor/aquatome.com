@@ -1,0 +1,80 @@
+{
+  "id": "tridensimilis-brevis",
+  "scientificName": "Tridensimilis brevis",
+  "order": "Siluriformes",
+  "family": "Trichomycteridae",
+  "genus": "Tridensimilis",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "paraguay",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tridensimilis_brevis_en/",
+      "html": "<p>Tridensimilis brevis is a cute, free-swimming dwarf glass cat that attains a maximum length of 3 cm. It belongs to the notorious candiru relationship, but is no blood sucker at all. This tiny catfish is so translucent that it is possible to observe the way of the food from the mouth to the vent.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tridensimilis_brevis_en/",
+      "html": "<p>The fish was received from Peru.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tridensimilis_brevis_en/",
+      "html": "<p>T. brevis can be kept problem free with small tetras, but one should better keep no Corydoras, especially C. pygmaeus, along with Tridensimilis.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "qAL2WJTvGJg",
+      "title": "Tridensimilis brevis.flv",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OJcwuAhYE2E",
+      "title": "Tridensimilis brevis",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể nuôi cá trê lùn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia nở"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

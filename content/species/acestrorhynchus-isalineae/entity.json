@@ -10,6 +10,96 @@
     "brazil",
     "madeira"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Madeira"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The type series was collected from 'tributary of Rio dos Marmelos, Rio Madeira basin, 110 kilometers east of Humaitá along rodovia Transamazônica, Amazonas State, Brazil' in the western Brazilian Amazon, and most official records pertain only to this locality although the species may be more widely-distributed within the Madeira system.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355590,
+      "total": 27,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "BR",
+          26
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -7.03125,
+          12,
+          12
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -131,19 +221,7 @@
       "html": "<ul><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>López-Fernández, H. and K. O. Winemiller (2003). Morphological variation in Acestrorhynchus microlepis and A. falcatus (Characiformes: Acestrorhynchidae), reassessment of A. apurensis and distribution of Acestrorhynchus in Venezuela. Ichthyological Exploration of Freshwaters 14(3), 193-208</li><li>Menezes, N. A. (1969). Systematics and evolution of the tribe Acestrorhynchini (Pisces, Characidae). Arquivos de Zoologia (São Paulo) 18(1-2), 1-150</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Prettia, V. Q., D. Calcagnottoa, M. Toledo-Piza and L. F. de Almeida-Toledo (2009). Phylogeny of the Neotropical genus Acestrorhynchus (Ostariophysi: Characiformes) based on nuclear and mitochondrial gene sequences and morphology: A total evidence approach. Molecular Phylogenetics and Evolution 52(2), 312–320</li><li>Toledo-Piza, M. (2007). Phylogenetic relationships among Acestrorhynchus species (Ostariophysi: Characiformes: Acestrorhynchidae). Zoological Journal of the Linnean Society 151(4), 691–757</li></ul>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/6a88b7484dfad953.webp",
-      "width": 800,
-      "height": 432,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-isalineae",
-      "caption": "Specimens collected from the rio dos Marmelos near the municipality of Humaitá, Amazonas state, Brazil.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/6a88b7484dfad953-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {

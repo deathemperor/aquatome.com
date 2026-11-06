@@ -42,12 +42,9 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
   // A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
   const text = foldNearEmpty(s.sections, s.t, t)
-  // The jump row: the parts readers look for, in page order (the photo strip comes before the text).
+  // The jump row's care questions, in page order; the page adds the shop and the photos, which come after the text.
   const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
-  const jumps = [
-    ...(strip.some(Boolean) ? [{ href: '#gal-h', label: t('Ảnh') }] : []),
-    ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
-  ]
+  const jumps = JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) }))
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   return {
     country, firstSource, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,

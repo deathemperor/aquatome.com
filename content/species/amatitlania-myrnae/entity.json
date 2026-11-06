@@ -10,6 +10,60 @@
     "costa-rica",
     "panama"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CR",
+        "PA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Cryptoheros myrnae is a Central American cichlid from the Atlantic slope of Costa Rica and Panama.",
+          "countries": [
+            "CR",
+            "PA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9455875,
+      "total": 8,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          8.4375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

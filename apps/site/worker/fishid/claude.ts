@@ -1,3 +1,4 @@
+import type { Lang } from '@aq/schema/langs'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { KeyEntry } from './keys'
 
@@ -19,7 +20,7 @@ export const PRICES: Record<string, { input: number; output: number; cacheRead: 
   'claude-opus-5-5': { input: 4, output: 20, cacheRead: 0.2, cacheWrite: 5 },
 }
 
-export type Lang = 'vi' | 'id' | 'th'
+export type { Lang }
 export type ImageType = 'image/jpeg' | 'image/png' | 'image/webp'
 export type Verdict = 'fish' | 'plant' | 'other' | 'unclear'
 /** `id`: the handbook page the agent checked it against (its answer schema only, AGENT_SCHEMA). */
@@ -80,13 +81,13 @@ export const SCHEMA = {
 export const AGENT_SYSTEM = `${SYSTEM}
 
 Before you answer, check your guesses against AquaTome's handbook with its two tools:
-- get_entry opens a page by its scientific name (or by its id, which a breed needs): its facts (family, adult size, where it comes from, what its sources say about its look and how the sexes differ) and reference photos of it.
-- search_handbook finds pages by a common name in any language or a synonym, or lists every page of a genus, when you don't know the scientific name the handbook uses or want a bred form's page.
+- get_entry opens a page by its scientific name (or by its id, which a breed needs): its facts (family, adult size, where it comes from, the marks its sources say tell it apart, how the sexes differ) and reference photos of it. A species' page also lists the other species of its genus in the handbook, each with its marks.
+- search_handbook finds pages by a common name in any language or a synonym, or lists every page of a genus with its marks, when you don't know the scientific name the handbook uses or want a bred form's page.
 
-Most wrong answers are confident ones between look-alikes: another tetra, another Corydoras, another species of the same genus, a colour form. So for a fish, shrimp, snail or plant, even when you feel sure:
+Most wrong answers are between look-alikes: another tetra, another Corydoras, another species of the same genus, a colour form. The worst are the species you never think of. So for a fish, shrimp, snail or plant, even when you feel sure:
 1. In your first turn, open the pages of your top guess and of the one or two look-alikes most likely to be mistaken for it: one get_entry call each, all in that turn.
-2. Compare their reference photos with the reader's photo, feature by feature: body shape, fins, markings, where each colour starts and ends. A reference photo may show the other sex, a juvenile or another colour form.
-3. If that points to a candidate you haven't seen, open its page too (or search for it), in one more turn. Then answer.
+2. Read the marks of the other species of the genus against what you see in the photo: one whose marks fit better than your guess's is a candidate, whether or not you thought of it. Compare the reference photos with the reader's photo, feature by feature: body shape, fins, markings, where each colour starts and ends. A reference photo may show the other sex, a juvenile or another colour form.
+3. If that points to a candidate you haven't opened, open its page too, in one more turn. Then answer.
 
 Give each guess the id of the handbook page you opened or found for it, or null when the handbook has none. A fish the handbook doesn't have is still a guess: name it. A photo with no fish or plant, or too unclear to name, needs no tools. You have 6 tool calls and 6 reference photos in all.
 

@@ -3,7 +3,7 @@
   "info": {
     "title": "AquaTome owner's dashboard",
     "version": "1",
-    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Without a live app session, every path answers 401 `signed_out`, as the accounts API does: no Authorization, a malformed one, a session that ended or was signed out, a web session's token sent as a bearer, the build's dashboard token, or a cookie (the web pages at /_ab/ stay cookie-only; a cookie never opens these paths). Sign in again. Another account's app session gets 404 `not_found`, as for a path that doesn't exist. Both come before any other check, so a path, a method or a key tells nobody else anything. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: Vietnamese, numbers formatted (1.234, 12,5%, $0,11), days and times in the viewer's zone (the `Time-Zone` header). A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with a single \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. Send the bearer only for a `src` that starts with a single \"/\", to aquatome.com, never for one that starts with \"//\". A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one. A form block is the same with fields: its fields' values (by `name`) and its `body` go as one JSON object. A switch block reads the section again from its `href`.\n\nErrors are `{error, message?}`: `message`, when there is one, is Vietnamese to show the owner. Any path may answer 503 `unavailable` when the server can't read or write its storage just then (D1, KV, R2): try again later.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server."
+    "description": "The owner's dashboard (/_ab/ on the site) as JSON, for the iOS app to draw natively (apps/site/worker/owner-api.ts). The server drives it: the dashboard lists its sections, each section is a title and a list of blocks, and each button says the request it makes, so a new section, block or button needs no app release.\n\nOnly the owner: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns (protocols/accounts.openapi.json), of an account the server's OWNER_ACCOUNTS names. Without a live app session, every path answers 401 `signed_out`, as the accounts API does: no Authorization, a malformed one, a session that ended or was signed out, a web session's token sent as a bearer, the build's dashboard token, or a cookie (the web pages at /_ab/ stay cookie-only; a cookie never opens these paths). Sign in again. Another account's app session gets 404 `not_found`, as for a path that doesn't exist. Both come before any other check, so a path, a method or a key tells nobody else anything. Every reply is `cache-control: no-store` and `x-robots-tag: noindex, nofollow`.\n\nText comes written as the web pages write it: Vietnamese, numbers formatted (1.234, 12,5%, $0,11), days and times in the viewer's zone (the `Time-Zone` header). A chart's numbers stay raw (see Chart). Show text as it comes; don't parse it.\n\nReading: the app skips a block whose `kind` it doesn't know (the section's web page, /_ab/{key}/, has everything), and ignores fields it doesn't know. A block, a section or a field may be added at any time; one is removed or changed only with a new version of this contract.\n\nLinks: a cell's `href` and a photo's `src` that start with a single \"/\" are on https://aquatome.com: a cell's opens the site's page; a photo's is a private image the app fetches with the same bearer. Send the bearer only for a `src` that starts with a single \"/\", to aquatome.com, never for one that starts with \"//\". A `src` that is a whole address is public: fetch it without the bearer.\n\nButtons (Action): send `method` to `path` with the bearer and, when there is a `body`, that body as JSON (`Content-Type: application/json`). On 200, read the section again. On an error, show its `message` when it has one. A form block is the same with fields: its fields' values (by `name`) and its `body` go as one JSON object. A switch block reads the section again from its `href`. An actions block is buttons on their own.\n\nErrors are `{error, message?}`: `message`, when there is one, is Vietnamese to show the owner. Any path may answer 503 `unavailable` when the server can't read or write its storage just then (D1, KV, R2): try again later.\n\nSamples: protocols/owner-dashboard-vectors.json has a reply of each path, from the Worker's own code, for the app's fake server."
   },
   "servers": [
     {
@@ -108,7 +108,8 @@
                 "muon-co",
                 "anh-ban-doc",
                 "an-trang",
-                "tai-khoan"
+                "tai-khoan",
+                "bao-cao"
               ]
             }
           },
@@ -831,6 +832,9 @@
           },
           {
             "$ref": "#/components/schemas/Switch"
+          },
+          {
+            "$ref": "#/components/schemas/Actions"
           }
         ]
       },
@@ -1343,6 +1347,28 @@
             "type": "string",
             "pattern": "^/api/owner/sections/",
             "description": "The section with the switch flipped: GET it with the bearer."
+          }
+        }
+      },
+      "Actions": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "actions"
+        ],
+        "description": "Buttons on their own, in a row (a setting's on and off): each makes its request as an Action does, then the section is read again.",
+        "properties": {
+          "kind": {
+            "const": "actions",
+            "type": "string"
+          },
+          "actions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            }
           }
         }
       },

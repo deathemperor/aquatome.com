@@ -10,6 +10,67 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraná River",
+        "Tocantins River",
+        "Rio São Vicente"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Caverna Passa Três, about 300 meters into the cave, Rio São Vicente system, São Domingos, Goiás State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio São Vicente"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: São Vicente and Angélica-Bezerra cave system in upper Paraná River, Tocantins River drainage in Brazil.",
+          "countries": [],
+          "regions": [
+            "Paraná River",
+            "Tocantins River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961463,
+      "total": 18,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -47.8125,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -46.40625,
+          -14.0625,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

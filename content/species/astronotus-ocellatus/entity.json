@@ -41,11 +41,53 @@
       "regions": [
         "Amazon",
         "Orinoco",
+        "Negro",
+        "Madeira",
         "Solimões",
-        "Negro"
+        "Ucayali"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "sprucepets"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed in the Amazon region and has been recorded in Colombia, Venezuela, Bolivia, Ecuador, Peru, Brazil, French Guiana, Paraguay, Uruguay and Argentina.",
+          "countries": [
+            "CO",
+            "VE",
+            "BO",
+            "EC",
+            "PE",
+            "BR",
+            "GF",
+            "PY",
+            "UY",
+            "AR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
+          "countries": [],
+          "regions": [
+            "Negro",
+            "Madeira",
+            "Solimões",
+            "Ucayali"
+          ]
+        }
       ]
     },
     "records": {
@@ -909,6 +951,13 @@
           "min": 22,
           "max": 25
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -924,6 +973,13 @@
         "value": {
           "min": 6,
           "max": 7.5
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
+          "max": 8
         }
       }
     ],
@@ -951,6 +1007,10 @@
       {
         "source": "sprucepets",
         "value": 33
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -971,6 +1031,10 @@
       {
         "source": "sprucepets",
         "value": 6
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 3
       }
     ],
     "lifeYears": [
@@ -979,6 +1043,13 @@
         "value": {
           "min": 10,
           "max": 15
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 10,
+          "max": 20
         }
       }
     ]
@@ -997,6 +1068,18 @@
       "html": "<ul><li>Common names: Oscar, Tiger Oscar, Marble Cichlid, Velvet Cichlid</li><li>Scientific name: Astronotus ocellatus</li><li>Adult size: 12 to 14 inches (30–36 cm)</li><li>Life expectancy: 10 to 15 years</li><li>Family: Cichlidae</li><li>Origin: South America</li><li>Social: Semi-aggressive</li><li>Tank level: Top, mid-dweller</li><li>Minimum tank size: 65 gallons (about 250 litres)</li><li>Diet: Carnivore</li><li>Breeding: Egg layer</li><li>Care: Advanced</li><li>pH: 6.0 to 7.5</li><li>Hardness: 5 dGH</li><li>Temperature: 22 to 25 °C (72 to 77 °F)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>Oscar cichlids are among the most popular fish sold at pet stores because of their beautiful colours and unique personality. They are intelligent enough to recognise their owner, come to the front of the tank to greet you, and can be trained to eat out of your hand. They can also get moody and sulk at the bottom of the aquarium after a water change or after decorations are moved. Adults grow to the length of an American football and can live as long as a dog.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>Juveniles in the pet store are usually around 5–8 cm long, but adults usually reach 25–30 cm or more. They often grow rapidly and reach two-thirds of their adult size within the first 6–12 months, then growth slows for the rest of their 10- to 20-year lifespan.</p><p>The most common type is the tiger oscar, with bold red-orange markings against a black background. Other varieties include albino, red, lemon, black and white, and long fin.</p><p>Oscars are widely available and easy to breed at fish farms. Bigger fish can be hard to rehome, so make sure you can provide for them for their entire life.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
@@ -1009,16 +1092,34 @@
       "html": "<p>Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins. They are common in the aquarium hobby with most individuals being captive bred.</p><p>They are commonly sold in South American markets as a food fish and have been introduced to Asia, Australia and North America. In many US states where fish have been released into the wild, they are labeled a non-native pest species.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>Astronotus ocellatus is found in countries all over South America.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<p>Most often found in the shallows of slow-moving or still waters in forested areas. It appears to favour silt-laden white water habitats, where it is typically associated with submerged tree roots or under cover of marginal vegetation.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>They live mostly in slow-moving waters with tree roots, rock or other shelter to hang around.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<p>An aquarium with base dimensions of 150 × 60 cm (60 × 24 in) is just about large enough to house a single adult with larger quarters required for a pair or group. Volume: ~540 litres (~143 US gal).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>Some people say a 210 L tank is the minimum for one oscar, but 280 L is better, giving more room to swim and turn around. For two oscars, look for an aquarium 1.5–1.8 m in length that holds at least 350 L.</p><p>If you have the space, you can try to keep several oscars in a very large tank, but some may be very territorial or more aggressive than expected, so be prepared to remove some of the fish. For example, three oscars were once kept in a 470 L tank, but two formed a pair and bullied the third, which eventually had to be moved to another tank.</p>"
     },
     {
       "key": "maintenance",
@@ -1039,10 +1140,22 @@
       "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: Captive-bred examples are not fussy with somewhere in the range 6.0–7.5 normally recommended. Wild-caught fish may require more specific conditions depending on origin.</li><li>Hardness: 5–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>Oscars are very hardy and can live in tropical temperatures of 23–27°C and pH levels of 6–8.</p>"
+    },
+    {
       "key": "equipment",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
       "html": "<p>This aggressive nature towards their tank decor may turn against filtration and other life support items you have in their tank, such as powerheads and heaters. Oscars have been known to break these items, even if you try to be sneaky about hiding them. The best solution for many destructive oscar tanks is to incorporate a sump. In doing so, you can move all of your life support equipment out of the main tank and away from your fish.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>As a big fish, the oscar produces a lot of waste and needs adequate filtration. Hang-on-back, canister, internal and sponge filters have all been used with oscars. The type of filter matters little as long as the current is not too fast, it can handle the bioload, and it is easy to clean.</p><p>Oscars are large, powerful fish that like to rearrange their environment and uproot plants. Choose decorations with no sharp edges so the fish won't be injured if it tries to move them, and use simple, rounded decorations that do not take up too much swimming space.</p>"
     },
     {
       "key": "diet",
@@ -1057,6 +1170,12 @@
       "html": "<p>Oscars are serious carnivores who will prey upon smaller, more docile fish in their tank. It is critical to select suitable tankmates who will not look or act too tasty.</p><p>As with most pet fish species, a well-rounded diet will consist of a pelleted cichlid diet and meaty supplements. There are many pelleted cichlid diets that are good for a wide variety of cichlid diets, carnivores included. Additional protein-rich foods to give your oscar include bloodworms, tubifex worms, frozen krill and other larger frozen diets. Although some recommend feeding your oscar live foods, this should be avoided in order to limit the spread of disease into your system and potentially overpopulating your tank.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>Oscars are omnivores that tend to prefer protein, but will opportunistically eat anything edible they find. In the wild, their diet includes insects, crustaceans, worms, small fish, fruits and nuts that fall into the water, and other vegetation.</p><p>Good options are quality pellets made for large cichlids. Freeze-dried krill, crickets and mealworms are favourite snacks, and live snails and earthworms can also be given if easy to obtain.</p><p>Provide a wide variety of foods and consider a vitamin supplement to supply essential vitamins and minerals and avoid health issues such as hole-in-the-head disease. Large cichlids can be prone to this disease, so keep their immune system healthy with a varied diet.</p><p>Oscars are eager eaters that beg for food even when full, so adjust portions so the belly is slightly rounded, neither concave nor swollen.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
@@ -1067,6 +1186,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
       "html": "<p>Be very careful when selecting tankmates for your oscar. Although they may start out small, many quickly outgrow smaller tankmates and then consume them. These are semi-aggressive cichlids who do not play well with many community fish. When choosing compatible cichlid species, make sure you select fish from the same region. Even though there are many varieties of cichlids, their origin will dictate what water quality parameters are best for them. Since oscars are South American, be sure to stick to other South American varieties.</p><p>For your oscar tank, it is best to select fish of a similar size who can hold their own. This includes Jack Dempseys (cá Jack Dempsey), Convict Cichlids (cá Convict) and Silver Dollars (cá đô la bạc) as a few examples.</p><p>Oscars are notorious redecorators. Expect your fish to move everything, especially live plants with roots. Oscars will dig up plants, overturn rocks and toss sticks aside. It's just in their nature and there is not much you can do to deter rearranging behavior.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>This species has a big mouth that can suck up any fish or invertebrate small enough to fit inside, so do not keep it with nano creatures. Despite their size, they are not overly aggressive (except during spawning) and can be picked on by other big fish, so choose tank mates carefully. They have been kept successfully with bigger, peaceful fish such as silver dollars, certain plecos and other medium-sized South American cichlids.</p>"
     },
     {
       "key": "dimorphism",
@@ -1081,6 +1206,12 @@
       "html": "<p>There is a very small external difference between male and female oscars. You will need to safely catch and handle your fish, and flip them upside down to examine their urogenital openings. Oscar females will have one larger hole, which is the opening for their eggs. Oscar males will have holes of similar size. If they are not reproductively mature, the holes will look the same size regardless of their sex.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>It is difficult to sex oscars because males and females are nearly indistinguishable in appearance. When the fish are around 1–1.5 years old, you can try to identify the sex by venting, which involves flipping the fish on its back and examining the reproductive area. A male has two small holes of the same size, whereas a female has one smaller hole and one larger hole, the ovipositor (the breeding tube used to lay eggs).</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
@@ -1091,6 +1222,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/oscar-fish-species-profile-5079536",
       "html": "<p>Even if you have one male and female oscar, they may not be interested in breeding. Oscars can be picky when it comes to selecting a mate. If your fish are not initially interested, do not despair and try moving them back to their main tank, incorporating different decor items to the breeding tank or getting a larger breeding tank.</p><p>It is recommended to breed your oscars in a separate tank away from other fish, in a 100 gallon (about 380 litres) tank or larger. Temperature is critical to induce spawning, and should be warmer than their usual tank, 26 to 30 °C (79 to 86 °F). You will need some flat rock or stone surfaces for the fish to lay their eggs. The female will lay between 1,000-2,000 eggs which the male will then swim over to fertilize. The eggs and fry will be guarded by their parents and should remain in the breeding tank until they can fend for themselves.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "html": "<p>Most people do not breed oscars intentionally because females can lay hundreds to thousands of eggs and it is very hard to find homes for so many large fish. Even if a male and female are identified, they may be picky and unwilling to pair up. Some people therefore buy a group of six juveniles, wait until they are old enough to form pairs, and then isolate a chosen pair in their own tank with no other fish.</p><p>The female lays her eggs on a flat rock or a cleared area on the bottom of the tank. Once the male fertilises the eggs, both parents aggressively guard the brood against predators. Once the fry have hatched, move them to a smaller grow-out tank and feed tiny foods such as live baby brine shrimp. If left in the same tank, the parents may eat their own young once they are free-swimming.</p>"
     },
     {
       "key": "notes",
@@ -1135,6 +1272,50 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/aquariumcoop/a683af4a36801918.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/a683af4a36801918-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "caption": "Care Guide for Oscar Fish – The South American “Water Dog” - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/8be4f7725c6489c8.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/8be4f7725c6489c8-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "caption": "Albino Tiger Oscar - Astronotus ocellatus",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/0d4ba7679497ce38.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/0d4ba7679497ce38-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "caption": "oscar fish in aquarium",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/547ced94982f5520.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/547ced94982f5520-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
+      "caption": "tiger oscar cichlid",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/sprucepets/56d5b06420073d26.webp",
       "thumb": "https://media.aquatome.com/sprucepets/56d5b06420073d26-480.webp",
       "width": 1200,
@@ -1146,7 +1327,32 @@
       "source": "sprucepets"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "LGb10xzYbaw",
+      "title": "Aquarium 450L Oscar (Astronotus Ocellatus)",
+      "durationSec": 22,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "HDbNlCHH9EI",
+      "title": "Oscar - Astronotus ocellatus ✔",
+      "durationSec": 181,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "0KkgA9W52kQ",
+      "title": "THE OSCAR AQUARIUM - complete tour - The king of DIY",
+      "durationSec": 890,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vTOMz8vnWOA",
+      "title": "OSCAR CICHLIDS TANK*Astronotus ocellatus*BIG GROUP OSCAR FISH*Big Aquarium Oscar Cichlids*CICLIDI*",
+      "durationSec": 29,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -1177,5 +1383,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }

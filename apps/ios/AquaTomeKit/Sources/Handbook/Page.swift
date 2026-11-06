@@ -80,10 +80,10 @@ public struct PageDoc: Sendable {
     /// A smaller copy (about 480 px wide) for a grid of them: a gallery's photos have one.
     public let thumb: String?
     /// The photo's credit as the page shows it: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page.
-    public let credit: (text: String, licence: String, url: String?)?
+    public let credit: Credit?
 
     /// A photo the page doesn't carry (a reader's): `credit`, who took it.
-    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: (text: String, licence: String, url: String?)?) {
+    public init(src: String, w: Int, h: Int, alt: String?, thumb: String?, credit: Credit?) {
       self.src = src; self.w = w; self.h = h; self.alt = alt; self.thumb = thumb; self.credit = credit
     }
 
@@ -92,8 +92,69 @@ public struct PageDoc: Sendable {
       self.src = src; self.w = w; self.h = h
       alt = o["alt"] as? String
       thumb = o["thumb"] as? String
-      let c = o["credit"] as? [String: Any]
-      if let text = c?["text"] as? String, let licence = c?["licence"] as? String { credit = (text, licence, c?["url"] as? String) } else { credit = nil }
+      credit = Credit(json: o["credit"])
+    }
+
+    /// A photo's credit: the line ("Ảnh: Aquarium Breeder"), its licence, the photo's own page. An Unsplash photo's line
+    /// is "Ảnh: <name> trên Unsplash", with the name as the line writes it (`author`) and the photographer's Unsplash
+    /// page (`authorUrl`), once the site's engine has it.
+    public struct Credit: Sendable {
+      public let text: String
+      public let licence: String
+      public let url: String?
+      public let author: String?
+      public let authorUrl: String?
+
+      /// Unsplash's home, linked as its guidelines ask: with AquaTome's UTM, as the site links it (lib/unsplash.ts).
+      public static let unsplashHome = "https://unsplash.com/?utm_source=aquatome&utm_medium=referral"
+
+      public init(text: String, licence: String, url: String?, author: String? = nil, authorUrl: String? = nil) {
+        self.text = text; self.licence = licence; self.url = url; self.author = author; self.authorUrl = authorUrl
+      }
+
+      init?(json v: Any?) {
+        guard let o = v as? [String: Any], let text = o["text"] as? String, let licence = o["licence"] as? String else { return nil }
+        self.init(text: text, licence: licence, url: o["url"] as? String, author: o["author"] as? String, authorUrl: o["authorUrl"] as? String)
+      }
+
+      /// The line and its licence ("Ảnh: Aquarium Breeder · CC BY 4.0") in pieces, each with where it links. One with an
+      /// `author`, the site's Unsplash line: the name linking the photographer's page (the photo's own until the site has
+      /// it) and "Unsplash" Unsplash's home, the rest unlinked; if the line doesn't hold the name, the line linking the
+      /// photo's own page as before and "Unsplash" still its home. Any other, the whole of it linking the photo's own page.
+      /// `photo` false: the photo's own page linked nowhere, for a list that links each photo's page by a number.
+      public func parts(photo: Bool = true) -> [(text: String, link: String?)] {
+        let page = photo ? url : nil
+        let tail = licence.isEmpty ? "" : " · " + licence
+        guard let author else { return [(text + tail, page)] }
+        // The name with its spaces as the line has them: the site collapses a line's spaces, not always the name's.
+        // Looked for after "Ảnh: " ("Foto: ", "ภาพ: "), so a name that is that word isn't found in it.
+        let wanted = author.split(whereSeparator: \.isWhitespace).joined(separator: " ")
+        let from = text.range(of: ": ")?.upperBound ?? text.startIndex
+        var links: [(at: Range<String.Index>, link: String?)] = []
+        if !wanted.isEmpty, let name = text.range(of: wanted, range: from..<text.endIndex) {
+          links.append((name, authorUrl ?? page))
+          // "Unsplash" outside the name: after it, as each language's line has it, else before it.
+          if let site = text.range(of: "Unsplash", range: name.upperBound..<text.endIndex)
+              ?? text.range(of: "Unsplash", range: from..<name.lowerBound) {
+            links.append((site, Self.unsplashHome))
+          }
+        } else if let site = text.range(of: "Unsplash", options: .backwards) {
+          links = [(text.startIndex..<site.lowerBound, page), (site, Self.unsplashHome)]
+        } else {
+          return [(text + tail, page)]
+        }
+        links.sort { $0.at.lowerBound < $1.at.lowerBound }
+        var out: [(text: String, link: String?)] = []
+        var i = text.startIndex
+        for l in links where !l.at.isEmpty {
+          if i < l.at.lowerBound { out.append((String(text[i..<l.at.lowerBound]), nil)) }
+          out.append((String(text[l.at]), l.link))
+          i = l.at.upperBound
+        }
+        let rest = String(text[i...]) + tail
+        if !rest.isEmpty { out.append((rest, nil)) }
+        return out
+      }
     }
   }
 
@@ -442,6 +503,21 @@ extension PageDoc {
 
   /// A YouTube video's picture, as a page shows it.
   public static func thumbnail(_ youtubeId: String) -> String { "https://i.ytimg.com/vi/\(youtubeId)/hqdefault.jpg" }
+
+  /// Whether `id` is a video id as YouTube gives them, 11 of A–Z, a–z, 0–9, `-` and `_`: the app plays only those in a
+  /// page. Any other (one starting `//` makes no link, one with markup would break the player's page) opens on YouTube.
+  public static func isYouTubeId(_ id: String) -> Bool {
+    id.utf8.count == 11 && id.utf8.allSatisfy { c in
+      (UInt8(ascii: "a")...UInt8(ascii: "z")).contains(c) || (UInt8(ascii: "A")...UInt8(ascii: "Z")).contains(c)
+        || (UInt8(ascii: "0")...UInt8(ascii: "9")).contains(c) || c == UInt8(ascii: "-") || c == UInt8(ascii: "_")
+    }
+  }
+}
+
+/// A page's list of other pages. One longer than 30 (the fish a kind of kit is for: over a thousand on the site) shows
+/// 12 in place and the rest a tap away, so what follows it on the page stays in reach.
+public enum PageList {
+  public static func inPlace(_ count: Int) -> Int { count > 30 ? 12 : count }
 }
 
 /// Whether to keep a shelf of pages for offline now: on Wi-Fi, go; on mobile data or in Low Data Mode, ask first; with

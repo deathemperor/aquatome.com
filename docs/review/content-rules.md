@@ -5,7 +5,7 @@ Indonesian and Thai (`packages/engine/src/content-rules.ts`, docs/governance.md)
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 3900 (Vietnamese 2523, Indonesian 692, Thai 685). Imperial units
+Pages checked: 4299 (Vietnamese 2638, Indonesian 834, Thai 827). Imperial units
 beside a metric figure: feet 2, gallon 8.
 
 ## Numbered headings broken or miscounted (1)
@@ -50,20 +50,33 @@ Labels such as "Sai lầm 1", "Mẹo 2", "Bước 3" whose numbers neither count
 
 - none
 
-## Text that reports what "the page" says (4)
+## Text that reports what "the page" says (5)
 
 "Trang lưu ý…", "Trang cũng nêu…" (and the Indonesian and Thai): the translator writing what the source page says instead of saying it. The reader's writer rewrites it on Vietnamese pages, kept only when its reviewer passes it; listed otherwise.
 
+- [id · Mayaca fluviatilis](https://aquatome.com/id/tanaman/mayaca-fluviatilis/) — "Asal: Amerika Utara (info tanaman di halaman ini menyebut Amerika Utara, sedang…"
 - [th · มายาก้า](https://aquatome.com/th/plants/mayaca-fluviatilis/) — "ถิ่นกำเนิด: อเมริกาเหนือ (ข้อมูลไม้น้ำในหน้านี้ระบุว่าอเมริกาเหนือ แต่ในคำอธิบา…"
 - [vi · Cá bảy màu Full Red (Full Red Guppy)](https://aquatome.com/ca/ca-bay-mau-full-red/) — "Cũng trang này lưu ý rằng nuôi dòng albino khép kín trong một nhóm dễ gây suy t…"
 - [vi · Cá lau kiếng bristlenose](https://aquatome.com/ca/ca-lau-kieng-bristlenose/) — "Trang cũng nêu kích thước bể tối thiểu là 150 lít; bể 75 lít có thể nuôi hai co…"; "Trang lưu ý rằng chúng không thực sự làm sạch bể: chúng ăn tảo trên kính nhưng…"
 - [vi · Bể cá bị nóng mùa hè: cách hạ nhiệt an toàn và giữ bể mát](https://aquatome.com/huong-dan/be-ca-bi-nong-mua-he/) — "Trang này cũng khuyên tăng sủi hoặc tăng dòng chảy mặt nước, nhất là vào ban đê…"
 
-## Markdown, HTML or entities left in the text (0)
+## Text naming a video, a channel or a reviewer (1)
+
+A page written from videos (a video guide, a product's reviews) whose text names one of its channels or talks about the video or who made it ("trong video", "người review", "theo tác giả"): the page's source list carries that. Listed; a product's review summary never publishes with one (product-reviews.ts).
+
+- [vi · Các nguồn học thủy sinh hữu ích: diễn đàn, web, hội nhóm, YouTube](https://aquatome.com/huong-dan/hoc-choi-thuy-sinh-o-dau-dien-dan-website-cuoc-thi-va-kenh/) — "kênh youtube"
+
+## A product AquaTome doesn't control, said to be controlled (0)
+
+A product page saying AquaTome controls it, when the code doesn't (@aq/schema controlOf: the Chihiros lines the light tool drives, the plug makers the app switches). The page's control block comes from the code; running text doesn't get to promise it.
+
+- none
+
+## Markdown, HTML or entities left in the text (1)
 
 **bold**, "## heading", [link](…), `code` or a tag written out as text; "&amp;" in a title, summary or FAQ, or an entity escaped twice in the text (both fixed when the engine writes the page, listed until then).
 
-- none
+- [id · Warna Ikan Hias Pudar: Pakan Penambah Warna, Vitamin C & Cara Memberi Pakan](https://aquatome.com/id/panduan/warna-ikan-hias-pudar/) — "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\<li\>"; "\<strong\>"; "\</strong\>"; "\</li\>"; "\</ul\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\</p\>"; "\<p\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<p\>"; "\</p\>"; "\<ul\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"; "\<p\>"; "\<em\>"; "\</em\>"; "\</p\>"; "\<h3\>"; "\</h3\>"; "\<ul\>"; "\<li\>"; "\<em\>"; "\</em\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\<li\>"; "\</li\>"; "\</ul\>"
 
 ## A paragraph repeated on the page (0)
 

@@ -1,0 +1,112 @@
+{
+  "id": "asterophysus-batrachus",
+  "native": {
+    "input": "bfcea0f1c641edad",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Venezuela",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Asterophysus batrachus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344563,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

@@ -1,3 +1,4 @@
+import { LANGS, SEGMENTS } from '@aq/schema/langs'
 import { readCapped } from '../comments/api'
 import { VI_SECTIONS, withoutVi } from '../paths'
 import { allowed, countryOf, done, fail, gate, isOurCopy, metaOf, objectOf, type Meta, type TelemetryEnv } from './shared'
@@ -8,14 +9,16 @@ export const MAX_BODY = 64 * 1024
 /** Within Analytics Engine's 250 data points a request. */
 export const MAX_EVENTS = 100
 export const ACTIONS = ['light.connect', 'light.write', 'plug.switch', 'fishid', 'tank.add', 'post.comment', 'post.photo'] as const
-const LANGS = ['vi', 'id', 'th']
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+// The sections the app's contract names (protocols/app-telemetry.openapi.json, Path): the page offering the app isn't a
+// handbook page, and an event naming it has no page.
+const SECTIONS = VI_SECTIONS.filter(s => s !== 'ung-dung')
 /**
  * A handbook page's path (protocols/app-telemetry.openapi.json "Path"): a Vietnamese page at the root or under the old
- * /vi/ the app index still gives, or an Indonesian or Thai one. Built from the Vietnamese sections, so nothing else at the
+ * /vi/ the app index still gives, or another language's. Built from the Vietnamese sections, so nothing else at the
  * root (/app/, /go/, /api/…) passes; the contract's pattern is this one's source (a test keeps them equal).
  */
-export const PAGE_PATH = new RegExp(`^/(?:(?:vi/)?(?:(?:${VI_SECTIONS.join('|')})/(?:[A-Za-z0-9_-]+/)*)?|(?:id|th)/(?:[A-Za-z0-9_-]+/)*)$`)
+export const PAGE_PATH = new RegExp(`^/(?:(?:vi/)?(?:(?:${SECTIONS.join('|')})/(?:[A-Za-z0-9_-]+/)*)?|(?:${SEGMENTS})/(?:[A-Za-z0-9_-]+/)*)$`)
 /** Stored as the site's address, a Vietnamese page by its root path, so a page's views join across the app's switch. */
 const pageOf = (v: unknown) => (typeof v === 'string' && v.length <= 200 && PAGE_PATH.test(v) ? withoutVi(v) : '')
 const SCREEN = /^[a-z][a-z0-9-]{0,23}$/
@@ -68,7 +71,7 @@ export function parseBatch(text: string): Batch | null {
   const b = objectOf(text, ['app', 'os', 'device', 'lang', 'session', 'events'])
   const meta = b && metaOf(b)
   if (!b || !meta) return null
-  if (typeof b.lang !== 'string' || !LANGS.includes(b.lang) || typeof b.session !== 'string' || !UUID.test(b.session)) return null
+  if (typeof b.lang !== 'string' || !(LANGS as readonly string[]).includes(b.lang) || typeof b.session !== 'string' || !UUID.test(b.session)) return null
   if (!Array.isArray(b.events) || b.events.length < 1 || b.events.length > MAX_EVENTS) return null
   const events = b.events.map(parseEvent).filter((e): e is AppEvent => e !== null)
   return { ...meta, lang: b.lang, session: b.session.toLowerCase(), events, dropped: b.events.length - events.length }

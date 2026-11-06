@@ -1,0 +1,107 @@
+{
+  "category": "cay-thuy-sinh",
+  "name": "Tumbuhan akuatik",
+  "lead": "Tumbuhan hidup menyerap sebahagian nitrat, dan memberi tempat berlindung kepada ikan yang pemalu serta anak ikan. Banyak spesies yang mudah ditanam tidak memerlukan lampu kuat atau CO2.",
+  "intro": "<p>Tumbuhan akuatik bersaing dengan alga untuk mendapatkan nutrien. Tumbuhan juga memberi udang dan anak ikan tempat bersembunyi serta permukaan untuk mencari makan. Bagi akuarium yang tidak khusus untuk tumbuhan, kumpulan tumbuhan yang dilekatkan pada kayu hanyut (moss, paku-pakis, anubias, bucephalandra) dan tumbuhan terapung paling mudah dijaga. Tumbuhan ini tidak memerlukan substrat berbaja dan boleh hidup dengan lampu yang malap.</p><p>Lihat setiap spesies dalam bahagian Tumbuhan akuatik untuk mengetahui keperluan cahaya, CO2 dan cara menanamnya.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
+    "caption": "Care Guide for Java Moss - Easy Low-Light Plant for Beginners - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "reu",
+      "name": "Moss",
+      "match": "rêu|marimo|moss",
+      "desc": "<p>Java moss, Taiwan moss dan marimo moss ball. Ikat pada batu atau kayu hanyut. Moss menjadi tempat udang mencari makan dan tempat ikan bertelur.</p>",
+      "pick": "Lampu malap sudah memadai dan CO2 tidak diperlukan. Pangkas secara berkala supaya bahagian bawah tidak reput.",
+      "buy": "rêu java",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/2ce3773a484c2dc0-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
+        "caption": "Care Guide for Java Moss - Easy Low-Light Plant for Beginners - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "gan-lua",
+      "name": "Tumbuhan lekat (pada kayu hanyut dan batu)",
+      "match": "buce|anubias|dương xỉ|bolbitis|gắn|lũa|keo",
+      "desc": "<p>Java fern, anubias, bucephalandra dan bolbitis. Rizomnya melekat pada batu atau kayu hanyut, jadi jangan tanam ke dalam substrat.</p>",
+      "pick": "Ikat dengan benang atau lekatkan dengan gam gel khas akuarium. Tumbuhan ini lambat membesar dan tahan lama. Ia juga sesuai dengan ikan yang suka mengorek substrat.",
+      "buy": "cây thủy sinh gắn lũa",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/65cb6320af58cf7f-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
+        "caption": "Java Fern (Microsorum pteropus) an Easy Aquatic Plant. - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "noi",
+      "name": "Tumbuhan terapung",
+      "match": "nổi",
+      "desc": "<p>Duckweed (kiambang), pennywort dan hornwort yang dibiarkan terapung. Tumbuhan ini cepat menyerap nitrat dan meredupkan cahaya untuk ikan yang suka tempat teduh.</p>",
+      "pick": "Biarkan tumbuhan ini menutup kira-kira separuh permukaan air sahaja supaya tumbuhan di bawah masih mendapat cahaya.",
+      "buy": "cây thủy sinh nổi"
+    },
+    {
+      "id": "trong-nen",
+      "name": "Tumbuhan berakar (ditanam di substrat)",
+      "match": "cây|rong|cỏ|vallisneria|cabomba|ceratophyllum|limnophila|sen|kiếm|xương bồ|alternanthera",
+      "desc": "<p>Vallisneria, Amazon sword, hornwort dan stem plant. Tumbuhan ini memerlukan substrat berbaja atau baja tablet (root tab) yang dibenamkan dekat akar.</p>",
+      "pick": "Mulakan dengan vallisneria dan hornwort kerana kedua-duanya cepat membesar dan tahan lampu malap.",
+      "buy": "cây thủy sinh dễ trồng",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/a75d8fc049733236.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/a75d8fc049733236-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/vallisneria",
+        "caption": "Vallisneria – The One Plant Wonder - Aquarium Co-Op",
+        "source": "aquariumcoop"
+      }
+    }
+  ],
+  "choose": [
+    "<p>Untuk akuarium yang tidak khusus untuk tumbuhan, pilih moss, paku-pakis, anubias dan tumbuhan terapung. Semuanya tidak memerlukan CO2.</p>",
+    "<p>Untuk ikan yang makan tumbuhan (ikan emas, ikan tilapia dan banyak cichlid), pilih anubias dan paku-pakis kerana daunnya liat dan pahit.</p>",
+    "<p>Jika mahukan tumbuhan merah atau hamparan (carpet) di bahagian depan, sediakan lampu kuat, substrat berbaja dan CO2.</p>"
+  ],
+  "mistakes": [
+    "<p>Menanam rizom anubias atau bucephalandra ke dalam substrat sehingga batangnya reput.</p>",
+    "<p>Memasukkan tumbuhan baharu tanpa mencuci dan mengkuarantinnya dahulu. Siput dan alga boleh terbawa masuk ke dalam akuarium.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Tumbuhan akuatik apakah yang paling mudah ditanam?",
+      "a": "<p>Java moss, java fern, anubias, vallisneria dan hornwort.</p>"
+    },
+    {
+      "q": "Adakah tumbuhan akuatik memerlukan CO2?",
+      "a": "<p>Kumpulan tumbuhan yang mudah tidak memerlukannya. CO2 diperlukan untuk akuarium berlampu kuat, tumbuhan merah dan tumbuhan hamparan (carpet).</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.82,
+    "indexable": true
+  }
+}

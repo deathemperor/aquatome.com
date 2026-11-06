@@ -299,7 +299,7 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(gone(comment(app, "Minh")), "the blocked poster's comment still shows")
     app.openTab("Bể của tôi")
     let header = app.descendants(matching: .any)["blocked-header"]
-    for _ in 0..<4 where !header.exists { app.swipeUp() }
+    repeatUntil(header.exists, times: 4) { app.swipeUp() }
     XCTAssertTrue(header.waitForExistence(timeout: 5), "no blocked list in the tanks tab")
     let unblock = app.buttons["unblock"]
     XCTAssertEqual(unblock.label, "Bỏ chặn Minh")
@@ -314,7 +314,7 @@ final class ReaderPostFlowTests: XCTestCase {
     let app = launch(accounts: "off")
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no search field")
     let contact = app.descendants(matching: .any)["contact"]
-    for _ in 0..<12 where !(contact.exists && contact.isHittable) { app.swipeUp() }
+    repeatUntil(contact.exists && contact.isHittable, times: 12) { app.swipeUp() }
     XCTAssertTrue(contact.exists && contact.isHittable, "no contact link on the home")
     XCTAssertEqual(contact.label, "Liên hệ")
   }
@@ -402,7 +402,7 @@ final class ReaderPostFlowTests: XCTestCase {
   /// The consent box ticked: its switch, not its words.
   private func consent(_ app: XCUIApplication) {
     let box = app.switches["post-consent"]
-    for _ in 0..<4 where !box.isHittable { app.swipeUp() }
+    repeatUntil(box.isHittable, times: 4) { app.swipeUp() }
     box.switches.firstMatch.exists ? box.switches.firstMatch.tap() : box.coordinate(withNormalizedOffset: CGVector(dx: 0.95, dy: 0.5)).tap()
     // Its value follows the tap a moment later, as the switch slides (read at once, it failed on #450's run).
     let on = XCTNSPredicateExpectation(predicate: NSPredicate(format: "value == '1'"), object: box)
@@ -412,7 +412,7 @@ final class ReaderPostFlowTests: XCTestCase {
   /// Scrolled into view half a screen at a time, without a fling, so no part is scrolled past: the readers' part sits
   /// mid-page, before the breeds and the sources.
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    for _ in 0..<24 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 24) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .fast,
                thenHoldForDuration: 0.1)

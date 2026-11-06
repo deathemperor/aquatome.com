@@ -1,0 +1,232 @@
+{
+  "id": "clarotes-laticeps",
+  "scientificName": "Clarotes laticeps",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Clarotes",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "egypt",
+    "cameroon",
+    "burkina-faso",
+    "guinea",
+    "senegal",
+    "niger",
+    "nigeria",
+    "chad",
+    "gambia",
+    "ghana",
+    "tanzania",
+    "kenya",
+    "sudan",
+    "mali",
+    "south-sudan",
+    "mauritania"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150,
+        "hidden": "shorter than twice the fish (80 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>The widehead catfish, Clarotes laticeps, is a large predatory catfish recorded across much of Africa, from Senegal and Guinea east to Egypt and Kenya. It inhabits large lakes and rivers and grows to 80 cm, though it is unlikely to reach this in captivity. Uncommon in the trade, it is capable of swallowing surprisingly large prey and is unsuitable for all but the biggest aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>Very widely distributed throughout much of the African continent. It's been recorded in Egypt, Cameroon, Burkina Faso, Guinea, Senegal, Niger, Nigeria, Chad, Gambia, Ghana, Tanzania, Kenya, Sudan and Mali.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>It inhabits large lakes and rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>150 × 60 × 60 cm, about 540 litres, as a minimum for a subadult fish. This may need to be upgraded as the fish grows.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>The choice of decor in the aquarium is not critical, particularly as this fish has a habit of shifting any moveable items around with its sheer bulk. Large water-worn rocks and big chunks of bogwood are probably the best choices. It does like dim lighting, however, and a soft, sandy substrate is also preferable. Any plants added should be placed into heavy pots. The filter should be large and efficient as this cat produces a lot of waste.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>Omnivorous and unfussy. Feed a varied diet including live, frozen and dried (pelleted) foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>This is a large and predatory species and tankmates must be chosen with care as it is capable of swallowing surprisingly large prey items. Try to ensure that tankmates are larger than the catfish in order to avoid any mishaps. In a suitably large tank, possible choices could include giant gouramis, arowana and large cyprinids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>There are no successful captive breeding reports for this species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "html": "<p>This is not a particularly common species in the trade, probably as it's not especially attractive to look at and grows very large. It's unsuitable for all but the biggest aquaria.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/45abf725a5141f83.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/45abf725a5141f83-480.webp",
+      "width": 693,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/clarotes-laticeps",
+      "caption": "Widehead Catfish (Clarotes laticeps)",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/254c43954b54dc45.webp",
+      "thumb": "https://media.aquatome.com/scotcat/254c43954b54dc45-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "& / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/clarotes_laticeps.htm",
+      "caption": "Clarotes laticeps: Close-up of wide head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bccc81669a6f1776.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bccc81669a6f1776-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/clarotes_laticeps.htm",
+      "caption": "Clarotes laticeps",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5c3990fe4ce8734b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5c3990fe4ce8734b-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/clarotes_laticeps.htm",
+      "caption": "Clarotes laticeps",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ce91a5098e3e72be.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ce91a5098e3e72be-480.webp",
+      "width": 500,
+      "height": 227,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/clarotes_laticeps.htm",
+      "caption": "Clarotes laticeps",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn 540 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá da trơn",
+        "thức ăn cá lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn bể cá",
+        "lũa trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

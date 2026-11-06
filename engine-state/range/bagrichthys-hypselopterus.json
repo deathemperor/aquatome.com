@@ -1,0 +1,88 @@
+{
+  "id": "bagrichthys-hypselopterus",
+  "native": {
+    "input": "d1a674bb37d790c0",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Palembang, Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Thailand to Indonesia. Pacific, Greater Sunda Island Rivers, Borneo Waters; Pacific, Greater Sunda Island Rivers, Sumatra Waters.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Thailand to Indonesia. Pacific, Greater Sunda Island Rivers, Borneo Waters; Pacific, Greater Sunda Island Rivers, Sumatra Waters.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "scotcat",
+        "quote": "This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "scotcat",
+        "quote": "This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Musi",
+        "source": "scotcat",
+        "quote": "This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "scotcat",
+        "quote": "This species is reported from the Batang Hari and Musi River drainages in Sumatra, as well as the Kapuas River drainage in western Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bagrichthys hypselopterus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338053,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

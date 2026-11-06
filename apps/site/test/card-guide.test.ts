@@ -4,6 +4,7 @@ import { NEED_RULES } from '@aq/schema'
 import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { FIELD_LABELS, FIELD_ORDER } from '../src/lib/format'
 import { page } from './dist'
+import { OTHER_LANGS } from '@aq/schema/langs'
 
 const GUIDE = { vi: '/gioi-thieu/bang-du-lieu/', id: '/id/tentang/tabel-data/', th: '/th/about/data-table/' }
 const ANCHORS = [...Object.values(FIELD_ANCHORS), CONFLICT_ANCHOR, NEEDS_ANCHOR]
@@ -96,7 +97,7 @@ test('the card\'s new words have Indonesian and Thai, though the fixture has no 
   const src = readFileSync(new URL('../src/components/DataCard.astro', import.meta.url), 'utf8')
   const literals = [...src.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)].map(m => m[1]!.replace(/\\'/g, "'"))
   const words = [...literals, ...[FIELD_LABELS, FIELD_TIPS, NEED_LABELS, LEVEL_WORDS, WHY_WORDS, TEMPERAMENT_WORDS].flatMap(o => Object.values(o))]
-  for (const lang of ['id', 'th']) {
+  for (const lang of OTHER_LANGS) {
     const dict = (await import(`../src/i18n/${lang}.json`)).default as Record<string, string>
     expect(words.filter(w => !(w in dict)), lang).toEqual([])
   }
