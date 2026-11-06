@@ -104,7 +104,7 @@ private struct Shelves: View {
     }
     // How to reach AquaTome, signed in or not: the site's contact page, in the browser.
     Section {
-      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/vi/lien-he/"))!).accessibilityIdentifier("contact")
+      Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!).accessibilityIdentifier("contact")
     }
   }
 }

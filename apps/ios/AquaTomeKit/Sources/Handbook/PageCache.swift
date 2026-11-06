@@ -5,10 +5,13 @@ import Foundation
 /// A shard never fetched is fetched when a page in it is opened. Nothing is bundled with the app.
 public actor PageCache {
   public typealias Fetch = @Sendable (URL) async throws -> Data
+  typealias Write = @Sendable (Data, URL) throws -> Void
 
   private let dir: URL
   private let site: URL
   private let fetch: Fetch
+  /// How `move` writes a file (tests: one that fails).
+  private let write: Write
   private var shards: [String: PageShard] = [:]
   /// Shards read from the site this run, or tried in the background.
   private var fetched: Set<String> = []
@@ -19,7 +22,11 @@ public actor PageCache {
 
   /// `dir` holds the kept shards (Application Support: the system doesn't clear it); `fetch` reads one from the site.
   public init(dir: URL, site: URL, fetch: @escaping Fetch) {
-    self.dir = dir; self.site = site; self.fetch = fetch
+    self.init(dir: dir, site: site, fetch: fetch, write: { try $0.write(to: $1, options: .atomic) })
+  }
+
+  init(dir: URL, site: URL, fetch: @escaping Fetch, write: @escaping Write) {
+    self.dir = dir; self.site = site; self.fetch = fetch; self.write = write
   }
 
   /// The page at `path`, of `kind` with `count` shards (the app index's `pages`), in `lang`; nil if neither the phone nor
@@ -67,6 +74,72 @@ public actor PageCache {
       fresh.remove(k)
     }
     return pictures.sorted()
+  }
+
+  /// The shards of `lang` on the phone with their pages' paths put in `form` (PathForm), each page moved to the shard
+  /// its path falls in now, as the site's shards in that form hold it: a page kept for offline still opens offline under
+  /// its new path. A page on the phone in both forms keeps the one already in `form` (read from the site since).
+  /// Returns whether every page moved; one that didn't is still on the phone, for the next move to take.
+  @discardableResult
+  public func move(to form: PathForm, lang: String) -> Bool {
+    let folder = dir.appending(path: lang)
+    let names = (try? FileManager.default.contentsOfDirectory(atPath: folder.path(percentEncoded: false))) ?? []
+    // "<kind>-<count>-<n>.json", by kind and count ("<kind>-<count>-<n>.<move>.json" too: a move's new file not yet in
+    // place). A kind split anew is another count's files, left as they are.
+    let files = Dictionary(grouping: names.filter { $0.hasSuffix(".json") }) { $0.dropLast(5).split(separator: "-").dropLast().joined(separator: "-") }
+    let isNew = { (name: String) in name.dropLast(5).contains(".") }
+    var whole = true
+    for (prefix, names) in files {
+      guard let count = prefix.split(separator: "-").last.flatMap({ Int($0) }) else { continue }
+      var moved: [Int: [String: Any]] = [:], stayed: [Int: [String: Any]] = [:]
+      var read: [String] = []
+      // A move's new files first: a page in one of them and in its shard too (a move whose rename failed, the shard
+      // read from the site since), the shard's copy, read last, is the one kept.
+      for name in names.sorted(by: { isNew($0) && !isNew($1) }) {
+        guard let o = (try? Data(contentsOf: folder.appending(path: name))).flatMap({ try? JSONSerialization.jsonObject(with: $0) }) as? [String: Any],
+              o["v"] as? Int == PageDoc.version, let pages = o["pages"] as? [String: Any] else { continue }
+        read.append(name)
+        for case let (path, page as [String: Any]) in pages {
+          var page = page
+          let to = form.path(path)
+          page["path"] = to
+          let n = PageDoc.shard(of: to, count: count)
+          if to == path { stayed[n, default: [:]][to] = page } else { moved[n, default: [:]][to] = page }
+        }
+      }
+      // Nothing to move, and no new file of a move cut short.
+      guard !moved.isEmpty || read.contains(where: isNew) else { continue }
+      // A shard is often both where pages leave and where others arrive. Each new file is written beside the old ones
+      // first, under a name the next move reads too; once all are written, each takes its shard's name, and the old
+      // files no longer used go. Cut short at any point, every page is still in a file the next move reads.
+      let out = moved.merging(stayed, uniquingKeysWith: { a, b in a.merging(b) { _, inForm in inForm } })
+      let run = UUID().uuidString.prefix(8)
+      var written: [(new: String, final: String)] = []
+      for (n, pages) in out {
+        let final = "\(prefix)-\(n).json", new = "\(prefix)-\(n).\(run).json"
+        guard let data = try? JSONSerialization.data(withJSONObject: ["v": PageDoc.version, "pages": pages] as [String: Any]),
+              (try? write(data, folder.appending(path: new))) != nil else { break }
+        written.append((new, final))
+      }
+      guard written.count == out.count else {
+        for w in written { try? FileManager.default.removeItem(at: folder.appending(path: w.new)) }
+        whole = false
+        continue
+      }
+      // rename(2) puts each new file in the old one's place in one step.
+      let placed = written.allSatisfy { w in
+        rename(folder.appending(path: w.new).path(percentEncoded: false), folder.appending(path: w.final).path(percentEncoded: false)) == 0
+      }
+      guard placed else { whole = false; continue }
+      let finals = Set(written.map(\.final))
+      for name in read where !finals.contains(name) { try? FileManager.default.removeItem(at: folder.appending(path: name)) }
+    }
+    // Read again from the phone, as moved, and from the site for next time.
+    let ours = { (k: String) in k.hasPrefix("\(lang)/") }
+    shards = shards.filter { !ours($0.key) }
+    fetched = fetched.filter { !ours($0) }
+    fresh = fresh.filter { !ours($0) }
+    return whole
   }
 
   /// A page's shard: its key on the phone (the count is in the kept file's name: with another count, the pages are in
