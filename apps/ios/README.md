@@ -234,8 +234,10 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 - Their simulators: one each, `aquatome-ci-1` for `aquatome-mac-1` and `aquatome-ci-2` for `aquatome-mac-2`, made with
   `xcrun simctl create aquatome-ci-<n> "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its id in that
   runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first, points
-  xcodebuild at it, and shuts it down after. Two runners never share one (each would erase the other's mid-test), and
-  nothing else on that Mac may use a simulator named `aquatome-ci-*`.
+  xcodebuild at it, and shuts it down after. The flow jobs run xcodebuild with `exec`, so a cancelled job's stop
+  reaches it; as a net under that, the script also stops any xcodebuild still working in that runner's own checkout
+  (after a job, and before the next) and clears `build/` before a job. Two runners never share one (each would erase
+  the other's mid-test), and nothing else on that Mac may use a simulator named `aquatome-ci-*`.
 
 ## AquaTomeKit
 
