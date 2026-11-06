@@ -1746,16 +1746,57 @@
       "Item 9: \"ปลาออตโต้\" for Otocinclus is nonstandard. Use \"ปลาอ็อตโต\" or \"ปลาออโต้\"."
     ]
   },
-  "proserpinaca-palustris": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "เมอร์เมดวีด",
+  "pogostemon-quadrifolius": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Pogostemon Octopus",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.85,
     "notes": [
-      "Item 9: \"Discoloration\" is rendered \"สีซีด\" (pale/faded), but the source means colour variation (green to red to purple). Use \"การเปลี่ยนสี\" or \"สีของต้นที่เปลี่ยนไป\".",
-      "Item 1: \"ชื่ออื่น: Marsh mermaidweed\" is left in English. Add a Thai transliteration or gloss, e.g. \"มาร์ชเมอร์เมดวีด\".",
-      "Item 7: \"หากวัสดุปลูกไม่เหมาะสม\" for \"If the substrate is inadequate\" is vague. \"วัสดุปลูกมีธาตุอาหารไม่พอ\" is closer to the meaning."
+      "\"กิ่งแขนงด้านข้าง\" for side shoots is a bit botanical; hobbyists more often say \"ยอดข้าง\" or \"หน่อข้าง\".",
+      "\"ไว้ใจได้\" is slightly colloquial for \"reliable choice\"; \"น่าเลือก\" or \"แนะนำ\" would read more naturally.",
+      "\"Nano Cubes\" is a product/trade term. \"ตู้นาโน\" is fine, but you could add the brand-style \"Nano Cube\" in brackets."
+    ]
+  },
+  "pogostemon-stellatus": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Pogostemon stellatus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 3: \"ปลูกแบบบก (ในสภาพชื้นแฉะ)\" – \"marshy conditions\" is better rendered as emersed growth (เลี้ยงแบบน้ำตื้น/ปลูกเหนือน้ำ/ใบเหนือน้ำ); \"ชื้นแฉะ\" sounds unnatural and slightly changes meaning.",
+      "Item 3: \"Stems from 20-60 cm and up to 10 cm wide\" – \"กว้างได้ถึง 10 ซม.\" is ambiguous; clarify that the plant/bush spreads up to 10 cm wide (ความกว้างของพุ่ม).",
+      "Item 2: \"แม้อยู่ในสภาพที่ดี\" is slightly awkward; use \"แม้จะดูแลในสภาพที่เหมาะสมแล้ว\".",
+      "Item 2: \"ตู้ปลา\" for aquarium in a plant context could be \"ตู้ไม้น้ำ\"; \"แสงจัด\" is okay but \"แสงสว่างมาก\" is more natural."
+    ]
+  },
+  "proserpinaca-palustris": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Proserpinaca palustris",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 10 Discoloration: \"Achieving a red hue is often impossible without optimal conditions\" is rendered \"หากสภาพไม่เหมาะสม มักไม่สามารถทำให้ได้สีแดง\", which is acceptable. But the heading \"สีซีด\" (pale/faded) is wrong for \"Discoloration\", which here means colour variation. Use \"สีเปลี่ยน\" or \"สีผิดเพี้ยน\".",
+      "Item 6: \"you will get 1-2 inches in a month\" is converted to \"2.5–5 ซม.\", which is correct. \"Deficiency in iron and/or potassium results in overall discoloration\" is translated \"ต้นจะซีดทั้งต้น\", which narrows \"discoloration\" to paleness. Use \"สีผิดปกติทั้งต้น\".",
+      "Item 8: \"It does not tolerate root trimming well\" is attached to the preceding sentence about substrate depth, so it reads as \"has a developed root system and does not tolerate root cutting\". The sentence is clear enough, but \"เนื่องจากมีระบบรากที่เจริญดี\" needs an explicit subject (\"ต้นมี...\").",
+      "Item 8: \"grow juvenile (undeveloped) leaves ... generative (mature) leaves\" is rendered \"ใบแบบอ่อน\" and \"ใบแบบโตเต็มที่\". Both are vague, and \"generative\" is lost. Use \"ใบระยะอ่อน\" and \"ใบระยะสืบพันธุ์/โตเต็มวัย\".",
+      "Item 1: \"Propagation: Vegetative\" is rendered \"แบบไม่อาศัยเพศ\", which is acceptable. \"Fertilizers needed: CO2\" is rendered \"ปุ๋ยที่ต้องใช้: CO2\". This is fine as a literal translation, but CO2 is not a fertilizer, so \"ปุ๋ย/ธาตุอาหารที่ต้องใช้\" would read better.",
+      "Item 10: \"Melting\" is rendered \"อาการละลาย\". Thai hobbyists usually say \"ต้นเน่า/ละลาย\" or \"ใบละลาย\", so this is fine. \"Buffet of biofilm\" is rendered \"แหล่งไบโอฟิล์ม\", which loses nothing important.",
+      "Item 7: \"Hardness: It grows better in soft and medium water\" is rendered \"น้ำอ่อนถึงกระด้างปานกลาง\", which is fine. However, \"cold-water aquariums\" is rendered \"ตู้ปลาน้ำเย็น\", which is odd for a Thai tropical setting. Consider \"ตู้ที่ไม่ใช้ฮีตเตอร์/ปลาเมืองหนาว\"."
+    ]
+  },
+  "ranunculus-inundatus": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "รานันคูลัส",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"รานันคูลัส\" is a transliteration of Ranunculus; keep it in Latin (Ranunculus) or add the Latin name in brackets, for consistency with the Latin name used later in the same paragraph.",
+      "\"ใบทรงร่ม\" for \"umbrellas\" is a bit literal; consider \"ใบรูปร่ม\" or \"ใบคล้ายร่ม\". Also \"อย่างสวยงามโดดเด่น\" is slightly padded for \"distinguished\".",
+      "\"โตแบบหยาบและยืดยาวเก้งก้าง\" is awkward; consider \"โตหยาบและเรียวยืดไม่สวย\"."
     ]
   },
   "rotala-macrandra": {

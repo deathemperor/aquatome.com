@@ -6,10 +6,10 @@ import XCTest
 /// screen with its guesses, light and dark; photos as stand-ins (`-fixed-pictures`). Also the ways to sign in, in light
 /// and in dark, where they first show: the tanks tab on a new phone. And a search's results under the kinds it finds,
 /// light and dark, at the default and the largest text size, with more found than listed, and with a kind picked that
-/// it finds none of, at both sizes; the app's icon picker; and the lights tab's card for the fake light, its clock
-/// lost, warning of its outlet's timer on the stand-in Tuya cloud; and the owner's dashboard on the stand-in server, its
-/// overview and a section with charts and tables. Each checks only that its screen opened: what it shows, the other
-/// flows check.
+/// it finds none of, at both sizes; the app's icon picker; the lights tab's card for the fake light, its clock lost,
+/// warning of its outlet's timer on the stand-in Tuya cloud; what's new, its row on the home then its list, light and
+/// dark; and the owner's dashboard on the stand-in server, its overview and a section with charts and tables. Each
+/// checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -32,6 +32,8 @@ final class PageShotsFlowTests: XCTestCase {
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
+  func testWhatsNew() { shootWhatsNew("whats-new-light") }
+  func testWhatsNewInTheDark() { shootWhatsNew("whats-new-dark", dark: true) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -64,6 +66,28 @@ final class PageShotsFlowTests: XCTestCase {
       let shot = XCUIScreen.main.screenshot()
       XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
       let a = XCTAttachment(screenshot: shot)
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+  }
+
+  /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.
+  private func shootWhatsNew(_ name: String, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures", "-whats-new"] + (dark ? ["-dark"] : [])
+    app.launchForFlow()
+    let row = app.descendants(matching: .any)["all-latest"]
+    XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
+    for _ in 0..<8 where !(row.exists && row.isHittable) { app.swipeUp() }
+    XCTAssertTrue(row.exists, "no row for what's new")
+    for n in 1...2 {
+      if n == 2 {
+        row.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["latest"].firstMatch.waitForExistence(timeout: 5), "the list didn't open")
+      }
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
       a.name = String(format: "shot-%@-%02d", name, n)
       a.lifetime = .keepAlways
       add(a)

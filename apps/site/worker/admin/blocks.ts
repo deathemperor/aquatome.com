@@ -35,6 +35,8 @@ export type Block =
   | { kind: 'form'; method: 'POST'; path: string; fields: FormField[]; body?: Record<string, unknown>; submit: string }
   /** A switch between two forms of the section: `href` is the section with it flipped, read and shown in its place. */
   | { kind: 'switch'; label: string; on: boolean; href: string }
+  /** Buttons on their own, in a row: each makes its request, then the section is read again. */
+  | { kind: 'actions'; actions: Action[] }
 export type Section = { title: string; blocks: Block[] }
 
 const ENTITY: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" }

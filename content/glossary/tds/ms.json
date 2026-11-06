@@ -1,0 +1,14 @@
+{
+  "slug": "tds",
+  "name": "TDS",
+  "altNames": [
+    "total dissolved solids",
+    "jumlah pepejal terlarut"
+  ],
+  "sections": {},
+  "definition": "Jumlah bahan pepejal yang terlarut dalam air, diukur dalam ppm (bahagian per sejuta) menggunakan pen meter elektronik. TDS memberi gambaran pantas sama ada air lembut atau keras dan membantu memantau pencampuran air RO; air hujan atau air RO mempunyai TDS hampir 0, manakala air paip biasanya beberapa ratus ppm.",
+  "quality": {
+    "score": 0.85,
+    "indexable": true
+  }
+}

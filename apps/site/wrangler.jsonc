@@ -46,7 +46,8 @@
   "analytics_engine_datasets": [{ "binding": "EVENTS", "dataset": "aquatome_events" }, { "binding": "FISHID_LOG", "dataset": "aquatome_fishid" }, { "binding": "APP_EVENTS", "dataset": "aquatome_app" }],
   "triggers": { "crons": ["17 20 * * *"] },
   // Sign-in codes, and the daily report (worker/daily, POST /_ab/report), which goes to the secret REPORT_TO. Without that
-  // secret the report is kept on the dashboard, marked not sent.
+  // secret the report is kept on the dashboard, marked not sent. Its notification to the owner's phones (worker/daily/push.ts)
+  // needs the secrets APNS_KEY (the APNs .p8 key's contents) and APNS_KEY_ID, with APPLE_TEAM_ID below; without them it is skipped.
   "send_email": [{ "name": "EMAIL", "allowed_sender_addresses": ["dang-nhap@aquatome.com", "bao-cao@aquatome.com"] }],
   "vars": {
     "CANONICAL_HOST": "aquatome.com",

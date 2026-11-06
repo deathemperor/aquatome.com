@@ -4,7 +4,7 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Three tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
 guides by subject, the video series and video guides, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
-light and CO₂, as the site's lists filter them), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
+light and CO₂, as the site's lists filter them; what's new on the site, as its list has it), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
 kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a group named in a page opens the app's shelf of that group; a part it can't draw opens the web page, and a page of the site it can't draw, the web page in the app),
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; videos
 and the pages they link to become native the same way, tools stay web pages until rebuilt), a fish's facts under its name as the site's data card has them (temperature, pH, hardness, size, lifespan, the shortest tank,
@@ -19,7 +19,11 @@ picked for it has a Smart Life timer that cuts its power, which stops the light'
 The site's pages in the app share the reader's tanks with it (`PageBridge`): the tools' "Lưu vào Bể của tôi" saves to
 the app's tanks, merged record by record, and each page sees them. A link to "Bể của tôi" or the Chihiros page, and
 those tools in the handbook, open the app's own tab (`AppScreen`); the tools' "Xem trong Bể của tôi →" opens the tank
-just saved. The fish-ID tool is the app's own screen too (`FishIdView`): a photo from the library or the camera, one fish
+just saved. A Vietnamese page is read in either form, at the site's root as it's served or as /vi/…, as the app index
+lists it. A web page opens the app with `aquatome://open?url=<the page's address, percent-encoded>` (the site's "Mở
+trong ứng dụng", `AppLink`): the page on the Tìm tab, as a link in a page opens it (a tool's on its tab, a shop outside),
+else its web page; a bare `aquatome://` or the site's home opens the app's home, and anything but aquatome.com's pages
+over https is ignored. The scheme is declared in `Config/AquaTome-Info.plist`, merged with the keys Xcode writes. The fish-ID tool is the app's own screen too (`FishIdView`): a photo from the library or the camera, one fish
 boxed on it if the reader likes, shrunk and stripped as the site's page sends it, and sent as the reader's aquatome.com
 account (`protocols/fishid.openapi.json`: a bearer in place of the page's Turnstile check, counted per account); the
 guesses as the site shows them, each page opening in the app. Signed out, the sign-in comes first. Claude has up to
@@ -53,8 +57,9 @@ ends its session at the first section read and `-owner-storage-down` answers tha
 aquatome.com; `-real-accounts` tries the real server from the simulator.
 Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`PlugsModel.forSimulator`;
 `-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
-And for the handbook: `-fixed-handbook` gives a small fixed index and guide pages (`HandbookIndex.fixture`), and each of
-the site's web pages opens as a stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com.
+And for the handbook: `-fixed-handbook` gives a small fixed index and guide pages (`HandbookIndex.fixture`), with
+`-whats-new` the site's what's new too (`HandbookIndex.fixtureLatest`), and each of the site's web pages opens as a
+stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com.
 
 ## The app
 
@@ -220,30 +225,38 @@ would have.
 
 ## CI's own Mac
 
-Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (self-hosted runners, label
-`aquatome`) for main (after merges, the nightly run and a run by hand) and for pull requests its owner opens from this
-repository's own branches. GitHub's Macs keep everything else: a fork's or a bot's pull request (the automatic fixes'),
-and job `perf` (its budgets are GitHub's Macs' readings). The Mac has two runners, `aquatome-mac-1` and
-`aquatome-mac-2`, each running one job at a time, so the jobs take turns two at a time.
+Jobs `kit`, `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (a self-hosted runner, label
+`aquatome`) for main: after merges, the nightly run and a run by hand. GitHub's Macs keep every pull request, which then
+have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). One runner runs,
+`aquatome-mac-1`, one job at a time: that Mac is also someone's working machine, and two runners with pull requests on
+them overloaded it on 2026-11-05. Its service has `Nice` 10, which reaches its builds but not the simulator's processes:
+launchd starts those, at normal priority. `aquatome-mac-2` stays registered, stopped and disabled, so a reboot doesn't
+start it (`launchctl disable gui/$(id -u)/actions.runner.deathemperor-aquatome.com.aquatome-mac-2`). A full run on main
+takes hours on one runner; of the runs waiting, only the newest is kept.
 
-The runners run as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
-the workflows, which can name the label. What keeps others' code off the Mac is each runner's job-started hook
+The runner runs as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
+the workflows, which can name the label. What keeps others' code off the Mac is the runner's job-started hook
 (`ACTIONS_RUNNER_HOOK_JOB_STARTED` in its `.env`, a script outside the repository): any job but one of main's (a push,
-the nightly run, a run by hand) or a pull request from the owner off one of this repository's branches fails before its
-first step. Approving an outside contributor's run (required for every one, by the repository's Actions setting) runs
+the nightly run, a run by hand) fails before its first step, and so does any job with under 40 GB free on that Mac. Its
+job-completed hook (`ACTIONS_RUNNER_HOOK_JOB_COMPLETED`) deletes the job's `build/`, so builds and test results don't
+pile up. Approving an outside contributor's run (required for every one, by the repository's Actions setting) runs
 their workflows, on GitHub's Macs if the hook holds; read them first.
 
 - Off, when the Mac is away or asleep: `gh variable set IOS_LOCAL_RUNNER --body off`. New runs then go to GitHub's Macs;
   runs already queued for the Mac wait for it. "Re-run failed jobs" keeps where the jobs ran: re-run all jobs instead.
   `--body on` brings them back.
 - The runners: each in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
-  (`./svc.sh install && ./svc.sh start`), their hook in `~/actions-runner/hooks/`. The Mac must not sleep. They build
-  with that Mac's own Xcode, which can be newer than GitHub's.
+  (`./svc.sh install && ./svc.sh start`; `install` writes the plist anew, so add `Nice` again after it), their hooks in
+  `~/actions-runner/hooks/`. The Mac must not sleep. They build with that Mac's own Xcode, which can be newer than
+  GitHub's, the one TestFlight's builds use: main can fail what a pull request's run passed, or pass what the shipped
+  build gets wrong.
 - Their simulators: one each, `aquatome-ci-1` for `aquatome-mac-1` and `aquatome-ci-2` for `aquatome-mac-2`, made with
   `xcrun simctl create aquatome-ci-<n> "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its id in that
   runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first, points
-  xcodebuild at it, and shuts it down after. Two runners never share one (each would erase the other's mid-test), and
-  nothing else on that Mac may use a simulator named `aquatome-ci-*`.
+  xcodebuild at it, and shuts it down after. The flow jobs run xcodebuild with `exec`, so a cancelled job's stop
+  reaches it; as a net under that, the script also stops any xcodebuild still working in that runner's own checkout
+  (after a job, and before the next) and clears `build/` before a job. Two runners never share one (each would erase
+  the other's mid-test), and nothing else on that Mac may use a simulator named `aquatome-ci-*`.
 
 ## AquaTomeKit
 
@@ -255,7 +268,7 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | `ChihirosBLE` | CoreBluetooth: scan for lights, connect, acknowledged writes |
 | `light-harness` | A Mac command line that drives a real light through the same code |
 | `Tanks` | "Bể của tôi": the site's tank and device records (`packages/schema/src/tanks.ts`), checked and merged as `docs/my-tanks-sync.md` says; a plug put on a tank and its outlets named (`PlugRecord`), the outlet a light is plugged into (`PowerOutlet`) |
-| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a page named what was searched for first (by its name, scientific name or another name, as the site's search ranks it: "bảy màu" finds Cá bảy màu before Bảy màu Koi), a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore); the fish-ID tool's request and answers (`FishId`) |
+| `Handbook` | The site's page index for the app (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`), with each fish's figures and behaviour under the tank-mates tool's names, each guide's subject and the fish and plants it names, a video guide's length, the video series, and each tool's own words for search, what it's browsed by (fish groups, plant care, the site's home picks and its words for them), the pages as blocks to draw natively (`PageDoc`, `/app/pages/`, read leniently: a block it can't read is "open on the web"; `PageCache` keeps their shards on the phone, read again once a run), and searching it: without accents, đ as d, any word order, a page named what was searched for first (by its name, scientific name or another name, as the site's search ranks it: "bảy màu" finds Cá bảy màu before Bảy màu Koi), a tool's own words after every name; where a link in a page goes (`PageRoute`, `AppScreen`, whose `page` case is a page the index lists, opened on the tab in front; `ShopLink`, the site's /go/ links, which our own copies resolve under their mark before opening the shop); the script that shares the tanks with a page (`PageBridge`, tested in JavaScriptCore); the fish-ID tool's request and answers (`FishId`); what's new on the site (`Latest`, `/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`: its /vi/moi-cap-nhat/ list, each entry a page the index lists; `LatestFile` keeps it on the phone) |
 | `TankCheck` | A tank's fish checked as the site's tank-mates tool checks them: the site's own code (`apps/site/src/scripts/tank-check.ts`), bundled into `tank-check.js` by `apps/site/scripts/app-tank-check.mjs` and run in JavaScriptCore, never ported. The site's tests fail when the bundle is older than the site's code. A breed that is a form of a species (`of` in the index) goes to it as that species, and the check makes a species and its breeds one fish |
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; Google's sign-in without its SDK (`GoogleOAuth`: its page, its answer, the code exchanged with PKCE); `FakeAccounts`, the server in process, and `FakeGoogle`, Google's page and token endpoint in process (tests, simulator), the fish-ID tool's too. The owner's dashboard (`protocols/owner-dashboard.openapi.json`): `Owner`, its replies read leniently; `OwnerClient`, its requests with the account's session; `OwnerAccess`, who sees it (200 the owner, the Worker's 404 not, 401 signed out) and what is kept; `FakeOwner`, its replies on the stand-in server |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |

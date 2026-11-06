@@ -10,6 +10,114 @@
     "nigeria",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The kribensis, Pelvicachromis pulcher, is a cichlid from Nigeria and Cameroon, found in still and slow-moving, heavily vegetated waters.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372929,
+      "total": 51,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "NG",
+          44
+        ],
+        [
+          "CM",
+          4
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "CG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -158.90625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          -156.09375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          4,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          5.625,
+          5.625,
+          2,
+          2
+        ],
+        [
+          7.03125,
+          4.21875,
+          20,
+          20
+        ],
+        [
+          8.4375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          12.65625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

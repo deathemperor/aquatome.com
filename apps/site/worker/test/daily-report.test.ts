@@ -1,7 +1,10 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { createSession } from '../accounts/session'
+import { createSession, sha256 } from '../accounts/session'
+import { deleteUser } from '../accounts/users'
 import { ADMIN_PAGES, SECTIONS } from '../dashboard'
 import { LOG_PREFIX, LOG_TTL, type Report } from '../daily/log'
+import { addDevice, TOKENS_KEY } from '../daily/push'
+import { SETTINGS_KEY } from '../daily/settings'
 import { handle, type Env } from '../index'
 import { testD1 } from './d1'
 import * as S from './owner-sample'
@@ -11,6 +14,8 @@ afterEach(() => { vi.restoreAllMocks() })
 const REPO = 'https://github.com/deathemperor/aquatome.com'
 const TOKEN = 'dashtoken-0123456789'
 const ADDRESS = 'owner@example.com'
+/** What a report's answer says of the phones while push is off, as it is until the owner turns it on. */
+const OFF = { push: { sent: 0, why: 'push_off' } }
 const nothing = { total: 0, items: [] }
 const runs = { runs: 0, failed: 0 }
 const body = (runId = '1001', over: Record<string, unknown> = {}) => JSON.stringify({
@@ -64,7 +69,7 @@ test('POST /_ab/report: the dashboard token only; anyone else is not found, and 
   expect((await post(world({ AB_DASH_TOKEN: undefined }).e, body(), { authorization: 'Bearer ' })).status).toBe(404)
   const ok = await post(w.e)
   expect(ok.status).toBe(200)
-  expect(await ok.json()).toEqual({ ok: true, id: '1001', sent: true })
+  expect(await ok.json()).toEqual({ ok: true, id: '1001', sent: true, ...OFF })
   expect(w.send).toHaveBeenCalledTimes(1)
 })
 
@@ -92,7 +97,7 @@ test('the send: from the report\'s own sender to REPORT_TO, text and HTML; the s
   expect(r).toMatchObject({ subject: mail.subject, text: mail.text, html: mail.html, sent: true })
   expect(r).not.toHaveProperty('why')
   expect(Date.parse(r.when)).toBeGreaterThan(0)
-  expect(put.opts?.metadata).toEqual({ when: r.when, subject: r.subject, sent: true, care: r.care })
+  expect(put.opts?.metadata).toEqual({ when: r.when, subject: r.subject, sent: true, ...OFF, care: r.care })
 })
 
 test('the sender is one the binding allows', async () => {
@@ -106,7 +111,7 @@ test('no REPORT_TO: kept in the log as not sent, no recipient, and answered 200;
   const w = world({ REPORT_TO: undefined })
   const r = await post(w.e)
   expect(r.status).toBe(200)
-  expect(await r.json()).toEqual({ ok: true, id: '1001', sent: false, why: 'no_recipient' })
+  expect(await r.json()).toEqual({ ok: true, id: '1001', sent: false, why: 'no_recipient', ...OFF })
   expect(w.send).not.toHaveBeenCalled()
   expect(stored(w)).toMatchObject({ sent: false, why: 'no_recipient' })
   // The job run again, same id: still nothing to send, still one report.
@@ -114,7 +119,7 @@ test('no REPORT_TO: kept in the log as not sent, no recipient, and answered 200;
   expect([...w.ab.m.keys()].filter(k => k.startsWith(LOG_PREFIX))).toHaveLength(1)
   const first = stored(w)
   ;(w.e as unknown as { REPORT_TO: string }).REPORT_TO = ADDRESS
-  expect(await (await post(w.e)).json()).toEqual({ ok: true, id: '1001', sent: true })
+  expect(await (await post(w.e)).json()).toEqual({ ok: true, id: '1001', sent: true, ...OFF })
   expect(w.send.mock.calls[0]![0].text).toBe(first.text)
   expect(stored(w)).toMatchObject({ sent: true, when: first.when })
   expect(stored(w)).not.toHaveProperty('why')
@@ -125,7 +130,7 @@ test('no EMAIL binding: not sent, said so, and the job fails', async () => {
   const w = world({ EMAIL: undefined })
   const r = await post(w.e)
   expect(r.status).toBe(502)
-  expect(await r.json()).toEqual({ ok: false, id: '1001', sent: false, why: 'no_binding' })
+  expect(await r.json()).toEqual({ ok: false, id: '1001', sent: false, why: 'no_binding', ...OFF })
   expect(stored(w).why).toBe('no_binding')
 })
 
@@ -134,7 +139,7 @@ test('the same run id never sends twice: after the send, and at the same moment'
   await post(w.e)
   const again = await post(w.e)
   expect(again.status).toBe(200)
-  expect(await again.json()).toEqual({ ok: true, id: '1001', sent: true, duplicate: true })
+  expect(await again.json()).toEqual({ ok: true, id: '1001', sent: true, ...OFF, duplicate: true })
   expect(w.send).toHaveBeenCalledTimes(1)
   // Two at once (a retry while the first still runs): one goes on, the other is told to wait.
   const x = world()
@@ -166,7 +171,7 @@ test('a refused send: logged by its code only, kept as not sent, the job told; t
   w.send.mockRejectedValueOnce(Object.assign(new Error(`can't send to ${ADDRESS}`), { code: 'E_RECIPIENT_NOT_ALLOWED' }))
   const r = await post(w.e)
   expect(r.status).toBe(502)
-  expect(await r.json()).toEqual({ ok: false, id: '1001', sent: false, why: 'E_RECIPIENT_NOT_ALLOWED' })
+  expect(await r.json()).toEqual({ ok: false, id: '1001', sent: false, why: 'E_RECIPIENT_NOT_ALLOWED', ...OFF })
   expect(log).toHaveBeenCalledWith('daily report not sent:', 'E_RECIPIENT_NOT_ALLOWED')
   const first = stored(w)
   expect(first).toMatchObject({ sent: false, why: 'E_RECIPIENT_NOT_ALLOWED' })
@@ -221,6 +226,127 @@ test('the numbers come from the dashboard\'s loaders, in Vietnam\'s days; a part
   expect(stored(x).text).toContain('Could not load the app\'s telemetry')
 })
 
+// ——— As the owner set it: email, the phones' notification (daily/settings.ts, daily/push.ts) ———
+
+const PHONE_A = 'a1'.repeat(32)
+const PHONE_B = 'b2'.repeat(32)
+/** A P-256 key made for the test, as Apple's .p8 holds one. */
+async function p8() {
+  const pair = (await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign', 'verify'])) as CryptoKeyPair
+  const der = Buffer.from(await crypto.subtle.exportKey('pkcs8', pair.privateKey)).toString('base64')
+  return `-----BEGIN PRIVATE KEY-----\n${der.match(/.{1,64}/g)!.join('\n')}\n-----END PRIVATE KEY-----\n`
+}
+/** The owner's app registering a phone, as it does at each launch (owner-api.ts), with its session's bearer. */
+const register = (e: Env, bearer: string, token: string, environment = 'production') => handle(new Request('https://x.test/api/owner/push-token', {
+  method: 'POST', headers: { authorization: `Bearer ${bearer}`, 'content-type': 'application/json' }, body: JSON.stringify({ token, environment }),
+}), e)
+/** A world with push on (and email as given), the APNs key, and two phones the owner's app registered in its session `app`; APNs answers with `answer`. */
+async function pushing(answer: (url: string) => Response, email = true) {
+  const w = world({ APNS_KEY: await p8(), APNS_KEY_ID: 'KEY1234567', APPLE_TEAM_ID: 'TEAM123456' })
+  w.ab.m.set(SETTINGS_KEY, { value: JSON.stringify({ email, push: true }) })
+  await w.db.prepare('INSERT OR IGNORE INTO users (id, created_at) VALUES (?, ?)').bind('owner-1', '2026-11-01T00:00:00Z').run()
+  const app = await createSession(w.db, 'owner-1', 'app', new Date())
+  for (const [token, environment] of [[PHONE_A, 'production'], [PHONE_B, 'sandbox']] as const) expect((await register(w.e, app, token, environment)).status).toBe(200)
+  const apns = vi.spyOn(globalThis, 'fetch').mockImplementation(async u => answer(String(u)))
+  return { ...w, apns, app }
+}
+
+test('email off: the report is kept, not mailed, and the answer and the log say so; the job is fine', async () => {
+  const w = world()
+  w.ab.m.set(SETTINGS_KEY, { value: JSON.stringify({ email: false, push: false }) })
+  const r = await post(w.e)
+  expect([r.status, await r.json()]).toEqual([200, { ok: true, id: '1001', sent: false, why: 'email_off', ...OFF }])
+  expect(w.send).not.toHaveBeenCalled()
+  expect(stored(w)).toMatchObject({ sent: false, why: 'email_off', ...OFF })
+  // Again: nothing due, nothing sent.
+  expect(await (await post(w.e)).json()).toMatchObject({ duplicate: true })
+  expect(w.send).not.toHaveBeenCalled()
+})
+
+test('push on: one alert to each phone, the subject and the first thing that needs care, opening the report; the mail too; the answer says how many, never a phone', async () => {
+  const w = await pushing(() => new Response(null, { status: 200 }))
+  const r = await post(w.e)
+  const answer = await r.text()
+  expect([r.status, JSON.parse(answer)]).toEqual([200, { ok: true, id: '1001', sent: true, push: { sent: 2 } }])
+  expect(w.send).toHaveBeenCalledTimes(1)
+  const kept = stored(w)
+  expect(kept).toMatchObject({ sent: true, push: { sent: 2 }, first: expect.any(String) })
+  expect(w.apns.mock.calls.map(([u]) => String(u)).sort()).toEqual([`https://api.push.apple.com/3/device/${PHONE_A}`, `https://api.sandbox.push.apple.com/3/device/${PHONE_B}`])
+  const alert = JSON.parse(w.apns.mock.calls[0]![1]!.body as string)
+  expect(alert).toEqual({ aps: { alert: { title: 'AquaTome', body: `${kept.subject}\n${kept.first}` }, 'thread-id': 'daily-report' }, url: 'https://aquatome.com/_ab/bao-cao/1001/' })
+  for (const x of [answer, JSON.stringify([...w.ab.m].filter(([k]) => k !== TOKENS_KEY))]) for (const t of [PHONE_A, PHONE_B]) expect(x).not.toContain(t)
+  // The same run again: neither goes out twice.
+  expect(await (await post(w.e)).json()).toEqual({ ok: true, id: '1001', sent: true, push: { sent: 2 }, duplicate: true })
+  expect([w.send.mock.calls.length, w.apns.mock.calls.length]).toEqual([1, 2])
+})
+
+test('push on with no APNs key, or no phone: skipped, said why, the mail still goes and the job is fine', async () => {
+  const noKey = world()
+  noKey.ab.m.set(SETTINGS_KEY, { value: JSON.stringify({ email: true, push: true }) })
+  await addDevice(noKey.ab.ns, PHONE_A, 'production', 'a-session', new Date())
+  expect(await (await post(noKey.e)).json()).toEqual({ ok: true, id: '1001', sent: true, push: { sent: 0, why: 'no_apns_key' } })
+  const noPhone = await pushing(() => new Response(null, { status: 200 }))
+  noPhone.ab.m.delete(TOKENS_KEY)
+  expect(await (await post(noPhone.e)).json()).toEqual({ ok: true, id: '1001', sent: true, push: { sent: 0, why: 'no_device' } })
+  expect(noPhone.apns).not.toHaveBeenCalled()
+  // Neither email nor a phone to push to: kept, as asked, and fine.
+  const nothingOut = world()
+  nothingOut.ab.m.set(SETTINGS_KEY, { value: JSON.stringify({ email: false, push: true }) })
+  const r = await post(nothingOut.e)
+  expect([r.status, await r.json()]).toEqual([200, { ok: true, id: '1001', sent: false, why: 'email_off', push: { sent: 0, why: 'no_apns_key' } }])
+})
+
+/** How an app session ends without the app getting to say so. */
+const ENDINGS: [string, (w: Awaited<ReturnType<typeof pushing>>) => Promise<unknown>][] = [
+  ['signed out (its row gone, as signing out leaves it)', async w => w.db.prepare('DELETE FROM sessions WHERE id = ?').bind(await sha256(w.app)).run()],
+  ['expired', async w => w.db.prepare('UPDATE sessions SET expires_at = ?').bind('2026-01-01T00:00:00.000Z').run()],
+  ['its account deleted', async w => deleteUser(w.db, 'owner-1')],
+  ['its account no longer the owner\'s', async w => { (w.e as unknown as { OWNER_ACCOUNTS: string }).OWNER_ACCOUNTS = 'someone-else' }],
+]
+for (const [how, end] of ENDINGS) {
+  test(`a phone whose session ended, ${how}: no push, and it is dropped, counted as dropped and not refused`, async () => {
+    const w = await pushing(() => new Response(null, { status: 200 }))
+    await end(w)
+    const r = await post(w.e)
+    expect([r.status, await r.json()]).toEqual([200, { ok: true, id: '1001', sent: true, push: { sent: 0, dropped: 2, why: 'no_device' } }])
+    expect(w.apns).not.toHaveBeenCalled()
+    expect(JSON.parse(w.ab.m.get(TOKENS_KEY)!.value)).toEqual({})
+  })
+}
+
+test('a phone registered again in a new session keeps getting the report after the old session ends; the other is dropped', async () => {
+  const w = await pushing(() => new Response(null, { status: 200 }))
+  const second = await createSession(w.db, 'owner-1', 'app', new Date())
+  expect(await (await register(w.e, second, PHONE_A)).json()).toEqual({ ok: true, changed: true })
+  await w.db.prepare('DELETE FROM sessions WHERE id = ?').bind(await sha256(w.app)).run()
+  expect(await (await post(w.e)).json()).toEqual({ ok: true, id: '1001', sent: true, push: { sent: 1, dropped: 1 } })
+  expect(w.apns.mock.calls.map(([u]) => String(u))).toEqual([`https://api.push.apple.com/3/device/${PHONE_A}`])
+  const kept = JSON.parse(w.ab.m.get(TOKENS_KEY)!.value) as Record<string, { session: string }>
+  expect(Object.keys(kept)).toEqual([PHONE_A])
+  // The session's id (the bearer's hash), never the bearer.
+  expect(kept[PHONE_A]!.session).toBe(await sha256(second))
+  expect(JSON.stringify(kept)).not.toContain(second)
+})
+
+test('push refused with nothing else out: the job fails and the next try pushes; refused beside a mail sent: kept as said, the job fine', async () => {
+  const err = vi.spyOn(console, 'error').mockImplementation(() => {})
+  let up = false
+  const w = await pushing(() => (up ? new Response(null, { status: 200 }) : Response.json({ reason: 'InternalServerError' }, { status: 500 })), false)
+  const r = await post(w.e)
+  expect([r.status, await r.json()]).toEqual([502, { ok: false, id: '1001', sent: false, why: 'email_off', push: { sent: 0, why: 'InternalServerError' } }])
+  expect(err).toHaveBeenCalledWith('daily report push refused:', 'InternalServerError, InternalServerError')
+  const first = stored(w)
+  up = true
+  const again = await post(w.e)
+  expect([again.status, await again.json()]).toEqual([200, { ok: true, id: '1001', sent: false, why: 'email_off', push: { sent: 2 } }])
+  expect(stored(w)).toMatchObject({ when: first.when, text: first.text, push: { sent: 2 } })
+  expect(JSON.parse(w.apns.mock.calls.at(-1)![1]!.body as string).aps.alert.body).toBe(`${first.subject}\n${first.first}`)
+  // With the mail out, a refused push is the log's to say: the owner has the report.
+  const x = await pushing(() => Response.json({ reason: 'InvalidProviderToken' }, { status: 403 }))
+  const r2 = await post(x.e)
+  expect([r2.status, await r2.json()]).toEqual([200, { ok: true, id: '1001', sent: true, push: { sent: 0, why: 'InvalidProviderToken' } }])
+})
+
 // ——— The log on the dashboard ———
 
 const browser = { 'user-agent': 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36', 'accept-language': 'vi' }
@@ -233,8 +359,8 @@ async function owner(w: ReturnType<typeof world>) {
 const open = (e: Env, path: string, cookie?: string) => handle(new Request(`https://x.test${path}`, { headers: { ...browser, ...(cookie ? { cookie } : {}) } }), e)
 const keep = (w: ReturnType<typeof world>, id: string, r: Partial<Report>) => {
   const full = { when: '2026-11-05T00:00:00.000Z', subject: 's', sent: true, care: 0, text: 't', html: '<div>h</div>', ...r }
-  const { when, subject, sent, why, care } = full as Report
-  w.ab.m.set(`${LOG_PREFIX}${id}`, { value: JSON.stringify(full), opts: { metadata: { when, subject, sent, ...(why ? { why } : {}), care } } })
+  const { when, subject, sent, why, push, care } = full as Report
+  w.ab.m.set(`${LOG_PREFIX}${id}`, { value: JSON.stringify(full), opts: { metadata: { when, subject, sent, ...(why ? { why } : {}), ...(push ? { push } : {}), care } } })
 }
 
 test('the log: nothing yet', async () => {
@@ -286,6 +412,43 @@ test('the log after a real report: the page shows what was sent', async () => {
   expect(await (await open(w.e, '/_ab/bao-cao/1001/', c)).text()).toContain(stored(w).html)
 })
 
+test('the log says what went out: the mail, the phones notified, or neither and why', async () => {
+  const w = world()
+  const { owner: c } = await owner(w)
+  keep(w, '2001', { when: '2026-11-06T00:00:00.000Z', sent: true, push: { sent: 2 } })
+  keep(w, '2002', { when: '2026-11-05T00:00:00.000Z', sent: false, why: 'email_off', push: { sent: 0, why: 'no_apns_key' } })
+  keep(w, '2003', { when: '2026-11-04T00:00:00.000Z', sent: false, why: 'email_off', push: { sent: 0, why: 'push_off' } })
+  keep(w, '2004', { when: '2026-11-03T00:00:00.000Z', sent: true, push: { sent: 1, why: 'TooManyRequests' } })
+  keep(w, '2005', { when: '2026-11-02T00:00:00.000Z', sent: true, push: { sent: 1, dropped: 2 } })
+  const rows = (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<ul class="areas">')[1]!.split('</li>')
+  expect(rows[0]).toContain('<span class="chip good">Đã gửi email</span> · <span class="chip good">Đã gửi 2 thông báo</span>')
+  expect(rows[1]).toContain('<span class="chip bad">Chưa gửi thông báo</span>: chưa có khóa APNs')
+  expect(rows[1]).not.toContain('email')
+  expect(rows[2]).toContain('<span class="chip">Không gửi</span>: email và thông báo đều đang tắt')
+  expect(rows[3]).toContain('Đã gửi 1 thông báo</span>: <code>TooManyRequests</code>')
+  expect(rows[4]).toContain('Đã gửi 1 thông báo</span> · <span class="chip">Bỏ 2 điện thoại</span>: đã đăng xuất hoặc không còn nhận thông báo')
+  expect(await (await open(w.e, '/_ab/bao-cao/2002/', c)).text()).toContain('Chưa gửi thông báo</span>: chưa có khóa APNs')
+})
+
+test('the delivery from the page: its state and a button for each switch, a form only the owner signed in on the web can post', async () => {
+  const w = world()
+  const { owner: c, reader } = await owner(w)
+  const page = async () => (await (await open(w.e, '/_ab/bao-cao/', c)).text()).split('<h2>Nhận báo cáo</h2>')[1]!.split('<h2>')[0]!
+  expect(await page()).toBe('<p>Email: đang bật. Thông báo trên điện thoại: đang tắt.</p><form class="inline" method="post" action="/_ab/bao-cao/cai-dat"><button name="email" value="0">Tắt email</button><button name="push" value="1">Bật thông báo</button></form>')
+  const press = (fields: Record<string, string>, cookie?: string) => handle(new Request('https://x.test/_ab/bao-cao/cai-dat', { method: 'POST', headers: { ...browser, ...(cookie ? { cookie } : {}) }, body: new URLSearchParams(fields) }), w.e)
+  // Nobody, another account: not found, nothing changes.
+  for (const who of [undefined, reader]) expect((await press({ push: '1' }, who)).status).toBe(404)
+  expect(w.ab.m.has(SETTINGS_KEY)).toBe(false)
+  const r = await press({ push: '1' }, c)
+  expect([r.status, r.headers.get('location')]).toEqual([303, '/_ab/bao-cao/'])
+  expect(JSON.parse(w.ab.m.get(SETTINGS_KEY)!.value)).toEqual({ email: true, push: true })
+  expect(await page()).toContain('<p class="failed" role="status">Email: đang bật. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được.')
+  expect(await page()).toContain('<button name="push" value="0">Tắt thông báo</button>')
+  for (const bad of [{}, { push: 'on' }, { email: '2' }] as Record<string, string>[]) expect((await press(bad, c)).status, JSON.stringify(bad)).toBe(400)
+  expect((await open(w.e, '/_ab/bao-cao/cai-dat', c)).status).toBe(404)
+  expect(JSON.parse(w.ab.m.get(SETTINGS_KEY)!.value)).toEqual({ email: true, push: true })
+})
+
 test('the log opens only to the owner\'s account signed in on the web', async () => {
   const w = world()
   const { reader } = await owner(w)
@@ -303,13 +466,17 @@ test('the log opens only to the owner\'s account signed in on the web', async ()
   }
 })
 
-test('the app\'s contract holds: the log is on the web dashboard only, reached from its rail and the overview', async () => {
+test('the log is a section of the app too, reached on the web from its rail (once) and the overview', async () => {
   // SECTIONS is what GET /api/owner/dashboard lists and the iOS app draws (protocols/owner-dashboard.openapi.json).
-  expect(SECTIONS.map(s => s.key)).not.toContain('bao-cao')
-  expect(ADMIN_PAGES).not.toContain('/_ab/bao-cao/' as never)
+  expect(SECTIONS.map(s => s.key)).toContain('bao-cao')
+  expect(ADMIN_PAGES).toContain('/_ab/bao-cao/')
   const w = world()
   const { owner: c } = await owner(w)
-  for (const page of ['/_ab/', '/_ab/an-trang/']) expect(await (await open(w.e, page, c)).text(), page).toContain('<li><a href="/_ab/bao-cao/">Báo cáo hằng ngày</a></li>')
+  for (const page of ['/_ab/', '/_ab/an-trang/']) {
+    const html = await (await open(w.e, page, c)).text()
+    expect(html, page).toContain('<li><a href="/_ab/bao-cao/">Báo cáo hằng ngày</a></li>')
+    expect(html.split('<nav')[1]!.split('</nav>')[0]!.match(/href="\/_ab\/bao-cao\/"/g), page).toHaveLength(1)
+  }
   // A phone's overview hides the rail: the page itself links it.
   expect((await (await open(w.e, '/_ab/', c)).text()).split('<main>')[1]).toContain('href="/_ab/bao-cao/"')
 })

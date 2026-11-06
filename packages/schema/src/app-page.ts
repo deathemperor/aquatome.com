@@ -192,7 +192,7 @@ export const Video = z.object({
 
 export const PageDoc = z.object({
   v: z.literal(PAGE_VERSION),
-  kind: z.enum(['guide', 'fish', 'plant', 'glossary', 'video']),
+  kind: z.enum(['guide', 'fish', 'plant', 'glossary', 'video', 'equipment']),
   /** The web page: what "open on the web" and sharing use, and the app index's `path` for it. */
   path: z.string(),
   title: z.string(),

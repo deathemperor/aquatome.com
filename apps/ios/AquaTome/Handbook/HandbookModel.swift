@@ -35,6 +35,12 @@ final class HandbookModel {
   private var matcher = PageMatcher([])
   /// Every page by its path: what the reading list keeps.
   private var byPath: [String: HandbookIndex.Item] = [:]
+  /// What's new on the site as last read: none until read, and none from a site without it (the index names no file).
+  private var whatsNew: Latest?
+  /// Its entries with their pages in the index shown now, newest first.
+  var latest: [Latest.Row] { whatsNew?.rows { byPath[$0] } ?? [] }
+  /// The whole of what's new, on the web.
+  var latestWeb: URL? { whatsNew.flatMap { URL(string: $0.web, relativeTo: site)?.absoluteURL } }
   /// The index arranged to browse: groups, placements, subjects, the home's picks.
   private(set) var shelves = HandbookShelves(HandbookIndex(lang: "vi", items: []))
   /// The reader's own comments shown at once, by page key, until the site's list has them (`readers`).
@@ -282,12 +288,20 @@ final class HandbookModel {
         pagesLater = ix
         return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels), .ready)
       }
+      // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
+      // waits for it: AppLink).
+      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
       #endif
-      return use(ix, .ready)
+      use(ix, .ready)
+      #if DEBUG
+      if ix.latest != nil { whatsNew = HandbookIndex.fixtureLatest }
+      #endif
+      return
     }
     let file = Self.cacheFile(lang)
     if count == 0, let data = try? Data(contentsOf: file), let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) {
       use(ix, .offline)
+      if ix.latest != nil { whatsNew = latestFile.kept() }
     }
     do {
       let (data, response) = try await URLSession.shared.data(from: site.appendingPathComponent("app/\(lang).json"))
@@ -295,6 +309,13 @@ final class HandbookModel {
       let ix = try JSONDecoder().decode(HandbookIndex.self, from: data)
       try? data.write(to: file, options: .atomic)
       use(ix, .ready)
+      // What's new after it, the index shown without waiting; left for another tab, both are read again when it shows.
+      switch await latestFile.read(ix.latest) {
+      case .noList: whatsNew = nil
+      case .read(let l): whatsNew = l
+      case .failed: break
+      case .interrupted: return
+      }
       fetched = true
     } catch {
       // Left for another tab or page: tried again when the tab shows next, nothing to report.
@@ -302,6 +323,8 @@ final class HandbookModel {
       if count == 0 { status = .failed }
     }
   }
+
+  private var latestFile: LatestFile { LatestFile(file: Self.cacheFile("latest-\(lang)"), site: site, fetch: Self.fromSite) }
 
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
@@ -339,6 +362,11 @@ final class HandbookModel {
         let f = HandbookIndex.fixture
         return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
       }
+      // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
+      if args.contains("-whats-new") {
+        let f = HandbookIndex.fixture
+        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: f.pages, latest: "/app/latest/vi.json"))
+      }
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       if args.contains("-breeds") {
         let f = HandbookIndex.fixture
@@ -364,11 +392,14 @@ final class HandbookModel {
     var values = URLResourceValues()
     values.isExcludedFromBackup = true
     try? dir.setResourceValues(values)
-    return PageCache(dir: dir, site: site, fetch: { url in
-      let (data, response) = try await URLSession.shared.data(from: url)
-      guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
-      return data
-    })
+    return PageCache(dir: dir, site: site, fetch: fromSite)
+  }
+
+  /// A file of the site's, or why not.
+  private static let fromSite: @Sendable (URL) async throws -> Data = { url in
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
+    return data
   }
 
   private static func cacheFile(_ lang: String) -> URL {
@@ -414,6 +445,16 @@ extension HandbookIndex {
     "difficulty": ["1": "Dễ", "2": "Trung bình", "3": "Khó"],
   ]), pages: ["guide": 1, "fish": 1, "plant": 1, "glossary": 1, "video": 1])
 
+  /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
+  /// twice, updated then new.
+  static let fixtureLatest = Latest(lang: "vi", entries: [
+    .init(date: "2026-10-28", path: "/vi/ca/ca-neon/", action: "updated", source: "Seriously Fish"),
+    .init(date: "2026-10-27", path: "/vi/huong-dan/nuoi-ca-neon/", action: "new", source: "2Hr Aquarist"),
+    .init(date: "2026-10-27", path: "/vi/ca/khong-co/", action: "new", source: "Aquarium Glaser"),
+    .init(date: "2026-10-20", path: "/vi/cay/rotala-do/", action: "new", source: "Tropica"),
+    .init(date: "2026-10-12", path: "/vi/ca/ca-neon/", action: "new", source: "Seriously Fish"),
+  ], web: "/vi/moi-cap-nhat/")
+
   /// UI tests' breeds (`-breeds`): a form of the discus, as the site lists one: the species it's a form of, its own
   /// figures as its page's data card gives them, and none of the tank-mates figures (a tank check counts it as the discus).
   static let fixtureBreeds: [Item] = [
@@ -452,7 +493,7 @@ extension HandbookIndex {
     {"t":"refs","title":"Nguồn tham khảo","id":"nguon","items":[{"title":"Neon tetra care","url":"https://example.org/neon"},{"title":"Cá neon","url":"https://example.org/ca-neon"}]},
     {"t":"pages","title":"Loài và cây trong bài","paths":["/vi/ca/ca-neon/","/vi/ca/khong-co/","/vi/cong-cu/be-cua-toi/"]}
    ]},
-  "/vi/ca/ca-neon/":{"v":1,"kind":"fish","path":"/vi/ca/ca-neon/","title":"Cá neon","sub":"Paracheirodon innesi","where":["Characidae, ",{"text":"Peru","href":"/vi/nguon-goc/south-america/peru/"}],"aka":"Tên khác: Neon tetra","credit":["Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."],"lead":{"src":"https://media.aquatome.com/a/neon.webp","w":1200,"h":800,"alt":"Cá neon, Paracheirodon innesi","credit":{"text":"Ảnh: Holger Krisp","licence":"CC BY 3.0","url":"https://example.org/photo/neon"}},"talk":{"comments":"species:paracheirodon-innesi","photos":"species:paracheirodon-innesi"},"blocks":[{"t":"trust","title":"Nguồn và độ tin cậy","legend":"Các nguồn ghi khác nhau","rows":[{"field":"tempC","label":"Nhiệt độ","conflict":true,"note":"Mức mọi nguồn cùng khuyên","items":["Seriously Fish: 20–26°C","Aquarium Glaser: 22–28°C"]},{"field":"ph","label":"pH","items":["Seriously Fish"]},{"field":"lifeYears","label":"Tuổi thọ","items":["Seriously Fish"]}]},{"t":"mates","title":"Nuôi chung","good":{"title":"Hợp với","items":[{"path":"/vi/ca/ca-ngua-van/","name":"Cá ngựa vằn","img":{"src":"https://media.aquatome.com/a/danio-480.webp","w":960,"h":640,"credit":{"text":"Ảnh: Tác giả 5","licence":"CC BY 4.0","url":"https://example.org/photo/danio"}}}]},"avoid":{"title":"Tránh","items":[{"path":"/vi/ca/ca-dia/","name":"Cá đĩa","why":"Lớn tới 15 cm, có thể ăn Cá neon"}]},"note":"Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.","tool":{"text":"Kiểm tra nuôi chung với loài khác →","href":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"}},{"t":"climate","title":"Nuôi ở Việt Nam","items":[{"label":"Mùa đông miền Bắc","ok":false,"text":"Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."},{"label":"Miền Nam","ok":true,"text":"Hợp nhiệt độ quanh năm, thường không cần sưởi."}],"note":"Giả định nước bể trong nhà, không sưởi hay làm lạnh. Đo nhiệt độ bể của bạn để chắc chắn."},{"t":"gallery","title":"Ảnh Cá neon","note":"3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở.","strip":[0,1],"href":"/vi/ca/ca-neon/anh/","photos":[{"src":"https://media.aquatome.com/g/n1.webp","w":1280,"h":960,"alt":"Đàn cá neon trong bể","thumb":"https://media.aquatome.com/g/n1-480.webp","credit":{"text":"Ảnh: Tác giả 1","licence":"CC BY 2.0","url":"https://example.org/photo/1"}},{"src":"https://media.aquatome.com/g/n2.webp","w":1280,"h":960,"alt":"Cá neon gần cây","thumb":"https://media.aquatome.com/g/n2-480.webp","credit":{"text":"Ảnh: Tác giả 2","licence":"CC BY-SA 4.0","url":"https://example.org/photo/2"}},{"src":"https://media.aquatome.com/g/n3.webp","w":800,"h":600,"alt":"Cá neon bơi","thumb":"https://media.aquatome.com/g/n3-480.webp","credit":{"text":"Ảnh: Tác giả 3","licence":"CC BY 4.0","url":"https://example.org/photo/3"}}]},{"t":"summary","title":"Tóm tắt nhanh","items":["Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm."],"text":"Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm.","mistakes":{"title":"Lỗi hay gặp","items":["Thả vài con: nên nuôi đàn từ 6 con trở lên."]},"by":"AquaTome tóm tắt từ các nguồn bên dưới."},{"t":"h","text":"Nước cần thế nào?","id":"muc-waterConditions"},{"t":"p","c":["Nước mềm, hơi chua.",{"text":"1","href":"https://example.org/neon","tip":{"term":"Seriously Fish","text":"example.org · dịch từ nguồn"}}]},{"t":"p","c":["Như các ",{"text":"cá tetra","href":"/vi/nhom/tetras/"}," khác, cá neon sống theo đàn."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Seriously Fish","url":"https://example.org/neon"}],"note":"Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."},{"t":"cards","title":"Các dòng và cá lai từ Cá neon","items":[{"path":"/vi/ca/ca-neon-vang/","name":"Cá neon vàng","sub":"Dòng cá cảnh"}]},{"t":"pages","title":"Bài viết nhắc đến loài này","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"videos","title":"Video","items":[{"youtubeId":"neonVid_01","title":"Đàn neon trong bể thủy sinh","durationSec":724,"lang":"EN"}]}]},
+  "/vi/ca/ca-neon/":{"v":1,"kind":"fish","path":"/vi/ca/ca-neon/","title":"Cá neon","sub":"Paracheirodon innesi","where":["Characidae, ",{"text":"Peru","href":"/vi/nguon-goc/south-america/peru/"}],"aka":"Tên khác: Neon tetra","credit":["Dịch và tổng hợp từ Seriously Fish. Cập nhật 2026-10-28."],"lead":{"src":"https://media.aquatome.com/a/neon.webp","w":1200,"h":800,"alt":"Cá neon, Paracheirodon innesi","credit":{"text":"Ảnh: John Roe trên Unsplash","licence":"Unsplash License","url":"https://example.org/photo/neon","author":"John Roe"}},"talk":{"comments":"species:paracheirodon-innesi","photos":"species:paracheirodon-innesi"},"blocks":[{"t":"trust","title":"Nguồn và độ tin cậy","legend":"Các nguồn ghi khác nhau","rows":[{"field":"tempC","label":"Nhiệt độ","conflict":true,"note":"Mức mọi nguồn cùng khuyên","items":["Seriously Fish: 20–26°C","Aquarium Glaser: 22–28°C"]},{"field":"ph","label":"pH","items":["Seriously Fish"]},{"field":"lifeYears","label":"Tuổi thọ","items":["Seriously Fish"]}]},{"t":"mates","title":"Nuôi chung","good":{"title":"Hợp với","items":[{"path":"/vi/ca/ca-ngua-van/","name":"Cá ngựa vằn","img":{"src":"https://media.aquatome.com/a/danio-480.webp","w":960,"h":640,"credit":{"text":"Ảnh: Jane Doe trên Unsplash","licence":"Unsplash License","url":"https://example.org/photo/danio","author":"Jane Doe","authorUrl":"https://unsplash.com/@jane_doe_fixture?utm_source=aquatome&utm_medium=referral"}}}]},"avoid":{"title":"Tránh","items":[{"path":"/vi/ca/ca-dia/","name":"Cá đĩa","why":"Lớn tới 15 cm, có thể ăn Cá neon"}]},"note":"Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.","tool":{"text":"Kiểm tra nuôi chung với loài khác →","href":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"}},{"t":"climate","title":"Nuôi ở Việt Nam","items":[{"label":"Mùa đông miền Bắc","ok":false,"text":"Cần sưởi: nước bể không sưởi xuống khoảng 16°C, dưới mức tối thiểu 20°C."},{"label":"Miền Nam","ok":true,"text":"Hợp nhiệt độ quanh năm, thường không cần sưởi."}],"note":"Giả định nước bể trong nhà, không sưởi hay làm lạnh. Đo nhiệt độ bể của bạn để chắc chắn."},{"t":"gallery","title":"Ảnh Cá neon","note":"3 ảnh từ iNaturalist và Wikimedia Commons, giấy phép mở.","strip":[0,1],"href":"/vi/ca/ca-neon/anh/","photos":[{"src":"https://media.aquatome.com/g/n1.webp","w":1280,"h":960,"alt":"Đàn cá neon trong bể","thumb":"https://media.aquatome.com/g/n1-480.webp","credit":{"text":"Ảnh: Tác giả 1","licence":"CC BY 2.0","url":"https://example.org/photo/1"}},{"src":"https://media.aquatome.com/g/n2.webp","w":1280,"h":960,"alt":"Cá neon gần cây","thumb":"https://media.aquatome.com/g/n2-480.webp","credit":{"text":"Ảnh: Tác giả 2","licence":"CC BY-SA 4.0","url":"https://example.org/photo/2"}},{"src":"https://media.aquatome.com/g/n3.webp","w":800,"h":600,"alt":"Cá neon bơi","thumb":"https://media.aquatome.com/g/n3-480.webp","credit":{"text":"Ảnh: Tác giả 3","licence":"CC BY 4.0","url":"https://example.org/photo/3"}}]},{"t":"summary","title":"Tóm tắt nhanh","items":["Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm."],"text":"Cá nhỏ, hiền, hợp bể cộng đồng từ 60 cm với nước mềm.","mistakes":{"title":"Lỗi hay gặp","items":["Thả vài con: nên nuôi đàn từ 6 con trở lên."]},"by":"AquaTome tóm tắt từ các nguồn bên dưới."},{"t":"h","text":"Nước cần thế nào?","id":"muc-waterConditions"},{"t":"p","c":["Nước mềm, hơi chua.",{"text":"1","href":"https://example.org/neon","tip":{"term":"Seriously Fish","text":"example.org · dịch từ nguồn"}}]},{"t":"p","c":["Như các ",{"text":"cá tetra","href":"/vi/nhom/tetras/"}," khác, cá neon sống theo đàn."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Seriously Fish","url":"https://example.org/neon"}],"note":"Các phần trên dịch từ những nguồn này. Mỗi đoạn ghi số nguồn của nó."},{"t":"cards","title":"Các dòng và cá lai từ Cá neon","items":[{"path":"/vi/ca/ca-neon-vang/","name":"Cá neon vàng","sub":"Dòng cá cảnh"}]},{"t":"pages","title":"Bài viết nhắc đến loài này","paths":["/vi/huong-dan/nuoi-ca-neon/"]},{"t":"videos","title":"Video","items":[{"youtubeId":"neonVid_01","title":"Đàn neon trong bể thủy sinh","durationSec":724,"lang":"EN"}]}]},
   "/vi/cay/rotala-do/":{"v":1,"kind":"plant","path":"/vi/cay/rotala-do/","title":"Rotala đỏ","sub":"Rotala rotundifolia","lead":{"src":"https://media.aquatome.com/a/rotala.webp","w":1200,"h":900,"alt":"Rotala đỏ, Rotala rotundifolia","credit":{"text":"Ảnh: Tropica","licence":"","url":"https://example.org/photo/rotala"}},"talk":{"comments":"plant:rotala-rotundifolia"},"blocks":[{"t":"h","text":"Trồng và chăm","id":"muc-care"},{"t":"p","c":["Cần ánh sáng mạnh để lên màu đỏ."]},{"t":"refs","title":"Nguồn","id":"nguon","items":[{"title":"Tropica","url":"https://example.org/rotala"}]}]},
   "/vi/thuat-ngu/dem-ph/":{"v":1,"kind":"glossary","path":"/vi/thuat-ngu/dem-ph/","title":"Đệm pH","blocks":[{"t":"p","c":["Tiếng Anh: pH buffer"]},{"t":"p","c":["Khả năng giữ pH của nước khi có thêm axit."]}]}}}
   """#.utf8)

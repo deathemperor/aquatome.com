@@ -43,6 +43,7 @@ struct HandbookView: View {
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }
+      .navigationDestination(for: SitePage.self) { WebScreen(url: $0.url) }
       .overlay {
         if handbook.status == .loading { ProgressView() }
         // Nothing found of any kind (none of one, with others found, is a row: NoneOfKind).
@@ -264,4 +265,9 @@ extension HandbookIndex.Kind {
     case .video: "play.rectangle"
     }
   }
+}
+
+/// A page of the site the app has no screen for, opened from outside the app (AppLink): its web page, on the Tìm tab.
+struct SitePage: Hashable {
+  let url: URL
 }

@@ -1,7 +1,8 @@
 import { resolveDataCard, type BreedEntity, type Content, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
-import { GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
+import { categoriesIn } from './equipment'
+import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
 import { smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
@@ -13,13 +14,13 @@ import { seriesGuides } from './video'
 
 /**
  * The handbook's index for the native app (/app/<lang>.json): the pages of one language that the app can search and
- * list. Fish, plants, guides, glossary terms and video series are every one the site's own lists show (a page out of
+ * list. Fish, plants, guides, glossary terms, video series and equipment are every one the site's own lists show (a page out of
  * search engines too). The app opens the page itself in a web view, so an item is only what a search result shows and
  * what the app browses it by. Fish come in the site's list order (the well-known ones first).
  */
 export type AppItem = {
-  /** `video`: a series of video guides (/vi/video/<slug>/). */
-  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video'
+  /** `video`: a series of video guides (/vi/video/<slug>/). `equipment`: a kind of kit (/vi/thiet-bi/<category>/). */
+  kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video' | 'equipment'
   /** The page's content id, the same in every language (fish, plants): what a saved tank lists them by. */
   id?: string
   name: string
@@ -155,6 +156,9 @@ export type AppPlace = {
   kids?: string[]
 }
 
+/** The equipment categories the app gets, as this language's site has their pages. */
+export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet-bi/x/') ? categoriesIn(lang, c) : [])
+
 /**
  * `traits`: behaviour by species id (lib/traits.ts), as the tank-mates tool reads it. `everySpecies`: the species of
  * every language (the Vietnamese content's), so a breed gets its species' group even where that species has no page.
@@ -229,6 +233,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const { s, guides } of appSeries(lang, c)) {
     const ph = guideImage(c, guides[0]!)
     items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && smallSrc(ph), parts: guides.length }))
+  }
+  // An equipment category as its page names it; the same categories the app gets pages of.
+  for (const u of appEquipment(lang, c)) {
+    const g = c.equipment.find(e => e.category === u.category)
+    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && smallSrc(g.hero) }))
   }
   for (const [vi, name, own] of TOOLS) {
     if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })

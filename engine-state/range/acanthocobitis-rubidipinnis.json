@@ -1,0 +1,52 @@
+{
+  "id": "acanthocobitis-rubidipinnis",
+  "native": {
+    "input": "75be9d1cb71f301c",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This beautiful loach comes from Burma, where it is found in the Irrawaddy system.",
+        "words": "Burma",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "glaser",
+        "quote": "This beautiful loach comes from Burma, where it is found in the Irrawaddy system.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acanthocobitis rubidipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358635,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

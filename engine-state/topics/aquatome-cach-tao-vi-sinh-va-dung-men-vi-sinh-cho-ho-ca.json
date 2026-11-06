@@ -1,0 +1,373 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://www.petmd.com/fish/infectious-parasitic/c_fi_new_tank_syndrome",
+      "title": "New Tank Syndrome: Causes, Symptoms, and Treatment",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/content/post/md-2019-05-fishless-cycling-a-new-aquarium-using-one-and-only-ammonium-chloride-and-first-defense-drtims-aquatics-recipes-for-success",
+      "title": "How To Fishless Cycle Your Aquarium Using Dr. Tim's One and Only Bacteria Additive",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.seachem.com/stability.php",
+      "title": "Seachem - Stability",
+      "kind": "maker"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC124703",
+      "title": "Nitrospira-Like Bacteria Associated with Nitrite Oxidation in Freshwater Aquaria",
+      "kind": "paper"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
+      "title": "How to Keep Your Aquarium Fish Alive During A Power Outage",
+      "kind": "article"
+    },
+    {
+      "url": "https://news.tuoitre.vn/tap-water-in-ho-chi-minh-city-fails-to-meet-chlorine-standards-10337506.htm",
+      "title": "Tap water in Ho Chi Minh City fails to meet chlorine standards",
+      "kind": "article"
+    },
+    {
+      "url": "https://aquahouse.vn/ho-ca-bi-vo-vi-sinh/",
+      "title": "Hồ cá bị vỡ vi sinh phải làm sao? Hướng dẫn xử lý từ A–Z",
+      "kind": "article"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/men-vi-sinh-cho-ca",
+      "title": "Khi nào cần dùng men vi sinh cho cá? Tác dụng của men vi sinh cho cá",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/content/post/md-2015-05-aquarium-bacteria-for-beginners-part-1",
+      "title": "Bacteria & Cycling",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.thatpetplace.com/fritzzyme-7-freshwater-16oz",
+      "title": "FritzZyme 7 Freshwater - 16oz",
+      "kind": "other"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Beneficial bacteria in the substrate and filter turn ammonia into nitrite and then into nitrate.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Ammonia and nitrite are highly toxic to fish. New tank syndrome happens when a new aquarium does not yet have established biological filtration.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In freshwater aquaria, the main nitrite oxidizers were bacteria closely related to Nitrospira moscoviensis and Nitrospira marina, not Nitrobacter winogradskyi.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Nitrifying bacteria colonize live rock, sand, filter media and other oxygen-rich surfaces.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "Bottled bacteria come in two kinds. Nitrifying bacteria convert ammonia to nitrite and then nitrate. Heterotrophic bacteria eat uneaten food, waste and detritus, and are used for water clarity and sludge.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "A tank counts as cycled when ammonia and nitrite test at zero every time while nitrate is present.",
+      "source": 8
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of new tank syndrome in fish are lethargy, poor appetite, and a thicker slime coat or cloudy look. Severe cases end in death.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "The tank water may turn cloudy and smell bad.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Larger fish tend to show signs sooner, though tolerance varies by species.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Water tests in new tank syndrome show high ammonia, little or no nitrite, and no nitrate.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Fish gasping at the surface, breathing fast or refusing food, together with high NH3 and NO2, are listed as signs of a biofilter crash (vỡ vi sinh).",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "A brand-new filter, a recently replaced filter, or a filter left dry or without oxygen can all leave a tank without working biofiltration.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "A sudden pH swing can kill bacterial colonies and let ammonia build up.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Medication treatments, long power outages, replacing a lot of biological media, and deep cleaning all disrupt the biofilter.",
+      "source": 8
+    },
+    {
+      "section": "causes",
+      "fact": "Changing 50–100% of the water at once, rinsing filter media in chlorinated tap water, overdosing medicines or algaecides, overstocking and overfeeding are listed as causes of a biofilter crash.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do a partial water change right away if ammonia is above 0.1 mg/L, nitrite is above 0 mg/L, or nitrate is above 20 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do not change more than 50% of the water at once. If tank pH differs from tap water by more than 0.5, make smaller, more gradual changes.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Treat replacement water with a conditioner that removes chlorine and chloramine, and match its temperature to the tank.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a fishless cycle, never let ammonia go above 5 ppm. If it does, do water changes right away.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Stability dose for a new aquarium: on day 1, 5 mL (1 capful) per 40 L (10 US gallons). On days 2–7, 5 mL per 80 L (20 US gallons) daily.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says fish can be added at any time as long as the 7-day Stability dosing is kept up.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem's maintenance dose of Stability is 1 capful per 80 L once a month, with each water change, when adding new fish, and when medicating.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem says Stability is harmless to aquatic organisms and plants, and that overdosing is not a concern.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Turn off UV and ozone for the full 7 days of cycling with Stability, and for at least 24 hours when adding fish or changing water. Seachem says both kill bacteria.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "FritzZyme 7 Freshwater dose: 4 oz (119 ml) per 10 US gallons for a new system and 2 oz (60 ml) per 10 US gallons for an established one. For a heavy bioload, the new-system dose can be raised up to 10 times.",
+      "source": 9
+    },
+    {
+      "section": "treatment",
+      "fact": "Dr. Tim's freshwater-and-saltwater recipe calls for ammonium chloride at 4 drops per gallon to reach about 2.0 ppm ammonia.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Products that claim to set up the nitrogen cycle instantly are generally ineffective, and ammonia-binding products may slow the beneficial bacteria by limiting their food.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "In a 1998 study, tanks treated with a commercial additive containing Nitrobacter (and no Nitrospira) showed nitrite falling earlier. However, the Nitrobacter in it was not detected growing in the tanks, so the authors called the results equivocal.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Secondary bacterial or parasitic infections after ammonia stress may need treatment from a veterinarian.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Neutralize chlorine or chloramine first, then wait 30 minutes before adding live bacteria (Dr. Tim's recipe).",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Run circulation and heat the water to 75–78°F before adding bacteria. Turn off UV, skimmers and ozone for at least 48 hours after dosing.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Dr. Tim's recipe, day 1: add the whole bottle of bacteria plus ammonium chloride to 2.0 ppm. Any cloudiness should clear within 24–48 hours.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Dr. Tim's recipe: test ammonia and nitrite on days 2, 4, 5, 7 and 8. On days 3 and 6, add another 4 drops per gallon only if ammonia and nitrite are under 5 ppm.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Dr. Tim's recipe: after about 7 days, ammonia and nitrite are usually zero or below 0.5 ppm.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "To confirm the cycle, add 2.0 ppm ammonia and check it 24 hours later. It should be below 0.2 ppm. If nitrate is high, change water before adding fish.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Add only 2–3 fish at a time, and wait at least 2 weeks between additions.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Seachem's fishless method with Stability: add a pinch of food daily until ammonia shows on tests, then stop and let the bacteria work.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Test ammonia, nitrite and nitrate daily or every other day while a tank is cycling.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Most tanks cycle in 4–6 weeks. Seachem notes that finishing the 7-day Stability course does not guarantee a fully cycled tank.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Expect cycling to take four to six weeks. Warmer tanks cycle faster than cold ones.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Seed a new tank with established filter media from a healthy, cycled tank that holds similar species.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Start with a small share of the planned fish and add more slowly so the biofilter can keep up.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "A mature tank does not usually need extra nitrifying bacteria to keep its cycle going.",
+      "source": 8
+    },
+    {
+      "section": "prevention",
+      "fact": "Store bottled bacteria away from excessive heat, freezing and direct sunlight.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common mistakes are adding the whole planned stock at once, fasting fish to speed the cycle, overfeeding high-protein food, and skipping water tests.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Dosing ammonia every day during a fishless cycle can push nitrate up or stall the cycle.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overdosing bacteria products can sometimes cause cloudy water, higher oxygen use and bacterial films.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Little evidence supports the idea that using several bacteria products together builds a better filter.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Nitrite may never show during a bottled-bacteria cycle because the bacteria work fast. Some test kits also cannot read nitrate below 20 ppm.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnamese, a biofilter crash is called 'vỡ vi sinh', the bacterial colony is 'hệ vi sinh' or 'vi sinh có lợi', and bottled bacteria are 'men vi sinh'.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Filter media sold in Vietnam include bông lọc (floss), sứ lọc (ceramic rings), bùi nhùi (mat) and chổi (brush media).",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops sell men vi sinh as powder ('bột') or liquid ('nước'). They also use the terms 'chế phẩm vi sinh' and 'men vi sinh tổng hợp'.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "In 2015, Vietnam's safe tap-water chlorine level set by the health ministry was 0.3–0.5 mg/L. SAWACO added chlorine at 0.9–1.1 mg/L where the pipes start.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "In 2015, chlorine in Ho Chi Minh City tap water was uneven: 0.73 mg/L in one apartment reservoir and 0.64 mg/L in one house, but almost zero in some apartments. Always dechlorinate before adding bacteria.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "During a power cut, a sealed canister filter can go anoxic in as little as four to six hours. Take the media out and keep it in aquarium water.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "After a power cut, empty and quickly rinse the filter body, clean the impeller, prime the filter and restart it. Then test ammonia, nitrite and pH.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Keep a battery air pump and airstone ready for outages. Do not feed during the outage, and wait about 24 hours after power returns before feeding.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Cooler water holds more dissolved oxygen. To slow warming during an outage, keep the lid open and float ice in a sealed plastic bag.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop blog advises re-adding beneficial bacteria after heavy rain or sudden weather changes, mainly for outdoor koi ponds.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: bottled bacteria cycle a tank instantly. Bulk Reef Supply says live nitrifiers start working right away, but a stable biofilter takes days to weeks.",
+      "source": 8
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: Nitrobacter is the main nitrite oxidizer in freshwater tanks. Hovanec et al. (1998) found Nitrospira-like bacteria instead and did not detect Nitrobacter in the samples.",
+      "source": 3
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: products that claim to establish the cycle instantly work. Jessie Sanders, DVM (PetMD), calls them generally ineffective.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Do not put fish in a new tank before it has cycled. A Vietnamese shop blog gives 2–4 weeks.",
+      "source": 6
+    }
+  ]
+}
