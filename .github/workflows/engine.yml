@@ -65,6 +65,10 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+          # The pace of the languages not served yet, which share the accounts' weekly limit with the served ones: repository
+          # variables, so it changes without a commit. AHEAD_BEFORE_MINUTES 0 pauses them; unset, engine-cycle.sh's defaults.
+          AHEAD_BEFORE_MINUTES: ${{ vars.AHEAD_BEFORE_MINUTES }}
+          LOCALIZE_AHEAD_LIMIT: ${{ vars.LOCALIZE_AHEAD_LIMIT }}
       - name: Keep the test log
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

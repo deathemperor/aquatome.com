@@ -24,12 +24,12 @@ const SECTIONS: Record<OtherLang, Record<string, string>> = {
   id: {
     ca: 'ikan', cay: 'tanaman', 'huong-dan': 'panduan', video: 'video', 'thiet-bi': 'peralatan', 'kham-pha': 'jelajah', 'cong-cu': 'alat',
     'thuat-ngu': 'istilah', 'tim-kiem': 'cari', 'gioi-thieu': 'tentang', 'lien-he': 'kontak', 'chinh-sach-bao-mat': 'kebijakan-privasi',
-    'moi-cap-nhat': 'terbaru', 'phan-loai': 'taksonomi', 'nguon-goc': 'asal', nhom: 'kelompok', 'san-pham': 'produk',
+    'moi-cap-nhat': 'terbaru', 'phan-loai': 'taksonomi', 'nguon-goc': 'asal', nhom: 'kelompok', 'san-pham': 'produk', 'ung-dung': 'aplikasi',
   },
   th: {
     ca: 'fish', cay: 'plants', 'huong-dan': 'guides', video: 'video', 'thiet-bi': 'equipment', 'kham-pha': 'explore', 'cong-cu': 'tools',
     'thuat-ngu': 'glossary', 'tim-kiem': 'search', 'gioi-thieu': 'about', 'lien-he': 'contact', 'chinh-sach-bao-mat': 'privacy',
-    'moi-cap-nhat': 'latest', 'phan-loai': 'taxonomy', 'nguon-goc': 'origin', nhom: 'groups', 'san-pham': 'products',
+    'moi-cap-nhat': 'latest', 'phan-loai': 'taxonomy', 'nguon-goc': 'origin', nhom: 'groups', 'san-pham': 'products', 'ung-dung': 'mobile-app',
   },
 }
 /** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/cong-cu/den-chihiros/, /vi/cong-cu/be-cua-toi/, /vi/cong-cu/nuoi-chung/, /vi/cong-cu/nhan-dien-ca/, /vi/gioi-thieu/bang-du-lieu/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/, /vi/cay/<slug>/anh/, /vi/huong-dan/trang/<n>/ (and any list's numbered page, /vi/cay/trang/<n>/, /vi/nhom/<group>/trang/<n>/). */
@@ -130,7 +130,7 @@ export const i18n = (url: URL) => {
 }
 
 /** Page files (under src/pages/) each other language has: a section joins once its pages are translated. */
-const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'cong-cu/nhan-dien-ca.astro', 'gioi-thieu/index.astro', 'gioi-thieu/bang-du-lieu.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'huong-dan/trang/[n].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/[slug]/anh.astro', 'cay/trang/[n].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'nhom/[group]/trang/[n].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro']
+const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'cong-cu/nhan-dien-ca.astro', 'gioi-thieu/index.astro', 'gioi-thieu/bang-du-lieu.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'huong-dan/trang/[n].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/[slug]/anh.astro', 'cay/trang/[n].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'nhom/[group]/trang/[n].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro', 'ung-dung/[...path].astro']
 export const PAGES: Record<OtherLang, string[]> = { id: PILOT, th: PILOT }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */
@@ -165,5 +165,5 @@ export function switchTo(lang: Lang, viPath: string, here: string | undefined, h
 /** Text written in Vietnamese (letters only Vietnamese uses): a cited page's title, marked as such on the other languages' pages. */
 export { isVietnamese } from '@aq/schema/text'
 
-/** A photo's licence as shown: the permission note stored in Vietnamese is translated; licence names (CC BY…) stay. */
-export const licenceLabel = (t: T, licence: string) => (licence === 'dùng với sự cho phép' ? t('dùng với sự cho phép') : licence)
+/** A photo's licence as shown: its name (CC BY…), none for a photo a source let us use (stored as its permission note). */
+export const licenceLabel = (licence: string) => (licence === 'dùng với sự cho phép' ? '' : licence)

@@ -1,4 +1,4 @@
-import { LANGS, loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang } from '@aq/schema'
+import { controlOf, LANGS, loadAll, SECTION_ORDER, type Content, type DataCardField, type Lang, type Translation, type WrittenLang } from '@aq/schema'
 import { LANG } from '@aq/schema/langs'
 
 /** The kinds of page that carry written text (places and taxa pages are lists). */
@@ -31,10 +31,14 @@ export type Page = {
   en?: Record<string, string>
   /** Guides: the source page they were written from. */
   origin?: { source: string; url: string }
+  /** The channels whose videos the page is written from: a video guide's, a product's reviews'. */
+  credited?: string[]
+  /** Products: whether AquaTome controls it (@aq/schema controlOf). */
+  control?: boolean
 }
 
 /** Each language's English name, in reports and prompts. */
-export const LANG_NAME: Record<Lang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai' }
+export const LANG_NAME: Record<WrittenLang, string> = { vi: 'Vietnamese', id: 'Indonesian', th: 'Thai', ms: 'Malay' }
 
 /**
  * Each language's word for a site section. The site's own map is apps/site/src/lib/i18n.ts (SECTIONS); a page link in a
@@ -71,6 +75,14 @@ const textOf = (t: Extra, sections: Record<string, string> = {}) => ({
 /** The Latin names among a page's other names: "Corydoras paleatus", a cultivar's "Echinodorus 'Vesuvius'". */
 const latin = (names: string[]) => names.filter(n => /^[A-Z][a-z]+ (?:[a-z]{3,}|['‘’"][A-Z])/.test(n))
 const captionsOf = (photos: { url: string; caption?: string }[]) => photos.flatMap(p => (p.caption ? [{ url: p.url, caption: p.caption }] : []))
+/** A product's review summary and test notes, as lines of plain text. */
+export const reviewLines = (t: Pick<Translation, 'reviews' | 'tested'>) => [
+  ...(t.reviews?.agree ?? []).map((x, i) => ({ field: `reviews.agree.${i}`, text: x.text })),
+  ...(t.reviews?.differ ?? []).flatMap((d, i) => [{ field: `reviews.differ.${i}.topic`, text: d.topic }, ...d.sides.map((x, j) => ({ field: `reviews.differ.${i}.sides.${j}`, text: x.text }))]),
+  ...(t.reviews?.single ?? []).map((x, i) => ({ field: `reviews.single.${i}`, text: x.text })),
+  ...(t.reviews?.measured ?? []).flatMap((m, i) => [{ field: `reviews.measured.${i}.what`, text: m.what }, { field: `reviews.measured.${i}.how`, text: m.how }]),
+  ...(t.tested ?? []).map((x, i) => ({ field: `tested.${i}`, text: x.text })),
+]
 
 /** Every published page in a language, from the content a public build reads (loadAll), in a stable order. */
 export function pagesOf(lang: Lang, c: Content): Page[] {
@@ -88,13 +100,20 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
       captions: captionsOf([...p.photos, ...(c.galleries[p.id] ?? [])]), sci: p.scientificName, latinNames: latin(p.t.altNames), card: [],
       en: Object.fromEntries(p.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
-    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl } })),
+    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl }, ...(g.video ? { credited: [g.video.channel] } : {}) })),
     ...c.breeds.map(b => ({
       ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), captions: captionsOf(b.photos), latinNames: [],
       card: Object.entries(b.care).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: `source ${v.source + 1}`, value: v.value }))),
     })),
     ...c.glossary.map(g => ({ ...base('glossary', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: [], latinNames: [], card: [] })),
-    ...c.products.map(p => ({ ...base('products', p.id, p.t.slug, p.t.name), ...textOf(p.t), captions: [], latinNames: [], card: [] })),
+    ...c.products.map(p => {
+      const text = textOf(p.t)
+      return {
+        ...base('products', p.id, p.t.slug, p.t.name), ...text, lines: [...text.lines, ...reviewLines(p.t)], captions: [], latinNames: [], card: [], control: !!controlOf(p.brand, p.model),
+        // A maker's own channel carries the name the page is about.
+        ...(p.reviews ? { credited: p.reviews.videos.map(v => v.channel).filter(c => c.trim().toLowerCase() !== p.brand.trim().toLowerCase()) } : {}),
+      }
+    }),
     ...c.equipment.map(e => ({
       ...base('equipment', e.category, e.category, e.name), latinNames: [], card: [],
       fields: [
@@ -110,7 +129,10 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
   ]
 }
 
-/** Every published page in Vietnamese, Indonesian and Thai. */
+/**
+ * Every published page in the languages the site serves: what the reader's eye reads and the audit lists. A language the
+ * site doesn't serve yet has no pages to check against, and joins with its `served: true`.
+ */
 export async function loadPages(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
   const out: Page[] = []
   for (const lang of langs) out.push(...pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true })))

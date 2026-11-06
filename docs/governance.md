@@ -42,6 +42,19 @@ that would have caught it).
   - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
     `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
     first 200, each a page the app index lists; the index names the file (`latest`) only where the site has the page.
+  - The app's invitations (`apps/site/src/lib/app.ts`; the switch, `apps/site/worker/app-switch.ts`: off, the owner's,
+    on; `apps/site/test/app-invite.test.ts`), on a fixture build of each state (`pnpm test` builds `dist-app-off` and
+    `dist-app-on` beside `dist`, `APP_INVITE_STATE`):
+    - off: no `apple-itunes-app` meta, App Store link, invitation, badge file, app page or link to it, the sitemap and
+      `llms.txt` included.
+    - the owner's: the invitations hidden, each with "Mở trong ứng dụng" (the app's `aquatome://open?url=…`), shown only
+      with the owner's flag cookie on an iPhone or iPad; the footer's and About's links in a `<template>` only the owner's
+      script opens; no meta; the app page noindex, out of the sitemap, `llms.txt`, the site's search and the markdown
+      copies, and answered 404 by the Worker without the flag (`worker/test/app-page.test.ts`).
+    - on: every page's meta with its own address, each placement's campaign code and `hidden` until the check beside it,
+      no link `rel=sponsored` (the readers' beacon would count it), and every string translated, as that build fails on
+      one that isn't.
+    - The checks that unhide them, run against each device and cookie; and in the browser (`e2e/app-invite.spec.ts`).
   - A fish's "Vì sao?" needs (`careNeeds`, `packages/schema/src/care-needs.ts`) against
     `protocols/care-needs-vectors.json`, which the app's own port of it will read: `careNeeds`' answer for each case,
     given the fish's app index entry as it is (every threshold, and just past it); each fixture fish page's panel as the
@@ -92,10 +105,34 @@ that would have caught it).
     stored from a browser (an Origin), past the size caps or past the address's hour, our own copies stored marked as
     tests, a report kept as received in the private bucket only, and the dashboard's page with nothing yet and with data
     (`apps/site/worker/test/telemetry.test.ts`, `admin-app.test.ts`).
+  - A shop click (`/go/`, `apps/site/worker/test/handler.test.ts`): every request goes on to the shop, and only a reader's
+    click on one of our pages is counted, as the browser's own Sec-Fetch headers say; not a client calling itself a
+    browser, not the owner. `e2e/shop-click.spec.ts` holds the rule to what a real browser sends. Found 2026-11-06: 65
+    clicks counted since 10-29, almost every one the only click on its link, and no beacon `aff` event in that time, which
+    a real click sends.
   - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
     bad zone cookie).
+  - The scoreboard (`/_ab/thanh-cong/`, `docs/metrics.md`, `apps/site/worker/test/admin-scoreboard.test.ts`,
+    `e2e/dashboard-charts.spec.ts`): weeks from Monday in Vietnam's time, each metric's rule at its edge, this week against
+    last at the same point, a week before the count unmeasured and not zero, a part that fails saying so in its place, the
+    token reading its JSON and no page, and the page outside the section list the iOS app reads (web only, as that list is
+    the app's contract).
+  - The owner's dashboard on its own host, dashboard.aquatome.com (`apps/site/worker/dashboard-host.ts`, `access.ts`,
+    `worker/test/dashboard-host.test.ts`):
+    - Cloudflare Access's token on every request (RS256 by the team's certs, audience, issuer, expiry); missing or wrong
+      in any way, 403, with nothing read. The host refuses everything while `ACCESS_TEAM_DOMAIN` or `ACCESS_AUD` is empty.
+    - Until both are set, `/_ab/` on the site is the dashboard as it was. Then a browser's GET of a page there is a 301 to
+      the host, and everything else stays on the site: the machine endpoints, the owner bar's `POST /_ab/hidden`, the iOS
+      owner API. They aren't on the host, where Access would stop them.
+    - Each page's links reach what the host answers (a public page's goes back to the site), its forms post only from
+      the page, and every answer is noindex and never stored. A page added to the dashboard's rail (`WEB_PAGES`: NAV's,
+      the scoreboard, the daily report's log and each report) is on the host with its line in `run_worker_first`
+      (`/<key>/*`, and a `.json` form's own): without it the 404 page answers and the Worker is never asked, and a test
+      names the line. No negative pattern there: one wins over every positive rule, and `!/id/*` would take the hidden app
+      page in Indonesian and Thai from the Worker; a test holds each app page and its files to it. Files that skip the Worker carry noindex from `public/_headers`. A dashboard address
+      printed outside it is the site's (`dashboardUrl`, `worker/paths.ts`), which opens before and after the move.
   - The owner's dashboard as JSON for the iOS app (`apps/site/worker/owner-api.ts`), against
     `protocols/owner-dashboard.openapi.json`: only the owner's app session, as a bearer, opens it (without a live app
     session, 401; another account's, 404; nothing changes for either); each section's blocks say what its page shows
@@ -104,10 +141,18 @@ that would have caught it).
     its page's form makes; a part that throws is 503; the times follow the zone the app sends; and
     `protocols/owner-dashboard-vectors.json`, the replies the app's fake server serves, are the Worker's own
     (`UPDATE_VECTORS=1` rewrites them) (`apps/site/worker/test/owner-api.test.ts`).
+  - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
+    and logged on `/_ab/bao-cao/`, a page the app's section list leaves out. The collector on GitHub's JSON: a cycle told
+    from the engine's hourly check, a workflow failing with no later success, what GitHub won't give named rather than
+    counted as none, the retries, and a body the Worker reads (`apps/site/test/daily-report.test.ts`). The composer: what
+    needs care, the highlights, the app with no data yet, and no address, picture or link to another site in a report
+    (`daily-compose.test.ts`). `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
+    id even at the same moment, and the recipient in nothing but the send; the log page (`daily-report.test.ts`).
 - `pnpm --filter site e2e`: Playwright on that build, as a phone (Pixel 7) and a computer (`apps/site/e2e/README.md`):
   - **Journeys**: the things readers do (search the fish list, glossary cards, the tank-volume, tank-mates and Chihiros
     tools), and the owner's dashboard: a chart's day read by a tap, the pointer or the keys, and times following a
-    device set to another zone (`dashboard-charts.spec.ts`, local only).
+    device set to another zone (`dashboard-charts.spec.ts`, local only); moving around it on its own host, a form's real
+    headers, the owner flag reaching the site (`dashboard-host.spec.ts`, local; live, that a stranger gets nothing).
   - **Page checks** on one or two pages of every kind, found from the build (a new kind of page is covered from its first
     build):
     - status 200 and a title
@@ -264,6 +309,15 @@ The layers above still check the result.
   number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
+- **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
+  - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
+  - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
+  - the writer never sees a channel, a title or an address. A channel's name, talk of the video or a reviewer (`names-source`, also listed for every page written from videos), a score or rating, or saying AquaTome controls a product it doesn't (`control-claim`) keeps a point off the page
+  - a product or brand name in a point must match a spelling from the title or description of a review it cites, or our catalog: product pages, what the app controls, brands two guides give (`packages/engine/src/review-names.ts`), because captions mangle names. A near-miss takes that spelling: the same letters without their marks, or one letter off in a name of 4 or 5 letters and two in a longer one, starting with the same letter, never in a name of 3 letters or fewer, never where a number differs, and never when two spellings are as near. A name that matches nothing gets the one rewrite, then the point is left out. Fish and plants aren't checked (by our pages' genera and the word before them), so "Anubias Nana" stays beside a "Nala" light
+  - the measured table's values are the extraction's, never the writer's
+  - research running again keeps the reviews' sources and text, cited by address and not by place
+  - "Điều khiển bằng AquaTome" comes from the code (`@aq/schema` devices: the light tool's model table, and the plug makers with a `PlugSource` in the app, a test holding the two together), never from the text, so a page stays true when support changes. AquaTome's own test notes (docs/research/aquarium-device-control.md) are curated facts naming the light tested, for lights it controls; Week Aqua's aren't used
+  - no thumbnail becomes a page photo: the top review plays from the same player as a species page's videos
 - **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
   good), no dead fish or fish as food (markets, plates, catches landed or held, preserved, mounted or museum specimens),
@@ -323,9 +377,11 @@ The layers above still check the result.
       captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
       by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
       said so and the verdict was "yes".
-  - **Credits.** Every photo names its author and licence and links its own page on the source (the gallery's viewer
-    and the page's credits); the gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and
-    GBIF photos are copied to our media bucket with the credit kept. An Unsplash photo, wherever it shows, reads "Ảnh:
+  - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
+    page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page
+    or in the app's copy says "with permission" (owner, 2026-11-05; `apps/site/test/photo-permission.test.ts`). The
+    gallery page names the sites its photos come from. Commons, iNaturalist, Flickr and GBIF photos are copied to our
+    media bucket with the credit kept. An Unsplash photo, wherever it shows, reads "Ảnh:
     <name> trên Unsplash" (in view, not behind a ©), the name linking the photographer's Unsplash page and "Unsplash"
     its home, both with AquaTome's UTM, as Unsplash's API guidelines ask (`apps/site/src/lib/unsplash.ts`); in the
     credits list and the gallery's viewer each photo's own page is linked too. `pnpm engine unsplash` first fills the
@@ -366,6 +422,22 @@ The layers above still check the result.
     which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
     use=reference`.
+- **A language ahead of the site.** The engine writes a language with `served: false` in the language table
+  (`packages/schema/src/langs.ts`; Malay now) before the site serves it, last in each rewrite cycle. Its files reach
+  `content/` and `apps/site/src/i18n/`, and nothing reads them: `apps/site/test/unserved-langs.test.ts` builds the site
+  with one of each and holds its pages, lists, app files and counts to none, and `worker/test/unserved-langs.test.ts`
+  holds the root, the cookie and the chooser.
+  - Each of its steps starts only while the cycle has run under `AHEAD_BEFORE_MINUTES` (135): it gives first, so a long
+    cycle costs the unserved language its turn, not the served ones theirs. The buying guides go two a cycle and the UI
+    text 120 strings a cycle, its first runs being the long ones. No build asks for its UI text, so the strings come from
+    a served language's dictionary (`translate-ui.ts --unserved`).
+  - Written like any page, and held like one: reviewed writing, `pnpm engine metric` and the real-content test on imperial
+    figures, `pnpm engine sweep`'s text and name fixes, the test on two pages with one name, `topic-check`, Wikidata's
+    names (a species cached before the language joined is asked once for it), a guide photo's section heading.
+  - Left until it is served, as they read pages readers can reach: `pnpm engine reader` (a model call a page), `pnpm
+    engine audit` and the real-content test on the rules (`loadPages`), and the orders that follow readers (gallery
+    targets, which new pages to fetch first). A shop list can be made for it (`pnpm engine shop-list --lang ms`), and
+    gives its pages names and its translation order; it joins the others' orders when served.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that
@@ -450,6 +522,10 @@ The layers above still check the result.
       built-page check reads it (`@aq/schema` headingRoles). A repeated paragraph: the later copy dropped (in two texts
       of a page, as a run of copies, or 120 characters or more: a short line a list repeats under each item is the
       text's own); labels out of order ("Sai lầm 1, 9, 2…"): numbered again as they appear
+    - a sentence that only says the text is translated, adapted or used with permission, the source's note under an
+      article it reprints ("Được Loaches Online chuyển thể với sự cho phép.", "… dengan izin", "… โดยได้รับอนุญาต"):
+      dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
+      bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map: off its page. A map leaves every page
       (`engine-state/_photo-rejected.json`); a photo of another fish only that page, so it may still join its own fish's

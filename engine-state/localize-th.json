@@ -333,6 +333,18 @@
       "Item 4: \"ปลาเขตกึ่งร้อน\" is slightly awkward. \"ปลาเขตกึ่งเขตร้อน\" or \"ปลาที่มาจากเขตอบอุ่น-กึ่งร้อน\" is more natural."
     ]
   },
+  "acnodon-normani": {
+    "at": "2026-11-05",
+    "from": "2026-11-03",
+    "name": "ชีพปาคู",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"ชื่อสามัญ: sheep pacu\" leaves the name in English, but items 1 and 14 use \"ชีพปาคู\". Use one name throughout, e.g. ชีพปาคู (sheep pacu).",
+      "Item 6: \"ควรเป็นขนาดเล็กที่สุดที่พิจารณา\" is stiff and calqued. Say \"ควรใช้ตู้ที่มีขนาดพื้นอย่างน้อย 150 × 45 ซม. เป็นขั้นต่ำ\".",
+      "Item 1: \"ไม่ค่อยเล็งปลา\" is slightly colloquial for \"does not target\". \"ไม่ค่อยไล่ทำร้ายปลา\" or \"ไม่ค่อยเข้าจู่โจมปลา\" reads more naturally. The same phrase appears in item 13."
+    ]
+  },
   "acrochordonichthys-gyrinus": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -370,6 +382,90 @@
       "\"ขอนไม้และรากไม้ที่แช่จนเก่าแล้ว\" (aged driftwood) is unclear. Use \"ขอนไม้และรากไม้ที่ผ่านการแช่น้ำจนหมดฝาด\" or \"ขอนไม้เก่า\"."
     ]
   },
+  "acrossocheilus-beijiangensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "อะครอสโซไคลัส เป่ยเจียงเอนซิส",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 1: \"Max size: 131 mm SL (5 in SL)\" was translated as \"131 มม.\". The metric figure is kept and the inch figure is dropped, which is allowed. Prefer \"13.1 ซม.\", the unit hobbyists normally use.",
+      "Item 1: \"ปลาชนิดนี้และ A. clivosius เป็นเพียงสองชนิดในสกุล...\" is awkward. Rephrase it as \"ปลาชนิดนี้และ A. clivosius เป็นเพียงสองชนิดในสกุลที่...\", or say \"เป็นหนึ่งในสองชนิดเท่านั้น\" as in item 4.",
+      "Item 1: \"ปลาตระกูลตะเพียนที่มีลายแถบ\" is acceptable, but \"วงศ์ปลาตะเพียน (Cyprinidae)\" would be more precise.",
+      "Item 4: The English says members have \"a particular number\" of bars. The Thai \"จำนวนแถบ...เฉพาะตัวของแต่ละชนิด\" adds the meaning \"specific to each species\". Keep it closer to the source, e.g. \"มีจำนวนแถบสีเข้มแนวตั้งที่แน่นอนบนสีข้างแต่ละด้าน\".",
+      "Item 4: \"rostral fold\" is glossed as \"รอยพับผิวหนังเหนือริมฝีปากบน\". This adds a location detail that is not in the source. Use a plain gloss such as \"รอยพับด้านหน้าของปาก (rostral fold)\".",
+      "Item 2: The type locality is left in English inside quotes. That is acceptable, but add a transliteration or note that the name is a historical record."
+    ]
+  },
+  "acrossocheilus-iridescens": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "Acrossocheilus iridescens",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: 'ปลาวงศ์ปลาตะเพียน (Cyprinidae)' is acceptable, but 'แต่ละแถบกว้าง 6–8 เกล็ด' is fine; consider 'ปลาในวงศ์ Cyprinidae' for naturalness.",
+      "Item 4: 'ทางด้านหน้า-เข้าหาแนวกลาง' is awkward for 'anteromedially'; rephrase, e.g. 'เฉียงไปทางด้านหน้าและเข้าหาแนวกลางลำตัว'.",
+      "Item 4: 'รูปโค้ง' for 'arched' mouth gape is vague; use 'รูปโค้งคล้ายคันศร' or similar.",
+      "Item 2: 'Nam Xam' and 'Nam Ma' are left in Latin letters; add Thai forms (น้ำซำ, น้ำหมา) with the Latin name in brackets if well known.",
+      "Item 4: 'ริมฝีปากหนาและต่อเนื่องกัน' for 'fleshy' is slightly off; 'ริมฝีปากเป็นเนื้อหนา' is better."
+    ]
+  },
+  "acrossocheilus-monticola": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "อะครอสโซไคลัส มอนติโคลา",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1: 'Max size: 150 mm SL (6 in SL)' became 'ขนาดโตเต็มที่: 150 มม. SL'. This is acceptable, but 'SL' is left untranslated and unexplained. Write 'ความยาวมาตรฐาน (SL) 150 มม. (15 ซม.)' or similar.",
+      "Item 1: 'ช่องเขาอี๋ชาง' is a transliteration of Ichang gorge. Consider adding 'Ichang' in brackets, since the old spelling is used in the source and the Thai reader may not know it.",
+      "Item 4: 'ซึ่งเป็นจำนวนเฉพาะของแต่ละชนิด' adds meaning. The source only says 'a particular number'. Reword to 'จำนวนแถบที่จำเพาะ' without the extra claim.",
+      "Item 4: 'ผู้อาศัย' for 'dweller or inhabitant' drops the second synonym. This is minor. Consider 'ผู้อาศัยหรือผู้อยู่อาศัย'.",
+      "Item 3: 'ปลาในธรรมชาติกิน...' drops 'are known to'. Add 'จากการศึกษาพบว่า' or similar."
+    ]
+  },
+  "acrossocheilus-paradoxus": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "ไต้หวันแบนด์บาร์บ",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 6: \"biologically immature system\" translated as \"ตู้ที่วงจรไนโตรเจนยังไม่สมบูรณ์\" – acceptable but \"ตู้ที่ระบบกรองชีวภาพยังไม่เสถียร/ตู้ที่ยังไม่ผ่านการไซเคิล\" is more natural to Thai hobbyists.",
+      "Item 6: \"aufwuchs\" rendered as \"ตะไคร่และสิ่งมีชีวิตขนาดเล็ก...\" – okay, but the added \"ตะไคร่\" (algae) slightly narrows the meaning; use \"แพลงก์ตอนและไบโอฟิล์มที่เกาะพื้นผิว\".",
+      "Item 6: \"ทนต่อการสะสมของของเสียอินทรีย์ไม่ได้\" is fine, but \"ปลาจะคอยเล็มกิน\" is slightly awkward.",
+      "Item 1: \"ไต้หวันแบนด์บาร์บ\" is a transliteration; a common Thai hobby name would be preferable (e.g. ปลาตะเพียนลายไต้หวัน), and \"SL\" left in Latin could be explained as ความยาวมาตรฐาน.",
+      "Item 10: \"ยอมรับอาหารปลาทั่วไปได้ทุกประเภทอย่างง่ายดาย\" is stiff; use \"กินอาหารทั่วไปได้ทุกชนิดไม่เลือก\".",
+      "Item 13: \"particular number of dark vertical bar\" -> \"จำนวนที่แน่นอน\" slightly shifts meaning; use \"จำนวนเฉพาะ\"."
+    ]
+  },
+  "acrossocheilus-parallens": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "Acrossocheilus parallens",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"ปลาตระกูลปลาตะเพียน\" is slightly redundant; \"ปลาในวงศ์ปลาตะเพียน (Cyprinidae)\" is more precise.",
+      "Item 1: \"ความยาวมาตรฐาน (SL) 160 มม.\" is fine, but \"มม.\" next to the hobby convention \"ซม.\" (16 cm) is a minor style point.",
+      "Item 4: \"แผ่นเคราตินแข็ง\" for \"horny sheath\" is a bit technical; \"ปลอกแข็งคล้ายเขา\" or \"ปลอกเคราติน\" reads more naturally.",
+      "Item 4: \"ลายบั้งสีเข้มแนวตั้ง...ในจำนวนเฉพาะ\" is awkward; rephrase as \"มีจำนวนลายบั้งสีเข้มแนวตั้งที่จำเพาะ\"."
+    ]
+  },
+  "aequidens-tetramerus": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "แซดเดิลซิคลิด",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 11: \"ขณะที่ปลาจากบราซิล เช่น มักมีสี...\" leaves \"for example\" stranded mid-sentence and reads garbled. Move it, e.g. \"ปลาจากบราซิลมักมีสีโดยรวมเป็นเทา/น้ำเงิน/เขียว เป็นต้น\".",
+      "Item 5: \"ร่วมกับและ/หรือกรองซัมพ์\" is ungrammatical. Use \"กรองนอกแบบถังและ/หรือกรองซัมพ์\" or \"ร่วมกับ\" alone.",
+      "Item 5: \"โรคหัวเป็นรู (head and lateral line erosion)\" leaves the English in the brackets and drops the lateral line. Say \"โรคหัวและเส้นข้างลำตัวเป็นรู/กร่อน (HLLE)\".",
+      "Item 5: \"แต่ก็ไม่จำเป็นเสมอไป\" is slightly off for \"not essential\". Use \"แต่ไม่จำเป็น\"."
+    ]
+  },
   "agamyxis-pectinifrons": {
     "at": "2026-10-31",
     "from": "2026-10-29",
@@ -384,6 +480,110 @@
       "Item 8: 'peaceful characins' is translated as 'ปลาเตตร้าและปลาคาราซิน', which adds 'tetras'. Remove 'ปลาเตตร้า' or leave it as a plain 'ปลาคาราซิน'.",
       "Item 11: 'Take care when netting ... can break human skin' is rendered 'แทงผิวหนังคนจนเป็นแผล', which slightly overstates the source. 'Spines and scutes easily become entangled' is fine.",
       "Item 1: 'SL' is left as an English abbreviation without explanation, and 'ราฟาเอลจุด' is an unusual name for spotted talking catfish; the common Thai name is 'ราฟาเอลลายจุด' or 'ปลาเรเฟล'. Also, 'ระดับความยาก 6 จาก 8' is fine."
+    ]
+  },
+  "ageneiosus-inermis": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "แมนดูบา",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"เมื่อเลี้ยงในที่เลี้ยง\" is redundant and awkward; use \"เมื่อเลี้ยงในตู้\" or \"ในสภาพการเลี้ยง\".",
+      "Item 5: \"ปลาญาติใกล้ชิดบางชนิด\" adds \"close\" (ใกล้ชิด) that the English \"some relatives\" does not have; use \"ปลาในวงศ์เดียวกันบางชนิด\" or \"ปลาที่เกี่ยวข้องบางชนิด\".",
+      "Item 1: \"Ageneiosus ชนิดที่มีขนาดใหญ่มักเป็นปลาที่นิยมจับมาบริโภค\" is a little clumsy; \"มักถูกใช้เป็นปลาอาหาร\" is closer to the source."
+    ]
+  },
+  "ageneiosus-magoi": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "สโลปเฮดแคทฟิช",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 6: 'Sexually active A. magoi could now be imported' + 'The fish are currently about 15 cm long' — the 'sexually active' phrase is odd, but the bigger issue is that '18-20 ซม.' keeps the number correctly; fine. However 'ดอลฟินแคทฟิชชนิดที่เหลือ' ('remaining') is vague; consider 'ชนิดอื่น ๆ ที่เหลือ' to be clear.",
+      "Item 5: 'หนีบตัวเมียไว้' is acceptable, but 'ปุ่มเนื้อแปลก ๆ ที่ดูคล้ายฟันขึ้นที่ขอบด้านหลัง' is awkward; rephrase as 'ปุ่มเนื้อรูปร่างคล้ายฟันแปลก ๆ ที่ขอบด้านหลังของขากรรไกรบน'.",
+      "Item 4: 'การรัดตัวผสมพันธุ์' for 'spawning embrace' is unnatural; use 'การจับคู่ผสมพันธุ์' or 'การกอดรัดขณะผสมพันธุ์'.",
+      "Item 4: 'ติ่งเพศ' and 'ครีบก้นของตัวผู้เปลี่ยนรูปเป็นอวัยวะสืบพันธุ์สำหรับผสมพันธุ์' — 'อวัยวะสืบพันธุ์สำหรับผสมพันธุ์' is redundant; use 'อวัยวะช่วยผสมพันธุ์ (gonopodium-like)' or just 'อวัยวะผสมพันธุ์'.",
+      "Item 6: Number range format inconsistent ('18-20' hyphen vs '23–28' en dash elsewhere); minor."
+    ]
+  },
+  "ageneiosus-marmoratus": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "ปลาบอทเทิลโนส แคทฟิช",
+    "confidence": "low",
+    "score": 0.62,
+    "notes": [
+      "Item 5: 'ห้ามปล่อยลงตู้ที่วงจรไนโตรเจนยังไม่สมบูรณ์เด็ดขาด' – 'biologically immature' is rendered fine, but 'ไวต่อสารอินทรีย์ที่สะสมในน้ำ' adds 'สะสม' (accumulated), which is not in the source; use 'สารอินทรีย์' / 'ของเสียอินทรีย์' only.",
+      "Item 10: 'วางไข่ตามฤดูกาลอย่างมาก' mistranslates 'highly likely' (modifies probability, not seasonality); should be 'มีแนวโน้มสูงมากว่าจะวางไข่ตามฤดูกาล'. Also the fish are internal fertilisers, so 'วางไข่' is acceptable but the sentence reads wrongly.",
+      "Item 7: 'obligate carnivores' as 'กินเนื้อโดยสมบูรณ์' is unnatural; use 'กินเนื้อเป็นอาหารหลักโดยธรรมชาติ/กินเนื้อเท่านั้น'. 'ปลาเหยื่อ' for 'feeder fish' is awkward; 'ปลาเหยื่อ (feeder)' is more usual. 'สัตว์น้ำมีเปลือก' for shellfish is imprecise (use 'กุ้ง หอย').",
+      "Item 1/4: 'SL' left unexplained ('185 มม. SL'); give 'ความยาวมาตรฐาน (SL)'. 'แอมะซอน' and 'บอทเทิลโนส แคทฟิช' are okay but 'ลายจุดดำแต้มๆ' is colloquial.",
+      "Item 11: 'Juvenile patterning ... largely lost' became 'เกือบหมด' – ok; 'branchiostegals' rendered as 'ก้านกระดูกใต้แผ่นปิดเหงือก' acceptable. 'จะงอยปากกว้างรูปพาราโบลา' is clumsy; 'ครีบหางขอบเว้าตื้น' for emarginate is ok. 'ไม่มีหนวดที่จมูก' for 'no nasal barbel' fine.",
+      "Item 9: 'โอดอนโทด (ตุ่มคล้ายฟัน)' ok, but 'inclinator/erector' left untranslated without gloss; 'on dorsal and medial surfaces' → 'ด้านใน' should be 'ด้านกลางลำตัว/ด้านใกล้ตัว'.",
+      "Item 4: dropped '(~143 US gal)' is allowed; no issue. Item 2: 'affluent' rendered 'สาขา' twice, 'ลำน้ำสาขา ... ซึ่งเป็นสาขา' is repetitive."
+    ]
+  },
+  "ageneiosus-ucayalensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "ดั๊กแคทฟิช",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "aguarunichthys-tocantinsensis": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "Tocantins Pimelodus",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 9: \"อาหารเม็ดจมแบบแผ่น (tablet)\" adds \"จม\" (sinking), which the English doesn't say. Use \"อาหารแบบเม็ดแผ่น (tablet)\" or similar, without \"จม\"."
+    ]
+  },
+  "aguarunichthys-torosus": {
+    "at": "2026-11-05",
+    "from": "2026-10-31",
+    "name": "ปลาโบลท์แคทฟิช",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "#2: The type-locality quote is left entirely in English ('about 210 meters' etc.). Translate the descriptive parts, e.g. 'ประมาณ', 'ความสูงจากระดับน้ำทะเลประมาณ 210 เมตร', and keep only the place names and coordinates in Latin.",
+      "#9: 'ชนเผ่าอินเดียนแดงของเปรู' is dated wording. Prefer 'ชนพื้นเมืองเปรู' or 'ชนเผ่าพื้นเมือง'.",
+      "#7: 'ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์' is repetitive. Merge it into one sentence, e.g. 'ยังไม่มีรายงานการเพาะพันธุ์'.",
+      "#3: 'กินปลาอื่นเป็นอาหารเท่านั้น' is a little stiff. 'ไส้เดือนดินเป็น' (live earthworms) could be clearer, e.g. 'ไส้เดือนดินมีชีวิต'."
+    ]
+  },
+  "ailia-coila": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "ปลาไอเลีย",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "ailiichthys-punctata": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "จามูนา ไอเลีย",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 2/3: \"แม่น้ำตอนล่างในแคว้นปัญจาบ\" is slightly ambiguous for \"lower Punjaub rivers\"; better \"แม่น้ำสายต่าง ๆ ในตอนล่างของแคว้นปัญจาบ\".",
+      "Item 4: the long run-on sentence about the Red List is hard to read; split it into shorter sentences.",
+      "Item 4: \"ชื่อสกุล Ailiichthys มาจาก Ailia ซึ่งหมายถึงคล้ายกับสกุลนั้น...\" is awkward; rephrase, e.g. \"หมายถึงคล้ายสกุล Ailia แต่ไม่มีครีบท้อง\"."
+    ]
+  },
+  "akysis-brachybarbatus": {
+    "at": "2026-11-05",
+    "from": "2026-10-30",
+    "name": "ปลาอะไคซิส",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 6: \"ไรแดง\" for daphnia is acceptable but ambiguous (Moina is also called ไรแดง). Consider \"ไรน้ำ (daphnia)\" or \"ไรแดง (daphnia)\".",
+      "Item 8: \"kysis = ถุง\" could be more exact, e.g. \"กระเพาะ/ถุง\", to match \"bladder\" and the \"กระเพาะลม\" that follows."
     ]
   },
   "akysis-ephippifer": {
@@ -420,6 +620,17 @@
       "Item 2: \"Sg. Alai\" and \"Muara Bungo–Muara Tebo\" are left in Latin script with \"ลำน้ำ\" added; \"Sg.\" (Sungai = river) is not explained, so spell it as \"แม่น้ำ (Sungai) Alai\"."
     ]
   },
+  "akysis-longifilis": {
+    "at": "2026-11-05",
+    "from": "2026-10-30",
+    "name": "อะไคซิส ลองจิฟิลิส",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"ห่างลงไปทางท้ายน้ำจากของ A. longifilis\" reads awkwardly. Rephrase, e.g. \"จากแหล่งที่พบ A. longifilis\".",
+      "Item 10: \"กุ้งกั้งขนาดเล็ก\" for \"small aquatic crustaceans\" is odd, because กั้ง suggests mantis shrimp. Use \"สัตว์น้ำเปลือกแข็งขนาดเล็ก\" or \"crustacean ขนาดเล็ก\"."
+    ]
+  },
   "akysis-maculipinnis": {
     "at": "2026-10-31",
     "from": "2026-10-30",
@@ -432,6 +643,26 @@
       "Item 1: \"Spotfin stream catfish\" is left in English as the common name. Add a Thai descriptive name, or keep the English name in brackets after a Thai one.",
       "Item 15: the credit \"Thanks to Frank Strozyk\" is dropped. This is minor, because the method credit stays earlier in the text."
     ]
+  },
+  "akysis-portellus": {
+    "at": "2026-11-05",
+    "from": "2026-10-30",
+    "name": "อะไคซิส พอร์เทลลัส",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 11: \"กุ้งกั้งขนาดเล็กในน้ำ\" for \"small aquatic crustaceans\" is wrong. กั้ง means mantis shrimp or lobster. Use \"สัตว์น้ำเปลือกแข็งขนาดเล็ก (ครัสเตเชียน)\" or \"กุ้งและแพลงก์ตอนสัตว์ขนาดเล็ก\".",
+      "Item 7: \"หินน้ำตก\" for \"water-worn rocks\" is not a standard term. Use \"หินกลมมนที่ผ่านการกัดเซาะของน้ำ\" or \"หินแม่น้ำ\".",
+      "Item 17: \"kysis = bladder\" is rendered as \"กระเพาะ\". Use \"ถุง/กระเพาะ (bladder)\" so it is clearly the swimbladder (กระเพาะลม) and not the stomach."
+    ]
+  },
+  "akysis-prashadi": {
+    "at": "2026-11-05",
+    "from": "2026-10-30",
+    "name": "อะไคซิส ปราชาดิ",
+    "confidence": "low",
+    "score": 0.92,
+    "notes": []
   },
   "akysis-pulvinatus": {
     "at": "2026-10-30",
@@ -473,6 +704,19 @@
     "confidence": "low",
     "score": 0.9,
     "notes": []
+  },
+  "akysis-vespertinus": {
+    "at": "2026-11-05",
+    "from": "2026-10-29",
+    "name": "อะคีซิส เวสเปอร์ตินัส",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 11: the English reads 'body depth at anus 135-16.0 % SL', an obvious typo. The Thai silently gives '13.5–16.0%'. Keep this correction only if it is deliberate. Otherwise follow the source, or flag the uncertainty.",
+      "Item 10: 'ตัวผู้ที่ประสบความสำเร็จได้รับอนุญาตให้ใช้ลำตัวโอบรัดรอบตัวเมีย' is a stiff literal rendering of 'was allowed to wrap'. Rephrase naturally, e.g. 'ตัวผู้ตัวที่ชนะจึงได้โอบรัดลำตัวตัวเมีย'.",
+      "Item 10: 'ลดอุณหภูมิลงอย่างมาก ประมาณ 7 °C' is slightly clumsy. 'อุณหภูมิลดลงราว 7 °C' reads better.",
+      "Item 9: the sentence 'ใน A. alfredi ระยะ…ของตัวผู้สั้นกว่าตัวเมีย' puts the comparison before the numbers. This is fine in meaning but dense. Consider splitting it for readability."
+    ]
   },
   "allenbatrachus-grunniens": {
     "at": "2026-10-30",

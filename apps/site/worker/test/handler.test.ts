@@ -10,6 +10,8 @@ import { LANGS } from '@aq/schema/langs'
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
 const CHROME = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36'
 const browser = { 'user-agent': CHROME, 'accept-language': 'vi' }
+/** What a browser sends when a reader clicks a shop link on one of our pages. */
+const CLICK = { ...browser, 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'navigate' }
 
 function env(over: Partial<Env> = {}) {
   const points: unknown[] = []
@@ -194,9 +196,35 @@ test('/go/ redirects to search without D1, with D1 counts the click, 404s on jun
   expect((await handle(get('/go/shopee/?u=https://evil.test'), e)).status).toBe(404)
   const db = testD1()
   const waits: Promise<unknown>[] = []
-  await handle(get('/go/lazada/?k=loc&c=loc&e=guide:x'), { ...e, DB: db }, p => { waits.push(p) })
+  await handle(get('/go/lazada/?k=loc&c=loc&e=guide:x', CLICK), { ...e, DB: db }, p => { waits.push(p) })
   await Promise.all(waits)
   expect(await db.prepare('SELECT network, n FROM clicks_daily').first()).toEqual({ network: 'lazada', n: 1 })
+})
+
+// Found 2026-11-06: 65 clicks counted since 10-29 and not one beacon `aff` event, which a real click sends (checked in
+// Chromium and WebKit): whoever followed these links said they were a browser and ran no page. All of them still go to
+// the shop; only a click on one of our pages is counted.
+test('/go/ counts a click on one of our pages, not a browser-looking client that opens the address, nor the owner', async () => {
+  const { e } = env()
+  const counted = async (h: Record<string, string>) => {
+    const db = testD1()
+    const waits: Promise<unknown>[] = []
+    const r = await handle(get('/go/shopee/?k=neon', h), { ...e, DB: db }, p => { waits.push(p) })
+    expect(r.status).toBe(302)
+    await Promise.all(waits)
+    return (await db.prepare('SELECT COUNT(*) AS n FROM clicks_daily').first<{ n: number }>())!.n
+  }
+  expect(await counted(CLICK)).toBe(1)
+  // A crawler with a browser's user agent and Accept-Language: it has no Sec-Fetch headers, whatever Referer it adds.
+  expect(await counted(browser)).toBe(0)
+  expect(await counted({ ...browser, referer: 'https://x.test/ca/x/' })).toBe(0)
+  // A real browser, opened at the address (a crawler driving one, a link pasted in): no page of ours sent it.
+  expect(await counted({ ...browser, 'sec-fetch-site': 'none', 'sec-fetch-mode': 'navigate' })).toBe(0)
+  expect(await counted({ ...browser, 'sec-fetch-site': 'cross-site', 'sec-fetch-mode': 'navigate' })).toBe(0)
+  // A script on our page fetching the link is not a click either.
+  expect(await counted({ ...browser, 'sec-fetch-site': 'same-origin', 'sec-fetch-mode': 'cors' })).toBe(0)
+  // The owner, as the beacon leaves the owner out (the flag cookie, worker/owner.ts).
+  expect(await counted({ ...CLICK, cookie: 'aq_lang=vi; aq_owner=1' })).toBe(0)
 })
 
 test('/go/ wraps the search link without D1, falls back when D1 breaks, never counts bots or HEAD', async () => {
@@ -210,8 +238,8 @@ test('/go/ wraps the search link without D1, falls back when D1 breaks, never co
   const db = testD1()
   const waits: Promise<unknown>[] = []
   const hit = (req: Request) => handle(req, { ...e, DB: db }, p => { waits.push(p) })
-  await hit(get('/go/shopee/?k=neon', { 'user-agent': 'Googlebot/2.1' }))
-  await hit(new Request('https://x.test/go/shopee/?k=neon', { method: 'HEAD', headers: browser }))
+  await hit(get('/go/shopee/?k=neon', { ...CLICK, 'user-agent': 'Googlebot/2.1' }))
+  await hit(new Request('https://x.test/go/shopee/?k=neon', { method: 'HEAD', headers: CLICK }))
   await Promise.all(waits)
   expect(await db.prepare('SELECT COUNT(*) AS n FROM clicks_daily').first()).toEqual({ n: 0 })
 })

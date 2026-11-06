@@ -1,6 +1,8 @@
 ---
 import Doc from '../../layouts/Doc.astro'
 import { getContent } from '../../lib/content'
+import OwnerOnly from '../../components/OwnerOnly.astro'
+import { APP_PAGE, APP_STATE } from '../../lib/app'
 import { CONTACT_EMAIL } from '../../lib/site'
 import { i18n, isVietnamese } from '../../lib/i18n'
 const { t, lang } = i18n(Astro.url)
@@ -9,7 +11,7 @@ const sources = Object.values(c.sources).filter(s => s && (process.env.PUBLIC_BU
 ---
 <Doc title={t('Giới thiệu')} intro={t('AquaTome là cẩm nang cá cảnh và thủy sinh: hồ sơ loài cá, cây thủy sinh, hướng dẫn chăm sóc và thuật ngữ.')}>
   <h2>{t('Nội dung được làm thế nào')}</h2>
-  <p>{t('Mỗi hồ sơ và bài hướng dẫn được dịch, biên soạn sang tiếng Việt từ các nguồn chuyên ngành uy tín đã cho phép AquaTome sử dụng. Bản dịch do AI (Claude của Anthropic) thực hiện, sau đó được chấm điểm chất lượng tự động. Trang chưa đạt ngưỡng chất lượng vẫn xem được nhưng không được đưa lên công cụ tìm kiếm cho đến khi được cải thiện.')}</p>
+  <p>{t('Mỗi hồ sơ và bài hướng dẫn được dịch, biên soạn sang tiếng Việt từ các nguồn chuyên ngành uy tín. Bản dịch do AI (Claude của Anthropic) thực hiện, sau đó được chấm điểm chất lượng tự động. Trang chưa đạt ngưỡng chất lượng vẫn xem được nhưng không được đưa lên công cụ tìm kiếm cho đến khi được cải thiện.')}</p>
   <p>{t('Mỗi trang ghi rõ nguồn và liên kết tới bản gốc. Khi các nguồn đưa ra thông số khác nhau (nhiệt độ, pH, độ cứng…), trang đánh dấu chỗ khác biệt thay vì chọn bừa một con số.')}</p>
   <p>{t('Xem')} <a href="/vi/gioi-thieu/bang-du-lieu/">{t('Cách đọc bảng dữ liệu')}</a> {t('để biết mỗi ô nghĩa là gì và bảng chọn số nào khi các nguồn ghi khác nhau.')}</p>
 
@@ -25,6 +27,10 @@ const sources = Object.values(c.sources).filter(s => s && (process.env.PUBLIC_BU
 
   <h2>{t('Quảng cáo và liên kết mua hàng')}</h2>
   <p>{t('AquaTome hiển thị quảng cáo của Google AdSense để duy trì trang. Một số liên kết tới Shopee, Lazada hoặc Tiki là liên kết tiếp thị: chúng tôi có thể nhận hoa hồng khi bạn mua hàng qua liên kết, giá bạn trả không đổi. Các liên kết này luôn có nhãn và không ảnh hưởng tới nội dung bài viết.')}</p>
+
+  {/* Below the first screen: a line here that wraps differently once the web font arrives moved the whole page (layout shift 0.11 on a phone). */}
+  {APP_STATE === 'on' && <><h2>{t('Ứng dụng')}</h2><p>{t('Cẩm nang cũng có trên iPhone và iPad:')} <a href={APP_PAGE}>{t('ứng dụng AquaTome')}</a>.</p></>}
+  {APP_STATE === 'owner' && <OwnerOnly><h2>{t('Ứng dụng')}</h2><p>{t('Cẩm nang cũng có trên iPhone và iPad:')} <a href={APP_PAGE}>{t('ứng dụng AquaTome')}</a>.</p></OwnerOnly>}
 
   <h2>{t('Liên hệ')}</h2>
   <p>{t('Báo lỗi, góp ý hoặc hợp tác:')} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. {t('Xem thêm')} <a href="/vi/chinh-sach-bao-mat/">{t('Chính sách bảo mật')}</a>.</p>

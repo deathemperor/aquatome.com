@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { askStatus, clockDrift, clockOf, firmwareOf, levelAt, frame, hoursLit, modelOf, nextId, scheduleParams, setLevel, setMode, setSchedule, setTime, type Schedule } from '../src/scripts/chihiros'
+import { CHIHIROS_LINES, controlOf } from '@aq/schema/devices'
+import { askStatus, clockDrift, clockOf, firmwareOf, levelAt, frame, hoursLit, modelOf, nextId, scheduleParams, setLevel, setMode, setSchedule, setTime, SUPPORTED, type Schedule } from '../src/scripts/chihiros'
 
 // Shared with the iOS app's tests, so both implementations send the same bytes.
 type Case<T> = T & { note?: string }
@@ -66,4 +67,9 @@ test("the light's clock from its long status reply, and how far it is from this 
 
 test('the sunrise/sunset curve: off, rising over the ramp, full, falling to off', () => {
   for (const c of v.levelAt) expect(levelAt(c.schedule, c.minute), c.note ?? `${c.schedule.on}–${c.schedule.off} at ${c.minute}`).toBeCloseTo(c.level, 5)
+})
+
+test('the lines the tool names are the ones a product page says it controls', () => {
+  expect(SUPPORTED).toEqual(CHIHIROS_LINES)
+  for (const line of SUPPORTED) expect(controlOf('Chihiros', line)).toMatchObject({ kind: 'light', line })
 })

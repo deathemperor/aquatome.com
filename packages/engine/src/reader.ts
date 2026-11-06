@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import { LANGS, metricPage, QUALITY_THRESHOLD, type Lang } from '@aq/schema'
+import { LANGS, metricPage, QUALITY_THRESHOLD, type Lang, type WrittenLang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
@@ -186,7 +186,7 @@ const outline = (html: string) => {
  * the text lacks, and a second call scores it (same subject, natural, promises only what the text has). The caller keeps
  * it at QUALITY_THRESHOLD or more. Never the page's address.
  */
-export async function rewriteTitle(llm: Llm, title: string, html: string, lang: Lang, model?: string): Promise<{ title: string; score: number; notes: string[] }> {
+export async function rewriteTitle(llm: Llm, title: string, html: string, lang: WrittenLang, model?: string): Promise<{ title: string; score: number; notes: string[] }> {
   const why = countMismatch(title, html) ?? ''
   const items = outline(html)
   const m = model ? { model } : {}

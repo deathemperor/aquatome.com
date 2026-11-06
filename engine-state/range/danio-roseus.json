@@ -1,0 +1,99 @@
+{
+  "id": "danio-roseus",
+  "native": {
+    "input": "1da49b576670813c",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Nam Khwe River",
+        "source": "seriouslyfish",
+        "quote": "In images the Nam Khwe River, Myanmar contains quite shallow, turbid, moderately fast-flowing water; the substrate is composed of variably-sized boulders with some relatively little streamside vegetation.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Nam Lawe River",
+        "source": "seriouslyfish",
+        "quote": "Sympatric species include Danio albolineatus plus unidentified members of Barilius and Opsarius. In the larger Nam Lawe River, also Myanmar, it lives alongside Badis ruber, Colisa labiosa, Lepidocephalichthys berdmorei and an unidentified Danio species.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio roseus",
+    "status": "ACCEPTED",
+    "taxonKey": 2362689,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        85
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        31
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}
