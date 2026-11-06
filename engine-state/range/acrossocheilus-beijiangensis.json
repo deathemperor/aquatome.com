@@ -1,0 +1,68 @@
+{
+  "id": "acrossocheilus-beijiangensis",
+  "native": {
+    "input": "6f4543165df3c408",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Fujian, Guangdong, and Guangxi provinces in southern China, plus the islands of Hainan and Hong Kong.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "Recorded from Fujian, Guangdong, and Guangxi provinces in southern China, plus the islands of Hainan and Hong Kong.",
+        "ok": true
+      },
+      {
+        "name": "Bei River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lian-Xian and Yang-Shan, Guangdong, China', corresponding to the Bei River drainage.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "HK"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acrossocheilus beijiangensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2366389,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        12
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

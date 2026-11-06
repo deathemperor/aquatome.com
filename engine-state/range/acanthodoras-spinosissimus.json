@@ -1,0 +1,160 @@
+{
+  "id": "acanthodoras-spinosissimus",
+  "native": {
+    "input": "0144e5019251ef95",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate talking catfish, Acanthodoras spinosissimus, is a doradid catfish from the northern Amazon basin and the Essequibo in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The chocolate talking catfish, Acanthodoras spinosissimus, is a doradid catfish from the northern Amazon basin and the Essequibo in Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "The chocolate talking catfish, Acanthodoras spinosissimus, is a doradid catfish from the northern Amazon basin and the Essequibo in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rio Solimões",
+        "source": "seriouslyfish",
+        "quote": "Described from Lago do Coari (Lake Coari) on the rio Solimões at Coari, Amazonas state, northwestern Brazil and subsequently recorded throughout much of the northern Amazon basin in Peru, Colombia and Brazil, plus the Río Essequibo drainage in Guyana.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acanthodoras spinosissimus",
+    "status": "ACCEPTED",
+    "taxonKey": 2343900,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        20
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        8
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        8
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        6
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        3
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "BR",
+      "PE",
+      "CO"
+    ],
+    "requests": 13,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

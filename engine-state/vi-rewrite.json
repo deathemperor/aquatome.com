@@ -3629,5 +3629,117 @@
       0.85
     ],
     "v": 2
+  },
+  "species/acestrorhynchus-falcatus": {
+    "at": "2026-11-05",
+    "rewritten": 2,
+    "of": 2,
+    "scores": [
+      0.88,
+      0.92
+    ],
+    "v": 2
+  },
+  "species/acestrorhynchus-falcirostris": {
+    "at": "2026-11-05",
+    "rewritten": 1,
+    "of": 1,
+    "scores": [
+      0.88
+    ],
+    "v": 2
+  },
+  "species/acestrorhynchus-isalineae": {
+    "at": "2026-11-05",
+    "rewritten": 1,
+    "of": 1,
+    "scores": [
+      0.95
+    ],
+    "v": 2
+  },
+  "species/acestrorhynchus-microlepis": {
+    "at": "2026-11-05",
+    "rewritten": 0,
+    "of": 1,
+    "scores": [
+      0.6
+    ],
+    "v": 2
+  },
+  "species/acestrorhynchus-minimus": {
+    "at": "2026-11-05",
+    "rewritten": 1,
+    "of": 1,
+    "scores": [
+      0.85
+    ],
+    "v": 2
+  },
+  "species/acestrorhynchus-pantaneiro": {
+    "at": "2026-11-05",
+    "rewritten": 2,
+    "of": 2,
+    "scores": [
+      0.82,
+      0.85
+    ],
+    "v": 2
+  },
+  "species/acheilognathus-macropterus": {
+    "at": "2026-11-05",
+    "rewritten": 1,
+    "of": 2,
+    "scores": [
+      0.7,
+      0.85
+    ],
+    "v": 2
+  },
+  "species/acheilognathus-tonkinensis": {
+    "at": "2026-11-05",
+    "rewritten": 0,
+    "of": 1,
+    "scores": [],
+    "error": "rewrite left out part beforeYouBuy:glaser",
+    "v": 2
+  },
+  "species/acnodon-normani": {
+    "at": "2026-11-05",
+    "rewritten": 2,
+    "of": 2,
+    "scores": [
+      0.9,
+      0.8
+    ],
+    "v": 2
+  },
+  "species/acrochordonichthys-gyrinus": {
+    "at": "2026-11-05",
+    "rewritten": 1,
+    "of": 1,
+    "scores": [
+      0.82
+    ],
+    "v": 2
+  },
+  "species/acrochordonichthys-rugosus": {
+    "at": "2026-11-05",
+    "rewritten": 2,
+    "of": 2,
+    "scores": [
+      0.82,
+      0.85
+    ],
+    "v": 2
+  },
+  "species/acrochordonichthys-septentrionalis": {
+    "at": "2026-11-05",
+    "rewritten": 1,
+    "of": 1,
+    "scores": [
+      0.8
+    ],
+    "v": 2
   }
 }

@@ -11,6 +11,85 @@
     "tocantins",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tocantins",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The polka dot lyre tail pleco, Acanthicus adonis, is a very large loricariid catfish from the rio Tocantins in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Tocantins"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Although definitive details are lacking, it's also thought to range throughout much of the Amazon basin with similar-looking fishes being exported from as far afield as Peru.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202069,
+      "total": 10,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "PE",
+          8
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          7,
+          0
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          47.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
