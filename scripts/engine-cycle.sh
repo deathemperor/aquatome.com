@@ -273,12 +273,15 @@ if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; the
   fi
   log "no content changes"; exit 0
 fi
-# Real content must build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new
-# Indonesian or Thai page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content.
+git add content sources engine-state docs/review apps/site/src/i18n
+git commit -q -m "content: engine $PART $(date -u +%F)"
+# Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago. Real content must
+# build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new Indonesian or Thai
+# page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content. A commit that
+# fails stays here unpushed, and the next cycle drops it.
+catch_up
 if ! verify 'I18N_LENIENT=1 pnpm build && pnpm test'; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
-git add content sources engine-state docs/review apps/site/src/i18n
-git commit -q -m "content: engine $PART $(date -u +%F)"
 push || exit 1
 log "cycle done"
