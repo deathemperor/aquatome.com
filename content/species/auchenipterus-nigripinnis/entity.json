@@ -1,0 +1,103 @@
+{
+  "id": "auchenipterus-nigripinnis",
+  "scientificName": "Auchenipterus nigripinnis",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Auchenipterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "la-plata",
+    "brazil",
+    "paraguay",
+    "uruguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
+      "html": "<ul><li>Origin: Argentina</li><li>Available size: 3-4 cm</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
+      "html": "<p>This catfish from Argentina is new for the hobby. It looks very similar to the Asian shark, Pangasianodon hypophthalmus (a well known synonym of that species is Pangasius sutchi). Unlike the Asian shark, it has long barbels, but behaviour is quite the same in both species. The specimens imported in January 2009 are rather small, about 3 cm total length.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
+      "html": "<p>In nature it lives in the La Plata basin of Argentina, Brazil, Paraguay and Uruguay.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
+      "html": "<p>The maximum reported length is about 20 cm, so it fits much better into tanks of usual size than the Asian species, which can reach a length far beyond a metre.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
+      "html": "<p>It is used to temperatures as low as 10°C at times. Heating of the tank is not necessary if the tank is placed indoors.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
+      "html": "<p>They can be fed with any food for carnivorous fishes that fits the mouth. Plants are not eaten.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-18/",
+      "html": "<p>The fish should be kept in swarms that swim around the whole day. Other species are ignored as long as they are too large to be taken as food.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá dài 120cm",
+        "bể cá lớn nuôi cá đàn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn thịt",
+        "thức ăn viên cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

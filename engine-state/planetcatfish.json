@@ -2532,5 +2532,50 @@
     "processedHash": "50b053361b4d882d49ed6390634126c71642bbfdb0958e6ee95a43607d94a609",
     "status": "skipped",
     "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1255": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T12:52:14.914Z",
+    "hash": "324e81dac1933d18e70d34f4f5aa32f80d0481e293b4068af5320b49a8327c81",
+    "processedHash": "324e81dac1933d18e70d34f4f5aa32f80d0481e293b4068af5320b49a8327c81",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1256": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T12:56:32.547Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "claude returned non-JSON (143): "
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1257": {
+    "entityIds": [
+      "species/glanidium-ribeiroi"
+    ],
+    "updatedAt": "2026-11-06T13:12:24.632Z",
+    "hash": "e6029a7b802b547b549a50a904b450b02cf8d3482117b3bce1431637619f1aaa",
+    "processedHash": "e6029a7b802b547b549a50a904b450b02cf8d3482117b3bce1431637619f1aaa",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1258": {
+    "entityIds": [
+      "species/lasiancistrus-caucanus"
+    ],
+    "updatedAt": "2026-11-06T13:14:56.166Z",
+    "hash": "2544150a71a04cf5a0d7decec8d39dcc3fac3e223415bef3e91c45ed8de6a843",
+    "processedHash": "2544150a71a04cf5a0d7decec8d39dcc3fac3e223415bef3e91c45ed8de6a843",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1259": {
+    "entityIds": [
+      "species/malapterurus-beninensis"
+    ],
+    "updatedAt": "2026-11-06T13:16:11.074Z",
+    "hash": "14bf4f82d34b1ddc0be1b895ae769148ae35161960ac1ba8a61d5a02506d480f",
+    "processedHash": "14bf4f82d34b1ddc0be1b895ae769148ae35161960ac1ba8a61d5a02506d480f",
+    "status": "processed",
+    "attempts": 0
   }
 }

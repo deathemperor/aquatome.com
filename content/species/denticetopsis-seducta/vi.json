@@ -2,7 +2,9 @@
   "slug": "ca-tre-voi-lun-do",
   "name": "Cá trê voi lùn đỏ",
   "altNames": [
-    "Red Dwarf Whale Catfish"
+    "Red Dwarf Whale Catfish",
+    "Cá trê cá voi lùn",
+    "Dwarf whale catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Denticetopsis seducta Vari, Ferraris &amp; de Pinna, 2005</li><li>Tên thường gọi: Red Dwarf Whale Catfish</li><li>Kích thước: 51 mm SL (chiều dài chuẩn, không tính vây đuôi)</li><li>Sách Đỏ IUCN: Ít quan ngại (đánh giá lần gần nhất năm 2020)</li><li>Sinh sản: chưa có ghi nhận nào về việc cho sinh sản</li></ul>",
@@ -12,14 +14,23 @@
     "distribution:scotcat": "<p>Nam Mỹ: lưu vực phía tây sông Amazon, có thể có cả ở lưu vực tây nam sông Orinoco. Nơi thu mẫu chuẩn: Peru, tỉnh Loreto, Caño “Sabalito”. Đây là một con suối nhỏ chảy trên vùng đất cao không ngập lũ (terra firma), cách Iquitos khoảng 25 km về phía nam (4º14'45\"S, 73º24'57\"W).</p>",
     "habitat:scotcat": "<p>Loài này phân bố khá rộng ở vùng trung tâm và phía tây lưu vực Amazon, có thể có cả ở phía tây nam lưu vực Río Orinoco, nhưng các điểm ghi nhận nằm rải rác. Loạt mẫu chuẩn thu ở lưu vực Río Ucayali và quanh Iquitos, vùng đông bắc Peru. Ngoài ra còn có các mẫu quần thể khác, không thuộc loạt mẫu chuẩn, thu ở Rio Aripuanã thuộc lưu vực sông Madeira, Brazil. Khi đem so sánh, hai nhóm mẫu này khớp nhau ở mọi đặc điểm được kiểm tra.</p>",
     "notes:scotcat": "<p>Có một mẫu vật duy nhất thu ở thượng nguồn Río Napo, miền đông Ecuador (ANSP 139105), hiện được tạm xếp vào Denticetopsis seducta. Mẫu này có tổng cộng 43 đốt sống, nhỉnh hơn một chút so với mức 39–42 đốt sống ở các mẫu khác của loài. Muốn biết mẫu này có phải là một loài khác chưa được mô tả hay không thì cần thu thêm mẫu quần thể Denticetopsis ở lưu vực thượng Río Napo.</p><p>Nguồn gốc tên gọi: tên loài seducta là tiếng Latin, nghĩa là xa xôi hoặc tách biệt. Cái tên này chỉ vùng phân bố rời rạc, rải rác của loài so với các loài khác cùng giống.</p>",
-    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>"
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Vari, R.P., C.J. Ferraris, Jr. and M.C.C. de Pinna 2005 The neotropical whale catfishes (Siluriformes: Cetopsidae: Cetopsinae), a revisionary study. Neotrop. Ichthyol. 3(2):127-238.</p>",
+    "quickFacts:glaser": "<p>Đây là một loài cá trê voi lùn rất nhỏ, lần đầu được nhập về từ Peru. Cá trưởng thành có vẻ chỉ dài tối đa khoảng 5-6 cm.</p>",
+    "beforeYouBuy:glaser": "<p>Cá Denticetopsis chỉ hoạt động vào ban đêm và rất hay trốn. Vì thế người nuôi chúng chủ yếu là dân chuyên chơi cá da trơn. Loài này hiện chỉ có rất ít cá trên thị trường.</p>",
+    "distribution:glaser": "<p>Peru.</p>",
+    "diet:glaser": "<p>Mọi loài Denticetopsis đều ăn côn trùng và hoàn toàn vô hại.</p>",
+    "behaviour:glaser": "<p>Cá trê voi xanh Cetopsis coecutiens nổi tiếng hơn và là loài săn mồi hung dữ. Các loài Denticetopsis thì ngược lại, con nào cũng hoàn toàn vô hại. Chúng chỉ hoạt động vào ban đêm và rất hay trốn.</p>",
+    "dimorphism:glaser": "<p>Những người mô tả loài này có trong tay 69 mẫu vật bảo quản. Dù vậy, họ không tìm ra dấu hiệu phân biệt đực cái rõ rệt như thường thấy ở các loài cá trê voi khác. Nhiều khả năng toàn bộ số mẫu đó là cá cái, vì trong đàn cá nhập về có cả những con đực nhận ra được rất rõ.</p>",
+    "reproduction:glaser": "<p>Đến nay vẫn chưa ai biết loài cá này sinh sản ra sao.</p>",
+    "notes:glaser": "<p>Mãi đến năm 2005, giới khoa học mới phát hiện ra loài này.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "planetcatfish": 0.8,
-      "scotcat": 0.93
+      "scotcat": 0.93,
+      "glaser": 0.8
     }
   }
 }

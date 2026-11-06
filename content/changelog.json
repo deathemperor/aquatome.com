@@ -1,8 +1,435 @@
 [
   {
     "date": "2026-11-06",
+    "kind": "species",
+    "id": "synodontis-ocellifer",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "bagrus-filamentosus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "synodontis-clarias",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "auchenoglanis-occidentalis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "auchenipterus-nigripinnis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "ageneiosus-vittatus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "trichomycterus-alternatus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "pareiodon-microps",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "brachyplatystoma-juruense",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "tympanopleura-atronasus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "tridensimilis-brevis",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
     "kind": "guide",
-    "id": "youtube-P7GTfHdl5E8",
+    "id": "glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-astroblepus-from-peru-imported-en",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "denticetopsis-seducta",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "marisa-cornuarietis",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "brotia-pagodula",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "malapterurus-beninensis",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "glanidium-ribeiroi",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-baby-fish-food",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-freshwater-sharks",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "melanotaenia-boesemani",
+    "source": "aquariumcoop",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-top-10-barbs",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "astronotus-ocellatus",
+    "source": "aquariumcoop",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-aquarium-water-testing",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumbreeder-how-to-euthanize-your-snails-and-shrimp-humanely",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumbreeder-most-popular-aquarium-crayfish-species",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "eriocheir-sinensis",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "marisa-cornuarietis",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "brotia-pagodula",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "netuma-thalassina",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "nematogenys-inermis",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "loricaria-simillima",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "lepthoplosternum-pectorale",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "hypostomus-pusarum",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae",
+    "source": "2hraquarist",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-control-misc-green-algae",
+    "source": "2hraquarist",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-control-green-spot-algae",
+    "source": "2hraquarist",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-control-green-dust-algae",
+    "source": "2hraquarist",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-control-diatoms",
+    "source": "2hraquarist",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-eMnYeFx08_I",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-z1Adj14jlRE",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-2AKSK5DHDUw",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-gMyhZZKGrNQ",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-Z3xZC2Z6o4A",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-SjnaZ9ciCJk",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-MoI3OuGSMaQ",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-Yvw0qjsNVQc",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-sdYW9rupCa8",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-WMddjcmPwS4",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-Ci1I8TbZrK8",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-820T-yYBDrA",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-eaGHpCVz-zI",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-LiCZUjqLck8",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-EO2WPrekSF8",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-oXXJ8UgM2kM",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-wICf_0o6ys4",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-RSG9M7lgzG8",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-Jf2NkrQm6pg",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-LrRhfOYfXns",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-hRNBUbqzzuw",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-qImy1PXdkvU",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-CjNTUbUnwfY",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-f7ePYAbDke4",
     "source": "youtube",
     "action": "updated"
   },
@@ -33,244 +460,6 @@
     "id": "youtube-IJuCTdkIrOA",
     "source": "youtube",
     "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "guide",
-    "id": "youtube-P7GTfHdl5E8",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "amblydoras-nauticus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "trachydoras-paraguayensis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "aguarunichthys-torosus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "asterophysus-batrachus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "tridensimilis-brevis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "hyphessobrycon-flammeus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "oreichthys-crenuchoides",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "cherax-snowden",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "apistogramma-uaupesi",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "hyphessobrycon-flammeus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "oreichthys-crenuchoides",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "apistogramma-uaupesi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "rasbora-paucisqualis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "planorbella-duryi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "notropis-chrosomus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "notropis-chrosomus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "hypostomus-pusarum",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "noturus-hildebrandi",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "pseudacanthicus-pitanga",
-    "source": "planetcatfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "guide",
-    "id": "aquariumcoop-blogs-aquarium-aquarium-co2-system",
-    "source": "aquariumcoop",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "guide",
-    "id": "aquariumbreeder-can-i-put-snails-in-an-uncycled-tank",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "pacifastacus-leniusculus",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "guide",
-    "id": "aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "neosarmatium-meinerti",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "hypostomus-ancistroides",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "hypancistrus-zebra",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "hoplosternum-punctatum",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "farlowella-oxyrryncha",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "batrochoglanis-raninus",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "species",
-    "id": "amaralia-hypsiura",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "guide",
-    "id": "2hraquarist-blogs-algae-control-how-to-control-cynobacteria",
-    "source": "2hraquarist",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "guide",
-    "id": "2hraquarist-blogs-algae-control-how-to-control-cladophora",
-    "source": "2hraquarist",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-06",
-    "kind": "guide",
-    "id": "2hraquarist-blogs-algae-control-how-to-control-bba",
-    "source": "2hraquarist",
-    "action": "new"
   },
   {
     "date": "2026-11-06",
@@ -719,6 +908,244 @@
     "id": "hypancistrus-zebra",
     "source": "seriouslyfish",
     "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "youtube-P7GTfHdl5E8",
+    "source": "youtube",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "amblydoras-nauticus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "trachydoras-paraguayensis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "aguarunichthys-torosus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "asterophysus-batrachus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "tridensimilis-brevis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "hyphessobrycon-flammeus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "oreichthys-crenuchoides",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cherax-snowden",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "apistogramma-uaupesi",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "hyphessobrycon-flammeus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "oreichthys-crenuchoides",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "apistogramma-uaupesi",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "rasbora-paucisqualis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "planorbella-duryi",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "notropis-chrosomus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "notropis-chrosomus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "hypostomus-pusarum",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "noturus-hildebrandi",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "pseudacanthicus-pitanga",
+    "source": "planetcatfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumcoop-blogs-aquarium-aquarium-co2-system",
+    "source": "aquariumcoop",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumbreeder-can-i-put-snails-in-an-uncycled-tank",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "pacifastacus-leniusculus",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "neosarmatium-meinerti",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "hypostomus-ancistroides",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "hypancistrus-zebra",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "hoplosternum-punctatum",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "farlowella-oxyrryncha",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "batrochoglanis-raninus",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "amaralia-hypsiura",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-control-cynobacteria",
+    "source": "2hraquarist",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-control-cladophora",
+    "source": "2hraquarist",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "guide",
+    "id": "2hraquarist-blogs-algae-control-how-to-control-bba",
+    "source": "2hraquarist",
+    "action": "new"
   },
   {
     "date": "2026-11-06",
@@ -3070,433 +3497,6 @@
     "kind": "species",
     "id": "hemigrammus-vorderwinkleri",
     "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "haplochromis-latifasciatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hampala-sabana",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "garra-kalpangi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "garra-dampaensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "garra-bicornuta",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "cyprichromis-leptosoma",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "congochromis-sabinae",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "colossoma-macropomum",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "cichla-ocellaris",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "chalceus-macrolepidotus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "stiphodon-percnopterygionus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "schistura-devdevi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "rasbora-elegans",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "parosphromenus-harveyi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pangio-doriae",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "barilius-bendelisis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "lamprologus-ocellatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "neolamprologus-brichardi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nemacheilus-spiniferus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nemacheilus-selangoricus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "neolamprologus-similis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "myloplus-rubripinnis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "vaillantella-maassi",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "tucanoichthys-tucano",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "serrasalmus-geryi",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "salminus-brasiliensis",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pseudanos-trimaculatus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "oreochromis-niloticus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nannostomus-rubrocaudatus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nannostomus-marilynae",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nannostomus-beckfordi",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "myloplus-schomburgkii",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hydrocynus-vittatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-nijsseni",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-imitator",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "microrasbora-rubescens",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "kryptopterus-geminus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hyphessobrycon-vilmae",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hyphessobrycon-pyrrhonotus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hyphessobrycon-eschwartzae",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hemigrammus-hyanuary",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "geophagus-brasiliensis",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-septentrionalis",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "cichla-orinocensis",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "chalceus-erythrurus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "parotocinclus-variola",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hypoptopoma-psilogaster",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "leporacanthicus-joselimai",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "panaqolus-albivermis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hemiloricaria-bycatches",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "rhadinoloricaria-macromystax",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "hypancistrus-inspector",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-britskii",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10a-catfishes-corydoras-co-new-corydoras-from-peru-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10a-catfishes-corydoras-co-once-more-four-corydoras-from-peru-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10a-catfishes-corydoras-co-further-species-of-corydoras-from-peru-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10a-catfishes-corydoras-co-the-cory-season-has-started-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-haraldschultzi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10a-catfishes-corydoras-co-new-rare-corys-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "aspidoras-pauciradiatus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en",
-    "source": "glaser",
     "action": "new"
   }
 ]

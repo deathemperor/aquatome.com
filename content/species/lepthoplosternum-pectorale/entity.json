@@ -7,13 +7,36 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "paraguay-river"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 23
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -25,10 +48,22 @@
       "html": "<p>The Hoplosternum relationship belongs to the plated catfish and is thus closely related to Corydoras &amp; Co. Like these, they make good and interesting aquarium fishes. Sadly most species become quite large, so the species of the genus Lepthoplosternum are the best choice for smaller tanks. The maximum size of the members of that genus is about 8 cm, but they are fully mature at a total length of 5 cm already.</p><p>Available size: 4-5 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<ul><li>Common name: Dwarf Hoplo</li><li>IUCN Red List: Least Concern (IUCN 2023)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/lepthoplosternum_pectorale_dwarf_hoplosternum_en/",
       "html": "<p>Origin: Paraguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>South America: Paraguay River basin. Type locality: Monte Sociedad, Paraguayan Chaco.</p><p>Unlike all other genera of the subfamily Callichthyinae, the species of Lepthoplosternum are absent from the northern portion of the South American continent, north of the Rio Amazonas. The species in the upper Rio Amazonas are: Peru (L. altamazonicum), middle Rio Madeira (L. beni), Rio Paraguay (L. pectorale), and in the laguna dos Patos drainage (L. tordilho) in southern Brazil (Roberto E. Reis).</p>"
     },
     {
       "key": "maintenance",
@@ -37,20 +72,121 @@
       "html": "<p>Dwarf Hoplosternum can be kept in the very same manner as is usual for Corydoras from the same region, like C. paleatus and C. aeneus.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>Being from the southern parts of the South American continent, it prefers temperatures on the lower side of tropical, i.e. under 24°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>As with most hoplos, a good varied diet of frozen food, live food and good quality flake food. It will eat most things offered; keep up regular water changes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>Peaceful species which will do well in a planted tank with free swimming space. It can be housed quite easily in a planted community tank, as it does not grow as large as Megalechis thoracata or Hoplosternum littorale and shows no aggressive tendencies.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/lepthoplosternum_pectorale_dwarf_hoplosternum_en/",
       "html": "<p>Males develop thickened, yellow-orange spines on the pectoral fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>Males have thicker pectoral spines.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>This is a bubble-nester, where the female deposits her eggs in floating plant material or a floating polystyrene lid. It will attempt to spawn in a community setup, but if it does, it is a good idea to move the pair to their own breeding tank so that the fry survive the attention of the other tank inmates.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/lepthoplosternum_pectorale_dwarf_hoplosternum_en/",
       "html": "<p>In older aquarium books this species is referred to as Hoplosternum pectoralis.</p><p>Lexicon: Lepthoplosternum means \"small Hoplosternum\"; Hoplosternum is another genus of plated catfish. pectorale refers to the thickened spines in the pectoral fin in males of the species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>Description: Similar looking to Callichthys callichthys but smaller, with a body that is not as flattened and larger eyes.</p><p>Etymology: The specific name pectorale refers to the long pectoral fins in adult fish.</p><p>IUCN: Despite little information being available on this species, it has a wide range and is unlikely to face severe threats. It is therefore assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2023. Lepthoplosternum pectorale. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 30. Dec. 1998.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/be11fd42685494f7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/be11fd42685494f7-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "caption": "Lepthoplosternum pectorale",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/145fea22d4010757.webp",
+      "thumb": "https://media.aquatome.com/scotcat/145fea22d4010757-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "caption": "Lepthoplosternum pectorale: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4b2a38e2f86e139b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4b2a38e2f86e139b-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm",
+      "caption": "Lepthoplosternum pectorale",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "W-pR1F67mFE",
+      "title": "Lepthoplosternum pectorale catfish (2011)",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "D0dNOGq7co8",
+      "title": "Lepthoplosternum pectorale couple",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oGfogTE5pBQ",
+      "title": "Lepthoplosternum pectorale, ficha técnica completa (cascarudo chico)",
+      "durationSec": 1144,
+      "lang": "es-419"
+    },
+    {
+      "youtubeId": "1as4CNogmLc",
+      "title": "Lepthoplosternum pectorale | Albino / Albinos | Kiryśnik blackspots / Kiryśnik czarnoplamy .",
+      "durationSec": 72,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -74,5 +210,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

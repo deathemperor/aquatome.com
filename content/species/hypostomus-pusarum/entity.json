@@ -16,6 +16,28 @@
       {
         "source": "planetcatfish",
         "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 20.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -27,16 +49,58 @@
       "html": "<ul><li>Scientific name: Hypostomus aff. pusarum</li><li>Common names: L078, Parnaiba Pleco</li><li>Etymology: Greek, hypo = under + Greek, stoma = mouth.</li><li>IUCN Red List: Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<ul><li>Diet: omnivore</li><li>IUCN Red List: Least Concern (2022)</li></ul><p>The Hypostomus genus has 7 soft rays in the dorsal fin, whereas the similar-looking Pterygoplichthys species have 10 soft dorsal fin rays.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
       "html": "<p>Brazil, Maranhão, Rio Parnaiba drainage, Piauí Rivers, Parnaíba.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>South America: middle Rio Parnaíba basin and northeastern coastal drainages of Brazil. Type locality: Ceará Mirim, Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>As with most of this genus, it will do well in a larger aquarium, although this is one of the smaller species in the genus. The aquarium should be well filtered.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Water parameters can be quite diverse for this genus. Temperature 22-25°C, pH 6.5-7.2.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Omnivore with a liking for green foods, tablet foods and frozen foods.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
       "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Etymology: the specific name pusarum has the commemorative suffix -arum (Latin, plural), in memory of the boys who collected this catfish with their hands and with dip-nets under overhanging grassy banks at Ceará-Mirim, Rio Grande do Norte, Brazil, \"the best collectors we found in Brazil\" (presumably based on a native word, meaning unknown).</p><p>IUCN: Hypostomus pusarum occurs in the coastal basins of Rio Grande do Norte and Paraíba, northeastern Brazil. It is a frequent, abundant species and no threats that compromise its population have been identified. It was categorised as Least Concern (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm",
+      "html": "<p>Abrantes, Y. G., Bennemann, A. B. A., Lustosa-Costa, S. Y., Bento, D. de M., Ramos, T. P. A., &amp; Lima, S. M. Q. (2023). Diversity and conservation of fishes from karstic areas of the Jandaíra Formation in the Brazilian semiarid. Papéis Avulsos De Zoologia, 63, e202363011.</p><p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2023).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Hypostomus pusarum. The IUCN Red List of Threatened Species 2022.</p><p>Nathalia Kaluana Rodrigues da Costa, Roney Emanuel Costa de Paiva, Márcio Joaquim da Silva, Telton Pedro Anselmo Ramos, Sergio Maia Queiroz Lima, CC BY-SA 4.0.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -86,13 +150,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/51dca190992c6db5.webp",
+      "thumb": "https://media.aquatome.com/commons/51dca190992c6db5-480.webp",
       "width": 960,
       "height": 550,
       "licence": "CC BY-SA 4.0",
       "author": "Nathalia Kaluana Rodrigues da Costa, Roney Emanuel Costa de Paiva, Márcio Joaquim da Silva, Telton Pedro Anselmo Ramos, Sergio Maia Queiroz Lima",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Subset_of_the_ichthyofauna_of_the_Cear%C3%A1-Mirim_River_basin,_Rio_Grande_do_Norte_State,_Brazil.jpg",
-      "caption": "Subset of the ichthyofauna of the Ceará-Mirim River basin, Rio Grande do Norte State, Brazil. A) Leporinus piau, B) Serrapinnus piaba, C) Trachelyopterus galeatus, D) Sciades herzbergii, E) Hypostomus",
-      "thumb": "https://media.aquatome.com/commons/51dca190992c6db5-480.webp"
+      "caption": "Subset of the ichthyofauna of the Ceará-Mirim River basin, Rio Grande do Norte State, Brazil. A) Leporinus piau, B) Serrapinnus piaba, C) Trachelyopterus galeatus, D) Sciades herzbergii, E) Hypostomus"
     }
   ],
   "videos": [

@@ -81,7 +81,8 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite, .body #muc-range a.cite').length)
   for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch từ nguồn$/)
   // The sections under their questions, with the ids the page's jump row links.
-  expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
+  // (The sources' reference lists are the source list's, closed, under an h3.)
+  expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2, h3'))]))
 }
 
 const isMap = (img: Image) => img.src.startsWith('https://aquatome.com/app/range/')
@@ -190,7 +191,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
       expect(mates.tool.href, d.path).toBe(appHref(box.querySelector('.how a')!.getAttribute('href')!))
       expect(mates.note, d.path).toBe(box.querySelector('.how span') ? txt(box.querySelector('.how span')) : undefined)
     } else {
-      const a = dom.querySelector('.facts > .srcline a')!
+      const a = dom.querySelector('#muc-behaviour .mates-tool a, .body .mates-tool a')!
       expect(d.blocks.some(b => b.t === 'p' && b.c.some(r => typeof r !== 'string' && r.href === appHref(a.getAttribute('href')!) && r.text === txt(a))), d.path).toBe(true)
     }
     // Vietnam's climate, on Vietnamese pages.

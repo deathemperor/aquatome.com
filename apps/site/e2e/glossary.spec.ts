@@ -1,7 +1,8 @@
 import { expect, test } from './fixtures'
 
-// Dotted glossary terms (a.gl): hover shows the term and its meaning, a click opens its page; on a touch screen the
-// first tap shows the card and a second tap (or "Đọc thêm") opens the page.
+// Dotted glossary terms (a.gl): hover shows the term and its meaning, a click opens its page; on a touch screen a tap
+// shows the card, a second tap closes it, and only the card's "Đọc thêm" opens the page (a finger that misses a term
+// never leaves the page).
 // A guide with glossary terms: in the fixture content, and on aquatome.com (production checks).
 const GUIDE = process.env.E2E_BASE_URL ? '/huong-dan/10-cach-tri-reu-hai-nhanh-va-de-trong-be-thuy-sinh/' : '/huong-dan/setup-be-thuy-sinh-dau-tien/'
 
@@ -22,7 +23,7 @@ test('hover shows the card; a click still opens the term page', async ({ page, e
   expect(errors).toEqual([])
 })
 
-test('first tap shows the card with a link; tapping elsewhere closes it; a second tap opens the page', async ({ page, errors }, info) => {
+test('a tap shows the card with a link; tapping elsewhere or the term again closes it; the card\'s link opens the page', async ({ page, errors }, info) => {
   test.skip(info.project.name !== 'phone', 'touch only')
   await page.goto(GUIDE)
   const term = page.locator('main a.gl[data-tip]').first()
@@ -38,7 +39,12 @@ test('first tap shows the card with a link; tapping elsewhere closes it; a secon
   await page.locator('h1').tap()
   await expect(tip).toBeHidden()
   await term.tap()
+  await expect(tip).toBeVisible()
   await term.tap()
+  await expect(tip).toBeHidden()
+  await expect(page).toHaveURL(new RegExp(`${GUIDE}$`))
+  await term.tap()
+  await tip.locator('a').tap()
   await expect(page).toHaveURL(/\/thuat-ngu\//)
   expect(errors).toEqual([])
 })

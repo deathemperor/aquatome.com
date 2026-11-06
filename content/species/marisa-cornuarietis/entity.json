@@ -1,0 +1,262 @@
+{
+  "id": "marisa-cornuarietis",
+  "scientificName": "Marisa cornuarietis",
+  "order": "Architaenioglossa",
+  "family": "Ampullariidae",
+  "genus": "Marisa",
+  "group": "snails",
+  "places": [
+    "south-america",
+    "bolivia",
+    "brazil",
+    "colombia",
+    "north-america",
+    "costa-rica",
+    "cuba",
+    "french-guiana",
+    "guyana",
+    "panama",
+    "suriname",
+    "trinidad-and-tobago",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Giant Colombian Ramshorn snail, Colombian Ramshorn snail, Marisa snail, Paradise snail, Apple snail, Golden horn marissa, Striped Ramshorn snail, Stripehorn snail, Hard disk snail</li><li>Minimum tank size: about 20 litres</li><li>Breeding: easy</li><li>Optimal KH: 8 (3–22)</li><li>TDS: 150–250 (100–400)</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore / algae eater</li><li>Temperament: conditionally peaceful, solitary</li><li>Colour: yellowish to brownish</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/marisa-cornuarietis-2/",
+      "html": "<p>Marisa cornuarietis, originally from Colombia, is one of the largest freshwater snails kept in the aquarium. Its disk-shaped shell can reach over 5 cm in diameter.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Marisa cornuarietis feeds mainly on living and decaying aquatic plants. According to multiple studies, it can also consume eggs, newly hatched young snails, and possibly even the adults of other snail species.</p><p>Although their beautiful shell and scavenging abilities made them quite popular in freshwater tanks, these voracious snails have no place in planted tanks. They are tireless lawnmowers, unless you have problems with plants that quickly overrun your aquarium, in which case they will solve the problem quickly.</p><p>NEVER release Marisa cornuarietis into the wild. Check your state laws before purchasing. This is a restricted (banned) species in some US states and European countries because of its potential to become invasive. For example, it was on a list of potentially harmful exotic shellfish by the Texas Parks and Wildlife Department in 1990. In August 2013, the family Ampullariidae, covering all species belonging to it, was included in Spanish legislation as invasive species.</p><p>It is easy to confuse Marisa cornuarietis with the Great Ramshorn snail (Planorbarius corneus) because of the shape of the shells, but they are not closely related. The differences are:</p><ol><li>The Great Ramshorn snail is smaller in shell diameter, growing only to 35–40 mm.</li><li>Its shell does not have spiral colour bands.</li><li>It is hermaphroditic, with male and female reproductive organs in each individual.</li><li>It does not have labial tentacles on the snout.</li><li>It does not have an operculum (trapdoor).</li><li>Its hatchlings do not have an elevated spire.</li></ol>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/marisa-cornuarietis-2/",
+      "html": "<p>The species has been continuously kept in aquariums since the 1930s, although it is only suitable for special aquariums without plants. Sooner or later every aquatic plant will fall victim to it.</p><p>Because Marisa also eats small snails and is so efficient at cleaning up aquatic plants, it was often released as a biological beneficial organism in many parts of the world until the turn of the millennium. However, it has been shown that in all these cases the undesirable side effects outweighed the hoped-for success. The species is now considered invasive and undesirable. There are two occurrences in Europe: one in Spain and one in a thermal stream in Hungary. In both cases, irresponsible people have released these animals. This has brought the snails to the attention of the relevant authorities. Calculations from climate models show that these tropical snails could theoretically survive in many parts of Europe around the year 2070. To prevent this, a ban on the cultivation and breeding of Marisa cornuarietis throughout Europe is being considered. Please never release any animals or plants into the wild. Not only is this forbidden, it is also to the detriment of all.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This species is widespread over South and Central America and the Caribbean and is native to Bolivia, Brazil, Colombia, Costa Rica, Cuba, French Guiana, Guyana, Panama, Suriname, Trinidad and Tobago and Venezuela. Its distribution has also been expanded as a potential weed and parasite control agent.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Marisa cornuarietis lives in freshwater habitats and any ecosystem with live vegetation, including lakes, rivers, ponds, irrigation systems and swamps. They prefer slow-moving, shallow water (1 m and less) close to vegetation. They are a diurnal species and spend most of the time searching for food.</p><p>Adult snails have a length of about 5.5 cm with a diameter of 3.5–5.0 cm. Adult mass is about 500–650 mg. They have either yellow/brown stripes or solid yellow shells without stripes. Sometimes the shell is divided into two parts, one side dark and one light. Juveniles usually have a reddish/brown colour.</p><p>The shell is circular with 3–4 whorls and 3–6 spiral brown bands, whereas juveniles have an elevated spiral with a globose shape. The shell's surface is smooth. Bodies may be dark brown, goldish, or near black with fairly long tentacles. The eyes are black and pigmented.</p><p>Like apple snails, they have gills, lungs, and an operculum (trapdoor), which they can retract completely within the shell. Their lungs allow them to survive in waters with low dissolved oxygen where many other species would perish.</p><p>The radula includes long canine lateral teeth, which pierce and tear plant stem tissues and leaves. Their jaws are powerful and can clip and grasp leaves and stems while the radula shreds them.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Since these snails can be quite large, the aquarium should not be too small. A 20-litre tank is a good start.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Never keep pH lower than 7.0 with any type of snails. Acidic water tends to erode the shells, leaving the snail more susceptible to health issues and even death. Marisa cornuarietis requires pH around 7.5–8.0 and a temperature of 22 to 28 °C. Although a semi-tropical species, it does fine at room temperature.</p><p>Though they need freshwater for breeding, they are fairly tolerant of salt and are occasionally found in brackish waters.</p><p>It is best to keep the water line slightly lowered so that the snails can use their breathing siphon if they choose to.</p><p>This species is very pollution tolerant. According to studies, they can survive several months at dissolved oxygen levels below 0.5 ppm, in salinities up to 8.5 ppt and at temperatures from 30 down to 13 °C. However, egg development stops at 11 °C, although adults may survive for over 24 hours. Mortality is 100% after 8 h at 8 °C. Exposure to 40 °C is lethal within 1–4 hours.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>This species feeds primarily on living and decaying aquatic plants. They are excellent algae eaters. Biologists noticed that Marisa snails preferred submersed plants to floating or emersed plants. Plant texture matters: they prefer soft leaves and especially enjoy Ludwigia repens, which has a high concentration of holocellulose.</p><p>When they have no other source of food, however, they are not choosy. According to another study, they have an avid omnivorous feeding habit and can also consume decaying animals, live eggs, and even other juvenile snails. Predation on eggs and snails of other species is well documented.</p><p>They consume other snails only when there is no food around and they are especially hungry. In the wild, they can have a detrimental effect on aquatic vegetation, through direct competition, predation of eggs and juveniles, and accidental egg mass disruption. When feeding on other snails, they attack the prey by introducing the proboscis (mouth or head) into the aperture of the victim and devouring the flesh, gnawing holes into the victim's shell.</p><p>They are extremely voracious. In one experiment, 150 adult snails consumed 1360 g of different aquatic plants in less than a week. Some aquarists also report that these snails eat pests like hydras.</p><p>Some countries deliberately use this species to control invasive aquatic plants and the abundance of Biomphalaria snails (hosts of schistosomiasis, which infects about 83 million people worldwide). They act as competitors and also feed on their eggs, juveniles and even adult snails.</p><p>Feeding tips:</p><ul><li>You can reduce their appetite a bit by feeding plenty of vegetables (lettuce, cucumber, zucchini, etc.), but this does not guarantee they will not touch the plants. Fast-growing weed plants such as frogbit and duckweed are the best choice for a tank with these snails.</li><li>They are relatively undemanding and can survive on leftover shrimp and fish food (shrimp pellets, granules, fish flakes, algae wafers, etc.) and biofilm.</li><li>Use calcium-enriched foods so the shells do not erode. Calcium pills, liquid calcium, cuttlefish bones and eggshells are widely used for healthy shells, especially when the water is rather soft and acidic. Increasing calcium concentration from 25 to 100 mg/l has been shown to increase both survivorship and shell size.</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Marisa cornuarietis should not be kept with other snails, as they can eat their eggs and young, especially species without a trapdoor to protect the foot.</p><p>Do not keep them with loaches, pufferfish, or any large or aggressive species with a voracious appetite for invertebrates, unless you use Marisa snails as a permanent source of live food for fish or crab aquariums.</p><p>Peaceful, non-aggressive fish are good companions. However, their long tentacles can be nipped even by some easy-going fish. The snails can regenerate lost body parts.</p><p>They are well suited for shrimp tanks. They are insatiable eaters and produce a lot of bio-load, which benefits shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/marisa-cornuarietis-2/",
+      "html": "<p>Because of its long antennae, Marisa should not be kept with curious fish, as they are all too easily tempted to nibble at the antennae. Marisa sooner or later acknowledges this by hardly getting out of the house and slowly starving to death.</p><p>Just like Pomacea, Marisa must regularly come up for air at the surface of the water with a \"snorkel\", otherwise it will drown.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Like all members of the Ampullariidae family, the snails have separate sexes. However, as with all snails, there is no easy way to sex them. According to scientific literature, sex can be distinguished by the sexual opening, the aperture, and the size.</p><ol><li>The sexual opening, or penis of the males, is located on the right side of the head. Do not confuse it with the breathing tube (siphon) on the left side.</li><li>Males have a more rounded aperture and thicker shell, while females have an oval aperture and thinner shell.</li><li>Males tend to have smaller and thicker shells.</li></ol><p>Take 5–6 snails to improve the odds of having both sexes. If they are adults, there is a high chance the females are already pregnant.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/marisa-cornuarietis-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding is easy. Marisa cornuarietis is an egg-laying species. A few weeks after mating, the female attaches eggs to plants, stones, and even filters. Under good conditions, females can deposit an average clutch of 120 eggs in a gelatinous mass below the water surface. The mass is transparent and the eggs are visible as small white spots inside.</p><p>During development, the eggs increase in size from 2 mm to 4 mm. When about to hatch, the gelatinous mass becomes more transparent and the little snails can be seen inside. Unlike other apple snails, Marisa cornuarietis lays its eggs in the water, not outside it.</p><p>The fully developed snails hatch after 10 to 14 days (depending on temperature). The babies emerge from the gelatinous mass and are almost identical to their parents, but are not completely flat like adults, being a bit rounded. They are soft and transparent. For the first few days after hatching, they feed on the remains of the egg mass.</p><p>Adult snails do not destroy their own eggs or young. In one experiment, 6 large snails deposited eggs on a small water lettuce plant. Although no other food was available, the adults did not eat any of the plant until the eggs hatched about 12 days later. The plant was then quickly devoured, but the young snails were not harmed.</p><p>According to studies, breeding at 22–28 °C did not influence egg production rates or clutch size. However, growth and development rates (of eggs and babies) increased with temperature in this range. At 22 °C and below, egg-hatching developmental rates were about 15% slower than at 25 °C. Time to first hatch was longer at 25 °C than at 28 °C. Snails were estimated to reach morphological maturity at 89 days at 25 °C and 102 days at 22 °C. Age at first reproduction would be 127 days at 25 °C and 148 days at 22 °C.</p><p>With a 12 h light : 12 h dark photoperiod, snails grew significantly faster at 28 °C than at 25 °C. With a 16 h light : 8 h dark photoperiod, temperature no longer had a significant effect on juvenile growth.</p><p>Eggs do not develop successfully at 35–37 °C, and mortality is about twice as high at the lower temperature. A female can store active sperm in the genital tract for months after copulation, enabling her to reproduce even if she does not mate for months afterwards. It is therefore almost impossible to prevent reproduction.</p><p>Marisa cornuarietis can crossbreed with Asolene spixi snails.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/marisa-cornuarietis-2/",
+      "html": "<p>In contrast to true apple snails of the genus Pomacea, Marisa lay their eggs under water. Pomacea are known to spawn outside the water. Newly hatched juveniles do not yet have the typical disc-shaped Marisa shell, but look very similar to \"normal\" apple snails. This changes as they grow up.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/marisa-cornuarietis-2/",
+      "html": "<p>Marisa cornuarietis used to often be offered under the name Marisa rotula, but this name is now only used as a synonym for M. cornuarietis. Only a second, externally very similar species is currently recognized in the genus Marisa: M. planogyra from the Pantanal. It remains somewhat smaller than M. cornuarietis. It has apparently not yet been recognized as kept in the aquarium.</p><p>Systematically, Marisa belongs to the apple snails.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/94d647683cabfcba.webp",
+      "width": 960,
+      "height": 469,
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marisa_cornuarietis_01.JPG",
+      "caption": "Marisa cornuarietis (Linné, 1758), Colombian ramshorn apple snail; Diameter 3.0 cm; Originating from the USA; Shell of own collection, therefore not geocoded.",
+      "thumb": "https://media.aquatome.com/commons/94d647683cabfcba-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8f6404154764c203.webp",
+      "width": 960,
+      "height": 639,
+      "licence": "CC0",
+      "author": "Linnaeus, 1758",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_Center_-_ZMA.MOLL.318022_-_Marisa_cornuarietis_(Linnaeus,_1758)_-_Ampullariidae_-_Mollusc_shell.jpeg",
+      "caption": "Marisa cornuarietis (Linnaeus, 1758)",
+      "thumb": "https://media.aquatome.com/commons/8f6404154764c203-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0789dcd8a5ee7f17.webp",
+      "width": 960,
+      "height": 639,
+      "licence": "CC0",
+      "author": "Linnaeus, 1758",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_Center_-_ZMA.MOLL.318025_-_Marisa_cornuarietis_(Linnaeus,_1758)_-_Ampullariidae_-_Mollusc_shell.jpeg",
+      "caption": "Marisa cornuarietis (Linnaeus, 1758)",
+      "thumb": "https://media.aquatome.com/commons/0789dcd8a5ee7f17-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/46bddc3e8c1efc4a.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC0",
+      "author": "Philippi",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_Center_-_RMNH.MOL.157517_-_Marisa_cornuarietis_knorri_Philippi_-_Ampullariidae_-_Mollusc_shell.jpeg",
+      "caption": "Marisa cornuarietis knorri Philippi",
+      "thumb": "https://media.aquatome.com/commons/46bddc3e8c1efc4a-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "XSW1du9Rx7I",
+      "title": "Giant Colombian Ramshorn Snail (Marisa cornuarietis) - Freshwater Aquarium Snails",
+      "durationSec": 292,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "EedE6_s4SCk",
+      "title": "Colombian Giant Ramshorn Snail (Marisa cornuarietis) - Freshwater Aquarium Snail",
+      "durationSec": 146,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8Ib1zTiUCH8",
+      "title": "улитка Мариза, marisa cornuarietis, reproducción marisa cornuarietis, Maintenance of snails marisa",
+      "durationSec": 196,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "6KJEmg1EuV0",
+      "title": "Улитка Мариза размножение, содержание в аквариуме, уход за marisa cornuarietis",
+      "durationSec": 219,
+      "lang": "ru"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 20 lít",
+        "bể nuôi ốc"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "canxi cho ốc",
+        "xương mực"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test KH GH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

@@ -273,5 +273,818 @@
       "attempt": "recheck",
       "kept": true
     }
+  ],
+  "vi/guides/youtube-2AKSK5DHDUw": [
+    {
+      "at": "2026-11-06T12:08:47Z",
+      "model": "sonnet",
+      "score": 0.86,
+      "notes": [
+        "\"Mới 19 ngày thì chưa đủ để kết luận. Đến lúc này, nước RO cho cây nhỉnh hơn một chút\": the creator doesn't say the test is too short to conclude. Cut or reword that line so it isn't presented as his view.",
+        "\"Hai bể dùng cùng lịch đèn\": the transcript gives one schedule (50% then 60%, 1 pm to 9 pm) without saying it applies to both tanks. Say \"lịch đèn trong thí nghiệm\" instead.",
+        "\"Lúc bể chưa thả con nào\" and \"Châm quá liều như vậy ở bể đã có sinh vật thì nên cân nhắc kỹ\": these are reasonable but they are the writer's own additions. Keep the warning short and make clear the overdose was done on empty tanks.",
+        "\"nước máy cứng\": the video doesn't call the tap water hard. Say \"nước máy\" and let the GH/KH figures speak.",
+        "\"Đây là bản cập nhật ở ngày 19. Câu hỏi chính là…\": it reads like a recap of the video. Open directly with what the experiment compares.",
+        "\"Kết quả này khá lạ và chưa có lời giải thích\": the creator only says it is odd. Rephrase it as an open question, e.g. \"chưa rõ nguyên nhân\".",
+        "The summary bullet \"Bể vẫn còn nitrite ở mức nguy hiểm\" only holds for the RO tank. The tap tank's nitrite wasn't tested, so name the RO tank.",
+        "The table row \"nitrite: còn cao, nguy hiểm\" is fine. The phrase \"Bể chưa chạy xong chu trình vi sinh\" is the writer's inference, so soften it to \"có thể chưa xong\".",
+        "Some phrasing reads slightly like a note: \"Nguồn rêu có thể truy ngược lại như sau\" and \"Phần này để đội dọn rêu … xử lý\". Use more natural wording."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T12:08:47Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "Invented setup facts: 'Hai bể dùng cùng loại bể, phân nền, đèn, lọc, CO2 và cùng một bộ cây' and 'nước máy cứng', 'đã bù khoáng' are not in the transcript. Remove or hedge them.",
+        "'Bể RO không dùng chung cây, nhưng dùng chung ống thay nước. Bào tử rêu có thể theo ống sang bể này.' States the creator's guess ('maybe the hose') as firm fact; also the 'bào tử' claim is invented. Hedge it: 'có thể do dùng chung ống thay nước'.",
+        "'Tảo silic gần như là chuyện bình thường ở bể mới set' is not in the video. Drop it or mark it as general knowledge.",
+        "'Glutaraldehyde quá liều có thể gây hại cho tép và một số loài cây nhạy cảm' and the claim that liquid carbon is only safe in tanks without livestock are not in the video. Remove them or keep them clearly general.",
+        "'Nước RO cho lợi thế nhỏ ở một số loài nhạy với nước cứng' and 'Tăng đèn từ từ… giúp bể mới ít bị rêu hại hơn' are invented conclusions. Remove them. 'giúp' is also a calque.",
+        "'Hai bể gặp hai loại rêu hại khác nhau' and 'Bể chưa chu kỳ xong' are fine. But the hose explanation is wrongly framed as 'Bể mới set lại đang dư dinh dưỡng', and 'Cây lấy từ bể đang bị rêu hại thì nên xử lý sạch trước khi trồng' is invented advice. Mark it as the writer's suggestion or cut it.",
+        "The RO tank's tested pH was about 5.5. 'Châm CO2 kéo pH xuống' is right, but the claim that RO tank TDS 154 and KH 5 are 'cao' mixes the creator's targets. Say that the target KH is about 3 and TDS about 120–130 according to the creator's preference, with a hedge.",
+        "The summary says RO plants grow 'nhanh hơn một chút' and the intro says 'về loại rêu hại'. The video said the difference is small but noticeable, mostly in Myriophyllum. Keep it but avoid 'nhỉnh hơn… không chênh nhiều như nhiều người nghĩ', which is invented.",
+        "Phrases like 'Bạn cần lưu ý là', 'Có hai bài học ở đây', 'Cứ đo tiếp vài ngày một lần' read like translation or padding. Rewrite in a more natural tone.",
+        "The video drifts into shrimp tanks, guppies, and the Oase skimmer. The guide correctly drops them. But the Ludwigia species name 'palustris' is a guess. Say just 'Ludwigia Super Red'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-820T-yYBDrA": [
+    {
+      "at": "2026-11-06T11:39:16Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Invented/unsupported: 'Bể không CO2 vẫn chưa tới mức cần tỉa' in week 3 is not in the video; delete it.",
+        "Table row 'Vẻ ngoài của cây ... Kém hơn' is vague; the video only says CO2 plants looked healthier. Also 'Khoảng tuần thứ ba' mixes in GDA/green spot data that were noted at around week 2-3, so be careful with timing.",
+        "'Rotala Orange Juice lên màu đậm hơn hẳn, ngả sang cam đỏ' overstates; the creator only compares it to 'blood orange juice'. Also 'Thảm Monte Carlo ... đã phủ đều' contradicts 'hơi rối' and is not stated.",
+        "'Nước khoáng có ga' is wrong: the video says sparkling water, not mineral water. Use 'nước có ga'.",
+        "Statement 'Cây trong bể có CO2 trông khỏe hơn một phần cũng vì bể ít rêu hại hơn' is OK, but 'Sau khi xử lý chỗ ánh sáng thừa đó, tình hình đỡ hơn' is not stated in the video; remove or soften.",
+        "The video's rêu bụi xanh cause was only a guess ('might have been'); the 'Bắt đầu từ đâu' step 2 says 'Ánh sáng thừa có thể là nguyên nhân ... nhất là ở bể không CO2' which is fine, but the added advice to check sunlight is invented.",
+        "Step 3 'Khi bể mới lên tảo silic, có thể thả vài con tép Amano' and the 'Nước RO' / liquid carbon sentences are fine, but 'Carbon nước ... ở đây chưa so sánh' has the phrase 'ở đây', which refers to the video implicitly; rephrase.",
+        "The sentence 'Hygrophila Araguaia gần như chưa thay đổi gì, và một cây khác cũng vậy' is awkward and vague; name the plant or drop it.",
+        "Awkward note-style phrasing: 'Bài này tổng hợp những gì thấy được', 'Hai bể ở đây là...', 'Bể không CO2 từng thử hai cách rẻ tiền'. Rewrite as natural advice instead of a report on an experiment.",
+        "The guide reads as a report of one experiment ('Bể không CO2 từng thử...', 'bể này dùng nước máy') rather than general guidance; reframe to stay a guide and avoid implying the video's setup."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:39:16Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "Invented plant list: 'Danh sách cây trồng ở hai bể giống nhau' with Vesicularia ferriei, Phyllanthus fluitans, Marsilea hirsuta, Ludwigia repens, Hygrophila lancea, Micranthemum tweediei etc. arranged into tiền/trung/hậu cảnh and 'cây nổi' is not in the transcript (only Monte Carlo, rotala, moss, umbrosum, heteranthera, marsilea, hygrophila araguaia, ludwigia are named). Remove the layout and the…",
+        "'Cả hai bể dùng nước máy' is fine, but 'Bể có CO2 dùng bộ CO2 tự chế' is stated as if from the start; the creator only said the DIY system (baking soda/citric acid, Colombo) is what is running now. Check it is not overstated.",
+        "Hedge lost: the green dust algae cause was only 'might have been caused' by light from the big tank. 'Là thủ phạm thường gặp' and 'Bể không CO2 dễ bị dư sáng so với lượng carbon cây có' are added claims, not from the video; hedge or drop.",
+        "'Đây là chuyện bình thường ở bể mới' and 'Thả vài con tép Amano ngay từ tuần thứ hai' are advice the creator never gave; he only said shrimp were added after diatoms appeared. Reword as what happened, not a rule.",
+        "Table row 'Kém hơn, lá dễ bị rêu bám' and 'Rotala lên màu cam đỏ đậm' for no-CO2 vs CO2 colours: the video does not describe the no-CO2 plants' colours or leaf algae coverage. Remove invented comparison; 'rêu xanh khỏe' is also wrong (moss, not algae): use 'rêu' or 'Vesicularia' not ambiguous 'rêu xanh'.",
+        "'Marsilea hirsuta ra nhiều chồi non' and 'cây thân đốt và cây tiền cảnh mọc nhanh thì đáp lại CO2 rất sớm' / 'Một số cây khác cần thời gian lâu hơn' are generalisations the video does not make; Hygrophila did not change in one week, nothing more. Fix the FAQ answer accordingly.",
+        "'Nếu muốn trải thảm Monte Carlo trong vài tuần thì gần như chắc chắn phải có CO2' and 'Đừng phí tiền vào viên CO2' are advice not in the video and overreach from one experiment; soften. The 'Bắt đầu từ đâu' section is mostly invented.",
+        "'Cây thân đốt' is a calque for stem plants; use 'cây thân'. Also 'hơi um tùm', 'Đừng trông vào mấy giải pháp tạm này' and 'Đừng phí tiền' read choppy; reduce the short imperative sentences.",
+        "The guide says the carpet at 65 days 'đã phủ kín sau khoảng 65 ngày' and no-CO2 'cần thêm 2–3 tháng' but the creator only said it could take that much longer ('could easily'); keep the hedge. Also the guide mentions the experiment's 'thí nghiệm' repeatedly as a story; make it more of a guide in your own words."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-Ci1I8TbZrK8": [
+    {
+      "at": "2026-11-06T11:42:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented/wrong fact: 'Lũa và đá được dán keo' – video only says wood was glued; rocks not mentioned. Fix to 'lũa'.",
+        "Invented fact: 'Hai bể cùng chạy CO2, cùng đèn, cùng lọc' – the transcript only says CO2 will be attached; 'cùng lọc' is not stated (filters were moved temporarily). Remove 'cùng lọc'.",
+        "Wrong reasoning: 'Bể nền đất không có thêm phân, nên bể aquasoil cũng chỉ dùng mỗi nền' – the root tabs were left out because using them would be unfair to the pond soil; rephrase.",
+        "Wrong/unsupported: 'Vi sinh trong lọc... giúp bể vào chu trình nhanh hơn' and 'Tép: ... cherry cái đầu tiên đều ôm trứng' – video says full of babies (pregnant/carrying young), not eggs; also the shrimp passage is off-topic for the guide's subject, drop or cut.",
+        "Wrong: 'aquasoil mới dùng 70 ngày vẫn còn tốt' – the video says the old substrate (from the previous co2/no co2 experiment) is kept as a base layer; it was not aquasoil only, and the 'dùng 70 ngày' refers to the tanks running 70 days. Clarify or drop.",
+        "FAQ error: 'ngày thứ 3 bể này không có nitrite và nitrate thấp, nên có thể không cần thay nhiều bằng' – draws an unsupported conclusion and the sentence is garbled; the creator only said he was unsure.",
+        "Overstated claim: 'Nước bể aquasoil... Màu này đến từ nền' and 'thay nước hằng ngày có vẻ giúp' are fine, but 'Đất đã trồng được súng thì nhiều khả năng cũng trồng được cây thủy sinh' and 'Nhiều người chơi chuyển sang làm bể nền đất' are padded/unsupported generalities; trim.",
+        "Awkward Vietnamese/translation-like: 'Bạn sẽ thấy từng bước...' and 'Đây cũng là lần đầu người set bể dùng đất' sound like a video narration; 'Đẹp là được.' and 'phân nhét (root tab)' should be 'viên phân gốc/root tab'.",
+        "Structure: the summary list is placed before the intro, and the 'Tận dụng đồ từ bể cũ' section plus plant list/planting details drift from the title's subject (dirt vs aquasoil); shorten.",
+        "Missing a main point: the guide never says the creator is unsure of the soil quantity or that the light intensity looks brighter on camera; minor, but the planned floating plants/lighting detail is fine. Also 'sỏi tép nano' should be 'sỏi nano shrimp gravel' in standard term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:42:05Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "Invented/unsupported: 'Phyllanthus fluitans' for floating plants; the video only says 'floating plants'. Remove the species and the 'Cây nổi' table row.",
+        "Plant table invents placement and species names: 'Rotala rotundifolia', 'Hygrophila lancea', 'Vesicularia ferriei', 'Micranthemum tweediei' and the foreground/midground/background assignments are not in the video. Only list what was named, or drop the table.",
+        "'Đất trồng súng ... thường cũng hợp với cây thủy sinh' and 'Đất tốt cho bể là đất tơi' state as firm fact what the creator only hoped ('I'm sure you should be able to grow'). The guide also never says the creator was unsure and had never used dirt before. Add hedges like 'có thể', 'chưa rõ'.",
+        "'Đất ... ít bị nổi lên', 'đất không rò lên mặt và nước không bị đục': the video only says spraying 'I think is to help prevent floating'. State it as a guess. Also the lead bullet 'không đục nước' is invented. The cap was to stop leaking.",
+        "'Giữ lọc ... set bể mới sẽ nhanh ổn định hơn' and 'rút ngắn thời gian chạy chu trình nitơ' are fine in principle. But the guide says the filter was moved to another tank, and the video says 'put the filters on the big shallow' (a tank). Check the wording. 'lọc treo' is invented.",
+        "'Thả cây nổi ... bớt nguy cơ rêu hại bùng lên' is invented. The video only says it soaks up excess nutrients. 'Bể aquasoil bắt buộc phải thay nước' overstates 'necessary'. The 'nước sạch hơn hẳn' claim is also an overreach.",
+        "Heteranthera was dropped because it grows fast and 'doesn't fit island layout'. The guide says 'khó giữ dáng' instead, which is a different reason. The layout description 'cụm lũa đá ở giữa, cây cao phía sau' is an invention; the video says tall stems in the middle, a carpet in front and epiphytes on the rocks and wood.",
+        "Tank temperature/summary bullet 'Mấy tuần đầu nên để đèn 8 tiếng 60%' generalises 3 days of the experiment into a recommendation. The 'Nên kiểm tra tép cái trước khi tháo bể' advice is also a stretch. Phrase it as what the creator did.",
+        "'Nước ngả xanh ... gần như lần nào dùng loại phân nền này cũng gặp' and 'Thay nước ... màu xanh nhạt dần' are firmer than the video, which only says it happens with Neo Soil and that changes help. Hedge them.",
+        "Phrasing is mostly natural but has stiff spots like 'Ý đồ bố cục là', 'Phủ dày tay', 'Hai loại này đi với nhau rất hợp mắt'. Smooth these out."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-CjNTUbUnwfY": [
+    {
+      "at": "2026-11-06T11:05:08Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "Remove the invented claim \"món đồ rẻ nhất mà cũng hay dùng nhất\"; the video never says the vacuum is the cheapest item.",
+        "\"lọc vách hay lọc bông\": the video means a sponge filter, so use only \"lọc bông\". \"Lọc vách\" is a different filter type.",
+        "\"Lấy cá ra khỏi đường hút nếu bể có cá con, tép con\": shrimp are not mentioned. Say only \"cá con\", and say to keep them away from the tube.",
+        "\"Lần mua tới nên chọn ống dài hơn một chút\": this is the creator's own regret, not advice from the video. Soften it or drop it.",
+        "\"Cắm sâu vào cát chỉ làm hút mất cát\": the video only says to vacuum the top layer of sand. Rephrase it as a plain recommendation.",
+        "\"Giữ dòng ở mức nước trong ống luôn nâu đục. Nước trong vắt nghĩa là bạn đang rút nước sạch\": awkward and clipped. Rewrite it as one natural sentence about adjusting the pinch until the water in the tube is dirty.",
+        "Some sentences are choppy and note-like, for example \"Không được thì làm lại, vài lần là quen tay\" and \"Dòng chảy sẽ tự duy trì\". Smooth them into natural Vietnamese.",
+        "The summary list at the top, the section \"Bắt đầu từ đâu\" and the FAQ repeat the same points several times. Cut the repetition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-EO2WPrekSF8": [
+    {
+      "at": "2026-11-06T11:28:45Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Đốm mọc ở vây trước\" / \"vây trước\": the video means the spots appear on the fins first, not the front fins. Write \"mọc ở vây trước tiên\" or \"bắt đầu từ vây\".",
+        "\"Theo kinh nghiệm của không ít người nuôi, pha loãng gấp đôi...\" turns one person's opinion into a claim about many people. Use a plain hedge such as \"Theo quan điểm khá phổ biến của người nuôi lâu năm, liều loãng có thể không diệt được Ich\".",
+        "\"Có ý kiến cho rằng làm vậy không đáng\" is vague and reads like a calque. Say plainly that a diluted dose may fail to kill Ich, so the disease drags on.",
+        "\"Trong một hai ngày đầu, thuốc trị nếu dùng không cẩn thận còn có thể làm cá chết sớm hơn chính con ký sinh\" misreads a garbled caption. Rephrase it to say that Ich rarely kills within a day or two and that mishandled treatment, or too much stress, is the bigger risk.",
+        "\"khỏi chờ ship mấy ngày\": replace the English word with \"khỏi chờ giao hàng mấy ngày\".",
+        "\"Với Ich-X, có người vẫn châm đủ liều cho cả cá nóc và chạch\": this is the creator's own practice and opinion, so keep the hedge but word it more naturally. The sentences that follow are choppy.",
+        "The salt table gives \"Cá nóc: Tùy loài, có loài hợp muối\" and \"Cá tetra: Chỉ thỉnh thoảng cho một ít\". Tidy these into clearer wording. The title \"Muối hột\" assumes a salt type the video never names, so use \"muối\".",
+        "The advice to quarantine new fish in a separate tank is added by the writer. It is standard practice, but it is not in the video. The video's own point is preventive treatment of every new fish, so keep the focus there."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:28:45Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Intro: \"Phần lớn ca cá chết là do trị sai cách, chẳng hạn quá liều, tăng nhiệt quá mức hoặc thử lung tung nhiều loại thuốc\" is overstated and invented. The video only says the medicine is more likely than Ich to kill a fish within the first days. Soften it or drop it.",
+        "Salt section: \"Muối giống một chiếc xe an toàn với nửa số người ngồi trong đó\" is garbled and wrong. The point is that salt works on only about half of fish species, like an airbag that deploys half the time. Say that plainly or drop the analogy.",
+        "\"Trị nhầm bằng thuốc mạnh cho một bệnh khác chỉ làm cá yếu thêm\" is not in the video. Remove it or hedge it.",
+        "\"Pha loãng gấp đôi thì không giết cá, nhưng cũng không giết được Ich\" and \"liều cần để diệt Ich là liều ghi trên nhãn\" are the creator's own opinion, stated as firm fact. Add a hedge such as \"theo kinh nghiệm của nhiều người nuôi\" or \"có ý kiến cho rằng\".",
+        "Heat: \"có thể giết cá chỉ trong một ngày\" and the FAQ line \"có thể chết vì nhiệt độ quanh 31°C trước khi Ich kịp gây hại\" are too firm. The video says goldfish \"might\" die. Keep the hedge, and say the risk is higher when the fish is already weak.",
+        "The product paragraph says \"Thuốc được dùng ở đây là Ich-X... Quy trình ở đây\". This reads as tied to a source. Rephrase as a neutral example, such as \"Ví dụ với Ich-X (...)\", and avoid \"ở đây\".",
+        "Stiff, translated phrasing: \"ra tay sớm\", \"Đây là chỗ nấm và vi khuẩn dễ tấn công\", \"Cách nghĩ thực tế hơn\". The sentences are short and note-like, and several are chained. Rewrite them in more natural hobby Vietnamese.",
+        "Missing point: the video says to treat every new fish preventively, and that Ich-X is sometimes used on sensitive species like puffers and loaches. Add a short mention of treating or quarantining new fish."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-Jf2NkrQm6pg": [
+    {
+      "at": "2026-11-06T11:16:37Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "Replace \"nấm miệng (columnaris)\" with \"bệnh columnaris (do vi khuẩn)\" or \"thối thân\". Columnaris is bacterial, and \"nấm\" muddles it with the fungus case described just before.",
+        "\"dụng cụ và nước dùng lẫn giữa hai bể\" is invented. The creator only said cross contamination spread the disease, not how. Say \"lây chéo\" without naming a cause.",
+        "\"Nhiều người nghĩ cần hẳn một bể kính thứ hai\" is an invented claim. State plainly that a plastic tub is enough.",
+        "\"Chỉ vài giọt nước bể bệnh dính sang bể chính là đủ mang mầm bệnh theo\" overstates what was said. Soften it to \"có thể vô tình mang giọt nước từ bể này sang bể khác\".",
+        "Cut or hedge \"Đây là bước hay bị làm ẩu nhưng không nên bỏ qua\". The video never says this about drying.",
+        "Some phrasing reads like a translation: \"mấy lẽ\", \"Bài học khá rõ\", and \"Một trường hợp điển hình\" for a personal anecdote. Rewrite in more natural Vietnamese.",
+        "The \"4 đến 6 tuần\" quarantine period appears only in passing in the video. Present it as a common practice, not a firm rule, in the FAQ and the section."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:16:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented/wrong: 'Thả thẳng vào bể chính, chỉ một con bệnh cũng đủ làm chết cả đàn trong vài ngày' – the video's anecdote was a single case (died within a week); don't state it as a general fact.",
+        "'nấm miệng (columnaris) có thể xóa sổ cả bể chỉ trong một tuần' – the transcript only says the creator's fish died within one week from a fast-killing disease (columnaris); present it as an example, not a general claim.",
+        "Wrong anecdote: the video's molly with fungus was not a 'một con cá molly bóng mới mua' rescued case with 'sinh sản bình thường' stated firmly; also 'Do đang ở trong bể cách ly nên bệnh không lây' is fine, but 'vào bể chính và còn sinh sản bình thường' is unclear in the transcript – drop or hedge.",
+        "Misread: the extra test is done with two healthy fish from the main tank placed in the tub AFTER quarantine to see if they get sick; the line 'Thấy cá thử vẫn khỏe thì có thể yên tâm hơn khi chuyển đàn mới sang' is invented reasoning and 'cá mới mang bệnh nhưng không biểu hiện' needs hedging ('có thể').",
+        "Invented/changed: 'Cách dễ nhất là...' and 'Cá đã yếu thì không chịu nổi amoniac tăng vọt' are not in the video; 'Thời gian này đủ để phần lớn bệnh lộ triệu chứng' in the FAQ is also invented.",
+        "Invented advice: 'Mua ngay một lọc bông thả vào bể chính' and 'Mua riêng một bộ vợt...' in the action list are fine, but 'nên đổ nước từng mức và vạch số lít' is a slight distortion; the video marks gallons on the side to know how much water changed and medicine dosed.",
+        "Unsupported: 'muối ... nhất là với loài nhạy cảm' is added; salt sensitivity is not in the video.",
+        "Salt dosing: the video says use salt for quarantine and the creator cured the fungus with aquarium salt; the guide's 'xử lý bằng thuốc phổ rộng hoặc muối' in the summary is OK, but 'Cá mới nên cách ly 4–6 tuần' should be hedged as the creator's habit.",
+        "Awkward Vietnamese: 'nuôi nó ké trong bể chính', 'nên vợt, ống xi phông phải dùng riêng', 'thò tay vào bể' – rewrite more naturally; 'Có bệnh thì nó chỉ nằm gọn' is also stiff.",
+        "Missing: the video's note that a tight lid should be paired with holes for airflow is covered, but the point about hot water disinfection in a bathtub and drying fully is thin; 'dung dịch 10%' should say 'thuốc tẩy pha loãng 10%' and not 'clo hoặc thuốc tẩy' as separate options."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-LiCZUjqLck8": [
+    {
+      "at": "2026-11-06T11:32:18Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "Fix \"ba viên đá nhỏ (một lớn, một vừa, một nhỏ)\". It contradicts itself. Write \"ba viên đá mini kích cỡ khác nhau: một lớn, một vừa, một nhỏ\".",
+        "Rewrite \"Đá và lũa không viên nào khúc nào giống viên nào khúc nào\". It is clumsy. Say \"đá và lũa mỗi món một hình nên khó dựng hai bố cục giống hệt\".",
+        "Replace \"Làm bể thứ hai ... khó hơn mình tưởng\". The first-person voice is the creator's, not a guide's. Use a neutral \"khó hơn dự tính\" or give advice, e.g. chụp ảnh bể đầu để làm theo.",
+        "Replace \"là chuyện dân chơi bàn hoài\". It is too slangy for a guide. Use \"là câu hỏi được bàn nhiều trong giới chơi thủy sinh\".",
+        "Fix \"Phân nền là thứ quen tay nhất khi set bể\". This is the creator's personal habit stated as a general fact. Rephrase it as a reason for this setup, e.g. \"người set bể thấy dễ làm nhất\".",
+        "Fix the fragment \"Miễn là lúc bắt đầu, hai bể có lượng cây gần bằng nhau.\". Join it to the previous sentence.",
+        "Fix \"Cây thấp xuống, mọc lại từ đầu và chuyển dần sang dạng lá thủy sinh\". It reads like a translation. Say \"cây ngắn đi, đâm chồi mới và dần thích nghi sang dạng lá thủy sinh\".",
+        "Remove or soften \"Người ta thường làm vậy để nước có sẵn CO2 khi đèn bật\". It is not from the video. Keep it only as a short general note.",
+        "Reduce the self-referencing phrases \"bài cũng không kết luận\" and \"Ở đây đèn bật…\". Phrase them as general guidance instead."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:32:18Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Remove the invented claim \"Cây khó gần như chắc chắn sẽ chết ở bể không CO2\". The video never says this; it only says it picked easy plants.",
+        "Remove \"Cây đỏ thường là chỗ thấy khác biệt rõ nhất khi có và không có CO2\". It is an invented conclusion, and the video only says it will watch the red and orange colours.",
+        "Remove \"cùng lọc\" and \"lọc giống nhau\". The video never mentions a filter. It lists the same tank, light, substrate, hardscape and plants.",
+        "Remove the invented symptoms \"lá có vàng, thủng, rụng không\". The video only says plant health overall.",
+        "Remove \"gần như ai mới chơi cũng hỏi\". It is an unsupported claim, and the intro should not invent a framing story.",
+        "Fix the garbled summary bullet \"cắt đôi thân cây cắt cành rồi trồng cả hai nửa\". Say it clearly, for example \"cắt đôi cây thân dài rồi trồng cả phần gốc lẫn phần ngọn\".",
+        "Soften the Rotala \"Orange Juice\" planting advice. The video only says it will probably do the same as for the stems, so write \"có thể làm tương tự\" instead of a firm instruction.",
+        "Make the wording more natural. For example, \"Bạn nên đổ từng bát\", \"Chọn cách đơn giản nhất là…\" and \"Bỏ chút công dán kỹ\" read like translated note-style lines. Rewrite them in plain hobby Vietnamese.",
+        "The first bullet list repeats the whole guide before the intro. Keep the summary short, and make clear the experiment has no results yet, so no conclusion is drawn about CO2."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-LrRhfOYfXns": [
+    {
+      "at": "2026-11-06T11:12:59Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Facts match the video: the doses (1 packet each plus 5 ml per 10 gallons), the 7-day soak, the 30% water change on day 7, the egg-cycle re-treatment and the week-by-week order are all correct.",
+        "\"setup đơn giản\" leaves English in place. Use \"bố trí đơn giản\" or \"dựng đơn giản\".",
+        "\"Đừng mua thuốc thay thế chỉ vì tên na ná\" adds a reason the video doesn't give. The video's point is that people can't find the right drug and buy a different product, then order the right one days later. Say that, and drop \"tên na ná\".",
+        "The FAQ question \"Bể không phải 75 lít thì tính liều thế nào?\" assumes a 75 L baseline the guide never set up as a standard. Ask \"Bể có dung tích khác thì tính liều thế nào?\", or give the 75 L (20 gallon) example in the answer.",
+        "\"Dù đúng đến đâu, có thuốc sẵn trong tủ…\" reads slightly stiff. Rephrase it, for example \"Dù thực tế thế nào, có sẵn thuốc vẫn tốt hơn…\".",
+        "Phrases like \"cá có vấn đề\", \"Cứ để thuốc ngấm\" and \"Cá như vậy nên được nhẹ tay\" are a bit calque-like or colloquial. Use more natural hobby wording, such as \"nên dùng thuốc nhẹ nhàng, chia nhỏ\".",
+        "The ParaCleanse \"ngày 1, ngày 3, thay nước ngày 5\" schedule is stated as fact from the package. That is fine, but the sentence is long. Split it for readability."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:12:59Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "Invented fact: 'nhầm Maracyn với Maracyn Two' is not in the video (the creator only says people bought a different product when they couldn't find Marason). Drop the example.",
+        "Table puts 'nấm, đốm trắng' under 'ký sinh trùng ngoài'. The video lists bacterial, external parasites and internal parasites as the three groups, and fungus is a separate infection. Fix the summary bullet and table.",
+        "'Ich-X làm cho đốm trắng' is broken Vietnamese and is missing the verb 'trị'. Rewrite as 'Ich-X vốn trị đốm trắng'.",
+        "Wrong dosing: the video says to use 2 packets each of Maracyn and ParaCleanse for 20 gallons. The step 'Ngày 1' does give this, but 'Ngày 3 hoặc 4: cho ăn một bữa' is fine. The guide gives no way to scale the dose to other tank sizes, so add a short rule.",
+        "Overstated claims: 'xử lý sớm là cách cứu cá hiệu quả nhất', 'xử lý được phần lớn các ca bệnh' and 'được thử dùng chung và an toàn'. The creator's 90%/99% figures and 'bacteria are always present' are his own beliefs. Soften the wording and add a hedge.",
+        "'Kháng sinh không ảnh hưởng vi sinh' is stated as firm fact. The video only says the strains in their own tanks did not react adversely. Hedge it, here and in the FAQ ('Với erythromycin...').",
+        "'Đây là quy trình một cửa hàng cá dùng' refers to the creator's shop, which breaks the no-creator rule. Rephrase it as neutral advice.",
+        "Missing: the preventative regime treats the whole tank and needs no water change until day 7. Also missing: the advice to quarantine even fish from a store that already medicated them, and to wait before adding them to the display tank. Both are only partly covered.",
+        "Awkward Vietnamese: 'Cá từ trại qua đại lý về cửa hàng phần lớn đều có ký sinh trùng trong' and 'mất thời gian vàng'. Rewrite them in plainer, more natural wording.",
+        "The guide uses 'Maracyn' where the transcript says 'Marason', which is a mis-hearing of the brand, so that is acceptable. 'Sán mang' is a loose translation of gill flukes, so use the standard term."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-MoI3OuGSMaQ": [
+    {
+      "at": "2026-11-06T11:56:56Z",
+      "model": "sonnet",
+      "score": 0.68,
+      "notes": [
+        "The first summary bullet says 'Đèn chênh nhau nhiều nhất'. That is wrong. By price, CO2 differs most (about 152 euro against 5 euro), then the light (170 against 30). What the creator expects to matter most is light and substrate, and that is only a guess. Rewrite the bullet or drop it.",
+        "'Lọc là khoản dễ tiết kiệm nhất' and 'Lọc là khoản bạn hoàn toàn có thể tiết kiệm' state the creator's personal view as firm fact. Soften with something like 'nhiều người thấy lọc là chỗ có thể tiết kiệm'.",
+        "'Công thức có gelatin dưới đây chạy ổn định và dễ dàng kéo được 6–7 tuần' passes the creator's own claim off as certain. Hedge it, for example 'theo kinh nghiệm người làm, có thể chạy 6–7 tuần'.",
+        "The summary and the 'Bắt đầu từ đâu' bullet say the pond soil bag can be 'dùng được nhiều lần'. The video only says one bag lasts a very long time. Keep that wording.",
+        "'Sau khi đổ nước, bể phân nền bị Rotala và Ludwigia nổi lên liên tục' is placed wrongly. The floating happened right after planting, before and while the tank was being filled. Fix the timing or the cause.",
+        "Some phrases read like translation or are awkward: 'Nhiều người chơi thủy sinh lo về lọc quá mức cần thiết', 'Dù vậy, nhìn bằng mắt thường thì khoảng cách không lớn như giá tiền', 'Đây mới là phỏng đoán'. Rewrite them in natural hobby Vietnamese.",
+        "The first summary bullet and the cost table repeat each other. The table and the 'Bắt đầu từ đâu' section are partly the same content. Tighten them.",
+        "The FAQ 'Nên bật CO2 lúc nào so với đèn?' mixes in the bubble rate (1 bọt mỗi giây), which has nothing to do with the question. Move that sentence or drop it."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:56:56Z",
+      "model": "sonnet",
+      "score": 0.65,
+      "notes": [
+        "Remove \"Với cây thủy sinh, kính đẹp hay không gần như không đổi được gì\": this is an invented conclusion, and the experiment hasn't run yet.",
+        "Remove or hedge \"Kính, lọc và CO2 bình chủ yếu mang lại sự tiện và độ bền, chưa chắc làm cây lên khác biệt rõ\": no results exist yet. The creator only said they were curious.",
+        "\"Tiền tiết kiệm từ lọc nên dồn sang đèn hoặc CO2\" and \"Bể nhỏ thì cứ mua lọc trong rẻ tiền và kính thường, dồn tiền cho đèn\" are invented advice. The creator only said filtration is where you can save money.",
+        "\"Đèn và nền là hai yếu tố ... ảnh hưởng nhất\" is the creator's prediction. Say it is a guess before the result, and don't repeat it in the summary and the conclusion as if it were settled.",
+        "\"Nếu bạn hay quay bể bằng điện thoại, thử vài mức sáng khác nhau trước khi kết luận đèn lỗi\" is invented tip. The flicker was a camera issue at 85%, so drop the advice or state it only as what happened.",
+        "\"Cách kiểm tra là set hai bể giống hệt nhau\" and \"Nhiều người mới chơi nghĩ muốn cây lên đẹp thì phải mua đèn xịn\" are framing that was never in the video. The two tanks also differ in substrate and CO2, so they are not identical apart from equipment.",
+        "The glass-colour line is unclear in the transcript (which tank is blue and which is green). State the colours more cautiously.",
+        "Fix the awkward Vietnamese in \"Bạn còn đỡ khổ vì cây ít bị nổi\" and \"Lúc này bọt CO2 bắt đầu ra ở sủi\". Use more natural wording such as \"bọt CO2 bắt đầu ra ở đầu sủi\".",
+        "The step \"Trải đất ao trước, rắc phân viên\" for the pond-soil tank is not clearly shown in the video. Say only that both tanks got root tabs."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-RSG9M7lgzG8": [
+    {
+      "at": "2026-11-06T11:18:53Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Các bài thuốc thảo dược thường không đủ mạnh\": the creator only said they had no good experience with herbal remedies. Hedge it (\"theo kinh nghiệm, thuốc thảo dược hay không đủ mạnh\") and fix the awkward \"bài thuốc\".",
+        "\"Rêu Christmas ... chịu không nổi mức muối đó\": the video only says the moss was \"not happy\", not that it died or couldn't tolerate it. Soften it to \"rêu Christmas bị ảnh hưởng rõ\".",
+        "\"nên cây và rêu là cái giá phải trả\": a stylised, translated-sounding flourish. Rewrite plainly, e.g. \"muối làm hại cây thủy sinh trong bể\".",
+        "\"Phần lớn trường hợp này thực ra là nhiễm khuẩn\": the video says \"a lot of\" bacterial infections look like this. Use \"nhiều trường hợp\" in both the body text and the FAQ.",
+        "\"lùi xùi như bông gòn\": unnatural wording. Use \"xù như bông\" or \"mảng trắng xám như bông gòn\".",
+        "\"Cá sau đó khỏe và đẻ được một tháng sau\": awkward. Write \"khoảng một tháng sau cá đẻ được cá con\".",
+        "\"Cá đẻ con thiếu khoáng\" and \"dính ngay bệnh đầu tiên gặp phải\": the cause is a weakened immune system after moving from brackish to fresh water. Say that directly instead of \"thiếu khoáng\" as the label.",
+        "The opening bullet list, the \"Bắt đầu từ đâu\" section and the FAQ repeat the same points several times. Trim one or two of them to cut redundancy."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-SjnaZ9ciCJk": [
+    {
+      "at": "2026-11-06T12:00:09Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"Lọc trong (lọc chìm)\" and \"CO2 bình, có van điện\": the video never mentions a solenoid valve, only a smart socket and a needle valve. Say \"ổ cắm thông minh\" and drop the invented \"van điện\".",
+        "\"Loại này không có van điện nên chạy suốt ngày đêm\": this reason is made up. The video only says the yeast CO2 runs 24/7, so state just that.",
+        "\"Nên thay van một chiều loại tốt hơn\" and the mistake bullet \"Van một chiều kém\": the creator only guessed (\"I think I just need to upgrade\") and asked for recommendations. Hedge it, e.g. \"có thể nên nâng cấp van một chiều\". Don't present it as a firm cause.",
+        "\"Sủi dùng lâu sẽ bám bẩn... CO2 hòa vào nước kém hơn\": this is not in the video. The video only says the bubbles are too big and the diffuser needs a bleach soak. Remove the added explanation or soften it.",
+        "\"Rotala – Bể đắt tiền: Không đem ra so\" is an invented cell. The video says nothing about Rotala in the high-budget tank. Write \"không nhắc\" or merge the cell.",
+        "\"chủ bể đang nghiêng về phía nó\" and repeated \"chủ bể\": this is a covert reference to the creator. Rephrase it neutrally, or drop the personal preference.",
+        "The title \"xử lý rêu hại và so cây lên\" is awkward. Use something like \"so sánh tốc độ lên cây\".",
+        "Wording is slightly translated or note-like in places: \"Bể mới set vài tuần đã bùng rêu hại\", \"Bể đèn mạnh thắng về tốc độ là chuyện đương nhiên\", \"bám được bể đắt tiền tới mức nào\". Smooth these into natural hobby Vietnamese.",
+        "\"ổ cắm hẹn giờ\" is used for the smart socket. Be consistent and use \"ổ cắm thông minh\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T12:00:09Z",
+      "model": "sonnet",
+      "score": 0.68,
+      "notes": [
+        "Table row Rotala: the high-budget cell \"Mọc bình thường\" is not in the video, which only describes the low-budget Rotala. Remove it or say it wasn't compared.",
+        "Cleaning section: \"Dọn kỹ tảo silic nâu bám trên nền, đá, lũa và lá cây\" and \"Thay nước sau khi dọn\" are invented details. The video only shows wiping the glass, cleaning the tank and trimming. Don't present a water change as part of the session.",
+        "Mistakes list: \"Để nguyên rêu hại giai đoạn mới set mà không dọn, chờ nó tự hết\" is not what the video says. Remove it or rewrite it as the video's point: a little early algae plus missed water changes led to the bloom.",
+        "\"Gần một tuần liền bể không được thay nước\" is too precise. The creator only said they missed a few water changes while travelling and busy. Write \"bỏ lỡ vài lần thay nước\".",
+        "\"Nếu bể mới set chưa đầy một tháng\" and \"Hai bể cùng bố cục, cùng danh sách cây\" are not in the video. Drop or soften these.",
+        "Last FAQ answer: \"cứ để cây hồi rồi tỉa dần\" and the claim that standing stems commonly fail from drying are advice not in the video. The Rotala cause was only the creator's suspicion, so keep the hedge (\"có thể\") and don't present it as a general rule.",
+        "Several table cells (\"Lên đều\", \"Lên ổn\") add detail that was not stated. Use only \"không khác biệt đáng kể\" for those plants.",
+        "Some phrasing reads like a translation: \"Thủ phạm chính là…\", \"Điều đáng xem là bể rẻ tiền theo kịp đến đâu…\". Rewrite these in natural hobby Vietnamese. \"Xem đồng hồ trên van xem bình\" repeats \"xem\".",
+        "The video's closing opinion is missing: the creator is rooting for the low-budget tank, and it's too early to judge. You can add a hedged line that three weeks is too early to draw conclusions."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-WMddjcmPwS4": [
+    {
+      "at": "2026-11-06T11:45:46Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "Invented fact: 'Cả hai bể ... dùng lọc treo khoảng 360 lít/giờ' - the video only says the aquasoil tank uses a hang-on-back filter rated ~360 L/h; the dirt tank's filter is not stated (it says 'same filter', but the rating is only for the aquasoil tank). Soften or verify.",
+        "Overstated/invented: 'Nền đất trồng cây có thay được aquasoil...' FAQ and 'chắc chắn dùng được dưới nước' - the creator only says the soil is designed for water lilies so it should be safe; 'chắc chắn' is stronger than the source.",
+        "Hedged guess stated too firmly: 'Thiếu chất ... Nhiều khả năng là thiếu cả đạm lẫn sắt' is fine, but the FAQ says 'Lá non nhạt gần trắng là dấu hiệu thiếu chất' and 'Ngọn lá bạc ... vì test sắt ... gần như bằng 0' as a cause; keep the hedge (creator is unsure which nutrient).",
+        "Invented advice: 'Với bể cây bình thường ... châm phân nước là cách thẳng nhất' and 'Châm phân nước là cách sửa nhanh nhất / dễ nhất' - creator only says it is easy to fix with liquid fertilizer; the 'cách thẳng nhất' recommendation is the writer's own.",
+        "Misrepresents source: the bio-load idea ('thả thêm tép, cá để tăng tải sinh học... Ý này mới là phỏng đoán') is described as 'có thêm chất thải'; the creator says it will 'also help' the deficiency, in his opinion. Also 'Rotala đã dài tới mức sắp phải tỉa ở cả hai bể' - he said he will trim in a few days, fine, but 'ở cả hai bể' is approximate.",
+        "Wrong detail: 'Thời gian chiếu sáng giữ cố định 8 tiếng' is okay, but the step list adds '75%, rồi 80%' as fixed plan and 'tăng từng nấc 5–10% mỗi tuần' as a rule; this is the creator's personal habit, not general advice - hedge it.",
+        "Wrong detail: 'Monte Carlo ... phát triển chậm hơn ... lúc làm nền ... Nhiều người vẫn gạt đất ở mép kính' fine, but 'Thủ phạm ... ngọn bạc' in summary says Monte Carlo/giant baby tears 'bạc gần trắng' while 'Rotala đã dài' etc. Several parts drift: shopping trip, guppies and Endler's are omitted - fine - but 'hồi sức' for otocinclus and 'mua sẵn bộ test sắt và nitrat' are invented advice.",
+        "Style: translation-like/note phrasing: 'Thủ phạm nhiều khả năng là...', 'Đây là mốc an toàn cho cá và tép', 'Khó nói chính xác thiếu chất nào', 'Nhiều khả năng' repeated; the intro paragraph 'là câu hỏi mà người set bể có cây nào cũng từng nghĩ tới' is filler. Rewrite in more natural hobby Vietnamese.",
+        "Table row 'Nitrat: Có chênh lệch giữa hai bể, bể nền đất thấp hơn' - the video gives no numbers and does not say which is lower explicitly (implied); the colspan table cell is awkward; replace with a sentence."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:45:46Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented/over-firm cause: 'Monte Carlo ở bể này cũng bò ra, nhưng chậm hơn bể aquasoil, và đây là lý do chính' states the scraped-edge cause as firm fact; the creator only said 'i think I shouldn't have done that'. Hedge it.",
+        "'Nhiều người làm vậy, nhưng đây là một sai lầm' and 'hãy để lớp đất phủ tới tận chỗ trồng cây. Lớp sỏi phủ dày một chút ở mép kính là đủ che' turn a hedged personal guess into firm advice; the thick gravel at the glass edge is invented.",
+        "Invented: 'Bổ sung vài lần là ngọn cây sẽ xanh lại' and 'Thiếu chất mới chỉ thấy rõ ở những cây lá nhỏ, mọc nhanh' are not in the video. Remove.",
+        "Invented: 'Tăng tải sinh học: thả thêm tép, cá để có thêm chất thải, tức thêm nguồn đạm' is the creator's tentative idea, not established; and 'Chỉ có nền là khác nhau' plus 'rẻ hơn nhiều' about dirt is not from the video. Drop the price claim.",
+        "Wrong in the title/summary: the first bullet claims plants grow at about the same rate, and the guide treats 'sau 12 ngày' results as a conclusion. Also 'nitrat cao hơn rõ' in the table has no numbers; keep it hedged ('có chênh lệch').",
+        "Invented plant names/species: 'Micranthemum tweediei' for Monte Carlo, 'Rotala rotundifolia', 'Hygrophila lancea' are not stated in the video. 'Hygrophila araguaia' only; remove the extra Latin names. Also 'rêu' for moss is confusing next to 'rêu hại' (algae); use 'rong rêu/moss' vs 'tảo'.",
+        "The 'Bắt đầu từ đâu' section and FAQ restate the main sections. Also the guide drifts into a shop/fish-buying narrative: 'Guppy endler là lựa chọn hợp lý' and acclimation advice are minor; trim.",
+        "Awkward/calque phrasing: 'Thêm vào đó là…', 'Ý tưởng là…', 'Bài này tổng hợp kết quả sau 12 ngày đầu của một thí nghiệm như vậy' read like a report. 'Hai bể giống hệt nhau chỉ khác nền cho tốc độ cây lên…' bullet is ungrammatical (missing comma). 'Phân nền' for aquasoil is not the usual term; use 'nền aquasoil'.",
+        "The guide implies it can take a stance ('Lá non bạc màu là dấu hiệu khá rõ'), but the video said the exact nutrient is uncertain; the title bullet 'thủ phạm nhiều khả năng là thiếu đạm và sắt' is fine, though the 'Trân châu lá to' as 'trân châu' is imprecise (it is giant baby tears)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-Yvw0qjsNVQc": [
+    {
+      "at": "2026-11-06T11:53:11Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented/contradicted: 'Bể aquasoil lên nhanh hơn' fine, but 'Cả hai đều là bể high tech... Cây trồng gồm thảm tiền cảnh, cây thân ở hậu cảnh' and 'Bể nền đất có thảm Monte Carlo' vs aquasoil 'Thảm dày' (carpet species unstated) - avoid implying details not in video.",
+        "Wrong: 'Rêu ... Phủ kín bố cục' is okay, but 'Ít BBA' and 'CO2 được duy trì tốt ... nên chưa thể quy cho CO2' are stated firmly; the creator only 'thinks' CO2 was good (bottle was running very low). Hedge it and mention the CO2 bottle running low.",
+        "Hedged guess stated as fact: Monte Carlo failure 'nhiều khả năng do cạo lớp đất' is hedged OK, but 'Đừng để phải xử lý lại lớp đất' and 'Nền đất cần thời gian chạy lâu hơn ... đừng vội kết luận' are invented advice.",
+        "Invented: 'Nhiều người cho rằng aquasoil chắc chắn cho cây lên tốt hơn, còn nền đất thì khó dùng và rủi ro' - not in video (only creator's own prior skepticism).",
+        "Invented: 'Từ khi bắt đầu châm phân nước, cả hai bể lên rất mạnh' and the explanation 'Lượng dinh dưỡng trong nền không đủ nuôi cây lâu dài' are embellished; also 'Nền đất rất dễ làm đục nước... Cách này giữ được nước trong khá lâu' contradicts the video, where cutting stems worked only until the helferi was pulled.",
+        "Wrong/unsupported: 'Nền đất thì phải có lớp phủ' - the video does not say dirt needs capping; it said aquasoil needs no cap. Also 'Cyperus helferi ... gửi cá tạm sang bể khác đang ổn định' is unrelated drift (teardown logistics), consider dropping the whole 'Lưu ý khi dỡ bể' section and FAQ about it.",
+        "Off-topic drift: the guppy fry, weeping moss in tap vs RO water and teardown details are not core; the teardown section/FAQ is about a different subject from the title. Remove.",
+        "Phrasing: 'Đây là bài học rõ nhất của thí nghiệm', 'Kết quả hai bể chạy song song... cho thấy' and 'Bài này tổng kết' sound like referring to the experiment/video; rewrite as a neutral guide. Also 'Nền giàu dinh dưỡng chỉ là phần nền móng' and 'Cách này chưa được kiểm chứng trong thí nghiệm này' reference the experiment.",
+        "Missing: the 'favorite is aquasoil because easy' is covered, but key point that both substrates still need liquid fertilizer even with enough nutrients is fine; the repeated content (summary, intro, FAQ) is redundant."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:53:11Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "Delete the invented plant list (Micranthemum tweediei, Marsilea hirsuta, Vesicularia ferriei, Hygrophila lancea 'Araguaia', Micranthemum umbrosum, Rotala 'Orange Juice', Phyllanthus fluitans). The transcript names only Ludwigia repens, a rotala, Monte Carlo, weeping moss and Cyperus helferi.",
+        "Delete 'phủ sỏi tép đen' and 'đất ao làm lớp dưới, phủ sỏi'. The video never says what covered the pond soil, so the dirt tank was not shown to be gravel-capped. The same invention appears in the intro, the table header 'Nền đất phủ sỏi' and 'nền đất phủ sỏi nếu muốn rẻ'.",
+        "Delete 'Hai bể dùng chung kích thước, đèn, lọc, bình CO2 và sủi khuếch tán' and 'rêu được dán lên lũa'. The video does not state these setup details.",
+        "Remove the claims that aquasoil is 'đắt' and dirt is 'rẻ hơn nhiều', including 'nền đất rẻ mà vẫn cho kết quả tốt' in the summary. The video never discusses cost. Its reasons for preferring aquasoil are ease of use and that it is all-in-one.",
+        "Delete 'đừng tin vào lời quảng cáo rằng nền giàu dinh dưỡng là đủ'. No advertising claim appears in the video. Also the 'tỉa cây thân đều' advice is not from the video: the creator hadn't trimmed anything.",
+        "The creator's guess that scraping the soil off the glass hurt the Monte Carlo is stated too firmly in places. 'Nhiều khả năng là lý do' is acceptable, but the FAQ and the section on common mistakes should keep the hedge consistently.",
+        "Fix 'Trước khi làm, nhiều người nghĩ aquasoil sẽ thắng dễ dàng'. It was the creator's own initial assumption, because he had never used dirt. Rewrite it as a general statement, e.g. 'Nhiều người cho rằng…'.",
+        "The BBA 'cause' and 'dù về cuối bình đã gần cạn' mix facts. The creator was unsure of the cause and said the CO2 was good throughout. Do not suggest low CO2 as a cause. State only that the cause is unclear.",
+        "Fix the awkward Vietnamese: 'cho cây lên gần như ngang nhau', 'bể nền đất cây thân mọc có phần khỏe hơn chút', 'cuống lên xử lý', 'èo uột'. Use more natural hobby wording, e.g. 'cây phát triển tương đương'.",
+        "The Monte Carlo table row 'Aquasoil: Lên dày' is unsupported. The video says the carpet was thick in the aquasoil tank but doesn't name Monte Carlo there. The guppy and weeping moss digressions were rightly dropped."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-Z3xZC2Z6o4A": [
+    {
+      "at": "2026-11-06T12:02:10Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Rotala 'Orange Juice' và Nesaea pedicellata 'Golden' rõ ràng hợp với bể đèn mạnh, CO2 bình hơn\" nói quá chắc. Nguyên nhân hai cây này kém ở bể rẻ chưa được xác định (chỉ ánh sáng, CO2 hay thứ khác). Hãy viết là \"có vẻ lên tốt hơn\" và bỏ \"rõ ràng\".",
+        "Bullet tóm tắt \"Đèn mạnh làm cây mọc đốt ngắn và gọn hơn\" khẳng định như quy luật, trong khi Alternanthera lại ngược lại. Thêm hedge như \"nhiều loại cây\".",
+        "Bullet tóm tắt \"Bèo nổi là cách đơn giản để giảm bớt ánh sáng và hút bớt dinh dưỡng thừa\" trình bày một kế hoạch chưa thử như thể đã có kết quả. Đổi thành \"có thể thử\" và nói rõ là chưa kiểm chứng.",
+        "\"pH, KH, nitrite và amoniac không được đo kỹ vì ... đều đã chạy ổn định\" có chi tiết bịa. Chỉ có lý do hai bể dùng chung nước máy và các chỉ số đó ít quan trọng. Bỏ \"đã chạy ổn định\".",
+        "\"Thay nước đều đặn, không bỏ tuần nào\" và bước \"Theo dõi xem rêu có quay lại không\" là chi tiết thêm vào, không có trong nguồn. Bỏ hoặc viết lại sát nội dung gốc.",
+        "\"Nhiều người thích thảm Monte Carlo mỏng\" biến sở thích cá nhân thành ý kiến số đông. Viết là \"có người thích thảm mỏng hơn\" hoặc \"thảm mỏng trông nhẹ và gọn hơn\".",
+        "\"Điều này cũng hợp lý vì hai bể được châm cùng lượng phân\" là cấu trúc dịch, nghe như văn dịch. Viết lại, ví dụ \"Kết quả này không lạ vì hai bể được châm cùng lượng phân\".",
+        "\"Cây khó tính\" và \"đất trồng sen súng (pond soil)\" cần viết tự nhiên hơn. Nên dùng \"đất ao\" hoặc \"đất nền ao\", và giải thích ngắn gọn hơn.",
+        "Phần cuối kể lại những gì đã xảy ra (đo nước, cắt tỉa) lặp lại khá nhiều ở phần tóm tắt, \"Bắt đầu từ đâu\" và FAQ. Gộp lại để bài gọn hơn."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-eMnYeFx08_I": [
+    {
+      "at": "2026-11-06T12:16:54Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "Table row 'Nền phù hợp' says EI is 'Không phụ thuộc nhiều vào nền'. The video never says this, so delete it or say nothing about EI and substrate.",
+        "Table row 'Nguồn N và P' says EI gets most of its N and P 'từ phân châm'. This is the writer's inference, so state it as simply what EI doses (all nutrients in excess).",
+        "'Nếu muốn cây lên nhanh và không ngại thay nước lớn mỗi tuần thì thử EI' treats faster growth under EI as established. The video lists it only as a question to test. Reword it or remove it.",
+        "'Người mới chơi hay bối rối vì mỗi hội nhóm khuyên một kiểu' is invented context. Cut it.",
+        "'Số muỗng ở trên áp cho bộ kit có muỗng đi kèm' is not in the video. The scoop amounts are specific to one kit, so say that plainly, or tell readers to follow their own kit's instructions.",
+        "'Ngoài lúc thử nghiệm, nhiều người châm lean dosing khá tùy hứng' generalises the creator's own habit to 'many people'. Drop it or reword it neutrally.",
+        "'Ai đang dùng aquasoil thì set theo cách này rất dễ làm' is a loose claim that the video doesn't support. Remove it or soften it.",
+        "'Lean dosing và EI là hai cách tính toán kỹ hơn thế' reads awkwardly. Rewrite it more naturally, for example 'hai cách châm có tính toán hơn'.",
+        "The 'Bắt đầu từ đâu' advice 'nên thử lean dosing trước' is the writer's own recommendation. Make it a suggestion, not a firm rule, or tie it to the video's point that lean dosing suits nutrient-rich substrate.",
+        "The guide repeats the same points in many places: the summary, the comparison table, and the FAQ on why growth is slow. Shorten the repeats."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T12:16:54Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Remove the invented reason \"nước RO là lựa chọn an toàn vì không có khoáng lạ làm kết tủa\". Just say the instructions call for RO and that it's unclear whether tap water works.",
+        "Remove \"Thay nước định kỳ là phần bắt buộc của EI, không bỏ được\" and the table cell \"Không bắt buộc lịch chặt\" for lean dosing. Neither is in the source, which only says to do a 50% change on Sunday.",
+        "The table states \"Nhanh hơn\" for EI growth as fact. The idea was only a hypothesis and a question to test. Soften it, e.g. \"dự kiến lên nhanh hơn\".",
+        "\"Chạy khoảng 30 ngày là đủ thấy khác biệt\" is firmer than the source, which was unsure about the duration and only suggested about 30 days. Write \"có thể chạy khoảng 30 ngày\".",
+        "Drop the invented plant examples \"Ludwigia hay Rotala\" and the claim that hobbyists see this \"khá thường xuyên\". The source names no species. Keep the colour benefit hedged.",
+        "Drop the invented caveats \"Muỗng đong mỗi bộ một cỡ\" and \"Lượng 6 ml trên áp cho một bể cụ thể\", or reduce them to a plain note to follow the kit's instructions. They are unsupported.",
+        "\"Cách này rất dễ sống\" is an awkward calque. Use \"rất dễ làm\" or \"dễ duy trì\".",
+        "In the cost question, \"khi tính cả phân lẫn công thay nước\" adds a criterion the source doesn't have. Just ask which method is cheaper.",
+        "The table says EI gets N and P \"Chủ yếu từ phân châm\". This is reasonable, but make sure it is not presented as a measured result."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-eaGHpCVz-zI": [
+    {
+      "at": "2026-11-06T11:36:25Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Remove \"Rêu bụi phủ lên trên nên trước đó không nhìn ra\" and the matching tip \"Lớp rêu bụi có thể che rêu đốm xanh nằm bên dưới\". The creator only noticed green spot algae after cleaning and gave no reason, so this explanation is invented.",
+        "Delete or soften the tier assignment (\"Trung cảnh\", \"Hậu cảnh\", \"chia theo tầng\"). The transcript doesn't place moss, Hygrophila or Micranthemum umbrosum in a midground, so the layout is a guess presented as fact.",
+        "Using \"rêu\" for moss in \"Rêu và Micranthemum umbrosum gần như đứng yên\" and in the planting list is confusing next to \"rêu hại\". Use \"rêu thủy sinh\" or the moss's name, for example Java moss, for the plant.",
+        "\"Heteranthera zosterifolia lên khỏe nhất\" for the CO2 tank is stronger than the source, which only says it is doing really well. Say \"lên rất tốt\".",
+        "\"Phần lớn trường hợp, tình trạng cây và rêu trong bể đáng tin hơn mấy con số\" and the FAQ line \"thường đáng tin hơn\" turn the creator's distrust of his own test into a general rule. Hedge it, or limit it to this experiment and the unreliable kit.",
+        "The 75% water change is stated as a general starting tip (\"thay nước nhiều trong những ngày đầu\"). Make clear it was one grower's choice because of the leaking substrate, not a standard recommendation.",
+        "Reword awkward lines: \"Câu hỏi muôn thuở\", \"Nhờ vậy bạn dễ thấy\", \"Chưa ai giải thích được chuyện này\", \"ai cũng bất ngờ\". The vague passive subject reads like a translation that is hiding the creator.",
+        "In the CO2 vs no-CO2 table, use the plain Vietnamese \"trải thảm\" or \"phủ thảm\" consistently. \"Có lan, ở mức tạm được\" is note-style, so write a full phrase."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:36:25Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented setup details: 'cùng kích thước, cùng đèn, lọc, phân nền, đá, lũa' and 'nền phân (aquasoil)'. The transcript never lists hardscape, filter or substrate type. Remove them or say only 'hai bể giống nhau'.",
+        "Invented species IDs: 'Vesicularia ferriei' for the moss, 'Phyllanthus fluitans' for the floating plants, and 'Marsilea hirsuta'. The transcript only says 'moss', 'floating plants' and 'Marsilea'. Use the generic names.",
+        "Ludwigia is merged into one species. The video says Ludwigia repens in the CO2 tank and Ludwigia palustris in the no-CO2 tank. Do not present them as identical.",
+        "Table row 'Rêu Vesicularia ferriei – bể có CO2: Chậm' is unsupported. The transcript gives no moss observation for the CO2 tank at day 9. Drop or fix this cell.",
+        "The maintenance list is mostly invented. The transcript only says clean the glass, do a water change, and remove green dust algae (hair algae is also to be cleaned up). 'Gỡ rêu tóc bám trên cây và đá', 'hút đi phần rêu vừa lau rơi xuống' and 'vớt bớt cây nổi nếu phủ quá nhiều' are not stated for this purpose.",
+        "Advice 'giảm cường độ đèn trong vài tuần đầu' is not in the video, which only guesses that strong light plus leaking nutrients caused the algae. Do not present it as a recommendation, or label it as general advice.",
+        "'Cây chưa có CO2 để tận dụng hết' and 'cây chưa đủ sức hút hết dinh dưỡng' add a cause that was not stated. The creator was puzzled and only guessed light plus substrate nutrients. Keep the hedge, and do not repeat the same explanation in the FAQ as if it were settled.",
+        "'Chạy CO2 theo giờ đèn' is not stated. The video only says CO2 had just turned off in the evening. 'Không thua nhiều như nhiều người nghĩ' and 'nhìn cây và rêu thường cho bạn nhiều thông tin hơn' are also added opinions.",
+        "Some phrasing reads like translated note style, e.g. 'Kết quả này hơi lạ và khó giải thích' and 'Bài học ở đây là'. Rewrite these in more natural hobby Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-f7ePYAbDke4": [
+    {
+      "at": "2026-11-06T10:52:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Piranha paragraph: 'piranha cỡ lớn sống chung với cá neon hồng vẫn ổn' adds 'cỡ lớn', which the speaker never said. He only said cardinal tetras are safe with piranhas, since they eat leftover food.",
+        "'piranha nhỏ thả với cá lớn thì không ổn' is a garbled reading of a muddled caption and is not a clear point. Remove it or state only what is clear.",
+        "'Đa số cichlid Trung và Nam Mỹ sẽ đào bới, nhổ sạch cây' is stated too firmly. The speaker only said that middle and South American cichlids can cause trouble in planted tanks. Soften to 'nhiều loài có thể đào bới, phá cây'.",
+        "The piranha-breeding aside (digging holes, cutting plants) and the piranha–cardinal point drift from the title about an easy-care planted tank. Drop them or fold them into the fish-choice section in one line.",
+        "The guide drops much of the talk's other teaching: showing plants well, using simple plants in big tanks, and big-tank filtration (sand filter plus bio filter). Add one short section if the guide is meant to cover the whole talk.",
+        "The 200-snail trick was hearsay ('tôi thấy một người mẫu làm'). 'Ốc gặm sạch gần như mọi thứ trên đá' reads as firm fact. Hedge it, e.g. 'nghe nói có người làm vậy'.",
+        "Some phrasing is stiff or reads like a translation: 'Thủ phạm hay làm bể khó giữ nhất thường là ánh sáng', 'Đó là một phần thú chơi', 'Một chuyện ít người tin'. Rewrite in natural hobby Vietnamese.",
+        "'Một cách làm của dân chơi kỹ' makes up an attribution. Say 'bạn có thể ghé bể khoảng ba ngày một lần' instead."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T10:52:57Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented/unsupported advice: 'Cây dễ chỉ cần nước mềm hoặc cứng vừa... châm phân đều' plus 'Không CO2 mà nước lại cứng thì trồng cây lúc nào cũng như đánh cược' distorts the speaker's remark (he said too hot water/no CO2 is a gamble, hard water is an issue); fix to match.",
+        "Wrong plant claims: 'Cỏ kiếm (Echinodorus) cỡ lớn làm hậu cảnh' and 'Ráy... cho những chỗ khó với tới' are invented; the video named big Asian Echinodorus, Microsorum, Cryptocoryne, Sagittaria, Anubias/moss on balls only loosely. Drop invented placement details.",
+        "'Thả tép Amano vào bể có cá bình thường' / 'ốc như ốc nerite' and 'không đụng tới hóa chất' are embellishments; also 'huyết long' for angelfish is wrong—angelfish is 'cá ông tiên' only, 'huyết long' is unrelated (arowana would be 'cá rồng').",
+        "Soil layering claim 'lớp đá núi lửa vụn bên dưới, sỏi bên trên và phân nền trộn vào giữa' is invented; the video said lava material with gravel on top and lots of fertilizer, no active soil.",
+        "'Bể mới giống như một đứa trẻ sơ sinh' ok, but 'rêu hại có thể đã bùng' and 'thay nước ít' hedged advice is stated as firm; the 3-day visit was the creator's own practice, not a rule for everyone.",
+        "Large-tank technical section wrongly generalized: 'bể cỡ vài nghìn lít có thể dùng hai bình lọc cát' (it was one 5 m tank, one sand and one biological filter); 'kính hai lớp 19 mm... riêng kính nặng hai tấn' is garbled (2,000 kg tank, 160 cm high). 'Phải tính chuyện sàn' is invented.",
+        "'Tủ và nắp: nên để chủ nhà tự làm tủ' presents the creator's business habit as a general rule; hedge it. Also 'Cá ông tiên... ổn' and piranha breeding is fine, but the guide's drift into 'Bể thủy sinh dài 1,5 mét trở lên' and 'bể cao một mét' intro is invented framing.",
+        "Awkward Vietnamese: 'Thò tay vào cắt tỉa thảm trước hay bụi cây hồng', 'Vì vậy...', 'Cái khó là bảo trì', 'Nền cũng không bắt buộc'; some note-style clauses. Rewrite more naturally.",
+        "FAQ 'Bể mới set cần thay nước bao lâu một lần?' repeats the summary and the section text; redundant. Summary and FAQ duplicate each other heavily."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-gMyhZZKGrNQ": [
+    {
+      "at": "2026-11-06T12:05:37Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "Fix \"Cân phân nền cho đều\": the creator weighed the aqua soil, so write \"cân đất nền (aquasoil) cho đều\". \"Phân nền\" reads as fertilizer.",
+        "\"nhét cùng số viên phân nén vào nền\" is awkward. Write \"cắm/chôn cùng số viên phân nền như nhau (4 viên mỗi bể)\".",
+        "\"nhiều khả năng là cách cho cây cơ hội lên thảm cao nhất\" is clumsy and translated. Rewrite it, e.g. \"dùng nước RO khi set bể là cách có nhiều cơ hội nhất để trồng được thảm\".",
+        "\"Cách này đã cho ra một thảm Glossostigma kín\" is vague about what \"cách này\" refers to. Say that the bể set up with RO water gave a dense carpet.",
+        "The invented advice \"nhầm ống thải với ống nước sạch là chuyện dễ xảy ra\" is not in the source. The creator only said coloured hoses make them easy to tell apart. Drop the claim or soften it.",
+        "The details \"vừa nhỏ vừa lắc\" and \"ống nước mẫu\" in the KH test steps are not in the source. Keep to \"nhỏ từng giọt đến khi đổi màu\".",
+        "The FAQ answer \"nước RO nhiều khả năng giúp cây dễ lên hơn\" sounds firmer than the source. The creator used RO only for Glossostigma in a tank with no filter and no CO2. Add that condition and keep the hedge.",
+        "\"Bài này giúp bạn…\", \"Bài cũng hướng dẫn…\" and the repeated \"nghĩa là\" read like note-style or machine phrasing. Use natural, shorter sentences, and cut the table and the \"Bắt đầu từ đâu\" section where they only repeat earlier text."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T12:05:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented/unsupported facts: 'Nếu chỉ số tăng dần theo thời gian thì nhiều khả năng màng hoặc lõi lọc đã đến lúc phải thay' (in summary, FAQ and text) is not in the video; drop or mark as general knowledge.",
+        "'Mức TDS 120 là mốc dùng cho một bể cây có châm CO2' is invented: the tanks in the video have no CO2 stated for this; also 'Bể tép Caridina... có thể cần mức khác' is added. Remove the CO2 claim.",
+        "'Ở Việt Nam, nước máy nhiều nơi còn mùi clo... phơi nước trước khi thay' is added content not from the video; keep the guide focused or hedge it carefully.",
+        "Glossostigma: 'dùng nước RO lúc set bể là cách dễ thành công nhất' states the creator's guess ('I thought the best chance') as firm fact; hedge it. 'chuyển dần sang thay bằng nước máy' differs from the video (he simply switched back to tap)",
+        "'Nhiều dòng Caridina... nước RO gần như là bắt buộc' is firmer than the video; and 'Độ cứng cao không phải là vấn đề lớn với đa số cây và cá' is overstated, since the video says Glossostigma does poorly in hard water.",
+        "Gap in the Caridina/Neocaridina note: the video says Neocaridina was added to the Glossostigma tank, but the guide's list item is broken HTML (<ol><li>...</li><li>...</ol> missing opening <li> structure in 'Hãy…'); check the tags in the 'Những trường hợp' list.",
+        "Wrong/unsupported: 'Cây khó thường là loại thể hiện khác biệt rõ nhất' and 'Máy mới... xả bỏ khoảng một giờ' fine, but 'Ví dụ bể 36 x 22 x 26 cm' orders dimensions oddly; say 36 x 22 x 26 (dài x rộng x cao).",
+        "Section 'Muốn tự kiểm chứng' mixes the creator's tank setup (dragon stone, nutrient capsules, plastic wrap, spare filter) into advice; the tips on plastic wrap, new filter breaking and plant quality check are tangential; trim.",
+        "Awkward Vietnamese: 'Nền cân bằng cân', 'Lót thêm số viên phân nhét gốc như nhau', 'Cùng bộ cây trải đủ độ khó', 'Cùng đèn, cùng lọc, cùng cường độ đèn' are unnatural; rewrite with 'phân nền', 'viên phân nén', 'đủ ba mức độ khó'.",
+        "The video has no results, yet 'Thí nghiệm như vậy cần nhiều tuần' and 'trong nhiều tuần' are invented time spans; remove. Also 'Thực tế không đơn giản vậy' and 'Rất nhiều bể cây đẹp vẫn chạy bằng nước máy' go beyond the video."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-hRNBUbqzzuw": [
+    {
+      "at": "2026-11-06T11:08:25Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "The 'tắc sau khoảng một tháng… chín tháng' figures are the creator's 'let's say' example. Present them as a rough illustration ('có thể… lâu hơn nhiều'), not a firm number. The FAQ repeats the same issue.",
+        "'lõi lọc (khung nhựa bọc bông, nhồi than)' and 'tấm nhựa có gân' add details the video never gave. Describe them generically: lõi lọc dùng một lần, tấm nhựa vi sinh.",
+        "'phần lớn trường hợp chỉ cần giữ tấm nhựa vi sinh và thêm một tấm mút thô là đủ… không cần khoét gì cả' turns a personal preference into a general rule. Hedge it, e.g. 'nếu muốn gọn, có thể…'.",
+        "'Mút đầu hút chặn được… cá nhỏ, tép nhỏ khỏi bị hút vào' and 'chà vò mạnh… mất vi sinh' are not in the video. Remove them or keep only what the video supports.",
+        "Awkward phrasing: 'Mút cắt bằng kéo thường được', 'Đây là loại cần độ nhất', 'Điểm lợi khác là'. Rewrite as natural Vietnamese, e.g. 'Mút thô dễ cắt bằng kéo', 'Loại này có nhiều chỗ để độ nhất'.",
+        "'Tetra Whisper' names a brand the video only called 'Whisper'. Say 'lọc Whisper' to match.",
+        "The intro says 'ba kiểu lọc treo' but the guide then covers extra sections (intake fit, sump). Fix the count, or fold those into the three types.",
+        "The sump/internal-filter section is off the HOB title and only brief. Shorten it or mark it clearly as a side note.",
+        "The summary bullets, intro, 'Vì sao dùng mút thô' and FAQ repeat the same points (lifespan 5/10 years, overflow). Cut the duplicates.",
+        "The tip to fill the whole basket with coarse foam is mentioned, but the creator's cost point is missing (a ~$5 pad covers several filters, the Walmart conversion costs ~$20 once). Add a short cost line in metric/VND-neutral terms."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-oXXJ8UgM2kM": [
+    {
+      "at": "2026-11-06T11:25:30Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Nhiều người không thay quá 50% mỗi lần\" and \"Một cách làm phổ biến là thay 30–40% mỗi tháng\" turn the creator's personal routine into common practice. Rewrite as one option (\"có thể thay 30–40% mỗi tháng\") and say 50% is a reasonable ceiling for stability and hot water.",
+        "\"Trong 2 viên đó có thể chỉ 1 viên là kẹo nâu, viên còn lại là kẹo xanh\" doesn't match the example. Taking out 2 blue plus maybe 1 brown shows the point better: the water removed is mostly clean water, so little waste leaves.",
+        "\"dù chưa bỏ lần thay nước nào\" and \"chưa bỏ một lần thay nước nào\" read ambiguously, as if the person had never changed water. Use \"chưa bỏ lỡ lần thay nước nào\".",
+        "\"chất bẩn\" is used throughout for nitrate, calcium and phosphate. Use \"chất tích tụ\" or \"nitrate và khoáng\", because calcium from tap water isn't dirt.",
+        "\"hôm sau chúng nằm đáy hoặc chết\" adds a symptom the video doesn't give. Say \"bệnh hoặc chết trong vài ngày\".",
+        "\"Họ thấy mình làm đủ việc nên yên tâm bể đang ổn\" and \"Bể vẫn trong, cá cũ vẫn khỏe, đến khi thả cá mới thì mới lộ ra\" are slightly choppy. Smooth them into natural sentences.",
+        "The bullet summary and the start of the \"Khắc phục\" section differ: the video says to first check whether you're falling behind. Keep the order: check the schedule, then raise the water change volume."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:25:30Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented advice not in the video: 'nên tăng lượng thay nước dần qua vài lần thay chứ đừng thay một phát quá lớn' and 'Cá cũ đã quen nước xấu, đổi nước đột ngột cũng làm chúng sốc'. The creator only says to raise water changes. Remove it or hedge it as general advice.",
+        "Invented step: 'Trước khi thả cá mới vào bể đã nuôi lâu, hãy thay nước vài lần' and 'đo cả nước máy để so sánh. Chênh lệch lớn là dấu hiệu...'. Neither is in the video. Remove them or tone them down.",
+        "Wrong numbers in the table: '30% mỗi tháng' is not in the video. The creator says 30–40% once a month, which the table has, but '30% mỗi hai tuần... gần cùng lượng công' is only an example against 10% weekly, so don't present it as a recommended schedule. Also 'Khoảng 50% mỗi lần' as a row is just a cap, not a schedule.",
+        "The creator's personal habits and opinions are stated as firm facts: 'thay ở mức đó trở xuống thì nước trong bể ổn định hơn, cá ít bị sốc vì nhiệt độ hay pH' (he says 'in my opinion', and does not mention temperature or pH shock). Hedge it, e.g. 'nhiều người thấy bể ổn định hơn'. The same applies to the FAQ answer on 50%.",
+        "The video's point that thay nước 10% mỗi tuần mostly removes water you just added is explained muddily: 'một phần nước đó chính là nước sạch bạn vừa đổ vào tuần trước'. Reword it more clearly. Also 'Lấy ví dụ một bể khoảng 75 lít' is fine (20 gal), but the 'hũ kẹo' analogy replaces the M&M analogy loosely. Keep it simple and consistent.",
+        "'Cách xử lý... Không cần thuốc hay chế phẩm gì' is invented. Drop it.",
+        "'pH: ... là dấu hiệu nước đang cạn khoáng đệm' and 'Nitrate: đo định kỳ' go beyond the video, which says pH 'probably falling' only as a likely cause. Soften, and note the creator doesn't say to test nitrate or pH to diagnose.",
+        "Awkward phrasing: 'Mấy dịp bận rộn như Tết... là chuyện rất hay gặp', 'đánh lừa người chơi kỹ tính nhất', and the stray sentence 'Mỗi ngày một ít, lâu dần là đầy' read like loose translation. Rewrite more naturally. 'Dân chơi gọi tình trạng này' is fine.",
+        "The section 'Những sai lầm hay gặp' and 'Bắt đầu từ đâu' repeat the earlier content. Merge or trim them, and keep the advice to what the video supports."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-qImy1PXdkvU": [
+    {
+      "at": "2026-11-06T11:06:51Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Fix awkward phrase \"Vắt mút trong nước bể đựng ở túi\" (summary bullet 3); say \"vắt mút trong túi nước lấy từ bể\".",
+        "\"Lặp lại thường khoảng 3–4 túi nước\" reads clumsy; use \"thường cần khoảng 3–4 túi nước\".",
+        "\"giúp bể mới bớt 'trơ'\" is an odd, unclear term; say plainly the water seeds the new tank with a little bacteria and microorganisms.",
+        "Step 1 \"Tháo đồng hồ, nhẫn\": the ring is invented. Keep a general \"tháo đồng hồ\" or drop it as a trivial detail.",
+        "Step 2 says to fill the bag, but step 7 says not to fill it too much. Make it consistent: lấy nước vừa đủ, không đầy.",
+        "Sủi khí section: \"Nếu sủi còn ra bọt đều là được\" is not from the video. Replace it with the actual advice: just inspect it by eye.",
+        "The \"một tuần\" for goldfish tanks is presented as a general rule. Soften it to a hedged example, such as a heavily stocked tank filling up fast.",
+        "Some sentences read like translation or notes, for example \"Một cách không phải ai cũng làm là…\" and \"Với người có nhiều bể…\". Rewrite them in more natural hobby Vietnamese.",
+        "The summary, the \"Bắt đầu từ đâu\" list and the FAQ repeat the same points several times. Trim the repetition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-sdYW9rupCa8": [
+    {
+      "at": "2026-11-06T11:50:19Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "FAQ: \"Thảm Monte Carlo hỏng là do trải đất sai, không phải do bản thân đất ao\" states the creator's guess (\"I think that's why\") as firm fact. Hedge it: \"nhiều khả năng do...\".",
+        "Same overconfidence: \"do rễ không có gì để hút\" (mistakes list) and \"Kết quả là thảm đứng yên\". Use \"có lẽ\" or \"nhiều khả năng\" instead.",
+        "\"Rotala rotundifolia 'Orange Juice'\" is not what the video says. Write \"Rotala 'Orange Juice'\" without the invented species name.",
+        "The scarlet badis bullet (males sold alone, \"may mắn\" finding females, aggression between males) drifts from the substrate comparison. Cut it to one line on stocking.",
+        "The mistake \"Để bình CO2 hết mà không để ý\" and the sentence \"Một ký axit citric dùng được khoảng một năm cho bể cỡ này\" come from a side remark. Drop them, or drop the \"cho bể cỡ này\" claim, which the video never makes.",
+        "\"Trước khi đo, ai cũng nghĩ dinh dưỡng của đất ao nằm hết dưới nền\" turns the creator's own expectation into \"everyone\". Rephrase it neutrally, e.g. \"Thường người ta cho rằng...\".",
+        "\"Aquasoil thì nằm ngay trên mặt nền và nhả dinh dưỡng ra nước dễ hơn nhiều\" adds detail the video doesn't give. Say only that without a gravel cap, nutrients reach the water more easily.",
+        "The top summary, the \"Cá và tép\" section, the table and the FAQ repeat the same points. Merge or cut to avoid redundancy.",
+        "Some phrasing reads like a translation: \"Kết quả này không có gì lạ\", \"Hai bể đã lâu không đo nước\", \"Nhìn cây chỉ đoán được phần nào\". Rewrite in more natural hobbyist Vietnamese."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:50:19Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Remove the invented line 'Cây nổi: Phyllanthus fluitans'. No floating plant is mentioned in the transcript.",
+        "Remove or soften 'cùng kích thước, cùng đèn, cùng lọc, cùng bố cục đá lũa'. The video only says the tanks are identical twins, and it never states filter, size or hardscape layout.",
+        "The 'Tiền cảnh / Trung cảnh / Hậu cảnh' plant list assigns zones the video never gives. Drop the zoning and list the plants without positions.",
+        "'Vesicularia ferriei' and 'Hygrophila lancea Araguaia' are species names the speaker never states. Say 'rêu' (moss) and 'Hygrophila Araguaia', or leave out the species names.",
+        "'đất trồng sen súng (pond soil)' is invented. The video only says pond soil, so use 'đất ao' or just 'pond soil'.",
+        "Add the missing fish: the video covers guppies breeding in the dirt tank (a few babies), scarlet badis (1 male and 2 females in each tank) and cherry shrimp. The guide only mentions the guppies and otocinclus.",
+        "The section heading 'Kỳ vọng phân nước thay được nền' makes no sense, and its advice is muddled. Rewrite it as something like 'Quên rằng không châm phân thì cây chỉ sống nhờ nền'.",
+        "Several sentences read like notes or calques. Examples: 'Chuyện này dễ đoán', 'Thủ phạm thường là', 'Cây nào rễ không chạm đất là cây đó đói', 'Bạn nên nhìn thêm tình trạng lá để đánh giá'. Rephrase them in natural Vietnamese.",
+        "The summary says the soil tank's plants grew 'cho cây ... lên tốt' in a loose way. The video says the dirt tank 'kept up', with stems slightly taller but paler. Make that wording more precise."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-wICf_0o6ys4": [
+    {
+      "at": "2026-11-06T11:22:32Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Fix the stiff, translated-sounding phrases: \"Đi kèm với vây, cá bệnh đôi khi lờ đờ\" (say \"Ngoài vây, cá bệnh đôi khi còn lờ đờ…\"), \"Ở một số cá, màu vây làm dấu hiệu này rất khó thấy\" and \"Nếu nước đúng là có vấn đề\".",
+        "\"Thuốc đôi khi làm thay đổi độ nhớt của nước nên có thêm khí sẽ an tâm hơn\" is awkward. Rewrite it more plainly, for example \"thuốc có thể làm nước đặc hơn nên cần thêm oxy\".",
+        "\"Theo kinh nghiệm dùng thực tế, thuốc không thấy làm ố keo silicon…\" reads as the creator's personal experience. Hedge it neutrally instead, for example \"thường không thấy làm ố silicon, nhưng vẫn dễ dính tay và quần áo\".",
+        "\"Nguyên tắc chung là tăng từ từ và rút muối ra chậm qua nhiều lần thay nước\" adds salt-dosing detail the video did not give, because the creator sent viewers to a blog post. Keep it short and hedged, or say to follow a reliable dosing guide.",
+        "\"Cá bơi khỏe hơn và ăn lại\" is a loose rendering of \"energy level and appetite returning\". Say \"cá hoạt bát trở lại và thèm ăn lại\".",
+        "The list \"Thối vây bắt đầu… Phải tìm… Nước bẩn…\" and the closing section \"Bắt đầu từ đâu\" repeat much of the body text. Trim the repetition and keep each point short."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T11:22:32Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Invented advice: 'Bể có cây hoặc ốc thì nên chuyển cá bệnh sang bể riêng để tắm muối' and FAQ 'tốt nhất là tắm muối cho cá trong bể cách ly' are not in the video; the video only says salt is unsafe for plants/snails and to be careful. Remove.",
+        "Invented: 'vì chúng sẽ hút mất thuốc' (reason for removing carbon); the video gave no reason. Also 'Cá chịu lạnh lâu ngày sẽ căng thẳng' is fine, but 'Thuốc thường không làm ố keo silicon' is the creator's personal experience stated as general fact; hedge it ('theo kinh nghiệm...' wording without naming anyone).",
+        "Doubtful-fact: 'Đây là chuyện bình thường, không cần lo' for colour change and the FAQ 'Vây betta mọc lại màu trắng có sao không? Không sao' overgeneralise a single anecdote; the video said it can sometimes happen. Soften.",
+        "Overstated: 'Thối vây thường do vi khuẩn hoặc nấm' / 'Hay gặp nhất là một loại nhiễm trùng mở đường' ok, but 'Nước bẩn. Đây là nguyên nhân phổ biến nhất' upgrades 'a common cause' to the most common; change to 'một nguyên nhân phổ biến'. Same in FAQ 'Thủ phạm hay gặp nhất'.",
+        "Salt section lacks the video's pointer that dosing/step-up/slow removal are separate details; 'Muối hột dùng cho bể cá là lựa chọn thay thế tốt nhất' is fine but the sentence 'bạn cần biết cách tính liều...' gives no guidance; either add standard dosing caution or phrase it plainly.",
+        "Mischaracterised: 'Dòng chảy quá mạnh ... làm cá mệt và căng thẳng' ok, but 'lọc vi sinh (lọc bio, sponge filter) chạy bằng sủi' is muddled; use 'lọc mút (sponge filter) chạy bằng sủi khí'.",
+        "Missing hedge: 'Thuốc có thể làm nước đặc hơn một chút, cá bệnh sẽ dễ thở hơn khi có thêm khí' - phrase as aeration helping keep fish comfortable, as the video says; 'đặc hơn' is a loose rendering of viscosity.",
+        "Awkward/translated phrasing: 'Thử tưởng tượng phải sống cả ngày trong nhà lạnh khoảng 10°C', 'tưa tưa', 'Hay gặp nhất là một loại nhiễm trùng mở đường, rồi loại thứ hai tranh thủ...'; rewrite more naturally.",
+        "Off-topic/padding: the 'Bắt đầu từ đâu' section repeats earlier content and the long tank-mate suggestion ('cũng có thể nuôi chung với cá khác cho đỡ chán') is a weak, unhedged rendering; keep it hedged or drop."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-z1Adj14jlRE": [
+    {
+      "at": "2026-11-06T12:12:20Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Cut or hedge \"Rêu bụi xanh chủ yếu bám kính chứ không làm hại cây\". The creator never said this. Only say that the plants in the RO tank still grew well.",
+        "Soften \"đổi sang RO cũng không phải tấm khiên chống rêu hại như nhiều người nghĩ\". It reads like a conclusion, but the creator said he doesn't know why the algae appeared. Say instead that the cause is unclear and one tank can't show RO is to blame.",
+        "Make \"nếu dùng RO nguyên chất thì cây và tép sẽ thiếu canxi, magie\" less absolute. For example, write that RO with no minerals can lack calcium and magnesium, so it should be remineralised.",
+        "The shrimp (Neocaridina orange and green jade, added during the test) are missing. Add one line, or leave them out on purpose, because they're minor.",
+        "Reword the passive, translated-sounding phrases. \"Hai bể được set giống nhau\", \"cả hai bể được tỉa giống nhau\" and \"hai bể chỉ được châm một ít kali\" would read better in active form, for example \"Mình set hai bể giống hệt nhau\".",
+        "The opening bullet list repeats the later sections. Shorten it, or turn it into a brief summary with fewer details such as the KH, pH and GH numbers.",
+        "Use the full note about the plan once. Write that the plan was to raise the light and fertiliser, but in the end only potassium was dosed. Don't spread this over two separate sentences."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T12:12:20Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Invented species list: 'Ludwigia palustris', 'Rotala indica, Rotala wallichii', 'Lilaeopsis brasiliensis', 'Eriocaulon cinereum' are not in the video. It only names Ludwigia Super Red, Rotala, Hygrophila Araguaia, Marsilea crenata, Staurogyne repens, Myriophyllum mattogrossense and Eriocaulon. Use those names only, and fix the FAQ mention of 'Eriocaulon cinereum'.",
+        "Drop the unsupported claim 'Khi cây thiếu carbon, nước mềm và ít khoáng có thể cho kết quả tốt hơn'. The video only says RO 'might' do better without CO2 and gives no reason.",
+        "Delete 'nếu bạn nuôi những cây khó vốn đòi nước mềm, hoặc nước máy nhà bạn có vấn đề riêng, thì RO vẫn có chỗ dùng'. The video never says this.",
+        "'nhất là ở kính bên hông' is wrong. The algae was mainly on the left side and the front glass. Also 'Bể nước máy không gặp chuyện này' goes beyond the video, so say only that the RO tank had the problem.",
+        "'Tăng nhẹ đèn và phân ở cả hai bể' contradicts the later text, where only a little potassium was dosed. Make the plan and the actual result consistent.",
+        "'Đá làm nước cứng thêm theo thời gian... RO thì bạn kiểm soát độ cứng dễ hơn' and 'RO giúp bạn chủ động kiểm soát độ cứng' add reasoning the video does not give. Keep the hedge: RO 'probably' does better when rocks release calcium.",
+        "Hedge the Staurogyne and Myriophyllum differences more clearly as tiny and possibly not caused by the water. The summary and FAQ say the RO tank was ahead, but the video calls these differences very small.",
+        "The 'Những điều dễ hiểu sai' section adds generic claims, for example 'Cây khỏe chủ yếu nhờ đủ ánh sáng, CO2 và nền tốt'. Cut or soften them.",
+        "Phrasing reads like translated notes, for example 'Phải soi thật kỹ mới thấy', 'đáng tiền hơn' and 'Loại nước đứng sau mấy yếu tố đó'. Rewrite it as natural Vietnamese hobby language."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
