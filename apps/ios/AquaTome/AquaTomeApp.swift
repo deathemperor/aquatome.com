@@ -120,6 +120,9 @@ struct AquaTomeApp: App {
       // (which also says the phone is online again); the owner's, this phone's token for the daily report, if it's wanted
       // and not sent with this session yet. Whichever tab is open: the notifications don't wait for the Tanks tab.
       .task(id: "\(account.user?.id ?? "")|\(account.syncs)") {
+        // Not before the launch's first answer: no account yet isn't signed out (which forgets an account that isn't the
+        // owner's, so it would ask again each launch).
+        guard account.state != .unknown else { return }
         await account.owner.check()
         await account.push.send()
       }

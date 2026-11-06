@@ -163,7 +163,7 @@ func onAgainDuringATakeBackSendsAgain() async throws {
   #expect(fake.owner?.pushTokens == [:])
 }
 
-@MainActor @Test("Signed in again after the session ended, in the same launch: the token goes again, with the new session")
+@MainActor @Test("Signed in again in the same launch, after the session ended or while still signed in: the token goes again, with the new session")
 func signedInAgainSendsAgain() async throws {
   let d = store()
   let (fake, access, sent, who) = try await pushing("ui-apple", defaults: d)
@@ -173,17 +173,22 @@ func signedInAgainSendsAgain() async throws {
   await push.want(true)
   await push.received(apnsToken)
   #expect(sent.requests.count == 1)
-  // Another request was told the session is over; the owner signs in again.
-  await owner.failed(OwnerError.signedOut, overview: false)
-  #expect(who.ends == 1)
-  await push.send()
-  #expect(sent.requests.count == 1)
+  // Signed in again to the same account while signed in (a passkey added long after signing in): a new session.
   who.now = ("ui-apple", try await signIn(client(fake), "ui-apple").token)
   await owner.check()
   await push.send()
   #expect(sent.requests.map(\.method) == ["POST", "POST"])
+  // Another request was told the session is over; the owner signs in again.
+  await owner.failed(OwnerError.signedOut, overview: false)
+  #expect(who.ends == 1)
   await push.send()
   #expect(sent.requests.count == 2)
+  who.now = ("ui-apple", try await signIn(client(fake), "ui-apple").token)
+  await owner.check()
+  await push.send()
+  #expect(sent.requests.map(\.method) == ["POST", "POST", "POST"])
+  await push.send()
+  #expect(sent.requests.count == 3)
 }
 
 @MainActor @Test("A session over while sending signs the account out, as a sync told so does")

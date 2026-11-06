@@ -16,12 +16,12 @@ public final class OwnerPush {
   @ObservationIgnored private let owner: OwnerAccess
   @ObservationIgnored private let defaults: UserDefaults
   @ObservationIgnored private let environment: String
-  /// The token sent this launch, and in which of the owner's eras: sent again if APNs gives another, or if the session
-  /// it went with is gone (the site keeps a token with the session that sent it; signed in again, it has none).
+  /// The token sent this launch, and the session it went with: sent again if APNs gives another, or with another session
+  /// (the site keeps a token with the session that sent it; signed in again, even to the same account, it has none).
   @ObservationIgnored private var sentNow: Registered?
   private struct Registered: Equatable {
     let token: String
-    let era: Int
+    let session: String?
   }
   static let wantedKey = "owner.push.wanted"
   /// The token the site was last given from this phone, kept across launches: what a turn-off or a sign-out takes back.
@@ -56,7 +56,7 @@ public final class OwnerPush {
     guard owner.isOwner == true else { return }
     guard wanted else { return await takeBack() }
     guard let token else { return }
-    let now = Registered(token: token, era: owner.era)
+    let now = Registered(token: token, session: owner.sessionToken)
     guard now != sentNow else { return }
     do {
       try await owner.ask { try await $0.pushToken(token, environment: self.environment) }
