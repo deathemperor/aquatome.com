@@ -1,8 +1,8 @@
 {
   "id": "hemigrammus-bleheri",
   "native": {
-    "input": "c087d17b749ef126",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "dd3f1a84cfa9edae",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "CO",
@@ -32,12 +32,6 @@
         "name": "Rio Negro",
         "source": "seriouslyfish",
         "quote": "Rio Meta and Rio Negro in Colombia and Brazil.",
-        "ok": true
-      },
-      {
-        "name": "Purus River",
-        "source": "seriouslyfish",
-        "quote": "The striking p-distance divergence (9.1%) between the Peruvian P. georgiae and our samples from the Purus River indicates the possibility of Petitella georgiae being a species complex.",
         "ok": true
       }
     ],
@@ -108,9 +102,5 @@
     ],
     "requests": 12,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

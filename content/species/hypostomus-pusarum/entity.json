@@ -1,0 +1,91 @@
+{
+  "id": "hypostomus-pusarum",
+  "scientificName": "Hypostomus pusarum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "lNumber": "L078",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-parnaiba"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
+      "html": "<ul><li>Scientific name: Hypostomus aff. pusarum</li><li>Common names: L078, Parnaiba Pleco</li><li>Etymology: Greek, hypo = under + Greek, stoma = mouth.</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
+      "html": "<p>Brazil, Maranhão, Rio Parnaiba drainage, Piauí Rivers, Parnaíba.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1251",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/51dca190992c6db5.webp",
+      "width": 960,
+      "height": 550,
+      "licence": "CC BY-SA 4.0",
+      "author": "Nathalia Kaluana Rodrigues da Costa, Roney Emanuel Costa de Paiva, Márcio Joaquim da Silva, Telton Pedro Anselmo Ramos, Sergio Maia Queiroz Lima",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Subset_of_the_ichthyofauna_of_the_Cear%C3%A1-Mirim_River_basin,_Rio_Grande_do_Norte_State,_Brazil.jpg",
+      "caption": "Subset of the ichthyofauna of the Ceará-Mirim River basin, Rio Grande do Norte State, Brazil. A) Leporinus piau, B) Serrapinnus piaba, C) Trachelyopterus galeatus, D) Sciades herzbergii, E) Hypostomus",
+      "thumb": "https://media.aquatome.com/commons/51dca190992c6db5-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-eEYVu_2s0c",
+      "title": "Hypostomus pusarum (Starks, 1913) o cascudo que inspirou nossa logomarca.#peixesdacaatinga #cascudo",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "P-eHD8BJFZ0",
+      "title": "Peixe Cascudo (Hypostomus pusarum)",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kính"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá lau kính",
+        "rong tảo viên cho cá pleco"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

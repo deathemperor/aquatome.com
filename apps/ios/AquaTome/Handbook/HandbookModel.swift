@@ -2,6 +2,7 @@ import Foundation
 import Handbook
 import Observation
 import Tanks
+import Telemetry
 
 /// The handbook tab: the site's index for this language (kept on the phone for offline use), searched natively.
 @Observable
@@ -52,6 +53,11 @@ final class HandbookModel {
   private(set) var labels = HandbookIndex.Labels()
   /// How many shards of pages each kind has: the kinds the app draws itself (PageDoc).
   private var shardCounts: [String: Int] = [:]
+  /// Whether the site takes the app's anonymous telemetry, as its index read fresh this launch says; nil until then. Not
+  /// from the copy kept from an earlier launch: a flag the site has turned off since must not let anything go.
+  private(set) var siteTelemetry: Bool?
+  /// The app's anonymous telemetry: each page opened. The app sets it.
+  @ObservationIgnored var telemetry: Telemetry?
   /// Keeps on their way, by shelf (KeepOffline's key): how many pictures are in, of how many. Here, not on the shelf's
   /// screen, so a shelf left and opened again still shows its keep and can stop it.
   private(set) var keeping: [String: (done: Int, of: Int)] = [:]
@@ -228,8 +234,10 @@ final class HandbookModel {
     return (HandbookIndex.guides(about: ids, in: all.filter { $0.video == nil }), HandbookIndex.guides(about: ids, in: all.filter { $0.video != nil }))
   }
 
+  /// A page opened (drawn by the app or as the web page): on the pages read last, and its view for the telemetry.
   func read(_ item: HandbookIndex.Item) {
     paths.read(item)
+    telemetry?.record(.view(path: item.path))
     #if DEBUG
     // UI tests (`-pages-later`): the index says which kinds the app draws only once a page has opened.
     if let ix = pagesLater {
@@ -257,8 +265,11 @@ final class HandbookModel {
       #if DEBUG
       if ProcessInfo.processInfo.arguments.contains("-pages-later"), pagesLater == nil, count == 0 {
         pagesLater = ix
-        return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels), .ready)
+        return use(HandbookIndex(lang: ix.lang, items: ix.items, home: ix.home, labels: ix.labels, telemetry: ix.telemetry), .ready)
       }
+      // `-index-kept-only`: only the copy kept from an earlier launch is read, and the site's never comes (offline, or a
+      // slow site).
+      if ProcessInfo.processInfo.arguments.contains("-index-kept-only") { return use(ix, .offline) }
       // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
       // waits for it: AppLink).
       if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
@@ -304,6 +315,7 @@ final class HandbookModel {
     matcher = PageMatcher(index: ix.items)
     paths.use(ix)
     shardCounts = ix.pages
+    if s == .ready { siteTelemetry = ix.telemetry }
     dropKeptOfOtherCounts()
     shelves = HandbookShelves(ix)
     labels = ix.labels
@@ -331,23 +343,17 @@ final class HandbookModel {
       // `-vi-at-root`: the site has taken "/vi" out of its Vietnamese pages' addresses.
       let f = args.contains("-vi-at-root") ? HandbookIndex.fixtureAtRoot : .fixture
       // `-pages-count N`: the site has split its guides into N shards since the last launch.
-      if let i = args.firstIndex(of: "-pages-count"), i + 1 < args.count, let n = Int(args[i + 1]) {
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: ["guide": n]))
-      }
+      let counted = args.firstIndex(of: "-pages-count").flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }.map { ["guide": $0] } ?? f.pages
       // `-equipment`: the site lists a kind of kit too, with the many fish it's for, and has its page as blocks.
-      if args.contains("-equipment") {
-        let f = HandbookIndex.fixture
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items + HandbookIndex.fixtureKit, home: f.home, labels: f.labels, pages: f.pages.merging(["equipment": 1]) { a, _ in a }))
-      }
+      let kit = args.contains("-equipment")
+      let pages = kit ? counted.merging(["equipment": 1]) { a, _ in a } : counted
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
-      if args.contains("-whats-new") {
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items, home: f.home, labels: f.labels, pages: f.pages, latest: "/app/latest/vi.json"))
-      }
+      let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
-      if args.contains("-breeds") {
-        return .fixed(HandbookIndex(lang: f.lang, items: f.items + HandbookIndex.fixtureBreeds, home: f.home, labels: f.labels, pages: f.pages))
-      }
-      return .fixed(f)
+      let items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
+      return .fixed(HandbookIndex(lang: f.lang, items: items, home: f.home, labels: f.labels, pages: pages, telemetry: args.contains("-site-telemetry"),
+                                  latest: latest))
     }
     #endif
     return .site

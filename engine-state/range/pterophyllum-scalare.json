@@ -1,8 +1,8 @@
 {
   "id": "pterophyllum-scalare",
   "native": {
-    "input": "eb1a1301c4b6c706",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "eb3971256a584262",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "BR",
@@ -89,6 +89,13 @@
         "ok": true
       },
       {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
         "name": "Rio Ucayali",
         "source": "seriouslyfish",
         "quote": "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage.",
@@ -98,13 +105,6 @@
         "name": "Rio Solimões",
         "source": "seriouslyfish",
         "quote": "It's found in numerous river systems, including the Rio Oyapock, Rio Essequibo, Rio Ucayali, Rio Solimões and the main Amazon drainage.",
-        "ok": true
-      },
-      {
-        "name": "Rio Negro",
-        "source": "glaser",
-        "quote": "Wild-collected angelfish from the municipality of Santa Isabel on the Rio Negro, Brazil.",
-        "country": "BR",
         "ok": true
       }
     ],
@@ -271,9 +271,5 @@
     ],
     "requests": 15,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

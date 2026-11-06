@@ -4,11 +4,12 @@
   "altNames": [
     "Cá trê mắt xanh",
     "Cá doradid Hancock",
-    "Marbled Talking Catfish",
+    "Marbled talking catfish",
     "Blue-eyed catfish",
     "Hancock's doradid",
     "Cá nheo biết nói vân cẩm thạch",
-    "Marbled Raphael Catfish"
+    "Marbled Raphael Catfish",
+    "Cá da trơn gai biết nói"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá trê nói chuyện cẩm thạch, Amblydoras nauticus, là một loài cá trê doradid nhỏ đến từ Peru, được mô tả từ Nauta thuộc vùng Amazon của Peru. Loài này thường vẫn được bán với tên A. hancockii, một tên hiện được coi là đồng nghĩa với Platydoras hancockii. Cá khỏe, chịu được nhiều điều kiện nước, hay ẩn nấp và hiếm khi thấy vào ban ngày. Cá phát ra âm thanh nghe được bằng cách cọ gai vây ngực trong ổ khớp và cộng hưởng bóng bơi, và gai của cá dễ bị vướng vào lưới vợt.</p><ul><li>Kích thước tối đa: 75 mm SL</li><li>Kích thước bể: 60 × 30 cm</li><li>Nhiệt độ: 23–28°C</li><li>pH: 5,5–7,5</li><li>Độ cứng: 2–20 dGH</li></ul>",
@@ -31,14 +32,19 @@
     "behaviour:planetcatfish": "<p>Đây là loài lý tưởng cho bể cộng đồng. Giống mọi loài doradid khác, cá sống hòa thuận với đồng loại và với các loài cùng họ. Bạn có thể nuôi chung chúng với đủ loại cá, từ tetra cho đến cichlid cỡ vừa.</p>",
     "dimorphism:planetcatfish": "<p>Một số người nuôi kể rằng bụng cá cái có màu trắng kem, còn bụng cá đực có lấm tấm đốm. Nhìn từ trên xuống hoặc từ dưới lên, cá đực thon hơn, còn cá cái bè hơn.</p>",
     "reproduction:planetcatfish": "<p>Trong bể nuôi, loài này đẻ trứng rải rác. Tuy vậy, cũng có ghi nhận ngoài tự nhiên về việc cá làm tổ bọt trong đám cây và cá đực đứng canh tổ. Người ta từng bắt được cá con Amblydoras cực nhỏ (dưới 10 mm SL) trong các đám lau sậy mọc nửa dưới nước và các bụi cây ngập một phần. Ở vùng nước sâu khoảng 45 cm thì không bắt được con trưởng thành nào. Cá con thì có ở khắp nơi, một lần kéo vợt có thể vớt được mười con trở lên. Đến nay mới chỉ có đúng một ghi nhận về việc cho loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 26, pp 133.</p>"
+    "references:planetcatfish": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 26, pp 133.</p>",
+    "quickFacts:glaser": "<ul><li>Nguồn gốc: Brazil</li><li>Kích thước thường bán: 4–6 cm</li></ul>",
+    "beforeYouBuy:glaser": "<p>Amblydoras nauticus là một loài cá da trơn rất đẹp và hiền. Chúng cũng dễ nuôi trong bể, nên người mới chơi vẫn có thể nuôi được.</p>",
+    "distribution:glaser": "<p>Đây là một trong những loài phổ biến nhất của họ Doradidae ở vùng Amazon.</p>",
+    "behaviour:glaser": "<p>Cá da trơn không có vảy. Bù lại, nhiều loài có các tấm xương phủ kín thân để bảo vệ. Ở họ Doradidae, các tấm xương này đôi khi còn mọc thêm gai.</p><p>Người bản địa không ưa loài này lắm. Khi có người lội nước đi tới, cá thường không bơi đi mà nằm yên và dựng gai vây lưng lên. Cái gai này cứng, sắc và có răng cưa. Lỡ giẫm phải là đau điếng!</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.8,
-      "planetcatfish": 0.82
+      "planetcatfish": 0.82,
+      "glaser": 0.8
     }
   }
 }

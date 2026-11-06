@@ -198,7 +198,8 @@ has to change for it.
 ## Log (`log.ts`)
 
 `CallLog` gains `turns` (double8), `tools` (double9), `refs` (double10, reference photos shown) and `stopped` (blob10:
-`answer`, `calls`, `tools`, `time`, `tokens`, `fallback`). The dashboard's fish-ID page shows turns and cost per
+`answer`, `calls`, `tools`, `time`, `tokens`, `fallback`); later `rechecked` (double11: 1 when an unsure first answer was
+sent back for a second look, docs/review/fish-id-accuracy.md). The dashboard's fish-ID page shows turns and cost per
 identification next to today's columns.
 
 ## Before and after

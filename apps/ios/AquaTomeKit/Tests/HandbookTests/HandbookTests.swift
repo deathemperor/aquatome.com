@@ -39,6 +39,21 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(throws: (any Error).self) { try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":2,"lang":"vi","items":[]}"#.utf8)) }
 }
 
+/// The app sends its anonymous telemetry only once the site says it takes it: `telemetry: true`, nothing else.
+@Test func theSiteTakesTelemetryOnlyWhenItsIndexSaysTrue() throws {
+  func flag(_ field: String) throws -> Bool {
+    try JSONDecoder().decode(HandbookIndex.self, from: Data(#"{"version":1,"lang":"vi","items":[]\#(field)}"#.utf8)).telemetry
+  }
+  #expect(try flag(#","telemetry":true"#))
+  #expect(try !flag(""))
+  #expect(try !flag(#","telemetry":false"#))
+  #expect(try !flag(#","telemetry":"true""#))
+  #expect(try !flag(#","telemetry":1"#))
+  // The copy kept on the phone says the same.
+  let kept = try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(HandbookIndex(lang: "vi", items: [], telemetry: true)))
+  #expect(kept.telemetry)
+}
+
 @Test func readsAVideoSeriesAVideoGuidesLengthAndAToolsOwnWords() throws {
   let ix = try JSONDecoder().decode(HandbookIndex.self, from: Data(#"""
   {"version":1,"lang":"vi","items":[

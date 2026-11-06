@@ -1,0 +1,70 @@
+{
+  "id": "anatolichthys-sureyanus",
+  "native": {
+    "input": "6e79c307ddf5d037",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Burdur toothcarp, Anatolichthys sureyanus, is endemic to Lake Burdur in the Turkish Lakes region of southwestern Anatolia, Turkey.",
+        "words": "Turkey",
+        "ok": true
+      },
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Burdur in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+        "words": "Turkey",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Burdur",
+        "source": "seriouslyfish",
+        "quote": "The Burdur toothcarp, Anatolichthys sureyanus, is endemic to Lake Burdur in the Turkish Lakes region of southwestern Anatolia, Turkey.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Anatolia",
+        "source": "seriouslyfish",
+        "quote": "The Burdur toothcarp, Anatolichthys sureyanus, is endemic to Lake Burdur in the Turkish Lakes region of southwestern Anatolia, Turkey.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Taurus mountains",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Burdur in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+        "country": "TR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anatolichthys sureyanus",
+    "status": "ACCEPTED",
+    "taxonKey": 11930588,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "TR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

@@ -8,8 +8,8 @@ import XCTest
 /// the kinds it finds, light and dark, at the default and the largest text size, with more found than listed, and with a
 /// kind picked that it finds none of, at both sizes; the app's icon picker; the lights tab's card for the fake light, its
 /// clock lost, warning of its outlet's timer on the stand-in Tuya cloud; what's new, its row on the home then its list,
-/// and kit's section on the home then a long list's whole list, light and dark. Each checks only that its screen opened:
-/// what it shows, the other flows check.
+/// and kit's section on the home then a long list's whole list, light and dark; and Bể của tôi, empty and with a tank.
+/// Each checks only that its screen opened: what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -52,6 +52,36 @@ final class PageShotsFlowTests: XCTestCase {
   }
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
+
+  /// Bể của tôi empty (signed out: the sign-in, "Gửi thống kê ẩn danh"), then with a tank: the list, to its end (the
+  /// account, the blocked, "Gửi thống kê ẩn danh").
+  func testTheTanksList() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
+    app.launchForFlow()
+    app.openTab("Bể của tôi")
+    let first = app.buttons["add-first"]
+    XCTAssertTrue(first.waitForExistence(timeout: 5), "no tanks tab")
+    // Empty first: no tanks, signed out.
+    settle()
+    let empty = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    empty.name = "shot-tanks-empty-light-01"
+    empty.lifetime = .keepAlways
+    add(empty)
+    first.tap()
+    let field = app.textFields["name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no tank form")
+    field.tap()
+    field.typeText("Bể 60")
+    app.buttons["save"].tap()
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the tank isn't listed")
+    app.swipeUp()
+    settle()
+    let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    a.name = "shot-tanks-light-01"
+    a.lifetime = .keepAlways
+    add(a)
+  }
 
   /// "Bể của tôi" on a new phone, signed out, with each way to sign in the stand-in server offers: the screen as it
   /// opens, then scrolled to its end, where every sign-in button is in view.

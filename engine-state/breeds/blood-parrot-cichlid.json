@@ -152,6 +152,36 @@
       "min": 183,
       "max": 183,
       "source": 3
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 3
+    },
+    {
+      "field": "difficulty",
+      "min": 3,
+      "max": 3,
+      "source": 6
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 6
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 7
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 15,
+      "source": 7
     }
   ],
   "keeping": [
@@ -298,6 +328,16 @@
     {
       "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-news/dont-say-i-love-you-with-hearts-or-flowers-this-valentines-day/",
       "title": "Practical Fishkeeping continues its anti-dyed fish campaign",
+      "kind": "article"
+    },
+    {
+      "url": "https://tropicaltreasureswyo.com/blogs/tank-buddy-blog/parrot-cichlid-care-guide-hybrid-cichlid",
+      "title": "Blood Parrot Cichlid Care Guide: Complete Hybrid Cichlid Manual – Tropical Treasures",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumsource.com/blood-parrot-cichlid/",
+      "title": "Blood Parrot Cichlid Care: Size, Behavior, Tank Mates… – Aquarium Source",
       "kind": "article"
     }
   ]

@@ -19,7 +19,8 @@
  * the agent's (FISH_ID_AGENT): double8 its calls to Claude (turns; 1 for today's single call), double9 tool calls,
  * double10 reference photos shown, blob10 why it stopped ('answer': when Claude chose; 'calls', 'tools', 'time',
  * 'tokens': the limit that forced its last call; 'fallback': it fell back to today's single call; 'error': a call failed
- * with no time to fall back; '' for today's call). Never the search text. index outcome. Counts and sums read through _sample_interval (SUM(_sample_interval), SUM(_sample_interval * double3)).
+ * with no time to fall back; '' for today's call), double11 1 when its first answer, too unsure, was sent back with its
+ * genera's marks (agent.ts recheckOf), else 0. Never the search text. index outcome. Counts and sums read through _sample_interval (SUM(_sample_interval), SUM(_sample_interval * double3)).
  */
 export const FROM = ['page', 'tank'] as const
 export type From = (typeof FROM)[number]
@@ -45,15 +46,16 @@ export type CallLog = {
   tools: number
   refs: number
   stopped: string
+  rechecked: number
 }
 
 export const emptyLog = (model: string): CallLog => ({
   outcome: '', model, key: '', verdict: '', top: '', page: '', lang: '', from: '', country: '',
-  input: 0, output: 0, cost: 0, ms: 0, attempts: 0, confidence: 0, guesses: 0, turns: 0, tools: 0, refs: 0, stopped: '',
+  input: 0, output: 0, cost: 0, ms: 0, attempts: 0, confidence: 0, guesses: 0, turns: 0, tools: 0, refs: 0, stopped: '', rechecked: 0,
 })
 
 export const toFishIdPoint = (l: CallLog) => ({
   blobs: [l.outcome, l.model, l.key, l.verdict, l.top, l.page, l.lang, l.from, l.country, l.stopped],
-  doubles: [l.input, l.output, l.cost, l.ms, l.attempts, l.confidence, l.guesses, l.turns, l.tools, l.refs],
+  doubles: [l.input, l.output, l.cost, l.ms, l.attempts, l.confidence, l.guesses, l.turns, l.tools, l.refs, l.rechecked],
   indexes: [l.outcome],
 })

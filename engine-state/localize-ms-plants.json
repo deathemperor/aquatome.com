@@ -113,5 +113,51 @@
       "\"tangki\" is acceptable, but \"akuarium\" is the more usual term in Malaysia for \"di dalam tangki\"; consider \"di dalam akuarium\".",
       "\"penggemar akuarium\" could be the more common \"hobiis akuarium\" or \"peminat akuarium\"."
     ]
+  },
+  "anubias-barteri-mini-coin": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Mini Coin",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "\"sama mudah ditanam seperti induknya, dan oleh itu tidak suka cahaya terang\": the English is itself odd, but the Malay keeps the illogical \"dan oleh itu\". Rephrase it to say it is as easy to grow as the parent plant and likewise dislikes bright light, e.g. \"... dan seperti induknya, tidak menyukai cahaya terang\".",
+      "\"ditemui di nurseri tumbuhan akuarium Tropica\": \"found at\" is ambiguous. \"ditemui di\" is acceptable, but \"nurseri tumbuhan akuarium\" adds \"tumbuhan\" (plant), which is not in the source. Use \"nurseri akuarium Tropica\" or \"ditemui oleh/di Tropica\".",
+      "\"kuku jari kelingking\" is fine, but \"Anubias yang paling kecil\" loses \"very smallest\". Use \"antara Anubias yang paling kecil sekali\".",
+      "\"Ketinggian: 3 - 10+ cm\" is fine. \"Asal: kultivar\" would be better as \"Asal usul: kultivar\" or \"Jenis: kultivar\".",
+      "\"diikat pada batu\": \"attached\" is better rendered as \"dilekatkan/diikat\", which is fine. \"anak pokok baharu\" for \"new plants\" is acceptable. \"batang menjalar (rizom)\" is acceptable."
+    ]
+  },
+  "anubias-barteri-nana": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias nana",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
+  },
+  "anubias-barteri-petite": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias Petite",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is the more usual hobby term: use \"akuarium\" instead of \"dalam tangki\" in item 1 and \"tangki yang lebih besar\" in item 2.",
+      "\"tidak cerewet dan juga tidak suka cahaya yang terlalu terang\" reads awkwardly. Suggest \"tidak cerewet ... dan tidak memerlukan cahaya yang terlalu terang\", since the English says it does not appreciate high light intensity.",
+      "\"sehingga akarnya dapat mencengkam\" is fine in meaning. \"Tumbuhan yang sesuai\" starting the last paragraph is a fragment. Suggest \"Tumbuhan ideal untuk landskap mini...\"."
+    ]
+  },
+  "anubias-barteri-var-barteri": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Anubias barteri",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tangki\" is acceptable, but \"akuarium\" is more natural for hobbyists.",
+      "Item 2: \"tumbuhan akuatik\" was added where the English only says \"plant\". This is minor and does no harm.",
+      "Item 3: \"liat dan tegap\" is slightly awkward for leaves. Consider \"keras dan kukuh\" or \"tebal dan kuat\"."
+    ]
   }
 }

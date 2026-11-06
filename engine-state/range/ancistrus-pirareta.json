@@ -1,0 +1,117 @@
+{
+  "id": "ancistrus-pirareta",
+  "native": {
+    "input": "92316a78bad09d65",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: tributary of Río Tebicuary-mi, Salto Pirareta, Cordillera, Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Tebicuary-mi",
+        "source": "planetcatfish",
+        "quote": "Type locality: tributary of Río Tebicuary-mi, Salto Pirareta, Cordillera, Paraguay.",
+        "country": "PY",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay and Tebicuary basins.",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay and Tebicuary basins.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay and Tebicuary basins.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Tebicuary",
+        "source": "planetcatfish",
+        "quote": "South America: La Plata, Paraná, Paraguay and Tebicuary basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus pirareta",
+    "status": "ACCEPTED",
+    "taxonKey": 5961455,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

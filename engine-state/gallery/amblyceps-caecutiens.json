@@ -2,8 +2,15 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/scotcat/6a2e5bfa6463e9c1.webp": "009495373f0dc486",
-  "https://media.aquatome.com/scotcat/b09d6ba979cd10ef.webp": "0763ecf80bc5c480"
+  "https://media.aquatome.com/scotcat/6a2e5bfa6463e9c1.webp": "009495373f0dc486"
  },
- "commons": "2026-11-03"
+ "commons": "2026-11-03",
+ "inat": {
+  "taxon": 93814,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

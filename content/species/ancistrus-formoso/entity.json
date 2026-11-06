@@ -10,6 +10,60 @@
     "brazil",
     "formoso"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "La Plata",
+        "Paraná",
+        "Formoso"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Ancistrus formoso Sabino & Trajano, 1997. Common name: Blind Cave Bristlenose. Maximum size 79 mm (3.1\") SL. Type locality: Buraco do Ducho cave, Serra da Bodoquena, Município de Bonito, Mato Grosso do Sul, Brazil. IUCN Red List: Vulnerable (last assessed 2018).",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: La Plata, Paraná, Paraguay, Upper Paraguay and Formoso drainage basins, Brazil.",
+          "countries": [],
+          "regions": [
+            "La Plata",
+            "Paraná",
+            "Formoso"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961421,
+      "total": 2,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

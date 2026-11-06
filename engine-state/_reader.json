@@ -6687,6 +6687,22 @@
     ],
     "ruled": "d50bd3651a38097b"
   },
+  "vi/guides/youtube--5cy6iLFhJQ": {
+    "at": "2026-11-06",
+    "hash": "3c67e06fab7b20e3",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L9",
+        "quote": "Ở đây nước cũng vàng sau 3 ngày ngâm.",
+        "problem": "The body says the water turned yellow when the wood was first soaked, but the FAQ says it turned yellow after 3 days.",
+        "fix": "Ở đây lũa đã ngâm khoảng 3 ngày và nước cũng chuyển vàng ngay từ lúc mới ngâm.",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "3c67e06fab7b20e3"
+  },
   "vi/guides/youtube--5dase5hg20": {
     "at": "2026-11-03",
     "hash": "73de850ebb212341",
@@ -6782,6 +6798,23 @@
     ],
     "ruled": "ba281f9a623983f5"
   },
+  "vi/guides/youtube-2beOiIgBvUM": {
+    "at": "2026-11-06",
+    "hash": "99f5a1f25fc3d332",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể chứa được 2.000 lít, tức hơn 2.000 lít nước.",
+        "problem": "The sentence restates the same volume as if it were a conversion (\"2,000 litres, i.e. over 2,000 litres\"), probably left over from a broken gallon-to-litre conversion.",
+        "fix": "Bể chứa được hơn 2.000 lít nước.",
+        "rule": "A sentence where the same number and unit appear on both sides of \"tức\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "99f5a1f25fc3d332"
+  },
   "vi/guides/youtube-2NdWisNvjL4": {
     "at": "2026-11-04",
     "hash": "85cfd57c8bbc2cf7",
@@ -6859,6 +6892,22 @@
       }
     ],
     "ruled": "769e5615886e405f"
+  },
+  "vi/guides/youtube-5GfRTHTv5ZM": {
+    "at": "2026-11-06",
+    "hash": "0a3e320c59e8e081",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L7",
+        "quote": "rồi dựng lại với cùng lũa đá, rêu và Bucephalandra trên lũa sẽ được giữ nguyên",
+        "problem": "Two clauses run together into one garbled sentence, so it reads as if the moss is part of what you rebuild with.",
+        "fix": "Bạn gỡ cây ra, vệ sinh bể rồi dựng lại với chính lũa đá cũ. Rêu và Bucephalandra trên lũa được giữ nguyên.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "0a3e320c59e8e081"
   },
   "vi/guides/youtube-5IuztIYxONk": {
     "at": "2026-11-06",
@@ -6985,6 +7034,12 @@
     ],
     "ruled": "3c9f236d6f708820"
   },
+  "vi/guides/youtube-60GLR9gl-X0": {
+    "at": "2026-11-06",
+    "hash": "ce6a2d50a1cdd642",
+    "findings": [],
+    "ruled": "ce6a2d50a1cdd642"
+  },
   "vi/guides/youtube-60mDGZRh4NE": {
     "at": "2026-11-06",
     "hash": "a5b4353398a30851",
@@ -7072,6 +7127,31 @@
     ],
     "ruled": "5c935d5833bd6893"
   },
+  "vi/guides/youtube-7l1Ja0NL_UQ": {
+    "at": "2026-11-06",
+    "hash": "bf5f605be891eea3",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L7",
+        "quote": "Có một chậu hồng kỳ vây dài vẫn sống đủ ở khoảng 15–15,5°C.",
+        "problem": "The body puts the cherry barb tub at about 15°C. The 15–15.5°C reading belongs to the goldfish tub with a lid.",
+        "fix": "Có một chậu hồng kỳ vây dài vẫn sống đủ ở khoảng 15°C.",
+        "field": "faq.0.a"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L9",
+        "quote": "thấy chậu có nắp ấm hơn chậu không nắp chừng 1,5°C",
+        "problem": "The body gives 14°C against 15–15.5°C, which is a gap of 1–1.5°C, not about 1.5°C.",
+        "fix": "thấy chậu có nắp ấm hơn chậu không nắp chừng 1–1,5°C",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "bf5f605be891eea3"
+  },
   "vi/guides/youtube-8B80s_qtzxA": {
     "at": "2026-11-03",
     "hash": "6ddc6217e2afd0f3",
@@ -7110,6 +7190,23 @@
       }
     ],
     "ruled": "d1cb2efdbcd252fc"
+  },
+  "vi/guides/youtube-8SCxf-L1Nww": {
+    "at": "2026-11-06",
+    "hash": "c154af69c4aee9c0",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "\\\"trang trại\\\"",
+        "problem": "Stray backslashes from text escaping show up before the quotation marks.",
+        "fix": "\"trang trại\"",
+        "rule": "Flag a backslash directly before a quotation mark in body text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "c154af69c4aee9c0"
   },
   "vi/guides/youtube-8SwotDmf5eM": {
     "at": "2026-11-03",
@@ -7185,6 +7282,31 @@
       }
     ],
     "ruled": "f958f41ccbf3ba51"
+  },
+  "vi/guides/youtube-9zhkRJllCNg": {
+    "at": "2026-11-06",
+    "hash": "5b5baccfd6448cbc",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chạy thử và chuẩn bị nền bằng gạch than bùn",
+        "problem": "The intro promises a step on preparing the peat-brick substrate, but no section covers it. The page only mentions soaking the brick in passing.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Loại M12 hơi khó kiếm nên nên tìm sớm.",
+        "problem": "The doubled \"nên nên\" reads awkwardly.",
+        "fix": "Loại M12 hơi khó kiếm, bạn nên tìm mua sớm.",
+        "rule": "the same word repeated twice in a row",
+        "field": "body"
+      }
+    ],
+    "ruled": "5b5baccfd6448cbc"
   },
   "vi/guides/youtube-A_vsnpDVUSw": {
     "at": "2026-11-03",
@@ -7287,6 +7409,22 @@
     "hash": "10ed593883e280b2",
     "findings": [],
     "ruled": "10ed593883e280b2"
+  },
+  "vi/guides/youtube-aLvkYA8AqBY": {
+    "at": "2026-11-06",
+    "hash": "0a1d572197935d2c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Những thanh giằng kính tháo từ hai bể cũ được sơn trắng bằng sơn Krylon Fusion bóng",
+        "problem": "The page says the old tanks were braceless and the braces were bought and cut new for about 100 USD, so they cannot have been taken from the old tanks.",
+        "fix": "Những thanh giằng kính mua và cắt mới được sơn trắng bằng sơn Krylon Fusion bóng",
+        "field": "body"
+      }
+    ],
+    "ruled": "0a1d572197935d2c"
   },
   "vi/guides/youtube-AnakIetIR0U": {
     "at": "2026-11-02",
@@ -8123,6 +8261,22 @@
     "findings": [],
     "ruled": "7f72237640161b62"
   },
+  "vi/guides/youtube-I_KBOUM1RXM": {
+    "at": "2026-11-06",
+    "hash": "030f6f8a73dcaf0e",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể 120 × 30 × 50 cm, còn khoảng 130 lít nước | Vi lượng và đa lượng, mỗi chai 3–4 lần nhấn",
+        "problem": "The page's own dose (1 ml per 30 L, one 2 ml pump covers 60 L) gives about 2 pumps for 130 L, but the table says 3–4 pumps. That is roughly double, and it goes against the page's advice to dose by the actual water volume.",
+        "fix": "Vi lượng và đa lượng, mỗi chai khoảng 2 lần nhấn",
+        "field": "body"
+      }
+    ],
+    "ruled": "030f6f8a73dcaf0e"
+  },
   "vi/guides/youtube-IB6lV6eF2MY": {
     "at": "2026-11-03",
     "hash": "23479de219160fa5",
@@ -8197,6 +8351,39 @@
       }
     ],
     "ruled": "abdd0752c0c57d18"
+  },
+  "vi/guides/youtube-Iu4XrX7m100": {
+    "at": "2026-11-06",
+    "hash": "7e60409f8dc23d48",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L14",
+        "quote": "Màu vàng là CO2 đã ở mức bão hòa, trường hợp này rất hiếm gặp.",
+        "problem": "A yellow drop checker means too much CO2, which can suffocate fish, but the page calls it a harmless, rare 'saturated' state and never says to turn the CO2 down.",
+        "fix": "Màu vàng là dấu hiệu CO2 đang quá nhiều, cá có thể bị ngạt. Bạn nên giảm lượng CO2 ngay cho đến khi ống về lại màu xanh lá.",
+        "field": "faq.3.a"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "CO2 bão hòa, rất hiếm gặp",
+        "problem": "The drop checker table lists yellow without saying that it means excess CO2 and is a danger to fish.",
+        "fix": "CO2 quá nhiều, nguy hiểm cho cá",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy hãy kiểm tra độ cân của bể trước khi đổ nước.",
+        "problem": "The section titled 'Kiểm tra bể đã cân chưa' never says how to check, for example with a spirit level.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7e60409f8dc23d48"
   },
   "vi/guides/youtube-J_PR999bgtw": {
     "at": "2026-11-01",
@@ -8576,6 +8763,12 @@
     "findings": [],
     "ruled": "4b725d9b27967785"
   },
+  "vi/guides/youtube-lIvdfAD26BE": {
+    "at": "2026-11-06",
+    "hash": "fecf15e6e5cdc5f0",
+    "findings": [],
+    "ruled": "fecf15e6e5cdc5f0"
+  },
   "vi/guides/youtube-lnOoJm-b5vs": {
     "at": "2026-11-05",
     "hash": "24eade2353f1aa40",
@@ -8900,6 +9093,18 @@
     ],
     "ruled": "515508fb83966606"
   },
+  "vi/guides/youtube-P1Y2Y_iJldE": {
+    "at": "2026-11-06",
+    "hash": "a968245d1d676066",
+    "findings": [],
+    "ruled": "a968245d1d676066"
+  },
+  "vi/guides/youtube-P7GTfHdl5E8": {
+    "at": "2026-11-06",
+    "hash": "a4c4898dce7d7e20",
+    "findings": [],
+    "ruled": "a4c4898dce7d7e20"
+  },
   "vi/guides/youtube-PF2i10T5JGM": {
     "at": "2026-11-04",
     "hash": "cf78a1173d159173",
@@ -8982,6 +9187,31 @@
       }
     ],
     "ruled": "119104fde2aacb1d"
+  },
+  "vi/guides/youtube-pRIhyV1gwaw": {
+    "at": "2026-11-06",
+    "hash": "191e4c7d11371db8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khe này là chỗ trừ điểm rõ nhất của kiểu giằng thanh dải.",
+        "problem": "'Chỗ trừ điểm' is an unnatural way to say 'drawback'; Vietnamese readers would say 'nhược điểm'.",
+        "fix": "Khe này là nhược điểm rõ nhất của kiểu giằng thanh dải.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Làm nắp từ tấm vừa khoét và để chừa lỗ phía sau",
+        "problem": "The heading reads as 'leave holes at the back', but the section says to hold off cutting the back holes until the plumbing is decided.",
+        "fix": "Làm nắp từ tấm vừa khoét và chưa vội khoét lỗ phía sau",
+        "field": "body"
+      }
+    ],
+    "ruled": "191e4c7d11371db8"
   },
   "vi/guides/youtube-PVRlXXhdD7U": {
     "at": "2026-11-05",
@@ -9572,6 +9802,28 @@
     "findings": [],
     "ruled": "f87b4809364a764b"
   },
+  "vi/guides/youtube-uAglEdNX7UQ": {
+    "at": "2026-11-06",
+    "hash": "c152cf58bcdb5caf",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đều cần chà nhám cho nhám lên",
+        "problem": "The phrase is redundant and awkward: it repeats \"nhám\" to say the surface should be roughened.",
+        "fix": "đều cần chà nhám cho bớt nhẵn",
+        "field": "body"
+      }
+    ],
+    "ruled": "c152cf58bcdb5caf"
+  },
+  "vi/guides/youtube-ufbEc_pOrjI": {
+    "at": "2026-11-06",
+    "hash": "9987815d6423d5e3",
+    "findings": [],
+    "ruled": "9987815d6423d5e3"
+  },
   "vi/guides/youtube-UhGWKDI8qn8": {
     "at": "2026-11-04",
     "hash": "f55699ab8412e32d",
@@ -9631,6 +9883,22 @@
     "hash": "75cce644a8ce88c6",
     "findings": [],
     "ruled": "75cce644a8ce88c6"
+  },
+  "vi/guides/youtube-vg0xJoA0Vj4": {
+    "at": "2026-11-06",
+    "hash": "eb14aac5b0ca1563",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đoạn này dùng ống silicon đen, loại cứng và chắc.",
+        "problem": "Silicone tubing is soft, so calling it the hard kind contradicts itself; the regulator-to-solenoid line is normally hard CO2-resistant tubing.",
+        "fix": "Đoạn này dùng ống dẫn CO2 màu đen, loại cứng và chắc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "eb14aac5b0ca1563"
   },
   "vi/guides/youtube-VJ_EZRwwFZg": {
     "at": "2026-11-02",
@@ -9759,6 +10027,21 @@
     ],
     "ruled": "d446aa1dd886a9e6"
   },
+  "vi/guides/youtube-wfG_EzUX04s": {
+    "at": "2026-11-06",
+    "hash": "673e4b05756b51d8",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L8",
+        "quote": "Với tấm nhỏ thì có thể, nhưng tấm dài cỡ 2,4 m nổi rất mạnh",
+        "problem": "The FAQ says suction cups can hold a small foam panel, but the body says flatly that suction cups or weights cannot replace silicone.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "673e4b05756b51d8"
+  },
   "vi/guides/youtube-wHma4dxeecU": {
     "at": "2026-11-01",
     "hash": "847d761969df80c5",
@@ -9874,6 +10157,22 @@
     "findings": [],
     "ruled": "3dd7b06bbb1bfc5c"
   },
+  "vi/guides/youtube-Y6S_TH5qFoE": {
+    "at": "2026-11-06",
+    "hash": "7fb0e85d43074fbc",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể 1–2 tháng tuổi",
+        "problem": "The new-tank stage covers 1–2 months and the next stage starts at 3 months, so a tank aged 2 to 3 months fits neither stage.",
+        "fix": "Bể dưới 3 tháng tuổi",
+        "field": "body"
+      }
+    ],
+    "ruled": "7fb0e85d43074fbc"
+  },
   "vi/guides/youtube-Y9b2ac5eAFo": {
     "at": "2026-11-04",
     "hash": "360dc4ced04f2ed2",
@@ -9979,6 +10278,31 @@
     "hash": "24d23aa630e1e426",
     "findings": [],
     "ruled": "24d23aa630e1e426"
+  },
+  "vi/guides/youtube-YpQiCUFALSM": {
+    "at": "2026-11-06",
+    "hash": "d92a5be26e5bf877",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhiều người lo kệ treo tường chở hũ thủy tinh sẽ sập.",
+        "problem": "\"Chở\" means to carry or transport, so it is the wrong verb for a shelf holding jars.",
+        "fix": "Nhiều người lo kệ treo tường đỡ một dãy hũ thủy tinh sẽ sập.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "lẫn vào cách bày trí trong nhà",
+        "problem": "\"Bày trí\" is a misspelling of \"bài trí\".",
+        "fix": "hợp với cách bài trí trong nhà",
+        "field": "body"
+      }
+    ],
+    "ruled": "d92a5be26e5bf877"
   },
   "vi/guides/youtube-Yv6gkqeQ0aE": {
     "at": "2026-11-03",

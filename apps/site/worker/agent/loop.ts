@@ -17,6 +17,9 @@ import { definition, type Tool } from './tools'
  * - Past the tool calls, a `tool_use` gets a "limit reached" `is_error` result; a tool that throws, or one Claude names
  *   that doesn't exist, gets an `is_error` result with a short message. Both count as tool calls.
  * - No call runs past `ms` from the first: each call's timeout is what is left (at most `callMs`).
+ * - `recheck` may send an answer Claude chose back once, with more to read. That answer is held: if a later call fails,
+ *   time runs out, or the run ends on anything but an answer (cut short, a refusal, a tool request on the forced call),
+ *   the held answer is the run's.
  * - `cache_control` on the newest tool result, so the next call reads the photo and the turns before from cache (the
  *   caller marks the first message's photo). The API takes 4 marks at most: a run of more calls stops marking once the
  *   history holds 4, so no limits can make a call the API refuses.
@@ -43,6 +46,8 @@ export type AgentRun<Step> = {
   photos: number
   spent: Spent
   steps: Step[]
+  /** The answer was sent back with more to read (`recheck`). */
+  rechecked?: boolean
 }
 export type AgentInput<Step> = {
   send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number }) => Promise<Anthropic.Message>
@@ -55,6 +60,11 @@ export type AgentInput<Step> = {
   maxTokens: number
   limits?: Partial<Limits>
   onStep?: (step: Step) => void
+  /**
+   * Asked once a run, when Claude answers of its own accord with time for another call: more for it to read before the
+   * answer is final (undefined: the answer stands). It answers again, with the tools while calls are left.
+   */
+  recheck?: (answer: Anthropic.Message) => Anthropic.ContentBlockParam[] | undefined
   clock?: () => number
 }
 
@@ -80,11 +90,13 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   /** The next call's input, as guessed after the last one (0 before the first). */
   let next = 0
   let marks = marksIn(a.first)
+  /** The answer sent back by `recheck`: it stands if the run then fails, runs out of time or ends on anything but an answer. */
+  let held: Anthropic.Message | undefined
   for (;;) {
     const left = deadline - clock()
     const forced: Stopped | undefined = run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : left < lim.lastCallMs ? 'time'
       : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined
-    if (left < 1000) return { ...run, stopped: 'error', error: new Error('out of time') }
+    if (left < 1000) return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: new Error('out of time') }
     run.calls++
     let r: Anthropic.Message
     try {
@@ -98,14 +110,24 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         messages: [...history],
       }, { timeoutMs: Math.min(left, lim.callMs), call: run.calls })
     } catch (e) {
-      return { ...run, stopped: 'error', error: e }
+      return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }
     }
     run.spent.input += r.usage.input_tokens
     run.spent.cacheRead += r.usage.cache_read_input_tokens ?? 0
     run.spent.cacheWrite += r.usage.cache_creation_input_tokens ?? 0
     run.spent.output += r.usage.output_tokens
-    // An answer, a refusal, or anything that isn't a request for tools ends the run; so does the forced call, whatever it says.
-    if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) return { ...run, message: r, stopped: forced ?? 'answer' }
+    // An answer, a refusal, or anything that isn't a request for tools ends the run; so does the forced call, whatever it
+    // says. An answer Claude chose, with time left for a last call, may first be sent back once with more to read.
+    if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) {
+      if (held && r.stop_reason !== 'end_turn') return { ...run, message: held, stopped: forced ?? 'answer' }
+      const more = !forced && !run.rechecked && r.stop_reason === 'end_turn' && deadline - clock() >= lim.lastCallMs ? a.recheck?.(r) : undefined
+      if (!more?.length) return { ...run, message: r, stopped: forced ?? 'answer' }
+      run.rechecked = true
+      held = r
+      next = promptOf(r.usage) + r.usage.output_tokens + Math.ceil(more.reduce((n, b) => n + (b.type === 'text' ? b.text.length : 0), 0) / 4)
+      history.push({ role: 'assistant', content: r.content as Anthropic.ContentBlockParam[] }, { role: 'user', content: more })
+      continue
+    }
 
     const results: Anthropic.ToolResultBlockParam[] = []
     for (const use of r.content) {

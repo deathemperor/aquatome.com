@@ -160,6 +160,36 @@
       "min": 50,
       "max": 50,
       "source": 1
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 8
+    },
+    {
+      "field": "lifeYears",
+      "min": 5,
+      "max": 5,
+      "source": 8
+    },
+    {
+      "field": "lifeYears",
+      "min": 1,
+      "max": 2,
+      "source": 2
+    },
+    {
+      "field": "difficulty",
+      "min": 4,
+      "max": 4,
+      "source": 4
+    },
+    {
+      "field": "lifeYears",
+      "min": 1.5,
+      "max": 2.5,
+      "source": 4
     }
   ],
   "keeping": [
@@ -275,6 +305,11 @@
     {
       "url": "https://www.liveaquaria.com/products/dumbo-ear-dragon-guppy-male",
       "title": "Dumbo Ear Dragon Guppy Male - LiveAquaria",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.garnelio.de/en/guppy-male-dumbo-ear-poecilia-reticulata",
+      "title": "Guppy male \"dumbo ear\" - Poecilia reticulata - Garnelio",
       "kind": "shop"
     }
   ]
