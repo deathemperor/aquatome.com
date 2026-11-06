@@ -184,9 +184,9 @@ test('a page\'s score as the build judges it: a fish\'s or plant\'s shown source
   // A fish recorded thin: its score alone decides.
   expect(outForScore('species', { score: 0.6, indexable: false, reason: 'thin' }, all)).toBe(0.6)
   expect(outForScore('species', { score: 0.8, indexable: false, reason: 'thin' }, all)).toBeUndefined()
-  // No review kept: the newest.
+  // No review kept: the newest of those under the bar.
   const t = (at: string, score: number, kept: boolean): LastReview => ({ kind: 'translation', at, score, notes: [], kept })
-  expect(lastReview([t('2026-11-01T00:00:00Z', 0.5, false), t('2026-11-03T00:00:00Z', 0.9, false)])!.at).toBe('2026-11-03T00:00:00Z')
+  expect(lastReview([t('2026-11-01T00:00:00Z', 0.5, false), t('2026-11-03T00:00:00Z', 0.6, false), t('2026-11-04T00:00:00Z', 0.9, false)])!.at).toBe('2026-11-03T00:00:00Z')
   expect(lastReview([])).toBeUndefined()
 })
 

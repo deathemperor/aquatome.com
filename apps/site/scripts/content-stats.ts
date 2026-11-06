@@ -438,6 +438,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const lowBody = JSON.stringify(low)
   writeFileSync(join(dist, '_ab', 'reviews.json'), lowBody)
   console.log(`content-stats: ${low.pages.length} pages out of search for their score, ${low.pages.filter(p => p.review).length} with a review, ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB`)
+  // The same budget: about 2 KB of notes a page, it fits some 450 pages with a review.
+  if (Buffer.byteLength(lowBody) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/reviews.json is ${Math.round(Buffer.byteLength(lowBody) / 1024)} KB, over its 1 MB budget: keep fewer notes a page`)
   // A budget, not a limit (an asset may be 25 MiB): over it, a warning on the deploy's run rather than a failed deploy,
   // since the dashboard's file shouldn't hold back the site's content. At about 90 bytes a page, it fits some 10,000 pages.
   if (Buffer.byteLength(body) > MAX_BYTES) console.warn(`::warning title=content-stats::dist/_ab/content.json is ${Math.round(Buffer.byteLength(body) / 1024)} KB, over its 1 MB budget: make the page index smaller`)
