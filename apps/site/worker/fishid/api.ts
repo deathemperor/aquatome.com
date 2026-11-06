@@ -12,6 +12,7 @@ import { askClaude, costOf, DEFAULT_MODEL, readAnswer, worstCost, type Answer, t
 import { factShardOf, factShards, type Facts, type FactsShard } from './facts'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
 import { keepPhoto } from './kept'
+import { saveRun, turnsOf, type RunRecord } from './transcript'
 import { emptyDay, ledgerClient, type Counts } from './ledger'
 import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
 import { matchGuesses, type Result } from './match'
@@ -245,7 +246,7 @@ export async function fishId(req: Request, url: URL, env: FishIdEnv, now: Date, 
 /** What an identification answers: the JSON body and its status (a stream sends the body as its last event). */
 type Done = { status: number; body: Record<string, unknown> }
 /** A run's outcome, from today's single call or the agent, before its answer is read. */
-type Called = { attempts: Attempt[]; usage: Usage; agent?: Pick<AgentOutcome, 'calls' | 'tools' | 'photos' | 'steps' | 'stopped' | 'rechecked' | 'later400'> } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
+type Called = { attempts: Attempt[]; usage: Usage; agent?: Pick<AgentOutcome, 'calls' | 'tools' | 'photos' | 'steps' | 'stopped' | 'rechecked' | 'later400' | 'history'> } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 /** How long a result is kept for a retry with the same Idempotency-Key. */
 const RETRY_SEC = 15 * 60
@@ -326,6 +327,9 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
   /** The run's time left: it ends RUN_WITHIN_MS after the photo was read. */
   const runMs = () => RUN_WITHIN_MS - (Date.now() - read)
 
+  /** The run's transcript (fishid/transcript.ts): its id (a kept photo names it), and what Claude was sent and said. */
+  const runId = crypto.randomUUID()
+  let trail: { message?: Anthropic.Message; agent?: Called['agent'] } | undefined
   /** The identification, after admission: today's call, or the agent with the flag on and the page list readable. */
   const work = async (onStep?: (step: Step) => void): Promise<Done> => {
     const t = Date.now()
@@ -333,7 +337,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     let out: Called
     if (catalogFirst) {
       const a = await identifyWithAgent({ healthy, store, photo, model, lang: up.lang, fetch: fetchImpl, random: deps.random, limits: { ...deps.limits, ms: Math.min(lim.ms, runMs()) }, onStep, onUsage, tools: { catalog: catalogFirst, facts: factsOf(env, url.origin, catalogFirst), onFactsMissing: () => count('facts') } })
-      const agent = { calls: a.calls, tools: a.tools, photos: a.photos, steps: a.steps, stopped: a.stopped, ...(a.rechecked ? { rechecked: true } : {}), ...(a.later400 !== undefined ? { later400: a.later400 } : {}) }
+      const agent = { calls: a.calls, tools: a.tools, photos: a.photos, steps: a.steps, stopped: a.stopped, history: a.history, ...(a.rechecked ? { rechecked: true } : {}), ...(a.later400 !== undefined ? { later400: a.later400 } : {}) }
       out = { ...(a.ok ? { ok: true, message: a.message, hash: a.hash } : { ok: false, reason: a.reason }), attempts: a.attempts, usage: { input: a.spent.input, output: a.spent.output, cacheRead: a.spent.cacheRead, cacheWrite: a.spent.cacheWrite }, agent }
       if (a.stopped === 'fallback') count('fallback')
       if (a.stopped === 'calls') count('callLimit')
@@ -345,6 +349,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
         ? { ok: true, message: r.value, hash: r.hash, attempts: r.attempts, usage: { input: r.value.usage?.input_tokens ?? 0, output: r.value.usage?.output_tokens ?? 0 } }
         : { ok: false, reason: r.reason, attempts: r.attempts, usage: { input: 0, output: 0 } }
     }
+    trail = { ...(out.ok ? { message: out.message } : {}), ...(out.agent ? { agent: out.agent } : {}) }
     // Tokens from the messages themselves: an answer that can't be read was still paid for, and so were the agent's calls before one failed.
     rec.input = out.usage.input + (out.usage.cacheRead ?? 0) + (out.usage.cacheWrite ?? 0)
     rec.output = out.usage.output
@@ -380,7 +385,7 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
       if (!up.keep) return {}
       const owner = account ?? (await sessionOf(req, env.DB, now))?.userId
       const id = env.UPLOADS && type === 'image/jpeg'
-        ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang }, now).catch(e => { console.error('fish-id keep:', e); return null })
+        ? await keepPhoto(env.UPLOADS, owner, up.bytes!, { verdict, guesses, model, lang: up.lang, run: runId }, now).catch(e => { console.error('fish-id keep:', e); return null })
         : null
       return { kept: Boolean(id) }
     }
@@ -411,7 +416,21 @@ async function identify(req: Request, url: URL, env: FishIdEnv, now: Date, deps:
     if (d.status === 200 && retryKey) await env.AB.put(retryKey, JSON.stringify(d.body), { expirationTtl: RETRY_SEC }).catch(() => undefined)
     await Promise.allSettled(spends)
     await ledger.settle({ day, run, refund: d.status === 503, keys: tally.keys, ...(tally.ok ? { ok: tally.ok } : {}), counts: tally.counts }).catch(e => console.error('fish-id settle:', e))
+    if (trail && env.UPLOADS) wait(saveRun(env.UPLOADS, transcript(d, trail)).catch(e => console.error('fish-id transcript:', e)))
     return d
+  }
+  /** The run as kept a year: what the reader got and how, never who they are (fishid/transcript.ts). */
+  const transcript = (d: Done, t: NonNullable<typeof trail>): RunRecord => {
+    const body = d.body as { verdict?: string; results?: Result[] }
+    const a = t.agent
+    return {
+      v: 1, id: runId, at: now.toISOString(), lang: up.lang, from: up.from, model, outcome: rec.outcome || 'error', ms: Date.now() - read, cost: rec.cost,
+      tokens: { input: rec.input, output: rec.output },
+      ...(a ? { agent: { calls: a.calls, tools: a.tools, photos: a.photos, stopped: a.stopped, ...(a.rechecked ? { rechecked: true as const } : {}) } } : {}),
+      ...(body.verdict ? { verdict: body.verdict } : {}),
+      ...(body.results ? { results: body.results.map(r => ({ scientificName: r.scientificName, commonName: r.commonName, confidence: r.confidence, reason: r.reason, ...(r.page ? { page: r.page.id } : {}) })) } : {}),
+      turns: turnsOf(a?.history ?? [], t.message),
+    }
   }
   /** A fault of ours mid-run: the reader sees failed, the data point says error, and the run still settles. */
   const fault = (e: unknown): Done => {
