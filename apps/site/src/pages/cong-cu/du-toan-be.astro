@@ -1,0 +1,311 @@
+---
+import Browse from '../../layouts/Browse.astro'
+import ShopPicker from '../../components/ShopPicker.astro'
+import { goLink } from '../../lib/format'
+import { i18n } from '../../lib/i18n'
+import { COUNTRY_NAMES, COUNTRY_OF, FOOD_MONTHS, litresOf, money, PARTS, plan, PRESETS, rateText, readDate, TARIFFS, TIER_NAMES, TIERS, type Country, type Input } from '../../scripts/budget'
+
+const { t, lang, locale } = i18n(Astro.url)
+// Shop links search Vietnamese marketplaces: the Vietnamese page only, as on the equipment pages.
+const vn = lang === 'vi'
+const country = COUNTRY_OF[lang]
+// The page as it loads, and without a script: a 60 cm tank, mid-range, no CO₂ or smart gear, the page's own country.
+const start: Input = { size: { l: 60, w: 30, h: 36 }, tier: 'tam-trung', co2: false, smart: false, country, tariff: TARIFFS[country].pick, foodMonths: 1 }
+const p = plan(start)!
+// Every part's row is drawn, the optional ones hidden until chosen, so the script only fills them in.
+const every = plan({ ...start, co2: true, smart: true })!
+const tariff = TARIFFS[country]
+const vnd = (r: readonly [number, number]) => money(r, 'VND', t, locale)
+const monthText = p.currency === 'VND' ? vnd(p.month) : t('{a}, cộng tiền điện {b}', { a: vnd(p.month), b: money(p.power, p.currency, t, locale) })
+// Another country's electricity isn't added to the đồng: in the summary, a line of its own under them.
+const powerApart = p.currency === 'VND' ? '' : t('cộng tiền điện {b}', { b: money(p.power, p.currency, t, locale) })
+const kwhText = (k: readonly [number, number], rate: number) => `${new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(k[0])}–${new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(k[1])} kWh × ${rateText(rate, tariff.currency, locale)}`
+const date = readDate(locale)
+const litres = (l: number, w: number, h: number) => new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(litresOf({ l, w, h }))
+const countries: Country[] = ['vn', 'id', 'th']
+---
+<Browse title={t('Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng')} heading={t('Set một bể hết bao nhiêu tiền?')} intro={t('Chọn cỡ bể và mức đầu tư. Công cụ cộng giá từng món, rồi tính tiền điện, CO₂, phân và thức ăn mỗi tháng, tất cả là khoảng giá.')} crumbs={[['/vi/cong-cu/', t('Công cụ')]]} description={t('Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.')}>
+  <div id="db-tool" data-locale={locale}>
+    <form id="db" class="calc">
+      <fieldset class="sizes">
+        <legend>{t('Cỡ bể')}</legend>
+        {PRESETS.map(([l, w, h]) => (
+          <label class="chip">
+            <input type="radio" name="co" value={`${l}x${w}x${h}`} checked={l === 60} />
+            <strong>{l} cm</strong>
+            <small>{l} × {w} × {h} · {t('{n} lít', { n: litres(l, w, h) })}</small>
+          </label>
+        ))}
+        <label class="chip">
+          <input type="radio" name="co" value="khac" />
+          <strong>{t('Cỡ khác')}</strong>
+          <small>{t('Tự nhập')}</small>
+        </label>
+      </fieldset>
+      <div class="own">
+        <label>{t('Dài (cm)')} <input name="l" type="number" inputmode="decimal" min="1" step="any" /></label>
+        <label>{t('Rộng (cm)')} <input name="w" type="number" inputmode="decimal" min="1" step="any" /></label>
+        <label>{t('Cao (cm)')} <input name="h" type="number" inputmode="decimal" min="1" step="any" /></label>
+        <span class="or">{t('hoặc')}</span>
+        <label>{t('Số lít')} <input name="lit" type="number" inputmode="decimal" min="1" step="any" /></label>
+      </div>
+      <fieldset class="tiers">
+        <legend>{t('Mức đầu tư')}</legend>
+        {TIERS.map(x => <label class="seg"><input type="radio" name="muc" value={x} checked={x === start.tier} /><span>{t(TIER_NAMES[x])}</span></label>)}
+      </fieldset>
+      <div class="extras">
+        <label class="tick"><input type="checkbox" name="co2" value="1" /> <span>{t('Có CO₂')}</span></label>
+        <label class="tick"><input type="checkbox" name="tm" value="1" /> <span>{t('Thiết bị thông minh')}</span></label>
+        <label class="where">{t('Giá điện ở')}
+          <select name="nuoc">{countries.map(c => <option value={c} selected={c === country}>{t(COUNTRY_NAMES[c])}</option>)}</select>
+        </label>
+      </div>
+    </form>
+
+    <section class="sum" aria-label={t('Tổng chi phí')}>
+      <div class="figs" aria-live="polite">
+        <p class="fig"><span class="k">{t('Mua sắm ban đầu')}</span> <strong id="db-total">{vnd(p.total)}</strong></p>
+        <p class="fig"><span class="k">{t('Mỗi tháng')}</span> <strong id="db-month">{vnd(p.month)}</strong> <span class="plus" id="db-month-power" hidden={!powerApart}>{powerApart}</span></p>
+      </div>
+      <!-- Written by the script when they apply, so the page's text copy (scripts/markdown.ts) doesn't carry them. -->
+      <p class="hint" id="db-hint" hidden></p>
+      <p class="warn" id="db-over" hidden></p>
+      <p class="read">{t('Giá tham khảo, đọc ngày {date}.', { date })}{!vn && <> {t('Giá đồ là giá của các cửa hàng thủy sinh ở Việt Nam, tính bằng đồng Việt Nam: chưa có giá ở Indonesia và Thái Lan.')}</>}</p>
+      <noscript><p class="read">{t('Bật JavaScript để tính theo bể của bạn. Số trên đây là bể 60 cm, tầm trung, không CO₂.')}</p></noscript>
+    </section>
+
+    <section class="block" aria-labelledby="db-parts-h">
+      <div class="head">
+        <h2 id="db-parts-h">{t('Từng món')}</h2>
+        {vn && <ShopPicker />}
+      </div>
+      <table class="list">
+        <thead><tr><th scope="col">{t('Món')}</th><th scope="col">{t('Giá')}</th></tr></thead>
+        <tbody>
+          {PARTS.map(part => {
+            const x = every.parts.find(y => y.id === part.id)!
+            return (
+              <tr data-part={part.id} hidden={!p.parts.some(y => y.id === part.id)}>
+                <th scope="row">
+                  <span class="nm">{t(part.name)}</span>{' '}
+                  <span class="what">{t(x.what)}</span>
+                  {vn && x.keyword && (
+                    <a class="shop" href={goLink('shopee', x.keyword, part.category!, 'tool:du-toan-be')} rel="sponsored nofollow noopener" target="_blank" data-go>
+                      <span class="visually-hidden">{t('Tìm {name} trên', { name: t(part.name).toLowerCase() })} </span><span data-shop-name>Shopee</span>
+                      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    </a>
+                  )}
+                </th>
+                <td class="price">{vnd(x.range)}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+        <tfoot><tr><th scope="row">{t('Tổng')}</th><td class="price" id="db-parts-total">{vnd(p.total)}</td></tr></tfoot>
+      </table>
+    </section>
+
+    <section class="block" aria-labelledby="db-run-h">
+      <div class="head"><h2 id="db-run-h">{t('Tiền nuôi mỗi tháng')}</h2></div>
+      <label class="tariff">{t('Bậc giá điện cao nhất nhà bạn dùng tới')}
+        <select name="bac" form="db">{tariff.tiers.map((x, i) => <option value={i} selected={i === tariff.pick}>{x.label} · {rateText(x.rate, tariff.currency, locale)}</option>)}</select>
+      </label>
+      <table class="list">
+        <thead><tr><th scope="col">{t('Khoản')}</th><th scope="col">{t('Giá')}</th></tr></thead>
+        <tbody>
+          <tr data-run="dien"><th scope="row"><span class="nm">{t('Điện')}</span> <span class="what">{kwhText(p.kwh, p.rate)}</span></th><td class="price">{money(p.power, p.currency, t, locale)}</td></tr>
+          <tr data-run="co2" hidden><th scope="row"><span class="nm">{t('Nạp CO₂')}</span> <span class="what">{t('Nạp lại bình 3 kg, dùng 3–5 tháng')}</span></th><td class="price">{vnd(every.co2!)}</td></tr>
+          <tr data-run="phan"><th scope="row"><span class="nm">{t('Phân nước')}</span> <span class="what">{t('Seachem Flourish, châm 1–2 lần mỗi tuần')}</span></th><td class="price">{vnd(p.fert)}</td></tr>
+          <tr data-run="an">
+            <th scope="row"><span class="nm">{t('Thức ăn')}</span>
+              <label class="what">{t('Một gói dùng được')} <select name="an" form="db">{FOOD_MONTHS.map(n => <option value={n} selected={n === start.foodMonths}>{t('{n} tháng', { n })}</option>)}</select></label>
+            </th>
+            <td class="price">{vnd(p.food)}</td>
+          </tr>
+        </tbody>
+        <tfoot><tr><th scope="row">{t('Tổng')}</th><td class="price" id="db-run-total">{monthText}</td></tr></tfoot>
+      </table>
+      <p class="note" id="db-tariff-note">{t(tariff.note)}</p>
+    </section>
+
+    <section class="block how" aria-labelledby="db-how-h">
+      <h2 id="db-how-h">{t('Số liệu lấy từ đâu')}</h2>
+      <p>{t('Giá niêm yết trên trang của các cửa hàng thủy sinh ở Việt Nam, đọc ngày {date}; giá bán thật có thể khác. Món nào có nhiều giá thì lấy từ thấp nhất đến cao nhất. Chỉ có một giá thì tính tới giá kế tiếp trong cùng bảng. Cỡ hay mức nào không có hàng thì lấy theo hai cỡ hai bên, hoặc mức gần nhất.', { date })}</p>
+      <p>{t('Chưa tính cá, cây, đá, lũa và dụng cụ. Tủ gỗ thường đóng theo kích thước bể, nên hỏi giá thợ. Máy làm lạnh (chiller) giá 3,85–8,8 triệu đồng, không tính vào đây.')}</p>
+      <p>{t('Tiền điện: đèn bật 8 tiếng mỗi ngày, lọc chạy cả ngày, tháng 30 ngày. Bể cộng thêm vào phần cuối hóa đơn, nên tính theo bậc giá cao nhất nhà bạn dùng tới. Chưa tính sưởi, quạt, van điện CO₂ và ổ cắm, vì chưa có số liệu chúng chạy bao lâu.')}</p>
+      <p>{t('Nạp CO₂: các cửa hàng ghi một bình 3 kg dùng 3–5 tháng, tùy tốc độ sủi; con số này chưa được kiểm chứng. Phân nước: theo liều của Seachem Flourish (5 ml cho 250 lít); dùng thêm phân khác thì tốn hơn.')}</p>
+      {vn && <p>{t('Liên kết tiếp thị: trang có thể nhận hoa hồng khi bạn mua qua liên kết.')}</p>}
+    </section>
+  </div>
+</Browse>
+<script>
+  import { money, plan, rateText, TARIFFS, type Country, type Input, type Size, type Tier } from '../../scripts/budget'
+  import { ct } from '../../scripts/ct'
+
+  const tool = document.getElementById('db-tool')!
+  const form = document.getElementById('db') as HTMLFormElement
+  const locale = tool.dataset.locale!
+  const $ = (id: string) => document.getElementById(id)!
+  const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement
+  const nf = (n: number) => new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(n)
+
+  /** The tariff tiers of the chosen country, its research tier picked. */
+  function fillTariffs(country: Country) {
+    const t = TARIFFS[country]
+    field('bac').replaceChildren(...t.tiers.map((x, i) => new Option(`${x.label} · ${rateText(x.rate, t.currency, locale)}`, String(i), i === t.pick, i === t.pick)))
+    $('db-tariff-note').textContent = ct(t.note)
+  }
+
+  function read(): Input {
+    const f = new FormData(form)
+    const n = (k: string) => Number(f.get(k)) || undefined
+    const co = String(f.get('co'))
+    const own = co === 'khac'
+    const [l, w, h] = own ? [n('l'), n('w'), n('h')] : co.split('x').map(Number)
+    // Sides when all three are given, else the litres.
+    const size: Size = l && w && h ? { l, w, h } : own ? { litres: n('lit') } : {}
+    return { size, tier: f.get('muc') as Tier, co2: f.has('co2'), smart: f.has('tm'), country: f.get('nuoc') as Country, tariff: Number(f.get('bac')), foodMonths: Number(f.get('an')) }
+  }
+
+  function render() {
+    const x = read()
+    // The choices in the address, so a plan can be shared.
+    const q = new URLSearchParams()
+    for (const [k, v] of new FormData(form)) if (v !== '') q.set(k, String(v))
+    history.replaceState(null, '', `${location.pathname}?${q}${location.hash}`)
+    const p = plan(x)
+    $('db-hint').hidden = !!p
+    $('db-hint').textContent = p ? '' : ct('Nhập dài, rộng và cao, hoặc số lít.')
+    tool.classList.toggle('waiting', !p)
+    if (!p) return
+    $('db-over').hidden = !p.over
+    $('db-over').textContent = p.over ? ct('Giá chỉ tới bể 120 cm: bể lớn hơn tốn hơn các con số này.') : ''
+    const vnd = (r: readonly [number, number]) => money(r, 'VND', ct, locale)
+    for (const row of tool.querySelectorAll<HTMLTableRowElement>('tr[data-part]')) {
+      const part = p.parts.find(y => y.id === row.dataset.part)
+      row.hidden = !part
+      if (!part) continue
+      row.querySelector('.what')!.textContent = ct(part.what)
+      row.querySelector('.price')!.textContent = vnd(part.range)
+      const a = row.querySelector<HTMLAnchorElement>('a[data-go]')
+      if (a && part.keyword) {
+        // Only the search changes: the shop the picker chose stays (components/ShopPicker).
+        const u = new URL(a.getAttribute('href')!, location.origin)
+        u.searchParams.set('k', part.keyword)
+        a.setAttribute('href', u.pathname + u.search)
+      }
+    }
+    const month = p.currency === 'VND' ? vnd(p.month) : ct('{a}, cộng tiền điện {b}', { a: vnd(p.month), b: money(p.power, p.currency, ct, locale) })
+    $('db-total').textContent = $('db-parts-total').textContent = vnd(p.total)
+    $('db-month').textContent = vnd(p.month)
+    $('db-run-total').textContent = month
+    $('db-month-power').hidden = p.currency === 'VND'
+    $('db-month-power').textContent = p.currency === 'VND' ? '' : ct('cộng tiền điện {b}', { b: money(p.power, p.currency, ct, locale) })
+    const run = (id: string) => tool.querySelector<HTMLTableRowElement>(`tr[data-run="${id}"]`)!
+    run('dien').querySelector('.what')!.textContent = `${nf(p.kwh[0])}–${nf(p.kwh[1])} kWh × ${rateText(p.rate, p.currency, locale)}`
+    run('dien').querySelector('.price')!.textContent = money(p.power, p.currency, ct, locale)
+    run('co2').hidden = !p.co2
+    if (p.co2) run('co2').querySelector('.price')!.textContent = vnd(p.co2)
+    run('phan').querySelector('.price')!.textContent = vnd(p.fert)
+    run('an').querySelector('.price')!.textContent = vnd(p.food)
+  }
+
+  // A shared address fills the form in: the country before its tariff tiers.
+  const params = new URLSearchParams(location.search)
+  const nuoc = params.get('nuoc')
+  if (nuoc && nuoc in TARIFFS && nuoc !== field('nuoc').value) { field('nuoc').value = nuoc; fillTariffs(nuoc as Country) }
+  for (const [k, v] of params) {
+    const el = form.elements.namedItem(k)
+    if (k === 'nuoc' || !el) continue
+    if (el instanceof RadioNodeList) el.value = v
+    else if (el instanceof HTMLInputElement && el.type === 'checkbox') el.checked = true
+    else (el as HTMLInputElement).value = v
+  }
+
+  // Another size starts from the last preset's sides, to change one of them.
+  let preset = String(new FormData(form).get('co'))
+  tool.addEventListener('change', e => {
+    const el = e.target as HTMLInputElement
+    if (el.name === 'nuoc') fillTariffs(el.value as Country)
+    if (el.name === 'co' && el.value !== 'khac') preset = el.value
+    if (el.name === 'co' && el.value === 'khac' && !field('l').value && !field('lit').value && preset !== 'khac') {
+      const [l, w, h] = preset.split('x')
+      field('l').value = l!; field('w').value = w!; field('h').value = h!
+    }
+    render()
+  })
+  tool.addEventListener('input', render)
+  form.addEventListener('submit', e => e.preventDefault())
+  render()
+</script>
+<style>
+  #db-tool { max-width: 52rem; }
+  .calc { display: grid; gap: var(--space-4); margin-bottom: var(--space-5); }
+  fieldset { border: 0; padding: 0; margin: 0; }
+  legend { font-size: 0.85rem; color: var(--c-ink-soft); margin-bottom: var(--space-2); }
+  .sizes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 8.5rem), 1fr)); gap: var(--space-2); }
+  .chip { position: relative; display: grid; align-content: center; gap: 0.1rem; min-height: 3.5rem; padding: var(--space-2) var(--space-3); border: 1px solid var(--c-rule); border-radius: 10px; cursor: pointer; }
+  .chip strong { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .chip small { font-size: 0.75rem; color: var(--c-ink-soft); font-variant-numeric: tabular-nums; }
+  .chip input, .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip:has(input:checked) { border-color: var(--c-ink); background: var(--c-plate); box-shadow: inset 0 0 0 1px var(--c-ink); }
+  .chip:has(input:focus-visible), .seg:has(input:focus-visible) { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  /* Another size: its boxes show only once it's chosen. */
+  .own { display: none; flex-wrap: wrap; gap: var(--space-3); align-items: end; }
+  .calc:has(input[name=co][value=khac]:checked) .own { display: flex; }
+  .own label, .where, .tariff { display: grid; gap: var(--space-1); font-size: 0.85rem; color: var(--c-ink-soft); }
+  .own input { width: 6.5rem; }
+  .own .or { font-size: 0.85rem; color: var(--c-ink-faint); padding-bottom: 0.7rem; }
+  input[type=number], select { font: inherit; font-size: 1rem; min-height: 2.75rem; padding: 0.45rem 0.6rem; border: 1px solid var(--c-rule); border-radius: 8px; background: var(--c-plate); color: var(--c-ink); }
+  /* Three equal segments on one row however long a language's names: a name wraps inside its own. */
+  .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .seg { position: relative; display: grid; }
+  .seg span { display: flex; align-items: center; justify-content: center; min-width: 0; overflow-wrap: break-word; min-height: 2.75rem; padding: var(--space-1) var(--space-2); border: 1px solid var(--c-rule); margin-left: -1px; font-weight: 500; text-align: center; cursor: pointer; }
+  .seg:first-of-type span { border-radius: 8px 0 0 8px; margin-left: 0; }
+  .seg:last-of-type span { border-radius: 0 8px 8px 0; }
+  .seg:has(input:checked) span { position: relative; background: var(--c-ink); border-color: var(--c-ink); color: var(--c-paper); }
+  .extras { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); align-items: end; }
+  .tick { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; cursor: pointer; }
+  .tick input { width: 1.25rem; height: 1.25rem; accent-color: var(--c-moss); margin: 0; }
+  .where { margin-left: auto; }
+
+  /* The answer: the two totals, large, between rules. */
+  .sum { border-block: 2px solid var(--c-ink); padding-block: var(--space-3); margin-bottom: var(--space-6); }
+  .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--space-2) var(--space-5); }
+  .fig { display: grid; gap: 0.1rem; margin: 0; }
+  .fig .k { font-size: var(--step--1); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--c-cardinal); }
+  .fig strong { font-family: var(--f-display); font-size: var(--step-3); font-weight: 450; line-height: 1.15; font-variant-numeric: tabular-nums; }
+  .fig .plus { font-size: 0.95rem; color: var(--c-ink-soft); font-variant-numeric: tabular-nums; }
+  .fig .plus[hidden] { display: none; }
+  .read, .hint, .warn { font-size: var(--step--1); color: var(--c-ink-soft); margin: var(--space-2) 0 0; max-width: var(--measure); }
+  .warn { color: var(--c-cardinal); }
+  #db-tool.waiting .figs, #db-tool.waiting .list tbody, #db-tool.waiting .list tfoot { opacity: 0.4; }
+
+  .block { margin-bottom: var(--space-6); }
+  .head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--space-3) var(--space-5); padding-bottom: var(--space-2); border-bottom: 2px solid var(--c-ink); }
+  h2 { font-size: var(--step-2); margin: 0; }
+  /* A select is as wide as its longest option ("R-2, R-3 ≥ 3500 VA · Rp 1.699,53/kWh"): held to its column instead. */
+  .tariff { margin: var(--space-3) 0 var(--space-2); max-width: 24rem; grid-template-columns: minmax(0, 1fr); }
+  .tariff select { width: 100%; }
+  .list { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .list thead th { font-size: var(--step--1); font-weight: 500; color: var(--c-ink-faint); text-align: left; padding: var(--space-2) 0; border-bottom: 1px solid var(--c-rule); }
+  .list thead th:last-child { text-align: right; }
+  .list tbody th, .list tbody td { padding: var(--space-3) 0; border-bottom: 1px dotted var(--c-rule); vertical-align: top; }
+  .list tbody th { text-align: left; font-weight: 400; padding-right: var(--space-3); }
+  .nm { display: block; font-weight: 600; }
+  .what { display: block; font-size: 0.875rem; color: var(--c-ink-soft); }
+  label.what { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-top: var(--space-1); }
+  label.what select { min-height: 2.75rem; padding-block: 0.3rem; }
+  .price { text-align: right; white-space: nowrap; font-weight: 500; }
+  .list tfoot th, .list tfoot td { padding: var(--space-3) 0; border-top: 2px solid var(--c-ink); text-align: left; font-weight: 600; }
+  .list tfoot td { text-align: right; font-family: var(--f-display); font-size: var(--step-1); white-space: normal; }
+  .shop { display: inline-flex; align-items: center; gap: var(--space-1); min-height: 44px; margin-top: var(--space-1); padding: 0 var(--space-3); border: 1px solid var(--c-rule); border-radius: 999px; background: var(--c-plate); color: var(--c-ink); font-size: 0.85rem; font-weight: 500; text-decoration: none; }
+  .shop:hover { border-color: var(--c-ink); }
+  .shop:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
+  .shop svg { color: var(--c-ink-soft); }
+  .note { font-size: var(--step--1); color: var(--c-ink-soft); max-width: var(--measure); margin-top: var(--space-2); }
+  .how p { color: var(--c-ink-soft); max-width: var(--measure); font-size: 0.95rem; }
+  .how h2 { padding-bottom: var(--space-2); border-bottom: 1px solid var(--c-rule); margin-bottom: var(--space-3); }
+  /* A 320 px phone: prices may wrap their unit under the number rather than push the page sideways. */
+  @media (max-width: 22rem) { .price { white-space: normal; } .where { margin-left: 0; } .seg span { font-size: 0.875rem; padding-inline: var(--space-1); } }
+</style>

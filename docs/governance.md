@@ -87,6 +87,11 @@ that would have caught it).
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
     and a report that takes a post down only from a signed-in reader and never once the moderation has kept it
     (`apps/site/worker/test/talk.test.ts`).
+  - A comment's photo (`docs/contracts/comment-photo.md`): the comment and its photo stored together or not at all, a
+    refused file or a photo past readers' photos' day leaving no comment, the photo under its comment only once both
+    are public and never among a page's readers' photos, removed with its comment, never moved, and deleted by its link,
+    the reader's own list and the account (`apps/site/worker/test/comment-photos.test.ts`); judged without the species
+    check (`packages/engine/test/reader-photos.test.ts`); shown and sent on a fish's page (`e2e/comment-photos.spec.ts`).
   - The fish identifier's answers, the page's and the app's (its session as a bearer, no Origin or Turnstile), against
     `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
     and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted
@@ -136,7 +141,7 @@ that would have caught it).
       owner API. They aren't on the host, where Access would stop them.
     - Each page's links reach what the host answers (a public page's goes back to the site), its forms post only from
       the page, and every answer is noindex and never stored. A page added to the dashboard's rail (`WEB_PAGES`: NAV's,
-      the scoreboard, the daily report's log and each report) is on the host with its line in `run_worker_first`
+      the scoreboard, the daily report's log and each report, the change log) is on the host with its line in `run_worker_first`
       (`/<key>/*`, and a `.json` form's own): without it the 404 page answers and the Worker is never asked, and a test
       names the line. No negative pattern there: one wins over every positive rule, and `!/id/*` would take the hidden app
       page in Indonesian and Thai from the Worker; a test holds each app page and its files to it. Files that skip the Worker carry noindex from `public/_headers`. A dashboard address
@@ -155,14 +160,22 @@ that would have caught it).
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
-    what GitHub won't give named rather than counted as none, the retries, and a body the Worker reads
-    (`apps/site/test/daily-report.test.ts`). The composer: what
-    needs care, the highlights, the app with no data yet, and no address, picture or link to another site in a report
-    (`daily-compose.test.ts`). `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
+    what GitHub won't give named rather than counted as none, the retries, a merged PR's product changes and no number,
+    title or link of its own, and a body the Worker reads (`apps/site/test/daily-report.test.ts`). A PR's changes are
+    its body's `## Changelog` lines (several, `none`, odd spacing, an example in a code block not one), else its title
+    for a `feat` or `fix` outside the ci, test, docs and chore scopes and not the engine's content, labelled by its files:
+    any in `apps/ios/` App, else any in `packages/engine/` Engine, else Site (`changelog.test.ts`). The composer: the
+    week's success numbers first, in English, or why they're missing, what needs care, the highlights, what changed by
+    area (each line once, newest first, the change log's link; "No product changes." only when GitHub gave everything),
+    the app with no data yet, and no address, picture or link to another site in a report (`daily-compose.test.ts`).
+    `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
     id even at the same moment, and the recipient in nothing but the send; email off, push on (with no key, no phone, a
     refusal alone or beside a mail sent), neither sent twice; a phone whose session ended (signed out, expired, the
     account deleted or no longer the owner's) dropped unsent, one registered again in a new session kept; the log page, each row saying what went out; the page's
-    form, the owner's alone (`daily-report.test.ts`), on the dashboard's host too, behind Access and from the page only
+    form, the owner's alone; the day's changes written to the change log (one KV key, `changelog`) before anything is
+    sent, so a failed write sends nothing and the next try writes it, each change kept once across retries and runs by
+    hand, a year kept, what the mail would cut cut there too; and its page, `/_ab/thay-doi/`, by the day each merged in
+    the viewer's zone, the owner's alone, on the web only (`daily-report.test.ts`), on the dashboard's host too, behind Access and from the page only
     (`dashboard-host.test.ts`). The push: the settings, the phones kept and capped, the APNs token
     (ES256, the key's id, the team) checked against a generated key, the alert, each host, and APNs' answers (410 and
     BadDeviceToken drop a phone), with no token or key in a log (`daily-push.test.ts`).
@@ -209,6 +222,10 @@ that would have caught it).
   run in `ci.yml` only: the engine's pushes change `content/`, which the fixture build doesn't read.
 - A pull request that changes only the iOS app (`apps/ios/`, `ios.yml`, `testflight.yml`) skips the site's checks;
   `protocols/` is the site's too.
+- Every pull request's body says what it changes for the owner, in a `## Changelog` section (AGENTS.md): `ci.yml`'s
+  `changelog` job reads the body as it is now (`gh pr view`, so running the job again after fixing the body passes) and
+  `test` needs it. fix.yml's PRs and the engine's content (a `content` title, or only `content/`, `sources/` and
+  `engine-state/`) pass without one; the engine's own pushes go straight to main and are no PR.
 - Not gated yet: `deploy.sh` run on the owner's Mac (the video cycle). Layer 2 watches production for what slips through.
 
 ### 2. Production watch (live)

@@ -8,8 +8,14 @@ let slim = Model.of(name: "DYSL30A1B2C3")!
 let owners = Schedule(on: TimeOfDay(hour: 12, minute: 0), off: TimeOfDay(hour: 20, minute: 0), ramp: 30, levels: [70, 70, 70])
 let newTank = Schedule(on: TimeOfDay(hour: 13, minute: 0), off: TimeOfDay(hour: 19, minute: 0), ramp: 15, levels: [40, 50, 60])
 
+/// No pauses, and a status reply waited for up to 10 s: on a runner busy with the other tests, the fake light's answer
+/// can take longer than `.none`'s 1 s to run (it did on GitHub's Macs). The wait ends as soon as the answer comes.
+let waiting = LightSession.Pacing(gap: .zero, scheduleGap: .zero, statusTimeout: .seconds(10), readbackTries: 3)
+
 @MainActor
-func session(_ light: FakeLight) -> LightSession { LightSession(name: "DYSL30A1B2C3", model: slim, link: light, pacing: .none) }
+func session(_ light: FakeLight, pacing: LightSession.Pacing = waiting) -> LightSession {
+  LightSession(name: "DYSL30A1B2C3", model: slim, link: light, pacing: pacing)
+}
 
 @MainActor @Test func readsFirmwareClockAndSavedSchedule() async throws {
   let light = FakeLight(schedule: owners, channels: 3)
@@ -57,7 +63,8 @@ func session(_ light: FakeLight) -> LightSession { LightSession(name: "DYSL30A1B
 @MainActor @Test func aSilentLightTimesOut() async throws {
   let light = FakeLight(schedule: owners, channels: 3)
   light.silent = true
-  await #expect(throws: SessionError.noStatus) { try await session(light).refresh() }
+  // `.none`'s 1 s: a light that never answers waits the whole timeout out.
+  await #expect(throws: SessionError.noStatus) { try await session(light, pacing: .none).refresh() }
 }
 
 @MainActor @Test func syncsTheClock() async throws {

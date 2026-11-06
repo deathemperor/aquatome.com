@@ -13,6 +13,84 @@
     "golok",
     "sungai-golok"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Terengganu",
+        "Endau",
+        "Sabak Bernam",
+        "Golok"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hendrickson's stream catfish, Akysis hendricksoni, is a small akysid catfish from much of Peninsular Malaysia and the extreme south of Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the 'Trengganu River at Kuala Brang, Trengganu, Malaysia' which corresponds to the the town now known as Kuala Berang on the Sungai (river) Terengganu, Terengganu state, northeastern Peninsular Malaysia.",
+          "countries": [],
+          "regions": [
+            "Terengganu"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional records exist from the Endau, Sabak Bernam and Golok (aka Kolok) river drainages meaning the species is distributed throughout much of Peninsular Malaysia and into the extreme south of Thailand.",
+          "countries": [],
+          "regions": [
+            "Endau",
+            "Sabak Bernam",
+            "Golok"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340902,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

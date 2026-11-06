@@ -1,0 +1,63 @@
+{
+  "id": "amblyceps-laticeps",
+  "native": {
+    "input": "bd7141594935a8b4",
+    "at": "2026-11-06T01:44:56.709Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: India, Assam, Khasi Hills.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The species' distribution in India and Bangladesh is estimated at around 40,000 km².",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "BD"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Amblyceps laticeps",
+    "status": "ACCEPTED",
+    "taxonKey": 2342849,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T01:44:56.709Z"
+  }
+}

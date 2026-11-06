@@ -2571,6 +2571,12 @@
     ],
     "ruled": "84573ff55404c169"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-indian-almond-leaves": {
+    "at": "2026-11-06",
+    "hash": "5e2b7b8aaaaa6821",
+    "findings": [],
+    "ruled": "5e2b7b8aaaaa6821"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-iron-fertilizer": {
     "at": "2026-11-05",
     "hash": "6fb4f9f4212e1c44",
@@ -3809,6 +3815,12 @@
     ],
     "ruled": "e61d6f3928b7bce6"
   },
+  "vi/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": {
+    "at": "2026-11-06",
+    "hash": "a24aa7ce05ba3a30",
+    "findings": [],
+    "ruled": "a24aa7ce05ba3a30"
+  },
   "vi/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": {
     "at": "2026-11-05",
     "hash": "357ec5a0ce76867f",
@@ -4044,6 +4056,30 @@
     "findings": [],
     "ruled": "6b76d72b1c4f3563"
   },
+  "vi/guides/aquatome-thuc-an-giup-ca-len-mau-dep-va-vitamin-cho-ca": {
+    "at": "2026-11-06",
+    "hash": "bd79710092d02bc6",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Màu ánh kim phụ thuộc vào ánh sáng, thức ăn không đổi được.",
+        "problem": "Earlier the page says the iridescent colour comes from the skin's structure reflecting light. This line says it depends on the light, which reads as if changing the tank lighting would fix it.",
+        "fix": "Màu ánh kim do cấu trúc da phản chiếu ánh sáng tạo nên, thức ăn không đổi được.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nói chung, cá thiếu dinh dưỡng sẽ chậm lớn, dị tật, sức đề kháng yếu, rối loạn trao đổi chất và bị gan nhiễm mỡ.",
+        "problem": "This paragraph on general malnutrition and fatty liver sits under the heading about why fish need vitamin C, which it is not about.",
+        "field": "body"
+      }
+    ],
+    "ruled": "bd79710092d02bc6"
+  },
   "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": {
     "at": "2026-11-01",
     "hash": "8b32268b678c5e10",
@@ -4059,6 +4095,58 @@
       }
     ],
     "ruled": "8b32268b678c5e10"
+  },
+  "vi/guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en": {
+    "at": "2026-11-06",
+    "hash": "2b16143d26f588ef",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Dành cho khách hàng của chúng tôi: trong danh sách hàng tồn kho, cá có mã 142702 (Labeo parvus)",
+        "problem": "The wholesaler's stock codes and trade-only notice were copied from the source page. On a hobbyist handbook they read as if AquaTome sells these fish.",
+        "rule": "A sentence containing stock-list codes or 'chỉ cung cấp cho thương mại bán buôn' (wholesale only).",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Hiện nay chúng tôi có hai loài Labeo châu Phi.",
+        "problem": "The importer's unnamed 'we' is kept, so readers will think the handbook itself keeps and stocks these fish.",
+        "fix": "Hiện nay trên thị trường có hai loài Labeo châu Phi.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Văn bản và ảnh: Frank Schäfer",
+        "problem": "The original article's author credit line is left in the body text.",
+        "rule": "A line starting with 'Văn bản và ảnh:' or 'Text & photos:'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cá sẽ lớn đến kích thước lớn",
+        "problem": "The repeated 'lớn' is clumsy and reads like a literal translation.",
+        "fix": "cá sẽ còn lớn nhiều",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chúng tôi chỉ cung cấp cho thương mại bán buôn",
+        "problem": "'thương mại bán buôn' is a literal translation of 'wholesale trade' and sounds unnatural.",
+        "fix": "chúng tôi chỉ bán sỉ",
+        "field": "body"
+      }
+    ],
+    "ruled": "2b16143d26f588ef"
   },
   "vi/guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-small-goldfish-ranchu-mixed-colours": {
     "at": "2026-11-01",
@@ -4216,6 +4304,12 @@
     "findings": [],
     "ruled": "6f6c66208824474b"
   },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-l18-l81-l85-l177-and-l47-described-scientifically-en": {
+    "at": "2026-11-06",
+    "hash": "19f74c22d32016e0",
+    "findings": [],
+    "ruled": "19f74c22d32016e0"
+  },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-sturisoma-arrived-en": {
     "at": "2026-11-05",
     "hash": "fa4fb95f543cce17",
@@ -4243,6 +4337,12 @@
       }
     ],
     "ruled": "956dea628b022f60"
+  },
+  "vi/guides/glaser-en-fisharchive-l200-hemiancistrus-subviridis-and-baryancistrus-demantoides": {
+    "at": "2026-11-06",
+    "hash": "18b4442b5b4b5676",
+    "findings": [],
+    "ruled": "18b4442b5b4b5676"
   },
   "vi/guides/glaser-en-general-cichla-ocellaris-x-melaniae-hybrid-2": {
     "at": "2026-11-04",
@@ -4413,6 +4513,39 @@
     "hash": "cd21396832b4e1cd",
     "findings": [],
     "ruled": "cd21396832b4e1cd"
+  },
+  "vi/guides/loachesonline-articles-breeding-experience-with-pangio-oblonga": {
+    "at": "2026-11-06",
+    "hash": "15c1f1b9f6e7ff8a",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bên dưới là ảnh cá mẹ, chụp từ dưới đáy bể lên.",
+        "problem": "Several sentences point to specific photos (first photos, mother photo, closing photo) that the page does not show; only one captioned photo exists.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "hạt đá to hơn con cá rất nhiều nên không có cạnh sắc",
+        "problem": "The source only says the grains are large relative to a kuhli, not much bigger than the fish; 1.3–2.5 cm stones are smaller than an adult kuhli.",
+        "fix": "So với cỡ con chạch kuhli thì hạt đá khá to, nên không có cạnh sắc",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có những loài bắt buộc phải có đúng các thông số này thì trứng mới nở.",
+        "problem": "\"các thông số này\" reads as Richard's hard, alkaline parameters, but it means the natural water conditions.",
+        "fix": "Có những loài bắt buộc phải có đúng thông số nước như ngoài tự nhiên thì trứng mới nở.",
+        "field": "body"
+      }
+    ],
+    "ruled": "15c1f1b9f6e7ff8a"
   },
   "vi/guides/loachesonline-articles-fishes-of-the-genus-botia-in-the-indian-region": {
     "at": "2026-11-01",
@@ -6705,6 +6838,12 @@
     ],
     "ruled": "c14cc77769b73745"
   },
+  "vi/guides/youtube-4o4QdaCguWQ": {
+    "at": "2026-11-06",
+    "hash": "c1038f60edf6400e",
+    "findings": [],
+    "ruled": "c1038f60edf6400e"
+  },
   "vi/guides/youtube-4UAMT8frW4s": {
     "at": "2026-11-02",
     "hash": "769e5615886e405f",
@@ -6720,6 +6859,64 @@
       }
     ],
     "ruled": "769e5615886e405f"
+  },
+  "vi/guides/youtube-5IuztIYxONk": {
+    "at": "2026-11-06",
+    "hash": "6190a5d5ecf1ac3a",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Quy trình thực ra chỉ có ba bước: chuẩn bị, đóng cốp pha, đổ bê tông.",
+        "problem": "The text says there are three steps, but the list right below has five (preparing and setting rebar, formwork, laying floor heating, pouring, compacting and curing).",
+        "fix": "Quy trình gồm các bước chính: chuẩn bị, đóng cốp pha, đổ bê tông.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khoảng 10.000 đô Canada cho phần thân bể, chừng một phần năm chi phí.",
+        "problem": "Against the 30,000–40,000 acrylic estimate in the same table, 10,000 is about a quarter to a third, not a fifth. The page also gives one figure in Canadian dollars and the other in plain dollars.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đầm và chờ đông cứng.",
+        "problem": "\"Đông cứng\" means freezing solid. Setting concrete is \"đóng rắn\" or \"ninh kết\".",
+        "fix": "Đầm và chờ bê tông đóng rắn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bê tông đổ tại chỗ là hướng ra rẻ hơn nhiều",
+        "problem": "\"Hướng ra\" is an unnatural phrase here and reads like a translation of \"way out\".",
+        "fix": "Bê tông đổ tại chỗ là cách làm rẻ hơn nhiều",
+        "field": "body"
+      }
+    ],
+    "ruled": "6190a5d5ecf1ac3a"
+  },
+  "vi/guides/youtube-5k5NAA0K30I": {
+    "at": "2026-11-06",
+    "hash": "41000c0b44f0a2a3",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhưng đó là tính cả lúc dừng quay phim và nói chuyện",
+        "problem": "This refers to filming in the source video, which a reader of the handbook page has no context for.",
+        "fix": "nhưng đó là tính cả lúc dừng nghỉ và xịt rửa",
+        "field": "body"
+      }
+    ],
+    "ruled": "41000c0b44f0a2a3"
   },
   "vi/guides/youtube-5qe8mXaetcY": {
     "at": "2026-11-04",
@@ -6788,11 +6985,76 @@
     ],
     "ruled": "3c9f236d6f708820"
   },
+  "vi/guides/youtube-60mDGZRh4NE": {
+    "at": "2026-11-06",
+    "hash": "a5b4353398a30851",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này chỉ cách làm một chân bể rẻ, chắc, dễ tháo dời.",
+        "problem": "\"tháo dời\" is a garbled mix of \"tháo dỡ\" and \"di dời\" and is not a real Vietnamese word.",
+        "fix": "Bài này chỉ cách làm một chân bể rẻ, chắc, dễ tháo dỡ.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trát xi măng gắn các viên với nhau. Gạch thành một khối liền thì chân bể vững hơn hẳn",
+        "problem": "The page sells the stand as easy to take apart and move, but then has you mortar the blocks into one solid piece, so you can no longer take it apart or move it easily.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a5b4353398a30851"
+  },
+  "vi/guides/youtube-6497twA1KLg": {
+    "at": "2026-11-06",
+    "hash": "7ae07d5b26537ae1",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Người làm đo amoniac, nitrit và nitrat bằng que thử.",
+        "problem": "'Người làm' is a clipped, unnatural subject. A native reader expects 'người làm thử nghiệm'.",
+        "fix": "Người làm thử nghiệm đo amoniac, nitrit và nitrat bằng que thử.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7ae07d5b26537ae1"
+  },
   "vi/guides/youtube-6oVW1-m8Aic": {
     "at": "2026-11-04",
     "hash": "34615646d8a96187",
     "findings": [],
     "ruled": "34615646d8a96187"
+  },
+  "vi/guides/youtube-6rXHkX20hqA": {
+    "at": "2026-11-06",
+    "hash": "48c4eddfd26fd928",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ba viên gạch dựng đứng chồng lên nhau: khoảng 61 cm.",
+        "problem": "A 20 x 20 x 40 cm block stood upright is 40 cm tall, so three of them make about 120 cm, not 61 cm. The 61 cm figure only works if the blocks are laid flat, 20 cm each.",
+        "fix": "Ba viên gạch đặt nằm chồng lên nhau: khoảng 61 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trần phòng cao khoảng 2,6 m, nên từ mép bể lên trần vẫn còn hơn 91 cm để chăm bể.",
+        "problem": "The tank base sits at 91 cm and the tank is 91 cm tall, so its rim is at about 182 cm. With a 2.6 m ceiling that leaves about 78 cm, not more than 91 cm.",
+        "fix": "Trần phòng cao khoảng 2,6 m, nên từ mép bể lên trần vẫn còn khoảng 75–80 cm để chăm bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "48c4eddfd26fd928"
   },
   "vi/guides/youtube-7detxox6fXc": {
     "at": "2026-11-04",
@@ -6866,6 +7128,22 @@
     "hash": "4f0d5d689689b53f",
     "findings": [],
     "ruled": "4f0d5d689689b53f"
+  },
+  "vi/guides/youtube-9i-EoBCBWR8": {
+    "at": "2026-11-06",
+    "hash": "68ed3b0125d40eeb",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua hai thí nghiệm đo nhiệt độ và điện năng thực tế",
+        "problem": "\"Đi qua\" is a literal calque of English \"go through\" and reads as machine translation.",
+        "fix": "Dưới đây là hai thí nghiệm đo nhiệt độ và điện năng thực tế",
+        "field": "body"
+      }
+    ],
+    "ruled": "68ed3b0125d40eeb"
   },
   "vi/guides/youtube-9TtB817u8eE": {
     "at": "2026-11-05",
@@ -7039,6 +7317,22 @@
     "hash": "a06d673ce4833953",
     "findings": [],
     "ruled": "a06d673ce4833953"
+  },
+  "vi/guides/youtube-bZn6Bx67-L8": {
+    "at": "2026-11-06",
+    "hash": "e39f0222b70a4a7f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L14",
+        "quote": "Rong đuôi chồn cũng mọc rất mạnh ngoài trời.",
+        "problem": "The FAQ repeats the same wrong plant name, 'rong đuôi chồn' (hornwort), for guppy grass.",
+        "fix": "Rong kim (guppy grass) cũng mọc rất mạnh ngoài trời.",
+        "field": "faq.3.a"
+      }
+    ],
+    "ruled": "e39f0222b70a4a7f"
   },
   "vi/guides/youtube-C4W86NMP3CU": {
     "at": "2026-11-05",
@@ -7776,6 +8070,31 @@
       }
     ]
   },
+  "vi/guides/youtube-HMKKaOCIc-8": {
+    "at": "2026-11-06",
+    "hash": "2619228e56826cf3",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Việc của nó là hút những chỗ không đều trên mặt tủ",
+        "problem": "'hút' is a literal calque of 'absorb imperfections'. Vietnamese readers would say the foam cushions (đệm) or evens out (bù) uneven spots, not that it sucks them up.",
+        "fix": "Việc của nó là đệm lại những chỗ không đều trên mặt tủ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đặt bể lên tủ và châm nước",
+        "problem": "In the hobby, 'châm nước' means topping up evaporated water, not filling a new tank for the first time.",
+        "fix": "đặt bể lên tủ và cho nước vào",
+        "field": "body"
+      }
+    ],
+    "ruled": "2619228e56826cf3"
+  },
   "vi/guides/youtube-HoMUpt_DdfU": {
     "at": "2026-11-03",
     "hash": "a6df129b55155430",
@@ -8483,6 +8802,22 @@
     "findings": [],
     "ruled": "b1f25d6b555d1a45"
   },
+  "vi/guides/youtube-o8olS_u-y3o": {
+    "at": "2026-11-06",
+    "hash": "2d9313370c604edc",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đáy ở đây cần kích thước 183 x 185 cm.",
+        "problem": "The page first gives 183 x 185 cm as the size of the base. Later it says 183 x 185 cm is the glass size and the base must be cut to about 190 x 193 cm.",
+        "fix": "Kính của bể ở đây có kích thước 183 x 185 cm, nên đáy cần cắt khoảng 190 x 193 cm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2d9313370c604edc"
+  },
   "vi/guides/youtube-oHh1FU_k1jo": {
     "at": "2026-11-02",
     "hash": "ad38fd2aa9ab0d58",
@@ -8703,6 +9038,33 @@
       }
     ],
     "ruled": "3355afe048e78a91"
+  },
+  "vi/guides/youtube-qAQwhzHqh10": {
+    "at": "2026-11-06",
+    "hash": "455ce9992f03ad34",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mỗi 24 giờ nhỏ ra khoảng 2 lít, tương đương khoảng 6% mỗi ngày",
+        "problem": "2 L of 30 L is about 6.7%, i.e. roughly 7%, not 6%; the same figure is repeated in the start list, L3 and L8.",
+        "fix": "mỗi 24 giờ nhỏ ra khoảng 2 lít, tương đương khoảng 7% mỗi ngày",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-06",
+        "field": "body",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "\"Ống hút\" for the priming tool is ambiguous next to \"ống hút cặn\"; the tool meant is a syringe."
+        ]
+      }
+    ],
+    "ruled": "455ce9992f03ad34"
   },
   "vi/guides/youtube-qgic_Fj3WS4": {
     "at": "2026-11-03",
@@ -9500,6 +9862,12 @@
     ],
     "ruled": "e3419b8e3baac143"
   },
+  "vi/guides/youtube-XR1LMoVU7CI": {
+    "at": "2026-11-06",
+    "hash": "f8fe40b8e35282fd",
+    "findings": [],
+    "ruled": "f8fe40b8e35282fd"
+  },
   "vi/guides/youtube-xuc03DuJ9o4": {
     "at": "2026-11-02",
     "hash": "3dd7b06bbb1bfc5c",
@@ -9727,6 +10095,22 @@
     "hash": "202fa125bdb8b2a2",
     "findings": [],
     "ruled": "202fa125bdb8b2a2"
+  },
+  "vi/guides/youtube-zdJPct8nY0g": {
+    "at": "2026-11-06",
+    "hash": "6123dd763ee5ef0f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "chỉ cần ống nhỏ cỡ 6 mm và tê nối nhanh là chia được khí và nước cho cả dãy",
+        "problem": "The summary says the 6 mm tubing and push-fit tees carry both air and water, but the body uses them only for air and runs water through crimp-fitted lines and rigid tubing.",
+        "fix": "Dưới khoảng 10–12 chậu thì chỉ cần ống nhỏ cỡ 6 mm và tê nối nhanh là chia được khí cho cả dãy.",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "6123dd763ee5ef0f"
   },
   "vi/guides/youtube-zfTnqG22oS8": {
     "at": "2026-11-03",
