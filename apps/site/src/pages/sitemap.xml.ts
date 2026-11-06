@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro'
+import { APP_PAGE, APP_STATE } from '../lib/app'
 import { getContent } from '../lib/content'
 import { localizePath, OTHER_LANGS, PAGES, routeIn, served } from '../lib/i18n'
 import { categories, categoriesIn } from '../lib/equipment'
@@ -21,6 +22,7 @@ export const GET: APIRoute = async ({ site }) => {
     ...[...c.species, ...c.breeds].filter(s => s.t.quality.indexable && (c.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => `/vi/ca/${s.t.slug}/anh/`),
     ...c.plants.filter(p => p.t.quality.indexable && (c.galleries[p.id]?.length ?? 0) >= GALLERY_MIN).map(p => `/vi/cay/${p.t.slug}/anh/`),
     ...c.products.filter(p => p.t.quality.indexable).map(p => `/vi/san-pham/${p.t.slug}/`),
+    ...(APP_STATE === 'on' ? [APP_PAGE] : []),
   ].map(p => localizePath('vi', p))
   // Other languages: their fixed pages and their indexable species, breed, photo, guide, plant (and its photos) and glossary pages.
   for (const lang of OTHER_LANGS) {
@@ -32,7 +34,7 @@ export const GET: APIRoute = async ({ site }) => {
     if (served(lang, '/vi/huong-dan/x/')) paths.push(...t.guides.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/huong-dan/${g.t.slug}/`)))
     if (served(lang, '/vi/cay/x/')) paths.push(...t.plants.filter(p => p.t.quality.indexable).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/`)))
     if (served(lang, '/vi/cay/x/anh/')) paths.push(...t.plants.filter(p => p.t.quality.indexable && (t.galleries[p.id]?.length ?? 0) >= GALLERY_MIN).map(p => localizePath(lang, `/vi/cay/${p.t.slug}/anh/`)))
-    for (const index of ['/vi/phan-loai/', '/vi/nguon-goc/']) if (served(lang, index)) paths.push(localizePath(lang, index))
+    for (const index of ['/vi/phan-loai/', '/vi/nguon-goc/', ...(APP_STATE === 'on' ? [APP_PAGE] : [])]) if (served(lang, index)) paths.push(localizePath(lang, index))
     if (served(lang, '/vi/thuat-ngu/x/')) paths.push(...t.glossary.filter(g => g.t.quality.indexable).map(g => localizePath(lang, `/vi/thuat-ngu/${g.t.slug}/`)))
   }
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map(p => `  <url><loc>${new URL(p, site).href}</loc></url>`).join('\n')}\n</urlset>\n`

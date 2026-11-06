@@ -11,6 +11,52 @@
     "mamberamo",
     "new-guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Mamberamo",
+        "New Guinea"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The neon dwarf rainbowfish, Melanotaenia praecox, is a small rainbowfish endemic to the Mamberamo river system in New Guinea, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Mamberamo",
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411715,
+      "total": 2,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          135,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

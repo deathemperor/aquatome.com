@@ -1,16 +1,20 @@
 import { upsertProducts } from './affiliate/admin'
 import { runChecks } from './affiliate/check'
-import { parseGo, recordClick, resolveGo } from './affiliate/go'
+import { fromOurPage, parseGo, recordClick, resolveGo } from './affiliate/go'
 import { searchTarget, type AffEnv } from './affiliate/networks'
 import { applyDecisions, listComments, moderationQueue, postComment, purgeRemoved, type CommentsEnv } from './comments/api'
 import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
+import { dashboardHostRoute } from './dashboard-host'
+import { dailyReportRoute } from './daily/api'
 import { ownerApi } from './owner-api'
+import { isOwnerVisit } from './owner'
 import { recordSnapshot } from './admin/content'
 import { parseEvent, toDataPoint } from './events'
 import { redirectFor } from './redirects'
-import { isViPage, withoutVi } from './paths'
+import { DASHBOARD_HOST, isViPage, withoutVi } from './paths'
+import { appPageClosed } from './app-switch'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
 import { deleteRoute, listPhotos, minePhotos, photosAdmin, postPhoto } from './photos'
@@ -35,8 +39,11 @@ export interface Env {
   /** The iOS app's events and MetricKit summaries (worker/telemetry); without it the app's routes answer 503. */
   APP_EVENTS?: AnalyticsEngineDataset
   STAGING?: string
-  /** Production host; any other host (www, the old staging domain) 301s here. */
+  /** Production host; any other host (www, the old staging domain) but the dashboard's own 301s here. */
   CANONICAL_HOST?: string
+  /** Cloudflare Access in front of the dashboard's own host (access.ts): while either is empty, that host refuses everything. */
+  ACCESS_TEAM_DOMAIN?: string
+  ACCESS_AUD?: string
   AB_DASH_TOKEN?: string
   /** The owner's account ids, comma-separated (a secret): the dashboard opens only to them (dashboard.ts visitor). */
   OWNER_ACCOUNTS?: string
@@ -49,6 +56,8 @@ export interface Env {
   /** Reader photos: raw uploads (private) and the public media bucket (media.aquatome.com) the screened copies go to. */
   UPLOADS?: R2Bucket
   MEDIA?: R2Bucket
+  /** Who the daily report goes to (a secret, worker/daily): never logged, stored or answered. */
+  REPORT_TO?: string
 }
 type FullEnv = Env & AffEnv & CommentsEnv & AccountsEnv & FishIdEnv
 const MAX_EVENT_BYTES = 4096
@@ -68,14 +77,14 @@ async function events(req: Request, env: Env): Promise<Response> {
   const site = req.headers.get('sec-fetch-site')
   if ((origin && origin !== new URL(req.url).origin) || (site && site !== 'same-origin')) return new Response(null, { status: 403 })
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
-  if (/(?:^|;\s*)aq_owner=1/.test(req.headers.get('cookie') ?? '')) return new Response(null, { status: 204 }) // the owner's own visits
+  if (isOwnerVisit(req)) return new Response(null, { status: 204 })
   const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
   if (!e) return new Response(null, { status: 400 })
   env.EVENTS?.writeDataPoint(toDataPoint(e, String((req as { cf?: { country?: string } }).cf?.country ?? '')))
   return new Response(null, { status: 204 })
 }
 
-/** /go/:network/?k=&c=&e= → 302 to the best affiliate target; click counted after the response. */
+/** /go/:network/?k=&c=&e= → 302 to the best affiliate target; a reader's click on one of our pages counted after the response. */
 async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<unknown>) => void): Promise<Response> {
   const p = parseGo(url)
   if (!p) return finish(new Response('Not found', { status: 404 }), env)
@@ -84,8 +93,8 @@ async function goRoute(req: Request, url: URL, env: FullEnv, wait: (p: Promise<u
   // The catalog is an upgrade, never a dependency: any D1 problem falls back to the search link.
   if (env.DB) target = await resolveGo(p, env.DB, env, now).catch(() => target)
   const { location, productId } = target
-  const human = req.method === 'GET' && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
-  if (env.DB && human) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
+  const click = req.method === 'GET' && fromOurPage(req) && !isOwnerVisit(req) && !isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))
+  if (env.DB && click) wait(recordClick(env.DB, p, productId, now).catch(() => {}))
   return finish(new Response(null, { status: 302, headers: { location, 'cache-control': 'no-store', 'referrer-policy': 'no-referrer' } }), env)
 }
 
@@ -154,10 +163,16 @@ export function chosenLang(cookie: string | null): Lang | undefined {
 
 export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unknown>) => void = p => void p, accountDeps?: AccountDeps, fishDeps?: FishIdDeps): Promise<Response> {
   const url = new URL(req.url)
+  if (url.hostname === DASHBOARD_HOST) return dashboardHostRoute(req, url, env)
   if (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) {
     return new Response(null, { status: 301, headers: { location: `https://${env.CANONICAL_HOST}${url.pathname}${url.search}` } })
   }
   if (url.pathname === '/vi' || url.pathname.startsWith('/vi/')) return finish(await fromVi(url, env), env)
+  // The app's page before the store launch: the owner's only (app-switch.ts). Anyone else gets the site's 404 page.
+  if (appPageClosed(url.pathname, req.headers.get('cookie'))) {
+    const page = await env.ASSETS.fetch(new Request(new URL('/404/', url)))
+    return finish(new Response(page.body, { status: 404, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'private, max-age=0' } }), env)
+  }
   // Pages taken down from the dashboard: 410 for HTML, markdown and index.* alike (see isHidden for how soon).
   if (isPage(url.pathname)) {
     const p = pagePath(url.pathname)
@@ -221,6 +236,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/_p') return finish(req.method === 'POST' ? await postPhoto(req, env, new Date()) : req.method === 'GET' ? await listPhotos(url, env) : new Response(null, { status: 405 }), env)
   if (url.pathname === '/_p/xoa/' || url.pathname === '/_p/xoa') return finish(await deleteRoute(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
+  // The daily report's GitHub half, from daily-report.yml (worker/daily): the dashboard token only.
+  if (url.pathname === '/_ab/report') return dailyReportRoute(req, url, env)
   // The owner's dashboard (worker/dashboard.ts): every /_ab path, each behind the token.
   if (url.pathname === '/_ab' || url.pathname.startsWith('/_ab/')) return adminRoute(req, url, env)
 

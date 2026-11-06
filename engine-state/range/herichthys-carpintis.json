@@ -1,0 +1,96 @@
+{
+  "id": "herichthys-carpintis",
+  "native": {
+    "input": "edbb3a84bde73c8c",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The pearlscale cichlid, Herichthys carpintis, is a large cichlid from northern Mexico, found in lagoons around the mouth of the Panuco drainage.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Panuco",
+        "source": "seriouslyfish",
+        "quote": "The pearlscale cichlid, Herichthys carpintis, is a large cichlid from northern Mexico, found in lagoons around the mouth of the Panuco drainage.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Herichthys carpintis",
+    "status": "ACCEPTED",
+    "taxonKey": 2373122,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        33
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        30
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        14
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        4
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        3
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        3
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

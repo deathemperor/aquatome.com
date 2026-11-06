@@ -1,5 +1,5 @@
 import type { GuideEntity } from '@aq/schema'
-import { OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
+import { WRITTEN_OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
 import { parse } from 'node-html-parser'
 import type { SourcePhoto } from './source-photos'
 
@@ -37,9 +37,9 @@ export function guideHeading(source: string, headings: string[]): string | undef
  * it: the other languages by the same position among their headings). A photo whose source heading matches none (the
  * article's title, the introduction) keeps no section; the page spreads those through the text.
  */
-export function withSections(photos: SourcePhoto[], bodies: { vi: string } & Partial<Record<OtherLang, string>>): GuidePhoto[] {
+export function withSections(photos: SourcePhoto[], bodies: { vi: string } & Partial<Record<WrittenOtherLang, string>>): GuidePhoto[] {
   const vi = guideHeadings(bodies.vi)
-  const other = OTHER_LANGS.map(l => [l, bodies[l] ? guideHeadings(bodies[l]) : []] as const)
+  const other = WRITTEN_OTHER_LANGS.map(l => [l, bodies[l] ? guideHeadings(bodies[l]) : []] as const)
   return photos.map(({ heading, ...p }) => {
     const h = heading && guideHeading(heading, vi)
     if (!h) return p

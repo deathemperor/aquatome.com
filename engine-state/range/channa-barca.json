@@ -1,0 +1,80 @@
+{
+  "id": "channa-barca",
+  "native": {
+    "input": "715fb64a055c4a90",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears restricted to the states of Assam and Nagaland in northeastern India but is scarce and never collected in numbers.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "In Assam it's been recorded in Kamrup and Morigaon districts during recent years, while its occurrences in Nepal and Bangladesh is said to be doubtful.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "In Assam it's been recorded in Kamrup and Morigaon districts during recent years, while its occurrences in Nepal and Bangladesh is said to be doubtful.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Brahmaputra River near Goyalpara, Assam, India', with 'Goyalpara' referring to modern-day Goalpara district in Assam.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa barca",
+    "status": "ACCEPTED",
+    "taxonKey": 2391474,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        40
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        2
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

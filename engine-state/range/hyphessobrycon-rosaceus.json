@@ -1,0 +1,120 @@
+{
+  "id": "hyphessobrycon-rosaceus",
+  "native": {
+    "input": "d71e2f7482d1f697",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The current state of affairs is (fide Zarske, 2014) that the rosy tetra is in fact identical to H. rosaceus, a species described from Guyana in 1909 and to which H. ornatus is a synonym.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This is good, because from Guyana, its homeland, for many years no or only very sporadic imports take place for many different reasons (mainly high costs).",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon rosaceus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354579,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        29
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        28
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        25
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        23
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        23
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        16
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        6
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 13,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

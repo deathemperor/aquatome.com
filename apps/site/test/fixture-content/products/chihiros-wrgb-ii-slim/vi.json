@@ -1,0 +1,33 @@
+{
+  "slug": "chihiros-wrgb-ii-slim",
+  "name": "Đèn Chihiros WRGB II Slim",
+  "altNames": ["Chihiros WRGB II Slim"],
+  "sections": {},
+  "summary": ["Đèn mỏng cho bể thủy sinh, chỉnh được từng kênh màu."],
+  "labels": { "Power": "Công suất" },
+  "reviews": {
+    "agree": [
+      { "text": "Hai bài review cùng thấy đèn đủ sáng cho cây dễ tính ở bể cao khoảng 30 cm.", "cites": [{ "url": "https://www.youtube.com/watch?v=aaaaaaaaaaa", "t": 95 }, { "url": "https://www.youtube.com/watch?v=bbbbbbbbbbb", "t": 212 }] }
+    ],
+    "differ": [
+      {
+        "topic": "Tiếng quạt",
+        "sides": [
+          { "text": "Một bài review thấy gần như không nghe tiếng quạt.", "cites": [{ "url": "https://www.youtube.com/watch?v=aaaaaaaaaaa", "t": 310 }] },
+          { "text": "Bài còn lại nghe rõ tiếng quạt khi chạy hết công suất trong phòng yên tĩnh.", "cites": [{ "url": "https://www.youtube.com/watch?v=bbbbbbbbbbb", "t": 402 }] }
+        ]
+      }
+    ],
+    "single": [
+      { "text": "Một bài review thấy chân đèn hơi lỏng trên thành kính mỏng.", "cites": [{ "url": "https://www.youtube.com/watch?v=aaaaaaaaaaa", "t": 512 }] }
+    ],
+    "measured": [
+      { "what": "PAR ở nền, cách đèn 30 cm", "value": "48 µmol", "how": "Máy đo PAR", "cite": { "url": "https://www.youtube.com/watch?v=aaaaaaaaaaa", "t": 433 } },
+      { "what": "Độ ồn ở 1 m", "value": "32 dB", "how": "", "cite": { "url": "https://www.youtube.com/watch?v=bbbbbbbbbbb", "t": 418 } }
+    ]
+  },
+  "tested": [
+    { "text": "AquaTome thử trên một chiếc WRGB II Slim: mất điện thì đồng hồ của đèn về 0, nên phải chỉnh lại giờ thì lịch mới chạy đúng.", "cites": [{ "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31" }] }
+  ],
+  "quality": { "score": 0.9, "indexable": true }
+}

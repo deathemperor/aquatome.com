@@ -1,0 +1,93 @@
+{
+  "id": "botia-almorhae",
+  "native": {
+    "input": "f23f899ba428608b",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "B. almorhae Gray, 1831 - This species is often referred to as the 'Pakistani' loach which is a misnomer since it's restricted to parts of the Ganges River drainage in northern India and possibly Nepal.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "B. almorhae Gray, 1831 - This species is often referred to as the 'Pakistani' loach which is a misnomer since it's restricted to parts of the Ganges River drainage in northern India and possibly Nepal.",
+        "words": "Nepal",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "B. almorhae Gray, 1831 - This species is often referred to as the 'Pakistani' loach which is a misnomer since it's restricted to parts of the Ganges River drainage in northern India and possibly Nepal.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kosi",
+        "source": "seriouslyfish",
+        "quote": "The description by Gray (1831) gives the type locality simply as 'Almorah' which corresponds to Almora district, Uttarakhand State, India and means the holotype could have derived from either the Kosi River or Sot River (Grant, 2007).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Yamuna",
+        "source": "seriouslyfish",
+        "quote": "In the Kosi drainage it's been collected close to the cities of Roorkee and Kashipur (both Uttarakhand State) and has also been recorded from the Yamuna River (Delhi State), Alaknanda River (Uttarakhand State), Markanda River (tributary of the Yamuna in Himachal Pradesh and Haryana States), Ghugger River (Himachal Pradesh State), Kali River (near the city of Meerut and in Muzaffarnagar and Bijnour districts, Uttar Pradesh State), Gambhir River (Sawai Madhopur district, Rajasthan State) and Chambal River (Kota district, Rajasthan State).",
+        "ok": true
+      },
+      {
+        "name": "Chambal",
+        "source": "seriouslyfish",
+        "quote": "In the Kosi drainage it's been collected close to the cities of Roorkee and Kashipur (both Uttarakhand State) and has also been recorded from the Yamuna River (Delhi State), Alaknanda River (Uttarakhand State), Markanda River (tributary of the Yamuna in Himachal Pradesh and Haryana States), Ghugger River (Himachal Pradesh State), Kali River (near the city of Meerut and in Muzaffarnagar and Bijnour districts, Uttar Pradesh State), Gambhir River (Sawai Madhopur district, Rajasthan State) and Chambal River (Kota district, Rajasthan State).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NP"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia almorhae",
+    "status": "ACCEPTED",
+    "taxonKey": 2368023,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "93c707dc-4708-47fc-93d8-424702116442",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

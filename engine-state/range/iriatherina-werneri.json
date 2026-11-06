@@ -1,0 +1,154 @@
+{
+  "id": "iriatherina-werneri",
+  "native": {
+    "input": "9a087666a7fc06dd",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Merauke, Irian Jaya, Indonesia' which corresponds to modern day Merauke Regency, Papua province, Indonesia, on the island of New Guinea.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In Australia records exist from numerous river basins of the Cape York Peninsula, Queensland state, plus the Northern Territory to the west, including the Arafura wetland in Arnhem Land.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Iriatherina werneri is native to tropical Australia and Papua New Guinea.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Iriatherina werneri is native to tropical Australia and Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland.",
+        "ok": true
+      },
+      {
+        "name": "Fly River",
+        "source": "seriouslyfish",
+        "quote": "It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Cape York Peninsula",
+        "source": "seriouslyfish",
+        "quote": "In Australia records exist from numerous river basins of the Cape York Peninsula, Queensland state, plus the Northern Territory to the west, including the Arafura wetland in Arnhem Land.",
+        "ok": true
+      },
+      {
+        "name": "Lake Bosset",
+        "source": "seriouslyfish",
+        "quote": "Populations are also known from Lakes Bosset and Kala.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Jardine River",
+        "source": "aquariumbreeder",
+        "quote": "In Australia, Threadfin Rainbowfish occur in the Jardine River swamps, and in some river systems on the western and eastern sides of Cape York Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Merauke River",
+        "source": "aquariumbreeder",
+        "quote": "In New Guinea, this species can be found between the Merauke and the Fly Rivers (more than 500 km upstream from its mouth), from lakes Bosset and Kala.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iriatherina werneri",
+    "status": "ACCEPTED",
+    "taxonKey": 2411742,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        63
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        52
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        32
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        15
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        9
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        2
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "PG",
+      "AU"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

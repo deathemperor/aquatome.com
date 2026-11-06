@@ -51,6 +51,8 @@ export type Totals = {
   sources: Record<string, number>
   /** Photos on fish, plant and breed pages, and in galleries. */
   photos: { pages: number; gallery: number }
+  /** Fish pages whose card has temperature, pH and size (the noKeyFacts gap's other side). Days kept before 2026-11-07 have none. */
+  fullCards?: number
 }
 
 /**

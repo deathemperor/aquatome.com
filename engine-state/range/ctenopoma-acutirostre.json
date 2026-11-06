@@ -1,0 +1,127 @@
+{
+  "id": "ctenopoma-acutirostre",
+  "native": {
+    "input": "50a7562781a47840",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
+        "words": "Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
+        "words": "Central African Republic",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
+        "ok": true
+      },
+      {
+        "name": "Kasai",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      },
+      {
+        "name": "Ubangi",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      },
+      {
+        "name": "Lefini",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      },
+      {
+        "name": "Tshuapa",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      },
+      {
+        "name": "Lomami",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ctenopoma acutirostre",
+    "status": "ACCEPTED",
+    "taxonKey": 5210826,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        104
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CG",
+      "CD",
+      "CF"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

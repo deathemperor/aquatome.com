@@ -6,7 +6,7 @@ import { mergePhotos } from './run'
 import { SOURCES, sourceById } from './sources'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { withSections } from './guide-sections'
-import { OTHER_LANGS } from '@aq/schema/langs'
+import { WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 
 export type BackfillDeps = {
   get: (url: string) => Promise<{ status: number; html: string }>
@@ -84,7 +84,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           const stored = await storeSourcePhotos(source, names[source]?.name ?? source, url, picked, { bytes: polite(source, d.bytes), media: d.media, blocked }, e.photos)
           if (stored.length && kind === 'guides') {
             const body = async (l: string) => (JSON.parse(await readFile(join(root, 'content', kind, id, `${l}.json`), 'utf8').catch(() => '{}')) as { body?: string }).body
-            e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]
+            e.photos = [...withSections(stored, { vi: (await body('vi')) ?? '', ...Object.fromEntries(await Promise.all(WRITTEN_OTHER_LANGS.map(async l => [l, await body(l)]))) }), ...e.photos.filter(p => p.sourceUrl !== url)]
           } else if (stored.length) e.photos = mergePhotos(e.photos, source, url, stored.map(({ heading: _, ...p }) => p))
           tried[url] = d.now().toISOString()
         } catch (err) {

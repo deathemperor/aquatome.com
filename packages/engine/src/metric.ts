@@ -1,9 +1,9 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { LANGS, metricPage } from '@aq/schema'
+import { metricPage, WRITTEN_LANGS } from '@aq/schema'
 import { carryTopicChecks } from './topic-check'
 
-/** Pages written in metric only (°C, cm, litres: @aq/schema toMetric), in every language: fish, plants, breeds and guides. */
+/** Pages written in metric only (°C, cm, litres: @aq/schema toMetric), in every language the engine writes: fish, plants, breeds and guides. */
 export const METRIC_KINDS: readonly string[] = ['species', 'plants', 'breeds', 'guides']
 
 /**
@@ -16,7 +16,7 @@ export async function metricPages(contentRoot: string, engineRoot?: string): Pro
   const guides: { key: string; before: string; after: string }[] = []
   for (const kind of METRIC_KINDS) {
     for (const id of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
-      for (const lang of LANGS) {
+      for (const lang of WRITTEN_LANGS) {
         const file = join(contentRoot, kind, id, `${lang}.json`)
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue
