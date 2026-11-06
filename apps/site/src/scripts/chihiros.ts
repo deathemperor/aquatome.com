@@ -1,38 +1,25 @@
+import { CHIHIROS_MODELS, type LightModel } from '@aq/schema/devices'
+
 /**
  * Chihiros LED lights over Bluetooth: the frames the My Chihiros app sends, from the open protocol notes in
  * github.com/TheMicDiet/chihiros-led-control (docs/protocol.md, MIT). Pure functions here; the page does the Bluetooth.
  */
 export const UART = { service: '6e400001-b5a3-f393-e0a9-e50e24dcca9e', write: '6e400002-b5a3-f393-e0a9-e50e24dcca9e', notify: '6e400003-b5a3-f393-e0a9-e50e24dcca9e' }
 
-export type Channel = 'white' | 'red' | 'green' | 'blue'
-/** A light model: its channels in channel-id order (red 0, green 1, blue 2, white 3; a white-only light uses 0). */
-export type Model = { name: string; channels: Channel[] }
-const WHITE: Channel[] = ['white']
-const RGB: Channel[] = ['red', 'green', 'blue']
-const WRGB: Channel[] = ['red', 'green', 'blue', 'white']
-// Name prefix → model (registry.py). Lights with other channel layouts (X300, Z Light Tiny, Egg, Commander 1) are left out.
-const MODELS: [string[], Model][] = [
-  [['DYNA2', 'DYNA2N'], { name: 'A II', channels: WHITE }],
-  [['DYA'], { name: 'A Series', channels: WHITE }],
-  [['DYC', 'DYNC2'], { name: 'C', channels: WHITE }],
-  [['DYNC2N'], { name: 'C II', channels: WHITE }],
-  [['DYONE'], { name: 'Commander X', channels: WHITE }],
-  [['DYARGB', 'DYRGBA+', 'DYRGBA', 'DYNARGB'], { name: 'RGB A Plus', channels: RGB }],
-  [['DYREE', 'DYNVVD', 'DYNV'], { name: 'RGB VIVID', channels: RGB }],
-  [['DYWRGB', 'DYNT90', 'DYNW30', 'DYNW45', 'DYNW60', 'DYNW90', 'DYNW12P', 'DYNWRGB'], { name: 'WRGB II', channels: RGB }],
-  [['DYSILN', 'DYSL30', 'DYSL45', 'DYSL60', 'DYSL90', 'DYSL120', 'DYSL12'], { name: 'WRGB II Slim', channels: RGB }],
-  [['DYNCRGP', 'DYNCRGB'], { name: 'C II RGB', channels: RGB }],
-  [['DYWPRO30', 'DYWPRO45', 'DYWPRO60', 'DYWPRO80', 'DYWPRO90', 'DYWPR120'], { name: 'WRGB II Pro', channels: WRGB }],
-  [['DYVVD3'], { name: 'WRGB VIVID III', channels: WRGB }],
-  [['DYU550', 'DYU600', 'DYU700', 'DYU800', 'DYU920', 'DYU1000', 'DYU1200', 'DYU1500'], { name: 'Universal WRGB', channels: WRGB }],
-  [['DYSEA'], { name: 'SEA', channels: WRGB }],
-  [['DYLED', 'DYNLED'], { name: 'Commander 4', channels: WRGB }],
-]
+export type { Channel } from '@aq/schema/devices'
+export type Model = LightModel
+const MODELS = CHIHIROS_MODELS
 /** The supported lines, for the page's text. */
 export const SUPPORTED = MODELS.map(([, m]) => m.name)
 const BY_PREFIX = MODELS.flatMap(([ps, m]) => ps.map(p => [p, m] as const)).sort((a, b) => b[0].length - a[0].length)
 /** The model a light's Bluetooth name belongs to (longest prefix: DYNA2N before DYNA2 before DYA), if supported. */
 export const modelOf = (name: string): Model | undefined => BY_PREFIX.find(([p]) => name.startsWith(p))?.[1]
+/**
+ * A saved light this page drives: a Chihiros. A tank also keeps lights of other makers (the app's Week Aqua), which
+ * this page can't connect to, so it neither lists nor forgets them. A light kept without a maker counts by its name.
+ */
+export const isChihiros = (d: { kind: string; brand?: string; bleName?: string }) =>
+  d.kind === 'light' && (d.brand ? d.brand === 'chihiros' : !!d.bleName && !!modelOf(d.bleName))
 /** Names the browser's device picker lists: every Chihiros light starts with "DY". */
 export const NAME_PREFIX = 'DY'
 

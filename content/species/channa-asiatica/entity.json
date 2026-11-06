@@ -12,6 +12,141 @@
     "vietnam",
     "red-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [
+        "Yangtze",
+        "Hainan"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Chinese snakehead, Channa asiatica, is a snakehead native to central and southern China and northern Vietnam.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In China the Yangtze River appears to represent the northern limit of its range, and to the south it's also present on Hainan Island and Hong Kong.",
+          "countries": [],
+          "regions": [
+            "Yangtze",
+            "Hainan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391557,
+      "total": 65,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "TW",
+          47
+        ],
+        [
+          "CN",
+          14
+        ],
+        [
+          "HK",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          106.875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          112.5,
+          22.5,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          21.09375,
+          4,
+          0
+        ],
+        [
+          115.3125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          118.125,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          22.5,
+          29,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          15,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

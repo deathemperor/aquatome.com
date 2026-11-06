@@ -25,7 +25,7 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
     await expect(viewer).toBeVisible()
     const by = viewer.locator('.by')
     await expect(by).toContainText(`1/${n}`)
-    await expect(by.locator('a')).toHaveAttribute('href', /^https:\/\//)
+    await expect(by.locator('a').first()).toHaveAttribute('href', /^https:\/\//) // an Unsplash photo's line has more (unsplash-credits.spec.ts)
     await page.keyboard.press('ArrowRight')
     await expect(by).toContainText(`2/${n}`)
     await expect(page).toHaveURL(/#a2$/)

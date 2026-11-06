@@ -54,8 +54,12 @@ export type DayChart = {
   format?: (n: number) => string
   /** Before each axis number ('$' for money). */
   tickPrefix?: string
+  /** 'usd': money, written as `usd` writes it with '$' before each axis number (format and tickPrefix in one, as data). */
+  unit?: 'usd'
   /** The last day is today and not over yet: drawn lighter, said in its readout. */
   partialLast?: boolean
+  /** 'week': each of `days` is a week's Monday, and the chart says so. */
+  period?: 'week'
   /** What to say when every value is 0 or missing, or there are no days. */
   empty?: string
   /** Why a day has no value, said in its readout ("chưa lưu số liệu ngày này"). */
@@ -68,7 +72,11 @@ export type DayChart = {
  * labelled back from the last, and the numbers as a table.
  */
 export function dayChart(c: DayChart): string {
-  const format = c.format ?? ((n: number) => fmt(n))
+  const money = c.unit === 'usd'
+  const weekly = c.period === 'week'
+  const per = weekly ? 'tuần' : 'ngày'
+  const format = c.format ?? (money ? usd : (n: number) => fmt(n))
+  const prefix = c.tickPrefix ?? (money ? '$' : '')
   const n = c.days.length
   const series = c.series.slice(0, 3)
   const all = c.whole ? [...series, c.whole] : series
@@ -87,9 +95,9 @@ export function dayChart(c: DayChart): string {
   const pct = (v: number) => (100 * v) / (top + bottom)
   const zero = pct(bottom)
   // Counts (no format given) never get a half-way tick of 2,5; a chart with a negative side keeps to its ends.
-  const half = top && !bottom && (c.format || (top / 2) % 1 === 0) ? [top / 2] : []
+  const half = top && !bottom && (c.format || money || (top / 2) % 1 === 0) ? [top / 2] : []
   const ticks = [...(bottom ? [-bottom] : []), 0, ...half, ...(top ? [top] : [])]
-  const tickText = (t: number) => `${t < 0 ? '−' : ''}${c.tickPrefix ?? ''}${tick(Math.abs(t))}`
+  const tickText = (t: number) => `${t < 0 ? '−' : ''}${prefix}${tick(Math.abs(t))}`
   const gutter = Math.max(...ticks.map(t => tickText(t).length))
   const yAxis = ticks.map(t => `<span style="--y:${f2(pct(t + bottom))}">${esc(tickText(t))}</span>`).join('')
   const grid = ticks.map(t => `<b${t === 0 ? ' class="zero"' : ''} style="--y:${f2(pct(t + bottom))}"></b>`).join('')
@@ -97,9 +105,10 @@ export function dayChart(c: DayChart): string {
   const last = n - 1
   const dm = (i: number) => dayLabel(c.days[i]!)
   const dayName = (i: number) =>
-    c.partialLast && i === last ? `Hôm nay ${dm(i)}` : c.partialLast && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
+    weekly ? `Tuần ${dm(i)}`
+      : c.partialLast && i === last ? `Hôm nay ${dm(i)}` : c.partialLast && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
   const unrecorded = (i: number) => all.every(s => at(s, i) === null)
-  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ' · chưa hết ngày' : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
+  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ` · chưa hết ${per}` : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
   const shown = (v: number | null) => (v === null ? '—' : format(v))
 
   const seg = (cls: string[], b: number, h: number) => `<i class="${cls.join(' ')}" style="--b:${f2(b)};--h:${f2(h)}"></i>`
@@ -131,9 +140,9 @@ export function dayChart(c: DayChart): string {
     return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}">${marks}</li>`
   }).join('')
 
-  // Every seventh day back from the last (the overview's weeks), and the first when it stands clear of them.
+  // Every seventh day back from the last (the overview's weeks), or every fourth week, and the first when it stands clear of them.
   const labelled = new Set<number>()
-  for (let i = last; i >= 0; i -= 7) labelled.add(i)
+  for (let i = last; i >= 0; i -= weekly ? 4 : 7) labelled.add(i)
   if (Math.min(...labelled) >= 3) labelled.add(0)
   const xAxis = [...labelled].sort((a, b) => a - b).map(i => {
     const mid = (100 * (i + 0.5)) / n
@@ -143,16 +152,16 @@ export function dayChart(c: DayChart): string {
 
   const totals = all.map(s => c.days.reduce((t, _, i) => t + (at(s, i) ?? 0), 0))
   const key = (s: Series, k: number) => (all.length > 1 ? `<i class="key ${s === c.whole ? 'whole' : s.tone ?? `s${k + 1}`}"></i>` : '')
-  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}" aria-live="polite"><span class="when">${n} ngày</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
+  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${n} ${per}</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
 
   const heights = c.whole ? whole : up
   const peak = heights.indexOf(Math.max(...heights))
   const gaps = c.days.filter((_, i) => unrecorded(i)).length
-  const desc = `${n} ngày, từ ${dm(0)} đến ${dm(last)}. ${all.map((s, k) => `${s.label}: tổng ${format(totals[k]!)}`).join('; ')}. Cao nhất ngày ${dm(peak)}.${gaps ? ` ${fmt(gaps)} ngày không có số liệu.` : ''} Phím mũi tên đọc từng ngày.`
+  const desc = `${n} ${per}, từ ${dm(0)} đến ${dm(last)}. ${all.map((s, k) => `${s.label}: tổng ${format(totals[k]!)}`).join('; ')}. Cao nhất ${per} ${dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per} không có số liệu.` : ''} Phím mũi tên đọc từng ${per}.`
   const plot = `<div class="plot" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
 
-  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? ' (hôm nay)' : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
-  const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>Ngày</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
+  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? (weekly ? ' (tuần này)' : ' (hôm nay)') : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
+  const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Tuần' : 'Ngày'}</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
   return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}${readout}</figcaption>${plot}${table}</figure>`
 }
 
@@ -187,12 +196,17 @@ export function rankTable(rows: Ranked[], head: string[], format: (n: number) =>
 }
 
 export type Delta = { now: number; before: number; vs: string; /** 'up': more is better (readers, clicks): coloured. */ good?: 'up' }
-/** "+12% so với 7 ngày trước", signed with a real minus; coloured only where more is plainly better. */
-export function deltaHtml(d: Delta): string {
-  if (!d.before) return `<span class="delta">${d.now ? `${esc(d.vs)}: 0` : `như ${esc(d.vs)}`}</span>`
+/** A change in words: "+12% so với 7 ngày trước", signed with a real minus; its tone (none when there was nothing before). */
+export function deltaOf(d: Delta): { text: string; tone?: 'good' | 'bad' | 'flat' } {
+  if (!d.before) return { text: d.now ? `${d.vs}: 0` : `như ${d.vs}` }
   const p = Math.round(((d.now - d.before) / d.before) * 100)
   const tone = !p ? 'flat' : d.good === 'up' ? (p > 0 ? 'good' : 'bad') : 'flat'
-  return `<span class="delta ${tone}">${p > 0 ? '+' : p < 0 ? '−' : '±'}${fmt(Math.abs(p))}% so với ${esc(d.vs)}</span>`
+  return { text: `${p > 0 ? '+' : p < 0 ? '−' : '±'}${fmt(Math.abs(p))}% so với ${d.vs}`, tone }
+}
+/** "+12% so với 7 ngày trước", coloured only where more is plainly better. */
+export function deltaHtml(d: Delta): string {
+  const { text, tone } = deltaOf(d)
+  return `<span class="delta${tone ? ` ${tone}` : ''}">${esc(text)}</span>`
 }
 
 export type Tile = { label: string; value: string; sub?: string; delta?: Delta; href?: string; /** A share of a whole, 0–1, drawn as a meter under the figure. */ meter?: number }
@@ -224,13 +238,17 @@ export function spark(values: (number | null)[], recent = 7): string {
 
 /**
  * A change as a chip: "+18%", or the difference itself while the counts are small ("+4"). Coloured only where more is
- * plainly better (`good: 'up'`); `vs` is read out after it.
+ * plainly better (`good: 'up'`); `vs` is read out after it. As data: its text, its tone (`plain` unless more is plainly
+ * better and it changed), and what it compares with; chipHtml draws it.
  */
-export function chip(now: number, before: number, vs: string, good?: 'up'): string {
-  if (!now && !before) return ''
+export type Chip = { text: string; tone: 'good' | 'bad' | 'plain'; vs: string }
+export function chipOf(now: number, before: number, vs: string, good?: 'up'): Chip | undefined {
+  if (!now && !before) return undefined
   const d = now - before
   const small = before < 10 || now < 10
   const v = small ? Math.abs(d) : Math.round((Math.abs(d) / before) * 100)
-  const tone = !d || !v ? '' : good === 'up' ? (d > 0 ? ' good' : ' bad') : ''
-  return `<span class="chip${tone}">${d > 0 ? '+' : d < 0 ? '−' : '±'}${fmt(v)}${small ? '' : '%'}<span class="vh"> so với ${esc(vs)}</span></span>`
+  const tone = !d || !v ? 'plain' : good === 'up' ? (d > 0 ? 'good' : 'bad') : 'plain'
+  return { text: `${d > 0 ? '+' : d < 0 ? '−' : '±'}${fmt(v)}${small ? '' : '%'}`, tone, vs }
 }
+export const chipHtml = (c: Chip | undefined) =>
+  c ? `<span class="chip${c.tone === 'plain' ? '' : ` ${c.tone}`}">${esc(c.text)}<span class="vh"> so với ${esc(c.vs)}</span></span>` : ''

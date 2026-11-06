@@ -92,13 +92,14 @@ const GROUNDED = `Below are FACTS gathered about a product and a Vietnamese PAGE
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
 /** Research, check prices, write the Vietnamese page from the facts, check the page against the facts; files under content/products/<id>/. */
-export async function makeProduct(contentRoot: string, d: { research: Llm; llm: Llm; get: (url: string) => Promise<string>; now: () => Date }, a: ProductAsk, o: { researchModel?: string; writeModel?: string; /** Research kept here (engine-state/products) so a page can be rewritten without searching again. */ factsDir?: string; reuse?: boolean } = {}) {
+export async function makeProduct(contentRoot: string, d: { research: Llm; llm: Llm; get: (url: string) => Promise<string>; now: () => Date }, a: ProductAsk, o: { researchModel?: string; writeModel?: string; /** Research kept here (engine-state/products) so a page can be rewritten without searching again. */ factsDir?: string; reuse?: boolean; /** No page unless a Vietnamese shop's own page shows a price: it may not be sold here. */ requireShopPrice?: boolean } = {}) {
   const factsFile = o.factsDir && join(o.factsDir, `${slugify(`${a.brand} ${a.model}`)}.json`)
   const kept = o.reuse && factsFile ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as Facts | null : null
   const facts = kept ?? await researchProduct(d.research, a, o.researchModel)
   if (factsFile && !kept) { await mkdir(o.factsDir!, { recursive: true }); await writeFile(factsFile, `${JSON.stringify(facts, null, 2)}\n`) }
   if (!facts.found) return { id: '', skipped: `${a.brand} ${a.model}: not found or no longer sold` }
   const prices = await checkPrices(facts.prices, d.get)
+  if (o.requireShopPrice && !prices.length) return { id: '', skipped: `${a.brand} ${a.model}: no Vietnamese shop shows a price` }
   const factsForWriter = { brand: a.brand, model: a.model, kind: a.kind, specs: facts.specs, variants: facts.variants, fits: facts.fits, usage: facts.usage, issues: facts.issues, alternatives: facts.alternatives }
   // English the page shows as-is (table keys and values, variant names, price notes): the writer gives each a Vietnamese label.
   const shown = [...new Set([...facts.specs, ...facts.variants.flatMap(v => v.specs)].flatMap(s => [s.key, s.value]).concat(facts.variants.map(v => v.name), prices.flatMap(p => (p.variant ? [p.variant] : []))))].filter(x => /[a-z]{3}/.test(x))
@@ -134,13 +135,19 @@ export async function makeProduct(contentRoot: string, d: { research: Llm; llm: 
     const { source, ...rest } = s
     return source !== undefined && web[source] ? { ...rest, source: web.slice(0, source).filter(Boolean).length } : rest
   }
+  const researched = facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today }))
+  // The reviews step's own work stays: its sources after research's, whose places the specs point at.
+  const prevEntity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => 'null')) as ProductEntity | null
+  const cited = new Set([...[...(prev?.reviews?.agree ?? []), ...(prev?.reviews?.single ?? []), ...(prev?.reviews?.differ ?? []).flatMap(x => x.sides), ...(prev?.tested ?? [])].flatMap(p => p.cites.map(c => c.url)), ...(prev?.reviews?.measured ?? []).map(m => m.cite.url)])
+  const carried = (prevEntity?.sources ?? []).filter(s => cited.has(s.url) && !researched.some(x => x.url === s.url))
   const entity: ProductEntity = ProductSchema.parse({
     id, brand: a.brand, model: a.model, category: a.category, ...(a.type ? { type: a.type } : {}),
-    specs: facts.specs.map(cite), variants: facts.variants.map(v => ({ ...v, specs: v.specs.map(cite) })), sources: facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today })), updatedAt: today,
+    specs: facts.specs.map(cite), variants: facts.variants.map(v => ({ ...v, specs: v.specs.map(cite) })), sources: [...researched, ...carried], ...(prevEntity?.reviews ? { reviews: prevEntity.reviews } : {}), updatedAt: today,
   })
   const vi: Translation = TranslationSchema.parse({
     slug: prev?.slug ?? id, name: unescapePlain(w.name).trim(), altNames: [`${a.brand} ${a.model}`], sections: {}, body,
     ...plainParts(w.summary, w.faq), labels,
+    ...(prev?.reviews ? { reviews: prev.reviews } : {}), ...(prev?.tested ? { tested: prev.tested } : {}),
     quality: { score, indexable: score >= QUALITY_THRESHOLD },
   })
   const market: Market = MarketSchema.parse({ currency: 'VND', checkedAt: today, prices: prices.map(p => ({ shop: p.shop, url: p.url, ...(p.variant ? { variant: p.variant } : {}), price: Math.round(p.vnd), at: today })) })

@@ -1,0 +1,85 @@
+{
+  "id": "glossolepis-incisus",
+  "native": {
+    "input": "38b779677b82d2d0",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red rainbowfish, Glossolepis incisa, is a rainbowfish from the Lake Sentani region of northern New Guinea, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The home of Glossolepis incisus lies in western Papua New Guinea, where it inhabits Lake Sentani and its surroundings.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Sentani",
+        "source": "seriouslyfish",
+        "quote": "The red rainbowfish, Glossolepis incisa, is a rainbowfish from the Lake Sentani region of northern New Guinea, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "The red rainbowfish, Glossolepis incisa, is a rainbowfish from the Lake Sentani region of northern New Guinea, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lake Sentani",
+        "source": "glaser",
+        "quote": "The home of Glossolepis incisus lies in western Papua New Guinea, where it inhabits Lake Sentani and its surroundings.",
+        "country": "PG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "PG"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Glossolepis incisus",
+    "status": "ACCEPTED",
+    "taxonKey": 5214486,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "a2254f58-8bbf-41e6-ac4e-03d1683e0ce5",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "PG"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

@@ -1,10 +1,14 @@
 ---
 import Browse from '../../layouts/Browse.astro'
+import AppProductInvite from '../../components/AppProductInvite.astro'
 import GearList from '../../components/GearList.astro'
+import GlossaryTip from '../../components/GlossaryTip.astro'
+import VideoFacade from '../../components/VideoFacade.astro'
 import VideoGuideGrid from '../../components/VideoGuideGrid.astro'
+import { controlOf } from '@aq/schema/devices'
 import { getContent } from '../../lib/content'
 import { categoryLabel } from '../../lib/format'
-import { dmy, priceRange, vnd, videosUsing, type Product } from '../../lib/products'
+import { dmy, priceRange, productMark, vnd, videosUsing, type Product } from '../../lib/products'
 import { i18n, langOf } from '../../lib/i18n'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -21,6 +25,13 @@ const keys = [...new Set(p.variants.flatMap(v => v.specs.map(s => s.key)))]
 const name = `${p.brand} ${p.model}`
 const buy = [{ category: p.category, label: t(categoryLabel(p.category)), name, keyword: name }]
 const vids = videosUsing(c, p)
+// Control comes from the code that controls it (@aq/schema devices), never from the page's text, so it stays true.
+const control = controlOf(p.brand, p.model)
+const channelWords: Record<string, string> = { red: t('đỏ'), green: t('xanh lá'), blue: t('xanh dương'), white: t('trắng') }
+const reviewVideos = p.reviews?.videos ?? []
+const reviews = reviewVideos.length ? p.t.reviews : undefined
+// A claim's marks stay together: a lone number on the next line reads as nothing.
+const marks = (cs: { url: string; t?: number }[]) => `<span class="marks">${cs.map(x => productMark(lang, p, x)).join('')}</span>`
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Product', name, brand: { '@type': 'Brand', name: p.brand }, model: p.model, description: p.t.summary?.join(' '),
     ...(range ? { offers: { '@type': 'AggregateOffer', priceCurrency: 'VND', lowPrice: range.min, highPrice: range.max, offerCount: range.n } } : {}) },
@@ -58,6 +69,76 @@ const jsonld = [
     </section>
   )}
 
+  {control && (
+    <section class="control" aria-labelledby="control-h">
+      <h2 id="control-h">{t('Điều khiển bằng AquaTome')}</h2>
+      {control.kind === 'light' ? (
+        <>
+          <p>{t('AquaTome điều khiển được dòng {line} mà không cần app của hãng:', { line: control.line })}</p>
+          <ul>
+            <li>{t('Hẹn lịch bật tắt hằng ngày, có bình minh và hoàng hôn, và lưu ngay trên đèn.')}</li>
+            <li>{control.channels.length > 1 ? t('Chỉnh từng kênh màu ({channels}).', { channels: control.channels.map(x => channelWords[x]).join(', ') }) : t('Chỉnh độ sáng.')}</li>
+            <li>{t('Chỉnh giờ của đèn theo máy của bạn: lịch chạy theo đồng hồ trên đèn.')}</li>
+          </ul>
+          <p>{t('Dùng được trên Chrome và Edge (Android, máy tính) qua Web Bluetooth, và trong ứng dụng AquaTome trên iPhone. Trình duyệt trên iPhone không dùng được Bluetooth.')}</p>
+          <p><a class="tool" href={control.tool}>{t('Mở công cụ đèn Chihiros')}</a></p>
+        </>
+      ) : (
+        <>
+          <p>{t('Ứng dụng AquaTome trên iPhone bật tắt từng ổ của ổ cắm {family} ngay trên bể của bạn, và đọc hẹn giờ đã đặt trong app của hãng.', { family: control.name })}</p>
+          <p>{t('Trang web chưa bật tắt được ổ cắm. Hẹn giờ của ổ vẫn đặt trong app của hãng và vẫn chạy khi không có AquaTome.')}</p>
+          {control.family === 'tuya' && <p>{t('Cần tạo một dự án Tuya của riêng bạn (miễn phí, làm một lần trên máy tính, ứng dụng hướng dẫn từng bước). Gói dùng thử của Tuya phải gia hạn khoảng mỗi tháng.')}</p>}
+        </>
+      )}
+      {p.t.tested?.length ? (
+        <>
+          <h3>{t('AquaTome đã thử')}</h3>
+          <ul>{p.t.tested.map(x => <li>{x.text}<Fragment set:html={marks(x.cites)} /></li>)}</ul>
+        </>
+      ) : null}
+    </section>
+  )}
+
+  {reviews && (
+    <section class="reviews" aria-labelledby="reviews-h">
+      <h2 id="reviews-h">{t('Các bài review nói gì')}</h2>
+      <p class="reviews-note">{t('Đây là tóm tắt {n} bài review trên YouTube, không phải AquaTome tự thử. Mỗi ý có số dẫn tới đúng đoạn trong bài review.', { n: reviewVideos.length })}</p>
+      {reviewVideos[0] && <VideoFacade videos={[reviewVideos[0]]} heading={t('Xem một bài review')} />}
+      {reviews.agree.length > 0 && (
+        <>
+          <h3>{t('Các bài cùng thấy')}</h3>
+          <ul>{reviews.agree.map(x => <li>{x.text}<Fragment set:html={marks(x.cites)} /></li>)}</ul>
+        </>
+      )}
+      {reviews.differ.length > 0 && (
+        <>
+          <h3>{t('Chỗ các bài khác nhau')}</h3>
+          <dl class="differ">{reviews.differ.map(d => (
+            <>
+              <dt>{d.topic}</dt>
+              {d.sides.map(x => <dd>{x.text}<Fragment set:html={marks(x.cites)} /></dd>)}
+            </>
+          ))}</dl>
+        </>
+      )}
+      {reviews.single.length > 0 && (
+        <>
+          <h3>{t('Chỉ một bài nhắc tới')}</h3>
+          <ul>{reviews.single.map(x => <li>{x.text}<Fragment set:html={marks(x.cites)} /></li>)}</ul>
+        </>
+      )}
+      {reviews.measured.length > 0 && (
+        <>
+          <h3>{t('Số đo trong các bài review')}</h3>
+          <div class="scroll"><table class="measured">
+            <thead><tr><th scope="col">{t('Đo gì')}</th><th scope="col">{t('Kết quả')}</th><th scope="col">{t('Đo bằng gì')}</th></tr></thead>
+            <tbody>{reviews.measured.map(m => <tr><th scope="row">{m.what}</th><td class="num">{m.value}<Fragment set:html={productMark(lang, p, m.cite)} /></td><td>{m.how || '–'}</td></tr>)}</tbody>
+          </table></div>
+        </>
+      )}
+    </section>
+  )}
+
   {p.t.body && <div class="prose" set:html={p.t.body} />}
 
   {p.t.faq?.length ? (
@@ -68,6 +149,7 @@ const jsonld = [
   ) : null}
 
   <GearList rows={buy} heading={t('Mua ở đâu')} entity={`product:${p.id}`} />
+  <AppProductInvite product={p} />
   <VideoGuideGrid guides={vids} heading={t('Có trong video hướng dẫn')} />
 
   <section class="sources" aria-labelledby="src-h" data-pagefind-ignore>
@@ -75,6 +157,7 @@ const jsonld = [
     <p>{t('AquaTome tổng hợp từ thông số của hãng, trang các shop thủy sinh và đánh giá của người chơi, rồi tự viết lại. Cập nhật {date}.', { date: dmy(p.updatedAt) })}</p>
     <ol>{p.sources.map(s => <li><a href={s.url} rel="nofollow noopener" target="_blank">{s.title}</a></li>)}</ol>
   </section>
+  {(reviews || p.t.tested?.length) && <GlossaryTip />}
 </Browse>
 <style>
   .kind { color: var(--c-ink-soft); margin: calc(-1 * var(--space-3)) 0 var(--space-5); }
@@ -93,6 +176,21 @@ const jsonld = [
   th, td { text-align: left; padding: var(--space-2) var(--space-3) var(--space-2) 0; border-bottom: 1px solid var(--c-rule); vertical-align: top; }
   .specs th { font-weight: 500; color: var(--c-ink-soft); width: 45%; }
   .variants th[scope="row"] { font-weight: 600; white-space: nowrap; }
+  .control { max-width: var(--measure); margin-top: var(--space-6); padding: var(--space-4) var(--space-5); border: 1px solid var(--c-rule); border-left: 3px solid var(--c-moss); }
+  .control h2 { margin-top: 0; }
+  .control h3, .reviews h3 { font-size: var(--step-1); margin: var(--space-5) 0 var(--space-2); }
+  .control ul, .reviews ul { padding-left: 1.2em; margin: var(--space-2) 0; }
+  .control p { margin: var(--space-2) 0; }
+  .tool { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; }
+  .reviews { max-width: var(--measure); margin-bottom: var(--space-6); }
+  .reviews :global(.videos ul) { grid-template-columns: 1fr; }
+  :global(.marks) { white-space: nowrap; }
+  .reviews-note { color: var(--c-ink-soft); }
+  .reviews :global(.videos) { margin-block: var(--space-4); border-radius: var(--radius-media); }
+  .differ dt { font-weight: 600; margin-top: var(--space-3); }
+  .differ dd { margin: var(--space-1) 0 0; padding-left: var(--space-3); border-left: 2px solid var(--c-rule); }
+  .measured .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .measured th[scope="row"] { font-weight: 500; }
   .prose { max-width: var(--measure); }
   .prose :global(h3) { font-size: var(--step-2); margin: var(--space-6) 0 var(--space-3); }
   .prose :global(table) { margin-block: var(--space-3); }

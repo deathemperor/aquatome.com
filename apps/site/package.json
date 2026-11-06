@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist && node scripts/markdown.ts && node scripts/admin-fonts.ts && node scripts/content-stats.ts",
     "preview": "astro preview",
-    "test": "CONTENT_ROOT=$PWD/test/fixture-content pnpm build && CONTENT_ROOT=$PWD/test/fixture-content vitest run",
+    "test": "CONTENT_ROOT=$PWD/test/fixture-content pnpm build && for s in off on; do CONTENT_ROOT=$PWD/test/fixture-content APP_INVITE_STATE=$s OUT_DIR=$PWD/dist-app-$s SITE_URL=https://aquatome.com astro build || exit 1; done && CONTENT_ROOT=$PWD/test/fixture-content vitest run",
     "typecheck": "astro check && tsc -p worker",
     "e2e": "playwright test"
   },
@@ -30,6 +30,8 @@
     "lighthouse": "13.6.0",
     "node-html-parser": "^9.0.5",
     "pagefind": "^1.5.2",
+    "qrcode-generator": "^2.0.4",
+    "sharp": "^0.35.5",
     "turndown": "^7.2.4",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5",

@@ -1,0 +1,192 @@
+{
+  "id": "garra-rufa",
+  "native": {
+    "input": "31f65ab377521bc7",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The population living in the Turkish Kangal thermal baths has become famous.",
+        "words": "Turkish",
+        "ok": true
+      },
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "words": "Turkey",
+        "ok": true
+      },
+      {
+        "code": "SY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "words": "Syria",
+        "ok": true
+      },
+      {
+        "code": "JO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "words": "Jordan",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "IQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "words": "Iraq",
+        "ok": true
+      },
+      {
+        "code": "IR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "words": "Iran",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tigris-Euphrates",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "ok": true
+      },
+      {
+        "name": "Jordan River",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "ok": true
+      },
+      {
+        "name": "Ceyhan",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Seyhan",
+        "source": "seriouslyfish",
+        "quote": "Widespread in the eastern Mediterranean and Middle East regions, from the Ceyhan, Seyhan, Asi, and smaller river systems in Turkey, throughout coastal watersheds in Syria, the now mostly-desiccated Qweik River in Turkey and Syria, the Jordan River drainage in Jordan and Israel (except the southern Dead Sea basin where it is replaced by the congener G. ghorensis), and the Tigris-Euphrates system in Turkey, Syria, Iraq, and Iran.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Lake Maharlu",
+        "source": "seriouslyfish",
+        "quote": "In southwestern Iran it is also present in the Lake Maharlu basin and coastal drainages as far south as the Mond River in Bushehr Province.",
+        "country": "IR",
+        "ok": true
+      },
+      {
+        "name": "Mond River",
+        "source": "seriouslyfish",
+        "quote": "In southwestern Iran it is also present in the Lake Maharlu basin and coastal drainages as far south as the Mond River in Bushehr Province.",
+        "country": "IR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "LB"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Garra rufa",
+    "status": "ACCEPTED",
+    "taxonKey": 2366850,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        126
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        104
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        93
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        44
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        29
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "288e1f4c-7c09-4604-ad19-920a61c55462",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TR",
+      "SY",
+      "JO",
+      "IL",
+      "IQ",
+      "IR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "datnioides-pulcher",
+  "native": {
+    "input": "4fc1315f6d89a25b",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Đồng Nai",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the Mae Klong and Chao Phraya river systems in Thailand, the middle and lower Mekong basins in Thailand, Laos, Cambodia, and Vietnam, and Đồng Nai watershed in Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Datnioides pulcher",
+    "status": "ACCEPTED",
+    "taxonKey": 5210836,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

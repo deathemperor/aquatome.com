@@ -1,0 +1,201 @@
+{
+  "id": "macropodus-opercularis",
+  "native": {
+    "input": "849b318448811360",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations exist in a number of countries including South Korea, Japan, Malaysia, Singapore, India, and the U. S. A, mostly as a result of the ornamental trade.",
+        "words": "South Korea",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations exist in a number of countries including South Korea, Japan, Malaysia, Singapore, India, and the U. S. A, mostly as a result of the ornamental trade.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations exist in a number of countries including South Korea, Japan, Malaysia, Singapore, India, and the U. S. A, mostly as a result of the ornamental trade.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations exist in a number of countries including South Korea, Japan, Malaysia, Singapore, India, and the U. S. A, mostly as a result of the ornamental trade.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations exist in a number of countries including South Korea, Japan, Malaysia, Singapore, India, and the U. S. A, mostly as a result of the ornamental trade.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations exist in a number of countries including South Korea, Japan, Malaysia, Singapore, India, and the U. S. A, mostly as a result of the ornamental trade.",
+        "words": "U. S. A",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Taiwan",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Hainan Island",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macropodus opercularis",
+    "status": "ACCEPTED",
+    "taxonKey": 5211160,
+    "datasets": [
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        76
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        64
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        25
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        21
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        15
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        14
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        8
+      ],
+      [
+        "59f905d4-fd46-4e45-a80d-ea519e91114d",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        4
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "VN",
+      "LA"
+    ],
+    "requests": 14,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

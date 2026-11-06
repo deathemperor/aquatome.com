@@ -1,7 +1,8 @@
+import { LANGS, prefixedLang } from '@aq/schema/langs'
 import { withoutVi } from '../paths'
 import { isReader, querySessions, type Session } from '../readers'
-import { EVENTS, eventsSql, num } from './ae'
-import type { ByLang, ContentStats, EntityKind, Lang, PageKind, PageRow, Totals } from './content-shape'
+import { COUNTED, EVENTS, eventsSql, num } from './ae'
+import { keepTotals, readKept, type ByLang, type ContentStats, type EntityKind, type KeptTotals, type Lang, type PageKind, type PageRow, type Totals } from './content-shape'
 
 export type * from './content-shape'
 
@@ -26,8 +27,7 @@ export async function loadContentStats(assets: Fetcher, origin: string): Promise
 }
 
 export type PageInfo = { path: string; title: string; kind: PageKind; id?: string }
-const LANGS: Lang[] = ['vi', 'id', 'th']
-export const langOfPath = (path: string): Lang => (LANGS.find(l => path.startsWith(`/${l}/`)) ?? 'vi')
+export const langOfPath = (path: string): Lang => prefixedLang(path) ?? 'vi'
 const info = (kind: PageKind, [path, title, id]: PageRow): PageInfo => (id ? { path, title, kind, id } : { path, title, kind })
 
 /** Every built page by its path. */
@@ -51,7 +51,7 @@ export const pagePathOf = (p: string) => {
 export type PageView = { sid: string; p: string; views: number | string }
 /** Views per session and page; the sessions come from readers.ts's query, so "reader" means what it means there. */
 export const PAGE_VIEWS_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, SUM(_sample_interval) AS views
-FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY GROUP BY sid, p FORMAT JSON`
+FROM ${table} WHERE blob2 = 'view' AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p FORMAT JSON`
 
 export type PageReads = { path: string; title: string; kind: PageKind; readers: number; views: number }
 export type ContentReads = {
@@ -114,8 +114,8 @@ export function joinReads(stats: ContentStats, sessions: Session[], views: PageV
   }
 }
 
-export async function queryContentReads(accountId: string, token: string, stats: ContentStats, days = 30, now?: number): Promise<ContentReads> {
-  const [sessions, views] = await Promise.all([querySessions(accountId, token, days, now), eventsSql<PageView>(accountId, token, t => PAGE_VIEWS_SQL(days, t), now)])
+export async function queryContentReads(accountId: string, token: string, stats: ContentStats, days = 30): Promise<ContentReads> {
+  const [sessions, views] = await Promise.all([querySessions(accountId, token, days), eventsSql<PageView>(accountId, token, t => PAGE_VIEWS_SQL(days, t))])
   return joinReads(stats, sessions, views, days)
 }
 
@@ -235,8 +235,9 @@ export const METADATA_MAX = 1024
 export async function recordSnapshot(kv: KVNamespace, assets: Fetcher, origin: string, now: Date): Promise<Totals | undefined> {
   const s = await loadContentStats(assets, origin)
   if (!s) return undefined
-  const body = JSON.stringify(s.totals)
-  await kv.put(`${SNAPSHOT_PREFIX}${now.toISOString().slice(0, 10)}`, body, new TextEncoder().encode(body).length <= METADATA_MAX ? { metadata: s.totals } : {})
+  const kept = keepTotals(s.totals)
+  const body = JSON.stringify(kept)
+  await kv.put(`${SNAPSHOT_PREFIX}${now.toISOString().slice(0, 10)}`, body, new TextEncoder().encode(body).length <= METADATA_MAX ? { metadata: kept } : {})
   return s.totals
 }
 
@@ -246,10 +247,10 @@ export async function listSnapshots(kv: KVNamespace): Promise<Snapshot[]> {
   const out: Snapshot[] = []
   let cursor: string | undefined
   for (let page = 0; page < 10; page++) {
-    const r = await kv.list<Totals>({ prefix: SNAPSHOT_PREFIX, ...(cursor ? { cursor } : {}) })
+    const r = await kv.list<KeptTotals>({ prefix: SNAPSHOT_PREFIX, ...(cursor ? { cursor } : {}) })
     for (const k of r.keys) {
-      const totals = k.metadata ?? (await kv.get<Totals>(k.name, 'json'))
-      if (totals) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals })
+      const kept = k.metadata ?? (await kv.get<KeptTotals>(k.name, 'json'))
+      if (kept) out.push({ day: k.name.slice(SNAPSHOT_PREFIX.length), totals: readKept(kept) })
     }
     if (r.list_complete) break
     cursor = r.cursor
@@ -262,8 +263,8 @@ export type Added = { kinds: Record<EntityKind, ByLang>; sources: Record<string,
 export function added(from: Totals, to: Totals): Added {
   const kinds = {} as Record<EntityKind, ByLang>
   for (const k of Object.keys(to.kinds) as EntityKind[]) {
-    const a = from.kinds[k] ?? [0, 0, 0], b = to.kinds[k]
-    kinds[k] = [b[0] - a[0], b[1] - a[1], b[2] - a[2]]
+    const a = from.kinds[k], b = to.kinds[k]
+    kinds[k] = Object.fromEntries(LANGS.map(l => [l, (b[l] ?? 0) - (a?.[l] ?? 0)])) as ByLang
   }
   const sources: Record<string, number> = {}
   for (const s of new Set([...Object.keys(from.sources), ...Object.keys(to.sources)])) sources[s] = (to.sources[s] ?? 0) - (from.sources[s] ?? 0)

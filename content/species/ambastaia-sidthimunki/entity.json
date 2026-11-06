@@ -20,6 +20,13 @@
           "min": 20,
           "max": 30
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -44,6 +51,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -56,6 +67,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 3
       }
     ]
   },
@@ -67,10 +82,22 @@
       "html": "<ul><li>Max size: 60 mm SL (2.4 in SL)</li><li>Aquarium size: 80 × 30 cm (31 × 12 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li><li>Difficulty: 6 of 8 (moderate)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<ul><li>Temperament: peaceful, active during the day</li><li>Keep in a group of at least 7–10</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover is also essential.</p><p>The dwarf chain loach, Ambastaia sidthimunki, is a small botiid loach from the Mae Klong basin in western Thailand and the Ataran drainage in Myanmar. Older records from the Yom River, Laos and Cambodia refer to A. nigrolineata. Gregarious, it should be kept in a group of at least five or six and preferably ten or more, and reports conflict on whether it stays peaceful with sedentary or long-finned fishes.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>This species is fairly pricey, so a big group is a significant purchase. Because it is endangered in the wild, the fish sold in stores are all commercially bred. They have small spines underneath their eyes, so be careful when handling or netting them.</p>"
     },
     {
       "key": "distribution",
@@ -79,16 +106,34 @@
       "html": "<p>Type locality is given as 'brooks of northern Thailand' or 'Loom district, Yom River', the latter of which probably corresponds to the Yom river in northern Thailand, an upper tributary within the Chao Phraya river system.</p><p>Roberts (1995) stated that A. sidthimunki occurs in the Xe Pian river, a tributary of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos, while Rainboth (1996) considered it to occur in the Cambodian section of the Mekong basin.</p><p>In reality all of the above are erroneous and refer to A. nigrolineata, with no mention of the Yom River in the original description of A. sidthimunki, which was based solely on aquarium specimens imported into Germany from 'north Thailand'.</p><p>Instead, A. sidthimunki appears to be restricted to the Mae Klong river basin in western Thailand and the Ataran (Kasat in Thai) drainage, around the border between Thailand and Myanmar (K. Udomritthiruj, pers. comm.). Though potentially endangered it is still found in both systems, but Thai localities are kept secret for conservation purposes.</p><p>Thanks to Kamphol Udomritthiruj.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>Ambastaia sidthimunki comes from rivers and floodplain forests in Thailand.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "html": "<p>Images we have seen from the Ataran basin depict relatively slow-flowing sections of forested, seemingly well-oxygenated headwaters with clear water, a mixed sand and rock substrate plus lots of submerged driftwood and leaf litter.</p><p>Other species known to inhabit the Ataran include Botia kubotai, Schistura vinciguerrae, S. robertsi, Garra sp. 'redtail' and Mastacembelus armatus, plus unidentified members of Devario, Scaphiodonichthys, Tor, Neolissochilus, Garra, and Schistura.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>Because of the annual rainy season in their native habitat, dwarf chain loaches are used to wide ranges of temperature, pH and GH.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "html": "<p>Standard length: 60 mm SL (2.4 in SL). Aquarium base: 80 × 30 cm (31 × 12 in). Volume: ~72 litres (~19 US gal).</p><p>For long-term maintenance an aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>A 20-gallon (about 75 litre) tank or bigger is recommended because of their activity level and their need to be in a larger school of at least 7–10 fish.</p>"
     },
     {
       "key": "maintenance",
@@ -103,16 +148,40 @@
       "html": "<ul><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.5–7.5, though pH at localities sampled in the original description was measured to be 8.0.</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>Typically kept at 24–28°C, but they can reportedly go even warmer.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>Provide lots of aquarium plants, little caves and other hiding spots for them to dart into when startled. Use a tight-fitting lid, as they love exploring their surroundings, including outside the aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "html": "<p>Although Ambastaia spp. appear to be chiefly carnivorous they will also eat vegetative matter if available, often including soft-leaved aquatic plants.</p><p>They are largely unfussy feeders but should be offered a varied diet comprising quality dried products, live or frozen chironomid larvae (bloodworm), Tubifex, Daphnia, Artemia, etc., plus fresh fruit and vegetables such as cucumber, melon, blanched spinach, or courgette.</p><p>Home-made foods using a mixture of natural ingredients and bound with gelatin are also highly recommended.</p><p>Chopped earthworm can provide a useful source of protein but should be used sparingly, and although most botiid loaches prey on aquatic snails to an extent they are not obligate molluscivores and should never be considered as 'pest control'.</p><p>Once settled into an aquarium they are bold feeders and often rise into midwater at meal times.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>Loaches prefer meatier foods, so feed sinking foods that are small enough to fit inside their mouths or soft enough to nibble on. A good variety of community fish foods works, such as nano pellets, Repashy gel food, frozen bloodworms and daphnia. If there are speed eaters in the aquarium, make sure the loaches get enough food so they have nicely rounded bellies.</p><p>Loaches with pointy faces enjoy eating aquatic snails because their snouts are well suited for digging into the openings of snail shells. Dwarf chain loaches will eat smaller snails and have been known to pester bigger ones.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "html": "<p>This species is generally considered to be an excellent choice for the community aquarium, but caution should possibly be exercised since conflicting observations exist. While some aquarists consider it to be peaceful over the long-term others report the opposite, with sedentary or long-finned fishes most at risk.</p><p>Typical injuries supposedly involve missing eyes or chunks of finnage, but it is unclear why this occurs in some cases and not others, and genuine proof remains lacking. It is therefore difficult to make recommendations; at the least we suggest that this species is unsuitable for smaller aquaria and should be maintained in as large a group as possible (see below).</p><p>Ambastaia spp. are gregarious and appear to form complex social hierarchies. They should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more. When kept singly they can become withdrawn or aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said, they seemingly require regular contact with conspecifics, and this is exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>Dwarf chain loaches are more chill than many boisterous loaches and suit peaceful community tanks. They swim both at the bottom and in the middle of the tank, fluttering their fins like hummingbirds, and unlike many loaches they are active during the day. They are energetic but were never seen bullying other fish, even at mealtimes. They are curious and will investigate new fish. A big group helps them feel less stressed, establish a social hierarchy and display behaviours like playing follow the leader.</p><p>They interact well with similar-sized community fish, including angelfish, corydoras catfish, platies, tetras, rasboras and plecos. They can be a little shy, so dither fish help them come out into the open. They feed on small bugs and crustaceans in the wild, so they will snack on cherry shrimp babies and other tiny animals.</p>"
     },
     {
       "key": "dimorphism",
@@ -127,10 +196,22 @@
       "html": "<p>A. sidthimunki is farmed commercially for the aquarium hobby via the use of hormones but reports of breeding by private aquarists are more-or-less unheard of, possibly because the majority are seasonal, migratory spawners in the wild.</p><p>While controlled breeding in the absence of chemical stimulation remains elusive, some instances of young fish appearing in established aquaria have occurred, with a particularly notable example being that of UK loach expert Mark Duffill who discovered a number of juveniles among his group of 36 adult specimens in 2007.</p><p>The fish were fed a varied diet as suggested above, pH was around neutral and the fish were housed in a 284 litre aquarium alongside groups of various small cyprinids and other loaches.</p><p>A full report from Mark documenting this success is available here.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>There are very few accounts of hobbyists breeding Ambastaia sidthimunki, because wild fish migrate upstream to lay eggs and fish farms use hormone treatments to induce spawning. Mark Duffill, president of the International Loach Association, has written online articles about his method: feeding many kinds of foods, lowering the pH from 7.6 to 6.8 using catappa leaves, and adding rock piles to protect the eggs and shelter the fry.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "html": "<p>This species was unavailable to aquarists for several years prior to the turn of the century, and when commercially-produced stock first came onto the market prices were very high. Alternative vernacular names in English include 'dwarf loach', 'dwarf botia' and 'chipmunk botia', whereas many hobbyists tend to refer to it simply as 'sid'.</p><p>It looks similar to its only congener A. nigrolineata, in which colour pattern consists of a solid dark lateral stripe and another running along the dorsal mid-line.</p><p>A. sidthimunki is diagnosed by possession of two dorsal stripes anterior to the dorsal-fin and none behind, though in reality some specimens do have what could be described as a stripe posterior to the dorsal-fin which is usually broken by pale, saddle-like markings.</p><p>In adult A. sidthimunki there are numerous transverse, vertical bars connecting the two stripes and extending to the ventral surface; these may also be present in A. nigrolineata but are much less prominent and normally only extend the full distance between the stripes in the rear portion of the body.</p><p>The taxon Ambastaia was erected by Kottelat (2012) to accommodate these two species which are former members of the genera Botia and Yasuhikotakia.</p><p>Members are currently diagnosed from other botiids solely on the basis of adult colour pattern and its ontogeny, the former comprising a whitish-yellowish background with a black midlateral stripe on each flank and an additional, middorsal stripe, with vertical bars connecting these two stripes and extending onto the lower portion of the body.</p><p>The family Botiidae has been considered to represent a genetically distinct grouping since Nalbant (2002), having previously been considered a subfamily (Botiinae) of the family Cobitidae. The same author also moved some previous members of Botia into the new genus Yasuhikotakia based on a number of morphological characters.</p><p>Later Kottelat (2004) made further modifications to the taxonomy, raising Chromobotia for B. macracanthus and confirming that species previously included in the genus Hymenophysa should instead be referred to Syncrossus.</p><p>The former alteration was based on colour pattern plus some morphological characters and the latter because Hymenophysa not only represents a spelling mistake (McClelland's original spelling was Hymenphysa) but is a junior synonym of Botia.</p><p>As a result of these works the family Botiidae is thus divided into two tribes within which Botia appears to be the most basal lineage:</p><p>Tribe Leptobotiini - Leptobotia, Parabotia, Sinibotia. Tribe Botiini - Ambastaia, Botia, Chromobotia, Syncrossus, Yasuhikotakia.</p><p>Phylogenetic studies by Tang et al. (2005) and Šlechtová et al. (2006) have largely confirmed this system to be correct although the latter disagreed with the placement of Sinibotia, finding it to be more closely related to the tribe Botiini.</p><p>Ambastaia nigrolineata and A. sidthimunki were found to be more closely-related to both Sinibotia and Syncrossus than Yasuhikotakia, despite being considered members of the latter at the time. Šlechtová et al. also proposed the use of subfamily names under the following system:</p><p>Subfamily Leptobotiinae - Leptobotia, Parabotia. Subfamily Botiinae - Botia, Chromobotia, Sinibotia, Syncrossus, Yasuhikotakia.</p><p>Within these, Botia appears to be the basal, i.e., most ancient, lineage and in a more-detailed phylogenetic analysis Šlechtová et al. (2007) confirmed the validity of the family Botiidae with the genera listed above as members rather than being grouped into subfamilies. This more recent, simpler system is the one we currently follow here on SF.</p><p>Some behavioural routines exhibited by Ambastaia spp. have been recorded often enough that they have been assigned non-scientific terms for ease of reference.</p><p>For example during dominance battles (these occur most frequently when the fish have been introduced to a new aquarium, or new individuals added to an existing group) the protagonists normally lose much of their body patterning and colouration, a phenomenon that has come to be known as 'greying out'.</p><p>Such displays will sometimes also happen within an established group as individuals seek to improve social ranking but are usually nothing to worry about.</p><p>Interestingly some observations suggest that the character of the highest-ranked, or alpha, fish appears to affect that of the whole group though it must be said that scientific studies of botiid loach behaviour are virtually non-existent.</p><p>It certainly seems that they display a degree of 'personality' with some specimens being naturally bolder or more aggressive than others, for example. The alpha is normally the largest specimen within the group and often female.</p><p>'Shadowing' is an interesting behaviour in which younger individuals swim flank-to-flank with older, mimicking their every movement. Some keepers report that more than one smaller fish may shadow a larger simultaneously, with even three or four on each side!</p><p>The reason for it is unknown; it may relate to a group staying in touch with one another when rivers swell during times of flooding, perhaps reducing drag by swimming 'in formation' or having some other communicative function.</p><p>It has been observed in aquaria with both high and low water flow and seems to be habitual to the extent whereby some individuals will shadow other fishes if no conspecifics are present.</p><p>Sound also appears to be an important factor in communication since these loaches are able to produce audible clicking sounds, these increasing in volume when the fish are excited. The behavioural aspects of this phenomenon remain largely unstudied but the sounds are thought to be produced by grinding of the pharyngeal (throat) teeth or subocular spines.</p><p>A further curiosity is the so-called 'loachy dance' which involves an entire group swimming in a constant, restless fashion around the sides of the aquarium, usually utilising the full length and height.</p><p>The reasons for this are unknown and reports as to when it occurs vary but the most common triggers appear to be the addition of food, fresh water or new conspecifics, and it can last anything from a few minutes to a day or more.</p><p>Botiids also often settle at peculiar angles, wedged vertically or sideways between items of décor, or even lying flat on the substrate. This is no cause for alarm and appears to be a natural resting behaviour.</p><p>Ambastaia spp. also possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g., if removed from the water. Care is therefore necessary, since these can become entangled in aquarium nets and those of larger specimens can break human skin.</p><p>Botiids are also susceptible to a condition commonly referred to as 'skinny disease' and characterised by a loss of weight. This is especially common in newly-imported specimens and is thought to be caused by infestation of parasitic nematode roundworms. It is treatable using proprietary anthelmintic medications such as Flubendazole or Levamisole.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "html": "<p>Ambastaia nigrolineata, the black-lined loach, is sometimes confused with Ambastaia sidthimunki.</p>"
     },
     {
       "key": "references",
@@ -142,47 +223,80 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/5d61d8547e5a57a1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5d61d8547e5a57a1-480.webp",
       "width": 800,
       "height": 390,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "caption": "Well-marked adult female specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5d61d8547e5a57a1-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/090c02415183ee6b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/090c02415183ee6b-480.webp",
       "width": 800,
       "height": 483,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "caption": "Adult male.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/090c02415183ee6b-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/0538b2481a7fded0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0538b2481a7fded0-480.webp",
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "caption": "Body patterning can vary both between specimens and with age.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/0538b2481a7fded0-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/b384e04ddc90ac20.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/b384e04ddc90ac20-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "caption": "Care Guide for Dwarf Chain Loaches – Snail-Eating Nano Fish - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/2742c396e791bb94.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/2742c396e791bb94-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "caption": "Ambastaia sidthimunki (dwarf chain loach)",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/0f4b8fbc48350d98.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/0f4b8fbc48350d98-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
+      "caption": "Dwarf chain loach (Ambastaia sidthimunki)",
+      "source": "aquariumcoop"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/7bfd7e5a3eace0ee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7bfd7e5a3eace0ee-480.webp",
       "width": 810,
       "height": 596,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "caption": "This species will consume small snails but should never be considered the solution to an infestation.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/7bfd7e5a3eace0ee-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -217,5 +331,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-04"
 }

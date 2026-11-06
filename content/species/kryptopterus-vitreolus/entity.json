@@ -10,6 +10,46 @@
     "thailand",
     "golok"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The glass catfish, Kryptopterus vitreolus, is a transparent silurid catfish from coastal river basins of peninsular and southeastern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7916021,
+      "total": 1,
+      "fetched": "2026-11-05",
+      "countries": [
+        [
+          "GR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          23.90625,
+          35.15625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

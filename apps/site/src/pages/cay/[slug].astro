@@ -53,15 +53,11 @@ const alternates = await alternatesOf('plants', p.id)
   </header>
   {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={p.t.name} />}
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} />
+  {/* Shops are Vietnam's (Shopee/Lazada links): Vietnamese pages only, after the care text. */}
+  {lang === 'vi' && <div class="wrap"><ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} /></div>}
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />
   <VideoGuideGrid guides={videoGuides} heading={t('Có trong video hướng dẫn')} />
-  {/* Shops are Vietnam's (Shopee/Lazada links); every language has its own discussion. */}
-  {lang === 'vi' ? (
-    <div class="wrap two">
-      <ProductSlots slots={slots} heading={t('Mua cây này')} entity={`plant:${p.id}`} />
-      <Comments entity={`plant:${p.id}`} />
-    </div>
-  ) : <div class="wrap"><Comments entity={`plant:${p.id}`} /></div>}
+  <div class="wrap"><Comments entity={`plant:${p.id}`} /></div>
 </Base>
 <style>
   .crumb { font-size: 0.85rem; padding-top: var(--space-4); }
@@ -74,6 +70,5 @@ const alternates = await alternatesOf('plants', p.id)
   .facts div:nth-child(odd) { border-right: 1px solid var(--c-rule); }
   dt { font-size: 0.75rem; color: var(--c-ink-faint); }
   dd { margin: 0; font: 400 var(--step-1) var(--f-display); }
-  .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); padding-block: var(--space-7); }
-  @media (max-width: 860px) { .top, .two { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .top { grid-template-columns: 1fr; } }
 </style>

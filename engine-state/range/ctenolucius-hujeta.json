@@ -1,0 +1,191 @@
+{
+  "id": "ctenolucius-hujeta",
+  "native": {
+    "input": "4f0cec682c4a3b6c",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its natural range extends west from the Lake Maracaibo basin of northwestern Venezuela via the Río Magdalena drainage in northern Colombia as far as the Río Sinú in the northwest of the latter country.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its natural range extends west from the Lake Maracaibo basin of northwestern Venezuela via the Río Magdalena drainage in northern Colombia as far as the Río Sinú in the northwest of the latter country.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Maracaibo",
+        "source": "seriouslyfish",
+        "quote": "Its natural range extends west from the Lake Maracaibo basin of northwestern Venezuela via the Río Magdalena drainage in northern Colombia as far as the Río Sinú in the northwest of the latter country.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Magdalena",
+        "source": "seriouslyfish",
+        "quote": "Its natural range extends west from the Lake Maracaibo basin of northwestern Venezuela via the Río Magdalena drainage in northern Colombia as far as the Río Sinú in the northwest of the latter country.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Sinú",
+        "source": "seriouslyfish",
+        "quote": "Its natural range extends west from the Lake Maracaibo basin of northwestern Venezuela via the Río Magdalena drainage in northern Colombia as far as the Río Sinú in the northwest of the latter country.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ctenolucius hujeta",
+    "status": "ACCEPTED",
+    "taxonKey": 2355989,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        2319
+      ],
+      [
+        "010fcd64-caa7-47dd-b1b1-c8be5a2144b6",
+        330
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        82
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        71
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        41
+      ],
+      [
+        "0a795556-3b24-4ff7-9113-22eb1bca08a4",
+        40
+      ],
+      [
+        "f442ef1d-7104-4a8c-85d6-a55181d6b265",
+        28
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        26
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        7
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "2196fd54-22a3-406e-8480-cbee25349024",
+        2
+      ],
+      [
+        "22615daa-7f09-4a71-8cdf-d168170e67dd",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "1a017764-ffb6-4880-801f-27e209a1f7e0",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        1
+      ],
+      [
+        "a42f9427-5b5e-4531-90e2-1a1f30cdb813",
+        1
+      ],
+      [
+        "d7d23b73-9119-494d-b3ca-40da6f7bd3ed",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

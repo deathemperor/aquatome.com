@@ -7,6 +7,8 @@ public enum AppScreen: Equatable, Sendable {
   case tanks(String?)
   /// The Chihiros light page: the app's Lights tab.
   case lights
+  /// The fish-ID tool: the app's own screen for it, which asks as the reader's account.
+  case fishId
   /// A page the app index lists, by its path ("/vi/ca/ca-neon/"): the app's screen for it, on the tab in front.
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
@@ -17,7 +19,8 @@ public enum AppScreen: Equatable, Sendable {
   /// page the index lists; with `group` (whether the app has fish of a group), also those groups' pages.
   public static func of(_ url: URL, site: URL, listed: (String) -> Bool = { _ in false }, group: (String) -> Bool = { _ in false }) -> AppScreen? {
     guard ["http", "https"].contains(url.scheme?.lowercased() ?? ""), bare(url.host) == bare(site.host) else { return nil }
-    // A Vietnamese page at the root ("/cong-cu/be-cua-toi/") or under "/vi/": matched as the latter.
+    // The site's Vietnamese is at its root ("/ca/ca-neon/"), and its old /vi/ form still leads there (PathForm): matched
+    // as the /vi/ form.
     let parts = PathForm.underVi.path(url.path(percentEncoded: false)).split(separator: "/").map(String.init)
     switch parts.joined(separator: "/") {
     // apps/site/src/lib/i18n.ts: the tools section and each page's segment in each language.
@@ -26,15 +29,20 @@ public enum AppScreen: Equatable, Sendable {
       return .tanks(id?.isEmpty == false ? id : nil)
     case "vi/cong-cu/den-chihiros", "id/alat/lampu-chihiros", "th/tools/chihiros-light":
       return .lights
+    case "vi/cong-cu/nhan-dien-ca", "id/alat/kenali-ikan", "th/tools/fish-id":
+      return .fishId
     default:
       // A link asking for more than the page (the tank-mates tool set to a fish, `?ca=ca-neon:6`) isn't the page as the
       // app shows it: the web takes it whole.
       guard url.query == nil else { return nil }
       if let g = Self.group(parts), group(g) { return .group(g) }
-      // The index's paths end in "/", as the site's pages do; a link may leave it off.
+      // The index's paths end in "/", as the site's pages do; a link may leave it off. The page as the index lists it, in
+      // whichever form.
       let path = url.path(percentEncoded: false)
       let page = path.hasSuffix("/") ? path : path + "/"
-      return listed(page) ? .page(page) : nil
+      let other = [PathForm.underVi.path(page), PathForm.atRoot.path(page)].first { $0 != page }
+      if listed(page) { return .page(page) }
+      return other.flatMap { listed($0) ? .page($0) : nil }
     }
   }
 

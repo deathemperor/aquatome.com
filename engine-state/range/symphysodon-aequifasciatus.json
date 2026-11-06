@@ -1,0 +1,148 @@
+{
+  "id": "symphysodon-aequifasciatus",
+  "native": {
+    "input": "9137637258fe7600",
+    "at": "2026-11-04T21:41:08.860Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The discus, Symphysodon aequifasciatus, is a cichlid from the Amazon in Colombia, Peru and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The discus, Symphysodon aequifasciatus, is a cichlid from the Amazon in Colombia, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The discus, Symphysodon aequifasciatus, is a cichlid from the Amazon in Colombia, Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations also exist in the neighbouring countries of Guyana and Suriname.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Introduced populations also exist in the neighbouring countries of Guyana and Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Among the green discus the Royal from Tefé in Brazil (which is also one of the type localities of S. aequifasciatus, i.e. the locality from which the specimens on which the scientific description is based were collected) is the legendarily most beautiful.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The discus, Symphysodon aequifasciatus, is a cichlid from the Amazon in Colombia, Peru and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Solimões",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends down the Rio Solimões and along the main Amazon river, between the Rio Putumayo in Colombia and Peru as far as the Rio Tocantins drainage in Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Putumayo",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends down the Rio Solimões and along the main Amazon river, between the Rio Putumayo in Colombia and Peru as far as the Rio Tocantins drainage in Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "The natural range of this species extends down the Rio Solimões and along the main Amazon river, between the Rio Putumayo in Colombia and Peru as far as the Rio Tocantins drainage in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Symphysodon aequifasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5208133,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        13
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "PE",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-04T21:41:08.860Z"
+  },
+  "nativeFailed": {
+    "at": "2026-11-05T03:39:17.391Z",
+    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
+  }
+}

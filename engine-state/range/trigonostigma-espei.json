@@ -1,0 +1,101 @@
+{
+  "id": "trigonostigma-espei",
+  "native": {
+    "input": "a1dc0b506da5d8a9",
+    "at": "2026-11-05T19:44:13.099Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The lambchop rasbora, Trigonostigma espei, is a small cyprinid from southwestern and southeastern Thailand, reaching into southwestern Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The lambchop rasbora, Trigonostigma espei, is a small cyprinid from southwestern and southeastern Thailand, reaching into southwestern Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There appear to be two main populations of this species, one in the far southwest of Thailand and the other in the southeast of the country around the border with Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its range is known to extend at least as far as the Prek Tuk Sap river basin near the coastal town of Sihanoukville in southwestern Cambodia while reports from Laos probably represent cases of mistaken identity.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Its range is known to extend at least as far as the Prek Tuk Sap river basin near the coastal town of Sihanoukville in southwestern Cambodia while reports from Laos probably represent cases of mistaken identity.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "More recently a population has been discovered on the nearby island of Phu Quoc, Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Prek Tuk Sap",
+        "source": "seriouslyfish",
+        "quote": "Its range is known to extend at least as far as the Prek Tuk Sap river basin near the coastal town of Sihanoukville in southwestern Cambodia while reports from Laos probably represent cases of mistaken identity.",
+        "country": "KH",
+        "ok": true
+      },
+      {
+        "name": "Phu Quoc",
+        "source": "seriouslyfish",
+        "quote": "More recently a population has been discovered on the nearby island of Phu Quoc, Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trigonostigma espei",
+    "status": "ACCEPTED",
+    "taxonKey": 2367616,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T19:44:13.099Z"
+  }
+}

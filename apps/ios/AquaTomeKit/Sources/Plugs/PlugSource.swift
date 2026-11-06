@@ -11,6 +11,9 @@ public protocol PlugSource: Sendable {
   /// Sets one outlet once (never toggles, never retried, never queued), then reads it back: what the plug then
   /// reports, and whether that is the state asked for. Refused for a plug the last list didn't have online.
   func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched
+  /// The timers set on one plug in its maker's app, as they are now. Read only, when a screen that shows them opens;
+  /// never kept, never written.
+  func timers(provider: String, device: String) async throws -> [PlugTimer]
 }
 
 /// An outlet as the plug reports it now.

@@ -1,6 +1,6 @@
 import { loadTurnstile, type Turnstile } from './comments'
 import { ct } from './ct'
-import { langOf } from '../lib/i18n'
+import { LANG, LANGS, langOf } from '../lib/i18n'
 import { APPLE_RETURN } from '../../worker/paths'
 import * as store from './tank-store'
 import { addPasskey, codeInHash, deleteAccount, emailStart, emailVerify, getNonce, getSession, isFail, nextPath, passkeyAddOptions, passkeyLoginOptions, PENDING, pendingFlow, signInWith, signInWithPasskey, signOut, syncOnce, type Fail, type Mode, type Pending, type Providers, type User } from './sync'
@@ -35,7 +35,8 @@ function script(src: string): Promise<void> {
   }
   return p
 }
-const APPLE_LOCALE: Record<string, string> = { vi: 'vi_VN', id: 'id_ID', th: 'th_TH' }
+/** Apple's sign-in script per language, named as Open Graph names it (vi_VN). */
+const APPLE_LOCALE: Record<string, string> = Object.fromEntries(LANGS.map(l => [l, LANG[l].og]))
 const KIND: Record<string, string> = { google: 'Google', apple: 'Apple', email: 'email', passkey: 'passkey' }
 /** The AquaTome app's web view (apps/ios PageView's user agent). */
 const IN_APP = /\bAquaTomeApp\//

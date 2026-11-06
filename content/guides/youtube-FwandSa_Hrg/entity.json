@@ -1,0 +1,96 @@
+{
+  "id": "youtube-FwandSa_Hrg",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=FwandSa_Hrg",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "astronotus-ocellatus"
+  ],
+  "updatedAt": "2026-11-04",
+  "video": {
+    "youtubeId": "FwandSa_Hrg",
+    "title": "HOW TO: Build A Large Aquarium 5/6",
+    "channel": "The king of DIY",
+    "channelUrl": "https://www.youtube.com/channel/UCM9oZkV3tGJuUUhgZaiGZkQ",
+    "durationSec": 1866,
+    "publishedAt": "2012-12-02",
+    "chapters": [],
+    "series": {
+      "id": "PLcWeEm9w62mZTx530PSxoM9BEE0TbU6HX",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/FwandSa_Hrg/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "transcribed": true,
+    "taxa": [
+      "Potamotrygon sp.",
+      "Astronotus ocellatus"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "t": 159
+      },
+      {
+        "category": "khac",
+        "brand": "Reeflow",
+        "model": "Dart",
+        "t": 1560
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Tính lượng K1 theo cá, không theo lít nước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FwandSa_Hrg/p1-lX1pvb18wMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/FwandSa_Hrg/p1-lX1pvb18wMS5qcGc-480.webp",
+          "width": 960,
+          "height": 643,
+          "licence": "CC BY-SA 3.0",
+          "author": "H. Zell",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
+          "caption": "Cá Oscar vằn cam đen bơi trong bể trồng cây, loài thải nhiều chất thải."
+        }
+      },
+      {
+        "heading": "Chọn thùng và tính lượng khí",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FwandSa_Hrg/p2-EzNjk4MjcpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/FwandSa_Hrg/p2-EzNjk4MjcpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 2.0",
+          "author": "Stan Dalone",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vivid_colours_-_warning_!_(2851369827).jpg",
+          "caption": "Nhiều thùng phuy 200 lít xếp trong bãi, loại hay dùng làm vỏ lọc."
+        }
+      },
+      {
+        "heading": "Dựng bộ lọc từ thùng phuy",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/FwandSa_Hrg/p3-X3Nhd19iaXQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/FwandSa_Hrg/p3-X3Nhd19iaXQuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "Junkyardsparkle",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:One_and_one_quarter_inch_hole_saw_bit.jpg",
+          "caption": "Mũi khoét lỗ dạng cốc, dùng khoan lỗ nối hai thùng phuy."
+        }
+      }
+    ]
+  }
+}

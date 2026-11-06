@@ -1,0 +1,52 @@
+{
+  "id": "corydoras-adolfoi",
+  "native": {
+    "input": "98ed8b556c295203",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Small tributary of the upper Rio Negro on the equator near São Gabriel da Cachoeira, Brazil', and this species is apparently highly endemic there.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras adolfoi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342782,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

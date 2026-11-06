@@ -120,6 +120,24 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "sign-in-again").exists, "still asked to sign in again")
   }
 
+  func testGoogleSignsIn() {
+    // Google's page and token endpoint are the stand-in's (`FakeGoogle`): the URL, the state, the PKCE verifier and the
+    // ID token are the app's own.
+    let app = launch(resetServer: true)
+    tap(app, "google-sign-in")
+    XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "not signed in")
+    XCTAssertTrue(app.staticTexts["account-status"].label.contains("Google"), app.staticTexts["account-status"].label)
+    XCTAssertTrue(waitForSyncs(app, 1), "no sync after signing in")
+  }
+
+  func testClosingGooglesPageLeavesTheReaderSignedOutWithNothingSaid() {
+    let app = launch(resetServer: true, "-fake-google", "cancel")
+    tap(app, "google-sign-in")
+    XCTAssertFalse(app.staticTexts["account-status"].waitForExistence(timeout: 2), "signed in")
+    XCTAssertFalse(app.staticTexts["account-message"].exists, app.staticTexts["account-message"].label)
+    XCTAssertTrue(element(app, "google-sign-in").isEnabled, "the button stays off")
+  }
+
   func testWithAccountsOffThereIsNoSignIn() {
     let app = launch(resetServer: true, accounts: "off")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5))
@@ -141,7 +159,7 @@ final class AccountFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", accounts]
       + (newPhone ? ["-reset-defaults"] : []) + (resetServer ? ["-reset-fake-server"] : []) + args
-    app.launch()
+    app.launchForFlow()
     app.openTab("Bể của tôi")
     return app
   }

@@ -1,0 +1,73 @@
+{
+  "id": "peckoltia-compta",
+  "native": {
+    "input": "1a9ae9de7937537c",
+    "at": "2026-11-05T06:42:12.410Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "According to the IUCN Red List, Peckoltia compta is endemic to Brazil and occurs in the middle Tapajós River basin and the Jamanxim River basin in the state of Pará.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Brazil: Pará, Rio Tapajós, Pimental.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "L134 (Peckoltia compta) comes from the Rio Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tapajós",
+        "source": "scotcat",
+        "quote": "Brazil: Pará, Rio Tapajós, Pimental.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Jamanxim River",
+        "source": "scotcat",
+        "quote": "According to the IUCN Red List, Peckoltia compta is endemic to Brazil and occurs in the middle Tapajós River basin and the Jamanxim River basin in the state of Pará.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Peckoltia compta",
+    "status": "ACCEPTED",
+    "taxonKey": 5961513,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-05T00:41:00.281Z"
+  }
+}

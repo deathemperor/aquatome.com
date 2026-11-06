@@ -10,7 +10,9 @@
     "nepal",
     "india",
     "pakistan",
-    "bangladesh"
+    "bangladesh",
+    "koshi",
+    "ganges"
   ],
   "dataCard": {
     "tempC": [
@@ -20,11 +22,52 @@
           "min": 14,
           "max": 26
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 15,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
         "value": 6
       }
     ]
@@ -37,10 +80,22 @@
       "html": "<p>Among the many loach species (mainly the genera Nemacheilus and Schistura, but there are more genera) that exist in India, one in particular has proven itself as an aquarium fish: Nemacheilus corica. It remains small (5-6 cm), is peaceful, looks nice, eats all common ornamental fish foods, is lively and very adaptable. It is the ideal bottom fish for Indian tanks, but can also live in community tanks.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Nemacheilus corica is a loach from Himalayan foothill rivers of the Ganges and Brahmaputra systems in Nepal, northern India and Bangladesh. Usually referred to Schistura in the hobby, it has been placed in Nemacheilus by most authors since the late 1970s, though its generic placement requires further study. A row of variably sized dark spots runs along the back and another along each flank, both ending in a dark blotch at the caudal-fin base.</p><ul><li>Needs a group; choose tankmates carefully; needs a well-established tank</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
       "html": "<p>It is native to the hilly landscapes at the foot of the Himalayas in Nepal, India, Pakistan and Bangladesh.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Described from the Kosi/Koshi river, one of the largest tributary systems of the Ganges River which flows down from the Himalayas and through Nepal before joining the Ganges just before it enters Bangladesh.</p><p>It's since been recorded from many rivers draining the Himalayan foothills in Nepal and northern India (Gangetic tributaries in Uttar Pradesh, Uttarakhand, Bihar and West Bengal states plus tributaries of the Brahmaputra River in West Bengal state), and is also known from the lower Ganges in Bangladesh, where the river is known as the Padma.</p><p>Reports from Pakistan and the Indian states of Orissa and Assam still require confirmation.</p>"
     },
     {
       "key": "habitat",
@@ -49,10 +104,34 @@
       "html": "<p>It inhabits a wide variety of rivers and streams. Because the distribution area is in the subtropics, temperatures are subject to seasonal fluctuations.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>The majority of the area over which this species occurs mostly experiences a temperate climate with heavy rainfall, high humidity and a pronounced monsoon period between June and September.</p><p>Average air temperatures tend to fall within the range 15–32°C depending on locality and time of year, though in the northern extreme of its range it can be significantly cooler during winter. Many of its habitats are therefore subject to severe seasonal alteration in terms of water depth, volume and flow.</p><p>At the type locality of the catfish Pseudolaguvia muricata in northern Bangladesh the habitat comprised a slow-moving, shallow stream containing clear water with a substrate of sand and organic detritus.</p><p>'N.' corica was recorded alongside numerous other species including Barilius barna, B. bendelisis, B. tileo, Devario devario, Oreichthys cosuatis, Psilorhynchus sucatio, Lepidocephalichthys guntea, Acanthocobitis botia, Acoura savona, Amblyceps mangois, Mystus bleekeri, Olyra longicaudata, Conta conta, Hara jerdoni, Pseudolaguvia ribeiroi, P. shawi, Aplocheilus panchax, Xenentodon cancila, Microphis deocata, Chanda nama, Pseudambassis baculis, Chanda ranga, Channa gachua, Badis badis, Nandus nandus, Ctenops nobilis, Glossogobius giuris, Mastacembelus pancalus and Tetraodon cutcutia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Standard length: 45 mm SL. Aquarium base: 60 × 30 cm. Volume: ~54 litres.</p><p>Base dimensions of 60 × 30 cm or similar should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight. While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, meaning weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
       "html": "<p>N. corica does not normally need heating in the indoor aquarium, as it is well adapted to temperatures between around 14°C and 26°C. No sudden temperature changes should be brought about, as this can lead to illness and, in the worst case, death of the fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<ul><li>Temperature: 15–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -61,10 +140,28 @@
       "html": "<p>It eats all common ornamental fish foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Nemacheilus species are omnivorous although the bulk of their diet consists of small insects, worms, crustaceans, and other zooplankton with only relatively small amounts of plant matter and other organic detritus consumed.</p><p>In the aquarium they will accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc., will result in the best colouration and condition.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Not among the more aggressive members of the genus and can be maintained in a community aquarium provided tankmates are selected with care and proper research.</p><p>Fishes which inhabit similar biotopes in nature, especially those which swim in open water such as Danio, Devario, Pethia, Puntius, and Rasbora spp. perhaps constitute the best options, and one or two schools can make a visible difference to the confidence of benthic species.</p><p>Other possibilities include rheophilic loaches from genera such as Pseudogastromyzon, Beaufortia, or Sewellia plus benthic cyprinids such as Crossocheilus and Garra spp. Similarly-shaped relatives aren't recommended under most circumstances although a combination may work in larger aquaria.</p><p>Though not gregarious in the sense of schooling or shoaling fishes it does seem to do best in the presence of conspecifics and provided plenty of cover is available any aggression should be minimal.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
       "html": "<p>It is easy to tell the sexes apart, but only in adults. The easiest way is from a top view, where the much larger pectoral fins of the male can be seen. Viewed from the side, the female appears stockier and much fuller.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Adult females are typically a little larger and heavier-bodied than males.</p>"
     },
     {
       "key": "reproduction",
@@ -73,13 +170,65 @@
       "html": "<p>N. corica has probably not yet been bred in the aquarium, but breeding should not be a real problem. Nemacheilus species are usually free spawners without brood care, the eggs developing in the gap system of gravel. The spawning season is in the rainy monsoon months, i.e. our summer through to October, when there is heavy rainfall along the Himalayas.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>Unreported.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/nemacheilus-corica-2/",
       "html": "<p>There are 172 described species of these loaches, but many are undescribed and it is often unclear whether described species are valid or synonyms.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<p>This species has been widely regarded as a member of the genus Nemacheilus since the late 1970s with the vast majority of subsequent authors considering it as such, although in the aquarium hobby it's more commonly referred to Schistura.</p><p>It has extended pectoral fins, a complete lateral line and colour pattern consisting of variably-sized dark spots arranged in a row along the entire dorsal surface from head to caudal peduncle.</p><p>Another row of similarly variable markings extends longitudinally along the lateral line on each flank, and both dorsal and lateral rows terminate in a dark blotch at the caudal-fin base.</p><p>Kottelat (2012) states that its generic placement requires additional study hence the genus name is currently written 'Nemacheilus'.</p><p>Following Kottelat (1990) the genus Nemacheilus is characterised by a combination of characters as follows: elongate body; complete lateral line; presence of enlarged scales above and below the lateral line in some species; caudal-fin forked to deeply forked with enlarged upper lobe; large eye; small, strongly arched mouth; lips usually thin; usually no median interruption in upper lip; upper jaw with processus dentiformis (a tooth-like projection); no median notch in lower jaw; long barbels; males usually with suborbital flap, pectoral-fin rays 2-6 thickened and with rows of tubercules.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "html": "<ul><li>Bănărescu, P. M. and T. T. Nalbant (1995). A generical classification of Nemacheilinae with description of two new genera (Teleostei: Cypriniformes: Cobitidae). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 35, 429-495</li><li>Kottelat, M. (1990). Indochinese nemacheilines. A revision of nemacheiline loaches (Pisces: Cypriniformes) of Thailand, Burma, Laos, Cambodia and southern Viet Nam. Verlag Dr. Friedrich Pfeil, München, Germany, 1-262</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Conway, K. W., D. R. Edds, J. Shrestha and R. L. Mayden (2011). A new species of gravel-dwelling loach (Ostariophysi: Nemacheilidae) from the Nepalese Himalayan foothills. Journal of Fish Biology 79(7), 1746-1759</li><li>McClelland, J. (1839). Indian Cyprinidae. Asiatic Researches 19(2), 217-471</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0c5190aa7487064d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0c5190aa7487064d-480.webp",
+      "width": 768,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "caption": "Another individual from the Raidak II River.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/238919e6e394c144.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/238919e6e394c144-480.webp",
+      "width": 738,
+      "height": 195,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "caption": "This species is often referred to as Schistura corica.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b1c82b587bc1cedd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b1c82b587bc1cedd-480.webp",
+      "width": 949,
+      "height": 516,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nemacheilus-corica",
+      "caption": "Specimen from the German aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -111,5 +260,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-04"
 }

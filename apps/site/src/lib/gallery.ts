@@ -16,6 +16,8 @@ export function licenceUrl(licence: string): string | undefined {
 export const GALLERY_MIN = 6
 /** Photos shown in the strip on the species page. */
 export const GALLERY_STRIP = 8
+/** Thumbnails at most in a fish page's photo column on a tall computer screen: the strip's, then the gallery's next ones. */
+export const GALLERY_COLUMN = 40
 
 /** Photo sites by the address of a photo's own page. */
 const SITES: [RegExp, string][] = [[/(^|\.)inaturalist\.org$/, 'iNaturalist'], [/(^|\.)unsplash\.com$/, 'Unsplash'], [/(^|\.)flickr\.com$/, 'Flickr'], [/(^|\.)gbif\.org$/, 'GBIF'], [/(^|\.)wikimedia\.org$/, 'Wikimedia Commons']]
@@ -30,11 +32,12 @@ export function photoFrom(photos: Photo[], sources: Partial<Record<SourceId, Sou
 }
 
 /**
- * The gallery page's line about its photos: how many, from which sites, and that they are under open licences or used
- * with permission (photos a source let us use say so). The app's copy of the gallery carries it too.
+ * The gallery page's line about its photos: how many, from which sites, and that they are under open licences when all
+ * are (a gallery with photos a source let us use names the source, and no more). The app's copy of the gallery carries
+ * it too.
  */
 export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
   const from = photoFrom(photos, sources).join(', ').replace(/, ([^,]*)$/, ` ${t('và')} $1`)
   const open = photos.every(p => !p.source)
-  return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}, giấy phép mở hoặc được phép dùng.', { n: photos.length, from })
+  return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from })
 }

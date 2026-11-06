@@ -10,6 +10,61 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Valapatanam",
+        "Chaliyar",
+        "Kallar",
+        "Kuttiyadi",
+        "Bhavani",
+        "Bharatapuzha"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ]
+    },
+    "records": {
+      "taxonKey": 8395052,
+      "total": 15,
+      "fetched": "2026-11-04",
+      "countries": [
+        [
+          "IN",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          11.25,
+          6,
+          6
+        ],
+        [
+          75.9375,
+          9.84375,
+          6,
+          6
+        ],
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -2,6 +2,7 @@ import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEnt
 import { videoPhoto } from './video'
 import { categories } from './equipment'
 import { GROUP_LABELS } from './format'
+import { taxonHref } from './taxa-places'
 
 /** Words in guide text that mean an equipment category (only categories that have a page are linked). */
 const EQUIPMENT_TERMS: Record<string, string[]> = {
@@ -42,7 +43,6 @@ const specific = (all: string[]) => {
   // `own`: the page's own names ("Cá hồng két King Kong" is a line on the Cá hồng két page, not another fish).
   return (n: string, own: string[] = []) => lower.filter(o => o.startsWith(`${n.toLowerCase()} `) && !own.some(x => x.toLowerCase() === o)).length < 2
 }
-const taxonHref = (...parts: string[]) => `/vi/phan-loai/${parts.map(p => p.toLowerCase()).join('/')}/`
 
 export function linkTargets(c: Content): LinkTarget[] {
   const out: LinkTarget[] = []
@@ -59,8 +59,9 @@ export function linkTargets(c: Content): LinkTarget[] {
   for (const p of c.plants) out.push({ key: `plant:${p.id}`, href: `/vi/cay/${p.t.slug}/`, names: [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames].filter(n => multiWord(n) && ok(n)) })
   const taxa = new Map<string, LinkTarget>()
   for (const s of c.species) {
-    taxa.set(`genus:${s.genus}`, { key: `genus:${s.genus}`, href: taxonHref(s.order, s.family, s.genus), names: [s.genus], exact: true })
-    taxa.set(`family:${s.family}`, { key: `family:${s.family}`, href: taxonHref(s.order, s.family), names: [s.family], exact: true })
+    const genus = taxonHref(s, 3), family = taxonHref(s, 2)
+    if (genus) taxa.set(`genus:${s.genus}`, { key: `genus:${s.genus}`, href: genus, names: [s.genus], exact: true })
+    if (family) taxa.set(`family:${s.family}`, { key: `family:${s.family}`, href: family, names: [s.family], exact: true })
   }
   out.push(...taxa.values())
   // Glossary before equipment: "CO2" explains the term rather than selling the kit.

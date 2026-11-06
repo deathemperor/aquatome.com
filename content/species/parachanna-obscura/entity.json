@@ -1,0 +1,221 @@
+{
+  "id": "parachanna-obscura",
+  "scientificName": "Parachanna obscura",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Parachanna",
+  "group": "other",
+  "places": [
+    "africa",
+    "benin",
+    "burkina-faso",
+    "cameroon",
+    "central-african-republic",
+    "chad",
+    "cote-d-ivoire",
+    "democratic-republic-of-the-congo",
+    "gabon",
+    "ghana",
+    "guinea",
+    "mali",
+    "niger",
+    "nigeria",
+    "republic-of-the-congo",
+    "senegal",
+    "sierra-leone",
+    "sudan",
+    "togo",
+    "south-sudan",
+    "gambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 38,
+        "hidden": "shorter than twice the fish (40.6 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>The African snakehead, Parachanna obscura, is widespread in West Africa from Senegal to Cameroon and ranges inland across the continent to Sudan. The most commonly seen African Parachanna, it is hard to tell apart from the rarely imported P. insignis. It will eat any fish less than two thirds its size and is best kept alone. Both parents guard the eggs among surface vegetation, and the female is said to feed the fry with infertile eggs.</p><ul><li>Aquarium size: 38 × 38 cm base</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>This species has a very wide natural distribution through almost every coastal northwest African country, from Senegal at its northernmost point southwards as far as Cameroon. Its range also extends inland into Burkina Faso and Niger and on across the continent through Chad, Democratic Republic of Congo and finally into Sudan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>Tends to be associated with dense marginal vegetation and swampy lowland floodplains.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>Standard length: 40.6 cm SL. Aquarium base: 38 × 38 cm. Volume: approximately 55 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>Loosely planted tank with floating cover and open areas for swimming.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<ul><li>Temperature: 26–30°C. Strictly a tropical species.</li><li>pH: 6.0–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>Almost exclusively carnivorous, preying on smaller fish and invertebrates in nature. Analyses of the stomach contents of wild fish also revealed a certain amount of plant matter and other detritus, but these were probably ingested via the gut contents of prey items. Carnivorous and enjoys live foods but adapts well to frozen food such as prawns, bloodworm and mussel in captivity. Dried foods are not usually accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>Predatory. Do not keep with fish less than 2/3 its body size as it will view them as food. Suggested tankmates (if any) are similarly sized robust fish such as polypterus, datnoides, larger catfish, loricariids and some cichlids but their safety is not guaranteed. Pictures have been seen of plecos with no remaining finnage as a result of keeping them with P. obscura. This species is best kept alone.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>Females are plumper and larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>Possible but unlikely. Cave-spawners/egg-scatterers.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-obscura",
+      "html": "<p>This fish is spawned very infrequently in captivity but some reports have been made. Fish are sexually mature from about 10 cm and a pair should be obtained by growing on a group of youngsters and allowing a pair to form naturally. Once this occurs the other fish will most likely be eliminated so it is wise to be vigilant in order to avoid unnecessary losses. Apparently courtship occurs in an open section of water surrounded by floating plant material. The courtship consists of the fish circling each other with increasing intensity until the pair embrace in a style reminiscent of anabantoids. At this point eggs and sperm are released. The fish then rest and the cycle begins again, repeating itself until up to 500 eggs are scattered amongst the surface vegetation. Both parents then guard the eggs, which hatch in 24 hours or so, with the fry becoming free swimming 3 days later. It is said the female fish feeds the young with infertile eggs in a similar fashion to the Asian eggfeeding channa. After around a week the fry are large enough to feed on brine shrimp nauplii and microworm. After 6-8 weeks the young should be removed as they may be preyed upon by the parents, particularly the female. Other reports state that the fish breed in caves so it is possible they adopt different strategies based on their environment.</p><p>One of only a handful of snakehead species occurring naturally outside Asia. All of these are in the genus Parachanna and are found in Africa. The genus was formed due to the African species' suprabranchial cavity being of a slightly more primitive design than that of the Asian species. This is the most commonly seen of the African Parachanna and is a useful food fish in nature. It is difficult to differentiate between this species and the closely related but rarely imported P. insignis.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/ae22f1199773dcc7.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "Public domain",
+      "author": "Vladimír Spurný",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Channa_asiatica.jpg",
+      "caption": "Channa asiatica, Czech Republic. Determination incorrect! Probably Parachanna obscura, vgl. z. B. http://www.familie-hauffe.de/atlex/arten.asp?id=231.",
+      "thumb": "https://media.aquatome.com/commons/ae22f1199773dcc7-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/156775ece3e41660.webp",
+      "width": 960,
+      "height": 762,
+      "licence": "Public domain",
+      "author": "Boulenger, George Albert; Loat, L.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_fishes_of_the_Nile_(Pl._LXXXII)_(6961626105).jpg",
+      "caption": "Parachanna obscura syn. Ophiocephalus obscurus",
+      "thumb": "https://media.aquatome.com/commons/156775ece3e41660-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/dcfad231307d4e41.webp",
+      "width": 960,
+      "height": 1418,
+      "licence": "CC BY 4.0",
+      "author": "Kristof Zyskowski",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parachanna_obscura_333770856.jpg",
+      "caption": "Obscure Snakehead (Parachanna obscura) in Ethiopia",
+      "thumb": "https://media.aquatome.com/commons/dcfad231307d4e41-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4ed3ea90d7613464.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parachanna_obscura_-_Aqua_Porte_Dor%C3%A9e_03.JPG",
+      "caption": "Parachanna obscura - Aquarium Tropicale du palais de la Porte Dorée, Paris, Ile de France, France - 12/2014",
+      "thumb": "https://media.aquatome.com/commons/4ed3ea90d7613464-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 55 lít",
+        "bể cá lớn nuôi cá săn mồi"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 26-30 độ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "lọc ngoài cho cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá săn mồi",
+        "tôm đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-04"
+}

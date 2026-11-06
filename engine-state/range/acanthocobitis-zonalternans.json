@@ -1,0 +1,163 @@
+{
+  "id": "acanthocobitis-zonalternans",
+  "native": {
+    "input": "323e0f27a5b53d03",
+    "at": "2026-11-05T22:45:18.315Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Paracanthocobitis zonalternans is a nemacheilid loach ranging from Manipur in India through Myanmar into western and peninsular Thailand.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Paracanthocobitis zonalternans is a nemacheilid loach ranging from Manipur in India through Myanmar into western and peninsular Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Paracanthocobitis zonalternans is a nemacheilid loach ranging from Manipur in India through Myanmar into western and peninsular Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Chindwin",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Tapi",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acanthocobitis zonalternans",
+    "status": "ACCEPTED",
+    "taxonKey": 2358648,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "e664781d-4584-44b8-b5fa-e0ea029fdc0d",
+        12
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "MM",
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-05T22:45:18.315Z"
+  }
+}

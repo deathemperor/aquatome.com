@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { LANG, OTHER_LANGS } from '@aq/schema/langs'
 
 /** The built site's folder the local checks read (the same one serve.mjs serves). */
 export const DIST = resolve(process.env.E2E_DIST ?? 'dist')
@@ -23,7 +24,7 @@ export const recheckPages = () => readList(process.env.E2E_RECHECK)
 /** A page's template: language, section and depth ("/ca/x/anh/" → "vi/ca/4"). */
 export const templateOf = (path: string) => {
   const s = path.split('/').filter(Boolean)
-  if (s[0] !== 'id' && s[0] !== 'th') s.unshift('vi') // Vietnamese pages are at the root
+  if (!OTHER_LANGS.some(l => LANG[l].prefix === `/${s[0]}`)) s.unshift('vi') // Vietnamese pages are at the root
   return `${s[0]}/${s[1] ?? ''}/${s.length}`
 }
 

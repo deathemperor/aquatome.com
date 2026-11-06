@@ -8,7 +8,9 @@
   "places": [
     "asia",
     "malaysia",
-    "johor"
+    "johor",
+    "indonesia",
+    "kapuas"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +19,13 @@
         "value": {
           "min": 20,
           "max": 25
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
         }
       }
     ],
@@ -27,6 +36,13 @@
           "min": 6,
           "max": 7.2
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3.5,
+          "max": 6.5
+        }
       }
     ],
     "gh": [
@@ -36,18 +52,39 @@
           "min": 2,
           "max": 8
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
       }
     ],
     "difficulty": [
       {
         "source": "bwaquatics",
         "value": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -65,10 +102,22 @@
       "html": "<p>These fish are wild-caught, please proceed with caution. As wild-caught fish, these loaches are sensitive to warm temperatures, low oxygen, and poor water quality. Have the habitat ready before purchase. This species is peaceful, active, and highly specialized—best kept by aquarists able to maintain stable blackwater forest stream conditions.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</p><p>Neohomaloptera johorensis is a tiny balitorid loach from Peninsular Malaysia, found mainly in peat swamps and associated blackwater streams. Its small adult size and orange to reddish-brown colour make it difficult to confuse with any other balitorid. The water in its habitat is stained brown, with negligible mineral content and pH as low as 3.0 or 4.0. It needs well-oxygenated water free of organic pollutants.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/neohomaloptera-johorensis",
       "html": "<p>Native to Peninsular Malaysia, particularly in Johor.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>Described from a brook near the town of Simpang Renggam, Kluang district, Johor state, southern Peninsular Malaysia and since recorded from the Endau River system, also in Johor, plus the North Selangor peat swamp forest, Selangor state and Perak state in the north west of the country.</p><p>This suggests it originally had a wider distribution in the now massively degraded peat swamp forests of Peninsular Malaysia.</p><p>Specimens collected from the Kapuas River basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo have also been identified as N. johorensis although a similar-looking fish from the Batang Hari drainage, Jambi province, Sumatra was diagnosed as having different body colour and a longer nasal barbel by Tan and Kottelat (2009).</p><p>The latter was listed simply as N. 'sp.'.</p>"
     },
     {
       "key": "habitat",
@@ -77,10 +126,34 @@
       "html": "<p>These loaches inhabit clear, fast-flowing blackwater forest streams with cool, oxygen-rich waters, smooth rocks, dense moss growth, and steady current. Their flattened bodies, rounded fins, and subtle reticulated patterning allow them to cling tightly to rock surfaces in flowing water while grazing on biofilm.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>Most often inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material, dissolved mineral content is generally negligible and pH as low as 3.0 or 4.0.</p><p>Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cryptocoryne or Barclaya can be found.</p><p>In the North Selangor peat swamp, Peninsular Malaysia, this species occurs alongside numerous other fishes including Rasbora cephalotaenia, R. einthovenii, R. kalochroma, Trigonopoma gracile, 'Puntius' hexazona, 'P.' johorensis, Kottelatlimia pristes, Nemacheilus selangoricus, Hemirhamphodon pogonognathus, Betta bellica, B. livida, Parosphromenus harveyi, Sphaerichthys osphromenoides, and Trichopodus trichopterus.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>An aquarium with a base measuring 45 × 30 cm or more is recommended (about 41 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>Most importantly the water must be well-oxygenated and free of organic pollutants, though torrent-like conditions are unnecessary. Use a combination of filter outlets, small powerheads, air stones, etc. to achieve the desired effect.</p><p>A soft, sandy substrate is preferable, to which can be added driftwood roots and branches, dried leaf litter and aquatic plants able to survive under such conditions such as Microsorum, Taxiphyllum and Cryptocoryne spp.</p><p>Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</p><p>Since it requires stable water conditions this loach should never be added to biologically immature set-ups.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/neohomaloptera-johorensis",
       "html": "<ul><li>Cool, clean, oxygen-rich water is essential</li><li>pH 6.0 – 7.2</li><li>GH 2 – 8 °d</li><li>KH 1 – 4 °d</li><li>TDS 60 – 150 ppm</li><li>Temperature: 20 – 25 °C (68 – 77 °F); cooler temperatures reflect their natural habitat and support long-term health</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 3.5–6.5</li><li>Hardness: 0–5 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -95,10 +168,28 @@
       "html": "<p>Primarily biofilm and micro-invertebrate grazers. Offer:</p><ul><li>Blanched vegetables (spinach, zucchini)</li><li>Repashy \"Soilent Green\" or similar gel foods</li><li>Frozen cyclops, daphnia, and baby brine shrimp</li><li>Algae wafers and fine sinking foods</li></ul>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>This species is a specialised grazer feeding on biofilm, small crustaceans, insect larvae and other invertebrates in nature.</p><p>In captivity some sinking dried foods may be accepted but regular meals of live or frozen Daphnia, Artemia, micro worm, grindal worm, etc., are essential for maintenance of good health, and it's highly preferable if the aquarium contains solid surfaces with growths of algae and other aufwuchs.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct.</p><p>A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a constant source of suitable foods in the absence of competitors if they're to recover.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/neohomaloptera-johorensis",
       "html": "<p>Peaceful and best kept in groups of 6 or more to encourage natural activity and reduce stress. Suitable tankmates include:</p><ul><li>Small rasboras</li><li>Danionins</li><li>Pseudomugil species</li><li>Licorice gouramis (Parosphromenus spp.)</li><li>Small bettas such as Betta channoides and Betta albimarginata</li><li>Other gentle, flow-loving fishes</li></ul><p>Avoid large, aggressive, or slow-moving species that cannot tolerate moderate current.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>Very peaceful but its environmental requirements and adult size limit the choice of suitable tankmates.</p><p>Peaceful, diminutive schooling cyprinids such as Boraras, Trigonostigma, and Sundadanio spp. are ideal, and if geography isn't an issue many smaller, blackwater-dwelling characins should also work.</p><p>Other loaches could include Pangio, Acanthopsoides or smaller Lepidocephalichthys spp.</p><p>From the limited information available it appears this species is peaceful both with conspecifics and other fishes and there exist no reports of it harming tankmates though eggs and fry may be preyed upon.</p><p>It seems to fare best when maintained in numbers and should ideally be kept in a group of 4 or more specimens.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>Sexually mature females should be a little larger and fuller-bodied than males.</p>"
     },
     {
       "key": "reproduction",
@@ -107,13 +198,65 @@
       "html": "<p>Breeding in home aquaria is rare. Spawning is believed to occur in high-flow microhabitats between rocks, where eggs are deposited and left without parental care. Fry are extremely small and require microfoods, biofilm, and stable, high-oxygen conditions. Most reported successes come from mature, heavily seasoned river setups.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>Presumably a seasonal spawner in nature but nothing has been recorded in aquaria.</p>"
+    },
+    {
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/neohomaloptera-johorensis",
       "html": "<p>Acclimate slowly and maintain strong flow, high dissolved oxygen, and very clean water. Provide mature aquaria with abundant grazing surfaces and avoid abrupt parameter changes. Habitat destruction and sedimentation in Malaysian forest streams continue to threaten wild populations, so captive maintenance and responsible husbandry are strongly encouraged.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<p>It is unclear whether this species has ever been traded on a commercial basis, though it has been maintained by a few private collectors.</p><p>It's difficult to confuse with any other balitorid due to the small adult size and distinctive orange to reddish-brown body colouration.</p><p>Neohomaloptera was originally erected by Herre (1944) as a monotypic subgenus of Homaloptera for the subject species. Silas (1953) assigned it full generic status. It was later synonymised with Homaloptera by Alfred (1969) but has been generally accepted as a genus in its own right since Roberts (1989).</p><p>The chief distinguishing characters separating it from Homaloptera are possession of two pairs of maxillary barbels (vs. 1), low pectoral-fin ray counts (11-12, vs. 13-18) and 31-37 lateral line scales, less than all Homaloptera spp. except H. tweedei which has 32-36. The genus remains monotypic to date.</p><p>N. johorensis is sometimes referred to as 'lizard loach' due to its behaviour and appearance.</p><p>It has morphology specialised for life in fast-flowing water, i.e., the paired fins are orientated and extended horizontally, head and body flattened, belly depressed.</p><p>These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead appear to crawl and hop their way over rocks and other surfaces.</p><p>The family Balitoridae as recognised by Kottelat (2012) is widely distributed across much of the Indian subcontinent, Southeast Asia and China.</p><p>Kottelat (2012) also considers the family Gastromyzontidae valid and many former balitorids are now contained within that group, but Neohomaloptera is retained in Balitoridae.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "html": "<ul><li>Alfred, E. R. (1969). The Malayan Cyprinoid fishes of the family Homalopteridae. Zoologische Mededelingen 43, 213-237</li><li>Herre, A. W. C. T. (1944). Notes on fishes in the Zoological Museum of Stanford University. XVII. New fishes from Johore and India. Proceedings of the Biological Society of Washington 57, 45-51</li><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bf419f13c66837ba.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bf419f13c66837ba-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "caption": "Specimen collected from Perak state, northwestern Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f27181f30413377c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f27181f30413377c-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "caption": "Dorsal view.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/3d64ee0e51ba8d52.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3d64ee0e51ba8d52-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neohomaloptera-johorensis",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "OTW0jTrtrfI",
@@ -162,5 +305,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-04"
 }

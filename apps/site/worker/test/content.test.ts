@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { afterEach, expect, test, vi } from 'vitest'
+import { LANGS } from '@aq/schema/langs'
 import { added, clicksByKind, joinReads, listSnapshots, loadContentStats, pageIndex, queryContentReads, recordSnapshot, talkByPage, type ContentStats, type Totals } from '../admin/content'
+import { keepTotals, readKept } from '../admin/content-shape'
 import { testD1 } from './d1'
-import { bySession } from '../readers'
 
 // The fixture build's own content.json (pnpm test builds the site first): the loaders read what the script wrote.
 const BODY = readFileSync(fileURLToPath(new URL('../../dist/_ab/content.json', import.meta.url).href), 'utf8')
@@ -52,7 +53,7 @@ test('the loader reads content.json through ASSETS; a build without it gives und
   await expect(loadContentStats(assets(JSON.stringify({ v: 2 })), 'https://x.test')).rejects.toThrow('content.json v2')
   // Every built page by path, each with its kind and, for an item's page, its item.
   const index = pageIndex(STATS)
-  expect(index.size).toBe(134)
+  expect(index.size).toBe(142)
   expect(index.get('/ca/ca-neon-vua/')).toEqual({ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
 })
 
@@ -81,42 +82,27 @@ test('reads: readers per page kind, the most-read pages with their titles, the p
     ['/huong-dan/thay-nuoc-dung-cach/', 'Thay nước đúng cách', 'guide', 1, 1],
     ['/cay/monte-carlo/', 'Monte Carlo', 'plant', 0, 1],
   ])
-  expect(r.unread.n).toBe(132)
+  expect(r.unread.n).toBe(140)
   expect(r.unread.byKind).toMatchObject({ fish: 8, guide: 6, plant: 4 })
   expect(r.unread.pages.map(p => p.path)).not.toContain('/ca/ca-neon-vua/')
   expect(r.unread.pages).toHaveLength(100)
   expect(r.elsewhere).toEqual({ views: 4, paths: 1 })
 })
 
-test('reads: the two Analytics Engine queries, over the days asked for; until the old dataset empties, on both datasets, a session in both counted once', async () => {
+test('reads: the two Analytics Engine queries, over the days asked for, on the beacon\'s dataset, from the count\'s reset on', async () => {
   const sent: string[] = []
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (_u, init) => {
     const q = String(init?.body)
     sent.push(q)
     return Response.json({ data: q.includes('min(timestamp)') ? sessions : views })
   })
-  const r = await queryContentReads('acc', 'tok', STATS, 7, Date.parse('2027-02-01T00:00:00Z'))
+  const r = await queryContentReads('acc', 'tok', STATS, 7)
   expect(r.days).toBe(7)
   expect(r.readers).toBe(2)
-  expect(sent).toHaveLength(4)
-  expect(sent.every(q => q.includes("INTERVAL '7' DAY"))).toBe(true)
-  expect(sent.filter(q => q.includes('FROM aquatome_events'))).toHaveLength(2)
-  expect(sent.filter(q => q.includes('FROM thuysinh_events'))).toHaveLength(2)
-  expect(sent.some(q => /GROUP BY sid, p FORMAT JSON/.test(q))).toBe(true)
-  sent.length = 0
-  expect((await queryContentReads('acc', 'tok', STATS, 7, Date.parse('2027-02-05T00:00:00Z'))).readers).toBe(2)
+  expect(sent).toHaveLength(2)
+  expect(sent.every(q => q.includes("INTERVAL '7' DAY") && q.includes("timestamp >= toDateTime('2026-11-05 03:10:00')"))).toBe(true)
   expect(sent.map(q => q.match(/FROM (\w+)/)![1])).toEqual(['aquatome_events', 'aquatome_events'])
-})
-
-test('a session the beacon wrote to both datasets is one session: its first moment, pages summed, its longest stay and scroll', () => {
-  expect(bySession([
-    { sid: 'a', first: '2026-11-04 03:10:00', pages: '2', t: '40', scroll: 20 },
-    { sid: 'b', first: '2026-11-04 05:00:00', pages: 1, t: 5, scroll: 10 },
-    { sid: 'a', first: '2026-11-04 02:50:00', pages: 3, t: 12, scroll: '80' },
-  ])).toEqual([
-    { sid: 'a', first: '2026-11-04 02:50:00', pages: 5, t: 40, scroll: 80 },
-    { sid: 'b', first: '2026-11-04 05:00:00', pages: 1, t: 5, scroll: 10 },
-  ])
+  expect(sent.some(q => /GROUP BY sid, p FORMAT JSON/.test(q))).toBe(true)
 })
 
 test('comments and reader photos per page: each language\'s comments on its own page, photos on the Vietnamese one', async () => {
@@ -159,17 +145,26 @@ test('affiliate clicks per page kind; a video guide\'s gear list names the guide
 test('growth: the day\'s totals kept under stats:YYYY-MM-DD with them as metadata, and every day read back in order', async () => {
   const store = kv()
   expect(await recordSnapshot(store, assets(), 'https://aquatome.com', NOW)).toEqual(STATS.totals)
-  expect(store.m.get('stats:2026-11-02')).toEqual({ value: JSON.stringify(STATS.totals), metadata: STATS.totals })
-  // Days loaded without metadata are read one by one; a build without content.json records nothing.
-  const older: Totals = { ...STATS.totals, kinds: { ...STATS.totals.kinds, fish: [5, 0, 0] }, sources: { seriouslyfish: 4 }, built: null }
-  await store.put('stats:2026-10-30', JSON.stringify(older))
-  await store.put('stats:2026-10-31', JSON.stringify(older), { metadata: older })
+  // Kept as rows in the language table's order, with the order beside them: by name, seven languages would pass KV's 1 KB.
+  const today = keepTotals(STATS.totals)
+  expect(today.kinds.fish).toEqual(LANGS.map(l => STATS.totals.kinds.fish[l]))
+  expect(today.langs).toEqual(LANGS)
+  expect(store.m.get('stats:2026-11-02')).toEqual({ value: JSON.stringify(today), metadata: today })
+  // Days loaded without metadata are read one by one; a build without content.json records nothing. Days kept before
+  // 2026-11-06 hold each count as [vi, id, th]: they read back by language, whether from the metadata or the value.
+  const older: Totals = { ...STATS.totals, kinds: { ...STATS.totals.kinds, fish: { vi: 5, id: 0, th: 0 } }, sources: { seriouslyfish: 4 }, built: { vi: 7, id: 2, th: 1 } }
+  const kept = { ...older, kinds: Object.fromEntries(Object.entries(older.kinds).map(([k, n]) => [k, [n.vi, n.id, n.th]])), built: [7, 2, 1] }
+  await store.put('stats:2026-10-30', JSON.stringify(kept))
+  await store.put('stats:2026-10-31', JSON.stringify(kept), { metadata: kept })
   expect(await recordSnapshot(store, assets(null), 'https://aquatome.com', new Date('2026-11-03T20:17:00Z'))).toBeUndefined()
   const days = await listSnapshots(store)
   expect(days.map(d => d.day)).toEqual(['2026-10-30', '2026-10-31', '2026-11-02'])
   expect(days[0]!.totals).toEqual(older)
+  expect(days[1]!.totals).toEqual(older)
+  // Rows read by the order kept with them, 0 for a language the day had none for.
+  expect(readKept({ ...today, kinds: { ...today.kinds, fish: [1, 5] }, langs: ['th', 'vi'] }).kinds.fish).toEqual({ vi: 5, id: 0, th: 1 })
   const a = added(days[0]!.totals, days[2]!.totals)
-  expect(a.kinds.fish).toEqual([4, 0, 0])
+  expect(a.kinds.fish).toEqual({ vi: 4, id: 0, th: 0 })
   expect(a.sources).toMatchObject({ seriouslyfish: 3, youtube: 2 })
   expect(a.photos).toEqual({ pages: 0, gallery: 0 })
 })
