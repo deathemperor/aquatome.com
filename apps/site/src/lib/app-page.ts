@@ -1,8 +1,10 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
-import { BREED_KIND } from './breeds'
+import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, type AppIndex } from './app-index'
+import { breedParts } from './breed-page'
+import { BREED_KIND, type Breed } from './breeds'
 import { photoCredit } from './cite'
+import { dmy } from './products'
 import { VN_WATER, vnClimate } from './climate'
 import { avoidWhy } from './companions'
 import type { CategoryUse } from './equipment'
@@ -112,10 +114,10 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
 }
 
 /**
- * A fish's or plant's gallery as its strip shows it (GalleryStrip.astro) and its gallery page lists it: none when the
- * page shows no strip.
+ * A fish's, breed's or plant's gallery as its strip shows it (GalleryStrip.astro) and its gallery page lists it: none when
+ * the page shows no strip; no link when it has no gallery page (`viPath`).
  */
-function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>, name: string, gallery: Photo[], strip: (Photo | null)[], viPath: string): Block[] {
+function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>, name: string, gallery: Photo[], strip: (Photo | null)[], viPath: string | undefined): Block[] {
   const t = translator(lang)
   if (!strip.some(Boolean)) return []
   const photos = gallery.flatMap(p => {
@@ -127,7 +129,7 @@ function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>
   return [{
     t: 'gallery', title: t('Ảnh {name}', { name }), note: galleryNote(t, gallery, sources), photos,
     strip: strip.flatMap(p => (p && at.has(p.url) ? [at.get(p.url)!] : [])),
-    ...(served(lang, viPath) ? { href: appPath(lang, viPath) } : {}),
+    ...(viPath && served(lang, viPath) ? { href: appPath(lang, viPath) } : {}),
   }]
 }
 
@@ -225,6 +227,55 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
       ...pagesBlock(lang, listed, t('Bài viết nhắc đến loài này'), p.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
       ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), p.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),
       ...videos,
+    ],
+  }
+}
+
+/**
+ * A breed's copy (pages/ca/[breed].astro, from the same parts), a fish's to the app: what it is (a form of its species,
+ * linked), its other names, the line under its card, its photo; then a hybrid's parents, the card's sources, the gallery,
+ * the summary, its text, its lines, the questions, the guides that name it and its sources. Its figures are the app
+ * index's (`card`), as a species' are.
+ */
+export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>): PageDoc {
+  const t = translator(lang)
+  const at = (viPath: string) => appPath(lang, viPath)
+  const p = breedParts(lang, c, b)
+  const lead = image(lang, b.photos[0], b.t.name)
+  const kind = t(BREED_KIND[b.kind])
+  const parents: Block[] = p.parents.length ? [{
+    t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
+      ...(i > 0 ? [', '] : []),
+      x.path ? { text: `${x.name} (${x.sci})`, href: at(x.path) } : x.name,
+      ...(x.certain ? [] : [` ${t('(chưa chắc chắn)')}`]),
+    ])],
+  }] : []
+  const lines: Block[] = p.lines.length ? [{
+    t: 'cards', title: t('Các dòng'),
+    items: p.lines.map((x, i) => { const img = image(lang, p.linePhotos[i], undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, sub: t(BREED_KIND[x.kind]), ...(img ? { img } : {}) } }),
+  }] : []
+  return {
+    v: PAGE_VERSION,
+    kind: 'fish',
+    path: at(`/vi/ca/${b.t.slug}/`),
+    title: b.t.name,
+    where: p.parent && b.kind === 'variety' ? [`${kind}${t(', dòng của')} `, { text: p.parent.name, href: at(p.parent.href) }] : [kind],
+    ...(b.t.altNames.length ? { aka: t('Tên khác: {names}', { names: b.t.altNames.join(', ') }) } : {}),
+    credit: [t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })],
+    ...(lead ? { lead } : {}),
+    // Readers' photos on the Vietnamese page alone, as the page has them.
+    talk: { comments: commentsKey(lang, p.key), ...(lang === 'vi' ? { photos: photosKey(p.key) } : {}) },
+    blocks: [
+      ...parents,
+      ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
+      ...galleryBlock(lang, c.sources, b.t.name, p.gallery, p.strip, p.galleryPath),
+      ...(b.t.summary?.length ? [{ t: 'summary' as const, title: t('Tóm tắt'), items: b.t.summary }] : []),
+      ...(p.body ? proseBlocks(lang, p.body).blocks : []),
+      ...lines,
+      ...(b.t.faq?.length ? [{ t: 'faq' as const, title: t('Hỏi đáp'), items: b.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
+      ...pagesBlock(lang, listed, t('Bài viết nhắc đến'), p.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
+      ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), p.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),
+      ...(b.sources.length ? [{ t: 'refs' as const, title: t('Nguồn'), items: b.sources.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
     ],
   }
 }
@@ -430,7 +481,7 @@ export function appPages(lang: Lang, c: Content): Promise<Record<Kind, PageDoc[]
     const listed = listedPaths(lang, c)
     byLang.set(lang, docs = (async () => ({
       guide: appGuides(lang, c).map(g => guideDoc(lang, c, g, listed)),
-      fish: await Promise.all(appSpecies(lang, c).map(s => fishDoc(lang, c, s, listed))),
+      fish: [...await Promise.all(appSpecies(lang, c).map(s => fishDoc(lang, c, s, listed))), ...appBreeds(lang, c).map(b => breedDoc(lang, c, b, listed))],
       plant: appPlants(lang, c).map(p => plantDoc(lang, c, p, listed)),
       glossary: appGlossary(lang, c).map(g => glossaryDoc(lang, g)),
       video: appSeries(lang, c).map(({ s }) => videoDoc(lang, c, s)),

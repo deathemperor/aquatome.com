@@ -4,7 +4,7 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Three tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
 guides by subject, the video series and video guides, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
-light and CO₂, as the site's lists filter them; what's new on the site, as its list has it), searches and browses the handbook natively, draws the guides, fish, plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
+light and CO₂, as the site's lists filter them; what's new on the site, as its list has it), searches and browses the handbook natively, draws the guides, fish (breeds too), plants, glossary terms and video series itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
 kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a group named in a page opens the app's shelf of that group; a part it can't draw opens the web page, and a page of the site it can't draw, the web page in the app),
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; videos
 and the pages they link to become native the same way, tools stay web pages until rebuilt), a fish's facts under its name as the site's data card has them (temperature, pH, hardness, size, lifespan, the shortest tank,
@@ -30,6 +30,12 @@ guesses as the site shows them, each page opening in the app. Signed out, the si
 25 s on the Worker, so the request waits 65 s and the screen says so after the first seconds; meanwhile the photo can't
 be changed, so its guesses come in under it.
 
+The site's Vietnamese pages may be under "/vi/" ("/vi/ca/ca-neon/") or at the root ("/ca/ca-neon/"), Indonesian and Thai
+staying under "/id/" and "/th/" (`PathForm`; the sections the site's `VI_SECTIONS` lists). The app index's own paths
+say which: the app looks up every page path in that form, a link or a kept path in the other finding its page too, and
+when the index's form changes it moves what it keeps by path (the reading list, the pages kept for offline and their
+shards) to it, either way (`HandbookPaths`); the form is saved once all of it has moved, so a move cut short runs again.
+
 Signing in (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
 the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no Google SDK (the size
 budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth 2.0 for installed
@@ -51,7 +57,8 @@ Likewise for the plugs: a stand-in Tuya cloud with made-up keys and strips (`Plu
 `-seed-tuya-keys` starts with its keys entered), so no test reaches Tuya; `-real-tuya` tries Tuya itself.
 And for the handbook: `-fixed-handbook` gives a small fixed index and guide pages (`HandbookIndex.fixture`), with
 `-whats-new` the site's what's new too (`HandbookIndex.fixtureLatest`), and each of the site's web pages opens as a
-stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com.
+stand-in page naming its path (`WebPage.standIn`), so no test reaches aquatome.com. With `-vi-at-root` too, the same
+index and pages have their Vietnamese pages at the root, as the site has them once it takes "/vi" out of their addresses.
 
 ## The app
 

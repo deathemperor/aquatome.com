@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
-import { appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { getContent } from '../src/lib/content'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
@@ -74,9 +74,11 @@ test('the index lists every fish and plant the site\'s lists show, a page out of
     expect(appPage(path!).html, path).toMatch(/noindex/)
     expect(vi.find(i => i.id === id)?.path).toBe(path)
   }
-  // A species' copy is in the shard its path names (breeds have no copy yet).
-  const shard = PageShard.parse(JSON.parse(readFileSync(`${DIST}/app/pages/vi/fish-${pageShard('/vi/ca/ca-boraras-do/', shards.fish!.n)}.json`, 'utf8')))
-  expect(shard.pages['/vi/ca/ca-boraras-do/']).toMatchObject({ kind: 'fish', path: '/vi/ca/ca-boraras-do/' })
+  // A species' copy and a breed's are in the shard its path names.
+  for (const path of ['/vi/ca/ca-boraras-do/', '/vi/ca/ca-la-han/']) {
+    const shard = PageShard.parse(JSON.parse(readFileSync(`${DIST}/app/pages/vi/fish-${pageShard(path, shards.fish!.n)}.json`, 'utf8')))
+    expect(shard.pages[path], path).toMatchObject({ kind: 'fish', path })
+  }
 })
 
 test('the index lists every guide the site lists, a page out of search engines too, each with its copy in a shard', () => {
@@ -241,8 +243,52 @@ test('fish carry the tank-mates tool\'s figures and behaviour under the tool\'s 
   expect(discus).toMatchObject({ sizeCm: 15, tankCm: 120, ph: { min: 4.5, max: 6.5 } })
   expect(discus.temperament).toBeUndefined()
   expect(discus.gh).toBeUndefined()
-  // Guides, plants and breeds have none.
-  for (const i of vi.filter(x => x.kind !== 'fish' || !x.sub)) expect(Object.keys(i).filter(k => ['tempC', 'ph', 'sizeCm', 'temperament'].includes(k)), i.path).toEqual([])
+  // Guides, plants and these breeds have none (a breed's, below; the Oranda, linked to no species, has its own).
+  for (const i of vi.filter(x => x.kind !== 'fish' || (!x.sub && x.id !== 'oranda-goldfish'))) expect(Object.keys(i).filter(k => ['tempC', 'ph', 'sizeCm', 'temperament'].includes(k)), i.path).toEqual([])
+})
+
+test('a breed that is a form of a species is checked as it (`of`), its own figures for its card; any other breed is a fish of its own', async () => {
+  const vi = index('vi').items
+  // A colour form of the discus: counted as the discus, so none of the tank-mates figures of its own; its card's figures
+  // as its page's card resolves them (the two sources' temperatures: the range both accept).
+  const pigeon = vi.find(i => i.id === 'pigeon-blood-discus')!
+  expect(pigeon.of).toBe('symphysodon-aequifasciatus')
+  expect(pigeon.card).toEqual({ tempC: { min: 28, max: 30 }, sizeCm: 15 })
+  const card = appPage(pigeon.path).dom.querySelectorAll('.datacard dl.card > div')
+  expect(card.map(r => r.getAttribute('data-field'))).toEqual(Object.keys(pigeon.card!))
+  expect(card.map(r => r.querySelector('.v')!.getAttribute('data-c') ?? r.querySelector('.v')!.getAttribute('data-cm'))).toEqual(['28,30', '15,15'])
+  // A hybrid with no figures: neither.
+  const flowerhorn = vi.find(i => i.id === 'flowerhorn-cichlid')!
+  expect(['of', 'card', 'tempC', 'sizeCm', 'temperament'].filter(k => k in flowerhorn)).toEqual([])
+  // A line linked to no species: a fish of its own, its difficulty and lifespan its page's card's, as a species' are.
+  const oranda = vi.find(i => i.id === 'oranda-goldfish')!
+  expect(oranda).toMatchObject({ difficulty: 3, card: { difficulty: 3, lifeYears: { min: 10, max: 15 } } })
+  expect('of' in oranda).toBe(false)
+  // Every breed's card is its page's card.
+  const c = await getContent('vi')
+  for (const b of appBreeds('vi', c)) {
+    const item = vi.find(i => i.id === b.id)!
+    expect(Object.keys(item.card ?? {}), item.path).toEqual(appPage(item.path).dom.querySelectorAll('.datacard dl.card > div').map(r => r.getAttribute('data-field')))
+  }
+  const breed = c.breeds.find(b => b.id === 'pigeon-blood-discus')!
+  const with_ = (breeds: Content['breeds'], species = c.species) => appIndex('vi', { ...c, breeds, species } as Content).items
+  const own = { tempC: { min: 28, max: 30 }, sizeCm: 15, card: { tempC: { min: 28, max: 30 }, sizeCm: 15 } }
+  // Linked to no species, or a hybrid: a fish of its own, with its figures and no behaviour (the check says "unsure").
+  for (const b of [{ ...breed, basedOn: undefined }, { ...breed, kind: 'hybrid' as const }]) {
+    const item = with_([b]).find(i => i.id === b.id)!
+    expect(item, b.kind).toMatchObject(own)
+    expect(['of', 'temperament', 'finNipper', 'schoolMin'].filter(k => k in item), b.kind).toEqual([])
+  }
+  // A form of a species with a difficulty: on its card, the figure the app's facts card shows for it.
+  const rated = with_([{ ...breed, care: { ...breed.care, difficulty: [{ source: 0, value: 6 }] } }]).find(i => i.id === breed.id)!
+  expect(rated).toMatchObject({ of: 'symphysodon-aequifasciatus', card: { difficulty: 6 } })
+  expect('difficulty' in rated).toBe(false)
+  // A form of a form: up to the species. A species the index doesn't list: a fish of its own.
+  const line = { ...breed, id: 'pigeon-line', basedOn: 'pigeon-blood-discus', t: { ...breed.t, slug: 'pigeon-line' } }
+  expect(with_([breed, line]).find(i => i.id === 'pigeon-line')?.of).toBe('symphysodon-aequifasciatus')
+  const alone = with_([breed], c.species.filter(s => s.id !== 'symphysodon-aequifasciatus')).find(i => i.id === breed.id)!
+  expect(alone).toMatchObject(own)
+  expect('of' in alone).toBe(false)
 })
 
 test('guides carry their subject and the fish and plants they name, as their pages link them', () => {

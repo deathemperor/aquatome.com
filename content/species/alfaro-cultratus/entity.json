@@ -12,6 +12,120 @@
     "san-juan",
     "panama"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CR",
+        "NI",
+        "PA"
+      ],
+      "regions": [
+        "Río Iroquois"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The knife livebearer, Alfaro cultratus, is a poeciliid from rivers, streams, ditches and backwaters in Costa Rica, Nicaragua and Panama.",
+          "countries": [
+            "CR",
+            "NI",
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is \"Río Iroquois, Costa Rica\".",
+          "countries": [],
+          "regions": [
+            "Río Iroquois"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2349754,
+      "total": 159,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CR",
+          135
+        ],
+        [
+          "NI",
+          17
+        ],
+        [
+          "PA",
+          6
+        ],
+        [
+          "BZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -85.78125,
+          9.84375,
+          12,
+          12
+        ],
+        [
+          -85.78125,
+          11.25,
+          3,
+          3
+        ],
+        [
+          -85.78125,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -84.375,
+          9.84375,
+          117,
+          117
+        ],
+        [
+          -84.375,
+          11.25,
+          4,
+          4
+        ],
+        [
+          -84.375,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          8.4375,
+          14,
+          14
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

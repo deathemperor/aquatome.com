@@ -1,8 +1,8 @@
 {
   "id": "mikrogeophagus-ramirezi",
   "native": {
-    "input": "8e63640e471eacfb",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "e2c5f2fd452136f7",
+    "at": "2026-11-06T06:16:32.822Z",
     "claims": [
       {
         "code": "VE",
@@ -21,11 +21,67 @@
         "ok": true
       },
       {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The majority of literature suggests that this species is restricted to the Venezuelan and Colombian llanos of the Río Orinoco drainage, although one of the specimens in the images is said to have been collected in the rio Purus, Brazil, an Amazon tributary located some distance from that watershed.",
+        "words": "Venezuelan",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The majority of literature suggests that this species is restricted to the Venezuelan and Colombian llanos of the Río Orinoco drainage, although one of the specimens in the images is said to have been collected in the rio Purus, Brazil, an Amazon tributary located some distance from that watershed.",
+        "words": "Colombian",
+        "ok": true
+      },
+      {
         "code": "BR",
         "status": "doubtful",
         "source": "seriouslyfish",
         "quote": "The majority of literature suggests that this species is restricted to the Venezuelan and Colombian llanos of the Río Orinoco drainage, although one of the specimens in the images is said to have been collected in the rio Purus, Brazil, an Amazon tributary located some distance from that watershed.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco system, Venezuela'.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The other two are separated from one another in a geographical sense with M. ramirezi occurring in Venezuela and Colombia and its congener M. altispinosus native to Bolivia and western Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The other two are separated from one another in a geographical sense with M. ramirezi occurring in Venezuela and Colombia and its congener M. altispinosus native to Bolivia and western Brazil.",
+        "words": "Colombia",
         "ok": true
       }
     ],
@@ -136,9 +192,5 @@
     ],
     "requests": 14,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

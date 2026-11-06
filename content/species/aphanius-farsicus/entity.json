@@ -10,6 +10,62 @@
     "iran",
     "lake-shiraz"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IR"
+      ],
+      "regions": [
+        "Lake Shiraz"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Aphanius farsicus originates from Iran, where it lives around Lake Shiraz.",
+          "countries": [
+            "IR"
+          ],
+          "regions": [
+            "Lake Shiraz"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6103959,
+      "total": 36,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IR",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          50.625,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          52.03125,
+          28.125,
+          24,
+          24
+        ],
+        [
+          52.03125,
+          29.53125,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

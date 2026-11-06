@@ -64,6 +64,25 @@
         "source": 3,
         "value": 25
       }
+    ],
+    "difficulty": [
+      {
+        "source": 3,
+        "value": 2
+      },
+      {
+        "source": 7,
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": 7,
+        "value": {
+          "min": 15,
+          "max": 15
+        }
+      }
     ]
   },
   "photos": [
@@ -151,6 +170,12 @@
       "title": "Goldfish Culling – about-goldfish.com",
       "kind": "article",
       "at": "2026-10-30"
+    },
+    {
+      "url": "https://www.fishkeepingworld.com/oranda-goldfish",
+      "title": "Oranda Goldfish Care Guide & Species Profile – Fish Keeping World",
+      "kind": "article",
+      "at": "2026-11-06"
     }
   ],
   "updatedAt": "2026-10-30"

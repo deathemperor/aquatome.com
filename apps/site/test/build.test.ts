@@ -688,7 +688,9 @@ describe('photo gallery', () => {
     const { dom } = page('/ca/ca-neon-vua/')
     const strip = dom.querySelector('section.strip')!
     expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
-    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 45 ảnh')
+    // Its gallery has the readers' photos too (the gallery test below), and the link says so; a breed's has none yet.
+    expect(strip.querySelector('.head a')!.textContent).toBe('Xem tất cả 45 ảnh và ảnh bạn đọc →')
+    expect(page('/ca/ca-la-han/').dom.querySelector('section.strip .head a')!.textContent).not.toContain('bạn đọc')
     const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
     expect(links[0]).toBe('/ca/ca-neon-vua/anh/#a1')
     expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)
@@ -726,6 +728,25 @@ describe('photo gallery', () => {
     expect(g.image[0]).toMatchObject({ '@type': 'ImageObject', creditText: 'Tác giả 1', license: 'https://creativecommons.org/licenses/by/2.0/', acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
     expect(g.image.find((x: { license?: string }) => x.license?.includes('publicdomain'))).toBeTruthy()
     expect(dom.querySelector('a[href="/ca/ca-neon-vua/"]')).toBeTruthy()
+  })
+  test('a fish\'s gallery ends with its readers\' photos, loaded live by the fish\'s key, outside the gallery\'s count and data', () => {
+    const { html, dom } = page('/ca/ca-neon-vua/anh/')
+    const s = dom.querySelector('section[data-reader-photos]')!
+    // The fish page's key (lib/talk.ts photosKey), never a comment's: their photos list under `comment:<id>`.
+    expect(s.getAttribute('data-entity')).toBe(page('/ca/ca-neon-vua/').dom.querySelector('section[data-reader-photos]')!.getAttribute('data-entity'))
+    expect(s.getAttribute('data-entity')).toMatch(/^species:[a-z0-9-]+$/)
+    expect(s.hasAttribute('hidden')).toBe(true)
+    expect(s.hasAttribute('data-later')).toBe(true) // after the gallery's photos (components/ReaderPhotos.astro)
+    expect(s.classList.contains('wrap')).toBe(false) // inside the page's margins already
+    expect(s.querySelector('input[type="file"]')).toBeTruthy()
+    expect(s.querySelector('button[data-more][hidden]')?.text).toBe('Xem thêm')
+    // After the gallery, and none of its photos: the count in the title, the tiles and the ImageGallery data are the
+    // gallery's 45 (checked above).
+    expect(html.indexOf('data-gallery')).toBeLessThan(html.indexOf('data-reader-photos'))
+    expect(s.querySelectorAll('a[data-i], img')).toHaveLength(0)
+    expect(dom.querySelector('title')!.text).toContain('45 ảnh')
+    // A fish's only (a breed's and a plant's gallery: none yet).
+    for (const other of ['/ca/ca-la-han/anh/', '/cay/cryptocoryne-wendtii/anh/']) expect(page(other).dom.querySelector('[data-reader-photos]'), other).toBeNull()
   })
   test('sitemap lists the gallery page', () => {
     expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/ca/ca-neon-vua/anh/')
@@ -802,6 +823,21 @@ describe('man-made fish (breeds)', () => {
     const flowerhorn = cards.find(c => c.querySelector('.n')!.textContent === 'Cá La Hán (Flowerhorn)')!
     expect(flowerhorn.querySelector('.label.none')!.textContent).toBe('Chưa có số liệu')
     expect(JSON.parse(flowerhorn.getAttribute('data-fig')!)).toEqual({})
+  })
+  // The owner (2026-11-06): no bred fish's page said how hard it is to keep. Its own sources' figure, as a species'.
+  test("a breed's data card gives its difficulty (the word, N/8, why) and lifespan as a species' does, and its card on the fish list the difficulty the filter reads", () => {
+    const { dom } = page('/ca/ca-vang-oranda/')
+    const diff = dom.querySelector('.datacard .card [data-field="difficulty"]')!
+    expect(diff.querySelector('summary .diff')!.textContent).toBe('Dễ')
+    expect(diff.querySelector('summary .n')!.textContent).toBe('3/8')
+    expect(diff.querySelector('summary .q')!.textContent).toBe('Vì sao?')
+    expect(diff.querySelectorAll('.needs li[data-need]').map(li => li.getAttribute('data-need'))).toEqual(['space', 'water', 'temperature'])
+    expect(dom.querySelector('.datacard .card [data-field="lifeYears"] .v')!.textContent).toBe('10–15 năm')
+    expect(dom.querySelector('.trust [data-src-field="difficulty"]')!.textContent).toContain('Bài D')
+    expect(dom.querySelector('.trust [data-src-field="lifeYears"]')!.textContent).toContain('Trại cá vàng E')
+    const card = [...page('/ca/').dom.querySelectorAll('section.breeds .sc')].find(c => c.querySelector('.n')!.textContent === 'Cá vàng Oranda')!
+    expect(card.querySelector('.lvl .diff')!.textContent).toBe('Dễ')
+    expect(JSON.parse(card.getAttribute('data-fig')!)).toEqual({ tempC: { min: 18, max: 24 }, ph: { min: 6.5, max: 7.5 }, difficulty: 3 })
   })
   test('on the species list the breed cards lead the page: small pictures, loaded at once', () => {
     const img = page('/ca/').dom.querySelector('section.breeds img')!

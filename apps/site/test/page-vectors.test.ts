@@ -8,7 +8,7 @@ import { DIST } from './dist'
 // fixture build writes for the app (/app/pages/vi/), each with what an app that knows only level 1 shows of it; the
 // file's other cases are written by hand (UPDATE_VECTORS=1 rewrites these five, keeping their notes).
 const FILE = new URL('../../../protocols/page-vectors.json', import.meta.url)
-const BUILT = ['/vi/ca/ca-neon-vua/', '/vi/ca/ca-neon-xanh/', '/vi/cay/cryptocoryne-wendtii/', '/vi/video/reu-hai-tu-a-den-z/', '/vi/thiet-bi/loc/']
+const BUILT = ['/vi/ca/ca-neon-vua/', '/vi/ca/ca-neon-xanh/', '/vi/ca/ca-dia-pigeon-blood/', '/vi/cay/cryptocoryne-wendtii/', '/vi/video/reu-hai-tu-a-den-z/', '/vi/thiet-bi/loc/']
 type Added = { note: string; doc: PageDoc; older: string[] }
 
 test('protocols/page-vectors.json\'s fish, plant, video series and equipment pages are the fixture build\'s', () => {

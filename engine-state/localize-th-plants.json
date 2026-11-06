@@ -1799,29 +1799,113 @@
       "\"โตแบบหยาบและยืดยาวเก้งก้าง\" is awkward; consider \"โตหยาบและเรียวยืดไม่สวย\"."
     ]
   },
-  "rotala-macrandra": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "โรทาล่า มาแครนดร้า",
+  "riccardia-chamedryfolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ริคคาร์เดีย",
     "confidence": "medium",
-    "score": 0.88,
+    "score": 0.75,
     "notes": [
-      "\"ปลาเสือเชอร์รี่\" for cherry barbs: \"ปลาเสือ\" usually means tiger barb. Use \"ปลาตะเพียนเชอร์รี่\" or \"ปลาเชอร์รี่บาร์บ\".",
-      "\"ปลาสอด\" for mollies: use \"ปลาโมลลี่\" (or \"ปลาสอดโมลลี่\"), because \"ปลาสอด\" usually means swordtail.",
-      "\"ใส่ปุ๋ยน้ำในปริมาณน้อย (แบบ lean)\": the English \"lean\" is left in. \"ปุ๋ยน้ำ\" also narrows \"water-column fertilization\" to liquid fertilizer only. Consider \"ใส่ปุ๋ยในน้ำแบบเน้นปริมาณน้อย (lean dosing)\"."
+      "Item 2: \"แพตช์\" is transliterated jargon; use a more natural Thai like \"ผืน/กอ/บริเวณที่มีพื้นผิวชัดเจน\" (same in item 3 \"สร้างแพตช์ที่หนาแน่น\").",
+      "Item 3: \"Its rich green color\" translated as \"สีเขียวเข้ม\" (dark green); \"rich\" means vivid/deep green, so \"สีเขียวสด/เขียวเข้มสวย\" fits better.",
+      "Item 3: \"ปูเป็นพรมหน้าตู้\" adds \"หน้าตู้\" (front of tank) not in the source; use \"ปูเป็นพรม\".",
+      "Item 3: \"ลงตัวและเซ็ตตัวมานานแล้ว\" is awkward; rephrase as \"ดูเป็นตู้ที่จัดมานานและเข้าที่แล้ว\".",
+      "Item 3: \"Slow growth: minimal maintenance required\" → \"ดูแลน้อย\" is terse; use \"ต้องการการดูแลน้อยมาก\".",
+      "Item 2: \"low to moderate lighting\" → \"แสงน้อยถึงปานกลาง\" is fine, but item 1 lists light demand as High, a source inconsistency; consider keeping both as in source."
+    ]
+  },
+  "riccia-fluitans": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ริคเซีย",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": []
+  },
+  "rotala-indica-bonsai": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า บอนไซ",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1: \"ไม้ต้น (ไม้ข้อ)\" is slightly odd for \"Stem plant\"; use just \"ไม้ข้อ\" or \"พรรณไม้น้ำแบบลำต้น\".",
+      "Item 1: \"ลงตู้ได้สองเดือน\" is fine in meaning, but \"สายพันธุ์ปรับปรุง (cultivar)\" is a bit clumsy; consider \"สายพันธุ์คัดพิเศษ (cultivar)\".",
+      "Item 3: \"อธิบายได้ดีที่สุดว่าเป็น ... ในแบบที่ทรงกะทัดรัดและโตปานกลาง\" is stiff, so rephrase more naturally, e.g. \"เปรียบได้กับ Bacopa caroliniana ที่ต้นกะทัดรัดและโตปานกลาง\".",
+      "Item 3: \"โรทาล่า 'บอนไซ'\" is inconsistent with the Latin name kept earlier; keep \"Rotala 'Bonsai'\" unchanged."
+    ]
+  },
+  "rotala-macrandra": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า มาครันดร้า",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 9, 'Leaves are mainly red... tan': 'น้ำตาลอ่อน' for tan is fine, but 'Leggy bottom leaves' became 'ใบล่างร่วงจนโคนต้นโกร๋น' — acceptable; the real errors are below.",
+      "Item 9 pearling: 'ฟองออกซิเจนเล็กๆ เกิดขึ้นที่ปลายใบ' is OK, but 'Chlorosis (pale leaves)' became 'ใบเหลืองซีด'. Pale is not necessarily yellow, so use 'ใบซีด'.",
+      "Item 9 fish list: 'clown loaches' is translated 'ปลาหมูข้างลาย'. That is the wrong species. Use 'ปลาโลช่าตัวตลก' or 'ปลาหมูอารีย์'.",
+      "Item 9 fish list: 'tetras' is translated 'ปลาเตตร้า' and 'otocinclus' as 'ปลาอ็อตโต'. Use 'ปลาเท트้า' and 'ปลาอ็อตโต' consistently, or 'ปลาซัคเกอร์อ็อตโต'. Also 'Japanese trapdoor snails' as 'หอยแทรปดอร์ญี่ปุ่น' and 'Malaysian trumpet snails' as 'หอยเจดีย์' are non-standard.",
+      "Item 9 shrimp list: 'ghost shrimp' is translated 'กุ้งฝอยใส'. That is a different local shrimp. Use 'กุ้งแก้ว' or 'กุ้งโกสต์'.",
+      "Item 9: 'Mini butterfly' ... 'magenta-red' is rendered 'แดงอมม่วง'. Magenta is closer to 'แดงอมชมพูม่วง'. Minor.",
+      "Items 3 and 8: 'Rotala macrandra เป็นไม้น้ำที่เลี้ยงยาก' for 'Lighting: ... is demanding' narrows the meaning. The sentence is about lighting, so use 'ต้องการแสงมาก'.",
+      "Item 8: 'hold ammonia' (aqua soil) is translated literally as 'กักเก็บแอมโมเนีย'. Keep it, but 'เปื่อยละลาย' for 'melt' is fine. Check that 'ส่วนล่างของต้นอาจเปื่อยละลาย' reads naturally.",
+      "Item 9: 'Disinfect the plantlets (if not grown in vitro)' is translated 'ต้นเนื้อเยื่อ'. Use 'ต้นไม้เนื้อเยื่อ (tissue culture)'. Also 'Untie the bunch' is translated 'แกะกำ'; better 'แกะมัด'.",
+      "Item 9: 'Dutch' and 'Nature' aquascape styles are left in English. Use 'ดัตช์' or 'เนเชอร์สไตล์' in Thai."
     ]
   },
   "rotala-rotundifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "โรทาล่า โรทันดิโฟเลีย",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.6,
     "notes": [
-      "Item 6: \"อนาคาริส (Egeria densa)\" adds a Latin name that is not in the source; use just \"อนาคาริส\" or add the Latin name only if it is verified.",
-      "Item 3: \"ส่วนที่ตายและใบเน่า\" is slightly off for \"dead parts and leaves\"; \"ส่วนและใบที่ตาย\" is closer.",
-      "Item 6: \"พืชน้ำกึ่งบกในเขตร้อนและกึ่งร้อน\" is stiff for \"amphibious, tropical and sub-tropical\"; \"พืชน้ำที่ขึ้นได้ทั้งในน้ำและบนบก พบในเขตร้อนและกึ่งเขตร้อน\" reads more naturally."
+      "Item 8: 'ปลาโอโต (otocinclus)' - the Thai hobby name is 'ปลาอ็อตโต' or 'ปลาโอโตซิงคลัส'; 'ปลาโอโต' is non-standard.",
+      "Item 8: 'ปลาม้าลาย' for zebra danio is OK, but 'ปลาหมู (ปลาหมูข้างลาย ปลาหมูคูลลี่)' for clown loach and coolie loach is questionable: clown loach is usually 'ปลาหมูอารีย์/คลาวน์โลช' and coolie loach is 'ปลาหมูคูลลี่'. Check the names.",
+      "Item 8: 'กุ้งฝอยใส' for ghost shrimp and 'กุ้งพัด' for bamboo shrimp are non-standard. Use 'กุ้งโกสต์' and 'กุ้งไผ่/บัมบูชริมป์'.",
+      "Item 8: 'ปลาปอมปาดัวร์' is used for discus. Discus is 'ปลาปอมปาดัวร์' in Thai, so this is acceptable, but add 'ดิสคัส' for clarity.",
+      "Item 8: 'หอยทรัปดอร์ญี่ปุ่น' is a transliteration that Thai readers won't know. 'Mystery snail' as 'หอยมิสเทอรี' and 'Malaysian trumpet' as 'หอยเจดีย์มาเลเซีย' are also awkward. Use hobby names.",
+      "Item 8: 'Anacharis' is translated as 'สาหร่ายหางกระรอก', which is a different plant name (Egeria densa vs. Ceratophyllum). Check it, and 'water wisteria' as 'วอเตอร์วิสทีเรีย' is acceptable.",
+      "Item 8: 'ศัตรูพืชอย่างหอย' - 'pests such as snails' is rendered correctly, but 'ตัวอ่อนแมลงปอและแมลงปอเข็ม' is fine. The phrase 'ต้นไม้อาจมีปรสิต' should say 'ไม้น้ำ'.",
+      "Item 4: 'เซ็ตวงจรไนโตรเจน' is a hobby term and fine, but 'ธาตุอาหารรอง' for micronutrients is less accurate: iron is a micronutrient ('ธาตุอาหารเสริม/จุลธาตุ'). Same in 'ธาตุอาหารรองไม่พอ' for trace elements.",
+      "Item 3: The '10 gallons' figure was dropped and only 40 L is given. This is allowed, but 10 US gallons is about 38 L, so 40 L is fine.",
+      "Item 8: 'ความยืดหยุ่นของลักษณะปรากฏ' is hard to read. Use 'ความแปรผันของรูปร่างตามสภาพแวดล้อม'."
     ]
+  },
+  "rotala-rotundifolia-h-ra": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า ฮาร่า",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"overhanging or creeping growth\" rendered as \"โน้มลงหรือเลื้อยไปตามพื้น\" is slightly loose; \"ทิ้งตัว\" or \"ห้อยลง\" would be more natural for overhanging.",
+      "\"พุ่มสีส้มหนาแน่น\" for \"cushion\" is acceptable but \"พรมกลางตู้\" or \"กอเตี้ยหนาแน่น\" may suit better.",
+      "\"ไม้น้ำจากการเพาะเลี้ยงเนื้อเยื่อในถ้วยปิด\" is fine, but \"ไม้น้ำเนื้อเยื่อ (tissue culture) ในถ้วย\" is the common hobby phrase."
+    ]
+  },
+  "rotala-wallichii": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "โรทาล่า วาลิชิ",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"Rotala wallichii เป็นไม้น้ำที่เลี้ยงค่อนข้างยาก\": the English says \"demanding\". Thai \"ค่อนข้างยาก\" is acceptable, but the English also says \"easy to prune\". Keep the sense of \"demanding\" (เรียกร้อง/ต้องการการดูแลมาก) and avoid implying it is generally hard to keep.",
+      "\"ปลูกเป็นกลุ่มจำนวนหลายต้น\": reads awkwardly. Use \"ปลูกหลาย ๆ ต้นรวมกันเป็นกลุ่ม\".",
+      "\"น้ำอ่อนที่มีค่า pH เป็นกรดอ่อน ๆ\": \"soft\" water refers to hardness. Make it explicit, e.g. \"น้ำอ่อน (ค่า GH ต่ำ) และเป็นกรดเล็กน้อย\", so it is not confused with pH.",
+      "\"ไม้น้ำประเภทต้น (ไม้ข้อ)\": \"ไม้ข้อ\" is not the common hobby term. Use \"ไม้น้ำก้านตัด\" or \"ไม้ก้าน\", which Thai hobbyists use.",
+      "\"ไม้น้ำฉากหลังและฉากกลาง\": the usual hobby phrasing is \"ไม้ฉากหลัง/ไม้ฉากกลาง\". Minor."
+    ]
+  },
+  "sagittaria-subulata": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ซาจิทาเรีย ซูบูลาต้า",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
   },
   "staurogyne-repens": {
     "at": "2026-10-30",

@@ -10,6 +10,7 @@ import { isUnsplash } from '../lib/unsplash'
 /**
  * A species', breed's or plant's photo gallery page: every photo credited (author, licence, its source page), the photo
  * viewer (scripts/photo-viewer.ts), ImageGallery data. `page`: the fish or plant's own page; `back`: the link text to it.
+ * What it's given goes under the photos (a fish's readers' photos), out of their count and data.
  * An Unsplash photo's credit in the viewer is its line (lib/unsplash.ts), then its own page.
  */
 interface Props { name: string; sci?: string; photos: Photo[]; page: string; back: string; crumbs: [string, string][]; indexable: boolean; alternates: Partial<Record<Lang, string>> }
@@ -35,6 +36,7 @@ const jsonld = [{
       </li>
     ))}
   </ul>
+  <slot />
   <script>
     import { ct } from '../scripts/ct'
     import { photoOfHash } from '../scripts/photo-view'

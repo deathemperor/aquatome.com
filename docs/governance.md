@@ -17,14 +17,16 @@ that would have caught it).
 
 - `pnpm test`: the site built from `apps/site/test/fixture-content`, checked as HTML (vitest).
   - The app's copy of each page (`/app/pages/`, `protocols/page.schema.json`) against `protocols/page-vectors.json`,
-    which the app's tests read too (its fish, plant and video series pages are the fixture build's, and the test fails
-    when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the app
-    would have to send to the web. Each guide's, fish's, plant's, glossary term's, video series' and equipment category's
-    copy is held to its built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its numbered sources, for a fish
-    the data card's sources, tank mates, climate, gallery and breeds, and for a series its whole line (counts, playlist
-    and channel) as its credit and its guides in order; an equipment category's every part in the page's order, its shop
-    links as built (Shopee) and Vietnamese only, with the affiliate note beside them, and the fish that need it one list,
-    however long.
+    which the app's tests read too (its fish, breed, plant and video series pages are the fixture build's, and the test
+    fails when they drift: `UPDATE_VECTORS=1` rewrites them); every text in the real `content/` converts with nothing the
+    app would have to send to the web. Each guide's, fish's, breed's, plant's, glossary term's, video series' and equipment
+    category's copy is held to its built page: its header, every photo's credit (the footer's "Nguồn ảnh" included), its
+    numbered sources, for a fish the data card's sources, tank mates, climate, gallery and breeds, for a breed what it is
+    a form of, a hybrid's parents, the card's sources, its gallery, summary, text, lines, questions, guides and sources,
+    for a series its whole line (counts, playlist and channel) as its credit and its guides in order, and for an
+    equipment category every part in the page's order, its shop links as built (Shopee) and Vietnamese only, with the
+    affiliate note beside them, and the fish that need it one list, however long. Every link a copy has to a fish or a
+    breed the index lists opens that page's copy.
   - Which app draws which kind: the app index's `shards` gives each kind's shard count and **level**
     (`PAGE_LEVELS` in `apps/site/src/lib/app-page.ts`; the rule in `packages/schema/src/app-page.ts`, cases in
     `page-vectors.json` `levels`):
@@ -41,7 +43,10 @@ that would have caught it).
   - The app index (`/app/<lang>.json`, `apps/site/src/lib/app-index.ts`) against the built pages: its fish, plants,
     guides and glossary terms are the site's lists', a page out of search engines too, each with its page's copy in a
     shard, and so are its equipment categories, named as their pages name them; a species' `tax` and `from` lead to the taxon and origin pages that list it, `places` are the origin pages
-    with what each lists, and `labels` say what those pages say.
+    with what each lists, and `labels` say what those pages say. A breed's `card` is its page's data card; a breed that
+    is a form of a listed species (its `basedOn`, through a parent breed) has that species' id as `of` and no tank-mates
+    figures of its own, being checked as that species; a hybrid, or a breed linked to no listed species, has its figures
+    and no behaviour, a fish of its own.
   - What's new for the app (`/app/latest/<lang>.json`, `apps/site/src/lib/app-latest.ts`) against the built
     `/vi/moi-cap-nhat/`: the same pages in the same order, with their dates, "Mới" or "Cập nhật" and sources, the
     first 200, each a page the app index lists; the index names the file (`latest`) only where the site has the page.
@@ -82,6 +87,11 @@ that would have caught it).
     limits on top of the address's, an account's posts and photo files deleted with it, every public post's `author`,
     and a report that takes a post down only from a signed-in reader and never once the moderation has kept it
     (`apps/site/worker/test/talk.test.ts`).
+  - A comment's photo (`docs/contracts/comment-photo.md`): the comment and its photo stored together or not at all, a
+    refused file or a photo past readers' photos' day leaving no comment, the photo under its comment only once both
+    are public and never among a page's readers' photos, removed with its comment, never moved, and deleted by its link,
+    the reader's own list and the account (`apps/site/worker/test/comment-photos.test.ts`); judged without the species
+    check (`packages/engine/test/reader-photos.test.ts`); shown and sent on a fish's page (`e2e/comment-photos.spec.ts`).
   - The fish identifier's answers, the page's and the app's (its session as a bearer, no Origin or Turnstile), against
     `protocols/fishid.openapi.json`: a status the contract lists and a body of its shape, the app counted per account
     and not per address, a bearer with no live app session refused rather than taken the page's way, and no wanted
@@ -131,7 +141,7 @@ that would have caught it).
       owner API. They aren't on the host, where Access would stop them.
     - Each page's links reach what the host answers (a public page's goes back to the site), its forms post only from
       the page, and every answer is noindex and never stored. A page added to the dashboard's rail (`WEB_PAGES`: NAV's,
-      the scoreboard, the daily report's log and each report) is on the host with its line in `run_worker_first`
+      the scoreboard, the daily report's log and each report, the change log) is on the host with its line in `run_worker_first`
       (`/<key>/*`, and a `.json` form's own): without it the 404 page answers and the Worker is never asked, and a test
       names the line. No negative pattern there: one wins over every positive rule, and `!/id/*` would take the hidden app
       page in Indonesian and Thai from the Worker; a test holds each app page and its files to it. Files that skip the Worker carry noindex from `public/_headers`. A dashboard address
@@ -150,14 +160,22 @@ that would have caught it).
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
-    what GitHub won't give named rather than counted as none, the retries, and a body the Worker reads
-    (`apps/site/test/daily-report.test.ts`). The composer: what
-    needs care, the highlights, the app with no data yet, and no address, picture or link to another site in a report
-    (`daily-compose.test.ts`). `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
+    what GitHub won't give named rather than counted as none, the retries, a merged PR's product changes and no number,
+    title or link of its own, and a body the Worker reads (`apps/site/test/daily-report.test.ts`). A PR's changes are
+    its body's `## Changelog` lines (several, `none`, odd spacing, an example in a code block not one), else its title
+    for a `feat` or `fix` outside the ci, test, docs and chore scopes and not the engine's content, labelled by its files:
+    any in `apps/ios/` App, else any in `packages/engine/` Engine, else Site (`changelog.test.ts`). The composer: the
+    week's success numbers first, in English, or why they're missing, what needs care, the highlights, what changed by
+    area (each line once, newest first, the change log's link; "No product changes." only when GitHub gave everything),
+    the app with no data yet, and no address, picture or link to another site in a report (`daily-compose.test.ts`).
+    `POST /_ab/report`: the dashboard token only, the send, 90 days in KV, one send for a run
     id even at the same moment, and the recipient in nothing but the send; email off, push on (with no key, no phone, a
     refusal alone or beside a mail sent), neither sent twice; a phone whose session ended (signed out, expired, the
     account deleted or no longer the owner's) dropped unsent, one registered again in a new session kept; the log page, each row saying what went out; the page's
-    form, the owner's alone (`daily-report.test.ts`), on the dashboard's host too, behind Access and from the page only
+    form, the owner's alone; the day's changes written to the change log (one KV key, `changelog`) before anything is
+    sent, so a failed write sends nothing and the next try writes it, each change kept once across retries and runs by
+    hand, a year kept, what the mail would cut cut there too; and its page, `/_ab/thay-doi/`, by the day each merged in
+    the viewer's zone, the owner's alone, on the web only (`daily-report.test.ts`), on the dashboard's host too, behind Access and from the page only
     (`dashboard-host.test.ts`). The push: the settings, the phones kept and capped, the APNs token
     (ES256, the key's id, the team) checked against a generated key, the alert, each host, and APNs' answers (410 and
     BadDeviceToken drop a phone), with no token or key in a log (`daily-push.test.ts`).
@@ -204,6 +222,10 @@ that would have caught it).
   run in `ci.yml` only: the engine's pushes change `content/`, which the fixture build doesn't read.
 - A pull request that changes only the iOS app (`apps/ios/`, `ios.yml`, `testflight.yml`) skips the site's checks;
   `protocols/` is the site's too.
+- Every pull request's body says what it changes for the owner, in a `## Changelog` section (AGENTS.md): `ci.yml`'s
+  `changelog` job reads the body as it is now (`gh pr view`, so running the job again after fixing the body passes) and
+  `test` needs it. fix.yml's PRs and the engine's content (a `content` title, or only `content/`, `sources/` and
+  `engine-state/`) pass without one; the engine's own pushes go straight to main and are no PR.
 - Not gated yet: `deploy.sh` run on the owner's Mac (the video cycle). Layer 2 watches production for what slips through.
 
 ### 2. Production watch (live)
@@ -323,6 +345,15 @@ The layers above still check the result.
   number written on the page (a rule, `checkNumbers`), and a second model call checks every claim against the text. A
   draft with problems is rewritten once with them; still failing, it stays hidden and is listed in
   `docs/review/summaries.md`.
+- **A bred fish's difficulty and lifespan.** A breed's card gives how hard it is to keep (1–8) and how long it lives as
+  a species' does, from pages about that line or hybrid (its care sheets, breeders' pages), each figure cited, never
+  from a page about its species or a parent (`packages/engine/src/breeds.ts`). Its research asks for both, in the
+  species prompt's words, with one table from a source's words (easy 2, moderate 4…) or a rating out of 10 or 5 to the
+  1–8 scale; `pnpm engine breed-care` (each cycle, `BREED_CARE_LIMIT`) gives a breed whose card lacks either one
+  research call for just those, once: the figures join its card and the research kept for `--redo`, its new sources its
+  sources, nothing else on the page changes, and `engine-state/_breed-care.json` keeps what each call found, with the
+  words it quoted from the source, or why it found none. Found by the owner (2026-11-06): no breed page had a
+  difficulty.
 - **Product reviews.** A product page's "Các bài review nói gì" (`pnpm engine product-reviews`, one product a cycle, `packages/engine/src/product-reviews.ts`) summarizes a few YouTube reviews: a title check, one cheap model call on the shortlist, one extraction call a review, one writing call. Code holds the result to what the reviews said, because the writer has no second reader:
   - each finding quotes the transcript: words not there are dropped, and a link's second comes from where the quote is, not from the model. A figure must be said near that moment
   - a point cites findings by id, and a figure must be in the findings it cites; "agree" needs two reviews, "differ" two reviews on its sides; a point that fails is left out, after one rewrite with the reasons
@@ -673,7 +704,7 @@ fixed forward first, in a PR of its own. Android
 | **Session tests** against `FakeLight`, a light that answers the way the real one did in hands-on tests | wrong order or pace of commands, overlapping commands, lost read-backs | same |
 | **Account client** (`AccountSync`) against `FakeAccounts`, the accounts server in process, and the contracts `protocols/accounts.openapi.json`, `protocols/talk.openapi.json` (a reader's comment and photo posted as the account, another's reported) and `protocols/fishid.openapi.json` (a photo identified as the account; the stand-in's every answer held to the contract's shape, as the site's tests hold the Worker's) | a fish-ID photo sent without the bearer, with an Origin or a Turnstile token, larger than the site's (1024 px, JPEG 0.85) or with its location or camera data, a box cut from the shrunk photo or from the photo as stored rather than as shown, an answer or refusal misread (the account's day, the site's day), our own copies not marked, a post without the fields its contract takes or with a Turnstile token, a report not sent as the account (or, signed out, as the site's page), an answer to it misread (a 404 that isn't the report's own taken as received), a block that stops holding once the site says who posted, a photo's consent sent when the reader gave none, a file part without its filename and type, a name or comment the Worker refuses unread let through (its lengths in UTF-16 units), a photo sent with its location or camera data or larger than the site's, an answer its contract gives a post misread, requests the server would refuse (a path or method not in the contract, a cookie or Origin, no JSON body, no `client: "app"`), a merge that lets a fast clock win or loses a change made during a sync, a Google sign-in Google would refuse (another client or redirect, no PKCE, a code exchanged without its verifier) or one that takes another sign-in's answer (its `state`), a refused record lost, an old session left open, busy not retried, a passkey answer the server's WebAuthn check would refuse (id and rawId differ, padded base64, another origin, a user handle that isn't the account's, a challenge used twice), a new passkey it would refuse (another origin, another account's challenge, one used twice, a passkey an account has) or take more than 10 minutes after a sign-in | same |
 | **Plugs** (`Plugs`): `TuyaPlugs` against `FakeTuya`, Tuya's cloud as its docs describe it (signatures checked, Tuya's two worked examples), and `PlugBoard` over it | a request Tuya would refuse, a token not kept or not replaced, a page of devices missed, the indicator light taken for an outlet, a switch that toggles, is sent twice, retried or queued, or goes to a plug listed offline, a state shown as asked instead of as the plug reported, an unconfirmed or lost switch not read again or read more than once, an older list answer putting an old state back, an expired trial or wrong keys not told apart, a plug record that keeps state or loses a newer client's keys, a strip's timers misread (a disabled one, one that switches on, or one that ran once on a day gone, taken for one that cuts the power; a zone told apart by its name rather than its time), read more than once while a light's card is open, a failed read not said, an outlet assumed for a light rather than picked, another maker's plug offered for one | same |
-| **Pages on the phone** (`PageCache`, `KeptPictures`), with the site stood in for | a guide read once not opening offline, a kept copy shown without the newer one read for next time (or read more than once a run), a page newer than its kept shard opened on the web, a kept shard of another shard count or one this app can't read used, a shelf's guide listed as kept before it and its pictures are whole, a stop that lets a guide on the list or reads further shards, a removal that deletes a shard or picture a kept guide still needs, kept pictures that don't outlast the run | same |
+| **Pages on the phone** (`PageCache`, `KeptPictures`, `HandbookPaths`), with the site stood in for | a guide read once not opening offline, a kept copy shown without the newer one read for next time (or read more than once a run), a page newer than its kept shard opened on the web, a kept shard of another shard count or one this app can't read used, a shelf's guide listed as kept before it and its pictures are whole, a stop that lets a guide on the list or reads further shards, a removal that deletes a shard or picture a kept guide still needs, kept pictures that don't outlast the run, a page kept, saved or read under "/vi/" lost or not opening offline once the index has the Vietnamese pages at the root (or back), a move of the kept shards cut short losing a page or not tried again, a link in either form not opening the app's screen for it | same |
 | **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working, by flow class: "UI flows, by class" under this table | `xcodebuild test` (jobs `app`, `handbook` for the handbook's flows and a tank's fish, plants, guides and tank-mates check, and `lights` for the light flows, `handbook` and `lights` each in two halves, on runners side by side, two at a time on the repository's own Mac (apps/ios/README.md); a test that hangs is stopped after ten minutes; on a pull request, the smoke set (ten flows across the main journeys), the classes of the flow files it edits and the page shots when its change can reach the pages, as `apps/ios/scripts/flows-to-run.py` decides, each job skipped when it has none; every flow on main after merges (a run that started is never cancelled; of those waiting, only the newest is kept, and it covers every merge since), every night on main, by hand, on a pull request labelled `ios-full`, and on one that changes the app's start, `ios.yml` or the scripts that pick and run the flows); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
 | **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `perf`, on every ready PR) |
 | **Performance budgets** (`apps/ios/perf-budgets.json`): launch to the first responsive screen, the CPU time and peak memory of flinging through 800 fish, the archived app's size; each test's median against its budget | the app getting slower, heavier or bigger without anyone deciding it should | `PerformanceTests` and `apps/ios/scripts/check-perf.py` (job `perf`, always on GitHub's Macs, on every ready PR and every push to main; not nightly, as each change was measured by its PR's run); on a PR, `--tightens-only` against main's budgets |
@@ -714,6 +745,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 - `TankLifeFlowTests`: a fish put on a tank from under its name on its page, not from the bar (starting at its school size; one already there gets the new number), a plant put on a new tank, a fish added from the tank in the handbook's list, its number changed and a plant taken off, kept after a relaunch, the guides naming a tank's fish listed on it and opening, the video guides apart.
 
 - `TanksFlowTests`: add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a tank's fish and plants opening their pages, a store from a newer app or one it can't read left alone, adding again after a failed save.
+
+- `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
 Hands-on, by hand: the Tuya route's list read against a real project (`liveListRead`, read-only, counts only;
 `apps/ios/README.md`), never a switch from a test. The simulator has no Bluetooth, so a change to the Bluetooth code or to what the app sends is also run

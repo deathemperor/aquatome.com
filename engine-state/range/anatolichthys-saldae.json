@@ -1,0 +1,62 @@
+{
+  "id": "anatolichthys-saldae",
+  "native": {
+    "input": "904033d12df986e9",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Salda in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+        "words": "Turkey",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Salda",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Salda in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Taurus",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Salda in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Anatolia",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Salda in the Turkish Lakes (Göller Bölgesi) region of the west Taurus mountains, southwestern Anatolia, Turkey.",
+        "country": "TR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Anatolichthys saldae",
+    "status": "ACCEPTED",
+    "taxonKey": 11836669,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ]
+    ],
+    "native": [
+      "TR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

@@ -139,6 +139,30 @@
       "min": 50,
       "max": 60,
       "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 4
+    },
+    {
+      "field": "lifeYears",
+      "min": 5,
+      "max": 5,
+      "source": 4
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 8
+    },
+    {
+      "field": "lifeYears",
+      "min": 3,
+      "max": 5,
+      "source": 8
     }
   ],
   "keeping": [
@@ -279,6 +303,11 @@
       "url": "https://sgaqua.vn/ca-molly-gia-bao-nhieu/",
       "title": "Cá Molly Giá Bao Nhiêu? - SG AQUA",
       "kind": "shop"
+    },
+    {
+      "url": "https://www.ouraquariumlife.com/fish/balloon-molly-fish",
+      "title": "Balloon Molly Fish: Appearance, Types & Care",
+      "kind": "article"
     }
   ]
 }

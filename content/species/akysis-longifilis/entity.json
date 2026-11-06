@@ -11,6 +11,72 @@
     "sittaung",
     "sittang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Sittaung",
+        "Sittang"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Sittaung stream catfish, Akysis longifilis, is a small akysid catfish known from the Sittaung River system in southern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Sittaung"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Sittang River drainage, southern Myanmar (Burma).",
+          "countries": [],
+          "regions": [
+            "Sittang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340920,
+      "total": 11,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          95.625,
+          18.28125,
+          7,
+          7
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
