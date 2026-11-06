@@ -97,6 +97,22 @@
         }
       }
     },
+    "%@ phải ngắn hơn %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ harus lebih pendek dari %@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ต้องสั้นกว่า %@"
+          }
+        }
+      }
+    },
     "%@ tiếng": {
       "localizations": {
         "id": {
@@ -125,6 +141,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ ทุก%2$@"
+          }
+        }
+      }
+    },
+    "%@, %@ lít": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %@ liter"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %@ ลิตร"
           }
         }
       }
@@ -349,6 +381,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld ช่อง · ขาดการเชื่อมต่อ"
+          }
+        }
+      }
+    },
+    "(%@ gallon Mỹ)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "(%@ galon AS)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "(%@ แกลลอนสหรัฐ)"
           }
         }
       }
@@ -653,6 +701,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รายงานรูปนี้ไหม?"
+          }
+        }
+      }
+    },
+    "Bát giác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segi delapan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แปดเหลี่ยม"
           }
         }
       }
@@ -1053,6 +1117,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ปลา"
+          }
+        }
+      }
+    },
+    "Bể %@ × %@ × %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium %@ × %@ × %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ %@ × %@ × %@"
+          }
+        }
+      }
+    },
+    "Bể bao nhiêu lít?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium berapa liter?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้กี่ลิตร?"
+          }
+        }
+      }
+    },
+    "Bể bán sẵn: bao nhiêu lít, kính bao nhiêu mm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium siap pakai: berapa liter, kaca berapa mm"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้สำเร็จรูป: กี่ลิตร กระจกหนากี่ mm"
           }
         }
       }
@@ -2033,6 +2145,38 @@
         }
       }
     },
+    "Chữ L": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bentuk L"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตัว L"
+          }
+        }
+      }
+    },
+    "Chữ nhật": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Persegi panjang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สี่เหลี่ยมผืนผ้า"
+          }
+        }
+      }
+    },
     "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center cùng vùng với tài khoản Smart Life của bạn.": {
       "localizations": {
         "id": {
@@ -2657,6 +2801,22 @@
         }
       }
     },
+    "Cân nặng gồm nước, kính và khoảng %@ thể tích là nền (cát, phân nền), chưa tính tủ. Bể từ 100 lít nên đặt trên tủ chuyên dụng, sàn chịu lực.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berat mencakup air, kaca, dan substrat sekitar %@ volume (pasir, pupuk dasar), belum termasuk kabinet. Akuarium mulai 100 liter sebaiknya diletakkan di kabinet khusus dan lantai yang kuat menahan beban."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำหนักรวมน้ำ กระจก และวัสดุปูพื้น (ทราย ดินปลูก) ประมาณ %@ ของปริมาตร ยังไม่รวมขาตู้ ตู้ขนาด 100 ลิตรขึ้นไปควรวางบนขาตู้สำหรับตู้ปลาโดยเฉพาะ และพื้นต้องรับน้ำหนักได้"
+          }
+        }
+      }
+    },
     "Cây": {
       "localizations": {
         "id": {
@@ -2865,6 +3025,102 @@
         }
       }
     },
+    "Cạnh": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sisi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ด้าน"
+          }
+        }
+      }
+    },
+    "Cạnh 1": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sisi 1"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ด้าน 1"
+          }
+        }
+      }
+    },
+    "Cạnh 2": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sisi 2"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ด้าน 2"
+          }
+        }
+      }
+    },
+    "Cạnh ngắn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sisi pendek"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ด้านสั้น"
+          }
+        }
+      }
+    },
+    "Cạnh áp tường": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sisi yang menempel dinding"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ด้านที่ชิดผนัง"
+          }
+        }
+      }
+    },
+    "Cần sưởi bao nhiêu W cho bể này →": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butuh heater berapa W untuk akuarium ini →"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้นี้ต้องใช้ฮีตเตอร์กี่วัตต์ →"
+          }
+        }
+      }
+    },
     "Cần bạn": {
       "localizations": {
         "id": {
@@ -2957,6 +3213,70 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยาว"
+          }
+        }
+      }
+    },
+    "Dài (lưng phẳng)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panjang (sisi belakang datar)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยาว (ด้านหลังเรียบ)"
+          }
+        }
+      }
+    },
+    "Dài nhánh 1": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panjang sisi 1"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาวแขน 1"
+          }
+        }
+      }
+    },
+    "Dài nhánh 2": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panjang sisi 2"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาวแขน 2"
+          }
+        }
+      }
+    },
+    "Dài × rộng × cao (cm)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Panjang × lebar × tinggi (cm)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยาว × กว้าง × สูง (cm)"
           }
         }
       }
@@ -3133,6 +3453,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "โปรเจกต์ใช้โควตาการเรียก Tuya ของแพ็กเกจหมดแล้วในตอนนี้ โปรดลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Elip": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elips"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วงรี"
           }
         }
       }
@@ -3325,6 +3661,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Google ยังยืนยันไม่ได้ โปรดลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Góc ¼ tròn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudut ¼ lingkaran"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เข้ามุม ¼ วงกลม"
           }
         }
       }
@@ -4289,6 +4641,22 @@
         }
       }
     },
+    "Kiểu bể (nhìn từ trên xuống, mặt áp tường ở trên)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bentuk akuarium (dilihat dari atas, sisi yang menempel dinding di bagian atas)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปทรงตู้ (มองจากด้านบน ด้านที่ชิดผนังอยู่ด้านบน)"
+          }
+        }
+      }
+    },
     "Kiểu màu": {
       "localizations": {
         "id": {
@@ -4349,6 +4717,86 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขนาดภายในตู้ (cm)"
+          }
+        }
+      }
+    },
+    "Kính (mm)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaca (mm)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กระจก (mm)"
+          }
+        }
+      }
+    },
+    "Kính cần dày hơn 19 mm (tối thiểu %@ mm): bể cỡ này cần kính dán nhiều lớp hoặc giằng, nên để thợ tính.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaca perlu lebih tebal dari 19 mm (minimal %@ mm): akuarium seukuran ini butuh kaca laminasi atau penguat, sebaiknya serahkan perhitungannya kepada tukang akuarium."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต้องใช้กระจกหนากว่า 19 mm (ขั้นต่ำ %@ mm): ตู้ขนาดนี้ต้องใช้กระจกลามิเนตหลายชั้นหรือมีคานค้ำ ควรให้ช่างทำตู้คำนวณ"
+          }
+        }
+      }
+    },
+    "Kính hông": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaca samping"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กระจกด้านข้าง"
+          }
+        }
+      }
+    },
+    "Kính trước": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaca depan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กระจกด้านหน้า"
+          }
+        }
+      }
+    },
+    "Kính trước tối thiểu %@ mm → đặt kính **%lld mm**, kính nặng khoảng %@ kg.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaca depan minimal %@ mm → pesan kaca **%lld mm**, berat kaca sekitar %@ kg."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กระจกด้านหน้าขั้นต่ำ %@ mm → สั่งกระจก **%lld mm**, กระจกหนักประมาณ %@ kg."
           }
         }
       }
@@ -4545,6 +4993,22 @@
         }
       }
     },
+    "Lưu vào Bể của tôi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Simpan ke Akuarium Saya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บันทึกไว้ในตู้ของฉัน"
+          }
+        }
+      }
+    },
     "Lưu để đọc sau": {
       "localizations": {
         "id": {
@@ -4557,6 +5021,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "บันทึกไว้อ่านทีหลัง"
+          }
+        }
+      }
+    },
+    "Lập phương": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kubus"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลูกบาศก์"
           }
         }
       }
@@ -4733,6 +5213,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "กรองตามตู้และค่าน้ำ"
+          }
+        }
+      }
+    },
+    "Lục giác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segi enam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หกเหลี่ยม"
+          }
+        }
+      }
+    },
+    "Lục giác lưng phẳng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segi enam belakang rata"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หกเหลี่ยมหลังเรียบ"
           }
         }
       }
@@ -5121,6 +5633,54 @@
         }
       }
     },
+    "Mực nước (không bắt buộc)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tinggi air (opsional)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ระดับน้ำ (ไม่บังคับ)"
+          }
+        }
+      }
+    },
+    "Mực nước phải lớn hơn 0 và không cao hơn bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tinggi air harus lebih dari 0 dan tidak melebihi tinggi akuarium."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ระดับน้ำต้องมากกว่า 0 และไม่สูงกว่าตู้"
+          }
+        }
+      }
+    },
+    "Ngũ giác góc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pentagon sudut"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ห้าเหลี่ยมเข้ามุม"
+          }
+        }
+      }
+    },
     "Người đã chặn": {
       "localizations": {
         "id": {
@@ -5201,6 +5761,22 @@
         }
       }
     },
+    "Nhập %@.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukkan %@."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรอก%@"
+          }
+        }
+      }
+    },
     "Nhập đủ dài, rộng, cao (từ 1 đến 1.000 cm), hoặc để trống cả ba.": {
       "localizations": {
         "id": {
@@ -5265,6 +5841,38 @@
         }
       }
     },
+    "Nước thực tế (lít)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air terisi (liter)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปริมาณน้ำจริง (ลิตร)"
+          }
+        }
+      }
+    },
+    "Nước thực tế sau khi trải nền, đặt đá lũa: khoảng **%@ lít** (%@ kg nước).": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volume air sebenarnya setelah substrat, batu, dan kayu dipasang: sekitar **%@ liter** (%@ kg air)."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปริมาณน้ำจริงหลังปูวัสดุพื้นและวางหินกับขอนไม้: ประมาณ **%@ ลิตร** (น้ำ %@ กก.)"
+          }
+        }
+      }
+    },
     "Nước trong, mát": {
       "localizations": {
         "id": {
@@ -5277,6 +5885,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "น้ำใส แสงเย็นตา"
+          }
+        }
+      }
+    },
+    "Nặng khi đầy (kg)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berat saat penuh (kg)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำหนักเมื่อเติมน้ำเต็ม (kg)"
           }
         }
       }
@@ -5341,6 +5965,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เนื้อหานี้จะถูกซ่อนบนเครื่องนี้ทันที และ AquaTome จะตรวจสอบภายใน 24 ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Nửa trụ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setengah silinder"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ครึ่งทรงกระบอก"
           }
         }
       }
@@ -5469,6 +6109,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "กว้าง"
+          }
+        }
+      }
+    },
+    "Rộng nhánh 1": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lebar sisi 1"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความกว้างด้านที่ 1"
+          }
+        }
+      }
+    },
+    "Rộng nhánh 2": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lebar sisi 2"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความกว้างด้านที่ 2"
           }
         }
       }
@@ -5693,6 +6365,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "แก้ไข"
+          }
+        }
+      }
+    },
+    "Tam giác góc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segitiga sudut"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สามเหลี่ยมเข้ามุม"
           }
         }
       }
@@ -5985,6 +6673,22 @@
         }
       }
     },
+    "Thể tích (lít)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volume (liter)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปริมาตร (ลิตร)"
+          }
+        }
+      }
+    },
     "Thử lại": {
       "localizations": {
         "id": {
@@ -6189,6 +6893,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ขาว"
+          }
+        }
+      }
+    },
+    "Trụ tròn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silinder"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ทรงกระบอก"
           }
         }
       }
@@ -6877,6 +7597,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อัตราการเติบโต"
+          }
+        }
+      }
+    },
+    "Tới mực nước: **%@ lít**.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sampai permukaan air: **%@ liter**."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถึงระดับน้ำ: **%@ ลิตร**"
           }
         }
       }
@@ -7601,6 +8337,38 @@
         }
       }
     },
+    "chiều dài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "panjang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาว"
+          }
+        }
+      }
+    },
+    "chiều rộng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lebar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความกว้าง"
+          }
+        }
+      }
+    },
     "chưa có trang": {
       "localizations": {
         "id": {
@@ -7629,6 +8397,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "ช้า"
+          }
+        }
+      }
+    },
+    "cạnh áp tường": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisi menempel dinding"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ด้านที่ชิดผนัง"
+          }
+        }
+      }
+    },
+    "dài nhánh 1": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "panjang sisi 1"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาวด้านที่ 1"
+          }
+        }
+      }
+    },
+    "dài nhánh 2": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "panjang sisi 2"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความยาวด้านที่ 2"
           }
         }
       }
@@ -8209,6 +9025,22 @@
         }
       }
     },
+    "Đo lòng bể (trừ độ dày kính). Lượng nước thực tế tính bằng %@ thể tích, sau khi trải nền, đặt đá lũa và chừa mép trên. Độ dày kính tính cho kính thường (kính nổi, không phải kính cường lực), hệ số an toàn 3,8, chỉ áp dụng cho bể hộp; bể đặt làm nên hỏi thêm thợ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ukur bagian dalam akuarium (tanpa ketebalan kaca). Volume air sebenarnya dihitung %@ dari volume, setelah memasang substrat, batu, dan kayu serta menyisakan ruang di bagian atas. Ketebalan kaca dihitung untuk kaca biasa (kaca float, bukan kaca tempered) dengan faktor keamanan 3,8, hanya berlaku untuk akuarium berbentuk kotak; untuk akuarium custom sebaiknya tanyakan juga ke pembuatnya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วัดขนาดภายในตู้ (หักความหนากระจกออก) ปริมาณน้ำจริงคิดเป็น %@ ของปริมาตร หลังปูพื้น วางหินและขอนไม้ และเว้นขอบด้านบน ความหนากระจกคำนวณสำหรับกระจกธรรมดา (กระจกโฟลต ไม่ใช่กระจกเทมเปอร์) ค่าความปลอดภัย 3.8 ใช้กับตู้ทรงสี่เหลี่ยมเท่านั้น ตู้สั่งทำควรปรึกษาช่างเพิ่มเติม"
+          }
+        }
+      }
+    },
     "Đang ở bể “%@”": {
       "localizations": {
         "id": {
@@ -8733,6 +9565,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้นี้มีชนิดที่ยังไม่มีหน้าครบ %lld ชนิดแล้ว"
+          }
+        }
+      }
+    },
+    "Đã đủ 50 bể: xóa bớt bể cũ để thêm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah mencapai 50 akuarium: hapus akuarium lama untuk menambah yang baru."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ครบ 50 ตู้แล้ว ลบตู้เก่าออกก่อนจึงจะเพิ่มได้"
           }
         }
       }
@@ -9265,6 +10113,38 @@
         }
       }
     },
+    "Đơn vị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Satuan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน่วย"
+          }
+        }
+      }
+    },
+    "Đường kính": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diameter"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เส้นผ่านศูนย์กลาง"
+          }
+        }
+      }
+    },
     "Đến gần, để con vật chiếm phần lớn khung hình.": {
       "localizations": {
         "id": {
@@ -9581,6 +10461,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟปิด"
+          }
+        }
+      }
+    },
+    "đầy bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "akuarium penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เต็มตู้"
           }
         }
       }
