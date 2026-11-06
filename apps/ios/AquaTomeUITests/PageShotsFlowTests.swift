@@ -2,14 +2,15 @@ import XCTest
 
 /// Screenshots of the handbook's pages, from top to bottom, for a pull request's before and after (docs/governance.md):
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
-/// a guide, a video series and a kind of kit, in light, the fish and the kit in dark too, and the fish's top at a large
-/// text size; the fish-ID screen with its guesses, light and dark; photos as stand-ins (`-fixed-pictures`). Also the ways
-/// to sign in, in light and in dark, where they first show: the tanks tab on a new phone. And a search's results under
-/// the kinds it finds, light and dark, at the default and the largest text size, with more found than listed, and with a
-/// kind picked that it finds none of, at both sizes; the app's icon picker; the lights tab's card for the fake light, its
-/// clock lost, warning of its outlet's timer on the stand-in Tuya cloud; what's new, its row on the home then its list,
-/// and kit's section on the home then a long list's whole list, light and dark; and Bể của tôi, empty and with a tank.
-/// Each checks only that its screen opened: what it shows, the other flows check.
+/// a guide, a video series and a kind of kit, in light, the fish and the kit in dark too, the fish's top at a large text
+/// size, and a guide's video playing in its page (the stand-in player); the fish-ID screen with its guesses, light and
+/// dark; photos as stand-ins (`-fixed-pictures`). Also the ways to sign in, in light and in dark, where they first show:
+/// the tanks tab on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the
+/// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
+/// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
+/// Tuya cloud; what's new, its row on the home then its list, and kit's section on the home then a long list's whole
+/// list, light and dark; and Bể của tôi, empty and with a tank. Each checks only that its screen opened: what it shows,
+/// the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
@@ -166,11 +167,21 @@ final class PageShotsFlowTests: XCTestCase {
     }
   }
 
-  /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end.
-  private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12, more: [String] = []) {
+  func testAVideoPlaying() {
+    shoot("video-playing", "han che reu", "Cách hạn chế rêu hại") { app in
+      app.buttons["Phát video: Hạn chế rêu hại"].tap()
+      XCTAssertTrue(app.webViews.staticTexts["play"].waitForExistence(timeout: 15), "no player")
+    }
+  }
+
+  /// The page found by `query`, each screen of it, scrolled most of a screen at a time without a fling, to its end;
+  /// `then`, what's done on it first.
+  private func shoot(_ name: String, _ query: String, _ row: String, dark: Bool = false, large: Bool = false, screens: Int = 12, more: [String] = [],
+                     then: (XCUIApplication) -> Void = { _ in }) {
     let app = launch(dark: dark, size: large ? "UICTContentSizeCategoryAccessibilityL" : nil, more)
     open(app, query, row)
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "\(row) isn't drawn by the app")
+    then(app)
     capture(app, name, dark: dark, large: large, screens: screens)
   }
 

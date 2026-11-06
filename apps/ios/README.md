@@ -64,6 +64,10 @@ And for the handbook: `-fixed-handbook` gives a small fixed index and guide page
 it's for (`HandbookIndex.fixtureKit`), and each of the site's web pages opens as a stand-in page naming its path
 (`WebPage.standIn`), so no test reaches aquatome.com. With `-vi-at-root` too, the same
 index and pages have their Vietnamese pages at the root, as the site has them once it takes "/vi" out of their addresses.
+A video's player gets a stand-in for YouTube's script that shows what the page asked of it (`PagePlayer.standIn`;
+`-slow-player` makes it late, `-silent-player` never ready, `-impatient` gives up on it after 3 s; a video id starting
+`noEmbed` is refused), so no test reaches YouTube. `-count-players` has the app count its players' web views, made and
+still alive (`PlayerCount`).
 
 ## The app
 
@@ -314,6 +318,7 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 | `AccountSync` | Signing in to an aquatome.com account and syncing "Bể của tôi" with it (`protocols/accounts.openapi.json`): a bearer token, no cookies; Google's sign-in without its SDK (`GoogleOAuth`: its page, its answer, the code exchanged with PKCE); `FakeAccounts`, the server in process, and `FakeGoogle`, Google's page and token endpoint in process (tests, simulator), the fish-ID tool's too |
 | `Telemetry` | The app's anonymous telemetry (below): the events the privacy policy lists, the queue and its sending, the site's and the reader's switches; `FakeCollector`, the Worker's endpoints in process (tests, simulator) |
 | `Plugs` | Smart plugs (docs/smart-plugs.md): `PlugSource`, where they come from (`TuyaPlugs`: Tuya's cloud with the reader's project keys, signed requests, the list, a switch read back, a strip's timers read: `PlugTimer`, once per light's card: `OutletTimers`), `PlugBoard`, what the app shows and the switching rules, whichever source it is; `FakeTuya`, Tuya's cloud in process (tests, simulator) |
+| `FishLamp` | The owner's Love Ecology light, which the Fish lamp app drives by broadcast (docs/research/aquarium-device-control.md): their recorded commands (`love-ecology.json`, off, on and eight colours), the service UUIDs that carry one, and a command unscrambled, which the tests check each recording's command against |
 
 ```sh
 cd apps/ios/AquaTomeKit
