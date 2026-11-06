@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (61)
+# Tóm tắt chờ duyệt (66)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -176,6 +176,18 @@ Cá betta unimaculata hợp với người muốn nuôi riêng một loài betta
 Kiểm tra:
 - Mistake 2 "Cho ăn toàn đồ khô ... nên xen giun đen và trùn chỉ đỏ đông lạnh với cám viên": the page only says the fish is fed live, frozen and dry foods (blackworms, frozen bloodworms, pellets). It does not say an all-dry diet is a mistake or that foods should be alternated. The fix is advice the page doesn't give.
 
+## Cá bống mắt tre đầu vịt (Butis butis)
+id: `butis-butis`
+
+Cá bống mắt tre đầu vịt (Butis butis) hợp người nuôi đã có kinh nghiệm, chấp nhận nuôi một con riêng, độ khó 6/8. Cần bể đáy tối thiểu 75 cm, nước lợ ấm 22–27 °C, pH 7–8,5, độ cứng 10–20 dGH, nền cát và nhiều chỗ ẩn. Khó nhất là chọn bạn cùng bể vì cá có tính lãnh thổ, ăn cá nhỏ và không hợp đồng loại.
+
+- Thả chung với đồng loại hoặc cá có dáng tương tự thì cá có thể hung hăng, còn cá nhỏ sẽ thành mồi; nên nuôi một con, bạn cùng bể chọn loài nước lợ đủ lớn, không giữ lãnh thổ.
+- Cho ăn tim bò hay thịt gà có thể gây tích mỡ thừa, thậm chí thoái hóa nội tạng; nên cho tôm, thịt trai, mực cắt sợi, ấu trùng muỗi lắc, Artemia hoặc Mysis.
+- Nuôi lâu dài trong nước ngọt hoàn toàn hoặc nước biển hoàn toàn có thể ảnh hưởng đến tuổi thọ và sức khỏe; nên giữ nước lợ, tỷ trọng không vượt 1,025.
+
+Kiểm tra:
+- Summary says "Cần ... nền cát" as a requirement, but the page only hedges: gravel is usable and sand is "có lẽ là lựa chọn tốt hơn" (probably better). The hedge became a certainty.
+
 ## Cá trê săn mồi Apure (Cephalosilurus apurensis)
 id: `cephalosilurus-apurensis`
 
@@ -207,7 +219,34 @@ Loài này hợp với người có chỗ đặt một bể thuộc loại lớn
 Kiểm tra:
 - "cá không chuyển hóa được chất béo trong các loại thịt này": the page says the fish cannot process "một số loại chất béo" (some kinds of fat) in these meats. The summary drops "some" and turns a limited claim into a blanket one.
 
-## Cá lóc lùn Sri Lanka (Channa orientalis)
+## Cá lóc Channa burmanica (Channa burmanica)
+id: `channa-burmanica`
+
+Cá lóc Channa burmanica hợp với người đã quen nuôi cá săn mồi và chịu được việc loài này cực kỳ hiếm trên thị trường. Cá dài tới 20 cm, cần bể dài tối thiểu 120 cm (đáy 120 × 45 cm, khoảng 243 lít), nhiệt độ 10–22 °C, pH 6–8, độ cứng 2–20 dGH. Độ khó 5/8, khó nhất là giữ nước mát và đậy bể thật kín vì cá hay nhảy.
+
+- Đậy nắp lỏng: dùng nắp thật kín nhưng chừa khoảng trống giữa nắp và mặt nước để cá tiếp cận lớp không khí ẩm.
+- Cho ăn tim bò hoặc thịt gà: thay bằng thịt cá cắt lát, tôm nguyên con hay trai cho cá trưởng thành, vì cá không chuyển hóa hết chất béo trong thịt động vật có vú và gia cầm.
+- Thả cá đẻ con hay cá vàng nhỏ làm mồi: dùng thức ăn chết như trùng huyết, giun đất hay tôm cắt nhỏ để tránh mang ký sinh trùng và mầm bệnh vào bể.
+
+Kiểm tra:
+- "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference.
+- "hợp với người đã quen nuôi cá săn mồi": the page does not say the species suits experienced keepers of predatory fish. It only says the fish is an obligate predator and gives no audience advice.
+
+## Cá lóc đốm (Channa maculata)
+id: `channa-maculata`
+
+Cá lóc đốm (Channa maculata) trưởng thành 30 cm, cần bể rất lớn. Nuôi theo cặp là tốt nhất, còn nuôi chung thì phải chọn cá thật kỹ vì đây là loài săn mồi bắt buộc. Điểm khó nhất là khâu cho ăn: ưu tiên mồi tươi, tuyệt đối không lấy thức ăn khô làm món chính, và tránh thịt bò, thịt gà.
+
+- Lấy thức ăn khô làm món chính là sai; nên cho tôm, thịt cá cắt miếng, giun hoặc tép sông sống làm món chính.
+- Cho ăn tim bò hoặc thịt gà thì cá tích mỡ, có thể thoái hóa nội tạng; hãy đổi sang cá, tôm hoặc vẹm.
+- Thả cá mồi như cá đẻ con hay cá vàng nhỏ dễ mang ký sinh trùng, mầm bệnh vào bể; nên cho ăn tôm, giun hoặc thịt cá thay vào đó.
+
+Kiểm tra:
+- "thì cá tích mỡ, có thể thoái hóa nội tạng": the page hedges both effects ("lâu dần có thể làm cá tích mỡ thừa, thậm chí gây thoái hóa nội tạng"). The summary states fat build-up as certain and drops "lâu dần".
+- "dễ mang ký sinh trùng, mầm bệnh": the page says feeder fish "có thể mang" parasites or pathogens. "Dễ" makes that hedge stronger.
+- "ưu tiên mồi tươi": the page doesn't say to prefer fresh or live prey. It says most fish take dead food easily.
+
+## Cá lóc Sri Lanka (Channa orientalis)
 id: `channa-orientalis`
 
 Cá lóc lùn Sri Lanka (Channa orientalis) hợp với người muốn nuôi cá lóc cỡ nhỏ, trưởng thành khoảng 10 cm, độ khó 5/8 (mức vừa). Cần bể dài tối thiểu 60 cm có nắp kín, nước nhiệt đới 24–25 °C, pH 5–7. Điểm khó nhất là kiểu nuôi ngược thói quen: cá không ưa thay nước từng phần thường xuyên hay nước quá sạch, và cặp kết đôi có thể hung dữ.
@@ -243,6 +282,14 @@ Kiểm tra:
 - "lớn lên phải chuyển dần sang cá ốt đông lạnh": the page says only "có thể chuyển" (you can switch) once the fish is about 10 cm. "Phải" (must) turns an option into a requirement.
 - "Giữ nguyên thức ăn nhỏ khi cá lớn dần là sai; nên chuyển sang cá ốt": the page presents the switch as an option, not a rule, and never calls keeping the small foods a mistake. This mistake and fix are stated more firmly than the page states them.
 - "Cho cá nhỏ ăn mãi lăng quăng trắng và trùng huyết thì chưa tới": the page says these foods are fine for small fish. It doesn't call feeding them a mistake, and it doesn't say "mãi" (continuously) is a problem.
+
+## Cá chuột ba sọc (Corydoras trilineatus)
+id: `corydoras-trilineatus`
+
+Cá chuột ba sọc (Corydoras trilineatus) hợp với người mới nuôi: độ khó 2/8, dài 6 cm khi trưởng thành, sống ở 22–28 °C. Cá hiền, sống đàn, ăn tạp. Nuôi thường thì pH và độ cứng không quan trọng, dùng nước máy được. Chỉ khi muốn cho sinh sản mới cần nước mềm, có tính axit, và đó là phần khó nhất.
+
+- Nuôi lẻ một con thì cá không hợp tập tính; nên nuôi thành đàn.
+- Chỉnh nước quá kỹ khi chỉ nuôi thường; dùng nước máy là được, chỉ chuyển sang nước mềm, có tính axit khi muốn cho sinh sản.
 
 ## Cá rong rêu cobitis (Crossocheilus cobitis)
 id: `crossocheilus-cobitis`
@@ -508,6 +555,16 @@ Kiểm tra:
 - Summary says "dễ nuôi" (easy), but the card difficulty is 4/8, which is medium (vừa). The summary itself also writes "độ khó 4/8". The page's "rất dễ nuôi" does not override the card band.
 - Mistake 1 fix "nên chuẩn bị sẵn bể dài 210 cm từ đầu" goes against the page. The page says juveniles can be raised in a smaller tank and grown out gradually ("Cá con thì bạn có thể nuôi lớn dần trong bể nhỏ hơn").
 
+## Cá dao Tamandua (Orthosternarchus tamandua)
+id: `orthosternarchus-tamandua`
+
+Cá dao Tamandua (Orthosternarchus tamandua) là loài lạ, chưa hợp với người mới; chỉ nên cân nhắc nếu đã quen nuôi cá dao Nam Mỹ. Cá trưởng thành đạt 45 cm, còn hồ sơ không nêu bể tối thiểu, nhiệt độ hay pH nên chưa đủ dữ liệu để chốt thông số nước. Điểm khó nhất là thông tin về loài này còn rất ít: mới có một cá thể được nhập về từ Peru.
+
+
+Kiểm tra:
+- "chưa hợp với người mới; chỉ nên cân nhắc nếu đã quen nuôi cá dao Nam Mỹ": the page gives no suitability advice and the card has no difficulty, so this is invented advice.
+- "thông tin về loài này còn rất ít" and "mới có một cá thể được nhập về": the page only says one specimen "đã" been imported from Peru. It does not say information is scarce or that only one has ever been imported, so this overstates the page.
+
 ## Cá bống tượng (Oxyeleotris marmorata)
 id: `oxyeleotris-marmorata`
 
@@ -577,7 +634,7 @@ Hồ sơ chưa nêu bể tối thiểu hay độ khó, nên chưa đủ cơ sở
 Kiểm tra:
 - "Đừng nuôi lẻ một con ... bố trí chỗ có bóng râm và nuôi theo nhóm": the page only says that by day the fish gather in shoals in shaded deep pools in the wild. It gives no tank-keeping advice about groups or shade. The summary turns a wild-habitat observation into a firm aquarium rule.
 
-## Cá tetra weitzmani (Poecilocharax weitzmani)
+## Cá tetra phi tiêu đen (Poecilocharax weitzmani)
 id: `poecilocharax-weitzmani`
 
 Cá tetra weitzmani (Poecilocharax weitzmani) dài tới 4 cm, hiền, hợp người muốn nuôi chung với cá neon vua (Paracheirodon axelrodi). Nuôi bình thường thì chăm như neon vua, nước máy thường vẫn ổn, không cần chỉnh nước thật mềm và thật chua. Điểm khó nhất là cho sinh sản: nước phải gần giống ngoài tự nhiên, rất mềm và rất chua, giữ ổn định lâu nên đòi hỏi kinh nghiệm.

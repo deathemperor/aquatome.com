@@ -1,0 +1,60 @@
+{
+  "id": "mystus-carcio",
+  "scientificName": "Mystus carcio",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Mystus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_tengara_m_carcio__en/",
+      "html": "<p>The smallest of the striped catfish species from India, all of which were formerly called \"Mystus vittatus\". For a long time the small species was called M. tengara, but currently most scientists believe that the correct name is M. carcio. It attains a maximum length of only 4-6 cm and is well suited for the home aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_tengara_m_carcio__en/",
+      "html": "<p>The name of this small species has been confused for a long time (M. tengara versus M. carcio).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc cho bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

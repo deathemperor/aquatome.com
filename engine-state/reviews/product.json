@@ -1,4 +1,36 @@
 {
+  "vi/products/chihiros-wrgb-ii-pro": [
+    {
+      "at": "2026-11-06T21:03:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"màu cá và cây nhạt đi\": the facts say only that owners worried the white channel would wash out colours. Fish are not mentioned.",
+        "\"low-tech (bể không châm CO2)\": the CO2 explanation of low-tech is not in the facts. It is a small generality.",
+        "\"Nguyên nhân là driver đã mòn\": the facts say worn drivers can cause flicker in used lights. The page states it as the definite cause, which is slightly firmer than the source."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T21:03:59Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bản 30 ... dài khoảng 35–45 cm\" is supported, but \"nhỏ nhất trong dòng này\" is a minor generality.",
+        "\"Bể có kính dày hơn mức này thì chân đèn không kẹp được\" is an inference not stated in the facts.",
+        "\"Đây là chuyện hay gặp nhất\" (algae is the most common problem) is not supported; the facts only say some forum users got algae.",
+        "\"chạy cao ngay thì rêu lên rất nhanh\" overstates the facts, which say only that algae can appear.",
+        "\"Màu cá và cây bị nhạt\" heading frames colour fading as a common issue, but the facts only say some owners worried about it and others found colours fine.",
+        "\"Chihiros WRGB II Slim mỏng hơn\": the facts say \"thinner\", so this is supported. \"Week Aqua ... Ở nước ngoài đèn này rẻ hơn nhiều\" is roughly supported.",
+        "\"Đèn làm cho bể mở nắp\" is supported by the facts. The 80 cm tank range \"80–100 cm\" is supported.",
+        "\"Bản 45 dành cho bể 45–60 cm\" and the other tank ranges are supported by the variants.",
+        "\"Các con số độ sáng nhà sản xuất công bố là số đo trong phòng thí nghiệm\" says the manufacturer published lab figures, but the facts only say \"rated output\" is lab figures, without naming the source."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-wrgb-ii-slim": [
     {
       "at": "2026-11-06T13:48:03Z",

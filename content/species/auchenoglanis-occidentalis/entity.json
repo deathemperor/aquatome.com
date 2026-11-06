@@ -8,13 +8,37 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "congo"
+    "congo",
+    "senegal",
+    "gambia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 46
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
       }
     ]
   },
@@ -24,6 +48,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/auchenoglanis_wittei_en/",
       "html": "<p>Auchenoglanis wittei is a very peaceful and attractive catfish. It reaches a length of at least about 30 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<ul><li>Common name: Giraffe Catfish</li><li>IUCN Red List: Least Concern (IUCN 2025). The species has a wide distribution with no known major widespread threats.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -38,10 +68,58 @@
       "html": "<p>In the Congo the genus is represented by Auchenoglanis wittei. The true A. occidentalis occurs in the Senegal, Casamance and Gambia rivers and is not imported as an aquarium fish.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Africa: Senegal, Casamance and Gambia river drainages in western Africa. Type locality: Sénégal. The species ranks among the African fish with very large distribution areas, being present from Senegal to Tanzania.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>This catfish needs a spacious tank considering its adult size.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>It is very tolerant of most water parameters. It can be kept at a low pH (6.5) with larger characins or barbs, or even in a Lake Tanganyika setup with cichlids from that lake in harder water, but soft, acidic conditions are preferable for a more contented fish.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Its long pointed snout is well adapted to sifting worms and detritus in sandy substrate, so provide a sand floor and an external power filter with a good flow rate.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>This bagrid can grow to an impressive 46 cm but is basically a gentle giant and can be trusted with anything that cannot fit into its small mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>There are no reports of breeding this species in captivity, as it would need a very large tank with a number of individuals. In the wild the nested eggs are guarded by the male. The male also plays host to eggs and young of Dinotopterus cunningtoni, a member of the Clariidae catfish family, which takes advantage of the already prepared nest and feeds on the host brood.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/auchenoglanis_wittei_en/",
       "html": "<p>Until recently only two species of Auchenoglanis were commonly accepted, namely A. biscutatus and A. occidentalis. This changed with the revision of Retzer (2010), who recognizes eight different species. A. wittei can be easily identified by the \"reticulated giraffe\" pattern of the body. It is the species most commonly referred to as A. occidentalis in aquarium literature (the real A. occidentalis is spotted as a juvenile and uniformly brown as an adult). It will probably take a long time until the correct determination is known by hobbyists.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Teugels et al. (1991) considered the genus Auchenoglanis to comprise two valid species: A. biscutatus and A. occidentalis. Work in 2010 by Michael Retzer recognised eight species, but a later re-evaluation by Geerinckx &amp; Vreven (2013), based on biometric, meristic and other morphological data, reconfirmed only two valid species. A. occidentalis was said to differ from other congeners (except A. tchadiensis) by a uniformly coloured body, and from A. tchadiensis by oval rather than triangular tooth patches on the upper jaw. A. biscutatus is distinguished from A. occidentalis by a postorbital head length greater than the preorbital head length, an adipose fin that rises abruptly, and a maxillary barbel with a tip not darker than the head colour.</p><p>A. acuticeps Pappenheim, 1914, A. tanganicanus Boulenger, 1906, A. chadiensis Pellegrin, 1909, A. sacchii (Vinciguerra, 1898) and A. wittei Giltay, 1930 are now all considered synonyms of A. occidentalis.</p><p>Etymology: the genus name Auchenoglanis is a replacement name for Auchenaspis Bleeker 1858 (preoccupied in fossil fishes); auchenos = neck and aspis = shield, referring to the broad nuchal shield; glanis = sheatfish (Silurus glanis), now used as a general term for catfish. The specific name occidentalis means western, referring to its distribution (described from Senegal) compared to the similar A. biscutatus of Egypt.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009). Mushagalusa, D. 2025. Auchenoglanis occidentalis. The IUCN Red List of Threatened Species 2025. Retzer, ME (2010) Taxonomy of Auchenoglanis Günther 1865 (Siluriformes: Auchenoglanididae). Zootaxa 2655, pp. 25–51. ScotCat Factsheet no. 109. July 2005. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Tom Geerinckx &amp; Emmanuel Vreven (2013) A re-evaluation of the species-level diversity within the catfish genus Auchenoglanis (Siluriformes: Claroteidae), Journal of Natural History, 47:47-48, 2979-3010.</p>"
     }
   ],
   "photos": [
@@ -52,7 +130,7 @@
       "height": 333,
       "licence": "dùng với sự cho phép",
       "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/auchenoglanis_occidentalis.htm",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
       "caption": "Auchenoglanis occidentalis",
       "source": "scotcat"
     },
@@ -63,7 +141,7 @@
       "height": 333,
       "licence": "dùng với sự cho phép",
       "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/auchenoglanis_occidentalis.htm",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
       "caption": "Auchenoglanis occidentalis",
       "source": "scotcat"
     },
@@ -74,7 +152,7 @@
       "height": 368,
       "licence": "dùng với sự cho phép",
       "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/auchenoglanis_occidentalis.htm",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
       "caption": "Catfish Stamp: Auchenoglanis occidentalis",
       "source": "scotcat"
     },
@@ -85,7 +163,7 @@
       "height": 318,
       "licence": "dùng với sự cho phép",
       "author": "Reinhold Wawrzynski / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/auchenoglanis_occidentalis.htm",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm",
       "caption": "Auchenoglanis occidentalis: 40cm. Aquarium Artis Amsterdam",
       "source": "scotcat"
     }

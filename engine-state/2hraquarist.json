@@ -122,22 +122,42 @@
     "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/how-to-remove-brown-algae-diatoms-planted-aquarium": {
-    "entityIds": [],
-    "updatedAt": "2026-11-06T11:23:35.593Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-how-to-remove-brown-algae-diatoms-planted-aquarium"
+    ],
+    "updatedAt": "2026-11-06T18:29:54.527Z",
+    "hash": "ddf769712256153e942b28368917f23ccf5bd99eaf431835257e97e78874a17c",
+    "processedHash": "ddf769712256153e942b28368917f23ccf5bd99eaf431835257e97e78874a17c",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/localized-algae-problems": {
-    "entityIds": [],
-    "updatedAt": "2026-11-06T11:23:37.905Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "fetch failed"
+    "entityIds": [
+      "guides/2hraquarist-blogs-algae-control-localized-algae-problems"
+    ],
+    "updatedAt": "2026-11-06T18:33:40.422Z",
+    "hash": "adf5bd58188fe48647565fd07feeac87fbcdcbf7b57b316f2021c86601a7d3a6",
+    "processedHash": "adf5bd58188fe48647565fd07feeac87fbcdcbf7b57b316f2021c86601a7d3a6",
+    "status": "processed",
+    "attempts": 0
   },
   "https://www.2hraquarist.com/blogs/algae-control/prevent-algae-growth": {
     "entityIds": [],
-    "updatedAt": "2026-11-06T11:23:43.104Z",
+    "updatedAt": "2026-11-06T18:35:31.895Z",
+    "status": "error",
+    "attempts": 2,
+    "error": "fetch failed"
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/solving-algae-issues-without-using-algicides": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T18:35:37.018Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "fetch failed"
+  },
+  "https://www.2hraquarist.com/blogs/algae-control/tackle-algae-by-doing-nothing": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T18:35:42.226Z",
     "status": "error",
     "attempts": 1,
     "error": "fetch failed"

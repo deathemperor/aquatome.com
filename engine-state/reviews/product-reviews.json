@@ -1,4 +1,25 @@
 {
+  "vi/products/chihiros-wrgb-ii-pro": [
+    {
+      "at": "2026-11-06T21:08:04Z",
+      "model": "code",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T21:08:04Z",
+      "model": "code",
+      "score": 0,
+      "notes": [
+        "\"Một bài review thấy các chế độ cài sẵn có vẻ tính theo mức sáng tối đa. Vì vậy khi chọn chế độ Fish, đèn chạy gần như hết công suất.\" names Fish: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Công suất khi chọn chế độ Fish\" names Fish: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-wrgb-ii-slim": [
     {
       "at": "2026-11-06T13:52:35Z",

@@ -1,0 +1,66 @@
+{
+  "id": "mystus-leucophasis",
+  "scientificName": "Mystus leucophasis",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Mystus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_leucophasis_formerly_heterobagrus_leucophasis__en/",
+      "html": "<p>The Upside-Down-Cat from the Congo (Synodontis nigriventris) is known by any aquarist's child. But even experienced aquarists often don't know that an upside-down swimming species also occurs in Asia (in Burma): Mystus leucophasis, which can attain a maximum length of about 30 cm, but is commonly found 15-20 cm long.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_leucophasis_formerly_heterobagrus_leucophasis__en/",
+      "html": "<p>The schooling instinct in the bustling juveniles, which are currently 4-6 cm long and always quarreling, is that strong that it took a lot of patience to make a photo of a solitary swimming individual.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_leucophasis_formerly_heterobagrus_leucophasis__en/",
+      "html": "<p>Currently the fish are mainly pitch-black; from a length of about 8-10 cm on they develop snow-white spots on the flanks.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn cho cá nheo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn",
+        "máy lọc ngoài"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "thức ăn cá nheo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

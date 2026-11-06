@@ -1,0 +1,85 @@
+{
+  "id": "synodontis-notatus",
+  "scientificName": "Synodontis notatus",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_notatus_en/",
+      "html": "<p>Synodontis notatus is a squeaker catfish imported from the Congo. It reaches a maximum length of about 25 cm.</p><p>The number of spots on the flanks varies a lot between individuals. Most specimens have only one spot, but some have two, three or even more. This lively, day-active squeaker is one of the most peaceful species of the genus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_notatus_en/",
+      "html": "<p>Congo.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "LyzvvwOullo",
+      "title": "Synodontis notatus. The ONE SPOT catfish! (Leopard Aquatic B020B)",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VwYEo11Qt5I",
+      "title": "What do Synodontis notatus AKA One Spot Catfish actually eat?",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "myuPjJBUOzw",
+      "title": "Species Sunday #4-Synodontis Notatus 'Large spot squeeker' |DW Aquatics",
+      "durationSec": 611,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "jjcW-yJhhi4",
+      "title": "my synodontis notatus 'spot'",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cộng đồng lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá nheo",
+        "thức ăn viên cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

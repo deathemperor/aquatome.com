@@ -1,0 +1,528 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "LED type",
+      "value": "WRGB 4-in-1 LEDs (white, red, green, blue), each channel adjustable on its own",
+      "source": 0
+    },
+    {
+      "key": "Housing",
+      "value": "Slim, flat aluminium body in matt black",
+      "source": 0
+    },
+    {
+      "key": "Control",
+      "value": "Bluetooth through the My Chihiros app, with an external controller included; Wi-Fi needs a separate hub",
+      "source": 0
+    },
+    {
+      "key": "Water resistance",
+      "value": "IP43",
+      "source": 1
+    },
+    {
+      "key": "Dimensions (45–120 cm models)",
+      "value": "Length × 140 × 18 mm",
+      "source": 0
+    },
+    {
+      "key": "Mounting",
+      "value": "Two adjustable legs that sit on the tank glass; hanging kit sold separately",
+      "source": 0
+    },
+    {
+      "key": "In the box",
+      "value": "Adapter, Bluetooth controller and alloy bracket; hanging cable and shade not included",
+      "source": 4
+    },
+    {
+      "key": "Warranty (Vietnamese shops)",
+      "value": "1 month from delivery; drops and water damage not covered",
+      "source": 1
+    },
+    {
+      "key": "Warranty (Thủy Sinh Tím)",
+      "value": "1 month",
+      "source": 4
+    },
+    {
+      "key": "Rated output",
+      "value": "Lab figures under standard conditions; Chihiros manuals give lower, more realistic values",
+      "source": 0
+    }
+  ],
+  "variants": [
+    {
+      "name": "WRGB II Pro 30",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "37 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3,260 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "30",
+          "source": 0
+        },
+        {
+          "key": "Colour temperature",
+          "value": "7,500 K",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "350–450 mm",
+          "source": 0
+        },
+        {
+          "key": "Max glass thickness",
+          "value": "10 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II Pro 45",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "56 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "5,000 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "50",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "450 × 140 × 18 mm",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "450–600 mm",
+          "source": 0
+        },
+        {
+          "key": "Max glass thickness",
+          "value": "10 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II Pro 60",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "74 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "6,630 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 0
+        },
+        {
+          "key": "Colour temperature",
+          "value": "8,500 K",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "600 × 140 × 18 mm",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "600–800 mm",
+          "source": 0
+        },
+        {
+          "key": "Max glass thickness",
+          "value": "10 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II Pro 80 (newest size)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "110 W per Aquasabi; 100 W per Vietnamese shops",
+          "source": 0
+        },
+        {
+          "key": "Power (VN listing)",
+          "value": "100 W",
+          "source": 4
+        },
+        {
+          "key": "Luminous flux",
+          "value": "8,170 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "80",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "800–1,000 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II Pro 90",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "110 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "9,250 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "90",
+          "source": 0
+        },
+        {
+          "key": "Colour temperature",
+          "value": "8,000 K",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "900–1,100 mm",
+          "source": 0
+        },
+        {
+          "key": "Max glass thickness",
+          "value": "12 mm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "WRGB II Pro 120",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "138 W",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "11,170 lm",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "120",
+          "source": 0
+        },
+        {
+          "key": "Colour temperature",
+          "value": "8,500 K",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "1,200 × 140 × 18 mm",
+          "source": 0
+        },
+        {
+          "key": "Tank length",
+          "value": "1,200–1,400 mm",
+          "source": 0
+        },
+        {
+          "key": "Max glass thickness",
+          "value": "12 mm",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Quới Decor",
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-wrgb-2-pro-60cm/",
+      "variant": "60 cm",
+      "vnd": 4020000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Quới Decor",
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-wrgb-2-pro-120cm/",
+      "variant": "120 cm",
+      "vnd": 7045000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-pro",
+      "variant": "30 cm",
+      "vnd": 2596750,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-pro",
+      "variant": "60 cm",
+      "vnd": 3125450,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-pro",
+      "variant": "80 cm",
+      "vnd": 4382600,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-pro",
+      "variant": "90 cm",
+      "vnd": 4425950,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-pro",
+      "variant": "120 cm",
+      "vnd": 5717100,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "variant": "30 cm",
+      "vnd": 2850000,
+      "source": 4
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "variant": "45 cm",
+      "vnd": 3300000,
+      "source": 4
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "variant": "60 cm",
+      "vnd": 4100000,
+      "source": 4
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "variant": "80 cm",
+      "vnd": 4950000,
+      "source": 4
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "variant": "90 cm",
+      "vnd": 5400000,
+      "source": 4
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "variant": "120 cm",
+      "vnd": 7000000,
+      "source": 4
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Choose the size by tank length. Each model covers a range from its own length up to about 10–20 cm longer, e.g. the 60 cm model fits 60–80 cm tanks.",
+      "source": 0
+    },
+    {
+      "fact": "Made for open-top tanks; the retailer says it should not run under an aquarium lid.",
+      "source": 0
+    },
+    {
+      "fact": "The legs clamp glass up to 10 mm thick on the smaller models and up to 12 mm on the 90 and 120 cm models.",
+      "source": 3
+    },
+    {
+      "fact": "Recommended for planted tanks that need strong light and full control over colour.",
+      "source": 3
+    },
+    {
+      "fact": "No UV LEDs. Hanging it takes a bulky, costly extra kit, so it is a poor choice if you want UV or a neat hanging setup.",
+      "source": 3
+    },
+    {
+      "fact": "Some users find the 60 cm model too strong for a shallow 60×36×18 cm tank and have to hang it higher or turn it down.",
+      "source": 7
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Setup: install the My Chihiros app, put on the legs or hang the light, power it on, turn on phone Bluetooth and location, register an email, then pick the light and set the colours.",
+      "source": 1
+    },
+    {
+      "fact": "The app sets timers, preset or custom colour channels, and gradual sunrise and sunset dimming.",
+      "source": 4
+    },
+    {
+      "fact": "Keep the light at least 6 cm above the water. For indoor use only; never submerge it.",
+      "source": 4
+    },
+    {
+      "fact": "The housing gets very hot while on, so switch it off before touching it.",
+      "source": 4
+    },
+    {
+      "fact": "Unplug before cleaning or servicing. If it falls in the water, unplug at once and let it dry fully before using again.",
+      "source": 4
+    },
+    {
+      "fact": "Keep the power adapter off the tank lid. Replace damaged cables or controllers only with genuine parts.",
+      "source": 4
+    },
+    {
+      "fact": "Hobbyists advise starting at low channel levels (around 30% or less) and raising them slowly to avoid algae.",
+      "source": 7
+    },
+    {
+      "fact": "The legs adjust in length, but one buyer could not set them to the right length for a 90 cm tank, so check the fit first.",
+      "source": 0
+    }
+  ],
+  "issues": [
+    {
+      "fact": "It is very bright. Forum users who ran it at high channel levels got algae and had to cut the intensity.",
+      "source": 8
+    },
+    {
+      "fact": "Some owners worried the added white channel would wash out colours. Others found colours still looked good after tuning the channels.",
+      "source": 8
+    },
+    {
+      "fact": "Compared with the regular WRGB 2, the Pro adds a separate white channel, and the seller claims over 40% more light output.",
+      "source": 4
+    },
+    {
+      "fact": "Sources disagree on the 80 cm model's power: 110 W at one European retailer versus 100 W at Vietnamese shops.",
+      "source": 4
+    },
+    {
+      "fact": "A Vietnamese shop says WRGB lights render colour slightly worse than pure RGB, but the Pro has enough power to turn off the white channel.",
+      "source": 3
+    },
+    {
+      "fact": "A retailer review warns that worn drivers in used WRGB II-series lights can flicker at low brightness. This was said of the standard WRGB II, not tested on the Pro.",
+      "source": 9
+    },
+    {
+      "fact": "Mirror shades for the regular WRGB II do not fit the Pro; you need the Pro-specific shade.",
+      "source": 0
+    },
+    {
+      "fact": "Stock is patchy in Vietnam. Several shops list sizes as sold out or show conflicting stock status, and local warranty is short (1 month).",
+      "source": 4
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "WRGB 2 (standard)",
+      "why": "Cheaper option in Vietnam (about 3.0 million ₫ for 60 cm at Thủy Sinh 4U). Slightly lower power (67 W for 60 cm) with no separate white channel; enough for most planted tanks."
+    },
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II Slim",
+      "why": "A lower-power, thinner model of the same WRGB II line. Suits low-tech tanks or tanks with easy plants where the Pro would be too strong."
+    },
+    {
+      "brand": "Week Aqua",
+      "model": "M Series Pro (RGB-UV)",
+      "why": "Budget app-controlled RGB light with UV LEDs, which the Chihiros lacks. Costs much less abroad; check prices with Vietnamese dealers."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquasabi.de/Chihiros-LED-System-Serie-WRGB-II-PRO_1",
+      "title": "Aquasabi – Chihiros LED System Serie WRGB II PRO",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-wrgb-2-pro-60cm/",
+      "title": "Thủy Sinh Quới Decor – Đèn Chihiros WRGB 2 Pro 60cm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-wrgb-2-pro-120cm/",
+      "title": "Thủy Sinh Quới Decor – Đèn Chihiros WRGB 2 Pro 120cm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2-pro",
+      "title": "Thủy Sinh 4U – Đèn Chihiros WRGB 2 Pro",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-led-cao-cap-chihiros-wrgb2-pro",
+      "title": "Thủy Sinh Tím – Đèn LED Cao Cấp Chihiros WRGB 2 Pro",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/den-chihiros-wrgb-2",
+      "title": "Thủy Sinh 4U – Đèn Chihiros WRGB 2",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.com/Chihiros-LED-System-Serie-WRGB-II-Slim",
+      "title": "Aquasabi – Chihiros LED System Series WRGB II Slim",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/light-settings-for-wrgb-pro-60-on-uns-60s.7077/",
+      "title": "Chihiros forum – Light settings for WRGB Pro 60 on UNS 60S",
+      "kind": "forum"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/chihiros-wrgb2-pro-has-a-separate-white-led-channel-but.68878/page-4",
+      "title": "UKAPS – Chihiros WRGB2 Pro has a separate white LED channel, but…",
+      "kind": "forum"
+    },
+    {
+      "url": "https://gensou.sg/chihiros-wrgb-ii-led-review/",
+      "title": "Gensou – Chihiros WRGB II LED Review",
+      "kind": "review"
+    }
+  ]
+}

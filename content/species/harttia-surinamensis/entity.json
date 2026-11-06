@@ -1,0 +1,73 @@
+{
+  "id": "harttia-surinamensis",
+  "scientificName": "Harttia surinamensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Harttia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "suriname-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 18.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1263",
+      "html": "<ul><li>Scientific name: Harttia surinamensis Boeseman, 1971</li><li>IUCN Red List: Least Concern (last assessed 2023)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1263",
+      "html": "<p>South America: Guyana waters, coastal rivers of the Guianas and Suriname coastal rivers. Type locality: Grandam, Gran Rio, upper Suriname River, Suriname.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1263",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1263",
+      "html": "<p>Zoologische Verhandelingen (Leiden) No. 116, pp 28, Pl. 3.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chuột",
+        "viên rau củ cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

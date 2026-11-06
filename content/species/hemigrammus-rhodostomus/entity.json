@@ -20,6 +20,13 @@
           "min": 24,
           "max": 27
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 23,
+          "max": 29
+        }
       }
     ],
     "ph": [
@@ -28,6 +35,13 @@
         "value": {
           "min": 5.5,
           "max": 7
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
         }
       }
     ],
@@ -44,6 +58,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -56,6 +74,19 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
       }
     ]
   },
@@ -65,6 +96,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-rhodostoma",
       "html": "<p>The rummy-nose tetra, Hemigrammus rhodostomus, is a characin from blackwater rivers of the Rio Orinoco and lower Amazon basin in Venezuela and Brazil. This is the 'real' rummy-nose. Most fish sold under the name are the firehead tetra, H. bleheri, and the 'false' rummy-nose, Petitella georgiae, is also very similar. The head colour, the caudal peduncle blotches and the line from the central caudal band separate the three. Bittencourt et al. (2020) proposed moving it to Petitella.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<ul><li>pH: 5.5–7.5, soft to moderately hard GH</li><li>Lifespan: up to 5 years or more in a seasoned aquarium with good husbandry</li><li>Diet: omnivore</li><li>Group size: at least 8–12 fish</li><li>Eggs are scattered (egg scatterer)</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>These 5 cm South American characids have a torpedo-shaped profile typical of tetras. The body is shiny and silvery, the snout is red-orange and the tail has horizontal white and black striping. Albino and golden variants are also available.</p><p>Three main species are commonly sold as rummy-nose tetras:</p><ul><li>Hemigrammus rhodostomus (true rummy-nose tetra): standard red nose and striped tail</li><li>Hemigrammus bleheri (firehead or brilliant rummy-nose tetra): more red on the head that extends past the gill plate and sometimes has a tapered, diamond shape</li><li>Petitella georgiae (false rummy-nose tetra): the middle black stripe on the tail extends onto the back half of the body as a short, horizontal line</li></ul><p>Because of their sensitivity to stress, many people do not recommend them for new fishkeepers. However, they are adaptable to a wide range of parameters and can be kept by beginners. The key is to buy healthy specimens and always quarantine them. They sometimes arrive with ich (white spot disease) or bacterial infections.</p><p>Look for fish with red noses, slightly rounded bellies, a good activity level and no white spots or other symptoms. If the noses are pale, the fish may have just arrived or been chased with a net recently, so wait half an hour or come back another day to see if they colour up again. It is normal for them to \"play dead\" in the fish bag; they right themselves once the bag is placed on a solid surface.</p><p>Quarantine them in a separate hospital tank and consider proactively treating them with broad-spectrum medications. Once they pass quarantine with a clean bill of health, they can be added to the main display aquarium.</p>"
     },
     {
       "key": "distribution",
@@ -79,10 +122,22 @@
       "html": "<p>Blackwater rivers and tributaries. The water in these biotopes is typically stained brown with tannins from decaying organic material and is very acidic as a result.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>All three species come from blackwater rivers and streams in the Amazon basin. The water in these areas is very soft and acidic from fallen leaves, rotting wood and other organics.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-rhodostoma",
       "html": "<p>This is a species that should be maintained in groups numbering 10 or preferably more, and its active swimming nature requires a tank length of 90 cm minimum.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>Despite their small size, a tank of 75 litres or bigger is more suitable, because rummy-nose tetras are active schooling fish that prefer a longer tank to swim back and forth.</p>"
     },
     {
       "key": "maintenance",
@@ -97,10 +152,28 @@
       "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 5.5–7.0. Its colours will become faded if kept in alkaline conditions.</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>They can do well at pH 5.5–7.5 with soft to moderately hard GH. They enjoy warm water between 23–29°C, and can live at temperatures in the low to mid 20s up to about 27–29°C, so use a heater if needed.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>For a biotope setup imitating their natural environment, cover the ground with catappa leaves, driftwood and botanicals such as alder cones. These materials break down over time, tinting the water brown and gradually lowering the pH.</p><p>Their red and silver colours also look excellent in a planted aquarium with lots of greenery. A darker background and substrate make the tetras stand out even more.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-rhodostoma",
       "html": "<p>Omnivorous and will accept just about anything offered. It does have a small mouth, though, so correspondingly-sized foods are best. Feed a mixture of dried flakes and granules and small live and frozen foods. A varied diet such as this is essential for the best colour development.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>These omnivores will swim all over the tank to chase down almost any community fish food. Ideally, feed smaller foods that fit their small mouths, such as baby brine shrimp, nano pellets and daphnia.</p><p>To bring out their rosy blush, offer foods that contain natural colour-enhancing ingredients, such as krill and salmon. Provide a variety of foods to avoid nutrient deficiencies.</p>"
     },
     {
       "key": "behaviour",
@@ -109,16 +182,34 @@
       "html": "<p>It's a very peaceful species that won't compete well with very boisterous or much larger tankmates. Ideally, keep it with other South American species, such as other Hemigrammus or Hyphessobrycon species, pencil fish, Apistogramma dwarf cichlids, Corydoras and small Loricariids. In a more general community it can be combined with smaller rasboras, barbs, Anabantoids and West African dwarf cichlids such as Pelvicachromis species. Many discus enthusiasts keep a shoal of rummy noses in their show tanks, too.</p><p>Always buy a group of at least 10 of these, preferably more. They are one of the more tightly shoaling small tetras, and will not do well if kept in insufficient numbers. Because they do shoal so closely, they actually look far more effective when maintained like this anyway.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>They school very tightly and change direction like a giant flock of birds, which helps confuse predators. Rummy-nose tetras need a bigger group than the typical six to show this behaviour: keep at least 8–12.</p><p>They are often called the \"canary in the coal mine\" of aquariums because their noses lose colour when stressed. This can warn of poor water quality, low temperatures, disease, bullying or other problems.</p><p>They get along with peaceful community fish of similar size, such as other tetras, rasboras and corydoras. Their bold personality makes them good dither fish for shy or territorial fish such as Apistogramma dwarf cichlids. Because they tolerate higher temperatures, they are often paired with warm-water fish like discus, German blue rams and Sterbai corydoras. Do not keep them with cooler-water fish because of mismatched temperature requirements. They will opportunistically eat baby shrimp and fry, but tend to leave adult dwarf shrimp and snails alone.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-rhodostoma",
       "html": "<p>Mature females are noticeably rounder in the body than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>Males are slenderer in shape and females tend to have rounder bodies, especially when full of eggs.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-rhodostoma",
       "html": "<p>Can be bred in a similar way to other species in the genus. You'll need to set up a separate tank if you want to raise decent numbers of fry. Something around 46 x 25 x 25 cm in size is fine. This should be very dimly lit and contain clumps of fine-leaved plants such as java moss or spawning mops, to give the fish somewhere to deposit their eggs. Alternatively, you could cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them. The water should be soft and acidic in the range pH 5.5-6.5, gH 1-5, with a temperature of around 27–29 °C. Filtering the water through peat is useful, as is the use of RO water. A small air-powered sponge filter bubbling away very gently is all that is needed in terms of filtration.</p><p>It can be spawned in a group, with half a dozen specimens of each sex being a good number. Condition these with plenty of small live foods and spawning should not present too many problems.</p><p>Alternatively, it can be spawned in pairs. Under this technique, the fish are conditioned in male and female groups in separate tanks. When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank. Contrary to much that has been written this species spawns exclusively in the evening</p><p>In either situation, the adults will eat the eggs given the chance and should be removed as soon as eggs are noticed. These will hatch in 24-36 hours, with the fry becoming free swimming a 3-4 days later. They should be fed on an infusoria-type food for the first few days, until they are large enough to accept microworm or brine shrimp nauplii. The eggs and fry are light sensitive in the early stages of life and the tank should be kept in darkness if possible.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "html": "<p>Start with a breeding group of at least six fish to ensure both sexes. Ideally use a mature 40-litre aquarium as the breeding tank so it has plenty of mulm and microfauna for the fry to feed on. The eggs hatch best in very soft water with an acidic pH below 6.5. Add a heater to raise the temperature to about 27–32°C and a sponge filter with gentle flow that will not suck up the fry.</p><p>These egg scatterers will eat their own young, so cover the bottom with plastic craft mesh that lets the eggs fall through while stopping the adults. Put java moss, spawning mops or other dense, fluffy plants under the mesh as extra protection.</p><p>Condition the adults with plenty of high-quality foods such as live baby brine shrimp, then move them to the breeding tank. The eggs do not need total darkness like those of some tetras, but some hobbyists keep the lights off in case of light sensitivity. Remove the adults after a few days, especially if eggs or fry are seen.</p><p>Start the fry on tiny foods such as infusoria, live vinegar eels and powdered fry food, then switch to live baby brine shrimp as soon as they are big enough, to increase growth and survival.</p>"
     },
     {
       "key": "notes",
@@ -144,6 +235,39 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/petitella-rhodostoma",
       "caption": "Hemigrammus rhodostomus",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/962a822e80eb7fa5.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/962a822e80eb7fa5-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "caption": "Care Guide for Rummy-Nose Tetras — Aquatic Canary in the Coal Mine - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/28833217bf576b7d.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/28833217bf576b7d-480.webp",
+      "width": 1000,
+      "height": 656,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "caption": "Hemigrammus rhodostomus",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/c319198b28375b52.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/c319198b28375b52-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/rummy-nose-tetra",
+      "caption": "School of Hemigrammus rhodostomus",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [],
@@ -176,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-06"
 }
