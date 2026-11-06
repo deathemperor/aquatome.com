@@ -119,6 +119,33 @@ test('no English track is a skip; a broken rewrite keeps the first draft', async
   expect((await read(root2, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
 })
 
+test('a low score gets one edit of that draft, from the transcript and the notes, not a fresh draft', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const first = { ...draft('Bản đầu'), faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }, { q: 'Câu video không trả lời?', a: 'Bịa.' }] }
+  const fixed = { ...draft('Bản đã sửa'), kind: 'care', faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }] }
+  const { d, calls } = deps(root, { scores: [0.6, 0.8], drafts: [first, fixed] })
+  await videoGuides(d, { playlists: ['PL1'] })
+  const writer = calls.prompts.filter(p => p.includes('Bản ghi:'))
+  expect(writer).toHaveLength(2)
+  const edit = writer[1]!
+  expect(edit).toContain('algae grows with too much light') // the transcript, to check the draft against
+  expect(edit).toContain('"viTitle":"Bản đầu"') // the draft itself
+  expect(edit).toContain('- "Ánh sáng" is vague') // what to fix in it
+  expect(edit).not.toContain('Tiêu đề video') // not the writer's brief: nothing to write afresh from
+  // The edit may drop an invented FAQ question; what kind of guide it is stays the first draft's.
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản đã sửa', faq: [{ q: 'Bao lâu thay nước?' }], quality: { score: 0.8 } })
+  expect((await read(root, 'content/guides/youtube-a1/entity.json')).kind).toBe('plantCare')
+})
+
+test('an edit that is broken, not a guide or loses chapters keeps the first draft and its score, or its chapter names', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root, { scores: [0.6], drafts: [draft('Bản đầu'), { ...draft('Bản sửa'), relevant: false }] }).d, { playlists: ['PL1'] })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
+  const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root2, { scores: [0.6, 0.7], drafts: [draft('Bản đầu'), { ...draft('Bản sửa'), chapters: ['Mở đầu'] }] }).d, { playlists: ['PL1'] })
+  expect(await read(root2, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản sửa', chapters: ['Mở đầu', 'Thay nước'], quality: { score: 0.7 } })
+})
+
 test('a guide that still names the creator or the video gets one editor pass; the writer is not given the channel', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const named = { ...draft('Bản đầu'), body: `<p>Bể được set trong video chỉ dùng cây in vitro.</p><p>${LONG}</p>` }
@@ -257,9 +284,9 @@ test('single videos are written after playlists, without a series', async () => 
   expect((await read(root, 'content/guides/youtube-s1/entity.json')).video.series).toBeUndefined()
 })
 
-test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer and reviewer, lang kept', async () => {
+test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer, reviewer and editor, lang kept', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
-  const { d, calls } = deps(root, { videos: { a1: { lang: 'vi' } } })
+  const { d, calls } = deps(root, { videos: { a1: { lang: 'vi' } }, scores: [0.6, 0.8] })
   const langs: (string | undefined)[] = []
   const orig = d.yt.transcript
   d.yt.transcript = async (id, lang) => { langs.push(lang); return orig(id) }
@@ -267,6 +294,7 @@ test('a Vietnamese video: Vietnamese captions, a no-copying rule for the writer 
   expect(langs).toEqual(['vi'])
   expect(calls.prompts.some(p => p.includes('Ngôn ngữ video: tiếng Việt') && p.includes('không chép lại câu nói'))).toBe(true)
   expect(calls.prompts.some(p => p.includes('spoken in vi') && p.includes('copied from it'))).toBe(true)
+  expect(calls.prompts.find(p => p.includes('Bài cần sửa'))).toContain('không chép lại câu nói')
   expect((await read(root, 'content/guides/youtube-a1/entity.json')).video.lang).toBe('vi')
 })
 
