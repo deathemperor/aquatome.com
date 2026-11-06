@@ -307,6 +307,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
       const e = JSON.parse(raw) as Entity
+      if (!e.sections) continue
       const off = new Set(kind === 'species' ? e.sections.filter(x => varieties[x.sourceUrl]).map(x => x.sourceUrl) : [])
       if (!off.size && !e.sections.some(x => isShop(x.source))) continue
       const langs = (await Promise.all(WRITTEN_LANGS.map(async l => {
