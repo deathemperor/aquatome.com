@@ -1,7 +1,7 @@
 import Testing
 @testable import Handbook
 
-// The tank-mates tool's link read as its page reads its address (apps/site/src/pages/vi/cong-cu/nuoi-chung.astro).
+// The tank-mates tool's link read as its page reads its address (apps/site/src/pages/cong-cu/nuoi-chung.astro).
 private let neon = HandbookIndex.Item(kind: .fish, contentId: "paracheirodon-innesi", name: "Cá neon", path: "/vi/ca/ca-neon/", facts: .init(schoolMin: 6))
 private let discus = HandbookIndex.Item(kind: .fish, contentId: "symphysodon-aequifasciatus", name: "Cá đĩa", path: "/vi/ca/ca-dia/")
 private let danio = HandbookIndex.Item(kind: .fish, contentId: "danio-rerio", name: "Cá ngựa vằn", path: "/vi/ca/ca-ngua-van/", facts: .init(schoolMin: 5))

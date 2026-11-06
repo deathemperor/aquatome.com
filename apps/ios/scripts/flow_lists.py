@@ -96,7 +96,8 @@ REACH = {
     APP + 'Handbook/KeepOffline.swift': ['OfflineFlowTests'],
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
-    APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests'],
+    # Its flows, and a fish page's link that opens it.
+    APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
     APP + 'Handbook/ReaderSafety.swift': ['ReaderPostFlowTests', 'NativePageFlowTests'],
     APP + 'Tanks/': TANKS_TAB,
     # It shows the owner's dashboard's row, and opens it.
@@ -197,7 +198,7 @@ def check(runs, left, reached):
     assert {'OfflineFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp'} <= got, got
     assert reached([APP + 'Handbook/KeepOffline.swift']) == {'OfflineFlowTests'}
     # The tank-mates tool: its own flows.
-    assert reached([APP + 'Handbook/TankMatesView.swift']) == {'TankMatesFlowTests'}
+    assert reached([APP + 'Handbook/TankMatesView.swift']) == {'TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'}
     assert 'TankMatesFlowTests' in runs([f'apps/ios/{UI}/TankMatesFlowTests.swift'])
     assert reached([APP + 'Tanks/TankGuides.swift']) == {
         'TankLifeFlowTests', 'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',

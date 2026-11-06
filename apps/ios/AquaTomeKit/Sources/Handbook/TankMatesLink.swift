@@ -1,6 +1,6 @@
 import Foundation
 
-/// The tank-mates tool's state from its link, as its page reads its address (apps/site/src/pages/vi/cong-cu/
+/// The tank-mates tool's state from its link, as its page reads its address (apps/site/src/pages/cong-cu/
 /// nuoi-chung.astro): `ca=ca-neon:6,ca-dia:2`, the fish and how many of each, and `l=60&w=30&h=36`, the tank in cm.
 public struct TankMatesLink: Sendable {
   public struct Size: Equatable, Sendable {

@@ -53,10 +53,25 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(AppScreen.of(URL(string: "https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6")!, site: site, listed: { _ in true }) == .tankMates("ca=ca-neon:6"))
   #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/khac/") == nil)
   #expect(screen("https://example.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
+  // At the site's root, as its own links give it.
+  #expect(screen("https://aquatome.com/cong-cu/nuoi-chung/?ca=ca-neon:6") == .tankMates("ca=ca-neon:6"))
+}
+
+/// A link to the tank-mates tool naming fish in another language than the index's: the web page, which knows their
+/// names; the tool alone, or set only to a tank, is the app's screen in any language.
+@Test func theTankMatesToolsFishInAnotherLanguageAreTheWebPage() {
+  let of = { (s: String, lang: String) in AppScreen.of(URL(string: s)!, site: site, lang: lang) }
+  #expect(of("https://aquatome.com/id/alat/kecocokan-ikan/?ca=neon-tetra:6", "vi") == nil)
+  #expect(of("https://aquatome.com/id/alat/kecocokan-ikan/?ca=neon-tetra:6", "id") == .tankMates("ca=neon-tetra:6"))
+  #expect(of("https://aquatome.com/cong-cu/nuoi-chung/?ca=ca-neon:6", "th") == nil)
+  #expect(of("https://aquatome.com/cong-cu/nuoi-chung/?ca=ca-neon:6", "vi") == .tankMates("ca=ca-neon:6"))
+  #expect(of("https://aquatome.com/th/tools/tank-mates/", "vi") == .tankMates(nil))
+  #expect(of("https://aquatome.com/id/alat/kecocokan-ikan/?l=60&w=30&h=36", "vi") == .tankMates("l=60&w=30&h=36"))
+  #expect(of("https://aquatome.com/id/alat/kecocokan-ikan/?ca=", "vi") == .tankMates("ca="))
 }
 
 @Test func otherPagesAndOtherSitesStayPages() {
-  #expect(screen("https://aquatome.com/vi/cong-cu/nhan-dien-ca/") == nil)
+  #expect(screen("https://aquatome.com/vi/cong-cu/du-toan-be/") == nil)
   #expect(screen("https://aquatome.com/vi/ca/ca-neon/") == nil)
   #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/khac/") == nil)
   #expect(screen("https://example.com/vi/cong-cu/be-cua-toi/") == nil)
@@ -118,13 +133,13 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(group("https://aquatome.com/groups/catfish/") == nil)
   // The index's paths in the root form, a link in either: `listed` is asked with the link's path, for the app to put
   // in the index's form (HandbookModel.item(at:)).
-  let index: Set = ["/ca/ca-neon/", "/cong-cu/nuoi-chung/"]
+  let index: Set = ["/ca/ca-neon/", "/cong-cu/du-toan-be/"]
   let page = { (s: String) in AppScreen.of(URL(string: s)!, site: site, listed: { index.contains(PathForm.atRoot.path($0)) }) }
   #expect(page("https://aquatome.com/ca/ca-neon/") == .page("/ca/ca-neon/"))
   #expect(page("https://aquatome.com/vi/ca/ca-neon") == .page("/vi/ca/ca-neon/"))
-  #expect(page("https://aquatome.com/cong-cu/nuoi-chung/") == .page("/cong-cu/nuoi-chung/"))
-  #expect(page("https://aquatome.com/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
-  #expect(page("https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == nil)
+  #expect(page("https://aquatome.com/cong-cu/du-toan-be/") == .page("/cong-cu/du-toan-be/"))
+  #expect(page("https://aquatome.com/cong-cu/du-toan-be/?be=60") == nil)
+  #expect(page("https://aquatome.com/vi/cong-cu/du-toan-be/?be=60") == nil)
   // Not Vietnamese pages: the other languages' tools at the root, the app's data, a shop link.
   #expect(screen("https://aquatome.com/alat/akuarium-saya/") == nil)
   #expect(page("https://aquatome.com/app/vi.json") == nil)
