@@ -87,3 +87,121 @@ test('a photo just sent stays in view; its take-back link is text to keep with a
   }
   expect(errors).toEqual([])
 })
+
+// Only the latest photo's take-back shows: the box hides as the next photo is sent, while it sends, and stays hidden
+// when that send is refused. Its own display (grid) used to outlive its `hidden`, so the first photo's link stayed on
+// screen under the second send, and under its error.
+test('two photos sent: only the latest one\'s take-back shows', async ({ page, errors }) => {
+  const fish = sourcePages().find(p => /^\/ca\/[^/]+\/$/.test(p))!
+  const link = (n: number) => `/_p/xoa/?id=00000000-0000-0000-0000-00000000000${n}&t=e2e`
+  let release: (() => void) | undefined
+  let posts = 0
+  await page.route(url => url.pathname === '/_p', async route => {
+    if (route.request().method() !== 'POST') return route.fulfill({ json: { photos: [], sitekey: 'x', verification: 'none' } })
+    const n = ++posts
+    if (n === 2) await new Promise<void>(r => (release = r))
+    return n === 3 ? route.fulfill({ status: 429, json: { error: 'rate' } }) : route.fulfill({ status: 201, json: { status: 'pending', id: `e2e${n}`, deleteUrl: link(n) } })
+  })
+  // Each send spends the token; the stand-in gives a new one after its reset, as Turnstile does.
+  await page.route(/challenges\.cloudflare\.com\/turnstile/, route => route.fulfill({ contentType: 'text/javascript', body: 'window.turnstile = { render(el, o) { window.__ts = o; setTimeout(() => o.callback("tok"), 10); return "w" }, reset() { setTimeout(() => window.__ts.callback("tok"), 10) } }' }))
+  await page.goto(fish)
+  const section = page.locator('[data-reader-photos]')
+  await section.locator('summary').click()
+  const png = Buffer.from(await page.evaluate(() => new Promise<number[]>(done => {
+    const c = Object.assign(document.createElement('canvas'), { width: 40, height: 30 })
+    c.getContext('2d')!.fillRect(0, 0, 40, 30)
+    c.toBlob(b => void b!.arrayBuffer().then(a => done([...new Uint8Array(a)])), 'image/png')
+  })))
+  const msg = section.locator('[data-msg]')
+  const sent = section.locator('[data-sent]')
+  const send = async () => {
+    await section.locator('input[type=file]').setInputFiles({ name: 'ca.png', mimeType: 'image/png', buffer: png })
+    await section.locator('input[name=name]').fill('Lộc')
+    await section.locator('input[name=consent]').check()
+    await section.locator('button[type=submit]').click()
+  }
+  await send()
+  await expect(msg).toContainText('Đã nhận ảnh')
+  await expect(sent.locator('input')).toHaveValue(new URL(link(1), page.url()).href)
+
+  await send()
+  await expect(msg).toHaveText('Đang gửi…')
+  await expect(sent).toBeHidden()
+  release!()
+  await expect(msg).toContainText('Đã nhận ảnh')
+  await expect(sent).toBeVisible()
+  await expect(section.locator('input[readonly]')).toHaveCount(1)
+  await expect(sent.locator('input')).toHaveValue(new URL(link(2), page.url()).href)
+
+  await send()
+  await expect(msg).toContainText('Bạn đã gửi đủ 5 ảnh hôm nay')
+  await expect(sent).toBeHidden()
+  expect(errors).toEqual([])
+})
+
+// A fish's gallery page ends with its readers' photos, loaded after the gallery's: they open in the viewer among
+// themselves, credited by the reader's name, and "Xem thêm" brings the older ones past the API's 60. The gallery's own
+// count and ImageGallery data stay its photos'. The Worker's list is a stand-in, as above.
+test('a fish gallery shows its readers\' photos after its own, in the viewer; "Xem thêm" brings older ones; the count stays the gallery\'s', async ({ page, errors }) => {
+  const many = Array.from({ length: 63 }, (_, i) => ({ id: `g${i + 1}`, name: `Bạn ${i + 1}`, url: photo(i + 1), thumb: photo(i + 1), width: 1200, height: 900, createdAt: new Date(Date.UTC(2026, 10, 3) - i * 3_600_000).toISOString() }))
+  const NEXT = `${many[59]!.createdAt}~00000000-0000-4000-8000-000000000060`
+  const asked: URLSearchParams[] = []
+  await page.route(url => url.pathname === '/_p' && url.searchParams.has('e'), route => {
+    const q = new URL(route.request().url()).searchParams
+    asked.push(q)
+    return route.fulfill({ json: q.get('before') === NEXT ? { photos: many.slice(60), sitekey: 'x', verification: 'phone' } : { photos: many.slice(0, 60), next: NEXT, sitekey: 'x', verification: 'phone' } })
+  })
+  await page.route(url => url.pathname.startsWith('/_e2e/'), route => route.fulfill({ contentType: 'image/svg+xml', body: svg(Number(/(\d+)\.svg$/.exec(route.request().url())![1])) }))
+  // A fish's gallery: a breed's has no readers' photos yet.
+  const galleries = sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p))
+  test.skip(!galleries.length, 'no fish gallery in this build')
+  const section = page.locator('[data-reader-photos]')
+  let gallery: string | undefined
+  for (const g of galleries) {
+    await page.goto(g)
+    if (await section.count()) { gallery = g; break }
+  }
+  expect(gallery, 'a fish gallery with its readers\' photos').toBeDefined()
+  const tiles = section.locator('[data-list] button')
+  await expect(tiles).toHaveCount(60)
+  expect(asked[0]!.get('e')).toMatch(/^species:[a-z0-9-]+$/)
+  // Under the gallery, which keeps its own count and data.
+  const own = await page.locator('[data-gallery] a[data-i]').count()
+  expect(await page.locator('[data-gallery]').evaluate((g, s) => !!(g.compareDocumentPosition(document.querySelector(s)!) & Node.DOCUMENT_POSITION_FOLLOWING), '[data-reader-photos]')).toBe(true)
+  const ld = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(t => [JSON.parse(t)].flat()) as { '@type': string; image?: unknown[] }[]
+  expect(ld.find(x => x['@type'] === 'ImageGallery')!.image).toHaveLength(Math.min(own, 60))
+  await expect(page).toHaveTitle(new RegExp(`\\b${own} ảnh`))
+  // The same form as the fish page's, hidden while the phone check is on (`verification: 'phone'`) even with its
+  // summary open.
+  await section.locator('summary').click()
+  await expect(section.locator('[data-form]')).toBeHidden()
+
+  await tiles.nth(1).click()
+  const viewer = page.locator('dialog.pv')
+  await expect(viewer).toHaveCount(1) // the readers' viewer alone: the gallery's is made only when one of its photos opens
+  await expect(viewer).toBeVisible()
+  const by = viewer.locator('.by')
+  await expect(by).toHaveText(/^Ảnh của Bạn 2 · \d{1,2}\/\d{1,2}\/2026 · 2\/60$/)
+  await expect(page).toHaveURL(new RegExp(`${gallery}$`)) // not a gallery photo's #aN
+  await viewer.getByRole('button', { name: 'Ảnh trước' }).click()
+  await expect(by).toContainText('Bạn 1 ')
+  await expect(by).toContainText('1/60')
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+
+  const more = section.getByRole('button', { name: 'Xem thêm' })
+  await more.click()
+  await expect(tiles).toHaveCount(63)
+  expect(asked.at(-1)!.get('before')).toBe(NEXT)
+  await expect(more).toBeHidden()
+  await expect(tiles.nth(60)).toBeFocused()
+  await tiles.nth(62).click()
+  await expect(by).toContainText('Bạn 63 ')
+  await expect(by).toContainText('63/63')
+  await viewer.getByRole('button', { name: 'Ảnh sau' }).click()
+  await expect(by).toContainText('1/63')
+  await page.goBack()
+  await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(new RegExp(`${gallery}$`))
+  expect(errors).toEqual([])
+})
