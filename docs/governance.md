@@ -156,7 +156,7 @@ that would have caught it).
     (`UPDATE_VECTORS=1` rewrites them) (`apps/site/worker/test/owner-api.test.ts`). The daily report's section: every
     block it sends, in each of its states, one the contract describes; its buttons set the delivery as the page's form
     does; and the phones the report notifies (`POST`/`DELETE /api/owner/push-token`: kept once with the time, a bad token
-    refused), the same session only (`docs/contracts/owner-push.md` until the contract has the two paths).
+    refused), the same session only.
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,

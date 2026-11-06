@@ -500,6 +500,238 @@
           }
         }
       }
+    },
+    "/api/owner/report-settings": {
+      "post": {
+        "summary": "The daily report's delivery: email, the phones' notifications, or both, on or off (the `bao-cao` section's buttons send it). Unset, email is on and notifications off. The notifications switch is the server's: off, no phone is notified, registered or not.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The settings as they are now; `changed`: false when they already were so.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReportSettingsDone"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request (not JSON, no switch, a switch that isn't true or false, or another field; `message`: \"email và/hoặc push (true/false).\")",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method (not POST; `allow: POST`)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/owner/push-token": {
+      "post": {
+        "summary": "This phone gets the daily report's notification: the app's own row (\"Nhận thông báo trên máy này\") sends it at each launch while on, and when turned on. An upsert: the same token again moves its last-seen time. The server keeps the 10 phones seen last, each tied to the app session that posted it last (it stores the session's id, never the bearer), and before each report drops every token whose session is no longer live, and any APNs answers 410 or 400 BadDeviceToken for.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PushToken"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Kept. `changed`: the token is new here, its environment changed, or it moved to this session (false when only its time moved).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Done"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request (not JSON, a token that isn't lowercase hex of 16 to 100 bytes, an environment that isn't one of the two, or another field; `message`: what it takes)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method (not POST or DELETE; `allow: POST, DELETE`)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "This phone gets no more notifications: sent when the row is turned off, and before the owner signs out.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PushTokenRemoved"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Removed. `changed`: the token was there.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Done"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad_request (not JSON, a token that isn't lowercase hex of 16 to 100 bytes, or another field: it takes `token` alone)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: signed_out (no live app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Error: not_found (another account's app session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Error: method (not POST or DELETE; `allow: POST, DELETE`)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: unavailable (the server couldn't read or write its storage just then)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1487,6 +1719,82 @@
           },
           "hidden": {
             "type": "boolean"
+          }
+        }
+      },
+      "ReportSettings": {
+        "type": "object",
+        "additionalProperties": false,
+        "minProperties": 1,
+        "properties": {
+          "email": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean",
+            "description": "The phones' notifications (the server's switch)."
+          }
+        }
+      },
+      "ReportSettingsDone": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ok",
+          "changed",
+          "email",
+          "push"
+        ],
+        "properties": {
+          "ok": {
+            "const": true,
+            "type": "boolean"
+          },
+          "changed": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "boolean"
+          },
+          "push": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PushToken": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "environment"
+        ],
+        "properties": {
+          "token": {
+            "type": "string",
+            "pattern": "^(?:[0-9a-f]{2}){16,100}$",
+            "description": "The APNs device token as lowercase hex (64 digits today)."
+          },
+          "environment": {
+            "type": "string",
+            "enum": [
+              "sandbox",
+              "production"
+            ],
+            "description": "`sandbox` from debug builds, `production` from TestFlight and App Store builds: the APNs host the server sends to."
+          }
+        }
+      },
+      "PushTokenRemoved": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ],
+        "properties": {
+          "token": {
+            "type": "string",
+            "pattern": "^(?:[0-9a-f]{2}){16,100}$",
+            "description": "The APNs device token as lowercase hex (64 digits today)."
           }
         }
       },

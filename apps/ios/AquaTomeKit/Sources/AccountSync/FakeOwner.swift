@@ -125,7 +125,7 @@ public final class FakeOwner {
       reportShown()
       return try json(200, .object(["ok": .bool(true), "changed": .bool(report != before), "email": .bool(report.email), "push": .bool(report.push)]))
     case ("POST", "push-token"), ("DELETE", "push-token"):
-      // As the Worker takes them (docs/contracts/owner-push.md): lowercase hex of 16 to 100 bytes; POST with the APNs,
+      // As the Worker takes them (protocols/owner-dashboard.openapi.json): lowercase hex of 16 to 100 bytes; POST with the APNs,
       // DELETE the token alone.
       let fields: Set<String> = method == "POST" ? ["token", "environment"] : ["token"]
       guard let b = body?.object, Set(b.keys) == fields, let token = b["token"]?.string, (32...200).contains(token.count), token.count % 2 == 0,

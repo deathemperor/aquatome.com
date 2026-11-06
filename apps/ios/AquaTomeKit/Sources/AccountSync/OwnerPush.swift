@@ -1,7 +1,7 @@
 import Foundation
 import Observation
 
-/// The daily report's notifications on this phone (docs/contracts/owner-push.md, #592): the owner turns them on here, and the phone's
+/// The daily report's notifications on this phone (protocols/owner-dashboard.openapi.json's /api/owner/push-token): the owner turns them on here, and the phone's
 /// token goes to the site with the owner's session, once a launch (the site keeps one of each), while they're on and the
 /// account signed in is the owner's. Turned off, or before the account signs out, the token the site has is taken back.
 /// Whether the site sends any is the owner's setting there ("Báo cáo"); this is only whether this phone gets them.
