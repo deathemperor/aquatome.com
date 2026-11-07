@@ -10,6 +10,46 @@
     "colombia",
     "caqueta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras reynoldsi was collected in the Caquetà province, eastern Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342701,
+      "total": 2,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,79 @@
+{
+  "id": "corydoras-oiapoquensis",
+  "native": {
+    "input": "57a894a4742060f6",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cumuri Creek at left bank of Oyapock R., French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Oyapock",
+        "source": "planetcatfish",
+        "quote": "South America: Oyapock River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras oiapoquensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342699,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        25
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        14
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        8
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

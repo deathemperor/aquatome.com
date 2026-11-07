@@ -12,6 +12,102 @@
     "cambodia",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Chao Phraya river system in central Thailand, and the lower Mekong basin in Thailand and Cambodia.",
+          "countries": [
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Chao Phraya",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364447,
+      "total": 17,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TH",
+          7
+        ],
+        [
+          "KH",
+          6
+        ],
+        [
+          "VN",
+          3
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          4,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

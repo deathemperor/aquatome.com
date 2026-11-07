@@ -1,0 +1,86 @@
+{
+  "id": "crossocheilus-nigriloba",
+  "native": {
+    "input": "aeb7d197fc9319f0",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Crossocheilus nigriloba is a cyprinid endemic to Borneo, known from the Kapuas, Belayan and Mahakam rivers in Indonesian Kalimantan.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the island of Borneo where it appears to be restricted to rivers draining Kalimantan, the Indonesian part of the island.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Crossocheilus nigriloba is a cyprinid endemic to Borneo, known from the Kapuas, Belayan and Mahakam rivers in Indonesian Kalimantan.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Crossocheilus nigriloba is a cyprinid endemic to Borneo, known from the Kapuas, Belayan and Mahakam rivers in Indonesian Kalimantan.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "Crossocheilus nigriloba is a cyprinid endemic to Borneo, known from the Kapuas, Belayan and Mahakam rivers in Indonesian Kalimantan.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Belayan",
+        "source": "seriouslyfish",
+        "quote": "Crossocheilus nigriloba is a cyprinid endemic to Borneo, known from the Kapuas, Belayan and Mahakam rivers in Indonesian Kalimantan.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "It occurs throughout the Kapuas basin in the western province of Kalimantan Barat, including the Danau Sentarum lake system, and the Belayan and Mahakam Rivers in eastern Kalimantan Timur province.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crossocheilus nigriloba",
+    "status": "ACCEPTED",
+    "taxonKey": 2361967,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

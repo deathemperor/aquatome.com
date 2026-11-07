@@ -10,6 +10,56 @@
     "colombia",
     "meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Meta"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Corydoras simulatus is an armoured catfish known only from the upper Meta watershed in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Meta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342779,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          5.625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

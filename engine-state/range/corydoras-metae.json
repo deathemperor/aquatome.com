@@ -1,0 +1,82 @@
+{
+  "id": "corydoras-metae",
+  "native": {
+    "input": "74bc994733c860a2",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Río Meta, a major tributary of the Río Orinoco in eastern Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It appears to be absent from the lower Meta and has not been recorded in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Río Meta, a major tributary of the Río Orinoco in eastern Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Río Meta, a major tributary of the Río Orinoco in eastern Colombia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras metae",
+    "status": "ACCEPTED",
+    "taxonKey": 2342763,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        22
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

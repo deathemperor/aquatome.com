@@ -30,7 +30,7 @@ export const ANSWER_SCHEMA = {
   additionalProperties: false,
   required: ['text', 'covered', 'blocks', 'suggestions'],
   properties: {
-    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer. Never refer to the blocks; a figure only when it is the answer, the page\'s own.' },
+    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line ("1. "), then what to watch. A quick question: two or three sentences. Never refer to the blocks; figures only from a page read or the reader\'s words.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',
@@ -194,8 +194,10 @@ const r1 = (n: number) => String(Math.round(n * 10) / 10)
  * `shownBefore`: the blocks of the conversation's earlier turns. A species card or a page's section shown already (or
  * twice in this answer) isn't shown again: the reader has it above, and a chat from a fish's page would carry its card
  * under nearly every answer.
+ * `startedOn`: the fish or plant whose page the chat was opened from (`from: 'species'`). The reader has just left its
+ * card, so it counts as shown (from fish ID or search they haven't seen the page, and there is none).
  */
-export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = []): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
+export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = [], startedOn?: string): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
   const dropped: string[] = []
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
@@ -264,7 +266,7 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
     }
   }
   const blocks: ChatBlock[] = []
-  const seen = new Set(shownBefore.flatMap(repeatKey))
+  const seen = new Set([...shownBefore.flatMap(repeatKey), ...(startedOn ? [`species: ${startedOn}`] : [])])
   for (const p of answer.blocks.slice(0, MAX_BLOCKS)) {
     const b = await one(p)
     const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
