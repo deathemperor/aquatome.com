@@ -1,5 +1,6 @@
 import Handbook
 import SwiftUI
+import Telemetry
 
 /// v1's page for a fish or plant, as v2's species page links to it ("Xem trang đầy đủ"): the whole page as the app
 /// draws it, with every part v2's doesn't show yet.
@@ -19,6 +20,10 @@ struct SpeciesPage: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.v2OpenFull) private var openFull
   @Environment(\.dismiss) private var dismiss
+  @Environment(TelemetryModel.self) private var telemetry
+  @Environment(\.scenePhase) private var phase
+  /// This page being read, how far down and how long, as v1's page reports it (made when it first shows).
+  @State private var reading: PageReading?
   @State private var doc: PageDoc?
   @State private var colour = PhotoColour.fallback
   @State private var putting = false
@@ -59,7 +64,7 @@ struct SpeciesPage: View {
           .overlay(alignment: .bottom) {
             LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
           }
-          .overlay(alignment: .bottomTrailing) { credit }
+          .overlay(alignment: .bottomTrailing) { leadCredit }
           .accessibilityElement()
           .accessibilityLabel(Text(verbatim: doc?.lead?.alt ?? item.name))
           .accessibilityAddTraits(.isImage)
@@ -90,6 +95,18 @@ struct SpeciesPage: View {
       .padding(.bottom, 40)
     }
     .ignoresSafeArea(edges: .top)
+    .onScrollGeometryChange(for: Int.self) { g in
+      let share = g.contentSize.height > 0 ? 100 * g.visibleRect.maxY / g.contentSize.height : 0
+      return Event.depths.last { share >= Double($0) } ?? 0
+    } action: { _, mark in
+      reading?.scrolled(to: Double(mark) / 100)
+    }
+    .onAppear {
+      if reading == nil { reading = PageReading(path: item.path, telemetry: telemetry.telemetry) }
+      reading?.shown(true)
+    }
+    .onDisappear { reading?.shown(false) }
+    .onChange(of: phase) { reading?.inFront(phase == .active) }
     // The top inset counts the bar once it shows: the status bar's alone without it.
     .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = scrolled ? $0 : $0 + 44 }
     .accessibilityIdentifier("v2-species")
@@ -183,11 +200,10 @@ struct SpeciesPage: View {
     .padding(.top, 4)
   }
 
-  /// The photo's credit, quietly on it: the line and its licence, as the page has them.
-  @ViewBuilder private var credit: some View {
-    if let c = doc?.lead?.credit {
-      Text(verbatim: c.licence.isEmpty ? c.text : "\(c.text) · \(c.licence)")
-        .font(.caption2).foregroundStyle(.white.opacity(0.75))
+  /// The photo's credit, quietly on it, each piece linking where it says, as on v1's page.
+  @ViewBuilder private var leadCredit: some View {
+    if let line = doc?.lead.flatMap({ credit($0) }) {
+      Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white)
         .padding(.horizontal, 20).padding(.bottom, 8)
     }
   }
@@ -201,15 +217,22 @@ struct SpeciesPage: View {
   /// The page's other photos as a carousel, each opening full screen.
   private var gallery: some View {
     ScrollView(.horizontal, showsIndicators: false) {
-      LazyHStack(spacing: 10) {
+      LazyHStack(alignment: .top, spacing: 10) {
         ForEach(Array(photos.enumerated()), id: \.element.src) { i, p in
-          Button { viewing = i } label: {
-            V2Photo(src: p.thumb ?? p.src)
-              .frame(width: shot * 1.45, height: shot)
-              .clipShape(.rect(cornerRadius: 16, style: .continuous))
+          VStack(alignment: .leading, spacing: 4) {
+            Button { viewing = i } label: {
+              V2Photo(src: p.thumb ?? p.src)
+                .frame(width: shot * 1.45, height: shot)
+                .clipShape(.rect(cornerRadius: 16, style: .continuous))
+            }
+            .buttonStyle(CardPress())
+            .accessibilityLabel(Text(verbatim: p.alt ?? item.name))
+            // Its credit whole, as wide as the photo, on the page's colour: the licence is never cut off.
+            if let line = credit(p) {
+              Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white).fixedSize(horizontal: false, vertical: true)
+            }
           }
-          .buttonStyle(CardPress())
-          .accessibilityLabel(Text(verbatim: p.alt ?? item.name))
+          .frame(width: shot * 1.45, alignment: .leading)
         }
       }
       .scrollTargetLayout()
@@ -237,8 +260,8 @@ struct SpeciesPage: View {
 
   /// The page's answer: its paragraph, or its points where it has no paragraph.
   @ViewBuilder private var summary: some View {
-    if let doc, let s = doc.blocks.lazy.compactMap({ b -> (title: String, text: String?, items: [String], mistakes: (title: String, items: [String])?)? in
-      if case let .summary(title, items, text, mistakes, _) = b { return (title, text, items, mistakes) }
+    if let doc, let s = doc.blocks.lazy.compactMap({ b -> (title: String, text: String?, items: [String], mistakes: (title: String, items: [String])?, by: String?)? in
+      if case let .summary(title, items, text, mistakes, by) = b { return (title, text, items, mistakes, by) }
       return nil
     }).first, s.text != nil || !s.items.isEmpty {
       VStack(alignment: .leading, spacing: 8) {
@@ -252,6 +275,7 @@ struct SpeciesPage: View {
           Text(verbatim: mistakes.title).font(.headline).accessibilityAddTraits(.isHeader).padding(.top, 8)
           ForEach(mistakes.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
         }
+        if let by = s.by { Text(verbatim: by).font(.footnote).foregroundStyle(.secondary).padding(.top, 4) }
       }
       .padding(.horizontal, 20)
     }
@@ -273,6 +297,7 @@ struct SpeciesPage: View {
         if let good = m.good, !good.items.isEmpty { MatesRow(title: good.title, mates: good.items, good: true) }
         if let avoid = m.avoid, !avoid.items.isEmpty { MatesRow(title: avoid.title, mates: avoid.items, good: false) }
         VStack(alignment: .leading, spacing: 6) {
+          MatesCredits(photos: ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img))
           if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.secondary) }
           Button { open(m.tool.href) } label: {
             // Its words end in their own arrow.
@@ -311,6 +336,56 @@ private struct TopEdge: ViewModifier {
 }
 
 /// One side of "Nuôi chung": its fish as tiles that open their pages, why under each.
+/// The tank-mates' photos' credits under their shelves, as v1's page lists a row of cards' (CardsPart): one row per who
+/// took them, with its line; several photos, or a photographer's page in the line, then a number for each photo's page.
+private struct MatesCredits: View {
+  let photos: [PageDoc.Image]
+  /// Small to the eye, 44 points to the finger.
+  @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
+  private typealias Row = (line: AttributedString, who: String, licence: String, profile: String?, urls: [String?])
+
+  private var rows: [Row] {
+    photos.reduce(into: []) { rows, img in
+      guard let c = img.credit else { return }
+      if let i = rows.firstIndex(where: { $0.who == c.text && $0.licence == c.licence && $0.profile == c.authorUrl }) {
+        if c.url == nil || !rows[i].urls.contains(c.url) {
+          rows[i].urls.append(c.url)
+          rows[i].line = credit(c, photo: false)
+        }
+      } else {
+        rows.append((credit(c, photo: c.authorUrl == nil), c.text, c.licence, c.authorUrl, [c.url]))
+      }
+    }
+  }
+
+  var body: some View {
+    let rows = rows
+    if !rows.isEmpty {
+      VStack(alignment: .leading, spacing: 0) {
+        ForEach(rows.indices, id: \.self) { i in
+          let row = rows[i]
+          if row.urls.count == 1 && row.profile == nil {
+            Text(row.line)
+          } else {
+            Text(row.line) + Text(verbatim: " · ").font(.caption2) + Text("\(row.urls.count) ảnh").font(.caption2)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: number), spacing: 0, alignment: .leading)], alignment: .leading, spacing: 0) {
+              ForEach(Array(row.urls.compactMap { $0.flatMap(URL.init(string:)) }.enumerated()), id: \.offset) { j, url in
+                Link(destination: url) {
+                  Text(verbatim: String(j + 1)).font(.caption2).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
+                }
+                .accessibilityLabel(Text("\(row.who), ảnh \(j + 1)"))
+                .accessibilityRemoveTraits(.isButton)
+                .accessibilityAddTraits(.isLink)
+              }
+            }
+          }
+        }
+      }
+      .foregroundStyle(.secondary).tint(Color.secondary)
+    }
+  }
+}
+
 private struct MatesRow: View {
   let title: String
   let mates: [PageDoc.Mates.Mate]

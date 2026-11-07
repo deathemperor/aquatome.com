@@ -104,7 +104,8 @@ enum PhotoColour {
 /// name and photo open the page; the button is its own.
 struct Lockup: View {
   let item: HandbookIndex.Item
-  /// Its first line, the page's name unless the card already says it.
+  /// Its first line, the page's name unless the card already says it; that card is the stop VoiceOver reads and opens,
+  /// so the row is hidden from it (its "Thêm" isn't).
   var title: String?
   var line: String?
   var onDark = false
@@ -141,6 +142,7 @@ struct Lockup: View {
         .contentShape(.rect)
       }
       .buttonStyle(.plain)
+      .accessibilityHidden(title != nil)
       button
     }
     .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }

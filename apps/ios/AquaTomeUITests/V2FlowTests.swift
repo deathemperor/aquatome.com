@@ -114,6 +114,41 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Cá neon"].waitForExistence(timeout: 5), "not the fish the link names")
   }
 
+  func testAFishsPageCreditsItsPhotosAndItsTankMatesOpen() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    for credit in ["Ảnh: Tác giả 1 · CC BY 2.0", "Jane Doe"] {
+      repeatUntil(app.links[credit].exists, times: 6) { app.swipeUp() }
+      XCTAssertTrue(app.links[credit].exists, "a photo without its credit: \(credit)")
+    }
+    let mate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
+    XCTAssertTrue(mate.exists, "no tank-mate")
+    mate.tap()
+    XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
+  }
+
+  func testAFishsPageReportsHowFarItIsRead() {
+    let app = launch("-site-telemetry", "-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    for _ in 0..<4 { app.swipeUp() }
+    // Sent when the app goes to the background.
+    XCUIDevice.shared.press(.home)
+    let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
+    let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
+    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background")
+    app.activate()
+    let received = app.descendants(matching: .any)["telemetry-received"].firstMatch
+    let sent = expectation(for: NSPredicate(format: "label CONTAINS %@", #""depth":90,"path":"/vi/ca/ca-neon/","t":"scroll""#), evaluatedWith: received)
+    XCTAssertEqual(XCTWaiter.wait(for: [sent], timeout: 10), .completed, "not sent: \(received.label)")
+  }
+
   func testTheTabBarStaysWholeWhileScrolling() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
