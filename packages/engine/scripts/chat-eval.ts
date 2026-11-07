@@ -11,7 +11,8 @@
  *   (no blocks either).
  *
  * Graded by the script, no judge:
- * - Found (faq): the guide read or shown / another page shown, covered / not covered.
+ * - Found (faq): the guide read or shown, and answered from / another page shown, covered / not covered. A page counts
+ *   as read once it loaded (a read that failed doesn't).
  * - Figures: numbers in the text that nothing Claude was sent has: the question, its start, the searches' results and
  *   the parts of pages it opened (the prompt: figures only from a page read), listed for a look.
  * - Stopped, calls, tool calls, blocks dropped, seconds, and cost (usage × list price, apps/site/worker/fishid/claude.ts).
@@ -38,7 +39,7 @@ import { handbookOf, type Index, type Lang, type Source } from '../../../apps/si
 import { topicsOf, type Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
-import { numbersIn, sentText } from './chat-eval-grade'
+import { faqFound, numbersIn, readPages, sentText } from './chat-eval-grade'
 import { pool } from './eval-lib'
 
 const ROOT = join(import.meta.dirname, '../../..')
@@ -231,14 +232,14 @@ type Row = {
 }
 
 function grade(model: string, question: Question, run: ChatRun | undefined, failed: string | undefined, ms: number, sent: string): Row {
-  const read = [...new Set((run?.steps ?? []).flatMap(s => (s.kind === 'read' ? [s.page.url] : [])))]
+  const read = readPages(run?.history ?? [])
   const blocks = run?.blocks ?? []
   const covered = run?.answer?.covered
   const w = question.want
   const touched = (paths: string[]) => paths.some(p => read.includes(p) || pagesOf(blocks).includes(p))
   let found: Row['found']
   if (failed) found = 'failed'
-  else if (question.set === 'faq') found = touched(w.read!) ? 'guide' : covered && pagesOf(blocks).length ? 'other' : 'none'
+  else if (question.set === 'faq') found = faqFound(touched(w.read!), covered, pagesOf(blocks).length)
   else if (question.set === 'start') found = (!w.read || touched(w.read)) && (w.show ?? []).some(s => shows(blocks, s)) ? 'ok' : 'not'
   else found = covered === false && (!w.none || blocks.length === 0) ? 'ok' : 'not'
   // What it could have read its figures in: what it was sent (the question, its start, the searches' results, the parts
@@ -312,11 +313,12 @@ const cell = (s: string) => s.replace(/\|/g, '\\|').replace(/\n+/g, ' ')
 const pct = (k: number, n: number) => (n ? `${k}/${n}` : '–')
 const at = (xs: number[], q: number) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.ceil(q * s.length) - 1)]! : NaN }
 
-/** The commit the run's code is at, and whether the agent's or the eval's files differ from it. */
+/** The commit the Worker's code is at (its last change: a commit on main once this branch merges), and whether the
+ * agent's or the eval's files differ from it. */
 function commit(): string {
   try {
     const git = (...a: string[]) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8' }).trim()
-    return `${git('rev-parse', '--short', 'HEAD')}${git('status', '--porcelain', '--', 'apps/site/worker', 'packages/engine/scripts') ? ', with changes not committed' : ''}`
+    return `${git('log', '-1', '--format=%h', '--', 'apps/site/worker')}${git('status', '--porcelain', '--', 'apps/site/worker', 'packages/engine/scripts') ? ', with changes not committed' : ''}`
   } catch { return 'unknown' }
 }
 
@@ -329,7 +331,7 @@ function report(rows: Row[]): string {
     '',
     `${faqs} questions from the guides' FAQs, one per guide, guides at random; ${WRITTEN.filter(q => q.set === 'start').length} asked from a fish's page or fish ID, or naming fish or a tank; ${WRITTEN.filter(q => q.set === 'outside').length} the handbook doesn't answer or aren't about aquariums.`,
     '',
-    '- **FAQ:** the guide the question came from was read or shown / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page shown. Another guide may answer as well. A run with no answer is counted as failed, not in these. The search reads the guides\' FAQ questions too, so the question asked is left out of them while it is asked.',
+    '- **FAQ:** the guide the question came from was read or shown, and answered from (not as not covered) / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page shown. A page counts as read once it loaded. Another guide may answer as well. A run with no answer is counted as failed, not in these. The search reads the guides\' FAQ questions too, so the question asked is left out of them while it is asked.',
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
     '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
     '- **Figures not in a page:** answers whose text has a number that nothing Claude was sent has: the question, the searches\' results, the parts of pages it opened (listed below). A small number (a list\'s 2 or 3) may be in what it read by chance, so this is a floor.',

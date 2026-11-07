@@ -1,4 +1,5 @@
-/** The chat eval's grading of figures (chat-eval.ts): which numbers an answer has, and what Claude was given to read. */
+/** The chat eval's grading (chat-eval.ts): which numbers an answer has, what Claude was given to read, which pages it read,
+ * and how a FAQ question was found. */
 
 /**
  * The numbers in a text, as Vietnamese writes them: "1.000" and "2.000.000" are thousands, "6,5" and "0,125" decimals,
@@ -27,3 +28,26 @@ export function sentText(messages: readonly Sent[]): string {
   for (const m of messages) if (m.role === 'user') (Array.isArray(m.content) ? m.content : [m.content]).forEach(add)
   return parts.join('\n')
 }
+
+type Turn = { role: string; content: unknown }
+
+/**
+ * The pages a run read, by path: each `read_page` call whose result wasn't an error. The agent records a read before the
+ * page loads, so a page that failed to load (or no page at that path) is in its steps but was never read.
+ */
+export function readPages(history: readonly Turn[]): string[] {
+  const blocks = (m: Turn) => (Array.isArray(m.content) ? m.content : []) as { type?: string; id?: string; name?: string; input?: { path?: unknown }; tool_use_id?: string; is_error?: boolean }[]
+  const failed = new Set(history.filter(m => m.role === 'user').flatMap(blocks).filter(b => b.type === 'tool_result' && b.is_error).map(b => b.tool_use_id))
+  const read = history.filter(m => m.role === 'assistant').flatMap(blocks)
+    .filter(b => b.type === 'tool_use' && b.name === 'read_page' && !failed.has(b.id) && typeof b.input?.path === 'string')
+    .map(b => b.input!.path as string)
+  return [...new Set(read)]
+}
+
+/**
+ * A FAQ question, found: its guide read or shown and answered from (`covered` not false: having read the answer and
+ * said the handbook hasn't it is the wrong refusal the eval is for), another page shown and answered as covered, or
+ * neither.
+ */
+export const faqFound = (guideTouched: boolean, covered: boolean | undefined, pagesShown: number): 'guide' | 'other' | 'none' =>
+  guideTouched && covered !== false ? 'guide' : covered && pagesShown ? 'other' : 'none'

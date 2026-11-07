@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { numbersIn, sentText } from '../scripts/chat-eval-grade'
+import { faqFound, numbersIn, readPages, sentText } from '../scripts/chat-eval-grade'
 
 describe('the chat eval reads numbers as Vietnamese writes them', () => {
   it('decimals, thousands and ranges', () => {
@@ -28,5 +28,40 @@ describe('the chat eval counts as read only what Claude was sent', () => {
     expect(text).toContain('Trả lời đi')
     expect(text).toContain('pH 6,5')
     expect(text).not.toContain('99')
+  })
+})
+
+describe('the chat eval counts a page as read once it loaded', () => {
+  it('a read whose result was an error (the page failed to load, or none at that path) is not read', () => {
+    expect(readPages([
+      { role: 'user', content: 'Câu hỏi' },
+      { role: 'assistant', content: [
+        { type: 'tool_use', id: 'a', name: 'read_page', input: { path: '/vi/huong-dan/ok/', heading: null } },
+        { type: 'tool_use', id: 'b', name: 'read_page', input: { path: '/vi/huong-dan/loi/', heading: null } },
+        { type: 'tool_use', id: 'c', name: 'search_handbook', input: { query: '/vi/huong-dan/tim/' } },
+      ] },
+      { role: 'user', content: [
+        { type: 'tool_result', tool_use_id: 'a', content: '{"title":"…"}' },
+        { type: 'tool_result', tool_use_id: 'b', content: "/vi/huong-dan/loi/ can't be read now.", is_error: true },
+        { type: 'tool_result', tool_use_id: 'c', content: '[]' },
+      ] },
+      { role: 'assistant', content: [{ type: 'tool_use', id: 'd', name: 'read_page', input: { path: '/vi/huong-dan/ok/', heading: 'muc-1' } }] },
+      { role: 'user', content: [{ type: 'tool_result', tool_use_id: 'd', content: 'Mục 1' }] },
+    ])).toEqual(['/vi/huong-dan/ok/'])
+  })
+})
+
+describe("the chat eval finds a FAQ question in its guide only when it answered from it", () => {
+  it('its guide read and answered: found there', () => {
+    expect(faqFound(true, true, 1)).toBe('guide')
+    expect(faqFound(true, undefined, 0)).toBe('guide')
+  })
+  it('its guide read, then answered as not covered: the wrong refusal, not a hit', () => {
+    expect(faqFound(true, false, 1)).toBe('none')
+  })
+  it('another page shown and answered as covered; or nothing', () => {
+    expect(faqFound(false, true, 2)).toBe('other')
+    expect(faqFound(false, true, 0)).toBe('none')
+    expect(faqFound(false, false, 2)).toBe('none')
   })
 })
