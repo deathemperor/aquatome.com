@@ -15,7 +15,6 @@ import { search, searchTopics } from './search'
 export type Page = { kind: PageDoc['kind']; title: string; url: string }
 export type Step = { kind: 'search'; query: string } | { kind: 'read'; page: Page } | { kind: 'tanks' }
 
-/** A saved tank, as the chat tells Claude about it: its name, size and fish (`id`: the fish's page, when it has one). */
 /** A saved tank as the chat reads it (api.ts `tanksOf`): its size, its species by id and its entries without a page. */
 export type Tank = {
   id: string

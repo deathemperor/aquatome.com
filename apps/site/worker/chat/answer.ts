@@ -2,7 +2,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { figuresOf, isBreed, sectionsOf, type Facts, type Handbook, type Item, type Lang, type PlantFacts } from './handbook'
 import type { TankCheck } from '../../src/scripts/tank-check'
-import { drawnOf, type MatesCheck, type Mine } from './mates'
+import { addedOf, drawnOf, summed, type MatesCheck, type Mine } from './mates'
 
 /**
  * Claude's answer and the blocks the Worker fills from it (protocols/chat.openapi.json). Claude writes the text and
@@ -174,10 +174,11 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
           if (p.tankId) {
             // The reader's tank, as Claude checked it with these fish added: the link names every kind (the tool's
             // page reads six; past that, none: a link would open a check of other fish), and the tank's id opens its page.
-            const mine = checks.find(c => c.tankId === p.tankId && matesKey(c.fish) === key)
-            if (!mine?.mine) return `tool: tank-mates in tank ${p.tankId} adding ${key || 'nothing'} not checked`
+            const added = matesKey(summed(addedOf(p.fish), hb))
+            const mine = checks.find(c => c.tankId === p.tankId && matesKey(c.fish) === added)
+            if (!mine?.mine) return `tool: tank-mates in tank ${p.tankId} adding ${added || 'nothing'} not checked`
             const sides = mine.mine.dims ? `&${new URLSearchParams((['l', 'w', 'h'] as const).map(k => [k, r1(mine.mine!.dims![k])]))}` : ''
-            const link = mine.kinds && mine.kinds.length <= MAX_FISH ? `${page.path}?ca=${mine.kinds.map(k => `${slugOf(k.path)}:${k.count}`).join(',')}${sides}` : undefined
+            const link = mine.kinds?.length && mine.kinds.length <= MAX_FISH ? `${page.path}?ca=${mine.kinds.map(k => `${slugOf(k.path)}:${k.count}`).join(',')}${sides}` : undefined
             return { t: 'tool', tool: p.tool, name: page.short ?? page.name, ...(link ? { url: link } : {}), check: drawnOf(mine), tank: mine.mine }
           }
           const size = (t: { l: number; w: number; h: number } | null | undefined) => (t ? [t.l, t.w, t.h].map(r1).join('×') : '')
@@ -185,7 +186,9 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
           if (fish.length >= 2 && !check?.verdict) return `tool: tank-mates ${key}${tank ? ` in ${size(tank)}` : ''} not checked`
           const ca = fish.map(f => `${slugOf(f.item.path)}:${f.count}`).join(',')
           if (tank) for (const k of ['l', 'w', 'h'] as const) q.set(k, r1(tank[k]))
-          return { t: 'tool', tool: p.tool, name: page.short ?? page.name, url: `${page.path}?ca=${ca}${q.size ? `&${q}` : ''}`, ...(check ? { check: drawnOf(check) } : {}) }
+          // A fish the tool's page doesn't list (a breed with no species) it would leave out: no link to a check of fewer.
+          const listed = fish.every(f => !isBreed(f.item))
+          return { t: 'tool', tool: p.tool, name: page.short ?? page.name, ...(listed ? { url: `${page.path}?ca=${ca}${q.size ? `&${q}` : ''}` } : {}), ...(check ? { check: drawnOf(check) } : {}) }
         }
         if (tank) {
           q.set(p.tool === 'tank-volume' ? 'hinh' : 'co', p.tool === 'tank-volume' ? 'chu-nhat' : 'khac')

@@ -626,7 +626,7 @@
               "url": {
                 "type": "string",
                 "pattern": "^/(vi|id|th)/[^?#]+/\\?ca=[a-z0-9-]+:[0-9]+(,[a-z0-9-]+:[0-9]+)*(&l=[0-9.]+&w=[0-9.]+&h=[0-9.]+)?$",
-                "description": "The tool's page with these fish (\"?ca=slug:n,…\", a breed as its species) and the tank's sides. Missing when the check is of more than six kinds, the most the tool's page reads from it: a link would open a check of other fish. A client then opens the reader's tank by `tank.id` (the app: its page's tank-mates section, which checks any number), or nothing (the web)."
+                "description": "The tool's page with these fish (\"?ca=slug:n,…\", a breed as its species) and the tank's sides. Missing when the tool's page would check other fish or another tank than the check did: more than six kinds (the most it reads), a fish it doesn't list (a breed with no species), more than 200 of one, or a tank saved as litres only. A client then opens the reader's tank by `tank.id` (the app: its page's tank-mates section, which checks it all), or nothing (the web)."
               },
               "check": {
                 "description": "What the tank-mates check (the tool's own code, apps/site/src/scripts/tank-check.ts, which the app runs too) said of these fish, two or more, in this tank, in the reader's language: the check Claude read before it wrote, so the text and the block agree. A client draws it as its own tank check draws one (the app: TankCheckView; the verdict's mark by `level`), instead of checking the link again; opening the tool checks afresh. Missing (one fish, or an older Worker): the client checks the link itself.",
