@@ -135,10 +135,15 @@ private struct Eyebrow: View {
   let locale = Locale(identifier: lang), f = item.facts.any ? item.facts : item.card ?? item.facts
   var parts: [String] = []
   if let d = f.difficulty { parts.append(FactsCard.level(d)) }
-  // A figure stays with its unit when the line wraps, and a range stays whole.
-  if let t = f.tempC { parts.append("\(HandbookIndex.Facts.range(t, locale).replacingOccurrences(of: "–", with: "\u{2060}–\u{2060}"))\u{A0}°C") }
+  if let t = f.tempC { parts.append(degrees(t, locale)) }
+  // A figure stays with its unit when the line wraps.
   if let s = f.sizeCm { parts.append("\(HandbookIndex.Facts.number(s, locale))\u{A0}cm") }
   return parts.isEmpty ? nil : parts.joined(separator: " · ")
+}
+
+/// "24–30 °C", whole when a line wraps: the range and its unit on one line.
+func degrees(_ t: HandbookIndex.Facts.Range, _ locale: Locale) -> String {
+  "\(HandbookIndex.Facts.range(t, locale).replacingOccurrences(of: "–", with: "\u{2060}–\u{2060}"))\u{A0}°C"
 }
 
 /// The fish of the day: its photo, its colour washed over the top for its name, and its lockup on a band of that colour.
@@ -271,7 +276,7 @@ private struct SeasonCard: View {
         .fixedSize(horizontal: false, vertical: true)
       VStack(spacing: 0) {
         ForEach(items) { item in
-          Lockup(item: item, line: item.facts.tempC.map { "\(HandbookIndex.Facts.range($0, Locale(identifier: handbook.lang)))\u{A0}°C" },
+          Lockup(item: item, line: item.facts.tempC.map { degrees($0, Locale(identifier: handbook.lang)) },
                  thumb: 52)
             .padding(.vertical, 6)
             .matchedTransitionSource(id: item.path, in: zoom)

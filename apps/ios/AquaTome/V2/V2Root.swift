@@ -42,9 +42,14 @@ struct V2Root: View {
           }
           .v2ClearUnderTabBar()
       }
-      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
+      // v1's screens: a fade of a set height, as their ends have no room for one that grows with the text.
+      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) {
+        TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
+      }
       Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
-      Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
+      Tab(value: Pick.search, role: .search) {
+        HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
+      }
     }
     // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
     .v2NoBottomEdge()
@@ -135,8 +140,9 @@ enum V2Fade {
 }
 
 extension View {
-  /// A stack whose page may stand the tab on its colour: clear as the back starts, not once the page has gone, about half a
-  /// second of the colour under the tab's own screen. The page under it, if any, sets its own as it appears.
+  /// A stack whose page may stand the tab on its colour: clear as it goes back to its first screen, which has none, not once
+  /// the page has gone (a tab's second tap). A page's own back clears its colour itself, so the one it goes back to keeps
+  /// its own: cleared here, a fish's page under another's would lose it, as it sets it before this runs.
   func v2ClearsFootGoingBack(_ depth: Int) -> some View { modifier(ClearsFootGoingBack(depth: depth)) }
 
   /// A scroll view of v2's own: its end stops above the fade over the tab bar, not in it.
@@ -148,7 +154,7 @@ private struct ClearsFootGoingBack: ViewModifier {
   @Environment(\.v2FootGround) private var footGround
 
   func body(content: Content) -> some View {
-    content.onChange(of: depth) { old, new in if new < old { footGround?.wrappedValue = nil } }
+    content.onChange(of: depth) { _, new in if new == 0 { footGround?.wrappedValue = nil } }
   }
 }
 

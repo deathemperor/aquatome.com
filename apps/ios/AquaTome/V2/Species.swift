@@ -162,14 +162,16 @@ struct SpeciesPage: View {
     // Not over the next page's, which may have appeared first, and may have the same colour.
     .onDisappear { if footGround?.wrappedValue?.page == item.path { footGround?.wrappedValue = nil } }
     .accessibilityIdentifier("v2-species")
-    .navigationTitle(nameGone ? item.name : "")
+    // Once the colour has left the bar too: on it, the bar's buttons have no glass, and a long name set between them would
+    // jump to the middle as the glass comes.
+    .navigationTitle(nameGone && !colourAt.top ? item.name : "")
     .navigationBarTitleDisplayMode(.inline)
     // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
     .toolbarBackground(.hidden, for: .navigationBar)
     // The page's own buttons, in the same places all the way down: on the photo and its colour, dark circles, as iOS 26's glass
     // goes light on them, under white symbols (2.4:1); glass after the colour.
     .navigationBarBackButtonHidden(true)
-    .accessibilityAction(.escape) { dismiss() }
+    .accessibilityAction(.escape) { goBack() }
     // A shade behind the status bar until the band comes: it reads on a light photo at any scroll.
     .overlay(alignment: .top) {
       if hero != nil {
@@ -185,7 +187,8 @@ struct SpeciesPage: View {
     // went back from a zoomed page.
     .overlay(alignment: .leading) {
       Color.clear.frame(width: 16).contentShape(.rect)
-        .gesture(DragGesture(minimumDistance: 12).onEnded { if $0.translation.width > 60 { dismiss() } })
+        // Across, not a thumb going down the page that drifts in.
+        .gesture(DragGesture(minimumDistance: 12).onEnded { let t = $0.translation; if t.width > 60, t.width > abs(t.height) * 2 { goBack() } })
         .accessibilityHidden(true)
     }
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
@@ -195,7 +198,7 @@ struct SpeciesPage: View {
     .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
     .toolbar {
       ToolbarItem(placement: .topBarLeading) {
-        Button { dismiss() } label: { round("chevron.left") }
+        Button { goBack() } label: { round("chevron.left") }
           .buttonStyle(.plain)
           .accessibilityLabel(Text("Quay lại"))
           .accessibilityIdentifier("v2-back")
@@ -234,6 +237,13 @@ struct SpeciesPage: View {
 
   private func standOnColour() {
     footGround?.wrappedValue = colourAt.foot ? FootGround(page: item.path, colour: colour) : nil
+  }
+
+  /// Its colour off the tab as the back starts, not once the page has gone; the page under it, a fish's too, sets its own
+  /// as it appears.
+  private func goBack() {
+    if footGround?.wrappedValue?.page == item.path { footGround?.wrappedValue = nil }
+    dismiss()
   }
 
   private func round(_ symbol: String) -> some View {
@@ -474,8 +484,6 @@ struct SpeciesPage: View {
         } label: {
           Text("Ảnh và giấy phép").font(.footnote).foregroundStyle(.v2Faint).frame(minHeight: 44)
         }
-        .foregroundStyle(.v2Faint)
-        .tint(.v2Faint)
         .accessibilityIdentifier("v2-mates-credits")
         .padding(.horizontal, 20)
       }

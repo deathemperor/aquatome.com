@@ -295,9 +295,46 @@ final class V2FlowTests: XCTestCase {
     card.tap()
     let back = app.buttons["v2-back"]
     XCTAssertTrue(back.waitForExistence(timeout: 5), "the fish's page didn't open")
+    // A thumb going up the page from its edge, drifting in: the page stays.
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.75))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.25)), withVelocity: .default, thenHoldForDuration: 0)
+    XCTAssertFalse(back.waitForNonExistence(timeout: 2), "a drag up the page from its edge went back")
     app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.5))
       .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)), withVelocity: .default, thenHoldForDuration: 0)
     XCTAssertTrue(back.waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
+  }
+
+  /// A photo that doesn't come (offline and not kept; none comes under test): a photo's place, not an empty box.
+  func testAPhotoThatDoesntComeShowsItsPlace() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.images["v2-photo-missing"].firstMatch.waitForExistence(timeout: 5), "an empty box where the neon's photo didn't come")
+  }
+
+  /// Back from a fish's page to the fish's page under it: that page's colour under the tab bar again, not white.
+  func testBackToAFishsPageKeepsItsColourUnderTheTabBar() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    func open(_ path: String) {
+      follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com\(path)".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    }
+    open("/ca/ca-neon/")
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "the neon's page didn't come")
+    Thread.sleep(forTimeInterval: 1)
+    let foot = { Pixels(XCUIScreen.main.screenshot()).at(6, app.frame.maxY - 6) }
+    let colour = foot()
+    XCTAssertGreaterThan(colour.distance(to: Pixels.RGB(r: 255, g: 255, b: 255)), 60, "the neon's page isn't on its colour under the tab bar: \(colour)")
+    // Another fish's page over it: the discus's.
+    open("/ca/ca-dia/")
+    XCTAssertTrue(app.links["John Roe"].waitForNonExistence(timeout: 5), "the discus's page didn't open over the neon's")
+    app.buttons["v2-back"].tap()
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "not back on the neon's page")
+    Thread.sleep(forTimeInterval: 1)
+    let after = foot()
+    XCTAssertLessThan(colour.distance(to: after), 40, "the neon's colour gone from under the tab bar: \(colour) before, \(after) after")
   }
 
   /// Every figure in view, none off a strip's edge, and the page's colour on under the tab bar with no white between.
@@ -317,8 +354,9 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(colour.distance(to: foot), 40, "white under the tab bar: \(colour) above, \(foot) under it")
   }
 
-  /// What's on the bar reads, on the page's colour and after it. On the colour iOS 26's glass goes pale under white symbols,
-  /// so it's the page's own round buttons there; after it iOS can keep the dark scheme, white on the white band.
+  /// What's on the bar reads, on the page's colour and after it, and the name comes into it only after. On the colour iOS
+  /// 26's glass goes pale under white symbols, so it's the page's own round buttons there; after it iOS can keep the dark
+  /// scheme, white on the white band.
   func testAFishsPageBarReadsOnItsColourAndAfterIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -330,18 +368,22 @@ final class V2FlowTests: XCTestCase {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow, thenHoldForDuration: 0.3)
     }
-    repeatUntil(title.exists, times: 6) { up() }
-    XCTAssertTrue(title.exists, "the bar didn't come back")
     let back = app.buttons["v2-back"]
     XCTAssertTrue(back.exists, "iOS's glass on the page's colour")
+    // The page's name under the bar, the bar still on the colour.
+    let name = app.staticTexts["Cá neon"].firstMatch
+    repeatUntil(name.frame.maxY < back.frame.maxY, times: 6) { up() }
+    XCTAssertLessThan(name.frame.maxY, back.frame.maxY, "the name didn't go under the bar")
     // Beside its chevron, inside its circle.
     let circle = Pixels(XCUIScreen.main.screenshot()).at(back.frame.minX + 7, back.frame.midY)
     XCTAssertGreaterThan(circle.contrastWithWhite, 3, "the back button's chevron doesn't read: \(circle)")
+    // No name in the bar yet: set between buttons with no glass, a long one would jump as the glass comes.
+    XCTAssertFalse(title.exists, "the name in the bar while it's on the colour")
+    repeatUntil(title.exists, times: 6) { up() }
+    XCTAssertTrue(title.exists, "the name didn't come into the bar after the colour")
     let f = title.frame
-    func bar() -> Pixels.RGB { Pixels(XCUIScreen.main.screenshot()).at(f.minX - 6, f.midY) }
-    repeatUntil(bar().contrastWithWhite < 1.1, times: 6) { up() }
-    XCTAssertLessThan(bar().contrastWithWhite, 1.1, "the page's colour never went")
     let shot = Pixels(XCUIScreen.main.screenshot())
+    XCTAssertLessThan(shot.at(f.minX - 6, f.midY).contrastWithWhite, 1.1, "the page's colour under the bar's title")
     let ground = shot.at(f.minX - 6, f.midY)
     let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
     XCTAssertGreaterThan(strongest, 120, "the bar's title doesn't read on its ground")

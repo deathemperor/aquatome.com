@@ -15,6 +15,8 @@ struct V2Photo: View {
   var colourKey: String?
   var colour: ((Color) -> Void)?
   @State private var picture: (src: String, image: UIImage)?
+  /// The address that didn't come (offline, not kept).
+  @State private var missing: String?
   @State private var pixels = CGSize.zero
   @Environment(\.displayScale) private var scale
 
@@ -30,6 +32,9 @@ struct V2Photo: View {
       .overlay {
         if let image {
           Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
+        } else if missing == src {
+          // A photo's place, not an empty box, as v1's pictures show it.
+          Image(systemName: "photo").font(.title2).foregroundStyle(.tertiary).accessibilityIdentifier("v2-photo-missing")
         }
       }
       .clipped()
@@ -47,7 +52,8 @@ struct V2Photo: View {
         // past a picture's own size).
         if full != src, pixels.width > 600 || pixels.height > 600 { loaded = await PageImages.image(full, size) }
         if loaded == nil { loaded = await PageImages.image(src, size) }
-        guard let loaded, !Task.isCancelled else { return }
+        guard !Task.isCancelled else { return }
+        guard let loaded else { if shown == nil { missing = src }; return }
         // Faded in as it comes; one in its place already, swapped.
         withAnimation(shown == nil ? .easeOut(duration: 0.2) : nil) { picture = (src, loaded) }
         if let colour { colour(await PhotoColour.of(loaded, key: colourKey ?? src)) }
@@ -133,19 +139,20 @@ private func isYellow(_ c: Scored) -> Bool {
   return h >= 42 && h < 88 && s >= 0.1
 }
 
-/// A colour that holds up over a whole page, deepened. A near-grey's hue means nothing: the app's green. A yellow left goes
-/// to leaf green and a sand to warm brown, not the olive and khaki they deepen to, by degrees from amber. A vivid red reads as
-/// a warning, with "Tránh" red on the same page: its saturation is capped. Other hues stay as the photo has them.
+/// A colour that holds up over a whole page, deepened. A near-grey's hue means nothing: the app's green. A sand goes to warm
+/// brown by degrees from amber, not the khaki it deepens to. A yellow left goes to amber or leaf green, nothing between: every
+/// hue between them deepens to olive. A vivid red reads as a warning, with "Tránh" red on the same page: its saturation is
+/// capped. Other hues stay as the photo has them.
 private func calmed(_ c: Scored) -> Scored {
   var (h, s, v) = hsb(c)
   if s < 0.1 { return (c.score, PhotoColour.fallbackRGB.r, PhotoColour.fallbackRGB.g, PhotoColour.fallbackRGB.b) }
   if h >= 42 && h < 88 {
-    let by = min((h - 42) / 8, 1)
     if s < 0.35 {
+      let by = min((h - 42) / 8, 1)
       h = 42 - 14 * by
       s = max(s, 0.4 * by)
     } else {
-      h += (88 - h) * by
+      h = h < 46 ? 40 : 88
       s = min(s, 0.85)
     }
   }
@@ -193,8 +200,19 @@ struct Lockup: View {
               .lineLimit(size.isAccessibilitySize ? nil : 2)
               .foregroundStyle(onDark ? .white : .primary)
             if let line = line ?? Lockup.line(item), line != title {
-              Text(verbatim: line).font(.subheadline).italic(scientific && line == item.sub).lineLimit(size.isAccessibilitySize ? nil : 1)
-                .foregroundStyle(onDark ? Color.white.opacity(0.75) : .v2Faint)
+              Group {
+                if size.isAccessibilitySize {
+                  // A line of figures too long for one row goes a figure to a row, so no dot is left at a row's end or start.
+                  ViewThatFits(in: .horizontal) {
+                    Text(verbatim: line).lineLimit(1)
+                    Text(verbatim: line.replacingOccurrences(of: " · ", with: "\n"))
+                  }
+                } else {
+                  Text(verbatim: line).lineLimit(1)
+                }
+              }
+              .font(.subheadline).italic(scientific && line == item.sub)
+              .foregroundStyle(onDark ? Color.white.opacity(0.75) : .v2Faint)
             }
           }
           Spacer(minLength: 0)
