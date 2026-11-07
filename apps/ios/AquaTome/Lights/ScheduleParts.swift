@@ -72,7 +72,7 @@ struct Readout: View {
   }
 
   /// "8", "7,5": to one decimal, in the reader's language.
-  private static func hours(_ h: Double) -> String { h.formatted(.number.precision(.fractionLength(0...1))) }
+  private static func hours(_ h: Double) -> String { h.formatted(.number.locale(.app).precision(.fractionLength(0...1))) }
 }
 
 /// The exact times and the ramp, following the timeline (the site's fields under it).

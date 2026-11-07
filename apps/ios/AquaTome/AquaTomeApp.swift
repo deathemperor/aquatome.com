@@ -117,6 +117,8 @@ struct AquaTomeApp: App {
       .environment(account)
       .environment(plugs)
       .environment(telemetry)
+      // Dates and numbers in the app's language, as its words are (Locale.app).
+      .environment(\.locale, .app)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
       // A link from a web page (the site's "Mở trong ứng dụng"): the site's page it names, as a link in a page opens.
@@ -298,6 +300,17 @@ private extension View {
   @ViewBuilder func tabBarNeverMinimizes() -> some View {
     if #available(iOS 26.0, *) { tabBarMinimizeBehavior(.never) } else { self }
   }
+}
+
+extension Locale {
+  /// The app's: its words' language (`Bundle.main.preferredLocalizations`, as SiteLanguage reads it), with the phone's own
+  /// locale when that's in the same language. A phone in a language the app doesn't have (English) shows the app's words
+  /// in Vietnamese, but once the app had Malay, iOS made `Locale.current` Malay's (ms_US, 8 Nov), and dates and decimals
+  /// followed it.
+  static let app: Locale = {
+    let code = SiteLanguage.of(Bundle.main.preferredLocalizations).code
+    return Locale.current.language.languageCode?.identifier == code ? .current : Locale(identifier: code)
+  }()
 }
 
 extension EnvironmentValues {

@@ -100,6 +100,25 @@ final class TanksFlowTests: XCTestCase {
     XCTAssertEqual(app.buttons.matching(identifier: "tank").count, 1, "the edit made another tank")
   }
 
+  // A phone in a language the app doesn't have (English): the app's words are Vietnamese, and so are its numbers. Once the
+  // app had Malay, iOS made its locale Malay's (8 Nov), and a decimal took Malay's point: 64.8 lít.
+  func testAPhoneInEnglishWritesTheAppsDecimals() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US", "-fixed-handbook", "-reset-defaults"]
+    app.launchForFlow()
+    app.openTab("Bể của tôi")
+    XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "the empty state")
+    app.buttons["add-first"].tap()
+    type(app, "name", "Bể 60")
+    type(app, "l", "60")
+    type(app, "w", "30")
+    type(app, "h", "36")
+    app.buttons["save"].tap()
+    let row = app.buttons["tank"].firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no tank listed")
+    XCTAssertTrue(row.label.contains("64,8 lít"), row.label)
+  }
+
   func testANewSizeDropsLitresGivenForTheOldOne() {
     let app = launch("-seed-tanks", "litres")
     let row = app.buttons["tank"].firstMatch
