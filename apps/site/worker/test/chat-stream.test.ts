@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { contract, parseSse, type Op } from './contract'
+import { contract, type Op } from './contract'
 
 const { api, fixtures, misfits, streamMisfits } = contract('chat.openapi.json')
 const sse = (api.paths['/api/chat'].post as Op).responses['200']!.content['text/event-stream']!
@@ -16,32 +16,60 @@ test('the recorded answers in protocols/ a fake server replays follow the chat c
   for (const f of recorded) expect(api.info.description, f).toContain(`protocols/${f}`)
 })
 
-/** What the contract says of a stream's order that its shapes don't: the text before the blocks, and `done` holding what came before it. */
-function orderMisfits(text: string): string[] {
-  const events = parseSse(text).filter(b => b.event)
-  const out: string[] = []
-  const firstBlock = events.findIndex(b => b.event === 'block')
-  if (firstBlock >= 0 && events.slice(firstBlock).some(b => b.event === 'text')) out.push('a text piece after a block')
-  const done = events.find(b => b.event === 'done')
-  if (done) {
-    const turn = JSON.parse(done.data!) as { text: string; blocks: unknown[]; steps?: unknown[] }
-    const of = (name: string) => events.filter(b => b.event === name).map(b => JSON.parse(b.data!))
-    if (of('text').map(p => p.text).join('') !== turn.text) out.push("the pieces don't join to the turn's text")
-    if (JSON.stringify(of('block')) !== JSON.stringify(turn.blocks)) out.push("the blocks aren't the turn's")
-    if (JSON.stringify(of('step')) !== JSON.stringify(turn.steps ?? [])) out.push("the steps aren't the turn's")
-  }
-  return out
-}
-
-test('each recorded stream sends its text before its blocks, and its done holds the same text, blocks and steps', () => {
+test('a stream\'s order, as the contract has it (x-order, x-whole): steps, then the text, then the blocks; done holds the same text, blocks and steps', () => {
   for (const f of ['chat-stream-species.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse']) {
-    expect(orderMisfits(readFileSync(fileURLToPath(new URL(`../../../../protocols/${f}`, import.meta.url).href), 'utf8')), f).toEqual([])
+    expect(streamMisfits(readFileSync(fileURLToPath(new URL(`../../../../protocols/${f}`, import.meta.url).href), 'utf8'), sse), f).toEqual([])
   }
-  const done = (o: object) => `event: done\ndata: ${JSON.stringify({ conversation: 'c', n: 1, text: 'ab', blocks: [], suggestions: [], covered: true, model: 'm', ...o })}\n\n`
+  const ev = (name: string, v: object) => `event: ${name}\ndata: ${JSON.stringify(v)}\n\n`
+  const done = (o: object) => ev('done', { conversation: 'c', n: 1, text: 'ab', blocks: [], suggestions: [], covered: true, model: 'm', ...o })
   const tool = { t: 'tool', tool: 'tank-mates', name: 'Nuôi chung', url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6' }
-  expect(orderMisfits(`event: block\ndata: ${JSON.stringify(tool)}\n\nevent: text\ndata: {"text":"ab"}\n\n${done({ blocks: [tool] })}`)).toEqual(['a text piece after a block'])
-  expect(orderMisfits(`event: text\ndata: {"text":"a"}\n\n${done({})}`)).toEqual(["the pieces don't join to the turn's text"])
-  expect(orderMisfits(`event: text\ndata: {"text":"ab"}\n\n${done({ blocks: [tool] })}`)).toEqual(["the blocks aren't the turn's"])
+  const step = { kind: 'search', query: 'neon' }
+  expect(streamMisfits(`${ev('step', step)}${ev('text', { text: 'ab' })}${ev('block', tool)}${done({ blocks: [tool], steps: [step] })}`, sse)).toEqual([])
+  expect(streamMisfits(`${ev('block', tool)}${ev('text', { text: 'ab' })}${done({ blocks: [tool] })}`, sse).join()).toMatch(/\[1\] text: after a later kind of event/)
+  expect(streamMisfits(`${ev('text', { text: 'ab' })}${ev('block', tool)}${ev('step', step)}${done({ blocks: [tool], steps: [step] })}`, sse).join()).toMatch(/\[2\] step: after a later kind of event/)
+  expect(streamMisfits(`${ev('text', { text: 'a' })}${done({})}`, sse)).toEqual(["done: its text isn't the pieces joined"])
+  expect(streamMisfits(`${ev('text', { text: 'ab' })}${done({ blocks: [tool] })}`, sse)).toEqual(["done: its blocks aren't the blocks streamed"])
+  expect(streamMisfits(`${ev('step', step)}${ev('text', { text: 'ab' })}${done({})}`, sse)).toEqual(["done: its steps aren't the steps streamed"])
+})
+
+test('a card has its figures as the app index has them: a plant\'s on the plants\' scale, apart from a fish\'s', () => {
+  const card = { $ref: '#/components/schemas/Species' }
+  const plant = { id: 'anubias-barteri-nana', kind: 'plant', name: 'Ráy nana' }
+  expect(misfits({ t: 'species', page: plant, plant: { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['epiphyte'] } }, card)).toEqual([])
+  expect(misfits({ t: 'species', page: plant, plant: { difficulty: 5 } }, card).join()).toMatch(/plant\.difficulty: 5 is out of 1–3/)
+  expect(misfits({ t: 'species', page: plant, plant: { light: 'bright' } }, card).join()).toMatch(/plant\.light: "bright" is not one of/)
+  const breed = { id: 'betta-halfmoon', kind: 'breed', name: 'Betta halfmoon' }
+  expect(misfits({ t: 'species', page: breed, facts: { tempC: { min: 24, max: 28 }, lifeYears: { min: 2, max: 3 }, temperament: 'semi-aggressive' } }, card)).toEqual([])
+})
+
+test('a section is the page\'s own blocks, never a heading, a figure of the page schema\'s; a tool\'s link is its page\'s, with its own inputs', () => {
+  const section = { $ref: '#/components/schemas/Section' }
+  const guide = { kind: 'guide', title: 'G', url: '/vi/huong-dan/g/' }
+  const img = { src: 'https://media.aquatome.com/x-480.webp', alt: 'x', w: 480, h: 320 }
+  expect(misfits({ t: 'section', page: guide, blocks: [{ t: 'p', c: ['x'] }, { t: 'figure', img, caption: ['x'] }] }, section)).toEqual([])
+  expect(misfits({ t: 'section', page: guide, blocks: [{ t: 'h', text: 'Next', id: 'next' }] }, section).join()).toMatch(/blocks\[0\]: is what `not` refuses/)
+  expect(misfits({ t: 'section', page: guide, blocks: [{ t: 'figure', img: { ...img, w: -5 }, caption: ['x'] }] }, section).join()).toMatch(/blocks\[0\]/)
+  const tool = { $ref: '#/components/schemas/Tool' }
+  const link = (t: string, url: string) => misfits({ t: 'tool', tool: t, name: 'x', url }, tool)
+  expect(link('tank-mates', '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6,ca-bay-mau:3&l=60&w=30&h=36')).toEqual([])
+  expect(link('tank-mates', '/vi/cong-cu/nuoi-chung/?l=60&w=30&h=36')).not.toEqual([])
+  expect(link('tank-mates', '/vi/cong-cu/nuoi-chung/')).not.toEqual([])
+  expect(link('tank-volume', '/vi/cong-cu/the-tich-be/?hinh=chu-nhat&l=60&w=30&h=36')).toEqual([])
+  expect(link('tank-volume', '/vi/cong-cu/the-tich-be/')).toEqual([])
+  expect(link('tank-volume', '/vi/cong-cu/the-tich-be/?l=60&w=30&h=36')).not.toEqual([])
+  expect(link('tank-budget', '/th/tools/tank-budget/?co=khac&l=90&w=45&h=45')).toEqual([])
+  expect(link('tank-budget', '/th/tools/tank-budget/?l=90&w=45&h=45')).not.toEqual([])
+})
+
+test('the helper holds the protocols\' other rules: an id only within its length, a key of the schema\'s, a field that must be missing', () => {
+  const guess = { $ref: '#/components/schemas/Question' }
+  const q = (scientificName: string) => ({ conversation: '6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913', question: 'x', identified: { verdict: 'fish', results: [{ scientificName, confidence: 0.9 }] } })
+  expect(misfits(q('Betta splendens'), guess)).toEqual([])
+  expect(misfits(q('B'.repeat(101)), guess).join()).toMatch(/scientificName: length 101/)
+  const keyed = { type: 'object', propertyNames: { type: 'string', pattern: '^/' }, additionalProperties: { type: 'number' } }
+  expect(misfits({ '/a': 1 }, keyed)).toEqual([])
+  expect(misfits({ a: 1, '/b': 'x' }, keyed)).toEqual(['$ key "a": "a" doesn\'t match ^/', '$./b: not a number'])
+  expect(misfits({ id: 'x', deletedAt: 1 }, { type: 'object', properties: { deletedAt: { not: {} } } })).toEqual(['$.deletedAt: is what `not` refuses'])
 })
 
 test('a stream the contract refuses: an event after done, a second end, a block it doesn\'t know, a card with a figure the index doesn\'t have, a section with no blocks or a page block that isn\'t one', () => {
@@ -50,7 +78,7 @@ test('a stream the contract refuses: an event after done, a second end, a block 
   expect(streamMisfits(`${done}event: text\ndata: {"text":"x"}\n\n`, sse).join()).toMatch(/ends with "text", not done or error/)
   expect(streamMisfits(`${done}event: error\ndata: {"error":"failed"}\n\n`, sse).join()).toMatch(/only one of done, error, last/)
   expect(streamMisfits(`event: result\ndata: {}\n\n${done}`, sse).join()).toMatch(/event "result" is not in the contract/)
-  const block = (b: object) => streamMisfits(`event: block\ndata: ${JSON.stringify(b)}\n\n${done}`, sse).join()
+  const block = (b: object) => streamMisfits(`event: block\ndata: ${JSON.stringify(b)}\n\n${done.replace('"blocks":[]', `"blocks":[${JSON.stringify(b)}]`)}`, sse).join()
   const page = { id: 'paracheirodon-innesi', kind: 'species', name: 'Cá neon xanh' }
   expect(block({ t: 'species', page, facts: { tempC: { min: 21, max: 25 } } })).toBe('')
   expect(block({ t: 'map', page })).toMatch(/fits 0 of oneOf/)
