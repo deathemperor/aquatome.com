@@ -16,9 +16,25 @@
     "phenacogrammus-interruptus",
     "corydoras-arcuatus",
     "microsorum-pteropus",
-    "bedotia-madagascariensis"
+    "bedotia-madagascariensis",
+    "chilatherina-bleheri",
+    "melanotaenia-splendida",
+    "alestopetersius-caudalis",
+    "moenkhausia-pittieri",
+    "hyphessobrycon-pulchripinnis",
+    "corydoras-eques",
+    "corydoras-schwartzi",
+    "trigonostigma-heteromorpha",
+    "thayeria-boehlkei",
+    "carnegiella-strigata",
+    "neocaridina-davidi",
+    "caridina-multidentata",
+    "poecilia-reticulata",
+    "trichopodus-trichopterus",
+    "pterophyllum-scalare",
+    "puntius-titteya"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "1TkcARfJKCQ",
     "title": "Thăm bể Thủy sinh cá Cầu vồng tuyệt đẹp của Tùng cá #Greenhappiness",
@@ -47,22 +63,46 @@
       "Melanotaenia parkinsoni",
       "Chilatherina bleheri",
       "Melanotaenia sentaniensis",
+      "Melanotaenia splendida",
+      "Melanotaenia australis",
       "Bedotia madagascariensis",
       "Phenacogrammus interruptus",
+      "Alestopetersius caudalis",
       "Moenkhausia pittieri",
+      "Hyphessobrycon pulchripinnis",
       "Corydoras sp.",
+      "Corydoras arcuatus",
+      "Corydoras eques",
+      "Corydoras schwartzi",
       "Anubias sp.",
-      "Microsorum pteropus"
+      "Microsorum pteropus",
+      "Pangio kuhlii",
+      "Trigonostigma heteromorpha",
+      "Thayeria boehlkei",
+      "Carnegiella strigata",
+      "Neocaridina davidi",
+      "Caridina multidentata",
+      "Nerita sp.",
+      "Macrobrachium sp.",
+      "Poecilia reticulata",
+      "Trichopodus trichopterus",
+      "Pterophyllum scalare",
+      "Puntius titteya"
     ],
     "gear": [
       {
         "category": "be-ca",
         "type": "lon",
-        "t": 42
+        "t": 300
       },
       {
         "category": "loc",
         "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "brand": "JBL",
         "t": 0
       },
       {
@@ -77,7 +117,6 @@
       },
       {
         "category": "den",
-        "type": "thuy-sinh",
         "brand": "Vivid",
         "model": "RGB",
         "t": 0
@@ -86,46 +125,38 @@
         "category": "thuc-an",
         "type": "kho",
         "brand": "Tetra",
-        "model": "Tetra Color",
-        "t": 634
+        "model": "TetraColor",
+        "t": 600
       },
       {
         "category": "thuc-an",
         "type": "kho",
         "brand": "Tetra",
-        "model": "Tetra Pro",
+        "model": "TetraPro",
         "t": 634
       },
       {
         "category": "thuc-an",
         "type": "dong-lanh",
-        "t": 665
+        "t": 634
       },
       {
-        "category": "loc",
-        "brand": "JBL",
-        "t": 0
+        "category": "khac",
+        "brand": "BIX",
+        "model": "2",
+        "t": 478
+      },
+      {
+        "category": "khac",
+        "brand": "Bonox",
+        "model": "3",
+        "t": 478
       }
     ],
     "figures": [
       {
-        "heading": "Ghép các loài cầu vồng với nhau thế nào",
-        "moments": [
-          {
-            "t": 178,
-            "url": "https://media.aquatome.com/video/1TkcARfJKCQ/t178.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh nhiều loài cá cầu vồng màu sắc khác nhau bơi gần lũa."
-          },
-          {
-            "t": 188,
-            "url": "https://media.aquatome.com/video/1TkcARfJKCQ/t188.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể nuôi chung nhiều loài cá cầu vồng với lũa và cây thủy sinh."
-          }
-        ],
+        "heading": "Cá cầu vồng lên màu thế nào",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/1TkcARfJKCQ/p1-VfWm9vXzAxLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/1TkcARfJKCQ/p1-VfWm9vXzAxLmpwZw-480.webp",
@@ -134,66 +165,21 @@
           "licence": "CC BY-SA 3.0",
           "author": "H. Zell",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_boesemani_-_Karlsruhe_Zoo_01.jpg",
-          "caption": "Cá thạch mỹ nhân Boesemani với thân nửa cam nửa xanh ánh kim rất đẹp."
+          "caption": "Cá cầu vồng trưởng thành lên màu rực, thân ánh cam xanh rất đẹp."
         }
       },
       {
-        "heading": "Cá mới mua nhợt nhạt, bao lâu mới lên màu",
+        "heading": "Trồng cây gì trong bể cầu vồng",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/1TkcARfJKCQ/p2-c2VtYW5pXzEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/1TkcARfJKCQ/p2-c2VtYW5pXzEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/1TkcARfJKCQ/p5-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/1TkcARfJKCQ/p5-NfUGxhbnRzLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "NasserHalaweh",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaeniidae_Melanotaenia_boesemani_1.jpg",
-          "caption": "Cá cầu vồng màu còn nhợt nhạt, chưa lên màu rực, bơi giữa bể cây."
-        }
-      },
-      {
-        "heading": "Cho cá cầu vồng ăn gì",
-        "moments": [
-          {
-            "t": 673,
-            "url": "https://media.aquatome.com/video/1TkcARfJKCQ/t673.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đàn cá cầu vồng lên màu đỏ rực bơi giữa bể thủy sinh."
-          },
-          {
-            "t": 712,
-            "url": "https://media.aquatome.com/video/1TkcARfJKCQ/t712.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cá cầu vồng nhiều màu bơi quanh lũa và cây trong bể."
-          }
-        ]
-      },
-      {
-        "heading": "Cây nào sống được trong bể cầu vồng nuôi dày",
-        "moments": [
-          {
-            "t": 544,
-            "url": "https://media.aquatome.com/video/1TkcARfJKCQ/t544.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh cá cầu vồng bơi giữa các bụi cây thủy sinh xanh tốt."
-          }
-        ]
-      },
-      {
-        "heading": "Những bài học từ bể đầu tiên",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/1TkcARfJKCQ/p6-0ODQ3NjE5KS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/1TkcARfJKCQ/p6-0ODQ3NjE5KS5qcGc-480.webp",
-          "width": 960,
-          "height": 811,
-          "licence": "Public domain",
-          "author": "Internet Archive Book Images",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20484847619).jpg",
-          "caption": "Sơ đồ mặt cắt bể cá cổ với lớp vật liệu lọc ở đáy và đường ống."
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể thủy sinh với ráy xanh mọc trên lũa, nền cát trắng."
         }
       }
     ]

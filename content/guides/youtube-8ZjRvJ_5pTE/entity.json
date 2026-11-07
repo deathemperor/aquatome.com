@@ -9,7 +9,7 @@
     "paracheirodon-axelrodi",
     "caridina-multidentata"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "8ZjRvJ_5pTE",
     "title": "Kinh nghiệm Phòng tránh RÊU HẠI bể thuỷ sinh #Greenhappiness",
@@ -30,11 +30,11 @@
     "transcribed": true,
     "lang": "vi",
     "taxa": [
-      "Hemianthus callitrichoides",
-      "Paracheirodon axelrodi",
       "Otocinclus sp.",
       "Nerita sp.",
-      "Caridina multidentata"
+      "Caridina multidentata",
+      "Hemianthus callitrichoides",
+      "Paracheirodon axelrodi"
     ],
     "gear": [
       {
@@ -43,32 +43,32 @@
       },
       {
         "category": "den",
-        "t": 245
+        "t": 240
       },
       {
         "category": "khac",
         "brand": "Twinstar",
-        "model": "Twinstar doctor",
+        "model": "Twinstar Doctor",
         "t": 517
       }
     ],
     "figures": [
       {
-        "heading": "Nên nhìn rêu hại thế nào cho đúng",
+        "heading": "Vì sao nên phòng rêu hơn là chữa",
         "moments": [
           {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/t104.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu hại xanh bám kín nền và thành bể."
+            "t": 125,
+            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu tóc phủ dày trong bể, tay đang gỡ từng mảng rêu hại."
           },
           {
-            "t": 114,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/t114.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu hại phủ dày trong bể, lấn cả đám cây thủy sinh."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu hại bám dày kín thảm cây dưới đáy bể."
           }
         ],
         "photo": {
@@ -79,96 +79,68 @@
           "licence": "CC BY 2.0",
           "author": "aquarist.me",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Crab_munching_on_Hair_Algae.jpg",
-          "caption": "Rêu hại mọc thành đám xanh bám trên đá và thành bể."
+          "caption": "Rêu dạng sợi mọc dày phủ kín đá và vật liệu trong bể."
         }
       },
       {
-        "heading": "Bật đèn bao nhiêu tiếng là hợp lý",
+        "heading": "Nguyên tắc 1: giữ bể cân bằng và ổn định",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p1-oeXB1cylfNC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p1-oeXB1cylfNC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p1-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p1-hX3NocmltcC5qcGc-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mini_caulerpa_(Caulerpa_brachypus)_4.jpg",
-          "caption": "Bể thủy sinh với rêu xanh tươi và cây lá đỏ, lên màu đều dưới đèn."
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây xanh tốt, lũa và đá, ánh sáng cân bằng."
         }
       },
       {
-        "heading": "Thay nước thế nào khi bể mới set",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p2-1bV9wbGFudC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p2-1bV9wbGFudC5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Izabela1958",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bacopa_amplexicaulis_Water_hyssop_as_aquarium_plant.jpg",
-          "caption": "Thảm cây thủy sinh lá xanh mướt, mọc dày trong bể trồng cây."
-        }
-      },
-      {
-        "heading": "CO2 chống rêu hại theo cách nào",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p3-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p3-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt, rậm rạp, gần như không có rêu hại."
-        }
-      },
-      {
-        "heading": "Chọn cá, tép, ốc ăn rêu nào",
+        "heading": "Nguyên tắc 2: thả sinh vật ăn rêu",
         "moments": [
           {
-            "t": 416,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/t416.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá nhỏ bơi trong hồ thủy sinh nhiều cây và lũa."
+            "t": 415,
+            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at415-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá neon bơi giữa bể thủy sinh cây xanh um tùm."
           },
           {
-            "t": 481,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/t481.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai con ốc bò trên thân cây giữa thảm cỏ xanh."
+            "t": 425,
+            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at425-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bút chì bơi trong bể thủy sinh có đá và rêu xanh."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p4-mdHdvb2RfMy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p4-mdHdvb2RfMy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p2-mdHdvb2RfMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8ZjRvJ_5pTE/p2-mdHdvb2RfMy5qcGc-480.webp",
           "width": 960,
           "height": 540,
           "licence": "CC BY 4.0",
           "author": "Evan Baldonado",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_Catfish_(Otocinclus_sp.)_on_Malaysian_driftwood_3.jpg",
-          "caption": "Cá otto nhỏ bám trên khúc lũa phủ rêu, đang gặm rêu."
+          "caption": "Cá otto bám trên khúc lũa phủ rêu, đang làm sạch bề mặt."
         }
       },
       {
-        "heading": "Dụng cụ hỗ trợ có đáng dùng không",
+        "heading": "Dụng cụ hỗ trợ",
         "moments": [
           {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/t515.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thiết bị ức chế rêu hại kiểu Twinstar gắn trong bể thủy sinh."
+            "t": 520,
+            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thiết bị ức chế rêu dạng Doctor gắn trong hồ thủy sinh."
           },
           {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/t550.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dao cạo kính lưỡi kim loại đặt trong bể cây xanh tốt."
+            "t": 555,
+            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at555-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lưỡi dao thép cạo kính đặt trong hồ cây xanh mướt."
           }
         ]
       }
