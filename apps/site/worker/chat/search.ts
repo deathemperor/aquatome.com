@@ -39,28 +39,23 @@ export function search(items: Item[], query: string, kind: Item['kind'] | null, 
     .filter(x => x.s > 0).sort((a, b) => b.s - a.s || a.i - b.i).slice(0, max).map(x => x.item)
 }
 
-/** A text's words as written, lowercased and composed: "đèn" (a light) and "đen" (black) fold alike. */
-const writtenOf = (s: string) => s.normalize('NFC').toLowerCase().split(/[^\p{L}\p{M}\p{N}]+/u).filter(Boolean)
-/** A query's words, each folded beside its written form. */
-const terms = (s: string) => writtenOf(s)
-  .flatMap(w => { const f = fold(w); return split(f).filter(x => x.length > 1 || /\d/.test(x)).map(x => ({ f: x, w: x === f ? w : x })) })
+/** The five tone marks, which may sit on either vowel of a pair: "khoẻ" and "khỏe", "hoà" and "hòa", "thuỷ" and "thủy". */
+const TONES = /[\u0300\u0301\u0303\u0309\u0323]/gu
+/** A decomposed word with its tone mark moved to the end: the same word wherever the mark was typed. */
+const toneLast = (d: string) => d.replace(TONES, '') + (d.match(TONES) ?? []).join('')
+/** A word as written, lowercased and decomposed, its tone mark last. */
+const written = (w: string) => toneLast(w.toLowerCase().normalize('NFD'))
+/** A text's words as written: "đèn" (a light) and "đen" (black) fold alike. Decomposed once for the whole text. */
+const writtenOf = (s: string) => s.toLowerCase().normalize('NFD').split(/[^\p{L}\p{M}\p{N}]+/u).filter(Boolean).map(toneLast)
+const LATIN = /\p{Script=Latin}/u
 
-type Topic = { path: string; section: string | null; text: string; folded: string[]; hay: Set<string>; written: string[] }
-/**
- * Each topic's words, worked out once for a topics file (the Worker keeps one per isolate for 10 minutes), and in how
- * many topics each folded word is.
- */
-const folded = new WeakMap<Topics, { list: Topic[]; df: Map<string, number> }>()
+type Topic = { path: string; section: string | null; text: string; folded: string[]; written: string[] }
+/** Each topic's words, folded and as written, worked out once for a topics file (the Worker keeps one per isolate for 10 minutes). */
+const folded = new WeakMap<Topics, Topic[]>()
 const wordsOf = (topics: Topics) => {
   let out = folded.get(topics)
   if (!out) {
-    const df = new Map<string, number>()
-    const list = Object.entries(topics.pages).flatMap(([path, entries]) => entries.map(([section, text]) => {
-      const hay = new Set(words(text))
-      for (const w of hay) df.set(w, (df.get(w) ?? 0) + 1)
-      return { path, section, text, folded: [...hay], hay, written: writtenOf(text) }
-    }))
-    out = { list, df }
+    out = Object.entries(topics.pages).flatMap(([path, entries]) => entries.map(([section, text]) => ({ path, section, text, folded: [...new Set(words(text))], written: writtenOf(text) })))
     folded.set(topics, out)
   }
   return out
@@ -78,37 +73,52 @@ const within = (words: string[], w: string) => words.some(h => h === w || (h.len
  *
  * A word weighs by how rare it is among the topics, so "cá", "có" or "không" weigh little and "ốc" or "otto" much, and
  * a topic is a match when it has three fifths of the query's weight: "ốc bùng phát" finds where snails come from, though
- * that heading has no "phát", and "tép chết" finds shrimp, not every death. A word no topic has weighs nothing. When the query has accents, a word that matches only once they are
- * folded away (râu for rau, đen for đèn) weighs half. Among matches, the topic with more of the query, then the one with
- * fewer other words, comes first.
+ * that heading has no "phát", and "tép chết" finds shrimp, not every death. A word no topic has weighs nothing. When the
+ * query has accents, a word's rarity is counted as written (nấm, fungus, is rare though nam also folds năm and Nam), and
+ * a word that matches only once they are folded away (râu for rau, đen for đèn) weighs half; a tone mark may sit on
+ * either vowel. Among matches, the topic with more of the query, then the one with fewer other words, comes first.
  */
 export function searchTopics(topics: Topics, byPath: (path: string) => Item | undefined, query: string, max = 12): TopicHit[] {
-  const { list, df } = wordsOf(topics)
-  const q = [...new Map(terms(query).map(t => [t.f, t])).values()]
-  const accented = q.some(t => t.w !== t.f)
-  const weighed = q.map(t => {
-    let n = df.get(t.f) ?? 0
-    if (t.f.length > 3) for (const [w, k] of df) if (w !== t.f && w.length > 3 && w.startsWith(t.f)) n += k
-    return { ...t, weight: n ? Math.log((list.length + 1) / Math.min(n, list.length)) : 0 }
-  }).filter(t => t.weight > 0)
-  const total = weighed.reduce((sum, t) => sum + t.weight, 0)
+  const list = wordsOf(topics)
+  // The query's words, a word asked twice once, with every way it was written.
+  const byFold = new Map<string, Set<string>>()
+  for (const w of query.toLowerCase().split(/[^\p{L}\p{M}\p{N}]+/u).filter(Boolean)) {
+    const f = fold(w)
+    for (const x of split(f).filter(x => x.length > 1 || /\d/.test(x))) byFold.set(x, (byFold.get(x) ?? new Set()).add(x === f ? written(w) : x))
+  }
+  const accented = [...byFold].some(([f, ws]) => [...ws].some(w => w !== f))
+  const want = [...byFold].map(([f, ws]) => ({ f, ws: [...ws], checked: accented && [...ws].some(w => LATIN.test(w)) }))
+  if (!want.length) return []
+  // Which topics have each word, folded and as written; a topic counted once however often it has the word.
+  const near = want.map(() => 0)
+  const exact = want.map(() => 0)
+  const found: { topic: Topic; near: boolean[]; exact: boolean[] }[] = []
+  for (const topic of list) {
+    const n = want.map(t => within(topic.folded, t.f))
+    if (!n.some(Boolean)) continue
+    const e = want.map((t, i) => n[i]! && t.ws.some(w => within(topic.written, w)))
+    n.forEach((x, i) => { if (x) near[i]!++; if (e[i]) exact[i]!++ })
+    found.push({ topic, near: n, exact: e })
+  }
+  const weight = want.map((t, i) => { const k = t.checked ? exact[i] || near[i]! : near[i]!; return k ? Math.log((list.length + 1) / k) : 0 })
+  const total = weight.reduce((sum, w) => sum + w, 0)
   if (!(total > 0)) return []
   const best = new Map<string, TopicHit & { share: number; fit: number }>()
-  for (const { path, section, text, folded: words, hay, written } of list) {
+  for (const { topic, near: n, exact: e } of found) {
     let got = 0
     let hits = 0
-    for (const t of weighed) {
-      if (!hay.has(t.f) && !within(words, t.f)) continue
+    want.forEach((t, i) => {
+      if (!n[i] || !weight[i]) return
       hits++
-      got += !accented || within(written, t.w) ? t.weight : t.weight / 2
-    }
+      got += !t.checked || e[i] ? weight[i]! : weight[i]! / 2
+    })
     const share = got / total
     if (share < 0.6) continue
-    const item = byPath(path)
+    const item = byPath(topic.path)
     if (!item) continue
-    const fit = hits / words.length
-    const was = best.get(path)
-    if (!was || share > was.share || (share === was.share && fit > was.fit)) best.set(path, { item, section, text, share, fit })
+    const fit = hits / topic.folded.length
+    const was = best.get(topic.path)
+    if (!was || share > was.share || (share === was.share && fit > was.fit)) best.set(topic.path, { item, section: topic.section, text: topic.text, share, fit })
   }
   return [...best.values()].sort((a, b) => b.share - a.share || b.fit - a.fit).slice(0, max).map(({ share: _, fit: __, ...hit }) => hit)
 }
