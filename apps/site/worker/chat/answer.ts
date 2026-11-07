@@ -103,12 +103,21 @@ const slugOf = (path: string) => path.split('/').filter(Boolean).at(-1) ?? ''
 export function matesOf(fish: readonly { id: string; count: number }[], hb: Handbook): { item: Item; count: number }[] {
   const out = new Map<string, { item: Item; count: number }>()
   for (const f of fish) {
-    const i = hb.byId(f.id)
-    const s = i?.of ? hb.byId(i.of) : i
-    if (s?.kind === 'fish' && out.size < MAX_FISH && !out.has(slugOf(s.path))) out.set(slugOf(s.path), { item: s, count: Math.min(200, Math.max(1, Math.round(f.count))) })
+    const s = speciesOf(f.id, hb)
+    if (s && out.size < MAX_FISH && !out.has(slugOf(s.path))) out.set(slugOf(s.path), { item: s, count: Math.min(200, Math.max(1, Math.round(f.count))) })
   }
   return [...out.values()]
 }
+
+/** The fish an id is (a breed: its species), or undefined for an id that isn't a fish. */
+function speciesOf(id: string, hb: Handbook): Item | undefined {
+  const i = hb.byId(id)
+  const s = i?.of ? hb.byId(i.of) : i
+  return s?.kind === 'fish' ? s : undefined
+}
+
+/** The ids among these that aren't fish (a plant, a typo): a tank-mates check or block that names one checks the rest only. */
+export const notFish = (fish: readonly { id: string }[], hb: Handbook) => fish.map(f => f.id).filter(id => !speciesOf(id, hb))
 
 /** Fish as a tank-mates link names them, in one key: "ca-betta:1,ca-neon-xanh:10", sorted (a check's, a block's). */
 export const matesKey = (fish: readonly { path: string; count: number }[]) => fish.map(f => `${slugOf(f.path)}:${f.count}`).sort().join(',')
@@ -157,6 +166,9 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
           // The tool's own link (its page's ?ca=slug:n), each fish as the species it is a form of, once, at most six.
           const fish = matesOf(p.fish, hb)
           if (!fish.length) return `tool: tank-mates with none of ${JSON.stringify(p.fish.map(f => f.id))}`
+          // An id that isn't a fish would leave the rest, perhaps one fish, which goes out unchecked: not shown.
+          const odd = notFish(p.fish, hb)
+          if (odd.length) return `tool: tank-mates with ${JSON.stringify(odd)}, not fish`
           const key = matesKey(fish.map(f => ({ path: f.item.path, count: f.count })))
           const size = (t: { l: number; w: number; h: number } | null | undefined) => (t ? [t.l, t.w, t.h].map(r1).join('×') : '')
           const check = fish.length >= 2 ? checks.find(c => matesKey(c.fish) === key && size(c.tank) === size(tank)) : undefined

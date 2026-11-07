@@ -93,7 +93,7 @@ const WRITTEN: Question[] = [
   { set: 'start', q: 'Cá betta nuôi chung với cá bảy màu được không?', start: {}, want: { read: ['/vi/ca/ca-betta/', '/vi/ca/ca-bay-mau/'], show: ['tool:tank-mates', 'compare:betta-splendens+poecilia-reticulata'] } },
   // Fish the tank-mates check says no to: the text says what the block under it shows.
   { set: 'start', q: 'Cá betta nuôi chung với cá neon xanh được không?', start: {}, want: { read: ['/vi/ca/ca-betta/', '/vi/ca/ca-neon-xanh/'], show: ['tool:tank-mates'] } },
-  { set: 'start', q: 'Bể 100 lít thả 2 con cá ông tiên với 10 con neon xanh được không?', start: {}, want: { read: ['/vi/ca/ca-ong-tien/', '/vi/ca/ca-neon-xanh/'], show: ['tool:tank-mates'] } },
+  { set: 'start', q: 'Bể dài 80, rộng 35, cao 45 cm thả 2 con cá ông tiên với 10 con neon xanh được không?', start: {}, want: { read: ['/vi/ca/ca-ong-tien/', '/vi/ca/ca-neon-xanh/'], show: ['tool:tank-mates'] } },
   { set: 'start', q: 'Bể của tôi dài 60, rộng 30, cao 36 cm thì chứa được bao nhiêu lít nước?', start: {}, want: { show: ['tool:tank-volume'] } },
   { set: 'start', q: 'Thả 5 con thì cần bể lớn cỡ nào?', start: { from: 'species', about: 'symphysodon-aequifasciatus' }, want: { read: ['/vi/ca/ca-dia-nau/'], show: ['species:symphysodon-aequifasciatus', 'tool:tank-mates', 'tool:tank-volume'] } },
   { set: 'outside', q: 'Thời tiết Hà Nội ngày mai thế nào?', start: {}, want: { covered: false, none: true } },

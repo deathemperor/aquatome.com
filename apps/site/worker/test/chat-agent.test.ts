@@ -157,7 +157,11 @@ test('check_tank_mates checks fish as the tank-mates tool does, in the reader\'s
   expect(out.tank).toBeNull()
   expect(out).not.toHaveProperty('stocking')
   expect(checks).toEqual([out])
-  await expect(tool.run({ fish: [{ id: 'no-such-fish', count: 2 }], tank: null }, { photosLeft: 0 })).rejects.toThrow('None of these ids is a fish')
+  // An id that isn't a fish (a plant, a typo) is refused by name, not left out: the rest may be one fish, unchecked.
+  await expect(tool.run({ fish: [{ id: 'no-such-fish', count: 2 }], tank: null }, { photosLeft: 0 })).rejects.toThrow('Not fish: no-such-fish.')
+  await expect(tool.run({ fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'anubias-barteri-nana', count: 1 }], tank: null }, { photosLeft: 0 })).rejects.toThrow('Not fish: anubias-barteri-nana.')
+  await expect(tool.run({ fish: [], tank: null }, { photosLeft: 0 })).rejects.toThrow('None of these ids is a fish')
+  expect(checks).toEqual([out])
   const two = [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'symphysodon-aequifasciatus', count: 2 }]
   // In the reader's language: the check's own words, as the site's Indonesian tool has them (the fixture's Indonesian
   // index is too small for these fish: the Vietnamese one, read as Indonesian).
@@ -190,6 +194,9 @@ test('check_tank_mates checks fish as the tank-mates tool does, in the reader\'s
   const one = await fill(answer([mates([{ id: 'paracheirodon-innesi', count: 8 }])]), h)
   expect(one.dropped).toEqual([])
   expect(one.blocks[0]).not.toHaveProperty('check')
+  // A block naming something that isn't a fish isn't shown: its one fish left would go out unchecked.
+  const plant = await fill(answer([mates([{ id: 'paracheirodon-innesi', count: 8 }, { id: 'anubias-barteri-nana', count: 1 }])]), h)
+  expect(plant).toEqual({ blocks: [], dropped: ['tool: tank-mates with ["anubias-barteri-nana"], not fish'] })
 })
 
 test('a section is every block under its heading, to the next heading, however many: the part of the page the site draws', async () => {

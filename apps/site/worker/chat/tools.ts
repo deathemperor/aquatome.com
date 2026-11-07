@@ -1,5 +1,6 @@
 import type { Block, Inline, PageDoc } from '@aq/schema/app-page'
 import type { Tool } from '../agent/tools'
+import { notFish } from './answer'
 import { figuresOf, sectionsOf, type Handbook, type Item } from './handbook'
 import { checkMates, type MatesCheck } from './mates'
 import { search, searchTopics } from './search'
@@ -117,7 +118,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
     },
     {
       name: 'check_tank_mates',
-      description: 'Check fish together as the handbook\'s tank-mates tool does: the same check a tank-mates block shows under your answer. It gives the verdict (answer: level no, care, unsure or yes, its head and reasons), the warnings (who may eat or nip whom, temperaments), and with the tank\'s inside size how full the fish would make it; without a size, the shortest tank they all need. In the reader\'s language. Call it whenever the reader asks whether fish can live together, and before you add a tank-mates block, with the same fish and counts as the block: a block of fish you didn\'t check isn\'t shown. Open your text with the verdict\'s head word for word, then say why from its reasons; never the opposite. A breed is checked as its species; at most six kinds.',
+      description: 'Check fish together as the handbook\'s tank-mates tool does: the same check a tank-mates block shows under your answer. It gives the verdict (answer: level no, care, unsure or yes, its head and reasons), the warnings (who may eat or nip whom, temperaments), and with the tank\'s inside size how full the fish would make it; without a size, the shortest tank they all need. In the reader\'s language. Call it whenever the reader asks whether fish can live together, and before you add a tank-mates block, with the same fish, counts and tank as the block: a block you didn\'t check so isn\'t shown. Fish only: an id that isn\'t a fish is refused. Open your text with the verdict\'s head word for word, then say why from its reasons; never the opposite. A breed is checked as its species; at most six kinds.',
       input_schema: strict({
         fish: {
           type: 'array',
@@ -126,11 +127,14 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         },
         tank: {
           anyOf: [strict({ l: { type: 'number' }, w: { type: 'number' }, h: { type: 'number' } }), { type: 'null' }],
-          description: 'The tank\'s inside length, width and height in cm, or null.',
+          description: 'The tank\'s inside length, width and height in cm, as the block will have them, or null when it has none.',
         },
       }),
       run: async input => {
-        const r = checkMates(input.fish as { id: string; count: number }[], input.tank as { l: number; w: number; h: number } | null, d.handbook)
+        const fish = input.fish as { id: string; count: number }[]
+        const odd = notFish(fish, d.handbook)
+        if (odd.length) throw new Error(`Not fish: ${odd.join(', ')}. Check fish only, by the ids search_handbook gives.`)
+        const r = checkMates(fish, input.tank as { l: number; w: number; h: number } | null, d.handbook)
         if (!r.fish.length) throw new Error('None of these ids is a fish: search_handbook gives the ids.')
         d.checks?.push(r)
         return JSON.stringify(r)
