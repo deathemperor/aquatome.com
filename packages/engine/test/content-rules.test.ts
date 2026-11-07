@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
@@ -399,4 +399,19 @@ test('a page saying AquaTome controls a product it doesn\'t: Week Aqua in progre
   const lines = [{ field: 'summary.0', text: 'Bạn có thể điều khiển đèn này bằng AquaTome.' }]
   expect(found(page({ kind: 'products', control: false, lines }), 'control-claim')).toHaveLength(1)
   expect(found(page({ kind: 'products', control: true, lines }), 'control-claim')).toEqual([])
+})
+
+// 2026-11-07, a design lab: "que thử đa chỉtiêu" in the tank-cycling guide, a translation's typo. A Vietnamese word is one
+// syllable, so a word that reads as two is two words run together; a loanword written as one ("nitơ") is not.
+test('two Vietnamese syllables written as one word are found; one syllable, loanwords and other languages are not', () => {
+  expect(gluedSyllables('Đo bằng que thử amoniac và que thử đa chỉtiêu.')).toEqual(['chỉtiêu'])
+  // Items of a list run together (the least killifish's page): every one of them.
+  expect(gluedSyllables('Sống bầy đàn: cóMức độ hoạt động: vừa phảiVị trí: tầng giữaHiền: có')).toEqual(['cóMức', 'phảiVị', 'giữaHiền'])
+  const fine = 'nghiêng khuỷu người quyết giường thuở ngoằn ngoèo Nguyễn Việt khuya xoăn huơ gì quá chỉ tiêu nitơ Nitơ nơron ôxy kilômét hiđrô'
+    + ' contain Solimões São Amazônia Ramírez Pokémon Châu Phi đ'
+  expect(gluedSyllables(fine)).toEqual([])
+  const p = (lang: 'vi' | 'id', html: string) => page({ lang, fields: [{ field: 'body', html }] })
+  expect(found(p('vi', '<p>Que thử đa chỉtiêu.</p><ul><li>có</li><li>Mức độ</li></ul>'), 'glued')).toEqual(['"chỉtiêu"'])
+  expect(found(p('vi', 'Sống bầy đàn: cóMức độ hoạt động'), 'glued')).toEqual(['"cóMức"']) // text with no tags at all
+  expect(found(p('id', '<p>chỉtiêu</p>'), 'glued')).toEqual([])
 })

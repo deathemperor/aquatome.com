@@ -1,0 +1,67 @@
+{
+  "id": "corydoras-fulleri",
+  "native": {
+    "input": "e27c3f0aef1e8830",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Rio Madre de Dios, Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Madre de Dios",
+        "source": "planetcatfish",
+        "quote": "Rio Madre de Dios, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "planetcatfish",
+        "quote": "Amazon, Middle Amazon (Solimoes), Madeira, Madre de Dios.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "Amazon, Middle Amazon (Solimoes), Madeira, Madre de Dios.",
+        "ok": true
+      },
+      {
+        "name": "Manuripe",
+        "source": "planetcatfish",
+        "quote": "Type locality: stream tributary of the upper río Manuripe (or Manuripi), locally known as Alegría, a tributary of the río Orthon, rio Madeira basin, Las Piedras, Tambopata, Madre de Dios, Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras fulleri",
+    "status": "ACCEPTED",
+    "taxonKey": 11199631,
+    "datasets": [
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

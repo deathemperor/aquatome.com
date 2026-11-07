@@ -74,7 +74,7 @@ export function pageOf(key: string): PageRef {
   return { lang: path.slice(0, slash), id: path.slice(slash + 1), ...(part ? { part } : {}) }
 }
 
-export async function readReviews(root: string, kind: ReviewKind): Promise<Store> {
+async function readStore(root: string, kind: ReviewKind): Promise<Store> {
   try {
     return JSON.parse(await readFile(reviewFile(root, kind), 'utf8')) as Store
   } catch (e) {
@@ -85,6 +85,12 @@ export async function readReviews(root: string, kind: ReviewKind): Promise<Store
 
 // One write at a time a file in this process (summaries run several pages at once).
 const queues = new Map<string, Promise<unknown>>()
+
+/** A kind's reviews, once this process's writes to its file are done (a read during one would find half a file). */
+export async function readReviews(root: string, kind: ReviewKind): Promise<Store> {
+  await queues.get(reviewFile(root, kind))?.catch(() => undefined)
+  return readStore(root, kind)
+}
 
 /**
  * One page's reviews from one run: `tries` in order (the first version's, then the rewrite's), and `kept`, the one whose
@@ -102,7 +108,7 @@ export function logReviews(root: string, kind: ReviewKind, page: PageRef, tries:
   }))
   const file = reviewFile(root, kind)
   const next = (queues.get(file) ?? Promise.resolve()).catch(() => undefined).then(async () => {
-    const store = await readReviews(root, kind)
+    const store = await readStore(root, kind)
     const key = reviewKey(page)
     store[key] = [...traces.reverse(), ...(store[key] ?? [])].slice(0, KEEP)
     await mkdir(join(root, 'engine-state', 'reviews'), { recursive: true })

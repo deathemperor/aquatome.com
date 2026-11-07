@@ -12,6 +12,89 @@
     "peru",
     "nanay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Tigre",
+        "Nanay",
+        "Amazon",
+        "Conambo"
+      ],
+      "sources": [
+        "planetcatfish",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Conambo at mouth of River Shione, Río Tigre system, Pastaza State, Ecuador.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The fairy cory, Hoplisoma atropersonatum, long known as Corydoras atropersonatus, is an armoured catfish known only from the Tigre and Nanay drainages in Ecuador and Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Tigre",
+            "Nanay"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon, Upper Amazon, Tigre, Upper Tigre, Conambo and Nanay.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Conambo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342683,
+      "total": 20,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          18
+        ],
+        [
+          "EC",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          17,
+          17
+        ],
+        [
+          -71.71875,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

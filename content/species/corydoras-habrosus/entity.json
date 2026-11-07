@@ -12,6 +12,131 @@
     "venezuela",
     "apure"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Río Orinoco",
+        "Río Apure",
+        "Río Arauca",
+        "Río Meta",
+        "Llanos Orientales"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "C. habrosus originates from the Orinoco drainage (Colombia and Venezuela).",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the upper Río Orinoco basin in eastern Colombia and western Venezuela, where it appears to be restricted to left bank tributaries.",
+          "countries": [],
+          "regions": [
+            "Río Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records derive from the Río Apure watershed in southwestern Venezuela, where Hoplisoma habrosum has been collected in the states of Portuguesa, Cojedes, Barinas, Guárico, and Apure.",
+          "countries": [],
+          "regions": [
+            "Río Apure"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its distribution in Colombia is less clear but it is known with certainty from the Río Arauca and Río Casanare, the latter a tributary of the lower Río Meta, and it makes sense that it should also be found in other left bank Orinoco affluents between the Meta and Apure, which include the ríos Cinaruco and Capanaparo.",
+          "countries": [],
+          "regions": [
+            "Río Arauca",
+            "Río Meta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species occurs in the Llanos Orientales region, a vast tropical grassland plain traversed by the Orinoco and some of its major left bank tributaries.",
+          "countries": [],
+          "regions": [
+            "Llanos Orientales"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342708,
+      "total": 104,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "VE",
+          94
+        ],
+        [
+          "CO",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -71.71875,
+          7.03125,
+          14,
+          14
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          18,
+          18
+        ],
+        [
+          -70.3125,
+          8.4375,
+          57,
+          57
+        ],
+        [
+          -68.90625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

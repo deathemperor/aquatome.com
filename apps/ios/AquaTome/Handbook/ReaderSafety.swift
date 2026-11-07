@@ -191,7 +191,9 @@ struct BlockedList: View {
         Spacer()
         // The button alone, not the row: a tap on the name doesn't let them back.
         Button("Bỏ chặn") { handbook.safety.unblock(b.key) }
-          .buttonStyle(.borderless)
+          .buttonStyle(.bordered)
+          .buttonBorderShape(.capsule)
+          .controlSize(.small)
           .accessibilityLabel(Text("Bỏ chặn \(b.name)"))
           .accessibilityIdentifier("unblock")
       }
@@ -199,19 +201,29 @@ struct BlockedList: View {
   }
 }
 
-/// "Người đã chặn", in the Tài khoản sheet under the account: there with accounts on or off, once anyone is blocked.
-struct BlockedSection: View {
+/// "Người đã chặn", opened from the Tài khoản sheet's privacy section: each poster blocked on this phone, to let back.
+/// After the last, it says nobody is (and the sheet's row goes).
+struct BlockedPage: View {
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
-    if !handbook.safety.blocked.isEmpty {
-      Section {
-        BlockedList()
-      } header: {
-        Text("Người đã chặn").accessibilityIdentifier("blocked-header")
-      } footer: {
-        Text("Bình luận và ảnh của những người này đang ẩn trên máy này.")
+    List {
+      if !handbook.safety.blocked.isEmpty {
+        Section {
+          BlockedList()
+        } footer: {
+          Text("Bình luận và ảnh của những người này đang ẩn trên máy này.")
+        }
       }
     }
+    .overlay {
+      if handbook.safety.blocked.isEmpty {
+        ContentUnavailableView("Bạn chưa chặn ai", systemImage: "hand.raised",
+                               description: Text("Bình luận và ảnh của mọi người đều hiện trên máy này."))
+          .accessibilityIdentifier("blocked-none")
+      }
+    }
+    .navigationTitle("Người đã chặn")
+    .navigationBarTitleDisplayMode(.inline)
   }
 }

@@ -1,0 +1,80 @@
+{
+  "id": "corydoras-condiscipulus",
+  "native": {
+    "input": "901cec5946ecf9cc",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Oyapock (Oiapoque) river system in French Guiana and Amapá state, Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Oyapock (Oiapoque) river system in French Guiana and Amapá state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Oyapock",
+        "source": "seriouslyfish",
+        "quote": "Native to the Oyapock (Oiapoque) river system in French Guiana and Amapá state, Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras condiscipulus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342659,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        24
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        15
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "GF",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

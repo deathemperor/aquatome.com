@@ -1,0 +1,104 @@
+{
+  "id": "corydoras-agassizii",
+  "native": {
+    "input": "7c22654007c1be4e",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brochis agassizii, long known as Corydoras agassizii, is an armoured catfish from the Amazon around the border of Brazil and Peru, described from near Tabatinga.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brochis agassizii, long known as Corydoras agassizii, is an armoured catfish from the Amazon around the border of Brazil and Peru, described from near Tabatinga.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Amazon River near Tabatinga, Amazonas, Brazil'.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Nanay, more than 200 kilometres upstream of the type locality, so it appears to range at least as far as the city of Iquitos in Loreto Regio, Peru, but distribution is usually given as 'Amazon River basin near border of Brazil and Peru'.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Amazon River near Tabatinga, Amazonas, Brazil'.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Río Nanay",
+        "source": "seriouslyfish",
+        "quote": "Records exist from the Río Nanay, more than 200 kilometres upstream of the type locality, so it appears to range at least as far as the city of Iquitos in Loreto Regio, Peru, but distribution is usually given as 'Amazon River basin near border of Brazil and Peru'.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras agassizii",
+    "status": "ACCEPTED",
+    "taxonKey": 2342761,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

@@ -369,6 +369,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "pH: maintain pH at 8.1–8.4 for the snails to thrive in a saltwater aquarium."
+  },
   "dataCard": {
     "tempC": [
       {

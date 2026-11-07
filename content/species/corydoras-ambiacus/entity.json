@@ -15,6 +15,170 @@
     "ecuador",
     "napo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR",
+        "CO",
+        "EC"
+      ],
+      "regions": [
+        "Río Ampiyacu",
+        "Napo",
+        "Yavarí",
+        "Nanay",
+        "Ucayali"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis ambiacus, long known as Corydoras ambiacus, is an armoured catfish from the upper Amazon tributaries of Peru, Brazil, Colombia and Ecuador, described from the Río Ampiyacu.",
+          "countries": [
+            "PE",
+            "BR",
+            "CO",
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Río Ampiyacu, a small tributary draining into the main Amazon channel in Loreto Department, northeastern Peru, with additional records from the Yavarí (Javari), Napo, Nanay, and lower Ucayali drainage basins.",
+          "countries": [],
+          "regions": [
+            "Río Ampiyacu",
+            "Napo",
+            "Yavarí",
+            "Nanay",
+            "Ucayali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342669,
+      "total": 36,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          17
+        ],
+        [
+          "BR",
+          13
+        ],
+        [
+          "EC",
+          3
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -26,6 +26,436 @@
     "cayman-islands",
     "grenada"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "BR",
+        "TT",
+        "BS"
+      ],
+      "regions": [
+        "Orinoco Delta",
+        "Amazon",
+        "Rio Xingu",
+        "Greater Antilles",
+        "Lesser Antilles"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The banded puffer, Colomesus psittacus, is a large puffer of coastal waters from Colombia and Venezuela through the Guianas to northeastern Brazil.",
+          "countries": [
+            "CO",
+            "VE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in Trinidad and Tobago and the Caribbean islands, and inhabits mangrove swamps, estuaries and the lower reaches of rivers.",
+          "countries": [
+            "TT"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is also known from Trinidad and Tobago and Caribbean islands including the Greater Antilles, Lesser Antilles, and Bahamas.",
+          "countries": [
+            "BS"
+          ],
+          "regions": [
+            "Greater Antilles",
+            "Lesser Antilles"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' known range extends eastwards from the Parque Nacional Natural Tayrona in Magdalena Department, Colombia, across northern Venezuela, the Gulf of Paria and Orinoco Delta, then southwards via the Guyanas and past the mouth of the Amazon, with the southernmost records from Sergipe state in northeastern Brazil.",
+          "countries": [],
+          "regions": [
+            "Orinoco Delta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Although it does penetrate the lower basins of rivers, particularly the Amazon where it has been collected from the rio Xingu several hundred kilometres from its mouth, this species is predominantly an inhabitant of mangrove swamps, estuaries, and other such saline habitats.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407611,
+      "total": 558,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GF",
+          251
+        ],
+        [
+          "BR",
+          219
+        ],
+        [
+          "GY",
+          38
+        ],
+        [
+          "SR",
+          16
+        ],
+        [
+          "VE",
+          15
+        ],
+        [
+          "PE",
+          11
+        ],
+        [
+          "TT",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          -77.34375,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          9.84375,
+          8,
+          8
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          113,
+          113
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          13,
+          0
+        ],
+        [
+          -60.46875,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          10,
+          0
+        ],
+        [
+          -59.0625,
+          7.03125,
+          10,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          5.625,
+          7,
+          0
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          9,
+          0
+        ],
+        [
+          -54.84375,
+          5.625,
+          22,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          195,
+          0
+        ],
+        [
+          -52.03125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          3,
+          2
+        ],
+        [
+          -52.03125,
+          4.21875,
+          22,
+          1
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          0,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          20,
+          20
+        ],
+        [
+          -49.21875,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          13,
+          13
+        ],
+        [
+          -47.8125,
+          0,
+          1,
+          1
+        ],
+        [
+          -45,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -2.8125,
+          14,
+          14
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -37.96875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -36.5625,
+          -11.25,
+          6,
+          6
+        ],
+        [
+          -35.15625,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -35.15625,
+          -7.03125,
+          16,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

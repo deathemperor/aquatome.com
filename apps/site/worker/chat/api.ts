@@ -6,7 +6,7 @@ import { accountDayKey } from '../comments/api'
 import { kvHealth } from '../fishid/api'
 import { clientFor, costOf, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { failed, healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
-import { ledgerClient } from '../fishid/ledger'
+import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
@@ -64,7 +64,6 @@ const PER_ACCOUNT = 30
 const PER_DAY = 1000
 const MAX_TURNS = 20
 const MAX_CHARS = 500
-const USD_PER_DAY = 15
 const CONVERSATION_MS = 24 * 3600_000
 /** A kept turn answers retries for a conversation's life: a reader back hours later (a call, a locked phone) gets the
  * answer that landed, not a second run. Past it, the conversation has ended too: a retry is 410, never counted again. */
@@ -228,8 +227,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const ledger = ledgerClient(env.FISHID_LEDGER)
   const day = now.toISOString().slice(0, 10)
   const reader = `chat:acct:${(await accountDayKey(env.COMMENT_HMAC_KEY, session.userId, now)).slice(3)}`
-  const usdCap = Number(env.FISH_ID_USD_PER_DAY) > 0 ? Number(env.FISH_ID_USD_PER_DAY) : USD_PER_DAY
-  const admitted = await ledger.admit({ day, reader, perReader: perAccount, perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap, reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat' })
+  const admitted = await ledger.admit({ day, reader, perReader: perAccount, perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap: usdCap(env.FISH_ID_USD_PER_DAY), reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat' })
     .catch(e => { console.error('chat ledger:', e); return null })
   if (!admitted) return json({ error: 'unavailable' }, 503)
   if (!admitted.ok) return admitted.error === 'rate' ? json({ error: 'rate', limit: admitted.limit }, 429) : json({ error: admitted.error }, admitted.error === 'busy' ? 429 : 503)

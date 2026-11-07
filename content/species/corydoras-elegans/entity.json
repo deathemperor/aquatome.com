@@ -18,6 +18,213 @@
     "itaya",
     "solimoes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE",
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Ucayali",
+        "Napo",
+        "Solimões",
+        "Marañón"
+      ],
+      "sources": [
+        "planetcatfish",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Amazon River at Tefé, Amazonas, Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil.",
+          "countries": [
+            "PE",
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is fairly widespread in the western Amazon basin and has been recorded in the Ríos Yavarí (Javary), Itaya, Nanay, Carahuayte, Tamaya, Ampiyacu, and Ucayali in Peru, the Ríos Aguarico and Napo in Ecuador, and the rio Solimões in Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Ucayali",
+            "Napo",
+            "Solimões"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon basin, including the Middle Amazon (Solimões), Upper Amazon, Napo, Aguarico, Marañón, Ucayali, Tamaya, Ampiyacu, Nanay, Yavari and Japurá/Caquetá.",
+          "countries": [],
+          "regions": [
+            "Marañón"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342623,
+      "total": 62,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          34
+        ],
+        [
+          "BR",
+          21
+        ],
+        [
+          "CO",
+          4
+        ],
+        [
+          "SR",
+          2
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          14,
+          14
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          5,
+          3
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

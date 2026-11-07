@@ -35,9 +35,8 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 log "videos start"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
-# Guides under the bar whose review left no notes (written before reviews were kept), reviewed again against their
-# transcript, nothing rewritten: the owner's videos first, REVIEW_BACKFILL_LIMIT a run (engine-state/reviews/video-guide.json).
-pnpm engine review-backfill --kind video-guide --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
+# Guides are checked again (review-backfill) and redone from the notes by their own hourly job, video-recheck.sh, not
+# here: the two jobs never check one guide at once.
 pnpm engine video-items --limit 20 || log "video-items: failed"
 # The species-profile channels (species-videos.ts PROFILE_CHANNELS): their new uploads vetted by title, then a few profile
 # videos a run into species and plant pages (a new species page is a web research call), each tried once
@@ -49,9 +48,12 @@ pnpm engine discover-videos || log "discover-videos: failed"
 # About 80 s a guide (2026-11-06: 6 to 17 stills, 8–9 s each): 12 a run is about 15 minutes, and 8 runs a day finish
 # the 472 guides in about 5 days. Then it finds none and calls nothing.
 pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-12}" || log "video-stills: failed"
-# Photos that show their page's fish, plant or breed (the GitHub engine's account runs out of model calls mid-week):
-# 20 calls a run, most-read pages first, verdicts cached.
+# Photos that show their page's fish, plant or breed, with no person or logo (the GitHub engine's account runs out of
+# model calls mid-week): 20 calls a run, most-read pages first, verdicts cached.
 pnpm engine check-photos --limit 20 || log "check-photos: failed"
+# New guides' photos, their video sections' photos and their stills: no people, no logos (guide-photos.ts), 20 calls a
+# run, leads first, stills last; after video-stills, so a frame it just made can be judged in the same run.
+pnpm engine guide-photos --limit 20 || log "guide-photos: failed"
 # No dead fish on a page (dead-screen.ts): video thumbnails and main photos the photo check never asked about, 48 a run
 # (4 model calls); a dead one leaves every page for good.
 pnpm engine dead-screen --limit "${DEAD_SCREEN_LIMIT:-48}" || log "dead-screen: failed"

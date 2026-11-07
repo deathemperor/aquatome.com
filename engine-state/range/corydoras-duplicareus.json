@@ -1,0 +1,43 @@
+{
+  "id": "corydoras-duplicareus",
+  "native": {
+    "input": "d632402fba290424",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a small portion of the upper rio Negro system in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Known only from a small portion of the upper rio Negro system in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras duplicareus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342771,
+    "datasets": [],
+    "native": [
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}
