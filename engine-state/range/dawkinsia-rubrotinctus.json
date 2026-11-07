@@ -1,0 +1,50 @@
+{
+  "id": "dawkinsia-rubrotinctus",
+  "native": {
+    "input": "aab13f89f891a1b4",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Dawkinsia rubrotincta is a cyprinid from southern India, considered widespread throughout the Cauvery drainage in Karnataka, Kerala and Tamil Nadu.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Dawkinsia rubrotincta is a cyprinid from southern India, considered widespread throughout the Cauvery drainage in Karnataka, Kerala and Tamil Nadu.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kabini",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the Mananthavadi River, a tributary of the Kabini river system within the larger Cauvery watershed in Wayanad District of Kerala state, southern India, but it's now considered widespread throughout the Cauvery drainage in the states of Karnataka, Kerala and Tamil Nadu.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dawkinsia rubrotinctus",
+    "status": "ACCEPTED",
+    "taxonKey": 7513872,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

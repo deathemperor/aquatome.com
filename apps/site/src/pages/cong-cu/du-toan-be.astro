@@ -9,6 +9,7 @@ const { t, lang, locale } = i18n(Astro.url)
 // Shop links search Vietnamese marketplaces: the Vietnamese page only, as on the equipment pages.
 const vn = lang === 'vi'
 const country = COUNTRY_OF[lang]
+if (!country) throw new Error(`the setup budget in ${lang}: no country's tariff for it (scripts/budget.ts COUNTRY_OF)`)
 // The page as it loads, and without a script: a 60 cm tank, mid-range, no CO₂ or smart gear, the page's own country.
 const start: Input = { size: { l: 60, w: 30, h: 36 }, tier: 'tam-trung', co2: false, smart: false, country, tariff: TARIFFS[country].pick, foodMonths: 1 }
 const p = plan(start)!

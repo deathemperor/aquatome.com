@@ -12,6 +12,61 @@
     "thailand",
     "nong-bua-lamphu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Nam Leuk",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Nam Leuk river drainage both upstream and downstream of Tad Leuk waterfall, Phou Khao Khouay National Park, Vientiane Province, northwestern Laos, and subsequently recorded in Nong Bua Lamphu province, northeastern Thailand.",
+          "countries": [
+            "LA",
+            "TH"
+          ],
+          "regions": [
+            "Nam Leuk"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Nam Leuk is part of the much larger Mekong River system but has suffered serious degradation since the completion of the Nam Leuk Hydroelectric Project in 1999.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361538,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "LA",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          18.28125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -15,7 +15,7 @@ async function subjects(page: Page) {
   return (await chips.allTextContents()).map((text, i) => ({ text, n: count(text), chip: chips.nth(i) }))
 }
 
-for (const [path, lang] of [['/huong-dan/', 'vi'], ['/id/panduan/', 'id'], ['/th/guides/', 'th']] as const) {
+for (const [path, lang] of [['/huong-dan/', 'vi'], ['/id/panduan/', 'id'], ['/th/guides/', 'th'], ['/ms/panduan/', 'ms']] as const) {
   test(`guide list: a subject chip shows its guides, in the address; "all" brings back the list and the beginner row (${path})`, async ({ page, errors }) => {
     await page.goto(path)
     // Read from the cards, not the chips: a list with two subjects must have chips.

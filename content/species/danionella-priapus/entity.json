@@ -10,6 +10,54 @@
     "india",
     "jorai-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Sankosh",
+        "Jorai River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Danionella priapus is a miniature cyprinid known only from the Jorai River, a Sankosh tributary in the Brahmaputra drainage of West Bengal, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra",
+            "Sankosh",
+            "Jorai River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359132,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

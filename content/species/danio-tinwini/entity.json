@@ -10,6 +10,59 @@
     "myanmar",
     "mogaung-chaung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Mogaung Chaung",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "To date it's known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar, the same watershed to which D. choprae is also apparently endemic.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Mogaung Chaung"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This is a tributary of the Irrawaddy/Ayeyarwady River and although the species is probably endemic to the region the possibility that it's been collected from other localities for the aquarium trade cannot be discounted.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362694,
+      "total": 3,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          25.3125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
