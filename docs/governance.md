@@ -127,7 +127,8 @@ that would have caught it).
     schema what structured outputs take; each block filled from the app index and the app's page copies and of the
     contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
     breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
-    out, an answer with no text none, the run within 27 s, and a turn's steps, request and filled blocks on a fake
+    out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
+    loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
     Claude (`apps/site/worker/test/chat-agent.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload

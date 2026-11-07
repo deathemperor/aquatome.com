@@ -79,6 +79,20 @@ test('the 4th call is the last: forced to answer with tool_choice none, the tool
   expect(c.calls[3]!.body.tools).toHaveLength(3)
 })
 
+test('a last word, when given, follows the last message on the forced call only; the history is left as it was', async () => {
+  const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()])
+  await runAgent(input(c.send, { lastWord: 'No more reading: answer now.' }))
+  const said = (i: number) => (c.calls[i]!.body.messages.at(-1)!.content as Anthropic.ContentBlockParam[]).filter(b => b.type === 'text').map(b => (b as Anthropic.TextBlockParam).text)
+  expect([0, 1, 2].map(said)).toEqual([['Which fish is this?'], [], []])
+  expect(said(3)).toEqual(['No more reading: answer now.'])
+  expect(toolResults(c.calls[3]!.body)[0]).toMatchObject({ type: 'tool_result' })
+  expect(c.calls[3]!.body.messages).toHaveLength(c.calls[2]!.body.messages.length + 2)
+  // Without one, the forced call is the history as it is (fish ID's).
+  const plain = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()])
+  await runAgent(input(plain.send))
+  expect((plain.calls[3]!.body.messages.at(-1)!.content as Anthropic.ContentBlockParam[]).every(b => b.type === 'tool_result')).toBe(true)
+})
+
 test('the forced call ends the run whatever it says: a tool request there is not run', async () => {
   ran.length = 0
   const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }])])
