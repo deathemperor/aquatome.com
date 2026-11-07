@@ -16,14 +16,14 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 
 | Seat | Rounds | Findings | Held | Dropped | Open | Judges it well |
 |---|---|---|---|---|---|---|
-| Anthropic (`claude-opus-5-5`) | 3, 4 | 18 | 13 | 2 | 3 | yes |
+| Anthropic (`claude-opus-5-5`) | 3, 4 | 18 | 12 | 3 | 3 | yes, but check every name it offers |
 | OpenAI (`gpt-5.6-sol`) | 3, 4 | 13 | 10 | 0 | 3 | yes: none dropped |
 | Google (`gemini-4-argon`) | 3, 4 | 24 | 17 | 4 | 3 | yes, but check every name it offers |
-| xAI (`grok-4.7`) | 3, 4 | 19 | 14 | 3 | 2 | yes, but check every name it offers |
+| xAI (`grok-4.7`) | 3, 4 | 19 | 13 | 4 | 2 | yes, but check every name it offers |
 
-Every seat's findings held four times in five or better over two rounds. Where Google and xAI went wrong, it was mostly
-a name: a fish or a term they offered that no hobbyist writes. A name a seat offers is checked in the references
-before it goes anywhere.
+Of the findings the check settled, every seat's held three times in four or better over two rounds. Where Anthropic,
+Google and xAI went wrong, it was mostly a name: a fish or a term they offered that no hobbyist writes. A name a seat
+offers is checked in the references before it goes anywhere.
 
 Round 3 (2026-11-07), what was dropped:
 - Google: "cho thuốc" → "đánh thuốc" (the forum writes "cho thuốc" 33 times a million words, more than the site);
@@ -33,5 +33,7 @@ Round 3 (2026-11-07), what was dropped:
 
 Round 4 (2026-11-07), what was dropped:
 - Anthropic: "cá bình tích" for molly (the forum says "molly" three times as often); "có tiếng là" for "nổi tiếng là"
-  (rarer in the references than what it replaces).
+  (rarer in the references than what it replaces); "cá bạch vân" for the white cloud, first counted as held (the
+  owner locked "cá kim tơ", and the references' "bạch vân" is a street and a disease).
 - Google: "rễ gió" for the roots on a stem (in neither reference).
+- xAI: "cá bạch vân" for the white cloud, as Anthropic, first counted as held.
