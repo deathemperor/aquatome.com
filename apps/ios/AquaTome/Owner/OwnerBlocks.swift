@@ -154,7 +154,7 @@ struct OwnerRow: View {
     .accessibilityLabel(Text(verbatim: OwnerDraw.said(title, text, figure, tone.said)))
   }
 
-  static let chevron = Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+  static let chevron: some View = Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
 }
 
 /// Up to three figures to a row, each its value over what it counts and its change; one to a row at the largest text.

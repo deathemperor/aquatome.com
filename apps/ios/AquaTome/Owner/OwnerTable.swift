@@ -15,13 +15,13 @@ struct OwnerTable: View {
   let draw: OwnerDraw
   /// Its rows read after the first ones, and the cursor for the next (nil: no more).
   @State private var more: [[Owner.Link]] = []
-  @State private var next: String??
+  @State private var after: String??
   @State private var reading = false
   @State private var problem: String?
   @Environment(AccountModel.self) private var account
 
   var body: some View {
-    let rows = self.rows + more, cursor = next ?? self.next
+    let rows = self.rows + more, cursor = after ?? next
     VStack(alignment: .leading, spacing: 10) {
       if rows.isEmpty {
         Text(verbatim: empty ?? "").foregroundStyle(.secondary)
@@ -59,7 +59,7 @@ struct OwnerTable: View {
     do {
       let page = try await account.owner.ask { [draw] in try await $0.table(draw.key, id, cursor: cursor, period: draw.period) }
       more += page.items
-      next = .some(page.next)
+      after = .some(page.next)
       problem = nil
     } catch {
       problem = await account.owner.say(error, overview: false)
