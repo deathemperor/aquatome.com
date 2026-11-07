@@ -89,7 +89,9 @@ export type Handbook = {
 
 /** A topics file the search can read (topics.ts, v 1), else null: the search then finds pages by their names only. */
 const topicsIn = (t: Topics | null): Topics | null =>
-  t?.v === 1 && t.pages && typeof t.pages === 'object' && Object.values(t.pages).every(Array.isArray) ? t : null
+  t?.v === 1 && t.pages && typeof t.pages === 'object' &&
+  Object.values(t.pages).every(list => Array.isArray(list) && list.every(e => Array.isArray(e) && (e[0] === null || typeof e[0] === 'string') && typeof e[1] === 'string'))
+    ? t : null
 
 /** The index's pages kinds each have their own shards; a tool's page has no app copy. */
 const PAGE_KINDS = new Set<string>(['guide', 'fish', 'plant', 'glossary', 'video', 'equipment'])

@@ -169,7 +169,7 @@ test('a guide is found by a section heading or a FAQ question past its title, wi
   expect((await run('search_handbook', { query: 'CO2', kind: null }, bare)).out).toMatch(/^No page by that name/)
   expect(searchTopics({ v: 1, pages: {} }, h.byPath, 'CO2')).toEqual([])
   // A topics file of another shape (a later version, no pages): names only, not a failed search.
-  for (const odd of [{ v: 2, pages: {} }, { v: 1 }, { v: 1, pages: { [algae]: 'Ánh sáng và CO2' } }]) {
+  for (const odd of [{ v: 2, pages: {} }, { v: 1 }, { v: 1, pages: { [algae]: 'Ánh sáng và CO2' } }, { v: 1, pages: { [algae]: [[null]] } }]) {
     const other = (await handbookOf({ ...source, topics: async () => odd as never }, 'vi'))!
     expect(await other.topics()).toBeNull()
     expect(JSON.parse((await run('search_handbook', { query: 'thay nước', kind: 'guide' }, other)).out as string)[0]).toMatchObject({ path: '/vi/huong-dan/thay-nuoc-dung-cach/' })
@@ -188,6 +188,12 @@ test("a guide named for the query past the eighth name, whose heading matches to
   expect(listed.slice(0, 8).map(x => x.path)).toEqual(items.slice(0, 8).map(i => i.path))
   expect(listed.find(x => x.path === '/vi/huong-dan/loc-9/')).toMatchObject({ section: { id: 'loc-nuoc', text: 'Lọc nước' } })
   expect(new Set(listed.map(x => x.path)).size).toBe(12)
+  // With only the tenth guide's heading matching, room is left for names past the eighth: the tenth is still listed
+  // once, by its heading, and the other names fill the list.
+  const one = (await handbookOf({ index: async () => ({ lang: 'vi', items: [...items, ...others] }), shard: async () => null, topics: async () => ({ v: 1, pages: { [items[9]!.path]: [['loc-nuoc', 'Lọc nước']] } }) }, 'vi'))!
+  const fewer = JSON.parse((await run('search_handbook', { query: 'lọc nước', kind: 'guide' }, one)).out as string) as { path: string; section?: unknown }[]
+  expect(fewer.map(x => x.path)).toEqual([...items.slice(0, 8), items[9]!, items[8]!, items[10]!, items[11]!].map(i => i.path))
+  expect(fewer[8]).toMatchObject({ section: { id: 'loc-nuoc' } })
 })
 
 test("a question's words weigh by how rare they are among the headings: its subject isn't dropped, and an accent tells words apart", () => {
@@ -200,13 +206,21 @@ test("a question's words weigh by how rare they are among the headings: its subj
       '/vi/huong-dan/oc/': [['oc-tu-dau-ra', 'Ốc từ đâu ra, vì sao bùng số lượng']],
       '/vi/huong-dan/tao-nau/': [['tao-nau', 'Tảo nâu bùng phát'], ['ca-an-tao', 'Cá ăn tảo']],
       '/vi/huong-dan/nuoc-duc/': [['vi-khuan', 'Vi khuẩn bùng phát làm nước đục']],
-      '/vi/huong-dan/tep/': [['tep-chet', 'Vì sao tép chết'], ['tep-an-gi', 'Tép ăn gì']],
+      '/vi/huong-dan/tep/': [['tep-chet', 'Vì sao tép chết']],
+      '/vi/huong-dan/tep-an/': [['tep-an-gi', 'Tép ăn gì']],
       '/vi/huong-dan/ca-chet/': [['ca-chet', 'Cá chết hàng loạt'], ['ca-noi-dau', 'Cá nổi đầu']],
       '/vi/huong-dan/cay-chet/': [['cay-chet', 'Cây chết rễ']],
       '/vi/huong-dan/don-reu/': [['otto', 'Otto: thợ dọn rêu của bể'], ['ca-don-be', 'Cá dọn bể khác']],
       '/vi/huong-dan/den/': [['chon-den', 'Chọn đèn cho bể']],
       '/vi/huong-dan/reu/': [['reu-rau-den', 'Rêu râu đen bám lũa']],
       '/vi/huong-dan/ca/': [['ca-bo-an', 'Cá bỏ ăn'], ['ca-lo-do', 'Cá bơi lờ đờ']],
+      '/vi/huong-dan/cay-khoe/': [['cay-khoe', 'Giữ cây khỏe']],
+      '/vi/huong-dan/nam/': [['nam', 'Cá bị nấm trắng']],
+      '/vi/huong-dan/betta/': [['chuan-bi', 'Danh sách cần chuẩn bị cho cá betta']],
+      '/vi/huong-dan/nam-sau/': [['mot-nam', 'Bể cá sau một năm'], ['ba-nam', 'Ba năm nuôi cá'], ['mien-nam', 'Cá miền Nam']],
+      '/vi/huong-dan/oto/': [['oto', 'Otocinclus ăn rêu nâu']],
+      '/vi/huong-dan/thay-1/': [['thay-dinh-ky', 'Thay nước định kỳ cho bể cá lớn']],
+      '/vi/huong-dan/thay-2/': [['thay-nuoc', 'Thay nước']],
     },
   }
   const byPath = (path: string) => ({ kind: 'guide', name: path, path }) as Item
@@ -217,6 +231,22 @@ test("a question's words weigh by how rare they are among the headings: its subj
   expect(found('đèn')).toEqual(['chon-den'])
   // Typed without accents, either can be meant.
   expect(found('den')).toEqual(['chon-den', 'reu-rau-den'])
+  // The tone mark on either vowel: "khoẻ" is the guides' "khỏe".
+  expect(found('khoẻ')).toEqual(['cay-khoe'])
+  // A word's rarity as written: "nấm" (fungus) is rare though "nam" also folds "năm" (a year) and "Nam" (south), so the
+  // fungus heading comes before a betta checklist with no fungus in it.
+  expect(found('cá betta bị nấm')[0]).toBe('nam')
+  // A word heading words begin ("otocin", Otocinclus) has a rarity; one no heading has weighs nothing, and doesn't
+  // keep the rest from matching.
+  expect(found('otocin')).toEqual(['oto'])
+  expect(found('cá otto propan')).toEqual(['otto'])
+  // Of two headings with all of the query, the one with fewer other words first; a word asked twice counts once.
+  expect(found('thay nước').slice(0, 2)).toEqual(['thay-nuoc', 'thay-dinh-ky'])
+  expect(found('tép tép chết')).toEqual(['tep-chet'])
+  // A Thai word beside accented Vietnamese isn't halved: Thai has no accents to fold, and its headings aren't split
+  // into words as written.
+  const mixed: Topics = { v: 1, pages: { '/th/a/': [['a', 'กำจัดตะไคร่น้ำ']], '/vi/b/': [['b', 'Đèn bể']], '/vi/c/': [['c', 'Đèn LED']], '/vi/d/': [['d', 'Mua đèn']] } }
+  expect(searchTopics(mixed, byPath, 'ตะไคร่ đèn').map(h => h.section)).toEqual(['a'])
 })
 
 test('Thai, written without spaces, is searched by its words: a word inside a title, a fish without "ปลา"', () => {
