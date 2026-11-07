@@ -315,6 +315,12 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Although this species is euryhaline it rarely does well when maintained in freshwater for prolonged periods.",
+    "fixed": true
+  },
   "dataCard": {
     "tempC": [
       {
