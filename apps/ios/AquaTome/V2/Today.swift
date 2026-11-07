@@ -24,7 +24,9 @@ struct TodayView: View {
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 28) {
-          Text(today, format: .dateTime.weekday(.wide).day().month(.wide))
+          // In the app's language, as the words around it: on a phone set to a language the app doesn't have, iOS's locale can
+          // be another of the app's (Malay, on an English phone), and `Text(_:format:)` would put that one in.
+          Text(verbatim: today.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: handbook.lang))))
             // Plain, not a second line of capitals over the first card's own.
             .font(.subheadline).foregroundStyle(.v2Faint)
             .padding(.horizontal, 20)
