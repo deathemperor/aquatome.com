@@ -106,7 +106,7 @@ struct ReaderPost: View {
       preview = small.flatMap(UIImage.init(data:))
       if small == nil { said = .unreadable }
       // The photo as picked goes, now it's shrunk: a phone's is tens of megabytes. Last, as a change ends this task.
-      picked = nil
+      self.picked = nil
     }
   }
 
