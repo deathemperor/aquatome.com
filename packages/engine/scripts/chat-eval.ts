@@ -290,14 +290,14 @@ function report(rows: Row[], index: Index): string {
     '',
     `${faqs} questions from the guides' FAQs, one per guide, guides at random; ${WRITTEN.filter(q => q.set === 'start').length} asked from a fish's page or fish ID, or naming fish or a tank; ${WRITTEN.filter(q => q.set === 'outside').length} the handbook doesn't answer or aren't about aquariums.`,
     '',
-    '- **FAQ:** the guide the question came from was read or shown / another page shown, answered as covered / neither. Another guide may answer as well.',
+    '- **FAQ:** the guide the question came from was read or shown / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page. Another guide may answer as well; the search reads page titles only, so a guide whose title doesn\'t name the topic is often missed.',
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
     '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
     '- **Figures not in a page:** answers whose text has a number that neither the question nor a page it read has (listed below).',
     '- **Stopped:** answered when Claude chose / at the calls, tool-call, time or token limit / a call failed.',
     '- **Cost:** response usage × list price, every call, per question. **Latency:** first call to the filled answer, on this machine.',
     '',
-    '| Model | FAQ: guide / other page / neither | Start | Outside | Figures not in a page | Blocks dropped | Stopped: answer / calls / tools / time / tokens / error | Calls · tools | Median | p90 | $ / question |',
+    '| Model | FAQ: guide / other page / not covered | Start | Outside | Figures not in a page | Blocks dropped | Stopped: answer / calls / tools / time / tokens / error | Calls · tools | Median | p90 | $ / question |',
     '| --- | --- | ---: | ---: | ---: | ---: | --- | ---: | ---: | ---: | ---: |',
   ]
   for (const model of MODELS) {
