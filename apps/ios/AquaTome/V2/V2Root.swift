@@ -52,7 +52,11 @@ struct V2Root: View {
       case .lights: tab = .lights
       }
     }
-    .onAppear { follow(tab) }
+    // Switched on with a page open on v1's Tìm: Khám phá, which shows it, not Hôm nay.
+    .onAppear {
+      if tab == .handbook && !handbookPath.isEmpty { selection = .browse }
+      follow(tab)
+    }
     // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws.
     .onDisappear {
       if let f = ownFrom, handbookPath.count > f { handbookPath.removeLast(handbookPath.count - f) }

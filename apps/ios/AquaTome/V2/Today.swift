@@ -218,7 +218,7 @@ private struct SeasonCard: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
       Eyebrow(text: "Miền Bắc vào đông").foregroundStyle(Color.accentColor)
-      Text("Trời trở lạnh: những loài cần sưởi").font(.system(.title2, weight: .heavy))
+      Text("Trời trở lạnh: vài loài quen thuộc cần sưởi").font(.system(.title2, weight: .heavy))
         .fixedSize(horizontal: false, vertical: true)
       VStack(spacing: 0) {
         ForEach(items) { item in

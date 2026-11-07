@@ -5,8 +5,9 @@ import UIKit
 // The v2 look's shared parts: a handbook photo that tells its colour, the lockup (a page's photo, name, line and its
 // action), the facts strip, a shelf's header, and the press of a card.
 
-/// A handbook photo filling its frame, at full size where the site has it (the index carries a 480 px copy, its page the
-/// full one), and the colour drawn from it once it's decoded (`colour`), for the band, wash or page around it.
+/// A handbook photo filling its frame, and the colour drawn from it once it's decoded (`colour`), for the band, wash or
+/// page around it. The index carries a 480 px copy and the page the full one: the full one only for a frame wider or
+/// taller than 480 px, so a shelf's small squares never fetch it.
 struct V2Photo: View {
   let src: String?
   var colour: ((Color) -> Void)?
@@ -26,8 +27,9 @@ struct V2Photo: View {
       .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))") {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
+        let big = pixels.width > 480 || pixels.height > 480
         var image = PageImages.cached(src, size)
-        if image == nil { image = await PageImages.image(V2Photo.full(src), size) }
+        if image == nil, big { image = await PageImages.image(V2Photo.full(src), size) }
         if image == nil { image = await PageImages.image(src, size) }
         guard let image, !Task.isCancelled else { return }
         withAnimation(.easeOut(duration: 0.2)) { picture = (src, image) }
@@ -183,7 +185,7 @@ struct FactsStrip: View {
   var onDark = false
   @Environment(HandbookModel.self) private var handbook
   /// A column's width, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
-  @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 108
+  @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 118
 
   struct Column: Identifiable {
     let id: Int
@@ -203,7 +205,7 @@ struct FactsStrip: View {
           VStack(spacing: 5) {
             Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
               .multilineTextAlignment(.center)
-              .foregroundStyle(onDark ? .white.opacity(0.6) : .secondary)
+              .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
             Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
               .foregroundStyle(onDark ? .white : .primary)
             if let bar = c.bar {
@@ -241,11 +243,12 @@ struct FactsStrip: View {
       let a = min(max((r.min - lo) / (hi - lo), 0), 1), b = min(max((r.max - lo) / (hi - lo), 0), 1)
       return min(a, b)...max(a, b)
     }
+    // What a beginner asks first in view: how warm, how big a tank, how big it grows, how hard; then the rest.
     if let r = facts.tempC { add("Nhiệt độ", "\(HandbookIndex.Facts.range(r, locale)) °C", bar: scale(r, 10, 35)) }
-    if let r = facts.ph { add("pH", HandbookIndex.Facts.range(r, locale), bar: scale(r, 4, 9), upper: false) }
+    if let v = facts.tankCm { add("Bể tối thiểu", "\(HandbookIndex.Facts.number(v, locale)) cm") }
     if let v = facts.sizeCm { add("Kích thước", "\(HandbookIndex.Facts.number(v, locale)) cm") }
     if let d = facts.difficulty { add("Độ khó", FactsCard.level(d), caption: "\(HandbookIndex.Facts.number(d, locale))/8") }
-    if let v = facts.tankCm { add("Bể tối thiểu", "\(HandbookIndex.Facts.number(v, locale)) cm") }
+    if let r = facts.ph { add("pH", HandbookIndex.Facts.range(r, locale), bar: scale(r, 4, 9), upper: false) }
     if let r = facts.lifeYears { add("Tuổi thọ", "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))") }
     if let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
     return out
