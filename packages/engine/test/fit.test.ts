@@ -24,6 +24,12 @@ test('a sentence opening on "mình" and a verb is the writer\'s voice; a fish\'s
   expect(found('source', '<p>Thân dài. Mình cá dẹp, cá cọ mình vào đá.</p>')).toEqual([])
 })
 
+test('a language\'s own words for the source count only in that language', () => {
+  expect(found('source', '<p>Loài này mang tên Kami.</p>')).toEqual([])
+  expect(found('source', '<p>Kami menyarankan pakan hidup.</p>', { lang: 'id' })).toEqual(['Kami'])
+  expect(found('source', '<p>Kami mengesyorkan makanan hidup.</p>', { lang: 'ms' })).toEqual(['Kami'])
+})
+
 test('what only looks like a hit is not one', () => {
   // The river, a fish called a dollar, a temperature, an author in taxonomy, a dose's own volume.
   for (const html of ['<p>Cá sống ở lưu vực Amazon, trên sông Amazon.</p>', '<p>Cá đô la và cá silver dollar ăn cây.</p>', '<p>Giữ nước 25 độ C, 19 đến 26 độ.</p>', '<p>Các tác giả xếp loài này vào họ khác.</p>']) {

@@ -44,7 +44,7 @@ export type FitEntry = {
 }
 export type FitState = Record<string, FitEntry>
 
-const COUNTRY: Record<Lang, string> = { vi: 'Vietnam', id: 'Indonesia', th: 'Thailand' }
+const COUNTRY: Record<Lang, string> = { vi: 'Vietnam', id: 'Indonesia', th: 'Thailand', ms: 'Malaysia' }
 const TEMPLATE = readFileSync(new URL('./prompts/fit.md', import.meta.url), 'utf8')
 export const fitPrompt = (lang: Lang) => TEMPLATE
   .replaceAll('{{COUNTRY}}', COUNTRY[lang]).replaceAll('{{LANG}}', LANG_NAME[lang])
@@ -74,8 +74,13 @@ const PRICE = [
   re(`(?:US\\$|\\$|£|€)\\s?\\d|\\d\\s?(?:\\$|£|€)|(?<!\\d\\s*)${WORD('USD')}|${WORD('vài đô|mấy đô|phí vận chuyển|cước vận chuyển|phí ship|ongkos kirim|ongkir|air freight')}|\\d[\\d.,]*\\s*ดอลลาร์|ค่าส่ง|ค่าขนส่ง`),
 ]
 const PRICE_OTHER = re(WORD(`${AMOUNT}(?:đồng|VND|VNĐ)`))
-/** "Mình" opening a sentence with a verb is the writer's own voice. "Mình cá dẹp" is a fish's body. */
-const SOURCE = re(`${WORD('bài gốc|bài viết gốc|video này|trong video|theo video|kênh này|chúng tôi|artikel asli|video ini|dalam video|kami')}|บทความต้นฉบับ|วิดีโอนี้|ในวิดีโอ|พวกเรา|(?<=^|[.!?…:]\\s)Mình (?:chỉ|đã|thấy|nghĩ|khuyên|từng|hay|thường|dùng|làm|không|cũng|nuôi|mua)(?![\\p{L}\\p{N}])`)
+/** Per language: "kami" is "we" in Indonesian and Malay, and a name on a Vietnamese page. "Mình" opening a sentence with a verb is the writer's own voice; "Mình cá dẹp" is a fish's body. */
+const SOURCE: Record<Lang, RegExp> = {
+  vi: re(`${WORD('bài gốc|bài viết gốc|video này|trong video|theo video|kênh này|chúng tôi')}|(?<=^|[.!?…:]\\s)Mình (?:chỉ|đã|thấy|nghĩ|khuyên|từng|hay|thường|dùng|làm|không|cũng|nuôi|mua)(?![\\p{L}\\p{N}])`),
+  id: re(WORD('artikel asli|video ini|dalam video|kami')),
+  ms: re(WORD('artikel asal|video ini|dalam video|kami')),
+  th: re('บทความต้นฉบับ|วิดีโอนี้|ในวิดีโอ|พวกเรา'),
+}
 const IMPERIAL = [
   re(WORD(`${AMOUNT}(?:gal|inch(?:es)?|inci|feet|ft|foot|pounds?|lbs?|ounces?|oz|độ F)`)),
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),
@@ -103,7 +108,7 @@ export function fitRules(p: Page): FitFinding[] {
     each('shop', p.lang === 'vi' ? SHOP.vi : SHOP.other, 'names a foreign shop')
     for (const r of PRICE) each('price', r, 'a foreign price or shipping cost')
     if (p.lang !== 'vi') each('price', PRICE_OTHER, 'a price in Vietnamese đồng')
-    each('source', SOURCE, 'talks about the source or in its voice')
+    each('source', SOURCE[p.lang], 'talks about the source or in its voice')
     for (const r of IMPERIAL) each('units', r, 'an imperial unit')
     for (const m of text.matchAll(CONVERTED)) if (!PER.test(text.slice(Math.max(0, m.index - 24), m.index))) say('units', id, m[0], 'a volume that shows it was converted from gallons')
     for (const x of foreign) if (mentions(x, text)) say('product', id, x.name, x.market[p.lang] ? 'not found at shops here (market.ts)' : 'in the table, market unknown', { product: x.name })

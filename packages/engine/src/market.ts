@@ -183,8 +183,8 @@ export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
       refs: [{ url: 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html', title: 'Nước oxy già VP 3%, chai 60 ml (Pharmacity, giá xem ngày 07/11/2026)' }] },
     uses: [
       { problem: 'cyanobacteria', guide: PEROXIDE_GUIDE, quotes: [{ file: PEROXIDE_FILE, text: 'Fill a syringe with 3% Hydrogen peroxide, (3ml for every 1 gallon or 4 liters)' }],
-        text: 'Với tảo lam, bạn tắt lọc để vi sinh không bị ảnh hưởng, tắt sủi oxy để nước gần như đứng yên, rồi tắt đèn, vì có ánh sáng thì oxy già phân hủy nhanh hơn nhiều. Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước, rồi bơm thẳng lên chỗ có tảo lam, đừng để trúng cây, tép và cá. Vài giờ sau, gỡ bằng tay chỗ tảo đang chết rồi bật lọc, sủi oxy và đèn lại. Hôm sau thay nước như mọi tuần.',
-        words: ['Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước'] },
+        text: 'Với tảo lam, bạn tắt lọc để vi sinh không bị ảnh hưởng, tắt sủi oxy để nước gần như đứng yên, rồi tắt đèn, vì có ánh sáng thì oxy già phân hủy nhanh hơn nhiều. Hút oxy già 3% vào xi lanh. Đây là liều bơm tại chỗ, không phải liều châm đều cả bể: 3 ml cho mỗi 4 lít nước trong bể. Oxy già làm bỏng mang, mà mang tép và cá rất nhạy, nên đừng bơm quá liều. Bơm thẳng lên chỗ có tảo lam, đừng để trúng cây, tép và cá. Vài giờ sau, gỡ bằng tay chỗ tảo đang chết rồi bật lọc, sủi oxy và đèn lại. Hôm sau thay nước như mọi tuần.',
+        words: ['Hút oxy già 3% vào xi lanh', '3 ml cho mỗi 4 lít nước trong bể'] },
     ],
     risks: 'Oxy già có thể làm bỏng mang, nên quá liều sẽ hại cả cá và tép. Nguồn của liều này không ghi liều nhẹ hơn cho bể có tép, và nói làm cách này là có rủi ro, bể nào cũng vậy. Rêu cảnh, hẹ nước (Vallisneria) và Bucep có thể bị nhũn lá, còn nhiều cây khác thường chịu được. Oxy già chỉ diệt phần tảo đang có. Chưa sửa nguyên nhân thì tảo lam vẫn có thể quay lại.',
     carried: /oxy già 3%[^.]{0,40}\d ml/i,
