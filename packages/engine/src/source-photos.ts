@@ -3,6 +3,7 @@ import sharp from 'sharp'
 import type { Photo, SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import type { PageImage } from './outline'
+import { ARTWORK } from './photos'
 
 export type Media = { urlFor: (key: string) => string; put: (key: string, bytes: Uint8Array) => Promise<{ url: string; thumb?: string; width: number; height: number }> }
 /** `probe`: the page gave no pixel size (missing or "100%"), so the real size is checked after download. */
@@ -36,6 +37,8 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     if (img.width && img.width < minWidth) continue
     if (img.width && img.height && !okShape(img.width, img.height)) continue
     if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
+    // A drawing, plate or stamp the source shows ("Liobagrus kingi: line drawing", "Pieter Bleeker's drawing of…"): not a photo of it.
+    if (kind === 'subject' && ARTWORK.test(words(`${file(src)} ${img.alt}`))) continue
     if (kind === 'guide' && img.product) continue // a shop's product tile is an ad, not a picture of what the article says
     const key = dedupeKey(src)
     const altKey = img.alt.toLowerCase().trim()

@@ -7,8 +7,8 @@ import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
 import { gbifMediaPage, gbifUsageKey } from './gbif'
 import { inatPage, inatTaxon, newInatCursor, type InatCursor } from './inat'
-import { mirrorPlan } from './mirror-photos'
 import { openversePage } from './openverse'
+import { isRejected, unfitCommons } from './photos'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 
@@ -16,9 +16,9 @@ import { authorText } from './wiki-author'
 export type Candidate = Photo & { key: string }
 type Http = (url: string) => Promise<unknown>
 
-/** Titles and categories that are about the species but aren't photos of a living fish or plant. */
-const SKIP = /\b(map|range|distribution|drawing|illustration|plate|specimen|preserved|museum|stamp|logo|diagram|skeleton|x-ray|radiograph|chart|holotype|paratype|lectotype|skull|line art|svg|herbarium)\b/i
+/** Subcategories that are about the species but hold no photos of a living fish or plant. */
 const SKIP_CAT = /in art|anatomy|stamps|maps|specimens|illustrations|drawings|museum|diseases|disorders|herbari/i
+
 const text = (html = '') => html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/\[\[(?:[^|\]]*\|)?([^\]]+)\]\]/g, '$1').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
 
 type Members = { query?: { categorymembers?: { ns: number; title: string }[] }; continue?: { cmcontinue?: string } }
@@ -45,14 +45,16 @@ export async function commonsCandidates(name: string, http: Http, max = 450, loo
   await walk(`Category:${name}`, 0)
   const s = (await api({ action: 'query', list: 'search', srsearch: loose ? `filetype:bitmap ${name}` : `filetype:bitmap "${name}"`, srnamespace: '6', srlimit: '100' })) as { query?: { search?: { title: string }[] } }
   for (const x of s.query?.search ?? []) titles.add(x.title)
-  const list = [...titles].filter(t => !SKIP.test(t)).slice(0, max)
+  const list = [...titles].filter(t => !unfitCommons({ title: t })).slice(0, max)
   const out: Candidate[] = []
   for (let i = 0; i < list.length; i += 50) {
-    const r = (await api({ action: 'query', titles: list.slice(i, i + 50).join('|'), prop: 'imageinfo', iiprop: 'url|size|mime|extmetadata', iiurlwidth: '1280', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription' })) as Info
+    const r = (await api({ action: 'query', titles: list.slice(i, i + 50).join('|'), prop: 'imageinfo', iiprop: 'url|size|mime|extmetadata', iiurlwidth: '1280', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription|Categories' })) as Info
     for (const p of Object.values(r.query?.pages ?? {})) {
       const ii = p.imageinfo?.[0]
       const licence = ii?.extmetadata?.LicenseShortName?.value ?? ''
       if (!ii || ii.width < 800 || !/jpeg|png|webp/.test(ii.mime) || !isAllowedLicence(licence)) continue
+      // Its own description and categories: a drawing, a dead or measured specimen, food, another species (photos.ts).
+      if (unfitCommons({ title: p.title, description: ii.extmetadata?.ImageDescription?.value, categories: ii.extmetadata?.Categories?.value })) continue
       const url = ii.thumburl.replace(/\?.*$/, '') // without Commons' utm tracking query
       out.push({
         key: p.title, url, thumb: thumbOf(url) ?? url, width: ii.thumbwidth, height: ii.thumbheight, licence,
@@ -276,15 +278,14 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
   const report = { done: [] as string[], failed: [] as string[], stopped: '', sheets: 0, added: {} as Record<string, number>, short: [] as string[] }
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
-  const rejectedKeys = new Set(Object.keys(rejected).map(u => u.replace(/^https?:\/\/[^/]+\//, '')))
-  const isRejected = (url: string) => !!rejected[url] || rejectedKeys.has(mirrorPlan(url)?.key ?? '')
+  const rejectedPhoto = isRejected(rejected)
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const left: SourceBudget & { sheets: number } = { inat: 150, gbif: 60, openverse: 20, ...o.budget, sheets: o.sheets }
   // Openverse is slow (20 s or more a query) and sometimes stalls: after 3 failures it rests until the next run.
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
   const days = (date: string) => (d.now().getTime() - Date.parse(date)) / 86_400_000
-  await dropRejected(content, isRejected)
+  await dropRejected(content, rejectedPhoto)
   // `shard` [i, n]: every n-th page from the i-th, so n runs can share the work (each still most popular first).
   const plan = (await galleryPlan(root)).filter((t, i) => (!o.only || t.id === o.only) && (!o.shard || i % o.shard[1] === o.shard[0]))
   // Each source's requests: counted against the run's budget, at the pace the source asks for (shared by n shards).
@@ -347,7 +348,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       const names = line ? [sci] : [sci, sci.replace(/\s(?:var|subsp|ssp|f)\.\s/, ' '), gbifNames[sci]?.canonicalName ?? '']
       const seen = new Set([...[...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]), ...other.urls])
       const judged = new Set(st.judged)
-      const isNew = (c: Candidate) => !isRejected(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
+      const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
       for (const p of [...e.photos, ...gallery]) {
         if (!st.hashes[p.url]) st.hashes[p.url] = await d.get(p.thumb ?? p.url).then(dhash).catch(() => '')
       }
