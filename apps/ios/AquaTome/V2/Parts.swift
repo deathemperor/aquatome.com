@@ -100,13 +100,30 @@ enum PhotoColour {
       return (v.count.squareRoot() * (0.1 + 2 * chroma) * fair, r, g, b)
     }
     guard var c = scored.max(by: { $0.score < $1.score }) else { return nil }
-    // Deepened, its hue kept, until white at 75% on it has 4.5:1 whatever the hue (relative luminance at most 0.09).
+    c = calmed(c)
+    // Deepened until white at 75% on it has 4.5:1 whatever the hue (relative luminance at most 0.09).
     func lum(_ x: Double) -> Double { x <= 0.04045 ? x / 12.92 : pow((x + 0.055) / 1.055, 2.4) }
     for _ in 0..<40 where 0.2126 * lum(c.r) + 0.7152 * lum(c.g) + 0.0722 * lum(c.b) > 0.09 {
       c = (c.score, c.r * 0.92, c.g * 0.92, c.b * 0.92)
     }
     return (c.r, c.g, c.b)
   }
+}
+
+/// A colour that holds up over a whole page, deepened. A yellow goes olive and a sand khaki as they deepen, mud: a yellow moves
+/// to leaf green, a sand to warm brown. A vivid red reads as a warning, with "Tránh" red on the same page: its saturation is
+/// capped. Other hues stay as the photo has them.
+private func calmed(_ c: (score: Double, r: Double, g: Double, b: Double)) -> (score: Double, r: Double, g: Double, b: Double) {
+  var h: CGFloat = 0, s: CGFloat = 0, v: CGFloat = 0
+  UIColor(red: c.r, green: c.g, blue: c.b, alpha: 1).getHue(&h, saturation: &s, brightness: &v, alpha: nil)
+  let degrees = h * 360
+  if (42..<88).contains(degrees) {
+    if s < 0.35 { h = 28 / 360; s = max(s, 0.4) } else { h = 88 / 360; s = min(s, 0.85) }
+  }
+  if degrees < 25 || degrees >= 340 { s = min(s, 0.72) }
+  var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0
+  UIColor(hue: h, saturation: s, brightness: v, alpha: 1).getRed(&r, green: &g, blue: &b, alpha: nil)
+  return (c.score, r, g, b)
 }
 
 /// A page as one line of a shelf or a card: its photo as a rounded square (the page's "icon"), its name, a line, and its
@@ -214,6 +231,7 @@ struct FactsStrip: View {
   @Environment(HandbookModel.self) private var handbook
   /// A column's narrowest, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
   @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 84
+  @ScaledMetric(relativeTo: .title3) private var rule: CGFloat = 40
   @Environment(\.dynamicTypeSize) private var size
   @State private var width: CGFloat = 393
 
@@ -252,16 +270,19 @@ struct FactsStrip: View {
 
   private var rows: some View {
     let all = columns, lone = all.count == 1
-    // As many across as fit, up to all of them: a few share the width, not half of it empty.
-    let across = max(1, min(all.count, Int((width - 24) / column)))
+    // As many across as fit, up to all of them, and rows as even as they go: a few share the width, six are three and three,
+    // not four and half a row empty.
+    let fit = max(1, min(all.count, Int((width - 24) / column))), lines = (all.count + fit - 1) / fit
+    let across = max(1, (all.count + lines - 1) / max(lines, 1))
     return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0, alignment: .top), count: across), spacing: 14) {
       ForEach(all) { c in
         // One alone starts where the words above it do.
         figure(c, alignment: lone ? .leading : .center)
           .frame(maxWidth: .infinity, alignment: lone ? .leading : .center)
           .padding(.vertical, 4)
-          .overlay(alignment: .leading) {
-            if c.id % across > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }
+          .overlay(alignment: .topLeading) {
+            // One height along a row, with a rule under a figure or not.
+            if c.id % across > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5, height: rule).padding(.top, 8) }
           }
           .accessibilityElement(children: .combine)
       }
@@ -307,9 +328,10 @@ struct FactsStrip: View {
     if let r = facts.tempC { add("Nhiệt độ", "\(HandbookIndex.Facts.range(r, locale)) °C", bar: scale(r, 10, 35)) }
     if let v = facts.tankCm { add("Bể tối thiểu", "\(HandbookIndex.Facts.number(v, locale)) cm") }
     if let v = facts.sizeCm { add("Kích thước", "\(HandbookIndex.Facts.number(v, locale)) cm") }
-    if let d = facts.difficulty { add("Độ khó", FactsCard.level(d), caption: "\(HandbookIndex.Facts.number(d, locale))/8") }
+    // Its rule how far up the eight levels, as the others' say where they sit; the number, in the list at the largest text.
+    if let d = facts.difficulty { add("Độ khó", FactsCard.level(d), caption: "\(HandbookIndex.Facts.number(d, locale))/8", bar: 0...min(max(d / 8, 0), 1)) }
     if let r = facts.ph { add("pH", HandbookIndex.Facts.range(r, locale), bar: scale(r, 4, 9), upper: false) }
-    if let r = facts.gh { add("Độ cứng (dGH)", HandbookIndex.Facts.range(r, locale), upper: false) }
+    if let r = facts.gh { add("Độ cứng", "\(HandbookIndex.Facts.range(r, locale)) dGH") }
     if let r = facts.lifeYears { add("Tuổi thọ", "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))") }
     if temperament, let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
     return out
@@ -393,14 +415,38 @@ extension ShapeStyle where Self == Color {
 }
 
 extension View {
-  /// A shelf's far edge: its sliver of the next card fades out, words and all, as they don't read cut through.
-  func v2ShelfEdge() -> some View {
-    mask {
-      HStack(spacing: 0) {
-        Color.black
-        LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: 36)
+  /// A shelf's far edge: its sliver of the next card stays a hint, its words too faint to read cut through.
+  @available(iOS 18, *)
+  func v2ShelfEdge() -> some View { modifier(ShelfEdge()) }
+}
+
+@available(iOS 18, *)
+private struct ShelfEdge: ViewModifier {
+  /// The shelf's last card, whole at its end.
+  @State private var atEnd = false
+
+  func body(content: Content) -> some View {
+    content
+      .onScrollGeometryChange(for: Bool.self) { $0.visibleRect.maxX >= $0.contentSize.width - 1 } action: { _, end in
+        withAnimation(.easeOut(duration: 0.15)) { atEnd = end }
       }
-    }
+      .mask {
+        HStack(spacing: 0) {
+          Color.black
+          // From the gap before the sliver (`shelfCard`'s 36 points), so the sliver starts faint.
+          LinearGradient(stops: [.init(color: .black, location: 0), .init(color: .black.opacity(0.3), location: 0.25), .init(color: .clear, location: 1)],
+                         startPoint: .leading, endPoint: .trailing)
+            .overlay { Color.black.opacity(atEnd ? 1 : 0) }
+            .frame(width: 48)
+        }
+      }
+  }
+}
+
+extension ToolbarContent {
+  /// A bar item drawing its own background, without iOS 26's glass around it.
+  @ToolbarContentBuilder func v2NoGlass() -> some ToolbarContent {
+    if #available(iOS 26, *) { sharedBackgroundVisibility(.hidden) } else { self }
   }
 }
 

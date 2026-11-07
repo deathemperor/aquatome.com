@@ -25,7 +25,8 @@ struct TodayView: View {
       ScrollView {
         VStack(alignment: .leading, spacing: 28) {
           Text(today, format: .dateTime.weekday(.wide).day().month(.wide))
-            .font(.footnote.weight(.semibold)).textCase(.uppercase).foregroundStyle(.v2Faint)
+            // Plain, not a second line of capitals over the first card's own.
+            .font(.subheadline).foregroundStyle(.v2Faint)
             .padding(.horizontal, 20)
             .padding(.bottom, -16)
           // The kept copy in use, or none at all, as v1's Tìm says.
@@ -48,7 +49,7 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > titleHeight } action: { _, gone in titleGone = gone }
+      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
       .modifier(ClearUnderTopBar(shown: titleGone))
       .navigationTitle("Hôm nay")
       .profileButton()
@@ -109,7 +110,8 @@ struct TodayView: View {
     // The reader's tank, or, with none yet, the way to add one.
     out.append(tanks.tanks.first.map { .tank($0) } ?? .firstTank)
     if let v = pick(s.all(.video), 3) { out.append(.series(v)) }
-    let latest = handbook.latest.filter { $0.item.img != nil && !shown.contains($0.item.path) }.prefix(3)
+    // A page updated on two days is listed twice there, and shows on one card here.
+    let latest = handbook.latest.filter { $0.item.img != nil && shown.insert($0.item.path).inserted }.prefix(3)
     if !latest.isEmpty { out.append(.latest(Array(latest))) }
     return out
   }
@@ -130,8 +132,9 @@ private struct Eyebrow: View {
   let locale = Locale(identifier: lang), f = item.facts.any ? item.facts : item.card ?? item.facts
   var parts: [String] = []
   if let d = f.difficulty { parts.append(FactsCard.level(d)) }
-  if let t = f.tempC { parts.append("\(HandbookIndex.Facts.range(t, locale)) °C") }
-  if let s = f.sizeCm { parts.append("\(HandbookIndex.Facts.number(s, locale)) cm") }
+  // A figure stays with its unit when the line wraps.
+  if let t = f.tempC { parts.append("\(HandbookIndex.Facts.range(t, locale))\u{A0}°C") }
+  if let s = f.sizeCm { parts.append("\(HandbookIndex.Facts.number(s, locale))\u{A0}cm") }
   return parts.isEmpty ? nil : parts.joined(separator: " · ")
 }
 
@@ -265,7 +268,7 @@ private struct SeasonCard: View {
         .fixedSize(horizontal: false, vertical: true)
       VStack(spacing: 0) {
         ForEach(items) { item in
-          Lockup(item: item, line: item.facts.tempC.map { "\(HandbookIndex.Facts.range($0, Locale(identifier: handbook.lang))) °C" },
+          Lockup(item: item, line: item.facts.tempC.map { "\(HandbookIndex.Facts.range($0, Locale(identifier: handbook.lang)))\u{A0}°C" },
                  thumb: 52)
             .padding(.vertical, 6)
             .matchedTransitionSource(id: item.path, in: zoom)

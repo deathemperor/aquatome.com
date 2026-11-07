@@ -41,9 +41,11 @@ struct SpeciesPage: View {
   @State private var putting = false
   /// The gallery's photo shown full screen.
   @State private var viewing: Int?
-  /// The name scrolled up under the bar: the bar takes its background and the name.
+  /// The page's first words have reached the bar: the band behind it shows.
   @State private var scrolled = false
-  /// The bar's foot on the screen, whether the bar is showing or not.
+  /// The name itself has gone under the bar: the bar says it from here, not above the name still on the page.
+  @State private var nameGone = false
+  /// The bar's foot on the screen.
   @State private var barFoot: CGFloat = 106
   /// Where the page's colour reaches: still under the top bar, and down into the fade over the tab bar.
   @State private var colourAt = ColourAt(top: true, foot: true)
@@ -90,6 +92,12 @@ struct SpeciesPage: View {
         header
         FactsStrip(facts: facts, onDark: true, temperament: asked && !hasMates).padding(.vertical, 14)
         if !photos.isEmpty { gallery.padding(.bottom, 24) }
+        // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
+        // changing, when the page comes.
+        if !asked {
+          ProgressView().tint(.white).padding(.top, 8)
+          Color.clear.containerRelativeFrame(.vertical) { h, _ in h / 2 }
+        }
       }
       .background(colour)
       .animation(.easeInOut(duration: 0.45), value: colour)
@@ -99,13 +107,10 @@ struct SpeciesPage: View {
         return ColourAt(top: end > barFoot, foot: end > g.bounds(of: .scrollView)?.height ?? .infinity)
       } action: { colourAt = $0 }
       VStack(alignment: .leading, spacing: 28) {
-        if !asked {
-          ProgressView().frame(maxWidth: .infinity)
-        } else if doc == nil {
+        if asked && doc == nil {
           VStack(alignment: .leading, spacing: 4) {
-            // With the handbook online, it may be a page this build can't read, not the network ("Xem trang đầy đủ" reaches it).
-            let why: LocalizedStringKey = handbook.status == .ready ? "Không tải được trang." : "Không tải được trang. Kiểm tra kết nối mạng."
-            Text(why).font(.footnote).foregroundStyle(.v2Faint)
+            // The handbook's status says nothing here: it stays online from launch, whatever the signal is now.
+            Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.v2Faint)
             Button("Thử lại") {
               asked = false
               retries += 1
@@ -131,6 +136,7 @@ struct SpeciesPage: View {
         .buttonStyle(.plain)
         .accessibilityIdentifier("v2-full-page")
         .padding(.horizontal, 20)
+        matesCredits
       }
       .padding(.top, 24)
       .padding(.bottom, 40)
@@ -151,69 +157,77 @@ struct SpeciesPage: View {
     }
     .onDisappear { reading?.shown(false) }
     .onChange(of: phase) { reading?.inFront(phase == .active) }
-    // The top inset counts the bar once it shows: the status bar's alone without it.
-    .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = scrolled ? $0 : $0 + 44 }
+    .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = $0 }
     .onChange(of: colourAt.foot) { standOnColour() }
     .onChange(of: colour) { standOnColour() }
     .onAppear { standOnColour() }
-    // Not over the next page's, which may have appeared first.
-    .onDisappear { if footGround?.wrappedValue == colour { footGround?.wrappedValue = nil } }
+    // Not over the next page's, which may have appeared first, and may have the same colour.
+    .onDisappear { if footGround?.wrappedValue?.page == item.path { footGround?.wrappedValue = nil } }
     .accessibilityIdentifier("v2-species")
-    .navigationTitle(scrolled ? item.name : "")
+    .navigationTitle(nameGone ? item.name : "")
     .navigationBarTitleDisplayMode(.inline)
-    // Over the photo, the page's own round buttons: iOS 26's bar draws its glass light on any photo, under white symbols
-    // in a dark bar. The bar itself once the name has gone under it.
-    .toolbarVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
-    .overlay(alignment: .top) { if !scrolled { overPhoto } }
+    // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
+    .toolbarBackground(.hidden, for: .navigationBar)
+    // Over the photo and its colour, the page's own round buttons: iOS 26's bar draws its glass light on them, under white
+    // symbols (2.4:1). Its own back and glass once the colour has gone.
+    .navigationBarBackButtonHidden(colourAt.top)
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
     .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
     .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
     .toolbar {
-      ToolbarItemGroup(placement: .topBarTrailing) {
-        // Saved to read later, as v1's page saves it (the Tìm tab lists them).
-        let saved = handbook.isSaved(item)
-        Button { handbook.toggleSaved(item) } label: {
-          Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
+      if colourAt.top {
+        ToolbarItem(placement: .topBarLeading) {
+          Button { dismiss() } label: { round("chevron.left") }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text("Quay lại"))
+            .accessibilityIdentifier("v2-back")
         }
-        .accessibilityIdentifier("save-for-later")
-        ShareLink(item: handbook.url(item)) { Image(systemName: "square.and.arrow.up") }
+        .v2NoGlass()
+        ToolbarItem(placement: .topBarTrailing) {
+          let saved = handbook.isSaved(item)
+          Button { handbook.toggleSaved(item) } label: { round(saved ? "bookmark.fill" : "bookmark") }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
+            .accessibilityIdentifier("save-for-later")
+        }
+        .v2NoGlass()
+        ToolbarItem(placement: .topBarTrailing) {
+          ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text("Chia sẻ"))
+        }
+        .v2NoGlass()
+      } else {
+        ToolbarItemGroup(placement: .topBarTrailing) {
+          // Saved to read later, as v1's page saves it (the Tìm tab lists them).
+          let saved = handbook.isSaved(item)
+          Button { handbook.toggleSaved(item) } label: {
+            Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
+          }
+          .accessibilityIdentifier("save-for-later")
+          ShareLink(item: handbook.url(item)) { Image(systemName: "square.and.arrow.up") }
+            .accessibilityLabel(Text("Chia sẻ"))
+        }
       }
     }
     .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
       GalleryViewer(title: galleryTitle, note: "", photos: photos, readers: nil, index: viewing ?? 0)
     }
+    // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
     .task(id: "\(item.path) \(retries)") {
+      guard doc == nil else { return }
       if retries > 0 { await handbook.load() }
       doc = await handbook.doc(item)
       asked = true
-      handbook.read(item)
+      if doc != nil { handbook.read(item) }
     }
   }
 
   private func standOnColour() {
-    footGround?.wrappedValue = colourAt.foot ? colour : nil
-  }
-
-  /// Back, save and share, over the photo.
-  private var overPhoto: some View {
-    HStack(spacing: 10) {
-      Button { dismiss() } label: { round("chevron.left") }
-        .accessibilityLabel(Text("Quay lại"))
-        .accessibilityIdentifier("v2-back")
-      Spacer()
-      let saved = handbook.isSaved(item)
-      Button { handbook.toggleSaved(item) } label: { round(saved ? "bookmark.fill" : "bookmark") }
-        .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
-        .accessibilityIdentifier("save-for-later")
-      ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
-        .accessibilityLabel(Text("Chia sẻ"))
-    }
-    .buttonStyle(.plain)
-    .padding(.horizontal, 16)
-    .padding(.top, 4)
+    footGround?.wrappedValue = colourAt.foot ? FootGround(page: item.path, colour: colour) : nil
   }
 
   private func round(_ symbol: String) -> some View {
@@ -233,14 +247,19 @@ struct SpeciesPage: View {
       Text(verbatim: item.name).font(.largeTitle.weight(.bold)).foregroundStyle(.white)
         .fixedSize(horizontal: false, vertical: true)
         .accessibilityAddTraits(.isHeader)
+        .onGeometryChange(for: Bool.self) { [barFoot] in $0.frame(in: .scrollView).maxY < barFoot } action: { gone in
+          withAnimation(.easeInOut(duration: 0.2)) { nameGone = gone }
+        }
       if let sub = item.sub { Text(verbatim: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
       if Life(item) != nil {
         Button { putting = true } label: {
           Label("Thêm vào bể", systemImage: "plus")
             .font(.body.weight(.semibold))
-            .lineLimit(1).minimumScaleFactor(0.6)
+            // Two lines at the largest text in a longer language, not shrunk.
+            .lineLimit(2)
             .foregroundStyle(colour)
             .padding(.horizontal, 18)
+            .padding(.vertical, 6)
             .frame(minHeight: 44)
             .background(Capsule().fill(.white))
         }
@@ -255,8 +274,8 @@ struct SpeciesPage: View {
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(.horizontal, 20)
     .padding(.top, 4)
-    // The first words reach the bar: the band comes now and the bar says the name, so no words go under the status bar or
-    // the round buttons on the way up, however many lines they run to.
+    // The first words reach the bar: the band comes now, so no words go under the status bar or the round buttons on the
+    // way up, however many lines they run to.
     .onGeometryChange(for: Bool.self) { [barFoot] in $0.frame(in: .scrollView).minY < barFoot } action: { under in
       withAnimation(.easeInOut(duration: 0.2)) { scrolled = under }
     }
@@ -268,6 +287,8 @@ struct SpeciesPage: View {
     // kept before the page comes, so the name doesn't drop when it does.
     Text(doc?.lead.flatMap { credit($0) } ?? blankLine).foregroundStyle(.white.opacity(0.75)).tint(.white).multilineTextAlignment(.trailing)
       .frame(maxWidth: .infinity, alignment: .trailing)
+      // Capped: at the largest text it would outrank the name.
+      .dynamicTypeSize(...DynamicTypeSize.xxLarge)
   }
 
   private var blankLine: AttributedString {
@@ -298,6 +319,7 @@ struct SpeciesPage: View {
             // Its credit whole, as wide as the photo, on the page's colour: the licence is never cut off.
             if let line = credit(p) {
               Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white).fixedSize(horizontal: false, vertical: true)
+                .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             }
           }
           .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 10) }
@@ -359,7 +381,8 @@ struct SpeciesPage: View {
           Text(verbatim: mistakes.title).font(.headline).accessibilityAddTraits(.isHeader).padding(.top, 8)
           ForEach(mistakes.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
         }
-        if let by = s.by { Text(verbatim: by).font(.footnote).foregroundStyle(.v2Faint).padding(.top, 4) }
+        // Not the page's own line, "các nguồn bên dưới": here they're on the whole page.
+        if s.by != nil { Text("AquaTome tóm tắt từ các nguồn của trang đầy đủ.").font(.footnote).foregroundStyle(.v2Faint).padding(.top, 4) }
       }
       .padding(.horizontal, 20)
     }
@@ -411,14 +434,35 @@ struct SpeciesPage: View {
         VStack(alignment: .leading, spacing: 6) {
           if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.v2Faint) }
           toolButton(m.tool.text, m.tool.href)
-          // Capped: at the largest text, licence lines would take the screen.
-          MatesCredits(photos: ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img))
-            .dynamicTypeSize(...DynamicTypeSize.xxLarge)
         }
         .padding(.horizontal, 20)
       }
     } else if let link = toolLink {
       toolButton(link.text, link.href).padding(.horizontal, 20)
+    }
+  }
+
+  /// The tank-mates' photos' credits, the page's last thing and one tap away: a run of licence lines and photo numbers would
+  /// be louder than the page's end. The lead photo's and the gallery's stay under their photos.
+  @ViewBuilder private var matesCredits: some View {
+    if let doc, let m = doc.blocks.lazy.compactMap({ b -> PageDoc.Mates? in
+      if case let .mates(m) = b { return m }
+      return nil
+    }).first {
+      let photos = ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img)
+      if photos.contains(where: { $0.credit != nil }) {
+        DisclosureGroup {
+          // Capped: at the largest text, licence lines would take the screen.
+          MatesCredits(photos: photos)
+            .dynamicTypeSize(...DynamicTypeSize.xxLarge)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        } label: {
+          Text("Ảnh và giấy phép").font(.footnote).foregroundStyle(.v2Faint).frame(minHeight: 44)
+        }
+        .tint(.v2Faint)
+        .accessibilityIdentifier("v2-mates-credits")
+        .padding(.horizontal, 20)
+      }
     }
   }
 
@@ -485,8 +529,6 @@ private struct MatesCredits: View {
                 .accessibilityAddTraits(.isLink)
               }
             }
-            // 44 points to the finger, not 44 of blank between the lines (the caller caps the text's size).
-            .padding(.vertical, -12)
           }
         }
       }
@@ -496,6 +538,7 @@ private struct MatesCredits: View {
 }
 
 /// One side of "Nuôi chung": its fish as tiles that open their pages, why under each.
+@available(iOS 18, *)
 private struct MatesRow: View {
   let title: String
   let mates: [PageDoc.Mates.Mate]

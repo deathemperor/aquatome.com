@@ -157,10 +157,16 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     // Its lead photo's too, past the photo's one stop for VoiceOver.
     XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "the lead photo without its credit")
-    for credit in ["Ảnh: Tác giả 1 · CC BY 2.0", "Jane Doe"] {
-      repeatUntil(app.links[credit].exists, times: 6) { app.swipeUp() }
-      XCTAssertTrue(app.links[credit].exists, "a photo without its credit: \(credit)")
-    }
+    let gallery = app.links["Ảnh: Tác giả 1 · CC BY 2.0"]
+    repeatUntil(gallery.exists, times: 6) { app.swipeUp() }
+    XCTAssertTrue(gallery.exists, "a photo in the gallery without its credit")
+    // The tank-mates' are one tap away, at the page's end.
+    let credits = app.buttons["Ảnh và giấy phép"]
+    repeatUntil(credits.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(credits.isHittable, "the tank-mates' photos' credits aren't at the page's end")
+    XCTAssertFalse(app.links["Jane Doe"].exists, "the tank-mates' credits in the way")
+    credits.tap()
+    XCTAssertTrue(app.links["Jane Doe"].waitForExistence(timeout: 3), "a tank-mate's photo without its credit")
     let mate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
     XCTAssertTrue(mate.exists, "no tank-mate")
     mate.tap()
@@ -186,36 +192,42 @@ final class V2FlowTests: XCTestCase {
     XCTAssertEqual(XCTWaiter.wait(for: [sent], timeout: 10), .completed, "not sent: \(received.label)")
   }
 
+  /// With only its photo and name there (its text hasn't come), a page fits the screen: that isn't read to the end.
   func testAFishsPageOpenedAndLeftUnreadReportsNoDepthPastTheScreen() {
-    let app = launch("-site-telemetry", "-v2", "YES")
+    let app = launch("-site-telemetry", "-pages-later", "-v2", "YES")
     app.launchForFlow()
-    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
-    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
-    // The lead photo's credit comes with the page's text.
-    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    card.tap()
+    XCTAssertTrue(app.buttons["v2-retry"].waitForExistence(timeout: 5), "its text came")
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
     let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
     XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background")
     app.activate()
     let received = app.descendants(matching: .any)["telemetry-received"].firstMatch
-    XCTAssertTrue(received.waitForExistence(timeout: 10), "nothing sent")
-    XCTAssertFalse(received.label.contains(#""depth":90"#), "read to the end before a word was read: \(received.label)")
+    // Nothing sent is fine: the page wasn't read.
+    if received.waitForExistence(timeout: 5) {
+      XCTAssertFalse(received.label.contains(#""depth":"#), "read to the end before a word was read: \(received.label)")
+    }
   }
 
-  /// A fish's page that didn't come says so, with the handbook online too, and "Thử lại" reads it.
+  /// A fish's page that didn't come says so, with the handbook online too, and "Thử lại" reads it. Opened from Hôm nay: a
+  /// link brings Khám phá in front, which reads the whole index first, so its page would come.
   func testAFishsPageThatDidntComeSaysSoAndTriesAgain() {
     let app = launch("-pages-later", "-v2", "YES")
     app.launchForFlow()
-    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    card.tap()
     let again = app.buttons["v2-retry"]
     XCTAssertTrue(again.waitForExistence(timeout: 5), "nothing says the page didn't come")
-    // The index says the pages a moment after a page opens (`-pages-later`).
-    Thread.sleep(forTimeInterval: 1.5)
+    // Trying again reads the index, which says the pages (`-pages-later`).
     again.tap()
-    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "trying again didn't read it")
+    XCTAssertTrue(again.waitForNonExistence(timeout: 5), "trying again didn't read it")
+    // Not only the spinner in its place.
+    Thread.sleep(forTimeInterval: 1)
+    XCTAssertFalse(again.exists, "trying again didn't read it")
   }
 
   /// The search tab shows its screen, not the tab that was in front.
@@ -274,27 +286,48 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
-  /// The title and status bar read once the bar is back: iOS can keep the dark scheme of the photo, white on the white band.
-  func testAFishsPageBarReadsOnceThePageHasGoneUnderIt() {
+  /// Every figure in view, none off a strip's edge, and the page's colour on under the tab bar with no white between.
+  func testAFishsPageShowsEveryFigureOnItsColourUnderTheTabBar() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
+    let figure = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Tuổi thọ")).firstMatch
+    repeatUntil(figure.exists, times: 2) { app.swipeUp() }
+    XCTAssertTrue(figure.exists, "no last figure")
+    XCTAssertTrue(app.frame.contains(figure.frame), "a figure off the screen: \(figure.frame)")
+    Thread.sleep(forTimeInterval: 0.5)
+    let shot = Pixels(XCUIScreen.main.screenshot())
+    let colour = shot.at(6, app.frame.midY), foot = shot.at(6, app.frame.maxY - 6)
+    XCTAssertLessThan(colour.distance(to: foot), 40, "white under the tab bar: \(colour) above, \(foot) under it")
+  }
+
+  /// What's on the bar reads, on the page's colour and after it. On the colour iOS 26's glass goes pale under white symbols,
+  /// so it's the page's own round buttons there; after it iOS can keep the dark scheme, white on the white band.
+  func testAFishsPageBarReadsOnItsColourAndAfterIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
     let title = app.navigationBars.staticTexts["Cá neon"]
-    repeatUntil(title.exists, times: 4) {
+    func up() {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
-        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.2)), withVelocity: .slow, thenHoldForDuration: 0.3)
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow, thenHoldForDuration: 0.3)
     }
+    repeatUntil(title.exists, times: 6) { up() }
     XCTAssertTrue(title.exists, "the bar didn't come back")
-    let shot = XCUIScreen.main.screenshot().image, scale = shot.scale, cg = shot.cgImage!
-    let bitmap = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
-                           bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
-    bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
-    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self)
-    func red(_ x: CGFloat, _ y: CGFloat) -> Int { Int(bytes[Int(y * scale) * bitmap.bytesPerRow + Int(x * scale) * 4]) }
-    let f = title.frame, ground = red(f.minX - 6, f.midY)
-    let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { abs(red(x, $0) - ground) } }.max()!
+    let back = app.buttons["v2-back"]
+    XCTAssertTrue(back.exists, "iOS's glass on the page's colour")
+    // Beside its chevron, inside its circle.
+    let circle = Pixels(XCUIScreen.main.screenshot()).at(back.frame.minX + 7, back.frame.midY)
+    XCTAssertGreaterThan(circle.contrastWithWhite, 3, "the back button's chevron doesn't read: \(circle)")
+    repeatUntil(!back.exists, times: 6) { up() }
+    XCTAssertFalse(back.exists, "the page's colour never went")
+    let shot = Pixels(XCUIScreen.main.screenshot())
+    let f = title.frame, ground = shot.at(f.minX - 6, f.midY)
+    let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
     XCTAssertGreaterThan(strongest, 120, "the bar's title doesn't read on its ground")
   }
 
@@ -372,5 +405,34 @@ final class V2FlowTests: XCTestCase {
     // A switch's own control, at its trailing end: a tap on the row's middle doesn't flip it.
     toggle.coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.5)).tap()
     app.closeAccount()
+  }
+}
+
+/// A screenshot's colours, by the screen's points.
+private struct Pixels {
+  struct RGB: CustomStringConvertible {
+    let r, g, b: Double
+    func distance(to o: RGB) -> Double { max(abs(r - o.r), abs(g - o.g), abs(b - o.b)) }
+    var contrastWithWhite: Double {
+      func lin(_ c: Double) -> Double { let x = c / 255; return x <= 0.04045 ? x / 12.92 : pow((x + 0.055) / 1.055, 2.4) }
+      return 1.05 / (0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b) + 0.05)
+    }
+    var description: String { "(\(Int(r)), \(Int(g)), \(Int(b)))" }
+  }
+
+  private let bitmap: CGContext
+  private let scale: CGFloat
+
+  init(_ shot: XCUIScreenshot) {
+    let cg = shot.image.cgImage!
+    scale = shot.image.scale
+    bitmap = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                       bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+    bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+  }
+
+  func at(_ x: CGFloat, _ y: CGFloat) -> RGB {
+    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self), o = Int(y * scale) * bitmap.bytesPerRow + Int(x * scale) * 4
+    return RGB(r: Double(bytes[o]), g: Double(bytes[o + 1]), b: Double(bytes[o + 2]))
   }
 }

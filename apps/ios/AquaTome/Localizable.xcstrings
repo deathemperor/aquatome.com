@@ -1013,6 +1013,22 @@
         }
       }
     },
+    "AquaTome tóm tắt từ các nguồn của trang đầy đủ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome merangkum dari sumber di halaman lengkap."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome สรุปจากแหล่งข้อมูลในหน้าเต็ม"
+          }
+        }
+      }
+    },
     "Biểu tượng ứng dụng": {
       "localizations": {
         "id": {
@@ -7103,22 +7119,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "โหลดคู่มือไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต แล้วดึงลงเพื่อลองอีกครั้ง"
-          }
-        }
-      }
-    },
-    "Không tải được trang.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Halaman tidak dapat dimuat."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "โหลดหน้านี้ไม่ได้"
           }
         }
       }
@@ -16253,6 +16253,22 @@
         }
       }
     },
+    "Độ cứng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kesadahan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ความกระด้าง"
+          }
+        }
+      }
+    },
     "Độ cứng (dGH)": {
       "localizations": {
         "id": {
@@ -16733,6 +16749,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปในบทความจะถูกดาวน์โหลดด้วย อาจใช้หลายสิบ MB"
+          }
+        }
+      }
+    },
+    "Ảnh và giấy phép": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto dan lisensi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปภาพและสัญญาอนุญาต"
           }
         }
       }

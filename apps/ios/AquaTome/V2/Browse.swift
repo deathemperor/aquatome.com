@@ -92,7 +92,7 @@ struct BrowseHome: View {
         .padding(.vertical, 12)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > titleHeight } action: { _, gone in titleGone = gone }
+      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
       .modifier(ClearUnderTopBar(shown: titleGone))
       .accessibilityIdentifier("v2-browse")
       .navigationTitle("Khám phá")

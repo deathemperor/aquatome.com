@@ -44,7 +44,7 @@ struct V2Root: View {
       }
       Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
       Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
-      Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar() }
+      Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
     }
     // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
     .v2NoBottomEdge()
@@ -130,6 +130,8 @@ private extension View {
 
 enum V2Fade {
   static let height: CGFloat = 24
+  /// iOS stops growing a large title short of the largest text, so how far it takes to go up stops too.
+  static let largeTitleAtMost: CGFloat = 72
 }
 
 extension View {
@@ -147,7 +149,7 @@ private struct ClearUnderTabBar: ViewModifier {
   let fade: CGFloat
   /// What a page asks to stand on while its colour reaches the bar (`v2FootGround`): the colour runs on under the bar,
   /// with no white fog between.
-  @State private var footGround: Color?
+  @State private var footGround: FootGround?
   /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
   @State private var bar: CGFloat = 0
 
@@ -169,7 +171,7 @@ private struct ClearUnderTabBar: ViewModifier {
           }
           .ignoresSafeArea()
         }
-        .background { (footGround ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
+        .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
         // A mask hides what's under it but leaves it live: a tap beside or under the bar stops here, not on a card that
         // can't be seen. VoiceOver still reaches what's hidden, and scrolls it into view.
         .overlay {
@@ -192,7 +194,13 @@ extension EnvironmentValues {
   /// to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
-  @Entry var v2FootGround: Binding<Color?>?
+  @Entry var v2FootGround: Binding<FootGround?>?
+}
+
+/// The colour a page has the tab stand on, and whose it is: two pages can have the same one.
+struct FootGround: Equatable {
+  let page: String
+  let colour: Color
 }
 
 @available(iOS 18, *)
