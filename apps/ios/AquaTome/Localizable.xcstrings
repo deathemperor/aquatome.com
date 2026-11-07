@@ -12703,6 +12703,12 @@
             "value": "Baca selengkapnya di “%@”"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baca lanjut dalam “%@”"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12719,6 +12725,12 @@
             "value": "dan %lld spesies lainnya"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dan %lld spesies lain"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12730,6 +12742,12 @@
     "thêm %@": {
       "localizations": {
         "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tambah %@"
+          }
+        },
+        "ms": {
           "stringUnit": {
             "state": "translated",
             "value": "tambah %@"
@@ -12751,6 +12769,12 @@
             "value": "berbeda"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "berbeza"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12767,6 +12791,12 @@
             "value": "masih ada: %@"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bersambung: %@"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12778,6 +12808,12 @@
     "chưa có": {
       "localizations": {
         "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "belum ada"
+          }
+        },
+        "ms": {
           "stringUnit": {
             "state": "translated",
             "value": "belum ada"
@@ -12799,6 +12835,12 @@
             "value": "%lld langkah"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld langkah"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12813,6 +12855,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld paragraf"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld perenggan"
           }
         },
         "th": {
@@ -12831,6 +12879,12 @@
             "value": "%lld bagian"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld bahagian"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12845,6 +12899,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@, berbeda: %2$@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, berbeza: %@"
           }
         },
         "th": {
@@ -12863,6 +12923,12 @@
             "value": "%lld poin"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld perkara"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12879,6 +12945,12 @@
             "value": "%1$@: %2$@"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %@"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12890,6 +12962,12 @@
     "Xem trang": {
       "localizations": {
         "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat halaman"
+          }
+        },
+        "ms": {
           "stringUnit": {
             "state": "translated",
             "value": "Lihat halaman"
@@ -12911,6 +12989,12 @@
             "value": "Halaman spesies"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman spesies"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12925,6 +13009,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Buka alat cek kecocokan ikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka alat semakan keserasian ikan"
           }
         },
         "th": {
@@ -12943,6 +13033,12 @@
             "value": "Buka %@"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka %@"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12954,6 +13050,12 @@
     "Mở": {
       "localizations": {
         "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka"
+          }
+        },
+        "ms": {
           "stringUnit": {
             "state": "translated",
             "value": "Buka"
@@ -18497,6 +18599,12 @@
             "value": "Halaman terdekat"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman paling hampir"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -18511,6 +18619,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "dua spesies lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dua spesies lagi"
           }
         },
         "th": {
@@ -18529,6 +18643,12 @@
             "value": "tiga spesies lainnya"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tiga spesies lagi"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -18543,6 +18663,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tambah %@, belum disimpan ke akuarium."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah %@, belum disimpan ke tangki."
           }
         },
         "th": {
