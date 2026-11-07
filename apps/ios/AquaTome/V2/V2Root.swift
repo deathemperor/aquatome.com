@@ -125,21 +125,29 @@ private extension View {
   func v2ClearUnderTabBar(on ground: Color = .clear) -> some View { modifier(ClearUnderTabBar(ground: ground)) }
 }
 
+enum V2Fade {
+  static let height: CGFloat = 24
+}
+
+extension View {
+  /// A scroll view of v2's own: its end stops above the fade over the tab bar, not in it.
+  func v2ClearOfTheFade() -> some View { safeAreaPadding(.bottom, V2Fade.height) }
+}
+
 /// A tab's screens fade out just above the tab bar, so nothing shows through its glass or around it (the owner: words
 /// through the bar). iOS's own edges can't do it: the soft one leaves the words legible in the glass, and the hard one cuts
 /// them on a line with a band under it. A tab's own, not each page's: it holds for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
-  /// The fade's height. Short: a page's pinned controls end just above it.
-  private let fade: CGFloat = 24
+  /// The fade's height. Short: v1's pinned controls end just above it. v2's own pages end above it (`v2ClearOfTheFade`);
+  /// an inset out here doesn't reach inside a navigation stack.
+  private let fade: CGFloat = V2Fade.height
   /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
   @State private var bar: CGFloat = 0
 
   func body(content: Content) -> some View {
     if #available(iOS 26, *) {
       content
-        // A page's end and its pinned controls stop above the fade, not in it.
-        .safeAreaPadding(.bottom, bar >= 49 ? fade : 0)
         .background {
           Color.clear.ignoresSafeArea(.keyboard).onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.bottom } action: { bar = $0 }
         }

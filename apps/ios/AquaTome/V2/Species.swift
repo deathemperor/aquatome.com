@@ -28,6 +28,7 @@ struct SpeciesPage: View {
   @Environment(\.dismiss) private var dismiss
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
+  @Environment(\.colorScheme) private var scheme
   /// This page being read, how far down and how long, as v1's page reports it (made when it first shows).
   @State private var reading: PageReading?
   @State private var doc: PageDoc?
@@ -43,7 +44,6 @@ struct SpeciesPage: View {
   @State private var scrolled = false
   /// The bar's foot on the screen, whether the bar is showing or not.
   @State private var barFoot: CGFloat = 106
-  @ScaledMetric(relativeTo: .body) private var shot: CGFloat = 180
 
   /// The page's own photo, at the top.
   private var hero: String? { item.img ?? doc?.lead?.src }
@@ -73,21 +73,17 @@ struct SpeciesPage: View {
               LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom).frame(height: 130)
             }
             .overlay(alignment: .bottom) {
-              // Opaque behind the credit: the licence reads at 4.5:1 on any photo.
-              LinearGradient(stops: [.init(color: colour.opacity(0), location: 0), .init(color: colour, location: 0.7)],
-                             startPoint: .top, endPoint: .bottom).frame(height: 140)
+              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
             }
             .accessibilityElement()
             .accessibilityLabel(Text(verbatim: doc?.lead?.alt ?? item.name))
             .accessibilityAddTraits(.isImage)
-            // Past the photo's one stop, so VoiceOver reaches its links.
-            .overlay(alignment: .bottomTrailing) { leadCredit }
         } else {
           // No photo (a third of the fish): the page starts at the name, under its buttons, not at an empty box.
           Color.clear.frame(height: 116)
         }
         header
-        FactsStrip(facts: facts, onDark: true, temperament: !hasMates).padding(.vertical, 14)
+        FactsStrip(facts: facts, onDark: true, temperament: asked && !hasMates).padding(.vertical, 14)
         if !photos.isEmpty { gallery.padding(.bottom, 24) }
       }
       .background(colour)
@@ -95,7 +91,8 @@ struct SpeciesPage: View {
       VStack(alignment: .leading, spacing: 28) {
         if !asked {
           ProgressView().frame(maxWidth: .infinity)
-        } else if doc == nil {
+        } else if doc == nil, handbook.status != .ready {
+          // Online, nil is a page this build can't read, not the network: "Xem trang đầy đủ" below is the way to it.
           VStack(alignment: .leading, spacing: 4) {
             Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.secondary)
             Button("Thử lại") {
@@ -127,6 +124,7 @@ struct SpeciesPage: View {
       .padding(.top, 24)
       .padding(.bottom, 40)
     }
+    .v2ClearOfTheFade()
     .ignoresSafeArea(edges: .top)
     // Once its text is in: the photo and name alone fit the screen, "read to the end" at once.
     .onScrollGeometryChange(for: Int?.self) { [loaded = doc != nil] g in
@@ -152,8 +150,9 @@ struct SpeciesPage: View {
     .toolbarVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
     .overlay(alignment: .top) { if !scrolled { overPhoto } }
     .modifier(ClearUnderTopBar(shown: scrolled))
-    // Over the photo and the colour under it, the status bar in white.
-    .toolbarColorScheme(scrolled ? nil : .dark, for: .navigationBar)
+    // Over the photo and the colour under it, the status bar in white. The page's own after it, never nil: iOS can keep the
+    // dark one after nil, white words on the white band.
+    .toolbarColorScheme(scrolled ? scheme : .dark, for: .navigationBar)
     .toolbar {
       ToolbarItemGroup(placement: .topBarTrailing) {
         // Saved to read later, as v1's page saves it (the Tìm tab lists them).
@@ -209,13 +208,10 @@ struct SpeciesPage: View {
 
   private var header: some View {
     VStack(alignment: .leading, spacing: 6) {
+      leadCredit
       Text(verbatim: item.name).font(.largeTitle.weight(.bold)).foregroundStyle(.white)
         .fixedSize(horizontal: false, vertical: true)
         .accessibilityAddTraits(.isHeader)
-        // Gone up under the bar: the bar says it instead.
-        .onGeometryChange(for: Bool.self) { [barFoot] in $0.frame(in: .scrollView).maxY < barFoot } action: { under in
-          withAnimation(.easeInOut(duration: 0.2)) { scrolled = under }
-        }
       if let sub = item.sub { Text(verbatim: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
       if Life(item) != nil {
         Button { putting = true } label: {
@@ -238,13 +234,19 @@ struct SpeciesPage: View {
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(.horizontal, 20)
     .padding(.top, 4)
+    // The first words reach the bar: the band comes now and the bar says the name, so no words go under the status bar or
+    // the round buttons on the way up, however many lines they run to.
+    .onGeometryChange(for: Bool.self) { [barFoot] in $0.frame(in: .scrollView).minY < barFoot } action: { under in
+      withAnimation(.easeInOut(duration: 0.2)) { scrolled = under }
+    }
   }
 
   /// The photo's credit, quietly on it, each piece linking where it says, as on v1's page.
   @ViewBuilder private var leadCredit: some View {
     if let line = doc?.lead.flatMap({ credit($0) }) {
-      Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white)
-        .padding(.horizontal, 20).padding(.bottom, 8)
+      // On the colour under the photo: its licence reads at 4.5:1 whatever the photo, however many lines it wraps to.
+      Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white).multilineTextAlignment(.trailing)
+        .frame(maxWidth: .infinity, alignment: .trailing)
     }
   }
 
@@ -262,7 +264,7 @@ struct SpeciesPage: View {
           VStack(alignment: .leading, spacing: 4) {
             Button { viewing = i } label: {
               V2Photo(src: p.thumb ?? p.src)
-                .frame(width: min(shot, 220) * 1.45, height: min(shot, 220))
+                .aspectRatio(1.6, contentMode: .fit)
                 .clipShape(.rect(cornerRadius: 16, style: .continuous))
             }
             .buttonStyle(CardPress())
@@ -272,7 +274,7 @@ struct SpeciesPage: View {
               Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white).fixedSize(horizontal: false, vertical: true)
             }
           }
-          .frame(width: min(shot, 220) * 1.45, alignment: .leading)
+          .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 10) }
         }
       }
       .scrollTargetLayout()
@@ -378,10 +380,11 @@ struct SpeciesPage: View {
         .padding(.horizontal, 20)
         if let good = m.good, !good.items.isEmpty { MatesRow(title: good.title, mates: good.items, good: true) }
         if let avoid = m.avoid, !avoid.items.isEmpty { MatesRow(title: avoid.title, mates: avoid.items, good: false) }
+        // What explains the shelves straight under them, the credits last.
         VStack(alignment: .leading, spacing: 6) {
-          MatesCredits(photos: ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img))
           if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.secondary) }
           toolButton(m.tool.text, m.tool.href)
+          MatesCredits(photos: ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img))
         }
         .padding(.horizontal, 20)
       }
@@ -466,7 +469,7 @@ private struct MatesRow: View {
   let good: Bool
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
-  @ScaledMetric(relativeTo: .subheadline) private var width: CGFloat = 150
+  @ScaledMetric(relativeTo: .subheadline) private var photoHeight: CGFloat = 120
 
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
@@ -484,10 +487,12 @@ private struct MatesRow: View {
       } else {
         ScrollView(.horizontal, showsIndicators: false) {
           HStack(alignment: .top, spacing: 12) {
-            ForEach(mates, id: \.path) { m in tile(m, photo: width * 0.67, why: 3).frame(width: width, alignment: .leading) }
+            ForEach(mates, id: \.path) { m in
+              tile(m, photo: photoHeight, why: 3).containerRelativeFrame(.horizontal, alignment: .leading) { w, _ in shelfCard(w, across: 2, spacing: 12) }
+            }
           }
-          .padding(.horizontal, 20)
         }
+        .contentMargins(.horizontal, 20, for: .scrollContent)
       }
     }
   }
@@ -498,7 +503,7 @@ private struct MatesRow: View {
       VStack(alignment: .leading, spacing: 6) {
         let src = m.img?.src ?? item?.img
         V2Photo(src: src)
-          .frame(width: lines == nil ? photo * 1.5 : width, height: photo)
+          .frame(width: lines == nil ? photo * 1.5 : nil, height: photo)
           .clipShape(.rect(cornerRadius: 14, style: .continuous))
           // A third of the fish have no photo: the tile says what it is, not an empty box.
           .overlay { if src == nil { Image(systemName: item?.kind.symbol ?? "fish").font(.title2).foregroundStyle(.secondary) } }

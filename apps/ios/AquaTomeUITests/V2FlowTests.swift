@@ -192,7 +192,8 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
-    XCTAssertTrue(app.buttons["v2-full-page"].waitForExistence(timeout: 5), "its text didn't come")
+    // The lead photo's credit comes with the page's text.
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
     let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
@@ -246,6 +247,43 @@ final class V2FlowTests: XCTestCase {
       let off = zip(pixel(x), page).map { abs($0 - $1) }.max()!
       XCTAssertLessThan(off, 40, "something under the tab bar at x \(x): \(pixel(x)) on a page of \(page)")
     }
+  }
+
+  /// The title and status bar read once the bar is back: iOS can keep the dark scheme of the photo, white on the white band.
+  func testAFishsPageBarReadsOnceThePageHasGoneUnderIt() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
+    let title = app.navigationBars.staticTexts["Cá neon"]
+    repeatUntil(title.exists, times: 4) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.2)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    }
+    XCTAssertTrue(title.exists, "the bar didn't come back")
+    let shot = XCUIScreen.main.screenshot().image, scale = shot.scale, cg = shot.cgImage!
+    let bitmap = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                           bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+    bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self)
+    func red(_ x: CGFloat, _ y: CGFloat) -> Int { Int(bytes[Int(y * scale) * bitmap.bytesPerRow + Int(x * scale) * 4]) }
+    let f = title.frame, ground = red(f.minX - 6, f.midY)
+    let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { abs(red(x, $0) - ground) } }.max()!
+    XCTAssertGreaterThan(strongest, 120, "the bar's title doesn't read on its ground")
+  }
+
+  /// A page's end stops above the fade over the tab bar: the last of Khám phá isn't dimmed for good.
+  func testAPagesEndClearsTheFadeOverTheTabBar() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let last = app.buttons["Thuật ngữ"]
+    XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
+    for _ in 0..<12 { app.swipeUp(velocity: .fast) }
+    XCTAssertTrue(last.exists, "no last tile")
+    let bar = app.tabBars.buttons["Khám phá"].frame.minY
+    XCTAssertLessThanOrEqual(last.frame.maxY, bar - 20, "the page ends in the fade")
   }
 
   /// What's faded out under the bar can't be tapped: a tap under it, with a card behind, opens nothing.

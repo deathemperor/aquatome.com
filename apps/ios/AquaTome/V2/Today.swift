@@ -13,8 +13,13 @@ struct TodayView: View {
   @Namespace private var zoom
   /// The feed scrolled under the status bar: a band behind it then, none at the top.
   @State private var under = false
+  /// The header has gone up: the profile button stays, as on Khám phá's bar (the switch back to v1 is behind it).
+  @State private var headerGone = false
   /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
   @State private var today = Date.now
+  /// No fish yet, as the day began: held, so a fish added from the card doesn't change the card under the sheet.
+  @State private var heldBeginner: Bool?
+  private var beginner: Bool { heldBeginner ?? tanks.tanks.allSatisfy { $0.species.isEmpty } }
 
   var body: some View {
     NavigationStack(path: $path) {
@@ -40,16 +45,32 @@ struct TodayView: View {
         }
         .padding(.bottom, 32)
       }
+      .v2ClearOfTheFade()
       .toolbarVisibility(.hidden, for: .navigationBar)
       // With no bar, the feed would scroll bare under the status bar: a band behind it once it does.
       .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 4 } action: { _, u in under = u }
+      .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 60 } action: { _, gone in headerGone = gone }
       .modifier(ClearUnderTopBar(shown: under))
+      .overlay(alignment: .topTrailing) {
+        if headerGone {
+          ProfileButton().tint(.primary).font(.title2)
+            .frame(width: 44, height: 44)
+            .background(.regularMaterial, in: Circle())
+            .padding(.trailing, 16).padding(.top, 2)
+            .transition(.opacity)
+        }
+      }
+      .animation(.easeInOut(duration: 0.2), value: headerGone)
+      .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
     }
     .v2StackLinks($path)
-    .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in today = .now }
+    .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
+      today = .now
+      heldBeginner = tanks.tanks.allSatisfy { $0.species.isEmpty }
+    }
   }
 
   private var header: some View {
@@ -96,7 +117,6 @@ struct TodayView: View {
     }
     var out: [Card] = []
     // A reader with no fish yet isn't first shown one that needs a very large tank.
-    let beginner = tanks.tanks.allSatisfy { $0.species.isEmpty }
     let easy = beginner ? s.featuredFish.filter { ($0.facts.tankCm ?? 0) <= 100 } : []
     if let f = pick(easy.isEmpty ? s.featuredFish : easy) { out.append(.fish(f)) }
     if let g = pick(s.firstGuides) { out.append(.guide(g)) }
@@ -168,8 +188,7 @@ private struct FishOfTheDay: View {
           }
         } else {
           V2Photo(src: item.img) { colour = $0 }
-            .frame(height: height)
-            .modifier(WordsOnPhoto(colour: colour, edge: .top) { name })
+            .modifier(WordsOnPhoto(colour: colour, edge: .top, height: height) { name })
             .overlay(alignment: .bottom) {
               LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 56)
             }
@@ -229,8 +248,7 @@ private struct GuideCard: View {
           }
         } else {
           V2Photo(src: item.img) { colour = $0 }
-            .frame(height: height)
-            .modifier(WordsOnPhoto(colour: colour, edge: .bottom) { words })
+            .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height) { words })
         }
       }
       .animation(.easeInOut(duration: 0.4), value: colour)

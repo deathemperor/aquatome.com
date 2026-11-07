@@ -145,7 +145,8 @@ struct Lockup: View {
               .foregroundStyle(onDark ? .white : .primary)
             if let line = line ?? Lockup.line(item), line != title {
               Text(verbatim: line).font(.subheadline).italic(scientific && line == item.sub).lineLimit(size.isAccessibilitySize ? nil : 1)
-                .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+                // Darker than the system's secondary, 3.5:1 on white: a fish's figures are what a row is read for.
+                .foregroundStyle(onDark ? Color.white.opacity(0.75) : Color.primary.opacity(0.6))
             }
           }
           Spacer(minLength: 0)
@@ -254,7 +255,9 @@ struct FactsStrip: View {
 
   private var row: some View {
     HStack(alignment: .top, spacing: 0) {
-      ForEach(columns) { c in divided(c, figure(c).frame(minWidth: column, maxWidth: .infinity)) }
+      ForEach(columns) { c in divided(c, columns.count == 1 ? AnyView(figure(c).padding(.leading, 8)) : AnyView(figure(c).frame(minWidth: column, maxWidth: .infinity))) }
+      // One alone starts where the words above it do, not floating in the middle.
+      if columns.count == 1 { Spacer(minLength: 0) }
     }
     .padding(.horizontal, 12)
   }
@@ -263,9 +266,8 @@ struct FactsStrip: View {
     ScrollView(.horizontal, showsIndicators: false) {
       HStack(alignment: .top, spacing: 0) {
         ForEach(columns) { c in
-          // Four whole on a phone, then only the next one's rule and the start of its words, fading out: there's more to
-          // see, and no figure cut in two.
-          divided(c, figure(c).containerRelativeFrame(.horizontal) { w, _ in max((w - 24) / 4, column) })
+          // Four whole on a phone, then only the next one's rule: there's more to see, and no figure cut in two.
+          divided(c, figure(c).containerRelativeFrame(.horizontal) { w, _ in max(w / 4, column) })
         }
       }
       .padding(.leading, 12)
@@ -350,29 +352,29 @@ struct ShelfHeader<More: Hashable>: View {
   }
 }
 
-/// Words on a photo, on a wash of its colour: opaque behind them however long they run (4.5:1 on any photo), fading out
-/// past them, and the rest of the photo clear.
+/// Words on a photo's colour, the photo in the space left in `height` and fading into them: opaque behind the words
+/// however long they run (4.5:1 on any photo), and the subject centred in what's left, not hidden by them.
 struct WordsOnPhoto<Words: View>: ViewModifier {
   let colour: Color
   let edge: VerticalEdge
+  let height: CGFloat
   var fade: CGFloat = 56
   @ViewBuilder let words: Words
-  @State private var height: CGFloat = 0
+  @State private var wordsHeight: CGFloat = 0
 
   func body(content: Content) -> some View {
-    content
-      .overlay(alignment: edge == .top ? .top : .bottom) {
-        let out = LinearGradient(colors: [colour, colour.opacity(0)], startPoint: edge == .top ? .top : .bottom,
-                                 endPoint: edge == .top ? .bottom : .top).frame(height: fade)
-        VStack(spacing: 0) {
-          if edge == .bottom { out }
-          colour.frame(height: height)
-          if edge == .top { out }
-        }
+    VStack(spacing: 0) {
+      if edge == .top { colour.frame(height: wordsHeight) }
+      content.overlay(alignment: edge == .top ? .top : .bottom) {
+        LinearGradient(colors: [colour, colour.opacity(0)], startPoint: edge == .top ? .top : .bottom,
+                       endPoint: edge == .top ? .bottom : .top).frame(height: fade)
       }
-      .overlay(alignment: edge == .top ? .topLeading : .bottomLeading) {
-        words.onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height = $0 }
-      }
+      if edge == .bottom { colour.frame(height: wordsHeight) }
+    }
+    .frame(height: height)
+    .overlay(alignment: edge == .top ? .topLeading : .bottomLeading) {
+      words.onGeometryChange(for: CGFloat.self) { $0.size.height } action: { wordsHeight = $0 }
+    }
   }
 }
 
@@ -398,6 +400,12 @@ struct ClearUnderTopBar: ViewModifier {
   @ViewBuilder private func edgeHidden(_ content: Content) -> some View {
     if #available(iOS 26, *) { content.scrollEdgeEffectHidden(true, for: .top) } else { content }
   }
+}
+
+/// How wide a card is on a shelf of `across` whole cards, then a sliver of the next: never so much of it that its words are
+/// cut through. `w` is the shelf's width less its 20-point margins.
+func shelfCard(_ w: CGFloat, across: CGFloat, spacing: CGFloat) -> CGFloat {
+  (w + 20 - 36 - across * spacing) / across
 }
 
 /// A card pressed: it gives a little under the finger, as the App Store's do.
