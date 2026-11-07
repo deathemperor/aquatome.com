@@ -1339,9 +1339,10 @@
         "additionalProperties": false,
         "required": [
           "title",
-          "entries"
+          "entries",
+          "days"
         ],
-        "description": "What happened over the last days, newest day first: the web page's \"Mấy ngày qua\".",
+        "description": "The last three days, newest first.",
         "properties": {
           "title": {
             "type": "string"
@@ -1351,7 +1352,40 @@
             "items": {
               "$ref": "#/components/schemas/LogEntry"
             },
-            "description": "Each day's entries, newest day first. A day with nothing new is one entry, tone muted. Group them by `at`."
+            "description": "Each day's entries, newest day first. A day with nothing new is one entry, tone muted. Group them by `at`. Deprecated: the overview before version 2; read `days`.",
+            "deprecated": true
+          },
+          "days": {
+            "type": "array",
+            "description": "One row a day, newest first.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "figure",
+                "text"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "\"Today so far\", \"Yesterday\", \"Thursday 5 Nov\"."
+                },
+                "figure": {
+                  "type": "string",
+                  "description": "On the right: \"17 readers\"."
+                },
+                "text": {
+                  "type": "string",
+                  "description": "The day's other lines in one: \"11 fish ID calls ($0.11) · 1 new comment · 1 page hidden\"; \"Nothing else\" on a quiet day."
+                },
+                "section": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$",
+                  "description": "The section the row opens, when there is one."
+                }
+              }
+            }
           }
         }
       },
@@ -1587,7 +1621,7 @@
           "labels",
           "readouts"
         ],
-        "description": "Columns over days, as the web page's charts (apps/site/worker/admin/chart.ts DayChart): stacked from the baseline in the series' order, a negative value below it; `whole` a pale column behind them. Values are raw numbers; write them as the section's text writes numbers (vi-VN grouping), money with `unit`.",
+        "description": "Columns over days, as the web page's charts (apps/site/worker/admin/chart.ts DayChart): stacked from the baseline in the series' order, a negative value below it; `whole` a pale column behind them. Values are raw numbers, for drawing and the axis; every word a reader sees about a bar is in `labels` and `readouts`. Write axis numbers as the section's text writes its numbers, money with `unit`.",
         "properties": {
           "kind": {
             "const": "chart",
@@ -1624,7 +1658,7 @@
             "enum": [
               "usd"
             ],
-            "description": "usd: dollars, \"$0,11\", and \"$0,0042\" below a cent. Absent: counts."
+            "description": "usd: dollars (\"$0.11\", \"$0.0042\" below a cent). Absent: counts."
           },
           "partialLast": {
             "type": "boolean",
@@ -1737,6 +1771,10 @@
           "next": {
             "type": "string",
             "description": "More rows to come: GET /api/owner/sections/{key}/tables/{id}?cursor={next} gives the next 50."
+          },
+          "figure": {
+            "type": "string",
+            "description": "A folded table's figure, on the right of its row: \"$0.77\", \"95\"."
           }
         },
         "description": "A table. One with more than 50 rows comes with its first 50 and `next`."
@@ -2222,7 +2260,7 @@
           },
           "message": {
             "type": "string",
-            "description": "Vietnamese, to show the owner."
+            "description": "English, to show the owner as it comes."
           }
         }
       },
@@ -2350,9 +2388,13 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "tz",
           "rows"
         ],
         "properties": {
+          "tz": {
+            "$ref": "#/components/schemas/Tz"
+          },
           "rows": {
             "type": "array",
             "items": {
@@ -2544,9 +2586,13 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "tz",
           "items"
         ],
         "properties": {
+          "tz": {
+            "$ref": "#/components/schemas/Tz"
+          },
           "items": {
             "type": "array",
             "items": {
@@ -2770,6 +2816,15 @@
           },
           "note": {
             "$ref": "#/components/schemas/Note"
+          },
+          "section": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "The whole changelog: its row reads \"Changelog · 3 in 24 h\"."
+          },
+          "link": {
+            "type": "string",
+            "description": "That row's words: \"Changelog · 3 in 24 h\"."
           }
         }
       },
@@ -2796,19 +2851,33 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
+              "label",
               "text",
-              "tone"
+              "tone",
+              "section"
             ],
+            "description": "The fish ID keys' state, a row that opens their page.",
             "properties": {
+              "label": {
+                "type": "string",
+                "description": "\"Anthropic keys\"."
+              },
               "text": {
                 "type": "string",
-                "description": "\"3 keys working\", \"Key #2 resting until 14:00\"."
+                "description": "\"1 of 2 resting\", \"2 working\"."
               },
               "tone": {
                 "$ref": "#/components/schemas/Tone"
+              },
+              "section": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              },
+              "anchor": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
               }
-            },
-            "description": "The fish ID keys' state."
+            }
           },
           "fixed": {
             "type": "array",
