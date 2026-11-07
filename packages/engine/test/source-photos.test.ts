@@ -35,6 +35,18 @@ test('logos, icons, svgs, QR codes, tiny and banner images are never picked', ()
   expect(picked.map(p => p.src)).toEqual(['https://shop.example/cardinal.jpg'])
 })
 
+test("a drawing, plate or stamp a source shows is no photo of the species: ScotCat's line drawings and stamps, Seriously Fish's Bleeker plate", () => {
+  const picked = pickSourcePhotos([
+    { src: '/silurichthys_hasseltii.jpg', alt: 'Silurichthys hasseltii: line drawing', width: 1000, height: 500 },
+    { src: '/tachysurus_nudiceps_stamp.jpg', alt: 'Tachysurus nudiceps: catfish stamp', width: 1000, height: 700 },
+    { src: '/luciosoma.jpg', alt: "Pieter Bleeker's drawing of L. spilopleura.", width: 1000, height: 500 },
+    { src: '/painted-betta.jpg', alt: 'Painted betta, a male', width: 1000, height: 700 },
+  ], 'https://www.scotcat.com/x.htm', ['Silurichthys hasseltii'])
+  expect(picked.map(p => p.src)).toEqual(['https://www.scotcat.com/painted-betta.jpg'])
+  // A guide keeps what its source shows: a drawing there is the article's own.
+  expect(pickSourcePhotos([{ src: '/fins.jpg', alt: 'Line drawing of the fins', width: 1000, height: 700 }], 'https://x/g', [], Infinity, 'guide')).toHaveLength(1)
+})
+
 test('stores picked photos once, credited to the source', async () => {
   const uploads: string[] = []
   const deps = {

@@ -35,6 +35,26 @@ test('commons: category and subcategories (not "in art"), then search; open lice
 })
 
 
+test("commons: a file whose own categories or description say it is a drawing, food or another species is no candidate", async () => {
+  const withMeta = (title: string, extra: Record<string, { value: string }>) => { const x = info(title, 'CC BY 4.0'); Object.assign(x.imageinfo[0]!.extmetadata, extra); return x }
+  const all: Record<string, unknown> = {
+    'File:A.jpg': withMeta('File:A.jpg', { Categories: { value: 'Barbonymus gonionotus|Media from iNaturalist' } }),
+    'File:Barbonymus gonionotus Bleeker.jpg': withMeta('File:Barbonymus gonionotus Bleeker.jpg', { Categories: { value: 'Barbonymus gonionotus|Cyprinidae illustrations' } }),
+    'File:Pla som.jpg': withMeta('File:Pla som.jpg', { Categories: { value: 'Fried fish in Thailand|Pickled fish' } }),
+    'File:Barb gonio 080525 9625 ltn.jpg': withMeta('File:Barb gonio 080525 9625 ltn.jpg', { ImageDescription: { value: 'Barbonymus gonionotus (122mm SL). <b>errata</b>: Misidentified, it should be Mystacoleucus marginatus' } }),
+  }
+  let asked = ''
+  const c = await commonsCandidates('Barbonymus gonionotus', async (u: string) => {
+    const q = new URL(u).searchParams
+    if (q.get('list') === 'categorymembers') return { query: { categorymembers: Object.keys(all).map(title => ({ ns: 6, title })) } }
+    if (q.get('list') === 'search') return { query: { search: [] } }
+    asked = q.get('iiextmetadatafilter')!
+    return { query: { pages: Object.fromEntries(q.get('titles')!.split('|').map((t, i) => [String(i), all[t]])) } }
+  })
+  expect(asked).toBe('LicenseShortName|Artist|ImageDescription|Categories')
+  expect(c.map(x => x.key)).toEqual(['File:A.jpg'])
+})
+
 /** A different picture for every address (seeded noise), so near-copy detection tells them apart; `same` makes two addresses one picture. */
 const same = new Map<string, string>()
 const picture = (url: string) => {

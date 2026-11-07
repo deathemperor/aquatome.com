@@ -490,6 +490,21 @@ The layers above still check the result.
     reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
     leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
     under water, emersed, in flower).
+  - **What a picture says it is.** Before any look, a species', plant's or breed's picture is left out when its own
+    words say it is no photo of it alive (`unfitCommons` and `ARTWORK` in `packages/engine/src/photos.ts`): a Commons
+    file's title and categories naming art (a drawing, illustration, engraving, plate, print, stamp, "1865 in art", a
+    book scan), a map or X-ray, a preserved or taxidermied specimen, food or a fish market, or its description saying it
+    is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). The
+    Commons fallback for a page with no photo (`findPhotos`) also skips rejected photos. Each word counts only where it
+    means that: "specimens" in a category is a botanical garden's live plants, "Fishing in India" files a gourami in a
+    tank, "museum" a public aquarium, and a description's "illustration for a quiz", "30 mm SL" or "sold in markets"
+    are about live fish (the first sweep's false hits, looked at by eye). A guide's pictures aren't screened this way:
+    one may show lettuce for the fish. Found by a design review of the home page (2026-11-07): the Java barb's page
+    photos, the Commons search's first four, were Bleeker's drawing (a white box in dark mode), a fried fish, a fish
+    out of water and one in a hand, picked with no look at all; the dead-fish screen had noted the drawing and left it.
+    `packages/engine/scripts/unfit-photos.ts` applied the rule to the pictures already shown, with the dead-fish
+    screen's notes for main photos from any source: 190 rejected, 36 pages left with no photo of their own (34 with
+    none in their gallery either).
   - **One picture, once a page.** Every picture's image hash is in `content/picture-hashes.json` (`pnpm engine
     picture-hashes`, each cycle): a page decides its pictures in page order and never shows one twice, even as two files
     (two articles of one source each had a copy), and a card or tile takes its next photo, or none. A guide keeps every
