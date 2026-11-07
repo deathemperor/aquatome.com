@@ -39,12 +39,28 @@ export function search(items: Item[], query: string, kind: Item['kind'] | null, 
     .filter(x => x.s > 0).sort((a, b) => b.s - a.s || a.i - b.i).slice(0, max).map(x => x.item)
 }
 
-/** Each topic's words, worked out once for a topics file (the Worker keeps one per isolate for 10 minutes). */
-const folded = new WeakMap<Topics, { path: string; section: string | null; text: string; hay: Set<string> }[]>()
+/** A text's words as written, lowercased and composed: "đèn" (a light) and "đen" (black) fold alike. */
+const writtenOf = (s: string) => s.normalize('NFC').toLowerCase().split(/[^\p{L}\p{M}\p{N}]+/u).filter(Boolean)
+/** A query's words, each folded beside its written form. */
+const terms = (s: string) => writtenOf(s)
+  .flatMap(w => { const f = fold(w); return split(f).filter(x => x.length > 1 || /\d/.test(x)).map(x => ({ f: x, w: x === f ? w : x })) })
+
+type Topic = { path: string; section: string | null; text: string; folded: string[]; hay: Set<string>; written: string[] }
+/**
+ * Each topic's words, worked out once for a topics file (the Worker keeps one per isolate for 10 minutes), and in how
+ * many topics each folded word is.
+ */
+const folded = new WeakMap<Topics, { list: Topic[]; df: Map<string, number> }>()
 const wordsOf = (topics: Topics) => {
   let out = folded.get(topics)
   if (!out) {
-    out = Object.entries(topics.pages).flatMap(([path, list]) => list.map(([section, text]) => ({ path, section, text, hay: new Set(words(text)) })))
+    const df = new Map<string, number>()
+    const list = Object.entries(topics.pages).flatMap(([path, entries]) => entries.map(([section, text]) => {
+      const hay = new Set(words(text))
+      for (const w of hay) df.set(w, (df.get(w) ?? 0) + 1)
+      return { path, section, text, folded: [...hay], hay, written: writtenOf(text) }
+    }))
+    out = { list, df }
     folded.set(topics, out)
   }
   return out
@@ -53,21 +69,46 @@ const wordsOf = (topics: Topics) => {
 /** A guide found by a section heading or FAQ question (topics.ts): the section to open it at, and the words that matched. */
 export type TopicHit = { item: Item; section: string | null; text: string }
 
+/** A word, or one it begins (past three letters), in a topic's words. */
+const within = (words: string[], w: string) => words.some(h => h === w || (h.length > 3 && w.length > 3 && h.startsWith(w)))
+
 /**
- * Guides whose section headings or FAQ questions have the query's words, as a title has them in score(): every word,
- * or most of them; a guide once, at its best topic, best first. For a question answered past a guide's title (bladder
- * snails, in a guide titled for aquascaping tips).
+ * Guides whose section headings or FAQ questions have the query's words, a guide once, at its best topic, best first.
+ * For a question answered past a guide's title (bladder snails, in a guide titled for aquascaping tips).
+ *
+ * A word weighs by how rare it is among the topics, so "cá", "có" or "không" weigh little and "ốc" or "otto" much, and
+ * a topic is a match when it has three fifths of the query's weight: "ốc bùng phát" finds where snails come from, though
+ * that heading has no "phát", and "tép chết" finds shrimp, not every death. A word no topic has weighs nothing. When the query has accents, a word that matches only once they are
+ * folded away (râu for rau, đen for đèn) weighs half. Among matches, the topic with more of the query, then the one with
+ * fewer other words, comes first.
  */
 export function searchTopics(topics: Topics, byPath: (path: string) => Item | undefined, query: string, max = 12): TopicHit[] {
-  const want = words(bare(fold(query)))
-  if (!want.length) return []
-  const best = new Map<string, TopicHit & { s: number }>()
-  for (const { path, section, text, hay } of wordsOf(topics)) {
+  const { list, df } = wordsOf(topics)
+  const q = [...new Map(terms(query).map(t => [t.f, t])).values()]
+  const accented = q.some(t => t.w !== t.f)
+  const weighed = q.map(t => {
+    let n = df.get(t.f) ?? 0
+    if (t.f.length > 3) for (const [w, k] of df) if (w !== t.f && w.length > 3 && w.startsWith(t.f)) n += k
+    return { ...t, weight: n ? Math.log((list.length + 1) / Math.min(n, list.length)) : 0 }
+  }).filter(t => t.weight > 0)
+  const total = weighed.reduce((sum, t) => sum + t.weight, 0)
+  if (!(total > 0)) return []
+  const best = new Map<string, TopicHit & { share: number; fit: number }>()
+  for (const { path, section, text, folded: words, hay, written } of list) {
+    let got = 0
+    let hits = 0
+    for (const t of weighed) {
+      if (!hay.has(t.f) && !within(words, t.f)) continue
+      hits++
+      got += !accented || within(written, t.w) ? t.weight : t.weight / 2
+    }
+    const share = got / total
+    if (share < 0.6) continue
     const item = byPath(path)
     if (!item) continue
-    const hit = want.filter(w => hay.has(w) || [...hay].some(h => h.length > 3 && w.length > 3 && h.startsWith(w))).length
-    const s = hit === want.length ? 40 + hit : hit >= Math.max(2, Math.ceil(want.length * 0.6)) ? 10 + hit : 0
-    if (s > (best.get(path)?.s ?? 0)) best.set(path, { item, section, text, s })
+    const fit = hits / words.length
+    const was = best.get(path)
+    if (!was || share > was.share || (share === was.share && fit > was.fit)) best.set(path, { item, section, text, share, fit })
   }
-  return [...best.values()].sort((a, b) => b.s - a.s).slice(0, max).map(({ s: _, ...hit }) => hit)
+  return [...best.values()].sort((a, b) => b.share - a.share || b.fit - a.fit).slice(0, max).map(({ share: _, fit: __, ...hit }) => hit)
 }
