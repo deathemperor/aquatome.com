@@ -161,22 +161,6 @@
         }
       }
     },
-    "%@ đến %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ sampai %2$@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@ ถึง %2$@"
-          }
-        }
-      }
-    },
     "%@, ảnh %lld": {
       "localizations": {
         "id": {
@@ -189,22 +173,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ภาพที่ %lld"
-          }
-        }
-      }
-    },
-    "%@: mới nhất %@, thấp nhất %@, cao nhất %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: terbaru %2$@, terendah %3$@, tertinggi %4$@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$@: ล่าสุด %2$@, ต่ำสุด %3$@, สูงสุด %4$@"
           }
         }
       }
@@ -2817,22 +2785,6 @@
         }
       }
     },
-    "Các mục": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bagian"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หมวด"
-          }
-        }
-      }
-    },
     "Các ổ cắm trong dự án Tuya của bạn.": {
       "localizations": {
         "id": {
@@ -3197,22 +3149,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้นี้ต้องใช้ฮีตเตอร์กี่วัตต์ →"
-          }
-        }
-      }
-    },
-    "Cần bạn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perlu Anda"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รอคุณจัดการ"
           }
         }
       }
@@ -4417,22 +4353,6 @@
         }
       }
     },
-    "Không có việc gì cần bạn lúc này.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak ada yang perlu Anda tangani saat ini."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตอนนี้ไม่มีอะไรรอคุณจัดการ"
-          }
-        }
-      }
-    },
     "Không cần châm": {
       "localizations": {
         "id": {
@@ -4509,22 +4429,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูปไม่สำเร็จ โปรดลองอีกครั้ง"
-          }
-        }
-      }
-    },
-    "Không hoàn tác được.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tidak bisa dibatalkan."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ย้อนกลับไม่ได้"
           }
         }
       }
@@ -6705,22 +6609,6 @@
         }
       }
     },
-    "Thu gọn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ciutkan"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แสดงน้อยลง"
-          }
-        }
-      }
-    },
     "Thuật ngữ": {
       "localizations": {
         "id": {
@@ -8673,22 +8561,6 @@
         }
       }
     },
-    "chưa hết ngày": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "hari belum selesai"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ยังไม่หมดวัน"
-          }
-        }
-      }
-    },
     "chậm": {
       "localizations": {
         "id": {
@@ -8765,22 +8637,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความยาวด้านที่ 2"
-          }
-        }
-      }
-    },
-    "cần chú ý": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "perlu perhatian"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ต้องให้ความสนใจ"
           }
         }
       }
@@ -8913,22 +8769,6 @@
         }
       }
     },
-    "so với %@": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "dibandingkan %@"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เทียบกับ %@"
-          }
-        }
-      }
-    },
     "sáng %lld%%": {
       "localizations": {
         "id": {
@@ -8989,22 +8829,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ หรี่ลง"
-          }
-        }
-      }
-    },
-    "tốt": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "baik"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ดี"
           }
         }
       }
@@ -11229,38 +11053,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "“%1$@” มีผลลัพธ์ใน %2$@"
-          }
-        }
-      }
-    },
-    "Nhận thông báo báo cáo trên máy này": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terima notifikasi laporan di perangkat ini"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "รับการแจ้งเตือนรายงานบนเครื่องนี้"
-          }
-        }
-      }
-    },
-    "Thông báo của AquaTome đang tắt trong Cài đặt.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notifikasi AquaTome dimatikan di Pengaturan."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "การแจ้งเตือนของ AquaTome ปิดอยู่ในการตั้งค่า"
           }
         }
       }

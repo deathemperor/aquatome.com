@@ -15,7 +15,8 @@ import Tanks
 /// that account (`ui-apple`, or another, so `ui-apple` isn't the owner): the replies of
 /// protocols/owner-dashboard-vectors.json, read from this checkout (the simulator runs on the Mac that built it).
 /// `-owner-session-ends` ends the owner's session at the first section read, as one expiring while the dashboard is open;
-/// `-owner-storage-down` answers that read 503, as the Worker does while its storage doesn't answer.
+/// `-owner-storage-down` answers that read 503, as the Worker does while its storage doesn't answer; `-owner-overview
+/// <vector name>` answers the overview with another of its vectors ("dashboard: nothing needs you").
 @MainActor
 final class FakeServer {
   private let fake: FakeAccounts
@@ -38,6 +39,7 @@ final class FakeServer {
       fake.owner = FakeOwner(vectors: v, owners: [args[i + 1]])
       fake.owner?.sessionEndsAtNextSection = args.contains("-owner-session-ends")
       fake.owner?.storageDownAtNextSection = args.contains("-owner-storage-down")
+      if let j = args.firstIndex(of: "-owner-overview"), j + 1 < args.count { fake.owner?.overview = args[j + 1] }
     }
     if let i = args.firstIndex(of: "-fish-id-used"), i + 1 < args.count, let n = Int(args[i + 1]) { fake.fishIdUsedBefore = n }
     if args.contains("-fish-id-busy") { fake.fishIdSiteLeft = 0 }
