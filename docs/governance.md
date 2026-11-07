@@ -867,7 +867,9 @@ The layers above still check the result.
   ("Ở Việt Nam…") goes beside the source's advice, never inside it: its own field, `localNote`, with its citations. The
   build puts it first in the guide's text. Every writer keeps it (a source read again, a video checked again, a rewrite),
   and no reviewer scores it, so the re-check's rule that a guide says only what its video says doesn't fight it. A note
-  gives a dose only from a source it cites. A body fixed by hand is marked `bodyFixed`, and no writer replaces it. Found
+  gives a dose only from a source it cites. A body fixed by hand is marked `bodyFixed`, and no writer replaces it
+  or trims it (a source read again, a video or topic rewritten, a rewrite or reader pass, the off-topic check); the sweep's
+  fixed tidying rules still apply. Found
   by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
   peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
 
