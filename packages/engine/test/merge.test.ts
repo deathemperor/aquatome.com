@@ -187,3 +187,16 @@ test('a page read again from a source keeps its range: only the range step chang
   expect(Object.keys(b.entity).indexOf('range')).toBe(Object.keys(b.entity).indexOf('places') + 1)
   expect('range' in mergeSpecies({}, page(), ctx('glaser')).entity).toBe(false)
 })
+
+test('a plant is written under its name as hobbyists write it, in its address too; a name a person fixed stays', () => {
+  const plant = { difficulty: 1, light: 'low', co2: 'none', growth: 'fast' } as const
+  const v = mergePlant({}, page({ kind: 'plant', scientificName: 'Vallisneria', viName: 'Cây thủy sinh Vallisneria (cỏ lươn)', viAltNames: ['Cỏ lươn'], enCommonNames: ['Vallisneria'], plant: { ...plant, placement: ['background'] } }), { source: 'tropica', url: 'https://t/v', now: '2026-10-28', takenSlugs: new Set() })!
+  expect([v.vi.name, v.vi.slug, v.vi.altNames]).toEqual(['Vallisneria (cỏ lươn)', 'vallisneria-co-luon', ['Cỏ lươn', 'Vallisneria']])
+  const moss = mergePlant({}, page({ kind: 'plant', scientificName: 'Taxiphyllum barbieri', viName: 'Rêu java', viAltNames: ['Rêu java Bogor'], enCommonNames: ['Java moss'], plant: { ...plant, placement: ['background'] } }), { source: 'tropica', url: 'https://t/m', now: '2026-10-28', takenSlugs: new Set() })!
+  expect([moss.vi.name, moss.vi.slug, moss.vi.altNames]).toEqual(['Rêu Java', 'reu-java', ['Rêu Java Bogor', 'Java moss']])
+  // Written again: an earlier name is tidied with the rest, and its address stays.
+  const again = mergePlant({ entity: moss.entity, vi: { ...moss.vi, name: 'Rêu java' } }, page({ kind: 'plant', scientificName: 'Taxiphyllum barbieri', viName: 'Rêu java', plant: { ...plant, placement: ['background'] } }), { source: 'aquariumcoop', url: 'https://a/m', now: '2026-11-07', takenSlugs: new Set() })!
+  expect([again.vi.name, again.vi.slug, again.vi.altNames.includes('Rêu java')]).toEqual(['Rêu Java', 'reu-java', false])
+  const fixed = mergePlant({ entity: moss.entity, vi: { ...moss.vi, name: 'Rêu java', nameFixed: true } }, page({ kind: 'plant', scientificName: 'Taxiphyllum barbieri', viName: 'Rêu java', plant: { ...plant, placement: ['background'] } }), { source: 'aquariumcoop', url: 'https://a/m', now: '2026-11-07', takenSlugs: new Set() })!
+  expect(fixed.vi.name).toBe('Rêu java')
+})
