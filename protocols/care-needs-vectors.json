@@ -8,7 +8,8 @@
       "shown": {
         "vi": [["Không gian", "Dễ", "bể từ 60 cm"]],
         "id": [["Ruang", "Mudah", "akuarium mulai 60 cm"]],
-        "th": [["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 60 cm"]]
+        "th": [["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 60 cm"]],
+        "ms": [["Ruang", "Mudah", "tangki dari 60 cm"]]
       }
     },
     {
@@ -18,7 +19,8 @@
       "shown": {
         "vi": [["Không gian", "Vừa", "bể từ 61 cm"]],
         "id": [["Ruang", "Sedang", "akuarium mulai 61 cm"]],
-        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 61 cm"]]
+        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 61 cm"]],
+        "ms": [["Ruang", "Sederhana", "tangki dari 61 cm"]]
       }
     },
     {
@@ -28,7 +30,8 @@
       "shown": {
         "vi": [["Không gian", "Vừa", "bể từ 100 cm"]],
         "id": [["Ruang", "Sedang", "akuarium mulai 100 cm"]],
-        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 100 cm"]]
+        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 100 cm"]],
+        "ms": [["Ruang", "Sederhana", "tangki dari 100 cm"]]
       }
     },
     {
@@ -38,7 +41,8 @@
       "shown": {
         "vi": [["Không gian", "Khó", "bể từ 101 cm"]],
         "id": [["Ruang", "Sulit", "akuarium mulai 101 cm"]],
-        "th": [["พื้นที่", "ยาก", "ตู้ตั้งแต่ 101 cm"]]
+        "th": [["พื้นที่", "ยาก", "ตู้ตั้งแต่ 101 cm"]],
+        "ms": [["Ruang", "Sukar", "tangki dari 101 cm"]]
       }
     },
     {
@@ -48,7 +52,8 @@
       "shown": {
         "vi": [["Không gian", "Dễ", "cá dài 10 cm"]],
         "id": [["Ruang", "Mudah", "ikan sepanjang 10 cm"]],
-        "th": [["พื้นที่", "ง่าย", "ปลายาว 10 cm"]]
+        "th": [["พื้นที่", "ง่าย", "ปลายาว 10 cm"]],
+        "ms": [["Ruang", "Mudah", "ikan sepanjang 10 cm"]]
       }
     },
     {
@@ -58,7 +63,8 @@
       "shown": {
         "vi": [["Không gian", "Vừa", "cá dài 11 cm"]],
         "id": [["Ruang", "Sedang", "ikan sepanjang 11 cm"]],
-        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 11 cm"]]
+        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 11 cm"]],
+        "ms": [["Ruang", "Sederhana", "ikan sepanjang 11 cm"]]
       }
     },
     {
@@ -68,7 +74,8 @@
       "shown": {
         "vi": [["Không gian", "Vừa", "cá dài 20 cm"]],
         "id": [["Ruang", "Sedang", "ikan sepanjang 20 cm"]],
-        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 20 cm"]]
+        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 20 cm"]],
+        "ms": [["Ruang", "Sederhana", "ikan sepanjang 20 cm"]]
       }
     },
     {
@@ -78,7 +85,8 @@
       "shown": {
         "vi": [["Không gian", "Khó", "cá dài 21 cm"]],
         "id": [["Ruang", "Sulit", "ikan sepanjang 21 cm"]],
-        "th": [["พื้นที่", "ยาก", "ปลายาว 21 cm"]]
+        "th": [["พื้นที่", "ยาก", "ปลายาว 21 cm"]],
+        "ms": [["Ruang", "Sukar", "ikan sepanjang 21 cm"]]
       }
     },
     {
@@ -88,7 +96,8 @@
       "shown": {
         "vi": [["Không gian", "Vừa", "bể từ 60 cm, cá dài 12 cm"]],
         "id": [["Ruang", "Sedang", "akuarium mulai 60 cm, ikan sepanjang 12 cm"]],
-        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 60 cm, ปลายาว 12 cm"]]
+        "th": [["พื้นที่", "ปานกลาง", "ตู้ตั้งแต่ 60 cm, ปลายาว 12 cm"]],
+        "ms": [["Ruang", "Sederhana", "tangki dari 60 cm, ikan sepanjang 12 cm"]]
       }
     },
     {
@@ -98,7 +107,8 @@
       "shown": {
         "vi": [["Không gian", "Khó", "bể từ 120 cm, cá dài 5 cm"]],
         "id": [["Ruang", "Sulit", "akuarium mulai 120 cm, ikan sepanjang 5 cm"]],
-        "th": [["พื้นที่", "ยาก", "ตู้ตั้งแต่ 120 cm, ปลายาว 5 cm"]]
+        "th": [["พื้นที่", "ยาก", "ตู้ตั้งแต่ 120 cm, ปลายาว 5 cm"]],
+        "ms": [["Ruang", "Sukar", "tangki dari 120 cm, ikan sepanjang 5 cm"]]
       }
     },
     {
@@ -108,7 +118,8 @@
       "shown": {
         "vi": [["Không gian", "Dễ", "bể từ 45 cm, cá dài 4,3 cm"]],
         "id": [["Ruang", "Mudah", "akuarium mulai 45 cm, ikan sepanjang 4,3 cm"]],
-        "th": [["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 45 cm, ปลายาว 4.3 cm"]]
+        "th": [["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 45 cm, ปลายาว 4.3 cm"]],
+        "ms": [["Ruang", "Mudah", "tangki dari 45 cm, ikan sepanjang 4.3 cm"]]
       }
     },
     {
@@ -118,7 +129,8 @@
       "shown": {
         "vi": [["Nước", "Khó", "nước chua · pH 5–6,5"]],
         "id": [["Air", "Sulit", "air asam · pH 5–6,5"]],
-        "th": [["น้ำ", "ยาก", "น้ำเป็นกรด · pH 5–6.5"]]
+        "th": [["น้ำ", "ยาก", "น้ำเป็นกรด · pH 5–6.5"]],
+        "ms": [["Air", "Sukar", "air berasid · pH 5–6.5"]]
       }
     },
     {
@@ -128,7 +140,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước chua · pH 5–6,6"]],
         "id": [["Air", "Sedang", "air asam · pH 5–6,6"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด · pH 5–6.6"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด · pH 5–6.6"]],
+        "ms": [["Air", "Sederhana", "air berasid · pH 5–6.6"]]
       }
     },
     {
@@ -138,14 +151,20 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước chua · pH 5,5–6,9"]],
         "id": [["Air", "Sedang", "air asam · pH 5,5–6,9"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด · pH 5.5–6.9"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด · pH 5.5–6.9"]],
+        "ms": [["Air", "Sederhana", "air berasid · pH 5.5–6.9"]]
       }
     },
     {
       "note": "reaching 7 is not acid, and a span of exactly 1 is not narrow: easy",
       "entry": {"ph": {"min": 6, "max": 7}},
       "needs": [{"key": "water", "level": "easy", "ph": {"min": 6, "max": 7}, "why": []}],
-      "shown": {"vi": [["Nước", "Dễ", "pH 6–7"]], "id": [["Air", "Mudah", "pH 6–7"]], "th": [["น้ำ", "ง่าย", "pH 6–7"]]}
+      "shown": {
+        "vi": [["Nước", "Dễ", "pH 6–7"]],
+        "id": [["Air", "Mudah", "pH 6–7"]],
+        "th": [["น้ำ", "ง่าย", "pH 6–7"]],
+        "ms": [["Air", "Mudah", "pH 6–7"]]
+      }
     },
     {
       "note": "starting at 7.5 is alkaline: medium",
@@ -154,7 +173,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước kiềm · pH 7,5–8,5"]],
         "id": [["Air", "Sedang", "air basa · pH 7,5–8,5"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง · pH 7.5–8.5"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง · pH 7.5–8.5"]],
+        "ms": [["Air", "Sederhana", "air beralkali · pH 7.5–8.5"]]
       }
     },
     {
@@ -164,7 +184,8 @@
       "shown": {
         "vi": [["Nước", "Dễ", "pH 7,4–8,5"]],
         "id": [["Air", "Mudah", "pH 7,4–8,5"]],
-        "th": [["น้ำ", "ง่าย", "pH 7.4–8.5"]]
+        "th": [["น้ำ", "ง่าย", "pH 7.4–8.5"]],
+        "ms": [["Air", "Mudah", "pH 7.4–8.5"]]
       }
     },
     {
@@ -174,7 +195,8 @@
       "shown": {
         "vi": [["Nước", "Dễ", "pH 6,5–7,5"]],
         "id": [["Air", "Mudah", "pH 6,5–7,5"]],
-        "th": [["น้ำ", "ง่าย", "pH 6.5–7.5"]]
+        "th": [["น้ำ", "ง่าย", "pH 6.5–7.5"]],
+        "ms": [["Air", "Mudah", "pH 6.5–7.5"]]
       }
     },
     {
@@ -184,7 +206,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "pH trong khoảng hẹp · pH 6,6–7,5"]],
         "id": [["Air", "Sedang", "rentang pH sempit · pH 6,6–7,5"]],
-        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ · pH 6.6–7.5"]]
+        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ · pH 6.6–7.5"]],
+        "ms": [["Air", "Sederhana", "pH dalam julat sempit · pH 6.6–7.5"]]
       }
     },
     {
@@ -194,7 +217,8 @@
       "shown": {
         "vi": [["Nước", "Dễ", "pH 7,2–8,2"]],
         "id": [["Air", "Mudah", "pH 7,2–8,2"]],
-        "th": [["น้ำ", "ง่าย", "pH 7.2–8.2"]]
+        "th": [["น้ำ", "ง่าย", "pH 7.2–8.2"]],
+        "ms": [["Air", "Mudah", "pH 7.2–8.2"]]
       }
     },
     {
@@ -204,7 +228,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước chua, pH trong khoảng hẹp · pH 6–6,8"]],
         "id": [["Air", "Sedang", "air asam, rentang pH sempit · pH 6–6,8"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด, ช่วง pH แคบ · pH 6–6.8"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นกรด, ช่วง pH แคบ · pH 6–6.8"]],
+        "ms": [["Air", "Sederhana", "air berasid, pH dalam julat sempit · pH 6–6.8"]]
       }
     },
     {
@@ -214,7 +239,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước kiềm, pH trong khoảng hẹp · pH 7,5–8"]],
         "id": [["Air", "Sedang", "air basa, rentang pH sempit · pH 7,5–8"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง, ช่วง pH แคบ · pH 7.5–8"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง, ช่วง pH แคบ · pH 7.5–8"]],
+        "ms": [["Air", "Sederhana", "air beralkali, pH dalam julat sempit · pH 7.5–8"]]
       }
     },
     {
@@ -224,7 +250,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "pH trong khoảng hẹp · pH 7"]],
         "id": [["Air", "Sedang", "rentang pH sempit · pH 7"]],
-        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ · pH 7"]]
+        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ · pH 7"]],
+        "ms": [["Air", "Sederhana", "pH dalam julat sempit · pH 7"]]
       }
     },
     {
@@ -234,7 +261,8 @@
       "shown": {
         "vi": [["Nước", "Khó", "nước mềm · 3–6 dGH"]],
         "id": [["Air", "Sulit", "air lunak · 3–6 dGH"]],
-        "th": [["น้ำ", "ยาก", "น้ำอ่อน · 3–6 dGH"]]
+        "th": [["น้ำ", "ยาก", "น้ำอ่อน · 3–6 dGH"]],
+        "ms": [["Air", "Sukar", "air lembut · 3–6 dGH"]]
       }
     },
     {
@@ -244,7 +272,8 @@
       "shown": {
         "vi": [["Nước", "Dễ", "2–7 dGH"]],
         "id": [["Air", "Mudah", "2–7 dGH"]],
-        "th": [["น้ำ", "ง่าย", "2–7 dGH"]]
+        "th": [["น้ำ", "ง่าย", "2–7 dGH"]],
+        "ms": [["Air", "Mudah", "2–7 dGH"]]
       }
     },
     {
@@ -254,7 +283,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước rất cứng · 15–25 dGH"]],
         "id": [["Air", "Sedang", "air sangat keras · 15–25 dGH"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำกระด้างมาก · 15–25 dGH"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำกระด้างมาก · 15–25 dGH"]],
+        "ms": [["Air", "Sederhana", "air sangat keras · 15–25 dGH"]]
       }
     },
     {
@@ -264,7 +294,8 @@
       "shown": {
         "vi": [["Nước", "Dễ", "14–25 dGH"]],
         "id": [["Air", "Mudah", "14–25 dGH"]],
-        "th": [["น้ำ", "ง่าย", "14–25 dGH"]]
+        "th": [["น้ำ", "ง่าย", "14–25 dGH"]],
+        "ms": [["Air", "Mudah", "14–25 dGH"]]
       }
     },
     {
@@ -274,7 +305,8 @@
       "shown": {
         "vi": [["Nước", "Dễ", "8–12 dGH"]],
         "id": [["Air", "Mudah", "8–12 dGH"]],
-        "th": [["น้ำ", "ง่าย", "8–12 dGH"]]
+        "th": [["น้ำ", "ง่าย", "8–12 dGH"]],
+        "ms": [["Air", "Mudah", "8–12 dGH"]]
       }
     },
     {
@@ -284,7 +316,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "độ cứng trong khoảng hẹp · 8–11 dGH"]],
         "id": [["Air", "Sedang", "rentang kesadahan sempit · 8–11 dGH"]],
-        "th": [["น้ำ", "ปานกลาง", "ช่วงความกระด้างแคบ · 8–11 dGH"]]
+        "th": [["น้ำ", "ปานกลาง", "ช่วงความกระด้างแคบ · 8–11 dGH"]],
+        "ms": [["Air", "Sederhana", "kekerasan air dalam julat yang sempit · 8–11 dGH"]]
       }
     },
     {
@@ -294,7 +327,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước rất cứng, độ cứng trong khoảng hẹp · 15–18 dGH"]],
         "id": [["Air", "Sedang", "air sangat keras, rentang kesadahan sempit · 15–18 dGH"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำกระด้างมาก, ช่วงความกระด้างแคบ · 15–18 dGH"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำกระด้างมาก, ช่วงความกระด้างแคบ · 15–18 dGH"]],
+        "ms": [["Air", "Sederhana", "air sangat keras, kekerasan air dalam julat yang sempit · 15–18 dGH"]]
       }
     },
     {
@@ -306,7 +340,8 @@
       "shown": {
         "vi": [["Nước", "Khó", "nước mềm · pH 6–8, 2–6 dGH"]],
         "id": [["Air", "Sulit", "air lunak · pH 6–8, 2–6 dGH"]],
-        "th": [["น้ำ", "ยาก", "น้ำอ่อน · pH 6–8, 2–6 dGH"]]
+        "th": [["น้ำ", "ยาก", "น้ำอ่อน · pH 6–8, 2–6 dGH"]],
+        "ms": [["Air", "Sukar", "air lembut · pH 6–8, 2–6 dGH"]]
       }
     },
     {
@@ -318,7 +353,8 @@
       "shown": {
         "vi": [["Nước", "Khó", "nước chua · pH 4,5–6,5, 2–10 dGH"]],
         "id": [["Air", "Sulit", "air asam · pH 4,5–6,5, 2–10 dGH"]],
-        "th": [["น้ำ", "ยาก", "น้ำเป็นกรด · pH 4.5–6.5, 2–10 dGH"]]
+        "th": [["น้ำ", "ยาก", "น้ำเป็นกรด · pH 4.5–6.5, 2–10 dGH"]],
+        "ms": [["Air", "Sukar", "air berasid · pH 4.5–6.5, 2–10 dGH"]]
       }
     },
     {
@@ -336,7 +372,10 @@
       "shown": {
         "vi": [["Nước", "Vừa", "pH trong khoảng hẹp, độ cứng trong khoảng hẹp · pH 6,6–7,5, 8–11 dGH"]],
         "id": [["Air", "Sedang", "rentang pH sempit, rentang kesadahan sempit · pH 6,6–7,5, 8–11 dGH"]],
-        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ, ช่วงความกระด้างแคบ · pH 6.6–7.5, 8–11 dGH"]]
+        "th": [["น้ำ", "ปานกลาง", "ช่วง pH แคบ, ช่วงความกระด้างแคบ · pH 6.6–7.5, 8–11 dGH"]],
+        "ms": [
+          ["Air", "Sederhana", "pH dalam julat sempit, kekerasan air dalam julat yang sempit · pH 6.6–7.5, 8–11 dGH"]
+        ]
       }
     },
     {
@@ -354,7 +393,8 @@
       "shown": {
         "vi": [["Nước", "Vừa", "nước kiềm, nước rất cứng · pH 7,5–8,5, 15–25 dGH"]],
         "id": [["Air", "Sedang", "air basa, air sangat keras · pH 7,5–8,5, 15–25 dGH"]],
-        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง, น้ำกระด้างมาก · pH 7.5–8.5, 15–25 dGH"]]
+        "th": [["น้ำ", "ปานกลาง", "น้ำเป็นด่าง, น้ำกระด้างมาก · pH 7.5–8.5, 15–25 dGH"]],
+        "ms": [["Air", "Sederhana", "air beralkali, air sangat keras · pH 7.5–8.5, 15–25 dGH"]]
       }
     },
     {
@@ -364,7 +404,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Khó", "nước ấm · 28–31°C"]],
         "id": [["Suhu", "Sulit", "air hangat · 28–31°C"]],
-        "th": [["อุณหภูมิ", "ยาก", "น้ำอุ่น · 28–31°C"]]
+        "th": [["อุณหภูมิ", "ยาก", "น้ำอุ่น · 28–31°C"]],
+        "ms": [["Suhu", "Sukar", "air hangat · 28–31°C"]]
       }
     },
     {
@@ -374,7 +415,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "nước ấm · 27–31°C"]],
         "id": [["Suhu", "Sedang", "air hangat · 27–31°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น · 27–31°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น · 27–31°C"]],
+        "ms": [["Suhu", "Sederhana", "air hangat · 27–31°C"]]
       }
     },
     {
@@ -384,7 +426,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "nước ấm · 26–30°C"]],
         "id": [["Suhu", "Sedang", "air hangat · 26–30°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น · 26–30°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น · 26–30°C"]],
+        "ms": [["Suhu", "Sederhana", "air hangat · 26–30°C"]]
       }
     },
     {
@@ -394,7 +437,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Dễ", "25–30°C"]],
         "id": [["Suhu", "Mudah", "25–30°C"]],
-        "th": [["อุณหภูมิ", "ง่าย", "25–30°C"]]
+        "th": [["อุณหภูมิ", "ง่าย", "25–30°C"]],
+        "ms": [["Suhu", "Mudah", "25–30°C"]]
       }
     },
     {
@@ -404,7 +448,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Khó", "nước mát · 16–22°C"]],
         "id": [["Suhu", "Sulit", "air sejuk · 16–22°C"]],
-        "th": [["อุณหภูมิ", "ยาก", "น้ำเย็น · 16–22°C"]]
+        "th": [["อุณหภูมิ", "ยาก", "น้ำเย็น · 16–22°C"]],
+        "ms": [["Suhu", "Sukar", "air sejuk · 16–22°C"]]
       }
     },
     {
@@ -414,7 +459,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "nước mát · 18–23°C"]],
         "id": [["Suhu", "Sedang", "air sejuk · 18–23°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น · 18–23°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น · 18–23°C"]],
+        "ms": [["Suhu", "Sederhana", "air sejuk · 18–23°C"]]
       }
     },
     {
@@ -424,7 +470,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "nước mát · 20–25°C"]],
         "id": [["Suhu", "Sedang", "air sejuk · 20–25°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น · 20–25°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น · 20–25°C"]],
+        "ms": [["Suhu", "Sederhana", "air sejuk · 20–25°C"]]
       }
     },
     {
@@ -434,7 +481,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Dễ", "20–26°C"]],
         "id": [["Suhu", "Mudah", "20–26°C"]],
-        "th": [["อุณหภูมิ", "ง่าย", "20–26°C"]]
+        "th": [["อุณหภูมิ", "ง่าย", "20–26°C"]],
+        "ms": [["Suhu", "Mudah", "20–26°C"]]
       }
     },
     {
@@ -444,7 +492,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Dễ", "22–26°C"]],
         "id": [["Suhu", "Mudah", "22–26°C"]],
-        "th": [["อุณหภูมิ", "ง่าย", "22–26°C"]]
+        "th": [["อุณหภูมิ", "ง่าย", "22–26°C"]],
+        "ms": [["Suhu", "Mudah", "22–26°C"]]
       }
     },
     {
@@ -454,7 +503,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "khoảng nhiệt độ hẹp · 23–26°C"]],
         "id": [["Suhu", "Sedang", "rentang suhu sempit · 23–26°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "ช่วงอุณหภูมิแคบ · 23–26°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "ช่วงอุณหภูมิแคบ · 23–26°C"]],
+        "ms": [["Suhu", "Sederhana", "julat suhu sempit · 23–26°C"]]
       }
     },
     {
@@ -464,7 +514,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "nước ấm, khoảng nhiệt độ hẹp · 26–29°C"]],
         "id": [["Suhu", "Sedang", "air hangat, rentang suhu sempit · 26–29°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น, ช่วงอุณหภูมิแคบ · 26–29°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำอุ่น, ช่วงอุณหภูมิแคบ · 26–29°C"]],
+        "ms": [["Suhu", "Sederhana", "air hangat, julat suhu sempit · 26–29°C"]]
       }
     },
     {
@@ -474,7 +525,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "nước mát, khoảng nhiệt độ hẹp · 22–25°C"]],
         "id": [["Suhu", "Sedang", "air sejuk, rentang suhu sempit · 22–25°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น, ช่วงอุณหภูมิแคบ · 22–25°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น, ช่วงอุณหภูมิแคบ · 22–25°C"]],
+        "ms": [["Suhu", "Sederhana", "air sejuk, julat suhu sempit · 22–25°C"]]
       }
     },
     {
@@ -484,7 +536,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Dễ", "24,5–28,5°C"]],
         "id": [["Suhu", "Mudah", "24,5–28,5°C"]],
-        "th": [["อุณหภูมิ", "ง่าย", "24.5–28.5°C"]]
+        "th": [["อุณหภูมิ", "ง่าย", "24.5–28.5°C"]],
+        "ms": [["Suhu", "Mudah", "24.5–28.5°C"]]
       }
     },
     {
@@ -494,7 +547,8 @@
       "shown": {
         "vi": [["Nhiệt độ", "Vừa", "nước mát, khoảng nhiệt độ hẹp · 25°C"]],
         "id": [["Suhu", "Sedang", "air sejuk, rentang suhu sempit · 25°C"]],
-        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น, ช่วงอุณหภูมิแคบ · 25°C"]]
+        "th": [["อุณหภูมิ", "ปานกลาง", "น้ำเย็น, ช่วงอุณหภูมิแคบ · 25°C"]],
+        "ms": [["Suhu", "Sederhana", "air sejuk, julat suhu sempit · 25°C"]]
       }
     },
     {
@@ -504,7 +558,8 @@
       "shown": {
         "vi": [["Tính cách", "Dễ", "hiền"]],
         "id": [["Perilaku", "Mudah", "damai"]],
-        "th": [["นิสัย", "ง่าย", "นิสัยสงบ"]]
+        "th": [["นิสัย", "ง่าย", "นิสัยสงบ"]],
+        "ms": [["Perangai", "Mudah", "aman"]]
       }
     },
     {
@@ -514,7 +569,8 @@
       "shown": {
         "vi": [["Tính cách", "Vừa", "hơi dữ"]],
         "id": [["Perilaku", "Sedang", "agak agresif"]],
-        "th": [["นิสัย", "ปานกลาง", "ค่อนข้างดุ"]]
+        "th": [["นิสัย", "ปานกลาง", "ค่อนข้างดุ"]],
+        "ms": [["Perangai", "Sederhana", "agak agresif"]]
       }
     },
     {
@@ -524,7 +580,8 @@
       "shown": {
         "vi": [["Tính cách", "Khó", "hung dữ"]],
         "id": [["Perilaku", "Sulit", "agresif"]],
-        "th": [["นิสัย", "ยาก", "ดุร้าย"]]
+        "th": [["นิสัย", "ยาก", "ดุร้าย"]],
+        "ms": [["Perangai", "Sukar", "agresif"]]
       }
     },
     {
@@ -534,7 +591,8 @@
       "shown": {
         "vi": [["Tính cách", "Khó", "săn mồi"]],
         "id": [["Perilaku", "Sulit", "predator"]],
-        "th": [["นิสัย", "ยาก", "ล่าเหยื่อ"]]
+        "th": [["นิสัย", "ยาก", "ล่าเหยื่อ"]],
+        "ms": [["Perangai", "Sukar", "pemangsa"]]
       }
     },
     {
@@ -544,7 +602,8 @@
       "shown": {
         "vi": [["Tính cách", "Vừa", "hay cắn vây"]],
         "id": [["Perilaku", "Sedang", "suka menggigit sirip"]],
-        "th": [["นิสัย", "ปานกลาง", "ชอบกัดครีบ"]]
+        "th": [["นิสัย", "ปานกลาง", "ชอบกัดครีบ"]],
+        "ms": [["Perangai", "Sederhana", "suka menggigit sirip"]]
       }
     },
     {
@@ -554,7 +613,8 @@
       "shown": {
         "vi": [["Tính cách", "Vừa", "hiền, hay cắn vây"]],
         "id": [["Perilaku", "Sedang", "damai, suka menggigit sirip"]],
-        "th": [["นิสัย", "ปานกลาง", "นิสัยสงบ, ชอบกัดครีบ"]]
+        "th": [["นิสัย", "ปานกลาง", "นิสัยสงบ, ชอบกัดครีบ"]],
+        "ms": [["Perangai", "Sederhana", "aman, suka menggigit sirip"]]
       }
     },
     {
@@ -564,7 +624,8 @@
       "shown": {
         "vi": [["Tính cách", "Khó", "hung dữ, hay cắn vây"]],
         "id": [["Perilaku", "Sulit", "agresif, suka menggigit sirip"]],
-        "th": [["นิสัย", "ยาก", "ดุร้าย, ชอบกัดครีบ"]]
+        "th": [["นิสัย", "ยาก", "ดุร้าย, ชอบกัดครีบ"]],
+        "ms": [["Perangai", "Sukar", "agresif, suka menggigit sirip"]]
       }
     },
     {
@@ -574,7 +635,8 @@
       "shown": {
         "vi": [["Bầy đàn", "Dễ", "đàn từ 5 con"]],
         "id": [["Kelompok", "Mudah", "kelompok mulai 5 ekor"]],
-        "th": [["การอยู่เป็นฝูง", "ง่าย", "ฝูงตั้งแต่ 5 ตัว"]]
+        "th": [["การอยู่เป็นฝูง", "ง่าย", "ฝูงตั้งแต่ 5 ตัว"]],
+        "ms": [["Berkumpulan", "Mudah", "kumpulan sekurang-kurangnya 5 ekor"]]
       }
     },
     {
@@ -584,7 +646,8 @@
       "shown": {
         "vi": [["Bầy đàn", "Vừa", "đàn từ 6 con"]],
         "id": [["Kelompok", "Sedang", "kelompok mulai 6 ekor"]],
-        "th": [["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 6 ตัว"]]
+        "th": [["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 6 ตัว"]],
+        "ms": [["Berkumpulan", "Sederhana", "kumpulan sekurang-kurangnya 6 ekor"]]
       }
     },
     {
@@ -594,7 +657,8 @@
       "shown": {
         "vi": [["Bầy đàn", "Vừa", "đàn từ 9 con"]],
         "id": [["Kelompok", "Sedang", "kelompok mulai 9 ekor"]],
-        "th": [["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 9 ตัว"]]
+        "th": [["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 9 ตัว"]],
+        "ms": [["Berkumpulan", "Sederhana", "kumpulan sekurang-kurangnya 9 ekor"]]
       }
     },
     {
@@ -604,20 +668,21 @@
       "shown": {
         "vi": [["Bầy đàn", "Khó", "đàn từ 10 con"]],
         "id": [["Kelompok", "Sulit", "kelompok mulai 10 ekor"]],
-        "th": [["การอยู่เป็นฝูง", "ยาก", "ฝูงตั้งแต่ 10 ตัว"]]
+        "th": [["การอยู่เป็นฝูง", "ยาก", "ฝูงตั้งแต่ 10 ตัว"]],
+        "ms": [["Berkumpulan", "Sukar", "kumpulan sekurang-kurangnya 10 ekor"]]
       }
     },
     {
       "note": "an empty entry has no needs, so no panel",
       "entry": {},
       "needs": [],
-      "shown": {"vi": [], "id": [], "th": []}
+      "shown": {"vi": [], "id": [], "th": [], "ms": []}
     },
     {
       "note": "a difficulty alone gives no need either: it is the sources' rating, not a need",
       "entry": {"difficulty": 3},
       "needs": [],
-      "shown": {"vi": [], "id": [], "th": []}
+      "shown": {"vi": [], "id": [], "th": [], "ms": []}
     },
     {
       "note": "cardinal tetra: all five needs; soft acid water is hard, the sources' shared temperature range is narrow",
@@ -666,6 +731,13 @@
           ["อุณหภูมิ", "ง่าย", "24–30°C"],
           ["นิสัย", "ง่าย", "นิสัยสงบ"],
           ["การอยู่เป็นฝูง", "ปานกลาง", "ฝูงตั้งแต่ 8 ตัว"]
+        ],
+        "ms": [
+          ["Ruang", "Mudah", "tangki dari 60 cm, ikan sepanjang 5 cm"],
+          ["Air", "Sukar", "air berasid, air lembut · pH 4–6, 1–6 dGH"],
+          ["Suhu", "Mudah", "24–30°C"],
+          ["Perangai", "Mudah", "aman"],
+          ["Berkumpulan", "Sederhana", "kumpulan sekurang-kurangnya 8 ekor"]
         ]
       }
     },
@@ -699,6 +771,11 @@
           ["พื้นที่", "ยาก", "ตู้ตั้งแต่ 120 cm, ปลายาว 15 cm"],
           ["น้ำ", "ยาก", "น้ำเป็นกรด · pH 4.5–6.5"],
           ["อุณหภูมิ", "ยาก", "น้ำอุ่น · 28–31°C"]
+        ],
+        "ms": [
+          ["Ruang", "Sukar", "tangki dari 120 cm, ikan sepanjang 15 cm"],
+          ["Air", "Sukar", "air berasid · pH 4.5–6.5"],
+          ["Suhu", "Sukar", "air hangat · 28–31°C"]
         ]
       }
     },
@@ -737,6 +814,12 @@
           ["น้ำ", "ง่าย", "pH 5–7.5"],
           ["อุณหภูมิ", "ง่าย", "24–29°C"],
           ["นิสัย", "ปานกลาง", "ค่อนข้างดุ"]
+        ],
+        "ms": [
+          ["Ruang", "Mudah", "tangki dari 60 cm, ikan sepanjang 9 cm"],
+          ["Air", "Mudah", "pH 5–7.5"],
+          ["Suhu", "Mudah", "24–29°C"],
+          ["Perangai", "Sederhana", "agak agresif"]
         ]
       }
     },
@@ -748,7 +831,8 @@
       "shown": {
         "vi": [["Không gian", "Vừa", "cá dài 15 cm"]],
         "id": [["Ruang", "Sedang", "ikan sepanjang 15 cm"]],
-        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 15 cm"]]
+        "th": [["พื้นที่", "ปานกลาง", "ปลายาว 15 cm"]],
+        "ms": [["Ruang", "Sederhana", "ikan sepanjang 15 cm"]]
       }
     }
   ],
@@ -849,6 +933,42 @@
       "note": "ความยาก {n}/8 เป็นคะแนนจากแหล่งข้อมูล ซึ่งอาจคิดรวมสิ่งที่ตารางไม่ได้ระบุ เช่น อาหาร",
       "how": "วิธีคิดระดับ",
       "howPath": "/th/about/data-table/#nhu-cau"
+    },
+    "ms": {
+      "summary": "Kenapa?",
+      "lead": "Apa yang menjadikan spesies ini mudah atau sukar dipelihara, berdasarkan jadual:",
+      "need": {
+        "space": "Ruang",
+        "water": "Air",
+        "temperature": "Suhu",
+        "temperament": "Perangai",
+        "social": "Berkumpulan"
+      },
+      "level": {"easy": "Mudah", "mid": "Sederhana", "hard": "Sukar"},
+      "why": {
+        "acid": "air berasid",
+        "alkaline": "air beralkali",
+        "narrowPh": "pH dalam julat sempit",
+        "soft": "air lembut",
+        "veryHard": "air sangat keras",
+        "narrowGh": "kekerasan air dalam julat yang sempit",
+        "warm": "air hangat",
+        "cool": "air sejuk",
+        "narrow": "julat suhu sempit"
+      },
+      "temperament": {
+        "peaceful": "aman",
+        "semi-aggressive": "agak agresif",
+        "aggressive": "agresif",
+        "predator": "pemangsa"
+      },
+      "finNipper": "suka menggigit sirip",
+      "tank": "tangki dari {cm}",
+      "size": "ikan sepanjang {cm}",
+      "school": "kumpulan sekurang-kurangnya {n} ekor",
+      "note": "Tahap kesukaran {n}/8 ialah penilaian oleh sumber. Sumber mungkin turut mengambil kira perkara yang tiada dalam jadual, seperti makanan.",
+      "how": "Cara tahap dikira",
+      "howPath": "/ms/tentang/jadual-data/#nhu-cau"
     }
   }
 }

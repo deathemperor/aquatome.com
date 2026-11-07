@@ -71,9 +71,9 @@ test('breeds: an id that is also a species page stops the plan (a gallery is one
   await expect(galleryPlan(r)).rejects.toThrow(/"koi" is both a species page and a breeds page/)
 })
 
-test("a shop list for a language the site doesn't serve yet moves nothing: galleries follow the readers it has", async () => {
+test('a Malay shop list moves its fish up now the site serves Malay: galleries follow the readers it has', async () => {
   const r = await root([['species', 'aaa-rest', ['seriouslyfish']]])
   await shopList(r, 'ms.json', ['aaa-rest'])
-  expect((await galleryPlan(r)).map(x => x.tier)).toEqual(['rest'])
-  expect((await galleryPlan(r, ['ms'])).map(x => x.tier)).toEqual(['shop'])
+  expect((await galleryPlan(r)).map(x => x.tier)).toEqual(['shop'])
+  expect((await galleryPlan(r, ['vi', 'id', 'th'])).map(x => x.tier)).toEqual(['rest'])
 })

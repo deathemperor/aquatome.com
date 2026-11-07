@@ -155,7 +155,7 @@ public struct Event: Sendable {
 
   /// The contract's `Path` pattern and length, as they are (ContractTests fails when they differ): the site's
   /// Vietnamese sections are listed in it.
-  static let pathPattern = #"^/(?:(?:vi/)?(?:(?:ca|cay|chinh-sach-bao-mat|cong-cu|dang-nhap|gioi-thieu|huong-dan|kham-pha|lien-he|moi-cap-nhat|nguon-goc|nhom|phan-loai|san-pham|thiet-bi|thuat-ngu|tim-kiem|video)/(?:[A-Za-z0-9_-]+/)*)?|(?:id|th)/(?:[A-Za-z0-9_-]+/)*)$"#
+  static let pathPattern = #"^/(?:(?:vi/)?(?:(?:ca|cay|chinh-sach-bao-mat|cong-cu|dang-nhap|gioi-thieu|huong-dan|kham-pha|lien-he|moi-cap-nhat|nguon-goc|nhom|phan-loai|san-pham|thiet-bi|thuat-ngu|tim-kiem|video)/(?:[A-Za-z0-9_-]+/)*)?|(?:id|th|ms)/(?:[A-Za-z0-9_-]+/)*)$"#
   static let maxPath = 200
   private static let pathRegex = try! NSRegularExpression(pattern: pathPattern)
 

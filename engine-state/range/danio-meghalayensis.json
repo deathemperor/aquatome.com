@@ -1,0 +1,47 @@
+{
+  "id": "danio-meghalayensis",
+  "native": {
+    "input": "afe50ee81fe8b348",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "So far only known from the East Khasi Hills district of Meghalaya State, north-east India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Umiam Lake",
+        "source": "seriouslyfish",
+        "quote": "The type series was collected near Umiam Lake, also known as Barapani.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio meghalayensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2362718,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "danio-tinwini",
+  "native": {
+    "input": "da449e352dd6d263",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To date it's known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar, the same watershed to which D. choprae is also apparently endemic.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mogaung Chaung",
+        "source": "seriouslyfish",
+        "quote": "To date it's known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar, the same watershed to which D. choprae is also apparently endemic.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "This is a tributary of the Irrawaddy/Ayeyarwady River and although the species is probably endemic to the region the possibility that it's been collected from other localities for the aquarium trade cannot be discounted.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio tinwini",
+    "status": "ACCEPTED",
+    "taxonKey": 2362694,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

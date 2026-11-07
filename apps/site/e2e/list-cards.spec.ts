@@ -7,8 +7,8 @@ import { expect, test } from './fixtures'
 // on the fixture build and on aquatome.com (read from the page): the other languages have no species in the fixture.
 const PAGE = 24
 const LISTS = [
-  { path: '/ca/', prefix: 'species' }, { path: '/id/ikan/', prefix: 'species' }, { path: '/th/fish/', prefix: 'species' },
-  { path: '/cay/', prefix: 'plant' }, { path: '/id/tanaman/', prefix: 'plant' }, { path: '/th/plants/', prefix: 'plant' },
+  { path: '/ca/', prefix: 'species' }, { path: '/id/ikan/', prefix: 'species' }, { path: '/th/fish/', prefix: 'species' }, { path: '/ms/ikan/', prefix: 'species' },
+  { path: '/cay/', prefix: 'plant' }, { path: '/id/tanaman/', prefix: 'plant' }, { path: '/th/plants/', prefix: 'plant' }, { path: '/ms/tumbuhan/', prefix: 'plant' },
 ]
 type Item = { slug: string; group?: string; photo?: { url: string } }
 /** A card in the HTML, as the server renders it: the slug is its first match. */

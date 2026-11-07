@@ -109,14 +109,14 @@ test('plant shop list: the prompt asks for plants and leaves fish out; written b
   expect(prompts[1]).toContain('Leave out plants, equipment and food')
 })
 
-test("Malay: no list, no names; a list's names reach its pages, and what the engine fetches first still follows the served languages' lists", async () => {
+test("Malay: no list, no names; a list's names reach its pages, and what the engine fetches first follows its list, as a served language's", async () => {
   const root = await site()
   expect(await addShopNames(root, 'ms')).toEqual([])
   await writeFile(join(root, 'content/species/paracheirodon-innesi/ms.json'), JSON.stringify({ slug: 'neon-tetra', name: 'Neon Tetra', altNames: [] }))
   await list(root, 'ms', [item('Tetra Neon', 'Paracheirodon innesi', 0.9), item('Ikan Hanya Di Sini', 'Fakeus malayanus', 0.9)])
   expect(await addShopNames(root, 'ms')).toEqual(['paracheirodon-innesi: Tetra Neon'])
   expect(await names(root, 'paracheirodon-innesi', 'ms')).toEqual(['Tetra Neon'])
-  expect(await popularFirst(root)).not.toContain('Fakeus malayanus')
+  expect(await popularFirst(root)).toContain('Fakeus malayanus')
   expect((await speciesOrder(root, 'ms')).slice(0, 1)).toEqual(['paracheirodon-innesi'])
 })
 

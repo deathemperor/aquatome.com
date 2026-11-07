@@ -59,7 +59,7 @@ export async function topicCheck(root: string, llm: Llm, opts: { limit: number; 
   for (const { key: id, file } of files) {
     if (report.checked.length + report.failed.length >= opts.limit) break
     const g = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as Guide | null
-    if (!g?.body || state[id]?.endsWith(hash(g))) continue
+    if (!g?.body || g.bodyFixed || state[id]?.endsWith(hash(g))) continue
     const { sections } = splitSections(g.body)
     if (sections.length < 2) { state[id] = hash(g); continue }
     const input = [

@@ -1,6 +1,6 @@
 // The tank check (src/scripts/tank-check.ts: the tank-mates tool's own functions) as one script for the iOS app, which
-// runs it in JavaScriptCore: apps/ios/AquaTomeKit/Sources/TankCheck/tank-check.js, with the Indonesian and Thai of every
-// string it can show (src/i18n/{id,th}.json, as the site's pages get them). Run it after changing tank-check.ts,
+// runs it in JavaScriptCore: apps/ios/AquaTomeKit/Sources/TankCheck/tank-check.js, with the Indonesian, Thai and Malay of every
+// string it can show (src/i18n/{id,th,ms}.json, as the site's pages get them). Run it after changing tank-check.ts,
 // tankmates.ts, stocking.ts or calc.ts; with --check it only says whether the app's copy is out of date
 // (test/tank-check.test.ts runs that on every PR).
 import { build } from 'esbuild'
@@ -41,7 +41,7 @@ const code = outputFiles[0].text
 const strings = [...new Set([...code.matchAll(/\b(?:ct|msg)\(\s*("(?:\\.|[^"\\])*")/g)].map(m => JSON.parse(m[1])))].sort()
 const dict = {}
 const missing = []
-for (const lang of ['id', 'th']) {
+for (const lang of ['id', 'th', 'ms']) {
   const all = JSON.parse(readFileSync(`${site}src/i18n/${lang}.json`, 'utf8'))
   dict[lang] = Object.fromEntries(strings.map(s => [s, all[s] ?? (missing.push(`${lang}: ${s}`), s)]))
 }

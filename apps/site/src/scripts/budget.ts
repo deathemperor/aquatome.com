@@ -179,8 +179,11 @@ export const TARIFFS: Record<Country, { currency: Currency; tiers: readonly { la
     tiers: [{ label: '1–200 kWh', rate: 3 + 0.1623 }, { label: '201–400 kWh', rate: 4.1584 + 0.1623 }, { label: '≥ 401 kWh', rate: 4.3583 + 0.1623 }],
   },
 }
-/** A page's own country, for the tariff it starts with. */
-export const COUNTRY_OF: Record<Lang, Country> = { vi: 'vn', id: 'id', th: 'th' }
+/**
+ * A page's own country, for the tariff it starts with. Malay has none, nor the page (lib/i18n.ts PAGES): Malaysia's tariff
+ * isn't researched yet.
+ */
+export const COUNTRY_OF: Partial<Record<Lang, Country>> = { vi: 'vn', id: 'id', th: 'th' }
 export const COUNTRY_NAMES: Record<Country, string> = { vn: msg('Việt Nam'), id: msg('Indonesia'), th: msg('Thái Lan') }
 /** A tariff tier's price for one kWh: "2.894 ₫/kWh", "Rp 1.444,7/kWh", "฿3,1623/kWh". */
 export const rateText = (rate: number, currency: Currency, locale: string) => `${new Intl.NumberFormat(locale, { style: 'currency', currency, maximumFractionDigits: 4 }).format(rate)}/kWh`

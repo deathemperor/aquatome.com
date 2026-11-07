@@ -42,19 +42,30 @@ test('overview: what needs the owner comes first, each with the one place to dea
   o.keys = { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit', until: '2026-11-03T08:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok', calls: 9, answered: 9 }], bad: 1, today: 12, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] }
   o.waiting = { comments: 2, photos: 1, oldest: '2026-11-01T02:00:00.000Z' } // 32 hours before NOW: a night was missed
   const t = todos(o)
-  expect(t.map(x => x.title)).toEqual(['1 key Anthropic đang nghỉ', '1 dòng trong ANTHROPIC_KEYS không đọc được', 'Kiểm duyệt đêm chưa chạy', 'Không tải được nhật ký nhận diện cá'])
-  expect(t[0]).toMatchObject({ text: '#1 hết credit đến 03/11 15:00', href: '/_ab/nhan-dien-ca/#key' }) // Vietnam's time, as the bar
-  expect(t[2]!.text).toContain('2 bình luận, 1 ảnh chờ từ 01/11 09:00.')
-  expect(t[2]!.href).toContain('/actions/workflows/moderate.yml')
+  expect(t.map(x => x.title)).toEqual(['1 dòng trong ANTHROPIC_KEYS không đọc được', 'Kiểm duyệt đêm chưa chạy', 'Không tải được nhật ký nhận diện cá'])
+  expect(t[1]!.text).toContain('2 bình luận, 1 ảnh chờ từ 01/11 09:00.')
+  expect(t[1]!.href).toContain('/actions/workflows/moderate.yml')
   // Every key resting: the tool is down, said as such.
   o.keys = { ...o.keys, rows: [o.keys.rows[0]!], bad: 0 }
-  expect(todos(o)[0]!.title).toBe('Nhận diện cá không chạy: mọi key đang nghỉ')
+  expect(todos(o)[0]!.title).toBe('Nhận diện cá và chat không chạy: mọi key đang nghỉ')
   // Waiting since this morning: tonight's run will take it, nothing to do.
   expect(todos({ ...well(), waiting: { comments: 1, photos: 0, oldest: '2026-11-02T01:00:00.000Z' } })).toEqual([])
   const html = overviewPage(well())
   expect(html).toContain('Không có việc gì cần bạn')
   expect(html).not.toContain('class="badge"')
   expect(overviewPage(o)).toContain('<span class="badge">3<span class="vh"> việc</span></span>')
+})
+
+test('the fish ID card is flagged when every key rests, not when the rotation can still skip one', () => {
+  const row = (n: number, state: 'ok' | 'credit') => ({ n, hash: `h${n}`, workspace: false, state, calls: 0, answered: 0 })
+  const flagged = (...states: ('ok' | 'credit')[]) => {
+    const o = well()
+    if (o.keys && !('failed' in o.keys)) o.keys.rows = states.map((s, i) => row(i + 1, s))
+    return areas(o).find(a => a.name === 'Nhận diện cá')?.warn
+  }
+  expect(flagged('ok', 'ok')).toBe(false)
+  expect(flagged('credit', 'ok')).toBe(false)
+  expect(flagged('credit', 'credit')).toBe(true)
 })
 
 test('overview: a day whose AI spend passed 80% of its cap is the owner\'s to raise; below, nothing', () => {

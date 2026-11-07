@@ -97,11 +97,12 @@ export function todos(o: Overview): Todo[] {
   if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key, en: { title: 'Could not read the Anthropic keys\' state', text: 'The fish ID page has the error.', action: seeKey } })
   else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key, en: { title: 'Fish ID is off', text: 'ANTHROPIC_KEYS holds no key.', action: seeKey } })
   else {
+    // A key out of credit or refused is the rotation's to skip (fishid/keys.ts), and the fish ID page shows it. Only every
+    // key resting stops fish ID and chat, so only that is the owner's (the owner's rule, 2026-11-07; docs/governance.md).
     const off = o.keys.rows.filter(r => r.state !== 'ok')
-    if (off.length) {
-      const all = off.length === o.keys.rows.length
-      out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
-        en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · '), action: seeKey } })
+    if (off.length && off.length === o.keys.rows.length) {
+      out.push({ title: 'Nhận diện cá và chat không chạy: mọi key đang nghỉ', text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
+        en: { title: 'Fish ID and chat are down: every Anthropic key is resting', text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · '), action: seeKey } })
     }
     // Fish ID and chat share one AI spend cap a UTC day (fishid/ledger.ts): a day past 80% of it is the owner's to raise
     // before readers are told "busy".
@@ -169,7 +170,7 @@ export function areas(o: Overview): Area[] {
   }
   if (isFailed(o.clicks)) out.push(failedArea('Affiliate', '/_ab/affiliate/', o.clicks))
   else out.push({ name: 'Affiliate', href: '/_ab/affiliate/', fig: fmt(ago(o.clicks.clicks, 7, 1)), sub: 'lượt bấm sang sàn · 7 ngày', spark: whole(o.clicks.clicks), chip: chipOf(ago(o.clicks.clicks, 7, 1), ago(o.clicks.clicks, 14, 8), VS, 'up') })
-  const keysOff = isFailed(o.keys) || !o.keys || o.keys.rows.some(k => k.state !== 'ok')
+  const keysOff = isFailed(o.keys) || !o.keys || o.keys.rows.every(k => k.state !== 'ok')
   if (isFailed(o.fish)) out.push(failedArea('Nhận diện cá', '/_ab/nhan-dien-ca/', o.fish))
   else {
     const { periods: p, perDay } = o.fish
@@ -213,8 +214,9 @@ export function log(o: Overview, n = 3): LogDay[] {
       const added = MAIN.map(k => [k, (kept.totals.kinds[k]?.vi ?? 0) - (before.totals.kinds[k]?.vi ?? 0)] as const).filter(([, n]) => n > 0)
       const n = added.reduce((a, [, x]) => a + x, 0)
       if (n) items.push({ text: `${fmt(n)} bài mới`, small: added.map(([k, x]) => `${fmt(x)} ${PAGE_KIND[k].toLowerCase()}`).join(' · '), section: 'noi-dung' })
-      const translated = OTHER_LANGS.map(l => [l, inLang(kept.totals, l) - inLang(before.totals, l)] as const)
-      if (translated.some(([, n]) => n > 0)) items.push({ text: `${translated.map(([l, n]) => `${fmt(Math.max(n, 0))} bài tiếng ${LANG_VI[l]}`).join(', ')} mới`, section: 'noi-dung' })
+      // Only the languages that gained pages: one just served has none most nights.
+      const translated = OTHER_LANGS.map(l => [l, inLang(kept.totals, l) - inLang(before.totals, l)] as const).filter(([, n]) => n > 0)
+      if (translated.length) items.push({ text: `${translated.map(([l, n]) => `${fmt(n)} bài tiếng ${LANG_VI[l]}`).join(', ')} mới`, section: 'noi-dung' })
     }
     if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên`, section: 'doc-gia' })
     if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn`, section: 'affiliate' })
