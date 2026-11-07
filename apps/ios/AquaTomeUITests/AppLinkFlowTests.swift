@@ -36,6 +36,18 @@ final class AppLinkFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Tìm"].exists, "not back at the home")
   }
 
+  /// A link that comes while the Tài khoản sheet is open (back from its about pages in the browser): the sheet closes,
+  /// and the page opens under it.
+  func testALinkWithTheAccountSheetOpenClosesIt() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-no-animations"]
+    app.launch()
+    app.openAccount()
+    follow(app, link("https://aquatome.com/ca/ca-neon/"))
+    XCTAssertTrue(app.buttons["account-done"].waitForNonExistence(timeout: 5), "the sheet stayed over the page")
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 10), "the fish's page didn't open")
+  }
+
   /// The site's button: the page's address, percent-encoded, after `url=`.
   private func link(_ page: String) -> URL {
     URL(string: "aquatome://open?url=" + page.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!

@@ -81,6 +81,8 @@ REACH = {
     APP + 'OwnCopy.swift': [], APP + 'Assets.xcassets/': [], 'apps/ios/AquaTome.xcodeproj/': [], 'apps/ios/Config/': [],
     # The icons a reader chooses: the picker, the icon sets and their previews (app-icons.py writes them).
     APP + 'AppIcon/': ICONS, APP + 'Assets.xcassets/AppIcon': ICONS, 'apps/ios/scripts/app-icons.py': NONE,
+    # Its row in the Tài khoản sheet opens it.
+    APP + 'AppIcon/AppIconPicker.swift': ICONS + ['AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
     KIT + 'Package.swift': [], f'apps/ios/{UI}/': [],
     # The Bluetooth module is built into the app, but the simulator has none: FakeRadio stands in for it in every flow.
     KIT + 'Sources/ChihirosBLE/': [],
@@ -117,9 +119,12 @@ REACH = {
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     # The anonymous statistics: their own flows; and a light connected is one of the events sent.
     APP + 'Telemetry/': ['TelemetryFlowTests'], KIT + 'Sources/Telemetry/': ['TelemetryFlowTests'],
+    # Its switch, a row of the Tài khoản sheet.
+    APP + 'Telemetry/TelemetrySwitch.swift': ACCOUNT_SHEET,
     APP + 'Lights/': ['LightFlowTests', CONNECT_SENT],
     # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
-    APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests'],
+    APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests',
+                                      'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
     APP + 'Lights/LightOutlet.swift': ['LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests'],
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
@@ -135,6 +140,8 @@ REACH = {
                                        'OwnerFlowTests'],
     # Its page shots too: the overview and a section.
     APP + 'Owner/': ['OwnerFlowTests', 'PageShotsFlowTests'],
+    # Its row, in the Tài khoản sheet (and none signed out).
+    APP + 'Owner/OwnerEntry.swift': ['OwnerFlowTests', 'PageShotsFlowTests', 'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).
@@ -217,8 +224,10 @@ def check(runs, left, reached):
     got = reached([KIT + 'Sources/Tanks/TankStore.swift'])
     assert 'HandbookFlowTests/testFiltersTheFishToMyTank' in got and set(LIGHTS_ON_TANKS) <= got, got
     assert reached([APP + 'Lights/Radio.swift']) == reached([KIT + 'Sources/Chihiros/Frames.swift']) == {'LightFlowTests', CONNECT_SENT}
-    for card in ('LightsView.swift', 'LightOutlet.swift'):
-        assert reached([APP + 'Lights/' + card]) == {'LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests'}, card
+    assert reached([APP + 'Lights/LightOutlet.swift']) == {'LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests'}
+    # The tab's first screen also has the profile button, which the account's flow opens the sheet from.
+    assert reached([APP + 'Lights/LightsView.swift']) == {'LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests',
+                                                          'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'}
     # The owner's dashboard: its flows and its page shots, and the tanks tab's with them where its row is; its vectors
     # reach them too.
     assert reached([APP + 'Owner/OwnerBlocks.swift']) == {'OwnerFlowTests', 'PageShotsFlowTests'}
@@ -230,6 +239,11 @@ def check(runs, left, reached):
     for screen in ('AccountView.swift', 'AccountSection.swift', 'ProfileButton.swift'):
         assert reached([APP + 'Account/' + screen]) == set(ACCOUNT_SHEET), screen
     assert 'PageShotsFlowTests' not in reached([APP + 'Account/AccountModel.swift'])
+    # The rows of the sheet from other folders: the statistics' switch takes the sheet's flows; the owner's row and the
+    # icon picker's, the flow that checks the sheet's rows.
+    assert reached([APP + 'Telemetry/TelemetrySwitch.swift']) == set(ACCOUNT_SHEET)
+    for row in ('Owner/OwnerEntry.swift', 'AppIcon/AppIconPicker.swift'):
+        assert 'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab' in reached([APP + row]), row
     assert 'OwnerFlowTests' not in reached([APP + 'Tanks/TankForm.swift'])
     # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.
     assert reached([KIT + 'Sources/Plugs/NewSource.swift']) == {'PlugFlowTests'} | set(LIGHT_OUTLET)

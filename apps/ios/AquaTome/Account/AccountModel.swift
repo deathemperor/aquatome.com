@@ -163,6 +163,8 @@ final class AccountModel {
         forget()
         if ended { say(String(localized: "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ."), bad: true) }
       }
+    } catch is CancellationError {
+      // The Tài khoản sheet closed before the answer (its task cancelled): nothing learned about the network.
     } catch {
       // Offline: as it was, said so while nothing is known.
       unreached = true

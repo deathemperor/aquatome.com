@@ -3,7 +3,7 @@ import SwiftUI
 
 /// The account in the Tài khoản sheet, as on the site's page: signing in, the sync, adding a passkey, signing out and
 /// deleting the account. When the server offers no accounts or can't be reached, or the tanks can't be sent, a line says
-/// so: the tab is never blank.
+/// so: the sheet is never blank.
 struct AccountSection: View {
   @Environment(AccountModel.self) private var account
   @State private var confirmDelete = false

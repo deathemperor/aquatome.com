@@ -12,9 +12,10 @@ final class AccountFlowTests: XCTestCase {
     add(app, "Bể phòng khách", first: true)
     signIn(app)
     XCTAssertTrue(app.staticTexts["account-status"].label.contains("Apple"), app.staticTexts["account-status"].label)
+    let before = syncs(app)
+    tanksTab(app)
     XCTAssertFalse(badged(app), "a dot on the profile button with nothing wrong")
     // Added while signed in: it goes to the account a moment later, by itself.
-    let before = syncs(app)
     add(app, "Bể tép")
     accountTab(app)
     XCTAssertTrue(waitForSyncs(app, before + 1), "the change wasn't synced")
@@ -182,7 +183,7 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "apple-sign-in").exists, "sign-in offered for a store this app can't keep")
   }
 
-  /// Signed in, with a store this app can't keep: "Đồng bộ ngay" can't run, and the tab says why.
+  /// Signed in, with a store this app can't keep: "Đồng bộ ngay" can't run, and the sheet says why.
   func testSignedInAStoreFromANewerAppSaysWhyItIsntSynced() {
     var app = launch(resetServer: true)
     signIn(app)
@@ -207,6 +208,7 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(status.label.contains("Apple"), status.label)
     XCTAssertTrue(element(app, "sign-out").exists && element(app, "delete-account").exists, "the account's buttons gone offline")
     XCTAssertFalse(element(app, "account-off").exists, "offline read as accounts off")
+    tanksTab(app)
     XCTAssertFalse(badged(app), "a dot before anything went wrong")
     // Seen from the tanks tab, where the change is made.
     add(app, "Bể tép", first: true)
@@ -220,6 +222,16 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(unreached.waitForExistence(timeout: 10), "a new phone offline isn't told the server can't be reached")
     XCTAssertEqual(unreached.label, "Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.")
     XCTAssertFalse(element(app, "account-off").exists, "offline read as accounts off")
+  }
+
+  /// The sheet closed before the server says who is signed in (a slow network): opened again, it's still waiting for the
+  /// answer, not saying the server can't be reached.
+  func testClosingTheSheetBeforeTheServerAnswersIsNotReadAsNoNetwork() {
+    let app = launch(resetServer: true, "-slow-session")
+    app.closeAccount()
+    app.openAccount()
+    XCTAssertFalse(element(app, "account-unreached").waitForExistence(timeout: 3), "a sheet closed early read as no network")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 30), "the server's answer never came")
   }
 
   /// The account is in the profile button's sheet, from every tab: an empty "Bể của tôi" offers a hint that opens it,
@@ -302,9 +314,12 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertEqual(add.label, "Thêm passkey cho máy này")
   }
 
-  /// Whether the profile button marks a problem with the account, as it says to VoiceOver (its dot).
+  /// Whether the profile button on screen marks a problem with the account, as it says to VoiceOver (its dot). With the
+  /// sheet closed: a button under it may not be there to ask.
   private func badged(_ app: XCUIApplication) -> Bool {
-    app.buttons.matching(identifier: "profile").allElementsBoundByIndex.contains { $0.value as? String == "Có vấn đề cần xem" }
+    let shown = app.buttons.matching(identifier: "profile").allElementsBoundByIndex.filter { $0.isHittable }
+    XCTAssertFalse(shown.isEmpty, "no profile button on screen")
+    return shown.contains { $0.value as? String == "Có vấn đề cần xem" }
   }
 
   /// Looked for every half second, for up to 10 s.

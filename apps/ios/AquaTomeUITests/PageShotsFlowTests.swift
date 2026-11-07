@@ -64,11 +64,13 @@ final class PageShotsFlowTests: XCTestCase {
   /// Bể của tôi empty (signed out: the hint that opens the Tài khoản sheet), then with a tank: the list, to its end.
   func testTheTanksList() {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
+                           "-reset-fake-server"]
     app.launchForFlow()
     app.openTab("Bể của tôi")
     let first = app.buttons["add-first"]
     XCTAssertTrue(first.waitForExistence(timeout: 5), "no tanks tab")
+    XCTAssertTrue(app.buttons["sign-in-hint"].waitForExistence(timeout: 10), "no hint to sign in on the empty tab")
     // Empty first: no tanks, signed out.
     settle()
     let empty = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
