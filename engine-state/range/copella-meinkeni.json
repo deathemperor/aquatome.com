@@ -1,0 +1,88 @@
+{
+  "id": "copella-meinkeni",
+  "native": {
+    "input": "77db751e90395889",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Most records pertain to the rio Negro drainage in Brazil and Orinoco in Venezuela while it presumably also occurs in the Casiquiare canal which connects the two systems.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Most records pertain to the rio Negro drainage in Brazil and Orinoco in Venezuela while it presumably also occurs in the Casiquiare canal which connects the two systems.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Most records pertain to the rio Negro drainage in Brazil and Orinoco in Venezuela while it presumably also occurs in the Casiquiare canal which connects the two systems.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Most records pertain to the rio Negro drainage in Brazil and Orinoco in Venezuela while it presumably also occurs in the Casiquiare canal which connects the two systems.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Most records pertain to the rio Negro drainage in Brazil and Orinoco in Venezuela while it presumably also occurs in the Casiquiare canal which connects the two systems.",
+        "ok": true
+      },
+      {
+        "name": "Rio Javari",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests this species is native to the central Amazon region with the rios Javari and Trombetas representing the upstream and downstream limits of its known distribution, respectively.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Trombetas",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests this species is native to the central Amazon region with the rios Javari and Trombetas representing the upstream and downstream limits of its known distribution, respectively.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Copella meinkeni",
+    "status": "ACCEPTED",
+    "taxonKey": 2355693,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

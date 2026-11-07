@@ -8692,6 +8692,22 @@
     ],
     "ruled": "a95f1c426a04b22c"
   },
+  "vi/guides/youtube-09uEH7Mct1s": {
+    "at": "2026-11-07",
+    "hash": "6304557c18c51a57",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "Cạo rêu xong mà thay nhiều nước ngay thì rêu chết nhả dinh dưỡng, dễ làm nước xanh.",
+        "problem": "The summary blames the large water change for the green water, but the body and FAQ say the cause was the brushed-off algae left to rot in the carpet, and that the fix is to siphon it out.",
+        "fix": "Cạo rêu xong mà không hút sạch xác rêu rơi xuống nền thì rêu chết nhả dinh dưỡng, dễ làm nước xanh.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "6304557c18c51a57"
+  },
   "vi/guides/youtube-0KkgA9W52kQ": {
     "at": "2026-11-06",
     "hash": "5498c7d66589ce45",
@@ -8974,6 +8990,12 @@
       }
     ],
     "ruled": "769e5615886e405f"
+  },
+  "vi/guides/youtube-5ajPkl9rhKQ": {
+    "at": "2026-11-07",
+    "hash": "3583581ecf34d7ea",
+    "findings": [],
+    "ruled": "3583581ecf34d7ea"
   },
   "vi/guides/youtube-5GfRTHTv5ZM": {
     "at": "2026-11-06",
@@ -9287,6 +9309,12 @@
     ],
     "ruled": "bf5f605be891eea3"
   },
+  "vi/guides/youtube-7X823MgJlHo": {
+    "at": "2026-11-07",
+    "hash": "d8448d32efe44723",
+    "findings": [],
+    "ruled": "d8448d32efe44723"
+  },
   "vi/guides/youtube-7ZVrhWkpFDE": {
     "at": "2026-11-06",
     "hash": "246cd8c4a084b778",
@@ -9308,6 +9336,22 @@
       }
     ],
     "ruled": "b61a489d9a5de158"
+  },
+  "vi/guides/youtube-85iF2nhleGM": {
+    "at": "2026-11-07",
+    "hash": "bf7a068cb4a54cec",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khoảng nửa tháng, bể này gắn thêm một lọc váng mặt nước.",
+        "problem": "The time phrase has no 'after' or 'at', so it reads awkwardly and it is unclear when the skimmer was added.",
+        "fix": "Sau khoảng nửa tháng, bể này được gắn thêm một lọc váng mặt nước.",
+        "field": "body"
+      }
+    ],
+    "ruled": "bf7a068cb4a54cec"
   },
   "vi/guides/youtube-8B80s_qtzxA": {
     "at": "2026-11-03",
@@ -9663,6 +9707,23 @@
     ],
     "ruled": "5a6579cd57492639"
   },
+  "vi/guides/youtube-aj_iGo-D6GY": {
+    "at": "2026-11-07",
+    "hash": "4a17584e4f853ced",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "khoảng 150 lít (91 × 46 × 41 cm) (khoảng 91 x 46 cm, cao lòng chừng 40–43 cm, tầm 150 lít)",
+        "problem": "The tank size is given twice in back-to-back brackets, and the two give different heights (41 cm vs 40–43 cm), which reads like a merge leftover.",
+        "fix": "một bể khoảng 150 lít (khoảng 91 × 46 cm, cao lòng chừng 40–43 cm)",
+        "rule": "two parenthetical groups directly adjacent, with no text between them",
+        "field": "body"
+      }
+    ],
+    "ruled": "4a17584e4f853ced"
+  },
   "vi/guides/youtube-aLvkYA8AqBY": {
     "at": "2026-11-06",
     "hash": "0a1d572197935d2c",
@@ -9837,6 +9898,22 @@
     "findings": [],
     "ruled": "2d5a3444dff2cf65"
   },
+  "vi/guides/youtube-Ci1I8TbZrK8": {
+    "at": "2026-11-07",
+    "hash": "f63975a853118087",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "bể aquasoil có nitrite, nitrate rất cao",
+        "problem": "The summary says nitrite was very high, but the body and the table say there was only a little nitrite, with very high nitrate.",
+        "fix": "bể aquasoil có ít nitrite, nitrate rất cao",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "f63975a853118087"
+  },
   "vi/guides/youtube-cJLZq603RAY": {
     "at": "2026-11-02",
     "hash": "c9acc265da8d5544",
@@ -9991,6 +10068,22 @@
       }
     ],
     "ruled": "13d137d38b0fa116"
+  },
+  "vi/guides/youtube-dEiOXBOzlgU": {
+    "at": "2026-11-07",
+    "hash": "4a78bba81ec8dddc",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hai nhóm cây này gắn lên lũa theo hai cách khác nhau:",
+        "problem": "The sentence speaks of two groups and two methods, but the heading and the table that follows list three plants (air plants, bromeliads, moss), each attached a different way.",
+        "fix": "Ba loại cây này gắn lên lũa theo ba cách khác nhau:",
+        "field": "body"
+      }
+    ],
+    "ruled": "4a78bba81ec8dddc"
   },
   "vi/guides/youtube-dS6AJL3CAt0": {
     "at": "2026-11-04",
@@ -10655,6 +10748,12 @@
     ],
     "ruled": "2619228e56826cf3"
   },
+  "vi/guides/youtube-hN27R9bp18M": {
+    "at": "2026-11-07",
+    "hash": "31174e65ba3c9287",
+    "findings": [],
+    "ruled": "31174e65ba3c9287"
+  },
   "vi/guides/youtube-HoMUpt_DdfU": {
     "at": "2026-11-03",
     "hash": "a6df129b55155430",
@@ -10745,6 +10844,12 @@
       }
     ],
     "ruled": "030f6f8a73dcaf0e"
+  },
+  "vi/guides/youtube-IAGN8lN997s": {
+    "at": "2026-11-07",
+    "hash": "d90197debeb95d6b",
+    "findings": [],
+    "ruled": "d90197debeb95d6b"
   },
   "vi/guides/youtube-IB6lV6eF2MY": {
     "at": "2026-11-03",
@@ -10853,6 +10958,42 @@
       }
     ],
     "ruled": "7e60409f8dc23d48"
+  },
+  "vi/guides/youtube-iY8NEK9GGzo": {
+    "at": "2026-11-07",
+    "hash": "368a6f39d30d76b1",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Phụ đề còn nhắc một loại rêu \"răng cưa đỏ\" dùng kèm. Tên này nghe từ phụ đề tự động",
+        "problem": "The page mentions the source video's auto-generated subtitles, which is left over from how the page was written and confuses the reader.",
+        "fix": "Có thể dùng kèm một loại rêu gọi là \"răng cưa đỏ\". Tên này chưa chắc chắn, bạn nên hỏi lại cửa hàng khi mua.",
+        "rule": "Flag the word \"phụ đề\" (subtitles) in the body text.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L10",
+        "quote": "Không nên dùng nhiều keo ở những chỗ rêu còn rửa được.",
+        "problem": "The FAQ answer repeats the same garbled phrase, so its meaning is still unclear.",
+        "field": "faq.1.a"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-07",
+        "field": "body",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "The phrase \"chỗ rêu còn có thể rửa\" makes no sense, so the reader can't tell where to use less glue."
+        ]
+      }
+    ],
+    "ruled": "368a6f39d30d76b1"
   },
   "vi/guides/youtube-J_PR999bgtw": {
     "at": "2026-11-01",
@@ -11482,6 +11623,57 @@
     "hash": "33e3aa6b3ff58903",
     "findings": [],
     "ruled": "33e3aa6b3ff58903"
+  },
+  "vi/guides/youtube-MoI3OuGSMaQ": {
+    "at": "2026-11-07",
+    "hash": "3f9688cef07ed488",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "L2",
+        "quote": "Đèn chênh nhau nhiều nhất: đèn 170 euro sáng hơn rõ so với đèn 30 euro",
+        "problem": "The cost table puts the CO2 gap (152.5 vs 5 euro, so 147.5 euro) above the light gap (170 vs 30 euro, so 140 euro). The light is not the item with the biggest price difference.",
+        "fix": "Đèn là một trong hai khoản chênh nhiều nhất: đèn 170 euro sáng hơn rõ so với đèn 30 euro",
+        "field": "summary.1"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể rẻ là loại 36p kính siêu trong của Green Aqua",
+        "problem": "The cheap tank is called ultra-clear glass, but the next list says the expensive tank's glass is clearer.",
+        "fix": "Bể rẻ là loại 36p của Green Aqua",
+        "field": "body"
+      }
+    ],
+    "ruled": "3f9688cef07ed488"
+  },
+  "vi/guides/youtube-mY_9yWKaAFc": {
+    "at": "2026-11-07",
+    "hash": "595a2c592bb3ea53",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lúc quay, bể mới set được 2 tuần.",
+        "problem": "The page refers to filming a video the reader never sees, a leftover from the source video.",
+        "fix": "Lúc chụp ảnh và ghi lại trong bài, bể mới set được 2 tuần.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đến lúc quay video, rêu hại đã được kiểm soát ở mức tương đối.",
+        "problem": "The page mentions the source video, which the reader doesn't have.",
+        "fix": "Sau đó, rêu hại đã được kiểm soát ở mức tương đối.",
+        "rule": "The word \"quay video\" or \"video\" appears in the body text of a guide page.",
+        "field": "body"
+      }
+    ],
+    "ruled": "595a2c592bb3ea53"
   },
   "vi/guides/youtube-nFXsyqdY37s": {
     "at": "2026-11-04",
@@ -12691,6 +12883,38 @@
     ],
     "ruled": "393005aecedbc52c"
   },
+  "vi/guides/youtube-UJjK2Kn9zb0": {
+    "at": "2026-11-07",
+    "hash": "c08ad658a0412a1e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lọc chọn bơm theo thể tích bể, số cá và kích cỡ lọc.",
+        "problem": "The sentence makes the filter the one that chooses the pump. That reads oddly in Vietnamese and is not what the writer means.",
+        "fix": "Bơm cho lọc thường được chọn theo thể tích bể, số cá và kích cỡ lọc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "c08ad658a0412a1e"
+  },
+  "vi/guides/youtube-UK4S3ZFTTS8": {
+    "at": "2026-11-07",
+    "hash": "70fa7d2fdeb829ae",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lý do chính để bể này trải mini fissidens là nền Akadama.",
+        "problem": "This sentence gets the cause backwards: it says the tank uses fissidens because of the Akadama, but the heading and the rest of the section say Akadama was chosen because it suits fissidens.",
+        "fix": "Bể này chọn nền Akadama vì đây là loại nền rất hợp với rêu mini fissidens.",
+        "field": "body"
+      }
+    ],
+    "ruled": "70fa7d2fdeb829ae"
+  },
   "vi/guides/youtube-ULCBqSQYaOY": {
     "at": "2026-11-05",
     "hash": "547e9cb5093db6e3",
@@ -13005,6 +13229,12 @@
     ],
     "ruled": "a7e59b6bc5b79b52"
   },
+  "vi/guides/youtube-xaMPVEEhQzU": {
+    "at": "2026-11-07",
+    "hash": "547d4fbf7df918ee",
+    "findings": [],
+    "ruled": "547d4fbf7df918ee"
+  },
   "vi/guides/youtube-xdP5ITWcw3s": {
     "at": "2026-11-03",
     "hash": "98f096cf3388b4d4",
@@ -13020,6 +13250,12 @@
       }
     ],
     "ruled": "98f096cf3388b4d4"
+  },
+  "vi/guides/youtube-xf_ylcdUQsQ": {
+    "at": "2026-11-07",
+    "hash": "35cf9e835375f81c",
+    "findings": [],
+    "ruled": "35cf9e835375f81c"
   },
   "vi/guides/youtube-xLh3yMI-QGA": {
     "at": "2026-11-04",
@@ -13115,6 +13351,22 @@
     "hash": "77cf97026ba57d38",
     "findings": [],
     "ruled": "77cf97026ba57d38"
+  },
+  "vi/guides/youtube-yfiUqZ8IZU4": {
+    "at": "2026-11-07",
+    "hash": "64e3af80a9e1e815",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhóm cá này cũng chưa được nhiều người chơi để ý như nó đáng được.",
+        "problem": "This is a word-for-word copy of the English 'not as appreciated as it deserves', so it reads awkwardly in Vietnamese.",
+        "fix": "Nhóm cá này hay mà vẫn ít người chơi để ý tới.",
+        "field": "body"
+      }
+    ],
+    "ruled": "64e3af80a9e1e815"
   },
   "vi/guides/youtube-YIl9PLI2HAs": {
     "at": "2026-11-02",
@@ -13212,6 +13464,32 @@
       }
     ],
     "ruled": "d92a5be26e5bf877"
+  },
+  "vi/guides/youtube-ysH2T_HOG0E": {
+    "at": "2026-11-07",
+    "hash": "b8b2ab5b82b197ab",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "giá lúc quay video khoảng 440.000 đồng một bao",
+        "problem": "The text mentions the source video, but the page is not a video, so a reader won't know which date this price is from.",
+        "fix": "giá tham khảo khoảng 440.000 đồng một bao",
+        "rule": "the word 'video' appears in the body text of a written page",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phần lớn bố cục thủy sinh dựa trên tỷ lệ vàng. Cách áp dụng đơn giản nhất là chia chiều dài bể thành ba phần bằng nhau.",
+        "problem": "Splitting the tank into equal thirds is the rule of thirds, not the golden ratio (about 0.618/0.382), so the two figures don't match.",
+        "fix": "Phần lớn bố cục thủy sinh dựa trên tỷ lệ vàng, hoặc cách làm gần đúng là quy tắc một phần ba. Cách áp dụng đơn giản nhất là chia chiều dài bể thành ba phần bằng nhau.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b8b2ab5b82b197ab"
   },
   "vi/guides/youtube-YtbwYLCWjhA": {
     "at": "2026-11-06",
@@ -13311,6 +13589,12 @@
       }
     ],
     "ruled": "dbd313a7eeca5c83"
+  },
+  "vi/guides/youtube-z_pKaOlsKyg": {
+    "at": "2026-11-07",
+    "hash": "54adcd99e24166d6",
+    "findings": [],
+    "ruled": "54adcd99e24166d6"
   },
   "vi/guides/youtube-Z09QE4PpB9Q": {
     "at": "2026-11-05",
@@ -13463,6 +13747,22 @@
       }
     ],
     "ruled": "ebd82fa17c420a0c"
+  },
+  "vi/guides/youtube-ZyaIM3mNO4k": {
+    "at": "2026-11-07",
+    "hash": "e5a707a591f484f2",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "hậu cảnh trồng lăng xoắn, liễu răng cưa và súng sắc pháo",
+        "problem": "The summary puts liễu răng cưa and súng sắc pháo in the background, but the table places them on the left and right sides, with only lăng xoắn in the background.",
+        "fix": "hậu cảnh trồng lăng xoắn, bên trái là liễu răng cưa và bên phải là súng sắc pháo cho thêm màu",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "e5a707a591f484f2"
   },
   "vi/guides/youtube-zYfpvGHYlxQ": {
     "at": "2026-11-02",

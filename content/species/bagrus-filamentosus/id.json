@@ -1,0 +1,19 @@
+{
+  "slug": "bagrus-catfish",
+  "name": "Bagrus Catfish",
+  "altNames": [
+    "Bagrus",
+    "lele Bagrus"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Genus Bagrus dari Afrika berisi lele-lele besar yang bersifat predator. Ukuran maksimal tiap spesiesnya berkisar antara 30 cm hingga lebih dari satu meter! Sayangnya, identifikasi spesiesnya cukup sulit, karena sebagian besar dari 11 spesies yang saat ini dianggap valid sudah dideskripsikan sebelum Perang Dunia II. Revisi modern untuk genus ini belum ada.</p><p>Bagrus filamentosus adalah pengecualian yang menarik dari hal ini. Secara keseluruhan, spesies yang relatif ramping ini termasuk anggota genus yang berukuran lebih kecil.</p>",
+    "behaviour:glaser": "<p>Terhadap sesama jenis maupun ikan lain, Bagrus biasanya damai, tetapi ukuran mulutnya jangan pernah diremehkan. Ikan apa pun yang muat di mulutnya akan dimakan!</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  }
+}

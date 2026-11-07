@@ -75,6 +75,65 @@
       "Item 12: \"Tambahan sampah daun kering lagi menonjolkan\" is clumsy. Use \"Penambahan daun kering lebih menonjolkan suasana semula jadi\"."
     ]
   },
+  "channa-andrao": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Channa andrao",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 4: \"pers. comm.\" is left in English; use \"komunikasi peribadi\".",
+      "Item 2: \"kerana C. andrao mengeram telur dalam mulut oleh jantan\" is awkward. Something like \"kerana jantan C. andrao mengeram telur dalam mulut\" reads more naturally."
+    ]
+  },
+  "channa-barca": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Channa barca",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
+  },
+  "channa-bleheri": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Channa Bleheri",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"membesar lebih besar\" is repetitive; use \"tumbuh lebih besar\". \"badannya lebih tebal\" for \"deeper-bodied\" would be more natural as \"badan lebih dalam/tinggi\".",
+      "Items 2 and 9: \"penutup tangki\" and \"tangki komuniti\" mix \"tangki\" with \"akuarium\". Use \"akuarium\" consistently.",
+      "Item 12: \"isthmus\" and \"urostil\" are left as English or transliterated. Consider \"isthmus (kerongkong)\" or add a gloss.",
+      "Item 8: \"dikondisikan\" is awkward. Use \"diberi makanan khas/dimantapkan\" instead.",
+      "Item 9: \"Jika sepasang terbentuk\" is slightly awkward. Use \"Jika sepasang ikan berpasangan\"."
+    ]
+  },
+  "channa-micropeltes": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Ikan toman",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 11: \"Juvenil yang lebih besar\" renders \"Older juveniles\"; use \"Juvenil yang lebih tua/besar usianya\" so age is kept (minor).",
+      "Item 8: \"melainkan diberi makan dengan betul terlebih dahulu\" is vague for \"properly conditioned beforehand\"; use something like \"melainkan diberi makanan berkhasiat terlebih dahulu\" (minor)."
+    ]
+  },
+  "channa-pulchra": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Channa pulchra",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"biotop yang lebih rendah\" is awkward for \"lower-lying biotopes\"; use \"biotop di kawasan yang lebih rendah\" or \"tanah rendah\".",
+      "Items 2 and 3: \"aman\" for \"peaceful\" is slightly unnatural for fish; use \"tidak agresif\" or \"jinak\" (\"damai\" also works).",
+      "Item 2: \"bentuk air panas\" is vague for \"warm-water forms\"; use \"populasi/varian air suam (hangat)\".",
+      "Item 2: \"ikan import\" should be \"ikan yang diimport\", and \"strain akuarium\" could be \"baka akuarium\".",
+      "Item 5: \"renik\" for \"speckles\" is obscure; use \"bintik halus\" or \"tompok kecil\".",
+      "Item 4: \"pengeram mulut\" is understandable, but \"pengeram telur dalam mulut\" or \"ikan pengeram mulut\" is the more common hobby term."
+    ]
+  },
   "corydoras-aeneus": {
     "at": "2026-11-06",
     "from": "2026-11-02",

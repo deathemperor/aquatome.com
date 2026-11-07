@@ -325,20 +325,23 @@ test('the agent off: no result gives the reader\'s count back too (a failed call
   expect(readerCount(ledger)).toEqual([1])
 })
 
-test('the site\'s spend a day: past FISH_ID_USD_PER_DAY (default $15) the next photo is busy before any call; each answer adds its cost', async () => {
+test('the site\'s spend a day: past FISH_ID_USD_PER_DAY (default $50, chat\'s too) the next photo is busy before any call; each answer adds its cost', async () => {
   const { e, ledger } = env()
-  const spent = { ...emptyDay(), calls: 3, usd: 15 }
+  const spent = { ...emptyDay(), calls: 3, usd: 50 }
   ledger.storage.m.set(`day:${today()}`, spent)
   const c = claude([() => message(NEON)])
   const res = await run(post(), e, deps(c.fetch))
   expect([res.status, await res.json()]).toEqual([429, { error: 'busy' }])
   expect(c.calls).toHaveLength(0)
   expect(readerCount(ledger)).toEqual([])
-  const { e: e2, ledger: l2 } = env({ FISH_ID_USD_PER_DAY: '20' })
+  const { e: e2, ledger: l2 } = env({ FISH_ID_USD_PER_DAY: '60' })
   l2.storage.m.set(`day:${today()}`, spent)
   expect((await run(post(), e2, deps(c.fetch))).status).toBe(200)
   expect(l2.day()).toMatchObject({ calls: 4, runs: {} })
-  expect(l2.day()!.usd).toBeCloseTo(15.0084, 10)
+  expect(l2.day()!.usd).toBeCloseTo(50.0084, 10)
+  // The owner's dashboard reads today's and yesterday's spend and the cap (admin/pages.ts flags a day past 80% of it).
+  const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+  expect(await fishIdStatus(e2 as never, new Date())).toMatchObject({ cap: 60, spend: [{ day: today(), usd: l2.day()!.usd }, { day: yesterday, usd: 0 }] })
 })
 
 const slowly = (r: () => Response, ms = 25) => async () => { await new Promise(res => setTimeout(res, ms)); return r() }

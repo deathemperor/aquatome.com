@@ -1,0 +1,90 @@
+{
+  "id": "corydoras-flaveolus",
+  "native": {
+    "input": "a641238f579a0a66",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma flaveolum, long known as Corydoras flaveolus, is an armoured catfish from tributaries of the rio Tietê in the upper rio Paraná basin, São Paulo state, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from several tributary drainages of the rio Tietê which is itself an affluent within the upper rio Paraná basin, São Paulo state, southeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tietê",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma flaveolum, long known as Corydoras flaveolus, is an armoured catfish from tributaries of the rio Tietê in the upper rio Paraná basin, São Paulo state, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraná",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma flaveolum, long known as Corydoras flaveolus, is an armoured catfish from tributaries of the rio Tietê in the upper rio Paraná basin, São Paulo state, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Piracicaba",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributaries to Rio Piracicaba above Salto, 23°10'S, 47°16'W, Estado de São Paulo, Brazil'.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras flaveolus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342690,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        14
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}
