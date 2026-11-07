@@ -66,7 +66,7 @@ It answers in a schema of text plus blocks, streamed (SSE), as fish ID's steps a
 - **Strings:** checked as today.
 - **Model:** the same keys, ledger and daily USD cap as fish ID.
 - **Cost:** chat turns are longer than an identification, so the cap and per-reader limits need their own numbers.
-- **Privacy:** transcripts kept 365 days as fish ID's (the owner's decision); photos only when kept; the privacy page says so.
+- **Privacy:** conversations and their transcripts kept with no time limit, and deleted with the account (the owner's decision, 2026-11-07); photos only when kept; the privacy page says so.
 - **App:** blocks drawn natively (SwiftUI), as pages are.
 
 ## The owner's decisions (2026-11-06)
@@ -74,6 +74,13 @@ It answers in a schema of text plus blocks, streamed (SSE), as fish ID's steps a
 2. **Signed-in readers**, with a daily limit per reader and the site's USD cap.
 3. **App and site together**, on one contract.
 4. **Opus 5.5**, with an eval of real questions deciding whether a cheaper model holds.
+
+## The owner's decisions (2026-11-07)
+
+1. **Haiku 5.5** (`CHAT_MODEL`), as good as Opus on the eval (docs/review/chat-eval.md) at a thirtieth of the cost;
+   Opus stays the Worker's default when `CHAT_MODEL` is unset.
+2. **Kept with no time limit:** conversations and their transcripts, deleted only with the account (the App Store's
+   rule). Fish ID's transcripts stay at a year.
 
 ## The contract's blocks
 
@@ -97,12 +104,13 @@ The table's nine blocks come as four, so the Worker fills each from data the app
   site's chat draws it from the web page itself: the element with the heading's id (the heading, to the next one, or
   the `section` or `article` holding it). Every heading the app's copy of a page has is on the web page with the same
   id, and neither copy runs into the next section (`apps/site/test/chat-sections.test.ts`).
-- **The Worker keeps a conversation for 24 hours** from its first question, under the account, so a client can't send
-  forged earlier turns, and later questions carry no history. It lives in R2, which reads its own writes (KV can show a
-  stale conversation for up to a minute at another location, as when a phone changes networks between turns), under its
-  own prefix with a 1-day lifecycle rule, so it is deleted a day or two after its last question. The client starts a new
-  conversation once the first question is 24 hours old; one the Worker no longer holds is taken as new (`n: 1`). The
-  365-day transcripts are kept apart.
+- **The Worker answers in a conversation for 24 hours** from its first question, under the account, so a client can't
+  send forged earlier turns, and later questions carry no history. It lives in R2, which reads its own writes (KV can
+  show a stale conversation for up to a minute at another location, as when a phone changes networks between turns),
+  under the account's own prefix (`chat-conv/<account>/`), kept with no time limit, so deleting the account can find and
+  delete it. The client starts a new conversation once the first question is 24 hours old; one the Worker doesn't hold
+  is taken as new (`n: 1`). The transcripts are kept apart, under an id of their own, and go with the account's
+  conversations.
 - **Signed-in only**, the site's page same-origin with the session cookie and no Turnstile, the app with its bearer;
   counted per account on fish ID's ledger, under the site's dollar cap.
 - **A retry with the same `Idempotency-Key` while the run is still answering waits for it** and gets its turn,

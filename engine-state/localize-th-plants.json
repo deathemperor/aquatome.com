@@ -443,14 +443,15 @@
     ]
   },
   "bucephalandra-sp-mini-melawi": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "บูเซป มินิ เมลาวี",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.88,
     "notes": [
-      "\"ขนาด:\" for \"Portion\" is slightly off. \"จำนวน:\" or \"ปริมาณ:\" would read more naturally for a number of rhizome nodes.",
-      "\"ตู้หรือที่อยู่อาศัย\" is a bit redundant for \"habitat\". \"ตู้\" or \"สภาพแวดล้อม/ตู้ที่จะใช้เลี้ยง\" alone would be smoother."
+      "Item 1: The source spells it \"Bucephelandra\", but the Thai has \"Bucephalandra\". Quietly correcting the Latin name goes against the rule that Latin names stay unchanged. It is a minor point, since the correction is botanically right.",
+      "Item 2: \"มองเห็นได้ชัดมาก\" only says the rockwool is easy to see. The Vietnamese \"nhìn rất lộ\" means it looks unsightly or exposed. Use something like \"ดูไม่เนียน\" or \"เห็นชัดและไม่สวย\".",
+      "Item 2: \"ใยหิน\" for rockwool is understandable, but Thai hobbyists often write \"ร็อกวูล\". You could add it in brackets after the Thai term."
     ]
   },
   "bucephalandra-sp-needle-leaf": {
@@ -476,13 +477,13 @@
     ]
   },
   "bucephalandra-sp-red-cherry": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "บูเซ เรดเชอร์รี่",
     "confidence": "medium",
-    "score": 0.92,
+    "score": 0.9,
     "notes": [
-      "Item 3: \"ตู้หรือที่อยู่\" is slightly vague for \"habitat\". Consider \"เตรียมตู้/ระบบเลี้ยงให้พร้อมก่อนสั่งซื้อ\"."
+      "Item 1: The source spells the genus \"Bucephelandra\", but the Thai has \"Bucephalandra\". This is the correct spelling and a harmless fix, though it is not literally unchanged. It is minor."
     ]
   },
   "bucephalandra-sp-round-leaf": {
@@ -889,11 +890,11 @@
     ]
   },
   "eleocharis-parvula": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "หญ้าหัวเข็มแคระ",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "แฮร์กราสแคระ",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.95,
     "notes": []
   },
   "eleocharis-pusilla": {
@@ -2041,6 +2042,14 @@
       "Item 2: 'คริสต์มาสมอส' is fine, but could add the common Thai hobby form 'Christmas Moss' in brackets for clarity.",
       "Item 2: 'ขึ้นได้สวยที่สุด' for 'does best' slightly narrows meaning to looks; 'เติบโตได้ดีที่สุด' is closer."
     ]
+  },
+  "utricularia-graminifolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "ยูทริคูลาเรีย",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
   },
   "vallisneria": {
     "at": "2026-10-30",

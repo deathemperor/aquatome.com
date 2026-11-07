@@ -10,6 +10,50 @@
     "cambodia",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "The rarest of all the splendens complex, found only in the Mekong River basin in Cambodia, from the locality of Stung Streng.",
+          "countries": [
+            "KH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394017,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          12.65625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

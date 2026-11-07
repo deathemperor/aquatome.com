@@ -1,0 +1,62 @@
+{
+  "id": "betta-renata",
+  "native": {
+    "input": "26715dc8d1f7fa28",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta renata is a mouthbrooding labyrinth fish from forest peat swamps in Jambi, South Sumatra and Riau provinces on Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected close to the settlement of Rantau Panjang in Jambi province on the island of Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected close to the settlement of Rantau Panjang in Jambi province on the island of Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "seriouslyfish",
+        "quote": "Other collections have occurred near the villages of Pematang Lumut and Bertam in Jambi, in the regency of Lahat in South Sumatra (also known as Sumatera Selatan) province and further north from the river Indragiri basin in Riau province.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta renata",
+    "status": "ACCEPTED",
+    "taxonKey": 2394006,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -157,15 +157,14 @@
   "File:Marisa cornuarietis ,.jpg"
  ],
  "hashes": {
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/22949270/large.jpeg": "99983b3250410c08",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/52357015/large.jpeg": "6448540c955bbb87",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/119262021/large.jpeg": "07091c46d0ccc4e6",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/137472778/large.png": "e24fb8b83870991c",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/248981318/large.jpg": "091d17b69c9a459a",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/343871574/large.jpeg": "1c4d646f69824687",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/398884895/large.jpg": "e5c2aa9c1bbbb3b7",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/509852390/large.jpg": "736a66d6eb7371fa",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/409264584/large.jpg": "0d7548d9c9c9c8d8"
+  "https://media.aquatome.com/inaturalist/343871574.webp": "1c4d4c2d610626c7",
+  "https://media.aquatome.com/inaturalist/119262021.webp": "070b1c46d8ccc4e2",
+  "https://media.aquatome.com/inaturalist/137472778.webp": "e16d78383030993c",
+  "https://media.aquatome.com/inaturalist/509852390.webp": "736266ce6373f1fa",
+  "https://media.aquatome.com/inaturalist/22949270.webp": "99983f3250410c09",
+  "https://media.aquatome.com/inaturalist/409264584.webp": "0d7548d9c9c9c8d0",
+  "https://media.aquatome.com/inaturalist/398884895.webp": "e5d2aadc1fabb335",
+  "https://media.aquatome.com/inaturalist/52357015.webp": "6c48540c955a1b07"
  },
  "inat": {
   "taxon": 150778,
@@ -175,5 +174,9 @@
    "agree": 412066996
   }
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "gbif": {
+  "key": 2292586,
+  "next": null
+ }
 }

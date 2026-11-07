@@ -15,6 +15,104 @@
     "mekong",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "BN",
+        "SG",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Borneo",
+        "Mekong",
+        "Kabili River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+          "countries": [
+            "MY",
+            "BN",
+            "SG",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Borneo",
+            "Mekong",
+            "Kabili River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377132,
+      "total": 21,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BN",
+          9
+        ],
+        [
+          "SG",
+          8
+        ],
+        [
+          "MY",
+          3
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          116.71875,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

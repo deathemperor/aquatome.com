@@ -1,0 +1,124 @@
+{
+  "id": "brochis-multiradiatus",
+  "native": {
+    "input": "07a155777b20040b",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the northwestern Amazon basin in Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the northwestern Amazon basin in Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Western Amazon River basin, Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Western Amazon River basin, Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the northwestern Amazon basin in Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Río Napo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Río Lagartococha near town of Garza-Cocha, upper Río Napo system, Province Napo, Ecuador'.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Río Lagartococha",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tributary of Río Lagartococha near town of Garza-Cocha, upper Río Napo system, Province Napo, Ecuador'.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Western Amazon River basin, Ecuador and Peru.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brochis multiradiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342823,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "EC",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

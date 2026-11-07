@@ -1,0 +1,152 @@
+{
+  "id": "brachyplatystoma-filamentosum",
+  "native": {
+    "input": "54747545f9dd85b6",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed throughout most of the Amazon and Orinoco river drainages plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed throughout most of the Amazon and Orinoco river drainages plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed throughout most of the Amazon and Orinoco river drainages plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "seriouslyfish",
+        "quote": "Sexually-mature adults of B. flamentosum have been observed in the upper rio Araguaia basin, some 2000 km from the estuary.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO",
+        "CO",
+        "EC",
+        "GF",
+        "GY",
+        "PE",
+        "SR",
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyplatystoma filamentosum",
+    "status": "ACCEPTED",
+    "taxonKey": 2338822,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        112
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        40
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        8
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        8
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "00d324d6-5211-47a1-a84d-82175f84e678",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

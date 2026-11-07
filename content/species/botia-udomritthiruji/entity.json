@@ -10,6 +10,59 @@
     "myanmar",
     "tanintharyi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Tanintharyi River",
+        "Kra Isthmus"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Tanintharyi River drainage in Tanintharyi (previously Tenasserim) Division, southern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Tanintharyi River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Tanintharyi lies on the Kra Isthmus and the river bisects the central zone north-to-south before emptying into the Andaman Sea at Mergui/Myeik.",
+          "countries": [],
+          "regions": [
+            "Kra Isthmus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368018,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

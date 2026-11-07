@@ -1,0 +1,48 @@
+{
+  "id": "brachygobius-xanthozonus",
+  "native": {
+    "input": "4afd8c37379d55c1",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brachygobius xanthozona is a bumblebee goby described from Surabaya in eastern Java, Indonesia, and may be endemic to that island.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Brachygobius xanthozona is a bumblebee goby described from Surabaya in eastern Java, Indonesia, and may be endemic to that island.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachygobius xanthozonus",
+    "status": "ACCEPTED",
+    "taxonKey": 2377134,
+    "datasets": [
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

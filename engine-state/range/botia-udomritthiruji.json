@@ -1,0 +1,58 @@
+{
+  "id": "botia-udomritthiruji",
+  "native": {
+    "input": "3073d8528d189009",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Tanintharyi River drainage in Tanintharyi (previously Tenasserim) Division, southern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tanintharyi River",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Tanintharyi River drainage in Tanintharyi (previously Tenasserim) Division, southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Kra Isthmus",
+        "source": "seriouslyfish",
+        "quote": "Tanintharyi lies on the Kra Isthmus and the river bisects the central zone north-to-south before emptying into the Andaman Sea at Mergui/Myeik.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia udomritthiruji",
+    "status": "ACCEPTED",
+    "taxonKey": 2368018,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

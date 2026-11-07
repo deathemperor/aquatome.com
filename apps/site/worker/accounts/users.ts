@@ -1,3 +1,4 @@
+import { chatAccount, deleteChatOf } from '../chat/store'
 import { deleteAllKept } from '../fishid/kept'
 import { deletePhotoFiles } from '../photos'
 
@@ -52,10 +53,12 @@ export async function methodsOf(db: D1Database, userId: string): Promise<Method[
  * them again; deleting twice does no harm). Then in one batch: its comments and photos, its saved tanks, pending email
  * codes for its addresses (so a code sent before can't sign in after), sign-ins and sessions, then the account.
  */
-export async function deleteUser(db: D1Database, userId: string, buckets: { UPLOADS?: R2Bucket; MEDIA?: R2Bucket } = {}): Promise<void> {
-  const { UPLOADS, MEDIA } = buckets
+export async function deleteUser(db: D1Database, userId: string, buckets: { UPLOADS?: R2Bucket; MEDIA?: R2Bucket; COMMENT_HMAC_KEY?: string } = {}): Promise<void> {
+  const { UPLOADS, MEDIA, COMMENT_HMAC_KEY } = buckets
   // The fish-ID photos it let us keep (fishid/kept.ts): files only, no rows.
   if (UPLOADS) await deleteAllKept(UPLOADS, userId)
+  // Its chat conversations and retries' answers (chat/store.ts), under the account's HMAC: without the key, chat never ran.
+  if (UPLOADS && COMMENT_HMAC_KEY) await deleteChatOf(UPLOADS, await chatAccount(COMMENT_HMAC_KEY, userId))
   if (UPLOADS && MEDIA) {
     const { results } = await db.prepare(`SELECT id FROM photos WHERE account_id = ?`).bind(userId).all<{ id: string }>()
     await Promise.all(results.map(p => deletePhotoFiles({ UPLOADS, MEDIA }, p.id)))
