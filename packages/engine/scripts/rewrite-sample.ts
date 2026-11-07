@@ -9,7 +9,7 @@
  *
  * Then: CONTENT_ROOT=<out>/content node .claude/skills/editors/packet.mjs page vi/<kind>/<slug> --out <round dir>
  */
-import { cp, mkdir, rm } from 'node:fs/promises'
+import { cp, mkdir, rm, symlink } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { parseArgs } from 'node:util'
@@ -29,6 +29,8 @@ await rm(out, { recursive: true, force: true })
 await mkdir(join(out, 'content'), { recursive: true })
 await mkdir(join(out, 'engine-state'), { recursive: true })
 await cp(join(CONTENT, 'sources.json'), join(out, 'content/sources.json'))
+// The English articles translated guides came from, which their rewrite is checked against: read, never written.
+await symlink(join(CONTENT, '../sources'), join(out, 'sources'))
 for (const p of pages) await cp(join(CONTENT, p), join(out, 'content', p), { recursive: true })
 
 const r = await rewriteExisting(join(out, 'content'), join(out, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: pages.length, match: /[\s\S]/ })

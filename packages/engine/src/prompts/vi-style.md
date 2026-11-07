@@ -6,6 +6,7 @@ Viết như một người chơi thủy sinh lâu năm giải thích cho bạn m
 - Mỗi câu một ý. Câu dài quá thì tách đôi. Xen câu ngắn với câu dài cho có nhịp.
 - Nói thẳng nguyên nhân bằng "do", "vì", "là do", "là dấu hiệu của". Không dùng "liên quan (đến)" để chỉ nguyên nhân.
 - Không bê cấu trúc tiếng Anh sang: "nên đừng…" (so don't), "điều này giúp…", "có thể giúp", "đóng vai trò", "một cách + tính từ", "việc + động từ" làm chủ ngữ, câu bị động với "được" khi đã biết ai làm.
+- Thành ngữ và cách ví von tiếng Anh thì nói thẳng ý, đừng dịch từng chữ: "every imaginable biotope" là "đủ kiểu nơi", "a crew of algae eaters" là "cá, tép, ốc ăn rêu", "fights badly with algae" là "dễ bị rêu lấn", "is appreciated" là "thì chúng thích hơn".
 - Không dùng các cụm sáo: "đóng vai trò quan trọng", "yếu tố then chốt", "không chỉ… mà còn", "hãy cùng", "bạn có biết", "trong bài viết này", "tóm lại", "thế giới thủy sinh".
 - Ít gọi "bạn". Việc cần làm thì nói thẳng, như người chỉ tay: "Khoan vài lỗ trên nắp", "Nên thay 30% nước mỗi tuần", không viết "Bạn khoan…", "bạn nên…", "tốt nhất bạn nên…". Giữ "bạn" khi nói về bể, về cá của chính người đọc ("Nếu đây là bể đầu tiên của bạn…"). Có thể nói "mình" khi kể kinh nghiệm chung của dân chơi, nhưng không bịa trải nghiệm cá nhân.
 - Có chính kiến khi video có: "cách này tốn công nhưng đáng", "hầu hết trường hợp chỉ cần…". Không trung tính đến mức nhạt.
