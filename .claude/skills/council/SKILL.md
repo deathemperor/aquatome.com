@@ -5,7 +5,7 @@ description: Use when the owner asks for the council, a council review, or sever
 
 # The council
 
-One strong model from each of three providers reviews the same work, and each scores it out of 10. Their findings are
+One strong model from each of four providers reviews the same work, and each scores it out of 10. Their findings are
 summarised together: what they agree on, where they disagree, and what to do next. Asked to "go until the council
 agrees", fix and review again, round after round, until every seated member scores at or above the bar the owner set
 (9/10 if they named none).
@@ -21,9 +21,13 @@ available there sits out, and the report says so. Never fill an empty or unavail
 | Seat | Provider (Infinitus `providerInstanceId`) | Model | Options |
 |---|---|---|---|
 | Anthropic | `claudeAgent` | `claude-opus-5-5` | `effort: xhigh` |
-| OpenAI | empty: no seat until the owner has an OpenAI subscription (owner, 2026-11-07) | | |
+| OpenAI | `cursor` | `gpt-5.6-sol` | `reasoning: xhigh` |
+| Google | `cursor` | `gemini-4-argon` | `reasoning_effort: high` |
+| xAI | `cursor` | `grok-4.7` | `reasoning: xhigh` |
 | Muse | (to fill: `muse`) | (to fill) | |
-| Jester (below) | (to fill: `antigravity`) | (to fill: Gemini) | |
+| Jester (below) | empty: Gemini sits as Google's member (2026-11-07) | | |
+
+The three `cursor` seats go through the owner's Cursor subscription; if `cursor` isn't signed in, all three sit out.
 
 ## A round
 
