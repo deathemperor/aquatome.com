@@ -61,12 +61,12 @@ const SOURCE_CHARS = 12_000
 
 export const pageKey = (p: Page) => `${p.lang}/${p.kind}/${p.id}`
 const range = (v: number | { min: number; max: number }) => (typeof v === 'number' ? `${v}` : `${v.min}–${v.max}`)
-const render = (html: string) => blocks(html).map(b => (b.tag === 'h3' ? `## ${b.text}` : b.tag === 'li' ? `- ${b.text}` : b.tag === 'td' || b.tag === 'th' ? `| ${b.text}` : b.text)).join('\n')
+export const render = (html: string) => blocks(html).map(b => (b.tag === 'h3' ? `## ${b.text}` : b.tag === 'li' ? `- ${b.text}` : b.tag === 'td' || b.tag === 'th' ? `| ${b.text}` : b.text)).join('\n')
 /** "sections.diet:seriouslyfish" → "diet, from seriouslyfish". */
-const label = (field: string) => field.replace(/^sections\.([^:]+):(.+)$/, '$1, from $2')
-const norm = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim().toLowerCase()
+export const label = (field: string) => field.replace(/^sections\.([^:]+):(.+)$/, '$1, from $2')
+export const norm = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim().toLowerCase()
 /** The page's own text without the sources' reference lists. */
-const readable = (p: Page) => p.fields.filter(f => !f.field.startsWith('sections.references'))
+export const readable = (p: Page) => p.fields.filter(f => !f.field.startsWith('sections.references'))
 
 /** The page as the reader gets it, in numbered parts (`parts`: id → where it is kept), and a hash of that text. */
 export function readerText(p: Page): { text: string; parts: Record<string, string>; hash: string } {
@@ -119,7 +119,7 @@ export function ruleFindings(p: Page, parts: Record<string, string>): ReaderEntr
 }
 
 /** A finding that takes itself back ("…, so it is not an error"). */
-const RETRACTED = /\b(not an error|not a problem|no error|so it is fine|which is fine|is fine;|low confidence|consistent with the source|matches the source)\b/i
+export const RETRACTED = /\b(not an error|not a problem|no error|so it is fine|which is fine|is fine;|low confidence|consistent with the source|matches the source)\b/i
 
 /** The model's findings that hold: a known kind, a part the page has, a quote that is on the page, and not taken back. */
 export function keepFindings(found: ReaderFinding[], text: string, parts: Record<string, string>): ReaderEntry['findings'] {

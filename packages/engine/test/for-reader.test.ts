@@ -1,0 +1,83 @@
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { expect, test } from 'vitest'
+import type { Llm } from '../src/claude'
+import { amountsOutside, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
+
+const FACTS = { topic: 'blue-green algae', facts: [{ section: 'treatment', fact: 'Use 3 ml of 3% hydrogen peroxide per 4 litres.' }], products: [{ name: 'Slime Out', for: 'blue-green algae', ingredient: '', dose: '1 packet per 10 gallons' }], problems: ['cyanobacteria'] }
+const good = { name: 'Tảo lam: làm gì trước', summary: ['Hút sạch rồi trị.'], body: '<h3>Trị</h3><p>Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước.</p>', faq: [{ q: 'Có hại cá không?', a: 'Quá liều thì hại.' }] }
+const fake = (answers: { written: object[]; score?: number }) => {
+  const calls: { kind: string; prompt: string; model?: string }[] = []
+  const left = [...answers.written]
+  const llm = (async (a: Parameters<Llm>[0]) => {
+    const props = (a.schema as { properties: Record<string, unknown> }).properties
+    if (props.problems) { calls.push({ kind: 'facts', prompt: a.prompt, model: a.model }); return FACTS }
+    if (props.body) { calls.push({ kind: 'write', prompt: a.prompt, model: a.model }); return left.shift() }
+    if (props.findings) { calls.push({ kind: 'fit', prompt: a.prompt, model: a.model }); return { findings: [], products: [] } }
+    calls.push({ kind: 'review', prompt: a.prompt, model: a.model })
+    return { score: answers.score ?? 0.9, notes: [] }
+  }) as Llm
+  return { llm, calls }
+}
+
+test('the writer works from the facts and the market table, never the source; what passes first time is kept', async () => {
+  const { llm, calls } = fake({ written: [good] })
+  const r = await writeForReader({ llm }, 'g', 'Buy Slime Out on Amazon for $14.')
+  expect(r).toMatchObject({ kept: true, tries: 1 })
+  const write = calls.find(c => c.kind === 'write')!
+  expect(write.prompt).not.toContain('Amazon')
+  expect(write.prompt).toContain('Use 3 ml of 3% hydrogen peroxide')
+  expect(write.prompt).toMatch(/Slime Out: các shop trong nước khó tìm/)
+  expect(write.prompt).toContain('3 ml cho mỗi 4 lít nước') // the table's dose for this problem
+  expect(write.model).toBe('opus')
+})
+
+test('what fails a check goes back with its notes, and what fails again is not kept', async () => {
+  const bad = { ...good, body: '<p>Mua Slime Out trên Amazon giá 14 USD, 1 gói cho bể 38 lít.</p>' }
+  const once = fake({ written: [bad, good] })
+  const r = await writeForReader({ llm: once.llm }, 'g', 'x')
+  expect(r).toMatchObject({ kept: true, tries: 2 })
+  const second = once.calls.filter(c => c.kind === 'write')[1]!.prompt
+  for (const n of ['shop: "Mua Slime Out trên Amazon"', 'price: "14 USD"', 'units: "38 lít"', 'dose:', 'product: "Slime Out"']) expect(second).toContain(n)
+  const twice = fake({ written: [bad, bad] })
+  expect((await writeForReader({ llm: twice.llm }, 'g', 'x')).kept).toBe(false)
+  // Below the reviewer's bar, however clean.
+  expect((await writeForReader({ llm: fake({ written: [good, good], score: 0.5 }).llm }, 'g', 'x')).kept).toBe(false)
+})
+
+test('an amount with a figure neither the facts nor the table has is made up', () => {
+  expect(amountsOutside('Dùng 3 ml cho 4 lít trong 5 ngày.', '3 ml per 4 litres, for 5 days')).toEqual([])
+  expect(amountsOutside('Dùng 7 ml cho 4 lít, 3,5 ml nữa.', '3 ml per 4 litres')).toEqual(['7 ml', '3.5 ml'])
+  expect(amountsOutside('Cá lớn 8 cm, có 2 cách.', '')).toEqual([])
+  // A source's words and its gallons, said as a keeper here says them.
+  expect(amountsOutside('Trị 3 ngày trong bể 40 lít.', 'for three days in a 10-gallon tank')).toEqual([])
+  expect(amountsOutside('Bể 80 lít.', 'a 10 gallon tank')).toEqual(['80 l'])
+})
+
+test('with no source kept, the facts come from the guide as it stands', async () => {
+  const e = { id: 'youtube-none', source: 'youtube' as const, sourceUrl: 'https://www.youtube.com/watch?v=none' }
+  expect(await sourceOf('/nowhere', e, { name: 'Tên', body: '<p>Bài.</p>', summary: ['Ý.'], faq: [] })).toMatch(/Tên[\s\S]*Ý\.[\s\S]*Bài\./)
+})
+
+test('a guide a person fixed stays unless forced; a kept rewrite replaces its text and drops the box; a failed one leaves the file', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'for-reader-'))
+  const dir = join(root, 'content/guides/aquariumcoop-blogs-aquarium-x')
+  await mkdir(dir, { recursive: true })
+  await mkdir(join(root, 'sources/aquariumcoop'), { recursive: true })
+  await writeFile(join(root, 'sources/aquariumcoop/blogs-aquarium-x.md'), '---\nurl: u\n---\nThe article.')
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ id: 'aquariumcoop-blogs-aquarium-x', kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x', html: '', photos: [], mentions: [], updatedAt: '2026-11-01' }))
+  const vi = { slug: 'x', name: 'Cũ', altNames: [], sections: {}, body: '<p>Cũ.</p>', bodyFixed: true, localNote: { html: '<p>Hộp.</p>', refs: [] } }
+  await writeFile(join(dir, 'vi.json'), JSON.stringify(vi))
+  const id = 'aquariumcoop-blogs-aquarium-x'
+  expect(await rewriteForReader(root, id, { llm: fake({ written: [good] }).llm })).toMatchObject({ skipped: 'a person fixed its text' })
+  const failing = await rewriteForReader(root, id, { llm: fake({ written: [good, good], score: 0.1 }).llm }, { force: true })
+  expect(failing).toMatchObject({ kept: false })
+  expect(JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')).name).toBe('Cũ')
+  const passing = await rewriteForReader(root, id, { llm: fake({ written: [good] }).llm }, { force: true })
+  expect(passing).toMatchObject({ kept: true })
+  const out = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
+  expect(out).toMatchObject({ slug: 'x', name: good.name })
+  expect(out.bodyFixed).toBeUndefined()
+  expect(out.localNote).toBeUndefined()
+})

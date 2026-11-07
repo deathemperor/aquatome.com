@@ -21,6 +21,7 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
+import { FIT_KINDS, fitReport, runFit } from './fit'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
@@ -439,6 +440,16 @@ if (cmd === 'run' || cmd === 'card-fill') {
   await writeFile(join(ROOT, 'docs/review/reader.md'), readerReport(r.rewritten.length ? await loadPages(join(ROOT, 'content')) : pages, state))
   console.log(`reader: ${r.read.length} pages read, ${r.findings} findings, ${r.rewritten.length} parts rewritten, ${r.notKept.length} not kept, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.read.map(x => `read: ${x}`), ...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
+} else if (cmd === 'fit') {
+  // Is each page written for its reader (fit.ts)? The model reads the pages due in a random order, so a run stopped part
+  // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
+  // pnpm engine fit [--limit N] [--jobs N]. FIT_MODEL: the reading model (default sonnet; docs/review/fit.md has its accuracy).
+  const pages = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
+  const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'sonnet', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20) })
+  await mkdir(join(ROOT, 'docs/review'), { recursive: true })
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
+  console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'traits') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
   // those read with an older prompt; --only id,id reads those again whatever their state.

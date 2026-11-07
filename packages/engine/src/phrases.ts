@@ -116,6 +116,12 @@ export function phraseSlips(text: string, lang: WrittenLang, list?: Phrase[]): s
   })
 }
 
+/** Each listed phrase a text has, once, with the words as the text writes them. */
+export const phraseQuotes = (text: string, lang: WrittenLang, list?: Phrase[]) => listOf(lang, list).flatMap(p => {
+  const m = new RegExp(pattern(p, lang), 'iu').exec(text)
+  return m ? [{ say: p.say, quote: m[0], instead: p.instead }] : []
+})
+
 /** How many times a text has any listed phrase. */
 export const phraseCount = (text: string, lang: WrittenLang, list?: Phrase[]) =>
   listOf(lang, list).reduce((n, p) => n + [...text.matchAll(new RegExp(pattern(p, lang), 'giu'))].length, 0)
