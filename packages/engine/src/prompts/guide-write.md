@@ -22,6 +22,9 @@ Cách viết:
 Viết cho người đọc ở Việt Nam:
 - Sản phẩm: làm đúng theo THỊ TRƯỜNG. Sản phẩm khó tìm ở đây thì không đưa tên vào bài như thứ cần mua: nói thuốc đó là gì (hoạt chất), hoặc dùng cách trong THỊ TRƯỜNG. Không nói một sản phẩm "không bán ở Việt Nam", vì chưa ai dám chắc chuyện đó. Không viết chuyện luật pháp.
 - Liều: THỊ TRƯỜNG có liều cho đúng việc này thì ghi đúng liều đó, đừng bảo "theo nhãn". Nếu không, chỉ ghi liều có trong DỮ KIỆN gắn với đúng thứ đó, đúng con số. Không có nữa thì viết "theo hướng dẫn trên nhãn". Không lấy liều của sản phẩm này áp cho sản phẩm khác, và không đổi nồng độ.
+- Mỗi liều nói rõ nó dùng cho việc gì và dùng cách nào: trị bệnh gì, bơm tại chỗ, cho cả bể hay tắm riêng. Cảnh báo nào dữ kiện hoặc THỊ TRƯỜNG có cho tép, ốc, cá da trơn, cá chạch, cá không vảy hay cá con thì ghi ngay cạnh liều đó, không để sang mục khác.
+- Không khuyên mua xanh malachite hay formaldehyde. Dữ kiện dùng thuốc có các chất đó thì nói "thuốc trị đốm trắng bán ở tiệm", liều theo nhãn. Kháng sinh thì được nói tên, nhưng không khuyên đi mua, không ghi liều nếu dữ kiện không có.
+- Trong bài không có ai ngoài người đọc: không "người bán cá", "bộ thuốc gốc", "bể mẫu", "bể trong bài", "lần làm lại này". Việc nguồn đã làm thì rút ra thành điều người đọc làm được.
 - Không có giá, phí ship, đô la, tên shop nước ngoài, chuyện nước máy, khí hậu, mùa hay luật của nước khác.
 - Đơn vị: chỉ lít, cm, °C. Bể gọi bằng số tròn như người chơi gọi: bể 20 lít, 40 lít, 60 lít, 80 lít, 120 lít, 200 lít, hoặc bể 60 cm, 90 cm, 1,2 m. Không viết 19, 38, 57, 76, 114, 208 lít cho một cái bể.
 - Không nhắc tác giả, người làm video, kênh, "bài gốc", "chúng tôi", "video này", hay biểu đồ, đường link, sản phẩm riêng của nguồn.

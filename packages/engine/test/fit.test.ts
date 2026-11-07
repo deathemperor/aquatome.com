@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { fitCounts, fitFindings, fitReport, fitOrder, fitPrompt, fitRules, fitText, keepFit, productOf, readFit, runFit, type FitCheck } from '../src/fit'
+import { doseGroups, fitCounts, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
 import { mkdtemp, readFile } from 'node:fs/promises'
@@ -112,4 +112,79 @@ test('the counts: pages with a finding by check, and in all with words apart', (
   const entry = (p: Page) => ({ at: '2026-11-08', hash: fitText(p).hash, model: 'm', findings: [], products: [] })
   const n = fitCounts([a, b, c], { 'vi/guides/a': entry(a), 'vi/guides/b': entry(b) }, 'vi')
   expect(n).toMatchObject({ pages: 3, read: 2, wrongReader: 1, by: { shop: 1, words: 2, price: 0 } })
+})
+
+const dose = (o: Partial<FitDose> = {}): FitDose => ({ treatment: 'hydrogen peroxide', strength: '3%', amount: 3, amountMax: 0, unit: 'ml', per: 4, perUnit: 'litre', use: 'cyanobacteria', method: 'spot', quote: '3 ml cho mỗi 4 lít', ...o })
+const dosed = (id: string, doses: FitDose[]) => {
+  const p = page(`<p>${doses.map(d => d.quote).join('. ')}.</p>`, { id })
+  return { p, e: { at: '2026-11-08', hash: fitText(p).hash, model: 'm', findings: [], products: [], doses } }
+}
+const state = (xs: ReturnType<typeof dosed>[]) => Object.fromEntries(xs.map(x => [fitKey(x.p), x.e]))
+
+test('a sample can find the pages with a dose by their words', () => {
+  expect(hasDose(page('<p>Dùng 3 ml cho mỗi 4 lít nước.</p>'))).toBe(true)
+  expect(hasDose(page('<p>Dùng 3 ml cho mỗi 4 lít nước.</p>'))).toBe(true) // twice: the pattern keeps no place
+  expect(hasDose(page('<p>Bể 40 lít, cá 3 cm.</p>'))).toBe(false)
+})
+
+test('the helper\'s three oxy già doses: each for its own thing stands, the same thing at another rate is a conflict, nothing is averaged', () => {
+  const bga = dosed('bga', [dose()])
+  const bba = dosed('bba', [dose({ amount: 1, per: 2, use: 'algae', quote: '1 ml cho mỗi 2 lít' })])
+  const tank = dosed('tank', [dose({ amount: 2, per: 5, use: 'algae', method: 'wholeTank', quote: '2 ml cho 5 lít' })])
+  const pages = [bga, bba, tank]
+  expect(doseGroups(pages.map(x => x.p), state(pages))[0]).toMatchObject({ treatment: 'hydrogen peroxide', strength: '3%', conflicts: [] })
+  const other = dosed('other', [dose({ amount: 1, per: 4, quote: '1 ml cho mỗi 4 lít' })])
+  const all = [...pages, other]
+  expect(doseGroups(all.map(x => x.p), state(all))[0]!.conflicts).toEqual([['vi/guides/bga', 'vi/guides/other']])
+  // Both pages count, by language; the report says the rates and never a figure of its own.
+  expect(fitCounts(all.map(x => x.p), state(all), 'vi').by['dose-conflict']).toBe(2)
+  const md = fitReport(all.map(x => x.p), state(all))
+  expect(md).toContain('hydrogen peroxide 3% — **1 conflicts**: cyanobacteria, spot: 0.75 ml/l, 0.25 ml/l (2 pages); algae, spot: 0.5 ml/l (1 pages); algae, wholeTank: 0.4 ml/l (1 pages)')
+})
+
+test('what isn\'t a conflict: another strength, a converted gallon, a page\'s own levels, a range that overlaps', () => {
+  const a = dosed('a', [dose()])
+  const strong = dosed('strong', [dose({ strength: '35%', amount: 1, per: 3.5, quote: '1 ml cho 3,5 lít' })])
+  const gallon = dosed('gal', [dose({ per: 1, perUnit: 'gallon', quote: '3 ml per 1 gallon' })])
+  const range = dosed('range', [dose({ amount: 0.5, amountMax: 1, per: 1, quote: '0,5 đến 1 ml cho 1 lít' })])
+  const all = [a, strong, gallon, range]
+  expect(doseGroups(all.map(x => x.p), state(all)).flatMap(g => g.conflicts)).toEqual([])
+  const levels = dosed('levels', [dose({ amount: 1, per: 4, quote: '1 ml cho 4 lít' }), dose({ amount: 3, per: 4, quote: '3 ml cho 4 lít' })])
+  expect(doseGroups([levels.p, a.p], state([levels, a])).flatMap(g => g.conflicts)).toEqual([])
+})
+
+test('a dose says what it\'s for and how: the program works that out, and the model can\'t report it itself', () => {
+  const x = dosed('x', [dose({ use: '', quote: '3 ml cho mỗi 4 lít' }), dose({ method: '', amount: 5, quote: '5 ml cho mỗi 4 lít' })])
+  expect(fitFindings(x.p, x.e).filter(f => f.check === 'dose-purpose').map(f => f.why)).toEqual(['doesn\'t say what this dose is for', 'doesn\'t say how to use this dose'])
+  expect(keepFit([{ check: 'dose-purpose', part: 'P1', quote: 'x', why: 'y' }], 'x', 'vi')).toEqual([])
+})
+
+test('a dose counts only with its own figures in its own words: no number is the model\'s', () => {
+  const text = 'Dùng 3 ml cho mỗi 4 lít, hoặc 0,5 ml cho 1 lít.'
+  expect(keepDoses([dose()], text).length).toBe(1)
+  expect(keepDoses([dose({ amount: 7 })], text)).toEqual([]) // a figure not in its quote
+  expect(keepDoses([dose({ quote: '9 ml cho mỗi 4 lít', amount: 9 })], text)).toEqual([]) // not on the page
+  expect(keepDoses([dose({ amount: 0.5, per: 1, quote: '0,5 ml cho 1 lít' })], text).length).toBe(1)
+})
+
+test('a caution the source gives and the page leaves out is flagged; one on the page, or not in the source, is not', async () => {
+  const text = '3 ml cho mỗi 4 lít. Cẩn thận với tép.'
+  const source = 'It can burn gills. Shrimp will die above this dose.'
+  const c = (o: object) => ({ doseQuote: '3 ml cho mỗi 4 lít', sourceQuote: 'Shrimp will die above this dose.', animals: 'shrimp', onPage: false, pageQuote: '', ...o })
+  expect(keepCautions([c({})], text, source).map(f => f.check)).toEqual(['dose-caution'])
+  expect(keepCautions([c({ onPage: true, pageQuote: 'Cẩn thận với tép.' })], text, source)).toEqual([])
+  expect(keepCautions([c({ sourceQuote: 'Made up.' })], text, source)).toEqual([])
+  // The model says it's on the page and can't quote it: that isn't on the page.
+  expect(keepCautions([c({ onPage: true, pageQuote: 'không có câu này' })], text, source).length).toBe(1)
+  const llm = (async (a: { schema: { properties: Record<string, unknown> } }) => a.schema.properties.cautions ? { cautions: [c({})] } : { findings: [], products: [], doses: [dose()] }) as unknown as Llm
+  const p = page(`<p>${text}</p>`)
+  const read = await readFit(llm, p, 'm', new Date('2026-11-08'), source)
+  expect(read).toMatchObject({ sourceRead: true, findings: [{ check: 'dose-caution' }] })
+  // No source kept: it can't be told, and the report says how many.
+  expect(await readFit(llm, p, 'm', new Date('2026-11-08'))).toMatchObject({ sourceRead: false, findings: [] })
+  // No dose: no second call.
+  let calls = 0
+  const none = (async () => { calls++; return { findings: [], products: [], doses: [] } }) as Llm
+  await readFit(none, p, 'm', new Date('2026-11-08'), source)
+  expect(calls).toBe(1)
 })

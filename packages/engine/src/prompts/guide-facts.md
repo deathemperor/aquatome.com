@@ -6,7 +6,7 @@ Keep:
 - Every figure with its unit, as the source gives it. Doses, temperatures, durations and strengths are never rounded or changed, and each stays attached to what it is a dose of.
 - Details a keeper notices: how it looks, smells or feels, what it does in the tank, what goes wrong first.
 - The source's opinions, marked as such ("the writer prefers…"), and how sure it is: "may", "likely" and "I think" stay.
-- Warnings: what a treatment harms (shrimp, snails, plants, filter bacteria, catfish).
+- Warnings: what a treatment harms (shrimp, snails, plants, filter bacteria, catfish), written right after the dose they belong to, and what each dose is for and how it is used (spot, whole tank, bath).
 
 Leave out:
 - The source's shop and sales talk, prices, shipping, discount codes, its own product range except as below, bios, greetings, sign-offs, sponsors, "subscribe", "in this video", links, and charts or pictures the writer won't have.

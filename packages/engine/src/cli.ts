@@ -445,7 +445,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
   // pnpm engine fit [--limit N] [--jobs N]. FIT_MODEL: the reading model (default sonnet; docs/review/fit.md has its accuracy).
   const pages = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
-  const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'sonnet', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20) })
+  const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'sonnet', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20), root: ROOT })
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
   console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)

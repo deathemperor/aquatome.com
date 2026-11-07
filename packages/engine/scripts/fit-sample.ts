@@ -13,12 +13,13 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { claudeCli } from '../src/claude'
-import { fitKey, fitOrder, fitPrompt, fitRules, fitText, readFit, type FitState } from '../src/fit'
+import { fitKey, fitOrder, fitPrompt, fitRules, fitSource, fitText, hasDose, readFit, type FitState } from '../src/fit'
 import { loadPages, type Page } from '../src/pages'
 
-const { values, positionals } = parseArgs({ allowPositionals: true, options: { dir: { type: 'string' }, jobs: { type: 'string' }, seed: { type: 'string' } } })
+const { values, positionals } = parseArgs({ allowPositionals: true, options: { dir: { type: 'string' }, jobs: { type: 'string' }, seed: { type: 'string' }, not: { type: 'string' } } })
 const DIR = values.dir ?? join(homedir(), '.cache/aquatome/fit/sample')
-const CONTENT = join(import.meta.dirname, '../../../content')
+const REPO = join(import.meta.dirname, '../../..')
+const CONTENT = join(REPO, 'content')
 const SEED = values.seed ?? 'fit-2026-11-08'
 
 const stratum = (p: Page) => {
@@ -30,14 +31,24 @@ const SIZES: Record<string, number> = {
   'vi/guides/translated': 30, 'vi/guides/video': 30, 'vi/guides/topic': 10, 'vi/species': 30, 'vi/plants+breeds': 10,
   'id/guides/all': 12, 'id/species': 15, 'id/plants+breeds': 3, 'th/guides/all': 12, 'th/species': 15, 'th/plants+breeds': 3,
 }
+/** The sample the checklist was tuned on stays out of a test of it: `--not <its sample.json>`, half the size, and pages with a dose, which are too few at random. */
+const TEST_SIZES = Object.fromEntries(Object.entries(SIZES).map(([s, n]) => [s, Math.ceil(n / 2)]))
+const DOSED = 30
 
 const pages = await loadPages(CONTENT)
 const [cmd, model] = positionals
 if (cmd === 'pick') {
   await mkdir(join(DIR, 'pages'), { recursive: true })
+  const tuned = new Set(values.not ? (JSON.parse(await readFile(values.not, 'utf8')) as { key: string }[]).map(x => x.key) : [])
   const strata = new Map<string, Page[]>()
-  for (const p of pages) { const s = stratum(p); if (s) strata.set(s, [...(strata.get(s) ?? []), p]) }
-  const sample = Object.entries(SIZES).flatMap(([s, n]) => fitOrder(strata.get(s) ?? [], SEED).slice(0, n).map(p => ({ key: fitKey(p), stratum: s, of: strata.get(s)!.length, lang: p.lang, hash: fitText(p).hash })))
+  for (const p of pages) { const s = stratum(p); if (s && !tuned.has(fitKey(p))) strata.set(s, [...(strata.get(s) ?? []), p]) }
+  const entry = (s: string, of: number) => (p: Page) => ({ key: fitKey(p), stratum: s, of, lang: p.lang, hash: fitText(p).hash })
+  const sample = Object.entries(values.not ? TEST_SIZES : SIZES).flatMap(([s, n]) => fitOrder(strata.get(s) ?? [], SEED).slice(0, n).map(entry(s, strata.get(s)!.length)))
+  if (values.not) {
+    const taken = new Set(sample.map(x => x.key))
+    const dosed = pages.filter(p => stratum(p) && !tuned.has(fitKey(p)) && !taken.has(fitKey(p)) && hasDose(p))
+    sample.push(...fitOrder(dosed, SEED).slice(0, DOSED).map(entry('dosed', dosed.length)))
+  }
   const shuffled = sample.map(x => [createHash('sha1').update(`${SEED}:${x.key}`).digest('hex'), x] as const).sort((a, b) => a[0].localeCompare(b[0])).map(([, x], n) => ({ n: n + 1, ...x }))
   const byKey = new Map(pages.map(p => [fitKey(p), p]))
   for (const x of shuffled) await writeFile(join(DIR, 'pages', `${x.n}.txt`), `COUNTRY AND LANGUAGE: ${x.lang}\n\n${fitText(byKey.get(x.key)!).text}\n`)
@@ -57,7 +68,7 @@ if (cmd === 'pick') {
     while (next < due.length) {
       const x = due[next++]!
       try {
-        state[x.key] = await readFit(claudeCli, byKey.get(x.key)!, model, new Date())
+        state[x.key] = await readFit(claudeCli, byKey.get(x.key)!, model, new Date(), await fitSource(REPO, byKey.get(x.key)!))
         await writeFile(file, `${JSON.stringify(state, null, 1)}\n`)
       } catch (e) { failed++; await appendFile(join(DIR, `errors-${model}.log`), `${x.key}: ${(e as Error).message.slice(0, 300)}\n`) }
     }

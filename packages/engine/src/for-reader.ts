@@ -1,15 +1,13 @@
 import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
-import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
-import { fitRules, readFit, type FitFinding } from './fit'
+import { fitFindings, ownSource, readFit, type FitFinding } from './fit'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
-import { snapshotName } from './snapshot'
 
 /**
  * A guide written for its reader. Translating a foreign article and patching it after keeps it written for someone else:
@@ -84,8 +82,9 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
   const check = async (w: Written) => {
     const clean = { ...w, name: unescapePlain(w.name).trim(), body: sanitizeHtml(w.body) }
     const page = asPage(id, clean)
-    const made = await readFit(d.llm, page, o.checkModel ?? 'sonnet', o.now?.() ?? new Date())
-    const findings = [...fitRules(page), ...made.findings]
+    // The same checks every page passes (fit.ts), its cautions against the facts and the table the writer had.
+    const made = await readFit(d.llm, page, o.checkModel ?? 'sonnet', o.now?.() ?? new Date(), `${JSON.stringify(facts)}\n${market}`)
+    const findings = fitFindings(page, made)
     const wrong = findings.filter(f => f.check !== 'words')
     const outside = amountsOutside(plain(clean), input)
     const r = await d.llm<{ score: number; notes: string[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'sonnet' })
@@ -108,15 +107,12 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
   return { written: best.written, facts, market, score: best.score, notes: best.notes, findings: best.findings, tries, kept: best.ok }
 }
 
-const TRANSCRIPTS = process.env.TRANSCRIPT_CACHE ?? join(homedir(), '.cache/aquatome/transcripts')
 /**
- * What a guide is written from: its English article, its video's transcript, or, where neither is kept (the transcripts are
- * on one Mac, and not all of them), the guide as it stands, which its reviewer held to them when it was written.
+ * What a guide is written from: its English article, its video's transcript, or, where neither is kept, the guide as it
+ * stands, which its reviewer held to them when it was written.
  */
 export async function sourceOf(root: string, e: Pick<GuideEntity, 'id' | 'source' | 'sourceUrl'>, vi: Pick<Translation, 'name' | 'body' | 'summary' | 'faq'>): Promise<string> {
-  const own = e.source === 'youtube'
-    ? await readFile(join(TRANSCRIPTS, `${e.id.replace(/^youtube-/, '')}.txt`), 'utf8').catch(() => '')
-    : (await readFile(join(root, 'sources', e.source, `${snapshotName(e.sourceUrl)}.md`), 'utf8').catch(() => '')).replace(/^---[\s\S]*?---\s*/, '')
+  const own = await ownSource(root, e)
   return own.trim() ? own : plain({ name: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] })
 }
 

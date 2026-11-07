@@ -14,7 +14,7 @@ const fake = (answers: { written: object[]; score?: number }) => {
     const props = (a.schema as { properties: Record<string, unknown> }).properties
     if (props.problems) { calls.push({ kind: 'facts', prompt: a.prompt, model: a.model }); return FACTS }
     if (props.body) { calls.push({ kind: 'write', prompt: a.prompt, model: a.model }); return left.shift() }
-    if (props.findings) { calls.push({ kind: 'fit', prompt: a.prompt, model: a.model }); return { findings: [], products: [] } }
+    if (props.findings) { calls.push({ kind: 'fit', prompt: a.prompt, model: a.model }); return { findings: [], products: [], doses: [] } }
     calls.push({ kind: 'review', prompt: a.prompt, model: a.model })
     return { score: answers.score ?? 0.9, notes: [] }
   }) as Llm
