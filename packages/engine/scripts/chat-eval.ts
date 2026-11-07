@@ -39,6 +39,7 @@ import type { PageDoc, PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type ChatRun, type Start } from '../../../apps/site/worker/chat/agent'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
 import { handbookOf, type Index, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
+import type { Tank } from '../../../apps/site/worker/chat/tools'
 import { topicsOf, type Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
@@ -79,7 +80,8 @@ type Want = {
   covered?: false
   none?: true
 }
-type Question = { set: 'faq' | 'start' | 'outside'; q: string; start: Start; want: Want }
+/** `tanks`: the reader's saved tanks, as read_tanks would read them (none when missing). */
+type Question = { set: 'faq' | 'start' | 'outside'; q: string; start: Start; want: Want; tanks?: Tank[] }
 
 const neon = 'paracheirodon-innesi'
 const WRITTEN: Question[] = [
@@ -94,6 +96,11 @@ const WRITTEN: Question[] = [
   // Fish the tank-mates check says no to: the text says what the block under it shows.
   { set: 'start', q: 'Cá betta nuôi chung với cá neon xanh được không?', start: {}, want: { read: ['/vi/ca/ca-betta/', '/vi/ca/ca-neon-xanh/'], show: ['tool:tank-mates'] } },
   { set: 'start', q: 'Bể dài 80, rộng 35, cao 45 cm thả 2 con cá ông tiên với 10 con neon xanh được không?', start: {}, want: { read: ['/vi/ca/ca-ong-tien/', '/vi/ca/ca-neon-xanh/'], show: ['tool:tank-mates'] } },
+  // The reader's own tank: checked with its fish (read_tanks, then check_tank_mates with its id), the block naming it.
+  {
+    set: 'start', q: 'Bể của tôi thả thêm 1 con cá betta được không?', start: {}, want: { show: ['tool:tank-mates:tank'] },
+    tanks: [{ id: 'eval-tank', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: neon, count: 12 }], unlisted: [] }],
+  },
   { set: 'start', q: 'Bể của tôi dài 60, rộng 30, cao 36 cm thì chứa được bao nhiêu lít nước?', start: {}, want: { show: ['tool:tank-volume'] } },
   { set: 'start', q: 'Thả 5 con thì cần bể lớn cỡ nào?', start: { from: 'species', about: 'symphysodon-aequifasciatus' }, want: { read: ['/vi/ca/ca-dia-nau/'], show: ['species:symphysodon-aequifasciatus', 'tool:tank-mates', 'tool:tank-volume'] } },
   { set: 'outside', q: 'Thời tiết Hà Nội ngày mai thế nào?', start: {}, want: { covered: false, none: true } },
@@ -212,7 +219,7 @@ function keysOf(b: ChatBlock): string[] {
     case 'species': return [`species:${b.page.id}`]
     case 'compare': return b.items.map(c => `species:${c.page.id}`)
     case 'section': return [`section:${b.page.url}`]
-    case 'tool': return [`tool:${b.tool}`]
+    case 'tool': return [`tool:${b.tool}`, ...(b.tank ? [`tool:${b.tool}:tank`] : [])]
   }
 }
 const shows = (blocks: ChatBlock[], want: string) => {
@@ -311,7 +318,7 @@ async function main() {
       let run: ChatRun | undefined
       let failed: string | undefined
       try {
-        run = await answerQuestion({ send, model, lang: 'vi', question: question.q, earlier: [], start: question.start, handbook: await asked(question), tanks: async () => [] })
+        run = await answerQuestion({ send, model, lang: 'vi', question: question.q, earlier: [], start: question.start, handbook: await asked(question), tanks: async () => question.tanks ?? [] })
         if (!run.answer) failed = run.error ? String((run.error as Error).message ?? run.error).slice(0, 120) : `no answer (stopped: ${run.stopped})`
       } catch (e) {
         failed = String((e as Error).message ?? e).slice(0, 120)
@@ -346,7 +353,7 @@ function report(rows: Row[]): string {
   const lines = [
     '# Chat: how it answers',
     '',
-    `${DRY ? '**Dry run: a fake Claude, these numbers mean nothing.** ' : ''}${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-eval.ts\`, seed ${SEED}, commit \`${commit()}\`. The Worker's own agent, prompt, schema, effort and limits (\`apps/site/worker/chat/\`) at that commit, over ${args.site}'s handbook (the build whose app index hashes to \`${build}\`; the guides' headings and FAQ questions ${topicsFrom === 'site' ? 'as the site serves them' : 'worked out from its page copies, as the build does'}), in Vietnamese, no saved tanks.`,
+    `${DRY ? '**Dry run: a fake Claude, these numbers mean nothing.** ' : ''}${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-eval.ts\`, seed ${SEED}, commit \`${commit()}\`. The Worker's own agent, prompt, schema, effort and limits (\`apps/site/worker/chat/\`) at that commit, over ${args.site}'s handbook (the build whose app index hashes to \`${build}\`; the guides' headings and FAQ questions ${topicsFrom === 'site' ? 'as the site serves them' : 'worked out from its page copies, as the build does'}), in Vietnamese, no saved tanks but a question's own.`,
     '',
     `${faqs} questions from the guides' FAQs, one per guide, guides at random; ${WRITTEN.filter(q => q.set === 'start').length} asked from a fish's page or fish ID, or naming fish or a tank; ${WRITTEN.filter(q => q.set === 'outside').length} the handbook doesn't answer or aren't about aquariums.`,
     '',

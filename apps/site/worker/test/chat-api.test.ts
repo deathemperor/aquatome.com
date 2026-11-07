@@ -516,7 +516,7 @@ test('failures: Claude unreachable on every key is unavailable and gives the cou
   expect((await s.res.text()).endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
 })
 
-test('read_tanks reads the account\'s synced tanks, its fish named as the handbook names them', async () => {
+test('read_tanks reads the account\'s synced tanks with their ids, its fish named as the handbook names them', async () => {
   const { e, db } = env()
   const me = await signIn(db)
   const now = new Date()
@@ -526,6 +526,7 @@ test('read_tanks reads the account\'s synced tanks, its fish named as the handbo
   expect(r.body.steps).toEqual([{ kind: 'tanks' }])
   const result = JSON.stringify(c.bodies[1]!.messages)
   expect(result).toContain('Bể phòng khách')
+  expect(result).toContain('\\"id\\":\\"a1b2c3d4-0000-4000-8000-000000000001\\"')
   expect(result).toContain('\\"name\\":\\"Cá neon xanh\\",\\"id\\":\\"paracheirodon-innesi\\",\\"count\\":12')
 })
 
