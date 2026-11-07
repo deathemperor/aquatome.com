@@ -55,3 +55,10 @@ test('"Phi châu" is written "châu Phi", with a capital where a sentence starts
   expect(viWording(once)).toBe(once)
   expect(wordingSlips('Cá dao Phi châu, cá rô phi châu Phi, tetra phi châu')).toEqual(['"Phi châu" → "châu Phi"', '"phi châu" → "châu Phi"'])
 })
+
+test('"setup bể" is written "set bể", with a capital where a sentence starts; "setup" anywhere else stays', () => {
+  expect(viWording('Cách setup bể cá betta đẹp')).toBe('Cách set bể cá betta đẹp')
+  expect(viWording('<h3>Setup bể thủy sinh có CO2</h3><p>Khi setup bể, thả ít cá. Setup bể xong thì chờ.</p>')).toBe('<h3>Set bể thủy sinh có CO2</h3><p>Khi set bể, thả ít cá. Set bể xong thì chờ.</p>')
+  for (const kept of ['setup một bể nhỏ', 'setup ly thủy sinh', 'SETUP Bể', 'bộ setup bểx']) expect(viWording(kept)).toBe(kept)
+  expect(wordingSlips('Cách setup bể cá betta đẹp')).toEqual(['"setup bể" → "set bể"'])
+})
