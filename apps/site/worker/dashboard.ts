@@ -2,6 +2,8 @@ import { accessOn, type AccessEnv } from './access'
 import { sessionOf, tokenOf, type Session } from './accounts/session'
 import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { deleteKept, keptImage, recentKept } from './fishid/kept'
+import { listRuns, readRun } from './fishid/transcript'
+import { RUNS_PATH, runPage, runsPage } from './admin/runs'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE, SITE_OWNER_COOKIE } from './owner'
 import { DASHBOARD_HOST } from './paths'
@@ -219,6 +221,20 @@ const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage
 /** One daily report as it was sent (daily/page.ts), under the log's section: a page of the web dashboard alone. */
 const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(\\d{1,20})/$`)
 const reportHtml = (id: string): Load<string | undefined> => (env, _url, now, tz) => reportPage(env.AB, id, now, tz)
+/** The fish-ID runs kept a year (fishid/transcript.ts, admin/runs.ts): a day's list (?ngay=, today's UTC day by default) and one run; web only, outside NAV. */
+const DAY = /^\d{4}-\d{2}-\d{2}$/
+const RUN_PAGE = /^\/_ab\/nhan-dien-ca\/luot\/(\d{4}-\d{2}-\d{2})\/([0-9a-f-]{36})\/$/
+const runsHtml: Load<string> = async (env, url, now, tz) => {
+  const asked = url.searchParams.get('ngay') ?? ''
+  // A day as written (2026-11-06) that is a real day; else today's (UTC, as runs are kept).
+  const t = Date.parse(`${asked}T00:00:00Z`)
+  const day = DAY.test(asked) && !Number.isNaN(t) && new Date(t).toISOString().slice(0, 10) === asked ? asked : now.toISOString().slice(0, 10)
+  return runsPage(day, env.UPLOADS ? await soft('fish-id runs', listRuns(env.UPLOADS, day)) : unset('R2'), now, tz)
+}
+const runHtml = (day: string, id: string): Load<string | undefined> => async (env, _url, now, tz) => {
+  const r = env.UPLOADS ? await readRun(env.UPLOADS, day, id) : null
+  return r ? runPage(day, r, now, tz) : undefined
+}
 /** The product change log (daily/changelog.ts): web only, outside NAV, as the scoreboard. */
 const changelogHtml: Load<string> = async (env, _url, now, tz) => changelogPage(await loadChangelog(env.AB, now, tz))
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
@@ -339,6 +355,17 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     const o = await keptImage(env.UPLOADS, shot[1] === 'anon' ? undefined : shot[1], shot[2]!)
     return o ? new Response(o.body, { headers: { 'content-type': 'image/jpeg', 'cache-control': 'private, no-store', 'x-robots-tag': 'noindex, nofollow' } }) : notFound()
   }
+  // A day of fish-ID runs whole, as JSON, for the evals: the owner's only, never stored or indexed.
+  const runsJson = /^\/_ab\/nhan-dien-ca\/luot\/(\d{4}-\d{2}-\d{2})\.json$/.exec(path)
+  if (runsJson) {
+    if (req.method !== 'GET' || !env.UPLOADS || !(await owner())) return notFound()
+    const bucket = env.UPLOADS
+    const rows = await listRuns(bucket, runsJson[1]!)
+    const runs = []
+    // A few reads at a time: a busy day is a few hundred runs.
+    for (let i = 0; i < rows.length; i += 20) runs.push(...(await Promise.all(rows.slice(i, i + 20).map(r => readRun(bucket, r.day, r.id)))).filter(r => r !== null))
+    return new Response(JSON.stringify(runs), { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'private, no-store', 'x-robots-tag': 'noindex, nofollow', 'content-disposition': `attachment; filename="fish-id-runs-${runsJson[1]}.json"` } })
+  }
   if (path === '/_ab/anh-nhan-dien/xoa') {
     if (req.method !== 'POST' || !env.UPLOADS || !(await owner())) return notFound()
     const form = await req.formData().catch(() => null)
@@ -371,7 +398,8 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
 
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
   const report = REPORT_PAGE.exec(key)
-  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : key === CHANGELOG_PATH ? changelogHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : undefined
+  const oneRun = RUN_PAGE.exec(key)
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : key === CHANGELOG_PATH ? changelogHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   // Moved to its own host once Access guards it. A bearer asked for something else, and gets what it always got. Never
