@@ -55,8 +55,8 @@ test('no approved summary states a figure its card doesn\'t show', async () => {
 }, 300_000) // the real content loaded once: about 60 s on a loaded machine
 
 // Every place, not the one a reader complained of: the sweep puts a generic word in Vietnamese each cycle, and the
-// place-names step gives the name readers use (place-names.ts). 91 of 816 places on 2026-11-08, before them.
-test('no Vietnamese place name keeps River, Island, Lake, Basin or Province in English', () => {
+// place-names step gives the name readers use (place-names.ts). 149 of 816 places on 2026-11-08, before them.
+test('no Vietnamese place name keeps River, Island, Lake, Basin, Province, Mountains, Peninsula or Rio in another language', () => {
   const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
   const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
   expect(names.filter(n => ENGLISH_PLACE_WORD.test(n))).toEqual([])

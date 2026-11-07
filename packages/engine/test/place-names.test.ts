@@ -67,7 +67,7 @@ test('a name the reviewer calls wrong, with an English word or none is not writt
 })
 
 test('until then the sweep puts the generic word in Vietnamese, so no name keeps one in English, and leaves the rest', async () => {
-  for (const [name, vi] of [['Congo River', 'sông Congo'], ['Lake Tumba', 'hồ Tumba'], ['Bangka Island', 'đảo Bangka'], ['Riau Islands', 'quần đảo Riau'], ['Ajamaru Lakes', 'hồ Ajamaru'], ['Chad basin', 'lưu vực Chad'], ['Congo River Basin', 'lưu vực sông Congo'], ['Aceh Province', 'tỉnh Aceh'], ['Cross River State', 'sông Cross State'], ['Anatolia', 'Anatolia']] as const) {
+  for (const [name, vi] of [['Congo River', 'sông Congo'], ['Lake Tumba', 'hồ Tumba'], ['Bangka Island', 'đảo Bangka'], ['Riau Islands', 'quần đảo Riau'], ['Ajamaru Lakes', 'hồ Ajamaru'], ['Chad basin', 'lưu vực Chad'], ['Congo River Basin', 'lưu vực sông Congo'], ['Aceh Province', 'tỉnh Aceh'], ['Cross River State', 'sông Cross State'], ['Anatolia', 'Anatolia'], ['Annamite Mountains', 'dãy Annamite'], ['Malay Peninsula', 'bán đảo Malay'], ['Rio Negro', 'sông Negro'], ['Río Orinoco', 'sông Orinoco'], ['Rio Negro Basin', 'lưu vực sông Negro'], ['Rio de Janeiro', 'Rio de Janeiro'], ['Rio Grande do Sul', 'Rio Grande do Sul']] as const) {
     expect(genericWordsInVietnamese(name)).toBe(vi)
     expect(genericWordsInVietnamese(name)).not.toMatch(ENGLISH_PLACE_WORD)
   }
@@ -80,4 +80,21 @@ test('until then the sweep puts the generic word in Vietnamese, so no name keeps
   expect(await s.read('congo-river')).toMatchObject({ name: 'sông Congo', altNames: ['Congo River'] })
   expect(await s.read('own-lake')).toMatchObject({ name: 'Own Lake' })
   expect(await sweepPlaceNames(s.root)).toEqual([])
+})
+
+test('the step reads the source\'s name, not what the sweep made of it, so "sông Red" can\'t stick', async () => {
+  const s = await site({
+    'red-river': { entity: { kind: 'river', parent: 'vietnam' }, name: 'Red River', altNames: ['Song Hong'] },
+    'congo-river': { entity: { kind: 'river' }, name: 'Congo River' },
+  })
+  await sweepPlaceNames(s.root)
+  expect(await s.read('red-river')).toMatchObject({ name: 'sông Red', altNames: ['Song Hong', 'Red River'] })
+  const { llm, prompts } = llmNaming({ 'red-river': 'sông Hồng', 'congo-river': 'sông Congo' })
+  await namePlacesVi(s.root, llm)
+  expect(prompts[0]).toContain('### red-river (river, in vietnam): Red River (Song Hong)')
+  expect(prompts[0]).not.toContain('sông Red')
+  expect(prompts[1]).toContain('Red River (Song Hong) → sông Hồng')
+  expect(prompts[1]).not.toContain('sông Red')
+  expect(await s.read('red-river')).toMatchObject({ name: 'sông Hồng', altNames: ['Song Hong', 'Red River'], nameFixed: true })
+  expect(await s.read('congo-river')).toMatchObject({ name: 'sông Congo', altNames: ['Congo River'], nameFixed: true })
 })
