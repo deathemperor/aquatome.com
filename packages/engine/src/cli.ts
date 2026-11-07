@@ -12,6 +12,8 @@ import { accountReport, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
 import { productCandidates, productReviews } from './product-reviews'
 import { readKit } from './video-items'
+import { guideRank } from './video-order'
+import { HOLD_CLASSES, holdGuides, type HoldClass } from './video-hold'
 import { BACKFILL_KINDS, reviewBackfill, type BackfillKind } from './review-backfill'
 import { allTraces } from './review-log'
 import { reviewReport } from './review-report'
@@ -76,6 +78,7 @@ import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames,
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
+import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { ArchiveFetcher } from './archive'
 import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
@@ -116,7 +119,7 @@ const readersWanted = (() => {
   }
 })()
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -289,9 +292,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const f of r.failed) console.log(`failed: ${f}`)
 } else if (cmd === 'check-photos' || cmd === 'recheck-photos') {
   // Each species, plant and breed page's photos and gallery, and guide photos captioned with a fish, judged against their subject
-  // (vision, cached per photo and page), most-read pages first: another fish or no photo of it removed, can't-tell listed;
-  // a dead fish, fish as food or a logo off every page. recheck-photos: once, the photos judged before the check asked about
-  // dead fish and logos whose notes say they may show one (recheckCandidates); a re-run finds none and calls no model.
+  // (vision, cached per photo and page), most-read pages first: another fish or no photo of it (a landscape with no fish
+  // too) removed, can't-tell listed; a dead fish, fish as food, a person or a logo off every page. Verdicts from before the
+  // check asked about people are asked again in the same order. recheck-photos: those first whose notes say a dead fish, a
+  // hand or a person, or whose verdict was the old "habitat" (recheckCandidates); a re-run finds none and calls no model.
   const recheck = cmd === 'recheck-photos' ? await recheckCandidates(ROOT) : undefined
   if (recheck) {
     console.log(`recheck-photos: ${recheck.size} photos to judge again`)
@@ -317,6 +321,19 @@ if (cmd === 'run' || cmd === 'card-fill') {
   }, { limit: values.limit ? Number(values.limit) : 48, parallel: values.parallel ? Number(values.parallel) : 1 })
   console.log(`dead-screen: ${r.sheets} sheets, ${r.judged} judged, ${r.dead.length} dead, ${r.left} left for later, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.dead) console.log(`dead: ${x}`)
+  for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
+} else if (cmd === 'guide-photos') {
+  // No people or logos in guides' and equipment guides' photos and video guides' stills (guide-photos.ts): --limit model
+  // calls a run (default 20), 6 photos each, leads first, stills last; a person or a mark leaves every page for good, a
+  // brand on a product leaves the guides (not a still). A tile video-stills will replace waits for the video's frame.
+  const r = await screenGuidePhotos(ROOT, {
+    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' }),
+  }, { limit: values.limit ? Number(values.limit) : 20, parallel: values.parallel ? Number(values.parallel) : 1 })
+  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.off) console.log(`off: ${x}`)
+  for (const x of r.removed) console.log(`removed: ${x}`)
+  for (const x of r.kept) console.log(`kept (a required hero with nothing to replace it): ${x}`)
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'watermarks') {
   // No watermarked photos: each photo read once by macOS Vision, text (and logo sources) judged by the model, marked ones dropped everywhere.
@@ -421,8 +438,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   console.log(`reader: ${r.read.length} pages read, ${r.findings} findings, ${r.rewritten.length} parts rewritten, ${r.notKept.length} not kept, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.read.map(x => `read: ${x}`), ...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
 } else if (cmd === 'traits') {
-  // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker (new or changed pages only).
-  const r = await extractTraits(join(ROOT, 'content'), claudeCli, { limit: Number(values.limit ?? 100), now: () => new Date() })
+  // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
+  // those read with an older prompt; --only id,id reads those again whatever their state.
+  const r = await extractTraits(join(ROOT, 'content'), claudeCli, { limit: Number(values.limit ?? 100), now: () => new Date(), only: values.only?.split(',').map(x => x.trim()).filter(Boolean) })
   console.log(`traits: ${r.done.length} done, ${r.failed.length} failed${r.failed.length ? ` (${r.failed.join(', ')})` : ''}`)
 } else if (cmd === 'range') {
   // Where each species lives in the wild (range.ts): its sources' countries and regions, --limit model calls (species
@@ -447,25 +465,45 @@ if (cmd === 'run' || cmd === 'card-fill') {
   console.log(`topic-check: ${r.checked.length} checked, ${r.trimmed.length} trimmed, ${r.held.length} held, ${r.failed.length} failed`)
 } else if (cmd === 'review-backfill') {
   // Pages under the bar whose review left no notes, reviewed again as they are, nothing rewritten (review-backfill.ts):
-  // --kind k,k (video-guide reads transcripts: the video job's, on the Mac), --limit N model calls a kind, --only ids.
+  // --kind k,k (video-guide reads transcripts: the video job's, on the Mac), --limit N model calls a kind, --only ids,
+  // --reviewed-before <time>: every page without a review from then on, whatever its score (a reviewer's prompt changed),
+  // video guides the riskiest first, then the most read (video-order.ts); --parallel N pages at once.
   const kinds = values.kind?.split(',').map(s => s.trim()).filter(Boolean)
-  if (kinds?.some(k => !(BACKFILL_KINDS as readonly string[]).includes(k))) throw new Error(`usage: pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id]`)
-  const r = await reviewBackfill({ root: ROOT, llm: claudeCli, now: () => new Date(), yt: youtube() }, { ...(kinds ? { kinds: kinds as BackfillKind[] } : {}), limit: Number(values.limit ?? 10), ...(values.only ? { only: values.only.split(',').map(s => s.trim()).filter(Boolean) } : {}) })
+  const before = values['reviewed-before']
+  if (kinds?.some(k => !(BACKFILL_KINDS as readonly string[]).includes(k)) || (before && Number.isNaN(Date.parse(before)))) throw new Error(`usage: pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N]`)
+  const rank = before ? await guideRank(ROOT, popularityOrder(await popularFirst(ROOT))) : undefined
+  const r = await reviewBackfill({ root: ROOT, llm: claudeCli, now: () => new Date(), yt: youtube() }, {
+    ...(kinds ? { kinds: kinds as BackfillKind[] } : {}), limit: Number(values.limit ?? 10), ...(values.only ? { only: values.only.split(',').map(s => s.trim()).filter(Boolean) } : {}),
+    ...(before ? { reviewedBefore: before, rank: (p: { id: string }) => (p.id.startsWith('guides/') ? rank!(p.id.slice('guides/'.length)) : []) } : {}), parallel: Number(values.parallel ?? 1),
+  })
   for (const x of r.checked) console.log(`  ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
   console.log(`review-backfill: ${r.checked.length} reviewed again, ${r.failed.length} failed, left ${Object.entries(r.left).map(([k, n]) => `${k} ${n}`).join(', ') || 'none'}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+} else if (cmd === 'video-hold') {
+  // Video guides held out of the chat until they pass the stricter reviewer (video-hold.ts): --class risk1 (medicine,
+  // doses, chemicals, treatments), risk2 (water), risk3 (the rest) or all; --clear lets that class back in.
+  const cls = values.class as HoldClass | undefined
+  if (!cls || !HOLD_CLASSES.includes(cls)) throw new Error(`usage: pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear]`)
+  const changed = await holdGuides(ROOT, cls, !!values.clear)
+  for (const id of changed) console.log(`  ${id}`)
+  console.log(`video-hold: ${changed.length} guides ${values.clear ? 'back in the chat' : 'held out of the chat'} (${cls})`)
 } else if (cmd === 'reviews') {
   // What the quality reviews kept, per kind: pages under the bar and their most common faults → docs/review/reviews.md.
   await writeFile(join(ROOT, 'docs/review/reviews.md'), reviewReport(await allTraces(ROOT)))
   console.log('reviews: docs/review/reviews.md')
 } else if (cmd === 'videos') {
   // Original Vietnamese guides from educational YouTube playlists (engine-state/youtube-playlists.json, or --playlist ID,ID).
+  // --redo --rechecked-since <time>: the guides a recheck from then on left under the bar with notes, --limit of them, the
+  // riskiest first, then the most read (video-order.ts), --parallel N at once.
+  const since = values['rechecked-since']
+  if (since && (!values.redo || Number.isNaN(Date.parse(since)))) throw new Error('usage: pnpm engine videos --redo --rechecked-since <ISO time> [--limit N] [--parallel N]')
   const r = await videoGuides(
     { yt: youtube(), llm: claudeCli, root: ROOT, now: () => new Date(), sleep: ms => new Promise(res => setTimeout(res, ms)) },
     {
       playlists: values.playlist?.split(',').map(s => s.trim()).filter(Boolean), limit: values.limit ? Number(values.limit) : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined,
       // Writing eval (scripts/eval-writing.ts, 2026-10-29): the Vietnamese style guide, written by Opus, read most natural (18–0).
       write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' }, redo: values.redo, only: values.only?.split(',').map(s => s.trim()).filter(Boolean),
+      ...(since ? { rechecked: since, rank: await guideRank(ROOT, popularityOrder(await popularFirst(ROOT))), parallel: Number(values.parallel ?? 1) } : {}),
     },
   )
   console.log(`videos: ${r.written.length} written, ${r.skipped.length} skipped, ${r.errors.length} errors${r.stoppedEarly ? ' (stopped early)' : ''}`)
@@ -809,6 +847,6 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
+  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
   process.exitCode = 1
 }

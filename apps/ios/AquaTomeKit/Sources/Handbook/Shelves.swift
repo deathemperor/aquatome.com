@@ -156,8 +156,6 @@ public struct HandbookShelves: Sendable {
     public let item: HandbookIndex.Item
   }
 
-  /// Each language's words for the two sections in a path (apps/site/src/lib/i18n.ts, SECTIONS).
-  static let sectionWords = ["vi": ("phan-loai", "nguon-goc"), "id": ("taksonomi", "asal"), "th": ("taxonomy", "origin")]
 
   /// The taxon or origin page at `path` (a Vietnamese one under "/vi/" or at the root), when the index has what it lists
   /// in its own language; nil for any other path, a taxon none of its fish is in, or a place it has no page for: those
@@ -165,7 +163,9 @@ public struct HandbookShelves: Sendable {
   public func page(at path: String) -> Page? {
     let end = path.firstIndex(where: { $0 == "?" || $0 == "#" }) ?? path.endIndex
     let parts = PathForm.underVi.path(String(path[..<end])).split(separator: "/").map { $0.lowercased() }
-    guard parts.count >= 2, parts[0] == lang, let (taxa, origins) = Self.sectionWords[lang] else { return nil }
+    // Its language's words for the two sections (SiteLanguage).
+    guard parts.count >= 2, parts[0] == lang, let words = SiteLanguage.served(lang) else { return nil }
+    let (taxa, origins) = (words.word("phan-loai"), words.word("nguon-goc"))
     let rest = Array(parts.dropFirst(2))
     switch parts[1] {
     case taxa: return taxon(rest)
@@ -258,8 +258,8 @@ public struct HandbookShelves: Sendable {
   }
 
   /// A page's path in the index's language and form: "/vi/phan-loai/cypriniformes/", "/nguon-goc/asia/".
-  private func link(taxa path: [String]) -> String { link(Self.sectionWords[lang]?.0, path) }
-  private func link(origin path: [String]) -> String { link(Self.sectionWords[lang]?.1, path) }
+  private func link(taxa path: [String]) -> String { link(SiteLanguage.served(lang)?.word("phan-loai"), path) }
+  private func link(origin path: [String]) -> String { link(SiteLanguage.served(lang)?.word("nguon-goc"), path) }
   private func link(_ section: String?, _ path: [String]) -> String {
     let p = "/" + ([lang, section ?? ""] + path).joined(separator: "/") + "/"
     return form?.path(p) ?? p

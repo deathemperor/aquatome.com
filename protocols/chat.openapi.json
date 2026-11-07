@@ -407,7 +407,7 @@
         "additionalProperties": false
       },
       "Step": {
-        "description": "One thing the agent did: search, it searched the handbook (`query`: Claude's own words, to show as text, never as markup); read, it opened a page (`page`, in the reader's language); tanks, it read the reader's synced tanks.",
+        "description": "One thing the agent did: search, it searched the handbook (`query`: Claude's own words, to show as text, never as markup); read, it opened a page (`page`, in the reader's language); tanks, it read the reader's synced tanks; mates, it checked fish together as the tank-mates tool does. A client skips a kind it doesn't know: later ones may come.",
         "oneOf": [
           {
             "type": "object",
@@ -452,6 +452,19 @@
               "kind": {
                 "type": "string",
                 "const": "tanks"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string",
+                "const": "mates"
               }
             },
             "additionalProperties": false

@@ -25,6 +25,12 @@ public final class FakeAccounts {
   public var busy = 0
   /// Records (by id) the server refuses, as it does one that doesn't validate.
   public var refuse: Set<String> = []
+  /// Every record a sync sends is refused, as the Worker refuses ones that fail its checks.
+  public var refuseEvery = false
+  /// Syncs answer 422 too_many: the account would hold more than the Worker keeps.
+  public var full = false
+  /// Syncs answer with a store of a version this app doesn't know, as an account a newer app has synced holds.
+  public var newerStore = false
   /// The code every email sign-in is sent.
   public static let emailCode = "123456"
   /// The mails sent: the address each code went to (lowercased, as the server sends it).
@@ -395,13 +401,15 @@ public final class FakeAccounts {
     case ("POST", "/api/v1/tanks/sync"):
       guard let s = sub else { return try fail(401, "signed_out") }
       if busy > 0 { busy -= 1; return try fail(409, "busy") }
+      if full { return try fail(422, "too_many") }
+      if newerStore { return try reply(200, ["store": .object(["v": .number(2), "tanks": .array([]), "devices": .array([])]), "refused": .array([]), "serverTime": .string(Timestamp.string(now()))]) }
       guard let sent = body!["store"]?.object, case .number(1) = sent["v"], let tanks = sent["tanks"]?.array, let devices = sent["devices"]?.array else { return try fail(400, "bad_store") }
       let at = Timestamp.string(now())
       var refused: [JSON] = []
       func take(_ list: [JSON], _ kind: String) -> [JSON] {
         list.compactMap { v in
           guard var o = v.object else { return nil }
-          if let id = o["id"]?.string, refuse.contains(id) {
+          if let id = o["id"]?.string, refuseEvery || refuse.contains(id) {
             refused.append(.object(["kind": .string(kind), "id": .string(id), "issues": .array([])]))
             return nil
           }

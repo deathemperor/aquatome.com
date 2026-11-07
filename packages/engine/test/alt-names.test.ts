@@ -254,3 +254,21 @@ test("a page's names tidied: the name a person fixed stays, an other name that b
   expect(tidyNames(r, 'plants')).toBe(r)
   expect(tidyNames({ name: 'Rêu java', altNames: ['Rêu java Bogor'], nameFixed: true }, 'plants')).toEqual({ name: 'Rêu java', altNames: ['Rêu Java Bogor'], nameFixed: true })
 })
+
+// 2026-11-07, a design lab: the Oscar's name read "Cá Oscar (cá tai tượng châu Phi)", a South American fish. Shops do sell
+// it by that name, so the page keeps it among its other names, with a note that says where the fish is from. The note
+// stays, and the name without it, which a translation may bring back, leaves the page: the note says what it can't.
+test('a name the page has with a note in brackets keeps the note; the same name without it leaves', () => {
+  const noted = 'Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)'
+  const oscar = (altNames: string[]) => cleanAltNames({ name: 'Cá Oscar', sci: 'Astronotus ocellatus', altNames })
+  expect(oscar([noted, 'Cá tai tượng Nam Mỹ']).altNames).toEqual([noted, 'Cá tai tượng Nam Mỹ'])
+  const r = oscar(['Cá tai tượng châu Phi', noted, 'Cá tai tượng Nam Mỹ', 'cá tai tượng châu phi'])
+  expect(r.altNames).toEqual([noted, 'Cá tai tượng Nam Mỹ'])
+  expect(r.off).toEqual([
+    { name: 'cá tai tượng châu phi', why: 'duplicate', of: 'Cá tai tượng châu Phi' }, { name: 'Cá tai tượng châu Phi', why: 'duplicate', of: noted },
+  ])
+  // A form in brackets is no note: the plain name stays beside it.
+  expect(oscar(['Tiger oscar', 'Tiger oscar (Red)']).altNames).toEqual(['Tiger oscar', 'Tiger oscar (Red)'])
+  // "X (Y)" of two names the page has is still one name too many, and a name with no note beside it stays.
+  expect(cleanAltNames(betta(['Cá xiêm', 'Cá chọi', 'Cá xiêm (cá chọi)'])).altNames).toEqual(['Cá xiêm', 'Cá chọi'])
+})

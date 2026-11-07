@@ -312,7 +312,7 @@ public enum Chat {
 
   /// Only this site's own pages, in one of its languages, whatever the answer holds.
   private static func own(_ v: Any?) -> String? {
-    (v as? String).flatMap { ["/vi/", "/id/", "/th/"].contains(String($0.prefix(4))) ? $0 : nil }
+    (v as? String).flatMap { SiteLanguage.of(path: $0) != nil ? $0 : nil }
   }
 
   // MARK: The conversation

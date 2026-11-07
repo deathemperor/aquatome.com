@@ -57,6 +57,6 @@ test('the engine cycle commits its content and catches up with main before the c
   const at = (s: string) => cycle.lastIndexOf(s)
   expect(at('git commit -q -m "content: engine')).toBeGreaterThan(-1)
   expect(at('\ncatch_up\n')).toBeGreaterThan(at('git commit -q -m "content: engine'))
-  expect(at('verify \'I18N_LENIENT=1')).toBeGreaterThan(at('\ncatch_up\n'))
-  expect(at('push || exit 1')).toBeGreaterThan(at('verify \'I18N_LENIENT=1'))
+  expect(at('verify_cycle')).toBeGreaterThan(at('\ncatch_up\n'))
+  expect(at('push || exit 1')).toBeGreaterThan(at('verify_cycle'))
 })
