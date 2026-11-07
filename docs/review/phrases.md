@@ -56,10 +56,13 @@ Per million words, site | forum | videos:
 | keo siêu dính | 5 | 0 | 0 | keo 502 (30 in the videos) |
 | một cách + adjective | 9 pages | | | the adjective alone; vi-style.md already bans it |
 | rất nên | 41 | 0 | 0 | nên, tốt nhất là |
-| loricariid | 48 | 0 | 0 | tỳ bà (30 in the forum), pleco (11 in the videos) |
+| loricariid | 48 | 0 | 0 | tỳ bà (30 in the forum), lau kiếng (26), pleco (11 in the videos) |
 | muối bể cá | 4 | 0 | 0 | muối hột (63 in the forum) |
 | dân chơi | 170 | 24 | 7 | usually nothing ("gọi là…"); người chơi when it matters who. The list used to offer it for "giới chơi" |
 | được chuộng | 20 | 0 | 0 | nhiều người nuôi, dễ kiếm, or why |
+| cây thân đứng | 20 | 0 | 0 | cây cắt cắm (59 in the videos) |
+| lọc sponge | 10 | 0 | 0 | lọc bio (22 in the videos) |
+| sản xuất hàng loạt | 3 | 0 | 0 | nuôi đại trà, nuôi hàng loạt |
 
 In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either reference).
 
@@ -67,12 +70,23 @@ In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either refe
 became "hầu hết", then "đa số", five times on one page, and "nên" piled up ("Thế nên nên mua"). Each of these words is
 fine once. So the hints point at recasting ("thường", "chủ yếu", or nothing) rather than a twin, and the style
 rewrite's second pass also takes up a part that uses one kind three times or more (phần lớn / hầu hết / đa số; dù vậy /
-tuy vậy / tuy nhiên; nhìn chung / nói chung; vì vậy / thế nên / nhờ vậy / do đó), or two "nên" a word apart
+tuy vậy / tuy nhiên; nhìn chung / nói chung; vì vậy / thế nên / nhờ vậy / do đó / thế là), or two "nên" a word apart
 (`TICS` in phrases.ts). Before the rewrite, 1,165 of the site's 3,269 Vietnamese parts had one.
 
 The style guide itself taught three of them: it told the writers to write "likely" as "nhiều khả năng", to name a
 cause with "thủ phạm thường là", and gave "Nhờ vậy…" as its model of natural Vietnamese (vi-style.md, vi-rewrite.md,
 changed with this list).
+
+In the style guide instead: algae in a tank is **"rêu"** (rêu hại, rêu tóc, cá ăn rêu). The site writes "tảo" 735 times a
+million words, the forum 129 and the videos 155, while the videos say "rêu" 1,734. "Tảo" stays for diatoms, blue-green
+algae, spirulina and algae in the wild, so no list entry can tell the two apart.
+
+Names and units the translator's prompt (process.md) now gives, from the editors' third and fourth rounds, each
+checked here: the Siamese algae eater is "cá bút chì" (15 in the forum, 41 in the videos; the site had "cá bống đá
+Xiêm", "cá rạn Xiêm"); hillstream loaches "cá tỳ bà bướm" (12.5 in the forum, against 0.7 for "cá bám đá"); plecos
+"cá lau kiếng" or "cá tỳ bà"; betta "cá xiêm" or "cá chọi" (99 and 119 in the forum); crayfish "tôm hùm đất", since
+"tôm càng" is Macrobrachium. A tank of 5 gallons or more rounds to the nearest 5 litres: the site wrote "38 lít" 218
+times and "19 lít" 85, which no reference writes, where hobbyists say 40 and 20.
 
 Left out on purpose:
 - Topic words the references don't cover (lưu vực, mẫu chuẩn, quần thể, thông số nước): a species profile needs them.
