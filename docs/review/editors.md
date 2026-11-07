@@ -16,12 +16,12 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 
 | Seat | Rounds | Findings | Held | Dropped | Open | Judges it well |
 |---|---|---|---|---|---|---|
-| Anthropic (`claude-opus-5-5`) | 3–6 | 45 | 32 | 7 | 6 | yes, but check every name it offers |
-| OpenAI (`gpt-5.6-sol`) | 3–6 | 28 | 23 | 1 | 4 | yes: one dropped |
-| Google (`gemini-4-argon`) | 3–6 | 54 | 42 | 7 | 5 | yes, but check every name it offers |
-| xAI (`grok-4.7`) | 3–6 | 48 | 33 | 9 | 6 | yes, but check every name it offers |
+| Anthropic (`claude-opus-5-5`) | 3–7 | 53 | 38 | 8 | 7 | yes, but check every name it offers |
+| OpenAI (`gpt-5.6-sol`) | 3–7 | 33 | 27 | 1 | 5 | yes: one dropped |
+| Google (`gemini-4-argon`) | 3–7 | 65 | 52 | 8 | 5 | yes, but check every name it offers |
+| xAI (`grok-4.7`) | 3–7 | 54 | 37 | 9 | 8 | yes, but check every name it offers |
 
-Of the findings the check settled, every seat's held three times in four or better over four rounds. Where Anthropic,
+Of the findings the check settled, every seat's held three times in four or better over five rounds. Where Anthropic,
 Google and xAI went wrong, it was mostly a name: a fish or a term they offered that no hobbyist writes. A name a seat
 offers is checked in the references before it goes anywhere.
 
@@ -60,3 +60,9 @@ The packets left out the market table, which is the writer's second source. Open
 the oxy già dose and the salt table as invented, and their faithful scores of 3–4 rest on that; those findings are dropped
 from the guides, not from the seats' record, since the fault was the packet's. A writer's packet carries its table from
 round 7.
+
+Round 7 (2026-11-08), the same three guides written again, the packets now with their market table. What was dropped:
+- Anthropic: "X thì Y" again, on the same counts as round 6.
+- Google: "Vẫn nên có." as a robotic fragment (Anthropic and xAI both quote it as the human part of the guide).
+
+Open: "Để thuốc nằm yên", "thuốc không ngấm vào được" (xAI); "nước an toàn" (OpenAI); a table's sentence on melting plants (Anthropic).

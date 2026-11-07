@@ -7,7 +7,7 @@ import { amountsOutside, forWriter, rewriteForReader, sourceOf, writeForReader }
 
 const FACTS = { topic: 'blue-green algae', facts: [{ section: 'treatment', fact: 'Use 3 ml of 3% hydrogen peroxide per 4 litres.' }], products: [{ name: 'Slime Out', for: 'blue-green algae', ingredient: '', dose: '1 packet per 10 gallons' }], problems: ['cyanobacteria'] }
 const good = { name: 'Tảo lam: làm gì trước', summary: ['Hút sạch rồi trị.'], body: '<h3>Trị</h3><p>Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước.</p>', faq: [{ q: 'Có hại cá không?', a: 'Quá liều thì hại.' }] }
-const fake = (answers: { written: object[]; score?: number }) => {
+const fake = (answers: { written: object[]; score?: number; reviews?: { score: number; notes: string[] }[] }) => {
   const calls: { kind: string; prompt: string; model?: string }[] = []
   const left = [...answers.written]
   const llm = (async (a: Parameters<Llm>[0]) => {
@@ -16,7 +16,7 @@ const fake = (answers: { written: object[]; score?: number }) => {
     if (props.body) { calls.push({ kind: 'write', prompt: a.prompt, model: a.model }); return left.shift() }
     if (props.findings) { calls.push({ kind: 'fit', prompt: a.prompt, model: a.model }); return { findings: [], products: [], doses: [] } }
     calls.push({ kind: 'review', prompt: a.prompt, model: a.model })
-    return { score: answers.score ?? 0.9, notes: [] }
+    return answers.reviews?.shift() ?? { score: answers.score ?? 0.9, notes: [] }
   }) as Llm
   return { llm, calls }
 }
@@ -55,6 +55,18 @@ test('what fails a check goes back with its notes, and what fails again is not k
   expect((await writeForReader({ llm: twice.llm }, 'g', 'x')).kept).toBe(false)
   // Below the reviewer's bar, however clean.
   expect((await writeForReader({ llm: fake({ written: [good, good], score: 0.5 }).llm }, 'g', 'x')).kept).toBe(false)
+})
+
+test('a guide that passes with a reviewer\'s notes goes back once to mend those sentences, and a worse mend is not kept', async () => {
+  const mended = { ...good, summary: ['Hút sạch, rồi mới trị.'] }
+  const { llm, calls } = fake({ written: [good, mended], reviews: [{ score: 0.86, notes: ['"Cúi xuống" is not in the facts'] }, { score: 0.95, notes: [] }] })
+  const r = await writeForReader({ llm }, 'g', 'x')
+  expect(r).toMatchObject({ kept: true, tries: 2, score: 0.95 })
+  expect(r.written.summary).toEqual(mended.summary)
+  const second = calls.filter(c => c.kind === 'write')[1]!.prompt
+  for (const n of ['"Cúi xuống" is not in the facts', '--- BẢN NHÁP ---', 'Hút sạch rồi trị.']) expect(second).toContain(n)
+  const worse = fake({ written: [good, mended], reviews: [{ score: 0.86, notes: ['x'] }, { score: 0.7, notes: [] }] })
+  expect((await writeForReader({ llm: worse.llm }, 'g', 'x')).written.summary).toEqual(good.summary)
 })
 
 test('an amount with a figure neither the facts nor the table has is made up', () => {

@@ -40,7 +40,7 @@ const WRITE_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['name', 'summary', 'body', 'faq'],
   properties: { name: { type: 'string' }, summary: { type: 'array', items: { type: 'string' } }, body: { type: 'string' }, faq: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['q', 'a'], properties: { q: { type: 'string' }, a: { type: 'string' } } } } },
 }
-const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. Reply only with JSON.`
+const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, or that says more than they do ("often used" as "every tank needs"), most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. Reply only with JSON.`
 const REVIEW_SCHEMA = { type: 'object', additionalProperties: false, required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } }
 
 /** The amounts in a text, as numbers with their units: what a guide may not make up. */
@@ -82,9 +82,9 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
   const facts = await d.llm<GuideFacts>({ system: FACTS, prompt: source.slice(0, 120_000), schema: FACTS_SCHEMA, model: o.factsModel ?? 'sonnet' })
   const market = marketFor('vi', facts.products.map(x => x.name).join('\n'), facts.problems)
   const input = `--- DỮ KIỆN ---\n${JSON.stringify({ topic: facts.topic, facts: facts.facts, products: forWriter(facts.products) }, null, 1)}\n\n--- THỊ TRƯỜNG ---\n${market}`
-  const write = (notes: string[] = []) => d.llm<Written>({
+  const write = (notes: string[] = [], draft?: Written) => d.llm<Written>({
     system: 'Bạn viết bài hướng dẫn cá cảnh bằng tiếng Việt. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
-    prompt: [WRITE, VI_STYLE, ...(o.voice ? [`Giọng của bài này:\n${o.voice}`] : []), ...(notes.length ? [`Bản trước bị trả lại vì các lý do sau. Viết lại cả bài, không chỉ vá chỗ đó:\n${notes.map(n => `- ${n}`).join('\n')}`] : []), input].join('\n\n'),
+    prompt: [WRITE, VI_STYLE, ...(o.voice ? [`Giọng của bài này:\n${o.voice}`] : []), ...(draft ? [`Bản nháp dưới đây bị trả lại vì các lý do sau. Sửa đúng những chỗ đó, bỏ điều dữ kiện không có, giữ nguyên mọi câu khác:\n${notes.map(n => `- ${n}`).join('\n')}\n\n--- BẢN NHÁP ---\n${JSON.stringify(draft)}`] : []), input].join('\n\n'),
   })
   const check = async (w: Written) => {
     const clean = { ...w, name: unescapePlain(w.name).trim(), body: sanitizeHtml(w.body) }
@@ -104,12 +104,13 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     ]
     return { written: clean, findings, score, notes, ok: !wrong.length && !outside.length && score >= QUALITY_THRESHOLD }
   }
+  // A draft with notes goes back once to mend those sentences. Writing it afresh only swapped one run's slips for another's.
   let best = await check(await write())
   let tries = 1
-  if (!best.ok || best.score < 0.85) {
-    const again = await check(await write(best.notes))
+  if (!best.ok || best.notes.length) {
+    const again = await check(await write(best.notes, best.written))
     tries = 2
-    if (again.ok || (!best.ok && again.score >= best.score)) best = again
+    if (again.ok ? !best.ok || again.score >= best.score : !best.ok && again.score >= best.score) best = again
   }
   return { written: best.written, facts, market, score: best.score, notes: best.notes, findings: best.findings, tries, kept: best.ok }
 }
