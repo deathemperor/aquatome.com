@@ -44,17 +44,21 @@ Equipment control, a council-style tank review, and proactive care. Each one's p
 
 **Ask the AI to run the equipment.** "Dim the lights", "feeding mode", "run my master button". Only our app drives the
 reader's lights and plugs, so no general chatbot can do this.
-- How. The chat proposes an action in its answer. The Worker checks it against the reader's saved devices: the device
-  exists, the values are in range, and it marks whether the gear keeps the fish alive. The app shows what changes, from
-  what to what. Nothing happens until the reader taps to confirm, and the app's own control code carries it out. The
-  next turn hears whether it worked.
-- Safety. A heater, filter or air pump never switches off without its own explicit confirmation and a warning. A
-  timed action such as feeding mode ends on the plug's own countdown, so the filter comes back on even if the phone is
-  gone. Web Bluetooth can't run on an iPhone browser, so there the card says to open the app.
+- How. The chat proposes one action in its answer: a light's schedule, its levels for a while, back to its schedule,
+  an outlet on or off (for some minutes), or a master-button scene by its id. The Worker checks it against the
+  reader's synced devices and outlet roles. The app shows what changes, from what to what ("Filter: on → off for 10
+  min"), and nothing happens until the reader taps to confirm. The app's action layer then checks it all again on the
+  phone, as the last gate, and carries it out. Done, failed, cancelled or "not in range" (a Bluetooth light must be
+  nearby and connected) goes with the reader's next question, so the chat hears it only when it matters.
+- Safety. Life support is a heater, filter or air pump switched off, or CO₂ switched on outside the light hours. Either
+  needs its own second confirmation and a warning, and the app's action layer enforces it, so no card can skip it. A
+  timed action such as feeding mode is offered only on a plug that runs its own countdown, so the filter comes back on
+  even if the phone is gone. Web Bluetooth can't run on an iPhone browser, so there the card says to open the app.
 - Cost. No extra model spend: it happens inside the chat turn, about a third of a cent. The work is a new answer block
   in the contract, the Worker's checks, and the app's confirm card. The iOS lead owns the app side.
 - Where. Its first use is in the algae doctor, which proposes a shorter light schedule and applies it once the reader
-  confirms. Dimming, feeding mode and master-button scenes follow, once the master button exists.
+  confirms. Dimming, feeding mode and master-button scenes follow. It waits on the app's action layer, which the app
+  lead is building with the master button.
 
 **A tank health review, council style.** Several reviewers read one tank, each through its own lens: water and
 cycling, plants and algae, fish and stocking. They read its photos, water tests, fish, light hours, plants and history,
