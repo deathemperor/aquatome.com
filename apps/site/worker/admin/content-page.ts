@@ -164,7 +164,7 @@ function growthBlocks(now: Date, s: ContentStats, snaps: Soft<Snapshot[]>, tz: s
   if (isFailed(snaps)) return [...out, failedNote('số liệu từng ngày', snaps)]
   if (snaps.length < 2) return [...out, note(GROWTH_NONE, 'muted')]
   const p = growthParts(now, s, snaps, tz)
-  return [...out, ...p.charts.map(chart), heading(textOf(p.sourceTitle), 3), rankBlock(p.sources, BY_SOURCE_HEAD, signed), note(p.note)]
+  return [...out, ...p.charts.map(c => chart(c)), heading(textOf(p.sourceTitle), 3), rankBlock(p.sources, BY_SOURCE_HEAD, signed), note(p.note)]
 }
 
 const NO_ENGINE = 'Bản build này không có engine-state.'
@@ -190,7 +190,7 @@ function engineParts(now: Date, e: NonNullable<ContentStats['engine']>, tz: stri
     chart: { id: 'n-videos', title: 'Bài từ video viết mỗi ngày · 30 ngày', days: days.slice(1), series: [{ label: 'Bài', values: written.slice(1) }], partialLast: true, empty: 'Chưa viết bài nào trong 30 ngày.' } as DayChart,
     rewriteTiles: [{ label: 'Đã viết lại', value: fmt(e.rewrite.done), meter: rewriteShare(e.rewrite), sub: `${pct(e.rewrite.done, e.rewrite.done + e.rewrite.waiting + e.rewrite.failed)} số trang cần viết lại` }, { label: 'Còn chờ', value: fmt(e.rewrite.waiting), sub: `${fmt(e.rewrite.failed)} lỗi` }] as Tile[],
     // The source, marked when it waits on the owner; the rest of its row as the page writes it.
-    rows: sources.map(r => ({ source: { text: r.name, ...(human.has(r.id) ? { sub: 'cần bạn', tone: 'bad' as const } : {}) } as Cell, cells: [fmt(r.waiting), fmt(r.failed), fmt(r.blocked), r.lastAt ? timeTag(r.lastAt, tz, now) : '—', `${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}`, fmt(r.done), fmt(r.skipped)] })),
+    rows: sources.map(r => ({ source: { text: r.name, ...(human.has(r.id) ? { sub: 'cần bạn', tone: 'wait' as const } : {}) } as Cell, cells: [fmt(r.waiting), fmt(r.failed), fmt(r.blocked), r.lastAt ? timeTag(r.lastAt, tz, now) : '—', `${fmt(r.found)}${r.discovered ? ` <span class="muted">/ ${fmt(r.discovered)}</span>` : ''}`, fmt(r.done), fmt(r.skipped)] })),
     note: `Thành trang: viết thành trang, hoặc gộp vào một trang có sẵn. Bỏ qua: trang danh mục, trùng, không phải cá. Lỗi 3 lần: thôi thử cho tới khi trang nguồn đổi.${e.lastRun ? ` Lần chạy gần nhất trên máy build: ${timeTag(e.lastRun.startedAt, tz, now)}–${esc(hourMinute(e.lastRun.finishedAt, tz))}, đổi ${fmt(e.lastRun.changed)} mục, ${fmt(e.lastRun.errors)} lỗi.` : ''}`,
   }
 }
@@ -213,7 +213,7 @@ function engineBlocks(now: Date, s: ContentStats, tz: string): Block[] {
   const e = s.engine
   if (!e) return [...out, note(NO_ENGINE, 'muted')]
   const p = engineParts(now, e, tz)
-  if (p.human) out.push(note(textOf(p.human), 'bad'))
+  if (p.human) out.push(note(textOf(p.human), 'wait'))
   const rows = p.rows.map(r => [r.source, ...r.cells.map(c => cellOf(c))])
   return [...out, heading('Bài từ video YouTube', 3), figures(p.videoTiles), chart(p.chart), heading('Viết lại tiếng Việt cũ', 3), figures(p.rewriteTiles),
     heading('Nguồn trang', 3), table(ENGINE_HEAD, rows, { empty: 'Chưa có.' }), note(textOf(p.note))]

@@ -10,7 +10,8 @@ import { hidePhoto, photosLive, type PhotosEnv } from './photos'
 export type ReportEnv = CommentsEnv & PhotosEnv
 
 const MAX_PER_DAY = 20
-const HIDDEN = 'reported by a reader'
+/** The reason a signed-in reader's report holds a comment with: the owner's Comments page reads it (admin/comments.ts). */
+export const HIDDEN = 'reported by a reader'
 const json = (data: unknown, status: number) => Response.json(data, { status, headers: { 'cache-control': 'no-store' } })
 
 type Report = { kind: 'comment' | 'photo'; id: string; reason: string | null }

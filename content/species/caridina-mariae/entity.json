@@ -10,6 +10,52 @@
     "china",
     "guangdong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The original home of the animals is Guangdong province in China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8452952,
+      "total": 7,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CN",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          22.5,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          22.5,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

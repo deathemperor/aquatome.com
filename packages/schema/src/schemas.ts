@@ -84,9 +84,10 @@ export const RangeSchema = z.object({
 /**
  * The water a fish is kept in when it isn't fresh (engine water.ts): `brackish` or `marine` (sea water), from a sentence
  * of one of its sources that says so (`quote`, as the source writes it, in English). None: kept in fresh water, or not
- * read yet (engine-state/water/<id>.json says which).
+ * read yet (engine-state/water/<id>.json says which). `fixed`: set by a person, who checked it, and the water step leaves
+ * it, as `nameFixed` holds a name.
  */
-export const WaterSchema = z.object({ kind: z.enum(['brackish', 'marine']), source: SourceId, quote: z.string().min(1) })
+export const WaterSchema = z.object({ kind: z.enum(['brackish', 'marine']), source: SourceId, quote: z.string().min(1), fixed: z.literal(true).optional() })
 
 /** A link the site renders: http(s) only, so researched or scraped data can never become a javascript: link. */
 const WebUrl = z.string().regex(/^https?:\/\/[^\s]+$/i)
@@ -184,6 +185,8 @@ export const EquipmentSchema = z.object({
   category: z.string(), name: z.string(), lead: z.string(), intro: z.string(), hero: Photo,
   /** `match`: a regex over the shop keywords species pages suggest; the first type that matches a keyword owns it. `buy`: the search to send shoppers to. */
   types: z.array(z.object({ id: z.string(), name: z.string(), match: z.string(), desc: z.string(), pick: z.string(), buy: z.string(), photo: Photo.optional() })),
+  /** The types' ids in the order a keeper reads them (smallest or most used first), where that isn't `types`' matching order. */
+  order: z.array(z.string()).optional(),
   choose: z.array(z.string()), mistakes: z.array(z.string()), faq: z.array(z.object({ q: z.string(), a: z.string() })),
   /** A translation's review score (content/equipment/<lang>/<category>.json); the Vietnamese original has none. */
   quality: z.object({ score: z.number(), indexable: z.boolean() }).optional(),

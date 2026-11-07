@@ -1399,12 +1399,17 @@
     ]
   },
   "marsilea-minuta": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "ผักแว่น",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "มาซิเลีย มินูต้า",
     "confidence": "medium",
-    "score": 0.9,
-    "notes": []
+    "score": 0.75,
+    "notes": [
+      "Item 2: The source is Vietnamese, not English. The Thai follows it faithfully, but check that the right source text was supplied.",
+      "Item 2: \"น้ำค่อนข้างอุ่น\" renders \"nước hơi nóng\" (slightly hot water) too mildly. Use \"น้ำค่อนข้างร้อน\" or \"น้ำอุณหภูมิสูงเล็กน้อย\".",
+      "Item 2: \"Cỏ ba lá nhỏ\" (small clover) became the transliterated Latin name \"มาซิเลีย มินูต้า\". The Latin name was added, and it was not in the source. Use a Thai common name such as \"โคลเวอร์เล็ก\", or put the Latin name in brackets.",
+      "Item 2: \"แต่ถ้าตู้ยิ่งเสถียร พรมก็จะยิ่งขึ้นสวย\" is slightly stiff. Something like \"ยิ่งตู้นิ่งเท่าไร พรมก็ยิ่งสวยเท่านั้น\" reads more naturally."
+    ]
   },
   "mayaca-fluviatilis": {
     "at": "2026-11-04",
@@ -2060,6 +2065,60 @@
     "notes": [
       "\"ปุ๋ยน้ำแบบครบสูตร\": the source says only \"all-in-one fertilizer\", so \"น้ำ\" (liquid) is added. Use \"ปุ๋ยแบบครบสูตร (all-in-one)\".",
       "\"10 ดอลลาร์\": the price is left in US dollars. Thai readers would be better served by a baht equivalent (about 350 บาท) or a rough local price."
+    ]
+  },
+  "vallisneria-americana-natans": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วาลิสเนอเรีย นาทานส์",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "vallisneria-sp-gigantea": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วาลิสเนเรีย ไจแกนเทีย",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Minor: \"ไม้น้ำที่ขยายพันธุ์ด้วยไหล\" is fine, but \"Type: stolon\" could be shorter, e.g. \"ประเภท: ไม้ไหล\". Optional.",
+      "Minor: \"ลงตู้ปลา\" could be \"ลงตู้\" for naturalness."
+    ]
+  },
+  "vallisneria-spiralis": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วาลิสเนเรีย ไทเกอร์",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"ลายบนใบ\" is vaguer than \"striped leaves\". Use \"ลายแถบ/ลายทางบนใบ\" so the tiger-stripe image comes through.",
+      "Item 1: \"ไม้น้ำที่แตกต้นใหม่จากไหล\" is a long paraphrase of \"Stolon\". A shorter form such as \"ประเภท: ไม้แตกไหล\" would suit a spec list better."
+    ]
+  },
+  "vesicularia-ferriei": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "วีปปิ้งมอส",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"เคยถูกจัดจำหน่ายโดย\": The English \"has been distributed by\" doesn't say the distribution has stopped. \"เคย\" suggests it did. Use \"ถูกจัดจำหน่ายโดย\" or \"มีการจัดจำหน่ายโดย\".",
+      "\"เหมาะที่สุดคือการผูกติด...\": This is slightly clumsy. A smoother version is \"ควรผูกติดกับขอนไม้หรือรากไม้\" or \"เหมาะที่สุดที่จะผูกติด...\"."
+    ]
+  },
+  "vesicularia-montagnei": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "คริสต์มาสมอส",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"ซึ่งทำให้แยกออกจาก Vesicularia dubyana ธรรมดาได้\" is slightly ambiguous about what \"which\" refers to (the branching structure). Rephrase to make it clear, e.g. \"ลักษณะนี้ช่วยแยกออกจาก...\".",
+      "\"ที่ได้ชื่อว่า ... ก็เพราะ\" is a bit stiff. Consider \"ได้ชื่อว่า 'คริสต์มาสมอส' เพราะ...\".",
+      "\"ทรงยังสวยอยู่\" is colloquial. Consider \"คงทรงที่สวยงามไว้\".",
+      "\"after two months in the tank\" is rendered as \"หลังลงตู้ปลา\". \"ตู้\" or \"ตู้ไม้น้ำ\" would be more natural for a planted tank."
     ]
   }
 }

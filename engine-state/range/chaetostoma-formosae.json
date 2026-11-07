@@ -1,0 +1,81 @@
+{
+  "id": "chaetostoma-formosae",
+  "native": {
+    "input": "0e334d5cb4e5b431",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from western piedmont streams within the upper río Meta and río Guaviare drainage systems, Meta and Casanare departments, eastern Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Meta",
+        "source": "seriouslyfish",
+        "quote": "Known only from western piedmont streams within the upper río Meta and río Guaviare drainage systems, Meta and Casanare departments, eastern Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Guaviare",
+        "source": "seriouslyfish",
+        "quote": "Known only from western piedmont streams within the upper río Meta and río Guaviare drainage systems, Meta and Casanare departments, eastern Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Both the Meta and Guaviare are major tributaries of the río Orinoco.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaetostoma formosae",
+    "status": "ACCEPTED",
+    "taxonKey": 6167950,
+    "datasets": [
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        20
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        13
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c52a4cae-b9b4-44a2-bf07-15a7b6980ff6",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

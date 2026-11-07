@@ -14,7 +14,8 @@ import { easyPlants, featuredSpecies, groupTiles, leadGuides, nativeCards, nativ
 import { i18n } from '../lib/i18n'
 import { pagePictures, photosOf, takeEach } from '../lib/pictures'
 import { toolCards } from '../lib/tools'
-import { fmt } from '../lib/format'
+import { categoryRank, fmt } from '../lib/format'
+import { shownTypes } from '../lib/equipment'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
@@ -31,7 +32,7 @@ const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
 const videos = homeVideos(c)
 const featured = featuredSpecies(lang, c)
 const plants = easyPlants(c)
-const equipment = c.equipment
+const equipment = [...c.equipment].sort((a, b) => categoryRank(a.category) - categoryRank(b.category))
 // The tools a keeper comes back for; the rest are a tap away on the tools page.
 const tools = toolCards(t).filter(x => ['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#phan-bon', '/vi/cong-cu/den-chihiros/'].includes(x.href)).map(x => ({ ...x, href: x.href.startsWith('#') ? `/vi/cong-cu/${x.href}` : x.href }))
 const native = nativeSpecies(lang, c)
@@ -148,7 +149,7 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   {equipment.length > 0 && (
     <section class="wrap block" aria-labelledby="equip-h">
       <div class="head"><h2 id="equip-h" class="h">{t('Mua thiết bị: chọn thế nào')}</h2><a href="/vi/thiet-bi/">{t('Tất cả thiết bị →')}</a></div>
-      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}><b>{e.name}</b><span>{e.types.map(x => x.name.replace(/(\d) (?=[a-zA-Zđ])/g, '$1\u00a0')).join(' · ')}</span></a></li>)}</ul>
+      <ul class="equip">{equipment.map(e => <li><a href={`/vi/thiet-bi/${e.category}/`}><b>{e.name}</b><span>{shownTypes(e).map((x, i, all) => <><span class="it">{x.name.replace(/(\d) (?=[a-zA-Zđ])/g, '$1\u00a0')}{i < all.length - 1 && ' ·'}</span>{i < all.length - 1 && ' '}</>)}</span></a></li>)}</ul>
     </section>
   )}
 
@@ -217,6 +218,8 @@ const credits = [HERO, ...creditsFor([...featuredPhotos, ...nativePhotos, ...gro
   .equip a { display: grid; gap: 2px; min-height: 44px; padding-block: var(--space-3); text-decoration: none; color: inherit; }
   .equip b { font: 500 var(--step-1) var(--f-display); }
   .equip span { font-size: 0.85rem; color: var(--c-ink-soft); }
+  /* A kind breaks between items, never inside one, and its dot stays with the item before it. */
+  .equip .it { display: inline-block; }
   .equip a:hover b { color: var(--c-moss); text-decoration: underline; text-underline-offset: 0.15em; }
 
   @media (max-width: 900px) {

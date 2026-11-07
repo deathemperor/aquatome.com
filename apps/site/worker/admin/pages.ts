@@ -34,7 +34,7 @@ const dayText = (day: string, now: Date, tz: string) => `${day.slice(8, 10)}/${d
 /** The page's note on days and times: the viewer's zone, named by its offset. */
 const zoneNote = (tz: string, now: Date) => `Ngày và giờ theo giờ của bạn (${zoneName(tz, now)}).`
 /** The sum of `vals` (one per day, the last is today) from `from` to `to` days ago. */
-const ago = (vals: number[], from: number, to: number) => vals.slice(vals.length - 1 - from, vals.length - to).reduce((a, b) => a + b, 0)
+export const ago = (vals: number[], from: number, to: number) => vals.slice(vals.length - 1 - from, vals.length - to).reduce((a, b) => a + b, 0)
 export const alignDaily = (days: string[], daily: Readers['daily']) => {
   const m = new Map(daily.map(d => [d.day, d]))
   return { sessions: days.map(d => m.get(d)?.sessions ?? 0), readers: days.map(d => m.get(d)?.readers ?? 0) }
@@ -77,35 +77,36 @@ export const MODERATION_MISSED_MS = 30 * 3_600_000
 /** Each part of the overview, by what it is to the owner (in Vietnamese, and in English for the daily report) and where its page is. */
 const parts = (o: Overview): [string, Soft<unknown>, string, string][] => [
   ['người đọc', o.readers, '/_ab/doc-gia/', 'readers'], ['lượt bấm affiliate', o.clicks, '/_ab/affiliate/', 'affiliate clicks'], ['nhật ký nhận diện cá', o.fish, '/_ab/nhan-dien-ca/', 'the fish ID log'],
-  ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/', 'comments and accounts'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/tai-khoan/', 'the moderation queues'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/', 'reader photos'],
+  ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/', 'comments and accounts'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/binh-luan/', 'the moderation queues'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/', 'reader photos'],
   ['danh sách bạn đọc muốn có', o.wanted, '/_ab/muon-co/', 'the wanted names'], ['danh sách trang ẩn', o.hidden, '/_ab/an-trang/', 'the hidden pages'],
   ['số liệu nội dung', o.content, '/_ab/noi-dung/', 'the content totals'], ['số liệu nội dung từng ngày', o.snapshots, '/_ab/noi-dung/', 'the daily content totals'],
 ]
 
 /** `en`: the same to-do for the daily report, in English and with no error text. Beside the Vietnamese, so a new to-do can't reach the page without it; the app's JSON (overviewJson) never reads it. */
-export type Todo = { title: string; text: string; href: string; action: string; en: { title: string; text: string } }
+export type Todo = { kind: 'key' | 'engine' | 'moderation' | 'failed'; title: string; text: string; href: string; action: string; en: { title: string; text: string; action: string } }
 /** What needs the owner, each with the one place to deal with it: the fish-ID keys, a moderation that stopped, a part that won't load. */
 export function todos(o: Overview): Todo[] {
   const out: Todo[] = []
   const tz = o.tz ?? HOME_TZ
   // In the viewer's time, as the bar shows it: 2026-11-03T21:05Z → 04/11 04:05 in Vietnam.
   const short = (iso: string) => clock(iso, tz, o.now)
-  const key = { href: '/_ab/nhan-dien-ca/#key', action: 'Xem key' }
-  if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key, en: { title: 'Could not read the Anthropic keys\' state', text: 'The fish ID page has the error.' } })
-  else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key, en: { title: 'Fish ID is off', text: 'ANTHROPIC_KEYS holds no key.' } })
+  const key = { kind: 'key' as const, href: '/_ab/nhan-dien-ca/#key', action: 'Xem key' }
+  const seeKey = 'See key'
+  if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key, en: { title: 'Could not read the Anthropic keys\' state', text: 'The fish ID page has the error.', action: seeKey } })
+  else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key, en: { title: 'Fish ID is off', text: 'ANTHROPIC_KEYS holds no key.', action: seeKey } })
   else {
     const off = o.keys.rows.filter(r => r.state !== 'ok')
     if (off.length) {
       const all = off.length === o.keys.rows.length
       out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
-        en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · ') } })
+        en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · '), action: seeKey } })
     }
-    if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key, en: { title: `${plural(o.keys.bad, 'line')} of ANTHROPIC_KEYS can't be read`, text: 'The tool skips them: fix the ANTHROPIC_KEYS secret.' } })
+    if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key, en: { title: `${plural(o.keys.bad, 'line')} of ANTHROPIC_KEYS can't be read`, text: 'The tool skips them: fix the ANTHROPIC_KEYS secret.', action: seeKey } })
   }
   // The moderation runs at 21:00 UTC each night (moderate.yml): anything still waiting after 30 hours means a night was missed.
   if (!isFailed(o.waiting) && o.waiting.oldest && o.now.getTime() - Date.parse(o.waiting.oldest) > MODERATION_MISSED_MS) {
-    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi ngày lúc ${hourMinute('2026-01-01T21:00:00Z', tz)}.`, href: MODERATION_RUNS, action: 'Xem lần chạy',
-      en: { title: 'Moderation has not run', text: `${waitingEn(o.waiting)} waiting since ${short(o.waiting.oldest)}.` } })
+    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi ngày lúc ${hourMinute('2026-01-01T21:00:00Z', tz)}.`, kind: 'moderation', href: MODERATION_RUNS, action: 'Xem lần chạy',
+      en: { title: 'Moderation has not run', text: `${waitingEn(o.waiting)} waiting since ${short(o.waiting.oldest)}.`, action: 'See runs' } })
   }
   // A source behind a browser check stops until the owner passes it in the engine's Chrome profile.
   const engine = isFailed(o.content) ? null : o.content.engine
@@ -113,11 +114,11 @@ export function todos(o: Overview): Todo[] {
   if (human.length) {
     const name = (id: string) => engine!.sources.find(r => r.id === id)?.name ?? id
     const stopped = human.map(h => `${name(h.source)} (since ${short(h.since)})`).join(', ')
-    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, href: '/_ab/noi-dung/#engine', action: 'Xem engine',
-      en: { title: human.length > 1 ? `${fmt(human.length)} sources need you to pass a browser check` : `${name(human[0]!.source)} needs you to pass a browser check`, text: `The engine stopped fetching from ${stopped}. Open the source in the engine's Chrome profile.` } })
+    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, kind: 'engine', href: '/_ab/noi-dung/#engine', action: 'Xem engine',
+      en: { action: 'See engine', title: human.length > 1 ? `${fmt(human.length)} sources need you to pass a browser check` : `${name(human[0]!.source)} needs you to pass a browser check`, text: `The engine stopped fetching from ${stopped}. Open the source in the engine's Chrome profile.` } })
   }
   for (const [label, part, href, en] of parts(o)) {
-    if (isFailed(part)) out.push({ title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở', en: { title: `Could not load ${en}`, text: 'Its dashboard page has the error.' } })
+    if (isFailed(part)) out.push({ kind: 'failed', title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở', en: { title: `Could not load ${en}`, text: 'Its dashboard page has the error.', action: 'Open' } })
   }
   return out
 }
@@ -160,10 +161,10 @@ export function areas(o: Overview): Area[] {
     out.push({ name: 'Nhận diện cá', href: '/_ab/nhan-dien-ca/', fig: fmt(p.d7.calls), sub: `lượt gọi Claude · 7 ngày · ${usd(p.d7.usd)}`, spark: whole(perDay.ok.map((v, i) => v + perDay.none[i]!)), chip: chipOf(p.d7.calls, p.d7prev.calls, VS), warn: keysOff })
   }
   const waiting = isFailed(o.waiting) ? undefined : o.waiting
-  if (isFailed(o.accounts)) out.push(failedArea('Bình luận', '/_ab/tai-khoan/', o.accounts), failedArea('Tài khoản mới', '/_ab/tai-khoan/', o.accounts))
+  if (isFailed(o.accounts)) out.push(failedArea('Bình luận', '/_ab/binh-luan/', o.accounts), failedArea('Tài khoản mới', '/_ab/tai-khoan/', o.accounts))
   else {
     const a = o.accounts
-    out.push({ name: 'Bình luận', href: '/_ab/tai-khoan/', fig: fmt(ago(a.newComments, 7, 1)), sub: `bình luận mới · 7 ngày${waiting?.comments ? ` · ${fmt(waiting.comments)} chờ kiểm duyệt` : ''}`, spark: whole(a.newComments), chip: chipOf(ago(a.newComments, 7, 1), ago(a.newComments, 14, 8), VS, 'up') })
+    out.push({ name: 'Bình luận', href: '/_ab/binh-luan/', fig: fmt(ago(a.newComments, 7, 1)), sub: `bình luận mới · 7 ngày${waiting?.comments ? ` · ${fmt(waiting.comments)} chờ kiểm duyệt` : ''}`, spark: whole(a.newComments), chip: chipOf(ago(a.newComments, 7, 1), ago(a.newComments, 14, 8), VS, 'up') })
     out.push({ name: 'Tài khoản mới', href: '/_ab/tai-khoan/', fig: fmt(ago(a.newUsers, 7, 1)), sub: `7 ngày · tổng ${fmt(a.users)} · ${fmt(a.synced)} có bể đồng bộ`, spark: whole(a.newUsers), chip: chipOf(ago(a.newUsers, 7, 1), ago(a.newUsers, 14, 8), VS, 'up') })
   }
   if (isFailed(o.photos)) out.push(failedArea('Ảnh bạn đọc', '/_ab/anh-ban-doc/', o.photos))
@@ -208,7 +209,7 @@ export function log(o: Overview, n = 3): LogDay[] {
       if (calls || at(d.blocked, back)) items.push({ text: `${fmt(calls)} lượt nhận diện cá gọi Claude · ${usd(at(d.usd, back))}`, small: `${fmt(at(d.ok, back))} có kết quả${at(d.blocked, back) ? ` · ${fmt(at(d.blocked, back))} chặn trước khi gọi` : ''}`, section: 'nhan-dien-ca' })
     }
     if (!isFailed(accounts)) {
-      if (at(accounts.newComments, back)) items.push({ text: `${fmt(at(accounts.newComments, back))} bình luận mới`, section: 'tai-khoan' })
+      if (at(accounts.newComments, back)) items.push({ text: `${fmt(at(accounts.newComments, back))} bình luận mới`, section: 'binh-luan' })
       if (at(accounts.newUsers, back)) items.push({ text: `${fmt(at(accounts.newUsers, back))} tài khoản mới`, section: 'tai-khoan' })
     }
     if (!isFailed(wanted)) {
@@ -334,13 +335,23 @@ const FROM: Record<string, string> = { page: 'trang nhận diện', tank: 'Bể 
 const KEY_STATE: Record<FishIdStatus['rows'][number]['state'], string> = { ok: 'đang dùng', credit: 'hết credit', auth: 'key bị từ chối', rate: 'bị giới hạn tốc độ' }
 const KEY_STATE_EN: typeof KEY_STATE = { ok: 'in use', credit: 'out of credit', auth: 'key refused', rate: 'rate limited' }
 
-export type FishPage = { now: Date; stats: Soft<FishIdStats>; keys: Soft<FishIdStatus | undefined>; pages: Map<string, string>; /** The viewer's time zone (admin/time.ts). */ tz?: string }
+export type FishPage = { now: Date; stats: Soft<FishIdStats>; keys: Soft<FishIdStatus | undefined>; pages: Map<string, string>; /** The viewer's time zone (admin/time.ts). */ tz?: string; /** The period's key (?period=); the first when none or another. */ period?: string | null }
+
+/** The periods the section's top figures can be for, the first by default (the request's ?period=). */
+export const FISH_PERIODS = [{ key: 'd7', label: '7 ngày', at: 1 }, { key: 'today', label: 'Hôm nay', at: 0 }, { key: 'd30', label: '30 ngày', at: 2 }, { key: 'month', label: 'Tháng này', at: 3 }] as const
+const fishPeriod = (f: FishPage) => FISH_PERIODS.find(p => p.key === f.period) ?? FISH_PERIODS[0]
+/** The period's calls, cost and cost per call, each against the period before (today: yesterday). */
+function periodTiles(s: FishIdStats, key: (typeof FISH_PERIODS)[number]): Tile[] {
+  const p = PERIODS(s)[key.at]!
+  const t = (label: string, pick: (x: Totals) => number, f: (n: number) => string, good?: 'up'): Tile => ({ label: `${label} · ${p.label.toLowerCase()}`, value: f(pick(p.cur)), sub: p.note, delta: { now: pick(p.cur), before: pick(p.prev), vs: p.vs, ...(good ? { good } : {}) } })
+  return [t('Lượt gọi Claude', x => x.calls, n => fmt(n), 'up'), t('Chi phí', x => x.usd, usd), t('Mỗi lượt', each, usd)]
+}
 
 const fishLede = (tz: string, now: Date) => `Mỗi lượt gửi ảnh tới công cụ ghi một dòng vào Analytics Engine: kết quả, token, chi phí theo giá niêm yết, không có ảnh, IP hay key. Analytics Engine giữ khoảng 3 tháng. ${zoneNote(tz, now)}`
 const FISH_TOTALS_NOTE = '% là thay đổi so với kỳ trước: 7 hay 30 ngày trước đó, cùng kỳ tháng trước. Lượt gọi Claude: những lượt đã gọi tới API (có kết quả, hoặc không: Claude từ chối, câu trả lời hỏng, API lỗi). Chặn trước khi gọi: hết lượt, không qua Turnstile, ảnh hỏng… không tốn tiền.'
 // Tokens in and out differ tenfold: each gets its own chart and axis rather than sharing one where "out" lies flat.
 const fishCharts = (s: FishIdStats): DayChart[] => [
-  { id: 'f-calls', title: 'Lượt gửi ảnh mỗi ngày, theo kết quả', days: s.days, series: [{ label: 'Có kết quả', values: s.perDay.ok }, { label: 'Không có kết quả', values: s.perDay.none, tone: 'bad' }, { label: 'Chặn trước khi gọi', values: s.perDay.blocked, tone: 'mute' }], partialLast: true, empty: 'Chưa có lượt nào được ghi (nhật ký bắt đầu từ bản cập nhật này).' },
+  { id: 'f-calls', title: 'Lượt gửi ảnh mỗi ngày, theo kết quả', days: s.days, series: [{ label: 'Có kết quả', values: s.perDay.ok }, { label: 'Không có kết quả', values: s.perDay.none }, { label: 'Chặn trước khi gọi', values: s.perDay.blocked, tone: 'mute' }], partialLast: true, empty: 'Chưa có lượt nào được ghi (nhật ký bắt đầu từ bản cập nhật này).' },
   { id: 'f-cost', title: 'Chi phí mỗi ngày', days: s.days, series: [{ label: 'Chi phí', values: s.perDay.usd }], unit: 'usd', partialLast: true, empty: 'Chưa có chi phí nào được ghi.' },
   { id: 'f-tin', title: 'Token vào mỗi ngày', days: s.days, series: [{ label: 'Token vào', values: s.perDay.tin }], partialLast: true, empty: 'Chưa có token nào được ghi.' },
   { id: 'f-tout', title: 'Token ra mỗi ngày', days: s.days, series: [{ label: 'Token ra', values: s.perDay.tout }], partialLast: true, empty: 'Chưa có token nào được ghi.' },
@@ -359,7 +370,7 @@ export function fishIdPage(f: FishPage): string {
   if (isFailed(f.stats)) body += failedBox('nhật ký nhận diện cá', f.stats)
   else {
     const s = f.stats
-    body += `<h2>Tổng</h2>${periodTable(s, false)}<details><summary>${PERIOD_FOLDED}</summary>${periodTable(s, true)}</details><p class="note">${FISH_TOTALS_NOTE}</p>
+    body += `${tiles(periodTiles(s, fishPeriod(f)))}<h2>Tổng</h2>${periodTable(s, false)}<details><summary>${PERIOD_FOLDED}</summary>${periodTable(s, true)}</details><p class="note">${FISH_TOTALS_NOTE}</p>
 <div class="charts">
 ${fishCharts(s).map(dayChart).join('\n')}
 </div>
@@ -377,7 +388,7 @@ export function fishIdSection(f: FishPage): Section {
   if (isFailed(f.stats)) blocks.push(failedNote('nhật ký nhận diện cá', f.stats))
   else {
     const s = f.stats
-    blocks.push(heading('Tổng'), periodBlock(s, false), periodBlock(s, true), note(FISH_TOTALS_NOTE), ...fishCharts(s).map(chart),
+    blocks.push(figures(periodTiles(s, fishPeriod(f))), heading('Tổng'), periodBlock(s, false), periodBlock(s, true), note(FISH_TOTALS_NOTE), ...fishCharts(s).map(c => chart(c)),
       heading('Có trang trong cẩm nang'), figures(fishShare(s)), heading('Đoán nhiều mà chưa có trang · 30 ngày'), rankBlock(unmatchedRows(s), UNMATCHED_HEAD))
   }
   blocks.push(heading('Key Anthropic', 2, 'key'))
@@ -388,7 +399,7 @@ export function fishIdSection(f: FishPage): Section {
     blocks.push(note(textOf(k.lead)), table(k.head, k.rows, { empty: 'Chưa có key nào.' }), note(KEYS_NOTE), figures(runTiles(f.keys)), note(RUNS_NOTE))
   }
   if (!isFailed(f.stats)) blocks.push(heading('100 lượt gần nhất'), table(RECENT_HEAD, f.stats.recent.map(c => recentCells(c, f.pages, f.now, tz)), { empty: RECENT_NONE }))
-  return { title: 'Nhận diện cá', blocks }
+  return { title: 'Nhận diện cá', blocks, periods: FISH_PERIODS.map(({ key, label }) => ({ key, label })), period: fishPeriod(f).key }
 }
 
 /** Today's runs that went another way than plain (the ledger's counts, fishid/ledger.ts), from the same UTC midnight as the keys. */
@@ -743,14 +754,12 @@ export function hiddenSection(h: Soft<Hidden>, now = new Date(), tz = HOME_TZ): 
   return { title: 'Ẩn trang', blocks }
 }
 
-// ——— Tài khoản · Bình luận ———
+// ——— Tài khoản (comments have their own page, admin/comments.ts) ———
 
 const CRED: Record<string, string> = { apple: 'Apple', google: 'Google', passkey: 'Passkey', email: 'Email' }
-const STATUS: Record<string, string> = { approved: 'đang hiện', held: 'chờ duyệt', removed: 'đã gỡ' }
 const CRED_HEAD = ['Cách', 'Số']
-const STATUS_HEAD = ['Trạng thái', 'Số']
-const accountsLede = (now: Date, tz: string) => `Tài khoản đăng nhập để đồng bộ “Bể của tôi”, và bình luận trên trang. Không lưu tên, email hay số điện thoại. ${zoneNote(tz, now)}`
-/** What the accounts page draws: its tiles, its two charts and its two rankings. */
+const accountsLede = (now: Date, tz: string) => `Tài khoản đăng nhập để đồng bộ “Bể của tôi”. Không lưu tên, email hay số điện thoại. ${zoneNote(tz, now)}`
+/** What the accounts page draws: its tiles, its chart and its ranking. */
 function accountsParts(a: AccountStats) {
   return {
     tiles: [
@@ -758,27 +767,22 @@ function accountsParts(a: AccountStats) {
       { label: 'Tài khoản mới · 7 ngày', value: fmt(ago(a.newUsers, 7, 1)), delta: { now: ago(a.newUsers, 7, 1), before: ago(a.newUsers, 14, 8), vs: '7 ngày trước đó', good: 'up' } },
       { label: 'Có bể đã đồng bộ', value: fmt(a.synced) },
       { label: 'Phiên đăng nhập còn hạn', value: fmt(a.openSessions) },
-      { label: 'Bình luận · 7 ngày', value: fmt(ago(a.newComments, 7, 1)), delta: { now: ago(a.newComments, 7, 1), before: ago(a.newComments, 14, 8), vs: '7 ngày trước đó', good: 'up' } },
     ] as Tile[],
     charts: [
       { id: 'u-daily', title: 'Tài khoản mới mỗi ngày · 30 ngày', days: a.days, series: [{ label: 'Tài khoản mới', values: a.newUsers }], partialLast: true, empty: 'Chưa có tài khoản mới nào trong 30 ngày.' },
-      { id: 'm-daily', title: 'Bình luận mỗi ngày · 30 ngày', days: a.days, series: [{ label: 'Bình luận', values: a.newComments }], partialLast: true, empty: 'Chưa có bình luận nào trong 30 ngày.' },
     ] as DayChart[],
     credentials: a.credentials.map(c => ({ label: esc(CRED[c.kind] ?? c.kind), value: c.n })) as Ranked[],
-    comments: a.comments.map(c => ({ label: esc(STATUS[c.status] ?? c.status), value: c.n })) as Ranked[],
   }
 }
 
 export function accountsPage(a: Soft<AccountStats>, now = new Date(), tz = HOME_TZ): string {
-  let body = `<h1>Tài khoản · Bình luận</h1><p class="lede">${accountsLede(now, tz)}</p>`
-  if (isFailed(a)) return page('/_ab/tai-khoan/', 'Tài khoản · Bình luận', body + failedBox('số liệu', a), now, tz)
+  let body = `<h1>Tài khoản</h1><p class="lede">${accountsLede(now, tz)}</p>`
+  if (isFailed(a)) return page('/_ab/tai-khoan/', 'Tài khoản', body + failedBox('số liệu', a), now, tz)
   const p = accountsParts(a)
   body += tiles(p.tiles)
-  body += `<h2>Theo ngày</h2><div class="charts">${dayChart(p.charts[0]!)}
-${dayChart(p.charts[1]!)}</div>
-<div class="split"><section><h2>Cách đăng nhập</h2>${rankTable(p.credentials, CRED_HEAD)}</section>
-<section><h2>Bình luận theo trạng thái</h2>${rankTable(p.comments, STATUS_HEAD)}</section></div>`
-  return page('/_ab/tai-khoan/', 'Tài khoản · Bình luận', body, now, tz)
+  body += `<h2>Theo ngày</h2><div class="charts">${dayChart(p.charts[0]!)}</div>
+<h2>Cách đăng nhập</h2>${rankTable(p.credentials, CRED_HEAD)}`
+  return page('/_ab/tai-khoan/', 'Tài khoản', body, now, tz)
 }
 
 export function accountsSection(a: Soft<AccountStats>, now = new Date(), tz = HOME_TZ): Section {
@@ -786,7 +790,7 @@ export function accountsSection(a: Soft<AccountStats>, now = new Date(), tz = HO
   if (isFailed(a)) blocks.push(failedNote('số liệu', a))
   else {
     const p = accountsParts(a)
-    blocks.push(figures(p.tiles), heading('Theo ngày'), ...p.charts.map(chart), heading('Cách đăng nhập'), rankBlock(p.credentials, CRED_HEAD), heading('Bình luận theo trạng thái'), rankBlock(p.comments, STATUS_HEAD))
+    blocks.push(figures(p.tiles), heading('Theo ngày'), ...p.charts.map(c => chart(c)), heading('Cách đăng nhập'), rankBlock(p.credentials, CRED_HEAD))
   }
-  return { title: 'Tài khoản · Bình luận', blocks }
+  return { title: 'Tài khoản', blocks }
 }

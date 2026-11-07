@@ -25,9 +25,15 @@
         "PY",
         "UY"
       ],
-      "regions": [],
+      "regions": [
+        "Amazon",
+        "Río Paraguay",
+        "Madeira",
+        "Río Paraná"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -41,6 +47,24 @@
             "UY"
           ],
           "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The tail-spot pygmy cory, Gastrodermus hastatus, long known as Corydoras hastatus, is a tiny armoured catfish with a wide range across the Amazon and Río Paraguay basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Río Paraguay"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "While the type locality is located on the Amazon main channel, between Sanatrém and Manaus in Amazonas state, Brazil, records also exist from elsewhere in Amazonas state (rio Urubu and floodplain lakes in the vicinity of Manaus), plus Pará state further downstream, Pando, Beni, and Santa Cruz departments in northern and eastern Bolivia (ríos Iténez/Guaporé, Yacuma, Itonomas, Piraí, and Orthon watersheds within the larger Madeira river basin), throughout the Río Paraguay system in southern Brazil (Mato Grosso do Sul state), Paraguay and northeastern Argentina (including ríos Pilcomayo, Confuso, Jejuí Guazú, Manduvirá, and Tebicuary), at least as far south as the confluence of the Río Paraguay with the Río Paraná.",
+          "countries": [],
+          "regions": [
+            "Madeira",
+            "Río Paraná"
+          ]
         }
       ]
     },
@@ -322,7 +346,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 2
       }
     ]
   },

@@ -1,13 +1,14 @@
 {
-  "slug": "ca-dia-nau",
-  "name": "Cá đĩa nâu",
+  "slug": "ca-dia",
+  "name": "Cá đĩa",
   "altNames": [
     "Cá đĩa Royal Green Tefé",
     "Cá đĩa Royal xanh lá Tefé",
     "Discus",
     "Royal Green Tefé discus",
     "Green discus",
-    "Cá đĩa Amazon"
+    "Cá đĩa Amazon",
+    "Cá đĩa nâu"
   ],
   "sections": {
     "notes:glaser": "<p>Các dạng \"Royal\" là vua của cá đĩa. Một con cá đĩa được gọi là Royal khi hoa văn xanh lá hoặc xanh dương phủ khắp thân. Trong nhóm cá đĩa xanh lá, Royal từ Tefé ở Brazil nổi tiếng là đẹp nhất, gần như thành huyền thoại. Tefé cũng là một trong những nơi thu mẫu chuẩn của S. aequifasciatus, tức là nơi người ta bắt những mẫu vật dùng để mô tả khoa học loài này. Ở Tefé có đặc biệt nhiều cá Royal, và chúng còn có thêm các đốm đỏ cam ở hai bên sườn.</p><p>Những con cá hiện có dài 12-15 cm.</p>",
@@ -26,5 +27,12 @@
       "glaser": 0.85,
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-dia-nau",
+      "name": "Cá đĩa nâu"
+    }
+  ]
 }

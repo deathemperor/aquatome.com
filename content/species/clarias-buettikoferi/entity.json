@@ -12,6 +12,178 @@
     "agneby",
     "ghana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LR",
+        "CI",
+        "GH"
+      ],
+      "regions": [
+        "Agnebi River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Clarias buettikoferi Steindachner, 1894. Type locality: Buluma, Liberia. Size: 192 mm (7.6\") SL. IUCN Red List: Least Concern (last assessed 2019).",
+          "countries": [
+            "LR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: from the Upper Gambia to the Agnebi River in Côte d'Ivoire.",
+          "countries": [
+            "CI"
+          ],
+          "regions": [
+            "Agnebi River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Reported from Ghana.",
+          "countries": [
+            "GH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202756,
+      "total": 51,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CI",
+          24
+        ],
+        [
+          "GN",
+          9
+        ],
+        [
+          "SL",
+          9
+        ],
+        [
+          "LR",
+          7
+        ],
+        [
+          "CM",
+          1
+        ],
+        [
+          "GM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          -14.0625,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -12.65625,
+          7.03125,
+          6,
+          0
+        ],
+        [
+          -12.65625,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -11.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          7.03125,
+          4,
+          3
+        ],
+        [
+          -9.84375,
+          7.03125,
+          5,
+          3
+        ],
+        [
+          -9.84375,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -8.4375,
+          7.03125,
+          7,
+          1
+        ],
+        [
+          -7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -4.21875,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -2.8125,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          8.4375,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

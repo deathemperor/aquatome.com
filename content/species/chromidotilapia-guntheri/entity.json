@@ -65,7 +65,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -244,5 +244,445 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "LR",
+        "CM",
+        "CI",
+        "NG",
+        "BJ",
+        "BF",
+        "GQ",
+        "GH",
+        "GN",
+        "ML",
+        "NE",
+        "TG"
+      ],
+      "regions": [
+        "Benue",
+        "Saint John River",
+        "Cross River",
+        "Barombi-ba-Kotto"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Chromidotilapia guntheri is a mouthbrooding cichlid from coastal drainages of western Africa between Liberia and Cameroon, plus the Niger and Benue.",
+          "countries": [
+            "LR",
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Assinie-Mafia in south-eastern Côte d'Ivoire (Ivory Coast), western Africa but currently accepted to be extensively distributed in coastal river drainages of central western Africa from the Saint John River, central Liberia to the Cross River drainage, in southeastern Nigeria and southwestern Cameroon.",
+          "countries": [
+            "CI",
+            "NG"
+          ],
+          "regions": [
+            "Saint John River",
+            "Cross River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+          "countries": [
+            "BJ",
+            "BF",
+            "GQ",
+            "GH",
+            "GN",
+            "ML",
+            "NE",
+            "TG"
+          ],
+          "regions": [
+            "Benue"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A putative subspecies, C. g. loennbergi, is endemic to the volcanic crater lake Barombi-ba-Kotto, south-western Cameroon plus some surrounding waters and is currently regarded as 'Critically Endangered' by the IUCN, not only due to its limited range but also deforestation, water abstraction and other human activities in the area.",
+          "countries": [],
+          "regions": [
+            "Barombi-ba-Kotto"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4285698,
+      "total": 293,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CI",
+          70
+        ],
+        [
+          "CM",
+          63
+        ],
+        [
+          "NG",
+          56
+        ],
+        [
+          "BJ",
+          33
+        ],
+        [
+          "GH",
+          29
+        ],
+        [
+          "TG",
+          19
+        ],
+        [
+          "ML",
+          8
+        ],
+        [
+          "BF",
+          5
+        ],
+        [
+          "GN",
+          5
+        ],
+        [
+          "NE",
+          3
+        ],
+        [
+          "CD",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -9.84375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -9.84375,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -8.4375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -8.4375,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -8.4375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -8.4375,
+          11.25,
+          3,
+          3
+        ],
+        [
+          -8.4375,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          -7.03125,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -7.03125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -5.625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          7.03125,
+          10,
+          10
+        ],
+        [
+          -5.625,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          -5.625,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -5.625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          4.21875,
+          16,
+          16
+        ],
+        [
+          -4.21875,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -4.21875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -4.21875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -2.8125,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -2.8125,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -1.40625,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -1.40625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          0,
+          5.625,
+          13,
+          13
+        ],
+        [
+          0,
+          7.03125,
+          10,
+          10
+        ],
+        [
+          0,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          26,
+          26
+        ],
+        [
+          1.40625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          1.40625,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          2.8125,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          4.21875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          4.21875,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          4.21875,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          5.625,
+          4.21875,
+          26,
+          26
+        ],
+        [
+          5.625,
+          5.625,
+          6,
+          6
+        ],
+        [
+          7.03125,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          7.03125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          8.4375,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          8.4375,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          8.4375,
+          5.625,
+          15,
+          15
+        ],
+        [
+          9.84375,
+          1.40625,
+          8,
+          8
+        ],
+        [
+          9.84375,
+          2.8125,
+          21,
+          21
+        ],
+        [
+          9.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          9.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          12.65625,
+          8.4375,
+          2,
+          2
+        ]
+      ]
+    }
+  }
 }

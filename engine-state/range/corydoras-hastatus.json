@@ -1,8 +1,8 @@
 {
   "id": "corydoras-hastatus",
   "native": {
-    "input": "86de627b3bbc837a",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "97899addd8e14d13",
+    "at": "2026-11-07T02:19:57.912Z",
     "claims": [
       {
         "code": "AR",
@@ -43,9 +43,67 @@
         "quote": "G. hastatus is found in Argentina, Bolivia, Brazil, Paraguay and Uruguay.",
         "words": "Uruguay",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is known from Brazil, Bolivia, Paraguay and northeastern Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is known from Brazil, Bolivia, Paraguay and northeastern Argentina.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is known from Brazil, Bolivia, Paraguay and northeastern Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is known from Brazil, Bolivia, Paraguay and northeastern Argentina.",
+        "words": "Argentina",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The tail-spot pygmy cory, Gastrodermus hastatus, long known as Corydoras hastatus, is a tiny armoured catfish with a wide range across the Amazon and Río Paraguay basins.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraguay",
+        "source": "seriouslyfish",
+        "quote": "The tail-spot pygmy cory, Gastrodermus hastatus, long known as Corydoras hastatus, is a tiny armoured catfish with a wide range across the Amazon and Río Paraguay basins.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "While the type locality is located on the Amazon main channel, between Sanatrém and Manaus in Amazonas state, Brazil, records also exist from elsewhere in Amazonas state (rio Urubu and floodplain lakes in the vicinity of Manaus), plus Pará state further downstream, Pando, Beni, and Santa Cruz departments in northern and eastern Bolivia (ríos Iténez/Guaporé, Yacuma, Itonomas, Piraí, and Orthon watersheds within the larger Madeira river basin), throughout the Río Paraguay system in southern Brazil (Mato Grosso do Sul state), Paraguay and northeastern Argentina (including ríos Pilcomayo, Confuso, Jejuí Guazú, Manduvirá, and Tebicuary), at least as far south as the confluence of the Río Paraguay with the Río Paraná.",
+        "country": "BO",
+        "ok": true
+      },
+      {
+        "name": "Río Paraná",
+        "source": "seriouslyfish",
+        "quote": "While the type locality is located on the Amazon main channel, between Sanatrém and Manaus in Amazonas state, Brazil, records also exist from elsewhere in Amazonas state (rio Urubu and floodplain lakes in the vicinity of Manaus), plus Pará state further downstream, Pando, Beni, and Santa Cruz departments in northern and eastern Bolivia (ríos Iténez/Guaporé, Yacuma, Itonomas, Piraí, and Orthon watersheds within the larger Madeira river basin), throughout the Río Paraguay system in southern Brazil (Mato Grosso do Sul state), Paraguay and northeastern Argentina (including ríos Pilcomayo, Confuso, Jejuí Guazú, Manduvirá, and Tebicuary), at least as far south as the confluence of the Río Paraguay with the Río Paraná.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

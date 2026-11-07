@@ -6,8 +6,8 @@
  *
  * Series colours (shell.ts, --s1..--s3): moss, water, rust, in that order, stepped for each mode and checked with the
  * dataviz skill's validator against the panel they sit on (each adjacent pair clears the colour-blind target and the
- * normal-vision floor). A stack draws them bottom-up in that order. A series that means good or bad takes the status
- * tone instead (`bad`), and one that is only context the muted one (`mute`).
+ * normal-vision floor). A stack draws them bottom-up in that order; one that is only context takes the muted one
+ * (`mute`). A series is never the status colours: those mean what waits on the owner, and faults.
  */
 import { localDay } from './time'
 
@@ -39,7 +39,8 @@ const f2 = (v: number) => +v.toFixed(2)
 /** A value that can be drawn: null, undefined and NaN are days not recorded. */
 const known = (v: number | null | undefined): v is number => typeof v === 'number' && Number.isFinite(v)
 
-export type Tone = 's1' | 's2' | 's3' | 'bad' | 'mute'
+/** A series is never orange or red (those mean waits on the owner, and a fault): s1–s3 by position, mute for context. */
+export type Tone = 's1' | 's2' | 's3' | 'mute'
 /** A value per day; null where the day wasn't recorded (drawn as such, and said in its readout). */
 export type Series = { label: string; values: (number | null)[]; tone?: Tone }
 export type DayChart = {
@@ -58,6 +59,8 @@ export type DayChart = {
   unit?: 'usd'
   /** The last day is today and not over yet: drawn lighter, said in its readout. */
   partialLast?: boolean
+  /** Today's bar when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). */
+  today?: number
   /** 'week': each of `days` is a week's Monday, and the chart says so. */
   period?: 'week'
   /** What to say when every value is 0 or missing, or there are no days. */
@@ -165,6 +168,47 @@ export function dayChart(c: DayChart): string {
   return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}${readout}</figcaption>${plot}${table}</figure>`
 }
 
+/** The dashboard's languages: the sections not yet moved to English stay Vietnamese. */
+export type DashLang = 'vi' | 'en'
+export type Readout = { title: string; detail: string }
+const SHORT_DAY: Record<DashLang, string[]> = { vi: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'], en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] }
+const MONTH_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+/** 2026-11-05 → 5 Nov */
+export const dayMonthEn = (day: string) => `${+day.slice(8, 10)} ${MONTH_EN[+day.slice(5, 7) - 1]}`
+export const weekdayOf = (day: string) => new Date(`${day}T00:00:00Z`).getUTCDay()
+export const fmtEn = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
+export const usdEn = (n: number) => `$${fmtEn(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
+const lowerFirst = (s: string) => s.charAt(0).toLocaleLowerCase() + s.slice(1)
+/** Today's bar: `today`, or the last one when it isn't over (-1: today isn't on the chart). */
+export const todayOf = (c: Pick<DayChart, 'days' | 'today' | 'partialLast'>) => c.today ?? (c.partialLast ? c.days.length - 1 : -1)
+
+/**
+ * Each bar's words, as the app shows them: its axis label ("T5", "Hôm nay"; a week, its Monday), and what a tap on it
+ * shows: the first series' figure ("21 có kết quả"), then its day and the other series ("Thứ Năm 05/11 · 3 không có
+ * kết quả"). Days after today are still to come. `also`: figures said with each bar but not drawn.
+ */
+export function barWords(c: DayChart, lang: DashLang = 'vi', also: Series[] = []): { labels: string[]; readouts: Readout[] } {
+  const en = lang === 'en'
+  const format = c.format ?? (c.unit === 'usd' ? (en ? usdEn : usd) : (n: number) => (en ? fmtEn(n) : fmt(n)))
+  const weekly = c.period === 'week'
+  const today = todayOf(c)
+  const all = [...c.series.slice(0, 3), ...(c.whole ? [c.whole] : []), ...also]
+  const date = (d: string) => (en ? dayMonthEn(d) : dayLabel(d))
+  const label = (d: string, i: number) => (i === today && !weekly ? (en ? 'Today' : 'Hôm nay') : weekly || c.days.length > 7 ? date(d) : SHORT_DAY[lang][weekdayOf(d)]!)
+  const so = (i: number) => (i === today ? (en ? ', so far' : weekly ? ' · chưa hết tuần' : ' · chưa hết ngày') : '')
+  const day = (d: string, i: number) => (weekly ? `${en ? 'Week of' : 'Tuần'} ${date(d)}` : en ? `${SHORT_DAY.en[weekdayOf(d)]} ${date(d)}` : `${WEEKDAY[weekdayOf(d)]} ${date(d)}`) + so(i)
+  const missing = c.missing ?? (en ? 'not recorded' : 'không có số liệu')
+  // English counts one of a thing as one: "1 shop click".
+  const noun = (s: Series, v: number) => lowerFirst(en && v === 1 && /[^s]s$/.test(s.label) ? s.label.slice(0, -1) : s.label)
+  const said = (s: Series, i: number) => (known(s.values[i]) ? `${format(s.values[i]!)} ${noun(s, s.values[i]!)}` : `${lowerFirst(s.label)}: ${missing}`)
+  return {
+    labels: c.days.map(label),
+    readouts: c.days.map((d, i) => (today >= 0 && i > today
+      ? { title: en ? 'Still to come' : 'Chưa tới', detail: day(d, i) }
+      : { title: said(all[0]!, i), detail: [day(d, i), ...all.slice(1).map(s => said(s, i))].join(' · ') })),
+  }
+}
+
 /** A share of a whole (0–1) as a thin bar on a track, for the eye only: the text beside it says the figure. */
 export function meter(share: number, tone?: 'warn'): string {
   if (!Number.isFinite(share)) return ''
@@ -197,11 +241,13 @@ export function rankTable(rows: Ranked[], head: string[], format: (n: number) =>
 
 export type Delta = { now: number; before: number; vs: string; /** 'up': more is better (readers, clicks): coloured. */ good?: 'up' }
 /** A change in words: "+12% so với 7 ngày trước", signed with a real minus; its tone (none when there was nothing before). */
-export function deltaOf(d: Delta): { text: string; tone?: 'good' | 'bad' | 'flat' } {
-  if (!d.before) return { text: d.now ? `${d.vs}: 0` : `như ${d.vs}` }
+export function deltaOf(d: Delta, lang: DashLang = 'vi'): { text: string; tone?: 'good' | 'bad' | 'flat' } {
+  const en = lang === 'en'
+  if (!d.before) return { text: d.now ? `${d.vs}: 0` : `${en ? 'same as' : 'như'} ${d.vs}` }
   const p = Math.round(((d.now - d.before) / d.before) * 100)
-  const tone = !p ? 'flat' : d.good === 'up' ? (p > 0 ? 'good' : 'bad') : 'flat'
-  return { text: `${p > 0 ? '+' : p < 0 ? '−' : '±'}${fmt(Math.abs(p))}% so với ${d.vs}`, tone }
+  // Coloured only past 5%, and only where more is plainly better.
+  const tone = Math.abs(p) <= 5 ? 'flat' : d.good === 'up' ? (p > 0 ? 'good' : 'bad') : 'flat'
+  return { text: `${p > 0 ? '+' : p < 0 ? '−' : '±'}${(en ? fmtEn : fmt)(Math.abs(p))}% ${en ? 'vs' : 'so với'} ${d.vs}`, tone }
 }
 /** "+12% so với 7 ngày trước", coloured only where more is plainly better. */
 export function deltaHtml(d: Delta): string {
@@ -252,7 +298,8 @@ export function chipOf(now: number, before: number, vs: string, good?: 'up'): Ch
   const d = now - before
   const small = before < 10 || now < 10
   const v = small ? Math.abs(d) : Math.round((Math.abs(d) / before) * 100)
-  const tone = !d || !v ? 'plain' : good === 'up' ? (d > 0 ? 'good' : 'bad') : 'plain'
+  // Coloured only past 5% (anything from nothing is past it).
+  const tone = !d || !v || (before && Math.abs(d) / before <= 0.05) ? 'plain' : good === 'up' ? (d > 0 ? 'good' : 'bad') : 'plain'
   return { text: `${d > 0 ? '+' : d < 0 ? '−' : '±'}${fmt(v)}${small ? '' : '%'}`, tone, vs }
 }
 export const chipHtml = (c: Chip | undefined) =>

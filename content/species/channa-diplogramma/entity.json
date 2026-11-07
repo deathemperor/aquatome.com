@@ -46,7 +46,7 @@
     "difficulty": [
       {
         "source": "seriouslyfish",
-        "value": 6
+        "value": 4
       }
     ]
   },
@@ -195,5 +195,90 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Meenachil",
+        "Manimala",
+        "Pampa",
+        "Kallada",
+        "Tambraparni"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Malabar snakehead, Channa diplogramma, is a large snakehead endemic to the southern Western Ghats in Kerala and Tamil Nadu, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to southern parts of the Western Ghats mountains in southern India with records existing from the Meenachil, Manimala, Pampa, Achenkovil and Kallada rivers in Kerala state, as well as the Chittar and Tambraparni drainages in Tamil Nadu state.",
+          "countries": [],
+          "regions": [
+            "Meenachil",
+            "Manimala",
+            "Pampa",
+            "Kallada",
+            "Tambraparni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391501,
+      "total": 17,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          75.9375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          10,
+          10
+        ]
+      ]
+    }
+  }
 }
