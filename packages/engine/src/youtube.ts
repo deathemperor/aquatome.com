@@ -10,12 +10,13 @@ import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
-import { lastKept, logReviews } from './review-log'
+import { lastKept, logReviews, readReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
 import type { Storyboard, Stream, VideoFrames } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
+import { byRank } from './video-order'
 import { seconds } from './videos'
 
 /** YouTube is rate-limiting or bot-checking this machine: stop everything and try again next cycle; no video is at fault. */
@@ -109,13 +110,19 @@ const thumbOf = async (id: string) => {
   return ok ? { url: maxres, width: 1280, height: 720 } : { url: `https://i.ytimg.com/vi/${id}/mqdefault.jpg`, width: 320, height: 180 }
 }
 
-/** Transcripts kept on this machine (not committed): the images pass and rewrites reuse them instead of asking YouTube again. */
+/**
+ * Transcripts kept on this machine (not committed): the images pass and rewrites reuse them instead of asking YouTube again.
+ * One fetch at a time in a process, so guides checked a few at once (video-recheck.sh) never ask YouTube at once.
+ */
 const CACHE = process.env.TRANSCRIPT_CACHE ?? join(homedir(), '.cache/aquatome/transcripts')
+let fetching: Promise<unknown> = Promise.resolve()
 async function cached(file: string, make: () => Promise<string | null>): Promise<string | null> {
   const path = join(CACHE, file)
   const hit = await readFile(path, 'utf8').catch(() => null)
   if (hit) return hit
-  const v = await make()
+  const mine = fetching.then(make)
+  fetching = mine.catch(() => undefined)
+  const v = await mine
   if (v) { await mkdir(CACHE, { recursive: true }); await writeFile(path, v) }
   return v
 }
@@ -400,20 +407,50 @@ export type VideoDeps = { yt: YouTube; llm: Llm; root: string; now: () => Date; 
 export type VideoReport = { written: string[]; skipped: string[]; errors: string[]; stoppedEarly: boolean }
 
 /**
+ * The guides a recheck (review-backfill.ts, `reviewedBefore`) left for a redo: the review of the version on the site is a
+ * recheck from `since` on, under the bar, with notes for the writer, and the video wasn't tried after it (a redo leaves
+ * its own review; a skip or a failure, the video's state). The owner's videos first, or in `rank`'s order (by guide id,
+ * video-order.ts), then the lowest scores.
+ */
+export async function recheckedGuides(root: string, since: string, rank?: (id: string) => number[]): Promise<{ id: string; series?: string }[]> {
+  const state = await loadState(root, 'youtube')
+  const owners = new Set(((await readJson<{ id: string; by?: string }[]>(join(root, 'engine-state/youtube-videos.json'))) ?? []).filter(v => v.by === 'owner').map(v => v.id))
+  const out: { id: string; series?: string; score: number; first: boolean }[] = []
+  for (const [key, ts] of Object.entries(await readReviews(root, 'video-guide'))) {
+    const id = /^vi\/guides\/youtube-(.+)$/.exec(key)?.[1]
+    const t = ts.find(x => x.kept)
+    if (!id || !t || t.attempt !== 'recheck' || Date.parse(t.at) < Date.parse(since) || t.score >= QUALITY_THRESHOLD || !t.notes.length) continue
+    const tried = state[id]?.updatedAt
+    if (tried && Date.parse(tried) > Date.parse(t.at)) continue
+    const v = (await readJson<GuideEntity>(join(root, 'content/guides', `youtube-${id}`, 'entity.json')))?.video
+    if (v) out.push({ id, ...(v.series ? { series: v.series.id } : {}), score: t.score, first: owners.has(id) })
+  }
+  const first = (a: (typeof out)[number], b: (typeof out)[number]) => (rank ? byRank(rank(`youtube-${a.id}`), rank(`youtube-${b.id}`)) : Number(b.first) - Number(a.first))
+  return out.sort((a, b) => first(a, b) || a.score - b.score || a.id.localeCompare(b.id)).map(({ id, series }) => ({ id, ...(series ? { series } : {}) }))
+}
+
+/**
  * Each playlist video not done yet → an original Vietnamese guide (guides/youtube-<id>/), reviewed against the transcript
  * and, if it scores low, edited once where the reviewer's notes point (then published unindexed, like translations).
  */
-/** redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. only: these video ids. */
-export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; only?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean } = {}): Promise<VideoReport> {
+/**
+ * redo: rewrite guides already written (same slug, cover kept), e.g. after a prompt change. only: these video ids.
+ * rechecked (with redo): the first `limit` of recheckedGuides(since, rank), and only their playlists: with none, no call;
+ * `parallel` of them at once.
+ */
+export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[]; singles?: string[]; only?: string[]; limit?: number; maxMinutes?: number; write?: WriteOpts; redo?: boolean; rechecked?: string; rank?: (id: string) => number[]; parallel?: number } = {}): Promise<VideoReport> {
   const { yt, llm, root } = deps
   const contentRoot = join(root, 'content')
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
   const report: VideoReport = { written: [], skipped: [], errors: [], stoppedEarly: false }
   const state = await loadState(root, 'youtube')
-  const set = async (id: string, s: Omit<UrlState, 'attempts' | 'updatedAt'>) => {
+  // The files every video writes (the state, the changelog), one write at a time: videos can be written at once.
+  let writing: Promise<unknown> = Promise.resolve()
+  const inTurn = <T>(f: () => Promise<T>) => { const r = writing.then(f); writing = r.catch(() => undefined); return r }
+  const set = (id: string, s: Omit<UrlState, 'attempts' | 'updatedAt'>) => inTurn(async () => {
     state[id] = { ...s, attempts: s.status === 'error' ? (state[id]?.attempts ?? 0) + 1 : 0, updatedAt: deps.now().toISOString() }
     await saveState(root, 'youtube', state)
-  }
+  })
   /**
    * redo: the guides on the site (whatever a later attempt left in the state), each once, in the playlist that is its
    * series (a video in several playlists is not moved, and other playlists get no series page). Their transcripts are
@@ -425,9 +462,11 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     if (v) written.set(v.youtubeId, v.series?.id)
   }
   const redone = new Set<string>()
+  const picked = opts.rechecked ? (await recheckedGuides(root, opts.rechecked, opts.rank)).slice(0, opts.limit) : undefined
+  const only = picked?.map(g => g.id) ?? opts.only
   /** New, or failed fewer than 3 times and waited 6 h × attempts (so an outage doesn't use up every video's tries in one day). */
   const due = (id: string, playlist?: string) => {
-    if (opts.only && !opts.only.includes(id)) return false
+    if (only && !only.includes(id)) return false
     if (opts.redo) return written.has(id) && !redone.has(id) && written.get(id) === playlist
     const s = state[id]
     return !s || (s.status === 'error' && s.attempts < 3 && deps.now().getTime() - Date.parse(s.updatedAt) > s.attempts * 6 * 3_600_000)
@@ -496,7 +535,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       await mkdir(dir, { recursive: true })
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
-      await appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }])
+      await inTurn(() => appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }]))
       await logReviews(root, 'video-guide', { id: `guides/${id}`, lang: 'vi' }, tries, kept, { now: deps.now() })
       await set(vid, { status: 'processed', entityIds: [id] })
       report.written.push(`${id} (${score.toFixed(2)})`)
@@ -514,7 +553,9 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     return false
   }
 
-  for (const pl of opts.playlists ?? await readPlaylists(root)) {
+  // The picked guides (rechecked) are listed first, then written `parallel` at a time.
+  const tasks: { vid: string; series?: Series; i: number }[] = []
+  for (const pl of picked ? [...new Set(picked.flatMap(g => g.series ?? []))] : opts.playlists ?? await readPlaylists(root)) {
     let p: Playlist
     try { p = await yt.playlist(pl) } catch (e) { report.errors.push(`playlist ${pl}: ${(e as Error).message}`); continue }
     if (!p.videos.some(v => due(v.id, p.id))) continue
@@ -526,17 +567,30 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
     }
     for (const [i, { id: vid }] of p.videos.entries()) {
       if (!due(vid, p.id)) continue
+      if (picked) { tasks.push({ vid, series, i }); continue }
       if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
       if (await one(vid, series, i)) return report
       await deps.sleep(VIDEO_GAP_MS)
     }
   }
   // Single videos (engine-state/youtube-videos.json): no series.
-  for (const vid of opts.singles ?? await readSingles(root)) {
+  for (const vid of picked ? picked.filter(g => !g.series).map(g => g.id) : opts.singles ?? await readSingles(root)) {
     if (!due(vid)) continue
+    if (picked) { tasks.push({ vid, i: 0 }); continue }
     if (deps.now().getTime() > deadline || (opts.limit !== undefined && report.written.length >= opts.limit)) { report.stoppedEarly = true; return report }
     if (await one(vid)) return report
     await deps.sleep(VIDEO_GAP_MS)
   }
+  // Already `limit` of them, in their order; a stop (model down, YouTube throttling) starts no more.
+  tasks.sort((a, b) => only!.indexOf(a.vid) - only!.indexOf(b.vid))
+  let stop = false
+  const worker = async () => {
+    for (let t = tasks.shift(); t && !stop; t = tasks.shift()) {
+      if (deps.now().getTime() > deadline) { report.stoppedEarly = stop = true; return }
+      if (await one(t.vid, t.series, t.i)) { stop = true; return }
+      await deps.sleep(VIDEO_GAP_MS)
+    }
+  }
+  await Promise.all(Array.from({ length: Math.max(1, opts.parallel ?? 1) }, worker))
   return report
 }

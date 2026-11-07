@@ -6,12 +6,16 @@ import { LlmError, type Llm } from './claude'
 import { placeLine, review as reviewLocalized, reviewPlaces, translatableIn, type TargetLang } from './localize'
 import { reviewTranslation } from './quality'
 import { itemReviews, logReviews, readReviews, reviewKey, type PageRef, type ReviewKind } from './review-log'
+import { byRank } from './video-order'
 import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
 
 /**
  * Pages under the bar whose review left no notes (it ran before reviews were kept), reviewed again as they are, nothing
  * rewritten: each gets its review's score and notes in engine-state/reviews (attempt "recheck"). Per kind, `limit` model
  * calls a run; `only` pages (ids, as `youtube-<id>` or `species/<id>`) are reviewed again whatever their score and notes.
+ * `reviewedBefore` (a time): every page whose version on the site has no review from then on, whatever its score, after a
+ * reviewer's prompt changed; its recheck is from after it, so a page is reviewed again once. `rank`: that order instead
+ * (video-order.ts byRank), then the lowest scores. `parallel`: pages reviewed at once (places: one batch at a time).
  *
  * - video-guide: the guide against its transcript (yt; the video job's, on the Mac). The videos the owner added first,
  *   then the lowest scores.
@@ -58,14 +62,18 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
 
 const matches = (only: string[], p: PageRef) => only.some(x => p.id === x || p.id.endsWith(`/${x}`) || reviewKey(p) === x)
 
-export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly BackfillKind[]; limit: number; only?: string[] }): Promise<BackfillReport> {
+export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly BackfillKind[]; limit: number; only?: string[]; reviewedBefore?: string; rank?: (p: PageRef) => number[]; parallel?: number }): Promise<BackfillReport> {
   const report: BackfillReport = { checked: [], failed: [], stopped: '', left: {} }
   const content = join(d.root, 'content')
   const recheck = () => ({ recheck: true, now: d.now() })
   for (const kind of o.kinds ?? BACKFILL_KINDS) {
     if (report.stopped) break
     const traced = await readReviews(d.root, kind)
-    const todo = (await jobs(d.root, kind, !!o.only)).filter(j => (o.only ? matches(o.only, j.page) : !traced[reviewKey(j.page)]?.some(t => t.kept)))
+    // The store is newest first: the first kept review is the one of the version the page has now.
+    const kept = (j: Job) => traced[reviewKey(j.page)]?.find(t => t.kept)
+    const before = (j: Job) => { const t = kept(j); return !t || Date.parse(t.at) < Date.parse(o.reviewedBefore!) }
+    const todo = (await jobs(d.root, kind, !!o.only || !!o.reviewedBefore)).filter(j => (o.only ? matches(o.only, j.page) : o.reviewedBefore ? before(j) : !kept(j)))
+    if (o.rank) todo.sort((a, b) => byRank(o.rank!(a.page), o.rank!(b.page)) || a.score - b.score || reviewKey(a.page).localeCompare(reviewKey(b.page)))
     let calls = 0
     const next = () => calls < o.limit && !report.stopped
     if (kind === 'places') {
@@ -95,9 +103,11 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
       continue
     }
     const translatable = kind === 'localize' ? await translatableIn(d.root) : () => true
+    // A few at a time: a page holds its place in the limit while it is being reviewed, so `parallel` never overshoots it.
     let done = 0
-    for (const j of todo) {
-      if (!next()) break
+    let busy = 0
+    let k = 0
+    const one = async (j: Job): Promise<void> => {
       const [dir, id] = j.page.id.split('/') as [string, string]
       const at = join(content, dir, id)
       try {
@@ -105,11 +115,11 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
         if (kind === 'video-guide') {
           const e = await json<GuideEntity>(join(at, 'entity.json'))
           const vi = await json<Translation>(join(at, 'vi.json'))
-          if (!e?.video || !vi || !d.yt) { report.failed.push(`${j.page.id}: ${!d.yt ? 'no YouTube access' : 'no video'}`); continue }
+          if (!e?.video || !vi || !d.yt) { report.failed.push(`${j.page.id}: ${!d.yt ? 'no YouTube access' : 'no video'}`); return }
           if (done) await (d.sleep ?? (ms => new Promise(res => setTimeout(res, ms))))(VIDEO_GAP_MS)
           const lang = e.video.lang ?? 'en'
           const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
-          if (!transcript) { report.failed.push(`${j.page.id}: no transcript`); continue }
+          if (!transcript) { report.failed.push(`${j.page.id}: no transcript`); return }
           r = await reviewDraft(d.llm, transcript, { viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [] }, { title: e.video.title, channel: e.video.channel, lang })
         } else {
           const e = await json<{ sections: Section[] }>(join(at, 'entity.json'))
@@ -117,7 +127,7 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           // The parts its reviewer read: one source's sections (references aside), or every translatable one.
           const sections = (e?.sections ?? []).filter(s => s.html.trim() && (kind === 'translation' ? s.source === j.page.part && s.key !== 'references' : translatable(s.source)))
           const parts = sections.map(s => ({ id: `${s.key}:${s.source}`, en: s.html })).filter(p => kind === 'localize' || t?.sections[p.id])
-          if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); continue }
+          if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); return }
           r = kind === 'translation'
             ? await reviewTranslation(d.llm, parts.map(p => ({ en: p.en, vi: t.sections[p.id]! })))
             : await reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections)))
@@ -127,11 +137,18 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
         await logReviews(d.root, kind, j.page, [r], r, recheck())
         report.checked.push(`${kind} ${reviewKey(j.page)}: ${r.score.toFixed(2)} (was ${j.score.toFixed(2)}), ${r.notes.length} notes`)
       } catch (e) {
-        if (e instanceof LlmError) { report.stopped = `${reviewKey(j.page)}: ${e.message}`; break }
-        if (throttled(e)) { report.stopped = `YouTube is throttling (${j.page.id})`; break }
+        if (e instanceof LlmError) { report.stopped ||= `${reviewKey(j.page)}: ${e.message}`; return }
+        if (throttled(e)) { report.stopped ||= `YouTube is throttling (${j.page.id})`; return }
         report.failed.push(`${reviewKey(j.page)}: ${(e as Error).message.slice(0, 200)}`)
       }
     }
+    const worker = async () => {
+      while (k < todo.length && calls + busy < o.limit && !report.stopped) {
+        busy++
+        try { await one(todo[k++]!) } finally { busy-- }
+      }
+    }
+    await Promise.all(Array.from({ length: Math.max(1, o.parallel ?? 1) }, worker))
     report.left[kind] = todo.length - done
   }
   return report

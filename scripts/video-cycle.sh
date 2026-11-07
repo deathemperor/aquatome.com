@@ -35,9 +35,8 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 log "videos start"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
-# Guides under the bar whose review left no notes (written before reviews were kept), reviewed again against their
-# transcript, nothing rewritten: the owner's videos first, REVIEW_BACKFILL_LIMIT a run (engine-state/reviews/video-guide.json).
-pnpm engine review-backfill --kind video-guide --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
+# Guides are checked again (review-backfill) and redone from the notes by their own hourly job, video-recheck.sh, not
+# here: the two jobs never check one guide at once.
 pnpm engine video-items --limit 20 || log "video-items: failed"
 # The species-profile channels (species-videos.ts PROFILE_CHANNELS): their new uploads vetted by title, then a few profile
 # videos a run into species and plant pages (a new species page is a web research call), each tried once

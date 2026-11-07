@@ -56,3 +56,12 @@ test('the video job checks as the engine cycle does: it waits for a calmer Mac, 
   expect(cycle.match(/\bverify '/g)).toHaveLength(2)
   expect(cycle).not.toMatch(/\bchecks '|^checks\(\)/m)
 })
+
+test('video guides are checked again by their own job alone, recheck then redo, with the video job\'s checks', () => {
+  const recheck = readFileSync(join(ROOT, 'scripts/video-recheck.sh'), 'utf8')
+  expect(recheck).toContain('source scripts/cycle-checks.sh')
+  expect(recheck.match(/\bverify '/g)).toHaveLength(2)
+  expect(recheck).toMatch(/^pnpm engine review-backfill --kind video-guide --reviewed-before .*\n(#.*\n)*pnpm engine videos --redo --rechecked-since /m)
+  // The video job checks none again, so the two never check one guide at once.
+  expect(readFileSync(join(ROOT, 'scripts/video-cycle.sh'), 'utf8')).not.toMatch(/^pnpm engine (review-backfill|videos --redo)/m)
+})

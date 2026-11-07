@@ -38,6 +38,15 @@ test('notes are capped (10 a review, 400 characters a note); a run whose page wa
   expect(t!.kept).toBe(false)
 })
 
+test('a read while this process is writing the file waits for the write: a redo running beside another read half a file', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rl-'))
+  const r: Review = { score: 0.6, notes: ['Adds a dose the video never gives'] }
+  const writing = logReviews(root, 'video-guide', { id: 'guides/youtube-a1', lang: 'vi' }, [r], r, { now: at(1) })
+  expect(Object.keys(await readReviews(root, 'video-guide'))).toEqual(['vi/guides/youtube-a1'])
+  expect(await lastKept(root, { id: 'guides/youtube-a1', lang: 'vi' }, ['video-guide'])).toMatchObject({ score: 0.6 })
+  await writing
+})
+
 test('pages reviewed at once in one process all land (summaries run several pages at a time)', async () => {
   const root = await mkdtemp(join(tmpdir(), 'rl-'))
   await Promise.all(Array.from({ length: 20 }, (_, i) => { const r = { score: 1, notes: [] }; return logReviews(root, 'summary', { id: `species/s${i}`, lang: 'vi' }, [r], r) }))
