@@ -1,0 +1,76 @@
+{
+  "id": "cephalosilurus-fowleri",
+  "native": {
+    "input": "6543ed93510680af",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio São Francisco, Cidade de Barra, Bahia, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: São Francisco River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "São Francisco",
+        "source": "planetcatfish",
+        "quote": "South America: São Francisco River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cephalosilurus fowleri",
+    "status": "ACCEPTED",
+    "taxonKey": 2344119,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

@@ -1,18 +1,20 @@
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
+import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
 import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
-import { fold, search } from '../chat/search'
+import { fold, search, searchTopics } from '../chat/search'
+import { topicsOf, type Topics } from '../chat/topics'
 import { chatTools, SECTION_CHARS, type Step } from '../chat/tools'
 import { contract } from './contract'
 
 // The fixture build's app index and page copies (pnpm test builds the site first), as the Worker reads them from its assets.
 const DIST = fileURLToPath(new URL('../../dist/', import.meta.url).href)
 const json = (file: string) => (existsSync(DIST + file) ? JSON.parse(readFileSync(DIST + file, 'utf8')) : null)
-const source: Source = { index: async lang => json(`app/${lang}.json`), shard: async (lang, kind, n) => json(`app/pages/${lang}/${kind}-${n}.json`) }
+const source: Source = { index: async lang => json(`app/${lang}.json`), shard: async (lang, kind, n) => json(`app/pages/${lang}/${kind}-${n}.json`), topics: async lang => json(`app/chat/${lang}.json`) }
 const hb = async (): Promise<Handbook> => (await handbookOf(source, 'vi'))!
 const { misfits } = contract('chat.openapi.json')
 const block = { $ref: '#/components/schemas/Block' }
@@ -137,6 +139,117 @@ test('a section is every block under its heading, to the next heading, however m
   expect(blocks[0]).toMatchObject({ t: 'section', heading: { id: 'mot' }, blocks: paras })
   expect(blocks[1]).toMatchObject({ t: 'section', blocks: [{ t: 'p', c: ['Mở đầu.'] }] })
   for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+})
+
+test('a guide is found by a section heading or a FAQ question past its title, with the section to open it at; its title still first', async () => {
+  const h = await hb()
+  // The build's /app/chat/vi.json is every guide's headings and FAQ questions, as the app's copy of each guide has them.
+  const guides = (readdirSync(`${DIST}app/pages/vi`).filter(f => f.startsWith('guide-')).flatMap(f => Object.values(json(`app/pages/vi/${f}`).pages))) as PageDoc[]
+  expect(await h.topics()).toEqual(topicsOf(guides))
+  const algae = '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'
+  expect((await h.topics())!.pages[algae]).toEqual([['khoi-dong-be-moi', 'Khởi động bể mới'], ['anh-sang-va-co2', 'Ánh sáng và CO2'], ['bat-dau-tu-dau', 'Bắt đầu từ đâu'], ['bat-dau-tu-dau', 'Nên thay nước lúc nào?']])
+  // No title says CO2; a heading of the algae guide does. A FAQ question, at the section that holds it.
+  const searched = async (query: string, kind: string | null = null) => JSON.parse((await run('search_handbook', { query, kind }, h)).out as string)
+  expect(await searched('CO2')).toEqual([expect.objectContaining({ path: algae, kind: 'guide', section: { id: 'anh-sang-va-co2', text: 'Ánh sáng và CO2' } })])
+  expect((await searched('thay nước lúc nào'))[0]).toMatchObject({ path: algae, section: { id: 'bat-dau-tu-dau', text: 'Nên thay nước lúc nào?' } })
+  // A guide named for it comes first, without a section; the same guide isn't listed twice.
+  const water = await searched('thay nước', 'guide')
+  expect(water[0]).toEqual({ path: '/vi/huong-dan/thay-nuoc-dung-cach/', kind: 'guide', name: 'Thay nước đúng cách' })
+  expect(water.filter((x: { path: string }) => x.path === algae)).toHaveLength(1)
+  // "phân": the fertiliser guide is named for it and two of its headings have it too; it is listed once, by its name,
+  // and the topic search gives a guide once, at its best topic.
+  const fertiliser = '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/'
+  const paths = (await searched('phân', 'guide')).map((x: { path: string }) => x.path)
+  expect(paths).toContain(fertiliser)
+  expect(new Set(paths).size).toBe(paths.length)
+  expect((await searched('phân', 'guide')).find((x: { path: string }) => x.path === fertiliser)).not.toHaveProperty('section')
+  const byTopic = searchTopics((await h.topics())!, h.byPath, 'phân').map(x => x.item.path)
+  expect(byTopic.filter(p => p === fertiliser)).toHaveLength(1)
+  expect(new Set(byTopic).size).toBe(byTopic.length)
+  // Another kind than guides, or topics that can't be read: names only.
+  expect(await run('search_handbook', { query: 'CO2', kind: 'fish' }, h).then(r => r.out)).toMatch(/^No page by that name/)
+  const bare = (await handbookOf({ ...source, topics: async () => null }, 'vi'))!
+  expect((await run('search_handbook', { query: 'CO2', kind: null }, bare)).out).toMatch(/^No page by that name/)
+  expect(searchTopics({ v: 1, pages: {} }, h.byPath, 'CO2')).toEqual([])
+  // A topics file of another shape (a later version, no pages): names only, not a failed search.
+  for (const odd of [{ v: 2, pages: {} }, { v: 1 }, { v: 1, pages: { [algae]: 'Ánh sáng và CO2' } }, { v: 1, pages: { [algae]: [[null]] } }]) {
+    const other = (await handbookOf({ ...source, topics: async () => odd as never }, 'vi'))!
+    expect(await other.topics()).toBeNull()
+    expect(JSON.parse((await run('search_handbook', { query: 'thay nước', kind: 'guide' }, other)).out as string)[0]).toMatchObject({ path: '/vi/huong-dan/thay-nuoc-dung-cach/' })
+  }
+})
+
+test("a guide named for the query past the eighth name, whose heading matches too, isn't lost when headings fill the list", async () => {
+  // Twelve guides named for it; five with a matching heading, the first of them the tenth by name. Eight names, then four
+  // headings: the tenth guide is among them, with its section, not dropped from both.
+  const items = Array.from({ length: 12 }, (_, i) => ({ kind: 'guide', name: `Lọc nước ${i}`, path: `/vi/huong-dan/loc-${i}/` }) as Item)
+  const others = Array.from({ length: 4 }, (_, i) => ({ kind: 'guide', name: `Bể ${i}`, path: `/vi/huong-dan/be-${i}/` }) as Item)
+  const topics: Topics = { v: 1, pages: Object.fromEntries([items[9]!, ...others].map(g => [g.path, [['loc-nuoc', 'Lọc nước']]])) }
+  const h = (await handbookOf({ index: async () => ({ lang: 'vi', items: [...items, ...others] }), shard: async () => null, topics: async () => topics }, 'vi'))!
+  const listed = JSON.parse((await run('search_handbook', { query: 'lọc nước', kind: 'guide' }, h)).out as string) as { path: string; section?: unknown }[]
+  expect(listed).toHaveLength(12)
+  expect(listed.slice(0, 8).map(x => x.path)).toEqual(items.slice(0, 8).map(i => i.path))
+  expect(listed.find(x => x.path === '/vi/huong-dan/loc-9/')).toMatchObject({ section: { id: 'loc-nuoc', text: 'Lọc nước' } })
+  expect(new Set(listed.map(x => x.path)).size).toBe(12)
+  // With only the tenth guide's heading matching, room is left for names past the eighth: the tenth is still listed
+  // once, by its heading, and the other names fill the list.
+  const one = (await handbookOf({ index: async () => ({ lang: 'vi', items: [...items, ...others] }), shard: async () => null, topics: async () => ({ v: 1, pages: { [items[9]!.path]: [['loc-nuoc', 'Lọc nước']] } }) }, 'vi'))!
+  const fewer = JSON.parse((await run('search_handbook', { query: 'lọc nước', kind: 'guide' }, one)).out as string) as { path: string; section?: unknown }[]
+  expect(fewer.map(x => x.path)).toEqual([...items.slice(0, 8), items[9]!, items[8]!, items[10]!, items[11]!].map(i => i.path))
+  expect(fewer[8]).toMatchObject({ section: { id: 'loc-nuoc' } })
+})
+
+test("a question's words weigh by how rare they are among the headings: its subject isn't dropped, and an accent tells words apart", () => {
+  // As the live headings have them: "ốc bùng phát" finds where snails come from, though that heading has no "phát" (by
+  // titles' rule, the snail word dropped, it found only the outbreaks); "tép chết", shrimp, not every death; "cá otto"
+  // still finds Otto, whose heading has no "cá"; "đèn" (a light) isn't "đen" (black), which folds alike.
+  const topics: Topics = {
+    v: 1,
+    pages: {
+      '/vi/huong-dan/oc/': [['oc-tu-dau-ra', 'Ốc từ đâu ra, vì sao bùng số lượng']],
+      '/vi/huong-dan/tao-nau/': [['tao-nau', 'Tảo nâu bùng phát'], ['ca-an-tao', 'Cá ăn tảo']],
+      '/vi/huong-dan/nuoc-duc/': [['vi-khuan', 'Vi khuẩn bùng phát làm nước đục']],
+      '/vi/huong-dan/tep/': [['tep-chet', 'Vì sao tép chết']],
+      '/vi/huong-dan/tep-an/': [['tep-an-gi', 'Tép ăn gì']],
+      '/vi/huong-dan/ca-chet/': [['ca-chet', 'Cá chết hàng loạt'], ['ca-noi-dau', 'Cá nổi đầu']],
+      '/vi/huong-dan/cay-chet/': [['cay-chet', 'Cây chết rễ']],
+      '/vi/huong-dan/don-reu/': [['otto', 'Otto: thợ dọn rêu của bể'], ['ca-don-be', 'Cá dọn bể khác']],
+      '/vi/huong-dan/den/': [['chon-den', 'Chọn đèn cho bể']],
+      '/vi/huong-dan/reu/': [['reu-rau-den', 'Rêu râu đen bám lũa']],
+      '/vi/huong-dan/ca/': [['ca-bo-an', 'Cá bỏ ăn'], ['ca-lo-do', 'Cá bơi lờ đờ']],
+      '/vi/huong-dan/cay-khoe/': [['cay-khoe', 'Giữ cây khỏe']],
+      '/vi/huong-dan/nam/': [['nam', 'Cá bị nấm trắng']],
+      '/vi/huong-dan/betta/': [['chuan-bi', 'Danh sách cần chuẩn bị cho cá betta']],
+      '/vi/huong-dan/nam-sau/': [['mot-nam', 'Bể cá sau một năm'], ['ba-nam', 'Ba năm nuôi cá'], ['mien-nam', 'Cá miền Nam']],
+      '/vi/huong-dan/oto/': [['oto', 'Otocinclus ăn rêu nâu']],
+      '/vi/huong-dan/thay-1/': [['thay-dinh-ky', 'Thay nước định kỳ cho bể cá lớn']],
+      '/vi/huong-dan/thay-2/': [['thay-nuoc', 'Thay nước']],
+    },
+  }
+  const byPath = (path: string) => ({ kind: 'guide', name: path, path }) as Item
+  const found = (query: string) => searchTopics(topics, byPath, query).map(h => h.section)
+  expect(found('ốc bùng phát')).toEqual(['oc-tu-dau-ra'])
+  expect(found('tép chết')).toEqual(['tep-chet'])
+  expect(found('cá otto')).toEqual(['otto'])
+  expect(found('đèn')).toEqual(['chon-den'])
+  // Typed without accents, either can be meant.
+  expect(found('den')).toEqual(['chon-den', 'reu-rau-den'])
+  // The tone mark on either vowel: "khoẻ" is the guides' "khỏe".
+  expect(found('khoẻ')).toEqual(['cay-khoe'])
+  // A word's rarity as written: "nấm" (fungus) is rare though "nam" also folds "năm" (a year) and "Nam" (south), so the
+  // fungus heading comes before a betta checklist with no fungus in it.
+  expect(found('cá betta bị nấm')[0]).toBe('nam')
+  // A word heading words begin ("otocin", Otocinclus) has a rarity; one no heading has weighs nothing, and doesn't
+  // keep the rest from matching.
+  expect(found('otocin')).toEqual(['oto'])
+  expect(found('cá otto propan')).toEqual(['otto'])
+  // Of two headings with all of the query, the one with fewer other words first; a word asked twice counts once.
+  expect(found('thay nước').slice(0, 2)).toEqual(['thay-nuoc', 'thay-dinh-ky'])
+  expect(found('tép tép chết')).toEqual(['tep-chet'])
+  // A Thai word beside accented Vietnamese isn't halved: Thai has no accents to fold, and its headings aren't split
+  // into words as written.
+  const mixed: Topics = { v: 1, pages: { '/th/a/': [['a', 'กำจัดตะไคร่น้ำ']], '/vi/b/': [['b', 'Đèn bể']], '/vi/c/': [['c', 'Đèn LED']], '/vi/d/': [['d', 'Mua đèn']] } }
+  expect(searchTopics(mixed, byPath, 'ตะไคร่ đèn').map(h => h.section)).toEqual(['a'])
 })
 
 test('Thai, written without spaces, is searched by its words: a word inside a title, a fish without "ปลา"', () => {

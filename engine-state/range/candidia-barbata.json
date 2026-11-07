@@ -1,0 +1,113 @@
+{
+  "id": "candidia-barbata",
+  "native": {
+    "input": "c2dbfc0699836ea3",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Taiwan, Southern China.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Taiwan, Southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Candidia barbata",
+    "status": "ACCEPTED",
+    "taxonKey": 2360854,
+    "datasets": [
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        1119
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        833
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        91
+      ],
+      [
+        "cf5e37a6-e657-4ee2-91c0-b1da03251a62",
+        63
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        21
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        19
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        15
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        13
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "b211f32f-326b-43d3-8012-2fbce0cc6dcc",
+        1
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TW",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

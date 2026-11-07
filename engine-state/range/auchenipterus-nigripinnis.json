@@ -1,8 +1,8 @@
 {
   "id": "auchenipterus-nigripinnis",
   "native": {
-    "input": "845e16852625e370",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "96a3d5a6b6b84f1e",
+    "at": "2026-11-07T02:19:57.912Z",
     "claims": [
       {
         "code": "AR",
@@ -43,6 +43,14 @@
         "quote": "In nature it lives in the La Plata basin of Argentina, Brazil, Paraguay and Uruguay.",
         "words": "Uruguay",
         "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Paraguay.",
+        "words": "Paraguay",
+        "ok": true
       }
     ],
     "regions": [
@@ -50,6 +58,24 @@
         "name": "La Plata",
         "source": "glaser",
         "quote": "In nature it lives in the La Plata basin of Argentina, Brazil, Paraguay and Uruguay.",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "scotcat",
+        "quote": "South America: La Plata River basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraná",
+        "source": "scotcat",
+        "quote": "In the Rio Paraná, the species has been recorded above the junction of the Rio Paraguay.",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraguay",
+        "source": "scotcat",
+        "quote": "In the Rio Paraná, the species has been recorded above the junction of the Rio Paraguay.",
         "ok": true
       }
     ],

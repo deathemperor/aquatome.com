@@ -10,6 +10,66 @@
     "malaysia",
     "sarawak"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Lupar",
+        "Rajang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Malaysian state of Sarawak, Borneo, with records from the Lupar, Sarawak, and Rajang river systems.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Lupar",
+            "Rajang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407800,
+      "total": 11,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          9,
+          9
+        ],
+        [
+          112.5,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,72 @@
+{
+  "id": "cambarellus-puer",
+  "native": {
+    "input": "b248de44de792f3a",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Cambarellus puer occurs from southern Illinois and Missouri southward along the Mississippi River to Louisiana, and westward to southeastern Oklahoma and eastern Texas.",
+        "words": "Illinois",
+        "ok": false,
+        "why": "\"Illinois\" is not US"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mississippi River",
+        "source": "aquariumbreeder",
+        "quote": "Cambarellus puer occurs from southern Illinois and Missouri southward along the Mississippi River to Louisiana, and westward to southeastern Oklahoma and eastern Texas.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cambarellus puer",
+    "status": "ACCEPTED",
+    "taxonKey": 2227434,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        46
+      ],
+      [
+        "1ad3c2b1-04dd-4be2-992b-f74027068713",
+        41
+      ],
+      [
+        "16b0aa56-90aa-436c-bfe8-b5af83f84575",
+        14
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        10
+      ],
+      [
+        "96cdea48-b78a-4345-ae6d-b2c7c6e0278a",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        4
+      ],
+      [
+        "854e35e6-f762-11e1-a439-00145eb45e9a",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

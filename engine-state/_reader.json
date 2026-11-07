@@ -114,6 +114,40 @@
     "findings": [],
     "ruled": "2efbd5e15432a688"
   },
+  "vi/guides/2hraquarist-blogs-algae-control-how-to-remove-brown-algae-diatoms-planted-aquarium": {
+    "at": "2026-11-07",
+    "hash": "0440db2ab84bb080",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Giữ cho tảo cát không bùng quá tay",
+        "problem": "\"Quá tay\" describes a person overdoing something, not algae spreading, so it reads as an unnatural word choice. The same phrase also appears in the 'Xử lý tảo cát ở bể mới' section.",
+        "fix": "Giữ cho tảo cát không bùng phát quá mức",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chính là cách trị tảo tốt hơn",
+        "problem": "The comparative \"tốt hơn\" has nothing to compare against, so the sentence feels unfinished.",
+        "fix": "chính là cách trị tảo hiệu quả nhất",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "How to Get Rid of Brown Algae (Diatoms) in Planted Aquariums - Complete Guide",
+        "problem": "The caption is the source article's title and says nothing about what the photo shows.",
+        "rule": "a caption identical to the source page's title",
+        "field": "caption"
+      }
+    ],
+    "ruled": "0440db2ab84bb080"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
@@ -460,6 +494,28 @@
       }
     ],
     "ruled": "70b85255209aff9f"
+  },
+  "vi/guides/aquariumbreeder-how-to-grow-algae-for-shrimp": {
+    "at": "2026-11-07",
+    "hash": "e326231d0c8d6ff3",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lượng oxy đó đến từ lọc, sủi khí hoặc máy sủi.",
+        "problem": "\"Sủi khí\" and \"máy sủi\" both mean the air pump, so the air stone from the source is lost and the list repeats itself.",
+        "fix": "Lượng oxy đó đến từ lọc, đá sủi hoặc máy sủi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e326231d0c8d6ff3"
+  },
+  "vi/guides/aquariumbreeder-how-to-improve-breeding-efficiency-of-caridina-shrimp": {
+    "at": "2026-11-07",
+    "hash": "5f8e97e3c782ce7f",
+    "findings": [],
+    "ruled": "5f8e97e3c782ce7f"
   },
   "vi/guides/aquariumbreeder-how-to-remove-brown-algae-diatoms-in-freshwater-tanks": {
     "at": "2026-11-05",
@@ -851,6 +907,23 @@
       }
     ],
     "ruled": "1db5169b1042095f"
+  },
+  "vi/guides/aquariumbreeder-questions-about-crabs": {
+    "at": "2026-11-07",
+    "hash": "e6d5f1096de1e2d2",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Câu hỏi về cho cua ăn",
+        "problem": "The first group heading ('## Câu hỏi chung về cua') is a heading, but the later group titles are plain lines, so they read as stray sentences between the numbered questions.",
+        "fix": "## Câu hỏi về cho cua ăn",
+        "rule": "A short line starting with 'Câu hỏi về' and no heading marker, placed between numbered '## N.' headings.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e6d5f1096de1e2d2"
   },
   "vi/guides/aquariumbreeder-rotifers-profile-and-culture-guide": {
     "at": "2026-11-06",
@@ -1264,6 +1337,22 @@
       }
     ],
     "ruled": "f755711f5614b97f"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-20-gallon-oddball-fish": {
+    "at": "2026-11-07",
+    "hash": "a3835e95b0d719cb",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 5 Oddball Fish for a 20-Gallon Aquarium - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, not a description of what the photo shows.",
+        "rule": "A caption that matches the source article's title or ends with a site name after a dash.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "a3835e95b0d719cb"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-3-types-of-planted-aquariums": {
     "at": "2026-11-03",
@@ -1990,6 +2079,12 @@
     ],
     "ruled": "b4c9db1c1843e707"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-breed-livebearers-for-profit": {
+    "at": "2026-11-07",
+    "hash": "2f26b19910750913",
+    "findings": [],
+    "ruled": "2f26b19910750913"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-breeder-box": {
     "at": "2026-11-01",
     "hash": "37a47dce87f311d4",
@@ -2006,6 +2101,30 @@
       }
     ],
     "ruled": "37a47dce87f311d4"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-camallanus-worms": {
+    "at": "2026-11-07",
+    "hash": "055a1bf75e607c24",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C3",
+        "quote": "Fritz Expel-P in hand",
+        "problem": "The photo shows a person's hand holding the product rather than the fish or the disease.",
+        "rule": "a caption containing 'hand' or 'hands'",
+        "field": "caption"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Làm sao biết cá bị giun đỏ?",
+        "problem": "The sections on symptoms and causes come after treatment and prevention, so the page explains how to treat the disease before telling the reader how to recognise it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "055a1bf75e607c24"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-care-guide-for-fancy-goldfish": {
     "at": "2026-11-05",
@@ -2297,6 +2416,12 @@
     ],
     "ruled": "0cf05bfa9a5982b2"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-dwarf-gourami": {
+    "at": "2026-11-07",
+    "hash": "8cf57a13e1147a8c",
+    "findings": [],
+    "ruled": "8cf57a13e1147a8c"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants": {
     "at": "2026-11-01",
     "hash": "68f6a900f943199f",
@@ -2312,6 +2437,30 @@
       }
     ],
     "ruled": "68f6a900f943199f"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-easy-fertilizer-for-aquarium-plants": {
+    "at": "2026-11-07",
+    "hash": "4d74ee267badfbb4",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Sau đó bạn mới châm phân lại với liều hợp lý.",
+        "problem": "The page first says not to stop dosing at 75 ppm nitrate or more, then says to dose 'again' afterwards, which implies you stopped; the source says to keep dosing and adjust.",
+        "fix": "Sau đó bạn chỉnh lại liều phân cho hợp lý.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bộ phân này nhắm tới chuyện bón phân đơn giản hết mức, dành cho những người chưa trồng cây bao giờ",
+        "problem": "The closing summary of all four products sits under the heading '4. Phân kali' as if it were about potassium.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4d74ee267badfbb4"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-egg-tumbler": {
     "at": "2026-11-03",
@@ -3559,6 +3708,32 @@
       }
     ],
     "ruled": "49db4e51a6d4befe"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-rainbowfish": {
+    "at": "2026-11-07",
+    "hash": "7ec24ea648c59bbd",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cá cầu vồng cỡ trung (lớn hơn 6 cm)",
+        "problem": "The medium-size group title is a plain line, while the matching nano group title is a heading, so this section boundary is lost.",
+        "fix": "## Cá cầu vồng cỡ trung (lớn hơn 6 cm)",
+        "rule": "A plain line that matches the pattern of an earlier group heading (same form, size range in parentheses) without the heading marker.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Top 10 Amazing Rainbowfish for Your Next Freshwater Aquarium - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of a fish, so the image is likely a banner rather than a photo of a species.",
+        "rule": "A caption identical to the source page's title.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "7ec24ea648c59bbd"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-tetras": {
     "at": "2026-11-03",
@@ -4817,6 +4992,39 @@
     ],
     "ruled": "7acd3e7016f0c2a3"
   },
+  "vi/guides/aquatome-ph-gh-kh-trong-be-ca-la-gi-do-va-chinh-the-nao": {
+    "at": "2026-11-07",
+    "hash": "d89a83d626ce89e4",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Không để KH xuống mức 2 dKH hoặc thấp hơn, vì khi đó pH dao động tới mức nguy hiểm.",
+        "problem": "This contradicts the page's own table and text, which recommend 0–1 dKH for Caridina tanks on aquasoil and 0–3 dKH for discus and Caridina.",
+        "fix": "Với bể cá thông thường, không để KH xuống mức 2 dKH hoặc thấp hơn, vì khi đó pH dao động tới mức nguy hiểm. Bể tép Caridina trên nền phân là ngoại lệ, vì nền phân giữ pH thay cho KH.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Liều này nâng KH thêm khoảng 2–3 dKH.",
+        "problem": "5 g of sodium bicarbonate in 100 L raises KH by about 1.7 dKH, not 2–3 dKH.",
+        "fix": "Liều này nâng KH thêm khoảng 1,5–2 dKH.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể thủy sinh có châm CO2 nên giữ KH trên khoảng 2–3 dKH.",
+        "problem": "The table gives 2–5 dKH for CO2 tanks, which differs from 'above about 2–3 dKH' here.",
+        "field": "body"
+      }
+    ],
+    "ruled": "d89a83d626ce89e4"
+  },
   "vi/guides/aquatome-phan-biet-ca-duc-cai-o-cac-loai-ca-canh-pho-bien-betta-bay-mau-molly-platy-ca-chu": {
     "at": "2026-11-03",
     "hash": "6b76d72b1c4f3563",
@@ -5184,6 +5392,12 @@
     "findings": [],
     "ruled": "19f74c22d32016e0"
   },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-peckoltia-sp-alto-nhamunda-en-2": {
+    "at": "2026-11-07",
+    "hash": "962854b1303bc13e",
+    "findings": [],
+    "ruled": "962854b1303bc13e"
+  },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-sturisoma-arrived-en": {
     "at": "2026-11-05",
     "hash": "fa4fb95f543cce17",
@@ -5201,6 +5415,44 @@
     "hash": "237af149e40644d1",
     "findings": [],
     "ruled": "237af149e40644d1"
+  },
+  "vi/guides/glaser-en-10-catfishes-10e-catfishes-from-asia-ompok-bimaculatus-and-o-pabda-en": {
+    "at": "2026-11-07",
+    "hash": "f089ab1ed3b3aac8",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Loài Ompok thứ hai nhiều khả năng được đưa sang Thái Lan để làm cá thực phẩm.",
+        "problem": "'The second Ompok species' comes with no earlier mention of a second species in stock, so the reader can't tell which fish is meant.",
+        "fix": "Loài Ompok thứ hai trong bài, nhiều khả năng là O. pabda, có lẽ đã được đưa sang Thái Lan để làm cá thực phẩm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f089ab1ed3b3aac8"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-new-endler-sports-en": {
+    "at": "2026-11-07",
+    "hash": "59d0c5368cc11e7e",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vây lưng xòe như lá cờ, viền trắng",
+        "problem": "The source describes a white flag-shaped dorsal fin, but the page says it only has a white edge.",
+        "fix": "vây lưng màu trắng, xòe như lá cờ",
+        "field": "body"
+      }
+    ],
+    "ruled": "59d0c5368cc11e7e"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25c-perchlike-fishes-3-remaining-cichlids-from-africa-pelvicachromis-humilis-and-close-relatives-from-guinea-3-pelvicachromis-humilis-sierra-leone-p-signatus-en": {
+    "at": "2026-11-07",
+    "hash": "d9b1617abe06315b",
+    "findings": [],
+    "ruled": "d9b1617abe06315b"
   },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
@@ -5223,6 +5475,12 @@
     "hash": "18b4442b5b4b5676",
     "findings": [],
     "ruled": "18b4442b5b4b5676"
+  },
+  "vi/guides/glaser-en-fisharchive-osteogaster-rabauti-and-o-zygata": {
+    "at": "2026-11-07",
+    "hash": "e2e66a58f8e0525b",
+    "findings": [],
+    "ruled": "e2e66a58f8e0525b"
   },
   "vi/guides/glaser-en-general-cichla-ocellaris-x-melaniae-hybrid-2": {
     "at": "2026-11-04",
@@ -5673,6 +5931,49 @@
       }
     ],
     "ruled": "478071d93c244c58"
+  },
+  "vi/guides/loachesonline-articles-oxygen-in-the-aquarium": {
+    "at": "2026-11-07",
+    "hash": "ea2ea654de299fed",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "- Tức là quá nhiều cá trong một bể quá nhỏ.",
+        "problem": "The list of causes of rapid breathing has lost its three cause labels (not enough oxygen, overcrowding, can't use the oxygen available), so only the explanations are left and the list makes no sense.",
+        "fix": "- Không đủ oxy sẵn có: thường không phải vấn đề với con người… \n- Bể quá đông: tức là quá nhiều cá trong một bể quá nhỏ.\n- Không thể xử lý lượng oxy sẵn có: có thể do vấn đề sinh lý hoặc bệnh tật.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Thường biểu hiện bằng lớp \"váng\" đục như sương nhìn thấy trong nước.",
+        "problem": "This list item about why fish gulp air at the surface has lost its cause label (a bacterial bloom), so the reader can't tell what it describes.",
+        "fix": "- Vi khuẩn bùng phát: thường biểu hiện bằng lớp \"váng\" đục như sương nhìn thấy trong nước.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tính chất bài bản và nhân tạo của lớp học được điều chỉnh trong thực tế khi làm việc ngoài đời.",
+        "problem": "This is a word-for-word translation of the English and a Vietnamese reader would stumble on it.",
+        "fix": "Ngoài đời, cách làm việc không cứng nhắc như trên lớp.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhưng thường bị quên rằng có rất nhiều Ich bên trong mang",
+        "problem": "This passive construction with no subject reads unnaturally.",
+        "fix": "nhưng thường quên rằng trong mang cá còn rất nhiều Ich",
+        "field": "body"
+      }
+    ],
+    "ruled": "ea2ea654de299fed"
   },
   "vi/guides/loachesonline-articles-sexual-dimorphism-courtship-behaviour-in-botia-almorhae": {
     "at": "2026-11-05",
@@ -9440,6 +9741,12 @@
     ],
     "ruled": "ef75fea57b794aff"
   },
+  "vi/guides/youtube-eefQoi7gQ_k": {
+    "at": "2026-11-07",
+    "hash": "47489ffae6792f30",
+    "findings": [],
+    "ruled": "47489ffae6792f30"
+  },
   "vi/guides/youtube-EIjUVVFcNmo": {
     "at": "2026-11-03",
     "hash": "60d085fc09a5e347",
@@ -10647,6 +10954,12 @@
     "findings": [],
     "ruled": "af6fc87e3dd5f0c8"
   },
+  "vi/guides/youtube-lVFJKBML5Ws": {
+    "at": "2026-11-07",
+    "hash": "2db72c8dbd9e35b2",
+    "findings": [],
+    "ruled": "2db72c8dbd9e35b2"
+  },
   "vi/guides/youtube-m-uLNI5xx2Y": {
     "at": "2026-11-02",
     "hash": "36475e02d8dc52b5",
@@ -11323,6 +11636,31 @@
     "hash": "43bc63885066efbc",
     "findings": [],
     "ruled": "43bc63885066efbc"
+  },
+  "vi/guides/youtube-qwsuTjLSDkU": {
+    "at": "2026-11-07",
+    "hash": "6855d319d57a6a27",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đá giả nhìn quá đều tay sẽ mất thật.",
+        "problem": "The phrase \"mất thật\" is not natural Vietnamese for losing a realistic look, so readers will stumble on it.",
+        "fix": "Đá giả mà nhìn quá đều thì trông mất tự nhiên.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua các bước chính khi ốp một lớp đá giả 3D",
+        "problem": "\"đi qua các bước\" is a literal copy of the English \"walk through\" and reads as machine translation.",
+        "fix": "Dưới đây là các bước chính khi ốp một lớp đá giả 3D",
+        "field": "body"
+      }
+    ],
+    "ruled": "6855d319d57a6a27"
   },
   "vi/guides/youtube-qzPVpr89Ugo": {
     "at": "2026-11-05",

@@ -10,6 +10,46 @@
     "vietnam",
     "thai-nguyen"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is found only in the north of Vietnam (Thai Nguyen, Dong Hy, Van Lang).",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10893451,
+      "total": 2,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

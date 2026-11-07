@@ -125,7 +125,9 @@ that would have caught it).
     them, `done` holding what streamed; an event, block or figure it doesn't know left out, not the turn; its question
     of the contract's names, fish ID's guesses within its limits; the event stream's own rules (line ends, comments, an
     event cut off at the end), through the app's session too (`AquaTomeKit/Tests/HandbookTests/ChatTests.swift`).
-    The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words),
+    The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words), a
+    guide found past its title by a section heading or FAQ question with the section to open it at (the build's
+    `/app/chat/<lang>.json`, each guide's own; a query's words weighed by how rare they are, so its subject counts),
     a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
     schema what structured outputs take; each block filled from the app index and the app's page copies and of the
     contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a

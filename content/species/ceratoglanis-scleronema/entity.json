@@ -14,6 +14,99 @@
     "thailand",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Citarum",
+        "Batang Hari",
+        "Pahang",
+        "Mekong",
+        "Java",
+        "Borneo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Krawang, Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Citarum drainage in Java, the Batang Hari and Siak drainages in Sumatra, the Pahang drainage in Peninsular Malaysia and the Baram, Barito, Kapuas, and Rejang drainages in Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Citarum",
+            "Batang Hari",
+            "Pahang",
+            "Java",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Reported from the Mekong basin in Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337581,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          2
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

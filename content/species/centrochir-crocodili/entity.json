@@ -10,6 +10,102 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Magdalena",
+        "Río Magdalena"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Magdalena, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río Magdalena"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is endemic to Colombia and is known from the Lower and Middle Magdalena basin.",
+          "countries": [],
+          "regions": [
+            "Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343930,
+      "total": 1472,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          1472
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          7.03125,
+          937,
+          937
+        ],
+        [
+          -75.9375,
+          8.4375,
+          158,
+          158
+        ],
+        [
+          -75.9375,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          7.03125,
+          106,
+          106
+        ],
+        [
+          -74.53125,
+          8.4375,
+          253,
+          253
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

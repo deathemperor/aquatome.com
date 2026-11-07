@@ -10,6 +10,68 @@
     "indonesia",
     "sulawesi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Dwarf shrimp from Sulawesi (formerly Celebes) in Indonesia are famous for their colorfulness and notorious for their high demands on care.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Caridina pareparensis lives in rivers in the south of Sulawesi.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6455157,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          119.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          119.53125,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,44 @@
     "indonesia",
     "sambas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Banjuasin",
+        "Sambas",
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Banjuasin",
+            "Sambas",
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2407799,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

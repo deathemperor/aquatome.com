@@ -2073,5 +2073,52 @@
       "\"Beri nutrisi\" is slightly vague for \"Feed it\"; \"beri pupuk\" would be clearer for plants.",
       "\"karena perawatannya jauh lebih ringan\" adds an explanation. The source only says it is a reprieve from maintenance, so keep it closer, e.g. \"jeda dari perawatan\"."
     ]
+  },
+  "vallisneria-americana-natans": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "Vallisneria Natans",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "\"geragih\" for stolon/runner is a non-standard term; hobbyists usually say \"stolon\" or \"sulur\" – use consistent term (item 1 gives \"stolon (geragih)\", item 3 uses \"geragih (runner)\"; unify, e.g. \"stolon/sulur\").",
+      "\"disatukan dengan pemberat\": \"anchor\" here is the lead/rubber plant weight; \"pemberat\" is OK but consider \"pemberat timah\" for clarity.",
+      "\"tanaman air yang tangguh\": \"hardy\" is more naturally \"tahan banting/mudah dirawat\"."
+    ]
+  },
+  "vallisneria-sp-gigantea": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "Vallisneria Gigantea",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"runner (tunas merambat)\" is fine, but \"Vallisneria americana\" differs from the source's species only if the source was changed; no fix needed beyond consistency.",
+      "Item 2: \"menghalangi cahaya\" is slightly looser than \"taking too much light\"; consider \"merebut/menyerap terlalu banyak cahaya dari tanaman di bawahnya\"."
+    ]
+  },
+  "vallisneria-spiralis": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "Vallisneria Spiralis Tiger",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: the height says '20–30+ cm', but item 3 gives the leaves as 30–50 cm. This mismatch is in the source, so the translation is faithful and needs no change.",
+      "Item 2: 'runner' is left in English. Consider 'sulur' or 'stolon', or 'runner' in italics or brackets after the local term. This is minor."
+    ]
+  },
+  "vesicularia-ferriei": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "Weeping Moss",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 3: English says 1-3 cm tall, while item 1 says 3-5+ cm; that is a source inconsistency, so keep it as is.",
+      "Item 3: \"tebal berdaging\" is redundant and awkward for \"fleshy\"; use \"berdaging\" or \"tebal\".",
+      "Item 2: \"Weeping tidak banyak menuntut\" is slightly vague for \"has low demands\"; \"perawatannya mudah\" or \"tidak menuntut perawatan khusus\" is more natural.",
+      "Item 1: \"Moss\" for Type is fine, but \"Asal\" would read more naturally as \"Asal daerah\" or \"Asal: Asia\"."
+    ]
   }
 }

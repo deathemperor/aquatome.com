@@ -4,6 +4,10 @@
     "score": 0.82,
     "kept": true
   },
+  "bucephalandra-diabolica": {
+    "at": "2026-11-07",
+    "kept": false
+  },
   "bucephalandra-sp": {
     "at": "2026-11-06",
     "score": 0.85,
@@ -38,6 +42,10 @@
     "at": "2026-11-06",
     "kept": false
   },
+  "cryptocoryne-beckettii": {
+    "at": "2026-11-07",
+    "kept": false
+  },
   "cryptocoryne-undulata": {
     "at": "2026-11-06",
     "kept": false
@@ -54,5 +62,13 @@
     "at": "2026-11-06",
     "score": 0.82,
     "kept": true
+  },
+  "hygrophila-costata": {
+    "at": "2026-11-07",
+    "kept": false
+  },
+  "ludwigia-glandulosa": {
+    "at": "2026-11-07",
+    "kept": false
   }
 }

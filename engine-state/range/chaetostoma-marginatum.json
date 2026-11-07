@@ -1,0 +1,91 @@
+{
+  "id": "chaetostoma-marginatum",
+  "native": {
+    "input": "3af76509ff6d8ab8",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Salidero, northwestern Ecuador [= near Bulún [Pulún], about 1°05'N, 78°40'W, Rio Bogota, Esmeraldas, Ecuador, elevation 50-110 m].",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bogota",
+        "source": "planetcatfish",
+        "quote": "South America: Bogota, Chimbo and San Juan River basins.",
+        "ok": true
+      },
+      {
+        "name": "Chimbo",
+        "source": "planetcatfish",
+        "quote": "South America: Bogota, Chimbo and San Juan River basins.",
+        "ok": true
+      },
+      {
+        "name": "San Juan",
+        "source": "planetcatfish",
+        "quote": "South America: Bogota, Chimbo and San Juan River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaetostoma marginatum",
+    "status": "ACCEPTED",
+    "taxonKey": 5202383,
+    "datasets": [
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        5
+      ],
+      [
+        "d4ba9607-189b-4c35-af5c-0b6ca3a54d50",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        1
+      ],
+      [
+        "2cc48427-444f-4132-aaee-472bcda3c27e",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "5d70097b-804b-4eef-bc67-f0be4d088ecb",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}
