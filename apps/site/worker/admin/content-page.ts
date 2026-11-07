@@ -22,7 +22,7 @@ const GAP: Record<GapKey, string> = {
 const FACT: Record<string, string> = { tempC: 'nhiệt độ', ph: 'pH', sizeCm: 'kích thước' }
 
 /** Each language as the dashboard names it: "tiếng Việt", and the others bare ("Có tiếng Indonesia", "Chọn Thái"). */
-export const LANG_VI: Record<Lang, string> = { vi: 'tiếng Việt', id: 'Indonesia', th: 'Thái' }
+export const LANG_VI: Record<Lang, string> = { vi: 'tiếng Việt', id: 'Indonesia', th: 'Thái', ms: 'Mã Lai' }
 
 /** Items of the main kinds in a day's totals, in one language. */
 export const inLang = (t: Totals, lang: Lang) => MAIN.reduce((s, k) => s + (t.kinds[k]?.[lang] ?? 0), 0)

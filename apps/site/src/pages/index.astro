@@ -15,7 +15,7 @@ import { i18n } from '../lib/i18n'
 import { pagePictures, photosOf, takeEach } from '../lib/pictures'
 import { toolCards } from '../lib/tools'
 import { categoryRank, fmt } from '../lib/format'
-import { shownTypes } from '../lib/equipment'
+import { categoriesIn, shownTypes } from '../lib/equipment'
 
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
@@ -32,7 +32,9 @@ const guides = leadGuides(c).filter(g => g !== cycle && g !== water).slice(0, 4)
 const videos = homeVideos(c)
 const featured = featuredSpecies(lang, c)
 const plants = easyPlants(c)
-const equipment = [...c.equipment].sort((a, b) => categoryRank(a.category) - categoryRank(b.category))
+// The buying guides with a page in this language: one whose kind of gear no fish or guide here uses yet has none.
+const paged = new Set(categoriesIn(lang, c).map(u => u.category))
+const equipment = c.equipment.filter(e => paged.has(e.category)).sort((a, b) => categoryRank(a.category) - categoryRank(b.category))
 // The tools a keeper comes back for; the rest are a tap away on the tools page.
 const tools = toolCards(t).filter(x => ['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#phan-bon', '/vi/cong-cu/den-chihiros/'].includes(x.href)).map(x => ({ ...x, href: x.href.startsWith('#') ? `/vi/cong-cu/${x.href}` : x.href }))
 const native = nativeSpecies(lang, c)

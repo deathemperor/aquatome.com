@@ -146,7 +146,7 @@ test('a rule that throws on a page is listed and the others still run; the repor
   expect(r.errors).toEqual(['boom on /vi/huong-dan/g/: bad'])
   expect(r.findings).toHaveLength(1)
   const md = rulesReport([p], r, [boom, ...RULES.filter(x => x.id === 'english')])
-  expect(md).toContain('Pages checked: 1 (Vietnamese 1, Indonesian 0, Thai 0)')
+  expect(md).toContain('Pages checked: 1 (Vietnamese 1, Indonesian 0, Thai 0, Malay 0)')
   expect(md).toContain('- boom on /vi/huong-dan/g/: bad')
   expect(md).toContain('## Sentences left in English (1)')
   expect(md).toContain('- [vi · Cá \\[đẹp\\]](https://aquatome.com/huong-dan/g/) — "The fish should be kept in a large tank with plenty of cover."')

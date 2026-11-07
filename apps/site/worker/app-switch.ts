@@ -18,7 +18,7 @@ export const APP_PT: string | null = null
 export const appState = (preview?: string): AppState => (preview === 'off' || preview === 'owner' || preview === 'on' ? preview : APP_SWITCH)
 
 /** The app page in each language, as built (src/pages/ung-dung/, and lib/i18n's words for the section). */
-export const APP_PAGES = ['/ung-dung/', '/id/aplikasi/', '/th/mobile-app/'] as const
+export const APP_PAGES = ['/ung-dung/', '/id/aplikasi/', '/th/mobile-app/', '/ms/aplikasi/'] as const
 
 /** The Worker answers 404 here: the app page and its files, while the switch is 'owner', to anyone but the owner. */
 export const appPageClosed = (path: string, cookie: string | null, state: AppState = APP_SWITCH) =>
