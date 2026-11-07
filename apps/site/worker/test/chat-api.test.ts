@@ -241,6 +241,13 @@ test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })
 
+test("the Worker reads the guides' headings and FAQ questions from its own assets, where the build writes them", async () => {
+  const { e } = env()
+  const topics = (await assetSource(e, 'https://x.test').topics!('vi')) as { v: number; pages: Record<string, unknown[]> } | null
+  expect(topics).toEqual(JSON.parse(readFileSync(`${DIST}/app/chat/vi.json`, 'utf8')))
+  expect(Object.keys(topics!.pages).length).toBeGreaterThan(0)
+})
+
 test('a reader who leaves while the handbook is still being read: that read is part of the run handed to wait, so the run still ends', async () => {
   const { e, db, store, ledger } = env()
   const me = await signIn(db)

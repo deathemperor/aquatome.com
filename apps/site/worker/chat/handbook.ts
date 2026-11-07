@@ -87,6 +87,10 @@ export type Handbook = {
   topics: () => Promise<Topics | null>
 }
 
+/** A topics file the search can read (topics.ts, v 1), else null: the search then finds pages by their names only. */
+const topicsIn = (t: Topics | null): Topics | null =>
+  t?.v === 1 && t.pages && typeof t.pages === 'object' && Object.values(t.pages).every(Array.isArray) ? t : null
+
 /** The index's pages kinds each have their own shards; a tool's page has no app copy. */
 const PAGE_KINDS = new Set<string>(['guide', 'fish', 'plant', 'glossary', 'video', 'equipment'])
 
@@ -108,7 +112,7 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
       const shard = await source.shard(lang, item.kind as PageDoc['kind'], pageShard(path, n))
       return shard?.pages[path]
     },
-    topics: () => (topics ??= source.topics ? source.topics(lang).catch(() => null) : Promise.resolve(null)),
+    topics: () => (topics ??= source.topics ? source.topics(lang).then(topicsIn, () => null) : Promise.resolve(null)),
   }
 }
 

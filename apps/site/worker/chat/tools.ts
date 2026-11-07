@@ -71,11 +71,14 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
       run: async input => {
         const kind = (input.kind as Item['kind'] | null) ?? null
         const named = search(d.handbook.items, String(input.query), kind)
-        // Guides found past their titles come after the best names, so a page's own name still comes first.
+        // Guides found past their titles come after the best eight names, so a page's own name still comes first; names
+        // past the eighth fill what's left. A guide is listed once: by its name among the eight, else by its heading.
         const topics = kind === null || kind === 'guide' ? await d.handbook.topics() : null
-        const seen = new Set(named.map(i => i.path))
-        const more = topics ? searchTopics(topics, d.handbook.byPath, String(input.query)).filter(h => !seen.has(h.item.path)) : []
-        const hits = [...named.slice(0, 8).map(listed), ...more.slice(0, 12 - Math.min(8, named.length)).map(h => ({ ...listed(h.item), section: { id: h.section, text: h.text } })), ...named.slice(8).map(listed)].slice(0, 12)
+        const first = named.slice(0, 8)
+        const seen = new Set(first.map(i => i.path))
+        const more = (topics ? searchTopics(topics, d.handbook.byPath, String(input.query)).filter(h => !seen.has(h.item.path)) : []).slice(0, 12 - first.length)
+        const byTopic = new Set(more.map(h => h.item.path))
+        const hits = [...first.map(listed), ...more.map(h => ({ ...listed(h.item), section: { id: h.section, text: h.text } })), ...named.slice(8).filter(i => !byTopic.has(i.path)).map(listed)].slice(0, 12)
         return hits.length ? JSON.stringify(hits) : 'No page by that name. Try other words, the scientific name, or another kind.'
       },
     },
