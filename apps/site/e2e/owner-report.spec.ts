@@ -63,6 +63,9 @@ test('a report that doesn\'t go keeps the words, and says what to do', async ({ 
   await page.route(url => url.pathname === '/api/feedback', route => route.fulfill({ status: answer, json: answer === 201 ? { id: 'x', waiting: 3 } : { error: 'x' } }))
   await page.route(url => url.pathname.startsWith('/api/feedback/media/'), route => route.abort())
   await page.goto(pageOf())
+  // A photo far below the screen that hasn't loaded, as most fish pages have: the screenshot doesn't wait for it, so the
+  // answer comes in seconds (on aquatome.com it waited out the library's 8 s first).
+  await page.evaluate(() => document.querySelector('main')!.insertAdjacentHTML('beforeend', '<img src="/below.webp" loading="lazy" width="960" height="640" alt="" style="display:block;margin-top:300vh">'))
   await page.locator('[data-owner-report-open]').click()
   const sheet = page.locator('[data-owner-report]')
   await sheet.locator('textarea').fill('Sai chữ')
@@ -70,6 +73,7 @@ test('a report that doesn\'t go keeps the words, and says what to do', async ({ 
   await expect(sheet.locator('[data-owner-report-shot]')).toHaveText('Đã chụp màn hình', { timeout: 30_000 })
   await sheet.getByRole('button', { name: 'Gửi' }).click()
   await expect(sheet.getByRole('status')).toContainText('mở /dang-nhap/')
+  await expect(page.locator('main img[src="/below.webp"]')).toHaveCount(1) // and it has its address back
   await expect(sheet.locator('textarea')).toHaveValue('Sai chữ')
   answer = 503
   await sheet.getByRole('button', { name: 'Gửi lại' }).click()
