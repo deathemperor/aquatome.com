@@ -222,11 +222,16 @@ struct SpeciesPage: View {
     doc?.blocks.contains { if case let .summary(_, items, text, _, _) = $0 { text != nil || !items.isEmpty } else { false } } == true
   }
 
-  /// A page with no summary (none approved yet): its text's first paragraph, so it isn't figures alone.
+  /// A page with no summary (none approved yet): its text's first real paragraph, so it isn't figures alone. Not a short
+  /// one: those are notes (a source's figure that differs from the table's), which say nothing without the table beside
+  /// them. Its sources' numbers left out: they mark the page's own list, not shown here.
   @ViewBuilder private var firstParagraph: some View {
-    if let runs = doc?.blocks.lazy.compactMap({ b -> [PageDoc.Run]? in if case let .paragraph(r) = b { r } else { nil } }).first {
-      // Its sources' numbers left out: they mark the page's own list, not shown here.
-      Text(verbatim: runs.filter { !$0.isSourceMark }.map(\.text).joined()).font(.body).lineSpacing(3).padding(.horizontal, 20)
+    if let text = doc?.blocks.lazy.compactMap({ b -> String? in
+      guard case let .paragraph(runs) = b else { return nil }
+      let text = runs.filter { !$0.isSourceMark }.map(\.text).joined()
+      return text.count >= 140 ? text : nil
+    }).first {
+      Text(verbatim: text).font(.body).lineSpacing(3).padding(.horizontal, 20)
     }
   }
 

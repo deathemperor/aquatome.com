@@ -114,6 +114,26 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Cá neon"].waitForExistence(timeout: 5), "not the fish the link names")
   }
 
+  func testTheTabBarStaysWholeWhileScrolling() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    func whole(_ screen: String) {
+      for tab in ["Hôm nay", "Khám phá", "Bể của tôi", "Đèn"] {
+        XCTAssertTrue(app.tabBars.buttons[tab].isHittable, "\(tab) went from the tab bar on \(screen)")
+      }
+    }
+    app.swipeUp()
+    app.swipeUp()
+    whole("Hôm nay")
+    repeatUntil(fish.isHittable, times: 4) { app.swipeDown() }
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.swipeUp()
+    whole("a fish's page")
+  }
+
   func testAPageReadIsOnOneShelfOfKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()

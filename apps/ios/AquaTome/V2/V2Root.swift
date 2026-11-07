@@ -44,6 +44,9 @@ struct V2Root: View {
       Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView() }
       Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath) }
     }
+    // The owner's: the bar stays whole on every screen, on the soft edge, no band behind it. The same two values go on
+    // AquaTomeApp's Group for v1 too; these two lines go when they do.
+    .v2WholeTabBar()
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
@@ -107,6 +110,12 @@ extension View {
   /// Links in the pages of a v2 stack (a page's link to another, a group, a tool) push on that stack, not on Khám phá's;
   /// the app's own tabs (tanks, lights, the account) open as everywhere.
   func v2StackLinks(_ path: Binding<NavigationPath>) -> some View { modifier(StackLinks(path: path)) }
+}
+
+private extension View {
+  @ViewBuilder func v2WholeTabBar() -> some View {
+    if #available(iOS 26, *) { tabBarMinimizeBehavior(.never).scrollEdgeEffectStyle(.soft, for: .bottom) } else { self }
+  }
 }
 
 extension EnvironmentValues {
