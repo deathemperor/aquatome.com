@@ -47,13 +47,16 @@ describe('species page', () => {
     expect(facts[2]!.querySelector('[data-cm]')?.text).toBe('60 cm')
     expect(facts[3]!.querySelector('dd')?.text.trim()).toBe('Dễ')
   })
-  // At most five chips (seven ran off a phone's row): the care questions, the shop, the photos; breeding gives way first.
-  test('jump row: at most five of the main parts this page has, in page order, each to its section', () => {
+  // At most five chips (seven ran off a phone's row): the care questions, the shop, the photos; breeding gives way first
+  // (test/jump-row.test.ts: the tank next, the photos never). Each to its section, the photos to their gallery with its count.
+  test('jump row: at most five of the main parts this page has, in page order, the photos last with their count', () => {
     const links = dom.querySelectorAll('nav.jump a')
     expect(links.map(a => [a.text, a.getAttribute('href')])).toEqual([
-      ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh', '#gal-h'],
+      ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh 45', '/ca/ca-neon-vua/anh/'],
     ])
-    for (const a of links) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
+    for (const a of links.slice(0, -1)) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
+    expect(dom.querySelector('#muc-reproduction')).not.toBeNull() // the part that gave way
+    expect(page('/ca/ca-neon-vua/anh/').dom.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(45) // the chip's count
     // Just before the text: after the summary and the photo.
     expect(dom.querySelector('header.top')?.nextElementSibling?.tagName).toBe('NAV')
   })
@@ -787,9 +790,30 @@ describe('photo gallery', () => {
     expect(credits).toContain('File:NeonVua43.jpg')
     expect(credits).not.toContain('File:NeonVua44.jpg')
   })
-  test('a species with too few photos gets no strip and no gallery page', () => {
-    expect(page('/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()
+  test('a species with too few photos gets no strip and no gallery page; its jump row ends with its own photo', () => {
+    const { dom } = page('/ca/ca-neon-xanh/')
+    expect(dom.querySelector('section.strip')).toBeNull()
     expect(() => readFileSync(`${DIST}/ca/ca-neon-xanh/anh/index.html`)).toThrow()
+    expect(dom.querySelectorAll('nav.jump a').map(a => [a.text, a.getAttribute('href')])).toEqual([['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh', '#anh']])
+    expect(dom.querySelector('header.top #anh img')).not.toBeNull()
+  })
+  test('gallery page: its title is the count, nothing but the crumbs before it; the fish\'s name stays in the page\'s title', () => {
+    const { dom } = page('/ca/ca-neon-vua/anh/')
+    const h1 = dom.querySelector('h1')!
+    expect(h1.text).toBe('45 ảnh')
+    expect(dom.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(45)
+    expect(h1.previousElementSibling?.classList.contains('crumb')).toBe(true)
+    expect(h1.previousElementSibling?.previousElementSibling).toBeNull()
+    expect(h1.nextElementSibling?.classList.contains('lead')).toBe(true)
+    expect(dom.querySelector('title')!.text).toContain('Cá neon vua')
+    expect(page('/cay/cryptocoryne-wendtii/anh/').dom.querySelector('h1')!.text).toBe('6 ảnh')
+  })
+  test('a fish\'s gallery page has a link down to its readers\' photos, hidden until there are any; a breed\'s and a plant\'s have none', () => {
+    const { dom } = page('/ca/ca-neon-vua/anh/')
+    const down = dom.querySelector('.lead a[data-to-readers]')!
+    expect(down.hasAttribute('hidden')).toBe(true)
+    expect(dom.querySelector(down.getAttribute('href')!)?.tagName).toBe('H2')
+    for (const other of ['/ca/ca-la-han/anh/', '/cay/cryptocoryne-wendtii/anh/']) expect(page(other).dom.querySelector('[data-to-readers]'), other).toBeNull()
   })
   test('gallery page: every photo credited (author, licence, source), each tile its full photo for the viewer, ImageObject licence data, captions escaped', () => {
     const { html, dom } = page('/ca/ca-neon-vua/anh/')
