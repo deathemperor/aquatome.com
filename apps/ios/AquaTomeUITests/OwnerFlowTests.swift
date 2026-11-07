@@ -43,6 +43,34 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertFalse(approve.exists, "still waiting to be approved")
   }
 
+  /// The owner asked for a bar's own figures on a phone: a tap on a column, or a finger dragged across, reads that day.
+  func testTappingOrDraggingAcrossAChartReadsThatDay() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    section(app, "Nhận diện cá")
+    let chart = app.descendants(matching: .any).matching(identifier: "owner-chart")
+      .containing(NSPredicate(format: "label == 'Lượt gửi ảnh mỗi ngày, theo kết quả'")).firstMatch
+    let columns = chart.descendants(matching: .any)["owner-chart-columns"], day = chart.staticTexts["owner-chart-day"]
+    XCTAssertTrue(columns.waitForExistence(timeout: 10), "no chart")
+    repeatUntil(columns.isHittable, times: 4) { app.swipeUp(velocity: .slow) }
+    XCTAssertTrue(columns.isHittable, "the chart isn't on screen")
+    // A finger that starts on the chart and goes up scrolls the page, as anywhere else.
+    let top = columns.frame.minY
+    columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.05, thenDragTo: columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: -1.5)))
+    XCTAssertLessThan(columns.frame.minY, top - 100, "the page didn't scroll from the chart")
+    repeatUntil(columns.isHittable, times: 4) { app.swipeDown(velocity: .slow) }
+    // Untouched: the last of its 30 days, today, not over yet.
+    XCTAssertEqual(day.label, "04/11 (chưa hết ngày) · Có kết quả 11 · Không có kết quả 0 · Chặn trước khi gọi 1")
+    let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
+    // A tap on the first column: each series' value that day.
+    at(0).tap()
+    XCTAssertTrue(says(day, "06/10 · Có kết quả 12 · Không có kết quả 0 · Chặn trước khi gọi 2"), day.label)
+    // A finger pressed there and dragged to the third: the column under it.
+    at(0).press(forDuration: 0.1, thenDragTo: at(2))
+    XCTAssertTrue(says(day, "08/10 · Có kết quả 14 · Không có kết quả 0 · Chặn trước khi gọi 1"), day.label)
+  }
+
   // A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
   func testALongCellShowsTwoLinesUntilTapped() {
     let app = launch()
@@ -243,28 +271,6 @@ final class OwnerFlowTests: XCTestCase {
   }
 
   private func signIn(_ app: XCUIApplication) { app.signInWithStandInApple() }
-  /// The owner asked for a bar's own figures on a phone: a tap on a column, or a finger dragged across, reads that day.
-  func testTappingOrDraggingAcrossAChartReadsThatDay() {
-    let app = launch()
-    signIn(app)
-    open(app, "owner-dashboard")
-    section(app, "Nhận diện cá")
-    let chart = app.descendants(matching: .any).matching(identifier: "owner-chart")
-      .containing(NSPredicate(format: "label == 'Lượt gửi ảnh mỗi ngày, theo kết quả'")).firstMatch
-    let columns = chart.descendants(matching: .any)["owner-chart-columns"], day = chart.staticTexts["owner-chart-day"]
-    XCTAssertTrue(columns.waitForExistence(timeout: 10), "no chart")
-    repeatUntil(columns.isHittable, times: 4) { app.swipeUp(velocity: .slow) }
-    // Untouched: the last of its 30 days, today, not over yet.
-    XCTAssertEqual(day.label, "04/11 (chưa hết ngày) · Có kết quả 11 · Không có kết quả 0 · Chặn trước khi gọi 1")
-    let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
-    // A tap on the first column: each series' value that day.
-    at(0).tap()
-    XCTAssertTrue(says(day, "06/10 · Có kết quả 12 · Không có kết quả 0 · Chặn trước khi gọi 2"), day.label)
-    // A finger pressed there and dragged to the third: the column under it.
-    at(0).press(forDuration: 0.1, thenDragTo: at(2))
-    XCTAssertTrue(says(day, "08/10 · Có kết quả 14 · Không có kết quả 0 · Chặn trước khi gọi 1"), day.label)
-  }
-
   private func open(_ app: XCUIApplication, _ id: String) { app.scrollToAndTap(id) }
   /// It reads `label` within 5 s.
   private func says(_ e: XCUIElement, _ label: String) -> Bool {

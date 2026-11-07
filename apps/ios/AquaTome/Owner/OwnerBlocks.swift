@@ -311,6 +311,9 @@ struct OwnerChart: View {
   /// The day a tap, or a finger dragged across, picked: its column marked and its values read out under the chart, as
   /// the site's charts do (#510). nil: the last day.
   @State private var picked: Int?
+  /// The drag under way, by where it began: whether it went across (decided once, at its first 6 pt, before the page
+  /// starts scrolling and carries the chart with the finger).
+  @State private var across: (from: CGPoint, yes: Bool)?
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
@@ -332,7 +335,8 @@ struct OwnerChart: View {
               .gesture(SpatialTapGesture().onEnded { picked = column(at: $0.location.x, of: g.size.width) })
               // Alongside the page's scroll: a finger moving across reads each column it passes.
               .simultaneousGesture(DragGesture(minimumDistance: 6).onChanged { d in
-                guard abs(d.translation.width) > abs(d.translation.height) else { return }
+                if across?.from != d.startLocation { across = (d.startLocation, abs(d.translation.width) > abs(d.translation.height)) }
+                guard across?.yes == true else { return }
                 picked = column(at: d.location.x, of: g.size.width)
               })
           }
