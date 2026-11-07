@@ -1,8 +1,5 @@
 {
   "id": "lam",
   "kind": "region",
-  "countries": [
-    "VN",
-    "CN"
-  ]
+  "parent": "vietnam"
 }

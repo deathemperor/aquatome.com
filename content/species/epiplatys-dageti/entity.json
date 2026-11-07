@@ -1,0 +1,181 @@
+{
+  "id": "epiplatys-dageti",
+  "scientificName": "Epiplatys dageti",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Epiplatys",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cote-d-ivoire",
+    "ghana",
+    "liberia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>The red-chinned panchax, Epiplatys dageti, is a killifish from coastal savanna in southwestern Ghana, southern Côte d'Ivoire and southern Liberia. An aquarium stalwart since the red-throated form was first exported from Monrovia in 1908, it is relatively hardy and easy to breed, and a good choice for those new to killifishes. The Monrovia fish is often labelled E. dageti monroviae in aquarium literature.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Type locality is 'Swamp near Port Bouet, 18 kilometers from Abidjan, 5°15'N, 3°58'W, southern Ivory Coast', and this species is currently known from southwestern Ghana, southern Côte d'Ivoire (Ivory Coast) and southern Liberia.</p><p>The form from Monrovia, Liberia, is usually referred to the putative subspecies E. dageti monroviae in aquarium literature (see 'Notes').</p><p>When a population is known aquarists also tend to label the fish as such in order to avoid hybridisation and preserve bloodlines, e.g., Aboisso, Awiebo, Grand Bassam, Nikawanta, Port Bouet, San Pedro, etc.</p><p>Populations of E. d. monroviae include Monrovia, Harbel, Robertsport and Tabou.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Typically occurs in swampy zones of the coastal savanna across its range and has been collected alongside the congeners Epiplatys bifasciatus and Epiplatys etzeli as well as Aplocheilichthys rancureli.</p><p>Most habitats are freshwater although it also occurs in brackish conditions at some localities.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Minimum base dimensions of 60 × 30 cm or equivalent are recommended (about 54 litres), although smaller aquaria can be used for breeding purposes.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Perhaps looks best in a heavily-planted set-up or natural-style arrangement comprising a sandy substrate plus some driftwood roots and branches.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the humic substances released by the decaying leaves are also considered beneficial, with alder cones also useful in this respect.</p><p>There's no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>This species seems to do best under fairly dim lighting but you can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Anubias spp., while floating vegetation, such as Ceratopteris spp., is also appreciated.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<ul><li>Temperature: 20–30°C, but see 'Reproduction'.</li><li>pH: 5.0–7.0</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Probably a predator feeding on terrestrial and aquatic invertebrates and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Artemia nauplii, Daphnia, Moina, grindal worm, etc.</p><p>Small insects such as crickets or Drosophila fruit flies are also suitable to use although it's best to fill the stomachs of these by feeding them fish flakes or some kind of vegetable matter before offering them to the fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Peaceful with other species and can make an excellent resident of the well-chosen community.</p><p>Many similarly-sized characids, cyprinids, anabantoids, callichthyids and loricariids are compatible and since it spends much of its time in the upper part of the water column certain cichlids are suitable as well.</p><p>Try to buy 6 or more specimens since it's relatively gregarious and the fish will not only be less shy but display more interesting behaviour when maintained in larger groups.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Males are more colourful, possess more-extended fins and grow larger than females, in particular the lower caudal-fin lobe which develops extended rays as the fish grow.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>Relatively easy to breed and in a well-decorated, mature species set-up fry may begin to appear without further intervention.</p><p>If the adults are being maintained in a community tank, however, it's best to organise a separate aquarium for breeding purposes.</p><p>This can be very simple provided it contains a suitable medium for the fish to deposit their eggs in with Riccia, Taxiphyllum spp. mosses, the roots of floating plants or woollen spawning mops all equally suitable, and if filtration is desired a small air-driven sponge-type unit is best.</p><p>Most breeders use a pair or single male plus two or more females with some preferring to remove and replace the medium every few days, incubating and hatching the eggs elsewhere, while others simply leave everything in situ until free-swimming fry can be seen near the water surface.</p><p>Adults do predate eggs and fry so if the intention is to raise good numbers it's wise to separate them.</p><p>Incubation is around 11-14 days at 21 °C with cooler temperatures between 21–23 °C apparently favouring a relatively even sex ratio, while higher values result in more males than females.</p><p>Provided the plants used are mature the fry are usually able to survive on the microorganisms which are present naturally, and a dried leaf or two can be added which will also promote the growth of such animals.</p><p>If raising the fry in more sterile conditions they initially require microscopic foods such as rotifers until large enough to accept Artemia nauplii and suchlike.</p><p>It's important to omit larger invertebrates such as snails or shrimp from the breeding tank as they will consume eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<p>This species is also known as 'Daget's panchax', 'black-lipped panchax', 'orange-throated panchax' or 'firemouth killifish' and is an aquarium stalwart with the red-throated form having first been exported from Monrovia, Liberia in 1908.</p><p>It's an excellent choice for those new to killifishes or egg-laying species in general since the aquarium strain in particular is relatively hardy and easy to breed.</p><p>Following the key of Romand (1992) it can be told apart from congeners by the following combination of characters: 5-6 large, dark, transverse bars on flanks; longitudinal bands never present; adult size &lt; 50 mm SL.</p><p>There was some early confusion surrounding its identity after Belgian ichthyologist George A. Boulenger confused the red-throated form with the congener E. chaperi (Sauvage, 1882) and this mistake persisted in aquarium literature for several decades.</p><p>In 1952 a similar-looking fish which lacked the red throat in males was collected in Côte d'Ivoire and described as E. dageti by Poll, and it was not until the early-1960s that Liberian and Ghanian populations resembling the original red-throated fish, which was well-established in the aquarium hobby by that time, were discovered by Stenholt Clausen.</p><p>The latter were sent to Jorgen J. Scheel who in 1965 reported them to interbreed freely and produce fertile offspring with Poll's E. dageti, while also exhibiting morphological differences to Sauvage's E. chaperi specimens.</p><p>Meanwhile Daget and Arnoult had rediscovered the true E. chaperi in 1964 and subsequently described the red-throated fish as E. dageti monroviae, after which E. dageti was referred to the subspecies E. dageti dageti.</p><p>These subspecific names thus appear in a great deal of aquarium literature but aren't scientifically valid at the present time so both are included together as E. dageti here.</p><p>It later became clear that E. dageti had been described much earlier as Poecilia sexfasciata (Peters, 1864) but this name was already preoccupied by Epiplatys sexfasciatus (Gill, 1862).</p><p>The principal differences between the two forms of E. dageti are presence of a red or orange throat in males plus 5 transverse bars on the flanks (E. d. monroviae) vs. no such throat pigmentation and 6 transverse flank bars (E. dageti dageti).</p><p>Epiplatys is the most widely-distributed genus of West African aplocheiloid killifish with a range overlapping that of the other genera native to the region which are more restricted and split into eastern and western groups based on their respective patterns of distribution.</p><p>For example, Callopanchax is restricted to coastal lowlands of far Western Africa with Scriptaphyosemion and Archiaphyosemion known only from the interior of the Western rainforest, whereas Aphyosemion and Fundulopanchax present more easterly ranges extending south and eastward from Nigeria.</p><p>Although previously considered closely-related to the genus Aplocheilus due to shared similarities such as possessing an upturned mouth and dwelling mostly near the water surface Epiplatys is in fact affiliated with the western group above, i.e., its closest relatives are Callopanchax, Scriptaphyosemion and Archiaphyosemion.</p><p>In addition the phylogenetic analysis of Collier et al. (2009) revealed the existence of two distinct clades within Epiplatys itself, one comprising those species restricted to the Western rainforest (the western/savanna clade) and other those inhabiting lowland (coastal) swamps and streams west of the Dahomey Gap.</p><p>Most members of the coastal clade have a colour pattern consisting of broad, dark vertical bars which are present in juveniles of those species which lack them as adults, plus many populations possess an asymmetric caudal-fin shape with an extended lower lobe, whereas western clade species tend to lack or only possess thin oblique dark bars on the body and have symmetrically-shaped caudal fins.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "html": "<ul><li>Scheel, J. J. (1965). West African Rivulins: Epiplatys dageti and Epiplatys chaperi. Draft (Aquarium Journal), 7 pp.</li><li>Hertwig, S. T. (2008). Phylogeny of the Cyprinodontiformes (Teleostei, Atherinomorpha): the contribution of cranial soft tissue characters. Zoologica Scripta 37(2), 141-174</li><li>Collier, G. E., W. J. Murphy and M. Espinoza (2009). Phylogeography of the genus Epiplatys (Aplocheiloidea: Cyprinodontiformes). Molecular Phylogenetics and Evolution 50(1), 190-196</li><li>Aarn, A. and M. A. Shepherd (2001). Descriptive anatomy of Epiplatys sexfasciatus (Cyprinodontiformes: Aplocheilidae) and a phylogenetic analysis of Epiplatina. Cybium 25(3), 209-225</li><li>Paugy, D., C. Lévêque and G. G. Teugels (2004). The Fresh and Brackish Water Fishes of West Africa Volume 2. RD Éditions, Publication scientifiques du Muséum, MRAC, 1-816</li><li>Romand, R. Cyprinodontidae. In: Lévêque, C., D. Paugy and G. G. Teugels (eds) (1992). Faune des poissons d'eaux douces et saumâtres de l'Afrique de l'Ouest Tome 2. Collection Fauna Tropicale no. XXVIII. Musée Royal de l'Afrique Centrale, Tervuren, Belgique and O.R.S.T.O.M., Paris, France, 389-902</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/90fad93315c10f3c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/90fad93315c10f3c-480.webp",
+      "width": 794,
+      "height": 348,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
+      "caption": "Adult male of the form without a red throat (ex-E. dageti dageti).",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia",
+        "bo bo đông lạnh",
+        "thức ăn khô cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lá bàng khô"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "dương xỉ java",
+        "cây nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}
