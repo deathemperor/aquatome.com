@@ -55,7 +55,7 @@ test('hands or a person on a guide\'s photos, a mark on a video section\'s photo
     hands: { person: true, note: 'hands planting a sword plant in gravel' },
     siphon: { person: true, note: 'a person siphoning the tank, from behind' },
     strips: { brand: true, note: 'Aquarium Co-op logo on a test-strip bottle' },
-    kit: { brand: true, note: 'API test kit box' },
+    kit: { brand: true, note: 'a shop\'s own-brand test kit box' },
     signed: { mark: true, note: 'faint signature, bottom right' },
     stamped: { mark: true, note: 'round logo, top left' },
   })
@@ -63,7 +63,7 @@ test('hands or a person on a guide\'s photos, a mark on a video section\'s photo
   // Leads first (a guide's first photo, an equipment guide's hero), then the rest in order; a video's stills aren't judged here.
   expect(seen.map(s => s.photos)).toEqual([['betta', 'hands', 'siphon', 'kit', 'signed', 'stamped'], ['strips', 'carpet']])
   expect(seen[0]!.prompt).toContain('- person: true if a person or any part of one is in it: a hand or fingers')
-  expect(seen[0]!.prompt).toContain('- brand: true if a shop\'s or maker\'s logo or brand name can be read or recognised on a product')
+  expect(seen[0]!.prompt).toContain('- brand: true if a shop\'s or dealer\'s logo or name can be read or recognised in the photo')
   expect(r).toMatchObject({ sheets: 2, judged: 8, left: 0, failed: [], stopped: '' })
   expect(urls((await json(root, 'content/guides/how-to-plant/entity.json')).photos)).toEqual(['carpet'])
   expect(urls((await json(root, 'content/guides/water-change/entity.json')).photos)).toEqual([])

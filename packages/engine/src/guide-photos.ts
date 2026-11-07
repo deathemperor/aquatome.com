@@ -16,8 +16,8 @@ import { stripPhotos } from './watermarks'
  * had a model look for a mark, and none for people.
  *
  * The model answers per photo, 6 to a sheet (a faint signature needs the size): a person or any part of one (PRODUCT.md:
- * "Photos never show people (hands count)"); a mark added on the photo; a shop's or maker's brand on a product in it
- * (governance: no "dealer logos"). A person or a mark is the photo's: it leaves every guide and equipment guide and joins
+ * "Photos never show people (hands count)"); a mark added on the photo; a shop's or dealer's brand in it, on its own-brand
+ * products too (governance: no "dealer logos"; a maker's brand on its own product is fine). A person or a mark is the photo's: it leaves every guide and equipment guide and joins
  * `_photo-rejected.json` ("people: …", "watermark: …"), which the photo steps respect, so a source re-read doesn't bring
  * it back and the faces and subject steps take it off any other page. A brand leaves the guides ("logo: …"), and is kept
  * on an equipment guide, whose subject is the product. Each photo is judged once (`engine-state/_photo-guides.json`, URL
@@ -36,7 +36,7 @@ export const GUIDE_PHOTO_SCHEMA = {
 export const GUIDE_PHOTO_PROMPT = `Numbered photos from an aquarium handbook's guides. For each photo n:
 - person: true if a person or any part of one is in it: a hand or fingers (planting, holding, pointing, working in the tank), an arm, a foot, a face, a body seen from behind, even small, cut off at the edge, blurred or behind the glass; false if not.
 - mark: true if a logo, watermark, signature, credit, web address or caption was added on top of the photo after it was taken, even small or faint, in a corner, in any script, with or without letters; false if not.
-- brand: true if a shop's or maker's logo or brand name can be read or recognised on a product in the photo (a bottle, box, bag, tub, packet, the front of a device); false for a product with no brand in view, and for text that isn't a brand.
+- brand: true if a shop's or dealer's logo or name can be read or recognised in the photo: on a product it sells under its own name (such as an Aquarium Co-op bottle), a bag, a box, a sign or a price tag; false for a maker's own brand on its own product (Seachem, API, Fluval, Tetra, Oase and the like), for a product with no brand in view, and for text that isn't a brand.
 - note: a few words on what it shows and, for each true, what and where (e.g. "hands planting a sword plant in gravel"; "Aquarium Co-op logo on a test-strip bottle").
 Answer every photo, by its number.`
 const PER_SHEET = 6

@@ -467,7 +467,8 @@ The layers above still check the result.
 - **Photos.** No people, and hands count (PRODUCT.md: faces dropped by Apple Vision, and the model asks about any person
   or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good), no brand on a product in a guide's photo, no dead fish or fish as food (markets, plates, catches landed or held,
+  good), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
+  fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
@@ -553,7 +554,8 @@ The layers above still check the result.
   - **Guides' photos.** `pnpm engine guide-photos` (each photos cycle and the Mac's video job, 20 model calls each, 6
     photos a call, leads first) looks at what the subject check doesn't: every guide's photos (its lead and those under
     its headings), its video sections' photos, and the equipment guides' photos. It asks whether a person or any part
-    of one is in it, whether a mark was added on it, and whether a shop's or maker's brand shows on a product in it. A
+    of one is in it, whether a mark was added on it, and whether a shop's or dealer's brand shows in it (a maker's
+    brand on its own product doesn't count). A
     person or a mark is the photo's: off every page and onto `_photo-rejected.json` ("people: …", "watermark: …"). A
     brand leaves the guides ("logo: …"), and stays on an equipment guide, whose subject is the product. Each photo is
     judged once (`engine-state/_photo-guides.json`): 2,560 on 2026-11-07, about 430 calls, a day and a half. Found by a
