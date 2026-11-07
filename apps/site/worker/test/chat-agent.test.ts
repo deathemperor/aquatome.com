@@ -3,13 +3,13 @@ import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { topicsOf, type Topics } from '../chat/topics'
 import { checkMates, drawnOf, type MatesCheck } from '../chat/mates'
-import { chatTools, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
+import { chatTools, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
 import { tankCheck, type TankFish } from '../../src/scripts/tank-check'
 import { factsOf } from '../chat/handbook'
 import { contract } from './contract'
@@ -74,14 +74,50 @@ test('read_page gives a page\'s outline (a fish\'s or plant\'s figures too), the
   expect(SECTION_CHARS).toBeLessThanOrEqual(4000)
 })
 
+test('a guide written from one video is marked so in the search and its outline, and no other page is', async () => {
+  const h = await hb()
+  const tools = chatTools({ handbook: h, tanks: async () => [] })
+  const run = (name: string, input: Record<string, unknown>) => tools.find(t => t.name === name)!.run(input, { photosLeft: 0 }) as Promise<string>
+  const found = JSON.parse(await run('search_handbook', { query: 'bón phân', kind: 'guide' })) as { path: string; oneVideo?: boolean }[]
+  expect(found.find(f => f.path === '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')?.oneVideo).toBe(true)
+  const setup = JSON.parse(await run('search_handbook', { query: 'setup bể thủy sinh đầu tiên', kind: 'guide' })) as { path: string; oneVideo?: boolean }[]
+  expect(setup.find(f => f.path === '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')).not.toHaveProperty('oneVideo')
+  expect(JSON.parse(await run('read_page', { path: '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', heading: null }))).toMatchObject({ oneVideo: true })
+  expect(JSON.parse(await run('read_page', { path: '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/', heading: null }))).not.toHaveProperty('oneVideo')
+  expect(JSON.parse(await run('read_page', { path: '/vi/ca/ca-neon-xanh/', heading: null }))).not.toHaveProperty('oneVideo')
+  expect(SYSTEM).toContain('oneVideo')
+})
+
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
   const h = await hb()
   const tank: Tank = { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 2 }, { name: 'Rong lạ', kind: 'plant' }] }
   const tool = (tanks: () => Promise<unknown>) => chatTools({ handbook: h, tanks: tanks as never }).find(t => t.name === 'read_tanks')!
-  // Its fish as the handbook names them, one without a page by the reader's name; a plant isn't a fish.
+  // Its fish as the handbook names them, one without a page by the reader's name; a plant isn't a fish, it's a plant.
   expect(JSON.parse(await tool(async () => [tank]).run({}, { photosLeft: 0 }) as string)).toEqual([
-    { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }] },
+    { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }], plants: ['Rong lạ'] },
   ])
+  // What else the reader saved: plants (a page's by its name, one without a page by theirs), substrate, how long ago it
+  // was saved, each light's schedule in a line, what its plugs power, and the notes as their own words, cut.
+  const full: Tank = {
+    ...tank, plants: ['taxiphyllum-barbieri'], substrate: 'soil', days: 12, notes: `Thay 30% nước mỗi tuần. ${'x'.repeat(NOTES_CHARS)}`,
+    lights: [
+      { name: 'WRGB II', schedule: { on: '13:00', off: '21:30', ramp: 30, levels: [80, 70, 60, 50] } }, { name: 'Đèn phụ', manual: [40] },
+      // A schedule that ends at midnight, then set by hand since.
+      { name: 'Đèn tối', schedule: { on: '16:00', off: '00:00', ramp: 0, levels: [60] }, manual: [100] },
+    ],
+    power: ['co2', 'heater'],
+  }
+  const read = JSON.parse(await tool(async () => [full]).run({}, { photosLeft: 0 }) as string)[0]
+  expect(read).toMatchObject({
+    plants: [h.byId('taxiphyllum-barbieri')?.name ?? 'taxiphyllum-barbieri', 'Rong lạ'], substrate: 'soil', savedDaysAgo: 12,
+    lights: [
+      'WRGB II: 13:00–21:30, 8.5 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no schedule running, last set by hand to 40%',
+      'Đèn tối: 16:00–00:00, 8 h lit, ramp 0 min, levels 60%; since then set by hand to 100%',
+    ],
+    plugsPower: ['co2', 'heater'],
+  })
+  expect(read.readerNotes.startsWith('Thay 30% nước mỗi tuần.')).toBe(true)
+  expect(read.readerNotes.length).toBe(NOTES_CHARS)
   expect(await tool(async () => []).run({}, { photosLeft: 0 })).toBe('The reader has no saved tanks.')
   await expect(tool(async () => null).run({}, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
   expect(tool(async () => []).step?.({})).toEqual({ kind: 'tanks' })
@@ -478,6 +514,23 @@ test('a card or section shown earlier in the conversation, or twice in one answe
   expect(out.blocks.map(b => b.t)).toEqual(['compare'])
 })
 
+test("the card of the fish whose page the chat was opened from counts as shown; from fish ID or search it doesn't, and another fish's card goes out", async () => {
+  const h = await hb()
+  const turn = (start: Start) => answerQuestion({
+    send: async () => message([{ type: 'text', text: JSON.stringify(answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] }), pick({ t: 'species', ids: ['paracheirodon-axelrodi'] })], { text: 'Cá neon xanh dễ nuôi.' })) }]),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Có dễ nuôi không?', earlier: [], start, handbook: h, tanks: async () => [],
+  })
+  const onPage = await turn({ from: 'species', about: 'paracheirodon-innesi' })
+  expect(onPage.blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-axelrodi'])
+  expect(onPage.dropped).toEqual(['species: paracheirodon-innesi shown before'])
+  expect((await turn({ from: 'fish-id', about: 'paracheirodon-innesi' })).blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+  expect((await turn({ from: 'search', about: 'paracheirodon-innesi' })).blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+  const told = (start: Start) => (firstMessage('vi', 'Có dễ nuôi không?', [], start, h).content as Anthropic.TextBlockParam[])[0]!.text
+  expect(told({ from: 'species', about: 'paracheirodon-innesi' })).toContain('They opened it from that page, so they have seen its card')
+  expect(told({ from: 'fish-id', about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
+  expect(told({ about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
+})
+
 test('the chat\'s forced last call is told to answer from what it read', async () => {
   const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
   const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
@@ -533,7 +586,7 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
         ? message([{ type: 'tool_use', id: 't1', name: 'read_page', input: { path: '/vi/ca/ca-neon-xanh/', heading: null } }], 'tool_use')
         : message([{ type: 'text', text: JSON.stringify(final) }])
     },
-    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá này thế nào?', earlier: [], start: { from: 'species', about: 'paracheirodon-innesi' },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá này thế nào?', earlier: [], start: { from: 'fish-id', about: 'paracheirodon-innesi' },
     handbook: h, tanks: async () => [], onStep: s => steps.push(s),
   })
   expect(steps).toEqual([{ kind: 'read', page: { kind: 'fish', title: 'Cá neon xanh', url: '/vi/ca/ca-neon-xanh/' } }])

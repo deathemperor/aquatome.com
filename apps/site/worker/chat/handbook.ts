@@ -29,6 +29,8 @@ export type Item = {
   card?: Partial<Pick<Item, (typeof FIGURES)[number]>>
   /** A plant's figures, on the plants' scale (difficulty 1–3, not a fish's 1–8). */
   plant?: PlantFacts
+  /** A guide written from one video: the video's length in seconds. One keeper's teaching, kept faithful to the video. */
+  video?: number
   /** A tool's name on its card (the tools page). */
   short?: string
   tempC?: Range
