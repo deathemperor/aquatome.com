@@ -23,7 +23,7 @@ import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from '.
 import { snapshotHash, writeSnapshot } from './snapshot'
 import { SOURCES, sourceById } from './sources'
 import { BROWSER_GONE, attemptsAfter, errorKind, loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
-import { findVideos } from './videos'
+import { findVideos, readVideoRejected } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 import { addReaders, readersReport, type ReaderRow, type ReaderWant } from './readers-wanted'
@@ -177,6 +177,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   }, new Map() as Wanted)
   const onSource: Record<string, string> = {}
   const varietyPages = await readVarietyPages(root)
+  const videoRejected = await readVideoRejected(root)
 
   /** The site's Vietnamese style over the first translation (VI_WRITE, scripts/eval-translate.ts); unchanged if the output is
    * unusable. A model failure (usage limit) stops the run like any other: no page publishes unpolished without a trace. */
@@ -237,7 +238,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       item.vi.quality = judgeQuality(item.vi.quality, item.vi.quality.indexable, speciesDepth(item.entity.sections.filter(x => mayPublish(sourceNames[x.source], 'text'))).deep)
       item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http), [])
-      if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http), [])
+      if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http, { skip: videoRejected }), [])
       const known = new Set(await s.ids('places'))
       for (const p of ensurePlaces(page.places, known)) await s.write('places', PlaceSchema, p)
       await s.write('species', SpeciesSchema, item)

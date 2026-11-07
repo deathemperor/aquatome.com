@@ -1,4 +1,5 @@
 import { LANGS, OTHER_LANGS, prefixedLang } from '@aq/schema/langs'
+import { RUNS_PATH, runPath } from './runs'
 import type { FishIdStatus } from '../fishid/api'
 import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
@@ -352,7 +353,7 @@ const NO_KEYS = 'Chưa có key nào (ANTHROPIC_KEYS): công cụ đang tắt.'
 
 export function fishIdPage(f: FishPage): string {
   const tz = f.tz ?? HOME_TZ
-  let body = `<h1>Nhận diện cá</h1><p class="lede">${fishLede(tz, f.now)}</p>`
+  let body = `<h1>Nhận diện cá</h1><p class="lede">${fishLede(tz, f.now)}</p><p><a href="${RUNS_PATH}">Từng lượt, Claude nghĩ và tra gì (giữ 365 ngày) →</a></p>`
   if (isFailed(f.stats)) body += failedBox('nhật ký nhận diện cá', f.stats)
   else {
     const s = f.stats
@@ -682,7 +683,7 @@ export function keptPage(xs: Soft<KeptRow[] | undefined>, now = new Date(), tz =
       const who = keptWho(p)
       const top = p.guesses[0]
       const src = keptSrc(esc(who), esc(p.id))
-      return `<tr><th><a href="${src}"><img class="thumb" src="${src}" alt="" width="96" loading="lazy"></a></th><td class="l">${esc(p.verdict)}${top ? ` · <i>${esc(top.scientificName)}</i> ${Math.round(top.confidence * 100)}%` : ''}</td><td>${p.account ? 'đăng nhập' : 'chưa đăng nhập'}</td><td>${esc(p.lang)}</td><td>${timeTag(p.created, tz, now)}</td><td><form method="post" action="/_ab/anh-nhan-dien/xoa"><input type="hidden" name="who" value="${esc(who)}"><input type="hidden" name="id" value="${esc(p.id)}"><button>Xóa</button></form></td></tr>`
+      return `<tr><th><a href="${src}"><img class="thumb" src="${src}" alt="" width="96" loading="lazy"></a></th><td class="l">${esc(p.verdict)}${top ? ` · <i>${esc(top.scientificName)}</i> ${Math.round(top.confidence * 100)}%` : ''}</td><td>${p.account ? 'đăng nhập' : 'chưa đăng nhập'}</td><td>${esc(p.lang)}</td><td>${p.run ? `<a href="${runPath(p.run.day, p.run.id)}">${timeTag(p.created, tz, now)}</a>` : timeTag(p.created, tz, now)}</td><td><form method="post" action="/_ab/anh-nhan-dien/xoa"><input type="hidden" name="who" value="${esc(who)}"><input type="hidden" name="id" value="${esc(p.id)}"><button>Xóa</button></form></td></tr>`
     }).join('')
     body += `<div class="scroll"><table><thead><tr><th></th><th>Kết quả</th><th>Gửi khi</th><th>Ngôn ngữ</th><th>Lúc</th><th></th></tr></thead><tbody>${rows || `<tr><td colspan="6" class="none">${NO_PHOTOS}</td></tr>`}</tbody></table></div>`
   }

@@ -23,7 +23,7 @@
       "metric": "com.apple.dt.XCTMetric_Memory-com.aquatome.app.physical_peak",
       "unit": "kB",
       "max": 83000,
-      "reason": "lowered 2026-11-07 from 84,100 kB: the app no longer links PhotosUI, which loaded the Photos frameworks at every launch (#666). CI read 79,797 kB on #666, against 83,303–84,384 kB on main's code just before; on one Mac, 83.1 → 79.0 MB with PhotosUI stood in for. Budget: that reading, plus #523's measured 737 kB (its taxa and places on the 800 fish), plus 2.5 MB for the hosted runners' spread (one app has read up to 2.2 MB apart: 83.0 and 85.2 MB on #530). Before that: raised 2026-11-01 from 75,500 kB for the Tìm tab's home of shelves (#316), CI median 76,438 kB ×1.1. Between them, about 1.2 MB came with the shelves' filters (e19aa434e), measured on one Mac."
+      "reason": "lowered 2026-11-07 from 84,100 kB: the app no longer links PhotosUI, which loaded the Photos frameworks at every launch (#666). CI read 79,797 kB on #666, against 83,303–84,384 kB on main's code just before; on one Mac, 83.1 → 79.0 MB with PhotosUI stood in for. Budget: that reading, plus #523's measured 737 kB (its taxa and places on the 800 fish; #523 had raised the budget to 84,900 kB for them, and this replaces that), plus 2.5 MB for the hosted runners' spread (one app has read up to 2.2 MB apart: 83.0 and 85.2 MB on #530). Before that: raised 2026-11-01 from 75,500 kB for the Tìm tab's home of shelves (#316), CI median 76,438 kB ×1.1. Between them, about 1.2 MB came with the shelves' filters (e19aa434e), measured on one Mac."
     },
     {
       "name": "App size, as archived for the App Store (all files, before Apple's encryption and thinning)",

@@ -4,6 +4,7 @@ import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
 import { createSession } from '../accounts/session'
 import { CHANGELOG_PATH, hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
+import { RUNS_PATH, runPath, runsJsonPath } from '../admin/runs'
 import { APP_PAGES } from '../app-switch'
 import { putReport } from '../daily/log'
 import { handle, type Env } from '../index'
@@ -11,6 +12,9 @@ import { OWNER_SCRIPT } from '../owner'
 import { DASHBOARD_HOST, dashboardUrl, SITE_HOST } from '../paths'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
+
+/** A fish-ID run's id, for its page's address. */
+const RUN = '00000000-0000-4000-8000-000000000001'
 
 /**
  * The owner's dashboard on its own host, behind Cloudflare Access (worker/dashboard-host.ts, worker/access.ts): the
@@ -109,7 +113,9 @@ test('a valid token opens the dashboard: the overview at /, each page at /<key>/
 })
 
 test('a page added under /_ab/<key>/ needs nothing else: the mapping reads the dashboard\'s own list of its pages', () => {
-  for (const [inner, host] of [['/_ab/', '/'], ['/_ab/doc-gia/', '/doc-gia/'], ['/_ab/thanh-cong/', '/thanh-cong/'], ['/_ab/thanh-cong.json', '/thanh-cong.json'], ['/_ab/bao-cao/', '/bao-cao/'], ['/_ab/bao-cao/1003/', '/bao-cao/1003/']] as const) {
+  for (const [inner, host] of [['/_ab/', '/'], ['/_ab/doc-gia/', '/doc-gia/'], ['/_ab/thanh-cong/', '/thanh-cong/'], ['/_ab/thanh-cong.json', '/thanh-cong.json'], ['/_ab/bao-cao/', '/bao-cao/'], ['/_ab/bao-cao/1003/', '/bao-cao/1003/'],
+    // The fish-ID runs, under their section: a day's list, one run, the day as JSON (admin/runs.ts).
+    [RUNS_PATH, '/nhan-dien-ca/luot/'], [runPath('2026-11-06', RUN), `/nhan-dien-ca/luot/2026-11-06/${RUN}/`], [runsJsonPath('2026-11-06'), '/nhan-dien-ca/luot/2026-11-06.json']] as const) {
     expect([inner, hostPath(inner)]).toEqual([inner, host])
     expect([host, innerPath(host)]).toEqual([host, inner])
   }
@@ -445,7 +451,7 @@ test('a page\'s links: its own by address on the host, the site\'s pages back on
 test('on every page, no root-relative link is left that this host wouldn\'t answer', async () => {
   const { e } = env()
   await putReport(e.AB, '1003', { when: '2026-11-05T00:00:00.000Z', subject: 's', sent: true, care: 0, text: 't', html: '<p>mail</p>' })
-  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`].map(hostPath)) {
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`, RUNS_PATH].map(hostPath)) {
     const html = await (await dash(p, {}, e)).text()
     expect(isDashboard(html), p).toBe(true)
     for (const [, link] of html.matchAll(/\b(?:href|src|action)="(\/[^"]*)"/g)) {
@@ -553,7 +559,7 @@ test('the deploy creates the host, on the site\'s zone, and the vars are there t
 
 test('the Worker runs first on each dashboard page, or the 404 page would answer without it: a page added needs its line', () => {
   expect(config.assets.not_found_handling).toBe('404-page')
-  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`]) {
+  for (const p of [...WEB_PAGES, `${REPORT_PATH}1003/`, RUNS_PATH, runPath('2026-11-06', RUN), runsJsonPath('2026-11-06')]) {
     const at = hostPath(p)
     expect(workerFirst(at), `${at} on the dashboard's host: add "/${at.split('/')[1]}/*" to run_worker_first in wrangler.jsonc`).toBe(true)
   }
