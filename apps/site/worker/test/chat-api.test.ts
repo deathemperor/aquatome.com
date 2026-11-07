@@ -15,20 +15,29 @@ const ASSETS = { fetch: async (r: Request) => { const f = DIST + new URL(r.url).
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
 const B = 'sk-ant-api03-bbbbbbbbbbbb'
 
-/** R2 in memory: what the chat uses of it (get, put with an etag match, json), every put counted. */
+/** R2 in memory: what the chat uses of it (get, put with an etag match or only where nothing is, json), every put counted. */
 function r2() {
   const m = new Map<string, { body: string; etag: string }>()
   let n = 0
   const bucket = {
     get: async (k: string) => { const o = m.get(k); return o ? { etag: o.etag, json: async () => JSON.parse(o.body), text: async () => o.body } : null },
-    put: async (k: string, v: string, o?: { onlyIf?: { etagMatches?: string } }) => {
-      if (o?.onlyIf?.etagMatches !== undefined && m.get(k)?.etag !== o.onlyIf.etagMatches) return null
+    put: async (k: string, v: string, o?: { onlyIf?: { etagMatches?: string; etagDoesNotMatch?: string } }) => {
+      const at = m.get(k)?.etag
+      if (o?.onlyIf?.etagMatches !== undefined && at !== o.onlyIf.etagMatches) return null
+      // '*' is any object, as R2 reads it: the put only creates.
+      if (o?.onlyIf?.etagDoesNotMatch !== undefined && at !== undefined && (o.onlyIf.etagDoesNotMatch === '*' || at === o.onlyIf.etagDoesNotMatch)) return null
       m.set(k, { body: v, etag: `e${++n}` })
       return { etag: `e${n}` }
     },
   }
   return { m, bucket: bucket as unknown as R2Bucket, read: <T>(k: string) => (m.has(k) ? JSON.parse(m.get(k)!.body) as T : undefined) }
 }
+/** The bucket with a test's hooks: `get` after each read, `put` before each write (it can hold the write, or throw). */
+const hooked = (bucket: R2Bucket, h: { get?: (k: string) => unknown; put?: (k: string, v: string) => unknown }) => ({
+  get: async (k: string) => { const o = await bucket.get(k); await h.get?.(k); return o },
+  put: async (k: string, v: string, o?: R2PutOptions) => { await h.put?.(k, v); return bucket.put(k, v, o) },
+}) as unknown as R2Bucket
+const tick = () => new Promise(r => setTimeout(r, 1))
 function kv() {
   const m = new Map<string, string>()
   return { get: async (k: string, t?: string) => (m.has(k) ? (t === 'json' ? JSON.parse(m.get(k)!) : m.get(k)) : null), put: async (k: string, v: string) => { m.set(k, v) } } as unknown as KVNamespace
@@ -112,6 +121,10 @@ test('who may ask: an app session as a bearer, or a site session from the site\'
   expect(await status(ask(bearer(app.token), { lang: 'en' }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { photo: 'x' }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'x', confidence: -1 }] } }))).toEqual([400, 'bad request'])
+  // The contract closes `identified` as it closes each guess; a name or id past 100 characters is no fish ID's.
+  expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [], photo: 'x' } }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
+  expect(await status(ask(bearer(app.token), { identified: { verdict: 'fish', results: [{ scientificName: 'Paracheirodon innesi', id: 'x'.repeat(101), confidence: 0.9 }] } }))).toEqual([400, 'bad request'])
   expect(await status(ask(bearer(app.token), { question: 'á'.repeat(501) }))).toEqual([413, 'too long'])
   expect(c.bodies).toHaveLength(0)
   expect(await status(ask({ cookie: `${COOKIE}=${web.token}`, origin: 'https://x.test' }))).toEqual([200, undefined])
@@ -199,6 +212,114 @@ test('retries by Idempotency-Key: after the answer, the kept turn with no new co
   // The other question was refused before admission: one question counted.
   expect(ledger.day()!.chat).toBe(1)
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
+test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn is kept, the mark clears, the ledger settles', async () => {
+  const { e, db, store, ledger } = env()
+  const me = await signIn(db)
+  const key = { 'idempotency-key': '3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  const c = claude([async () => { await held; return reads('/vi/ca/ca-neon-xanh/') }, NEON[1]!])
+  const waits: Promise<unknown>[] = []
+  const req = ask(bearer(me.token), {}, key)
+  // The request itself is never awaited, as when the connection drops: only what was handed to wait outlives it.
+  void chat(req, new URL(req.url), e, new Date(), deps(c.fetch), p => { waits.push(p) })
+  while (!c.bodies.length) await tick()
+  expect(waits).toHaveLength(1)
+  release()
+  await Promise.all(waits)
+  const conv = store.read<Conversation>(`chat-conv/${CONV}.json`)!
+  expect(conv.running).toBeUndefined()
+  expect(conv.turns).toMatchObject([{ n: 1 }])
+  expect(ledger.day()!.runs).toEqual({})
+  // Back in the app, its retry gets the kept turn, counted once.
+  const retry = await run(ask(bearer(me.token), {}, key), e, deps(c.fetch))
+  expect(retry.body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
+  expect(c.bodies).toHaveLength(2)
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
+test('two first questions at once in a new conversation: one runs; the other is 409, or with the same key waits for its answer; counted once', async () => {
+  for (const same of [false, true]) {
+    const { e, db, store, ledger } = env()
+    const me = await signIn(db)
+    // Both read the new conversation (none yet) before either marks it.
+    let reads = 0
+    let bothRead!: () => void
+    const read = new Promise<void>(r => { bothRead = r })
+    e.UPLOADS = hooked(store.bucket, {
+      get: k => { if (k.startsWith('chat-conv/') && ++reads === 2) bothRead() },
+      put: k => (k.startsWith('chat-conv/') ? read : undefined),
+    })
+    const c = claude(NEON)
+    const d = deps(c.fetch, { pollMs: 5 })
+    const key = '4d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13'
+    const asking = (k: string) => run(ask(bearer(me.token), {}, { 'idempotency-key': k }), e, d)
+    const [a, b] = await Promise.all([asking(key), asking(same ? key : '5d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13')])
+    if (same) {
+      expect([a.res.status, b.res.status]).toEqual([200, 200])
+      expect(b.body).toEqual(a.body)
+    } else {
+      expect([a.res.status, b.res.status].sort()).toEqual([200, 409])
+      expect([a.body, b.body]).toContainEqual({ error: 'answering' })
+    }
+    expect(c.bodies).toHaveLength(2)
+    expect(Object.values(ledger.day()!.readers)).toEqual([1])
+    expect(store.read<Conversation>(`chat-conv/${CONV}.json`)!.turns).toHaveLength(1)
+  }
+})
+
+test('the kept answer is written before the conversation loses its mark: a retry in between waits for it, not a second run', async () => {
+  const { e, db, store, ledger } = env()
+  const me = await signIn(db)
+  const key = { 'idempotency-key': '6d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
+  let keptReads = 0
+  let keeping = false
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  e.UPLOADS = hooked(store.bucket, {
+    get: k => { if (k.startsWith('chat-turn/')) keptReads++ },
+    put: k => { if (k.startsWith('chat-turn/')) { keeping = true; return held } },
+  })
+  const c = claude(NEON)
+  const d = deps(c.fetch, { pollMs: 5 })
+  const first = run(ask(bearer(me.token), {}, key), e, d)
+  while (!keeping) await tick()
+  const before = keptReads
+  const retry = run(ask(bearer(me.token), {}, key), e, d)
+  // Let the kept answer land once the retry is polling for it (it saw the mark), or has called Claude again (it didn't).
+  while (keptReads < before + 2 && c.bodies.length < 3) await tick()
+  release()
+  const [a, b] = await Promise.all([first, retry])
+  expect(b.body).toEqual(a.body)
+  expect(c.bodies).toHaveLength(2)
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
+test('the stream sends done once the turn is saved: a question right after done is answered, not 409', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  // The conversation's last write (the turn, no mark) is slow.
+  e.UPLOADS = hooked(store.bucket, { put: (k, v) => (k.startsWith('chat-conv/') && !JSON.parse(v).running ? new Promise(r => setTimeout(r, 50)) : undefined) })
+  const waits: Promise<unknown>[] = []
+  const req = ask(bearer(me.token), {}, { accept: 'text/event-stream' })
+  const res = await chat(req, new URL(req.url), e, new Date(), deps(claude(NEON).fetch), p => { waits.push(p) })
+  expect(await res.text()).toContain('event: done')
+  const next = await run(ask(bearer(me.token), { question: 'Bể 60 lít thả bao nhiêu con?' }), e, deps(claude([() => answers({})]).fetch))
+  expect([next.res.status, next.body]).toMatchObject([200, { n: 2 }])
+  await Promise.all(waits)
+})
+
+test('an R2 error marking the question is unavailable (503), not answering, and gives the count back', async () => {
+  const { e, db, store, ledger } = env()
+  const me = await signIn(db)
+  e.UPLOADS = hooked(store.bucket, { put: k => { if (k.startsWith('chat-conv/')) throw new Error('R2 down') } })
+  const c = claude(NEON)
+  const r = await run(ask(bearer(me.token)), e, deps(c.fetch))
+  expect([r.res.status, r.body]).toEqual([503, { error: 'unavailable' }])
+  expect(c.bodies).toHaveLength(0)
+  expect(Object.values(ledger.day()!.readers)).toEqual([0])
 })
 
 test('limits: the account\'s day (rate, with its limit), the site\'s spend (busy); neither calls Claude', async () => {

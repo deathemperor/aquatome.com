@@ -23,8 +23,8 @@ import type { Step, Tank } from './tools'
  * - The conversation: kept in R2 (UPLOADS, `chat-conv/<id>.json`) 24 hours under the account that began it, as its
  *   HMAC: R2 reads its own writes, where KV can show a stale one for a minute at another location. A lifecycle rule
  *   on the prefix deletes it after a day; 24 hours is checked here, the rule only cleans up. The question being
- *   answered is marked in it, written only over the version read (an etag match), so two questions at once can't both
- *   run: the second is 409 answering.
+ *   answered is marked in it, written only over the version read (an etag match), or only where none is yet, so two
+ *   questions at once can't both run: the second is 409 answering, or with the first's key waits for its answer.
  * - Retries (`Idempotency-Key`): the turn, or its error, kept 15 minutes under the account and key
  *   (`chat-turn/<account>/<key>.json`). A retry while the first run still answers waits for it and gets its answer,
  *   counted once.
@@ -67,6 +67,8 @@ const PING_MS = 10_000
 const WAIT_MS = 75_000
 const POLL_MS = 1000
 const MAX_BODY = 16 * 1024
+/** A fish ID guess's scientific name and page id, at most. */
+const MAX_NAME = 100
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 const LANGS = ['vi', 'id', 'th'] as const
@@ -104,8 +106,11 @@ function questionOf(v: unknown, maxChars: number): Question | 'too long' | undef
   if (o.identified !== undefined) {
     const i = o.identified as { verdict?: unknown; results?: unknown }
     const results = Array.isArray(i?.results) ? i.results as Record<string, unknown>[] : undefined
+    // Closed, as the contract closes it; a name or id longer than MAX_NAME is no fish ID guess.
+    if (!i || typeof i !== 'object' || Object.keys(i).some(k => !['verdict', 'results'].includes(k))) return undefined
     if (!['fish', 'plant', 'other', 'unclear'].includes(i?.verdict as string) || !results || results.length > 3
-      || results.some(r => !r || typeof r.scientificName !== 'string' || typeof r.confidence !== 'number' || r.confidence < 0 || (r.id !== undefined && typeof r.id !== 'string')
+      || results.some(r => !r || typeof r.scientificName !== 'string' || r.scientificName.length > MAX_NAME || typeof r.confidence !== 'number' || r.confidence < 0
+        || (r.id !== undefined && (typeof r.id !== 'string' || r.id.length > MAX_NAME))
         || Object.keys(r).some(k => !['scientificName', 'id', 'confidence'].includes(k)))) return undefined
     identified = { verdict: i.verdict as string, results: results.map(r => ({ scientificName: r.scientificName as string, confidence: r.confidence as number, ...(r.id ? { id: r.id as string } : {}) })) }
   }
@@ -219,11 +224,21 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   if (!admitted.ok) return admitted.error === 'rate' ? json({ error: 'rate', limit: admitted.limit }, 429) : json({ error: admitted.error }, admitted.error === 'busy' ? 429 : 503)
   const run = admitted.run
 
-  // The question is marked as answering, over the version read: one another request wrote first is answering.
+  // The question is marked as answering: over the version read (an etag match), or, for a new conversation, only where
+  // none is yet. When another request wrote first, R2 refuses the write (null) and its question is the one answering.
+  // `etagDoesNotMatch: '*'` is If-None-Match: * (workerd's r2-bucket.c++, buildSingleEtagArray), which R2 applies as a
+  // create-once write only one of several at once wins (developers.cloudflare.com/r2/api/s3/extensions/, "Conditional
+  // operations in PutObject"); a failed condition is null, not an error (developers.cloudflare.com/r2/api/workers/workers-api-reference/).
   const mark: Conversation = { account, created: conv?.created ?? clock(), turns: conv?.turns ?? [], running: { key: idem || crypto.randomUUID(), at: clock() } }
-  const marked = await env.UPLOADS.put(convKey, JSON.stringify(mark), obj ? { onlyIf: { etagMatches: obj.etag } } : undefined).catch(() => null)
-  if (!marked) {
+  const marked = await env.UPLOADS.put(convKey, JSON.stringify(mark), { onlyIf: obj ? { etagMatches: obj.etag } : { etagDoesNotMatch: '*' } })
+    .then(o => (o ? 'ok' : 'taken'), e => { console.error('chat mark:', e); return 'failed' })
+  if (marked !== 'ok') {
     await ledger.settle({ day, run, refund: true, keys: {} }).catch(e => console.error('chat settle:', e))
+    if (marked === 'failed') return json({ error: 'unavailable' }, 503)
+    // Taken by a request with this one's key: this one waits for that run's answer, as a retry does. The conversation is
+    // read before the kept answer, since a run keeps its answer before it drops the mark. By another question: answering.
+    const latest = await (await env.UPLOADS.get(convKey))?.json<Conversation>()
+    if (idem && (latest?.running?.key === idem || await readKept())) return waitFor(readKept, keptResponse, stream, clock, deps)
     return json({ error: 'answering' }, 409)
   }
 
@@ -295,15 +310,16 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     }
   }
 
-  /** After the run: the conversation gets the turn (or just loses its mark), the outcome is kept for retries, the ledger settles. */
+  /**
+   * After the run: the outcome is kept for retries, then the conversation gets the turn (or just loses its mark), then
+   * the ledger settles. In that order: a retry that finds no mark finds the kept answer, and never runs the question again.
+   */
   const finish = async (done: { status: number; body: Record<string, unknown> }) => {
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
     const next: Conversation = { account, created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
-    await Promise.all([
-      env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e)),
-      keptKey ? env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e)) : undefined,
-    ])
+    if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
+    await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
     await Promise.all(spends)
     // Our side failed (503: no key, Claude unreachable): the reader's count goes back. A failed answer (502) still counts.
     const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
@@ -311,11 +327,14 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   }
 
   if (!stream) {
-    const done = await work()
-    await finish(done)
+    // The run goes on if the reader's connection drops (waitUntil), so its retry gets its answer and the mark clears.
+    const p = work().then(async done => { await finish(done); return done })
+    wait(p.catch(() => undefined))
+    const done = await p
     return json(done.body, done.status)
   }
   // The stream: steps as they happen, then the text, the blocks, and done (the whole turn); or error. Pings while it works.
+  // Done comes once the turn is saved: a question asked right after it finds the conversation free.
   const enc = new TextEncoder()
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const w = writable.getWriter()
@@ -324,6 +343,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const ping = setInterval(() => send(': ping\n\n'), PING_MS)
   wait((async () => {
     const done = await work(step => send(sse('step', step)))
+    await finish(done)
     clearInterval(ping)
     if (done.status === 200) {
       const t = done.body as unknown as Turn
@@ -332,7 +352,6 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       send(sse('done', t))
     } else send(sse('error', { error: done.status === 502 ? 'failed' : done.body.error === 'resting' ? 'resting' : 'unavailable' }))
     await w.close().catch(() => {})
-    await finish(done)
   })())
   return new Response(readable, { headers: streamHeaders })
 }
