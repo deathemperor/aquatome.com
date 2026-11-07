@@ -12,6 +12,71 @@
     "bangladesh",
     "meghna"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Meghna",
+        "Myntdu River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Dario kajal is a tiny badid from the Meghna drainage, described from the Jaintia Hills of Meghalaya, India, and also found in Bangladesh.",
+          "countries": [
+            "IN",
+            "BD"
+          ],
+          "regions": [
+            "Meghna"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is a tributary of the Myntdu River which is itself an affluent within the Meghna drainage.",
+          "countries": [],
+          "regions": [
+            "Myntdu River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8018937,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BD",
+          3
+        ],
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          91.40625,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          25.3125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

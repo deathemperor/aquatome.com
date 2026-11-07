@@ -527,32 +527,36 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(app.webViews.staticTexts["/vi/ca/ca-dia/"].waitForExistence(timeout: 15), "not the stand-in page")
   }
 
-  // Reading down a page, the tab bar shrinks to the open tab's button; a tap on it, or the page back at its top, brings
-  // it back. (iOS 26 shrinks it; older iOS keeps the bar as it is.)
-  func testTheTabBarShrinksWhileScrollingDownAndComesBack() throws {
-    guard #available(iOS 26.0, *) else { throw XCTSkip("the tab bar shrinks from iOS 26") }
+  /// The tab bar stays whole and where it is while a screen scrolls, down and back, on Tìm's home and on a page, as the
+  /// App Store's does (the owner, 7 Nov).
+  func testTheTabBarStaysWholeWhileAScreenScrolls() {
     let app = launch()
     let tabs = app.tabBars.buttons
     XCTAssertTrue(tabs["Tìm"].waitForExistence(timeout: 5))
-    let all = tabs.count
+    let all = tabs.count, frame = app.tabBars.firstMatch.frame
     XCTAssertGreaterThanOrEqual(all, 3)
-    app.swipeUp()
-    app.swipeUp()
-    XCTAssertTrue(waitFor(tabs, 1), "the tab bar didn't shrink")
-    XCTAssertEqual(tabs.firstMatch.label, "Tìm", "the open tab isn't the one left")
-    app.swipeDown()
-    app.swipeDown()
-    app.swipeDown()
-    XCTAssertTrue(waitFor(tabs, all), "back at the top, the tab bar didn't come back")
-    app.swipeUp()
-    app.swipeUp()
-    XCTAssertTrue(waitFor(tabs, 1), "the tab bar didn't shrink again")
-    app.showTabs()
-    XCTAssertTrue(waitFor(tabs, all), "a tap on the shrunk tab bar didn't bring it back")
-  }
-
-  private func waitFor(_ tabs: XCUIElementQuery, _ n: Int) -> Bool {
-    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "count == %d", n), object: tabs)], timeout: 5) == .completed
+    func staysWhole(_ swipe: () -> Void, _ doing: String) {
+      swipe()
+      // Long enough for a bar that was going to shrink to have shrunk.
+      _ = XCTWaiter.wait(for: [XCTestExpectation(description: "still")], timeout: 1)
+      XCTAssertEqual(tabs.count, all, "the tab bar shrank \(doing)")
+      XCTAssertEqual(app.tabBars.firstMatch.frame, frame, "the tab bar moved \(doing)")
+      for name in ["Tìm", "Bể của tôi", "Đèn"] { XCTAssertTrue(tabs[name].isHittable, "\(name) isn't there \(doing)") }
+    }
+    staysWhole({ app.swipeUp() }, "scrolling down Tìm's home")
+    staysWhole({ app.swipeUp() }, "scrolling further down Tìm's home")
+    staysWhole({ app.swipeDown() }, "scrolling back up Tìm's home")
+    let field = app.searchFields.firstMatch
+    repeatUntil(field.isHittable, times: 4) { app.swipeDown() }
+    field.tap()
+    field.typeText("ca neon")
+    let row = item(app, "Cá neon")
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no Cá neon")
+    row.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the page didn't open")
+    staysWhole({ app.swipeUp() }, "scrolling down a page")
+    staysWhole({ app.swipeUp() }, "scrolling further down a page")
+    staysWhole({ app.swipeDown() }, "scrolling back up a page")
   }
 
   // MARK: Helpers

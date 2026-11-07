@@ -143,10 +143,12 @@ function gallery(d: PageDoc, dom: HTMLElement) {
   const all = appPage(g.href!).dom
   expect(g.photos.map(p => p.src), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-full')))
   expect(g.photos.map(p => p.credit!.url), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-src')))
-  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, without the scientific name before it or the link after.
+  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, with the count its title gives there, without the
+  // scientific name before it or the link after.
   const lead = all.querySelector('.lead')!
   lead.querySelectorAll('.sci, a').forEach(x => x.remove())
-  expect(g.note, d.path).toBe(clean(lead.textContent.replace(/^ ·/, '')))
+  expect(g.note, d.path).toContain(String(g.photos.length))
+  expect(g.note.toLowerCase(), d.path).toContain(clean(lead.textContent.replace(/^ ·/, '')).toLowerCase())
 }
 
 test('each fish\'s copy reads as its built page: header, credits, sources, card sources, tank mates, climate, gallery, breeds, videos', async () => {

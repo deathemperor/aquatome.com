@@ -1,0 +1,56 @@
+{
+  "id": "cyprinodon-pachycephalus",
+  "native": {
+    "input": "ba0c0ff501dbed4a",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Baños de San Diego, east of Chihuahua, Mexico, 28°35.5'N, 105°32.5'W, elevation about 1140 meters', and this species is endemic to the spring of San Diego de Alcalá plus its distributaries in Chihuahua state, northern Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyprinodon pachycephalus",
+    "status": "ACCEPTED",
+    "taxonKey": 2347916,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        9
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        7
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        4
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

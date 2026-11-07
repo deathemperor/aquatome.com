@@ -10,6 +10,71 @@
     "myanmar",
     "rakhine-yoma"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Rakhine Yoma",
+        "Kananmae Chaung"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Rakhine Yoma"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was originally collected from a handful of streams and rivers of the western, interior, slopes of which the type specimens originated from the Kananmae Chaung, a coastal rivulet draining into the Bay of Bengal (Kullander and Fang, 2009).",
+          "countries": [],
+          "regions": [
+            "Kananmae Chaung"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362722,
+      "total": 24,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          16.875,
+          7,
+          7
+        ],
+        [
+          94.21875,
+          18.28125,
+          16,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

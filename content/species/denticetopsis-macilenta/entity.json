@@ -13,6 +13,109 @@
     "venezuela",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "VE",
+        "PE"
+      ],
+      "regions": [
+        "Essequibo River",
+        "Potaro River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Creek below Potaro Landing (5°23'N, 59°08'W), Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Potaro River, Essequibo River basin (Guyana and Venezuela); Peru.",
+          "countries": [
+            "VE",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Essequibo River basin in Guyana.",
+          "countries": [],
+          "regions": [
+            "Essequibo River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species can be found primarily in the Potaro River, across the Essequibo River basin, Guyana.",
+          "countries": [],
+          "regions": [
+            "Potaro River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337967,
+      "total": 10,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GY",
+          5
+        ],
+        [
+          "PE",
+          3
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

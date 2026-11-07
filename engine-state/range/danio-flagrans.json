@@ -1,0 +1,63 @@
+{
+  "id": "danio-flagrans",
+  "native": {
+    "input": "6af998edcf0c0d42",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of streams in the upper Mali Hka river drainage, Ayeyarwaddy River system, near Putao township in the far north of Kachin state, northern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwaddy",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of streams in the upper Mali Hka river drainage, Ayeyarwaddy River system, near Putao township in the far north of Kachin state, northern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Mali Hka",
+        "source": "seriouslyfish",
+        "quote": "Known only from a handful of streams in the upper Mali Hka river drainage, Ayeyarwaddy River system, near Putao township in the far north of Kachin state, northern Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio flagrans",
+    "status": "ACCEPTED",
+    "taxonKey": 7469532,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

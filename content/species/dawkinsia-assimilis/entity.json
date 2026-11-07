@@ -10,6 +10,66 @@
     "india",
     "netravati"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Netravati",
+        "Chalakudy",
+        "Kallada"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The mascara barb, Dawkinsia assimilis, is a cyprinid from the Netravati, Chalakudy and Kallada basins of Karnataka and Kerala, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Southwest Indian states of Karnataka and Kerala where it's been collected from the Netravati, Chalakudy and Kallada river basins in recent years, though the precise extent of its distribution remains unclear.",
+          "countries": [],
+          "regions": [
+            "Netravati",
+            "Chalakudy",
+            "Kallada"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7363170,
+      "total": 6,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          12.65625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

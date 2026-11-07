@@ -10,6 +10,82 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Myanmar where it has been recorded from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia, with all known habitats within the Irrawaddy/Ayeyarwady river system.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Lake Indawgyi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389479,
+      "total": 51,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          51
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          23.90625,
+          17,
+          17
+        ],
+        [
+          95.625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          30,
+          30
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
