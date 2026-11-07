@@ -137,14 +137,19 @@ if part pages sf photos; then
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 fi
 if part photos; then
-  # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map or a tank
-  # gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the page. Most-read pages
-  # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
-  # Dead fish, fish as food (a market, a catch, a preserved specimen) and a logo take a photo off every page. Photos judged
-  # before the check asked (2026-11-05) whose notes say they may show one are judged again first, once: after that it finds
-  # none and calls no model.
+  # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map, a tank or a
+  # landscape with no fish gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the
+  # page. Most-read pages first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
+  # Dead fish, fish as food (a market, a catch, a preserved specimen), a person or a hand, and a logo take a photo off every
+  # page. Verdicts from before the check asked about people (2026-11-07) are asked again in the same queue (about 1,000
+  # sheets on top of the 1,400 not judged yet: some 5 days with the video job's 20). recheck-photos takes first, once, those
+  # whose notes say a dead fish, a hand or a person, or whose verdict was the old "habitat"; then it finds none.
   pnpm engine recheck-photos --limit "${PHOTO_RECHECK_LIMIT:-40}" || log "recheck-photos: failed"
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
+  # No people or logos in guides' and equipment guides' photos, which the check above doesn't see (guide-photos.ts):
+  # GUIDE_PHOTOS_LIMIT model calls of 6 photos a cycle, leads first, each judged once (2,560 to judge on 2026-11-07:
+  # about 430 calls, a day and a half with the video job's 20).
+  pnpm engine guide-photos --limit "${GUIDE_PHOTOS_LIMIT:-20}" || log "guide-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;
   # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on

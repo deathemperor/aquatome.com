@@ -464,10 +464,13 @@ The layers above still check the result.
   - research running again keeps the reviews' sources and text, cited by address and not by place
   - "Điều khiển bằng AquaTome" comes from the code (`@aq/schema` devices: the light tool's model table, and the plug makers with a `PlugSource` in the app, a test holding the two together), never from the text, so a page stays true when support changes. AquaTome's own test notes (docs/research/aquarium-device-control.md) are curated facts naming the light tested, for lights it controls; Week Aqua's aren't used
   - no thumbnail becomes a page photo: the top review plays from the same player as a species page's videos
-- **Photos.** No people (faces dropped), no watermarks (credits, dealer logos, site names or species names added on the
+- **Photos.** No people, and hands count (PRODUCT.md: faces dropped by Apple Vision, and the model asks about any person
+  or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good), no dead fish or fish as food (markets, plates, catches landed or held, preserved, mounted or museum specimens),
-  each photo must show its species, open licences or permission only.
+  good), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
+  fine), no dead fish or fish as food (markets, plates, catches landed or held,
+  preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
+  doesn't), open licences or permission only.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   - **Galleries and their targets.** Every species, plant and breed has a gallery, topped up each cycle to a target set
@@ -519,25 +522,47 @@ The layers above still check the result.
     of fish each fish's section shows that fish, the guide's own photo first.
   - **The right subject.** `pnpm engine check-photos` (each photos cycle, and the Mac's video job) shows the model every
     photo on a species, plant or breed page and its gallery, 6 to a sheet, with the scientific name, the page's names
-    and, for a breed, what sets it apart. Verdicts: shows it, its wild habitat, something else (it says what), not a
-    photo of it (a map, chart, hands, a tank, a packshot), or can't tell. "Something else" and "not a photo of it" leave
-    the page; a photo no page keeps joins `_photo-rejected.json`. Can't tell stays and is listed in
+    and, for a breed, what sets it apart. Verdicts: shows it (in the wild too, where it is clearly seen), something else
+    (it says what), not a photo of it (a map, chart, hands, a tank, a packshot, a landscape or stream where it can't be
+    picked out), or can't tell. "Something else" and "not a photo of it" leave the page; a photo no page keeps joins
+    `_photo-rejected.json`. Can't tell stays and is listed in
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
     guide photo whose caption names one fish is judged against what the caption says, and only "something else"
     leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Most-read pages first, verdicts cached per photo and page (`_photo-subjects.json`). Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
     page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
-    - **Dead fish and logos.** The check also answers "dead" (a dead fish or fish as food: a market, ice, a plate, a
-      catch landed or held, a fish on a tray or the floor, a preserved, mounted, museum or lab specimen, a museum shell;
-      when it can't tell, dead) and whether a logo, stamp or mark was added on the photo, which the watermark step's
-      text reader can miss. Either is about the photo: one such verdict takes it off every page, guide and gallery and
-      onto `_photo-rejected.json` ("dead: …", "watermark: …"). A logo found, the same photographer's older-judged photos
-      are asked too. `pnpm engine recheck-photos` (each photos cycle, before `check-photos`) asks again, once, the photos
-      judged before the check asked whose notes from earlier looks (the checks', the watermark step's, the gallery's
-      captions) say dead, market, preserved, museum, cooked and the like; then it finds none and calls no model. Found
-      by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their page; its note
-      said so and the verdict was "yes".
+    Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
+    the firemouth's and the flame tetra's only photos, a lake and a stream with no fish, led their pages, their index
+    cards and the tank-mates blocks (a design review's find). Such a verdict is asked again (below).
+    - **Dead fish, people and logos.** The check also answers "dead" (a dead fish or fish as food: a market, ice, a
+      plate, a catch landed or held, a fish on a tray or the floor, a preserved, mounted, museum or lab specimen, a
+      museum shell; when it can't tell, dead), whether a person or any part of one is in the photo (a hand holding the
+      fish, fingers, a diver, blurred or behind the glass), and whether a logo, stamp or mark was added on the photo, in
+      any script, which the watermark step's text reader can miss. Each is about the photo: one such verdict takes it
+      off every page, guide and gallery and onto `_photo-rejected.json` ("dead: …", "people: …", "watermark: …"). A logo
+      found, the same photographer's older-judged photos are asked too. Until 2026-11-07 the check called a fish held in
+      a hand "yes" (97 photos still shown had a note saying a hand or a person), and a verdict of the first check, which
+      never asked about marks, stood for good: a photo signed faintly in Thai, which Vision didn't read, led the
+      Boraras urophthalmoides page. So every verdict without the people answer is asked again, in the check's own order
+      and within its limit (on 2026-11-07: about 1,000 sheets on top of the 1,400 not judged yet, some 5 days at 60 a
+      run every 3 hours). `pnpm engine recheck-photos` (each photos cycle, before `check-photos`) takes first, once,
+      those whose notes from earlier looks (the checks', the watermark step's, the gallery's captions) say dead, market,
+      preserved, a hand, a person and the like, or whose verdict was the old habitat; then it finds none and calls no
+      model. Found by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their
+      page; its note said so and the verdict was "yes".
+  - **Guides' photos.** `pnpm engine guide-photos` (each photos cycle and the Mac's video job, 20 model calls each, 6
+    photos a call, leads first) looks at what the subject check doesn't: every guide's photos (its lead and those under
+    its headings), its video sections' photos, and the equipment guides' photos. It asks whether a person or any part
+    of one is in it, whether a mark was added on it, and whether a shop's or dealer's brand shows in it (a maker's
+    brand on its own product doesn't count). A
+    person or a mark is the photo's: off every page and onto `_photo-rejected.json` ("people: …", "watermark: …"). A
+    brand leaves the guides ("logo: …"), and stays on an equipment guide, whose subject is the product. Each photo is
+    judged once (`engine-state/_photo-guides.json`): 2,560 on 2026-11-07, about 430 calls, a day and a half. Found by a
+    design review (2026-11-07): hands planting a sword plant and a person siphoning a tank leading two guides, and an
+    Aquarium Co-op test-strip bottle in the betta setup guide, where only the face detector (no face in either) and the
+    watermark step (which calls a product's own label part of the scene) had looked; 5,960 of 6,428 guide pictures had
+    never had a model look for a mark. A video's own stills are screened by `video-stills` instead (faces, text).
   - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
     YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
     shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
