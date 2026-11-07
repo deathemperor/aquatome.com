@@ -444,9 +444,15 @@ test('cards use the recorded thumb, Wikimedia 500px, else the full photo', async
   expect(smallSrc({ ...base, url: 'https://upload.wikimedia.org/w/thumb/a/F.jpg/960px-F.jpg' })).toBe('https://upload.wikimedia.org/w/thumb/a/F.jpg/500px-F.jpg')
 })
 
-test('owner hide button script is on content pages but not the 404 page', () => {
-  expect(page('/ca/ca-dia/').dom.querySelector('script[data-owner]')?.text).toContain('/_ab/hidden')
-  expect(page('/').dom.querySelector('script[data-owner]')?.text).toContain("['Quản trị','/_ab/']") // admin link on every page, home included
+test('the script that loads the owner bar is on content pages but not the 404 page, and the bar is a file of its own', () => {
+  // A page holds only what loads the bar: its buttons are in a file only a browser with the owner's flag fetches.
+  for (const path of ['/ca/ca-dia/', '/']) {
+    expect(page(path).dom.querySelector('script[data-owner]')?.text, path).toContain("import('/_owner/bar.js')")
+    expect(page(path).html, path).not.toContain('/_ab/hidden')
+    expect(page(path).html, path).not.toContain('Báo lỗi')
+  }
+  const bar = readFileSync(`${DIST}/_owner/bar.js`, 'utf8')
+  for (const words of ['/_ab/hidden', 'Quản trị', '/_ab/doc-gia/', 'Báo lỗi', '/api/feedback']) expect(bar, words).toContain(words)
   expect(page('/').dom.querySelectorAll('footer a[href^="/_ab"]')).toHaveLength(0) // no admin link for visitors; the owner bar needs the owner cookie
   expect(page('/404').dom.querySelector('script[data-owner]')).toBeNull()
 })

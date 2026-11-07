@@ -203,6 +203,17 @@ that would have caught it).
     block it sends, in each of its states, one the contract describes; its buttons set the delivery as the page's form
     does; and the phones the report notifies (`POST`/`DELETE /api/owner/push-token`: kept once with the time, a bad token
     refused), the same session only.
+  - The owner's reports (`apps/site/worker/feedback.ts`, `src/owner/`, `scripts/owner-feedback-deliver.mjs`), against
+    `protocols/owner-feedback.openapi.json`. They feed the thread that runs the project, so: only the owner's signed-in
+    account sends one (no session, an ended one, the owner bar's flag, the dashboard token or another account stores
+    nothing), the owner's cookie only from the site's own pages, 30 an hour, and only the words are free text: each other
+    field passes its own check or is left out, an address only on this site, as a plain path and a query of short words at most. The queue opens to the
+    dashboard token alone, and a delivered report and its image are deleted (`worker/test/feedback.test.ts`). The Mac's job:
+    an empty queue is one request, a failed send keeps the report, a run that died after sending doesn't send twice, the
+    owner's words quoted apart from everything recorded with them, no report's words in its log
+    (`test/owner-feedback-deliver.test.ts`). In the browser (`e2e/owner-report.spec.ts`): a reader loads none of it, the
+    report's journey with the send a stand-in, a failed send keeping the words. The script in every page only loads the
+    bar and may not grow (`worker/test/owner.test.ts`).
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,

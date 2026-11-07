@@ -144,6 +144,8 @@ export function writeGuide(page: ProcessedPage, ctx: Ctx & { existing?: { entity
   } }
 }
 
+const regionKind = (name: string): PlaceEntity['kind'] => /\b(rio|river|río)\b/i.test(name) ? 'river' : 'region'
+
 /** Places the page mentions that don't exist yet, parents first. Names stay English until a translator pass names them. */
 export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<PlaceEntity>[] {
   const out: Item<PlaceEntity>[] = []
@@ -157,7 +159,13 @@ export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<Plac
   for (const p of places) {
     let parent = add(p.continent, 'continent')
     if (p.country) parent = add(p.country, 'country', parent)
-    if (usableRegion(p.region)) add(p.region, /\b(rio|river|río)\b/i.test(p.region) ? 'river' : 'region', parent)
+    if (usableRegion(p.region)) add(p.region, regionKind(p.region), parent)
   }
   return out
+}
+
+/** A river or region only a species' range names, so the translator pass names it and the page shows it in each language. */
+export function rangePlace(name: string, country?: string): Item<PlaceEntity> {
+  const id = placeId(name)
+  return { entity: { id, kind: regionKind(name), ...(country ? { country } : {}) }, vi: { slug: id, name, altNames: [], sections: {}, quality: DEFAULT_QUALITY } }
 }
