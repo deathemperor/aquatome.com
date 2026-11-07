@@ -12,7 +12,7 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     open(app, "owner-dashboard")
     XCTAssertEqual(app.buttons.matching(identifier: "owner-todo").count, 3, "the overview's to-dos")
-    XCTAssertTrue(app.buttons["owner-todo"].firstMatch.label.contains("1 key Anthropic đang nghỉ"), app.buttons["owner-todo"].firstMatch.label)
+    XCTAssertTrue(app.buttons["owner-todo"].firstMatch.label.contains("mọi key đang nghỉ"), app.buttons["owner-todo"].firstMatch.label)
     XCTAssertEqual(app.buttons.matching(identifier: "owner-area").count, 10, "an area card each")
     XCTAssertEqual(app.buttons.matching(identifier: "owner-log").count, 16, "a line each of \"Mấy ngày qua\"")
 
