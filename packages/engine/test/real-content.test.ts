@@ -1,4 +1,5 @@
-import { readFile } from 'node:fs/promises'
+import { readdir, readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { loadAll, type Translation } from '@aq/schema'
@@ -30,16 +31,32 @@ test('no page calls a fish by the name it no longer has', async () => {
 }, 300_000)
 
 // The owner, 2026-11-07: "fritz slim out is not for Vietnamese. I can effectively treat this with very cheap oxy già."
-test('the blue-green algae guide leads Vietnamese readers to oxy già, cited, and the engine keeps it', async () => {
-  const t = JSON.parse(await readFile(fileURLToPath(new URL('../../../content/guides/aquariumcoop-blogs-aquarium-blue-green-algae/vi.json', import.meta.url)), 'utf8')) as Translation
+// And 2026-11-08, on a box stuck over the translated article: "The mention of US med is so irrelevant here." These two
+// guides' treatment is written for a keeper in Vietnam: nothing not sold here, in any field of any language's file, and
+// nothing explaining its absence. Fritz Slime Out, Tetra AlguMin Plus and AlgoStop depot: no listing on 22 Vietnamese
+// shops' own search. Ultralife's only listing is a general pet wholesaler's, not counted as sold.
+const BLUE_GREEN_ALGAE = {
+  'aquariumcoop-blogs-aquarium-blue-green-algae': ['https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', 'https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'],
+  'aquariumbreeder-blue-green-algae-cyanobacteria-profile-and-how-to-remove': ['https://www.pharmacity.vn/oxy-gia-vp-3-60ml-loc-10-chai.html'],
+}
+test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no product not sold in Vietnam, cites its dose, and the engine keeps it', async (id, cited) => {
+  const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
+  for (const file of await readdir(dir)) {
+    const text = await readFile(join(dir, file), 'utf8')
+    expect(text, file).not.toMatch(/fritz|slime\s*out|slime\s*stain|algu\s*min|algo\s*stop|ultra\s*life/iu)
+    expect(text, file).not.toMatch(/bài gốc|ở mỹ|ở việt nam|aquatome thêm/iu)
+  }
+  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   expect(t.bodyFixed).toBe(true)
-  expect(t.localNote!.html).toMatch(/^<h3>Ở Việt Nam/)
-  expect(t.localNote!.html).toContain('oxy già 3%')
-  expect(t.localNote!.html).toContain('3 ml cho mỗi 4 lít')
-  expect(t.localNote!.refs.map(r => r.url)).toContain('https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/')
-  expect(t.body).not.toContain('Một sản phẩm bạn có thể dùng là Fritz')
-  // Not in another language's text: what's sold in Vietnam is about Vietnam.
-  for (const lang of ['id', 'th']) expect(await readFile(fileURLToPath(new URL(`../../../content/guides/aquariumcoop-blogs-aquarium-blue-green-algae/${lang}.json`, import.meta.url)), 'utf8').catch(() => '')).not.toContain('Ở Việt Nam')
+  expect(t.localNote).toBeUndefined()
+  expect(t.body).toContain('oxy già 3%')
+  expect(t.body).toContain('3 ml cho mỗi 4 lít')
+  // The dose says what it's for and carries its caution, so it can't be read against another guide's 0.4 ml for a whole tank.
+  const dose = t.body!.match(/<li>[^<]*3 ml cho mỗi 4 lít[^<]*<\/li>/)?.[0]
+  expect(dose).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
+  expect(dose).toMatch(/bỏng mang.*tép/)
+  // No writer carries a guide's refs over a source read again (merge.ts writeGuide): this says so when one is lost.
+  expect(t.refs?.map(r => r.url)).toEqual(expect.arrayContaining(cited))
 })
 
 // A fish's summary states its card's figures, as the card is now: the sweep sends back any that doesn't (cardProblems).
