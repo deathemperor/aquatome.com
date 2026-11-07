@@ -95,7 +95,7 @@ still alive (`PlayerCount`).
 
 ```text
 AquaTome.xcodeproj   # folders are synchronized: new files need no project edits
-AquaTome/            # the app (Vietnamese source strings; Indonesian and Thai in Localizable.xcstrings)
+AquaTome/            # the app (Vietnamese source strings; Indonesian, Malay and Thai in Localizable.xcstrings)
 AquaTomeUITests/     # the main flows, on the simulator's fake light
 Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 ```
@@ -129,9 +129,10 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 - **A real iPhone:** copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and put your team ID in it. The
   public project never holds the team ID.
 
-A new string in the code: add its Indonesian and Thai to `Localizable.xcstrings` (Xcode adds the key when it builds);
-`check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
-(`apps/site/src/i18n/{id,th}.json`).
+A new string in the code: add its Indonesian, Malay and Thai to `Localizable.xcstrings` (Xcode adds the key when it
+builds); `check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
+(`apps/site/src/i18n/{id,ms,th}.json`). `pnpm --filter @aq/engine exec tsx scripts/translate-app.ts ms` fills a
+language's missing strings in both catalogs: the site's first, then Opus.
 
 ## TestFlight
 
