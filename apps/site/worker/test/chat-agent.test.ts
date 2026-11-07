@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
 import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
+import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { topicsOf, type Topics } from '../chat/topics'
@@ -22,7 +22,7 @@ const hb = async (): Promise<Handbook> => (await handbookOf(source, 'vi'))!
 const { misfits } = contract('chat.openapi.json')
 const block = { $ref: '#/components/schemas/Block' }
 const pick = (p: Partial<Choice>): Choice => ({ t: 'species', ids: [], path: null, heading: null, tool: null, fish: [], tank: null, tankId: null, ...p })
-const answer = (blocks: Choice[], o: Partial<Answer> = {}): Answer => ({ text: 'x', covered: true, blocks, suggestions: [], ...o })
+const answer = (blocks: Choice[], o: Partial<Answer> = {}): Answer => ({ offTopic: false, text: 'x', covered: true, blocks, suggestions: [], ...o })
 const run = async (name: string, input: Record<string, unknown>, h?: Handbook) => {
   const tool = chatTools({ handbook: h ?? (await hb()), tanks: async () => [] }).find(t => t.name === name)!
   return { step: tool.step?.(input), out: await tool.run(input, { photosLeft: 0 }) }
@@ -642,8 +642,29 @@ test('a call\'s JSON that doesn\'t open with the text gives nothing; space aroun
   expect(pieces(['{"te', 'xts":"Nuôi theo đàn."'])).toEqual(['', ''])
   expect(pieces(['Để tôi đọc trang cá neon.', '{"text":"x"'])).toEqual(['', ''])
   expect(pieces([' \n{ ', '"text" ', ':\t', ' "Nuôi', ' theo đàn."', ',"suggestions":["text"]}'])).toEqual(['', '', '', 'Nuôi', ' theo đàn.', ''])
-  // The schema keeps the text first: structured outputs write the keys in its order.
-  expect(Object.keys(ANSWER_SCHEMA.properties)[0]).toBe('text')
+  // The schema keeps offTopic, then the text, first: structured outputs write the keys in its order.
+  expect(Object.keys(ANSWER_SCHEMA.properties).slice(0, 2)).toEqual(['offTopic', 'text'])
+})
+
+test('an answer on fishkeeping streams after offTopic false; an off-topic one gives nothing, whatever its text', () => {
+  expect(pieces(['{"offTopic"', ': false, "te', 'xt":"Nuôi', ' theo đàn."}'])).toEqual(['', '', 'Nuôi', ' theo đàn.'])
+  expect(pieces(['{"offTopic":true,"text":"Real Madrid thắng 2-1."}'])).toEqual([''])
+  expect(pieces(['{"offTopic":tr', 'ue,"text":"x"}'])).toEqual(['', ''])
+})
+
+test('an off-topic question gets the Worker\'s own line in the reader\'s language: nothing Claude wrote, no blocks, no suggestions, nothing streamed', async () => {
+  const said: string[] = []
+  const wrote = { offTopic: true, text: 'Real Madrid thắng 2-1 tối qua.', covered: true, blocks: [{ t: 'card', ids: ['paracheirodon-innesi'], path: null, heading: null, tool: null, fish: [], tank: null, tankId: null }], suggestions: ['Ai ghi bàn?'] }
+  for (const lang of ['vi', 'th'] as const) {
+    const out = await answerQuestion({
+      send: streamed([{ type: 'text', text: JSON.stringify(wrote) }]),
+      model: 'claude-opus-5-5', lang, question: 'Tối qua Real Madrid đá thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+      onText: p => said.push(p),
+    })
+    expect(out.answer).toEqual({ offTopic: true, text: OFF_TOPIC[lang], covered: true, blocks: [], suggestions: [] })
+    expect(out.blocks).toEqual([])
+  }
+  expect(said.join('')).toBe('')
 })
 
 test('the pieces joined are the answer\'s text, however its JSON is cut and whatever it escapes', () => {
