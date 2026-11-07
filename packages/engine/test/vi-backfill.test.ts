@@ -136,13 +136,13 @@ test('a rewrite below the bar gets one more try with the reviewer notes; the bet
   expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>lần 2</p>')
 })
 
-test('a body fixed by hand is not rewritten, even when asked for by --match; its summary and FAQ lines still can be', async () => {
+test('a guide fixed by hand is not rewritten, even when asked for by --match: not its body, its summary or its FAQ', async () => {
   const root = await setup()
   await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>người sửa, theo tác giả</p>', bodyFixed: true, summary: ['Theo tác giả, rêu do thừa phân.'], quality: { score: 0.85, indexable: true } })
   await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10, match: /tác giả/i })
   const vi = await read(root, 'guides/g/vi.json')
   expect(vi).toMatchObject({ body: '<p>người sửa, theo tác giả</p>', bodyFixed: true })
-  expect(vi.summary).toEqual(['mới summary:0'])
+  expect(vi.summary).toEqual(['Theo tác giả, rêu do thừa phân.'])
   await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>người sửa</p>', bodyFixed: true, quality: { score: 0.85, indexable: true } })
   await rewriteExisting(root, join(root, 's2.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10 })
   expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>người sửa</p>')
