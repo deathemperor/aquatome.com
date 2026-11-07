@@ -1,12 +1,13 @@
 ---
 url: https://www.seriouslyfish.com/species/melanotaenia-rubrostriata
 title: Melanotaenia rubrostriata (Red-striped Rainbowfish) · Seriously Fish
-fetchedAt: 2026-11-07T03:48:53.359Z
-hash: 6467173883ec6f0d0421a336b7f6d2575db6cc9cbefca2a65edb817192b38b33
+fetchedAt: 2026-11-07T18:16:17.396Z
+hash: 27b6d16f139d0b290deb38a1cd02d2b7e74b1d5cda976656818580516138ab05
 ---
 
 On this page
-11 sections
+11
+sections
 - Distribution
 - Habitat
 - Aquarium size

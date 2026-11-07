@@ -49,6 +49,12 @@
         "source": "seriouslyfish",
         "value": 80
       }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
     ]
   },
   "sections": [
@@ -74,7 +80,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/devario-shanensis",
-      "html": "<p>An aquarium with surface dimensions of 80 × 30 cm or similar should be the smallest considered. Volume is approximately 72 litres.</p>"
+      "html": "<p>An aquarium with surface dimensions of 80 × 30 cm or similar should be the smallest considered. Volume is about 72 litres.</p>"
     },
     {
       "key": "maintenance",
@@ -149,7 +155,14 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "JfX9-2-BLao",
+      "title": "ホーラダニオ　Hora danio Davario shanensis",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -161,7 +174,10 @@
       "category": "loc",
       "keywords": [
         "lọc sủi mút",
-        "máy bơm tạo dòng chảy"
+        "máy bơm tạo dòng chảy",
+        "lọc sponge",
+        "máy sủi khí",
+        "máy tạo dòng"
       ]
     },
     {
@@ -176,7 +192,8 @@
       "category": "phan-nen",
       "keywords": [
         "sỏi sông",
-        "cát nền bể cá"
+        "cát nền bể cá",
+        "cát thủy sinh"
       ]
     }
   ],

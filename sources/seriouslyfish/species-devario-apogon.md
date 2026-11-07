@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-apogon
 title: Devario apogon · Seriously Fish
-fetchedAt: 2026-11-07T04:24:49.152Z
+fetchedAt: 2026-11-07T18:50:45.795Z
 hash: ebba62e66adeaf5d81750685a7c0061dbbd5a44fde80c0f67eda86216d453e25
 ---
 

@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-shanensis
 title: Devario shanensis · Seriously Fish
-fetchedAt: 2026-11-07T04:45:56.304Z
+fetchedAt: 2026-11-07T19:22:02.802Z
 hash: af54ca76289fc46087e5c16c91dfa2bf2d5851e5a23c136dc8814b29ce44ec49
 ---
 

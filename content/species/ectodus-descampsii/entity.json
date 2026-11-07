@@ -83,7 +83,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ectodus-descampsii",
-      "html": "<p>Standard length: 104 mm SL. Aquarium base: 90 × 30 cm. Volume: approximately 81 litres (90 × 30 × 30 cm).</p>"
+      "html": "<p>Standard length: 104 mm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres (90 × 30 × 30 cm).</p>"
     },
     {
       "key": "maintenance",
@@ -129,7 +129,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "3k20yxx25VM",
+      "title": "Ectodus descampsii starting a new crater!",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wSIY5CHg5EU",
+      "title": "Ectodus descampsii from egg to fry",
+      "durationSec": 496,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gU1s20iaTCA",
+      "title": "Ectodus descampsii with  her family in her mouth",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cTW89nmZs70",
+      "title": "Ectodus descampsii tumbling her eggs",
+      "durationSec": 74,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -141,7 +166,9 @@
       "category": "phan-nen",
       "keywords": [
         "cát nền cho cá Tanganyika",
-        "cát mịn hồ cá"
+        "cát mịn hồ cá",
+        "cát nền bể cá",
+        "cát cho cichlid Tanganyika"
       ]
     },
     {
@@ -155,7 +182,16 @@
       "category": "suoi",
       "keywords": [
         "sưởi hồ cá 100W",
-        "máy sưởi điều chỉnh nhiệt độ"
+        "máy sưởi điều chỉnh nhiệt độ",
+        "sưởi bể cá 100W",
+        "máy sưởi cá cảnh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "thức ăn cá cichlid"
       ]
     }
   ],

@@ -133,7 +133,32 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "6BM0q-eqD2s",
+      "title": "Dormitator lebretonis.mp4",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GdHoHNcjYfw",
+      "title": "Dormitator lebretonis - Lehmgrundel",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Gse-zDZ6bwc",
+      "title": "Dormitator lebretonis (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eJrySNkg5Jw",
+      "title": "Dormitator lebretonis  彩虹塘鱧",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -145,20 +170,30 @@
       "category": "phan-nen",
       "keywords": [
         "cát nền mịn cho cá bống",
-        "cát nền bể nước lợ"
+        "cát nền bể nước lợ",
+        "cát nền mịn cho bể cá",
+        "cát san hô nước lợ"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cho cá bống",
-        "rong biển nori cho cá"
+        "rong biển nori cho cá",
+        "thức ăn cá bống"
       ]
     },
     {
       "category": "loc",
       "keywords": [
         "lọc thùng cho bể 70 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W",
+        "máy sưởi chỉnh nhiệt"
       ]
     }
   ],

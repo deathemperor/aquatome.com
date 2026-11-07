@@ -6931,5 +6931,104 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/species/erythrinus-erythrinus#seriouslyfish": [
+    {
+      "at": "2026-11-07T20:52:15Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "#4: \"swamps, marshes\" rendered as \"đầm lầy, vùng đất ngập nước\" – fine, but \"surface vegetation\" as \"cây trên mặt nước\" is slightly vague; use \"thực vật nổi trên mặt nước\".",
+        "#6: \"Nắp bể cần đậy thật khít, vì có cơ hội là cá sẽ thoát ra ngoài\" is awkward and weakens \"can and will escape\"; use \"vì cá chắc chắn sẽ tìm cách thoát ra nếu có cơ hội\".",
+        "#8: \"dù đã có một số con dần dần chịu ăn\" is awkward; use \"dù một số cá thể có thể dần chấp nhận\".",
+        "#8: \"thức ăn tươi giàu đạm\" adds 'tươi' and 'giàu đạm'; the original says 'meaty fare' - consider \"thức ăn thịt\". Also \"lancefish\" left untranslated; use \"cá đuối ... / cá lao (lancefish)\" or gloss it, e.g. \"cá chình cát (sand lance)\".",
+        "#2/#9/#12: \"cực kỳ không ưa đồng loại\" is stiff; use \"rất hung hăng với đồng loại\".",
+        "#12: \"red hi-fin wolf fish\" left in English; give a Vietnamese form, e.g. \"cá sói vây cao đỏ (red hi-fin wolf fish)\".",
+        "#12: \"cá con ở đây\" - original says 'juvenile specimens' in French Guiana; fine, but \"killifish Rivulus\" is better as \"cá killifish thuộc chi Rivulus\" (original 'a particular species of Rivulus killifish').",
+        "#12: \"màu sắc của nó đậm dần\" - the original says 'develops more colour'; use \"lên màu nhiều hơn\".",
+        "#2: \"nơi thu bắt\" is non-standard; use \"nơi thu thập/nguồn gốc thu thập\".",
+        "#11: \"Chưa có ai cho loài này sinh sản trong bể nuôi\" - use \"Chưa ghi nhận việc sinh sản trong giới chơi cá cảnh\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/esomus-danrica#seriouslyfish": [
+    {
+      "at": "2026-11-07T20:55:27Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Item 6: \"bớt nhát hẳn\" overstates the English \"seems to reduce skittish behaviour\". Use \"có vẻ bớt nhát hơn\" or similar.",
+        "Item 3: \"Nơi thu mẫu chuẩn\" is an unusual rendering of \"type locality\". \"Nơi thu mẫu định danh\" or \"nơi thu mẫu gốc\" is more standard.",
+        "Item 12: \"Nhưng nhóm này cũng lưu ý\" is slightly ambiguous about who \"nhóm này\" is. Use \"nhóm tác giả này\" or \"họ\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/esomus-longimanus#seriouslyfish": [
+    {
+      "at": "2026-11-07T20:58:02Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 6: \"bể mới set chưa ổn định vi sinh\" leaves the English word \"set\" in place. Use \"bể mới chạy chưa ổn định vi sinh\" or \"bể chưa trưởng thành về vi sinh\".",
+        "Item 6: \"Bể trông cũng tự nhiên hơn\" is fine. \"cho ánh sáng dịu bớt\" could read more smoothly as \"để làm dịu ánh sáng\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/euchilichthys-guentheri#seriouslyfish": [
+    {
+      "at": "2026-11-07T21:00:00Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 4: \"(SL, đo từ mõm đến gốc đuôi)\" adds an explanation not in the English; remove it or keep just \"Chiều dài chuẩn (SL): 19 cm\".",
+        "Item 11: \"nhưng chưa mô tả\" is an unstated gloss on \"more have been discovered\"; use \"dù đã phát hiện thêm nhiều loài khác\".",
+        "Item 11: \"hình elip chứ không tròn\" is fine, but \"na ná\" is colloquial; use \"tương tự\" or \"giống\" in an encyclopedia.",
+        "Item 1 and item 11: \"na ná\" is too casual; use \"tương tự\".",
+        "Item 7: \"đồ xanh\" is awkward for \"greenstuffs\"; use \"rau củ/thực vật xanh\". \"viên tảo\" is acceptable, but \"và những thứ tương tự\" is flat; use \"v.v.\".",
+        "Item 5: \"Nếu rêu tảo mọc lên thì cứ để chúng phát triển\" is slightly loose for \"algal growth should not be discouraged\"; use \"không cần ngăn rêu tảo phát triển\".",
+        "Item 8: \"tetra họ Alestiidae\" and \"cichlid\" are acceptable; \"Bạn có thể nuôi chúng theo đàn\" adds the addressee, but meaning is intact."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T21:00:00Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Item 1: \"cá trê thuộc họ Mochokidae\" is wrong. \"Cá trê\" is the common name for Clariidae. Use \"cá da trơn (catfish) họ Mochokidae\" or \"cá nheo họ Mochokidae\".",
+        "Item 7: \"đồ xanh\" is awkward. Use \"thức ăn thực vật\" or \"rau xanh\" for greenstuffs.",
+        "Item 7: \"những thứ tương tự\" is slightly colloquial for \"etc.\". \"v.v.\" would read more naturally."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/farlowella-vittata#seriouslyfish": [
+    {
+      "at": "2026-11-07T21:02:01Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 1: \"nước kém\" is vague; use \"chất lượng nước kém\".",
+        "Item 5: \"set một bể\" / item 10 \"Set bể\" is slangy; use \"bố trí/thiết lập bể\".",
+        "Item 5: \"Chăm bể phải thật kỹ\" is colloquial; use \"Bảo dưỡng bể phải thật kỹ lưỡng\".",
+        "Item 10: \"Vỗ béo cá\" implies fattening; use \"Cho cá ăn dưỡng/chuẩn bị sinh sản\" for 'condition'.",
+        "Item 10: \"Trứng hầu như luôn nằm trên\" loses 'deposited'; use \"được đẻ trên\".",
+        "Item 10: \"Tuy vậy, tảo mọc...\" the 'but' link is slightly off after the blanching aside; reorder so the soaking advice stays in parentheses.",
+        "Item 7: \"dưa leo\" is Southern-only; consider \"dưa chuột\" for a general audience.",
+        "Item 11: \"Cá hay chết trong bể\" is fine, but \"Thực tế\" is an added emphasis not in the source.",
+        "Item 2: \"sông Río Uribanto\" is redundant; use \"Río Uribanto\" alone.",
+        "Item 13: Reference list left in English, which is acceptable; the source typo \"oceedings\" was kept, so consider correcting it to \"Proceedings\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

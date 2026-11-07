@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/enteromius-guirali
 title: Enteromius guirali (African Blackfin Barb) · Seriously Fish
-fetchedAt: 2026-11-07T05:19:09.953Z
+fetchedAt: 2026-11-07T20:06:31.845Z
 hash: a195fb1537761f39187a1e223cacdec06d761de13565cde257198d44f0031708
 ---
 
