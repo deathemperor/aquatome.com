@@ -1,5 +1,9 @@
 {
   "id": "songhua",
   "kind": "region",
-  "parent": "china"
+  "countries": [
+    "CN",
+    "VN",
+    "RU"
+  ]
 }

@@ -1,10 +1,13 @@
 {
   "slug": "songhua",
-  "name": "Songhua",
-  "altNames": [],
+  "name": "sông Tùng Hoa",
+  "altNames": [
+    "Songhua"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }
