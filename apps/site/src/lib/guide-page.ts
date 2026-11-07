@@ -124,7 +124,8 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const speciesPhotos = cardSpecies.map(s => shown.take(photosOf(s.photos)) ?? null)
   const plantPhotos = cardPlants.map(p => shown.take(photosOf(p.photos)) ?? null)
   // A guide in another language cites only the sources its own facts come from.
-  const refs = g.t.refs ?? g.refs
+  const own = g.t.refs ?? g.refs
+  const refs = g.t.localNote ? [...(own ?? []), ...g.t.localNote.refs] : own
   /** Every photo the page shows, for its credits. */
   const credited = [ph, ...placed.map(f => f.photo), ...(g.video?.figures ?? []).map(f => f.photo), ...covers, ...speciesPhotos, ...plantPhotos].filter((p): p is Photo => !!p)
   return { m, body, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited }
