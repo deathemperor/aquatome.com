@@ -140,7 +140,7 @@ test('data: every tier has every part at every size, each a real range in whole 
 
 test('the page: drawn for a 60 cm mid-range tank without a script, in each language; shop links on the Vietnamese page only', async () => {
   const { page } = await import('./dist')
-  const { readFileSync } = await import('node:fs')
+  const { existsSync, readFileSync } = await import('node:fs')
   const p = run()
   for (const [path, lang, locale] of [['/cong-cu/du-toan-be/', 'vi', 'vi-VN'], ['/id/alat/anggaran-akuarium/', 'id', 'id-ID'], ['/th/tools/tank-budget/', 'th', 'th-TH']] as const) {
     const { dom } = page(path)
@@ -174,4 +174,11 @@ test('the page: drawn for a 60 cm mid-range tank without a script, in each langu
   const { DIST } = await import('./dist')
   const sitemap = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
   for (const path of ['/cong-cu/du-toan-be/', '/id/alat/anggaran-akuarium/', '/th/tools/tank-budget/']) expect(sitemap).toContain(path)
+  // Malay has no page until Malaysia's tariff is researched: its tools index has every other card, each a link (not a
+  // card whose link was dropped), and neither the build nor the sitemap has the page.
+  const ms = page('/ms/alat/').dom
+  expect(ms.querySelectorAll('.tools li').length).toBe(page('/id/alat/').dom.querySelectorAll('.tools li').length - 1)
+  expect(ms.querySelectorAll('.tools li > a').length).toBe(ms.querySelectorAll('.tools li').length)
+  expect(existsSync(`${DIST}/ms/alat/bajet-tangki/index.html`)).toBe(false)
+  expect(sitemap).not.toContain('/ms/alat/bajet-tangki/')
 })

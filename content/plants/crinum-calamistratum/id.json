@@ -2,20 +2,21 @@
   "slug": "crinum-calamistratum",
   "name": "Crinum calamistratum",
   "altNames": [
-    "Crinum Calamistratum",
+    "Crinum",
     "African Onion Plant",
-    "Bawang Afrika",
-    "Crinum Keriting"
+    "Onion Plant"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li>Jenis: umbi</li><li>Asal: Afrika (Afrika Barat)</li><li>Laju pertumbuhan: lambat</li><li>Tinggi: 20–30+ cm setelah dua bulan di akuarium</li><li>Kebutuhan cahaya: rendah</li><li>Kebutuhan CO2: rendah</li></ul>",
-    "notes:tropica": "<p>Crinum calamistratum dari Afrika Barat adalah tanaman umbi yang sangat anggun, dengan daun hijau tua yang sangat sempit. Daunnya yang keriting bisa mencapai panjang 40–120 cm. Umbi yang dibentuknya lebih kecil dibandingkan spesies Crinum lainnya, dan kebutuhan cahayanya juga lebih rendah. Di akuarium, tanaman yang tumbuh subur akan membentuk sejumlah umbi kecil. Tanaman ini tidak dimakan ikan herbivora. Tanaman ini juga bisa dipakai di akuarium air payau dengan kadar garam rendah.</p>"
+    "quickFacts:tropica": "<ul><li>Jenis: tanaman berumbi</li><li>Asal: Afrika (Afrika Barat)</li><li>Laju pertumbuhan: lambat</li><li>Tinggi: 20–30+ cm setelah dua bulan di akuarium</li><li>Kebutuhan cahaya: rendah</li><li>Kebutuhan CO2: rendah</li></ul>",
+    "maintenance:aquatome": "<ul><li><strong>Posisi:</strong> Crinum calamistratum cocok ditaruh di bagian tengah atau belakang. Daunnya bisa mencapai panjang 50–75 cm. Begitu sampai ke permukaan air, daunnya tetap memanjang dan melingkar-lingkar di permukaan, jadi sisakan ruang untuknya sejak awal.</li><li><strong>Cara menanam:</strong> Jangan diikat ke kayu atau batu seperti pakis Jawa (Java fern). Tanaman ini mengambil nutrisi dari substrat, jadi benamkan umbinya ke lapisan substrat yang bernutrisi.</li><li><strong>Beberapa minggu pertama:</strong> Perhatikan warna daunnya. Daun yang berubah cokelat lalu lama-lama menghitam biasanya tanda cahayanya terlalu kuat untuk kebutuhan tanaman ini, meskipun lampu yang dipakai terasa tidak terlalu terang. Kalau begitu, kurangi intensitas lampu atau persingkat lama penyalaan lampu.</li><li><strong>Sabar:</strong> Tanaman ini tumbuh sangat lambat, butuh beberapa bulan sampai daunnya terlihat jelas memanjang. Tidak perlu menambahkan CO2 atau mengganti lampu hanya supaya tanaman ini tumbuh lebih cepat.</li></ul>",
+    "notes:tropica": "<p>Crinum calamistratum dari Afrika Barat adalah tanaman berumbi yang sangat anggun dengan daun hijau tua yang sangat sempit. Daunnya yang keriting bisa mencapai panjang 40–120 cm. Umbinya lebih kecil dibandingkan spesies Crinum lainnya, dan kebutuhan cahayanya lebih rendah. Di akuarium, tanaman yang tumbuh subur akan membentuk sejumlah umbi kecil. Tanaman ini tidak dimakan ikan herbivora. Tanaman ini juga bisa dipakai di akuarium air payau dengan kadar garam rendah.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.9,
     "indexable": true,
     "bySource": {
-      "tropica": 0.95
+      "tropica": 0.9,
+      "aquatome": 0.9
     }
   }
 }

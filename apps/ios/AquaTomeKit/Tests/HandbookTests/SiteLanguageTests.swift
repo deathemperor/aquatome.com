@@ -61,15 +61,16 @@ private func siteWords() throws -> [String: [String: String]] {
 @Test func theAppsLanguageIsTheOneIOSChoseIfOfferedElseVietnamese() {
   #expect(SiteLanguage.of(["th"]).code == "th")
   #expect(SiteLanguage.of(["id-ID", "th"]).code == "id")
-  #expect(SiteLanguage.of(["ms", "id"]).code == "vi", "Malay isn't offered yet")
+  #expect(SiteLanguage.of(["ms-MY", "id"]).code == "ms")
   #expect(SiteLanguage.of(["en"]).code == "vi")
   #expect(SiteLanguage.of([]).code == "vi")
 }
 
 @Test func aPathsLanguageAndAPageInALanguage() {
   #expect(SiteLanguage.of(path: "/id/ikan/neon/")?.code == "id")
-  #expect(SiteLanguage.of(path: "/ms/ikan/neon/") == nil, "not offered")
+  #expect(SiteLanguage.of(path: "/ms/ikan/neon/")?.code == "ms")
   #expect(SiteLanguage.of(path: "/ca/ca-neon/") == nil)
   #expect(SiteLanguage.served("th")?.path("cong-cu") == "/th/tools/")
+  #expect(SiteLanguage.served("ms")?.path("cong-cu", "be-cua-toi") == "/ms/alat/tangki-saya/")
   #expect(SiteLanguage.vietnamese.path("cong-cu", "nuoi-chung") == "/vi/cong-cu/nuoi-chung/")
 }

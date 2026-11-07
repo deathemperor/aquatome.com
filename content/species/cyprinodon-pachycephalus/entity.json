@@ -10,6 +10,58 @@
     "mexico",
     "conchos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Baños de San Diego, east of Chihuahua, Mexico, 28°35.5'N, 105°32.5'W, elevation about 1140 meters', and this species is endemic to the spring of San Diego de Alcalá plus its distributaries in Chihuahua state, northern Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347916,
+      "total": 33,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          33
+        ]
+      ],
+      "cells": [
+        [
+          -109.6875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -106.875,
+          28.125,
+          31,
+          31
+        ],
+        [
+          -105.46875,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GuideSchema, metricPage, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity } from '@aq/schema'
+import { GuideSchema, metricPage, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { lastKept, logReviews } from './review-log'
 import { TARGETS, type TargetLang } from './localize'
@@ -156,9 +156,12 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     updatedAt: today, refs,
   })
   // Metric only: the writer keeps the facts' own units (doses are never changed by a model); the conversion is ours.
+  const prevVi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8').catch(() => 'null')) as Translation | null
   const vi = TranslationSchema.parse(metricPage({
-    slug, name, altNames: [], sections: {}, body: sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
+    slug, name, altNames: [], sections: {}, body: prevVi?.bodyFixed ? prevVi.body : sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
     quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
+    ...(prevVi?.localNote ? { localNote: prevVi.localNote } : {}),
+    ...(prevVi?.bodyFixed ? { bodyFixed: true } : {}),
   }, 'vi'))
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)

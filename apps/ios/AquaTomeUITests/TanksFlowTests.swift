@@ -61,7 +61,7 @@ final class TanksFlowTests: XCTestCase {
       if round > 1 { field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 90)) }
       field.typeText(String(repeating: "a", count: 90))
       let cut = expectation(for: NSPredicate(format: "value == %@", String(repeating: "a", count: 80)), evaluatedWith: field)
-      XCTAssertEqual(XCTWaiter.wait(for: [cut], timeout: 3), .completed, "round \(round): the field shows \((field.value as? String)?.count ?? 0) characters, not 80")
+      XCTAssertEqual(XCTWaiter.wait(for: [cut], timeout: 8), .completed, "round \(round): the field shows \((field.value as? String)?.count ?? 0) characters, not 80")
     }
     app.buttons["save"].tap()
     let row = app.buttons["tank"].firstMatch

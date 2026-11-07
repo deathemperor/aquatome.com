@@ -10,6 +10,56 @@
     "mexico",
     "rio-conchos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Río Conchos"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Julimes pupfish, Cyprinodon julimes, is known only from a geothermal spring in the middle Río Conchos basin, Chihuahua state, northern Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Río Conchos"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962355,
+      "total": 8,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -105.46875,
+          28.125,
+          7,
+          7
+        ],
+        [
+          -104.0625,
+          23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tankCm": [
       {

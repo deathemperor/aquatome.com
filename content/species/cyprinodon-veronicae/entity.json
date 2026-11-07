@@ -10,6 +10,52 @@
     "mexico",
     "nuevo-leon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Charco Palma pupfish, Cyprinodon veronicae, is a pupfish known only from the spring Ojo de Agua Charco Azul in Nuevo León, Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347891,
+      "total": 43,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          43
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          23.90625,
+          41,
+          41
+        ],
+        [
+          -99.84375,
+          23.90625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

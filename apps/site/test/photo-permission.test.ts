@@ -33,7 +33,7 @@ test('no page, data file or app page copy says "with permission", in any languag
 test('a photo used with permission is credited to its author, linking its page; an open licence is still named', () => {
   const { dom } = page('/ca/ca-la-han/anh/')
   // The gallery's line names where its photos come from, and no more.
-  expect(dom.querySelector('.lead')!.textContent).toContain('7 ảnh từ Wikimedia Commons, Diễn Đàn Cá Cảnh và Unsplash. ')
+  expect(dom.querySelector('.lead')!.textContent).toContain('Ảnh từ Wikimedia Commons, Diễn Đàn Cá Cảnh và Unsplash. ')
   const tiles = dom.querySelectorAll('[data-gallery] a[data-i]')
   const given = tiles.find(a => a.getAttribute('data-author') === 'vnreddevil / Diễn Đàn Cá Cảnh')!
   expect(given.getAttribute('data-src')).toBe('https://www.diendancacanh.com/threads/ca-la-han.8/')

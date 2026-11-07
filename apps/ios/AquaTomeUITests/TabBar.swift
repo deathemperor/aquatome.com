@@ -1,25 +1,16 @@
 import XCTest
 
 extension XCUIApplication {
-  /// Scrolling down a page shrinks the tab bar to the open tab's button alone (iOS 26); a tap on it brings the others
-  /// back without leaving the page. Not while something covers it (a dialog): a tap there would close that instead.
-  func showTabs() {
-    let shrunk = tabBars.buttons
-    if shrunk.count == 1, shrunk.firstMatch.isHittable { shrunk.firstMatch.tap() }
-  }
-
-  /// A tab by its name, whether or not a page scrolled down shrank the tab bar; the Tài khoản sheet closed first.
+  /// A tab by its name; the Tài khoản sheet closed first.
   func openTab(_ name: String, file: StaticString = #filePath, line: UInt = #line) {
     closeAccount()
-    showTabs()
     let tab = tabBars.buttons[name]
     XCTAssertTrue(tab.waitForExistence(timeout: 5), "no tab \(name)", file: file, line: line)
     tab.tap()
   }
 
-  /// Flung to the end of the screen, until its lowest words stop moving, then whether they end above the tab bar: above
-  /// its top at its full height (`fullBarTop`, read before any scroll) and above it as it is now, shrunk or not.
-  func endsAboveTheTabBar(_ fullBarTop: CGFloat, _ screen: String, file: StaticString = #filePath, line: UInt = #line) {
+  /// Flung to the end of the screen, until its lowest words stop moving, then whether they end above the tab bar.
+  func endsAboveTheTabBar(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
     var low = -1.0
     for _ in 0..<30 {
       swipeUp()
@@ -29,8 +20,8 @@ extension XCUIApplication {
       low = now
     }
     let bar = tabBars.firstMatch
-    XCTAssertLessThanOrEqual(lowestWords(), fullBarTop + 0.5, "\(screen): its last words end under the tab bar's top", file: file, line: line)
-    if bar.exists { XCTAssertLessThanOrEqual(lowestWords(), bar.frame.minY + 0.5, "\(screen): its last words end under the shrunk bar", file: file, line: line) }
+    XCTAssertTrue(bar.exists, "\(screen): no tab bar", file: file, line: line)
+    XCTAssertLessThanOrEqual(lowestWords(), bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar", file: file, line: line)
   }
 
   /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a

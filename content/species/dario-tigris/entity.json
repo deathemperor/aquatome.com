@@ -10,6 +10,56 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Kachin State in northern Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type locality is a mountain stream south of Mogaung in the Ayeyarwaddy River basin.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11511865,
+      "total": 3,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          25.3125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

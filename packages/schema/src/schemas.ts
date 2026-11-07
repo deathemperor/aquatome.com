@@ -283,6 +283,14 @@ export const TranslationSchema = z.object({
   tested: z.array(CitedText).optional(),
   /** Owner-chosen main name: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
+  /** Owner-fixed text: the engine never replaces this guide's body (nameFixed's kin, for a fix made by hand). */
+  bodyFixed: z.boolean().optional(),
+  /**
+   * A note for this language's readers (what is sold here, a cheaper local way), labelled "Ở Việt Nam…" and kept apart from
+   * what the source says. Its own field, so a source read again or a video checked again can't lose it, and no reviewer
+   * judges it against a source that doesn't say it. The build puts it first in the guide's text. Every note cites its facts.
+   */
+  localNote: z.object({ html: z.string().min(1), refs: z.array(z.object({ url: z.string(), title: z.string() })).min(1) }).optional(),
   /** Earlier addresses of this page: the Worker 301s them here and the page says "Chuyển hướng từ <name>". */
   redirectFrom: z.array(z.object({ slug: z.string(), name: z.string() })).optional(),
   /** AquaTome's own guides in another language: the sources that page's facts come from (the entity's refs otherwise). */

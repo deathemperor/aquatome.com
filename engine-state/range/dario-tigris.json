@@ -1,0 +1,51 @@
+{
+  "id": "dario-tigris",
+  "native": {
+    "input": "4a9f2d795c05b401",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Kachin State in northern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwaddy",
+        "source": "seriouslyfish",
+        "quote": "The type locality is a mountain stream south of Mogaung in the Ayeyarwaddy River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dario tigris",
+    "status": "ACCEPTED",
+    "taxonKey": 11511865,
+    "datasets": [
+      [
+        "21c38e6d-f31a-4839-92ca-5fa5df2daaf7",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}
