@@ -1,8 +1,7 @@
 {
-  "slug": "ca-huong-java",
-  "name": "Cá hường Java",
+  "slug": "ca-me-vinh",
+  "name": "Cá mè vinh",
   "altNames": [
-    "Cá mè vinh",
     "Cá he vàng",
     "Java barb",
     "Silver barb"
@@ -28,5 +27,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-huong-java",
+      "name": "Cá hường Java"
+    }
+  ]
 }

@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest'
-import { faqFound, numbersIn, readPages, sentText } from '../scripts/chat-eval-grade'
+import { describe, expect, it, test } from 'vitest'
+import { faqFound, matesChecks, numbersIn, readPages, sentText } from '../scripts/chat-eval-grade'
 
 describe('the chat eval reads numbers as Vietnamese writes them', () => {
   it('decimals, thousands and ranges', () => {
@@ -64,4 +64,19 @@ describe("the chat eval finds a FAQ question in its guide only when it answered 
     expect(faqFound(false, true, 0)).toBe('none')
     expect(faqFound(false, false, 2)).toBe('none')
   })
+})
+
+test('the tank-mates checks a run read: each check\'s fish as a link names them, sorted, its verdict and its head; a check that failed, or another tool, not', () => {
+  const answered = JSON.stringify({ fish: [{ id: 'b', name: 'B', path: '/vi/ca/ca-neon-xanh/', count: 10 }, { id: 'a', name: 'A', path: '/vi/ca/ca-betta/', count: 1 }], verdict: { level: 'no', text: 'Không nên nuôi chung: x.' }, answer: { level: 'no', head: 'Không nên nuôi chung', reasons: ['x'] } })
+  const history = [
+    { role: 'user', content: 'Cá betta với neon?' },
+    { role: 'assistant', content: [{ type: 'tool_use', id: 't1', name: 'check_tank_mates', input: {} }, { type: 'tool_use', id: 't2', name: 'check_tank_mates', input: {} }, { type: 'tool_use', id: 't3', name: 'read_page', input: { path: '/vi/ca/ca-betta/' } }] },
+    { role: 'user', content: [
+      { type: 'tool_result', tool_use_id: 't1', content: answered },
+      { type: 'tool_result', tool_use_id: 't2', content: 'None of these ids is a fish', is_error: true },
+      { type: 'tool_result', tool_use_id: 't3', content: '{"fish":[]}' },
+    ] },
+  ]
+  expect(matesChecks(history)).toEqual([{ fish: 'ca-betta:1,ca-neon-xanh:10', level: 'no', text: 'Không nên nuôi chung: x.', head: 'Không nên nuôi chung' }])
+  expect(matesChecks([])).toEqual([])
 })

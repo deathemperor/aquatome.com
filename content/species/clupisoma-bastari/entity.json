@@ -10,6 +10,107 @@
     "india",
     "godavari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Godavari River",
+        "Indravati River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Godavari River basin, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Godavari River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Indravati River (a tributary of the Godavari River) at Lohandigura, 33 km west of Jagdalpur, Bastar District, Madhya Pradesh, India.",
+          "countries": [],
+          "regions": [
+            "Indravati River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341686,
+      "total": 52,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          52
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          78.75,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          78.75,
+          18.28125,
+          22,
+          22
+        ],
+        [
+          78.75,
+          19.6875,
+          11,
+          11
+        ],
+        [
+          80.15625,
+          18.28125,
+          10,
+          10
+        ],
+        [
+          81.5625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

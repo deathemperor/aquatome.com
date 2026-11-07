@@ -192,5 +192,192 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "PH",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Bangka",
+        "Belitung",
+        "Palawan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' range is currently considered to extend from extreme southern Thailand (Kolok district) through Peninsular Malaysia, Singapore and the Greater Sunda Islands of Borneo and Sumatra, although it is absent from Java.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the Philippines and on a number of smaller archipelagos including Bangka, Belitung (Billiton), and Palawan.",
+          "countries": [
+            "PH"
+          ],
+          "regions": [
+            "Bangka",
+            "Belitung",
+            "Palawan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sambas, western Borneo, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391562,
+      "total": 36,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          26
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "SG",
+          3
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "BN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          0,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          2.8125,
+          15,
+          15
+        ],
+        [
+          113.90625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          115.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

@@ -290,5 +290,53 @@
       "\"Jenis: bebawang (bulb)\": \"umbi\" is the more standard Malay term for plant bulb/tuber; \"bebawang\" sounds like onion-like and is less natural.",
       "\"tahan lasak\" for \"relatively tolerant\" is slightly stronger than the original; consider \"agak toleran\"."
     ]
+  },
+  "bacopa-australis": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa australis",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [
+      "Item 2: \"dasar tangki\" is fine, but \"akuarium\" and \"tangki\" are mixed; consider using \"dasar akuarium\" for consistency (minor)."
+    ]
+  },
+  "bacopa-caroliniana": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa caroliniana",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "\"tangki\" in item 1: Malaysian hobbyists usually say \"akuarium\" (or \"tangki akuarium\"); use that.",
+      "\"tidak banyak kerenah\": \"kerenah\" has a negative sense (fussiness, mischief). Use \"tidak cerewet\" or \"tidak memerlukan penjagaan khusus\".",
+      "\"tidak perlu dijaga sangat\" is colloquial. Use \"tidak memerlukan banyak perhatian\".",
+      "\"tanam di dasar\": use \"tanam di substrat/dasar akuarium\", because \"dasar\" alone is vague.",
+      "\"lebar 3-4 cm\" for stems is a literal carry-over of the English. It most likely means leaf width, but the source is ambiguous. Check the context, and consider \"daun selebar 3-4 cm\" if that is what is meant.",
+      "\"tumbuhan batang\": the usual hobby term is \"tumbuhan berbatang\" (stem plants). It can be kept, with \"(stem plant)\" in brackets."
+    ]
+  },
+  "bacopa-monnieri": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa Monnieri Compact",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" in item 1: Malaysian hobbyists normally say \"akuarium\" for the tank; use \"akuarium\".",
+      "\"Kultivar tumbuhan berbatang\" in item 3: \"culture form\" is rendered as \"kultivar\", which is acceptable, but \"tumbuhan berbatang\" (stem plant) could be \"tumbuhan batang\" as hobbyists say it.",
+      "\"Asal: kultivar\": \"Origin\" is better as \"Asal usul\"."
+    ]
+  },
+  "bacopa-salzmannii": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa salzmannii 'Purple'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: 'tanah lembap' for 'wetlands' is slightly imprecise; 'kawasan tanah bencah/paya' is more natural.",
+      "Item 2: 'penggemar akuarium' for 'aquarists' is fine, but 'pembiakannya pun mudah kerana hanya perlu menggunakan keratan batang' is wordy; could be simplified."
+    ]
   }
 }

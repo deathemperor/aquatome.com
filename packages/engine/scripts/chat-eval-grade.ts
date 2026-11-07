@@ -51,3 +51,21 @@ export function readPages(history: readonly Turn[]): string[] {
  */
 export const faqFound = (guideTouched: boolean, covered: boolean | undefined, pagesShown: number): 'guide' | 'other' | 'none' =>
   guideTouched && covered !== false ? 'guide' : covered && pagesShown ? 'other' : 'none'
+
+const slug = (path: string) => path.split('/').filter(Boolean).at(-1) ?? ''
+type Part = { type?: string; id?: string; name?: string; tool_use_id?: string; is_error?: boolean; content?: unknown }
+const parts = (m: Turn) => (Array.isArray(m.content) ? m.content : []) as Part[]
+
+/**
+ * What check_tank_mates answered in a run (apps/site/worker/chat/mates.ts): each check's fish, as a tank-mates link
+ * names them ("ca-betta:1,ca-neon-xanh:10", sorted), its verdict's level and sentence, and the head the text opens with.
+ */
+export function matesChecks(history: readonly Turn[]): { fish: string; level?: string; text?: string; head?: string }[] {
+  const calls = new Set(history.filter(m => m.role === 'assistant').flatMap(parts).filter(b => b.type === 'tool_use' && b.name === 'check_tank_mates').map(b => b.id))
+  return history.filter(m => m.role === 'user').flatMap(parts).filter(b => b.type === 'tool_result' && calls.has(b.tool_use_id) && !b.is_error).flatMap(b => {
+    try {
+      const r = JSON.parse(String(b.content)) as { fish: { path: string; count: number }[]; verdict?: { level: string; text: string }; answer?: { head: string } }
+      return [{ fish: r.fish.map(f => `${slug(f.path)}:${f.count}`).sort().join(','), level: r.verdict?.level, text: r.verdict?.text, head: r.answer?.head }]
+    } catch { return [] }
+  })
+}

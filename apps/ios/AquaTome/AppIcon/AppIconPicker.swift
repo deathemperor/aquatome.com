@@ -158,8 +158,8 @@ struct AppIconPicker: View {
 }
 
 extension View {
-  /// UI tests: `-app-icons` opens the picker over the app (AppIconFlowTests). Its row in the Tài khoản tab comes once that
-  /// tab is in.
+  /// UI tests: `-app-icons` opens the picker over the app (AppIconFlowTests). Readers open it from its row in the Tài
+  /// khoản sheet.
   func appIconsForTests() -> some View {
     #if DEBUG
     modifier(AppIconsForTests())

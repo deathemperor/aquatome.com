@@ -11,6 +11,91 @@
     "sarawak",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Baram River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Borneo where it's known from throughout Sarawak state and in western parts of Sabah state, Malaysia, plus Brunei Darussalam which is surrounded by Sarawak.",
+          "countries": [
+            "MY",
+            "BN"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Baram River, northern Sarawak [n. Borneo], Malaysia'.",
+          "countries": [],
+          "regions": [
+            "Baram River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391503,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

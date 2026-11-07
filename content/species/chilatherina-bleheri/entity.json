@@ -10,6 +10,52 @@
     "indonesia",
     "lake-holmes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Lake Holmes",
+        "New Guinea"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "C. bleheri occurs only in a very limited area in Irian Jaya (the Indonesian part of New Guinea), specifically around Lake Holmes (called Danau Biru in Indonesian).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Lake Holmes",
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411731,
+      "total": 3,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          137.8125,
+          -2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

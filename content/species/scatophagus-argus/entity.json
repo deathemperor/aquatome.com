@@ -1327,6 +1327,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "pH and hardness: best in brackish water (10–20 g sea salt/litre), pH not below 7, preferably above 8"
+  },
   "dataCard": {
     "ph": [
       {

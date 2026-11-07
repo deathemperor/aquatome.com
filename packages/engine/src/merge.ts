@@ -1,5 +1,5 @@
 import { dropCardRepeats, PLACE_ALIASES, SECTION_ORDER, nameKey, slugify, type GuideEntity, type PlaceEntity, type PlantEntity, type Section, type SourceId, type SpeciesEntity, type Translation } from '@aq/schema'
-import { cleanAltNames } from './alt-names'
+import { cleanAltNames, tidyName } from './alt-names'
 import type { Taxon } from './gbif'
 import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
@@ -68,15 +68,16 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   return { sections, vi }
 }
 
-function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>): Translation {
+function translation(prev: Translation | undefined, page: ProcessedPage, ctx: Ctx, fallbackName: string, suffix: string, sections: Record<string, string>, kind: 'species' | 'plants'): Translation {
   // Seriously Fish names the species itself, so it may replace a name an earlier source gave; an owner-fixed name stays,
   // and so does a name the new one would make ambiguous (another fish's name: "Cá đĩa nâu" became "Cá đĩa", #228).
   // A new item never starts under another's name either: it takes the fallback (its scientific name), the source's
-  // name staying findable as an alternative name.
+  // name staying findable as an alternative name. Each is written as hobbyists write it (tidyName), an owner-fixed name aside.
   const clash = !!page.viName && !!ctx.takenNames?.has(nameKey(page.viName))
-  const name = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : page.viName) : clash ? '' : page.viName) || prev?.name || fallbackName
+  const picked = (prev ? (prev.nameFixed || clash || ctx.source !== 'seriouslyfish' ? prev.name : page.viName) : clash ? '' : page.viName) || prev?.name || fallbackName
+  const name = prev?.nameFixed ? picked : tidyName(picked, kind)
   // A replaced name stays findable as an alternative name, unless a variety's (mergeSpecies, alt-names.ts).
-  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && page.viName ? [page.viName] : []), ...page.viAltNames, ...page.enCommonNames]).filter(n => n !== name)
+  const altNames = uniq([...(prev?.altNames ?? []), ...(prev?.name ? [prev.name] : []), ...(!prev && page.viName ? [page.viName] : []), ...page.viAltNames, ...page.enCommonNames].map(n => tidyName(n, kind))).filter(n => n !== name)
   return {
     slug: prev?.slug ?? pickSlug(name, suffix, ctx.takenSlugs), name, altNames, sections, quality: ctx.quality ?? prev?.quality ?? DEFAULT_QUALITY,
     ...(prev?.nameFixed ? { nameFixed: true } : {}), ...(prev?.redirectFrom ? { redirectFrom: prev.redirectFrom } : {}),
@@ -107,7 +108,7 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
     productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
   }
   // Its other names are its own: a shop listing's variety ("Cá betta Green Alien") or one name twice never adds up.
-  const t = translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi)
+  const t = translation(existing.vi, page, ctx, `Cá ${taxon.canonicalName}`, genus, vi, 'species')
   return { entity, vi: { ...t, altNames: cleanAltNames({ name: t.name, sci: taxon.canonicalName, altNames: t.altNames }).altNames } }
 }
 
@@ -119,7 +120,7 @@ export function mergePlant(existing: { entity?: PlantEntity; vi?: Translation },
     id: slugify(page.scientificName), scientificName: page.scientificName, ...(prev?.synonyms?.length ? { synonyms: prev.synonyms } : {}), ...page.plant,
     sections, photos: prev?.photos ?? [], productSlots: prev?.productSlots.length ? prev.productSlots : page.productSlots, updatedAt: ctx.now,
   }
-  return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi) }
+  return { entity, vi: translation(existing.vi, page, ctx, page.scientificName, page.scientificName.split(' ')[0] ?? '', vi, 'plants') }
 }
 
 /** Guides are single-source: the English text stays in the sources/ snapshot; the entity carries provenance. */

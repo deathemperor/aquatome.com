@@ -242,6 +242,10 @@ if part rewrite; then
     if [ "$SECONDS" -lt $(( ${AHEAD_BEFORE_MINUTES:-135} * 60 )) ]; then "$@" || log "$*: failed"
     else log "$*: skipped, the cycle has run $(( SECONDS / 60 )) min"; fi
   }
+  # Their UI text first: a language goes live only once it has every string (the build fails on a missing key), and no
+  # build asks for it, so the strings the served languages have, 500 a cycle (60 a model call, a few minutes). Last in
+  # this block, cycles past AHEAD_BEFORE_MINUTES skipped it from 2026-11-06 23:19 on, with Malay at 360 of 1,298.
+  ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-500}"
   for lang in ms; do
     # Most-read first. The rest at the others' pace; the first run's glossary (59 terms) and places (757, in 8 batches) are
     # once only and short enough to go whole, but the buying guides take minutes each.
@@ -256,8 +260,6 @@ if part rewrite; then
     ahead pnpm engine localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
   done
-  # Their UI text: no build asks for it, so the strings the served languages have, a share a cycle (two model calls).
-  ahead pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts --unserved --limit "${UI_AHEAD_LIMIT:-120}"
 fi
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"

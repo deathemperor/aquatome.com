@@ -1,0 +1,130 @@
+{
+  "id": "chela-cachius",
+  "native": {
+    "input": "1d87dd596c1a6f2f",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Occurrences in Myanmar, in particular, are possibly erroneous.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Widespread in Pakistan, India, Nepal, Bangladesh and Myanmar although the majority of records are from the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chela cachius",
+    "status": "ACCEPTED",
+    "taxonKey": 2367054,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "IN",
+      "NP",
+      "BD"
+    ],
+    "requests": 14,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

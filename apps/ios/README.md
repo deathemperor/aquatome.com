@@ -4,7 +4,7 @@ The native app: device control (Chihiros lights first) and the handbook. SwiftUI
 
 Three tabs: **Tìm** opens on a home of shelves as the site arranges its pages (fish groups, plants by where they go,
 guides by subject, the video series and video guides, equipment, tools, the glossary by letter; fish filtered to a tank, its water and difficulty, plants to its
-light and CO₂, as the site's lists filter them; what's new on the site, as its list has it), searches and browses the handbook natively, draws the guides, fish (breeds too), plants, glossary terms, video series and equipment itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the tanks tab to let back),
+light and CO₂, as the site's lists filter them; what's new on the site, as its list has it), searches and browses the handbook natively, draws the guides, fish (breeds too), plants, glossary terms, video series and equipment itself from the site's pages as blocks (`/app/pages/`; a fish's gallery, tank-mates, Vietnamese climate, breeds, videos and the sources behind its figures, a series' guides as cards, each photo credited, and its readers' photos and comments as the site has them, a reader signed in to aquatome.com posting their own (a photo shrunk and stripped of its location first, with their consent, and the link that takes it back shown once, to keep rather than tap), and any reader, signed in or not, reporting another's comment or photo or blocking who posted it on this phone (App Store guideline 1.2; the blocked listed in the Tài khoản sheet to let back),
 kept on the phone with their pictures, so a guide read once reads offline, and a shelf of guides can be kept for offline at once, asking first on mobile data and not with too little room, stopped with nothing half-kept, the kept pages listed in one place on the Tìm home and let go of there; a group named in a page opens the app's shelf of that group, and a taxon or a place (a fish's family, its country) the app's shelf of the fish the site's taxon or origin page lists, in a language whose index carries them (in another, the web page); a part it can't draw opens the web page, and a page of the site it can't draw, the web page in the app),
 and opens the other pages of aquatome.com in the app (kept on the phone for reading offline, without ads; videos
 and the pages they link to become native the same way, tools stay web pages until rebuilt), the tank volume tool drawn by the app from any link to its page
@@ -18,7 +18,12 @@ Bể của tôi" onto that tank or a new one), a fish's facts under its name as 
 difficulty as the site's coloured word and its "6/8"; the sources behind each and whose text it is under them; its temperament and smallest school under its tank-mates) and a plant's care (difficulty, light, CO₂, growth, where it goes), from the index on the phone, so offline too, and the pages saved to read later and read last; **Bể của tôi** keeps the reader's tanks (name, inside size and litres,
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
-schedules written to it (as the site does). A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
+schedules written to it (as the site does). The profile button at the top right of each tab opens **Tài khoản**, a sheet
+(as the App Store's): the aquatome.com account (below), the owner's dashboard for the owner's account, the app's icon
+and the anonymous statistics' switch, the posters blocked on this phone, and the site's about, contact and privacy
+pages (in the browser). It says so when the server offers no accounts or can't be reached (the account signed in on the
+phone shows as last seen), and the button carries a dot while the account has a problem to tell (a sync that failed, a
+session that ended); an empty Bể của tôi offers a hint that opens it. A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
 kept in the Keychain, and no AquaTome account (docs/smart-plugs.md). A light's card warns when the outlet the reader
 picked for it has a Smart Life timer that cuts its power, which stops the light's clock.
@@ -43,13 +48,14 @@ say which: the app looks up every page path in that form, a link or a kept path 
 when the index's form changes it moves what it keeps by path (the reading list, the pages kept for offline and their
 shards) to it, either way (`HandbookPaths`); the form is saved once all of it has moved, so a move cut short runs again.
 
-Signing in (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an aquatome.com account, as
-the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no Google SDK (the size
-budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth 2.0 for installed
-apps, a code with PKCE), the app exchanges the code at Google for the ID token (an iOS client has no secret), and the
-server checks that token as it checks Apple's (`GoogleOAuth`). "Thêm passkey" adds one made on the phone, as on
-the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one to the same account
-carries on. The email sign-in's
+Signing in from the Tài khoản sheet (Sign in with Apple, Google, a code sent by email, or a passkey) syncs the tanks with an
+aquatome.com account, as the site's page does: the token is in the Keychain, on this phone only. Google's sign-in has no
+Google SDK (the size budget): Google's own page opens in the system's browser sheet (`ASWebAuthenticationSession`, OAuth
+2.0 for installed apps, a code with PKCE), the app exchanges the code at Google for the ID token (an iOS client has no
+secret), and the server checks that token as it checks Apple's (`GoogleOAuth`). "Thêm passkey" adds one made on the
+phone, as on the site: more than 10 minutes after signing in, the server asks for a sign-in first, and one to the same
+account carries on. An account that has a passkey is told so, and still offered one for this phone ("Thêm passkey cho
+máy này"): its passkey may be another device's, and the server refuses a second for the same phone. The email sign-in's
 Turnstile check runs in a web view on the site's page for it (`/api/v1/auth/email/turnstile`), since Turnstile runs
 only in a web page on the site's host. Passkeys are aquatome.com's, shared with the app through its webcredentials
 association (`Config/AquaTome.entitlements` and the site's `/.well-known/apple-app-site-association`); only a signed
@@ -193,8 +199,7 @@ to the contract `protocols/app-telemetry.openapi.json`; `Wire.swift` holds the r
   page views are (`OwnCopy`), and the Worker stores theirs as tests.
 - **Off** until the site's index, read fresh at this launch, says `telemetry: true` (`HandbookIndex.telemetry`; the
   copy kept from an earlier launch doesn't count; absent or false, the app drops what waits and records nothing), and
-  whenever the reader turns off "Gửi thống kê ẩn danh" (for now in Bể của tôi, whatever it shows; in Tài khoản once the
-  app has that tab). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
+  whenever the reader turns off "Gửi thống kê ẩn danh" (in the Tài khoản sheet). Either switch holds at once: nothing more is sent, the queue asks both before each request, and
   what waits is dropped.
 
 On the simulator the requests go to a stand-in Worker (`FakeCollector`), shown to the UI tests as `telemetry-received`

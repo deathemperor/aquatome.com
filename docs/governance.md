@@ -131,7 +131,11 @@ that would have caught it).
     a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
     schema what structured outputs take; each block filled from the app index and the app's page copies and of the
     contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
-    breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
+    breed in a tank-mates link as its species), a tank-mates block of two fish or more only with the check Claude ran on
+    the same fish, counts and tank (`check_tank_mates`: the tool's own code, in the reader's language; an id that isn't a
+    fish refused by name; in the reader's saved tank by its id, its fish and size added as the app's tank page adds them)
+    and carrying it whole, a tank's block naming it and linking every kind up to the six the tool's page reads, a pick
+    the handbook doesn't have dropped with its reason while the rest go
     out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
     loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
     Claude (`apps/site/worker/test/chat-agent.test.ts`).
@@ -490,6 +494,21 @@ The layers above still check the result.
     reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
     leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
     under water, emersed, in flower).
+  - **What a picture says it is.** Before any look, a species', plant's or breed's picture is left out when its own
+    words say it is no photo of it alive (`unfitCommons` and `ARTWORK` in `packages/engine/src/photos.ts`): a Commons
+    file's title and categories naming art (a drawing, illustration, engraving, plate, print, stamp, "1865 in art", a
+    book scan), a map or X-ray, a preserved or taxidermied specimen, food or a fish market, or its description saying it
+    is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). The
+    Commons fallback for a page with no photo (`findPhotos`) also skips rejected photos. Each word counts only where it
+    means that: "specimens" in a category is a botanical garden's live plants, "Fishing in India" files a gourami in a
+    tank, "museum" a public aquarium, and a description's "illustration for a quiz", "30 mm SL" or "sold in markets"
+    are about live fish (the first sweep's false hits, looked at by eye). A guide's pictures aren't screened this way:
+    one may show lettuce for the fish. Found by a design review of the home page (2026-11-07): the Java barb's page
+    photos, the Commons search's first four, were Bleeker's drawing (a white box in dark mode), a fried fish, a fish
+    out of water and one in a hand, picked with no look at all; the dead-fish screen had noted the drawing and left it.
+    `packages/engine/scripts/unfit-photos.ts` applied the rule to the pictures already shown, with the dead-fish
+    screen's notes for main photos from any source: 190 rejected, 36 pages left with no photo of their own (34 with
+    none in their gallery either).
   - **One picture, once a page.** Every picture's image hash is in `content/picture-hashes.json` (`pnpm engine
     picture-hashes`, each cycle): a page decides its pictures in page order and never shows one twice, even as two files
     (two articles of one source each had a copy), and a card or tile takes its next photo, or none. A guide keeps every
@@ -696,6 +715,15 @@ The layers above still check the result.
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
+    - a species', plant's or breed's Vietnamese name and other names as hobbyists write them (`alt-names.ts`
+      tidyName), on write (the merge) and each sweep: a place keeps its capital ("Rêu java" → "Rêu Java", beside
+      "Dương xỉ Java"; a short list, `NAME_PLACES`, since "anh đào", "trang trí", "cá úc" and Latin epithets are words),
+      and a plant's name loses "Cây thủy sinh" before it, which a list of plants says already ("Cây thủy sinh
+      Vallisneria (cỏ lươn)" wrapped on the home page). A name a person fixed (`nameFixed`) stays, and the address stays.
+      Found in a design review of the home page (2026-11-07), which also found the Java barb under "Cá hường Java", a
+      calque of "Java barb" on another fish's name (cá hường is the kissing gourami): it is "Cá mè vinh", fixed by
+      hand, and the translator's list of names that belong to one fish has both. A rule preferring a Vietnamese other
+      name to a translated one was weighed and left: most other names are the model's translations too
     - a species' other names ("Tên khác", its search names, the names other pages' text links it by), in each language:
       its own only (`packages/engine/src/alt-names.ts`). A breed page's own name leaves it, that page being found by it
       ("Bubble Eye Goldfish"; never a breed's other names: a name both list is the species'). A bred line's or colour form's (the species' name with a word such as Alien, hybrid, lai, albino, koi,
@@ -824,7 +852,7 @@ fixed forward first, in a PR of its own. Android
 
 UI flows, by class (a line each, with a blank line between, so pull requests that change different flows don't conflict):
 
-- `AccountFlowTests`: signing in to an account on a stand-in server: a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account and, long after signing in, signing in again comes first (by email too, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app.
+- `AccountFlowTests`: signing in to an account on a stand-in server, in the Tài khoản sheet (opened by the profile button on each tab and by the hint on an empty "Bể của tôi", none of the account in the tanks tab, never blank, with no network the account signed in on the phone shown as last seen and a new phone told the server can't be reached rather than that accounts are off, a sync that failed putting a dot on the profile button): a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account (the sheet then saying the account has one, and still offering one for this phone), and long after signing in, adding one asks to sign in again first (with Apple, the add then finding this phone has it already, or by email, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app, and no sync of one signed in (the sheet saying so).
 
 - `AppIconFlowTests`: the app's icon chosen from its picker (every icon listed in the app with a preview to draw, none unlisted) and the default again.
 
@@ -844,13 +872,13 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, one removed only once the owner says yes, a page hidden by the section's form and brought back, a refusal showing the server's message, the daily report's email turned off then on again, a session ending while it's open (sign in again, the row kept), the server's storage down (its message, then tried again), a long cell (a page's review notes) showing two lines until tapped open, then shut again, and the daily report's notifications turned on here once iOS allows them, kept on, then off.
 
-- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), and the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings).
+- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet and its ways to sign in (light and dark), and the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings).
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
 - `PlugFlowTests`: smart plugs on a tank, on the stand-in Tuya cloud and with no account: the project's keys set up, wrong ones said so and not kept, the right ones checked by reading the list and kept, then removed, a plug added and its outlets named (labels from Smart Life, kept across a launch, not offered for a second tank), an outlet switched and confirmed, a heater, a CO2 or an outlet with no role asks first, a plug that doesn't confirm shown as it reports, a plug gone offline refused and shown offline, a plug taken off the tank.
 
-- `ReaderPostFlowTests`: a comment posted as the reader's account (signing in first) and shown on the page at once, still there when the page reads its comments again, a reader's photo not sent without a name, the reader's consent or one picked (the site's words for each), a photo sent with consent showing the photo and the link that takes it back once, to keep (a tap doesn't open it), no posting with accounts off, another reader's comment reported signed out (asked why, thanked, and kept off the phone past a relaunch) and their photo reported from its viewer, a poster blocked (their comments and photos hidden, the others kept) and let back from the page and from the tanks tab, AquaTome's contact page on the home with accounts off.
+- `ReaderPostFlowTests`: a comment posted as the reader's account (signing in first) and shown on the page at once, still there when the page reads its comments again, a reader's photo not sent without a name, the reader's consent or one picked (the site's words for each), a photo sent with consent showing the photo and the link that takes it back once, to keep (a tap doesn't open it), no posting with accounts off, another reader's comment reported signed out (asked why, thanked, and kept off the phone past a relaunch) and their photo reported from its viewer, a poster blocked (their comments and photos hidden, the others kept) and let back from the page and from the Tài khoản sheet (not listed in the tanks tab), AquaTome's contact page on the home with accounts off.
 
 - `ReadingFlowTests`: a guide saved to read later and kept after a relaunch then taken off, the pages read last newest first.
 
@@ -864,7 +892,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `TanksFlowTests`: add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a tank's fish and plants opening their pages, a store from a newer app or one it can't read left alone, adding again after a failed save.
 
-- `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, also from Bể của tôi with no tanks, signed out.
+- `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, from the Tài khoản sheet, with no tanks and signed out too.
 
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
@@ -888,8 +916,8 @@ Rules (as for the site):
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
    pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, the fish's top in large text, and a
    guide's video playing in its page), the fish-ID screen with its guesses, light and dark, Tìm's tools (light, dark and the largest text), the home's section for kit and
-   a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the
-   lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
+   a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the Tài khoản sheet
+   with its ways to sign in, light and dark (the stand-in server), the lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
    the stand-in server (its overview, a section with charts and tables, and the daily report's settings). Job
    `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs

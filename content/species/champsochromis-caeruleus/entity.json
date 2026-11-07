@@ -129,16 +129,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/d05cd999b6b5623c.webp",
-      "width": 960,
-      "height": 427,
-      "licence": "Public domain",
-      "author": "George Albert Boulenger",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Champsochromis_caeruleus.jpg",
-      "caption": "Champsochromis caeruleus",
-      "thumb": "https://media.aquatome.com/commons/d05cd999b6b5623c-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/923375d0c0e161e3.webp",
       "width": 960,
       "height": 642,
@@ -203,5 +193,73 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372708,
+      "total": 15,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MW",
+          14
+        ],
+        [
+          "MZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          4
+        ],
+        [
+          33.75,
+          -14.0625,
+          5
+        ],
+        [
+          33.75,
+          -12.65625,
+          1
+        ],
+        [
+          33.75,
+          -11.25,
+          2
+        ],
+        [
+          35.15625,
+          -15.46875,
+          2
+        ],
+        [
+          35.15625,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  }
 }

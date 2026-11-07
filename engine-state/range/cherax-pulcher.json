@@ -1,0 +1,49 @@
+{
+  "id": "cherax-pulcher",
+  "native": {
+    "input": "ff1591d981016871",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is endemic to Hoa Creek, close to the village of Teminabuan in the south-central part of the Kepala Burung (Vogelkop) Peninsula, West Papua, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kepala Burung Peninsula",
+        "source": "aquariumbreeder",
+        "quote": "It is endemic to Hoa Creek, close to the village of Teminabuan in the south-central part of the Kepala Burung (Vogelkop) Peninsula, West Papua, Indonesia.",
+        "country": "ID",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax pulcher",
+    "status": "ACCEPTED",
+    "taxonKey": 9227560,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}
