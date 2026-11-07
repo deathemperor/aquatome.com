@@ -177,8 +177,9 @@ final class TankVolumeFlowTests: XCTestCase {
   /// The tool from the Tìm tab's tools.
   private func openTool() -> XCUIApplication {
     let app = launch()
-    let tool = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Bể bao nhiêu lít?'")).firstMatch
-    repeatUntil(tool.exists && tool.isHittable, times: 10) { app.swipeUp() }
+    // Its tile among Tìm's tools.
+    let tool = app.buttons.matching(identifier: "tool-tile").matching(NSPredicate(format: "label == 'Thể tích bể'")).firstMatch
+    XCTAssertTrue(tool.waitForExistence(timeout: 5), "no tile for the tool")
     tool.tap()
     XCTAssertTrue(app.navigationBars["Bể bao nhiêu lít?"].waitForExistence(timeout: 5), "the tool's screen didn't open")
     return app

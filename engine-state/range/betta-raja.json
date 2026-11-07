@@ -1,0 +1,63 @@
+{
+  "id": "betta-raja",
+  "native": {
+    "input": "e0a9c323a8fd581d",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Originates from Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to parts of the island of Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Endemic to parts of the island of Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins.",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "seriouslyfish",
+        "quote": "Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta raja",
+    "status": "ACCEPTED",
+    "taxonKey": 2393985,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

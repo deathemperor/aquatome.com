@@ -31,6 +31,8 @@ export type AppItem = {
   aka?: string[]
   /** A tool page's own title, the line under its heading and its description, for search. */
   words?: string[]
+  /** A tool's short name, as its card on the tools page (/vi/cong-cu/) has it: what the app's tiles say. */
+  short?: string
   /** The page in this language: "/id/ikan/<slug>/". */
   path: string
   /** A small photo (about 480 px wide). */
@@ -266,8 +268,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     const g = c.equipment.find(e => e.category === u.category)
     items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && smallSrc(g.hero) }))
   }
-  for (const [vi, name, own] of TOOLS) {
-    if (served(lang, vi)) items.push({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)) })
+  for (const [vi, name, own, short] of TOOLS) {
+    if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
   }
   // Only what the index lists: a row's worth of each.
   const paths = new Set(items.map(i => i.path))
@@ -301,35 +303,41 @@ export function breedGroup(b: Pick<BreedEntity, 'basedOn' | 'parents'>, groupOf:
 /**
  * The tools: the page of calculators, and the ones with pages of their own. Each with its heading, then its page's own
  * title, the line under the heading and the description (the page's strings, so the same translations; a test holds
- * them to the built pages), so a search for "thể tích bể" finds "Bể bao nhiêu lít?".
+ * them to the built pages), so a search for "thể tích bể" finds "Bể bao nhiêu lít?". Then, for a tool with a card on
+ * the tools page, the short name the card has (the same string, so the same translations), which the app's tiles show.
  */
-const TOOLS: readonly (readonly [string, string, readonly string[]])[] = [
+const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] = [
   ['/vi/cong-cu/', 'Công cụ', ['Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.']],
   ['/vi/cong-cu/nuoi-chung/', 'Nuôi chung được không? Thả bao nhiêu con?', [
     'Kiểm tra cá nuôi chung: hợp nước, hợp tính, thả bao nhiêu con',
     'Chọn 1–6 loài và số con. Công cụ so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước mật độ cá theo kích thước bể ở mục dưới. Tính cách lấy từ nội dung hồ sơ; đọc thêm mục “Nuôi chung với con gì?” trong từng hồ sơ trước khi thả chung.',
     'Các loài cá có nuôi chung được không: so nhiệt độ, pH, độ cứng, kích thước và tính cách, rồi ước thả bao nhiêu con là vừa bể.',
-  ]],
+  ], 'Nuôi chung'],
   ['/vi/cong-cu/the-tich-be/', 'Bể bao nhiêu lít?', [
     'Tính thể tích bể cá: lít, gallon, độ dày kính',
     'Chọn kiểu bể, nhập kích thước lòng bể. Có 12 kiểu: chữ nhật, lục giác, bát giác, trụ, góc, chữ L…',
     'Tính thể tích bể cá 12 kiểu (chữ nhật, lục giác, trụ tròn, bể góc, chữ L) ra lít và gallon, kèm lượng nước thực tế, cân nặng và độ dày kính nên dùng.',
-  ]],
+  ], 'Thể tích bể'],
+  ['/vi/cong-cu/du-toan-be/', 'Set một bể hết bao nhiêu tiền?', [
+    'Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng',
+    'Chọn cỡ bể và mức đầu tư. Công cụ cộng giá từng món, rồi tính tiền điện, CO₂, phân và thức ăn mỗi tháng, tất cả là khoảng giá.',
+    'Dự toán chi phí set bể cá, bể thủy sinh 30–120 cm: giá bể, chân, lọc, sưởi, đèn, phân nền, CO₂, bộ test và ổ cắm thông minh theo ba mức đầu tư, cộng tiền điện và tiền nuôi mỗi tháng.',
+  ], 'Dự toán chi phí'],
   ['/vi/cong-cu/den-chihiros/', 'Đèn Chihiros', [
     'Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng',
     'Hẹn giờ bật tắt có sáng dần, tối dần, pha màu và chỉnh giờ cho đèn Chihiros qua Bluetooth, ngay trên trình duyệt, không cần cài ứng dụng. Trang nhớ đèn và lịch của bạn trên máy này.',
     'Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.',
-  ]],
+  ], 'Đèn Chihiros'],
   ['/vi/cong-cu/nhan-dien-ca/', 'Đây là cá gì?', [
     'Nhận diện cá qua ảnh',
     'Chụp hoặc chọn ảnh một con cá, tép, ốc hay cây thủy sinh. Công cụ đoán tên loài và mở hồ sơ của nó trong cẩm nang.',
     'Nhận diện cá cảnh, tép, ốc và cây thủy sinh từ một tấm ảnh: tên loài, dòng (betta halfmoon, guppy koi…) và hồ sơ cách nuôi trong cẩm nang AquaTome.',
-  ]],
+  ], 'Nhận diện cá'],
   ['/vi/cong-cu/be-cua-toi/', 'Bể của tôi', [
     'Bể của tôi: sổ ghi bể cá, cây và lịch đèn',
     'Ghi lại từng bể: kích thước, nền, cá, cây và đèn với lịch đã đặt. Lưu ngay trên máy này, không cần đăng ký.',
     'Sổ bể cá miễn phí: lưu kích thước, thể tích, loại nền, cá, cây, ghi chú và lịch đèn Chihiros của từng bể ngay trên trình duyệt, không cần tài khoản.',
-  ]],
+  ], 'Bể của tôi'],
 ]
 
 /** Leaves out empty fields, so the file stays small. */

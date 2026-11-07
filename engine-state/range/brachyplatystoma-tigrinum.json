@@ -1,0 +1,166 @@
+{
+  "id": "brachyplatystoma-tigrinum",
+  "native": {
+    "input": "5b443ef7e5ee1bd4",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The zebra shovelnose, Brachyplatystoma tigrinum, is a pimelodid catfish from the upper Amazon basin in Brazil, Colombia and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The zebra shovelnose, Brachyplatystoma tigrinum, is a pimelodid catfish from the upper Amazon basin in Brazil, Colombia and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The zebra shovelnose, Brachyplatystoma tigrinum, is a pimelodid catfish from the upper Amazon basin in Brazil, Colombia and Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) and was only discovered in 1981.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) and was only discovered in 1981.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) and was only discovered in 1981.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) and was only discovered in 1981.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is widely distributed in Amazonia (Ecuador, Peru, Colombia, Bolivia, Brazil) and was only discovered in 1981.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The zebra shovelnose, Brachyplatystoma tigrinum, is a pimelodid catfish from the upper Amazon basin in Brazil, Colombia and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the falls of Cachoeira do Teotônio, situated on the rio Madeira in Rondônia state, northwestern Brazil, a whitewater cataract through which water flows at an enormous volume and rate.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Caquetá",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded in the Caquetá and Putumayo basins in Colombia, plus the Ucayali and Marañón watersheds in Peru.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Putumayo",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded in the Caquetá and Putumayo basins in Colombia, plus the Ucayali and Marañón watersheds in Peru.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded in the Caquetá and Putumayo basins in Colombia, plus the Ucayali and Marañón watersheds in Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Marañón",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded in the Caquetá and Putumayo basins in Colombia, plus the Ucayali and Marañón watersheds in Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyplatystoma tigrinum",
+    "status": "ACCEPTED",
+    "taxonKey": 2338835,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        73
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO",
+      "PE",
+      "EC",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -7,7 +7,16 @@
   "group": "catfish",
   "places": [
     "africa",
-    "nigeria"
+    "nigeria",
+    "gambia",
+    "chad",
+    "cameroon",
+    "senegal",
+    "mali",
+    "ghana",
+    "niger",
+    "guinea",
+    "burkina-faso"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +26,53 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.2,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -34,10 +84,46 @@
       "html": "<p>This is another catfish-beauty originating from Nigeria. Someone once said that this species of Synodontis can be characterized by three adjectives: peaceful, beautiful, and hardy. In fact S. ocellifer is one of the most peaceful species of Synodontis at all. The maximum length of S. ocellifer is about 20 cm. When they get older they become more and more deep-bodied.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>The ocellated Synodontis, Synodontis ocellifer, is a catfish from Nigeria, Gambia, Chad, Cameroon, Senegal, Mali, Ghana, Niger and Guinea. Often confused with similar Synodontis, it is distinguished by its very long adipose fin. One of the hardiest Synos available, it becomes slightly territorial as it matures, and many hybrids of it have been appearing on the market.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>Nigeria, Gambia, Chad, Cameroon, Senegal, Mali, Ghana, Niger, Guinea and Burkina Faso.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>It usually inhabits streams and backwaters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>Standard length: 20 cm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres (90 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>An aquarium with a soft substrate and rocks, pieces of driftwood and twisted roots arranged to form hiding places suits this species. Floating vegetation is also recommended in order to diffuse the light entering the tank. Other planting is beneficial but not essential.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_ocellifer_en/",
       "html": "<p>Water temperature should be between 22 and 28°C. Hardness and pH are almost meaningless for keeping this squeaker, any tap water that is drinkable can be used.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 6.2–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -46,19 +132,70 @@
       "html": "<p>Like most members of the genus Synodontis this species is omnivorous. Plants are not eaten usually, but one should be careful that eventual tankmates are not too small. Otherwise they may be taken for food.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_ocellifer_en/",
       "html": "<p>This Synodontis should be kept in groups (from 5 specimens upwards).</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>Should not be kept with any fish so small as to be considered food. Ideal tankmates include Alestiid tetras, robust cichlids (particularly West African species), Mormyrids, Knifefish, Gouramis and larger rasboras and barbs. It tends to become slightly territorial as it matures, especially towards other Synos. However any aggression is usually far less pronounced than in some other members of the genus and it can be maintained in a small group in a suitably sized aquarium provided each fish is given a refuge to call home. Not recommended for the general community due to its adult size.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_ocellifer_en/",
       "html": "<p>The spots on the flanks differ individually in size and number. Also the basic colouration varies from yellowish over several brownish tinges to grey. Aged fishes often get a light center in the spots of the body what makes them look especially attractive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>Adult females are much plumper than males. It can also be sexed by examining the genital papillae. This is not for the amateur however. The fish should be held ventral side up in the palm of your hand and the dorsal fin taken between your middle and ring fingers in order to avoid being pierced by the sharp dorsal fin rays. The genital area you are looking for is concealed beneath the pelvic fins. This can be exposed by pulling (gently) on the caudal fin. A male fish will exhibit an extended papillae which should be pointed and ridged. The spermatoduct can be seen on the caudal side. Females also have a clearly visible papillae but this is more rounded and the oviduct is on the opposite side to the male's spermatoduct. Most species of medium/large Synodontis can be sexed using this method but it should be noted that most species take 2 years or more to reach sexual maturity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>Not achieved under natural conditions in aquaria although captive breeding has occurred on commercial fish farms via the use of hormone injections. Many of the young fish that come onto the market have been produced in this way. In nature S. ocellifer breeds in areas of seasonal flooding that are rich in micro-organisms. They are egg scatterers and exhibit no parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-ocellifer",
+      "html": "<p>S. ocellifer is often confused with other similar species of Synodontis but can be distinguished by the length of the adipose fin which in this species is very long and runs from just past the base of the caudal fin to just before the caudal fin. In recent years many alarming hybrids of this species have been appearing on the market and these should be avoided. Besides being attractively marked this is one of the hardiest Synos available and is a good choice for the beginner.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/815e5845915aa9f5.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 2.5",
+      "author": "Original uploader was Tameff at pl.wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_ocellifer-aquarium.jpg",
+      "caption": "Giętkoząb groszkoplamy",
+      "thumb": "https://media.aquatome.com/commons/815e5845915aa9f5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/28c02716657cb202.webp",
+      "width": 960,
+      "height": 644,
+      "licence": "Public domain",
+      "author": "Authors: British Museum (Natural History). Dept. of Zoology; Boulenger, George Albert, 1858-1937",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_ocellifer.jpg",
+      "caption": "Synodontis ocellifer",
+      "thumb": "https://media.aquatome.com/commons/28c02716657cb202-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "z2YGW0J4kSA",
@@ -89,8 +226,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá nuôi cá nheo"
+        "bể cá 90cm"
       ]
     },
     {

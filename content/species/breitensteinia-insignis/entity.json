@@ -10,6 +10,36 @@
     "indonesia",
     "barito"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Barito River",
+        "Borneo"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "This species is known only from a limited number of collections taken in the Barito River drainage in southern Borneo.",
+          "countries": [],
+          "regions": [
+            "Barito River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340926,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

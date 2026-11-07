@@ -1,0 +1,114 @@
+{
+  "id": "brachyplatystoma-capapretum",
+  "native": {
+    "input": "593de8e2dfb50698",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brachyplatystoma capapretum is a large, piscivorous pimelodid catfish found throughout much of the Amazon basin, from near Belém to Iquitos in Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Tefé sand beach, Lago Mucura, Supiã-Pucu, Tefé' in Amazonas state, northwestern Brazil, but this species is widely-distributed throughout much of the Amazon basin from Belém near the river's mouth at least as far as Iquitos in Loreto region, northern Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Tefé sand beach, Lago Mucura, Supiã-Pucu, Tefé' in Amazonas state, northwestern Brazil, but this species is widely-distributed throughout much of the Amazon basin from Belém near the river's mouth at least as far as Iquitos in Loreto region, northern Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Brachyplatystoma capapretum is a large, piscivorous pimelodid catfish found throughout much of the Amazon basin, from near Belém to Iquitos in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
+        "ok": true
+      },
+      {
+        "name": "Purus",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
+        "ok": true
+      },
+      {
+        "name": "Trombetas",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
+        "ok": true
+      },
+      {
+        "name": "Putumayo",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in most major Amazon tributaries including the Trombetas, Madeira, Purus, Negro, Manacapuru, Purus, Tefé, Putumayo, Juruá, Jutaí, and Içá.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyplatystoma capapretum",
+    "status": "ACCEPTED",
+    "taxonKey": 2338830,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        22
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        13
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

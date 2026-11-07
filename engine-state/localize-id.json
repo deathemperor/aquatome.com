@@ -2642,6 +2642,87 @@
       "Item 5: \"Alas akuarium\" is OK, but \"Ukuran dasar akuarium\" is more natural."
     ]
   },
+  "aplocheilus-panchax": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Kepala timah",
+    "confidence": "high",
+    "score": 0.8,
+    "notes": [
+      "\"sirip anusnya\" -> use \"sirip dubur\" (standard term for anal fin).",
+      "\"Orang sudah punya pemanas listrik\" -> the English says people now had them (new availability); better \"Orang mulai memakai/beralih ke pemanas listrik\" to convey the change.",
+      "\"Ikan ini hidup di permukaan air\" -> more natural \"ikan permukaan\" (surface-dwelling fish).",
+      "\"Lain halnya di bawah lampu neon dari atas, panchax terlihat...\" is a clumsy sentence; rephrase, e.g. \"Lain halnya di bawah lampu neon dari atas, tempat panchax tampak cukup abu-abu\"; \"cukup abu-abu\" is awkward (\"agak keabu-abuan\").",
+      "\"tahan terhadap air asin di muara\" -> \"air payau\" would be more apt for estuaries, though the source says salty.",
+      "\"Suhu air ... sangat berubah-ubah\" -> \"sangat berfluktuasi\" is more natural.",
+      "\"Parameter air\" for \"water values\" is fine, but \"praktis tidak berpengaruh\" could be \"praktis tidak berperan\"."
+    ]
+  },
+  "aplocheilus-parvus": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Dwarf Panchax",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"artinya tahan pada rentang salinitas yang lebar\" is an added explanation that isn't in the source. It is accurate, but you could drop it or put it in brackets.",
+      "Item 6: \"kebanyakan ikan ini lama-lama mau menerima pakan kering\" is a bit colloquial. \"umumnya dapat dilatih menerima pakan kering\" reads more naturally."
+    ]
+  },
+  "aposturisoma-myriodon": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Farlowella myriodon",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"baju zirah dada atau pelindung dada dari kulit\" is a clumsy rendering of \"cuirass or corslet of leather\"; use something simpler like \"baju zirah kulit (cuirass/corslet)\".",
+      "Item 3: \"ikan lele/catfish yang lebih besar\" is awkward; use \"ikan catfish yang lebih besar\" or \"lele-lelean\".",
+      "Item 3: \"Teman setangki\" is an uncommon term; \"tankmate\" is usually \"penghuni akuarium yang sama\" or \"teman satu akuarium\".",
+      "Item 2: \"Dept. Ucayali\" is left abbreviated in English; write \"Departemen Ucayali\".",
+      "Item 5: \"berbeda dari genus yang sirip punggungnya...\" slightly expands the original \"vs.\" clause; keep it closer to the source."
+    ]
+  },
+  "apricaphanius-baeticus": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Baetican toothcarp",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 3: \"spesies ini selalu ditemukan di saluran-saluran pesisir kecil yang hipersalin\" – English says \"in all other cases this species occurs\"; \"selalu\" is an overstatement. Use \"di semua kasus lainnya spesies ini ditemukan di...\".",
+      "Item 2: \"Sekitar separuhnya terancam musnah akibat Gambusia holbrooki atau Fundulus heteroclitus\" is OK, but \"5-7000 ha\" is kept as in the source and is ambiguous. Write \"5.000–7.000 ha\".",
+      "Item 9: fin description reversed/ambiguous. English: dark distal band in dorsal, ventral, anal (the former three), and 4 rows of spots in the latter two (anal and caudal). The translation says \"Tiga sirip pertama... dua sirip terakhir\" with four fins listed, so the counts do not match (3+2=5 for 4 fins). Fix to dorsal, ventral, anal bands; anal and caudal spots.",
+      "Item 5: \"sebagian populasi paling cocok di air tawar\" and \"Idealnya Anda mengetahui...\" are fine, but \"Warnanya dan kondisinya\" is awkward; use \"Warna dan kondisinya\".",
+      "Item 4: Volume \"108 liter\" is correct, but check \"Sepasang atau satu trio\" - fine. Item 1: \"Baetican toothcarp\" left in English with no Indonesian gloss; add an explanation or accepted trade name.",
+      "Item 10: \"Aphanius typically eat their eggs/fry\" - genus name used where the text refers to the fish; \"burayak\" is fine, but \"kimia air\" is awkward; use \"parameter air\".",
+      "Item 1/6: temperature \"2–30 °C\" matches the source, but the source's \"2–30°C\" is likely a typo for 20-30; consider flagging it rather than copying."
+    ]
+  },
+  "apricaphanius-iberus": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Spanish toothcarp",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 6: \"kesuburannya menurun\" for \"reduced fecundity\" is slightly off; \"daya reproduksi\" or \"jumlah telur/keturunan\" is more natural.",
+      "Item 4/10: \"setup akuarium\" and \"microworm\" are left in English. They are acceptable, but \"penataan akuarium\" would read better."
+    ]
+  },
+  "apricaphanius-saourensis": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Sahara toothcarp",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 4: \"Sepasang atau tiga ekor\" loses the meaning of \"trio\" (one male with two females). Use \"sepasang atau satu trio (1 jantan, 2 betina)\".",
+      "Item 9: \"pita vertikal kasar\" adds \"vertikal\", which the English doesn't say. Use \"pita-pita kasar\".",
+      "Items 1 and 2: \"sangat terancam punah / kritis (critically endangered)\" is clumsy because of the slash. Use \"kritis (critically endangered)\" or \"sangat terancam punah (critically endangered)\".",
+      "Item 5: \"kalau suka\" is too casual for a handbook. Use \"jika diinginkan\"."
+    ]
+  },
   "apteronotus-albifrons": {
     "at": "2026-11-04",
     "from": "2026-11-04",
@@ -2666,6 +2747,181 @@
       "\"Apteronotus leptorhynchus berwarna keemasan\" with no article or noun: reads awkwardly. Consider \"seekor Apteronotus leptorhynchus ...\" or add \"ikan\"."
     ]
   },
+  "apteronotus-macrostomus": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Brown Ghost Knife",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"setiap ekor butuh tempat sembunyi\": sebaiknya \"setiap ikan\" agar lebih natural.",
+      "\"memanjakan mata pemiliknya\": sedikit bebas untuk \"delight the aquarist\"; bisa \"menyenangkan para penghobi\".",
+      "\"penangkap ikan hias\": lebih lazim \"penangkap ikan hias\" atau \"pengumpul ikan hias\"; \"tidak diimpor\" sebaiknya \"kemungkinan besar tidak diimpor\" (sudah benar), pertimbangkan \"daerah aliran Sungai Essequibo\" tetap OK.",
+      "\"polusi listrik\" untuk \"electrosmog\": cukup dipahami, tetapi bisa ditambah penjelasan \"gangguan sinyal listrik\"."
+    ]
+  },
+  "argonectes-longiceps": {
+    "at": "2026-11-06",
+    "from": "2026-11-03",
+    "name": "Argonectes longiceps",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "\"Ikan ini pertama kali diimpor dari Kolombia, dan saat itu hanya beberapa ekor\" - the English says it was imported for the first time in a few specimens; this is acceptable, but the sentence order shifts the emphasis slightly. Consider \"pertama kali diimpor dari Kolombia dalam jumlah sedikit\".",
+      "\"panjang standar\" - consider adding the hobby term \"(standard length)\" or phrasing it as \"panjang standar (SL), tanpa sirip ekor\" for clarity.",
+      "\"Ikan ini damai\" - more natural as \"Ikan ini berperangai damai\" or \"Ikan ini tidak agresif\".",
+      "\"partikel makanan dari dasar\" - \"dasar\" is fine, but \"dasar akuarium/substrat\" would be clearer."
+    ]
+  },
+  "ariopsis-felis": {
+    "at": "2026-11-06",
+    "from": "2026-11-03",
+    "name": "Hardhead catfish",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 1: 'Commonly captured from catwalks, bridges and piers' was translated as 'sering tertangkap pancing dari ...'. 'pancing' (angling) is added and not in the source. Also 'passes' became 'selat-selat sempit', which is not accurate. Use 'alur/celah perairan' or similar.",
+      "Item 2: 'Massachusetts ... to southern Florida in USA and Mexico' is acceptable, but 'Teluk Meksiko bagian utara sampai Florida selatan' reads as if the range starts at Massachusetts and the Gulf. Make the geography clearer.",
+      "Item 4: 'continental waters' was translated as 'perairan paparan benua'. This changes the meaning, because the source says continental, not continental shelf. Use 'perairan benua' or 'perairan pesisir benua'.",
+      "Item 5: 'umumnya umum sampai melimpah' is clumsy. Use 'umumnya tergolong sering dijumpai hingga sangat melimpah'.",
+      "Item 6: 'when the fish is excited' became 'gelisah' (restless), which is not the same as excited or agitated. Use 'terangsang/terganggu'. The sentence about shoes is also missing the point that the spine can puncture them, so the meaning of 'offers little protection' is partly lost.",
+      "Item 8: 'manuscript name' became 'nama dari naskah', which is awkward. Use 'nama manuskrip'. 'catfish/ikan berkumis' is acceptable, but 'bycatch in trawl and saltwater angler catches' is rendered as 'pukat', which is not trawl. Use 'pukat tarik/trawl'. 'Least Concern (Risiko Rendah)' is acceptable, but 'Risiko Rendah' is not the standard Indonesian term. Use 'Berisiko Rendah' or 'Kekhawatiran Rendah'.",
+      "Item 7: 'Belum dilaporkan' with 'pemijahan' is acceptable, but 'breeding' is more general than 'spawning'. Use 'pembiakan'."
+    ]
+  },
+  "ariopsis-seemanni": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Colombian shark",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"sebagian besar hidupnya di air payau\" has no verb and reads clumsily; use \"menghabiskan sebagian besar hidupnya di air payau\".",
+      "Item 1: \"padahal bisa tumbuh\" adds a contrast the English doesn't have; use \"tetapi\" or \"namun\".",
+      "Item 5: \"a few inches long\" became \"sekitar 10 cm\", which is a little too large for \"a few inches\". Use \"beberapa sentimeter\" or about 7–8 cm.",
+      "Item 11: \"segera minta bantuan medis\" adds \"segera\" (immediately), which the English lacks. \"Sebaiknya juga minta saran medis\" is closer."
+    ]
+  },
+  "aristochromis-christyi": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aristochromis",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 1: the English says the fish hunts small fish in crevices and also ambushes prey, rolling onto its side as it approaches. The Indonesian says 'dengan memiringkan tubuhnya... saat mendekat', which is fine, but the sentence 'Selain itu, ikan ini juga menyergap mangsa' is slightly clumsy. Low priority.",
+      "Item 10: 'Jantan melepaskan spermanya' and 'mengeluarkan kelompok telur' are fine. But 'untuk menyebarkan agresi' is odd. Use 'mengurangi/menyebarkan agresi ke beberapa betina', and make clear the harem spreads the male's aggression.",
+      "Item 10: 'Sebagian peternak' for 'breeders' is acceptable, but 'burayak' for 'brood' in 'memuntahkan telur atau burayak' adds a stage. The English only says 'brood' spat out or eaten, and 'menghindari burayak dimangsa' is a stretch of 'fry predation'. Use 'induk memakan anaknya'.",
+      "Item 10: 'Burayak sudah cukup besar untuk menerima naupli artemia sejak awal' is fine. However, 'artemia' should keep the genus style 'Artemia' or 'naupli Artemia' because it is a Latin name.",
+      "Item 11: 'up to around 4\" long' was converted to 'sekitar 10 cm', which is correct. 'efisien' for 'efficient ambush predator' is fine.",
+      "Item 7: 'kerang hijau' for 'mussel' and 'kerang darah' for 'cockle' are specific species choices that may not match. Prefer the generic 'kerang' and 'kerang kecil/remis'. 'lancefish' is left untranslated; add a gloss such as 'ikan lancefish (sand eel)' or use an Indonesian equivalent.",
+      "Item 8: 'teman satu akuarium yang muat masuk ke mulutnya' is awkward. Use 'ikan lain yang cukup kecil untuk masuk ke mulutnya'. Also 'harem... satu jantan' is fine.",
+      "Item 9: 'jantan yang sedang dalam masa kawin' and 'siap memijah' are fine. 'Garis gelap di tubuh juga menghilang' is fine."
+    ]
+  },
+  "arnoldichthys-spilopterus": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "African Red Eye Tetra",
+    "confidence": "medium",
+    "score": 0.72,
+    "notes": [
+      "Item 1: 'Lokasi temuannya kurang dari 10, semuanya di kawasan...' is fine, but the English says 'an area' with 'extensive deforestation and pollution'. This is OK. The main issue is untranslated English in running text: 'African red-eyed tetra' is left as the name; use an Indonesian trade name or add 'tetra mata merah Afrika'.",
+      "Items 1 and 11: 'large-scaled African characin' and 'Niger tetra' are left in English quotes. Translate the first (e.g. 'karasin Afrika bersisik besar') and keep 'Niger tetra' as the trade name.",
+      "Item 2: 'penggundulan hutan serta pencemarannya tidak terkendali' is clumsy; also 'Endemik Nigeria. Di sana' is a bit choppy. Rephrase more naturally.",
+      "Item 3: 'Anak sungai dan sungai' - 'Streams' is better as 'Aliran sungai/sungai kecil dan sungai'.",
+      "Item 5: 'Cabang kayu apung' is misleading, since driftwood is 'kayu apung' only loosely; use 'kayu driftwood' or 'ranting dan cabang kayu'. Also 'Menyaring air lewat gambut' - say 'filtrasi dengan gambut'.",
+      "Item 8: 'Synodontis spp.' and 'cichlid kerdil' are fine; 'tetra Alestidae' ok. 'makin berkurang pada ikan yang sudah tua' - 'less-pronounced in older specimens' is ok but 'tua' could be 'dewasa/berumur'.",
+      "Item 10: 'burayak' is fine; 'dikondisikan' ok. 'driving' translated as 'mengejar betina dengan gencar' is fine."
+    ]
+  },
+  "asellus-aquaticus": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Water louse",
+    "confidence": "low",
+    "score": 0.72,
+    "notes": [
+      "Item 7: \"tanaman yang memang sudah mati atau membusuk\" — the English says plants that are \"already dying\"; \"mati\" overstates this. Use \"sudah hampir mati/layu\" or \"yang sudah membusuk\".",
+      "Item 2: \"ikan dasar\" for \"bottom-feeding fish\" is too vague. Use \"ikan pemakan dasar\" or \"ikan yang mencari makan di dasar\".",
+      "Item 6: \"perubahan mendadak lebih dari 5 derajat\" should specify the unit, \"5 °C\".",
+      "Item 8: \"kru pembersih\" is a literal calque of \"clean-up crew\". Use \"tim pembersih\" or \"pembersih akuarium\".",
+      "Item 1: \"kutu kayu (woodlice)\" is acceptable, but \"Hewan ini masih berkerabat\" adds \"masih\", which is not in the source. Drop \"masih\".",
+      "Item 3: \"identik dengan iklim sedang\" for \"associated with a temperate climate\" is slightly off. Use \"berkaitan dengan\" or \"umum di wilayah beriklim sedang\".",
+      "Item 4: \"aliran yang berarus deras\" is awkward. Use \"sungai besar maupun kecil yang berarus deras\".",
+      "Item 8: \"penebar telur\" is non-standard for \"egg scatterers\". Use \"ikan penyebar telur\"."
+    ]
+  },
+  "aspidoras-fuscoguttatus": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Aspidoras fuscoguttatus",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 3: \"dH: 12\" has no unit/context; fine as source, but consider \"dGH: 12\" for consistency with Indonesian hobby usage.",
+      "Item 1: \"Risiko Rendah (Least Concern...)\" is acceptable, but the Indonesian IUCN term is usually \"Berisiko Rendah\" or \"Risiko Rendah\"; consider \"Berisiko Rendah\".",
+      "Item 4: \"merasa tenang\" for \"settle\" is slightly loose; consider \"agar ikan ini betah\".",
+      "Item 4: \"kayu bogwood\" mixes terms; use \"kayu bogwood\" or \"akar kayu (bogwood)\" consistently, and \"driftwood\" is rendered as \"kayu apung\", which also reads oddly; consider \"kayu driftwood/akar kayu\".",
+      "Item 1: \"Nama spesiesnya\" for \"specific epithet\" should be \"epitet spesifiknya\"."
+    ]
+  },
+  "aspidoras-pauciradiatus": {
+    "at": "2026-11-06",
+    "from": "2026-11-04",
+    "name": "Sixray Corydoras",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 2: the English calls it an 'ideal tankmate for tetras, dwarf cichlids'. 'teman satu akuarium' is slightly stiff, so use 'cocok dipelihara bersama tetra...'. 'cichlid kerdil' is acceptable, but 'cichlid cebol' or 'dwarf cichlid' is more common among hobbyists.",
+      "Items 1 and 12: 'false corydoras' and 'sixray corydoras' are left in English with no Indonesian rendering. Put the English in quotes after a short Indonesian explanation such as 'corydoras palsu' and 'corydoras enam jari-jari'.",
+      "Item 6: 'akuarium yang siklus nitrogennya belum matang' is a reasonable rendering of 'biologically immature set-up', but 'akuarium baru yang belum matang secara biologis' is closer to the source.",
+      "Item 1: 'lele berlapis baja' is an odd literal rendering of 'armoured catfish'. Hobbyists usually say 'lele lapis baja' or 'lele bersisik keras (armoured catfish)'.",
+      "Item 8: 'cacing sutra (Tubifex)' is fine, but 'pakan kering yang tenggelam' should be 'pakan kering tenggelam (sinking)'. 'Foraging omnivores' rendered as 'mencari makan di dasar' adds 'di dasar', which the source does not say."
+    ]
+  },
+  "aspidoras-raimundi": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Aspidoras raimundi",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1: 'lele berzirah' is awkward for armoured catfish; 'lele lapis baja' or 'lele berpelat' / 'ikan lele berlapis' is more natural.",
+      "Item 6: 'cacing sutra (Tubifex)' is fine, but 'larva chironomid (cacing darah)' could be 'larva Chironomus/jentik cacing darah' as used by hobbyists; 'sebagainya' fine. Minor only.",
+      "Item 8: 'saat sedang bertelur' for 'gravid' is slightly imprecise; 'saat penuh telur / sedang bunting telur' is closer.",
+      "Item 7: 'suka berkelompok' acceptable; 'hidup bergerombol' would be consistent with item 1."
+    ]
+  },
+  "aspidoras-taurus": {
+    "at": "2026-11-06",
+    "from": "2026-11-04",
+    "name": "Aspidoras taurus",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 6: \"siklus nitrogennya belum matang\" is acceptable but \"biologically immature set-up\" is more naturally \"akuarium baru yang belum matang secara biologis (belum cycling)\".",
+      "Item 5: volume \"kira-kira 68 liter\" is fine; no issue.",
+      "Item 4: the type locality quote is left in English; acceptable as a quotation, but consider translating the descriptive parts (e.g. \"close to highway\" -> \"dekat jalan raya\") for readability."
+    ]
+  },
+  "asterophysus-batrachus": {
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "Gulper Catfish",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 12: 'Feeder fishes are essential' → 'Ikan pakan mutlak diperlukan' is fine, but 'The fish feed readily on feeder fish' contradicts the next sentences in the source; the translation keeps it as is. 'susah disuruh makan' is awkward; use 'sulit mau makan'.",
+      "Item 12: 'manfish altum' is non-standard; use 'angelfish altum' or 'skalar altum' (Pterophyllum altum).",
+      "Item 11: 'ikan mas koki kecil' should be 'ikan mas kecil' or 'goldfish kecil'. The source says 'small goldfish', which is not specifically koki.",
+      "Item 9: 'siklus nitrogennya belum matang' for 'biologically immature set-ups' is acceptable, but 'setup' is left in English; use 'rangkaian akuarium' or 'sistem'.",
+      "Item 7: 'snorkeling' should be 'snorkeling/menyelam dengan snorkel'. 'ia melesat keluar' is fine. Note 'sulit ditangkap' is fine too.",
+      "Item 3: 'cuma mulut' is too colloquial for a handbook; use 'hanya terdiri dari mulut'.",
+      "Item 17: 'Check list' is a reference list left untranslated, as allowed. Item 5: 'Check List...' is capitalised differently from the source; keep the title's original casing ('Check list of the freshwater fishes...').",
+      "Item 1/16: 'ogre catfish' is kept as an English trade name, which is fine, but 'Rio Negro' vs 'Sungai Orinoco' is inconsistent in naming; use 'Sungai Negro' or keep 'Rio' consistently."
+    ]
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-06",
     "from": "2026-11-06",
@@ -2682,6 +2938,35 @@
       "Item 19: 'populasi berlebih (organisme dari pakan hidup yang berkembang biak)' adds an explanation not in the source; the source says only that the tank may become overpopulated.",
       "Item 18: 'ikan teri (whitebait)' is a loose match; whitebait is juvenile herring/smelt, not anchovies. Use 'ikan whitebait' or 'ikan kecil'.",
       "Item 20: 'ulat hongkong' for mealworms is fine. 'Berikan pakan yang sangat bervariasi' is slightly off; use 'Berikan beragam jenis pakan'."
+    ]
+  },
+  "astyanax-bimaculatus": {
+    "at": "2026-11-06",
+    "from": "2026-10-29",
+    "name": "Two Spot Astyanax",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 4: 'Volume: ±432 liter' keeps the figure but the English also gives ~114 US gal, which is rightly dropped. This is fine. The real problem is in item 8: 'its adult size and vigorous' was rendered 'sangat aktif', which adds 'sangat' (very). The English says only 'vigorous'. Use 'cukup aktif' or 'aktif'.",
+      "Item 1 and 11: 'untuk sesuatu yang dianggap sebagai kompleks spesies' is clumsy. Use 'untuk apa yang dianggap sebagai kompleks spesies' or 'yang dianggap merupakan kompleks spesies'.",
+      "Item 1: 'Two spot astyanax' is left as an English name with no Indonesian gloss. Add a local name or italicize it, for example 'astyanax dua bintik (two spot astyanax)'.",
+      "Item 7: 'seharusnya cukup sebagai sebagian besar pakan utamanya' is awkward and repeats itself. Use 'sudah cukup sebagai pakan utama'.",
+      "Item 10: 'artemia' is lower-case, but 'Artemia' is a genus name and the English capitalises it. 'ganti air dilakukan secara rutin' is passive and stiff. Use 'penggantian air dilakukan rutin'.",
+      "Item 5: 'Tidak rewel' for 'Not critical' is fine, but 'output filter' is untranslated. Use 'pancuran/aliran keluar filter'.",
+      "Item 2: 'Guyana Prancis' is non-standard. Use 'Guyana Prancis' or 'Guyana Française'. Also 'ada di mana-mana' is too colloquial for 'ubiquitous'. Use 'tersebar luas'.",
+      "Item 9: 'Betina perutnya terlihat jelas membulat' is stiff. Use 'perut betina tampak jelas membulat'."
+    ]
+  },
+  "astyanax-jordani": {
+    "at": "2026-11-06",
+    "from": "2026-11-03",
+    "name": "Tetra Buta",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Tetra buta\" is acceptable, but consider \"tetra gua buta\" (or add \"blind cave tetra\" in brackets on first mention) to keep the cave meaning.",
+      "\"perairan permukaan\" is a bit awkward; \"perairan permukaan (di luar gua)\" or \"perairan terbuka\" reads more naturally.",
+      "\"keluarga tetra\" would more precisely be \"famili tetra (Characidae)\" in hobby/scientific usage; \"keluarga\" is acceptable but less precise."
     ]
   },
   "astyanax-mexicanus": {

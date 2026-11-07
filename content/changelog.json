@@ -401,6 +401,440 @@
   {
     "date": "2026-11-06",
     "kind": "species",
+    "id": "devario-acrostomus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "desmopuntius-trifasciatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "desmopuntius-gemellus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "desmopuntius-foerschi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "systomus-endecanalis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "dekeyseria-picta",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "datnioides-undecimradiatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "datnioides-polota",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "datnioides-campbelli",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "dario-tigris",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "dario-dayingensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danionella-priapus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-tinwini",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-nigrofasciatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-meghalayensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-kerri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-jaintianensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-flagrans",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-feegradei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "danio-aesculapii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyprinodon-veronicae",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyprinodon-variegatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyprinodon-pachycephalus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyprinodon-julimes",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyprinodon-desquamator",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyprinodon-brontotheroides",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyprichromis-microlepidotus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyphotilapia-gibberosa",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cynotilapia-afra",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cynodon-gibbus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyclocheilos-enoplos",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyclocheilichthys-lagleri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyclocheilichthys-apogon",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cyathopharynx-furcifer",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "cualac-tessellatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "ctenopoma-weeksii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "ctenopoma-muriei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "ctenopharyngodon-idella",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "crossocheilus-atrilimes",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "crenicara-latruncularium",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "craterocephalus-stercusmuscarum",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "corydoras-simulatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "corydoras-pastazensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "corydoras-narcissus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "corydoras-aurofrenatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "copella-eigenmanni",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "copella-carsevennensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "copeina-guttata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "copadichromis-virginalis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "copadichromis-ilesi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "xenentodon-canciloides",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "homalopteroides-nebulosus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "copadichromis-chrysonotus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "pseudohomaloptera-leonardi",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "sundasalanx-microps",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "telmatochromis-vittatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "corydoras-hastatus",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "trigonostigma-somphongsi",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "thalassophryne-amazonica",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "tetraodon-mbu",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "synodontis-ocellifer",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
+    "id": "synodontis-flavitaeniatus",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-06",
+    "kind": "species",
     "id": "nanosphronemus-gemma",
     "source": "aquatome",
     "action": "updated"
@@ -3063,440 +3497,6 @@
     "kind": "species",
     "id": "barboides-gracilis",
     "source": "aquariumbreeder",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "neblinichthys-pilosus",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "mystus-gulio",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "megalancistrus-parananus",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-fowleri",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "youtube-wfG_EzUX04s",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "youtube-JVhrBudj8U8",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "guide",
-    "id": "youtube-a0VXTk-GF_I",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "sinibotia-reevesae",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "sewellia-albisuera",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "serrasalmus-serrulatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "scleropages-leichardti",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "scleropages-inscriptus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "schistura-balteata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "rhinogobius-mekongianus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "rhinogobius-chiengmaiensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "rasbora-rasbora",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "rasbora-kottelati",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "dawkinsia-tambraparniei",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "puntius",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "puntius-kamalika",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pseudoplatystoma-tigrinum",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pseudogastromyzon-laticeps",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "potamotrygon-schroederi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "potamotrygon-motoro",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pimelodus-maculatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pethia-aurea",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "parambassis-wolffii",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "parachanna-obscura",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "parabotia-fasciata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pao-cochinchinensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "pangio-malayana",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-rabauti",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "osteochilus-nashii",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "oreochromis-mossambicus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "barilius-signicaudus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "barilius-ornatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "oliotius-oligolepis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "neolamprologus-savoryi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nematabramis-everetti",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nemacheilus-rueppelli",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nannostomus-grandis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "laetacara-curviceps",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "gastromyzon-lepidogaster",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "carnegiella-myersi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-sodalis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "oreichthys-cosuatis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "barilius-canarensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "paracyprichromis-nigripinnis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "leporinus-arcus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-robustus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-reticulatus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-loxozonus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-haraldschultzi",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-burgessi",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-britskii",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-armatus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "corydoras-elegans",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "neohomaloptera-johorensis",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nemacheilus-corica",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nannostomus-mortenthaleri",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "nannostomus-anduzei",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-04",
-    "kind": "species",
-    "id": "megalancistrus-parananus",
-    "source": "seriouslyfish",
     "action": "updated"
   }
 ]

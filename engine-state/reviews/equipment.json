@@ -70,5 +70,82 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/equipment/suoi": [
+    {
+      "at": "2026-11-06T23:17:10Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "Lead: 'Ketika cuaca sejuk' drops the original's winter/north emphasis. Acceptable localisation, but it is vague for Malaysia, where Cameron Highlands and highland areas are the real cold cases.",
+        "'ikan sungai pergunungan yang berarus deras' adds 'berarus deras' (fast-flowing), which is not in the original ('cá suối núi cao').",
+        "'tangki aquascape' is fine, but 'bể thủy sinh' is more commonly 'tangki akuatik tumbuhan/planted tank' in Malaysian shops. Consider 'planted tank'.",
+        "'Termometer wajib digunakan bersama' is slightly awkward; use 'Termometer yang disertakan adalah wajib' or 'Wajib gunakan termometer bersama pemanas'.",
+        "'dail pemanas' / 'dail': the usual Malaysian spelling is 'dial'. Use 'dial'.",
+        "'dan pastikan ada pengudaraan (air stone)': the original says 'có sủi' (aeration). 'Air stone' is a slight narrowing, so use 'pengudaraan/gelembung udara'.",
+        "'Pemanas bertermostat' for mini heater: the original describes mini heaters without a thermostat, which is OK. The term 'pemanas' and 'ikan laga' for betta are correct.",
+        "FAQ question 1 changes 'Miền Nam' to 'kawasan yang panas sepanjang tahun'. This is a reasonable localisation, but the heading wording is clumsy. Consider 'Adakah pemanas diperlukan di kawasan panas?'",
+        "'tambah 30–50 peratus' is fine, but the document uses '%' elsewhere. Use '30–50%' for consistency.",
+        "Decimal separators '1.5 W' and '0.5 °C' use a period, which is right for Malaysia."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T23:17:10Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "FAQ question changed: Vietnamese 'Miền Nam có cần sưởi không?' became 'Perlukah pemanas jika air di dalam rumah sudah cukup hangat?'. The question is rewritten, not just a regional omission, and the answer no longer matches it.",
+        "Lead sentence is truncated: the original's second sentence about winter being when tanks without a heater lose the most fish is omitted. This is advice, not a Vietnam-only detail, since cold winter water is generally relevant.",
+        "Intro omits the point that tank water can fall below 18 °C in cold conditions. The 18 °C figure is dropped, so the risk is less concrete.",
+        "FAQ answer drops the advice 'Miền Bắc thì nên có từ tháng 11 đến tháng 3' (heater advised for the cold season). The region is Vietnam-specific, but the idea of using a heater in cold periods or cold rooms is lost.",
+        "'hillstream loach' for 'cá suối núi cao' is a narrower, more specific term than the original, which means mountain-stream fish in general. Use 'ikan sungai berarus deras/pergunungan'.",
+        "'tangki aquascape ketika cuaca panas' is fine, but 'tombol' is Indonesian-leaning. Use 'tombol' → 'pemutar/tombol kawalan' or 'dail'.",
+        "'pam udara dihidupkan' for 'có sủi' is OK, but 'sủi' means aeration. 'Air stone/pengudaraan' would be clearer.",
+        "'Rod pemanas' is awkward. Use 'batang pemanas'.",
+        "Decimal comma changed to point ('1.5 W', '0.5 °C'), which is correct for Malay. Units are preserved.",
+        "'pada musim sejuk' is not typical for Malaysia, though it fits the source's winter context. Use 'ketika cuaca sejuk'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/equipment/test-nuoc": [
+    {
+      "at": "2026-11-06T23:18:04Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"melecurkan insang\" is too literal/odd for \"bỏng mang\"; use \"membakar/merosakkan insang\" (e.g. \"menyebabkan insang ikan terbakar\").",
+        "\"Walaupun dalam kuantiti yang kecil\" is a slight restructure; the original says only a small amount is enough to harm. Acceptable, but \"hanya sedikit pun sudah cukup\" is more natural.",
+        "\"Ikan dari lembangan Amazon\" for \"cá rừng Amazon\" is acceptable; \"ikan hutan hujan Amazon\" would be closer.",
+        "FAQ question \"Berapa lama selepas ikan dimasukkan ... barulah air perlu diuji?\" is wrong: the original asks how long after setting up a new tank, before fish, to test. Use \"Berapa lama selepas tangki baru disediakan perlu mula menguji air?\"",
+        "\"kelakuan luar biasa\" is fine, but \"tingkah laku luar biasa\" is more standard.",
+        "\"ammonia dan nitrit sudah turun ke 0\" is OK; \"kekal pada 0\" in the choose list adds the sense of staying, which is close to the original \"về 0 trong ít nhất một tuần\".",
+        "\"pH yang baik\" for \"pH ổn\" (stable) loses the sense of stability; use \"pH yang stabil\".",
+        "\"penternak udang hiasan\" for \"người nuôi tép\" is OK; \"pemelihara udang hiasan\" matches the later usage better.",
+        "\"air yang baru ditukar setiap minggu\" is ambiguous; \"air tukaran mingguan\" is clearer."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-06T23:18:04Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "FAQ question: \"Bila perlu membuat ujian air untuk tangki baru sebelum memasukkan ikan?\" adds \"sebelum memasukkan ikan\"; the original is \"Bể mới thả cá bao lâu thì test?\" (how long after adding fish to test). Meaning is slightly shifted.",
+        "\"Waktu paling perlu membuat ujian ialah semasa tangki masih baru, selepas menambah ikan\": the original says a tank that has just had more fish added (bể vừa thả thêm cá). The Malay is acceptable but a bit loose.",
+        "\"membakar insang\" is a literal translation of \"bỏng mang\". Prefer \"merosakkan/melecurkan insang\" (ammonia burns).",
+        "\"kuantiti yang sedikit pun\" is awkward. Use \"walaupun dalam kuantiti yang kecil\" or \"kandungan yang sedikit\".",
+        "\"air tukar setiap minggu\" is unclear. Use \"air yang baru ditukar setiap minggu\" or \"air gantian mingguan\".",
+        "\"Asyik membetulkan pH\" is colloquial. Use \"Kerap/Sentiasa melaraskan pH dengan bahan kimia\".",
+        "\"Ikan dari hutan Amazon\": \"ikan hutan Amazon\" or \"ikan dari lembangan Amazon\" is more natural.",
+        "\"spesies\" for loài is fine. \"tangki\" for bể is common in Malaysia, but \"akuarium\" is used inconsistently with it."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
