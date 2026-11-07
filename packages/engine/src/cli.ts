@@ -21,6 +21,7 @@ import { auditPictures } from './audit'
 import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
+import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
@@ -120,7 +121,7 @@ const readersWanted = (() => {
   }
 })()
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, phrases: { type: 'boolean' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -721,10 +722,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'rewrite-vi') {
   // Existing Vietnamese rewritten in the site's style, worst-read kinds first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
+  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
-  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(values.match ? { match: new RegExp(values.match, 'i') } : {}) })
-  console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
-  for (const x of r.done) console.log(`rewritten: ${x}`)
+  const match = values.phrases ? phraseMatch('vi') : values.match ? new RegExp(values.match, 'i') : undefined
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'] })
+  if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
+  else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.done) console.log(`${values['dry-run'] ? 'would rewrite' : 'rewritten'}: ${x}`)
   for (const x of r.kept) console.log(`kept: ${x}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'discover-videos') {
