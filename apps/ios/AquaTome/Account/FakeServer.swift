@@ -10,7 +10,8 @@ import Tanks
 /// (`/api/fish-id`): `-fish-id-used N` gives each account N identifications made today already, `-fish-id-busy` uses up
 /// the site's day, `-fish-id-slow` keeps an identification waiting 40 s, then fails it as a request's time running out
 /// does, and `-fish-id-session-refused` refuses it the account's session (401 `session`) while the session itself holds.
-/// `-server-offline`: it can't be reached, as with no network. `-sync-busy N`: the next N syncs answer 409 busy (the app
+/// `-server-offline`: it can't be reached, as with no network. `-slow-session`: who is signed in is answered after 15 s,
+/// as on a slow network, so a test can close the Tài khoản sheet while it's asked. `-sync-busy N`: the next N syncs answer 409 busy (the app
 /// tries one 4 times); `-end-sessions <account>`: that account's sessions end, as signing out on another device does. `-slow-post`: a reader's comment or photo takes 6 s to
 /// arrive, as on a slow network, so a test sees it being sent. `-fake-owner <account>` serves the owner's dashboard to
 /// that account (`ui-apple`, or another, so `ui-apple` isn't the owner): the replies of
@@ -21,6 +22,7 @@ import Tanks
 final class FakeServer {
   private let fake: FakeAccounts
   private let slowPost: Bool
+  private let slowSession: Bool
   private let file = FileManager.default.temporaryDirectory.appendingPathComponent("fake-accounts.json")
   private let slowFishId: Bool
   private let fishIdRefusesSession: Bool
@@ -29,6 +31,7 @@ final class FakeServer {
     if args.contains("-reset-fake-server") { try? FileManager.default.removeItem(at: file) }
     fake = (try? JSON.parse(Data(contentsOf: file))).map { FakeAccounts(snapshot: $0) } ?? FakeAccounts()
     slowPost = args.contains("-slow-post")
+    slowSession = args.contains("-slow-session")
     fake.accountsOn = args.firstIndex(of: "-fake-accounts").map { $0 + 1 < args.count && args[$0 + 1] == "on" } ?? false
     if args.contains("-seed-passkey") { fake.addPasskey(FakePasskeySignIn.credentialId, to: "ui-apple") }
     if let i = args.firstIndex(of: "-fake-owner"), i + 1 < args.count {
@@ -64,6 +67,8 @@ final class FakeServer {
       }
     }
     if slowPost, r.httpMethod == "POST", ["/_c", "/_p"].contains(r.url?.path) { try? await Task.sleep(for: .seconds(6)) }
+    // A request whose task is cancelled meanwhile fails as cancelled, as URLSession's does.
+    if slowSession, r.url?.path == "/api/v1/session" { try await Task.sleep(for: .seconds(15)) }
     let out = try await fake.send(r)
     try? fake.snapshot.data().write(to: file, options: .atomic)
     return out

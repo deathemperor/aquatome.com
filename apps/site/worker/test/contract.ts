@@ -6,9 +6,19 @@ import { expect } from 'vitest'
  * A contract in protocols/ the app builds against, for checking the Worker's answers: every answer's status is one the
  * contract lists, and its body has the contract's shape (talk.test.ts, fishid.test.ts).
  */
-export type Schema = { $ref?: string; type?: string | string[]; required?: string[]; properties?: Record<string, Schema>; additionalProperties?: boolean; minProperties?: number; items?: Schema; minItems?: number; maxItems?: number; oneOf?: Schema[]; enum?: unknown[]; const?: unknown; minimum?: number; maximum?: number; minLength?: number; maxLength?: number; pattern?: string }
-/** A response's body by media type; a text/event-stream one names each event's schema (`x-events`) and the recorded streams that follow it (`x-fixtures`, files in protocols/). */
-export type Media = { schema: Schema; 'x-events'?: Record<string, Schema>; 'x-fixtures'?: string[] }
+export type Schema = {
+  $ref?: string; type?: string | string[]; required?: string[]; properties?: Record<string, Schema>; additionalProperties?: boolean | Schema; propertyNames?: Schema
+  minProperties?: number; items?: Schema; minItems?: number; maxItems?: number; oneOf?: Schema[]; anyOf?: Schema[]; allOf?: Schema[]; not?: Schema; enum?: unknown[]; const?: unknown
+  minimum?: number; maximum?: number; exclusiveMinimum?: number; exclusiveMaximum?: number; minLength?: number; maxLength?: number; pattern?: string
+}
+/**
+ * A response's body by media type; a text/event-stream one names each event's schema (`x-events`), the events that end
+ * it (`x-end`: `result` and `error` when missing, as fish ID's), the order its other events come in (`x-order`: all of
+ * one name before the next name's first), the end event that holds the whole of what was streamed (`x-whole`: its
+ * `text` the `text` events' pieces joined, its `blocks` the `block` events, its `steps` the `step` events; chat's
+ * `done`; a stream of that event alone, a retry's replay, holds itself) and the recorded streams that follow it (`x-fixtures`, files in protocols/).
+ */
+export type Media = { schema: Schema; 'x-events'?: Record<string, Schema>; 'x-end'?: string[]; 'x-order'?: string[]; 'x-whole'?: string; 'x-fixtures'?: string[] }
 export type Op = { responses: Record<string, { description: string; content: { 'application/json': Media; 'text/event-stream'?: Media } }> }
 
 /** One block of a server-sent events body: an event with its data, or a comment line (`: ping`). */
@@ -27,19 +37,34 @@ export function parseSse(text: string): SseBlock[] {
   })
 }
 
+const read = (file: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../../protocols/${file}`, import.meta.url).href), 'utf8'))
+
 export function contract(file: string) {
-  const api = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../../protocols/${file}`, import.meta.url).href), 'utf8'))
-  const resolve = (s: Schema): Schema => (s.$ref ? resolve(s.$ref.slice(2).split('/').reduce((o, k) => o[k], api)) : s)
+  const api = read(file)
+  // A schema and the file its own $refs are in: a `#/…` ref is in the same file, a `<file>#/…` one in that file of
+  // protocols/ (the chat's sections hold page.schema.json's blocks).
+  type In = { s: Schema; doc: unknown }
+  const docs = new Map<string, unknown>([[file, api]])
+  const resolve = ({ s, doc }: In): In => {
+    if (!s.$ref) return { s, doc }
+    const [name, pointer] = s.$ref.split('#')
+    const target = name ? (docs.get(name) ?? docs.set(name, read(name)).get(name)) : doc
+    return resolve({ s: pointer!.slice(1).split('/').reduce((o: any, k) => o[k], target), doc: target })
+  }
 
   /** What in `v` the schema refuses: [] when it conforms. */
-  function misfits(v: unknown, schema: Schema, at = '$'): string[] {
-    const s = resolve(schema)
+  function misfits(v: unknown, schema: Schema, at = '$', within: unknown = api): string[] {
+    const { s, doc } = resolve({ s: schema, doc: within })
+    const fit = (x: unknown, sub: Schema, where: string) => misfits(x, sub, where, doc)
     const out: string[] = []
-    // oneOf: exactly one of its schemas takes the value.
+    // oneOf: exactly one of its schemas takes the value; anyOf: at least one.
     if (s.oneOf) {
-      const fits = s.oneOf.filter(x => !misfits(v, x, at).length).length
+      const fits = s.oneOf.filter(x => !fit(v, x, at).length).length
       if (fits !== 1) out.push(`${at}: fits ${fits} of oneOf's ${s.oneOf.length} schemas, not 1`)
     }
+    if (s.anyOf && !s.anyOf.some(x => !fit(v, x, at).length)) out.push(`${at}: fits none of anyOf's ${s.anyOf.length} schemas`)
+    for (const x of s.allOf ?? []) out.push(...fit(v, x, at))
+    if (s.not && !fit(v, s.not, at).length) out.push(`${at}: is what \`not\` refuses`)
     const types = [s.type ?? []].flat()
     if (v === null && types.includes('null')) return out
     const type = types.find(t => t !== 'null')
@@ -50,28 +75,35 @@ export function contract(file: string) {
       const o = v as Record<string, unknown>
       for (const k of s.required ?? []) if (!(k in o)) out.push(`${at}.${k}: missing`)
       if (Object.keys(o).length < (s.minProperties ?? 0)) out.push(`${at}: fewer than ${s.minProperties} properties`)
-      for (const [k, p] of Object.entries(s.properties ?? {})) if (k in o) out.push(...misfits(o[k], p, `${at}.${k}`))
-      if (s.additionalProperties === false) for (const k of Object.keys(o)) if (!(k in (s.properties ?? {}))) out.push(`${at}.${k}: not allowed`)
+      for (const [k, p] of Object.entries(s.properties ?? {})) if (k in o) out.push(...fit(o[k], p, `${at}.${k}`))
+      for (const k of Object.keys(o)) {
+        if (s.propertyNames) out.push(...fit(k, s.propertyNames, `${at} key ${JSON.stringify(k)}`))
+        if (k in (s.properties ?? {}) || s.additionalProperties === undefined || s.additionalProperties === true) continue
+        if (s.additionalProperties === false) out.push(`${at}.${k}: not allowed`)
+        else out.push(...fit(o[k], s.additionalProperties, `${at}.${k}`))
+      }
     } else if (type === 'array') {
       if (!Array.isArray(v)) return [...out, `${at}: not an array`]
       if (v.length < (s.minItems ?? 0) || v.length > (s.maxItems ?? Infinity)) out.push(`${at}: ${v.length} items`)
-      v.forEach((x, i) => out.push(...misfits(x, s.items ?? {}, `${at}[${i}]`)))
+      v.forEach((x, i) => out.push(...fit(x, s.items ?? {}, `${at}[${i}]`)))
     } else if (type === 'string') {
       if (typeof v !== 'string') return [...out, `${at}: not a string`]
       if (v.length < (s.minLength ?? 0) || v.length > (s.maxLength ?? Infinity)) out.push(`${at}: length ${v.length}`)
       if (s.pattern && !new RegExp(s.pattern).test(v)) out.push(`${at}: ${JSON.stringify(v)} doesn't match ${s.pattern}`)
-    } else if (type === 'integer') {
-      if (!Number.isInteger(v) || (v as number) < (s.minimum ?? -Infinity) || (v as number) > (s.maximum ?? Infinity)) out.push(`${at}: not an integer in ${s.minimum ?? '…'}–${s.maximum ?? '…'}`)
-    } else if (type === 'number') {
-      if (typeof v !== 'number' || v < (s.minimum ?? -Infinity) || v > (s.maximum ?? Infinity)) out.push(`${at}: not a number in ${s.minimum ?? '…'}–${s.maximum ?? '…'}`)
+    } else if (type === 'integer' || type === 'number') {
+      const n = v as number
+      if (typeof v !== 'number' || (type === 'integer' && !Number.isInteger(v))) out.push(`${at}: not ${type === 'integer' ? 'an integer' : 'a number'}`)
+      else if (n < (s.minimum ?? -Infinity) || n > (s.maximum ?? Infinity) || n <= (s.exclusiveMinimum ?? -Infinity) || n >= (s.exclusiveMaximum ?? Infinity)) {
+        out.push(`${at}: ${n} is out of ${s.minimum ?? s.exclusiveMinimum ?? '…'}–${s.maximum ?? s.exclusiveMaximum ?? '…'}`)
+      }
     } else if (type === 'boolean' && typeof v !== 'boolean') out.push(`${at}: not a boolean`)
     return out
   }
 
   /**
    * What in a text/event-stream body the contract refuses: [] when every block is an event `x-events` names with one
-   * line of JSON data of its schema, or a comment; and it is zero or more `step` events, then one `result` or `error`,
-   * last of all.
+   * line of JSON data of its schema, or a comment; and it is zero or more of its other events, then one of `x-end`
+   * (fish ID's: steps, then one `result` or `error`), last of all.
    */
   function streamMisfits(text: string, media: Media): string[] {
     const blocks = parseSse(text)
@@ -87,10 +119,24 @@ export function contract(file: string) {
       out.push(...misfits(v, schema, `[${i}] ${b.event}`))
     })
     const names = events.map(b => b.event)
+    const ends = media['x-end'] ?? ['result', 'error']
     const end = names.at(-1)
-    if (end !== 'result' && end !== 'error') out.push(`the stream ends with ${JSON.stringify(end)}, not result or error`)
-    if (names.slice(0, -1).some(n => n !== 'step')) out.push(`only steps come before the end: ${names.join(', ')}`)
+    if (!ends.includes(end!)) out.push(`the stream ends with ${JSON.stringify(end)}, not ${ends.join(' or ')}`)
+    if (names.slice(0, -1).some(n => ends.includes(n!))) out.push(`only one of ${ends.join(', ')}, last: ${names.join(', ')}`)
     if (blocks.at(-1)?.event === undefined) out.push('a comment after the last event')
+    const order = media['x-order'] ?? []
+    const rank = names.map(n => order.indexOf(n!))
+    rank.forEach((r, i) => { if (r >= 0 && rank.slice(0, i).some(p => p > r)) out.push(`[${i}] ${names[i]}: after a later kind of event (${order.join(', ')}, in that order)`) })
+    // A replay (a retry's kept answer) is the end event alone: nothing came before it to hold.
+    const whole = media['x-whole'] && events.length > 1 ? events.find(b => b.event === media['x-whole']) : undefined
+    if (whole) {
+      const data = (name: string) => events.filter(b => b.event === name).map(b => { try { return JSON.parse(b.data!) } catch { return undefined } })
+      let turn: { text?: string; blocks?: unknown[]; steps?: unknown[] } = {}
+      try { turn = JSON.parse(whole.data!) } catch { /* reported above */ }
+      if (data('text').map(p => p?.text).join('') !== turn.text) out.push(`${whole.event}: its text isn't the pieces joined`)
+      if (JSON.stringify(data('block')) !== JSON.stringify(turn.blocks ?? [])) out.push(`${whole.event}: its blocks aren't the blocks streamed`)
+      if (JSON.stringify(data('step')) !== JSON.stringify(turn.steps ?? [])) out.push(`${whole.event}: its steps aren't the steps streamed`)
+    }
     return out
   }
 

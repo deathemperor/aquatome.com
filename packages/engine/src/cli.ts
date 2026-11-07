@@ -75,6 +75,7 @@ import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
+import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { ArchiveFetcher } from './archive'
 import { localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
@@ -306,6 +307,17 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.removed) console.log(`removed: ${x}`)
     for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
   }
+} else if (cmd === 'dead-screen') {
+  // No dead fish on a page (dead-screen.ts): species and plant pages' video thumbnails, then main photos the photo check
+  // never asked about dead fish; --limit pictures a run (default 48), 12 to a model call. A dead one leaves every page, for
+  // good. Sonnet by default: whether a fish is alive, not which fish it is.
+  const r = await screenDead(ROOT, {
+    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: DEAD_SCREEN_SCHEMA, file, model: process.env.DEAD_SCREEN_MODEL ?? 'sonnet' }),
+  }, { limit: values.limit ? Number(values.limit) : 48, parallel: values.parallel ? Number(values.parallel) : 1 })
+  console.log(`dead-screen: ${r.sheets} sheets, ${r.judged} judged, ${r.dead.length} dead, ${r.left} left for later, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.dead) console.log(`dead: ${x}`)
+  for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'watermarks') {
   // No watermarked photos: each photo read once by macOS Vision, text (and logo sources) judged by the model, marked ones dropped everywhere.
   const parallel = values.parallel ? Number(values.parallel) : 1

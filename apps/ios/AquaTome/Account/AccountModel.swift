@@ -203,6 +203,8 @@ final class AccountModel {
         // A token whose session ended elsewhere (signed out there, or the account deleted).
         if token != nil { ended() } else { forget() }
       }
+    } catch is CancellationError {
+      // The Tài khoản sheet closed before the answer (its task cancelled): nothing learned about the network.
     } catch {
       // Offline: as it was, said so while nothing is known.
       unreached = true

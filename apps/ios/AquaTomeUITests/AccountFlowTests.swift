@@ -12,9 +12,10 @@ final class AccountFlowTests: XCTestCase {
     add(app, "Bể phòng khách", first: true)
     signIn(app)
     XCTAssertTrue(app.staticTexts["account-status"].label.contains("Apple"), app.staticTexts["account-status"].label)
+    let before = syncs(app)
+    tanksTab(app)
     XCTAssertFalse(badged(app), "a dot on the profile button with nothing wrong")
     // Added while signed in: it goes to the account a moment later, by itself.
-    let before = syncs(app)
     add(app, "Bể tép")
     accountTab(app)
     XCTAssertTrue(waitForSyncs(app, before + 1), "the change wasn't synced")
@@ -271,10 +272,20 @@ final class AccountFlowTests: XCTestCase {
     tap(app, "sign-in-others")
     XCTAssertTrue(element(app, "google-sign-in").waitForExistence(timeout: 5), "Cách khác offers nothing")
     app.buttons["account-done"].tap()
-    XCTAssertEqual(profile(app), "", "the dot stayed once the sheet was seen")
+    XCTAssertFalse(badged(app), "the dot stayed once the sheet was seen")
 
     signIn(app)
     XCTAssertFalse(element(app, "session-ended").exists, "still told the session ended")
+  }
+
+  /// The sheet closed before the server says who is signed in (a slow network): opened again, it's still waiting for the
+  /// answer, not saying the server can't be reached.
+  func testClosingTheSheetBeforeTheServerAnswersIsNotReadAsNoNetwork() {
+    let app = launch(resetServer: true, "-slow-session")
+    app.closeAccount()
+    app.openAccount()
+    XCTAssertFalse(element(app, "account-unreached").waitForExistence(timeout: 3), "a sheet closed early read as no network")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 30), "the server's answer never came")
   }
 
   /// The account is in the profile button's sheet, from every tab: an empty "Bể của tôi" offers a hint that opens it,
@@ -363,15 +374,22 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertEqual(add.label, "Thêm passkey cho máy này")
   }
 
-  /// Whether the profile button marks a fault with the account, as it says to VoiceOver (its dot).
+  /// Whether the profile button on screen marks a fault with the account, as it says to VoiceOver (its dot). With the
+  /// sheet closed: a button under it may not be there to ask.
   private func badged(_ app: XCUIApplication) -> Bool {
-    ["đồng bộ lỗi", "cần đăng nhập lại"].contains(profile(app))
+    XCTAssertNotNil(onScreen(app), "no profile button on screen")
+    return faulted(app)
+  }
+
+  private func faulted(_ app: XCUIApplication) -> Bool { ["đồng bộ lỗi", "cần đăng nhập lại"].contains(profile(app)) }
+
+  /// The profile button the reader can tap: the open tab's, not one under the sheet.
+  private func onScreen(_ app: XCUIApplication) -> XCUIElement? {
+    app.buttons.matching(identifier: "profile").allElementsBoundByIndex.first { $0.isHittable }
   }
 
   /// What the profile button on screen says to VoiceOver after "Tài khoản".
-  private func profile(_ app: XCUIApplication) -> String {
-    app.buttons.matching(identifier: "profile").allElementsBoundByIndex.first { $0.isHittable }?.value as? String ?? ""
-  }
+  private func profile(_ app: XCUIApplication) -> String { onScreen(app)?.value as? String ?? "" }
 
   /// Two lines read as one, as they're written.
   private func oneLine(_ s: String) -> String { s.replacingOccurrences(of: "\n", with: " ") }
@@ -380,7 +398,7 @@ final class AccountFlowTests: XCTestCase {
   private func waitForBadge(_ app: XCUIApplication) -> Bool {
     let until = Date().addingTimeInterval(10)
     while Date() < until {
-      if badged(app) { return true }
+      if faulted(app) { return true }
       RunLoop.current.run(until: Date().addingTimeInterval(0.5))
     }
     return badged(app)

@@ -112,6 +112,24 @@ that would have caught it).
     step under parallel requests, its reservations, late spends, cut-off runs and refunds (`fishid-ledger.test.ts`);
     the search and the pages it opens (`fishid-agent-tools.test.ts`); every catalog page in exactly one facts shard of
     the build (`apps/site/test/fish-id.test.ts`).
+  - The chat's contract (`protocols/chat.openapi.json`), before its Worker: the recorded answers a fake server replays
+    (`protocols/chat-stream-*.sse`, `chat-rate.json`) of its shape, with each section's blocks of the page schema's, the
+    steps, then the text, then the blocks, and `done` holding the same text, blocks and steps (the contract's `x-order`
+    and `x-whole`, which the shared helper checks on every stream), and the contract naming each; a stream with an event
+    after its end or out of order, a block or tool it doesn't know, a card with a figure the app index doesn't have or a
+    plant's on the fishes' scale, a section with no blocks or with a heading, or a tool's link without its own inputs
+    refused (`apps/site/worker/test/chat-stream.test.ts`); the helper holding the page and tank schemas' own rules
+    (`not`, exclusive bounds, a schema for other keys and for key names); every heading in the app's copy of a page on
+    the built web page with the same id, its section there not running into the next one, where the site's chat draws a
+    section from (`apps/site/test/chat-sections.test.ts`).
+    The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words),
+    a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
+    schema what structured outputs take; each block filled from the app index and the app's page copies and of the
+    contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
+    breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
+    out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
+    loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
+    Claude (`apps/site/worker/test/chat-agent.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
@@ -785,7 +803,7 @@ fixed forward first, in a PR of its own. Android
 
 UI flows, by class (a line each, with a blank line between, so pull requests that change different flows don't conflict):
 
-- `AccountFlowTests`: signing in to an account on a stand-in server, in the Tài khoản sheet (opened by the profile button on each tab and by the hint on an empty "Bể của tôi", none of the account in the tanks tab, never blank, with no network the account signed in on the phone shown as last seen, with "Thử lại" and no dot, and a new phone told the server can't be reached rather than that accounts are off, a sync the server fails putting a dot on the profile button and "Thử lại" taking it away, a session ended elsewhere naming the way the account signed in and offering it first, the others under "Cách khác", its dot gone once the sheet is seen, a list signed out linking to the sheet): a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account (the tab then saying the account has one, and still offering one for this phone), and long after signing in, adding one asks to sign in again first (with Apple, the add then finding this phone has it already, or by email, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app, and no sync of one signed in (the tab saying so).
+- `AccountFlowTests`: signing in to an account on a stand-in server, in the Tài khoản sheet (opened by the profile button on each tab and by the hint on an empty "Bể của tôi", none of the account in the tanks tab, never blank, with no network the account signed in on the phone shown as last seen, with "Thử lại" and no dot, a sheet closed before the server answers still waiting for it when opened again, and a new phone told the server can't be reached rather than that accounts are off, a sync the server fails putting a dot on the profile button and "Thử lại" taking it away, a session ended elsewhere naming the way the account signed in and offering it first, the others under "Cách khác", its dot gone once the sheet is seen, a list signed out linking to the sheet): a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account (the sheet then saying the account has one, and still offering one for this phone), and long after signing in, adding one asks to sign in again first (with Apple, the add then finding this phone has it already, or by email, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app, and no sync of one signed in (the sheet saying so).
 
 - `AppIconFlowTests`: the app's icon chosen from its picker (every icon listed in the app with a preview to draw, none unlisted) and the default again.
 
@@ -825,7 +843,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `TanksFlowTests`: add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a tank's fish and plants opening their pages, a store from a newer app or one it can't read left alone, adding again after a failed save.
 
-- `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, also from Bể của tôi with no tanks, signed out.
+- `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, from the Tài khoản sheet, with no tanks and signed out too.
 
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
