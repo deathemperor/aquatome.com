@@ -34,18 +34,17 @@ public enum AppScreen: Equatable, Sendable {
     // The site's Vietnamese is at its root ("/ca/ca-neon/"), and its old /vi/ form still leads there (PathForm): matched
     // as the /vi/ form.
     let parts = PathForm.underVi.path(url.path(percentEncoded: false)).split(separator: "/").map(String.init)
-    switch parts.joined(separator: "/") {
-    // apps/site/src/lib/i18n.ts: the tools section and each page's segment in each language.
-    case "vi/cong-cu/be-cua-toi", "id/alat/akuarium-saya", "th/tools/my-tanks":
+    switch Self.tool(parts) {
+    case "be-cua-toi"?:
       let id = url.fragment(percentEncoded: false).flatMap { $0.hasPrefix("be-") ? String($0.dropFirst(3)) : nil }
       return .tanks(id?.isEmpty == false ? id : nil)
-    case "vi/cong-cu/den-chihiros", "id/alat/lampu-chihiros", "th/tools/chihiros-light":
+    case "den-chihiros"?:
       return .lights
-    case "vi/cong-cu/the-tich-be", "id/alat/volume-akuarium", "th/tools/tank-volume":
+    case "the-tich-be"?:
       return .tankVolume(url.query(percentEncoded: true).flatMap { $0.isEmpty ? nil : $0 })
-    case "vi/cong-cu/nhan-dien-ca", "id/alat/kenali-ikan", "th/tools/fish-id":
+    case "nhan-dien-ca"?:
       return .fishId
-    case "vi/cong-cu/nuoi-chung", "id/alat/kecocokan-ikan", "th/tools/tank-mates":
+    case "nuoi-chung"?:
       // Its fish are named by their pages' names in the link's language ("neon-tetra" in Indonesian, "ca-neon" in
       // Vietnamese): a link that names fish in another language than the index's is the web page, which knows them.
       let fish = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.contains { $0.name == "ca" && $0.value?.isEmpty == false }
@@ -66,12 +65,16 @@ public enum AppScreen: Equatable, Sendable {
     }
   }
 
+  /// The tool a path names, by its Vietnamese segment: ["id", "alat", "akuarium-saya"] → "be-cua-toi".
+  private static func tool(_ parts: [String]) -> String? {
+    guard parts.count == 3, let lang = SiteLanguage.served(parts[0]), parts[1] == lang.word("cong-cu") else { return nil }
+    return ["be-cua-toi", "den-chihiros", "the-tich-be", "nhan-dien-ca", "nuoi-chung"].first { lang.word($0) == parts[2] }
+  }
+
   /// The group a path names: ["vi", "nhom", "catfish"], or one of its numbered pages (…, "trang", "2").
   private static func group(_ parts: [String]) -> String? {
-    // apps/site/src/lib/i18n.ts: the groups' section, and a list's numbered pages, in each language.
-    let words = ["vi": ("nhom", "trang"), "id": ("kelompok", "halaman"), "th": ("groups", "page")]
-    guard parts.count == 3 || parts.count == 5, let (section, page) = words[parts[0]], parts[1] == section else { return nil }
-    guard parts.count == 3 || (parts[3] == page && Int(parts[4]) != nil) else { return nil }
+    guard parts.count == 3 || parts.count == 5, let lang = SiteLanguage.served(parts[0]), parts[1] == lang.word("nhom") else { return nil }
+    guard parts.count == 3 || (parts[3] == lang.word("trang") && Int(parts[4]) != nil) else { return nil }
     return parts[2]
   }
 

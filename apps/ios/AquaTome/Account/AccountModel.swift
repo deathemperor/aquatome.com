@@ -1,4 +1,5 @@
 import AccountSync
+import Handbook
 import Foundation
 import Observation
 import Tanks
@@ -281,8 +282,7 @@ final class AccountModel {
 
   /// The app's language, for the Turnstile check and the mail: one the site has, else Vietnamese.
   static var lang: String {
-    let l = Bundle.main.preferredLocalizations.first.map { String($0.prefix(2)) } ?? "vi"
-    return ["vi", "id", "th"].contains(l) ? l : "vi"
+    SiteLanguage.of(Bundle.main.preferredLocalizations).code
   }
   var turnstilePage: URL { api.turnstilePage(lang: Self.lang) }
 
