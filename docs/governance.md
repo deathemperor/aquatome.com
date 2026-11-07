@@ -131,7 +131,9 @@ that would have caught it).
     a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
     schema what structured outputs take; each block filled from the app index and the app's page copies and of the
     contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
-    breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
+    breed in a tank-mates link as its species), a tank-mates block of two fish or more only with the check Claude ran on
+    the same fish, counts and tank (`check_tank_mates`: the tool's own code, in the reader's language; an id that isn't a
+    fish refused by name) and carrying it whole, a pick the handbook doesn't have dropped with its reason while the rest go
     out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
     loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
     Claude (`apps/site/worker/test/chat-agent.test.ts`).

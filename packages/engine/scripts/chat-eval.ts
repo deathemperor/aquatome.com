@@ -13,6 +13,9 @@
  * Graded by the script, no judge:
  * - Found (faq): the guide read or shown, and answered from / another page shown, covered / not covered. A page counts
  *   as read once it loaded (a read that failed doesn't).
+ * - Tank-mates: blocks picked whose fish, counts and tank Claude checked first (check_tank_mates; the Worker drops the
+ *   others), and answers whose text opens with the shown block's verdict's head, word for word, as the prompt asks. The check's verdict
+ *   is listed by the answer for a look.
  * - Figures: numbers in the text that nothing Claude was sent has: the question, its start, the searches' results and
  *   the parts of pages it opened (the prompt: figures only from a page read), listed for a look.
  * - Stopped, calls, tool calls, blocks dropped, seconds, and cost (usage × list price, apps/site/worker/fishid/claude.ts).
@@ -39,7 +42,7 @@ import { handbookOf, type Index, type Lang, type Source } from '../../../apps/si
 import { topicsOf, type Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
-import { faqFound, numbersIn, readPages, sentText } from './chat-eval-grade'
+import { faqFound, matesChecks, numbersIn, readPages, sentText } from './chat-eval-grade'
 import { pool } from './eval-lib'
 
 const ROOT = join(import.meta.dirname, '../../..')
@@ -88,6 +91,9 @@ const WRITTEN: Question[] = [
   },
   { set: 'start', q: 'Neon xanh với neon vua khác nhau thế nào, nên nuôi con nào?', start: {}, want: { read: ['/vi/ca/ca-neon-xanh/', '/vi/ca/ca-neon-vua/'], show: [`compare:${neon}+paracheirodon-axelrodi`] } },
   { set: 'start', q: 'Cá betta nuôi chung với cá bảy màu được không?', start: {}, want: { read: ['/vi/ca/ca-betta/', '/vi/ca/ca-bay-mau/'], show: ['tool:tank-mates', 'compare:betta-splendens+poecilia-reticulata'] } },
+  // Fish the tank-mates check says no to: the text says what the block under it shows.
+  { set: 'start', q: 'Cá betta nuôi chung với cá neon xanh được không?', start: {}, want: { read: ['/vi/ca/ca-betta/', '/vi/ca/ca-neon-xanh/'], show: ['tool:tank-mates'] } },
+  { set: 'start', q: 'Bể dài 80, rộng 35, cao 45 cm thả 2 con cá ông tiên với 10 con neon xanh được không?', start: {}, want: { read: ['/vi/ca/ca-ong-tien/', '/vi/ca/ca-neon-xanh/'], show: ['tool:tank-mates'] } },
   { set: 'start', q: 'Bể của tôi dài 60, rộng 30, cao 36 cm thì chứa được bao nhiêu lít nước?', start: {}, want: { show: ['tool:tank-volume'] } },
   { set: 'start', q: 'Thả 5 con thì cần bể lớn cỡ nào?', start: { from: 'species', about: 'symphysodon-aequifasciatus' }, want: { read: ['/vi/ca/ca-dia-nau/'], show: ['species:symphysodon-aequifasciatus', 'tool:tank-mates', 'tool:tank-volume'] } },
   { set: 'outside', q: 'Thời tiết Hà Nội ngày mai thế nào?', start: {}, want: { covered: false, none: true } },
@@ -227,6 +233,8 @@ type Row = {
   found: 'guide' | 'other' | 'none' | 'ok' | 'not' | 'failed'
   /** Numbers in the text nothing Claude was sent has. */
   invented: number[]
+  /** Its tank-mates blocks picked, those dropped as not checked first, whether the text opens with the shown one's verdict. */
+  mates: { blocks: number; unchecked: number; opens?: boolean; verdicts: string[] }
   ms: number
   usd: number
 }
@@ -247,7 +255,16 @@ function grade(model: string, question: Question, run: ChatRun | undefined, fail
   const known = new Set(numbersIn([question.q, JSON.stringify(question.start.identified ?? {}), sent].join('\n')))
   const invented = [...new Set(numbersIn(run?.answer?.text ?? ''))].filter(n => !known.has(n))
   const usd = run ? costOf(model, run.spent) : 0
-  return { model, question, run, ...(failed ? { failed } : {}), read, found, invented, ms, usd }
+  // The head of the check the shown block carries: the run's check of the same sentence (the block has the sentence only).
+  const checks = matesChecks(run?.history ?? [])
+  const heads = blocks.flatMap(b => (b.t === 'tool' && b.check?.verdict ? checks.filter(c => c.text === b.check!.verdict!.text).flatMap(c => (c.head ? [c.head] : [])).slice(0, 1) : []))
+  const unchecked = (run?.dropped ?? []).filter(d => /^tool: tank-mates .* not checked$/.test(d)).length
+  const mates = {
+    blocks: blocks.filter(b => b.t === 'tool' && b.tool === 'tank-mates').length + unchecked, unchecked,
+    ...(heads[0] ? { opens: (run?.answer?.text ?? '').trimStart().startsWith(heads[0]) } : {}),
+    verdicts: checks.flatMap(c => (c.text ? [`${c.level}: ${c.text}`] : [])),
+  }
+  return { model, question, run, ...(failed ? { failed } : {}), read, found, invented, mates, ms, usd }
 }
 
 async function main() {
@@ -311,6 +328,8 @@ async function main() {
 
 const cell = (s: string) => s.replace(/\|/g, '\\|').replace(/\n+/g, ' ')
 const pct = (k: number, n: number) => (n ? `${k}/${n}` : '–')
+/** Tank-mates blocks checked first, of those shown. */
+const checked = (rs: Row[]) => { const n = rs.reduce((t, r) => t + r.mates.blocks, 0); return pct(n - rs.reduce((t, r) => t + r.mates.unchecked, 0), n) }
 const at = (xs: number[], q: number) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.ceil(q * s.length) - 1)]! : NaN }
 
 /** The commit the Worker's code is at (its last change: a commit on main once this branch merges), and whether the
@@ -334,12 +353,13 @@ function report(rows: Row[]): string {
     '- **FAQ:** the guide the question came from was read or shown, and answered from (not as not covered) / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page shown. A page counts as read once it loaded. Another guide may answer as well. A run with no answer is counted as failed, not in these. The search reads the guides\' FAQ questions too, so the question asked is left out of them while it is asked.',
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
     '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
+    '- **Tank-mates: checked · opens with it:** tank-mates blocks picked whose fish, counts and tank Claude checked first (check_tank_mates; the Worker shows no other) · answers with a verdict shown whose text opens with its head, word for word. The check\'s verdict is listed under each answer.',
     '- **Figures not in a page:** answers whose text has a number that nothing Claude was sent has: the question, the searches\' results, the parts of pages it opened (listed below). A small number (a list\'s 2 or 3) may be in what it read by chance, so this is a floor.',
     '- **Stopped:** answered when Claude chose / at the calls, tool-call, time or token limit / a call failed.',
     '- **Cost:** response usage × list price, every call, per question. **Latency:** first call to the filled answer, on this machine.',
     '',
-    '| Model | FAQ: guide / other page / not covered | Start | Outside | Figures not in a page | Blocks dropped | Stopped: answer / calls / tools / time / tokens / error | Calls · tools | Median | p90 | $ / question |',
-    '| --- | --- | ---: | ---: | ---: | ---: | --- | ---: | ---: | ---: | ---: |',
+    '| Model | FAQ: guide / other page / not covered | Start | Outside | Tank-mates: checked · opens with it | Figures not in a page | Blocks dropped | Stopped: answer / calls / tools / time / tokens / error | Calls · tools | Median | p90 | $ / question |',
+    '| --- | --- | ---: | ---: | ---: | ---: | ---: | --- | ---: | ---: | ---: | ---: |',
   ]
   for (const model of MODELS) {
     const rs = rows.filter(r => r.model === model)
@@ -351,7 +371,7 @@ function report(rows: Row[]): string {
     const mean = (g: (x: ChatRun) => number) => (runs.reduce((t, x) => t + g(x), 0) / Math.max(1, runs.length)).toFixed(1)
     const ms = rs.map(r => r.ms)
     const failed = f.filter(r => r.found === 'failed').length
-    lines.push(`| ${model} | ${f.filter(r => r.found === 'guide').length} / ${f.filter(r => r.found === 'other').length} / ${f.filter(r => r.found === 'none').length} of ${f.length}${failed ? `, ${failed} failed` : ''} | ${pct(s.filter(r => r.found === 'ok').length, s.length)} | ${pct(o.filter(r => r.found === 'ok').length, o.length)} | ${pct(rs.filter(r => r.invented.length).length, rs.length)} | ${runs.reduce((t, x) => t + x.dropped.length, 0)} | ${stops} | ${mean(x => x.calls)} · ${mean(x => x.tools)} | ${(at(ms, 0.5) / 1000).toFixed(1)} s | ${(at(ms, 0.9) / 1000).toFixed(1)} s | $${(rs.reduce((t, r) => t + r.usd, 0) / Math.max(1, rs.length)).toFixed(3)} |`)
+    lines.push(`| ${model} | ${f.filter(r => r.found === 'guide').length} / ${f.filter(r => r.found === 'other').length} / ${f.filter(r => r.found === 'none').length} of ${f.length}${failed ? `, ${failed} failed` : ''} | ${pct(s.filter(r => r.found === 'ok').length, s.length)} | ${pct(o.filter(r => r.found === 'ok').length, o.length)} | ${checked(rs)} · ${pct(rs.filter(r => r.mates.opens).length, rs.filter(r => r.mates.opens !== undefined).length)} | ${pct(rs.filter(r => r.invented.length).length, rs.length)} | ${runs.reduce((t, x) => t + x.dropped.length, 0)} | ${stops} | ${mean(x => x.calls)} · ${mean(x => x.tools)} | ${(at(ms, 0.5) / 1000).toFixed(1)} s | ${(at(ms, 0.9) / 1000).toFixed(1)} s | $${(rs.reduce((t, r) => t + r.usd, 0) / Math.max(1, rs.length)).toFixed(3)} |`)
   }
   for (const model of MODELS) {
     lines.push('', `## ${model}`, '', '| Set | Question | Found | Read | Shown | Covered | Figures not in a page | Time | Cost |', '| --- | --- | --- | --- | --- | --- | --- | ---: | ---: |')
@@ -364,7 +384,7 @@ function report(rows: Row[]): string {
       const expected = r.question.want.read?.length ? ` (expected: ${r.question.want.read.join(', ')})` : ''
       const searched = (r.run?.steps ?? []).flatMap(s => (s.kind === 'search' ? [`"${s.query}"`] : []))
       lines.push(`- **${cell(r.question.q)}**${expected}: ${r.run?.answer ? cell(r.run.answer.text) : `— ${r.failed ?? ''}`}${r.run?.dropped.length ? ` Dropped: ${cell(r.run.dropped.join('; '))}.` : ''}`,
-        `  Searched ${cell(searched.join(', ')) || 'nothing'}; read ${r.read.join(', ') || 'nothing'}.`)
+        `  Searched ${cell(searched.join(', ')) || 'nothing'}; read ${r.read.join(', ') || 'nothing'}.${r.mates.verdicts.length ? ` Tank-mates check: ${cell(r.mates.verdicts.join('; '))}.` : ''}${r.mates.unchecked ? ` ${r.mates.unchecked} tank-mates block${r.mates.unchecked > 1 ? 's' : ''} dropped, not checked.` : ''}${r.mates.opens === false ? ' The text doesn\'t open with the verdict.' : ''}`)
     }
   }
   return `${lines.join('\n')}\n`

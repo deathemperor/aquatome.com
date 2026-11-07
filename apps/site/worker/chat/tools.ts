@@ -1,11 +1,13 @@
 import type { Block, Inline, PageDoc } from '@aq/schema/app-page'
 import type { Tool } from '../agent/tools'
+import { notFish } from './answer'
 import { figuresOf, sectionsOf, type Handbook, type Item } from './handbook'
+import { checkMates, type MatesCheck } from './mates'
 import { search, searchTopics } from './search'
 
 /**
  * The chat agent's tools (the loop: ../agent/loop.ts): search the handbook, read a page (its outline, or one section),
- * read the reader's saved tanks. Each says what the reader may be shown while it runs (`Step`,
+ * read the reader's saved tanks, check fish together as the tank-mates tool does. Each says what the reader may be shown while it runs (`Step`,
  * protocols/chat.openapi.json). What they return is what Claude may answer from: the handbook's own words and figures.
  *
  * Plain TypeScript, no Cloudflare types: the eval script runs the same tools in Node.
@@ -19,6 +21,8 @@ export type ToolDeps = {
   handbook: Handbook
   /** The reader's synced tanks; null when they can't be read now. */
   tanks: () => Promise<Tank[] | null>
+  /** Where check_tank_mates keeps what it answered in this run, for the blocks (answer.ts `fill`). */
+  checks?: MatesCheck[]
 }
 
 /** About how much of a page Claude reads at once: an outline's line per section, a section's text. */
@@ -110,6 +114,30 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
           ...shown,
           sections: sections.map(s => ({ heading: s.heading?.text ?? null, id: s.heading?.id ?? null, text: cut(textOf(s.blocks), PREVIEW_CHARS) })),
         })
+      },
+    },
+    {
+      name: 'check_tank_mates',
+      description: 'Check fish together as the handbook\'s tank-mates tool does: the same check a tank-mates block shows under your answer. It gives the verdict (answer: level no, care, unsure or yes, its head and reasons), the warnings (who may eat or nip whom, temperaments), and with the tank\'s inside size how full the fish would make it; without a size, the shortest tank they all need. In the reader\'s language. Call it whenever the reader asks whether fish can live together, and before you add a tank-mates block, with the same fish, counts and tank as the block: a block you didn\'t check so isn\'t shown. Fish only: an id that isn\'t a fish is refused. Open your text with the verdict\'s head word for word, then say why from its reasons; never the opposite. A breed is checked as its species; at most six kinds.',
+      input_schema: strict({
+        fish: {
+          type: 'array',
+          description: 'The fish (ids, as search_handbook, read_page and read_tanks give them) and how many of each.',
+          items: { type: 'object', additionalProperties: false, required: ['id', 'count'], properties: { id: { type: 'string' }, count: { type: 'integer' } } },
+        },
+        tank: {
+          anyOf: [strict({ l: { type: 'number' }, w: { type: 'number' }, h: { type: 'number' } }), { type: 'null' }],
+          description: 'The tank\'s inside length, width and height in cm, as the block will have them, or null when it has none.',
+        },
+      }),
+      run: async input => {
+        const fish = input.fish as { id: string; count: number }[]
+        const odd = notFish(fish, d.handbook)
+        if (odd.length) throw new Error(`Not fish: ${odd.join(', ')}. Check fish only, by the ids search_handbook gives.`)
+        const r = checkMates(fish, input.tank as { l: number; w: number; h: number } | null, d.handbook)
+        if (!r.fish.length) throw new Error('None of these ids is a fish: search_handbook gives the ids.')
+        d.checks?.push(r)
+        return JSON.stringify(r)
       },
     },
     {
