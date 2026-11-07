@@ -46,12 +46,8 @@ const jsonld = [
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
-const { country, firstSource, researched, card, sources, summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
-// What to buy (Vietnam's shops: Vietnamese pages only), after the care text, with a chip in the jump row; the tank row
-// says the minimum tank the data card gives.
-const kit = vn && s.productSlots.length > 0
-// The jump row: the care questions, the shop, the photos, in page order; at most five, breeding then the photos left out first.
-const chips = [...jumps, ...(kit ? [{ href: '#mua-do', label: t('Mua đồ') }] : []), ...(strip.some(Boolean) ? [{ href: '#gal-h', label: t('Ảnh') }] : [])]
+const { country, firstSource, researched, card, sources, summary, gallery, galleryPath, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides } = await speciesParts(lang, c, s)
+// The shop's tank row says the minimum tank the data card gives.
 const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
 const alternates = await alternatesOf('species', s.id)
 ---
@@ -88,12 +84,12 @@ const alternates = await alternatesOf('species', s.id)
     {vn && summary && <QuickSummary summary={summary} inside />}
     {s.photos.length > 0 && (
       <div class="side">
-        <div class="photo"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
+        <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={`${s.t.name}, ${s.scientificName}`} /></div>
         {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column readers />}
       </div>
     )}
   </header>
-  <JumpChips items={chips} drop={['#muc-reproduction', '#gal-h']} />
+  <JumpChips items={jumps} />
 
   {/* "Thông tin nhanh" folds on a phone, where the key facts and the summary above already give most of it: the first
       care question within three screens. */}
@@ -147,8 +143,8 @@ const alternates = await alternatesOf('species', s.id)
   .full .chev { position: absolute; right: var(--space-2); top: calc(50% - 8px); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
   .full[open] > summary .chev { transform: rotate(180deg); }
   .mates-tool { grid-column: 1; }
-  /* The jump row's lower rule is the text's first: no second line under it. */
-  :global(nav.jump + .body > :first-child) { border-top: 0; }
+  /* The jump row's lower rule is the text's first: no second line under it. (~, not +: the row's script comes between.) */
+  :global(nav.jump ~ .body > section:first-child) { border-top: 0; }
   /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
      show it whole, else its last part (the thumbnails, or the photo alone). On a tall screen a column with thumbnails is
      as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end first.

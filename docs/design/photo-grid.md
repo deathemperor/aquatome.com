@@ -61,8 +61,8 @@ The `/anh/` page is already a grid. Three changes:
 - Its title is the count ("110 ảnh"), first thing on the page, with readers' photos under the grid as today and a link
   down to them.
 - It keeps two 4:3 columns on phones: 4:3 barely crops these mostly landscape photos.
-- On a fish page's jump row, Ảnh is never dropped. It stays at the row's end with the count ("Ảnh 110") and opens this
-  page when the page has a grid.
+- On the jump row of a fish page with a grid, Ảnh is never dropped. It stays at the row's end with the count ("Ảnh 110")
+  and opens this page. A fish with no grid has no Ảnh chip: its photo is right above the row.
 
 ## The v2 fish page
 
