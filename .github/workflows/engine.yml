@@ -7,7 +7,10 @@ on:
   schedule:
     # Hourly, though a cycle runs every 3 hours: GitHub delays or drops scheduled runs when busy (on 2 November only 3
     # of the 8 three-hourly ones started, up to an hour late). Job `due` lets a scheduled run through only when no
-    # cycle started in the last 2 h 50 min, so the cycle keeps its pace even when most of these are dropped.
+    # cycle started in the last ENGINE_EVERY_MINUTES (a repository variable, so the pace changes without a commit;
+    # unset, 170: every 3 hours), so the cycle keeps its pace even when most of these are dropped. Set to 350 (every 6
+    # hours) on 2026-11-08: this part made about 60% of the engine's first Claude account's calls, which was running out
+    # days before its weekly reset.
     - cron: '23 * * * *'
   workflow_dispatch:
 concurrency:
@@ -27,16 +30,17 @@ jobs:
       # A cycle is a run that went on for over 10 minutes or is still going; the hourly checks that found none due end
       # in seconds. A run started by hand always goes.
       - id: due
-        name: Started by hand, or 2 h 50 min since the last cycle started
+        name: Started by hand, or ENGINE_EVERY_MINUTES since the last cycle started
         env:
           GH_TOKEN: ${{ github.token }}
+          EVERY: ${{ vars.ENGINE_EVERY_MINUTES }}
         run: |
           if [ "$GITHUB_EVENT_NAME" != schedule ]; then echo run=true >> "$GITHUB_OUTPUT"; exit 0; fi
           last=$(gh run list -R "$GITHUB_REPOSITORY" -w engine.yml -L 30 --json databaseId,createdAt,updatedAt,status \
             --jq "[.[] | select(.databaseId != $GITHUB_RUN_ID) | select(.status != \"completed\" or ((.updatedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)) > 600) | .createdAt | fromdateiso8601] | max // 0")
           age=$(( $(date -u +%s) - last ))
           echo "last cycle started $((age / 60)) min ago"
-          if [ "$age" -ge $((170 * 60)) ]; then echo run=true >> "$GITHUB_OUTPUT"; else echo run=false >> "$GITHUB_OUTPUT"; fi
+          if [ "$age" -ge $(( ${EVERY:-170} * 60 )) ]; then echo run=true >> "$GITHUB_OUTPUT"; else echo run=false >> "$GITHUB_OUTPUT"; fi
   cycle:
     needs: due
     if: needs.due.outputs.run == 'true'
@@ -69,6 +73,13 @@ jobs:
           # variables, so it changes without a commit. AHEAD_BEFORE_MINUTES 0 pauses them; unset, engine-cycle.sh's defaults.
           AHEAD_BEFORE_MINUTES: ${{ vars.AHEAD_BEFORE_MINUTES }}
           LOCALIZE_AHEAD_LIMIT: ${{ vars.LOCALIZE_AHEAD_LIMIT }}
+      - name: Keep the cost log (a line a model call, with its account)
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: engine-cost-log-rewrite
+          path: /tmp/aquatome-cost-rewrite.jsonl
+          if-no-files-found: ignore
       - name: Keep the test log
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

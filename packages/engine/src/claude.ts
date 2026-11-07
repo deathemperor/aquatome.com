@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process'
 import { appendFileSync } from 'node:fs'
 import { dirname } from 'node:path'
-import { envFor, onAccounts } from './claude-accounts'
+import { envFor, onAccounts, tokenHash } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
 /** The model call itself failed (CLI error, usage limit, bad output) — distinct from a page problem. */
@@ -32,12 +32,12 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
       clearTimeout(timer)
       try {
         const r = JSON.parse(out)
-        // ENGINE_COST_LOG: one line a call (what the CLI reports it would cost on the API, its tokens, the wall time), to
-        // measure a run such as the reader's backfill.
+        // ENGINE_COST_LOG: one line a call (what the CLI reports it would cost on the API, its tokens, the wall time, the CLI
+        // command it ran in and the account it went to, by its token's hash), to split a week's use by job and account.
         if (process.env.ENGINE_COST_LOG) {
           const u = r.usage ?? {}
           try {
-            appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), model: modelOf(opts.model), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+            appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), step: process.argv[2], account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
           } catch (e) {
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }
