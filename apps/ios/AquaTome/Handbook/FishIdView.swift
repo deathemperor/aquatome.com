@@ -29,6 +29,9 @@ struct FishIdView: View {
   @State private var box: CGRect?
   @State private var part: Data?
   @State private var sending = false
+  /// VoiceOver's place: on what it's doing while it identifies (the button it was on goes), then on what it says after.
+  @AccessibilityFocusState private var onWait: Bool
+  @AccessibilityFocusState private var onSaid: Bool
   /// What the screen is doing, or why it can't, as the site's status line says it.
   @State private var said: String?
   @State private var found: FishId.Identification?
@@ -183,7 +186,7 @@ struct FishIdView: View {
         // In the button's place, what it's doing: a spinner and the words, as live as the wait is.
         HStack(spacing: 10) {
           ProgressView().accessibilityHidden(true)
-          Text(said ?? "").accessibilityIdentifier("fish-id-said")
+          Text(said ?? "").accessibilityIdentifier("fish-id-said").accessibilityFocused($onWait)
         }
         .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
       } else {
@@ -195,7 +198,7 @@ struct FishIdView: View {
         }
         .disabled(sent == nil)
         .accessibilityIdentifier("fish-id-send")
-        if let said { Text(said).accessibilityIdentifier("fish-id-said") }
+        if let said { Text(said).accessibilityIdentifier("fish-id-said").accessibilityFocused($onSaid) }
       }
     }
   }
@@ -279,8 +282,11 @@ struct FishIdView: View {
   private func send() async {
     guard let jpeg = sent, !sending else { return }
     sending = true
+    onWait = true
     found = nil
     said = String(localized: "Đang nhận diện… thường mất vài giây.")
+    // Done, it says so where VoiceOver is: a problem's words, or the guesses (read out as they come, onChange(of: found)).
+    defer { onSaid = said != nil }
     // Claude may take up to 25 s on the Worker, and the app waits 65: past the first seconds, the screen says so.
     let longer = Task {
       try await Task.sleep(for: .seconds(10))

@@ -32,12 +32,19 @@ extension XCUIApplication {
     if bar.exists { XCTAssertLessThanOrEqual(lowestWords(), bar.frame.minY + 0.5, "\(screen): its last words end under the shrunk bar", file: file, line: line) }
   }
 
-  /// The bottom of the lowest words on screen, but the tab bar's own.
+  /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
+  /// text (a fish's page has hundreds, and the screen may change between two).
   private func lowestWords() -> CGFloat {
-    let screen = windows.firstMatch.frame
-    let bar = Set(tabBars.firstMatch.descendants(matching: .any).allElementsBoundByIndex.map { "\($0.frame)" })
-    return staticTexts.allElementsBoundByIndex.map(\.frame)
-      .filter { !$0.isEmpty && $0.minY < screen.maxY && $0.maxY > screen.minY && !bar.contains("\($0)") }
-      .map(\.maxY).max() ?? 0
+    guard let snap = try? snapshot() else { return 0 }
+    let screen = snap.frame
+    var low: CGFloat = 0
+    func walk(_ e: XCUIElementSnapshot) {
+      if e.elementType == .tabBar { return }
+      let f = e.frame
+      if e.elementType == .staticText, !f.isEmpty, f.minY < screen.maxY, f.maxY > screen.minY { low = max(low, f.maxY) }
+      for c in e.children { walk(c) }
+    }
+    walk(snap)
+    return low
   }
 }

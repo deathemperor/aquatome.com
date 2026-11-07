@@ -157,6 +157,8 @@ final class FishIdFlowTests: XCTestCase {
     openTool(app)
     signIn(app)
     send(app)
+    // At once, in the button's place: a spinner and what it's doing (the words change at 10 s).
+    XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Đang nhận diện… thường mất vài giây.", timeout: 5), element(app, "fish-id-said").saying)
     // Back to the top, where the photo's controls are.
     for _ in 0..<3 { app.swipeDown() }
     let library = element(app, "fish-id-library"), box = element(app, "fish-id-box")
@@ -167,7 +169,6 @@ final class FishIdFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "fish-id-send").exists, "a greyed-out button while it's identified")
     let said = element(app, "fish-id-said")
     reveal(app, said)
-    XCTAssertEqual(said.label, "Đang nhận diện… thường mất vài giây.")
     // The stand-in holds the request 40 s: the line changes at 10.
     XCTAssertTrue(said.waitForLabel("Vẫn đang nhận diện… có thể mất đến một phút.", timeout: 30), said.saying)
     XCTAssertTrue(said.waitForLabel("Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", timeout: 45), said.saying)
