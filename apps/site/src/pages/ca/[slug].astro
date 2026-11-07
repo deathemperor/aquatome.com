@@ -143,8 +143,8 @@ const alternates = await alternatesOf('species', s.id)
   .full .chev { position: absolute; right: var(--space-2); top: calc(50% - 8px); transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
   .full[open] > summary .chev { transform: rotate(180deg); }
   .mates-tool { grid-column: 1; }
-  /* The jump row's lower rule is the text's first: no second line under it. */
-  :global(nav.jump + .body > :first-child) { border-top: 0; }
+  /* The jump row's lower rule is the text's first: no second line under it. (~, not +: the row's script comes between.) */
+  :global(nav.jump ~ .body > section:first-child) { border-top: 0; }
   /* The photo column stays in view while the facts beside it scroll by: all of it where the screen is tall enough to
      show it whole, else its last part (the thumbnails, or the photo alone). On a tall screen a column with thumbnails is
      as tall as its room: the window under its pinned top, or its grid area (100%) when the facts beside it end first.

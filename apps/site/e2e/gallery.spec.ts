@@ -159,6 +159,8 @@ test('a fish with no gallery page has no photos chip: its photo is right above t
   await expect(row.locator('a[href="#anh"]')).toHaveCount(0)
   await expect(row.locator('a[href$="/anh/"]')).toHaveCount(0)
   await expect(page.locator('#anh img')).toBeVisible()
+  // The row's lower rule is the text's first: no second line right under it.
+  await expect(page.locator('nav.jump ~ .body > :first-child')).toHaveCSS('border-top-width', '0px')
   expect(errors).toEqual([])
 })
 
