@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
-import { fitFindings, ownSource, readFit, type FitFinding } from './fit'
+import { fitFindings, ownSource, productOf, readFit, type FitFinding } from './fit'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
@@ -68,13 +68,20 @@ const asPage = (id: string, w: Written): Page => ({
   captions: [], latinNames: [], card: [],
 })
 
+/**
+ * A product's dose reaches the writer only when the table says the product is sold here. Otherwise a writer told to name the
+ * ingredient turns "10 ml of this brand" into "10 ml of erythromycin", at a strength no reader can buy: the code stops
+ * that, since a line in a prompt didn't.
+ */
+export const forWriter = (products: GuideFacts['products']) => products.map(x => (productOf(x.name, 'vi')?.status === 'sold' ? x : { ...x, dose: '' }))
+
 export type ForReader = { written: Written; facts: GuideFacts; market: string; score: number; notes: string[]; findings: FitFinding[]; tries: number; kept: boolean }
 
 /** A Vietnamese guide from its source's text. `voice`: another voice's rules, tried on the side before the owner picks one. */
 export async function writeForReader(d: { llm: Llm }, id: string, source: string, o: { factsModel?: string; writeModel?: string; checkModel?: string; voice?: string; now?: () => Date } = {}): Promise<ForReader> {
   const facts = await d.llm<GuideFacts>({ system: FACTS, prompt: source.slice(0, 120_000), schema: FACTS_SCHEMA, model: o.factsModel ?? 'sonnet' })
   const market = marketFor('vi', facts.products.map(x => x.name).join('\n'), facts.problems)
-  const input = `--- DỮ KIỆN ---\n${JSON.stringify({ topic: facts.topic, facts: facts.facts, products: facts.products }, null, 1)}\n\n--- THỊ TRƯỜNG ---\n${market}`
+  const input = `--- DỮ KIỆN ---\n${JSON.stringify({ topic: facts.topic, facts: facts.facts, products: forWriter(facts.products) }, null, 1)}\n\n--- THỊ TRƯỜNG ---\n${market}`
   const write = (notes: string[] = []) => d.llm<Written>({
     system: 'Bạn viết bài hướng dẫn cá cảnh bằng tiếng Việt. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
     prompt: [WRITE, VI_STYLE, ...(o.voice ? [`Giọng của bài này:\n${o.voice}`] : []), ...(notes.length ? [`Bản trước bị trả lại vì các lý do sau. Viết lại cả bài, không chỉ vá chỗ đó:\n${notes.map(n => `- ${n}`).join('\n')}`] : []), input].join('\n\n'),

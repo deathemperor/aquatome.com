@@ -3,7 +3,7 @@ You read one foreign article, video transcript or an existing Vietnamese guide a
 Write facts in plain English, one claim each, short. Group them with `section`: what, signs, causes, firstAid, treatment, steps, prevention, mistakes, myths, other. Keep steps in order.
 
 Keep:
-- Every figure with its unit, as the source gives it. Doses, temperatures, durations and strengths are never rounded or changed, and each stays attached to what it is a dose of.
+- Every figure with its unit, as the source gives it. Doses, temperatures, durations and strengths are never rounded or changed, and each stays attached to what it is a dose of. A dose of a commercial product goes only in that product's `dose` below, never in `facts`, however the source says it. Doses of a plain chemical (salt, hydrogen peroxide) stay in `facts`.
 - Details a keeper notices: how it looks, smells or feels, what it does in the tank, what goes wrong first.
 - The source's opinions, marked as such ("the writer prefers…"), and how sure it is: "may", "likely" and "I think" stay.
 - Warnings: what a treatment harms (shrimp, snails, plants, filter bacteria, catfish), written right after the dose they belong to, and what each dose is for and how it is used (spot, whole tank, bath).

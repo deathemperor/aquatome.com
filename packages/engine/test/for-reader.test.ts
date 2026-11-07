@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { amountsOutside, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
+import { amountsOutside, forWriter, rewriteForReader, sourceOf, writeForReader } from '../src/for-reader'
 
 const FACTS = { topic: 'blue-green algae', facts: [{ section: 'treatment', fact: 'Use 3 ml of 3% hydrogen peroxide per 4 litres.' }], products: [{ name: 'Slime Out', for: 'blue-green algae', ingredient: '', dose: '1 packet per 10 gallons' }], problems: ['cyanobacteria'] }
 const good = { name: 'Tảo lam: làm gì trước', summary: ['Hút sạch rồi trị.'], body: '<h3>Trị</h3><p>Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước.</p>', faq: [{ q: 'Có hại cá không?', a: 'Quá liều thì hại.' }] }
@@ -31,6 +31,17 @@ test('the writer works from the facts and the market table, never the source; wh
   expect(write.prompt).toMatch(/Slime Out: các shop trong nước khó tìm/)
   expect(write.prompt).toContain('3 ml cho mỗi 4 lít nước') // the table's dose for this problem
   expect(write.model).toBe('opus')
+})
+
+test('a product\'s dose reaches the writer only when the table says it\'s sold here', async () => {
+  expect(forWriter([
+    { name: 'Marason', for: 'bacteria', ingredient: 'erythromycin', dose: '10 ml per 20 gallons' },
+    { name: 'Ich X', for: 'ich', ingredient: '', dose: '1 tsp per 10 gallons' },
+    { name: 'API General Cure', for: 'worms', ingredient: '', dose: '1 packet per 10 gallons' },
+  ]).map(x => x.dose)).toEqual(['', '', '1 packet per 10 gallons'])
+  const { llm, calls } = fake({ written: [good] })
+  await writeForReader({ llm }, 'g', 'x')
+  expect(calls.find(c => c.kind === 'write')!.prompt).not.toContain('1 packet per 10 gallons') // Slime Out's, in the facts above
 })
 
 test('what fails a check goes back with its notes, and what fails again is not kept', async () => {
