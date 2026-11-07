@@ -174,11 +174,14 @@ private struct IdleCard: View {
 
 private struct SavedLightRow: View {
   @Environment(LightsModel.self) private var lights
+  @Environment(\.dynamicTypeSize) private var size
   let device: Device
 
   var body: some View {
     let again = lights.isLost && lights.device?.id == device.id
-    HStack(alignment: .center) {
+    // At the accessibility text sizes the button goes under the lines, which keep the row's width.
+    let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(alignment: .center))
+    layout {
       VStack(alignment: .leading, spacing: 2) {
         Text(LightsModel.title(device)).font(.headline).accessibilityIdentifier("saved-name")
         Text(verbatim: meta).font(.caption).foregroundStyle(.secondary).accessibilityIdentifier("saved-meta")
@@ -188,7 +191,7 @@ private struct SavedLightRow: View {
           .accessibilityLabel(Text("Quên đèn này") + Text(verbatim: ": \(LightsModel.title(device))"))
           .accessibilityIdentifier("forget")
       }
-      Spacer()
+      if !size.isAccessibilitySize { Spacer() }
       Button {
         Task { await lights.connect(saved: device) }
       } label: {

@@ -285,6 +285,18 @@ final class LightFlowTests: XCTestCase {
     expect(app, "notice", contains: "Đã kết nối WRGB II Slim.")
   }
 
+  // At the largest text the row's button squeezed its words into a narrow column beside it (shot in v2's tabs, 8 Nov).
+  func testASavedLightsButtonGoesUnderItsWordsAtTheLargestText() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    tap(app, "scan")
+    tap(app, "light")
+    expect(app, "notice", contains: "Đã kết nối")
+    tap(app, "disconnect")
+    let button = scrolledTo(app, "saved-light")
+    XCTAssertTrue(button.isHittable, "Kết nối not reached by scrolling")
+    XCTAssertGreaterThanOrEqual(button.frame.minY, element(app, "saved-meta").frame.maxY, "Kết nối beside the light's words")
+  }
+
   func testRenamesAndForgetsTheLight() {
     let app = launch()
     connect(app)
