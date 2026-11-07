@@ -790,7 +790,7 @@ describe('photo gallery', () => {
     expect(credits).toContain('File:NeonVua43.jpg')
     expect(credits).not.toContain('File:NeonVua44.jpg')
   })
-  test('a species with too few photos gets no strip, no gallery page and no photos' chip: its photo is right above the row', () => {
+  test('a species with too few photos gets no strip, no gallery page and no chip for its photos: its photo is right above the row', () => {
     const { dom } = page('/ca/ca-neon-xanh/')
     expect(dom.querySelector('section.strip')).toBeNull()
     expect(() => readFileSync(`${DIST}/ca/ca-neon-xanh/anh/index.html`)).toThrow()
