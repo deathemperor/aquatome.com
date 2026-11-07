@@ -199,9 +199,13 @@ const counts = (xs: string[]) => Object.entries(xs.reduce<Record<string, number>
 
 function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: Answered; result?: PairOutcome }[], n: number): string {
   const done = pairs.filter(p => p.result)
-  const row = (label: string, ps: typeof done) => {
-    const w = (o: 'ours' | 'plain' | 'tie') => ps.filter(p => p.result!.better === o).length
-    return `| ${label} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${ps.length} | ${avg(ps.map(p => p.result!.ours))} · ${avg(ps.map(p => p.result!.plain))} | ${CRITERIA.map(c => `${ps.filter(p => p.result!.criteria[c] === 'ours').length}–${ps.filter(p => p.result!.criteria[c] === 'plain').length}`).join(' | ')} | ${pct(ps.filter(p => p.result!.consistent).length, ps.length)} |`
+  // Ours failed and plain answered: the reader got an error, so plain wins it on every count (no score: nothing to judge).
+  const lost = (p: (typeof pairs)[number]) => Boolean(p.ours.failed) && !p.plain.failed
+  const row = (label: string, all: typeof pairs) => {
+    const ps = all.filter(p => p.result)
+    const failed = all.filter(lost).length
+    const w = (o: 'ours' | 'plain' | 'tie') => ps.filter(p => p.result!.better === o).length + (o === 'plain' ? failed : 0)
+    return `| ${label} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${ps.length + failed}${failed ? `, ours failed ${failed}` : ''} | ${avg(ps.map(p => p.result!.ours))} · ${avg(ps.map(p => p.result!.plain))} | ${CRITERIA.map(c => `${ps.filter(p => p.result!.criteria[c] === 'ours').length}–${ps.filter(p => p.result!.criteria[c] === 'plain').length + failed}`).join(' | ')} | ${pct(ps.filter(p => p.result!.consistent).length, ps.length)} |`
   }
   const head = `| | Ours / plain / tie or split | Score: ours · plain | ${CRITERIA.join(' | ')} | Orders agree |\n| --- | --- | ---: | ${CRITERIA.map(() => '---:').join(' | ')} | ---: |`
   const usd = (k: 'ours' | 'plain') => (pairs.reduce((t, p) => t + p[k].usd, 0) / Math.max(1, pairs.length)).toFixed(4)
@@ -213,16 +217,17 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     '- **post:** both answer the whole forum post. **tank:** both get a short question; ours reads the reader\'s saved tank as the chat reads it today (size, fish and counts; not plants, light, CO₂ or notes), plain Claude only the question. The judge is told everything the post said about the tank.',
     '- **Blind, as far as it goes:** the judge isn\'t told which answer is ours, and both lose the site\'s name and links. Ours still looks different (short text with excerpts, cards and tools under it), so the blinding is partial.',
     '- **Both orders:** each pair is judged twice, the answers swapped. A side wins only when both orders pick it; a split counts as a tie. The same for each count.',
+    '- **Failed:** when ours failed (the limits ran out, a call timed out) and plain answered, the reader got an error: plain wins it on every count, with no score.',
     '- **Counts** (ours–plain wins): correct (right and safe), fits (uses this tank), actionable (what to do now, in order), grounded (no made-up precision), local (Vietnamese and Vietnam).',
     `- **Cost** per question, at list price: ours $${usd('ours')}, plain $${usd('plain')}. The judge runs on the owner's Claude accounts.`,
     '',
     head,
-    ...WANTED.map(c => row(c, done.filter(p => p.c === c))),
+    ...WANTED.map(c => row(c, pairs.filter(p => p.c === c))),
     '',
     '## By problem',
     '',
     head,
-    ...WANTED.flatMap(c => TOPICS.flatMap(t => { const ps = done.filter(p => p.c === c && p.q.topic === t); return ps.length ? [row(`${c} · ${t}`, ps)] : [] })),
+    ...WANTED.flatMap(c => TOPICS.flatMap(t => { const ps = pairs.filter(p => p.c === c && p.q.topic === t); return ps.length ? [row(`${c} · ${t}`, ps)] : [] })),
     '',
     '## What each lacks, as the judge tagged it',
     '',
@@ -256,11 +261,11 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
       ...(r ? [`**Judge:** ${cell(r.why.join(' / '))}`, '', `**Ours lacks:** ${r.lacksOurs.join(', ') || '–'}. **Plain lacks:** ${r.lacksPlain.join(', ') || '–'}.`, ''] : []),
       `**Ours** (read ${p.ours.read?.length ?? 0} pages${p.ours.stopped && p.ours.stopped !== 'answer' ? `, stopped at the ${p.ours.stopped} limit` : ''}):`,
       '',
-      ...(p.ours.failed ? [`failed: ${p.ours.failed}`] : cut(p.ours.text, 1500).split('\n').map(l => `> ${l}`)),
+      ...(p.ours.failed ? [`failed: ${p.ours.failed}`] : cut(p.ours.text, 600).split('\n').map(l => `> ${l}`)),
       '',
       `**Plain** (${p.plain.text.length} characters):`,
       '',
-      ...(p.plain.failed ? [`failed: ${p.plain.failed}`] : cut(p.plain.text, 1500).split('\n').map(l => `> ${l}`)),
+      ...(p.plain.failed ? [`failed: ${p.plain.failed}`] : cut(p.plain.text, 600).split('\n').map(l => `> ${l}`)),
       '',
     )
   }

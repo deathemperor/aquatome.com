@@ -20,7 +20,7 @@ stocking all depend on the particular tank and take weeks to fix. That is where 
 
 **Today's limit on hard problems.** An answer is two or three sentences plus up to five blocks, such as a card, a guide's
 section or a tool, within 5 model calls and 27 seconds. That fits "can a betta live with neons?". "My tank is full of
-hair algae" needs a plan in steps that fits the tank. The eval will show how much this costs us.
+hair algae" needs a plan in steps that fits the tank. The eval shows it costs us most of the hard questions (below).
 
 ## The five hard problems, and how we solve each
 
@@ -70,24 +70,63 @@ then agree a health score and the top issues, each with its fix from our guides.
   clearly win, one strong model does the review at a third of the cost.
 - Where. After the tank journal: without water tests and photos over time there is little for a panel to review.
 
-## How we prove it
+**Proactive care.** The app nudges the reader before trouble, from the tank's own data: size, fish, plants, devices,
+the journal, plus the reader's region and its weather.
+- Maintenance. Water changes, filter cleaning and plant trimming, at the intervals our guides give for that tank's
+  size, stock and plants. While a new tank cycles, it says what to test on which day, and when the readings say it's
+  safe to add fish.
+- Seasons. A heat wave whose forecast beats the top temperature of a fish in the tank brings a warning: fans, a
+  chiller, shorter light hours, the last one offered as an equipment action. A cold snap in the north warns tanks whose
+  fish need more than unheated water gives. The rainy season warns about tap water changes, and the start of a
+  species' breeding season says what to expect.
+- How often, without nagging.
+  - One weekly digest per reader, all tanks together, at an hour they pick.
+  - Urgent warnings (heat or cold within 48 hours that the tank's fish can't take, a cycling test due today) come on
+    their own, at most one a day, never between 22:00 and 07:00.
+  - Each nudge has "Done" and "Later". "Done" goes into the journal, and a task the journal already shows done is
+    never sent.
+  - Three ignored in a row halves that kind's frequency. A tank not opened for 30 days gets only severe weather.
+  - Every kind can be switched off per tank. Weather and cycling start on; routine maintenance is the reader's choice.
+- Cost. Almost no AI: rules and our guides' intervals choose the nudge, and the AI answers only when the reader taps
+  through to the chat. Pushes go through the app's existing notifications. The weather comes from a free forecast
+  service at city level. That is a new outside service, and with the reader's region it needs the owner's OK.
+- Where. Heat and cold warnings come early, right after the algae doctor: they need only the region and the fish's
+  temperatures, which we have, and heat is the season's biggest killer. Maintenance reminders and cycling come with
+  the tank journal, since they need to know what was done.
 
-About 40 real hard questions, from public Vietnamese hobby forums (reworded, no names), the existing chat eval, and the
-owner's own past research if they share it. Our chat and plain Claude each answer every question. Plain Claude is the same
-Haiku model with no tools and no handbook. A judge sees the two answers in random order, twice with the order swapped,
-and a win counts only when both judgements agree. Two conditions are reported apart. In one, both get the full forum
-post. In the other, the reader asks a short question about a saved tank, and only we have the tank. Target: a clear win.
-The eval runs again on every change to the chat's brain.
+## How we prove it, and where we stand
+
+47 real hard questions, from public Vietnamese hobby forums (reworded, no names) and the existing chat eval. The owner's
+own past research comes in if they share it. Our chat and plain Claude each answer every question. Plain Claude is the
+same Haiku model with no tools and no handbook. A judge (Opus) sees the two answers without our name, twice with the
+order swapped, and a win counts only when both judgements agree. Two conditions are reported apart: the full forum
+post given to both, and a short question about a saved tank, where only we have the tank. The eval runs again on every
+change to the chat's brain (`docs/review/chat-vs-plain.md`).
+
+**First run, 2026-11-07: plain Claude wins clearly.** Full post: plain 43, ours 4, scores 6.9 and 3.4 out of 10. Saved
+tank: plain 33, ours 8, 6 ties, scores 5.5 and 4.0. Ours lost every kind of problem. The judge's reasons agree:
+- Ours won't diagnose. Told to answer only from the handbook, it says "the handbook doesn't say, so I can't be sure"
+  where plain Claude names the likely cause.
+- No plan. Two or three sentences and a pasted guide section, where plain Claude gives ordered steps for this tank.
+- It doesn't fit the tank. Today it reads only size and fish, not plants, light, CO₂ or notes.
+- Its reading budget runs out on hard questions: 3 of 94 answers failed and many stopped half-read.
+- Some errors are our guides' own, such as "90% of hair algae is low CO₂" and "never more than 4 hours of light at a
+  stretch". Those go back to the content side.
+
+Next: answer as an expert who has read the handbook. Name the likely cause from the reader's details, then steps in
+order, what to watch and when to check back, with figures and doses only from our pages. Read the whole tank, fix the
+name search, read more per call. If that still loses, the question for the owner is whether the chat may use general
+knowledge beside the handbook, still never for figures or doses. I'll bring that with evidence.
 
 ## Order of work
 
-1. The eval, now.
-2. Whatever the eval shows first. Already found: the chat's name search puts the wrong fish first ("cá vàng" finds a
-   shrimp before the goldfish). Likely next: the chat reads the whole tank, lights and plugs included, then gives
-   step-by-step answers for hard problems.
+1. The eval: done, first result above.
+2. Close the gap it shows: expert answers with a plan, the whole tank read, the name search fixed ("cá vàng" finds a
+   shrimp before the goldfish), more read per call. The eval runs after each.
 3. The algae doctor, with the first equipment action: a shorter light schedule, applied once the reader confirms.
-4. More equipment actions: dimming, feeding mode, master-button scenes.
-5. Setup planner, tank journal and check-ins.
-6. The tank health review, once the journal gives it something to read, and only if the eval shows a panel beats one
+4. Heat and cold warnings, once the owner OKs the region and the forecast service.
+5. More equipment actions: dimming, feeding mode, master-button scenes.
+6. Setup planner; tank journal with maintenance reminders, cycling steps and check-ins.
+7. The tank health review, once the journal gives it something to read, and only if the eval shows a panel beats one
    strong model.
-7. A stronger model only for hard-problem flows, and only where the eval shows it pays for itself.
+8. A stronger model only for hard-problem flows, and only where the eval shows it pays for itself.
