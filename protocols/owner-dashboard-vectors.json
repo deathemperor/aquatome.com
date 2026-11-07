@@ -4676,7 +4676,7 @@
           {
             "kind": "chart",
             "id": "n-langs",
-            "title": "Bài dịch mới mỗi ngày (Indonesia, Thái, Mã Lai)",
+            "title": "Bài dịch mới mỗi ngày",
             "days": [
               "2026-10-27",
               "2026-10-28",
@@ -4819,7 +4819,7 @@
           },
           {
             "kind": "note",
-            "text": "Mỗi đêm lưu tổng số một lần, lúc 03:17 sáng hôm sau (giờ của bạn): cột một ngày là những gì thêm trong 24 giờ tới lần lưu đó. Cột cuối là phần thêm từ lần lưu trước tới giờ, theo bản build đang chạy. Một ngày không lưu được thì lần lưu sau gộp cả phần đó; ngày chưa có số liệu được gạch chéo.",
+            "text": "Mỗi đêm lưu tổng số một lần, lúc 03:17 sáng hôm sau (giờ của bạn): cột một ngày là những gì thêm trong 24 giờ tới lần lưu đó. Cột cuối là phần thêm từ lần lưu trước tới giờ, theo bản đang chạy trên site. Một ngày không lưu được thì lần lưu sau gộp cả phần đó; ngày chưa có số liệu được gạch chéo.",
             "tone": "plain"
           },
           {

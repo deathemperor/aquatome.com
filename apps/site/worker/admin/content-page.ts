@@ -133,7 +133,7 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
   const days = lastDays(new Date(`${open}T00:00:00Z`), 30).filter(d => d > snaps[0]!.day)
   // That day so far: the running build's totals, which are what the next save keeps, less the last save.
   const kept = snaps.some(x => x.day === open) ? snaps : [...snaps, { day: open, totals: s.totals }]
-  const closes = { partialLast: true, ...(open === localDay(now, tz) ? {} : { lastSays: `chốt lúc ${hourMinute(savedAt(now), tz)}` }) }
+  const closes = { partialLast: true, ...(open === localDay(now, tz) ? {} : { lastSays: `sẽ chốt lúc ${hourMinute(savedAt(now), tz)}` }) }
   const v = (k: EntityKind) => (t: Totals) => t.kinds[k]?.vi ?? 0
   const missing = 'chưa lưu số liệu ngày này'
   // New translations come in bursts: columns per day, not lines drawn between days as if they flowed.
@@ -142,7 +142,7 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
     series: [{ label: 'Cá', values: perDay(kept, days, v('fish')) }, { label: 'Cây', values: perDay(kept, days, v('plant')) }, { label: 'Bài viết, bài từ video', values: perDay(kept, days, t => v('guide')(t) + v('videoGuide')(t)) }],
     empty: 'Chưa có bài mới nào trong những ngày đã lưu.',
   }, {
-    id: 'n-langs', title: `Bài dịch mới mỗi ngày (${OTHER_LANGS.map(l => LANG_VI[l]).join(', ')})`, days, ...closes, missing,
+    id: 'n-langs', title: 'Bài dịch mới mỗi ngày', days, ...closes, missing,
     series: OTHER_LANGS.map(l => ({ label: LANG_VI[l], values: perDay(kept, days, t => inLang(t, l)) })),
     empty: 'Chưa có bài dịch mới nào trong những ngày đã lưu.',
   }]
@@ -155,7 +155,7 @@ function growthParts(now: Date, s: ContentStats, snaps: Snapshot[], tz: string) 
     charts,
     sourceTitle: `Theo nguồn, từ ${esc(from.day.slice(8, 10))}/${esc(from.day.slice(5, 7))}`,
     sources: bySource.map(x => ({ label: esc(s.sources[x.id]?.name ?? x.id), value: x.n })) as Ranked[],
-    note: `Mỗi đêm lưu tổng số một lần, ${savedNote(now, tz)} (giờ của bạn): cột một ngày là những gì thêm trong 24 giờ tới lần lưu đó. Cột cuối là phần thêm từ lần lưu trước tới giờ, theo bản build đang chạy. Một ngày không lưu được thì lần lưu sau gộp cả phần đó; ngày chưa có số liệu được gạch chéo.`,
+    note: `Mỗi đêm lưu tổng số một lần, ${savedNote(now, tz)} (giờ của bạn): cột một ngày là những gì thêm trong 24 giờ tới lần lưu đó. Cột cuối là phần thêm từ lần lưu trước tới giờ, theo bản đang chạy trên site. Một ngày không lưu được thì lần lưu sau gộp cả phần đó; ngày chưa có số liệu được gạch chéo.`,
   }
 }
 

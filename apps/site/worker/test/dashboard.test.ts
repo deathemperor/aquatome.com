@@ -225,15 +225,15 @@ test('growth charts: a day that has closed shows what it added before its save, 
   // The 7th is counted so far: this build's totals less the save before it.
   expect(added.series.map(s => s.values.at(-1))).toEqual([15, 1, 2])
   expect(langs.series.map(s => s.values.at(-1))).toEqual([20, 25, 0])
-  expect(langs.title).toBe('Bài dịch mới mỗi ngày (Indonesia, Thái, Mã Lai)')
+  expect(langs.title).toBe('Bài dịch mới mỗi ngày')
   // Its words don't call it today, and the one before it isn't yesterday: at 01:28 the 7th is yesterday and still open.
   expect(added.labels.at(-1)).toBe('07/11')
-  expect(added.readouts.at(-1)).toEqual({ title: '15 cá', detail: 'Thứ Bảy 07/11 · chốt lúc 03:17 · 1 cây · 2 bài viết, bài từ video' })
+  expect(added.readouts.at(-1)).toEqual({ title: '15 cá', detail: 'Thứ Bảy 07/11 · sẽ chốt lúc 03:17 · 1 cây · 2 bài viết, bài từ video' })
   expect(added.readouts.at(-2)!.detail).toContain('Thứ Sáu 06/11')
   expect(added.today).toBe(added.days.length - 1)
   // The page says the same, and its words stay out of the reply: the app reads them from labels and readouts.
   const cols = html.querySelectorAll('#n-added-t')[0]!.closest('figure')!.querySelectorAll('.cols li')
-  expect(cols.at(-1)!.getAttribute('data-d')).toBe('Thứ Bảy 07/11 · chốt lúc 03:17')
+  expect(cols.at(-1)!.getAttribute('data-d')).toBe('Thứ Bảy 07/11 · sẽ chốt lúc 03:17')
   expect(added).not.toHaveProperty('lastSays')
 })
 
@@ -251,7 +251,7 @@ test('growth charts: the axis ends on the day the next save closes, so the last 
   const west = growth(new Date('2026-11-07T21:00:00Z'), [...TEN_SAVES, kept], 'America/New_York')
   expect(west.added.days.at(-1)).toBe('2026-11-08')
   expect(west.added.labels.at(-1)).toBe('08/11')
-  expect(west.added.readouts.at(-1)!.detail).toContain('chốt lúc 15:17')
+  expect(west.added.readouts.at(-1)!.detail).toContain('sẽ chốt lúc 15:17')
 })
 
 test('growth charts: days before the first save aren\'t days, and a save really missed still says so', () => {
