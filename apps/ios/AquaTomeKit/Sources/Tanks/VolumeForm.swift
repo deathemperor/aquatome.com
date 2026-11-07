@@ -119,11 +119,10 @@ public struct Worked: Sendable {
     }
   }
 
-  /// The heater calculator for this box, on the site's page of calculators in `lang` (its sizes rounded to whole cm),
-  /// as the page links it.
-  public func heaterPath(lang: String) -> String? {
+  /// The heater calculator for this box, on the site's page of calculators at `tools` ("/id/alat/", in the app's
+  /// language: SiteLanguage), its sizes rounded to whole cm, as the page links it.
+  public func heaterPath(tools: String) -> String? {
     guard let b = box else { return nil }
-    let tools = ["id": "/id/alat/", "th": "/th/tools/"][lang] ?? "/vi/cong-cu/"
     // Written as a whole number without going through Int, which a side of 1e19 cm (typed, or in a link) overflows.
     let cm = { String(format: "%.0f", TankVolume.jsRound($0)) }
     return "\(tools)?l=\(cm(b.l))&w=\(cm(b.w))&h=\(cm(b.h))#suoi"

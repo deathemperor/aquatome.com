@@ -12,10 +12,19 @@ export type LinkTarget = { key: string; href: string; names: string[]; exact?: b
  * position, in one pass. `seen` carries across calls so a page links each target once; returns the keys linked, in order.
  */
 const matchers = new WeakMap<LinkTarget[], { byName: Map<string, LinkTarget>; re: RegExp } | null>()
+/** A word or words in quotes of any style, between spaces: a cultivar's or a trade name ("'Octopus'", "‘Red’"). */
+const QUOTED = /(?<=^|\s)['"‘’“”]([^'"‘’“”]+)['"‘’“”](?=\s|$)/g
+/**
+ * The ways text writes a name with a cultivar or trade name in quotes: "Pogostemon stellatus 'Octopus'" is also ‘Octopus’,
+ * “Octopus”, "Octopus" and Octopus. Without them, "Pogostemon stellatus Octopus" matched only "Pogostemon stellatus".
+ */
+const quoteForms = (n: string) => (n.search(QUOTED) < 0 ? [] : ['', "''", '""', '‘’', '“”'].map(q => n.replace(QUOTED, (_, w: string) => `${q.charAt(0)}${w}${q.charAt(1)}`)))
 function matcher(targets: LinkTarget[]) {
   if (matchers.has(targets)) return matchers.get(targets)!
   const byName = new Map<string, LinkTarget>()
   for (const t of targets) for (const n of t.names) if (n.trim() && !byName.has(n.toLowerCase())) byName.set(n.toLowerCase(), t)
+  // After every name as written, so a name a target has as its own stays that target's.
+  for (const t of targets) for (const n of t.names) for (const f of quoteForms(n)) if (!byName.has(f.toLowerCase())) byName.set(f.toLowerCase(), t)
   const names = [...byName.keys()].sort((a, b) => b.length - a.length).map(escapeRe)
   const m = byName.size ? { byName, re: new RegExp(`(?<![\\p{L}\\p{N}])(?:${names.join('|')})(?![\\p{L}\\p{N}])`, 'giu') } : null
   matchers.set(targets, m) // one compiled matcher per targets array (a build reuses the same one for every page)

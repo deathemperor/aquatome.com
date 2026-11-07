@@ -66,6 +66,7 @@ TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'Accou
              'HandbookFlowTests/testFiltersThePlantsToTheTanksLight',
              'ReaderPostFlowTests/testABlockedPosterIsListedInTheAccountSheet', 'TankVolumeFlowTests',
              'TankMatesFlowTests', 'TelemetryFlowTests'] + LIGHTS_ON_TANKS
+KEPT_ROW = 'OfflineFlowTests/testTheAccountSheetCountsTheKeptPagesAndOpensTheirShelfOnTim'
 ACCOUNT_SHEET = ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'TelemetryFlowTests',
                  'PageShotsFlowTests']
 REACH = {
@@ -134,9 +135,12 @@ REACH = {
     # dashboard (its session, and signing out on a 401).
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ChatFlowTests'],
     # The Tài khoản sheet and the button that opens it on every tab: the flows that go through it (the account, the
-    # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it.
-    APP + 'Account/AccountView.swift': ACCOUNT_SHEET, APP + 'Account/ProfileButton.swift': ACCOUNT_SHEET,
-    APP + 'Account/AccountSection.swift': ACCOUNT_SHEET,
+    # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it; its card's
+    # Apple and Google buttons too.
+    # The sheet's row for the pages kept offline opens their shelf on Tìm: the offline flow that checks it too.
+    APP + 'Account/AccountView.swift': ACCOUNT_SHEET + [KEPT_ROW], APP + 'Account/ProfileButton.swift': ACCOUNT_SHEET,
+    APP + 'Account/AccountSection.swift': ACCOUNT_SHEET, APP + 'Account/AppleSignIn.swift': ACCOUNT_SHEET,
+    APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET, APP + 'Account/Appearance.swift': ACCOUNT_SHEET,
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
@@ -249,8 +253,10 @@ def check(runs, left, reached):
     # the page shots too; the account's other files, its flows alone.
     assert 'PageShotsFlowTests' in reached([APP + 'Tanks/TanksView.swift'])
     assert 'OwnerFlowTests' not in reached([APP + 'Tanks/TanksView.swift'])
-    for screen in ('AccountView.swift', 'AccountSection.swift', 'ProfileButton.swift'):
-        assert reached([APP + 'Account/' + screen]) == set(ACCOUNT_SHEET), screen
+    for screen in ('Account/AccountSection.swift', 'Account/ProfileButton.swift', 'Account/AppleSignIn.swift',
+                   'Account/Appearance.swift', 'Telemetry/TelemetrySwitch.swift'):
+        assert reached([APP + screen]) == set(ACCOUNT_SHEET), screen
+    assert reached([APP + 'Account/AccountView.swift']) == set(ACCOUNT_SHEET) | {KEPT_ROW}
     assert 'PageShotsFlowTests' not in reached([APP + 'Account/AccountModel.swift'])
     # The rows of the sheet from other folders: the statistics' switch takes the sheet's flows; the owner's row and the
     # icon picker's, the flow that checks the sheet's rows.

@@ -599,6 +599,11 @@ export const RULES: Rule[] = [
     check: p => [...new Set([p.title, ...p.fields.map(f => f.html), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].flatMap(wordingSlips))],
   },
   {
+    id: 'glued', title: 'Two Vietnamese words written as one',
+    about: 'A word on a Vietnamese page that reads as two syllables ("que thử đa chỉtiêu", "Sống bầy đàn: cóMức độ hoạt động"): two words a translation ran together, or a list whose items lost what separated them. Listed: a person adds the word to the sweep\'s wording fixes (sanitize.ts WORDING), or has the text written again. Loanwords written as one word ("nitơ") are left.',
+    check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(gluedSyllables))].map(w => `"${w}"`)),
+  },
+  {
     id: 'english', title: 'Sentences left in English',
     about: 'A sentence with no word of the page\'s language and English\'s small words (the, and, of…), outside reference lists, citations and quotes.',
     check: p => [...new Set([...prose(p).map(f => f.html), ...p.lines.map(l => `<p>${l.text}</p>`)].flatMap(h => englishSentences(h, p.lang)))].map(s => `"${s}"`),
@@ -652,6 +657,30 @@ export const RULES: Rule[] = [
     },
   },
 ]
+
+/** Loanwords Vietnamese writes as one word though they read as two syllables: not two words run together. */
+const ONE_WORD = new Set(['nitơ', 'nơron'])
+const TONE = /[\u0300\u0301\u0303\u0309\u0323]/gu
+const SYLLABLE = /^(?:ngh|ng|nh|ch|gh|gi|kh|ph|qu|th|tr|[bcdđghklmnprstvx])?[aăâeêioôơuưy]{1,3}(ch|ng|nh|[cmnpt])?$/u
+/** One Vietnamese syllable: an onset, one to three vowels, an ending, one tone at most; after -c, -ch, -p or -t, sắc or nặng. */
+function syllable(s: string) {
+  const d = s.toLowerCase().normalize('NFD')
+  const tones = d.match(TONE) ?? []
+  const m = d.replace(TONE, '').normalize('NFC').match(SYLLABLE)
+  if (!m || tones.length > 1) return false
+  return !['c', 'ch', 'p', 't'].includes(m[1] ?? '') || tones[0] === '\u0301' || tones[0] === '\u0323'
+}
+/** Marks only Vietnamese writes (đ, ă, ơ, ư, a hook or dot below, a tone on â ê ô, a tilde on i u y): the word is Vietnamese. */
+const VI_MARKS = /đ|\u0306|\u031b|\u0309|\u0323|\u0302[\u0300\u0301\u0303]|[iuy]\u0303/u
+/**
+ * Vietnamese words that read as two syllables, so two words run together ("chỉtiêu", "cóMức"): a word with marks only
+ * Vietnamese writes that isn't one syllable but splits into two. Other languages' words and loanwords (ONE_WORD) aside.
+ */
+export const gluedSyllables = (text: string) => [...new Set((text.normalize('NFC').match(/\p{L}+/gu) ?? []).filter(w => {
+  if (ONE_WORD.has(w.toLowerCase()) || !VI_MARKS.test(w.toLowerCase().normalize('NFD')) || syllable(w)) return false
+  for (let i = 1; i < w.length; i++) if (syllable(w.slice(0, i)) && syllable(w.slice(i))) return true
+  return false
+}))]
 
 /** The genera and species the site has pages for. */
 export const ctxOf = (pages: Page[]): Ctx => ({
