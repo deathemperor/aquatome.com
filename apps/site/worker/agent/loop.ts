@@ -69,6 +69,12 @@ export type AgentInput<Step> = {
    * answer is final (undefined: the answer stands). It answers again, with the tools while calls are left.
    */
   recheck?: (answer: Anthropic.Message) => Anthropic.ContentBlockParam[] | undefined
+  /**
+   * Said after the last message on the call a limit forces (tool_choice none), that call only: what to do with no more
+   * tools. Without it, the chat's forced answer was sometimes empty ({"text":""}): told nothing, Claude had no answer
+   * ready.
+   */
+  lastWord?: string
   clock?: () => number
 }
 
@@ -82,6 +88,14 @@ export const tokensOf = (results: Anthropic.ToolResultBlockParam[]) => results.r
   : (r.content ?? []).reduce((m, b) => m + (b.type === 'text' ? Math.ceil(b.text.length / 4) : b.type === 'image' ? 400 : 0), 0)), 0)
 const marksIn = (m: Anthropic.MessageParam) => (typeof m.content === 'string' ? 0 : m.content.filter(b => 'cache_control' in b && b.cache_control).length)
 const LIMIT_REACHED = 'Limit reached: no more tool calls in this identification. Answer with what you have.'
+/** The history with `word` after the last message's content, for one call; the history itself is left as it is. */
+const withWord = (history: Anthropic.MessageParam[], word: string): Anthropic.MessageParam[] => {
+  const last = history.at(-1)!
+  // A call always follows the reader's turn (the first message, or tool results); were it not, the word is a turn of its own.
+  if (last.role !== 'user') return [...history, { role: 'user', content: [{ type: 'text', text: word }] }]
+  const content: Anthropic.ContentBlockParam[] = typeof last.content === 'string' ? [{ type: 'text', text: last.content }] : [...last.content]
+  return [...history.slice(0, -1), { role: 'user', content: [...content, { type: 'text', text: word }] }]
+}
 
 export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step>> {
   const lim = { ...LIMITS, ...a.limits }
@@ -112,7 +126,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         tool_choice: forced ? { type: 'none' } : { type: 'auto' },
         ...(a.thinking ? { thinking: a.thinking } : {}),
         output_config: { effort: a.effort, format: { type: 'json_schema', schema: a.schema } },
-        messages: [...history],
+        messages: forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
       }, { timeoutMs: Math.min(left, lim.callMs), call: run.calls })
     } catch (e) {
       return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }

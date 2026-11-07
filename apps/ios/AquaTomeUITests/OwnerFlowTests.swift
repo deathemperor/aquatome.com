@@ -43,6 +43,61 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertFalse(approve.exists, "still waiting to be approved")
   }
 
+  /// The owner asked for a bar's own figures on a phone: a tap on a column, or a finger dragged across, reads that day.
+  func testTappingOrDraggingAcrossAChartReadsThatDay() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    section(app, "Nhận diện cá")
+    let chart = app.descendants(matching: .any).matching(identifier: "owner-chart")
+      .containing(NSPredicate(format: "label == 'Lượt gửi ảnh mỗi ngày, theo kết quả'")).firstMatch
+    let columns = chart.descendants(matching: .any)["owner-chart-columns"], day = chart.staticTexts["owner-chart-day"]
+    XCTAssertTrue(columns.waitForExistence(timeout: 10), "no chart")
+    repeatUntil(columns.isHittable, times: 4) { app.swipeUp(velocity: .slow) }
+    XCTAssertTrue(columns.isHittable, "the chart isn't on screen")
+    // A finger that starts on the chart and goes up scrolls the page, as anywhere else.
+    let top = columns.frame.minY
+    columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.05, thenDragTo: columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: -1.5)))
+    XCTAssertLessThan(columns.frame.minY, top - 100, "the page didn't scroll from the chart")
+    repeatUntil(columns.isHittable, times: 4) { app.swipeDown(velocity: .slow) }
+    // Untouched: the last of its 30 days, today, not over yet.
+    XCTAssertEqual(day.label, "04/11 (chưa hết ngày) · Có kết quả 11 · Không có kết quả 0 · Chặn trước khi gọi 1")
+    let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
+    // A tap on the first column: each series' value that day.
+    at(0).tap()
+    XCTAssertTrue(says(day, "06/10 · Có kết quả 12 · Không có kết quả 0 · Chặn trước khi gọi 2"), day.label)
+    // A finger pressed there and dragged to the third: the column under it.
+    at(0).press(forDuration: 0.1, thenDragTo: at(2))
+    XCTAssertTrue(says(day, "08/10 · Có kết quả 14 · Không có kết quả 0 · Chặn trước khi gọi 1"), day.label)
+  }
+
+  /// The overview's cards: a tap on one of a card's small columns, or a finger dragged across them, reads that day and
+  /// its count, and doesn't open the section (the card's words do).
+  func testTappingACardsSmallColumnsReadsThatDay() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    let spark = app.descendants(matching: .any).matching(identifier: "owner-spark").matching(NSPredicate(format: "label == 'Người đọc'")).firstMatch
+    XCTAssertTrue(spark.waitForExistence(timeout: 10), "no columns on the readers' card")
+    repeatUntil(spark.isHittable, times: 4) { app.swipeUp(velocity: .slow) }
+    XCTAssertTrue(spark.isHittable, "the card isn't on screen")
+    let day = app.staticTexts["owner-spark-day"]
+    XCTAssertFalse(day.exists, "a day read before any tap")
+    // Its 30 columns end yesterday, in the dashboard's zone.
+    var cal = Calendar(identifier: .gregorian)
+    cal.timeZone = TimeZone(identifier: "Asia/Ho_Chi_Minh")!
+    let ago = { (n: Int) -> String in
+      let c = cal.dateComponents([.day, .month], from: cal.date(byAdding: .day, value: -n, to: cal.startOfDay(for: Date()))!)
+      return String(format: "%02d/%02d", c.day!, c.month!)
+    }
+    let at = { (i: Double) in spark.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
+    at(29).tap()
+    XCTAssertTrue(says(day, ago(1) + " · 22"), day.label)
+    XCTAssertTrue(app.buttons["owner-todo"].firstMatch.exists, "the tap opened the card's section")
+    at(0).press(forDuration: 0.1, thenDragTo: at(2))
+    XCTAssertTrue(says(day, ago(28) + " · 22"), day.label)
+  }
+
   // A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
   func testALongCellShowsTwoLinesUntilTapped() {
     let app = launch()
@@ -245,6 +300,10 @@ final class OwnerFlowTests: XCTestCase {
 
   private func signIn(_ app: XCUIApplication) { app.signInWithStandInApple() }
   private func open(_ app: XCUIApplication, _ id: String) { app.scrollToAndTap(id) }
+  /// It reads `label` within 5 s.
+  private func says(_ e: XCUIElement, _ label: String) -> Bool {
+    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", label), object: e)], timeout: 5) == .completed
+  }
   private func section(_ app: XCUIApplication, _ name: String) { app.openOwnersSection(name) }
 
   /// A text by its words: a part's lines are one text, its first line first.
