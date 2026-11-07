@@ -7,7 +7,7 @@ import Tanks
 // adding a passkey, syncing "Bể của tôi" with the account, signing out and deleting the account. The app sends `client: "app"`, a bearer token, no cookie and
 // no Origin; the server answers it a token instead of a cookie.
 
-public struct AccountMethod: Sendable, Equatable {
+public struct AccountMethod: Sendable, Equatable, Codable {
   public let id: String
   /// "apple", "google", "email" or "passkey".
   public let kind: String
@@ -15,8 +15,9 @@ public struct AccountMethod: Sendable, Equatable {
   public let lastUsedAt: String?
 }
 
-/// An account holds no name, email address or phone number: only its sign-in methods.
-public struct AccountUser: Sendable, Equatable {
+/// An account holds no name, email address or phone number: only its sign-in methods. Codable, so the app can keep it
+/// on the phone to show offline.
+public struct AccountUser: Sendable, Equatable, Codable {
   public let id: String
   public let createdAt: String?
   public let methods: [AccountMethod]

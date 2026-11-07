@@ -1,0 +1,219 @@
+{
+  "id": "chalceus-macrolepidotus",
+  "native": {
+    "input": "96527dd833f9264f",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout northern South America in Colombia, Venezuela, Guyana, Suriname, French Guiana and Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout northern South America in Colombia, Venezuela, Guyana, Suriname, French Guiana and Peru.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout northern South America in Colombia, Venezuela, Guyana, Suriname, French Guiana and Peru.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout northern South America in Colombia, Venezuela, Guyana, Suriname, French Guiana and Peru.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout northern South America in Colombia, Venezuela, Guyana, Suriname, French Guiana and Peru.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout northern South America in Colombia, Venezuela, Guyana, Suriname, French Guiana and Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chalceus macrolepidotus",
+    "status": "ACCEPTED",
+    "taxonKey": 2353798,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        48
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        36
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        35
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        26
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        18
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        15
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        14
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        14
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        13
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        12
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        11
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        7
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        7
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        3
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        2
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE",
+      "GY",
+      "SR",
+      "GF",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

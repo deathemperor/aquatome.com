@@ -1,0 +1,50 @@
+{
+  "id": "clarias-insolitus",
+  "native": {
+    "input": "a10c68164c6e4be9",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: upper Barito River drainage in southern Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Barito River",
+        "source": "planetcatfish",
+        "quote": "Asia: upper Barito River drainage in southern Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: upper Barito River drainage in southern Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clarias insolitus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202760,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

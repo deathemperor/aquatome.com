@@ -15,8 +15,27 @@ import { search, searchTopics } from './search'
 export type Page = { kind: PageDoc['kind']; title: string; url: string }
 export type Step = { kind: 'search'; query: string } | { kind: 'read'; page: Page } | { kind: 'tanks' }
 
-/** A saved tank, as the chat tells Claude about it: its name, size and fish (`id`: the fish's page, when it has one). */
-export type Tank = { name: string; litres?: number; dims?: { l: number; w: number; h: number }; fish: { name: string; id?: string; count: number }[] }
+/** A saved tank as the chat reads it (api.ts `tanksOf`): its size, its species by id and its entries without a page. */
+export type Tank = {
+  id: string
+  name: string
+  litres?: number
+  dims?: { l: number; w: number; h: number }
+  species: { id: string; count?: number }[]
+  unlisted: { name: string; kind: string; sci?: string; count?: number }[]
+}
+
+/** A tank as Claude reads it: its id, size and fish named as the handbook names them (one without a page by the reader's). */
+const told = (t: Tank, hb: Handbook) => ({
+  id: t.id,
+  name: t.name,
+  ...(t.dims ? { dims: t.dims } : {}),
+  ...(t.litres ? { litres: t.litres } : {}),
+  fish: [
+    ...t.species.map(s => ({ name: hb.byId(s.id)?.name ?? s.id, ...(hb.byId(s.id) ? { id: s.id } : {}), count: s.count ?? 1 })),
+    ...t.unlisted.filter(u => u.kind !== 'plant').map(u => ({ name: u.name, count: u.count ?? 1 })),
+  ],
+})
 export type ToolDeps = {
   handbook: Handbook
   /** The reader's synced tanks; null when they can't be read now. */
@@ -118,7 +137,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
     },
     {
       name: 'check_tank_mates',
-      description: 'Check fish together as the handbook\'s tank-mates tool does: the same check a tank-mates block shows under your answer. It gives the verdict (answer: level no, care, unsure or yes, its head and reasons), the warnings (who may eat or nip whom, temperaments), and with the tank\'s inside size how full the fish would make it; without a size, the shortest tank they all need. In the reader\'s language. Call it whenever the reader asks whether fish can live together, and before you add a tank-mates block, with the same fish, counts and tank as the block: a block you didn\'t check so isn\'t shown. Fish only: an id that isn\'t a fish is refused. Open your text with the verdict\'s head word for word, then say why from its reasons; never the opposite. A breed is checked as its species; at most six kinds.',
+      description: 'Check fish together as the handbook\'s tank-mates tool does: the same check a tank-mates block shows under your answer. It gives the verdict (answer: level no, care, unsure or yes, its head and reasons), the warnings (who may eat or nip whom, temperaments), and with the tank\'s inside size how full the fish would make it; without a size, the shortest tank they all need. In the reader\'s language. Call it whenever the reader asks whether fish can live together, and before you add a tank-mates block, with the same fish, counts and tank as the block: a block you didn\'t check so isn\'t shown. For the reader\'s own tank, give its tankId (read_tanks) and only the fish they would add (none to check the tank as it is): the tank\'s own fish and size are added for you. Fish only: an id that isn\'t a fish is refused. Open your text with the verdict\'s head word for word, then say why from its reasons; never the opposite. A breed is checked as its species; at most six kinds.',
       input_schema: strict({
         fish: {
           type: 'array',
@@ -127,15 +146,24 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         },
         tank: {
           anyOf: [strict({ l: { type: 'number' }, w: { type: 'number' }, h: { type: 'number' } }), { type: 'null' }],
-          description: 'The tank\'s inside length, width and height in cm, as the block will have them, or null when it has none.',
+          description: 'The tank\'s inside length, width and height in cm, as the block will have them, or null when it has none (and with a tankId).',
         },
+        tankId: { anyOf: [{ type: 'string' }, { type: 'null' }], description: 'The reader\'s saved tank (its id from read_tanks) the fish would go in, or null.' },
       }),
       run: async input => {
         const fish = input.fish as { id: string; count: number }[]
         const odd = notFish(fish, d.handbook)
         if (odd.length) throw new Error(`Not fish: ${odd.join(', ')}. Check fish only, by the ids search_handbook gives.`)
-        const r = checkMates(fish, input.tank as { l: number; w: number; h: number } | null, d.handbook)
-        if (!r.fish.length) throw new Error('None of these ids is a fish: search_handbook gives the ids.')
+        let mine: Tank | undefined
+        if (input.tankId) {
+          const tanks = await d.tanks()
+          if (!tanks) throw new Error('The reader\'s tanks can\'t be read now.')
+          mine = tanks.find(t => t.id === input.tankId)
+          if (!mine) throw new Error(`No tank ${String(input.tankId)}: read_tanks gives the reader\'s tanks and their ids.`)
+        }
+        const r = checkMates(fish, mine ? null : (input.tank as { l: number; w: number; h: number } | null), d.handbook, mine)
+        if (r.mine && !r.mine.fish.length && !r.mine.added.length) throw new Error('That tank has no fish, and none were given to add.')
+        if (!r.mine && !r.fish.length) throw new Error('None of these ids is a fish: search_handbook gives the ids.')
         d.checks?.push(r)
         return JSON.stringify(r)
       },
@@ -148,7 +176,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
       run: async () => {
         const tanks = await d.tanks()
         if (!tanks) throw new Error('The reader\'s tanks can\'t be read now.')
-        return tanks.length ? JSON.stringify(tanks) : 'The reader has no saved tanks.'
+        return tanks.length ? JSON.stringify(tanks.map(t => told(t, d.handbook))) : 'The reader has no saved tanks.'
       },
     },
   ]

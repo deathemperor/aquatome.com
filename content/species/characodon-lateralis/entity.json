@@ -229,5 +229,77 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Río Mezquital"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The rainbow characodon, Characodon lateralis, is a goodeid putatively restricted to springs below the El Saltito waterfall in Durango, Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Putatively restricted to a series of small habitats below the waterfall known as 'El Saltito' in the upper Río Mezquital basin, Durango state, central Mexico.",
+          "countries": [],
+          "regions": [
+            "Río Mezquital"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347671,
+      "total": 61,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          60
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -106.875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          -105.46875,
+          22.5,
+          10,
+          10
+        ],
+        [
+          -105.46875,
+          23.90625,
+          49,
+          49
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

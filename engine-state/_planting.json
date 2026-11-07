@@ -58,16 +58,47 @@
     "at": "2026-11-06",
     "kept": false
   },
+  "eleocharis-acicularis": {
+    "at": "2026-11-07",
+    "score": 0.6,
+    "kept": false,
+    "notes": [
+      "\"Mấy tuần đầu\" heading gives a timeframe the INPUT doesn't give, and it clashes with the \"2–3 tháng\" in the same bullet.",
+      "\"Cây cần phân nền hoặc nền có dinh dưỡng, sỏi trơn thì không hợp\" comes from the dwarf hair grass guide, not this plant. Tropica says E. acicularis \"sống khỏe trong gần như mọi điều kiện bể\", so the two conflict.",
+      "\"thường mất khoảng 2–3 tháng mới phủ kín\" is the dwarf variety's carpeting time from the guide, given here as this plant's.",
+      "\"Cắm trên nền khô rồi mới châm nước thì nền đỡ bẩn và không bị nhão\" is taken from the 90 cm tank-setup video and given as general planting advice.",
+      "The whole splitting and grid-planting method is copied from the dwarf hair grass guide and applied to the parent species without saying so."
+    ]
+  },
   "eleocharis-parvula": {
     "at": "2026-11-06",
     "score": 0.82,
     "kept": true
+  },
+  "eriocaulon-sp-vietnam": {
+    "at": "2026-11-07",
+    "score": 0.68,
+    "kept": false,
+    "notes": [
+      "\"vì cây thiếu chất là yếu đi ngay\" overstates the INPUT. It only says to fertilise so the plant doesn't run short of nutrients; it never says the plant weakens right away (\"ngay\").",
+      "\"Bạn trồng cây xuống nền\" reads like a planting instruction. The INPUT only implies it, through \"mọc khỏe trong nền giàu dinh dưỡng\", and gives no actual planting method.",
+      "\"mọc khỏe nhất khi nền giàu dinh dưỡng\" turns the INPUT's \"mọc khỏe\" into a superlative (\"nhất\") that the source doesn't use."
+    ]
   },
   "hygrophila-costata": {
     "at": "2026-11-07",
     "kept": false
   },
   "ludwigia-glandulosa": {
+    "at": "2026-11-07",
+    "kept": false
+  },
+  "marsilea-minuta": {
+    "at": "2026-11-07",
+    "score": 0.8,
+    "kept": true
+  },
+  "myriophyllum-mattogrossense": {
     "at": "2026-11-07",
     "kept": false
   }

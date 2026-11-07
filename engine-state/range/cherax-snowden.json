@@ -1,0 +1,48 @@
+{
+  "id": "cherax-snowden",
+  "native": {
+    "input": "4a91b5e31f4732cc",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "These intensively coloured crayfish originate from Papua New Guinea, where they are found on the Vogelkop Peninsula.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Vogelkop Peninsula",
+        "source": "glaser",
+        "quote": "These intensively coloured crayfish originate from Papua New Guinea, where they are found on the Vogelkop Peninsula.",
+        "country": "PG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax snowden",
+    "status": "ACCEPTED",
+    "taxonKey": 8682286,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

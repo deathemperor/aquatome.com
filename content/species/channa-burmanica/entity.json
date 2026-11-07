@@ -214,5 +214,78 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwaddy",
+        "Irrawaddy",
+        "Mali Hka"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears endemic to headwaters of the Ayeyarwaddy/Irrawaddy River in northern Myanmar, between the Kumon and Shan-ngaw mountain ranges, although the full extent of its range is unclear.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwaddy",
+            "Irrawaddy"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records exist only from the Mali Hka drainage, one of two principal tributaries which join to form the Ayeyarwaddy north of Myitkyina, capital of Kachin state in the far north of the country.",
+          "countries": [],
+          "regions": [
+            "Mali Hka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391445,
+      "total": 10,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          26.71875,
+          7,
+          7
+        ],
+        [
+          98.4375,
+          21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

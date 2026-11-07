@@ -24,16 +24,28 @@ final class AppLinkFlowTests: XCTestCase {
     follow(app, link("https://example.com/ca/ca-neon/"))
     XCTAssertFalse(app.buttons["scan"].waitForNonExistence(timeout: 3), "another site's link left the Lights tab")
 
-    // Not in the index: no screen of the app's.
-    follow(app, link("https://aquatome.com/gioi-thieu/"))
+    // Not in the index: no screen of the app's. (Not the site's pages about itself, which open in the browser, #566.)
+    follow(app, link("https://aquatome.com/tim-kiem/"))
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page")
-    XCTAssertTrue(app.webViews.staticTexts["/gioi-thieu/"].waitForExistence(timeout: 15), "not the stand-in page")
+    XCTAssertTrue(app.webViews.staticTexts["/tim-kiem/"].waitForExistence(timeout: 15), "not the stand-in page")
     XCTAssertTrue(app.tabBars.buttons["Tìm"].isSelected, "the web page isn't on the Tìm tab")
 
     follow(app, URL(string: "aquatome://")!)
     // Back at the home's top (its search field tucked under the title, as after any page closed).
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForNonExistence(timeout: 5), "the web page stayed")
     XCTAssertTrue(app.navigationBars["Tìm"].exists, "not back at the home")
+  }
+
+  /// A link that comes while the Tài khoản sheet is open (back from its about pages in the browser): the sheet closes,
+  /// and the page opens under it.
+  func testALinkWithTheAccountSheetOpenClosesIt() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-no-animations"]
+    app.launch()
+    app.openAccount()
+    follow(app, link("https://aquatome.com/ca/ca-neon/"))
+    XCTAssertTrue(app.buttons["account-done"].waitForNonExistence(timeout: 5), "the sheet stayed over the page")
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 10), "the fish's page didn't open")
   }
 
   /// The site's button: the page's address, percent-encoded, after `url=`.

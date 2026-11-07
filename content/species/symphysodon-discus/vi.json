@@ -1,14 +1,10 @@
 {
-  "slug": "ca-dia",
-  "name": "Cá đĩa",
+  "slug": "ca-dia-heckel",
+  "name": "Cá đĩa Heckel",
   "altNames": [
-    "Cá đĩa đỏ",
     "Pompadour fish",
-    "Royal Discus",
     "Discus",
-    "Cá đĩa Pompadour",
-    "Cá đĩa Royal",
-    "Cá đĩa hoàng gia"
+    "Cá đĩa Pompadour"
   ],
   "sections": {
     "quickFacts:sprucepets": "<p>Cá đĩa thuộc hàng đẹp nhất trong các loài cá cảnh. Đến giờ chúng vẫn là điểm nhấn rất đẹp cho bất kỳ bể trưng bày lớn nào. Người chơi cá biết đến cá đĩa lần đầu vào năm 1933, và chính Tiến sĩ Herbert R. Axelrod là người đưa chúng nổi tiếng khắp thế giới. Cá trưởng thành dài khoảng 15 cm. Cá đĩa được xem là một trong những loài cá nhiệt đới nước ngọt khó nuôi nhất.</p>",
@@ -28,5 +24,6 @@
     "bySource": {
       "sprucepets": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

@@ -1,4 +1,63 @@
 {
+  "id/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [
+    {
+      "at": "2026-11-07T07:59:11Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Minor: \"lalu atur lubang rak agar tetesan air merata\" and the intro framing are generalizations, but they are consistent with the facts.",
+        "Minor: \"Pada salah satu rancangan... kapas filter ditaruh di laci pertama\" is supported, but \"tepat di atas batu aerasi\" and \"yang dijalankan pompa udara baterai\" slightly combine separate facts.",
+        "Minor: the FAQ answer \"Tetap perlu\" for water changes is an inference, but it is supported by the nitrate fact."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T07:59:11Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Itulah siklus nitrogen\" is not in the facts (minor generalisation).",
+        "\"Siapkan waktu untuk mencoba dan menyesuaikan\" / \"perlu dicoba dan disesuaikan\" is advice not in the facts.",
+        "\"Air yang menetes lewat bioball juga mendapat banyak oksigen\" overstates the source, which says only that the water becomes well aerated.",
+        "\"Pasang pompa udara bertenaga baterai secepatnya\" adds urgency that the facts do not give.",
+        "\"Prinsip kerjanya sama-sama wet/dry\" in the FAQ presents the keepers' opinion as fact. The \"Biasanya karena jumlah lubang...\" answer also presents a cause as the usual one, which the facts do not say.",
+        "\"Akuarium yang ikannya sedikit lebih tahan\" is only loosely supported. The facts say lightly stocked tanks cope better after a long outage, so this one is fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "id/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly": [
+    {
+      "at": "2026-11-07T08:00:44Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Biasanya penyebabnya cahaya berlebih (terutama sinar matahari langsung), pakan berlebih, atau nutrisi berlebih\" – the facts list causes but do not say which is usual or most common; minor generalisation.",
+        "\"Ledakan alga... kematian massal alga bisa ... menaikkan amonia\" in the 'Kapan harus khawatir' section – the facts link ammonia spikes to blackout and UV die-off, not to a natural die-off with a colour change; mild extension.",
+        "\"sterilisator kecil biasanya sudah cukup\" is supported, but the claim \"Ganti air besar tetap perlu\" as a general requirement is a slight extension of the facts, which only call for it after treatment.",
+        "\"memakai pupuk cair secara umum\" – the facts name liquid fertilizer as a cause, so this is roughly supported, but it is phrased more broadly than the source.",
+        "\"Anggapan ... adalah mitos\" – supported by the myths section; no issue.",
+        "\"kehabisan mineral mikro atau nutrisi kemungkinan merupakan penyebab paling umum\" – supported as a hedge, though placed under 'what to do now'."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-07T08:00:44Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Ledakan alga besar paling sering mati karena kehabisan mineral mikro\" – the facts say \"probably the most common reason\"; the guide states it more firmly.",
+        "\"Inilah bedanya dengan alga yang tumbuh di permukaan\" – this contrast is a mild elaboration beyond the facts.",
+        "\"Tanda alga mati massal\" for the sudden colour change – the facts only say the colour usually changes after a die-off, not that it is a warning sign. This is minor.",
+        "\"menjelang pagi\" for the oxygen low – the facts say overnight, so this is a slight specification."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/guides/aquatome-benh-thoi-vay-thoi-duoi-o-ca-canh-nguyen-nhan-cach-chua-va-phong": [
     {
       "at": "2026-11-06T17:21:12Z",
@@ -127,6 +186,139 @@
         "\"kerana itu tandanya masalah dalaman yang lebih serius\" (dropsy) - not stated in the facts.",
         "\"Sebab itu ikan yang sakit perlu diasingkan\" - an extra rationale that the facts do not state for this point.",
         "\"supaya ikan tidak panik dan melanggar dinding tangki\" - the facts say only that the fish should not panic and crash. Reading it as hitting the tank walls is a minor addition."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": [
+    {
+      "at": "2026-11-07T08:28:55Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Sebab itulah luka cetek ... boleh membawa maut\" links the enzyme secretion to fatality; the facts do not state this causal link.",
+        "\"Jangkitan yang berulang boleh berkait dengan rawatan berlebihan\" is a slight stretch. The facts say overtreatment can lead to recurring infections, but this is presented as a reason for concern.",
+        "\"Sesetengah sumber menegaskan\" is vague. The facts attribute the claim to Practical Fishkeeping only.",
+        "\"Columnaris dirawat dengan antibakteria seperti acriflavine\" omits Terramycin. This is not an error.",
+        "\"Kulat ini tidak boleh dihapuskan sepenuhnya\" is supported.",
+        "\"Dos berbeza mengikut sumber\" and the table's \"Satu sumber\" labels are generalisations, but they are broadly consistent with the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T08:28:55Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Garam bukan beriodin\" (non-iodised salt) is not in the facts.",
+        "\"Saprolegnia boleh tumbuh pada 0–35 °C (32–95 °F) tetapi paling suka 15–30 °C\": the Celsius conversions are not in the facts, which give only °F. The facts' 32–95°F is about 0–35°C and 59–86°F is about 15–30°C, so the numbers are right but the Celsius values are added.",
+        "\"Walaupun begitu, kebanyakan penghobi tetap memanggilnya kulat\": the claim about hobbyists is not in the facts.",
+        "\"Cari punca asal seperti ... suhu terlalu rendah\" and \"Buang bahan organik yang mereput dan telur yang mati\" are placed in the immediate-action list. The facts support them as causes and prevention, but not as first-aid steps.",
+        "\"Perlu tutup penapis karbon semasa rawatan? Ya.\": the facts say only that carbon removes medication. They do not say to switch it off, although this is a reasonable inference.",
+        "\"Lebih membimbangkan lagi jika jangkitan berulang, kerana ia tanda punca asal belum diatasi atau rawatan diberi berlebihan\": this interpretation of recurrence is partly invented. The facts link recurrence only to overtreatment.",
+        "\"Pastikan dahulu ia bukan columnaris\" and \"atau ada tanda parasit luaran\" as a reason to worry are framed as advice not found in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": [
+    {
+      "at": "2026-11-07T08:31:37Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Table row 'Dalam makanan: 35–125 mg/kg' omits the fact that the dose is 35–125 mg/kg in food; this matches, but 'Sumber 3' attribution is fine. No issue.",
+        "'Rendaman dalam tangki' row: facts only say 'bath' (24 hours); 'dalam tangki' is a slight embellishment.",
+        "'membiak dengan cepat dalam sistem tertutup seperti akuarium': 'seperti akuarium' is an added example not in the facts.",
+        "'Sesetengah produk ubat cacing komersial dilaporkan boleh membahayakan siput': the facts say specifically 'Dactycid can harm snails'. Generalising to commercial products is a slight distortion.",
+        "'Kenal pasti kumpulannya kalau boleh': the facts say to work out which family is present, without the 'if possible' hedge. Minor.",
+        "'Satu sumber mengulang dos 2.5 mg/L pada hari ke-7 dan ke-14' and 'Penyelidik mencadangkan': minor rewording, supported.",
+        "'Ambil perhatian serius jika ikan ... mula mati' and the 'bila perlu risau' section are guide-framed advice assembled from the facts rather than stated in them. This is a small unsupported generality.",
+        "'Kurangkan makanan' in the immediate steps is not stated in the facts. The facts only say overfeeding raises ammonia."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T08:31:37Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Table: \"Dalam makanan: 35–125 mg/kg selama sehingga 3 hari\" is fine, but the intro claims \"menyebabkan ikan ... insang membengkak\" as a general sign; swelling is only in severe cases (minor generalisation).",
+        "\"Kes yang berat boleh merebak dengan cepat dalam tangki, terutamanya pada suhu 22–25°C\": the facts only say development is fast at that temperature; the claim about severe cases spreading is a stretch.",
+        "\"Dapatkan bantuan doktor haiwan akuatik untuk pemeriksaan mikroskop dan preskripsi ubat\": the vet is mentioned only for prescribing praziquantel in the US; this broader advice is not supported.",
+        "\"Celup garam (garam tanpa iodin)\": the facts do not mention iodine-free salt.",
+        "\"hanya dalam tangki hospital yang beroksigen tinggi\": the facts say well-aerated, not high-oxygen (minor).",
+        "\"Praziquantel ... ubat pilihan utama ... Kalau cacing insang disahkan\" in the intro: no problem, but \"Ulang dos mengikut jadual\" is generic.",
+        "FAQ: \"keberkesanan celup garam berbeza mengikut spesies cacing\": roughly supported by the Gyrodactylus data, but it is generalised.",
+        "\"Satu produk ubat cacing insang komersial ... baca label dengan teliti\": the facts only name Dactycid as harming snails; the advice to read the label is added.",
+        "\"Bahan pengikat membantu\" is supported. \"Kajian ... masing-masing mengurangkan jangkitan lebih daripada 90 peratus\" is supported.",
+        "\"Sampel ... pernafasan makin laju\" is supported. The vet advice and the label-reading advice are the main additions."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "th/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [
+    {
+      "at": "2026-11-07T08:03:59Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"ควรเผื่อเวลาปรับจำนวนรูให้ลงตัว\" (allow time to adjust the number of holes) is advice not in the facts.",
+        "\"ส่วนสิ่งสำคัญคือทำให้น้ำกระจายทั่ววัสดุกรองอย่างสม่ำเสมอ\" is a mild generalisation. The facts only say an even trickle is hard.",
+        "\"ได้รับอากาศดีมาก\" (very well aerated) slightly overstates the facts, which say \"well aerated\".",
+        "\"เมื่อไฟกลับมาแล้วให้ตรวจดูว่าปั๊มทำงานต่อจริง\" narrows the facts. They say to check that the filter restarted, not specifically the pump."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T08:03:59Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"เพราะปั๊มไม่ต้องดันน้ำขึ้นสูงมาก\" – the facts only say one keeper argues it loses less flow to pump head; this reason is invented, and it is also odd because a top-mounted unit pumps water up.",
+        "\"ถ้าไฟดับ ให้เปิดปั๊มลมแบบใช้แบตเตอรี่ทันที\" – the facts only say a battery air pump keeps fish supplied with oxygen; \"immediately\" is an added instruction.",
+        "\"จึงควรค่อย ๆ ปรับไป\" – the advice to adjust gradually is not in the facts.",
+        "\"ตามวงจรไนโตรเจน\" – the nitrogen cycle is not named in the facts.",
+        "\"ซัมพ์ที่ใช้ K1 แบบเคลื่อนที่\" – the facts say a fluidised-bed K1 sump; this is acceptable but slightly reworded.",
+        "\"ให้ใส่ไว้ในลิ้นชักที่อยู่ต่อจากใยกรอง\" and \"ชั้นแรกเป็นกรองกล ตามแบบที่ใช้กันทั่วไป\" – these mix two different keepers' designs into one prescriptive installation procedure.",
+        "\"ส่วนการปล่อยน้ำออกทางสเปรย์บาร์ใกล้ผิวน้ำน่าจะช่วยให้เงียบลง\" – the facts only say one keeper expected the spray bar to be quiet; the guide presents this as a general likelihood.",
+        "\"ระหว่างนี้ให้ย้ายวัสดุกรองชีวภาพ... ตรงเหนือหัวทรายของปั๊มลมแบตเตอรี่\" – this is roughly supported, but the facts say the media goes above the airstone, not specifically the battery pump's airstone."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "th/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly": [
+    {
+      "at": "2026-11-07T08:05:59Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"ถ้าสาหร่ายหนาแน่นมากและการให้อากาศอ่อน\" is supported, but \"ปลาลอยอยู่ใต้ผิวน้ำ... แสดงว่าออกซิเจนอาจต่ำ\" is slightly extended from the facts (minor).",
+        "\"ผู้เพาะพันธุ์บางคนจึงตั้งใจทำน้ำเขียว\" adds the causal \"therefore\", which the facts do not state (minor).",
+        "\"แหล่งข้อมูลหนึ่งยังระบุการใส่ปุ๋ยน้ำว่าเป็นสาเหตุหนึ่งด้วย\" is supported only loosely by the facts (minor).",
+        "\"ไม้น้ำจะทรุดโทรม\" slightly overstates \"hard on plants\" (minor)."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T08:05:59Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"หรือใช้ปุ๋ยน้ำอยู่แล้ว\" – the facts list liquid fertilizer as a cause, but the guide's wording is a loose addition and is weakly supported.",
+        "\"จุดนี้ใช้แยกน้ำเขียวออกจากตะไคร่ที่เกาะตามพื้นผิว\" – the facts say algae float rather than grow on glass. They don't say this distinguishes green water from other algae, so this is an added inference.",
+        "\"ให้เพิ่มการให้อากาศทันที\" – the facts have no instruction to increase aeration immediately. They only say to keep aeration running.",
+        "\"น้ำที่เคยเขียวเข้มเปลี่ยนเป็นดำ เทา น้ำตาล หรือใสขึ้นมาเอง แสดงว่าสาหร่ายอาจตายลงจำนวนมาก ... แอมโมเนียอาจพุ่งขึ้น\" – this reading is an inference. The facts say the colour change follows a die-off, and say nothing about 'on its own' or about an ammonia warning in this context.",
+        "\"สาเหตุที่น่าจะพบบ่อยที่สุดคือแร่ธาตุหรือธาตุอาหารในน้ำหมด\" – the facts give this as the likely reason a large bloom dies back. The guide places it in the immediate-action section with loose framing, and 'prepare for it' is not a stated recommendation.",
+        "\"แล้วการเปลี่ยนน้ำตามปกติจะทำให้น้ำใสขึ้น\" is supported. \"ตู้โชว์\" (display tank) in the FAQ is not in the facts, which only say green water hides the view."
       ],
       "attempt": "first",
       "kept": false

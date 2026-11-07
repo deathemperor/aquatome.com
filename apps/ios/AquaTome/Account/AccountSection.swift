@@ -1,26 +1,40 @@
 import AccountSync
 import SwiftUI
 
-/// "Đồng bộ giữa các thiết bị" at the end of the tank list, as on the site's page: signing in, the sync, adding a
-/// passkey, signing out and deleting the account. Shown only when the server offers accounts.
+/// The account in the Tài khoản sheet, as on the site's page: signing in, the sync, adding a passkey, signing out and
+/// deleting the account. When the server offers no accounts or can't be reached, or the tanks can't be sent, a line says
+/// so: the sheet is never blank.
 struct AccountSection: View {
   @Environment(AccountModel.self) private var account
   @State private var confirmDelete = false
 
   var body: some View {
     switch account.state {
-    case .unknown, .off:
-      EmptyView()
+    case .unknown:
+      // No answer yet: a moment's wait, or no network (a session kept on the phone shows as signed in instead).
+      Section {
+        if account.unreached {
+          Text("Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.").accessibilityIdentifier("account-unreached")
+        } else {
+          ProgressView().frame(maxWidth: .infinity)
+        }
+      }
+    case .off:
+      Section {
+        Text("Lúc này chưa đăng nhập được tài khoản aquatome.com. Các bể vẫn lưu trên máy này.").accessibilityIdentifier("account-off")
+      }
     case .signedOut where !account.canSync:
-      // A store on the phone this app can't keep whole (the list says why): nothing to send.
-      EmptyView()
+      // A store on the phone this app can't keep whole (the tanks list says why): nothing to send.
+      Section {
+        Text("Các bể trên máy này chưa đồng bộ được: xem lý do trong Bể của tôi.").accessibilityIdentifier("account-cant-sync")
+      }
     case .signedOut:
       Section {
-        Text("Muốn xem các bể này trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.")
+        Text("Muốn xem các bể của bạn trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.")
         SignInButton()
         AccountMessage()
       } header: {
-        Text("Đồng bộ giữa các thiết bị").accessibilityIdentifier("account-header")
+        Text("Tài khoản aquatome.com").accessibilityIdentifier("account-header")
       } footer: {
         Fine()
       }
@@ -31,10 +45,21 @@ struct AccountSection: View {
           .disabled(account.syncing || !account.canSync)
           .accessibilityIdentifier("sync-now")
           .accessibilityValue(ownerForTests)
+        if !account.canSync {
+          Text("Các bể trên máy này chưa đồng bộ được: xem lý do trong Bể của tôi.").accessibilityIdentifier("account-cant-sync")
+        }
         if account.offersPasskey {
-          Button("Thêm passkey") { Task { await account.addPasskey() } }
-            .disabled(account.working || account.signingInAgain)
-            .accessibilityIdentifier("passkey-add")
+          // The account's passkey may be another device's (one made on aquatome.com in Chrome on Windows isn't on this
+          // phone): one for this phone is still offered, and the server refuses a second for the same phone.
+          if account.hasPasskey {
+            Text("Tài khoản đã có passkey: đăng nhập bằng Face ID, vân tay hoặc mã PIN của máy.")
+              .accessibilityIdentifier("passkey-had")
+          }
+          Button { Task { await account.addPasskey() } } label: {
+            if account.hasPasskey { Text("Thêm passkey cho máy này") } else { Text("Thêm passkey") }
+          }
+          .disabled(account.working || account.signingInAgain)
+          .accessibilityIdentifier("passkey-add")
         }
         if account.signingInAgain {
           Text("Vì an toàn, đăng nhập lại trước khi thêm: chọn một cách tài khoản này đang dùng (\(account.ways)).")
@@ -56,7 +81,7 @@ struct AccountSection: View {
           }
         AccountMessage()
       } header: {
-        Text("Đồng bộ giữa các thiết bị")
+        Text("Tài khoản aquatome.com")
       } footer: {
         Text("Xóa tài khoản là xóa ngay tài khoản, các cách đăng nhập và mọi bể lưu trong tài khoản. Bể trên máy này vẫn còn.")
       }
@@ -88,29 +113,26 @@ struct AccountSection: View {
   }
 }
 
-/// For the empty list: tanks saved on aquatome.com or another phone come back by signing in.
-struct AccountSignIn: View {
+/// For the empty tanks list, signed out: tanks saved on aquatome.com or another phone come back by signing in, in the
+/// Tài khoản sheet.
+struct SignInHint: View {
   @Environment(AccountModel.self) private var account
+  @Environment(\.openScreen) private var openScreen
 
   var body: some View {
-    if account.state == .signedOut && account.canSync {
-      VStack(spacing: 12) {
-        Text("Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về.")
-          .font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
-        SignInButton().frame(maxWidth: 300)
-        AccountMessage()
-        Fine(centered: true)
-      }
-      .padding(.top, 8)
-    } else if let m = account.message {
-      Text(m.text).font(.subheadline).foregroundStyle(m.bad ? .red : .secondary).accessibilityIdentifier("account-message")
+    if account.state == .signedOut {
+      Button("Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về.") { openScreen(.account) }
+        .font(.subheadline)
+        .multilineTextAlignment(.center)
+        .padding(.top, 8)
+        .accessibilityIdentifier("sign-in-hint")
     }
   }
 }
 
 /// Sign in with Apple, with Google, with a passkey added on aquatome.com, and with a code sent by email when the server
 /// offers them (the address used on aquatome.com, or with Google there, opens that account). Also where a reader posts to
-/// a page.
+/// a page. In a list, each row's separator starts at the row's leading edge, not where a centred title starts.
 struct SignInButton: View {
   @Environment(AccountModel.self) private var account
   @State private var email = false
@@ -119,17 +141,20 @@ struct SignInButton: View {
       .frame(height: 44)
       .disabled(account.working || !account.canSync)
       .opacity(account.working ? 0.5 : 1)
-    if account.offersGoogle { GoogleButton() }
+      .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
+    if account.offersGoogle { GoogleButton().alignmentGuide(.listRowSeparatorLeading) { _ in 0 } }
     if account.offersPasskey {
       Button("Đăng nhập bằng passkey") { Task { await account.signInWithPasskey() } }
         .frame(maxWidth: .infinity, minHeight: 44)
         .disabled(account.working || !account.canSync)
+        .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
         .accessibilityIdentifier("passkey-sign-in")
     }
     if account.offersEmail {
       Button("Đăng nhập bằng email") { email = true }
         .frame(maxWidth: .infinity, minHeight: 44)
         .disabled(account.working || !account.canSync)
+        .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
         .accessibilityIdentifier("email-sign-in")
         .sheet(isPresented: $email) { EmailSignIn() }
     }
@@ -146,20 +171,17 @@ struct AccountMessage: View {
 }
 
 private struct Fine: View {
-  /// Under the empty list's centred text; a list footer is set flush left.
-  var centered = false
   var body: some View {
-    VStack(alignment: centered ? .center : .leading, spacing: 4) {
+    VStack(alignment: .leading, spacing: 4) {
       Text("Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều.")
         .fixedSize(horizontal: false, vertical: true)
         // A list footer is grey already.
-        .foregroundStyle(centered ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))
+        .foregroundStyle(.primary)
       HStack(spacing: 16) {
         Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan"))!)
         Link("Liên hệ", destination: URL(string: String(localized: "https://aquatome.com/lien-he/"))!)
       }
     }
-    .multilineTextAlignment(centered ? .center : .leading)
     .font(.footnote)
   }
 }

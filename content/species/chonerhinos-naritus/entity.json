@@ -183,5 +183,75 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM",
+        "TH",
+        "VN",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The golden puffer, Chonerhinos naritus, is a pufferfish from estuarine rivers in China, Myanmar, Thailand, Vietnam and Indonesia.",
+          "countries": [
+            "CN",
+            "MM",
+            "TH",
+            "VN",
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4284322,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          3
+        ],
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          11.25,
+          2,
+          0
+        ],
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

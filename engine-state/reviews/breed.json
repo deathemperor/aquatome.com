@@ -138,5 +138,72 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/breeds/crystal-red-shrimp": [
+    {
+      "at": "2026-11-07T08:33:51Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Udang Taiwan bee seperti Red Ruby ... bukan sebahagian daripada tangga gred crystal red\" – the facts don't say Red Ruby is outside the grade ladder (one Vietnamese shop lists 'Red Ruby' as a top grade).",
+        "\"pembiakan baka terpilih menyebabkan strain ini mempunyai kepelbagaian genetik yang rendah\" – the facts say line breeding, not selective breeding in general. This is a minor change of wording.",
+        "\"Ia memerlukan air lembut dan sejuk\" – 'sejuk' is a generalisation. The facts give 'cool' only for oxygen-rich water, and the temperature ranges go up to 26 °C.",
+        "\"Betina yang sedia membiak menunjukkan ovari berbentuk pelana berwarna putih kekuningan\" – this merges two sources. One describes a saddle-shaped ovary and the other a whitish-yellow saddle on the back.",
+        "\"Satu sumber menyarankan ... Ammonia dan nitrat sepatutnya sifar\" – the sentence follows the 'same source' temperature advice, but the facts credit the ammonia and nitrate advice to a different source. This is a small misattribution.",
+        "\"Satu sumber berpendapat warna putih tambahan ... berkemungkinan besar datang daripada udang golden bee\" – this is supported. The wording is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T08:33:51Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"kebanyakan sumber merujuk kepada Jepun\" – the facts don't say that most sources point to Japan; it is only a mild generalisation, but the facts list one source for Taiwan and others for Japan.",
+        "\"Sebelum membeli, sediakan tangki yang sudah matang\" and \"dalam tangki yang sudah matang\" – the facts never mention a mature or cycled tank.",
+        "\"Udang ini dianggap agak cerewet. Ia perlukan air lembut yang sejuk dan stabil\" – 'stable' water is not stated as a requirement. The facts only mention sensitivity to temperature and pH changes.",
+        "\"Mulakan dengan sekumpulan udang gred rendah yang sihat, sekitar 10–20 ekor\" in the intro, plus the FAQ advice to start with grade A or low grade – a loose blend of the sources.",
+        "\"Kebanyakannya sekitar 20–25 °C\" – the facts show 20–25 °C from only one of four sources, so 'most' is unsupported.",
+        "\"Gen hitam adalah dominan\" and \"Udang dewasa tidak mengganggu anak-anaknya\" are supported. But \"saiz dewasanya sekitar 2.5–3.5 cm\" merges the ranges and is fine.",
+        "\"Ingat juga bahawa label gred seperti SSSS atau 'Red Ruby' ditambah oleh sesetengah penjual sahaja, bukan sebahagian daripada tangga gred biasa\" – the facts attribute this to a search snippet only. The facts also say Red Ruby is a separate Taiwan bee mutation, which the page does not reconcile with using it as a top-grade label.",
+        "\"Anak hibrid selalunya masih mengekalkan sedikit warna putih\" – the facts say 'the young often keep some white'. The page widens the sense of 'hybrid'.",
+        "\"Beberapa sumber tidak mengesyorkannya untuk pemula\" – the facts support one article advising beginners to avoid it, and one source calling it fussy."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/dumbo-ear-guppy": [
+    {
+      "at": "2026-11-07T08:35:42Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Guppy Dumbo ialah barisan guppy ... hasil pembiakan terpilih\" is supported, but the intro \"sesuai dengan air yang tenang\" is a mild generalisation from the facts.",
+        "\"Satu sumber mencadangkan aliran penapis yang perlahan hingga sederhana\" is faithful; no other significant unsupported claims found.",
+        "The page lists \"Saiz dewasa\" as 3–5 cm; 5 cm; 6.4 cm, which matches the facts.",
+        "The intro's \"sirip dadanya yang besar mudah koyak\" is supported by the source 2 fact."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T08:35:42Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Sumber-sumber menilainya mudah hingga sederhana untuk dijaga\" – the facts only give difficulty scores 2 and 4 on unspecified scales; \"mudah hingga sederhana\" is an invented interpretation.",
+        "\"Hujung atas julat suhu, iaitu 28 °C, sama dalam semua sumber\" – derived claim, but the facts do not state it. It is arithmetically true, so only a minor issue.",
+        "\"Bagi pH, kebanyakan sumber bertindih di sekitar 7–7.5\" – unsupported synthesis. Source 2 gives 6.5–7.5 and source 4 gives 7–8.5; this is an inference, not a fact.",
+        "\"Antara tempat utama ikan ini diternak termasuklah Thailand dan Indonesia\" – the facts name Thailand, Indonesia and Vietnam, and the page leaves out Vietnam. It also does not attribute the claim to a Vietnamese article.",
+        "\"Ikan yang 'telinganya' besar dan seimbang serta warnanya stabil lebih dihargai\" – the facts say this only for Vietnam, and the page presents it as general.",
+        "\"Seperti guppy lain, ia ikan yang melahirkan anak ... dan mudah dibiakkan\" – this is fine, but \"Menurut satu sumber, ia mudah dijaga\" and \"Ikan ini aman\" are stated as general fact.",
+        "\"Penilaian kesukaran ... masing-masing pada skala sendiri\" – the facts do not say the scales differ. This is an invented claim.",
+        "\"Kalau menggunakan penapis biasa, pastikan alirannya perlahan hingga sederhana\" – the facts say gentle to moderate flow, so this is fine. The FAQ line \"aliran penapis perlahan\" drops the \"moderate\" part."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

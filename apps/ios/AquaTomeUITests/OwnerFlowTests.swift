@@ -53,13 +53,17 @@ final class OwnerFlowTests: XCTestCase {
       .containing(NSPredicate(format: "label == 'Lượt gửi ảnh mỗi ngày, theo kết quả'")).firstMatch
     let columns = chart.descendants(matching: .any)["owner-chart-columns"], day = chart.staticTexts["owner-chart-day"]
     XCTAssertTrue(columns.waitForExistence(timeout: 10), "no chart")
-    repeatUntil(columns.isHittable, times: 4) { app.swipeUp(velocity: .slow) }
-    XCTAssertTrue(columns.isHittable, "the chart isn't on screen")
+    // All of it on screen, not just its top: in the Tài khoản sheet the page starts lower, and a finger at the chart's
+    // middle would be off the screen's foot.
+    let screen = app.windows.firstMatch.frame
+    let shown = { columns.isHittable && columns.frame.maxY < screen.maxY - 60 }
+    repeatUntil(shown(), times: 4) { app.swipeUp(velocity: .slow) }
+    XCTAssertTrue(shown(), "the chart isn't on screen")
     // A finger that starts on the chart and goes up scrolls the page, as anywhere else.
     let top = columns.frame.minY
     columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.05, thenDragTo: columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: -1.5)))
     XCTAssertLessThan(columns.frame.minY, top - 100, "the page didn't scroll from the chart")
-    repeatUntil(columns.isHittable, times: 4) { app.swipeDown(velocity: .slow) }
+    repeatUntil(shown(), times: 4) { app.swipeDown(velocity: .slow) }
     // Untouched: the last of its 30 days, today, not over yet.
     XCTAssertEqual(day.label, "04/11 (chưa hết ngày) · Có kết quả 11 · Không có kết quả 0 · Chặn trước khi gọi 1")
     let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
@@ -287,13 +291,14 @@ final class OwnerFlowTests: XCTestCase {
 
   // MARK: Helpers
 
-  /// A new phone, the stand-in's accounts empty, `owner` its owner's account (`ui-apple`: the stand-in Apple sign-in's).
+  /// A new phone, the stand-in's accounts empty, `owner` its owner's account (`ui-apple`: the stand-in Apple sign-in's), in
+  /// the Tài khoản sheet.
   private func launch(owner: String = "ui-apple", _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", "on", "-reset-defaults",
                            "-reset-fake-server", "-fake-owner", owner] + args
     app.launch()
-    app.openTab("Bể của tôi")
+    app.openAccount()
     return app
   }
 

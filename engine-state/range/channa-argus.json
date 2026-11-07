@@ -1,0 +1,282 @@
+{
+  "id": "channa-argus",
+  "native": {
+    "input": "867355a174ad85e4",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "words": "United States",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Yellow",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Amur",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "country": "RU",
+        "ok": true
+      },
+      {
+        "name": "Korean peninsula",
+        "source": "seriouslyfish",
+        "quote": "Native to the lower Yellow and Yangtze river systems in eastern China, Amur drainage in southeastern Russia and eastern China, and various rivers of the Korean peninsula, with introduced populations in Japan, the United States, central Asia and parts of eastern Europe.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KP",
+        "KR",
+        "JP",
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa argus",
+    "status": "ACCEPTED",
+    "taxonKey": 4284921,
+    "datasets": [
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        5041
+      ],
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        232
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        92
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        89
+      ],
+      [
+        "8129ab94-f762-11e1-a439-00145eb45e9a",
+        53
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        33
+      ],
+      [
+        "e0ae862b-d456-4cb2-900b-c4928b75a1f8",
+        31
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        23
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        18
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        15
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        11
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        11
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        10
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        10
+      ],
+      [
+        "d673256e-38ea-4aee-bfc5-866e653655a4",
+        10
+      ],
+      [
+        "58a115ae-a7f9-4657-b54d-5611437083c0",
+        8
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "d74d1313-04f6-4e91-8732-b6d5282416dc",
+        7
+      ],
+      [
+        "59f905d4-fd46-4e45-a80d-ea519e91114d",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        5
+      ],
+      [
+        "80f9cd7a-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "edc4e7a9-0970-4113-8ab5-fcaca780ee2e",
+        4
+      ],
+      [
+        "fd799ab3-7c13-4fc6-aa85-08df09364385",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "bfff7519-92f1-4ed2-afa3-5655e91fc2a2",
+        3
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "95f9b1b8-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        2
+      ],
+      [
+        "dbbdb1f4-d5c7-4b72-b31f-ef6fdf33a9b3",
+        2
+      ],
+      [
+        "116e8fa0-9c0f-43e3-9765-d0a2b040d9c5",
+        1
+      ],
+      [
+        "1179f3c2-4501-4d27-b5f7-1e3440de12e7",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "721ec3cb-78b5-42b9-9ad1-57fe90b75e6f",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "969d55f6-ed52-4be9-a6dd-7afeccdfde76",
+        1
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        1
+      ],
+      [
+        "b211f32f-326b-43d3-8012-2fbce0cc6dcc",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "RU"
+    ],
+    "requests": 14,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

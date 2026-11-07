@@ -1,0 +1,106 @@
+{
+  "id": "clarias-leiacanthus",
+  "native": {
+    "input": "b0b770e0b599395e",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sambas, Kalimantan, western Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra and Borneo. Reported from Thailand. Also found in Greater Sunda Island rivers and Singapore waters.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra and Borneo. Reported from Thailand. Also found in Greater Sunda Island rivers and Singapore waters.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra and Borneo. Reported from Thailand. Also found in Greater Sunda Island rivers and Singapore waters.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "planetcatfish",
+        "quote": "Asia: Sumatra and Borneo. Reported from Thailand. Also found in Greater Sunda Island rivers and Singapore waters.",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sambas, Kalimantan, western Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clarias leiacanthus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202689,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        15
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "TH",
+      "SG"
+    ],
+    "requests": 13,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}
