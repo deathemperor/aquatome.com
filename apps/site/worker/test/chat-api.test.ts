@@ -572,6 +572,40 @@ test('read_tanks reads the account\'s synced tanks with their ids, its fish name
   expect(result).toContain('\\"name\\":\\"Cá neon xanh\\",\\"id\\":\\"paracheirodon-innesi\\",\\"count\\":12')
 })
 
+test('read_tanks reads the whole saved tank: plants, substrate, notes, days since saved, each light\'s active schedule, what its plugs power', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const now = new Date()
+  const ago = (days: number) => new Date(now.getTime() - days * 86_400_000).toISOString()
+  const tankId = 'a1b2c3d4-0000-4000-8000-000000000002'
+  const at = now.toISOString()
+  await syncStore(db, me.id, {
+    v: 1,
+    tanks: [{ id: tankId, name: 'Bể rêu', dims: { l: 60, w: 30, h: 36 }, substrate: 'soil', notes: 'Thay 30% nước mỗi tuần.', species: [], plants: [{ id: 'taxiphyllum-barbieri' }], createdAt: ago(10), updatedAt: at }],
+    devices: [
+      {
+        id: 'b1b2c3d4-0000-4000-8000-000000000001', tankId, kind: 'light', brand: 'chihiros', model: 'WRGB II', activeScheduleId: 'c1b2c3d4-0000-4000-8000-000000000002', createdAt: at, updatedAt: at,
+        schedules: [
+          { id: 'c1b2c3d4-0000-4000-8000-000000000001', on: '08:00', off: '20:00', ramp: 30, levels: [100, 100, 100, 100], savedAt: at },
+          { id: 'c1b2c3d4-0000-4000-8000-000000000002', on: '13:00', off: '21:00', ramp: 30, levels: [80, 70, 60, 50], savedAt: at },
+        ],
+      },
+      { id: 'b1b2c3d4-0000-4000-8000-000000000002', tankId, kind: 'plug', brand: 'tuya', remoteId: 'x1', outlets: [{ code: 'switch_1', role: 'co2' }, { code: 'switch_2', role: 'heater' }, { code: 'switch_3', label: 'Quạt' }], createdAt: at, updatedAt: at },
+      // Another tank's light isn't this tank's.
+      { id: 'b1b2c3d4-0000-4000-8000-000000000003', tankId: 'a1b2c3d4-0000-4000-8000-000000000009', kind: 'light', schedules: [], createdAt: at, updatedAt: at },
+    ],
+  }, now)
+  const c = claude([() => msg([{ type: 'tool_use', id: 't1', name: 'read_tanks', input: {} }], 'tool_use'), () => answers({})])
+  await run(ask(bearer(me.token), { question: 'Bể của tôi bị rêu, sao vậy?' }), e, deps(c.fetch))
+  const told = (JSON.parse(String((c.bodies[1]!.messages.at(-1)!.content as { content: string }[])[0]!.content)) as Record<string, unknown>[])[0]!
+  expect(told).toMatchObject({
+    substrate: 'soil', savedDaysAgo: 10, readerNotes: 'Thay 30% nước mỗi tuần.',
+    lights: ['chihiros WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/70/60/50%'],
+    plugsPower: ['co2', 'heater', 'Quạt'],
+  })
+  expect((told.plants as string[]).length).toBe(1)
+})
+
 test('the daily cron sweeps retries\' answers a day old, and nothing else of the chat\'s, every page of them', async () => {
   const r2 = memoryR2(1)
   const now = Date.now()
