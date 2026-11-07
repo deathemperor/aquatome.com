@@ -312,9 +312,10 @@ const VIETNAMESE = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễ�
 
 /** A place's line for the writer and the reviewer: its id, kind, where it is and its Vietnamese name. */
 export async function placeLine(dir: string, id: string): Promise<{ id: string; line: string }> {
-  const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { kind: string; parent?: string }
+  const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { kind: string; parent?: string; country?: string }
   const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8').catch(() => '{}')) as { name?: string }
-  return { id, line: `### ${id} (${e.kind}${e.parent ? `, in ${e.parent}` : ''}): ${vi.name ?? id}` }
+  const where = e.parent ?? e.country
+  return { id, line: `### ${id} (${e.kind}${where ? `, in ${where}` : ''}): ${vi.name ?? id}` }
 }
 
 /** A batch of place names in the language, as an atlas there writes them (0–1; notes: the wrong ones, quoted). */
