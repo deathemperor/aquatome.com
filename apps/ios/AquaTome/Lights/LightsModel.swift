@@ -645,9 +645,10 @@ final class LightsModel {
     let failure = await run(session) {
       self.pending = [:]
       while self.flushing { try await Task.sleep(for: .milliseconds(20)) }
-      let snap = try await session.writeToday(p, now: time)
-      // On the light now, whatever becomes of this connection: kept for a later one to end.
+      // Kept before the first frame: a write cut off part-way may still leave today's period on the light, and a later
+      // connection (or "Theo lịch", which the mark enables) puts the schedule for every day back either way.
       self.keepToday(p.mark, name)
+      let snap = try await session.writeToday(p, now: time)
       guard self.session === session else { return }
       self.show(snap)
       self.synced = true // the clock went first, acknowledged
