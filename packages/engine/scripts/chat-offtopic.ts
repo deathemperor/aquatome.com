@@ -81,9 +81,9 @@ const judgePrompt = (q: Question, text: string) => [
   `The chat replied:\n${text}`,
 ].join('\n\n')
 
-const hash = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 12)
+const hash = (...xs: string[]) => createHash('sha256').update(JSON.stringify(xs)).digest('hex').slice(0, 12)
 let siteDir = ''
-/** The live site's handbook, each file kept once read, in a folder named for the build (its index's hash). */
+/** The live site's handbook, each file kept once read, in a folder named for the build (its index and its topics, which say which guides are held). */
 async function site<T>(path: string): Promise<T | null> {
   const file = join(siteDir, path.replace(/^\//, '').replace(/\//g, '_'))
   try { return JSON.parse(await readFile(file, 'utf8')) as T } catch { /* not yet */ }
@@ -132,7 +132,8 @@ function graded(q: Question, run: ChatRun, judged: Judged | undefined): { pass: 
 async function main() {
   const questions = (JSON.parse(await readFile(args.questions!, 'utf8')) as Question[]).filter(q => !args.only || args.only.split(',').includes(q.id))
   const indexText = await (await fetch(new URL('/app/vi.json', args.site))).text()
-  siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText)}`)
+  const topicsText = await (await fetch(new URL('/app/chat/vi.json', args.site))).text()
+  siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText, topicsText)}`)
   await mkdir(siteDir, { recursive: true })
   const handbooks = new Map<Lang, Handbook>()
   for (const lang of new Set(questions.map(q => q.lang))) {

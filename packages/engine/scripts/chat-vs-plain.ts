@@ -153,7 +153,9 @@ async function main() {
     .filter(q => (TOPICS as readonly string[]).includes(q.topic))
     .filter(q => args.split === 'all' || (args.split === 'holdout') === held.has(q.id))
   const indexText = await (await fetch(new URL('/app/vi.json', args.site))).text()
-  siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText)}`)
+  // The guides' topics and which are held change apart from the index, so the build's folder is named for both.
+  const topicsText = await (await fetch(new URL('/app/chat/vi.json', args.site))).text()
+  siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText, topicsText)}`)
   cacheDir = join(args.cache!, 'runs')
   await mkdir(siteDir, { recursive: true })
   await mkdir(cacheDir, { recursive: true })
