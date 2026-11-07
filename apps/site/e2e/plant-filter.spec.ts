@@ -35,7 +35,7 @@ test("plant list: the tank's light and no CO₂ keep the plants that grow there;
   await expect(visible(page)).toHaveCount(Math.min(n, PAGE))
   // Every plant shown needs low light and grows without CO₂ (what its own card says).
   for (const meta of await visible(page).locator('.meta').allTextContents()) {
-    expect(meta).toMatch(/^Ánh sáng yếu, CO₂ (không cần|tùy chọn)$/)
+    expect(meta).toMatch(/^Đèn yếu, (không cần CO2|có CO2 thì tốt hơn)$/)
   }
   // Every plant has a light and a CO₂ figure: nothing to be unsure about.
   await expect(page.locator('#plant-unsure')).toBeHidden()

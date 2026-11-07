@@ -17,8 +17,8 @@ const named = (account: string | undefined, id: string) => ID.test(id) && (accou
 export type KeptGuess = { scientificName: string; commonName: string; variety: string | null; confidence: number }
 /** A kept photo as its reader sees it: no image, no key. */
 export type Kept = { id: string; created: string; verdict: string; guesses: KeptGuess[] }
-/** As the owner's dashboard sees it: whose (an account id, or none), and the model and language too. */
-export type KeptRow = Kept & { account?: string; model: string; lang: string }
+/** As the owner's dashboard sees it: whose (an account id, or none), the model and language, and its run's transcript (fishid/transcript.ts). */
+export type KeptRow = Kept & { account?: string; model: string; lang: string; run?: { day: string; id: string } }
 
 /**
  * The JPEG without its APP1 (Exif, XMP), APP13 (IPTC) and comment segments; null when it isn't a JPEG this can walk.
@@ -48,7 +48,7 @@ const key = (account: string | undefined, id: string) => `${PREFIX}${account ?? 
 const cut = (s: string, n: number) => s.slice(0, n)
 
 /** Keeps a JPEG with its result; its id, or null when it isn't a JPEG (nothing kept). */
-export async function keepPhoto(bucket: R2Bucket, account: string | undefined, jpeg: Uint8Array, r: { verdict: string; guesses: KeptGuess[]; model: string; lang: string }, now: Date): Promise<string | null> {
+export async function keepPhoto(bucket: R2Bucket, account: string | undefined, jpeg: Uint8Array, r: { verdict: string; guesses: KeptGuess[]; model: string; lang: string; run?: string }, now: Date): Promise<string | null> {
   const bytes = stripJpeg(jpeg)
   if (!bytes) return null
   const id = crypto.randomUUID()
@@ -56,7 +56,7 @@ export async function keepPhoto(bucket: R2Bucket, account: string | undefined, j
   const guesses = r.guesses.slice(0, 3).map(g => ({ scientificName: cut(g.scientificName, 80), commonName: cut(g.commonName, 80), variety: g.variety ? cut(g.variety, 60) : null, confidence: Math.round(g.confidence * 100) / 100 }))
   await bucket.put(key(account, id), bytes, {
     httpMetadata: { contentType: 'image/jpeg' },
-    customMetadata: { created: now.toISOString(), verdict: r.verdict, guesses: JSON.stringify(guesses), model: cut(r.model, 60), lang: r.lang },
+    customMetadata: { created: now.toISOString(), verdict: r.verdict, guesses: JSON.stringify(guesses), model: cut(r.model, 60), lang: r.lang, ...(r.run ? { run: r.run } : {}) },
   })
   return id
 }
@@ -77,7 +77,10 @@ const row = (o: Listed): KeptRow => {
   const [, owner = '', id = ''] = o.key.slice(PREFIX.length).match(/^([^/]+)\/(.+)$/) ?? []
   let guesses: KeptGuess[] = []
   try { guesses = JSON.parse(m.guesses ?? '[]') as KeptGuess[] } catch { /* an old or broken record: no guesses */ }
-  return { id, created: m.created ?? o.uploaded.toISOString(), verdict: m.verdict ?? '', guesses, model: m.model ?? '', lang: m.lang ?? '', ...(owner !== ANON ? { account: owner } : {}) }
+  const created = m.created ?? o.uploaded.toISOString()
+  // Its run's transcript is kept under the day the run began, which is the photo's (kept in the same run).
+  const run = m.run && ID.test(m.run) ? { day: created.slice(0, 10), id: m.run } : undefined
+  return { id, created, verdict: m.verdict ?? '', guesses, model: m.model ?? '', lang: m.lang ?? '', ...(owner !== ANON ? { account: owner } : {}), ...(run ? { run } : {}) }
 }
 const newestFirst = (a: Kept, b: Kept) => b.created.localeCompare(a.created)
 

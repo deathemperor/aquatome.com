@@ -147,7 +147,7 @@ function trustBlock(t: T, lang: Lang, card: SpeciesEntity['dataCard'], sources: 
     ...(rows.some(r => r.conflict) ? { legend: t('Các nguồn ghi khác nhau') } : {}),
     rows: rows.map(r => ({
       field: r.field, label: t(FIELD_LABELS[r.field]),
-      ...(r.conflict ? { conflict: true as const, note: r.agreed ? t('Mức mọi nguồn cùng khuyên') : t('Mỗi nguồn ghi một mức') } : {}),
+      ...(r.conflict ? { conflict: true as const, note: t('Mỗi nguồn ghi một mức') } : {}),
       ...(r.marked ? { marked: true as const } : {}),
       items: (r.conflict ? r.vals : r.vals.slice(0, 1)).map(v => {
         const names = r.conflict ? [v.source] : r.sources
@@ -160,7 +160,7 @@ function trustBlock(t: T, lang: Lang, card: SpeciesEntity['dataCard'], sources: 
 
 /** "Nuôi ở Việt Nam" (VnClimate.astro): what the fish's temperature range means for a tank in Vietnam. */
 function climateBlock(t: T, card: SpeciesEntity['dataCard']): Block[] {
-  const temp = resolveDataCard(card.tempC ?? [])
+  const temp = resolveDataCard(card.tempC ?? [], 'tempC')
   if (!temp) return []
   const deg = (n: number) => `${`${n}`.replace('.', ',')}°C`
   const fill = (text: string, temps: number[]) => t(text).split('{t}').map((part, i) => `${part}${i < temps.length ? deg(temps[i]!) : ''}`).join('')

@@ -365,7 +365,7 @@ test('a fish\'s copy: its blocks in page order, every one credited and sourced',
     lead: { alt: 'Cá neon vua, Paracheirodon axelrodi', credit: { text: 'Ảnh: CHUCAO', licence: 'CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg' } },
   })
   // The card's figures are the index's: only who gives them here, and each source's own where they disagree.
-  expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mức mọi nguồn cùng khuyên', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
+  expect(one(d, 'trust')!.rows[0]).toEqual({ field: 'tempC', label: 'Nhiệt độ', conflict: true, note: 'Mỗi nguồn ghi một mức', items: ['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'] })
   expect(one(d, 'gallery')).toMatchObject({ title: 'Ảnh Cá neon vua', note: '45 ảnh từ Wikimedia Commons, giấy phép mở.', href: '/vi/ca/ca-neon-vua/anh/' })
   expect(one(d, 'gallery')!.photos[0]).toMatchObject({ credit: { text: 'Ảnh: Tác giả 1', licence: 'CC BY 2.0', url: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' } })
   expect(one(d, 'summary')).toEqual({ t: 'summary', title: 'Tóm tắt nhanh', text: 'Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.', items: ['Hợp với bể cộng đồng từ 60 cm, nước mềm và ấm.'], mistakes: { title: 'Lỗi hay gặp', items: ['Thả vài con: nên nuôi đàn từ 8 con trở lên.'] }, by: 'AquaTome tóm tắt từ các nguồn bên dưới.' })

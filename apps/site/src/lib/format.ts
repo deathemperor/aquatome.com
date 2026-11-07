@@ -32,7 +32,7 @@ export const goLink = (network: (typeof SHOPS)[number], keyword: string, categor
   `/go/${network}/?${new URLSearchParams({ k: keyword, c: category, ...(entity ? { e: entity } : {}) })}`
 
 export const GROUP_LABELS: Record<string, string> = {
-  tetras: 'Cá tetra', cichlids: 'Cichlid', danios: 'Danio', rasboras: 'Rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
+  tetras: 'Cá tetra', cichlids: 'Cá cichlid', danios: 'Cá danio', rasboras: 'Cá rasbora', shrimp: 'Tép', loaches: 'Cá chạch', catfish: 'Cá da trơn', labyrinth: 'Cá mê cung',
   barbs: 'Cá barb', killifish: 'Cá killi', gobies: 'Cá bống', livebearers: 'Cá đẻ con', rainbowfish: 'Cá cầu vồng', snails: 'Ốc', other: 'Loài khác',
 }
 export const groupLabel = (g: string) => GROUP_LABELS[g] ?? g
@@ -45,5 +45,8 @@ export const PLANT_LABELS = {
   placement: { foreground: 'Tiền cảnh', midground: 'Trung cảnh', background: 'Hậu cảnh', epiphyte: 'Bám đá, lũa', floating: 'Thả nổi' } as Record<string, string>,
 }
 export const GUIDE_KIND_LABELS: Record<string, string> = {
-  setup: 'Setup bể', care: 'Chăm sóc', breeding: 'Sinh sản', disease: 'Bệnh', aquascaping: 'Bố cục', plantCare: 'Chăm cây', discovery: 'Khám phá',
+  setup: 'Set bể', care: 'Chăm sóc', breeding: 'Sinh sản', disease: 'Bệnh', aquascaping: 'Bố cục', plantCare: 'Chăm cây', discovery: 'Khám phá',
 }
+
+/** A species' water when it isn't fresh (the engine's `water`), as its card and page say it. */
+export const WATER_WORDS = { brackish: 'Nước lợ', marine: 'Nước mặn' } as const

@@ -33,6 +33,7 @@ import { asksLang, chooserPage, langCookie, langPoint, pickedLang, pickResponse 
 import { homeOf, LANGS, langOfCountry, langOfTag, prefixedLang, type Lang } from '@aq/schema/langs'
 import { sweepRetries } from './chat/store'
 import { sweepKept } from './fishid/kept'
+import { sweepRuns } from './fishid/transcript'
 
 export interface Env {
   ASSETS: Fetcher
@@ -286,7 +287,7 @@ export default {
 
   /**
    * Daily: the affiliate checker, the removed-comment purge, expired sign-in data, kept fish-ID photos past their 6
-   * months (fishid/kept.ts), the chat's retries' answers past a day (chat/store.ts) and the day's content totals (KV stats:YYYY-MM-DD, admin/content.ts) — independent, so one
+   * months (fishid/kept.ts), fish-ID transcripts past their year (fishid/transcript.ts), the chat's retries' answers past a day (chat/store.ts) and the day's content totals (KV stats:YYYY-MM-DD, admin/content.ts) — independent, so one
    * failing never blocks the others.
    */
   async scheduled(_: ScheduledController, env: FullEnv): Promise<void> {
@@ -295,6 +296,7 @@ export default {
       env.DB ? purgeRemoved(env.DB, new Date()) : Promise.resolve(),
       env.DB ? purgeExpired(env.DB, new Date()) : Promise.resolve(),
       env.UPLOADS ? sweepKept(env.UPLOADS, new Date()) : Promise.resolve(),
+      env.UPLOADS ? sweepRuns(env.UPLOADS, new Date()) : Promise.resolve(),
       env.UPLOADS ? sweepRetries(env.UPLOADS, new Date()) : Promise.resolve(),
       recordSnapshot(env.AB, env.ASSETS, `https://${env.CANONICAL_HOST ?? 'aquatome.com'}`, new Date()),
     ])
