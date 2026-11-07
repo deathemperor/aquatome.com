@@ -4,6 +4,7 @@ import { expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
+import { OFF_TOPIC } from '../chat/answer'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
 import { priceOf } from '../fishid/claude'
@@ -527,6 +528,19 @@ test('a key that runs out of credit during a question is ours: unavailable, and 
   const bad = await run(ask(bearer(me.token), { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('messages: bad request')]).fetch))
   expect([bad.res.status, bad.body]).toEqual([502, { error: 'failed' }])
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})
+
+test('an off-topic question is answered with the fixed line and gives the reader\'s count back; the site\'s day still counts it', async () => {
+  const { e, db, ledger } = env({ CHAT_PER_ACCOUNT: '1' })
+  const me = await signIn(db)
+  const c = claude([() => msg([{ type: 'text', text: JSON.stringify({ offTopic: true, text: 'Real Madrid thắng.', covered: true, blocks: [], suggestions: [] }) }])])
+  const r = await run(ask(bearer(me.token), { question: 'Tối qua Real Madrid đá thế nào?' }), e, deps(c.fetch))
+  expect([r.res.status, r.body]).toMatchObject([200, { n: 1, text: OFF_TOPIC.vi, blocks: [], suggestions: [] }])
+  expect(Object.values(ledger.day()!.readers)).toEqual([0])
+  expect(ledger.day()!.chat).toBe(1)
+  // The reader's one question a day is still theirs.
+  const ok = await run(ask(bearer(me.token), { question: 'Bể 60 lít thả bao nhiêu con?' }), e, deps(claude([() => answers({})]).fetch))
+  expect([ok.res.status, ok.body]).toMatchObject([200, { n: 2 }])
 })
 
 test('limits: the account\'s day (rate, with its limit), the site\'s spend (busy); neither calls Claude', async () => {
