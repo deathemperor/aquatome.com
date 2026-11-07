@@ -172,6 +172,18 @@ test('what isn\'t a conflict: another strength, a converted gallon, a page\'s ow
   expect(doseGroups([levels.p, a.p], state([levels, a])).flatMap(g => g.conflicts)).toEqual([])
 })
 
+test('a fish\'s own water and an unnamed use are not a treatment: a brackish fish and a killifish both stand', () => {
+  const salt = (o: Partial<FitDose>) => dose({ treatment: 'salt', strength: '', unit: 'g', perUnit: 'litre', per: 1, method: 'wholeTank', ...o })
+  const mono = dosed('mono', [salt({ use: 'water', amount: 10, amountMax: 15, quote: '10–15 g muối cho mỗi lít' })])
+  const killi = dosed('killi', [salt({ use: 'water', amount: 1, amountMax: 3, quote: '1–3 g muối cho mỗi lít' })])
+  const brine = dosed('brine', [salt({ use: 'other', amount: 30, quote: '30 g muối mỗi lít' })])
+  const tonic = dosed('tonic', [salt({ use: 'other', amount: 2, quote: '2 g muối mỗi lít' })])
+  expect(doseGroups([mono, killi, brine, tonic].map(x => x.p), state([mono, killi, brine, tonic])).flatMap(g => g.conflicts)).toEqual([])
+  // The same treatment for the same thing still is one.
+  const f1 = dosed('f1', [salt({ use: 'fungus', amount: 1, quote: '1 g muối mỗi lít' })]), f2 = dosed('f2', [salt({ use: 'fungus', amount: 10, quote: '10 g muối mỗi lít' })])
+  expect(doseGroups([f1.p, f2.p], state([f1, f2])).flatMap(g => g.conflicts)).toEqual([['vi/guides/f1', 'vi/guides/f2']])
+})
+
 test('a dose says what it\'s for: the program works that out, and the model can\'t report it itself', () => {
   const x = dosed('x', [dose({ use: '', quote: '3 ml cho mỗi 4 lít' }), dose({ method: '', amount: 5, quote: '5 ml cho mỗi 4 lít' })])
   expect(fitFindings(x.p, x.e).filter(f => f.check === 'dose-purpose').map(f => f.quote)).toEqual(['3 ml cho mỗi 4 lít'])

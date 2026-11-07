@@ -263,7 +263,8 @@ export function doseGroups(pages: Page[], state: FitState): DoseGroup[] {
   for (const g of groups.values()) {
     // A page's own levels for one use are one range: a salt guide's first and second levels don't conflict with each other.
     const spans = new Map<string, DoseRow>()
-    for (const r of g.rows.filter(x => x.use && x.method)) {
+    // A fish's own water (a brackish fish's salt) and a use the page doesn't name aren't a treatment: two pages can both be right.
+    for (const r of g.rows.filter(x => x.use && x.method && x.use !== 'water' && x.use !== 'other')) {
       const k = `${r.key}|${r.use}|${r.method}|${r.unit}`
       const s = spans.get(k)
       spans.set(k, s ? { ...s, low: Math.min(s.low, r.low), high: Math.max(s.high, r.high) } : r)

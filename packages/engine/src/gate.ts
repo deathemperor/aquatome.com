@@ -4,7 +4,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { LANGS, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitState } from './fit'
+import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitState } from './fit'
+import { PRODUCTS } from './market'
 import { loadPages, pageUrl, type Page } from './pages'
 
 /**
@@ -31,11 +32,14 @@ export type GateCall = { action: 'pass' | 'hold' | 'release' | 'revert'; checks:
 
 /** What a page's findings say is wrong for its reader: every check but words. */
 export const wrongChecks = (p: Page, e?: FitEntry) => new Set(fitFindings(p, e).map(f => f.check).filter(c => c !== 'words'))
+/** Whether the market table says what's sold in a language's country: Vietnam only, for now. */
+const marketKnown = (lang: Lang) => PRODUCTS.some(x => x.market[lang])
 /**
- * What holds a page back or puts it back: the same, except a product whose market here isn't known. Indonesia, Thailand and
- * Malaysia have no market table yet, so there every product in the table is "market unknown": counted, never held for.
+ * What holds a page back or puts it back: the same, except a product, or a dose of one, whose market here isn't known.
+ * Indonesia, Thailand and Malaysia have no market table yet, so there every product is "market unknown": counted, never
+ * held for.
  */
-export const gateChecks = (p: Page, e?: FitEntry) => new Set(fitFindings(p, e).filter(f => f.check !== 'words' && !(f.check === 'product' && productOf(f.product ?? f.quote, p.lang)?.status === 'no data')).map(f => f.check))
+export const gateChecks = (p: Page, e?: FitEntry) => new Set(fitFindings(p, e).filter(f => f.check !== 'words' && !((f.check === 'product' || f.check === 'dose') && (!marketKnown(p.lang) || productOf(f.product ?? f.quote, p.lang)?.status === 'no data'))).map(f => f.check))
 
 /** What the gate does with one changed page, from its checks now and, for a live page, its old text's. */
 export function gateCall(now: Set<FitCheck>, o: { isNew: boolean; wasHeld: boolean; before?: Set<FitCheck> }): GateCall {
@@ -109,8 +113,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   const byFile = new Map(pages.map(p => [fileOf(p), p]))
   const held = await heldNow(root, pages)
   const changed = new Set(changedFiles(root))
-  // A held page left unread last time (the accounts out, or over the limit) is read now.
-  for (const [f, p] of byFile) if (held.has(f) && state[fitKey(p)]?.hash !== fitText(p).hash) changed.add(f)
+  // Every held page is looked at again: one left unread (the accounts out) is read now, and one a batch read has since
+  // passed is let out. A saved read costs no call.
+  for (const f of held.keys()) changed.add(f)
   const files = [...changed].filter(f => byFile.has(f))
   const head = await headPages(root, files)
   const report: GateReport = { pass: [], hold: [], release: [], revert: [], unread: [], failed: [], reads: 0 }
@@ -127,8 +132,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     }
   }
   const saved = (p: Page) => { const e = state[fitKey(p)]; return e?.hash === fitText(p).hash ? e : undefined }
-  const reverts: string[] = []
+  const reverts: string[] = [], holdAfter: [string, FitCheck[]][] = []
   const apply = async (f: string, call: GateCall) => {
+    if (call.action === 'hold' && held.get(f)?.checks.join() === call.checks.join()) return // held already, for the same checks
     const path = byFile.get(f)!.path
     report[call.action].push(`${path}${call.checks.length ? ` (${call.checks.join(', ')})` : ''}`)
     if (call.action === 'hold') { const h = { checks: call.checks, at: day }; await setHeld(root, f, h); held.set(f, h) }
@@ -143,6 +149,8 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
       const f = order[next++]!
       const p = byFile.get(f)!, old = head.pages.get(fitKey(p))
       const isNew = !old, wasHeld = head.held.has(f) || held.has(f)
+      // The old text's saved read, before this page's slot takes the new text's.
+      const oldSaved = old && saved(old)
       try {
         const entry = saved(p) ?? await read(p)
         if (!entry) {
@@ -153,14 +161,19 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         }
         state[fitKey(p)] = entry
         const nowChecks = gateChecks(p, entry)
-        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: gateChecks(old, saved(old)) } : {}) })
+        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: gateChecks(old, oldSaved) } : {}) })
         if (call.action === 'revert' && old) {
           // Worse than its old text's saved read, or the old text was never read: read the old text now, and compare with both.
           const fresh = await read(old)
           if (!fresh) { report.unread.push(p.path); continue }
-          const before = new Set([...(saved(old) ? gateChecks(old, saved(old)) : []), ...gateChecks(old, fresh)])
+          const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh)])
           call = gateCall(nowChecks, { isNew, wasHeld, before })
-          if (call.action === 'revert') state[fitKey(p)] = fresh
+          if (call.action === 'revert') {
+            state[fitKey(p)] = fresh
+            // The text put back is held if no rewording fixes it.
+            const back = [...before].sort()
+            if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
+          }
         }
         await apply(f, call)
       } catch (e) {
@@ -172,6 +185,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   }))
   // One checkout for all of them, after the reads.
   if (reverts.length) git(root, ['checkout', 'HEAD', '--', ...reverts])
+  for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }
   // A fault no rewording fixes holds a page whether or not this cycle changed it.
   for (const p of pages) {
     const f = fileOf(p), e = saved(p)
@@ -190,10 +204,12 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
  */
 export function fitPct(pages: Page[], state: FitState, lang: Lang) {
   let all = 0, wrong = 0, read = 0, wrongRead = 0
+  const current = (p: Page) => state[fitKey(p)]?.hash === fitText(p).hash
+  const conflicted = new Set(doseGroups(pages.filter(p => p.lang === lang && current(p)), state).flatMap(g => g.conflicts.flat()))
   for (const kind of GATE_KINDS) {
     const of = pages.filter(p => p.lang === lang && p.kind === kind)
-    const done = of.filter(p => state[fitKey(p)]?.hash === fitText(p).hash)
-    const w = done.filter(p => wrongChecks(p, state[fitKey(p)]).size).length
+    const done = of.filter(current)
+    const w = done.filter(p => wrongChecks(p, state[fitKey(p)]).size || conflicted.has(fitKey(p))).length
     read += done.length; wrongRead += w
     if (done.length) { all += of.length; wrong += (of.length * w) / done.length }
   }
