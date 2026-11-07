@@ -20,6 +20,14 @@ test('no page has a defect the sweep fixes', async () => {
   expect(left, 'run pnpm engine sweep').toEqual(Object.fromEntries(Object.keys(RATCHETED).map(id => [id, []])))
 }, 300_000) // every page of the real content, in three languages: about 100 s on 2,599 pages
 
+// The owner's names of 2026-11-07. Listed, not swept: a page that gives a fish its old name beside the fish is written again.
+test('no page calls a fish by the name it no longer has', async () => {
+  const pages = await loadPages(fileURLToPath(new URL('../../../content', import.meta.url)))
+  const { findings, errors } = checkPages(pages, RULES.filter(r => r.id === 'swapped-name'))
+  expect(errors).toEqual([])
+  expect(findings.map(f => `${f.page.path}: ${f.detail}`)).toEqual([])
+}, 300_000)
+
 // A fish's summary states its card's figures, as the card is now: the sweep sends back any that doesn't (cardProblems).
 // On 2026-11-07, 54 of 505 approved summaries didn't (size 27 figures, temperature 23, pH 18, hardness 10, difficulty 10,
 // minimum tank 5): checked once when written, against a card that changed after (Cá neon vua: 23–27 °C, card 23–29 °C).
