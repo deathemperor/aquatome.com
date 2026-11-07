@@ -12,8 +12,8 @@
  *
  * Graded by the script, no judge:
  * - Found (faq): the guide read or shown / another page shown, covered / not covered.
- * - Figures: numbers in the text that neither the question nor a page it read has (the prompt: figures only from a
- *   page read), listed for a look.
+ * - Figures: numbers in the text that nothing Claude was sent has: the question, its start, the searches' results and
+ *   the parts of pages it opened (the prompt: figures only from a page read), listed for a look.
  * - Stopped, calls, tool calls, blocks dropped, seconds, and cost (usage × list price, apps/site/worker/fishid/claude.ts).
  *
  *   pnpm --filter @aq/engine exec tsx scripts/chat-eval.ts --dry-run --n 5    # a fake Claude, no key
@@ -21,9 +21,12 @@
  *   … --models claude-opus-5-5,claude-sonnet-5-5 --seed 2 --concurrency 4 --keys <file> --site <origin> --cache <dir> --out <file>
  *   … --only "pH bể" --trace     # the questions with these words only; each call's stop reason, tool calls and text printed
  *
- * Keys: ~/.config/aquatome/anthropic-keys (or --keys), as fish-id-accuracy.ts reads them; never printed. The handbook
- * is cached in --cache (a folder a day). Writes docs/review/chat-eval.md (a dry run: /tmp/chat-eval.dry-run.md), results only.
+ * Keys: ~/.config/aquatome/anthropic-keys (or --keys), as fish-id-accuracy.ts reads them; never printed. The index is
+ * read fresh each run; the handbook's other files are cached in --cache, in a folder named for the site and the index's
+ * hash, so a run reads one build's files. Writes docs/review/chat-eval.md (a dry run: /tmp/chat-eval.dry-run.md), results only.
  */
+import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
@@ -31,11 +34,11 @@ import { parseArgs } from 'node:util'
 import type { PageDoc, PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type ChatRun, type Start } from '../../../apps/site/worker/chat/agent'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import { figuresOf, handbookOf, type Handbook, type Index, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
+import { handbookOf, type Index, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
 import { topicsOf, type Topics } from '../../../apps/site/worker/chat/topics'
-import { textOf } from '../../../apps/site/worker/chat/tools'
 import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
+import { numbersIn, sentText } from './chat-eval-grade'
 import { pool } from './eval-lib'
 
 const ROOT = join(import.meta.dirname, '../../..')
@@ -51,7 +54,7 @@ const { values: args } = parseArgs({
     concurrency: { type: 'string', default: '4' },
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
     site: { type: 'string', default: 'https://aquatome.com' },
-    cache: { type: 'string', default: join('/tmp/chat-eval-cache', new Date().toISOString().slice(0, 10)) },
+    cache: { type: 'string', default: '/tmp/chat-eval-cache' },
     out: { type: 'string' },
     'dry-run': { type: 'boolean', default: false },
     only: { type: 'string' },
@@ -94,7 +97,7 @@ const WRITTEN: Question[] = [
 ]
 
 /** Words that point inside the guide a FAQ sits in: the question doesn't read on its own. */
-const IN_ITS_GUIDE = /(^|[\s,(])(này|đó|kia|ấy|nói trên|ở trên|dưới đây|bài|video|clip)(?=$|[\s,.?!)])/iu
+const IN_ITS_GUIDE = /(^|[\s,(])(này|đó|kia|ấy|như vậy|như thế|nói trên|ở trên|trên đây|dưới đây|bài|video|clip)(?=$|[\s,.?!)])/iu
 
 /** A small seeded generator (mulberry32), as fish-id-accuracy.ts: the same seed picks the same questions. */
 function rng(seed: number) {
@@ -108,9 +111,12 @@ function rng(seed: number) {
 }
 const shuffle = <T>(xs: T[], r: () => number) => { const a = [...xs]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j]!, a[i]!] } return a }
 
-/** The live site's handbook, each file kept in the cache folder once read. */
+/** The site's build: its host and the index's hash name the cache folder (main), the index itself read fresh each run. */
+let build = ''
+let cacheDir = ''
+/** The live site's handbook, each file kept in the build's cache folder once read. */
 async function cached<T>(path: string): Promise<T | null> {
-  const file = join(args.cache!, path.replace(/^\//, '').replace(/\//g, '_'))
+  const file = join(cacheDir, path.replace(/^\//, '').replace(/\//g, '_'))
   try { return JSON.parse(await readFile(file, 'utf8')) as T } catch { /* not yet */ }
   const r = await fetch(new URL(path, args.site))
   if (!r.ok) return null
@@ -193,9 +199,6 @@ function realSend(healthy: KeyEntry[], store: HealthStore) {
   }
 }
 
-/** A number as text: "1.000" and "1,000" are a thousand, "6,5" is 6.5. */
-const numbersIn = (s: string) => (s.match(/\d+(?:[.,]\d+)*/g) ?? []).map(n => (/^\d{1,3}([.,]\d{3})+$/.test(n) ? n.replace(/[.,]/g, '') : n.replace(',', '.'))).map(Number)
-
 /** The keys a block answers to in `Want.show`. */
 function keysOf(b: ChatBlock): string[] {
   switch (b.t) {
@@ -210,7 +213,7 @@ const shows = (blocks: ChatBlock[], want: string) => {
   const ids = want.slice('compare:'.length).split('+')
   return blocks.some(b => b.t === 'compare' && ids.every(id => b.items.some(c => c.page.id === id)))
 }
-const pagesOf = (blocks: ChatBlock[]) => blocks.flatMap(b => (b.t === 'section' ? [b.page.url] : b.t === 'species' ? [b.page.url ?? ''] : b.t === 'compare' ? b.items.map(c => c.page.url ?? '') : []))
+const pagesOf = (blocks: ChatBlock[]) => blocks.flatMap(b => (b.t === 'section' ? [b.page.url] : b.t === 'species' ? [b.page.url] : b.t === 'compare' ? b.items.map(c => c.page.url) : [])).filter((u): u is string => Boolean(u))
 
 type Row = {
   model: string
@@ -218,39 +221,42 @@ type Row = {
   run?: ChatRun
   failed?: string
   read: string[]
-  /** faq: the guide read or shown / another page shown and covered / neither. start, outside: as wanted or not. */
-  found: 'guide' | 'other' | 'none' | 'ok' | 'not'
-  /** Numbers in the text no page read (nor the question) has. */
+  /** faq: the guide read or shown / another page shown and covered / neither. start, outside: as wanted or not. A run
+   * with no answer has failed, whatever it read. */
+  found: 'guide' | 'other' | 'none' | 'ok' | 'not' | 'failed'
+  /** Numbers in the text nothing Claude was sent has. */
   invented: number[]
   ms: number
   usd: number
 }
 
-async function grade(model: string, question: Question, run: ChatRun | undefined, failed: string | undefined, ms: number, hb: Handbook): Promise<Row> {
+function grade(model: string, question: Question, run: ChatRun | undefined, failed: string | undefined, ms: number, sent: string): Row {
   const read = [...new Set((run?.steps ?? []).flatMap(s => (s.kind === 'read' ? [s.page.url] : [])))]
   const blocks = run?.blocks ?? []
   const covered = run?.answer?.covered
   const w = question.want
   const touched = (paths: string[]) => paths.some(p => read.includes(p) || pagesOf(blocks).includes(p))
   let found: Row['found']
-  if (question.set === 'faq') found = touched(w.read!) ? 'guide' : covered && blocks.length ? 'other' : 'none'
+  if (failed) found = 'failed'
+  else if (question.set === 'faq') found = touched(w.read!) ? 'guide' : covered && pagesOf(blocks).length ? 'other' : 'none'
   else if (question.set === 'start') found = (!w.read || touched(w.read)) && (w.show ?? []).some(s => shows(blocks, s)) ? 'ok' : 'not'
   else found = covered === false && (!w.none || blocks.length === 0) ? 'ok' : 'not'
-  // What it could have read its figures in: the question, fish ID's answer, each page it opened (its text, a fish's figures).
-  const seen = [question.q, JSON.stringify(question.start.identified ?? {})]
-  for (const path of read) {
-    const doc = await hb.page(path)
-    const item = hb.byPath(path)
-    seen.push(doc ? textOf(doc.blocks) : '', item && (item.kind === 'fish' || item.kind === 'plant') ? JSON.stringify(figuresOf(item, hb.byId)) : '')
-  }
-  const known = new Set(numbersIn(seen.join('\n')))
+  // What it could have read its figures in: what it was sent (the question, its start, the searches' results, the parts
+  // of pages it opened), not the whole of a page it saw only the outline of.
+  const known = new Set(numbersIn([question.q, JSON.stringify(question.start.identified ?? {}), sent].join('\n')))
   const invented = [...new Set(numbersIn(run?.answer?.text ?? ''))].filter(n => !known.has(n))
   const usd = run ? costOf(model, run.spent) : 0
   return { model, question, run, ...(failed ? { failed } : {}), read, found, invented, ms, usd }
 }
 
 async function main() {
-  await mkdir(args.cache!, { recursive: true })
+  const fresh = await fetch(new URL('/app/vi.json', args.site)).catch(() => null)
+  if (!fresh?.ok) { console.error(`No app index at ${args.site}/app/vi.json`); process.exit(1) }
+  const indexText = await fresh.text()
+  build = createHash('sha256').update(indexText).digest('hex').slice(0, 12)
+  cacheDir = join(args.cache!, `${new URL(args.site!).host}-${build}`)
+  await mkdir(cacheDir, { recursive: true })
+  await writeFile(join(cacheDir, 'app_vi.json'), indexText)
   const hb = await handbookOf(source, 'vi')
   // A FAQ question is asked as its guide words it, and the search reads the guides' FAQ questions: it is left out of
   // them while it is asked, as a reader's own words would differ (fish ID's eval leaves out the test photo the same way).
@@ -273,8 +279,12 @@ async function main() {
   for (const model of MODELS) {
     const out = await pool(questions.map(question => async () => {
       const plain = DRY ? fakeSend : realSend(await healthyKeys(keys, store, Date.now()), store)()
-      const send: Send = !args.trace ? plain : async (b, o) => {
+      // Each request holds the turns before it: the last one sent holds all Claude was given to read.
+      let sent: Parameters<Send>[0]['messages'] = []
+      const send: Send = async (b, o) => {
+        sent = b.messages
         const m = await plain(b, o)
+        if (!args.trace) return m
         console.log(`  call ${o.call} (tool_choice ${b.tool_choice?.type}): ${m.stop_reason}, ${m.usage.output_tokens} tokens out`)
         for (const c of m.content) console.log(`    ${c.type}${c.type === 'tool_use' ? ` ${c.name} ${JSON.stringify(c.input)}` : c.type === 'text' ? `: ${c.text.slice(0, 1500)}` : ''}`)
         return m
@@ -288,13 +298,13 @@ async function main() {
       } catch (e) {
         failed = String((e as Error).message ?? e).slice(0, 120)
       }
-      const row = await grade(model, question, run, failed, Date.now() - t, hb)
+      const row = grade(model, question, run, failed, Date.now() - t, sentText(sent))
       console.log(`${model} ${question.set} ${row.found}${row.invented.length ? ` figures ${row.invented.join(',')}` : ''}${failed ? ` FAILED ${failed}` : ''} ${(row.ms / 1000).toFixed(1)} s $${row.usd.toFixed(3)}: ${question.q}`)
       return row
     }), Number(args.concurrency))
     rows.push(...out)
   }
-  await writeFile(OUT, report(rows, index))
+  await writeFile(OUT, report(rows))
   console.log(`Written: ${OUT}`)
 }
 
@@ -302,19 +312,27 @@ const cell = (s: string) => s.replace(/\|/g, '\\|').replace(/\n+/g, ' ')
 const pct = (k: number, n: number) => (n ? `${k}/${n}` : '–')
 const at = (xs: number[], q: number) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.min(s.length - 1, Math.ceil(q * s.length) - 1)]! : NaN }
 
-function report(rows: Row[], index: Index): string {
+/** The commit the run's code is at, and whether the agent's or the eval's files differ from it. */
+function commit(): string {
+  try {
+    const git = (...a: string[]) => execFileSync('git', a, { cwd: ROOT, encoding: 'utf8' }).trim()
+    return `${git('rev-parse', '--short', 'HEAD')}${git('status', '--porcelain', '--', 'apps/site/worker', 'packages/engine/scripts') ? ', with changes not committed' : ''}`
+  } catch { return 'unknown' }
+}
+
+function report(rows: Row[]): string {
   const faqs = rows.filter(r => r.question.set === 'faq' && r.model === MODELS[0]).length
   const lines = [
     '# Chat: how it answers',
     '',
-    `${DRY ? '**Dry run: a fake Claude, these numbers mean nothing.** ' : ''}${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-eval.ts\`, seed ${SEED}. The Worker's own agent, prompt, schema, effort and limits (\`apps/site/worker/chat/\`), over ${args.site}'s handbook (app index version ${(index as { version?: unknown }).version ?? '?'}; the guides' headings and FAQ questions ${topicsFrom === 'site' ? 'as the site serves them' : 'worked out from its page copies, as the build does'}), in Vietnamese, no saved tanks.`,
+    `${DRY ? '**Dry run: a fake Claude, these numbers mean nothing.** ' : ''}${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-eval.ts\`, seed ${SEED}, commit \`${commit()}\`. The Worker's own agent, prompt, schema, effort and limits (\`apps/site/worker/chat/\`) at that commit, over ${args.site}'s handbook (the build whose app index hashes to \`${build}\`; the guides' headings and FAQ questions ${topicsFrom === 'site' ? 'as the site serves them' : 'worked out from its page copies, as the build does'}), in Vietnamese, no saved tanks.`,
     '',
     `${faqs} questions from the guides' FAQs, one per guide, guides at random; ${WRITTEN.filter(q => q.set === 'start').length} asked from a fish's page or fish ID, or naming fish or a tank; ${WRITTEN.filter(q => q.set === 'outside').length} the handbook doesn't answer or aren't about aquariums.`,
     '',
-    '- **FAQ:** the guide the question came from was read or shown / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page. Another guide may answer as well. The search reads the guides\' FAQ questions too, so the question asked is left out of them while it is asked.',
+    '- **FAQ:** the guide the question came from was read or shown / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page shown. Another guide may answer as well. A run with no answer is counted as failed, not in these. The search reads the guides\' FAQ questions too, so the question asked is left out of them while it is asked.',
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
     '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
-    '- **Figures not in a page:** answers whose text has a number that neither the question nor a page it read has (listed below).',
+    '- **Figures not in a page:** answers whose text has a number that nothing Claude was sent has: the question, the searches\' results, the parts of pages it opened (listed below). A small number (a list\'s 2 or 3) may be in what it read by chance, so this is a floor.',
     '- **Stopped:** answered when Claude chose / at the calls, tool-call, time or token limit / a call failed.',
     '- **Cost:** response usage × list price, every call, per question. **Latency:** first call to the filled answer, on this machine.',
     '',
@@ -330,7 +348,8 @@ function report(rows: Row[], index: Index): string {
     const stops = (['answer', 'calls', 'tools', 'time', 'tokens', 'error'] as const).map(k => runs.filter(x => x.stopped === k).length).join(' / ')
     const mean = (g: (x: ChatRun) => number) => (runs.reduce((t, x) => t + g(x), 0) / Math.max(1, runs.length)).toFixed(1)
     const ms = rs.map(r => r.ms)
-    lines.push(`| ${model} | ${f.filter(r => r.found === 'guide').length} / ${f.filter(r => r.found === 'other').length} / ${f.filter(r => r.found === 'none').length} of ${f.length} | ${pct(s.filter(r => r.found === 'ok').length, s.length)} | ${pct(o.filter(r => r.found === 'ok').length, o.length)} | ${pct(rs.filter(r => r.invented.length).length, rs.length)} | ${runs.reduce((t, x) => t + x.dropped.length, 0)} | ${stops} | ${mean(x => x.calls)} · ${mean(x => x.tools)} | ${(at(ms, 0.5) / 1000).toFixed(1)} s | ${(at(ms, 0.9) / 1000).toFixed(1)} s | $${(rs.reduce((t, r) => t + r.usd, 0) / Math.max(1, rs.length)).toFixed(3)} |`)
+    const failed = f.filter(r => r.found === 'failed').length
+    lines.push(`| ${model} | ${f.filter(r => r.found === 'guide').length} / ${f.filter(r => r.found === 'other').length} / ${f.filter(r => r.found === 'none').length} of ${f.length}${failed ? `, ${failed} failed` : ''} | ${pct(s.filter(r => r.found === 'ok').length, s.length)} | ${pct(o.filter(r => r.found === 'ok').length, o.length)} | ${pct(rs.filter(r => r.invented.length).length, rs.length)} | ${runs.reduce((t, x) => t + x.dropped.length, 0)} | ${stops} | ${mean(x => x.calls)} · ${mean(x => x.tools)} | ${(at(ms, 0.5) / 1000).toFixed(1)} s | ${(at(ms, 0.9) / 1000).toFixed(1)} s | $${(rs.reduce((t, r) => t + r.usd, 0) / Math.max(1, rs.length)).toFixed(3)} |`)
   }
   for (const model of MODELS) {
     lines.push('', `## ${model}`, '', '| Set | Question | Found | Read | Shown | Covered | Figures not in a page | Time | Cost |', '| --- | --- | --- | --- | --- | --- | --- | ---: | ---: |')
