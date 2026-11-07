@@ -169,7 +169,8 @@ that would have caught it).
   - The owner's dashboard (`apps/site/worker/test/admin-*.test.ts`): each chart with no days, one day, only zeros, a
     negative day, a day not recorded and long labels; ranked bars with a negative value; and every time and day in
     the viewer's zone (a moment, a day's boundary in Analytics Engine, D1 and the clicks kept by Vietnam's day, a
-    bad zone cookie).
+    bad zone cookie). The nightly totals' charts (`dashboard.test.ts`) run from the day after the first save to the day
+    the next save closes, that day so far from the running build, so only a save really missed reads as not recorded.
   - The scoreboard (`/_ab/thanh-cong/`, `docs/metrics.md`, `apps/site/worker/test/admin-scoreboard.test.ts`,
     `e2e/dashboard-charts.spec.ts`): weeks from Monday in Vietnam's time, each metric's rule at its edge, this week against
     last at the same point, a week before the count unmeasured and not zero, a part that fails saying so in its place, the
