@@ -73,7 +73,8 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
   light's recorded commands (`apps/ios/AquaTomeKit/Sources/FishLamp/love-ecology.json`).
 - A challenge page (Cloudflare, Turnstile) marks a source `needs-human`, and the owner passes it by hand in the engine's
   Chrome profile. Marketplaces (Shopee, Lazada, Tiki, Tokopedia) are reached only through their affiliate APIs.
-- Ask the owner first before App Store Connect or TestFlight uploads, review submissions, and production D1 migrations.
+- Every app merge uploads to TestFlight's internal "Owner" group without asking (`testflight.yml`). Ask the owner first
+  before uploads to outside testers, App Store review submissions, and production D1 migrations.
 
 ## Pull requests
 
