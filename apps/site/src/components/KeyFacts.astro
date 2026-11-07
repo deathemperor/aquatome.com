@@ -10,7 +10,7 @@ const { t, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
 const facts = (['tempC', 'ph', 'tankCm', 'difficulty'] as const).map(field => {
   const vals = Astro.props.card[field] ?? []
-  const r = resolveDataCard(vals)
+  const r = resolveDataCard(vals, field)
   return { field, value: r?.value, conflict: !!r?.conflict, marked: !!r?.conflict && gapMatters(field, vals) }
 })
 const pair = (v: number | { min: number; max: number }) => (isRange(v) ? `${v.min},${v.max}` : `${v},${v}`)

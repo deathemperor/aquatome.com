@@ -22,6 +22,8 @@ export function buildCard(template: HTMLTemplateElement, i: SpeciesListItem): HT
   } else $('img').remove()
   $('h3').textContent = i.name
   $('.sci').textContent = i.scientificName
+  if (i.water) $('.water').textContent = i.water === 'marine' ? ct('Nước mặn') : ct('Nước lợ')
+  else $('.water').remove()
 
   const [temp, ph, level] = card.querySelectorAll<HTMLElement>('dl > div') as unknown as HTMLElement[]
   const bar = (row: HTMLElement, kind: 'temp' | 'ph', r: { min: number; max: number }, text: string) => {

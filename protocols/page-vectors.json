@@ -952,7 +952,7 @@
                 "field": "tempC",
                 "label": "Nhiệt độ",
                 "conflict": true,
-                "note": "Mức mọi nguồn cùng khuyên",
+                "note": "Mỗi nguồn ghi một mức",
                 "items": [
                   "Seriously Fish: 24–30°C",
                   "Aquarium Glaser: 23–27°C"
@@ -1035,6 +1035,21 @@
               "title": "Tránh",
               "items": [
                 {
+                  "path": "/vi/ca/ca-dia/",
+                  "name": "Cá đĩa",
+                  "img": {
+                    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Blue_Discus.jpg/500px-Blue_Discus.jpg",
+                    "w": 960,
+                    "h": 802,
+                    "credit": {
+                      "text": "Ảnh: Patrick Farrelly",
+                      "licence": "Public domain",
+                      "url": "https://commons.wikimedia.org/wiki/File:Blue_Discus.jpg"
+                    }
+                  },
+                  "why": "Lớn tới 15 cm, có thể ăn Cá neon vua"
+                },
+                {
                   "path": "/vi/ca/ca-apisto-cacatuoides/",
                   "name": "Cá apisto cacatuoides",
                   "img": {
@@ -1074,7 +1089,7 @@
               {
                 "label": "Mùa hè cả nước",
                 "ok": false,
-                "text": "Nước bể có thể lên 31°C, trên mức tối đa 27°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
+                "text": "Nước bể có thể lên 31°C, trên mức tối đa 30°C: đặt bể chỗ mát, dùng quạt hoặc máy làm lạnh."
               }
             ],
             "note": "Giả định nước bể trong nhà, không sưởi hay làm lạnh: miền Bắc mùa đông khoảng 16°C, miền Nam đêm mát tháng 12–1 khoảng 25°C, mùa hè tới 31°C. Đo nhiệt độ bể của bạn để chắc chắn."
@@ -1717,12 +1732,6 @@
           {
             "t": "p",
             "c": [
-              "Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 24–27°C)."
-            ]
-          },
-          {
-            "t": "p",
-            "c": [
               "Nhiệt độ 24–30 °C, ",
               {
                 "text": "pH",
@@ -1739,6 +1748,26 @@
                 "tip": {
                   "term": "Seriously Fish",
                   "text": "seriouslyfish.com · dịch từ nguồn"
+                }
+              }
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Aquarium Glaser ghi khác bảng dữ liệu: nhiệt độ 23–27°C (bảng: 24–30°C)."
+            ]
+          },
+          {
+            "t": "p",
+            "c": [
+              "Nhiệt độ 23–27 °C, nước mềm.",
+              {
+                "text": "2",
+                "href": "https://www.aquariumglaser.de/en/fish-archives/paracheirodon-axelrodi/",
+                "tip": {
+                  "term": "Aquarium Glaser",
+                  "text": "aquariumglaser.de · dịch từ nguồn"
                 }
               }
             ]
@@ -1918,6 +1947,7 @@
         "p",
         "list",
         "h",
+        "p",
         "p",
         "p",
         "h",
@@ -2459,7 +2489,7 @@
                 "field": "tempC",
                 "label": "Nhiệt độ",
                 "conflict": true,
-                "note": "Mức mọi nguồn cùng khuyên",
+                "note": "Mỗi nguồn ghi một mức",
                 "items": [
                   "Trại cá đĩa A: 28–30°C",
                   "Diễn đàn B: 27–31°C"
@@ -3076,13 +3106,13 @@
                 "name": "Cách hạn chế rêu hại trong bể thủy sinh",
                 "sub": "Chăm cây · 3 đoạn · 29:15",
                 "img": {
-                  "src": "https://i.ytimg.com/vi/vl1Lx9iWDYU/hqdefault.jpg",
-                  "w": 1280,
-                  "h": 720,
+                  "src": "https://media.aquatome.com/video/vl1Lx9iWDYU/p0-x.webp",
+                  "w": 1200,
+                  "h": 800,
                   "credit": {
-                    "text": "Ảnh: MJ Aquascaping",
-                    "licence": "YouTube",
-                    "url": "https://www.youtube.com/watch?v=vl1Lx9iWDYU"
+                    "text": "Ảnh: Fremen",
+                    "licence": "CC BY-SA 4.0",
+                    "url": "https://commons.wikimedia.org/wiki/File:Oto.jpg"
                   }
                 }
               }
