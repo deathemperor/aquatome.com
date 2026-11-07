@@ -37,7 +37,7 @@ final class TelemetryFlowTests: XCTestCase {
   func testConnectingTheLightIsSentWithoutTheLightsNameOrTheAccount() {
     let app = launch("-site-telemetry", "-fake-accounts", "on", "-reset-fake-server")
     // Signed in, so an account's id is there to leak.
-    app.openTab("Bể của tôi")
+    app.openAccount()
     tap(app, "apple-sign-in")
     XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 10), "not signed in")
     app.openTab("Đèn")
@@ -89,7 +89,7 @@ final class TelemetryFlowTests: XCTestCase {
     XCTAssertFalse(received(app).label.contains(#""screen":"tanks""#), "recorded with the switch off")
   }
 
-  func testWithNoTanksAndSignedOutTheSwitchIsThereAndOffEmptiesTheQueue() {
+  func testWithNoTanksAndSignedOutTheSwitchIsInTheSheetAndOffEmptiesTheQueue() {
     // The Worker down: the tabs opened wait in the queue's file.
     let app = launch("-site-telemetry", "-telemetry-down")
     app.openTab("Bể của tôi")
@@ -145,8 +145,10 @@ final class TelemetryFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the tank isn't listed")
   }
 
-  /// "Gửi thống kê ẩn danh", in Bể của tôi: at the end of its list, or under the empty tab's sign-in.
+  /// "Gửi thống kê ẩn danh", in the Tài khoản sheet, which is closed again after (what the app sent is read under it).
   private func toggle(_ app: XCUIApplication, on: Bool) {
+    app.openAccount()
+    defer { app.closeAccount() }
     let s = app.switches["telemetry-switch"]
     repeatUntil(s.exists && s.isHittable, times: 6) { app.swipeUp() }
     XCTAssertTrue(s.isHittable, "no switch")

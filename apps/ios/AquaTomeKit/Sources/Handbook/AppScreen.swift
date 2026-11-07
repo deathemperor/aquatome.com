@@ -1,7 +1,8 @@
 import Foundation
 
-/// The site's pages that the app has as its own screens. In the app, a link to one (the tools' "Xem trong Bể của tôi →"
-/// after a save, the site's menus) opens the screen, not the web page.
+/// The site's pages that the app has as its own screens, and the app's Tài khoản sheet, which no page is. In the app, a
+/// link to one of the pages (the tools' "Xem trong Bể của tôi →" after a save, the site's menus) opens the screen, not
+/// the web page.
 public enum AppScreen: Equatable, Sendable {
   /// "Bể của tôi", showing the tank the link names (`#be-<id>`, as the site's page marks each tank), if any.
   case tanks(String?)
@@ -19,6 +20,12 @@ public enum AppScreen: Equatable, Sendable {
   case page(String)
   /// A group's page ("/vi/nhom/catfish/", and its numbered pages): the app's shelf of that group's fish.
   case group(String)
+  /// The app's Tài khoản sheet (the profile button's), which no page of the site is: the empty "Bể của tôi" opens it to
+  /// sign in.
+  case account
+  /// The pages kept on the phone to read offline, as their shelf on the Tìm tab, which no page of the site is either: the
+  /// Tài khoản sheet's "Đã tải để đọc offline" opens it.
+  case kept
 
   /// The screen `url` is, if it's one of these pages on `site`, in any of the site's languages (Vietnamese under "/vi/"
   /// or at the root, PathForm); with `listed` (whether the app index has a path, as the link gives it), also any other

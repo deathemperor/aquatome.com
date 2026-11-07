@@ -270,9 +270,9 @@ final class OwnerFlowTests: XCTestCase {
     repeatUntil(row.exists, times: 6) { app.swipeUp() }
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the row went")
     XCTAssertTrue(row.label.contains("đăng nhập lại"), row.label)
-    let message = app.staticTexts["account-message"]
-    XCTAssertTrue(message.waitForExistence(timeout: 5))
-    XCTAssertEqual(message.label, "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.")
+    let ended = app.staticTexts["session-ended"]
+    XCTAssertTrue(ended.waitForExistence(timeout: 5))
+    XCTAssertEqual(ended.label, "Phiên đăng nhập đã hết. Lần trước bạn đăng nhập bằng Apple.")
 
     // Signed in again (its button back up the list): the dashboard opens as before.
     repeatUntil(app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists, times: 6) { app.swipeDown() }
@@ -287,13 +287,14 @@ final class OwnerFlowTests: XCTestCase {
 
   // MARK: Helpers
 
-  /// A new phone, the stand-in's accounts empty, `owner` its owner's account (`ui-apple`: the stand-in Apple sign-in's).
+  /// A new phone, the stand-in's accounts empty, `owner` its owner's account (`ui-apple`: the stand-in Apple sign-in's), in
+  /// the Tài khoản sheet.
   private func launch(owner: String = "ui-apple", _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", "on", "-reset-defaults",
                            "-reset-fake-server", "-fake-owner", owner] + args
     app.launch()
-    app.openTab("Bể của tôi")
+    app.openAccount()
     return app
   }
 

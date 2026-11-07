@@ -4,8 +4,8 @@ import XCTest
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
 /// a guide, a video series and a kind of kit, in light, the fish and the kit in dark too, the fish's top at a large text
 /// size, and a guide's video playing in its page (the stand-in player); the fish-ID screen with its guesses, light and
-/// dark; photos as stand-ins (`-fixed-pictures`). Also the ways to sign in, in light and in dark, where they first show:
-/// the tanks tab on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the
+/// dark; photos as stand-ins (`-fixed-pictures`). Also the Tài khoản sheet with the ways to sign in, in light and in
+/// dark, on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
@@ -33,6 +33,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheDailyReportsSettings() { shootOwner("owner-report-light", section: "Báo cáo hằng ngày", shows: "owner-action") }
   func testSigningIn() { shootSignIn("sign-in-light") }
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
+  func testSigningInInTheLargestText() { shootSignIn("sign-in-largest-light", size: largest) }
+  func testTheAccountSignedIn() { shootAccount("account-light") }
+  func testTheAccountSignedInInTheDark() { shootAccount("account-dark", dark: true) }
+  func testTheAccountSignedInInTheLargestText() { shootAccount("account-largest-light", size: largest) }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
   func testAKindOfKit() { shoot("kit-light", "loc", "Lọc", more: ["-equipment"]) }
@@ -61,15 +65,16 @@ final class PageShotsFlowTests: XCTestCase {
 
   private let largest = "UICTContentSizeCategoryAccessibilityXXXL"
 
-  /// Bể của tôi empty (signed out: the sign-in, "Gửi thống kê ẩn danh"), then with a tank: the list, to its end (the
-  /// account, the blocked, "Gửi thống kê ẩn danh").
+  /// Bể của tôi empty (signed out: the hint that opens the Tài khoản sheet), then with a tank: the list, to its end.
   func testTheTanksList() {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"]
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
+                           "-reset-fake-server"]
     app.launchForFlow()
     app.openTab("Bể của tôi")
     let first = app.buttons["add-first"]
     XCTAssertTrue(first.waitForExistence(timeout: 5), "no tanks tab")
+    XCTAssertTrue(app.buttons["sign-in-hint"].waitForExistence(timeout: 10), "no hint to sign in on the empty tab")
     // Empty first: no tanks, signed out.
     settle()
     let empty = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
@@ -91,25 +96,38 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  /// "Bể của tôi" on a new phone, signed out, with each way to sign in the stand-in server offers: the screen as it
-  /// opens, then scrolled to its end, where every sign-in button is in view.
-  private func shootSignIn(_ name: String, dark: Bool = false) {
-    let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
-                           "-reset-fake-server"] + (dark ? ["-dark"] : [])
-    app.launchForFlow()
-    app.openTab("Bể của tôi")
+  /// The Tài khoản sheet on a new phone, signed out, with each way to sign in the stand-in server offers, screen by
+  /// screen to its end (the app's settings, the site's pages about itself).
+  private func shootSignIn(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server"])
+    app.openAccount()
     XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].waitForExistence(timeout: 5), "no sign-in")
-    for n in 1...2 {
-      if n == 2 { app.swipeUp(); app.swipeUp() }
-      settle()
-      let shot = XCUIScreen.main.screenshot()
-      XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
-      let a = XCTAttachment(screenshot: shot)
-      a.name = String(format: "shot-%@-%02d", name, n)
-      a.lifetime = .keepAlways
-      add(a)
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 10)
+  }
+
+  /// The Tài khoản sheet signed in, as the owner (the dashboard's row too), screen by screen to its end (signing out,
+  /// deleting the account, the version).
+  private func shootAccount(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, XCUIApplication.standInOwner)
+    app.openAccount()
+    // Signed in, back at the sheet's top: at the largest text the button is a few screens down.
+    app.scrollToAndTap("apple-sign-in")
+    let top = app.staticTexts["account-status"], owner = app.descendants(matching: .any)["owner-dashboard"].firstMatch
+    repeatUntil(top.exists && top.isHittable, times: 12) { app.swipeDown() }
+    XCTAssertTrue(top.waitForExistence(timeout: 10), "not signed in")
+    // At the largest text the dashboard's row is screens under the account's: down to it, and back up.
+    repeatUntil(owner.exists, times: 6) { app.swipeUp() }
+    XCTAssertTrue(owner.waitForExistence(timeout: 10), "not the owner's account")
+    // Back to the sheet's top, its first line under the bar (and the avatar, above it at the largest text): short slow
+    // drags, held before letting go, so none flings or pulls the sheet away.
+    let first = app.staticTexts["Đã đăng nhập"], bar = app.navigationBars.firstMatch
+    let middle = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4))
+    let clear: CGFloat = size == nil ? 0 : 70
+    repeatUntil(first.exists && first.frame.minY > bar.frame.maxY + clear, times: 20) {
+      middle.press(forDuration: 0.1, thenDragTo: middle.withOffset(CGVector(dx: 0, dy: 160)), withVelocity: .slow, thenHoldForDuration: 0.2)
     }
+    XCTAssertGreaterThan(first.frame.minY, bar.frame.maxY + clear, "not at the sheet's top")
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 12)
   }
 
   /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.
@@ -240,7 +258,7 @@ final class PageShotsFlowTests: XCTestCase {
   /// `shows`: what the section has once it's loaded.
   private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart") {
     let app = launch(dark: false, size: nil, XCUIApplication.standInOwner)
-    app.openTab("Bể của tôi")
+    app.openAccount()
     app.signInWithStandInApple()
     app.scrollToAndTap("owner-dashboard")
     XCTAssertTrue(app.buttons["owner-area"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
@@ -273,7 +291,7 @@ final class PageShotsFlowTests: XCTestCase {
       from.press(forDuration: 0.1, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25)), withVelocity: .slow,
                  thenHoldForDuration: 0.2)
     }
-    // A whole page (not the large text's top screens) ends before the shots run out: else its end wasn't seen, and the
+    // A whole screen (not the large text's top screens) ends before the shots run out: else its end wasn't seen, and the
     // shots repeat it to the last.
     if !large { XCTAssertTrue(ended, "\(name): no end found in \(screens) screens") }
   }
