@@ -11,10 +11,14 @@ import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, w
 import { queryReaderDays, queryReaders } from './readers'
 import { queryAsks } from './lang-ask'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
-import { queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
+import { lastMondayStart, mondayOf, queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, scoreboardSection, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
+import type { Today } from './admin/today'
+import { readChanges } from './daily/changelog'
+import { listReports } from './daily/log'
 import { clicksByKind, listSnapshots, loadContentStats, loadLowScores, pagesByRef, queryContentReads, talkByPage } from './admin/content'
 import { commentPages } from './comments/photo'
 import { contentPage, contentSection } from './admin/content-page'
+import { commentItem, COMMENTS_FORM, COMMENTS_PATH, commentsPage, commentsSection, commentWeek, decideComment, EXPIRED, GONE, listComments, readCursor, stateOf, type CommentItem, type CommentState } from './admin/comments'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
 import { appPage, appSection, queryApp } from './admin/app'
 import type { Section } from './admin/blocks'
@@ -22,9 +26,10 @@ import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview, type RecentPhoto, type WaitingPhoto,
 } from './admin/pages'
-import { CHANGELOG_PATH, hostPath, isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { READERS_FROM } from './admin/ae'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
-import { changelogPage, loadChangelog } from './daily/changelog'
+import { changelogPage, changelogSection, loadChangelog } from './daily/changelog'
 import { loadReports, reportPage, reportsPage, reportsSection, SETTINGS_FORM } from './daily/page'
 import type { PushEnv } from './daily/push'
 import { setSettings, type ReportSettings } from './daily/settings'
@@ -144,6 +149,8 @@ const FONT = /^\/_ab\/fonts\/[a-z0-9-]+\.woff2$/
 /** A waiting reader photo's upload, shown on /_ab/anh-ban-doc/. */
 const WAITING_PHOTO = /^\/_ab\/anh\/([0-9a-f-]{36})$/
 const NO_AE = 'AE_API_TOKEN và CF_ACCOUNT_ID'
+/** The Comments page's words are English (admin/comments.ts). */
+const NO_D1 = { failed: 'D1 is not set up on this server.' }
 /** This deploy's content.json (scripts/content-stats.ts): a build without it is a part that didn't load. */
 const contentOf = async (env: AdminEnv, origin: string) => {
   if (!env.ASSETS) return unset('ASSETS')
@@ -196,6 +203,25 @@ export const loadOverview: Load<Overview> = async (env, url, now, tz) => {
 
 const overviewHtml: Load<string> = async (...a) => overviewPage(await loadOverview(...a))
 
+/** The overview's version 2 (admin/today.ts): its parts, and the ones it reads besides, each failing on its own. */
+export const loadToday: Load<Today> = async (env, url, now, tz) => {
+  const a = ae(env)
+  const db = env.DB
+  const from = lastMondayStart(now)
+  const monday = mondayOf(localDay(now, HOME_TZ))
+  const [o, beacon, held, waiting, kept, crashes, lastReport, changes] = await Promise.all([
+    loadOverview(env, url, now, tz),
+    a ? soft('beacon', queryBeacon(a.account, a.token, from)) : unset(NO_AE),
+    db ? soft('held comments', db.prepare("SELECT COUNT(*) AS n FROM comments WHERE status = 'held'").first<{ n: number }>().then(r => r?.n ?? 0)) : unset('D1'),
+    photosLive(env) ? soft('waiting photos', waitingPhotos(env).then(xs => (xs ?? []).map(x => ({ id: x.id })))) : undefined,
+    env.UPLOADS ? soft('kept', recentKept(env.UPLOADS).then(xs => xs.length)) : undefined,
+    a ? soft('app crashes', queryAppWeeks(a.account, a.token, from).then(x => x.crashes.filter(c => mondayOf(localDay(c.at, HOME_TZ)) === monday).reduce((k, c) => k + Number(c.n), 0))) : unset(NO_AE),
+    soft('reports', listReports(env.AB).then(xs => xs[0] ?? null)),
+    soft('change log', readChanges(env.AB)),
+  ])
+  return { ...o, beacon, countingFrom: READERS_FROM, held, waitingPhotos: waiting, kept, crashes, lastReport, changes }
+}
+
 /**
  * The scoreboard's data (admin/scoreboard.ts), each part failing on its own, its weeks Vietnam's whoever asks: the page,
  * /_ab/thanh-cong.json and the daily report all read this.
@@ -217,7 +243,6 @@ export async function loadScoreboard(env: AdminEnv, url: URL, now: Date): Promis
   ])
   return summariseScoreboard({ now, owners: owners(env), beacon, app, community, clicks, content, snapshots, checks })
 }
-const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage(await loadScoreboard(env, url, now), tz)
 /** One daily report as it was sent (daily/page.ts), under the log's section: a page of the web dashboard alone. */
 const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(\\d{1,20})/$`)
 const reportHtml = (id: string): Load<string | undefined> => (env, _url, now, tz) => reportPage(env.AB, id, now, tz)
@@ -235,10 +260,10 @@ const runHtml = (day: string, id: string): Load<string | undefined> => async (en
   const r = env.UPLOADS ? await readRun(env.UPLOADS, day, id) : null
   return r ? runPage(day, r, now, tz) : undefined
 }
-/** The product change log (daily/changelog.ts): web only, outside NAV, as the scoreboard. */
-const changelogHtml: Load<string> = async (env, _url, now, tz) => changelogPage(await loadChangelog(env.AB, now, tz))
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
+  '/_ab/thanh-cong/': view(async (env, url, now, tz) => ({ tz, s: await loadScoreboard(env, url, now) }), d => scoreboardPage(d.s, d.tz), d => scoreboardSection(d.s)),
+  '/_ab/thay-doi/': view((env, _url, now, tz) => loadChangelog(env.AB, now, tz), changelogPage, changelogSection),
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
     const a = ae(env)
     const [stats, low, snapshots] = await Promise.all([contentOf(env, url.origin), env.ASSETS ? soft('reviews', loadLowScores(env.ASSETS, url.origin)) : undefined, soft('snapshots', listSnapshots(env.AB))])
@@ -269,7 +294,7 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
     ])
     // A guess's page by its id, from the catalog the tool links with; never an address from the log itself.
     const pages = new Map((catalog?.entries ?? []).map(e => [e.id, e.url.vi]))
-    return { now, tz, stats, keys, pages }
+    return { now, tz, stats, keys, pages, period: url.searchParams.get('period') }
   }, fishIdPage, fishIdSection),
   '/_ab/anh-nhan-dien/': view(async (env, _url, now, tz) => ({ now, tz, xs: env.UPLOADS ? await soft('kept', recentKept(env.UPLOADS)) : undefined }),
     d => keptPage(d.xs, d.now, d.tz), d => keptSection(d.xs, d.now, d.tz)),
@@ -285,6 +310,19 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
     return { now, tz, xs, waiting }
   }, d => photosPage(d.xs, d.waiting, d.now, d.tz), d => photosSection(d.xs, d.waiting, d.now, d.tz)),
   '/_ab/an-trang/': view(async (env, _url, now, tz) => ({ now, tz, h: await soft('hidden', loadHidden(env.AB, true)) }), d => hiddenPage(d.h, d.now, d.tz), d => hiddenSection(d.h, d.now, d.tz)),
+  '/_ab/binh-luan/': view(async (env, url, now, tz) => {
+    // ?state= (held by default) and, on the web, ?cursor= for an older page; the app's section takes ?state= alone (owner-api.ts).
+    const state = stateOf(url.searchParams.get('state')) ?? 'held'
+    const cursor = readCursor(url.searchParams.get('cursor') ?? '')
+    const db = env.DB
+    const [list, week, stats] = await Promise.all([
+      db ? soft('comments', listComments(db, state, cursor)) : NO_D1,
+      db ? soft('comment week', commentWeek(db, now)) : NO_D1,
+      contentOf(env, url.origin),
+    ])
+    const talk = !db ? NO_D1 : isFailed(stats) ? stats : await soft('comment talk', talkByPage(db, stats, 5))
+    return { now, tz, state, list, week, talk, ...(isFailed(stats) ? {} : { pages: pagesByRef(stats) }) }
+  }, commentsPage, commentsSection),
   '/_ab/tai-khoan/': view(async (env, _url, now, tz) => ({ now, tz, a: env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1') }),
     d => accountsPage(d.a, d.now, d.tz), d => accountsSection(d.a, d.now, d.tz)),
   '/_ab/bao-cao/': view((env, _url, now, tz) => loadReports(env, now, tz, ids => liveOwnerApps(env, ids, now)), reportsPage, reportsSection),
@@ -295,6 +333,12 @@ export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (key
 export const sectionKey = (path: AdminPath) => path.slice('/_ab/'.length, -1)
 /** Every page but the overview, as the app reads them (GET /api/owner/sections/{key}), in the dashboard's order and with its names. */
 export const SECTIONS = NAV.flatMap(([path, name]) => (path === '/_ab/' ? [] : [{ key: sectionKey(path), name, path }]))
+/** The comments after `cursor` for GET /api/owner/comments, each with its page as the section gives it (content.json). */
+export async function moreComments(env: AdminEnv, db: D1Database, url: URL, now: Date, state: CommentState, cursor: NonNullable<ReturnType<typeof readCursor>>): Promise<{ items: CommentItem[]; next?: string }> {
+  const [list, stats] = await Promise.all([listComments(db, state, cursor), contentOf(env, url.origin)])
+  const pages = isFailed(stats) ? undefined : pagesByRef(stats)
+  return { items: list.rows.map(r => commentItem(r, pages, now)), ...(list.next ? { next: list.next } : {}) }
+}
 /** A section as blocks, from the same load as its page; undefined for a key that isn't one. */
 export async function sectionJson(key: string, env: AdminEnv, url: URL, now: Date, tz: string): Promise<Section | undefined> {
   const path = SECTIONS.find(x => x.key === key)?.path
@@ -387,6 +431,18 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     await setSettings(env.AB, change)
     return see(REPORT_PATH)
   }
+  // Show or hide a reader's comment (admin/comments.ts), as the app's POST /api/owner/comments/{id} does; back to the state
+  // the owner was looking at.
+  if (path === COMMENTS_FORM) {
+    if (req.method !== 'POST' || !(await owner()) || !env.DB) return notFound()
+    const form = await req.formData().catch(() => null)
+    const action = form?.get('action')
+    if (!form || (action !== 'show' && action !== 'hide')) return badForm()
+    const done = await decideComment(env.DB, String(form.get('id') ?? ''), action, now)
+    if (typeof done === 'string') return new Response(done === 'expired' ? EXPIRED : GONE, { status: done === 'expired' ? 409 : 404, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } })
+    const state: CommentState = stateOf(String(form.get('state') ?? '')) ?? 'held'
+    return see(`${COMMENTS_PATH}?state=${state}`)
+  }
   if (path === '/_ab/hidden') {
     if (req.method !== 'POST' || !(await owner())) return notFound()
     const form = await req.formData().catch(() => null)
@@ -399,7 +455,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
   const report = REPORT_PAGE.exec(key)
   const oneRun = RUN_PAGE.exec(key)
-  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : key === CHANGELOG_PATH ? changelogHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   // Moved to its own host once Access guards it. A bearer asked for something else, and gets what it always got. Never

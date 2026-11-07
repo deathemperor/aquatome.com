@@ -2,7 +2,8 @@ import { LANG, LANGS, type Lang } from '@aq/schema/langs'
 import { isReader, isSearch } from '../readers'
 import { aeSql, COUNTED, EVENTS, num, READERS_FROM } from './ae'
 import { orNoTable } from './app'
-import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type Tile } from './chart'
+import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Block, type Cell, type Section } from './blocks'
+import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, rankTable, spark, tiles, type DayChart, type Tile } from './chart'
 import { langOfPath, pagePathOf, type ContentStats, type Snapshot } from './content'
 import { dashboardUrl } from '../paths'
 import { failedBox, isFailed, page, SCOREBOARD_PATH, type Failed, type Soft } from './shell'
@@ -118,6 +119,32 @@ const countries = (xs: Visit[], n = 10) => {
   for (const v of readers(xs)) m.set(v.cc || '??', (m.get(v.cc || '??') ?? 0) + 1)
   return [...m].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, n).map(([cc, readers]) => ({ cc, readers }))
 }
+
+type Counts = { answered: number; readers: number; sessions: number; shop: number }
+const counts = (xs: Visit[]): Counts => ({ answered: xs.filter(isAnswered).length, readers: readers(xs).length, sessions: xs.length, shop: shopClicks(xs) })
+/** This week by day, Monday to Sunday in Vietnam, with `today` its place (the days after it null): the overview's chart. */
+export type WeekByDay = { days: string[]; today: number; answered: (number | null)[]; readers: (number | null)[]; shop: (number | null)[]; now: Counts; lastSoFar: Counts | null }
+/**
+ * The scoreboard's this week and same point last week (flow), and this week's days, from the beacon's rows since last
+ * week's Monday: the overview's "Found an answer" says what the scoreboard says. Days before the readers were counted are null.
+ */
+export function weekByDay(now: Date, rows: BeaconRow[], countingFrom = READERS_FROM): WeekByDay {
+  const visits = visitsOf(rows)
+  const monday = mondayOf(localDay(now, HOME_TZ))
+  const days = Array.from({ length: 7 }, (_, i) => plusDays(monday, i))
+  const today = days.indexOf(localDay(now, HOME_TZ))
+  const since = Date.parse(countingFrom)
+  const per = days.map((d, i) => (i > today || Date.parse(dayStart(plusDays(d, 1), HOME_TZ)) <= since ? null : counts(visits.filter(v => localDay(v.at, HOME_TZ) === d))))
+  const week = (m: string) => visits.filter(v => mondayOf(localDay(v.at, HOME_TZ)) === m)
+  const sameMoment = now.getTime() - 7 * DAY
+  return {
+    days, today, answered: per.map(c => c?.answered ?? null), readers: per.map(c => c?.readers ?? null), shop: per.map(c => c?.shop ?? null),
+    now: counts(week(monday)),
+    lastSoFar: Date.parse(dayStart(monday, HOME_TZ)) <= since ? null : counts(week(plusDays(monday, -7)).filter(v => v.at < sameMoment)),
+  }
+}
+/** Where the overview's beacon starts: last week's Monday, Vietnam's. */
+export const lastMondayStart = (now: Date) => dayStart(plusDays(mondayOf(localDay(now, HOME_TZ)), -7), HOME_TZ)
 
 // ——— D1, the app's telemetry, GitHub ———
 
@@ -357,38 +384,70 @@ const GROUP_PARTS: Partial<Record<Group, Part[]>> = { reach: ['beacon'], act: ['
 const row = (mondays: string[]) => (m: Metric) => {
   const was = before(m)
   const chip = m.unit === 'count' && m.now !== null && was ? chipHtml(chipOf(m.now, was.v, was.vs, m.good)) : ''
-  return `<tr><th scope="row">${esc(m.name)}${m.note ? `<small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}">${spark(m.weeks, 1, { labels: mondays.map(d => `Tuần ${dayLabel(d)}`), format: v => shown(v, m.unit) })}</td></tr>`
+  return `<tr><th scope="row">${esc(m.name)}${m.note ? ` <small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}" aria-hidden="true">${spark(m.weeks, 1, { labels: mondays.map(d => `Tuần ${dayLabel(d)}`), format: v => shown(v, m.unit) })}</td></tr>`
 }
 const COLUMNS = ['Tuần này', 'Cùng lúc tuần trước', 'Cả tuần trước', '12 tuần'] as const
-const HEAD = `<thead><tr><th>Chỉ số</th>${COLUMNS.map(c => `<th>${c}</th>`).join('')}</tr></thead>`
+// The 12 weeks are drawn only (the spark is for the eye; the charts and the JSON's own weeks carry the numbers).
+const HEAD = `<thead><tr><th>Chỉ số</th>${COLUMNS.map((c, i) => `<th${i === 3 ? ' aria-hidden="true"' : ''}>${c}</th>`).join('')}</tr></thead>`
 const countryRows = (xs: { cc: string; readers: number }[]) => xs.map(x => ({ label: esc(x.cc), value: x.readers }))
 
-export function scoreboardPage(s: Scoreboard, tz = HOME_TZ): string {
-  const star = metric(s, s.northStar)
-  const mondays = s.weeks
-  const thisWeek = mondays.at(-1)!
-  const end = plusDays(thisWeek, 6)
-  const tile = (m: Metric): Tile => {
-    const was = before(m)
-    return { label: m.name, value: shown(m.now, m.unit), ...(m.unit === 'count' && m.now !== null && was ? { delta: { now: m.now, before: was.v, vs: was.vs, good: m.good } } : {}), ...(m.note && m === star ? { sub: m.note } : {}) }
-  }
-  const chart = (id: string, m: Metric, whole?: Metric) => dayChart({
-    id, title: m.name, days: mondays, period: 'week', partialLast: true, missing: 'chưa đếm', empty: 'Chưa có số liệu trong 12 tuần này.',
+const keyTile = (s: Scoreboard, m: Metric): Tile => {
+  const was = before(m)
+  return { label: m.name, value: shown(m.now, m.unit), ...(m.unit === 'count' && m.now !== null && was ? { delta: { now: m.now, before: was.v, vs: was.vs, good: m.good } } : {}), ...(m.note && m.key === s.northStar ? { sub: m.note } : {}) }
+}
+/** The star and the readers, 12 weeks each. */
+const weekCharts = (s: Scoreboard): DayChart[] => {
+  const c = (id: string, m: Metric, whole?: Metric): DayChart => ({
+    id, title: m.name, days: s.weeks, period: 'week', partialLast: true, missing: 'chưa đếm', empty: 'Chưa có số liệu trong 12 tuần này.',
     series: [{ label: m.name, values: m.weeks }], ...(whole ? { whole: { label: whole.name, values: whole.weeks } } : {}),
   })
-  const groups = (Object.keys(GROUPS) as Group[]).filter(g => g !== 'star').map(g => {
-    const boxes = (GROUP_PARTS[g] ?? []).flatMap(p => (s.failed[p] ? [failedBox(PARTS[p], { failed: s.failed[p]! } satisfies Failed)] : []))
-    const rows = s.metrics.filter(m => m.group === g).map(row(mondays)).join('')
-    return `<section aria-labelledby="g-${g}"><h2 id="g-${g}">${GROUPS[g]}</h2>${boxes.join('')}<div class="scroll"><table class="score">${HEAD}<tbody>${rows}</tbody></table></div>${g === 'reach' ? countriesBlock(s) : ''}</section>`
+  return [c('w-star', metric(s, s.northStar)), c('w-readers', metric(s, 'readers'), metric(s, 'sessions'))]
+}
+const lede = (s: Scoreboard) => {
+  const thisWeek = s.weeks.at(-1)!
+  return `Tuần tính từ Thứ Hai đến Chủ nhật theo giờ Việt Nam, tuần này ${dayLabel(thisWeek)} đến ${dayLabel(plusDays(thisWeek, 6))}. Người đọc đếm từ ${dayLabel(localDay(s.countingFrom, HOME_TZ))}, những tuần trước đó để trống. <a href="${esc(s.docs)}">Định nghĩa từng chỉ số</a>.`
+}
+const groupsOf = () => (Object.keys(GROUPS) as Group[]).filter(g => g !== 'star')
+const failedParts = (s: Scoreboard, g: Group) => (GROUP_PARTS[g] ?? []).flatMap(p => (s.failed[p] ? [[PARTS[p], { failed: s.failed[p]! }] as const] : []))
+
+export function scoreboardPage(s: Scoreboard, tz = HOME_TZ): string {
+  const groups = groupsOf().map(g => {
+    const rows = s.metrics.filter(m => m.group === g).map(row(s.weeks)).join('')
+    return `<section aria-labelledby="g-${g}"><h2 id="g-${g}">${GROUPS[g]}</h2>${failedParts(s, g).map(([what, f]) => failedBox(what, f)).join('')}<div class="scroll"><table class="score">${HEAD}<tbody>${rows}</tbody></table></div>${g === 'reach' ? countriesBlock(s) : ''}</section>`
   }).join('')
   const later = `<section aria-labelledby="g-later"><h2 id="g-later">Chưa đo được</h2><ul class="gaps">${s.notYet.map(x => `<li><p><b>${esc(x.name)}.</b> ${esc(x.needs)}</p></li>`).join('')}</ul></section>`
-  const lede = `Tuần tính từ Thứ Hai đến Chủ nhật theo giờ Việt Nam, tuần này ${dayLabel(thisWeek)} đến ${dayLabel(end)}. Người đọc đếm từ ${dayLabel(localDay(s.countingFrom, HOME_TZ))}, những tuần trước đó để trống. <a href="${esc(s.docs)}">Định nghĩa từng chỉ số</a>.`
-  const body = `<h1>Thành công</h1><p class="lede">${lede}</p>
+  const [star, readers] = weekCharts(s).map(dayChart)
+  const body = `<h1>Thành công</h1><p class="lede">${lede(s)}</p>
 ${s.failed.beacon ? failedBox(PARTS.beacon, { failed: s.failed.beacon }) : ''}
-${tiles(KEY_METRICS.map(k => tile(metric(s, k))))}
-<div class="charts">${chart('w-star', star)}${chart('w-readers', metric(s, 'readers'), metric(s, 'sessions'))}</div>
+${tiles(KEY_METRICS.map(k => keyTile(s, metric(s, k))))}
+<div class="charts">${star}${readers}</div>
 ${groups}${later}`
   return page(SCOREBOARD_PATH, 'Thành công', body, new Date(s.at), tz)
+}
+
+/** The same as blocks, for the app: a metric's row is its name, this week (and its change), the same point last week and all of last week. */
+export function scoreboardSection(s: Scoreboard): Section {
+  const blocks: Block[] = [note(textOf(lede(s)))]
+  if (s.failed.beacon) blocks.push(failedNote(PARTS.beacon, { failed: s.failed.beacon }))
+  blocks.push(figures(KEY_METRICS.map(k => keyTile(s, metric(s, k)))), ...weekCharts(s).map(c => chart(c)))
+  for (const g of groupsOf()) {
+    blocks.push(heading(GROUPS[g], 2, `g-${g}`), ...failedParts(s, g).map(([what, f]) => failedNote(what, f)))
+    blocks.push(table(['Chỉ số', ...COLUMNS.slice(0, 3)], s.metrics.filter(m => m.group === g).map((m): Cell[] => {
+      const was = before(m)
+      const chip = m.unit === 'count' && m.now !== null && was ? chipOf(m.now, was.v, was.vs, m.good) : undefined
+      return [
+        { text: m.name, ...(m.note ? { sub: m.note } : {}) },
+        { text: shown(m.now, m.unit), ...(chip ? { sub: chip.text, ...(chip.tone === 'plain' ? {} : { tone: chip.tone }) } : {}) },
+        { text: shown(m.lastSoFar, m.unit) }, { text: shown(m.last, m.unit) },
+      ]
+    })))
+    if (g === 'reach') {
+      const head = ['Quốc gia', 'Người đọc']
+      blocks.push(heading('Quốc gia, tuần này', 3), rankBlock(countryRows(s.countries.now), head), heading('Quốc gia, tuần trước', 3), rankBlock(countryRows(s.countries.last), head))
+    }
+  }
+  blocks.push(heading('Chưa đo được', 2, 'g-later'), ...s.notYet.map(x => note(`${x.name}. ${x.needs}`)))
+  return { title: 'Thành công', blocks }
 }
 
 function countriesBlock(s: Scoreboard): string {

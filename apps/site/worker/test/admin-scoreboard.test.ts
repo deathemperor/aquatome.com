@@ -275,7 +275,7 @@ test('/_ab/thanh-cong/: the owner\'s, like every dashboard page: the token opens
   }
 })
 
-test('the app\'s section list stays as its contract has it: the scoreboard is on the web dashboard only', () => {
-  expect(NAV.map(([p]) => p)).not.toContain('/_ab/thanh-cong/')
-  expect(SECTIONS.map(s => s.key)).not.toContain('thanh-cong')
+test('the scoreboard is one of the app\'s sections, first after the overview (docs/design/dashboard.md)', () => {
+  expect(NAV.map(([p]) => p).slice(0, 2)).toEqual(['/_ab/', '/_ab/thanh-cong/'])
+  expect(SECTIONS[0]?.key).toBe('thanh-cong')
 })

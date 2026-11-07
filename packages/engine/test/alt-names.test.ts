@@ -2,7 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { breedKin, cleanAltNames, cleanBreedAltNames, type BreedName, type Kin } from '../src/alt-names'
+import { breedKin, cleanAltNames, cleanBreedAltNames, tidyName, tidyNames, type BreedName, type Kin } from '../src/alt-names'
 import { sweep } from '../src/sweep'
 
 // The betta's other names as the engine had stored them (2026-11-04): shop listings of one variety each (BW Aquatics'
@@ -231,4 +231,26 @@ test('the sweep keeps each species and breed page to its own names in every lang
   expect(again.files).toEqual([])
   expect(again.names).toEqual([])
   expect(again.mentions).toEqual([])
+})
+
+test('a name as hobbyists write it: a place keeps its capital, a plant has no "Cây thủy sinh" before it (home page review, 2026-11-07)', () => {
+  expect(tidyName('Rêu java', 'plants')).toBe('Rêu Java')
+  expect(tidyName('Dương xỉ java lá hẹp', 'plants')).toBe('Dương xỉ Java lá hẹp')
+  expect(tidyName('Cỏ nhật bản xanh', 'plants')).toBe('Cỏ Nhật Bản xanh')
+  expect(tidyName('Cây thủy sinh Vallisneria (cỏ lươn)', 'plants')).toBe('Vallisneria (cỏ lươn)')
+  expect(tidyName("Cây thuỷ sinh Nymphoides hydrophylla 'Taiwan'", 'plants')).toBe("Nymphoides hydrophylla 'Taiwan'")
+  expect(tidyName('cá hồng kông phát sáng (GloFish Tetra)', 'breeds')).toBe('cá Hồng Kông phát sáng (GloFish Tetra)')
+  // Words, not places: cherry, decorate, a catfish, Latin epithets, a place inside a longer word; "thủy cúc" is the plant's name.
+  for (const [n, kind] of [['Cá anh đào', 'species'], ['Cua trang trí', 'species'], ['Cá úc biển', 'species'], ['Cá vòi voi Brevimyrus niger', 'species'],
+    ['Cá Pseudolithoxus tigris', 'species'], ['Cá medaka Oryzias javanicus', 'species'], ['Cây thủy cúc', 'plants'], ['Cây thủy sinh', 'plants']] as const) expect(tidyName(n, kind)).toBe(n)
+  // A fish isn't a plant: only a plant's name loses the words.
+  expect(tidyName('Cây thủy sinh Vallisneria', 'species')).toBe('Cây thủy sinh Vallisneria')
+})
+
+test("a page's names tidied: the name a person fixed stays, an other name that becomes the name goes, and nothing changes the second time", () => {
+  const t = { name: "Cây thủy sinh Nymphoides hydrophylla 'Taiwan'", altNames: ['Nymphoides Đài Loan', "Nymphoides hydrophylla 'Taiwan'", 'Rêu java Bogor'] }
+  const r = tidyNames(t, 'plants')
+  expect(r).toEqual({ name: "Nymphoides hydrophylla 'Taiwan'", altNames: ['Nymphoides Đài Loan', 'Rêu Java Bogor'] })
+  expect(tidyNames(r, 'plants')).toBe(r)
+  expect(tidyNames({ name: 'Rêu java', altNames: ['Rêu java Bogor'], nameFixed: true }, 'plants')).toEqual({ name: 'Rêu java', altNames: ['Rêu Java Bogor'], nameFixed: true })
 })

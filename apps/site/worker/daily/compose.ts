@@ -66,7 +66,7 @@ export function needsCare({ now, overview: o, app, gh, scoreboard }: ComposeInpu
   // Past MODERATION_MISSED_MS, the overview's own to-do below says it.
   if (!isFailed(o.waiting) && o.waiting.oldest) {
     const age = now.getTime() - Date.parse(o.waiting.oldest)
-    if (age > QUEUE_LATE_MS && age <= MODERATION_MISSED_MS) out.push({ title: 'Moderation is behind', text: `${waitingEn(o.waiting)} waiting since ${when(o.waiting.oldest, now)}.`, href: o.waiting.photos ? '/_ab/anh-ban-doc/' : '/_ab/tai-khoan/' })
+    if (age > QUEUE_LATE_MS && age <= MODERATION_MISSED_MS) out.push({ title: 'Moderation is behind', text: `${waitingEn(o.waiting)} waiting since ${when(o.waiting.oldest, now)}.`, href: o.waiting.photos ? '/_ab/anh-ban-doc/' : '/_ab/binh-luan/' })
   }
   for (const t of todos({ ...o, tz: HOME_TZ })) out.push({ title: t.en.title, text: t.en.text, href: t.href })
   if (isFailed(app)) out.push({ title: 'Could not load the app\'s telemetry', text: 'Its dashboard page has the error.', href: '/_ab/ung-dung/' })
