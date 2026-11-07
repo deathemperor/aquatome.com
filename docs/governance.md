@@ -903,6 +903,14 @@ The layers above still check the result.
    before pushing with `apps/site/e2e/page-shots.mjs` (apps/site/e2e/README.md). A page that changed but isn't in the
    sample is named: `node e2e/page-shots.mjs <before> <after> <out> /x/,/y/`.
 
+**The Anthropic key pool looks after itself (the owner's rule, 2026-11-07).** A key stays out of credit until credit is
+added, and nobody asks the owner to top one up. A key that answers out of credit or refused is turned off for 24 hours and
+the next key takes over by itself, for fish ID, the chat and the evals alike: they all go through `fishid/keys.ts`
+(`classify`, `rotate`, `healthyKeys`; `key-pool.test.ts`, and a key emptying in the middle of a run in
+`fishid-agent.test.ts`). It is tried again after the 24 hours, so added credit needs no step from anyone. One key out, or
+some, is not a problem to raise: only the fish ID page shows it. **Every key out stops fish ID and the chat: that alone is
+a blocker**, on the dashboard's to-dos and in the daily report.
+
 ### main's ruleset (GitHub)
 
 - `main` can't be deleted or force-pushed. Changes arrive by pull request, squash-merged, after the `test` check
@@ -1003,7 +1011,8 @@ Rules (as for the site):
 4. No real device names (they carry the device's address), addresses or IDs, and no signing team ID, in the repository.
 5. **A performance budget only tightens.** A change that makes the app cheaper may lower its budget. Raising one needs a
    new `reason` in `perf-budgets.json` saying why the cost is worth it; the PR check fails on a budget raised with the
-   old reason, or removed.
+   old reason, or removed. The app's size is the one not to lower: 20 MB is the owner's room (2026-11-08), not a reading,
+   so it stays until the owner changes it. The job still reports each measured size.
 6. **A change to how a screen looks shows it before and after**, so its author critiques their own work against them
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
    pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, the fish's top in large text, and a

@@ -75,6 +75,21 @@
       "Item 12: \"Tambahan sampah daun kering lagi menonjolkan\" is clumsy. Use \"Penambahan daun kering lebih menonjolkan suasana semula jadi\"."
     ]
   },
+  "carinotetraodon-travancoricus": {
+    "at": "2026-11-07",
+    "from": "2026-11-01",
+    "name": "Pea puffer",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 7: IUCN \"vulnerable\" is rendered as \"terancam\" and \"endangered\" as \"terancam teruk\". In Malay, Vulnerable is \"Rentan\" and Endangered is \"Terancam\". The category ranking is wrong, so use \"rentan (vulnerable)\" and \"terancam (endangered)\".",
+      "Item 5: \"disenaraikan sebagai terancam (vulnerable)\" has the same error. Use \"rentan (vulnerable)\".",
+      "Item 36: \"bukan pembiak bertelur dalam badan (livebearer)\" is wrong. A livebearer gives birth to live young. Use \"bukan ikan beranak (livebearer)\".",
+      "Item 24: \"kutu air (daphnia)\" and \"kutu air (moina)\" use the same Malay term for two different live foods. Differentiate them, e.g. \"kutu air (daphnia)\" and \"moina\". \"vinegar eel\" and \"blackworm\" are left in English with no gloss.",
+      "Item 6: \"kedai haiwan peliharaan berangkai\" is awkward. Use \"rangkaian kedai haiwan peliharaan\". \"Spesies unik\" for \"oddball species\" loses the sense; use \"spesies yang agak pelik/luar biasa\".",
+      "Item 38: \"mengurat\" for courtship is too colloquial. Use \"pemikatan\" or \"tingkah laku pasangan\"."
+    ]
+  },
   "channa-andrao": {
     "at": "2026-11-07",
     "from": "2026-10-30",
@@ -282,6 +297,17 @@
       "Item 5: \"agak tidak cerewet\" is slightly stilted. \"tidak terlalu cerewet\" would be more natural."
     ]
   },
+  "dichotomyctere-nigroviridis": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Buntal pisang",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 11: \"lebih 1000 kali ganda lebih toksik\" repeats \"lebih\". Use \"lebih 1000 kali ganda toksik\" or \"melebihi 1000 kali ganda lebih toksik\".",
+      "Items 1 and 8: \"spiteful\" is rendered as \"garang\" (fierce). \"Pendendam\" or \"agresif\" would be closer, but the meaning is mostly kept."
+    ]
+  },
   "epalzeorhynchos-bicolor": {
     "at": "2026-11-06",
     "from": "2026-10-30",
@@ -415,6 +441,21 @@
       "Item 11: \"diatributkan kepada\" is awkward; use \"dikaitkan dengan\" or \"dikreditkan kepada\"."
     ]
   },
+  "monodactylus-argenteus": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Ikan Mono",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 4: \"ikan ini haiwan yang tahan lasak\" is awkward; use \"ikan ini sangat tahan lasak\" or \"ialah haiwan yang tahan lasak\".",
+      "Item 4: \"g garam/liter\" mixes the unit styles; use \"g garam/L\" or \"g garam seliter\".",
+      "Item 7: \"sebarang keagresifan teragih dalam kumpulan\" is clumsy; use \"supaya keagresifan terbahagi/tersebar dalam kumpulan\".",
+      "Item 7: \"incompatible with conspecifics\" is rendered as \"agresif\". This slightly changes the meaning; \"tidak serasi dengan sesama spesies\" is closer.",
+      "Item 6: \"ia disarankan diberi makan\" is stiff and passive; use \"disarankan memberi makan beberapa kali sehari dalam bahagian kecil\".",
+      "Item 1: \"Ikan mono\" is fine, but \"magnificent\" is rendered as plain \"cantik\"; \"menawan\" would be closer."
+    ]
+  },
   "neocaridina-davidi": {
     "at": "2026-11-06",
     "from": "2026-10-28",
@@ -506,6 +547,19 @@
     "notes": [
       "Item 16: \"well-researched community aquarium\" is rendered as \"dirancang dengan teliti\" (carefully planned). Use \"yang dikaji dengan baik\" or \"yang dirancang berdasarkan kajian\". This is minor.",
       "Item 4/5: \"feral\" is left as \"populasi feral\". Item 3 gives a gloss, but \"populasi liar yang terlepas\" would read more naturally."
+    ]
+  },
+  "phenacogrammus-interruptus": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "Congo tetra",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 21: \"pasangan Afrika kepada tetra Amerika Selatan\" – \"pasangan\" reads as a mated couple; use \"setara\" or \"padanan Afrika\" for \"counterpart\".",
+      "Item 21: \"pertunjukan mengurat\" is too colloquial for courtship displays; use \"pertunjukan percumbuan\" or \"gelagat mengawan\".",
+      "Item 17: \"sirip yang lebih menarik\" and \"sirip yang menarik\" are vague for \"elaborate fins\"; use \"sirip yang lebih rumit/berhias\".",
+      "Item 1: \"Warnanya akan timbul\" is a bit awkward; \"warnanya semakin terserlah\" is more natural."
     ]
   },
   "phractocephalus-hemioliopterus": {
@@ -702,6 +756,14 @@
       "Item 11: \"sirip ekor berbentuk rata hingga bulan sabit\" is a loose rendering of \"truncate to lunate\". \"Terpangkas hingga sabit\" is clearer.",
       "Item 10: \"substrate spawner\" is rendered as \"bertelur di atas permukaan\", which is vague. \"Bertelur pada substrat\" is closer to the hobby term."
     ]
+  },
+  "toxotes-jaculatrix": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Ikan sumpit",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
   },
   "trichogaster-lalius": {
     "at": "2026-11-06",

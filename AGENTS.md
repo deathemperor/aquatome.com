@@ -41,12 +41,12 @@ there: the script in every page (`OWNER_SCRIPT`) only loads it and may not grow.
 - The languages are one table, `packages/schema/src/langs.ts`: whether it's served, code, address prefix, `lang`, locale,
   own name, browser tags and countries. The engine, the site and the Worker read it, and each one's words per language
   are keyed by its `Lang`, so the compiler names what a new row still needs.
-- A row with `served: false` is the engine's alone (Malay, for now): it writes the language through `WRITTEN_LANGS` and
-  `WrittenLang`, while the site, the Worker, the sitemap, the chooser and the protocols read `LANGS` and `Lang` and don't
-  see it. `served: true` puts it live, and then the compiler names the site's maps.
-- Vietnamese pages are at the root (`src/pages/ca/[slug].astro` → `/ca/<slug>/`), and Indonesian and Thai ones mount
-  the same files under `/id/` and `/th/`. A new section gets a folder in `src/pages/` and an entry in `VI_SECTIONS`
-  (`apps/site/worker/paths.ts`): a test holds them, and wrangler's `run_worker_first`, to the folders.
+- A row with `served: false` is the engine's alone (none since Malay went live): it writes the language through
+  `WRITTEN_LANGS` and `WrittenLang`, while the site, the Worker, the sitemap, the chooser and the protocols read `LANGS`
+  and `Lang` and don't see it. `served: true` puts it live, and then the compiler names the site's maps.
+- Vietnamese pages are at the root (`src/pages/ca/[slug].astro` → `/ca/<slug>/`), and Indonesian, Thai and Malay ones
+  mount the same files under `/id/`, `/th/` and `/ms/`. A new section gets a folder in `src/pages/` and an entry in
+  `VI_SECTIONS` (`apps/site/worker/paths.ts`): a test holds them, and wrangler's `run_worker_first`, to the folders.
 - Write a link to a page as `/vi/…`. The build rewrites it to each language's address (`src/lib/i18n.ts`). Old `/vi/…`
   addresses 301 to the root. The app's files keep the `/vi/` form until `APP_VI_ROOT` turns on.
 

@@ -102,6 +102,19 @@
       "kept": true
     }
   ],
+  "vi/plants/crinum-calamistratum": [
+    {
+      "at": "2026-11-07T16:39:37Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"Lá cây có thể dài 50–75 cm\" takes the video guide's figure, but the plant's own page says 40 to 120 cm. The two don't match, and the page's range would be the safer one to use.",
+        "\"Đừng buộc cây lên lũa hay đá như dương xỉ Java\" is ambiguous: it can be read as \"don't tie it on like you would a Java fern\" or as \"don't tie it on driftwood or stone, like a Java fern\". It could be clearer, e.g. \"Khác với dương xỉ Java, đừng buộc cây lên lũa hay đá\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/echinodorus-ozelot-green": [
     {
       "at": "2026-11-07T13:38:26Z",

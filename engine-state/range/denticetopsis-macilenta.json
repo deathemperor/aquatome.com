@@ -1,0 +1,107 @@
+{
+  "id": "denticetopsis-macilenta",
+  "native": {
+    "input": "f13f4d1c282d14f6",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Creek below Potaro Landing (5°23'N, 59°08'W), Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Potaro River, Essequibo River basin (Guyana and Venezuela); Peru.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Potaro River, Essequibo River basin (Guyana and Venezuela); Peru.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Potaro River, Essequibo River basin (Guyana and Venezuela); Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo River",
+        "source": "planetcatfish",
+        "quote": "South America: Essequibo River basin in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Essequibo River",
+        "source": "scotcat",
+        "quote": "South America: Potaro River, Essequibo River basin (Guyana and Venezuela); Peru.",
+        "ok": true
+      },
+      {
+        "name": "Potaro River",
+        "source": "scotcat",
+        "quote": "This species can be found primarily in the Potaro River, across the Essequibo River basin, Guyana.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Denticetopsis macilenta",
+    "status": "ACCEPTED",
+    "taxonKey": 2337967,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "VE",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

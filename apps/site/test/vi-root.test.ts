@@ -33,8 +33,8 @@ test('the home page is the Vietnamese one, at the root; nothing is built under /
 
 test('canonical, hreflang and x-default name the root addresses; the other languages\' stay', () => {
   const links = (path: string) => Object.fromEntries(page(path).dom.querySelectorAll('link[rel="canonical"], link[rel="alternate"][hreflang]').map(l => [l.getAttribute('hreflang') ?? 'canonical', new URL(l.getAttribute('href')!).pathname]))
-  expect(links('/')).toEqual({ canonical: '/', vi: '/', id: '/id/', th: '/th/', 'x-default': '/' })
-  expect(links('/cong-cu/the-tich-be/')).toEqual({ canonical: '/cong-cu/the-tich-be/', vi: '/cong-cu/the-tich-be/', id: '/id/alat/volume-akuarium/', th: '/th/tools/tank-volume/', 'x-default': '/cong-cu/the-tich-be/' })
+  expect(links('/')).toEqual({ canonical: '/', vi: '/', id: '/id/', th: '/th/', ms: '/ms/', 'x-default': '/' })
+  expect(links('/cong-cu/the-tich-be/')).toEqual({ canonical: '/cong-cu/the-tich-be/', vi: '/cong-cu/the-tich-be/', id: '/id/alat/volume-akuarium/', th: '/th/tools/tank-volume/', ms: '/ms/alat/isi-padu-tangki/', 'x-default': '/cong-cu/the-tich-be/' })
   expect(links('/id/alat/volume-akuarium/')).toMatchObject({ canonical: '/id/alat/volume-akuarium/', vi: '/cong-cu/the-tich-be/', 'x-default': '/cong-cu/the-tich-be/' })
   // The language menu takes a reader to the root address too.
   expect(page('/id/').dom.querySelector('[data-lang-menu] a[data-lang="vi"]')?.getAttribute('href')).toBe('/')
