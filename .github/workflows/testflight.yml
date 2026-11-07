@@ -28,6 +28,7 @@ jobs:
     outputs:
       upload: ${{ steps.decide.outputs.upload }}
       whats_new: ${{ steps.notes.outputs.whats_new }}
+      runner: ${{ steps.where.outputs.runner }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -62,6 +63,23 @@ jobs:
           else
             echo upload=yes >> "$GITHUB_OUTPUT"
           fi
+      # Where the upload runs: GitHub's Macs, or the own Mac (apps/ios/README.md, "CI's own Mac") when GitHub's are backed
+      # up and the own Mac isn't taking main's iOS runs (IOS_LOCAL_RUNNER off). On 2026-11-08 v2's upload waited 2 h 50 min
+      # behind about 30 iOS jobs while the own Mac sat idle. The own Mac's Xcode can be newer than GitHub's image. Only
+      # main's own runs go there: its job-started hook refuses anything else.
+      - id: where
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LOCAL_RUNS: ${{ vars.IOS_LOCAL_RUNNER }}
+          OWN: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+        run: |
+          waiting=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/ios.yml/runs?status=queued&per_page=1" --jq .total_count || true)
+          if [ "$OWN" = true ] && [ "$LOCAL_RUNS" != on ] && [ "${waiting:-0}" -ge 3 ] 2>/dev/null; then
+            echo "$waiting iOS runs wait for GitHub's Macs: this upload runs on the own Mac"
+            echo 'runner=["self-hosted","macOS","aquatome"]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'runner="macos-26"' >> "$GITHUB_OUTPUT"
+          fi
       # TestFlight's "What to Test" for this build: the pull requests merged into the app since the last upload, in
       # English as their titles are (apps/ios/scripts/testflight-notes.py). A pull request checks the script only.
       # Never stops an upload: a note that can't be written is a warning, and the build goes up without one.
@@ -93,7 +111,7 @@ jobs:
     if: >-
       needs.check.outputs.upload == 'yes' &&
       (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
-    runs-on: macos-26
+    runs-on: ${{ fromJSON(needs.check.outputs.runner) }}
     timeout-minutes: 100
     env:
       KEY_ID: ${{ vars.APP_STORE_CONNECT_KEY_ID }}
