@@ -145,7 +145,7 @@ jobs:
       - run: apps/ios/scripts/wait-for-simulator.sh
       # Main's runs on the own Mac (`parallel`): the copies of its simulator that xcodebuild made, named "Clone <n> of" it,
       # deleted, before the flows and after. A cancel or the hour's limit kills xcodebuild about ten seconds after asking
-      # it to stop, often before it deletes them, and three simulators left running would load someone's working Mac.
+      # it to stop, often before it deletes them, and simulators left running would load someone's working Mac.
       - name: The own Mac's simulator copies deleted
         if: always() && needs.changes.outputs.parallel != ''
         run: |
@@ -268,7 +268,7 @@ jobs:
       - run: apps/ios/scripts/wait-for-simulator.sh
       # Main's runs on the own Mac (`parallel`): the copies of its simulator that xcodebuild made, named "Clone <n> of" it,
       # deleted, before the flows and after. A cancel or the hour's limit kills xcodebuild about ten seconds after asking
-      # it to stop, often before it deletes them, and three simulators left running would load someone's working Mac.
+      # it to stop, often before it deletes them, and simulators left running would load someone's working Mac.
       - name: The own Mac's simulator copies deleted
         if: always() && needs.changes.outputs.parallel != ''
         run: |

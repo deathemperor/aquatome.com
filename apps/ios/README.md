@@ -292,7 +292,8 @@ would have.
 Jobs `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (a self-hosted runner, label
 `aquatome`) for main: after merges, the nightly run and a run by hand; job `kit` too, nightly. GitHub's Macs keep every pull request, which then
 have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). Two runners run,
-`aquatome-mac-1` and `aquatome-mac-2`, a job each, each job's flows on two copies of its simulator (four in all). That
+`aquatome-mac-1` and `aquatome-mac-2`, a job each; jobs `app` and `handbook` run their flows on two copies of the
+runner's simulator (four in all), `lights` on one. That
 Mac is also someone's working machine:
 
 - 2026-11-05: two runners, with pull requests on them too, overloaded it; `aquatome-mac-2` was stopped and disabled.
@@ -301,7 +302,8 @@ Mac is also someone's working machine:
 - From 2026-11-07, a trial: two runners again, now that pull requests stay off the Mac, with two copies each. It's judged
   on the next three main runs against one runner's: time end to end, retries and flakes per run, and peak CPU. If
   retries or flakes go up, back to one runner (`launchctl bootout` and `disable` `aquatome-mac-2`, as before) with three
-  copies, and this section says so.
+  copies (`-parallel-testing-worker-count 3` in `ios.yml`'s `where` step, a pull request of its own), and this section
+  says so.
 
 Each service has `Nice` 10, which reaches its builds but not the simulator's processes: launchd starts those, at normal
 priority. Of the runs waiting, only the newest is kept.
