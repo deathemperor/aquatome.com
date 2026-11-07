@@ -47,6 +47,9 @@ describe('the judge reads both answers without our name or links', () => {
   it('the name, full links and site paths go', () => {
     expect(unbrand('Theo cẩm nang AquaTome, xem https://aquatome.com/ca/x/ hoặc /vi/huong-dan/reu-toc/.')).toBe('Theo cẩm nang, xem [link] hoặc [link]')
   })
+  it('the bare domain and the Vietnamese pages at the root go too', () => {
+    expect(unbrand('Xem aquatome.com/ca/x hoặc /ca/betta-splendens/ và (/huong-dan/reu-toc/).')).toBe('Xem [link] hoặc [link] và ([link]).')
+  })
   it('a fraction or a date stays', () => {
     expect(unbrand('pH 6/7, ngày 12/11')).toBe('pH 6/7, ngày 12/11')
   })
@@ -121,6 +124,9 @@ describe('the panel: other judges read many pairs in one packet, each once', () 
     const v = { pair: 2, criteria: { correct: 'X', fits: 'X', actionable: 'Y', grounded: 'tie', local: 'X' }, better: 'X', scoreX: 7, scoreY: 5, lacksX: [], lacksY: ['plan'], errorsX: [], errorsY: [], why: '' }
     const read = readPanel(`Here:\n\`\`\`json\n${JSON.stringify([v, { pair: 3, better: 'X' }])}\n\`\`\``)
     expect([...read.keys()]).toEqual([2])
+    // A bracket in the prose before the array, or no array at all, is no crash.
+    expect([...readPanel(`Pairs [1–2] below, "[chạm để đọc tiếp]" kept:\n${JSON.stringify([v])}`).keys()]).toEqual([2])
+    expect(readPanel('Sorry, no verdicts.').size).toBe(0)
     expect(single(read.get(2)!, 'Y')).toEqual({ better: 'plain', criteria: { correct: 'plain', fits: 'plain', actionable: 'ours', grounded: 'tie', local: 'plain' }, ours: 5, plain: 7 })
   })
 })

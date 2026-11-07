@@ -114,7 +114,7 @@ export function blockText(b: ChatBlock): string {
         ? [c.verdict?.text, ...c.warnings, c.stocking ? `Mức đầy bể: ${c.stocking.percent}% — ${c.stocking.text}${c.stocking.notes.length ? ` (${c.stocking.notes.join('; ')})` : ''}` : undefined, c.minTank, c.unsized, c.unchecked]
         : []
       const tank = b.tank ? ` cho ${b.tank.name}${b.tank.dims ? ` ${b.tank.dims.l}×${b.tank.dims.w}×${b.tank.dims.h} cm` : ''}` : ''
-      const filled = b.url && !c ? ` (đã điền sẵn: ${decodeURIComponent(b.url.split('?')[1] ?? '').replace(/&/g, ', ') || 'trống'})` : ''
+      const filled = b.url && !c ? ` (đã điền sẵn: ${[...new URLSearchParams(b.url.split('?')[1] ?? '')].map(([k, v]) => `${k}=${v}`).join(', ') || 'trống'})` : ''
       return [`[Công cụ: ${b.name}${tank}${filled}]`, ...lines.filter((l): l is string => Boolean(l))].join('\n')
     }
   }
@@ -126,7 +126,11 @@ export function seenOurs(text: string, blocks: ChatBlock[], suggestions: string[
 }
 
 /** The site's name and links out of both answers: the judge isn't told which answer is ours, and these would tell it. */
-export const unbrand = (s: string) => s.replace(/\s*\bAquaTome\b/gi, '').replace(/https?:\/\/\S+/g, '[link]').replace(/(^|[\s(])\/(vi|id|th)\/[^\s)]*/g, '$1[link]')
+export const unbrand = (s: string) => s
+  .replace(/https?:\/\/[^\s)]+/g, '[link]')
+  .replace(/\b(www\.)?aquatome\.com[^\s)]*/gi, '[link]')
+  .replace(/\s*\bAquaTome\b/gi, '')
+  .replace(/(^|[\s(])\/((vi|id|th)|ca|cay|huong-dan|thuat-ngu|cong-cu|thiet-bi|video)\/[^\s)]*/g, '$1[link]')
 
 /** What an answer most lacks, as the judge tags it: the gap list the next builds follow. */
 export const LACKS = ['plan', 'diagnosis', 'tank-fit', 'figures', 'follow-up', 'local', 'too-thin', 'too-long', 'asks-only', 'wrong', 'unsafe', 'off-topic'] as const
@@ -258,10 +262,12 @@ ${pairs.map(one).join('\n\n---\n\n')}
 export const panelSide = (hex: string): 'X' | 'Y' => (parseInt(hex.slice(0, 8), 16) % 2 ? 'X' : 'Y')
 /** A panel reply's verdicts by pair: the JSON array, in a code fence or not. A pair without every field is left out. */
 export function readPanel(text: string): Map<number, Verdict> {
-  const json = text.slice(text.indexOf('['), text.lastIndexOf(']') + 1)
+  // The whole reply, else a fenced block, else from the first "[{" to the last "}]": a bracket in prose before it is no array.
+  const tries = [text, /```(?:json)?\s*([\s\S]*?)```/.exec(text)?.[1], /\[\s*\{[\s\S]*\}\s*\]/.exec(text)?.[0]]
+  const parsed = tries.map(t => { try { return t ? (JSON.parse(t) as unknown) : undefined } catch { return undefined } }).find(Array.isArray) as (Verdict & { pair: number })[] | undefined
   const out = new Map<number, Verdict>()
   const sides = ['X', 'Y', 'tie']
-  for (const v of JSON.parse(json) as (Verdict & { pair: number })[]) {
+  for (const v of parsed ?? []) {
     const ok = Number.isInteger(v.pair) && sides.includes(v.better) && CRITERIA.every(c => sides.includes(v.criteria?.[c])) &&
       typeof v.scoreX === 'number' && typeof v.scoreY === 'number'
     if (ok) out.set(v.pair, { ...v, lacksX: v.lacksX ?? [], lacksY: v.lacksY ?? [], errorsX: v.errorsX ?? [], errorsY: v.errorsY ?? [], why: v.why ?? '' })

@@ -15,7 +15,8 @@
  * per count (correct, fits, actionable, grounded, local), tags what each lacks and quotes any error.
  *
  *   pnpm --filter @aq/engine exec tsx scripts/chat-vs-plain.ts                      # every question, both conditions
- *   … --only algae-01,sick-03 --conditions tank --concurrency 4 --judges 3
+ *   … --only algae-01,sick-03 --conditions tank --concurrency 4 --judges 3   # pairs judged at once, two orders each
+ *   … --retry-failed            # ask again where a cached answer failed (a timeout, no key), instead of keeping it
  *   … --model claude-haiku-5-5 --judge claude-opus-5-5 --site https://aquatome.com --out <file>
  *   … --panel <dir>             # also one blind packet for other judges (panel.md, key.json); their replies,
  *                               # saved there as verdicts-<judge>.json, join the report on the next run
@@ -42,7 +43,7 @@ import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type Key
 import { claudeCli } from '../src/claude'
 import {
   CONDITIONS, CRITERIA, JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, LACKS, outcome, panelPrompt, panelSide, readPanel, RUBRIC_VERSION, savedTank, seenOurs, single,
-  tankFacts, TOPICS, unbrand, type Condition, type HardQuestion, type Judged, type PairOutcome, type Verdict,
+  tankFacts, TOPICS, unbrand, type Condition, type Criterion, type HardQuestion, type Judged, type PairOutcome, type Verdict,
 } from './chat-vs-plain-lib'
 import { pool, retry } from './eval-lib'
 
@@ -66,6 +67,7 @@ const { values: args } = parseArgs({
     cache: { type: 'string', default: '/tmp/chat-vs-plain' },
     out: { type: 'string', default: join(ROOT, 'docs/review/chat-vs-plain.md') },
     panel: { type: 'string' },
+    'retry-failed': { type: 'boolean', default: false },
   },
 })
 const MODEL = args.model!
@@ -84,9 +86,13 @@ const brain = hash(brainFiles.map((f, i) => [f, brainBlobs[i]]))
 const commit = `${git('log', '-1', '--format=%h', '--', ...BRAIN)}${git('status', '--porcelain', '--', ...BRAIN) ? ', with changes not committed' : ''}`
 
 let cacheDir = ''
+/** Read or make and keep; an answer that failed is kept too (a run is repeatable), unless --retry-failed asks again. */
 const cachedFile = async <T>(name: string, make: () => Promise<T>): Promise<T> => {
   const file = join(cacheDir, name)
-  try { return JSON.parse(await readFile(file, 'utf8')) as T } catch { /* not yet */ }
+  try {
+    const v = JSON.parse(await readFile(file, 'utf8')) as T
+    if (!(args['retry-failed'] && (v as { failed?: string }).failed)) return v
+  } catch { /* not yet */ }
   const v = await make()
   await writeFile(file, JSON.stringify(v, null, 2))
   return v
@@ -139,6 +145,7 @@ const asked = (q: HardQuestion, c: Condition) => (c === 'post' ? q.post : q.shor
 const seen = (a: Answered): Answered => (a.turn ? { ...a, text: seenOurs(a.turn.text, a.turn.blocks, a.turn.suggestions) } : a)
 
 async function main() {
+  if (!['all', 'dev', 'holdout'].includes(args.split!)) throw new Error(`--split is all, dev or holdout, not "${args.split}"`)
   const all = JSON.parse(await readFile(args.questions!, 'utf8')) as HardQuestion[]
   held = holdout(all)
   const questions = all
@@ -216,24 +223,41 @@ async function main() {
 }
 
 /**
- * The panel (`--panel <dir>`): writes the pairs the judge judged as one blind packet, panel.md (the rubric once, each
- * pair once, ours on the side its hash picks), and which side is ours, key.json. Each other judge's reply, its JSON
- * array, saved as verdicts-<judge>.json in the same folder, is read back into the report on the next run.
+ * The panel (`--panel <dir>`): the pairs the judge judged as one blind packet, <dir>/panel.md (the rubric once, each pair
+ * once, ours on the side its hash picks), and its key beside the folder, <dir>.key.json, out of the judges' sight: each
+ * pair's question, side and the answers it showed. Each other judge's reply, its JSON array, saved in the folder as
+ * verdicts-<judge>.json, is read back by the key on a later run, never rewritten: a verdict counts only for the pair
+ * it was given, with the same answers. Delete the verdicts to write a new packet.
  */
+type KeyPair = { pair: number; id: string; condition: Condition; oursIs: 'X' | 'Y'; answers: string }
 async function panelOf(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: Answered; result?: PairOutcome }[], dir: string) {
   await mkdir(dir, { recursive: true })
-  const sorted = [...pairs].sort((a, b) => hash(a.q.id, a.c).localeCompare(hash(b.q.id, b.c)))
-  const sides = sorted.map(p => panelSide(hash('side', p.q.id, p.c)))
-  await writeFile(join(dir, 'panel.md'), panelPrompt(sorted.map((p, i) => {
-    const [x, y] = sides[i] === 'X' ? [p.ours.text, p.plain.text] : [p.plain.text, p.ours.text]
-    return { pair: i + 1, question: asked(p.q, p.c), tank: p.c === 'tank' && p.q.tank ? tankFacts(p.q.tank) : null, x: unbrand(x), y: unbrand(y) }
-  })))
-  await writeFile(join(dir, 'key.json'), JSON.stringify({ commit, model: MODEL, pairs: sorted.map((p, i) => ({ pair: i + 1, id: p.q.id, condition: p.c, oursIs: sides[i] })) }, null, 2))
-  console.log(`Panel: ${join(dir, 'panel.md')} (${sorted.length} pairs)`)
+  const keyFile = `${dir.replace(/\/+$/, '')}.key.json`
   const files = (await readdir(dir)).filter(f => /^verdicts-.+\.json$/.test(f)).sort()
+  const answers = (p: (typeof pairs)[number]) => hash(p.ours.text, p.plain.text)
+  if (!files.length) {
+    const sorted = [...pairs].sort((a, b) => hash(a.q.id, a.c).localeCompare(hash(b.q.id, b.c)))
+    const key: KeyPair[] = sorted.map((p, i) => ({ pair: i + 1, id: p.q.id, condition: p.c, oursIs: panelSide(hash('side', p.q.id, p.c)), answers: answers(p) }))
+    await writeFile(join(dir, 'panel.md'), panelPrompt(sorted.map((p, i) => {
+      const [x, y] = key[i]!.oursIs === 'X' ? [p.ours.text, p.plain.text] : [p.plain.text, p.ours.text]
+      return { pair: i + 1, question: asked(p.q, p.c), tank: p.c === 'tank' && p.q.tank ? tankFacts(p.q.tank) : null, x: unbrand(x), y: unbrand(y) }
+    })))
+    await writeFile(keyFile, JSON.stringify({ commit, model: MODEL, pairs: key }, null, 2))
+    console.log(`Panel: ${join(dir, 'panel.md')} (${sorted.length} pairs), its key ${keyFile}`)
+    return []
+  }
+  const key = (JSON.parse(await readFile(keyFile, 'utf8')) as { pairs: KeyPair[] }).pairs
+  const now = new Map(pairs.map(p => [`${p.q.id} ${p.c}`, p]))
   return Promise.all(files.map(async f => {
+    const judge = f.slice('verdicts-'.length, -'.json'.length)
     const verdicts = readPanel(await readFile(join(dir, f), 'utf8'))
-    return { judge: f.slice('verdicts-'.length, -'.json'.length), results: sorted.flatMap((p, i) => (verdicts.has(i + 1) ? [{ p, r: single(verdicts.get(i + 1)!, sides[i]!) }] : [])) }
+    if (!verdicts.size) console.log(`panel: no verdicts read in ${f}`)
+    const results = key.flatMap(k => {
+      const p = now.get(`${k.id} ${k.condition}`)
+      const v = verdicts.get(k.pair)
+      return p && v && answers(p) === k.answers ? [{ p, r: single(v, k.oursIs) }] : []
+    })
+    return { judge, results, left: key.filter(k => now.has(`${k.id} ${k.condition}`)).length - results.length }
   }))
 }
 type Panel = Awaited<ReturnType<typeof panelOf>>
@@ -246,13 +270,17 @@ const counts = (xs: string[]) => Object.entries(xs.reduce<Record<string, number>
 
 function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: Answered; result?: PairOutcome }[], n: number, panel: Panel = []): string {
   const done = pairs.filter(p => p.result)
-  // Ours failed and plain answered: the reader got an error, so plain wins it on every count (no score: nothing to judge).
+  // One side failed and the other answered: that reader got an error, so the other side wins it on every count (no score:
+  // nothing to judge). Both failed: left out.
   const lost = (p: (typeof pairs)[number]) => Boolean(p.ours.failed) && !p.plain.failed
+  const won = (p: (typeof pairs)[number]) => Boolean(p.plain.failed) && !p.ours.failed
   const row = (label: string, all: typeof pairs) => {
     const ps = all.filter(p => p.result)
     const failed = all.filter(lost).length
-    const w = (o: 'ours' | 'plain' | 'tie') => ps.filter(p => p.result!.better === o).length + (o === 'plain' ? failed : 0)
-    return `| ${label} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${ps.length + failed}${failed ? `, ours failed ${failed}` : ''} | ${avg(ps.map(p => p.result!.ours))} · ${avg(ps.map(p => p.result!.plain))} | ${CRITERIA.map(c => `${ps.filter(p => p.result!.criteria[c] === 'ours').length}–${ps.filter(p => p.result!.criteria[c] === 'plain').length + failed}`).join(' | ')} | ${pct(ps.filter(p => p.result!.consistent).length, ps.length)} | ${stops(all)} |`
+    const plainFailed = all.filter(won).length
+    const w = (o: 'ours' | 'plain' | 'tie') => ps.filter(p => p.result!.better === o).length + (o === 'plain' ? failed : o === 'ours' ? plainFailed : 0)
+    const by = (c: Criterion, o: 'ours' | 'plain') => ps.filter(p => p.result!.criteria[c] === o).length + (o === 'plain' ? failed : plainFailed)
+    return `| ${label} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${ps.length + failed + plainFailed}${failed ? `, ours failed ${failed}` : ''}${plainFailed ? `, plain failed ${plainFailed}` : ''} | ${avg(ps.map(p => p.result!.ours))} · ${avg(ps.map(p => p.result!.plain))} | ${CRITERIA.map(c => `${by(c, 'ours')}–${by(c, 'plain')}`).join(' | ')} | ${pct(ps.filter(p => p.result!.consistent).length, ps.length)} | ${stops(all)} |`
   }
   // How ours ended: Claude answered when it chose, a limit forced the last call, or no answer at all.
   const stops = (ps: typeof pairs) => `${ps.filter(p => !p.ours.failed && p.ours.stopped === 'answer').length} / ${ps.filter(p => !p.ours.failed && p.ours.stopped && p.ours.stopped !== 'answer').length} / ${ps.filter(p => p.ours.failed).length}`
@@ -263,10 +291,10 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     '',
     `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-vs-plain.ts\`. ${n} questions (${args.split === 'all' ? 'all of them' : args.split === 'dev' ? 'those tuned on' : 'the holdout, kept out of tuning'}) from public Vietnamese hobby forums, reworded with no names (\`packages/engine/scripts/hard-questions.vi.json\`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and ${LIMITS ? `limits but these, \`${JSON.stringify(LIMITS)}\`,` : 'limits'} at commit \`${commit}\`, ${MODEL}, over ${args.site}'s handbook. Plain: ${MODEL}, the same effort, no system prompt, no tools, no handbook. Judge: ${JUDGE} through the Claude CLI, rubric version ${RUBRIC_VERSION} (\`chat-vs-plain-lib.ts\`).`,
     '',
-    '- **post:** both answer the whole forum post. **tank:** both get a short question; ours reads the reader\'s saved tank (size, fish, plants, substrate, age; the light, CO₂ and fertiliser the post gave as the tank\'s notes) as far as the chat\'s code reads a tank, plain Claude only the question. The judge is told everything the post said about the tank.',
+    '- **post:** both answer the whole forum post. **tank:** both get a short question. The eval saves the post\'s tank for the reader (size, fish, plants, substrate, age; the light, CO₂ and fertiliser as the tank\'s notes), and ours sees only what the chat\'s code reads of a saved tank; plain Claude sees only the question. The judge is told everything the post said about the tank.',
     '- **Blind, as far as it goes:** the judge isn\'t told which answer is ours, and both lose the site\'s name and links. Ours still looks different (short text with excerpts, cards and tools under it), so the blinding is partial.',
     '- **Both orders:** each pair is judged twice, the answers swapped. A side wins only when both orders pick it; a split counts as a tie. The same for each count.',
-    '- **Failed:** when ours failed (the limits ran out, a call timed out) and plain answered, the reader got an error: plain wins it on every count, with no score.',
+    '- **Failed:** when one side failed (ours: the limits ran out, a call timed out) and the other answered, that reader got an error: the other side wins it on every count, with no score. A failed answer is kept in the cache, so a rerun is the same run; `--retry-failed` asks again.',
     '- **Counts** (ours–plain wins): correct (right and safe), fits (uses this tank), actionable (what to do now, in order), grounded (no made-up precision), local (Vietnamese and Vietnam).',
     `- **Cost** per question, at list price: ours $${usd('ours')}, plain $${usd('plain')}. The judge runs on the owner's Claude accounts.`,
     '',
@@ -283,7 +311,7 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
       ...panel.flatMap(j => WANTED.map(c => {
         const rs = j.results.filter(x => x.p.c === c)
         const w = (o: 'ours' | 'plain' | 'tie') => rs.filter(x => x.r.better === o).length
-        return `| ${j.judge} · ${c} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${rs.length} | ${avg(rs.map(x => x.r.ours))} · ${avg(rs.map(x => x.r.plain))} | ${CRITERIA.map(k => `${rs.filter(x => x.r.criteria[k] === 'ours').length}–${rs.filter(x => x.r.criteria[k] === 'plain').length}`).join(' | ')} | ${pct(rs.filter(x => x.r.better === x.p.result!.better).length, rs.length)} |`
+        return `| ${j.judge} · ${c} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${rs.length}${j.left ? ` (${j.left} of the packet's pairs left out: no verdict, or the answers changed since)` : ''} | ${avg(rs.map(x => x.r.ours))} · ${avg(rs.map(x => x.r.plain))} | ${CRITERIA.map(k => `${rs.filter(x => x.r.criteria[k] === 'ours').length}–${rs.filter(x => x.r.criteria[k] === 'plain').length}`).join(' | ')} | ${pct(rs.filter(x => x.r.better === x.p.result!.better).length, rs.length)} |`
       })),
       '',
     ] : []),
