@@ -79,25 +79,30 @@ It answers in a schema of text plus blocks, streamed (SSE), as fish ID's steps a
 
 The table's nine blocks come as four, so the Worker fills each from data the app and the site already read:
 
-- Species card → `species` (the app index's facts; the page linked as fish ID links one).
+- Species card → `species` (the app index's figures: a species' or breed's `facts`, a plant's `plant` on the plants'
+  1–3 scale; the page linked as fish ID links one).
 - Comparison → `compare` (two to four `species`; the client marks the differences).
 - Guide excerpt, gear, term, gallery or video → `section`: one section of the page as the app's copy of it has it (a
-  guide, an equipment kind, a glossary term, a species' photos and videos), its blocks those of
-  `protocols/page.schema.json`.
-- Tank-mates verdict and tool → `tool`: the tool's own link with its inputs filled. A tank-mates verdict is the
-  client's tank check of the link's fish, as the tool's page draws it.
+  guide, an equipment kind, a glossary term, a species' photos and videos), every block under its heading to the next,
+  those of `protocols/page.schema.json`.
+- Tank-mates verdict and tool → `tool`: the tool's own link with its inputs filled, each tool's as its page reads them
+  (the volume tool's sizes with `hinh`, the budget tool's with `co=khac`). A tank-mates verdict is the client's tank
+  check of the link's fish, as the tool's page draws it.
 - Suggestions → the turn's `suggestions`, not a block.
 
 ## Decided with the leads (2026-11-07)
 
 - **The Worker fills the blocks** from published data, as fish ID links its guesses: both clients show the same
   figures, and an app with an old index still shows today's. A `section` carries the page's blocks for the app, and the
-  site's chat draws it from the web page itself, from the heading's id to the next heading. Every heading the app's
-  copy of a page has is on the web page with the same id (`apps/site/test/chat-sections.test.ts`), so the two hold.
-- **The Worker keeps a conversation for 24 hours** under the account, so a client can't send forged earlier turns, and
-  later questions carry no history. It lives in R2, which reads its own writes (KV can show a stale conversation for
-  up to a minute at another location, as when a phone changes networks between turns), under its own prefix with a
-  1-day lifecycle rule. The 365-day transcripts are kept apart.
+  site's chat draws it from the web page itself: the element with the heading's id (the heading, to the next one, or
+  the `section` or `article` holding it). Every heading the app's copy of a page has is on the web page with the same
+  id, and neither copy runs into the next section (`apps/site/test/chat-sections.test.ts`).
+- **The Worker keeps a conversation for 24 hours** from its first question, under the account, so a client can't send
+  forged earlier turns, and later questions carry no history. It lives in R2, which reads its own writes (KV can show a
+  stale conversation for up to a minute at another location, as when a phone changes networks between turns), under its
+  own prefix with a 1-day lifecycle rule, so it is deleted a day or two after its last question. The client starts a new
+  conversation once the first question is 24 hours old; one the Worker no longer holds is taken as new (`n: 1`). The
+  365-day transcripts are kept apart.
 - **Signed-in only**, the site's page same-origin with the session cookie and no Turnstile, the app with its bearer;
   counted per account on fish ID's ledger, under the site's dollar cap.
 - **A retry with the same `Idempotency-Key` while the run is still answering waits for it** and gets its turn,

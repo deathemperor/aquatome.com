@@ -114,24 +114,32 @@ that would have caught it).
     the build (`apps/site/test/fish-id.test.ts`).
   - The chat's contract (`protocols/chat.openapi.json`), before its Worker: the recorded answers a fake server replays
     (`protocols/chat-stream-*.sse`, `chat-rate.json`) of its shape, with each section's blocks of the page schema's, the
-    text before the blocks and `done` holding the same text, blocks and steps, and the contract naming each; a stream
-    with an event after its end, a block or tool it doesn't know, a card with a figure the app index doesn't have, or a
-    section with no blocks refused (`apps/site/worker/test/chat-stream.test.ts`); every heading in the app's copy of a
-    page on the built web page with the same id, where the site's chat draws a section from
-    (`apps/site/test/chat-sections.test.ts`). The chat's agent, before its handler: the handbook searched by names as
-    readers type them, a page's outline and one section read by heading id, the reader's tanks read, every tool's input
-    and the answer's schema what structured outputs take; each block filled from the app index and the app's page copies
-    and of the contract's shape (a breed's card with its species' figures, a breed in a tank-mates link as its species),
-    a pick the handbook doesn't have dropped with its reason while the rest go out, and a turn's steps, request and
-    filled blocks on a fake Claude (`apps/site/worker/test/chat-agent.test.ts`). Its handler (`CHAT`, off unless `1`),
-    every answer held to the contract: off without the flag or what it needs; an app session as a bearer or a site
-    session from the site's own pages and nothing else; a question answered, its blocks filled, the conversation keeping
-    the turn under the account's HMAC and chat's own day counting it under the shared dollar cap; the next question
-    reading the turns before it; another account's conversation 404, one past a day or its turns 410; the stream's
-    order; a retry by `Idempotency-Key` answered from the kept turn, or, while its run answers, waiting for that run,
-    counted once, and another question meanwhile 409; the account's day and the spend; Claude unreachable giving the
-    count back and an unreadable answer keeping it; the account's synced tanks read (`chat-api.test.ts`,
-    `fishid-ledger.test.ts`).
+    steps, then the text, then the blocks, and `done` holding the same text, blocks and steps (the contract's `x-order`
+    and `x-whole`, which the shared helper checks on every stream), and the contract naming each; a stream with an event
+    after its end or out of order, a block or tool it doesn't know, a card with a figure the app index doesn't have or a
+    plant's on the fishes' scale, a section with no blocks or with a heading, or a tool's link without its own inputs
+    refused (`apps/site/worker/test/chat-stream.test.ts`); the helper holding the page and tank schemas' own rules
+    (`not`, exclusive bounds, a schema for other keys and for key names); every heading in the app's copy of a page on
+    the built web page with the same id, its section there not running into the next one, where the site's chat draws a
+    section from (`apps/site/test/chat-sections.test.ts`).
+    The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words),
+    a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
+    schema what structured outputs take; each block filled from the app index and the app's page copies and of the
+    contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a
+    breed in a tank-mates link as its species), a pick the handbook doesn't have dropped with its reason while the rest go
+    out, an answer with no text none, the run within 27 s, and a turn's steps, request and filled blocks on a fake
+    Claude (`apps/site/worker/test/chat-agent.test.ts`).
+    Its handler (`CHAT`, off unless `1`), every answer held to the contract: off without the flag or what it needs; an
+    app session as a bearer or a site session from the site's own pages and nothing else, and a fish ID guess closed and
+    within 100 characters; a question answered, its blocks filled, the conversation keeping the turn under the account's
+    HMAC and chat's own day counting it under the shared dollar cap; the next question reading the turns before it;
+    another account's conversation 404, one past a day or its turns 410; the stream's order, `done` sent once the turn is
+    saved; a retry by `Idempotency-Key` answered from the kept turn, or, while its run answers, waiting for that run,
+    counted once, and another question meanwhile 409; the kept answer written before the conversation loses its mark;
+    two first questions at once in a new conversation, one run (a create-only write); a reader who leaves mid-answer or
+    while the handbook loads, the run going on to its end; an R2 error marking the question 503; the account's day and
+    the spend; Claude unreachable giving the count back and an unreadable answer keeping it; the account's synced tanks
+    read (`chat-api.test.ts`, `fishid-ledger.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing

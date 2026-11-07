@@ -1,6 +1,6 @@
 import type { Block, Inline, PageDoc } from '@aq/schema/app-page'
 import type { Tool } from '../agent/tools'
-import { factsOf, sectionsOf, type Handbook, type Item } from './handbook'
+import { figuresOf, sectionsOf, type Handbook, type Item } from './handbook'
 import { search } from './search'
 
 /**
@@ -93,11 +93,12 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
           if (!s) throw new Error(`No heading ${String(input.heading)} on ${path}: read its outline for the ids.`)
           return cut(`${s.heading!.text}\n${textOf(s.blocks)}`, SECTION_CHARS)
         }
-        const facts = factsOf(item)
+        const figures = item.kind === 'fish' || item.kind === 'plant' ? figuresOf(item, d.handbook.byId) : undefined
+        const shown = figures && Object.keys('facts' in figures ? figures.facts : figures.plant).length ? figures : {}
         return JSON.stringify({
           path, kind: item.kind, title: doc.title,
           ...(item.id ? { id: item.id } : {}), ...(item.sub ? { sub: item.sub } : {}), ...(item.aka?.length ? { aka: item.aka } : {}),
-          ...(Object.keys(facts).length ? { facts } : {}),
+          ...shown,
           sections: sections.map(s => ({ heading: s.heading?.text ?? null, id: s.heading?.id ?? null, text: cut(textOf(s.blocks), PREVIEW_CHARS) })),
         })
       },
