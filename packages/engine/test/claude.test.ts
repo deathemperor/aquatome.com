@@ -1,13 +1,15 @@
 import { EventEmitter } from 'node:events'
-import { mkdtemp, readFile } from 'node:fs/promises'
+import { mkdtemp, readdir, readFile, realpath } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { PassThrough } from 'node:stream'
 import { afterEach, expect, test, vi } from 'vitest'
 
 // A `claude` that answers at once with what the CLI prints: the structured output, its cost and tokens.
+const spawned = vi.hoisted(() => [] as { cwd: string }[])
 vi.mock('node:child_process', () => ({
-  spawn: () => {
+  spawn: (_cmd: string, _args: string[], opts: { cwd: string }) => {
+    spawned.push(opts)
     const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
     child.stdin.on('finish', () => {
       child.stdout.end(JSON.stringify({ structured_output: { ok: true }, total_cost_usd: 0.12, usage: { input_tokens: 3, output_tokens: 40 } }))
@@ -16,11 +18,22 @@ vi.mock('node:child_process', () => ({
     return child
   },
 }))
-const { claudeCli } = await import('../src/claude')
+const { claudeCli, claudeResearch } = await import('../src/claude')
 const { resetAccounts, tokenHash } = await import('../src/claude-accounts')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {}, model: 'opus' })
 
 afterEach(() => { delete process.env.ENGINE_COST_LOG; delete process.env.CLAUDE_CODE_OAUTH_TOKENS; resetAccounts() })
+
+test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
+  spawned.length = 0
+  await call()
+  await claudeResearch<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
+  expect(spawned).toHaveLength(2)
+  for (const { cwd } of spawned) {
+    expect(await realpath(cwd)).not.toBe(await realpath('/tmp'))
+    expect(await readdir(cwd)).toEqual([])
+  }
+})
 
 test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the call', async () => {
   const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')

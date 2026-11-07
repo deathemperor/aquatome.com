@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Install the engine's macOS parts (pages, sf, photos: scripts/engine-cycle.sh <part>) as launchd agents on the owner's
-# Mac, every 3 h, each from its own clone so the three run side by side. GitHub runs the fourth, rewrite (engine.yml);
-# engine-repo stays video-cycle.sh's (install-video-schedule.sh).
+# Mac, every 3 h, an hour apart, each from its own clone so the three run side by side. GitHub runs the fourth, rewrite
+# (engine.yml); engine-repo stays video-cycle.sh's (install-video-schedule.sh).
 set -euo pipefail
+source "$(dirname "$0")/launchd-agent.sh"
 ORIGIN="$(git -C "$(dirname "$0")/.." remote get-url origin)"
 BASE="$HOME/.local/share/aquatome"
+FIRST_HOUR=0
 for PART in pages sf photos; do
   LABEL="run.aquatome.engine-$PART"
   CLONE="$BASE/engine-$PART"
@@ -29,12 +31,13 @@ for PART in pages sf photos; do
     <key>ENGINE_MAX_MINUTES</key><string>150</string>
     <key>SKIP_VIDEOS</key><string>1</string>
   </dict>
-  <key>StartInterval</key><integer>10800</integer>
+  $(every_3h "$FIRST_HOUR" 10)
+  $AGENT_PRIORITY
   <key>StandardOutPath</key><string>$LOG</string>
   <key>StandardErrorPath</key><string>$LOG</string>
 </dict></plist>
 PLIST
-  launchctl bootout "gui/$UID/$LABEL" 2>/dev/null || true
-  launchctl bootstrap "gui/$UID" "$PLIST"
+  load_agent "$LABEL" "$PLIST"
+  FIRST_HOUR=$((FIRST_HOUR + 1))
   echo "installed $LABEL → $CLONE (log: $LOG)"
 done

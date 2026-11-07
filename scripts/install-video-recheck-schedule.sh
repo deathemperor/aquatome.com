@@ -3,6 +3,7 @@
 # video job (install-video-schedule.sh) and the engine's parts. Once every guide is checked again and redone, a run calls
 # no model; `launchctl bootout gui/$UID/run.aquatome.video-recheck` then takes it off.
 set -euo pipefail
+source "$(dirname "$0")/launchd-agent.sh"
 LABEL=run.aquatome.video-recheck
 CLONE="$HOME/.local/share/aquatome/engine-video-recheck"
 ORIGIN="$(git -C "$(dirname "$0")/.." remote get-url origin)"
@@ -18,11 +19,11 @@ cat > "$PLIST" <<PLIST
 <plist version="1.0"><dict>
   <key>Label</key><string>$LABEL</string>
   <key>ProgramArguments</key><array><string>/usr/bin/caffeinate</string><string>-i</string><string>/bin/bash</string><string>$CLONE/scripts/video-recheck.sh</string></array>
-  <key>StartInterval</key><integer>3600</integer>
+  $(hourly 25)
+  $AGENT_PRIORITY
   <key>StandardOutPath</key><string>$LOG</string>
   <key>StandardErrorPath</key><string>$LOG</string>
 </dict></plist>
 PLIST
-launchctl bootout "gui/$UID/$LABEL" 2>/dev/null || true
-launchctl bootstrap "gui/$UID" "$PLIST"
+load_agent "$LABEL" "$PLIST"
 echo "installed $LABEL → $CLONE (hourly, log: $LOG)"
