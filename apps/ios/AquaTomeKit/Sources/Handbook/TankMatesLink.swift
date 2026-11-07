@@ -27,9 +27,38 @@ public struct TankMatesLink: Sendable {
       if bits.count > 1, let n = Self.count(String(bits[1])) { counts[item.path] = n }
       if !picked.contains(where: { $0.path == item.path }) { picked.append(item) }
     }
-    fish = picked.prefix(Self.maxFish).map { ($0, counts[$0.path] ?? $0.facts.schoolMin ?? 1) }
+    let byId = Dictionary(index.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    let firsts = picked.prefix(Self.maxFish)
+    // The numbers the link gives count first; a fish it gives none starts at what its school still lacks, in its order.
+    var had = firsts.compactMap { i in counts[i.path].map { (item: i, count: $0) } }
+    var out: [(item: HandbookIndex.Item, count: Int)] = []
+    for item in firsts {
+      if let n = counts[item.path] { out.append((item, n)); continue }
+      let n = Self.start(item, species: { byId[$0] }, chosen: had)
+      had.append((item, n))
+      out.append((item, n))
+    }
+    fish = out
     let sides = ["l", "w", "h"].compactMap { params[$0].flatMap(Self.number).flatMap { $0 > 0 ? $0 : nil } }
     size = sides.count == 3 ? Size(l: sides[0], w: sides[1], h: sides[2]) : nil
+  }
+
+  /// How many of a fish the tool starts at: what its school still lacks, at least one. A species and its breeds (`of`)
+  /// are one fish to the check (tank-check.js, `oneFishEach`), so the school is theirs together: its size (a breed has
+  /// none of its own, so its species'), less the ones of that fish already in the tool (`chosen`). A species alone starts
+  /// at its school size, as the site's tool starts it; a fish with no school size at one. `species`: a page by content id.
+  public static func start(_ item: HandbookIndex.Item, species: (String) -> HandbookIndex.Item?,
+                           chosen: [(item: HandbookIndex.Item, count: Int)] = []) -> Int {
+    guard let school = item.facts.schoolMin ?? item.of.flatMap({ species($0)?.facts.schoolMin }) else { return 1 }
+    let fish = checked(item, species)
+    let have = chosen.filter { checked($0.item, species) == fish }.reduce(0) { $0 + $1.count }
+    return max(1, school - have)
+  }
+
+  /// The fish the check counts a page as: a breed's species when the index has it, else the page itself.
+  private static func checked(_ item: HandbookIndex.Item, _ species: (String) -> HandbookIndex.Item?) -> String {
+    if let of = item.of, species(of) != nil { return of }
+    return item.contentId ?? item.path
   }
 
   /// A fish's name in the tool's links: its page's last path component ("/vi/ca/ca-neon/" → "ca-neon").
