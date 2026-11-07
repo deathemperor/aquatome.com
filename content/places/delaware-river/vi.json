@@ -1,10 +1,13 @@
 {
   "slug": "delaware-river",
-  "name": "Delaware River",
-  "altNames": [],
+  "name": "sông Delaware",
+  "altNames": [
+    "Delaware River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

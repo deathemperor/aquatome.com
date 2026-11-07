@@ -1,10 +1,13 @@
 {
   "slug": "dead-sea",
-  "name": "Dead Sea",
-  "altNames": [],
+  "name": "biển Chết",
+  "altNames": [
+    "Dead Sea"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

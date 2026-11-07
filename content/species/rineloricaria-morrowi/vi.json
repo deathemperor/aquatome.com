@@ -1,7 +1,9 @@
 {
   "slug": "ca-lau-kinh-rineloricaria-morrowi",
-  "name": "Cá lau kính Rineloricaria morrowi",
-  "altNames": [],
+  "name": "Cá lòng tong đá Rineloricaria morrowi",
+  "altNames": [
+    "Cá lau kính Rineloricaria morrowi"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Rineloricaria morrowi Fowler, 1940. Nơi thu mẫu chuẩn: Contamana, lưu vực sông Ucayali, Peru. Kích thước: 16,5 cm SL (chiều dài chuẩn, không tính vây đuôi). Nhiệt độ: 20–24°C.</p>",
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Ucayali (Amazon, thượng nguồn Amazon, Marañón, Ucayali). Trong Sách Đỏ IUCN, loài này được xếp hạng Ít quan tâm (lần đánh giá gần nhất là năm 2014).</p>",
@@ -10,13 +12,25 @@
     "behaviour:planetcatfish": "<p>Cá hiền và không giữ lãnh thổ.</p>",
     "dimorphism:planetcatfish": "<p>Cá đực mọc gai ngắn trên đỉnh đầu và trên vây ngực.</p>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào ghi nhận loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 91 (for 1939), pp 244, Figs. 39-41.</p>"
+    "references:planetcatfish": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 91 (for 1939), pp 244, Figs. 39-41.</p>",
+    "quickFacts:seriouslyfish": "<p>Rineloricaria morrowi là một loài cá da trơn họ Loricariidae, sống ở lưu vực sông Ucayali, Peru. Ngoài tự nhiên, cá thường ở giữa lớp lá khô phủ trên nền cát. Loài này ít gặp hơn vài loài khác cùng giống. Năm 2002, nó từng bị xếp vào giống Hemiloricaria vừa được phục hồi, nhưng chưa đầy một năm sau đã được trả về Rineloricaria. Dù vậy, tên cũ vẫn còn được dùng khá nhiều.</p>",
+    "distribution:seriouslyfish": "<p>Lưu vực sông Ucayali, Peru.</p>",
+    "habitat:seriouslyfish": "<p>Cá thường sống giữa lớp lá khô phủ trên nền cát.</p>",
+    "aquariumSize:seriouslyfish": "<p>Loài này phần lớn thời gian nằm yên một chỗ. Bể 90 × 30 × 30 cm, khoảng 81 lít, là đủ để nuôi.</p>",
+    "maintenance:seriouslyfish": "<p>Bể biotope cho loài này có thể làm rất đơn giản. Bạn rải một lớp cát, phủ lên trên một lớp lá khô. Lá sồi và lá dẻ gai (beech) không độc và hợp nhất. Có thể thêm vài cành cây cong queo (cành dẻ gai cũng tốt) và lác đác vài hòn đá tròn cho đẹp. Nhớ bố trí vài hang đá, hang lũa hoặc mấy đoạn ống PVC để cá có chỗ đẻ. Cá sống trong bể trồng nhiều cây cũng ổn. Dù set kiểu nào thì cá cũng không thích đèn quá sáng.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–24°C</li><li>pH: 6,0–7,0</li><li>Độ cứng: 2–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá ăn aufwuchs (lớp tảo và sinh vật nhỏ bám trên bề mặt đá, gỗ) và các loài giáp xác nhỏ dưới nước. Nuôi trong bể thì cá ăn tạp. Nó nhận cả thức ăn khô dạng chìm, rau củ chần sơ như rau bina, bí ngòi, cải xoăn (kale), lẫn thức ăn sống và đông lạnh như trùng huyết hay bo bo.</p>",
+    "behaviour:seriouslyfish": "<p>Đây là một trong những loài cá da trơn hiền nhất, nuôi chung được với rất nhiều loài. Trong bể biotope, bạn có thể thả chung với cá characin nhỏ, Apistogramma, Corydoras và các loài Loricariidae hiền khác. Ngoài ra, cá hợp với hầu hết các bể cộng đồng toàn cá hiền. Đừng nuôi chung với loài quá hiếu động hay hung hăng. Gặp bạn cùng bể như vậy, cá sẽ trốn biệt và dễ bị giành hết thức ăn. Cá không giữ lãnh thổ, trừ lúc sinh sản. Tốt nhất là nuôi theo nhóm nhỏ.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực trưởng thành mọc odontode (các gai nhỏ) trên đầu và trên gai vây ngực. Cá cái không có những gai này.</p>",
+    "reproduction:seriouslyfish": "<p>Cách sinh sản của loài này giống các loài cùng giống, nhưng cá bột hơi khó nuôi. Bạn nên bắt đầu với nhóm từ 6 con non trở lên để có nhiều cơ hội ra được một cặp. Bể bố trí như phần trên, dùng các đoạn ống PVC đường kính dưới 5 cm làm hang đẻ. Nước nên mềm và hơi axit, chỉ thấp hơn mức trung tính một chút. Trước khi cho đẻ, hãy vỗ cá bằng rau xanh giàu dinh dưỡng như cải xoăn (kale), rau bina, cùng trùng huyết sống, đông lạnh hoặc thức ăn tương tự.</p><p>Khi đã sẵn sàng đẻ, cá đực chọn một hang và dọn sạch sẽ. Cá cái nào chịu đực sẽ vào hang đẻ trứng, rồi cá đực thụ tinh. Từ đó cá cái không dính dáng gì đến chuyện chăm con nữa. Mọi việc canh và chăm trứng đều do cá đực lo. Cá đực làm rất chăm chỉ, vừa đuổi kẻ lạ khỏi hang vừa dùng vây quạt trứng. Lúc này bạn có thể vớt các cá khác ra, hoặc chuyển luôn ống đẻ sang bể riêng để cá bột không bị ăn.</p><p>Trứng nở sau 4–5 ngày. Thêm 2–3 ngày nữa thì cá bột bơi tự do, và lúc này bạn có thể vớt cá đực ra. Cá bột gặm được lát dưa leo, rau bina và các loại rau xanh khác ngay từ đầu. Chúng cũng ăn microworm và ấu trùng artemia. Quan trọng nhất ở giai đoạn này là đừng để cá bột đói. Chúng cần có thức ăn liên tục, và rau phải đủ mềm để chúng tiêu hóa được. Bạn thử dùng lá cải xoăn và rau bina đã làm mềm trước. Ngâm nước vài ngày để làm mềm thì tốt hơn chần nước sôi, vì chần thường làm mất nhiều chất dinh dưỡng. Tảo mọc trên đá trong bể có nắng cũng dùng được. Cá bột còn nhạy với chất lượng nước, nên thay một ít nước mỗi ngày.</p><p>Nếu cá mãi không chịu đẻ, bạn thử thay nhiều nước (50–70%) bằng nước mát hơn. Cách này mô phỏng dòng nước lạnh đổ về vào mùa mưa ngoài tự nhiên. Cứ vài ngày làm lại một lần thì cá thường sẽ đẻ.</p>",
+    "notes:seriouslyfish": "<p>Loài này ít gặp hơn vài loài khác cùng giống. Năm 2002, nó từng bị xếp vào giống Hemiloricaria vừa được phục hồi. Cách xếp này tồn tại chưa đến mười hai tháng, sau đó loài được trả về Rineloricaria. Hiện nay chỉ có tên Rineloricaria là hợp lệ, nhưng bạn vẫn sẽ khá hay thấy người ta gọi nó là Hemiloricaria.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "seriouslyfish": 0.8
     }
   }
 }

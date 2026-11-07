@@ -1,10 +1,13 @@
 {
   "slug": "white-cloud-mountain",
-  "name": "White Cloud Mountain",
-  "altNames": [],
+  "name": "núi Bạch Vân",
+  "altNames": [
+    "White Cloud Mountain"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

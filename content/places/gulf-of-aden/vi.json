@@ -1,10 +1,13 @@
 {
   "slug": "gulf-of-aden",
-  "name": "Gulf of Aden",
-  "altNames": [],
+  "name": "vịnh Aden",
+  "altNames": [
+    "Gulf of Aden"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

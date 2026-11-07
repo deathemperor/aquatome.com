@@ -1,10 +1,13 @@
 {
   "slug": "milne-bay-province",
-  "name": "Milne Bay Province",
-  "altNames": [],
+  "name": "tỉnh Milne Bay",
+  "altNames": [
+    "Milne Bay Province"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

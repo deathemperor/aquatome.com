@@ -1,10 +1,13 @@
 {
   "slug": "lake-indawgyi",
-  "name": "Lake Indawgyi",
-  "altNames": [],
+  "name": "hồ Indawgyi",
+  "altNames": [
+    "Lake Indawgyi"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

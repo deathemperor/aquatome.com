@@ -18,12 +18,32 @@
           "min": 23,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 22.5
+      },
+      {
+        "source": "scotcat",
+        "value": 22.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -35,16 +55,52 @@
       "html": "<ul><li>Scientific name: Farlowella amazonum (Günther, 1864)</li><li>Common name: Twig Catfish</li><li>Breeding: unreported</li></ul>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>As with most of this genus, identification of the many Farlowella can be a problem.</p><p>Not an easy catfish to keep, as there have been many unexplained deaths attributed to this species (and other Farlowella). It needs dedicated care from an experienced catfish keeper who has worked with this species or its close cousins from the easier-kept Sturisoma genus.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
       "html": "<p>South America: Amazon, Tocantins and La Plata river basins. Type locality: Amazon River at Santarém, Pará State, Brazil.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>South America: Amazon, Tocantins and La Plata River basins. Type locality: Santarém, Amazon River, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>Needs a high oxygen content in the aquarium, with regular water changes to keep the water in pristine condition. Prefers a dark substrate with dense vegetation, floating plants and long-leaved plants that it can hang on to.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>Temperature: 26–30°C. pH: 6.0–7.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>Mostly vegetarian, with algae the main food for adults and young fry, so vegetable-laden tablets should suffice.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
       "html": "<p>Smaller tetras or rasboras are suitably mannered tankmates, and perhaps hatchetfish are best. Avoid fast or \"nippy\" fishes such as danios or barbs. It will do well with Corydoras catfish, but larger catfish or cichlids are to be avoided.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>A very timid species. If housed with other inhabitants, avoid boisterous fish such as some barbs (such as tiger barbs) and definitely cichlids. Better companions are unobtrusive Corydoras species and small characins or rasboras.</p>"
     },
     {
       "key": "reproduction",
@@ -59,10 +115,22 @@
       "html": "<p>Sometimes seen under the misspelling Farlowella amazona. The genus is named after W. G. Farlow of Harvard University; the species is named for the Amazon River, where it was found.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>Etymology: the specific name amazonum (-anum, L., belonging to) refers to the Amazon River at Santarém, Pará State, Brazil, the type locality.</p><p>Remarks: In Eschmeyer's Catalog of Fishes, Farlowella platorynchus is now stated as a synonym of F. amazonum.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. It is therefore assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
       "html": "<p>Catalogue of the fishes in the British Museum v. 5, pp 261.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "html": "<p>Covain, R., S. Fisch-Muller, C. Oliveira, J. H. A. Mol, J. I. Montoya-Burgos and S. Dray 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Molecular Phylogenetics and Evolution v. 94 (Pt. B): 492-517.</p><p>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp. 944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Farlowella amazonum. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
@@ -131,5 +199,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-07"
 }

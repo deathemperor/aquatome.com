@@ -1,10 +1,13 @@
 {
   "slug": "uruguay-river",
-  "name": "Uruguay River",
-  "altNames": [],
+  "name": "sông Uruguay",
+  "altNames": [
+    "Uruguay River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

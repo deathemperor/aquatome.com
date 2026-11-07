@@ -1,10 +1,13 @@
 {
   "slug": "lake-candidius",
-  "name": "Lake Candidius",
-  "altNames": [],
+  "name": "hồ Nhật Nguyệt",
+  "altNames": [
+    "Lake Candidius"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

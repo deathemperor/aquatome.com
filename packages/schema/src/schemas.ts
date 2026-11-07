@@ -178,7 +178,11 @@ export const SeriesSchema = z.object({
 })
 
 export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
-export const PlaceSchema = z.object({ id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional() })
+export const PlaceSchema = z.object({
+  id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
+  /** The countries (ISO codes) of the sentence that names a river or region only a species' range names, for whoever names it. A `parent` would list it on the country's page and link its name in guides. */
+  countries: z.array(z.string()).optional(),
+})
 
 /** AquaTome's own buying guide for one equipment category (content/equipment/<category>.json, Vietnamese). */
 export const EquipmentSchema = z.object({
@@ -281,7 +285,7 @@ export const TranslationSchema = z.object({
   }).optional(),
   /** Products: what AquaTome found trying the product itself, cited to its test notes. */
   tested: z.array(CitedText).optional(),
-  /** Owner-chosen main name: the engine never replaces it. */
+  /** Owner-chosen main name, or a place's from the Vietnamese place-names step: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
   /** Owner-fixed text: the engine never replaces this guide's body (nameFixed's kin, for a fix made by hand). */
   bodyFixed: z.boolean().optional(),

@@ -8,13 +8,57 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "congo"
+    "congo",
+    "republic-of-the-congo"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 27.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 18
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -26,10 +70,76 @@
       "html": "<p>Synodontis notatus is a squeaker catfish imported from the Congo. It reaches a maximum length of about 25 cm.</p><p>The number of spots on the flanks varies a lot between individuals. Most specimens have only one spot, but some have two, three or even more. This lively, day-active squeaker is one of the most peaceful species of the genus.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>The one-spot Synodontis, Synodontis notata, is a large Synodontis catfish from the Democratic Republic of Congo and the Republic of Congo. Regional variants carry three, six or twelve spots or none, some sold under the invalid name S. ocellata, and similar species such as S. nummifer are often imported with it and all sold as notata. More active by day than many Synos, it is aggressive towards its own species, so only one should be kept unless the tank is very large.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_notatus_en/",
       "html": "<p>Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Democratic Republic of Congo and the Republic of Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Occurs in various river biotopes in the aforementioned countries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Standard length: 27.5 cm SL.</p><p>Aquarium base: 120 × 30 cm.</p><p>Volume: ~108 litres (120 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Provide a dimly lit aquarium with soft substrate, rocks, pieces of driftwood and twisted roots arranged to form hiding places. Floating vegetation is also recommended in order to diffuse the light entering the tank. Other planting is beneficial but not essential as this species often swims in midwater.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 6.5–7.5</li><li>Hardness: 8–18 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Should not be kept with any fish so small as to be considered food. Ideal tankmates include Alestiid tetras, robust cichlids (particularly West African species), Ctenopoma, Mormyrids, Knifefish, Gouramis and larger rasboras and barbs. S. notatus is far more diurnal than many Syno species and so makes a good addition to aquariums with more boisterous inhabitants. It may become quite territorial as it matures, especially towards other Synos. It is particularly aggressive towards its own species and only one specimen should be kept unless the tank is very large. Not recommended for the general community due to its large adult size.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Adult females are much plumper than males. It can also be sexed by examining the genital papillae. This is not for the amateur however. The fish should be held ventral side up in the palm of your hand. The dorsal fin should be taken between your middle and ring fingers in order to avoid being pierced by the sharp dorsal fin rays. The genital area you are looking for is concealed beneath the pelvic fins. This can be exposed by pulling (gently) on the caudal fin. A male fish will exhibit an extended papillae which should be pointed and ridged. The spermatoduct can be seen on the caudal side. Females also have a clearly visible papillae but this is more rounded and the oviduct is on the opposite side to the male's spermatoduct. Most species of medium/large Synodontis can be sexed using this method but it should be noted that most species take 2 years or more to reach sexual maturity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Unreported in captivity although reports suggest that commercial breeding projects are underway. In nature S. notatus breeds in areas of seasonal flooding that are rich in micro-organisms. They are egg scatterers and exhibit no parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-notatus",
+      "html": "<p>Also known as the Domino Synodontis or the One-spot Squeaker, several regional variants of S. notata are known, some of which have 3, 6 or 12 spots and others none at all. Some of these are seen for sale under the invalid name S. ocellata. It is also often imported with similar species such as S. nummifer or S. congica. These are usually then all sold as notata. S. notata is more active during the day than many Syno species and therefore makes a good addition to aquariums with more boisterous inhabitants.</p>"
     }
   ],
   "photos": [],
@@ -63,8 +173,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá cộng đồng lớn"
+        "bể cá 120cm"
       ]
     },
     {
@@ -81,5 +190,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-07"
 }

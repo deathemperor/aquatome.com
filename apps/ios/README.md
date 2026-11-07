@@ -66,6 +66,15 @@ only in a web page on the site's host. Passkeys are aquatome.com's, shared with 
 association (`Config/AquaTome.entitlements` and the site's `/.well-known/apple-app-site-association`); only a signed
 build on an iPhone can use them, so the simulator never runs the real passkey sheet.
 
+**v2**, a trial of the App Store's approach (editorial cards that open into their pages with a zoom, shelves of
+pages, colour drawn from each photo), is behind "Giao diện mới (thử nghiệm)" in the Tài khoản sheet's "Ứng dụng", in
+debug and TestFlight builds only (`V2Switch`), off by default; `-v2 YES` turns it on for a launch. It runs on the same
+models as v1 (`AquaTome/V2`, `V2Root`), so switching back loses nothing. Its tabs: Hôm nay (a fish of the day, a guide,
+the northern winter's fish that need a heater, the reader's tank, a video series, what's new), Khám phá (the handbook's
+shelves; links from pages and from outside open there, as on v1's Tìm), v1's Bể của tôi and Đèn, and Tìm as the search
+tab. A fish opens v2's page (its photo's colour behind its name, facts and gallery, following the photo shown), with v1's
+whole page one tap away. iOS 18 or later; on 17 the switch isn't shown.
+
 The site's owner signed in sees one more row in "Bể của tôi", **Bảng điều khiển**: the owner's dashboard (the site's
 /_ab/ pages), drawn by the app from the site's JSON (`protocols/owner-dashboard.openapi.json`) with the account's
 session: the overview's to-dos, area cards and "Mấy ngày qua", and each section's charts, tables, photos and buttons,
@@ -100,7 +109,7 @@ still alive (`PlayerCount`).
 
 ```text
 AquaTome.xcodeproj   # folders are synchronized: new files need no project edits
-AquaTome/            # the app (Vietnamese source strings; Indonesian and Thai in Localizable.xcstrings)
+AquaTome/            # the app (Vietnamese source strings; Indonesian, Malay and Thai in Localizable.xcstrings)
 AquaTomeUITests/     # the main flows, on the simulator's fake light
 Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 ```
@@ -134,9 +143,10 @@ Config/Base.xcconfig # includes Local.xcconfig (git-ignored) for signing
 - **A real iPhone:** copy `Config/Local.xcconfig.example` to `Config/Local.xcconfig` and put your team ID in it. The
   public project never holds the team ID.
 
-A new string in the code: add its Indonesian and Thai to `Localizable.xcstrings` (Xcode adds the key when it builds);
-`check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
-(`apps/site/src/i18n/{id,th}.json`).
+A new string in the code: add its Indonesian, Malay and Thai to `Localizable.xcstrings` (Xcode adds the key when it
+builds); `check-strings.py` fails CI otherwise. Reuse the site's translation when the Vietnamese is the same
+(`apps/site/src/i18n/{id,ms,th}.json`). `pnpm --filter @aq/engine exec tsx scripts/translate-app.ts ms` fills a
+language's missing strings in both catalogs: the site's first, then Opus.
 
 ## TestFlight
 
