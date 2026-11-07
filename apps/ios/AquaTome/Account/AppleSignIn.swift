@@ -72,13 +72,25 @@ struct FakeAppleSignIn: AppleSignIn {
 
 /// Apple's own "Sign in with Apple" button (its look, its words in the phone's language), black or white with the
 /// appearance; `radius` rounds its corners (half its height: a capsule), else Apple's default.
-struct AppleButton: UIViewRepresentable {
+struct AppleButton: View {
   @Environment(\.colorScheme) private var scheme
   var radius: CGFloat?
   let action: () -> Void
 
+  var body: some View {
+    // Apple's button takes its colour when it's made: made again when the appearance changes (Giao diện is in the same
+    // sheet).
+    AppleIDButton(dark: scheme == .dark, radius: radius, action: action).id(scheme)
+  }
+}
+
+private struct AppleIDButton: UIViewRepresentable {
+  let dark: Bool
+  let radius: CGFloat?
+  let action: () -> Void
+
   func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
-    let b = ASAuthorizationAppleIDButton(type: .signIn, style: scheme == .dark ? .white : .black)
+    let b = ASAuthorizationAppleIDButton(type: .signIn, style: dark ? .white : .black)
     if let radius { b.cornerRadius = radius }
     b.addTarget(context.coordinator, action: #selector(Coordinator.tap), for: .touchUpInside)
     b.accessibilityIdentifier = "apple-sign-in"

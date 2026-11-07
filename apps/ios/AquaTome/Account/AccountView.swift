@@ -34,6 +34,8 @@ struct AccountView: View {
       // Not reached at launch (no network then): asked again each time the sheet opens.
       .task { if account.state == .unknown { await account.refresh() } }
       .onAppear { account.sheetOpened() }
+      // A session that ends while the sheet is open is seen here: no dot for it after closing.
+      .onChange(of: account.endedWays) { account.sheetOpened() }
       #if DEBUG
       .background { AppearanceProbe(id: "appearance-sheet") }
       #endif
@@ -47,20 +49,23 @@ struct AccountView: View {
   }
 }
 
-/// A settings row's symbol: white on a rounded square of its colour, as iOS's settings draw them.
+/// A settings row's symbol: white on a rounded square of its colour, as iOS's settings draw them, growing with the text
+/// up to half again, so it doesn't sit small beside the largest words.
 struct Tile: View {
   /// The app's green as its light appearance has it, in the dark too: the dark one's mint is too light under white.
   static let green = Color(red: 0x2F / 255, green: 0x6B / 255, blue: 0x4F / 255)
 
   let symbol: String
   let color: Color
+  @ScaledMetric(relativeTo: .body) private var scaled: CGFloat = 29
 
   var body: some View {
+    let side = min(scaled, 44)
     Image(systemName: symbol)
-      .font(.system(size: 15, weight: .semibold))
+      .font(.system(size: side * 15 / 29, weight: .semibold))
       .foregroundStyle(.white)
-      .frame(width: 29, height: 29)
-      .background(color, in: .rect(cornerRadius: 7, style: .continuous))
+      .frame(width: side, height: side)
+      .background(color, in: .rect(cornerRadius: side * 7 / 29, style: .continuous))
       .accessibilityHidden(true)
   }
 }
@@ -84,7 +89,7 @@ private struct AppSection: View {
           LabeledContent {
             HStack(spacing: 6) {
               Text("\(kept) trang")
-              Image(systemName: "chevron.forward").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
+              Image(systemName: "chevron.forward").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
             }
           } label: {
             Label { Text("Đã tải để đọc offline").foregroundStyle(.primary) } icon: { Tile(symbol: "book.closed.fill", color: .blue) }
@@ -98,10 +103,14 @@ private struct AppSection: View {
 
 /// The app's icon as the reader set it, the size of a settings row's symbol.
 private struct CurrentIcon: View {
+  /// As a Tile, growing with the text up to half again.
+  @ScaledMetric(relativeTo: .body) private var scaled: CGFloat = 29
+
   var body: some View {
     let name = UIApplication.shared.alternateIconName.map { String($0.dropFirst("AppIcon-".count)) } ?? "default"
+    let side = min(scaled, 44)
     if let image = UIImage(named: "AppIconPreview-" + name) ?? UIImage(named: "AppIconPreview-default") {
-      Image(uiImage: image).resizable().frame(width: 29, height: 29).clipShape(.rect(cornerRadius: 7, style: .continuous))
+      Image(uiImage: image).resizable().frame(width: side, height: side).clipShape(.rect(cornerRadius: side * 7 / 29, style: .continuous))
         .accessibilityHidden(true)
     } else {
       Tile(symbol: "app.fill", color: .gray)
@@ -155,7 +164,7 @@ private struct AboutSection: View {
       HStack {
         Text(name)
         Spacer()
-        Image(systemName: "arrow.up.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
+        Image(systemName: "arrow.up.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
       }
     }
     // The page's name in the text's colour, as a settings row: the arrow says it leaves the app.

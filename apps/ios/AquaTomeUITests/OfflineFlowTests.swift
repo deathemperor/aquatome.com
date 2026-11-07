@@ -1,11 +1,39 @@
 import XCTest
 
 /// A shelf of guides kept for reading offline (KeepOffline), on the fixed pages (no network): at once on Wi-Fi, listed in
-/// one place and let go of there; asked first on mobile data; stopped with nothing half-kept, also after leaving the
+/// one place and let go of there, counted in the Tài khoản sheet, whose row opens them; asked first on mobile data; stopped with nothing half-kept, also after leaving the
 /// shelf; stopped by a removal; not started with too little room on the phone; no longer listed once the site splits its
 /// pages anew.
 final class OfflineFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
+
+  /// The Tài khoản sheet counts the pages kept ("Đã tải để đọc offline"), and its row closes the sheet and opens their
+  /// shelf on Tìm; with none kept, it has no row.
+  func testTheAccountSheetCountsTheKeptPagesAndOpensTheirShelfOnTim() {
+    let app = openGuides()
+    app.buttons["keep-offline"].tap()
+    XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    app.openAccount()
+    let row = app.buttons["kept-row"]
+    repeatUntil(row.exists && row.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the sheet doesn't list the kept pages")
+    XCTAssertTrue(row.label.contains("1 trang"), row.label)
+    row.tap()
+    XCTAssertTrue(app.navigationBars["Đã tải để đọc offline"].waitForExistence(timeout: 5), "their shelf didn't open")
+    XCTAssertFalse(app.buttons["account-done"].exists, "the sheet is still open")
+    let guide = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch
+    XCTAssertTrue(guide.waitForExistence(timeout: 5), "the kept guide isn't on the shelf")
+    app.buttons["unkeep-all"].tap()
+    XCTAssertTrue(guide.waitForNonExistence(timeout: 5), "still kept")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    app.openAccount()
+    XCTAssertTrue(app.buttons["account-done"].waitForExistence(timeout: 5), "no sheet")
+    let icon = app.descendants(matching: .any)["app-icon-row"]
+    repeatUntil(icon.exists && icon.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(icon.exists, "no Ứng dụng section")
+    XCTAssertFalse(row.exists, "a row for kept pages with none kept")
+  }
 
   func testAStoppedKeepKeepsNothingHalfDone() {
     // Each picture takes 20 s to come (the guide has one): stopped before, its page isn't kept, even once it comes.

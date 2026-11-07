@@ -46,6 +46,8 @@ struct AquaTomeApp: App {
       try? FileManager.default.removeItem(at: TelemetryModel.file)
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
+    // `-drop-kept-account`: the account kept on the phone is gone (unreadable after an update) while its token stays.
+    if ProcessInfo.processInfo.arguments.contains("-drop-kept-account") { UserDefaults.standard.removeObject(forKey: "account.user") }
     // The UI flows (`-no-animations`): after each tap or swipe XCUITest waits for the app to be idle, UIKit's animations
     // ended (a push, a sheet, an alert, the tab bar), up to about 2 s a step on a busy Mac. SwiftUI's own animations
     // turned off too shortened none of those waits, so they stay. Never in the performance tests: they measure the app

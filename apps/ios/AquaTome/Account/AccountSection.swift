@@ -96,16 +96,23 @@ private struct Who: View {
   let user: AccountUser
   @Environment(AccountModel.self) private var account
   @Environment(\.dynamicTypeSize) private var size
+  /// The avatar's circle, growing with the text up to half again.
+  @ScaledMetric(relativeTo: .title3) private var circle: CGFloat = 56
 
   var body: some View {
     // At the accessibility text sizes the avatar goes above the lines, which keep the row's width.
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(spacing: 14))
+    let side = min(circle, 84)
     layout {
+      // The person in the app's green, half the circle's height, on a pale wash of it: it reads on the card in light
+      // and dark (a grey circle was the dark card's own colour).
       Image(systemName: "person.fill")
-        .font(.title2)
-        .foregroundStyle(Color(.systemGray))
-        .frame(width: 56, height: 56)
-        .background(Color(.systemGray5), in: .circle)
+        .resizable()
+        .scaledToFit()
+        .frame(width: side / 2, height: side / 2)
+        .foregroundStyle(.tint)
+        .frame(width: side, height: side)
+        .background(Color.accentColor.opacity(0.15), in: .circle)
         .accessibilityHidden(true)
       VStack(alignment: .leading, spacing: 2) {
         Text("Đã đăng nhập").font(.title3.weight(.semibold))
