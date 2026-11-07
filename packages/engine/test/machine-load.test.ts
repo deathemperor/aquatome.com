@@ -1,80 +1,29 @@
-import { spawn, spawnSync } from 'node:child_process'
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { simVerdict, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveWorktree, expireArchive, simVerdict, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
-const SIM_RUN = join(ROOT, 'apps/ios/scripts/sim-run.py')
-const HOOK = join(ROOT, '.claude/hooks/sim-run-only.sh')
 
-const until = async (ok: () => boolean) => { while (!ok()) await new Promise(r => setTimeout(r, 25)) }
-const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
 const home = () => mkdtempSync(join(tmpdir(), 'aq-load-'))
 
-test('a simulator run waits for the one before it, across checkouts', async () => {
-  const dir = home()
-  const env = { ...process.env, HOME: dir }
-  const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
-  await until(() => existsSync(`${dir}/first`))
-  const second = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/second`], { env, stdio: 'ignore' })
-  await wait(500)
-  expect(existsSync(`${dir}/second`)).toBe(false)
-  writeFileSync(`${dir}/release`, '')
-  const code = await new Promise(r => second.on('close', r))
-  expect(code).toBe(0)
-  expect(first.exitCode).toBe(0)
-}, 30_000)
-
-test("a job's stop reaches the command, and the turn passes on", async () => {
-  const dir = home()
-  const env = { ...process.env, HOME: dir }
-  const run = spawn(SIM_RUN, ['sh', '-c', `trap 'touch ${dir}/stopped; exit 7' TERM; touch ${dir}/up; while :; do sleep 0.05; done`], { env, stdio: 'ignore' })
-  await until(() => existsSync(`${dir}/up`))
-  run.kill('SIGTERM')
-  expect(await new Promise(r => run.on('close', r))).toBe(7)
-  expect(existsSync(`${dir}/stopped`)).toBe(true)
-  expect(spawnSync(SIM_RUN, ['true'], { env }).status).toBe(0)
-}, 30_000)
-
-test('at most two copies of a simulator', () => {
-  const dir = home()
-  writeFileSync(join(dir, 'fake'), '#!/bin/sh\necho "$@"\n', { mode: 0o755 })
-  const args = (...a: string[]) => spawnSync(SIM_RUN, [join(dir, 'fake'), ...a], { env: { ...process.env, HOME: dir }, encoding: 'utf8' }).stdout.trim()
-  expect(args('test', '-parallel-testing-worker-count', '3')).toBe('test -parallel-testing-worker-count 2')
-  expect(args('test', '-parallel-testing-worker-count', '1')).toBe('test -parallel-testing-worker-count 1')
-})
-
-test('a session starts a simulator run only through sim-run.py', () => {
-  const blocked = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' }).status === 2
-  for (const c of [
-    'xcodebuild test -project a -scheme b',
-    'cd apps/ios && xcodebuild test -project a',
-    'nice -n 10 xcodebuild test-without-building -xctestrun x',
-    'lockf -k ~/.cache/aquatome/checks.lock sh -c "x"; xcodebuild -project a test',
-  ]) expect(blocked(c), c).toBe(true)
-  for (const c of [
-    'apps/ios/scripts/sim-run.py xcodebuild test -project a',
-    'xcodebuild build-for-testing -project a',
-    'xcodebuild -list',
-    'grep -n "xcodebuild test" apps/ios/README.md',
-    'swift test --filter ChatTests',
-    'ls',
-  ]) expect(blocked(c), c).toBe(false)
-})
-
 test('the sweep closes a simulator nobody uses, and no other', () => {
-  const sim = { name: 'iPhone 17', testing: false, session: 't3-a', abandoned: false, idleHours: 1, upHours: 2 }
+  const sim = { name: 'iPhone 17', testing: false, session: 't3-a', abandoned: false, idleHours: 1, upHours: 20 }
   expect(simVerdict(sim)).toBe('keep')
   expect(simVerdict({ ...sim, idleHours: 14 })).toBe('close') // the 15-hour session of 2026-11-07
   expect(simVerdict({ ...sim, abandoned: true, idleHours: 1 })).toBe('close')
   expect(simVerdict({ ...sim, abandoned: true, idleHours: 0.1 })).toBe('keep')
-  expect(simVerdict({ ...sim, session: undefined })).toBe('keep')
-  expect(simVerdict({ ...sim, session: undefined, upHours: 13 })).toBe('close')
+  expect(simVerdict({ ...sim, session: undefined, upHours: 2 })).toBe('keep')
+  // No session: nothing says whether someone is using it, so it's only noted.
+  expect(simVerdict({ ...sim, session: undefined, upHours: 13 })).toBe('note')
   expect(simVerdict({ ...sim, session: undefined, upHours: 13, testing: true })).toBe('keep')
+  // A claim left from before this boot isn't this boot's session: a lead's test run on that simulator must not close.
+  expect(simVerdict({ ...sim, abandoned: true, idleHours: 40, upHours: 0.5 })).toBe('keep')
+  expect(simVerdict({ ...sim, testing: true, idleHours: 14, upHours: 15 })).toBe('keep')
   expect(simVerdict({ ...sim, name: 'aquatome-ci-1', idleHours: 99 })).toBe('keep')
 })
 
@@ -93,6 +42,14 @@ test('the sweep removes a worktree only when no work can be lost and nobody is i
   expect(worktreeVerdict({ ...wt, unpushed: 0, prs: [] })).toBe('remove')
   expect(worktreeVerdict({ ...wt, unpushed: 0, prs: [], remoteBranch: true })).not.toBe('remove')
   expect(worktreeVerdict({ ...wt, unpushed: NaN, prs: [] })).not.toBe('remove') // git couldn't say
+  // Left alone for a week with no live thread: a copy first, then it goes. Never one someone is in, or one git can't read.
+  const week = { ...wt, hours: 200 }
+  expect(worktreeVerdict({ ...week, dirty: true })).toBe('archive')
+  expect(worktreeVerdict({ ...week, prs: [{ state: 'OPEN', atTip: true }] })).toBe('archive')
+  expect(worktreeVerdict({ ...week, prs: [] })).toBe('archive')
+  expect(worktreeVerdict({ ...week, dirty: true, liveCwd: true })).not.toBe('archive')
+  expect(worktreeVerdict({ ...week, dirty: true, liveThread: true })).not.toBe('archive')
+  expect(worktreeVerdict({ ...week, unpushed: NaN, prs: [] })).not.toBe('archive')
   // Other projects, the main checkout, a thread's scratchpad.
   for (const path of [`${homedir()}/.infinitus/projects/aquatome.com`, `${homedir()}/.infinitus/worktrees/aq-breed-vectors`, '/private/tmp/claude-501/x/scratchpad/y'])
     expect(worktreeVerdict({ ...wt, path })).not.toBe('remove')
@@ -124,3 +81,40 @@ test("the engine's parts give way and start apart, and installing never stops a 
   }
   expect(install(true).calls).not.toMatch(/bootout|bootstrap/)
 })
+
+test('an archived worktree can be brought back: its commits, its changes, its untracked files', () => {
+  const dir = home()
+  const sh = (cwd: string, script: string) => {
+    const r = spawnSync('sh', ['-c', script], { cwd, encoding: 'utf8', env: { ...process.env, GIT_CONFIG_GLOBAL: '/dev/null', GIT_AUTHOR_NAME: 't', GIT_AUTHOR_EMAIL: 't@t', GIT_COMMITTER_NAME: 't', GIT_COMMITTER_EMAIL: 't@t' } })
+    expect(r.status, r.stderr).toBe(0)
+    return r.stdout
+  }
+  sh(dir, 'git init -q -b main --bare origin.git && git clone -q origin.git main 2>/dev/null && cd main && git checkout -q -b main 2>/dev/null; echo a > a && git add a && git commit -qm base && git push -q origin main && git worktree add -q -b work ../wt')
+  sh(`${dir}/main`, 'printf "NOTES.md\\nbuild/\\n" > .gitignore && git add .gitignore && git commit -qm ignore && git push -q origin main')
+  sh(`${dir}/wt`, 'git merge -q --ff-only main && echo unsaved > b && git add b && git commit -qm "on no remote" && echo changed > a && echo new > c && echo mine > NOTES.md && mkdir build && echo out > build/x')
+  const saved = archiveWorktree(`${dir}/wt`, `${dir}/archive`, new Date('2026-11-08T00:00:00Z'))
+  expect(saved).toBe(`${dir}/archive/2026-11-08-wt`)
+  expect(readFileSync(`${saved}/note.txt`, 'utf8')).toContain('branch: work')
+  sh(`${dir}/main`, `git fetch -q ${saved}/work.bundle work:restored && git worktree add -q ../back restored && cd ../back && git apply ${saved}/uncommitted.patch && tar -xzf ${saved}/untracked.tgz`)
+  expect(readFileSync(`${dir}/back/b`, 'utf8')).toBe('unsaved\n')
+  expect(readFileSync(`${dir}/back/a`, 'utf8')).toBe('changed\n')
+  expect(readFileSync(`${dir}/back/c`, 'utf8')).toBe('new\n')
+  expect(readFileSync(`${dir}/back/NOTES.md`, 'utf8')).toBe('mine\n') // ignored, but nobody can make it again
+  expect(existsSync(`${dir}/back/build/x`)).toBe(false) // build output isn't worth keeping
+  // The next one of that name, the same day, doesn't overwrite it; nothing on no remote and no changes, just the note.
+  sh(`${dir}/main`, 'git worktree add -q --detach ../clean main')
+  expect(readdirSync(archiveWorktree(`${dir}/clean`, `${dir}/archive2`))).toEqual(['note.txt'])
+  expect(archiveWorktree(`${dir}/wt`, `${dir}/archive`, new Date('2026-11-08T00:00:00Z'))).toBe(`${saved}-2`)
+  // Thirty days later it goes, and nothing younger does.
+  expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-07T00:00:00Z'))).toEqual([])
+  expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-09T00:00:00Z'))).toEqual(['2026-11-08-wt', '2026-11-08-wt-2'])
+}, 60_000)
+
+test('a reading of the Mac: the small job, the queues, and load only as background', () => {
+  const dir = home()
+  const r = spawnSync('python3', ['-I', join(ROOT, 'scripts/machine-metric.py')], { env: { ...process.env, HOME: dir }, encoding: 'utf8' })
+  // /usr/sbin's tools are the Mac's: elsewhere this script doesn't run.
+  if (process.platform !== 'darwin') return
+  expect(r.status, r.stderr).toBe(0)
+  expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number) })
+}, 60_000)

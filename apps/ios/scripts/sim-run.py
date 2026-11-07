@@ -20,8 +20,11 @@ MAX_COPIES = 2
 def capped(argv):
     out = list(argv)
     for i, arg in enumerate(out[:-1]):
-        if arg == "-parallel-testing-worker-count" and re.fullmatch(r"\d+", out[i + 1]):
+        if arg in ("-parallel-testing-worker-count", "-maximum-parallel-testing-workers") and re.fullmatch(r"\d+", out[i + 1]):
             out[i + 1] = str(min(int(out[i + 1]), MAX_COPIES))
+    # Parallel with no count: Xcode would choose how many.
+    if "YES" in [b for a, b in zip(out, out[1:]) if a == "-parallel-testing-enabled"] and not {"-parallel-testing-worker-count", "-maximum-parallel-testing-workers"} & set(out):
+        out += ["-parallel-testing-worker-count", str(MAX_COPIES)]
     return out
 
 
@@ -42,11 +45,16 @@ def main():
     os.pwrite(lock, f"pid {os.getpid()}, from {os.getcwd()}, since {time.strftime('%H:%M')}".encode(), 0)
 
     child = None
+    asked = False
 
+    # The runner stops a job with SIGINT, then SIGTERM 7.5 s later, then SIGKILL 2.5 s after that, which this script can't
+    # pass on: the second ask ends the command first, so it isn't left running while the next run takes its turn.
     def forward(signum, _frame):
+        nonlocal asked
         if child is None:
             sys.exit(128 + signum)
-        child.send_signal(signum)
+        child.send_signal(signal.SIGKILL if asked else signum)
+        asked = True
 
     for signum in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
         signal.signal(signum, forward)
