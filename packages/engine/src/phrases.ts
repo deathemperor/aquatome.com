@@ -55,9 +55,25 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'dân chơi', instead: 'thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai' },
     { say: 'được chuộng', instead: '"nhiều người nuôi", "dễ kiếm", hoặc nói thẳng vì sao' }, // 20 | 0 | 0
     // The editors' fourth round.
-    { say: 'cây thân đứng', instead: '"cây cắt cắm"' }, // 20 | 0 | 0; cây cắt cắm 59 in the videos
-    { say: 'lọc sponge', instead: '"lọc bio"' }, // 10 | 0 | 0; lọc bio 22 in the videos
+    // The fifth round found "cây thân đứng" rewritten as "cây có thân" (0 in both references).
+    { say: 'cây thân đứng', find: 'cây (?:thân đứng|có thân)', instead: '"cây cắt cắm"' }, // 20 | 0 | 0; cây cắt cắm 59 in the videos
+    { say: 'lọc sponge', instead: '"lọc mút", "lọc bio"' }, // 10 | 0 | 0; lọc bio 22 in the videos
     { say: 'sản xuất hàng loạt', instead: '"nuôi đại trà", "nuôi hàng loạt"' }, // 3 | 0 | 0: fish aren't factory goods
+    // The editors' fifth round, all four seats (2026-11-07). Site rates by kind, where the word sits.
+    // The rewrite turned a page's "lọc mút" into "lọc bọt biển (lọc mút)": guides 142 | 0.7 | 0; lọc mút 15 in the forum.
+    { say: 'lọc bọt biển', find: 'lọc (?:bọt biển|mút xốp)', instead: '"lọc mút", "lọc bio" (lọc mút chạy sủi)' },
+    { say: 'bể cộng đồng', find: '(?:bể|cá) cộng đồng', instead: '"nuôi chung", "thả chung với cá hiền"' }, // species 521, guides 226 | 4 | 15; nuôi chung 86 in the forum
+    { say: 'được xem là', instead: 'nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là"' }, // species 184, guides 44 | 7 | 4
+    { say: 'ghi nhận', instead: '"có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó)' }, // species 1021, guides 104 | 12 | 4
+    { say: 'không xương sống', instead: 'gọi tên con: "tép, ốc"' }, // species 242, guides 176 | 0.7 | 0
+    { say: 'cá mê cung', find: '(?:cá|nhóm|họ|loài) mê cung', instead: 'gọi tên con: "cá sặc, cá betta"' }, // mê cung: species 263, guides 37 | 0.7 | 0
+    { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"' }, // species 194, guides 59 | 7 | 0
+    { say: 'khẩu phần', instead: '"thức ăn", "cho ăn…"' }, // species 153, guides 117 | 14 | 0
+    { say: 'cột nước', instead: '"trong nước"' }, // guides 23 | 0.7 | 0
+    { say: 'dưới đèn', instead: '"đèn mạnh thì…", "đèn yếu thì…"' }, // guides 42 | 0 | 4
+    { say: 'thành phần thực vật', instead: '"có rau", "có tảo"' }, // species 38 | 0 | 0
+    { say: 'nuôi thương mại', instead: '"cá nuôi", "cá trại"' }, // species 15 | 0 | 0
+    { say: 'nhắm tới', instead: '"để…", "dành cho…"' }, // guides 22 | 3 | 0: seven times the forum's
     // The editors' second round (2026-11-07), each checked here: textbook words where a keeper says what happens.
     { say: 'trưởng thành sinh dục', instead: '"đủ lớn để đẻ", "bắt cặp được"' }, // 33 | 0 | 0
     { say: 'cá nhân giống', instead: '"cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân")' }, // 29 | 0 | 0
