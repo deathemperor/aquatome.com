@@ -340,9 +340,24 @@ const namesSource = (d: Draft, channel: string) => {
   return /tác giả|người làm video|trong video|theo video|video này/.test(text) || (!!channel.trim() && text.includes(`theo ${channel.trim().toLowerCase()}`))
 }
 
+/**
+ * Words that speak for many keepers or rank one way above others. The writer once wrote a creator's own habit as
+ * "nhiều người thấy…" or "ai cũng…" (its prompt suggested it until 2026-11-07, in about 200 of 500 guides), so the reviewer
+ * is handed each such sentence to hold against the transcript.
+ */
+const CROWD = /nhiều người|ai cũng|dân chơi|giới chơi|người chơi (?:thường|hay)|hầu hết|luôn luôn|(?:tốt|hiệu quả|an toàn|dễ|phổ biến) nhất/iu
+
+/** The guide's sentences with a CROWD word, once each. */
+export function crowdLines(d: Pick<Draft, 'summary' | 'body' | 'faq'>): string[] {
+  const text = [...d.summary, d.body.replace(/<\/(?:p|li|h3|td|th)>/g, '\n').replace(/<[^>]+>/g, ''), ...d.faq.flatMap(f => [f.q, f.a])].join('\n')
+  return [...new Set(text.split(/(?<=[.?!:])\s+|\n+/).map(s => s.trim()).filter(s => CROWD.test(s)))]
+}
+
 export async function reviewDraft(llm: Llm, transcript: string, d: Pick<Draft, 'viTitle' | 'summary' | 'body' | 'faq'>, m?: Pick<VideoMeta, 'title' | 'channel' | 'lang'>) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
-  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}`, schema: REVIEW_SCHEMA })
+  const crowd = crowdLines(d)
+  const check = crowd.length ? `\n\nCHECK THESE SENTENCES: each speaks for many people or ranks something. A note for each one the speaker doesn't say, at that strength:\n${crowd.map(s => `- ${s}`).join('\n')}` : ''
+  const r = await llm<{ score: number; notes: string[] }>({ system: 'You are a strict reviewer of Vietnamese aquarium guides. Reply only with JSON.', prompt: `${REVIEW}\n\n${m ? `VIDEO: "${m.title}" by ${m.channel} (the creator; the guide must not name them or the channel), spoken in ${m.lang ?? 'en'}${m.lang === 'vi' ? '. The transcript is Vietnamese too: sentences copied from it, or barely changed, count as faults (below 0.75 if there are several)' : ''}\n\n` : ''}TRANSCRIPT:\n${transcript.slice(0, 120_000)}\n\nGUIDE:\n${guide}${check}`, schema: REVIEW_SCHEMA })
   return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: (r.notes ?? []).slice(0, 10) }
 }
 
