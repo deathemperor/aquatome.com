@@ -10,6 +10,7 @@ struct FullPage: Hashable {
 /// A fish's or plant's page, as an app's page in the App Store: the photo across the top and its colour washing down
 /// behind the name, "Thêm vào bể", the facts strip and the gallery, the colour following the photo as the gallery
 /// pages; then the summary, the tank-mates shelves and the whole page one tap away.
+@available(iOS 18, *)
 struct SpeciesPage: View {
   let item: HandbookIndex.Item
   @Environment(HandbookModel.self) private var handbook
@@ -19,6 +20,8 @@ struct SpeciesPage: View {
   /// The gallery's photo in view: the hero and the colour follow it.
   @State private var shown: String?
   @State private var putting = false
+  /// Past the photo: the bar takes its background and the name, so the page doesn't run under the status bar bare.
+  @State private var scrolled = false
 
   private var photos: [PageDoc.Image] {
     guard let doc else { return [] }
@@ -65,8 +68,13 @@ struct SpeciesPage: View {
       .padding(.bottom, 40)
     }
     .ignoresSafeArea(edges: .top)
+    .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 320 } action: { _, past in
+      withAnimation(.easeInOut(duration: 0.2)) { scrolled = past }
+    }
     .accessibilityIdentifier("v2-species")
-    .toolbarBackground(.hidden, for: .navigationBar)
+    .navigationTitle(scrolled ? item.name : "")
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbarBackgroundVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
     .toolbar {
       ToolbarItem(placement: .topBarTrailing) {
         ShareLink(item: handbook.url(item)) { Image(systemName: "square.and.arrow.up") }

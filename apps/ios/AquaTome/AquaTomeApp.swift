@@ -79,7 +79,9 @@ struct AquaTomeApp: App {
     WindowGroup {
       Group {
         // v2 (the Tài khoản sheet's "Giao diện mới (thử nghiệm)", off by default): the same models and links (V2Root).
-        if v2, #available(iOS 18, *) {
+        // Only where the switch is offered: "v2" left on in TestFlight survives the update to the App Store's build,
+        // which has no switch to turn it off.
+        if v2, V2Switch.offered, #available(iOS 18, *) {
           V2Root(tab: $tab, handbookPath: $handbookPath, tanksPath: $tanksPath)
         } else {
           TabView(selection: $tab) {

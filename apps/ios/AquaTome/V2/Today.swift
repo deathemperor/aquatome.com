@@ -32,6 +32,8 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .toolbarVisibility(.hidden, for: .navigationBar)
+      // With no bar, the feed would scroll bare under the status bar: a material behind it, as a bar has.
+      .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(.bar) }
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
     }
@@ -235,12 +237,17 @@ private struct TankCard: View {
         TankSketch(dims: tank.dims, fish: tank.species.reduce(0) { $0 + ($1.count ?? 1) })
           .frame(height: 140)
           .padding(.vertical, 12)
-        HStack(spacing: 24) {
+        HStack(alignment: .bottom, spacing: 24) {
           if let l = tank.totalLitres {
             fact("Nước", "\(Int(l.rounded())) l")
           }
-          fact("Cá", "\(tank.species.reduce(0) { $0 + ($1.count ?? 1) })")
-          fact("Cây", "\(tank.plants.count)")
+          // An empty tank says so, not "0" twice.
+          if tank.species.isEmpty && tank.plants.isEmpty {
+            Text("Chưa có cá hay cây nào").font(.subheadline).opacity(0.8)
+          } else {
+            fact("Cá", "\(tank.species.reduce(0) { $0 + ($1.count ?? 1) })")
+            fact("Cây", "\(tank.plants.count)")
+          }
         }
       }
       .foregroundStyle(.white)
