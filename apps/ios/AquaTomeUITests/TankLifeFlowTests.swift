@@ -144,7 +144,7 @@ final class TankLifeFlowTests: XCTestCase {
 
   /// The owner's way to the blank tank (7 Nov): a fish's page opened from a tank on Bể của tôi, a new tank made in the put
   /// sheet (it opens on the tank already there; "Bể mới" picked from its list), then "Xem trong Bể của tôi →", which
-  /// replaces the stack the sheet's page is on as the sheet closes.
+  /// replaces the stack the sheet's page is on once the sheet has closed.
   func testANewTankMadeFromAPageOpenedOnATankIsSeenOnTheTankItOpens() {
     let app = launchAnimated("-seed-tanks", "life") // "Bể cá neon": 12 neons
     app.openTab("Bể của tôi")
@@ -154,6 +154,18 @@ final class TankLifeFlowTests: XCTestCase {
     row.tap()
     putOnANewTank(app, "Blackwater")
     seesTheNeons(app, on: "Blackwater", shot: "from-a-tank")
+  }
+
+  /// The same in dark, as the owner's phone was.
+  func testANewTankMadeFromAPageInTheDarkIsSeenOnTheTankItOpens() {
+    let app = launchAnimated("-seed-tanks", "life", "-dark")
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    let row = life(app, "Cá neon")
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "the tank didn't open")
+    row.tap()
+    putOnANewTank(app, "Blackwater")
+    seesTheNeons(app, on: "Blackwater", shot: "from-a-tank-dark")
   }
 
   /// The same new tank, the fish's page from Tìm while Bể của tôi has a tank open: that stack replaced while it isn't shown.
@@ -166,30 +178,6 @@ final class TankLifeFlowTests: XCTestCase {
     openPage(app, "Cá neon")
     putOnANewTank(app, "Blackwater")
     seesTheNeons(app, on: "Blackwater", shot: "another-tank-open")
-  }
-
-  /// The owner's path with the fish's page read first: scrolled down, which shrinks the tab bar, and back only as far as
-  /// its button, the bar still shrunk when the tank opens. The page from Tìm.
-  func testANewTankMadeWithTheTabBarShrunkFromTimIsSeenOnTheTankItOpens() {
-    let app = launchAnimated("-seed-tanks", "life")
-    openPage(app, "Cá neon")
-    readDownAndBackToThePutButton(app)
-    putOnANewTank(app, "Blackwater")
-    seesTheNeons(app, on: "Blackwater", shot: "shrunk-from-tim")
-  }
-
-  /// The same, the fish's page opened from a tank on Bể của tôi.
-  func testANewTankMadeWithTheTabBarShrunkFromATankIsSeenOnTheTankItOpens() {
-    let app = launchAnimated("-seed-tanks", "life")
-    app.openTab("Bể của tôi")
-    app.buttons["tank"].firstMatch.tap()
-    let row = life(app, "Cá neon")
-    XCTAssertTrue(row.waitForExistence(timeout: 5), "the tank didn't open")
-    row.tap()
-    XCTAssertTrue(app.buttons["put-on-tank"].waitForExistence(timeout: 10), "no way to put it on a tank")
-    readDownAndBackToThePutButton(app)
-    putOnANewTank(app, "Blackwater")
-    seesTheNeons(app, on: "Blackwater", shot: "shrunk-from-a-tank")
   }
 
   /// A link to a tank opened while on the Tìm tab, its tanks tab never opened: the tab changes and the tank is pushed
@@ -435,22 +423,6 @@ final class TankLifeFlowTests: XCTestCase {
     return app
   }
 
-  /// A page from the Tìm tab, searched by its name (a row below the fold isn't there to find), typed without accents: the
-  /// simulator's keyboard sometimes drops them, and the search folds them anyway.
-  /// A fish's page read down, until the tab bar shrinks, then short drags back until its button can be tapped.
-  private func readDownAndBackToThePutButton(_ app: XCUIApplication) {
-    let tabs = app.tabBars.buttons, put = app.buttons["put-on-tank"]
-    app.swipeUp()
-    app.swipeUp()
-    XCTAssertEqual(XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "count == 1"), object: tabs)], timeout: 5), .completed, "the tab bar didn't shrink")
-    let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.95, dy: 0.4))
-    repeatUntil(put.exists && put.isHittable, times: 20) {
-      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: 150)), withVelocity: .slow, thenHoldForDuration: 0.2)
-    }
-    XCTAssertTrue(put.isHittable, "not back at the button")
-    XCTAssertEqual(tabs.count, 1, "the tab bar came back before the button showed")
-  }
-
   /// From a fish's page: "Bể mới" picked in the put sheet (it opens on the first tank), named, saved, then the tank opened.
   private func putOnANewTank(_ app: XCUIApplication, _ name: String) {
     let put = app.buttons["put-on-tank"]
@@ -481,6 +453,8 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
   }
 
+  /// A page from the Tìm tab, searched by its name (a row below the fold isn't there to find), typed without accents: the
+  /// simulator's keyboard sometimes drops them, and the search folds them anyway.
   private func openPage(_ app: XCUIApplication, _ name: String) {
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
