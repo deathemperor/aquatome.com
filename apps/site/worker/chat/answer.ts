@@ -77,6 +77,7 @@ export const OFF_TOPIC: Record<Lang, string> = {
   vi: 'Mình chỉ giúp được chuyện nuôi cá thôi: cá, tép, ốc, cây thủy sinh, bể, hồ, nước và thiết bị. Có gì về bể cá thì bạn cứ hỏi nhé!',
   id: 'Aku hanya bisa membantu soal memelihara ikan: ikan, udang, siput, tanaman air, akuarium, kolam, air, dan peralatannya. Tanyakan soal akuariummu, ya!',
   th: 'เราช่วยได้เฉพาะเรื่องการเลี้ยงปลา ทั้งปลา กุ้ง หอย ไม้น้ำ ตู้ บ่อ น้ำ และอุปกรณ์ ลองถามเรื่องตู้ของคุณได้เลยนะ',
+  ms: 'Saya hanya boleh membantu tentang penjagaan ikan: ikan, udang, siput, tumbuhan akuatik, tangki, kolam, air dan peralatannya. Tanyalah tentang tangki anda, ya!',
 }
 
 /** Shorter than this, an answer's text is none: the eval saw "" and "x" from a last call a limit forced. */
