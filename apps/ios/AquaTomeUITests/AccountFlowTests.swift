@@ -54,7 +54,7 @@ final class AccountFlowTests: XCTestCase {
     // A new phone signing in with the same Apple ID gets a new, empty account.
     app = launch()
     signIn(app)
-    XCTAssertTrue(element(app, "sign-out").exists, "signed in with no tanks, the account's buttons are there")
+    XCTAssertTrue(reached(app, "sign-out").exists, "signed in with no tanks, the account's buttons are there")
     // Signed in with no tanks: the tanks tab's empty state, with a first tank to add.
     tanksTab(app)
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "no empty state signed in")
@@ -175,21 +175,97 @@ final class AccountFlowTests: XCTestCase {
   /// "Giao diện": the app light or dark whatever the phone is, at once (the sheet, and the tabs under it), the same after
   /// a relaunch, and as the phone is again on "Theo máy".
   func testTheAppearanceChosenInTheSheetTurnsTheWholeAppAtOnceAndIsKept() {
-    var app = launch(accounts: "off")
+    var app = launch()
     let phone = app.staticTexts["appearance-sheet"]
     XCTAssertTrue(phone.waitForExistence(timeout: 5), "no sheet")
     let (other, target) = phone.label == "dark" ? ("Sáng", "light") : ("Tối", "dark")
     let was = phone.label
+    // Apple's button is white in the dark, black in the light (its colour is set when it's made).
+    let apple = element(app, "apple-sign-in")
+    XCTAssertTrue(apple.waitForExistence(timeout: 5), "no Apple button")
+    XCTAssertEqual(lightness(apple) > 0.5, was == "dark", "the Apple button isn't the phone's appearance's")
     choose(app, other)
     XCTAssertTrue(drawn(app, "appearance-sheet", target), "the sheet isn't \(target)")
     XCTAssertTrue(drawn(app, "appearance-app", target), "the tabs under the sheet aren't \(target)")
+    repeatUntil(apple.exists && apple.isHittable, times: 8) { app.swipeDown() }
+    XCTAssertEqual(lightness(apple) > 0.5, target == "dark", "the Apple button kept the other appearance's colour")
     app.terminate()
-    app = launch(newPhone: false, accounts: "off", open: false)
+    app = launch(newPhone: false, open: false)
     XCTAssertTrue(drawn(app, "appearance-app", target), "not kept after a relaunch")
     accountTab(app)
     choose(app, "Theo máy")
     XCTAssertTrue(drawn(app, "appearance-sheet", was), "the sheet isn't as the phone is again")
     XCTAssertTrue(drawn(app, "appearance-app", was), "the tabs aren't as the phone is again")
+  }
+
+  /// A sync the server can't take offers only the button that helps: "Cập nhật ứng dụng" for an account's store from a
+  /// newer app, and none for an account that's full or records it refused, where trying again changes nothing.
+  func testASyncTheServerCantTakeOffersOnlyTheButtonThatHelps() {
+    var app = launch(resetServer: true)
+    add(app, "Bể tép", first: true)
+    signIn(app)
+    app.terminate()
+    for (flag, says, update) in [("-sync-newer-store", "bản ứng dụng mới hơn", true), ("-sync-full", "đủ chỗ", false),
+                                 ("-sync-refuses", "không hợp lệ", false)] {
+      app = launch(newPhone: false, flag)
+      let sync = element(app, "sync-status")
+      XCTAssertTrue(sync.waitForExistence(timeout: 10) && waitFor(sync, contains: says), "\(flag): \(sync.label)")
+      XCTAssertEqual(element(app, "sync-update").exists, update, "\(flag): Cập nhật ứng dụng")
+      if update { XCTAssertEqual(element(app, "sync-update").label, "Cập nhật ứng dụng") }
+      XCTAssertFalse(element(app, "sync-retry").exists, "\(flag): Thử lại where it can't help")
+      XCTAssertFalse(element(app, "sync-now").exists, "\(flag): Đồng bộ ngay where it can't help")
+      app.terminate()
+    }
+  }
+
+  /// The owner's row counts the overview's to-dos (protocols/owner-dashboard-vectors.json has two), grey, as a value.
+  func testTheOwnersRowCountsTheOverviewsToDos() {
+    let app = launch(resetServer: true, "-fake-owner", "ui-apple")
+    signIn(app)
+    let row = reached(app, "owner-dashboard")
+    XCTAssertTrue(row.exists, "no owner's row")
+    XCTAssertTrue(waitFor(row, contains: "2 việc cần làm"), row.label)
+  }
+
+  /// A session that ended while no account is kept on the phone (its copy unreadable after an update): plain signed
+  /// out, with every way in, no sentence naming none, and no dot.
+  func testAnEndedSessionWithNoAccountKeptIsPlainSignedOut() {
+    var app = launch(resetServer: true)
+    signIn(app)
+    app.terminate()
+    app = launch(newPhone: false, open: false, "-drop-kept-account", "-end-sessions", "ui-apple")
+    XCTAssertFalse(waitForBadge(app), "a dot for a session there's no way to name")
+    accountTab(app)
+    XCTAssertTrue(element(app, "account-header").waitForExistence(timeout: 10), "not the signed-out card")
+    XCTAssertFalse(element(app, "session-ended").exists, "an ended session with no way named")
+    XCTAssertTrue(element(app, "apple-sign-in").exists && element(app, "google-sign-in").exists, "not every way in")
+  }
+
+  /// Who is signed in answered with a server fault, not no network: a fault, red, with "Thử lại", and a dot.
+  func testAServerFaultAskingWhoIsSignedInIsAFaultNotNoNetwork() {
+    var app = launch(resetServer: true)
+    signIn(app)
+    app.terminate()
+    app = launch(newPhone: false, open: false, "-session-fails")
+    XCTAssertTrue(waitForBadge(app), "no dot for a server fault")
+    XCTAssertEqual(profile(app), "đồng bộ lỗi")
+    accountTab(app)
+    let sync = element(app, "sync-status")
+    XCTAssertTrue(sync.waitForExistence(timeout: 10), "no sync row")
+    XCTAssertFalse(sync.label.contains("Chưa có mạng"), "a server fault read as no network: \(sync.label)")
+    XCTAssertTrue(element(app, "sync-retry").exists, "no Thử lại")
+  }
+
+  /// A session that ends while the sheet is open is seen there: no dot after closing it.
+  func testASessionThatEndsWithTheSheetOpenLeavesNoDot() {
+    var app = launch(resetServer: true)
+    signIn(app)
+    app.terminate()
+    // Who is signed in is answered 15 s after the sheet opens: the session ends in front of the reader.
+    app = launch(newPhone: false, "-slow-session", "-end-sessions", "ui-apple")
+    XCTAssertTrue(element(app, "session-ended").waitForExistence(timeout: 25), "the session didn't end in the sheet")
+    app.buttons["account-done"].tap()
+    XCTAssertEqual(profile(app), "", "a dot for an end the reader saw")
   }
 
   func testAStoreFromANewerAppIsNotOfferedForSync() {
@@ -238,7 +314,12 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(out.exists && element(app, "delete-account").exists, "the account's buttons gone offline")
     // Seen from the tanks tab, where the change is made.
     add(app, "Bể tép", first: true)
-    XCTAssertEqual(profile(app), "đã đăng nhập", "a dot for no network")
+    // Its sync runs 1.5 s after the change, and finds no network: no dot, before or after it.
+    let until = Date().addingTimeInterval(4)
+    while Date() < until {
+      XCTAssertEqual(profile(app), "đã đăng nhập", "a dot for no network")
+      RunLoop.current.run(until: Date().addingTimeInterval(0.5))
+    }
     accountTab(app)
     XCTAssertTrue(element(app, "sync-status").label.contains("Chưa có mạng"), element(app, "sync-status").label)
     app.terminate()
@@ -414,6 +495,16 @@ final class AccountFlowTests: XCTestCase {
   /// Two lines read as one, as they're written.
   private func oneLine(_ s: String) -> String { s.replacingOccurrences(of: "\n", with: " ") }
 
+  /// An element's label has the words, within 10 s.
+  private func waitFor(_ e: XCUIElement, contains words: String) -> Bool {
+    let until = Date().addingTimeInterval(10)
+    while Date() < until {
+      if e.exists && e.label.contains(words) { return true }
+      RunLoop.current.run(until: Date().addingTimeInterval(0.5))
+    }
+    return false
+  }
+
   /// Looked for every half second, for up to 10 s.
   private func waitForBadge(_ app: XCUIApplication) -> Bool {
     let until = Date().addingTimeInterval(10)
@@ -431,10 +522,42 @@ final class AccountFlowTests: XCTestCase {
 
   /// Scrolls the list until the element is on screen, then taps it.
   private func tap(_ app: XCUIApplication, _ id: String) {
-    let e = element(app, id)
-    XCTAssertTrue(e.waitForExistence(timeout: 5), "no \(id)")
-    repeatUntil(e.isHittable, times: 5) { app.swipeUp() }
+    let e = reached(app, id)
+    XCTAssertTrue(e.exists, "no \(id)")
+    // Into the open, toward it: back up the list for a row above what shows (signed out at the sheet's foot, its ways to
+    // sign in are at the top), else on down. Not under the sheet's bar: a row scrolled under it reads as hittable, and a
+    // tap there lands on the bar.
+    let bar = app.navigationBars["Tài khoản"]
+    func clear() -> Bool { e.isHittable && (!bar.exists || e.frame.minY >= bar.frame.maxY) }
+    repeatUntil(clear(), times: 6) { e.frame.midY < app.frame.midY ? drag(app, from: 0.35, to: 0.75) : app.swipeUp() }
     e.tap()
+  }
+
+  /// A finger held, then moved down or up the screen (fractions of its height): a list scrolls by it where a quick swipe
+  /// down in a sheet scrolled at its foot moved nothing.
+  private func drag(_ app: XCUIApplication, from: CGFloat, to: CGFloat) {
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: from))
+      .press(forDuration: 0.2, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: to)))
+  }
+
+  /// The element, scrolled to: a list makes its rows only as they come into view (the sheet's last ones, sign out and
+  /// delete, a few screens down at large text).
+  private func reached(_ app: XCUIApplication, _ id: String) -> XCUIElement {
+    let e = element(app, id)
+    if !e.waitForExistence(timeout: 3) { repeatUntil(e.exists, times: 8) { app.swipeUp() } }
+    return e
+  }
+
+  /// How light an element is drawn, on average: 0 black, 1 white.
+  private func lightness(_ e: XCUIElement) -> Double {
+    guard let image = e.screenshot().image.cgImage else { return -1 }
+    let w = 24, h = 6
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    guard let c = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
+                            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return -1 }
+    c.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h))
+    let sum = stride(from: 0, to: px.count, by: 4).reduce(0) { $0 + Int(px[$1]) + Int(px[$1 + 1]) + Int(px[$1 + 2]) }
+    return Double(sum) / Double(w * h * 3 * 255)
   }
 
   /// "Giao diện" set from its menu in the sheet.

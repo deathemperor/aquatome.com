@@ -205,10 +205,14 @@ final class AccountModel {
       }
     } catch is CancellationError {
       // The Tài khoản sheet closed before the answer (its task cancelled): nothing learned about the network.
-    } catch {
+    } catch AccountError.offline {
       // Offline: as it was, said so while nothing is known.
       unreached = true
       if user != nil { syncFault = .offline }
+    } catch {
+      // The server answered, but not with who is signed in (it failed, or its reply wasn't read): a fault, with "Thử lại".
+      unreached = true
+      if user != nil { syncFault = .failed(problem(error), retry: true) }
     }
   }
 
@@ -507,6 +511,9 @@ final class AccountModel {
     for k in user?.methods.map(\.kind) ?? endedWays ?? [] where !kinds.contains(k) { kinds.append(k) }
     forget()
     message = nil
+    // No account known on the phone (its kept copy unreadable after an update, say): nothing to name, so plain signed
+    // out, not a sentence with no way in it.
+    guard !kinds.isEmpty else { return }
     endedWays = kinds
     endedSeen = false
     UserDefaults.standard.set(kinds, forKey: Self.keptEnded)
