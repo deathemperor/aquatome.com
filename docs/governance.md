@@ -737,7 +737,11 @@ The layers above still check the result.
       Found by the owner: 25 of the betta's 32 other names were its Alien hybrids' and a Red Spade Tail's, from
       shop listings of one variety each that every merge had kept. A run on a copy (2026-11-04) took 769 names off 451 species
       (571 pages in three languages): 5 breed names (4 species), 52 variety names (15), 335 written twice (239), 174 the
-      page's own name again, 203 its scientific name again. The betta keeps 6.
+      page's own name again, 203 its scientific name again. The betta keeps 6. A name with a note on the name in
+      brackets ("Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)") stays, and the same name without the note
+      leaves. Found in a design lab (2026-11-07): the Oscar, a South American fish, was named "Cá Oscar (cá tai tượng
+      châu Phi)". Shops and hobby sites do sell it by that name, so it stays a name readers search for, noted, and the
+      page's own name (`nameFixed`) is "Cá Oscar"
     - a breed's links to the species it is a form of (`basedOn`) and to its parents' pages (`parents[].species`),
       from its research (`engine-state/breeds/<id>.json`, `breeds.ts` linkBreed): set where it has none and exactly one
       species page is that species, by the page's scientific name or a synonym GBIF gave the engine
