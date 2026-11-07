@@ -26,11 +26,11 @@ struct AppLanguage: Hashable, Identifiable {
     return String(localized: "Ứng dụng sẽ dùng \(name) từ lần mở sau.", bundle: own ?? .main)
   }
 
-  /// Text in its own language, so VoiceOver reads it in that language's voice (and it's set as that language's text).
+  /// Text marked as its own language, the one mark an AttributedString has for it. Which voice VoiceOver then reads it in
+  /// is the system's: no attribute sets that.
   func spoken(_ s: String) -> AttributedString {
     var a = AttributedString(s)
     a.languageIdentifier = site?.code
-    a.accessibilitySpeechLanguage = site?.code
     return a
   }
 
