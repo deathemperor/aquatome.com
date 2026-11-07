@@ -118,24 +118,26 @@ change to the chat's brain (`docs/review/chat-vs-plain.md`).
 | --- | ---: | ---: |
 | First run: handbook only, two or three sentences, size and fish only | 4–43 | 8–36 |
 | Expert answers with steps, the whole tank read | 8–38 | 23–21 |
-| General knowledge beside the handbook, fishkeeping only | 13–33 | 28–17 |
+| General knowledge beside the handbook, fishkeeping only | 10–31 | 28–14 |
 
-**Where that leaves us.** We now win when we know the reader's tank: 28 to 17, scores 6.0 and 5.0. By problem that's
-algae 9–3, stocking 7–2, sick fish 5–4, cycling 4–3, and setting up a tank 3–5, the one we still lose. Give both the whole
-post and plain Claude still wins 33 to 13, scores 6.6 and 5.7, though we lead on sick fish, 6–3. The judge says we use
-less of what the post tells us (tank-fit 37 times) and are too thin (24), and it marks plain Claude too long 34 times
-but picks it anyway. On the grounded count we lead on both: 20–10 and 19–11.
+**Where that leaves us.** We now win when we know the reader's tank: 28 to 14, scores 6.2 and 5.0. By problem that's
+algae 9–1, stocking 7–3, sick fish 5–3, cycling 4–3, and setting up a tank 3–4, the one we still lose. Give both the whole
+post and plain Claude still wins 31 to 10, scores 6.6 and 5.8, with sick fish level at 4–4. The judge says we use less of
+what the post tells us (tank-fit 35 times) and are too thin (22), and it marks plain Claude too long 34 times but picks it
+anyway. On the grounded count we lead on both: 15–5 and 22–5.
 
 **What still costs us.**
-- The budget. 70 of 96 answers stop at a limit rather than when the chat is done.
-- Time. 4 of 96 ran out the 27 seconds during a model call, so that reader gets an error. They count as losses, and they
-  are the next fix.
+- The budget. 77 of 96 answers stop at a limit rather than when the chat is done.
+- Time. The last row's first pass came out 8–35 and 23–19, because 24 of 96 ran out the 27 seconds and counted as losses.
+  They followed the clock, not the questions: over nine minutes the median answer went from 16 to 28 seconds. Asked
+  again, 23 of the 24 answered, and the row shows that; one still timed out. So when the model slows, readers get errors.
+  That's the next fix.
 - Some errors are our guides' own, such as "90% of hair algae is low CO₂". Those went to the writing lead, and the guides
   written from one video stay out of the chat until they are re-checked.
 
-**The owner's rules, checked.** The off-topic set is 53 questions in Vietnamese, Indonesian and Thai: football and other
+**The owner's rules, checked.** The off-topic set is 66 questions in Vietnamese, Indonesian and Thai: football and other
 plain off-topic, cooking and catching fish, jailbreaks (including instructions planted in a saved tank's notes), mixed
-questions, and fishkeeping at the edge such as stands, electrics and ponds. It passes 53 of 53 and has to stay there
+questions, and fishkeeping at the edge such as stands, electrics and ponds. It passes 66 of 66 and has to stay there
 (`docs/review/chat-offtopic.md`). In the 96 answers, every medicine or chemical dose my search found was on a page the
 chat had read. The search looks for common units, so it could miss an odd wording.
 
@@ -145,8 +147,8 @@ chat had read. The search looks for common units, so it could miss an odd wordin
 2. Close the gap it shows: expert answers with a plan, the whole tank read, the name search fixed ("cá vàng" found a
    shrimp before the goldfish) and general knowledge are all done. Loosening the reading budget didn't change wins, so I
    dropped it. Next is the answers that time out.
-3. The stop button and past conversations, which the owner approved. The contract is written. The server needs the
-   owner's OK for one new database table.
+3. The stop button and past conversations, which the owner approved. The contract is written and its table is live.
+   The server is next.
 4. The algae doctor, with the first equipment action: a shorter light schedule, applied once the reader confirms.
 5. Heat and cold warnings, once the owner OKs the region and the forecast service.
 6. More equipment actions: dimming, feeding mode, master-button scenes.
