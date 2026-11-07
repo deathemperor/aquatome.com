@@ -4,6 +4,8 @@ import { expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
+import { chatAccount, conversationKey } from '../chat/store'
+import { priceOf } from '../fishid/claude'
 import type { Source } from '../chat/handbook'
 import { handle } from '../index'
 import { contract } from './contract'
@@ -16,8 +18,11 @@ const ASSETS = { fetch: async (r: Request) => { const f = DIST + new URL(r.url).
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
 const B = 'sk-ant-api03-bbbbbbbbbbbb'
 
-/** R2 in memory: what the chat uses of it (get, put with an etag match or only where nothing is, json), every put counted. */
-function r2() {
+/**
+ * R2 in memory: what the chat uses of it (get, put with an etag match or only where nothing is, json), every put
+ * counted; and what deleting an account uses (list by prefix, `page` keys at a time, and delete).
+ */
+function r2(page = 1000) {
   const m = new Map<string, { body: string; etag: string }>()
   let n = 0
   const bucket = {
@@ -30,6 +35,13 @@ function r2() {
       m.set(k, { body: v, etag: `e${++n}` })
       return { etag: `e${n}` }
     },
+    list: async ({ prefix = '', cursor }: { prefix?: string; cursor?: string } = {}) => {
+      const keys = [...m.keys()].filter(k => k.startsWith(prefix)).sort()
+      const from = cursor ? Number(cursor) : 0
+      const truncated = from + page < keys.length
+      return { objects: keys.slice(from, from + page).map(key => ({ key })), truncated, ...(truncated ? { cursor: String(from + page) } : {}) }
+    },
+    delete: async (k: string | string[]) => { for (const x of [k].flat()) m.delete(x) },
   }
   return { m, bucket: bucket as unknown as R2Bucket, read: <T>(k: string) => (m.has(k) ? JSON.parse(m.get(k)!.body) as T : undefined) }
 }
@@ -43,9 +55,9 @@ function kv() {
   const m = new Map<string, string>()
   return { get: async (k: string, t?: string) => (m.has(k) ? (t === 'json' ? JSON.parse(m.get(k)!) : m.get(k)) : null), put: async (k: string, v: string) => { m.set(k, v) } } as unknown as KVNamespace
 }
-function env(extra: Partial<ChatEnv> = {}) {
+function env(extra: Partial<ChatEnv> = {}, page?: number) {
   const db = testD1()
-  const store = r2()
+  const store = r2(page)
   const ledger = memoryLedger()
   const e: ChatEnv = { CHAT: '1', ANTHROPIC_KEYS: `${A}\n${B}\n`, COMMENT_HMAC_KEY: 'h', AB: kv(), ASSETS: ASSETS as unknown as Fetcher, DB: db, UPLOADS: store.bucket, FISHID_LEDGER: ledger.ns, ...extra }
   return { e, db, store, ledger }
@@ -74,6 +86,8 @@ function claude(replies: (() => Response | Promise<Response>)[]) {
 const NEON = [() => reads('/vi/ca/ca-neon-xanh/'), () => answers({ blocks: [pick({ ids: ['paracheirodon-innesi'] }), pick({ t: 'tool', tool: 'tank-mates', fish: [{ id: 'paracheirodon-innesi', count: 8 }] })] })]
 
 const CONV = '6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
+/** Where the Worker keeps CONV for a reader: under the account's HMAC (the test's key is 'h'). */
+const convKey = async (u: { id: string }) => conversationKey(await chatAccount('h', u.id), CONV)
 const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, headers: Record<string, string> = {}) => new Request('https://x.test/api/chat', {
   method: 'POST', headers: { 'content-type': 'application/json', ...auth, ...headers },
   body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'species', about: 'paracheirodon-innesi', ...body }),
@@ -142,8 +156,9 @@ test('a question: Claude reads the handbook and answers; the blocks are filled f
   expect(body.blocks).toMatchObject([{ t: 'species', page: { id: 'paracheirodon-innesi' }, facts: { schoolMin: 6 } }, { t: 'tool', tool: 'tank-mates', url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:8' }])
   // The first question says where it started.
   expect(JSON.stringify(c.bodies[0]!.messages)).toContain('The chat is about Cá neon xanh')
-  const conv = store.read<Conversation>(`chat-conv/${CONV}.json`)!
-  expect(conv.account).not.toContain(me.id)
+  // Under the account's HMAC, never its id.
+  const conv = store.read<Conversation>(await convKey(me))!
+  expect([...store.m.keys()].join(' ')).not.toContain(me.id)
   expect(conv.turns).toMatchObject([{ n: 1, question: 'Nuôi cá này thế nào?', text: 'Cá neon xanh sống theo đàn.' }])
   expect(conv.running).toBeUndefined()
   const day = ledger.day()!
@@ -152,7 +167,7 @@ test('a question: Claude reads the handbook and answers; the blocks are filled f
   expect(day.usd).toBeLessThan(chatWorstCost('claude-opus-5-5'))
 })
 
-test('the next question reads the turns before it, the start only once; another account\'s conversation is 404; one past a day or its turns has ended', async () => {
+test('the next question reads the turns before it, the start only once; an id another account used is its own conversation; one past a day or its turns has ended', async () => {
   const { e, db, store } = env({ CHAT_MAX_TURNS: '2' })
   const me = await signIn(db)
   await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))
@@ -163,8 +178,13 @@ test('the next question reads the turns before it, the start only once; another 
   expect(first).toContain('Earlier in this conversation')
   expect(first).toContain('Shown: card: Cá neon xanh (paracheirodon-innesi); tool: /vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:8')
   expect(first).not.toContain('The chat is about')
+  // Another account asking in the same id starts its own conversation, and reads none of the first's turns.
   const other = await signIn(db)
-  expect((await run(ask(bearer(other.token)), e, deps(c.fetch))).body).toEqual({ error: 'conversation' })
+  const theirs = claude([() => answers({})])
+  expect((await run(ask(bearer(other.token)), e, deps(theirs.fetch))).body).toMatchObject({ n: 1 })
+  expect(JSON.stringify(theirs.bodies[0]!.messages)).not.toContain('Earlier in this conversation')
+  expect(store.read<Conversation>(await convKey(other))!.turns).toHaveLength(1)
+  expect(store.read<Conversation>(await convKey(me))!.turns).toHaveLength(2)
   expect((await run(ask(bearer(me.token)), e, deps(c.fetch))).body).toEqual({ error: 'ended' })
   // A day after it began.
   const fresh = env()
@@ -172,6 +192,30 @@ test('the next question reads the turns before it, the start only once; another 
   await run(ask(bearer(her.token)), fresh.e, deps(claude(NEON).fetch))
   expect((await run(ask(bearer(her.token)), fresh.e, deps(c.fetch, { clock: () => Date.now() + 24 * 3600_000 + 1 }))).body).toEqual({ error: 'ended' })
   expect(store.m.size).toBeGreaterThan(0)
+})
+
+test('the chat\'s model in wrangler.jsonc is Haiku 5.5, with its own price; unset, the default is Opus (the first question\'s model above)', () => {
+  const wrangler = readFileSync(new URL('../../wrangler.jsonc', import.meta.url).pathname, 'utf8')
+  const model = /"CHAT_MODEL": "([^"]+)"/.exec(wrangler)?.[1]
+  expect(model).toBe('claude-haiku-5-5')
+  expect(priceOf(model!)).not.toBe(priceOf('claude-unknown'))
+  expect(chatWorstCost(model!)).toBeLessThan(chatWorstCost('claude-opus-5-5'))
+})
+
+test('deleting an account deletes its conversations and retries\' answers, every page of them, and no one else\'s', async () => {
+  // Listed a key at a time: deletion follows the list's cursor to its end.
+  const { e, db, store } = env({}, 1)
+  const me = await signIn(db)
+  const other = await signIn(db)
+  for (const [who, conversation, key] of [[me, CONV, '1d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13'], [me, '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913', '2d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13'], [other, CONV, '3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13']] as const)
+    expect((await run(ask(bearer(who.token), { conversation }, { 'idempotency-key': key }), e, deps(claude(NEON).fetch))).res.status).toBe(200)
+  const mine = `/${await chatAccount('h', me.id)}/`
+  expect([...store.m.keys()].filter(k => k.includes(mine))).toHaveLength(4)
+  // Through the Worker, as the app deletes an account.
+  const res = await handle(new Request('https://x.test/api/v1/account', { method: 'DELETE', headers: { authorization: `Bearer ${me.token}` } }), { ...e, ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'k' } as never)
+  expect(res.status).toBe(204)
+  expect([...store.m.keys()].filter(k => k.includes(mine))).toEqual([])
+  expect([...store.m.keys()].sort()).toEqual([await convKey(other), `chat-turn/${await chatAccount('h', other.id)}/3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13.json`])
 })
 
 test('the stream: steps as they happen, the text, each block, then done holding the same turn; the contract\'s order', async () => {
@@ -230,7 +274,7 @@ test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn
   expect(waits).toHaveLength(1)
   release()
   await Promise.all(waits)
-  const conv = store.read<Conversation>(`chat-conv/${CONV}.json`)!
+  const conv = store.read<Conversation>(await convKey(me))!
   expect(conv.running).toBeUndefined()
   expect(conv.turns).toMatchObject([{ n: 1 }])
   expect(ledger.day()!.runs).toEqual({})
@@ -251,13 +295,13 @@ test('a reader who leaves while the handbook is still being read: that read is p
   const waits: Promise<unknown>[] = []
   const req = ask(bearer(me.token))
   void chat(req, new URL(req.url), e, new Date(), deps(claude(NEON).fetch, { source: slow }), p => { waits.push(p) })
-  while (!store.read<Conversation>(`chat-conv/${CONV}.json`)?.running) await tick()
+  while (!store.read<Conversation>(await convKey(me))?.running) await tick()
   for (let i = 0; i < 5; i++) await tick()
   expect(waits).toHaveLength(1)
   release()
   await Promise.all(waits)
-  expect(store.read<Conversation>(`chat-conv/${CONV}.json`)).toMatchObject({ turns: [{ n: 1 }] })
-  expect(store.read<Conversation>(`chat-conv/${CONV}.json`)!.running).toBeUndefined()
+  expect(store.read<Conversation>(await convKey(me))).toMatchObject({ turns: [{ n: 1 }] })
+  expect(store.read<Conversation>(await convKey(me))!.running).toBeUndefined()
   expect(ledger.day()!.runs).toEqual({})
 })
 
@@ -287,7 +331,7 @@ test('two first questions at once in a new conversation: one runs; the other is 
     }
     expect(c.bodies).toHaveLength(2)
     expect(Object.values(ledger.day()!.readers)).toEqual([1])
-    expect(store.read<Conversation>(`chat-conv/${CONV}.json`)!.turns).toHaveLength(1)
+    expect(store.read<Conversation>(await convKey(me))!.turns).toHaveLength(1)
   }
 })
 
@@ -368,8 +412,8 @@ test('failures: Claude unreachable on every key is unavailable and gives the cou
   const f = await run(ask(bearer(me.token)), e, deps(bad.fetch))
   expect([f.res.status, f.body]).toEqual([502, { error: 'failed' }])
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
-  expect(store.read<Conversation>(`chat-conv/${CONV}.json`)).toMatchObject({ turns: [] })
-  expect(store.read<Conversation>(`chat-conv/${CONV}.json`)!.running).toBeUndefined()
+  expect(store.read<Conversation>(await convKey(me))).toMatchObject({ turns: [] })
+  expect(store.read<Conversation>(await convKey(me))!.running).toBeUndefined()
   const ok = await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))
   expect(ok.body).toMatchObject({ n: 1 })
   // On a stream, the same error as an event after the stream began.
