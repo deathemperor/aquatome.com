@@ -31,6 +31,7 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import type { PageShard } from '@aq/schema/app-page'
+import type { Limits } from '../../../apps/site/worker/agent/loop'
 import { answerQuestion, type ChatOptions, type ChatRun } from '../../../apps/site/worker/chat/agent'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
 import { handbookOf, type Index, type Source } from '../../../apps/site/worker/chat/handbook'
@@ -56,6 +57,7 @@ const { values: args } = parseArgs({
     conditions: { type: 'string', default: CONDITIONS.join(',') },
     only: { type: 'string' },
     split: { type: 'string', default: 'all' },
+    limits: { type: 'string' },
     concurrency: { type: 'string', default: '4' },
     judges: { type: 'string', default: '3' },
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
@@ -67,6 +69,8 @@ const { values: args } = parseArgs({
   },
 })
 const MODEL = args.model!
+/** The agent's limits for ours, over the Worker's own (CHAT_LIMITS), as JSON: to see what a looser budget would buy. */
+const LIMITS = args.limits ? (JSON.parse(args.limits) as Partial<Limits>) : undefined
 const JUDGE = args.judge!
 const WANTED = args.conditions!.split(',').filter((c): c is Condition => (CONDITIONS as readonly string[]).includes(c))
 const hash = (...xs: unknown[]) => createHash('sha256').update(JSON.stringify(xs)).digest('hex').slice(0, 12)
@@ -156,11 +160,11 @@ async function main() {
   const gone = questions.flatMap(q => (q.tank?.fish ?? []).flatMap(f => (f.id && hb.byId(f.id)?.kind !== 'fish' ? [`${q.id}: ${f.id}`] : [])))
   if (gone.length) throw new Error(`Pinned fish the handbook doesn't have: ${gone.join(', ')}`)
 
-  const ours = async (q: HardQuestion, c: Condition) => seen(await cachedFile<Answered>(`ours-v2-${MODEL}-${brain}-${c}-${q.id}-${hash(asked(q, c), q.tank)}.json`, async () => {
+  const ours = async (q: HardQuestion, c: Condition) => seen(await cachedFile<Answered>(`ours-v2-${MODEL}-${brain}${LIMITS ? `-limits${hash(LIMITS)}` : ''}-${c}-${q.id}-${hash(asked(q, c), q.tank)}.json`, async () => {
     const t = Date.now()
     try {
       const tanks = c === 'tank' && q.tank ? [savedTank(q.tank)] : []
-      const run: ChatRun = await answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: 'vi', question: asked(q, c), earlier: [], start: {}, handbook: hb, tanks: async () => tanks })
+      const run: ChatRun = await answerQuestion({ send: sender(await healthyKeys(keys, store, Date.now()), store), model: MODEL, lang: 'vi', question: asked(q, c), earlier: [], start: {}, handbook: hb, tanks: async () => tanks, ...(LIMITS ? { limits: LIMITS } : {}) })
       const read = run.steps.flatMap(s => (s.kind === 'read' ? [s.page.url] : []))
       const usd = costOf(MODEL, run.spent)
       if (!run.answer) return { text: '', usd, ms: Date.now() - t, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, read, stopped: run.stopped }
@@ -234,7 +238,7 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
   const lines = [
     '# The chat against plain Claude, on hard problems',
     '',
-    `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-vs-plain.ts\`. ${n} questions (${args.split === 'all' ? 'all of them' : args.split === 'dev' ? 'those tuned on' : 'the holdout, kept out of tuning'}) from public Vietnamese hobby forums, reworded with no names (\`packages/engine/scripts/hard-questions.vi.json\`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and limits at commit \`${commit}\`, ${MODEL}, over ${args.site}'s handbook. Plain: ${MODEL}, the same effort, no system prompt, no tools, no handbook. Judge: ${JUDGE} through the Claude CLI, rubric version ${RUBRIC_VERSION} (\`chat-vs-plain-lib.ts\`).`,
+    `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-vs-plain.ts\`. ${n} questions (${args.split === 'all' ? 'all of them' : args.split === 'dev' ? 'those tuned on' : 'the holdout, kept out of tuning'}) from public Vietnamese hobby forums, reworded with no names (\`packages/engine/scripts/hard-questions.vi.json\`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and ${LIMITS ? `limits but these, \`${JSON.stringify(LIMITS)}\`,` : 'limits'} at commit \`${commit}\`, ${MODEL}, over ${args.site}'s handbook. Plain: ${MODEL}, the same effort, no system prompt, no tools, no handbook. Judge: ${JUDGE} through the Claude CLI, rubric version ${RUBRIC_VERSION} (\`chat-vs-plain-lib.ts\`).`,
     '',
     '- **post:** both answer the whole forum post. **tank:** both get a short question; ours reads the reader\'s saved tank as the chat reads it today (size, fish and counts; not plants, light, CO₂ or notes), plain Claude only the question. The judge is told everything the post said about the tank.',
     '- **Blind, as far as it goes:** the judge isn\'t told which answer is ours, and both lose the site\'s name and links. Ours still looks different (short text with excerpts, cards and tools under it), so the blinding is partial.',
