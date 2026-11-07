@@ -1,0 +1,67 @@
+{
+  "id": "corydoras-carlae",
+  "native": {
+    "input": "d4930bc12273fafc",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Iguazu",
+        "source": "planetcatfish",
+        "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras carlae",
+    "status": "ACCEPTED",
+    "taxonKey": 2342713,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        35
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        6
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

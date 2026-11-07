@@ -1,0 +1,44 @@
+{
+  "id": "cobitis-macrostigma",
+  "native": {
+    "input": "c11b2594bfea0497",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A beautiful and absolutely peaceful loach from China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cobitis macrostigma",
+    "status": "ACCEPTED",
+    "taxonKey": 2368237,
+    "datasets": [
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

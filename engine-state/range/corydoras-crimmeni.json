@@ -1,0 +1,48 @@
+{
+  "id": "corydoras-crimmeni",
+  "native": {
+    "input": "4f53e9d57e32e5df",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from the Rio Negro basin in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "It originates from the Rio Negro basin in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras crimmeni",
+    "status": "ACCEPTED",
+    "taxonKey": 2342712,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

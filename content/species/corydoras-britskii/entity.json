@@ -11,6 +11,91 @@
     "mato-grosso",
     "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "rio Paraguay"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The giant brochis, Brochis britskii, long known as Corydoras britskii, is an armoured catfish restricted to the upper rio Paraguay in Mato Grosso state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Restricted to the upper rio Paraguay in Mato Grosso state, Brazil.",
+          "countries": [],
+          "regions": [
+            "rio Paraguay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7849500,
+      "total": 22,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          21
+        ],
+        [
+          "BO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -16.875,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

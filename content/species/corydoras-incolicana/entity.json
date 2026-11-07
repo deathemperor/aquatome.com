@@ -11,6 +11,54 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Rio Içana",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the rio Içana in the upper rio Negro basin of Amazonas state, northern Brazil, but presumably also occurs in one or more of Guainía, Guaviare, and Vaupés departments, eastern Colombia, since the Içana forms the border between the two countries for a considerable portion of its length and drains all three regions.",
+          "countries": [
+            "BR",
+            "CO"
+          ],
+          "regions": [
+            "Rio Içana",
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342675,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

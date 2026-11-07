@@ -1,0 +1,97 @@
+{
+  "id": "congochromis-sabinae",
+  "native": {
+    "input": "940dff401078bbc2",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Congochromis sabinae is a small cichlid from rainforest streams in the Republic of the Congo, northeast Gabon and northern DR Congo.",
+        "words": "Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Congochromis sabinae is a small cichlid from rainforest streams in the Republic of the Congo, northeast Gabon and northern DR Congo.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Congochromis sabinae is a small cichlid from rainforest streams in the Republic of the Congo, northeast Gabon and northern DR Congo.",
+        "words": "DR Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Loubi River",
+        "source": "seriouslyfish",
+        "quote": "Described from the Loubi River, a tributary of the Likoula River in northeastern Congo (Brazzaville) which is itself part of the enormous Congo river system.",
+        "country": "CG",
+        "ok": true
+      },
+      {
+        "name": "Likoula River",
+        "source": "seriouslyfish",
+        "quote": "Described from the Loubi River, a tributary of the Likoula River in northeastern Congo (Brazzaville) which is itself part of the enormous Congo river system.",
+        "country": "CG",
+        "ok": true
+      },
+      {
+        "name": "Congo river system",
+        "source": "seriouslyfish",
+        "quote": "Described from the Loubi River, a tributary of the Likoula River in northeastern Congo (Brazzaville) which is itself part of the enormous Congo river system.",
+        "ok": true
+      },
+      {
+        "name": "Ogooué River",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded from other central and northern parts of the country west of the Upper Congo basin as well as in northeast Gabon (Ogooué River) and northern DR Congo near the settlements of Genema and Bamanya (Bondele River).",
+        "country": "GA",
+        "ok": true
+      },
+      {
+        "name": "Bondele River",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded from other central and northern parts of the country west of the Upper Congo basin as well as in northeast Gabon (Ogooué River) and northern DR Congo near the settlements of Genema and Bamanya (Bondele River).",
+        "country": "CD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Congochromis sabinae",
+    "status": "ACCEPTED",
+    "taxonKey": 2371563,
+    "datasets": [
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "CG",
+      "GA",
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

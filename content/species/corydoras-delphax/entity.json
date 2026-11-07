@@ -10,6 +10,68 @@
     "colombia",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Río Inírida"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis delphax, long known as Corydoras delphax, is an armoured catfish from the Río Inírida and other parts of the upper Orinoco basin in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Has been recorded from the Río Inírida and other parts of the upper Orinoco basins in western Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Río Inírida"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342800,
+      "total": 2,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

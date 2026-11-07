@@ -1,0 +1,261 @@
+{
+  "id": "colomesus-asellus",
+  "native": {
+    "input": "aa224353696de38a",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish are sourced from the upper Amazon, mostly from Peru, but sometimes also from Colombia or Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish are sourced from the upper Amazon, mostly from Peru, but sometimes also from Colombia or Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish are sourced from the upper Amazon, mostly from Peru, but sometimes also from Colombia or Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There are also numerous records from drainages north of the Amazon mouth including the Essequibo and Waini in Guyana, and lower Orinoco in Venezuela.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There are also numerous records from drainages north of the Amazon mouth including the Essequibo and Waini in Guyana, and lower Orinoco in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It appears to be absent from French Guiana and Suriname.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It appears to be absent from French Guiana and Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The Amazon puffer, Colomesus asellus, is a freshwater puffer found throughout much of the Amazon basin, with records north to Guyana and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "There are also numerous records from drainages north of the Amazon mouth including the Essequibo and Waini in Guyana, and lower Orinoco in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "There are also numerous records from drainages north of the Amazon mouth including the Essequibo and Waini in Guyana, and lower Orinoco in Venezuela.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout much of the Amazon basin in Brazil, Colombia, Peru, and Ecuador, including the Amazonas/Solimões main channel plus the rios Pará, Tocantins, Jari, Xingu, Tapajós, Uatumã, Madeira, Trombetas, Negro, Purus, Tefé, Japurá/Caquetá, Juruá, Jutaí, Içá/Putomayo, Javary, Ampiyacu, Amacayacú, Napo, Nanay, Marañón, and Ucayali, with its range extending at least as far upstream as Pucallpa in eastern Peru.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Colomesus asellus",
+    "status": "ACCEPTED",
+    "taxonKey": 2407613,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        83
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        68
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        40
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        31
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        22
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        20
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        17
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        10
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        8
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        4
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "CO",
+      "BR",
+      "EC",
+      "GY",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

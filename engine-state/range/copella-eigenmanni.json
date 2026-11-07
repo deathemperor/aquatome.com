@@ -1,0 +1,132 @@
+{
+  "id": "copella-eigenmanni",
+  "native": {
+    "input": "b37cd727c7cc272e",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the llanos regions of Colombia and Venezuela where it occurs in the Río Orinoco system including its major tributaries such as the ríos Meta, Caroní and Apure.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the llanos regions of Colombia and Venezuela where it occurs in the Río Orinoco system including its major tributaries such as the ríos Meta, Caroní and Apure.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Guyana and Peru appear to require confirmation.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from Guyana and Peru appear to require confirmation.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the llanos regions of Colombia and Venezuela where it occurs in the Río Orinoco system including its major tributaries such as the ríos Meta, Caroní and Apure.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Copella eigenmanni",
+    "status": "ACCEPTED",
+    "taxonKey": 2355709,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        35
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        24
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        3
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "7f9acd13-804d-4e26-af83-f92b869c841d",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

@@ -10,6 +10,46 @@
     "china",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Mekong River",
+        "Lancangjiang River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "This is only the third species in the nine Clupisoma genera recorded that is found in China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Mekong River, Lancangjiang River.",
+          "countries": [],
+          "regions": [
+            "Mekong River",
+            "Lancangjiang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10076270,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

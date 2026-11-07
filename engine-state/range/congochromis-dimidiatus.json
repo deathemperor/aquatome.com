@@ -1,0 +1,133 @@
+{
+  "id": "congochromis-dimidiatus",
+  "native": {
+    "input": "33462a5884f0f8f4",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Congochromis dimidiatus is a small cichlid of the central Congo basin in the Republic of the Congo and DR Congo, described from Bangui on the Ubangi.",
+        "words": "Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Congochromis dimidiatus is a small cichlid of the central Congo basin in the Republic of the Congo and DR Congo, described from Bangui on the Ubangi.",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Bangui (spelled Banghi in the original description) on the Ubangi River in the Central African Republic.",
+        "words": "Central African Republic",
+        "ok": true
+      },
+      {
+        "code": "TD",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "FishBase treats a record from Chad as questionable, and also lists it from the upper Chari in the Central African Republic, in the Lake Chad basin.",
+        "words": "Chad",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Reports from Gabon and Cameroon refer to Parananochromis brevirostris.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Reports from Gabon and Cameroon refer to Parananochromis brevirostris.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "Congochromis dimidiatus is a small cichlid of the central Congo basin in the Republic of the Congo and DR Congo, described from Bangui on the Ubangi.",
+        "ok": true
+      },
+      {
+        "name": "Ubangi",
+        "source": "seriouslyfish",
+        "quote": "Described from Bangui (spelled Banghi in the original description) on the Ubangi River in the Central African Republic.",
+        "country": "CF",
+        "ok": true
+      },
+      {
+        "name": "Sangha",
+        "source": "seriouslyfish",
+        "quote": "Museum records place it widely across the central Congo basin in the Republic of the Congo and DR Congo, from the Ubangi and Sangha rivers south to Lake Tumba and the Tshuapa River around Boende, and east to Kisangani.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tumba",
+        "source": "seriouslyfish",
+        "quote": "Museum records place it widely across the central Congo basin in the Republic of the Congo and DR Congo, from the Ubangi and Sangha rivers south to Lake Tumba and the Tshuapa River around Boende, and east to Kisangani.",
+        "ok": true
+      },
+      {
+        "name": "Tshuapa",
+        "source": "seriouslyfish",
+        "quote": "Museum records place it widely across the central Congo basin in the Republic of the Congo and DR Congo, from the Ubangi and Sangha rivers south to Lake Tumba and the Tshuapa River around Boende, and east to Kisangani.",
+        "ok": true
+      },
+      {
+        "name": "Chari",
+        "source": "seriouslyfish",
+        "quote": "FishBase treats a record from Chad as questionable, and also lists it from the upper Chari in the Central African Republic, in the Lake Chad basin.",
+        "country": "CF",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Congochromis dimidiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2371566,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        39
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ]
+    ],
+    "native": [
+      "CG",
+      "CD",
+      "CF"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

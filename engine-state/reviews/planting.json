@@ -159,5 +159,20 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/plants/micranthemum-tweediei-monte-carlo": [
+    {
+      "at": "2026-11-07T09:38:52Z",
+      "model": "opus",
+      "score": 0.88,
+      "notes": [
+        "'Phải khoảng ba tuần cây mới bắt đầu bám rễ' drops the guide's hedge 'thường', so it reads as a firm timeline rather than the usual case",
+        "'Nếu bên dưới đang ra nhiều chồi xanh mới thì cây không chết' turns the guide's 'không phải dấu hiệu cây chết' (not a sign of dying) into a flat claim that the plant isn't dying",
+        "'Lá cũ ngả vàng' drops 'hơi' (slightly) from the guide's 'hơi ngả vàng'",
+        "'nên chỗ của nó là tiền cảnh' says carpeting is the reason for foreground placement; the input gives foreground as the position but never states this causal link"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }
