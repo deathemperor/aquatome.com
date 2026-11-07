@@ -63,6 +63,19 @@ test('a series\' guides go in its order, with their counts; a guide of one part 
   ])
 })
 
+// 2026-11-07, the check on aquatome.com: two videos of "Bảo dưỡng bể cá cơ bản cho người mới" led with the same Commons
+// photo, and the page showed it twice. Each card takes the first of its guide's pictures the page doesn't show yet.
+test('a series\' cards show no picture twice, though two guides lead with the same one', async () => {
+  const c0 = await getContent('vi')
+  const { s, guides: [first] } = appSeries('vi', c0)[0]!
+  const second = { ...first!, id: 'youtube-phan-hai', t: { ...first!.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...first!.video, youtubeId: 'bbbbbbbbbbb', series: { id: s.id, position: 1 } } }
+  const c = { ...c0, guides: [...c0.guides, second] } as Content
+  const srcs = cardsOf(videoDoc('vi', c, s))!.items.map(i => i.img?.src)
+  expect(srcs.length).toBe(2)
+  expect(srcs[0]).toBeTruthy()
+  expect(srcs[1]).not.toBe(srcs[0])
+})
+
 test('a series\' copy in Indonesian has the Indonesian pages\' paths only', async () => {
   // No language but Vietnamese has video series pages yet: the Vietnamese ones, made as an Indonesian page would be.
   const c = await getContent('vi')
