@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { ArchiveFetcher } from '../src/archive'
+import { ARCHIVE_POLITE, ArchiveFetcher } from '../src/archive'
 import { discover } from '../src/discover'
 import { sourceById } from '../src/sources'
 
@@ -72,4 +72,59 @@ test('an index that is offline for a moment is asked once more', async () => {
   const f = new ArchiveFetcher({ fetch: async () => (n++ === 0 ? res(200, '<html>offline') : res(200, 'https://www.planetcatfish.com/common/species.php?species_id=7\n', 'text/plain')), now: () => new Date(), sleep: async ms => { waits.push(ms) }, ua: 'test' })
   expect(await f.text('https://web.archive.org/cdx/search/cdx?url=x')).toContain('species_id=7')
   expect(waits).toEqual([30_000])
+})
+
+const capture = (status: number, body: string, headers: Record<string, string> = {}) => ({ ok: status >= 200 && status < 300, status, headers: { get: (n: string) => headers[n.toLowerCase()] ?? null }, text: async () => body, arrayBuffer: async () => new ArrayBuffer(0) })
+const article = 'https://www.2hraquarist.com/blogs/hot-topics/best-temperature'
+
+test('a page says which capture it came from; a source read through the archive keeps its own address', async () => {
+  const f = new ArchiveFetcher({ fetch: async () => capture(200, '<title>Best temperature</title>', { 'memento-datetime': 'Fri, 17 Oct 2025 04:09:55 GMT' }), now: () => new Date('2026-11-07T00:00:00Z'), sleep: async () => {}, ua: 'test' })
+  expect(await f.get(article)).toMatchObject({ finalUrl: article, capturedAt: '2025-10-17T04:09:55.000Z' })
+})
+
+test('the newest copy is a browser check: the next newest good one is read, raw, unhurried, and says its own date', async () => {
+  const calls: string[] = []
+  const waits: number[] = []
+  const f = new ArchiveFetcher({
+    fetch: async u => {
+      calls.push(u)
+      if (u.includes('/cdx/')) return capture(200, '20240101000000\n20250101000000\n20260101000000\n', { 'content-type': 'text/plain' })
+      if (u.includes('/web/20250101000000id_/')) return capture(200, '<title>Best temperature</title>', { 'memento-datetime': 'Wed, 01 Jan 2025 00:00:00 GMT' })
+      return capture(200, '<html><head><title>Just a moment...</title></head></html>')
+    },
+    now: () => new Date('2026-11-07T00:00:00Z'), sleep: async ms => { waits.push(ms) }, ua: 'test',
+  })
+  const r = await f.get(article)
+  expect(r).toMatchObject({ finalUrl: article, html: '<title>Best temperature</title>', capturedAt: '2025-01-01T00:00:00.000Z' })
+  expect(calls.filter(u => u.includes('/web/'))).toEqual([`https://web.archive.org/web/20261107id_/${article}`, `https://web.archive.org/web/20260101000000id_/${article}`, `https://web.archive.org/web/20250101000000id_/${article}`])
+  expect(new URL(calls[1]!).searchParams.get('url')).toBe(article)
+  expect(waits).toEqual([ARCHIVE_POLITE, ARCHIVE_POLITE, ARCHIVE_POLITE])
+})
+
+test('every copy is a browser check: no copy', async () => {
+  const f = new ArchiveFetcher({ fetch: async u => (u.includes('/cdx/') ? capture(200, '20250101000000\n') : capture(200, '<title>Just a moment...</title>')), now: () => new Date('2026-11-07T00:00:00Z'), sleep: async () => {}, ua: 'test' })
+  await expect(f.get(article)).rejects.toThrow(/no archived copy \(the archive holds a browser-check page\)/)
+})
+
+test('too many requests: the wait the archive names, within reason', async () => {
+  for (const [after, wait] of [['120', 120_000], ['86400', 300_000], [undefined, 60_000]] as const) {
+    const waits: number[] = []
+    let n = 0
+    const f = new ArchiveFetcher({ fetch: async () => (n++ === 0 ? capture(429, '', after ? { 'retry-after': after } : {}) : capture(200, '<title>ok</title>')), now: () => new Date(), sleep: async ms => { waits.push(ms) }, ua: 'test' })
+    await f.get(article)
+    expect(waits).toEqual([wait])
+  }
+})
+
+test('the archive refusing the connection gets one long wait, then says so', async () => {
+  const waits: number[] = []
+  let n = 0
+  const f = new ArchiveFetcher({ fetch: async () => { n++; throw new TypeError('fetch failed') }, now: () => new Date(), sleep: async ms => { waits.push(ms) }, ua: 'test' })
+  await expect(f.get(article)).rejects.toThrow(/the archive isn't answering \(fetch failed\)/)
+  expect([n, waits]).toEqual([2, [60_000]])
+})
+
+test('sources read through the archive leave room for its redirect: under 15 requests a minute', () => {
+  for (const id of ['2hraquarist', 'planetcatfish'] as const) expect(sourceById(id).delayMs).toBe(ARCHIVE_POLITE)
+  expect(2 * (60_000 / ARCHIVE_POLITE)).toBeLessThan(15)
 })

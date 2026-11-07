@@ -11,6 +11,102 @@
     "brazil",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The reticulated cory, Brochis reticulata, long known as Corydoras reticulatus, is an armoured catfish from the lower Amazon basin in Brazil, also known as the network cory.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342658,
+      "total": 14,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          8
+        ],
+        [
+          "BR",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

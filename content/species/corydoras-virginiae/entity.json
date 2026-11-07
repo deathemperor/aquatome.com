@@ -10,6 +10,50 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ucayali"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the río Ucayali, Peru, and this species is considered endemic to that drainage.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Ucayali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342676,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

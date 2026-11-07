@@ -866,6 +866,14 @@ The layers above still check the result.
     commentary was refused twice. On the same pages Sonnet reported findings it then called fine and took the local
     name "cá heo" (Botia loaches) for "dolphin", so the reader reads with Opus (`READER_MODEL`).
 
+- **A note for local readers.** A guide from a foreign source can recommend what readers here can't easily buy, or what costs far more than a local option. A labelled note
+  ("Ở Việt Nam…") goes beside the source's advice, never inside it: its own field, `localNote`, with its citations. The
+  build puts it first in the guide's text. Every writer keeps it (a source read again, a video checked again, a rewrite),
+  and no reviewer scores it, so the re-check's rule that a guide says only what its video says doesn't fight it. A note
+  gives a dose only from a source it cites. A body fixed by hand is marked `bodyFixed`, and no writer replaces it. Found
+  by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
+  peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
+
 ## Rules for every change (people and agents)
 
 1. **A page bug comes with a check that fails without the fix**, in the same PR: a journey, a page check or a vitest

@@ -57,6 +57,9 @@ const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : 
   ...(t.definition !== undefined ? { definition: markVietnameseNames(t.definition) } : {}),
 }
 
+/** A guide's note for this language's readers goes first in its text, wherever the text is read (schemas.ts localNote). */
+export const withLocalNote = (t: Translation): Translation => t.localNote ? { ...t, body: `${t.localNote.html}${t.body ?? ''}` } : t
+
 async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang): Promise<Localized<z.infer<S>>[]> {
   const base = join(root, dir)
   const ids = await readdir(base).catch(() => [] as string[])
@@ -66,7 +69,7 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
     // A translation left behind with no entity (an engine run named it while a merged change removed the page) is no page.
     if (!(await exists(tPath)) || !(await exists(join(base, id, 'entity.json')))) continue
     const entity = await readJson(join(base, id, 'entity.json'), schema)
-    const t = marked(lang, await readJson(tPath, TranslationSchema))
+    const t = withLocalNote(marked(lang, await readJson(tPath, TranslationSchema)))
     out.push({ ...(entity as object), t } as Localized<z.infer<S>>)
   }
   return out

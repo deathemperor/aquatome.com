@@ -56,13 +56,14 @@ struct AppearanceRow: View {
 }
 
 #if DEBUG
-/// The appearance the views around it are drawn in, for the UI tests to read (debug builds only).
+/// The appearance the views around it are drawn in, for the UI tests to read (debug builds only). "drawn light", not
+/// "light": a flow's lookup by identifier also matches labels, so a label of "light" is found for the Lights tab's row.
 struct AppearanceProbe: View {
   let id: String
   @Environment(\.colorScheme) private var scheme
 
   var body: some View {
-    Text(verbatim: scheme == .dark ? "dark" : "light")
+    Text(verbatim: scheme == .dark ? "drawn dark" : "drawn light")
       .font(.system(size: 1)).opacity(0.01)
       .accessibilityIdentifier(id)
   }

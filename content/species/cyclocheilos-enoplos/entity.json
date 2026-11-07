@@ -19,6 +19,151 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Borneo",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Cyclocheilos enoplos is a large cyprinid from the Mekong region and Thailand south through Peninsular Malaysia to Borneo, Sumatra and Java.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently understood to have an enormous natural range extending southwestwards from the Mekong region in Laos, Cambodia, and Vietnam through Thailand, and into Peninsular Malaysia and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+          "countries": [
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kalimas River, Surabaya, Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It thus occurs throughout the Mekong, Mae Klong and Chao Phraya river drainages as well as a host of smaller river basins, lakes and reservoirs.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10591831,
+      "total": 53,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "KH",
+          26
+        ],
+        [
+          "ID",
+          23
+        ],
+        [
+          "MY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          12,
+          12
+        ],
+        [
+          104.0625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          11.25,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          105.46875,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -8.4375,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

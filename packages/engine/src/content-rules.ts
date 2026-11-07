@@ -604,6 +604,11 @@ export const RULES: Rule[] = [
     check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(gluedSyllables))].map(w => `"${w}"`)),
   },
   {
+    id: 'swapped-name', title: 'A fish called by the name it no longer has',
+    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. Listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
+    check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
+  },
+  {
     id: 'english', title: 'Sentences left in English',
     about: 'A sentence with no word of the page\'s language and English\'s small words (the, and, of…), outside reference lists, citations and quotes.',
     check: p => [...new Set([...prose(p).map(f => f.html), ...p.lines.map(l => `<p>${l.text}</p>`)].flatMap(h => englishSentences(h, p.lang)))].map(s => `"${s}"`),
@@ -681,6 +686,16 @@ export const gluedSyllables = (text: string) => [...new Set((text.normalize('NFC
   for (let i = 1; i < w.length; i++) if (syllable(w.slice(0, i)) && syllable(w.slice(i))) return true
   return false
 }))]
+
+// "Cá bám đá" still names the family, so only a name with one of the flat genera in its brackets counts.
+const SWAPPED: readonly (readonly [wrong: RegExp, now: string])[] = [
+  [/cá bút chì.*(?:Nannostomus|pencil ?fish)|(?:Nannostomus|pencil ?fish).*cá bút chì/i, 'cá chì'],
+  [/cá bám đá[^.,;:()]{0,24}\(\s*(?:Beaufortia|Sewellia|Gastromyzon|Pseudogastromyzon|Sinogastromyzon)\b/i, 'cá tỳ bà bướm'],
+  [/cá cờ.*(?:Jordanella|flagfish)|(?:Jordanella|flagfish).*cá cờ/i, 'cá flagfish'],
+]
+/** Each sentence that gives a fish a name it no longer has, with the name it has now. */
+export const swappedNames = (text: string) => text.normalize('NFC').split(/(?<=[.!?])\s+|\n/).flatMap(s =>
+  SWAPPED.filter(([wrong]) => wrong.test(s)).map(([, now]) => `should be "${now}": ${clip(s)}`))
 
 /** The genera and species the site has pages for. */
 export const ctxOf = (pages: Page[]): Ctx => ({

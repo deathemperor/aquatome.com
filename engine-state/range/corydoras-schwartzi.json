@@ -1,0 +1,64 @@
+{
+  "id": "corydoras-schwartzi",
+  "native": {
+    "input": "ba8246b64fc4e1b5",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from the Rio Purus system in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rio Purus drainage, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Purus",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rio Purus drainage, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras schwartzi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342755,
+    "datasets": [
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

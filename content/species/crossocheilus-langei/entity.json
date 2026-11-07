@@ -13,6 +13,98 @@
     "thailand",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently considered to occur in Borneo, Peninsular Malaysia, southern and western Thailand, and possibly southern Myanmar.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Palembang, Sumatra, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361958,
+      "total": 14,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          11
+        ],
+        [
+          "CA",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          56.25,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          7,
+          7
+        ],
+        [
+          112.5,
+          0,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

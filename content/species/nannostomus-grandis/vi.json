@@ -1,9 +1,12 @@
 {
-  "slug": "ca-but-chi-nannostomus-grandis",
-  "name": "Cá bút chì Nannostomus grandis",
-  "altNames": [],
+  "slug": "ca-chi-grandis",
+  "name": "Cá chì grandis",
+  "altNames": [
+    "Cá bút chì Nannostomus grandis",
+    "Cá chì Nannostomus grandis"
+  ],
   "sections": {
-    "quickFacts:seriouslyfish": "<p>Nannostomus grandis là loài lớn nhất trong chi, dài tới 46 mm. Đây là một loài cá bút chì mà người ta chỉ biết đến qua các lô cá xuất khẩu thương mại từ Belém, bang Pará, Brazil. Dân chơi ít biết đến loài này. Nó thường về lẫn trong lô cá loài khác, nhất là lô N. beckfordi, loài mà nó rất giống. Cách phân biệt đơn giản nhất là N. grandis không có chóp vây bụng màu trắng nhạt hay ánh xanh. Có vẻ loài này từng được bán dưới tên N. anomalus vào những năm 1920 và 1930.</p>",
+    "quickFacts:seriouslyfish": "<p>Nannostomus grandis là loài lớn nhất trong chi, dài tới 46 mm. Đây là một loài cá chì mà người ta chỉ biết đến qua các lô cá xuất khẩu thương mại từ Belém, bang Pará, Brazil. Dân chơi ít biết đến loài này. Nó thường về lẫn trong lô cá loài khác, nhất là lô N. beckfordi, loài mà nó rất giống. Cách phân biệt đơn giản nhất là N. grandis không có chóp vây bụng màu trắng nhạt hay ánh xanh. Có vẻ loài này từng được bán dưới tên N. anomalus vào những năm 1920 và 1930.</p>",
     "distribution:seriouslyfish": "<p>Hiện chưa có thông tin chính xác.</p><p>Loạt mẫu chuẩn được lấy từ một lô cá xuất khẩu thương mại từ Belém, bang Pará, miền đông Brazil sang Đức.</p>",
     "habitat:seriouslyfish": "<p>Chưa có tài liệu nào ghi nhận. Tuy vậy, các loài họ hàng thường sống ở các nhánh sông nước chảy chậm, sông nhỏ và vùng đầm lầy, nhất là những chỗ cây thủy sinh mọc dày hoặc có cành gỗ chìm và lớp lá mục.</p>",
     "aquariumSize:seriouslyfish": "<p>Bể nên có đáy tối thiểu 60 × 30 cm hoặc tương đương (khoảng 54 lít).</p>",
@@ -22,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.93
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-but-chi-nannostomus-grandis",
+      "name": "Cá bút chì Nannostomus grandis"
+    }
+  ]
 }
