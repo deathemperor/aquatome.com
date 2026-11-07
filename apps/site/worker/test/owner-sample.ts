@@ -1,6 +1,7 @@
 import { lastDays } from '../admin/chart'
 import { summariseApp, type AppRows } from '../admin/app'
-import type { ContentReads, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
+import type { CommentRow, CommentState, CommentWeek } from '../admin/comments'
+import type { ContentReads, PageInfo, ContentStats, KindClicks, LowScores, Snapshot, Talk, Totals } from '../admin/content'
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
 import type { ReportsData } from '../daily/page'
@@ -242,3 +243,33 @@ export const CALM: Today = {
   ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
   waiting: { comments: 0, photos: 0, oldest: null }, content: { ...STATS, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
 }
+
+/**
+ * Readers' comments in each state (admin/comments.ts): held by a posting rule, after a signed-in reader's report (two
+ * reports, one without a reason) and by a rule on a page this build doesn't have; shown when posted, by the moderator and
+ * by the owner; hidden by the owner (shown again within its 30 days) and by the moderator past its 30 days, waiting to be
+ * deleted. Newest first in each state, as the page lists them.
+ */
+export const COMMENT_HELD = '0c1d2e3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f'
+export const COMMENT_REPORTED = '1d2e3f4a-5b6c-4d7e-9f8a-0b1c2d3e4f5a'
+export const COMMENT_SHOWN = '2e3f4a5b-6c7d-4e8f-8a9b-1c2d3e4f5a6b'
+export const COMMENT_HIDDEN = '3f4a5b6c-7d8e-4f9a-9b0c-2d3e4f5a6b7c'
+export const COMMENT_EXPIRED = '4a5b6c7d-8e9f-4a0b-8c1d-3e4f5a6b7c8d'
+const comment = (id: string, o: Partial<CommentRow>): CommentRow => ({ id, entity_ref: 'species:paracheirodon-axelrodi', name: 'Minh', body: 'Bể 60 lít nuôi được mấy con neon vua?', status: 'approved', reason: null, created_at: '2026-11-03T02:00:00.000Z', decided_at: null, reports: [], ...o })
+export const COMMENT_ROWS: CommentRow[] = [
+  comment(COMMENT_HELD, { name: 'banhmi_fish', body: 'Mình mua neon vua ở shop gần nhà giá rẻ lắm, ai cần thì nhắn zalo: 09xx nhé', status: 'held', reason: 'blocked term: zalo:', created_at: '2026-11-04T07:00:00.000Z' }),
+  comment(COMMENT_REPORTED, { entity_ref: 'species:betta-splendens', name: 'tep.do', body: 'Betta nuôi chung với tép được không?\nBể 60 lít của mình có 10 con tép đỏ, sợ bị ăn.', status: 'held', reason: 'reported by a reader', created_at: '2026-11-03T08:00:00.000Z', reports: ['off topic', ''] }),
+  comment('5b6c7d8e-9f0a-4b1c-9d2e-4f5a6b7c8d9e', { entity_ref: 'guide:gone-guide', name: 'Hùng <3', body: 'Xem <b>ở đây</b> và www.a.vn, www.b.vn', status: 'held', reason: 'contains <', created_at: '2026-11-02T01:00:00.000Z' }),
+  comment(COMMENT_SHOWN, { created_at: '2026-11-04T08:30:00.000Z' }),
+  comment('6c7d8e9f-0a1b-4c2d-8e3f-5a6b7c8d9e0f', { name: 'Lan', body: 'Neon vua ăn cám nhỏ, cho ăn ít một.', reason: 'Helpful: a first-hand feeding tip.', created_at: '2026-11-02T10:00:00.000Z', decided_at: '2026-11-03T01:00:00.000Z' }),
+  comment('7d8e9f0a-1b2c-4d3e-9f4a-6b7c8d9e0f1a', { name: 'Thảo', body: 'Cảm ơn bài viết!', reason: 'Shown by the owner', created_at: '2026-10-30T10:00:00.000Z', decided_at: '2026-10-31T01:00:00.000Z' }),
+  comment(COMMENT_HIDDEN, { name: 'An', body: 'Bán cá giá sỉ, inbox.', status: 'removed', reason: 'Hidden by the owner', created_at: '2026-11-03T05:00:00.000Z', decided_at: '2026-11-03T06:00:00.000Z' }),
+  comment(COMMENT_EXPIRED, { name: 'Bình', body: 'Ghé web cá cược ở đây.', status: 'removed', reason: 'Spam: a betting site.', created_at: '2026-09-20T05:00:00.000Z', decided_at: '2026-09-21T06:00:00.000Z' }),
+]
+export const COMMENT_COUNTS: Record<CommentState, number> = { held: 3, shown: 20, hidden: 2 }
+export const COMMENT_WEEK: CommentWeek = { posted: 23, heldPosted: 1, reported: 1, hidden: 1 }
+/** The sample's pages by D1's key, as content.json gives them; guide:gone-guide isn't one. */
+export const COMMENT_PAGES = new Map<string, PageInfo>([
+  ['species:paracheirodon-axelrodi', { path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' }],
+  ['species:betta-splendens', { path: '/ca/ca-betta/', title: 'Cá betta (cá xiêm)', kind: 'fish', id: 'betta-splendens' }],
+])

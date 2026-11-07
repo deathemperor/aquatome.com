@@ -123,7 +123,7 @@ test('needs care: every open issue counts, past the ones listed', () => {
 test('needs care: a moderation queue only once it is late; past 30 hours the overview\'s to-do says it, once', () => {
   const waiting = (hours: number) => input({ overview: { ...quiet(), waiting: { comments: 2, photos: 0, oldest: new Date(NOW.getTime() - hours * 3_600_000).toISOString() } } })
   expect(titles(waiting(5))).toEqual([])
-  expect(needsCare(waiting(7))).toEqual([{ title: 'Moderation is behind', text: '2 comments waiting since 06/11 00:00.', href: '/_ab/tai-khoan/' }])
+  expect(needsCare(waiting(7))).toEqual([{ title: 'Moderation is behind', text: '2 comments waiting since 06/11 00:00.', href: '/_ab/binh-luan/' }])
   expect(needsCare(input({ overview: { ...quiet(), waiting: { comments: 0, photos: 1, oldest: new Date(NOW.getTime() - 7 * 3_600_000).toISOString() } } }))[0]!.href).toBe('/_ab/anh-ban-doc/')
   expect(titles(waiting(31))).toEqual(['Moderation has not run'])
   expect(needsCare(waiting(31))[0]!.href).toContain('/actions/workflows/moderate.yml')

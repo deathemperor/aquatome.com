@@ -1,8 +1,9 @@
 import { HOME_TZ, validZone } from './admin/time'
+import { decideComment, EXPIRED, GONE, moreQuery, sectionQuery } from './admin/comments'
 import { overviewJson } from './admin/pages'
 import { paged, tablePage } from './admin/blocks'
 import { todayJson, type Today } from './admin/today'
-import { appSession, loadToday, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
+import { appSession, loadToday, moreComments, sectionJson, SECTIONS, type AdminEnv } from './dashboard'
 import { addDevice, removeDevices, tokenBody } from './daily/push'
 import { setSettings, settingsChange } from './daily/settings'
 import { deleteKept } from './fishid/kept'
@@ -34,6 +35,10 @@ const SECTION = /^\/api\/owner\/sections\/([a-z0-9-]+)$/
 /** A section's folded or long table, by its id (paged). */
 const TABLE = /^\/api\/owner\/sections\/([a-z0-9-]+)\/tables\/([a-z0-9-]+)$/
 const PHOTO = /^\/api\/owner\/photos\/([0-9a-f-]{36})$/
+const COMMENT = /^\/api\/owner\/comments\/([0-9a-f-]{36})$/
+/** The Comments section (admin/comments.ts) and its paths: their words are English. */
+const COMMENTS_KEY = 'binh-luan'
+const STATE_SAYS = 'state: "held", "shown" or "hidden".'
 /** A kept fish-ID photo: its account (or anon, sent signed out) and its id, as the dashboard's image address has them. */
 const SHOT = /^\/api\/owner\/fishid-shots\/([0-9a-z-]+)\/([0-9a-f-]{36})$/
 
@@ -67,6 +72,7 @@ async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<
   const section = SECTION.exec(path)
   if (section) {
     if (req.method !== 'GET') return method('GET')
+    if (section[1] === COMMENTS_KEY && !sectionQuery(url.searchParams)) return fail(400, 'bad_request', `This section takes only ${STATE_SAYS}`)
     const s = await sectionJson(section[1]!, env, url, now, tz)
     if (!s) return notFound()
     const period = url.searchParams.get('period')
@@ -91,6 +97,23 @@ async function route(req: Request, url: URL, env: AdminEnv, now: Date): Promise<
     // Duyệt: the next moderation pass publishes it; Gỡ: removed now. `changed`: false when the photo no longer waits (or is gone).
     const changed = body.action === 'approve' ? await approveByOwner(env, photo[1]!, now) : await removePhoto(env, photo[1]!, 'removed by owner', now)
     return reply({ ok: true, changed })
+  }
+  // Readers' comments past the section's first 50, and the owner's show or hide, as the page's form does it.
+  if (path === '/api/owner/comments') {
+    if (req.method !== 'GET') return method('GET')
+    const q = moreQuery(url.searchParams)
+    if (!q) return fail(400, 'bad_request', `${STATE_SAYS} cursor: the "next" of the page before.`)
+    return reply({ tz, ...(await moreComments(env, env.DB!, url, now, q.state, q.cursor)) })
+  }
+  const comment = COMMENT.exec(path)
+  if (comment) {
+    if (req.method !== 'POST') return method('POST')
+    const body = await json(req)
+    if (body?.action !== 'show' && body?.action !== 'hide') return fail(400, 'bad_request', 'action: "show" or "hide".')
+    const done = await decideComment(env.DB!, comment[1]!, body.action, now)
+    if (done === 'not_found') return fail(404, 'not_found', GONE)
+    if (done === 'expired') return fail(409, 'expired', EXPIRED)
+    return reply({ ok: true, changed: done.changed })
   }
   if (path === '/api/owner/hidden') {
     if (req.method !== 'POST') return method('POST')

@@ -2455,14 +2455,13 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "path",
           "title"
         ],
         "properties": {
           "path": {
             "type": "string",
             "pattern": "^/",
-            "description": "The site page it was posted on (open it as the app opens the site's pages)."
+            "description": "The site page it was posted on (open it as the app opens the site's pages). Absent when the site has no such page any more: `title` is then the comment's own key for it."
           },
           "title": {
             "type": "string"
@@ -2514,7 +2513,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Signed-in readers' reasons for reporting it, as they wrote them (\"\" for none given)."
+            "description": "Every report signed-in readers made on it, oldest first, each reason as they wrote it (\"\" for none given). It keeps the reports from before a decision too. Absent when it has none."
           },
           "actions": {
             "type": "array",

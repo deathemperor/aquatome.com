@@ -63,7 +63,7 @@ const chipText = (now: number, before: number) => chipOf(now, before, 'the 7 day
 export const PAGE_GROUPS: readonly (readonly [string, readonly (readonly [string, string])[]])[] = [
   ['Growth', [['thanh-cong', 'Scoreboard'], ['doc-gia', 'Readers'], ['affiliate', 'Affiliate']]],
   ['Content', [['noi-dung', 'Content and engine'], ['muon-co', 'Wanted by readers'], ['an-trang', 'Hidden pages']]],
-  ['Community', [['anh-ban-doc', 'Reader photos'], ['tai-khoan', 'Accounts']]],
+  ['Community', [['binh-luan', 'Comments'], ['anh-ban-doc', 'Reader photos'], ['tai-khoan', 'Accounts']]],
   ['Fish ID', [['nhan-dien-ca', 'Calls and keys'], ['anh-nhan-dien', 'Kept photos']]],
   ['App', [['ung-dung', 'iPhone app']]],
   ['Records', [['bao-cao', 'Daily reports'], ['thay-doi', 'Changelog']]],

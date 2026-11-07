@@ -256,7 +256,7 @@
           },
           {
             "name": "Bình luận",
-            "section": "tai-khoan",
+            "section": "binh-luan",
             "fig": "7",
             "sub": "bình luận mới · 7 ngày · 2 chờ kiểm duyệt",
             "spark": [
@@ -415,7 +415,7 @@
             {
               "at": "Hôm nay · 04/11 · chưa hết ngày",
               "text": "2 bình luận mới",
-              "section": "tai-khoan"
+              "section": "binh-luan"
             },
             {
               "at": "Hôm nay · 04/11 · chưa hết ngày",
@@ -454,7 +454,7 @@
             {
               "at": "Hôm qua · 03/11",
               "text": "1 bình luận mới",
-              "section": "tai-khoan"
+              "section": "binh-luan"
             },
             {
               "at": "Hôm qua · 03/11",
@@ -868,6 +868,14 @@
             "name": "Community",
             "pages": [
               {
+                "key": "binh-luan",
+                "name": "Comments",
+                "figure": {
+                  "text": "2 held",
+                  "tone": "wait"
+                }
+              },
+              {
                 "key": "anh-ban-doc",
                 "name": "Reader photos",
                 "figure": {
@@ -967,12 +975,16 @@
             "name": "Ẩn trang"
           },
           {
+            "key": "binh-luan",
+            "name": "Comments"
+          },
+          {
             "key": "anh-ban-doc",
             "name": "Ảnh bạn đọc"
           },
           {
             "key": "tai-khoan",
-            "name": "Tài khoản · Bình luận"
+            "name": "Tài khoản"
           },
           {
             "key": "nhan-dien-ca",
@@ -1233,7 +1245,7 @@
           },
           {
             "name": "Bình luận",
-            "section": "tai-khoan",
+            "section": "binh-luan",
             "fig": "7",
             "sub": "bình luận mới · 7 ngày",
             "spark": [
@@ -1392,7 +1404,7 @@
             {
               "at": "Hôm nay · 04/11 · chưa hết ngày",
               "text": "2 bình luận mới",
-              "section": "tai-khoan"
+              "section": "binh-luan"
             },
             {
               "at": "Hôm nay · 04/11 · chưa hết ngày",
@@ -1431,7 +1443,7 @@
             {
               "at": "Hôm qua · 03/11",
               "text": "1 bình luận mới",
-              "section": "tai-khoan"
+              "section": "binh-luan"
             },
             {
               "at": "Hôm qua · 03/11",
@@ -1808,6 +1820,14 @@
             "name": "Community",
             "pages": [
               {
+                "key": "binh-luan",
+                "name": "Comments",
+                "figure": {
+                  "text": "None held",
+                  "tone": "plain"
+                }
+              },
+              {
                 "key": "anh-ban-doc",
                 "name": "Reader photos",
                 "figure": {
@@ -1907,12 +1927,16 @@
             "name": "Ẩn trang"
           },
           {
+            "key": "binh-luan",
+            "name": "Comments"
+          },
+          {
             "key": "anh-ban-doc",
             "name": "Ảnh bạn đọc"
           },
           {
             "key": "tai-khoan",
-            "name": "Tài khoản · Bình luận"
+            "name": "Tài khoản"
           },
           {
             "key": "nhan-dien-ca",
@@ -2192,7 +2216,7 @@
           },
           {
             "name": "Bình luận",
-            "section": "tai-khoan",
+            "section": "binh-luan",
             "fig": "7",
             "sub": "bình luận mới · 7 ngày · 2 chờ kiểm duyệt",
             "spark": [
@@ -2351,7 +2375,7 @@
             {
               "at": "Hôm nay · 04/11 · chưa hết ngày",
               "text": "2 bình luận mới",
-              "section": "tai-khoan"
+              "section": "binh-luan"
             },
             {
               "at": "Hôm nay · 04/11 · chưa hết ngày",
@@ -2390,7 +2414,7 @@
             {
               "at": "Hôm qua · 03/11",
               "text": "1 bình luận mới",
-              "section": "tai-khoan"
+              "section": "binh-luan"
             },
             {
               "at": "Hôm qua · 03/11",
@@ -2647,6 +2671,14 @@
             "name": "Community",
             "pages": [
               {
+                "key": "binh-luan",
+                "name": "Comments",
+                "figure": {
+                  "text": "2 held",
+                  "tone": "wait"
+                }
+              },
+              {
                 "key": "anh-ban-doc",
                 "name": "Reader photos",
                 "figure": {
@@ -2746,12 +2778,16 @@
             "name": "Ẩn trang"
           },
           {
+            "key": "binh-luan",
+            "name": "Comments"
+          },
+          {
             "key": "anh-ban-doc",
             "name": "Ảnh bạn đọc"
           },
           {
             "key": "tai-khoan",
-            "name": "Tài khoản · Bình luận"
+            "name": "Tài khoản"
           },
           {
             "key": "nhan-dien-ca",
@@ -6609,6 +6645,215 @@
       }
     },
     {
+      "name": "section binh-luan",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/sections/binh-luan",
+        "headers": {
+          "Time-Zone": "Asia/Ho_Chi_Minh"
+        }
+      },
+      "status": 200,
+      "body": {
+        "tz": "Asia/Ho_Chi_Minh",
+        "title": "Comments",
+        "blocks": [
+          {
+            "kind": "note",
+            "text": "Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Times are in your time zone (GMT+7).",
+            "tone": "plain"
+          },
+          {
+            "kind": "comments",
+            "state": "held",
+            "filters": [
+              {
+                "state": "held",
+                "label": "Held",
+                "count": 3,
+                "href": "/api/owner/sections/binh-luan?state=held"
+              },
+              {
+                "state": "shown",
+                "label": "Shown",
+                "count": 20,
+                "href": "/api/owner/sections/binh-luan?state=shown"
+              },
+              {
+                "state": "hidden",
+                "label": "Hidden",
+                "count": 2,
+                "href": "/api/owner/sections/binh-luan?state=hidden"
+              }
+            ],
+            "items": [
+              {
+                "id": "0c1d2e3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f",
+                "at": "2026-11-04T07:00:00.000Z",
+                "name": "banhmi_fish",
+                "page": {
+                  "path": "/ca/ca-neon-vua/",
+                  "title": "Cá neon vua"
+                },
+                "text": "Mình mua neon vua ở shop gần nhà giá rẻ lắm, ai cần thì nhắn zalo: 09xx nhé",
+                "state": "held",
+                "reason": "Held when posted: it has “zalo:”, a blocked term",
+                "actions": [
+                  {
+                    "label": "Show",
+                    "method": "POST",
+                    "path": "/api/owner/comments/0c1d2e3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f",
+                    "body": {
+                      "action": "show"
+                    }
+                  },
+                  {
+                    "label": "Hide",
+                    "method": "POST",
+                    "path": "/api/owner/comments/0c1d2e3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f",
+                    "body": {
+                      "action": "hide"
+                    },
+                    "tone": "bad"
+                  }
+                ]
+              },
+              {
+                "id": "1d2e3f4a-5b6c-4d7e-9f8a-0b1c2d3e4f5a",
+                "at": "2026-11-03T08:00:00.000Z",
+                "name": "tep.do",
+                "page": {
+                  "path": "/ca/ca-betta/",
+                  "title": "Cá betta (cá xiêm)"
+                },
+                "text": "Betta nuôi chung với tép được không?\nBể 60 lít của mình có 10 con tép đỏ, sợ bị ăn.",
+                "state": "held",
+                "reason": "Held after a report",
+                "reports": [
+                  "off topic",
+                  ""
+                ],
+                "actions": [
+                  {
+                    "label": "Show",
+                    "method": "POST",
+                    "path": "/api/owner/comments/1d2e3f4a-5b6c-4d7e-9f8a-0b1c2d3e4f5a",
+                    "body": {
+                      "action": "show"
+                    }
+                  },
+                  {
+                    "label": "Hide",
+                    "method": "POST",
+                    "path": "/api/owner/comments/1d2e3f4a-5b6c-4d7e-9f8a-0b1c2d3e4f5a",
+                    "body": {
+                      "action": "hide"
+                    },
+                    "tone": "bad"
+                  }
+                ]
+              },
+              {
+                "id": "5b6c7d8e-9f0a-4b1c-9d2e-4f5a6b7c8d9e",
+                "at": "2026-11-02T01:00:00.000Z",
+                "name": "Hùng <3",
+                "page": {
+                  "title": "guide:gone-guide"
+                },
+                "text": "Xem <b>ở đây</b> và www.a.vn, www.b.vn",
+                "state": "held",
+                "reason": "Held when posted: it has a “<”",
+                "actions": [
+                  {
+                    "label": "Show",
+                    "method": "POST",
+                    "path": "/api/owner/comments/5b6c7d8e-9f0a-4b1c-9d2e-4f5a6b7c8d9e",
+                    "body": {
+                      "action": "show"
+                    }
+                  },
+                  {
+                    "label": "Hide",
+                    "method": "POST",
+                    "path": "/api/owner/comments/5b6c7d8e-9f0a-4b1c-9d2e-4f5a6b7c8d9e",
+                    "body": {
+                      "action": "hide"
+                    },
+                    "tone": "bad"
+                  }
+                ]
+              }
+            ],
+            "empty": "No held comments."
+          },
+          {
+            "kind": "note",
+            "text": "Show puts a comment on its page at once. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first.",
+            "tone": "muted"
+          },
+          {
+            "kind": "heading",
+            "text": "This week",
+            "level": 2
+          },
+          {
+            "kind": "figures",
+            "items": [
+              {
+                "label": "New",
+                "value": "23"
+              },
+              {
+                "label": "Held when posted",
+                "value": "1"
+              },
+              {
+                "label": "Reported",
+                "value": "1"
+              },
+              {
+                "label": "Hidden",
+                "value": "1"
+              }
+            ]
+          },
+          {
+            "kind": "note",
+            "text": "Since Monday 00:00, Vietnam's time. Held when posted counts what the posting rules held, whatever was decided after. Reported counts any reader's report; only a signed-in reader's holds the comment.",
+            "tone": "muted"
+          },
+          {
+            "kind": "heading",
+            "text": "Most discussed",
+            "level": 2
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Page",
+              "Shown comments",
+              "Photos"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Cá neon vua",
+                  "href": "/ca/ca-neon-vua/"
+                },
+                {
+                  "text": "7"
+                },
+                {
+                  "text": "2"
+                }
+              ]
+            ],
+            "empty": "No comments or photos shown yet."
+          }
+        ]
+      }
+    },
+    {
       "name": "section anh-ban-doc",
       "request": {
         "method": "GET",
@@ -6759,11 +7004,11 @@
       "status": 200,
       "body": {
         "tz": "Asia/Ho_Chi_Minh",
-        "title": "Tài khoản · Bình luận",
+        "title": "Tài khoản",
         "blocks": [
           {
             "kind": "note",
-            "text": "Tài khoản đăng nhập để đồng bộ “Bể của tôi”, và bình luận trên trang. Không lưu tên, email hay số điện thoại. Ngày và giờ theo giờ của bạn (GMT+7).",
+            "text": "Tài khoản đăng nhập để đồng bộ “Bể của tôi”. Không lưu tên, email hay số điện thoại. Ngày và giờ theo giờ của bạn (GMT+7).",
             "tone": "plain"
           },
           {
@@ -6788,14 +7033,6 @@
               {
                 "label": "Phiên đăng nhập còn hạn",
                 "value": "12"
-              },
-              {
-                "label": "Bình luận · 7 ngày",
-                "value": "7",
-                "delta": {
-                  "text": "+17% so với 7 ngày trước đó",
-                  "tone": "good"
-                }
               }
             ]
           },
@@ -7036,237 +7273,6 @@
             ]
           },
           {
-            "kind": "chart",
-            "id": "m-daily",
-            "title": "Bình luận mỗi ngày · 30 ngày",
-            "days": [
-              "2026-10-06",
-              "2026-10-07",
-              "2026-10-08",
-              "2026-10-09",
-              "2026-10-10",
-              "2026-10-11",
-              "2026-10-12",
-              "2026-10-13",
-              "2026-10-14",
-              "2026-10-15",
-              "2026-10-16",
-              "2026-10-17",
-              "2026-10-18",
-              "2026-10-19",
-              "2026-10-20",
-              "2026-10-21",
-              "2026-10-22",
-              "2026-10-23",
-              "2026-10-24",
-              "2026-10-25",
-              "2026-10-26",
-              "2026-10-27",
-              "2026-10-28",
-              "2026-10-29",
-              "2026-10-30",
-              "2026-10-31",
-              "2026-11-01",
-              "2026-11-02",
-              "2026-11-03",
-              "2026-11-04"
-            ],
-            "series": [
-              {
-                "label": "Bình luận",
-                "values": [
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2,
-                  0,
-                  1,
-                  2
-                ]
-              }
-            ],
-            "partialLast": true,
-            "empty": "Chưa có bình luận nào trong 30 ngày.",
-            "today": 29,
-            "labels": [
-              "06/10",
-              "07/10",
-              "08/10",
-              "09/10",
-              "10/10",
-              "11/10",
-              "12/10",
-              "13/10",
-              "14/10",
-              "15/10",
-              "16/10",
-              "17/10",
-              "18/10",
-              "19/10",
-              "20/10",
-              "21/10",
-              "22/10",
-              "23/10",
-              "24/10",
-              "25/10",
-              "26/10",
-              "27/10",
-              "28/10",
-              "29/10",
-              "30/10",
-              "31/10",
-              "01/11",
-              "02/11",
-              "03/11",
-              "Hôm nay"
-            ],
-            "readouts": [
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Ba 06/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Tư 07/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Năm 08/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Sáu 09/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Bảy 10/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Chủ nhật 11/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Hai 12/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Ba 13/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Tư 14/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Năm 15/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Sáu 16/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Bảy 17/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Chủ nhật 18/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Hai 19/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Ba 20/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Tư 21/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Năm 22/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Sáu 23/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Bảy 24/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Chủ nhật 25/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Hai 26/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Ba 27/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Tư 28/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Năm 29/10"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Sáu 30/10"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Bảy 31/10"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Chủ nhật 01/11"
-              },
-              {
-                "title": "0 bình luận",
-                "detail": "Thứ Hai 02/11"
-              },
-              {
-                "title": "1 bình luận",
-                "detail": "Thứ Ba 03/11"
-              },
-              {
-                "title": "2 bình luận",
-                "detail": "Thứ Tư 04/11 · chưa hết ngày"
-              }
-            ]
-          },
-          {
             "kind": "heading",
             "text": "Cách đăng nhập",
             "level": 2
@@ -7292,37 +7298,6 @@
                 },
                 {
                   "text": "4"
-                }
-              ]
-            ],
-            "empty": "Chưa có."
-          },
-          {
-            "kind": "heading",
-            "text": "Bình luận theo trạng thái",
-            "level": 2
-          },
-          {
-            "kind": "table",
-            "columns": [
-              "Trạng thái",
-              "Số"
-            ],
-            "rows": [
-              [
-                {
-                  "text": "đang hiện"
-                },
-                {
-                  "text": "20"
-                }
-              ],
-              [
-                {
-                  "text": "chờ duyệt"
-                },
-                {
-                  "text": "2"
                 }
               ]
             ],
@@ -15776,6 +15751,169 @@
       "body": {
         "ok": true,
         "changed": true
+      }
+    },
+    {
+      "name": "show a held comment",
+      "request": {
+        "method": "POST",
+        "path": "/api/owner/comments/0c1d2e3f-4a5b-4c6d-8e7f-9a0b1c2d3e4f",
+        "body": {
+          "action": "show"
+        }
+      },
+      "status": 200,
+      "body": {
+        "ok": true,
+        "changed": true
+      }
+    },
+    {
+      "name": "hide a shown comment",
+      "request": {
+        "method": "POST",
+        "path": "/api/owner/comments/2e3f4a5b-6c7d-4e8f-8a9b-1c2d3e4f5a6b",
+        "body": {
+          "action": "hide"
+        }
+      },
+      "status": 200,
+      "body": {
+        "ok": true,
+        "changed": true
+      }
+    },
+    {
+      "name": "show again a hidden comment",
+      "request": {
+        "method": "POST",
+        "path": "/api/owner/comments/3f4a5b6c-7d8e-4f9a-9b0c-2d3e4f5a6b7c",
+        "body": {
+          "action": "show"
+        }
+      },
+      "status": 200,
+      "body": {
+        "ok": true,
+        "changed": true
+      }
+    },
+    {
+      "name": "show a comment hidden more than 30 days ago",
+      "request": {
+        "method": "POST",
+        "path": "/api/owner/comments/4a5b6c7d-8e9f-4a0b-8c1d-3e4f5a6b7c8d",
+        "body": {
+          "action": "show"
+        }
+      },
+      "status": 409,
+      "body": {
+        "error": "expired",
+        "message": "This comment was hidden more than 30 days ago and is about to be deleted, so it can no longer be shown."
+      }
+    },
+    {
+      "name": "a comment that doesn't exist",
+      "request": {
+        "method": "POST",
+        "path": "/api/owner/comments/99999999-9999-4999-8999-999999999999",
+        "body": {
+          "action": "hide"
+        }
+      },
+      "status": 404,
+      "body": {
+        "error": "not_found",
+        "message": "That comment no longer exists: a hidden comment is deleted 30 days after it was hidden."
+      }
+    },
+    {
+      "name": "a comment action that is neither",
+      "request": {
+        "method": "POST",
+        "path": "/api/owner/comments/1d2e3f4a-5b6c-4d7e-9f8a-0b1c2d3e4f5a",
+        "body": {
+          "action": "approve"
+        }
+      },
+      "status": 400,
+      "body": {
+        "error": "bad_request",
+        "message": "action: \"show\" or \"hide\"."
+      }
+    },
+    {
+      "name": "more comments",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/comments?state=held&cursor=MjAyNi0xMS0wMVQwMDowMDowMC4wMDBaIDAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwMg"
+      },
+      "status": 200,
+      "body": {
+        "tz": "Asia/Ho_Chi_Minh",
+        "items": [
+          {
+            "id": "00000000-0000-4000-8000-000000000001",
+            "at": "2026-11-01T00:00:00.000Z",
+            "name": "Reader 01",
+            "page": {
+              "title": "guide:gone-guide"
+            },
+            "text": "Comment 0001",
+            "state": "held",
+            "reason": "Held when posted: it has more than one link",
+            "actions": [
+              {
+                "label": "Show",
+                "method": "POST",
+                "path": "/api/owner/comments/00000000-0000-4000-8000-000000000001",
+                "body": {
+                  "action": "show"
+                }
+              },
+              {
+                "label": "Hide",
+                "method": "POST",
+                "path": "/api/owner/comments/00000000-0000-4000-8000-000000000001",
+                "body": {
+                  "action": "hide"
+                },
+                "tone": "bad"
+              }
+            ]
+          },
+          {
+            "id": "00000000-0000-4000-8000-000000000000",
+            "at": "2026-11-01T00:00:00.000Z",
+            "name": "Reader 00",
+            "page": {
+              "title": "guide:gone-guide"
+            },
+            "text": "Comment 0000",
+            "state": "held",
+            "reason": "Held when posted: it has more than one link",
+            "actions": [
+              {
+                "label": "Show",
+                "method": "POST",
+                "path": "/api/owner/comments/00000000-0000-4000-8000-000000000000",
+                "body": {
+                  "action": "show"
+                }
+              },
+              {
+                "label": "Hide",
+                "method": "POST",
+                "path": "/api/owner/comments/00000000-0000-4000-8000-000000000000",
+                "body": {
+                  "action": "hide"
+                },
+                "tone": "bad"
+              }
+            ]
+          }
+        ]
       }
     },
     {

@@ -18,6 +18,7 @@ import { listReports } from './daily/log'
 import { clicksByKind, listSnapshots, loadContentStats, loadLowScores, pagesByRef, queryContentReads, talkByPage } from './admin/content'
 import { commentPages } from './comments/photo'
 import { contentPage, contentSection } from './admin/content-page'
+import { commentItem, COMMENTS_FORM, COMMENTS_PATH, commentsPage, commentsSection, commentWeek, decideComment, EXPIRED, GONE, listComments, readCursor, stateOf, type CommentItem, type CommentState } from './admin/comments'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
 import { appPage, appSection, queryApp } from './admin/app'
 import type { Section } from './admin/blocks'
@@ -148,6 +149,8 @@ const FONT = /^\/_ab\/fonts\/[a-z0-9-]+\.woff2$/
 /** A waiting reader photo's upload, shown on /_ab/anh-ban-doc/. */
 const WAITING_PHOTO = /^\/_ab\/anh\/([0-9a-f-]{36})$/
 const NO_AE = 'AE_API_TOKEN và CF_ACCOUNT_ID'
+/** The Comments page's words are English (admin/comments.ts). */
+const NO_D1 = { failed: 'D1 is not set up on this server.' }
 /** This deploy's content.json (scripts/content-stats.ts): a build without it is a part that didn't load. */
 const contentOf = async (env: AdminEnv, origin: string) => {
   if (!env.ASSETS) return unset('ASSETS')
@@ -307,6 +310,19 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
     return { now, tz, xs, waiting }
   }, d => photosPage(d.xs, d.waiting, d.now, d.tz), d => photosSection(d.xs, d.waiting, d.now, d.tz)),
   '/_ab/an-trang/': view(async (env, _url, now, tz) => ({ now, tz, h: await soft('hidden', loadHidden(env.AB, true)) }), d => hiddenPage(d.h, d.now, d.tz), d => hiddenSection(d.h, d.now, d.tz)),
+  '/_ab/binh-luan/': view(async (env, url, now, tz) => {
+    // ?state= (held by default) and, on the web, ?cursor= for an older page; the app's section takes ?state= alone (owner-api.ts).
+    const state = stateOf(url.searchParams.get('state')) ?? 'held'
+    const cursor = readCursor(url.searchParams.get('cursor') ?? '')
+    const db = env.DB
+    const [list, week, stats] = await Promise.all([
+      db ? soft('comments', listComments(db, state, cursor)) : NO_D1,
+      db ? soft('comment week', commentWeek(db, now)) : NO_D1,
+      contentOf(env, url.origin),
+    ])
+    const talk = !db ? NO_D1 : isFailed(stats) ? stats : await soft('comment talk', talkByPage(db, stats, 5))
+    return { now, tz, state, list, week, talk, ...(isFailed(stats) ? {} : { pages: pagesByRef(stats) }) }
+  }, commentsPage, commentsSection),
   '/_ab/tai-khoan/': view(async (env, _url, now, tz) => ({ now, tz, a: env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1') }),
     d => accountsPage(d.a, d.now, d.tz), d => accountsSection(d.a, d.now, d.tz)),
   '/_ab/bao-cao/': view((env, _url, now, tz) => loadReports(env, now, tz, ids => liveOwnerApps(env, ids, now)), reportsPage, reportsSection),
@@ -317,6 +333,12 @@ export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (key
 export const sectionKey = (path: AdminPath) => path.slice('/_ab/'.length, -1)
 /** Every page but the overview, as the app reads them (GET /api/owner/sections/{key}), in the dashboard's order and with its names. */
 export const SECTIONS = NAV.flatMap(([path, name]) => (path === '/_ab/' ? [] : [{ key: sectionKey(path), name, path }]))
+/** The comments after `cursor` for GET /api/owner/comments, each with its page as the section gives it (content.json). */
+export async function moreComments(env: AdminEnv, db: D1Database, url: URL, now: Date, state: CommentState, cursor: NonNullable<ReturnType<typeof readCursor>>): Promise<{ items: CommentItem[]; next?: string }> {
+  const [list, stats] = await Promise.all([listComments(db, state, cursor), contentOf(env, url.origin)])
+  const pages = isFailed(stats) ? undefined : pagesByRef(stats)
+  return { items: list.rows.map(r => commentItem(r, pages, now)), ...(list.next ? { next: list.next } : {}) }
+}
 /** A section as blocks, from the same load as its page; undefined for a key that isn't one. */
 export async function sectionJson(key: string, env: AdminEnv, url: URL, now: Date, tz: string): Promise<Section | undefined> {
   const path = SECTIONS.find(x => x.key === key)?.path
@@ -408,6 +430,18 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
     if (!Object.keys(change).length) return badForm()
     await setSettings(env.AB, change)
     return see(REPORT_PATH)
+  }
+  // Show or hide a reader's comment (admin/comments.ts), as the app's POST /api/owner/comments/{id} does; back to the state
+  // the owner was looking at.
+  if (path === COMMENTS_FORM) {
+    if (req.method !== 'POST' || !(await owner()) || !env.DB) return notFound()
+    const form = await req.formData().catch(() => null)
+    const action = form?.get('action')
+    if (!form || (action !== 'show' && action !== 'hide')) return badForm()
+    const done = await decideComment(env.DB, String(form.get('id') ?? ''), action, now)
+    if (typeof done === 'string') return new Response(done === 'expired' ? EXPIRED : GONE, { status: done === 'expired' ? 409 : 404, headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } })
+    const state: CommentState = stateOf(String(form.get('state') ?? '')) ?? 'held'
+    return see(`${COMMENTS_PATH}?state=${state}`)
   }
   if (path === '/_ab/hidden') {
     if (req.method !== 'POST' || !(await owner())) return notFound()

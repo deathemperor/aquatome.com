@@ -77,7 +77,7 @@ export const MODERATION_MISSED_MS = 30 * 3_600_000
 /** Each part of the overview, by what it is to the owner (in Vietnamese, and in English for the daily report) and where its page is. */
 const parts = (o: Overview): [string, Soft<unknown>, string, string][] => [
   ['người đọc', o.readers, '/_ab/doc-gia/', 'readers'], ['lượt bấm affiliate', o.clicks, '/_ab/affiliate/', 'affiliate clicks'], ['nhật ký nhận diện cá', o.fish, '/_ab/nhan-dien-ca/', 'the fish ID log'],
-  ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/', 'comments and accounts'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/tai-khoan/', 'the moderation queues'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/', 'reader photos'],
+  ['bình luận và tài khoản', o.accounts, '/_ab/tai-khoan/', 'comments and accounts'], ['hàng chờ kiểm duyệt', o.waiting, '/_ab/binh-luan/', 'the moderation queues'], ['ảnh bạn đọc', o.photos, '/_ab/anh-ban-doc/', 'reader photos'],
   ['danh sách bạn đọc muốn có', o.wanted, '/_ab/muon-co/', 'the wanted names'], ['danh sách trang ẩn', o.hidden, '/_ab/an-trang/', 'the hidden pages'],
   ['số liệu nội dung', o.content, '/_ab/noi-dung/', 'the content totals'], ['số liệu nội dung từng ngày', o.snapshots, '/_ab/noi-dung/', 'the daily content totals'],
 ]
@@ -161,10 +161,10 @@ export function areas(o: Overview): Area[] {
     out.push({ name: 'Nhận diện cá', href: '/_ab/nhan-dien-ca/', fig: fmt(p.d7.calls), sub: `lượt gọi Claude · 7 ngày · ${usd(p.d7.usd)}`, spark: whole(perDay.ok.map((v, i) => v + perDay.none[i]!)), chip: chipOf(p.d7.calls, p.d7prev.calls, VS), warn: keysOff })
   }
   const waiting = isFailed(o.waiting) ? undefined : o.waiting
-  if (isFailed(o.accounts)) out.push(failedArea('Bình luận', '/_ab/tai-khoan/', o.accounts), failedArea('Tài khoản mới', '/_ab/tai-khoan/', o.accounts))
+  if (isFailed(o.accounts)) out.push(failedArea('Bình luận', '/_ab/binh-luan/', o.accounts), failedArea('Tài khoản mới', '/_ab/tai-khoan/', o.accounts))
   else {
     const a = o.accounts
-    out.push({ name: 'Bình luận', href: '/_ab/tai-khoan/', fig: fmt(ago(a.newComments, 7, 1)), sub: `bình luận mới · 7 ngày${waiting?.comments ? ` · ${fmt(waiting.comments)} chờ kiểm duyệt` : ''}`, spark: whole(a.newComments), chip: chipOf(ago(a.newComments, 7, 1), ago(a.newComments, 14, 8), VS, 'up') })
+    out.push({ name: 'Bình luận', href: '/_ab/binh-luan/', fig: fmt(ago(a.newComments, 7, 1)), sub: `bình luận mới · 7 ngày${waiting?.comments ? ` · ${fmt(waiting.comments)} chờ kiểm duyệt` : ''}`, spark: whole(a.newComments), chip: chipOf(ago(a.newComments, 7, 1), ago(a.newComments, 14, 8), VS, 'up') })
     out.push({ name: 'Tài khoản mới', href: '/_ab/tai-khoan/', fig: fmt(ago(a.newUsers, 7, 1)), sub: `7 ngày · tổng ${fmt(a.users)} · ${fmt(a.synced)} có bể đồng bộ`, spark: whole(a.newUsers), chip: chipOf(ago(a.newUsers, 7, 1), ago(a.newUsers, 14, 8), VS, 'up') })
   }
   if (isFailed(o.photos)) out.push(failedArea('Ảnh bạn đọc', '/_ab/anh-ban-doc/', o.photos))
@@ -209,7 +209,7 @@ export function log(o: Overview, n = 3): LogDay[] {
       if (calls || at(d.blocked, back)) items.push({ text: `${fmt(calls)} lượt nhận diện cá gọi Claude · ${usd(at(d.usd, back))}`, small: `${fmt(at(d.ok, back))} có kết quả${at(d.blocked, back) ? ` · ${fmt(at(d.blocked, back))} chặn trước khi gọi` : ''}`, section: 'nhan-dien-ca' })
     }
     if (!isFailed(accounts)) {
-      if (at(accounts.newComments, back)) items.push({ text: `${fmt(at(accounts.newComments, back))} bình luận mới`, section: 'tai-khoan' })
+      if (at(accounts.newComments, back)) items.push({ text: `${fmt(at(accounts.newComments, back))} bình luận mới`, section: 'binh-luan' })
       if (at(accounts.newUsers, back)) items.push({ text: `${fmt(at(accounts.newUsers, back))} tài khoản mới`, section: 'tai-khoan' })
     }
     if (!isFailed(wanted)) {
@@ -754,14 +754,12 @@ export function hiddenSection(h: Soft<Hidden>, now = new Date(), tz = HOME_TZ): 
   return { title: 'Ẩn trang', blocks }
 }
 
-// ——— Tài khoản · Bình luận ———
+// ——— Tài khoản (comments have their own page, admin/comments.ts) ———
 
 const CRED: Record<string, string> = { apple: 'Apple', google: 'Google', passkey: 'Passkey', email: 'Email' }
-const STATUS: Record<string, string> = { approved: 'đang hiện', held: 'chờ duyệt', removed: 'đã gỡ' }
 const CRED_HEAD = ['Cách', 'Số']
-const STATUS_HEAD = ['Trạng thái', 'Số']
-const accountsLede = (now: Date, tz: string) => `Tài khoản đăng nhập để đồng bộ “Bể của tôi”, và bình luận trên trang. Không lưu tên, email hay số điện thoại. ${zoneNote(tz, now)}`
-/** What the accounts page draws: its tiles, its two charts and its two rankings. */
+const accountsLede = (now: Date, tz: string) => `Tài khoản đăng nhập để đồng bộ “Bể của tôi”. Không lưu tên, email hay số điện thoại. ${zoneNote(tz, now)}`
+/** What the accounts page draws: its tiles, its chart and its ranking. */
 function accountsParts(a: AccountStats) {
   return {
     tiles: [
@@ -769,27 +767,22 @@ function accountsParts(a: AccountStats) {
       { label: 'Tài khoản mới · 7 ngày', value: fmt(ago(a.newUsers, 7, 1)), delta: { now: ago(a.newUsers, 7, 1), before: ago(a.newUsers, 14, 8), vs: '7 ngày trước đó', good: 'up' } },
       { label: 'Có bể đã đồng bộ', value: fmt(a.synced) },
       { label: 'Phiên đăng nhập còn hạn', value: fmt(a.openSessions) },
-      { label: 'Bình luận · 7 ngày', value: fmt(ago(a.newComments, 7, 1)), delta: { now: ago(a.newComments, 7, 1), before: ago(a.newComments, 14, 8), vs: '7 ngày trước đó', good: 'up' } },
     ] as Tile[],
     charts: [
       { id: 'u-daily', title: 'Tài khoản mới mỗi ngày · 30 ngày', days: a.days, series: [{ label: 'Tài khoản mới', values: a.newUsers }], partialLast: true, empty: 'Chưa có tài khoản mới nào trong 30 ngày.' },
-      { id: 'm-daily', title: 'Bình luận mỗi ngày · 30 ngày', days: a.days, series: [{ label: 'Bình luận', values: a.newComments }], partialLast: true, empty: 'Chưa có bình luận nào trong 30 ngày.' },
     ] as DayChart[],
     credentials: a.credentials.map(c => ({ label: esc(CRED[c.kind] ?? c.kind), value: c.n })) as Ranked[],
-    comments: a.comments.map(c => ({ label: esc(STATUS[c.status] ?? c.status), value: c.n })) as Ranked[],
   }
 }
 
 export function accountsPage(a: Soft<AccountStats>, now = new Date(), tz = HOME_TZ): string {
-  let body = `<h1>Tài khoản · Bình luận</h1><p class="lede">${accountsLede(now, tz)}</p>`
-  if (isFailed(a)) return page('/_ab/tai-khoan/', 'Tài khoản · Bình luận', body + failedBox('số liệu', a), now, tz)
+  let body = `<h1>Tài khoản</h1><p class="lede">${accountsLede(now, tz)}</p>`
+  if (isFailed(a)) return page('/_ab/tai-khoan/', 'Tài khoản', body + failedBox('số liệu', a), now, tz)
   const p = accountsParts(a)
   body += tiles(p.tiles)
-  body += `<h2>Theo ngày</h2><div class="charts">${dayChart(p.charts[0]!)}
-${dayChart(p.charts[1]!)}</div>
-<div class="split"><section><h2>Cách đăng nhập</h2>${rankTable(p.credentials, CRED_HEAD)}</section>
-<section><h2>Bình luận theo trạng thái</h2>${rankTable(p.comments, STATUS_HEAD)}</section></div>`
-  return page('/_ab/tai-khoan/', 'Tài khoản · Bình luận', body, now, tz)
+  body += `<h2>Theo ngày</h2><div class="charts">${dayChart(p.charts[0]!)}</div>
+<h2>Cách đăng nhập</h2>${rankTable(p.credentials, CRED_HEAD)}`
+  return page('/_ab/tai-khoan/', 'Tài khoản', body, now, tz)
 }
 
 export function accountsSection(a: Soft<AccountStats>, now = new Date(), tz = HOME_TZ): Section {
@@ -797,7 +790,7 @@ export function accountsSection(a: Soft<AccountStats>, now = new Date(), tz = HO
   if (isFailed(a)) blocks.push(failedNote('số liệu', a))
   else {
     const p = accountsParts(a)
-    blocks.push(figures(p.tiles), heading('Theo ngày'), ...p.charts.map(c => chart(c)), heading('Cách đăng nhập'), rankBlock(p.credentials, CRED_HEAD), heading('Bình luận theo trạng thái'), rankBlock(p.comments, STATUS_HEAD))
+    blocks.push(figures(p.tiles), heading('Theo ngày'), ...p.charts.map(c => chart(c)), heading('Cách đăng nhập'), rankBlock(p.credentials, CRED_HEAD))
   }
-  return { title: 'Tài khoản · Bình luận', blocks }
+  return { title: 'Tài khoản', blocks }
 }

@@ -359,6 +359,38 @@ test('kept by the moderation after a report, a comment stays up through later re
   expect(await commentQueue(t)).toEqual([])
 })
 
+test('the owner\'s show or hide (the dashboard\'s Comments) takes a comment out of the moderation\'s queue; a reader\'s report later brings it back', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  at(0)
+  const t = setup()
+  const owner = await t.signIn()
+  Object.assign(t.env, { OWNER_ACCOUNTS: owner.id })
+  const byOwner = (id: string, action: 'show' | 'hide') =>
+    handle(new Request(`${ORIGIN}/api/owner/comments/${id}`, { method: 'POST', headers: { authorization: `Bearer ${owner.token}`, 'content-type': 'application/json' }, body: JSON.stringify({ action }) }), t.env)
+  const poster = await t.signIn()
+  const c = await shown(t, 'Bể 60 lít nuôi được mấy con?', { bearer: poster.token })
+  at(1)
+  const spam = (await (await t.comment('Nhắn zalo: 09xx nhé', { bearer: poster.token })).json()) as { status: string }
+  expect(spam.status).toBe('held')
+  const held = (await t.rows('comments')).find(r => r.status === 'held')!.id
+  // A signed-in reader's report holds the first; both wait for the moderation.
+  expect((await report(t, { kind: 'comment', id: c.id, reason: 'quảng cáo' }, { bearer: (await t.signIn()).token })).status).toBe(202)
+  expect((await commentQueue(t)).map(q => [q.id, q.status, q.reason])).toEqual([[c.id, 'held', 'reported by a reader'], [held, 'held', 'blocked term: zalo:']])
+  at(2)
+  // The owner decides first: shown, hidden; the moderation leaves both alone.
+  expect(await (await byOwner(c.id, 'show')).json()).toEqual({ ok: true, changed: true })
+  expect(await (await byOwner(held, 'hide')).json()).toEqual({ ok: true, changed: true })
+  expect(ids(await listed(t, '/_c'))).toEqual([c.id])
+  expect(await commentQueue(t)).toEqual([])
+  at(3)
+  // Reported again later: back in the queue with every report, and up meanwhile (the owner kept it after a report).
+  expect((await report(t, { kind: 'comment', id: c.id, reason: 'vẫn quảng cáo' }, { bearer: (await t.signIn()).token })).status).toBe(202)
+  expect((await commentQueue(t)).map(q => [q.id, q.status, q.reason, q.reports.sort()])).toEqual([[c.id, 'approved', 'Shown by the owner', ['quảng cáo', 'vẫn quảng cáo']]])
+  expect(ids(await listed(t, '/_c'))).toEqual([c.id])
+  // A hidden one can't be reported: it isn't on the page.
+  expect((await report(t, { kind: 'comment', id: held }, { bearer: (await t.signIn()).token })).status).toBe(404)
+})
+
 test('photos: a signed-in report unpublishes at once; the nightly pass sees it again; kept, later reports only queue it', async () => {
   vi.useFakeTimers({ toFake: ['Date'] })
   at(0)

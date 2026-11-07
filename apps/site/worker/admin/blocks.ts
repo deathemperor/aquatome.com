@@ -1,4 +1,5 @@
 import { barWords, deltaOf, fmt, todayOf, type DashLang, type DayChart, type Delta, type Ranked, type Readout, type Series, type Tile } from './chart'
+import type { CommentsBlock } from './comments'
 import type { Failed } from './shell'
 
 /**
@@ -43,6 +44,8 @@ export type Block =
   | { kind: 'switch'; label: string; on: boolean; href: string }
   /** Buttons on their own, in a row: each makes its request, then the section is read again. */
   | { kind: 'actions'; actions: Action[] }
+  /** Readers' comments in one state, with their filter and buttons (admin/comments.ts). */
+  | CommentsBlock
 /** `periods`: what the period menu offers, and `period` the one every figure is for (the request's `?period=`). */
 export type Section = { title: string; blocks: Block[]; periods?: { key: string; label: string }[]; period?: string }
 
