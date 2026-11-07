@@ -49,16 +49,18 @@ export async function methodsOf(db: D1Database, userId: string): Promise<Method[
 }
 
 /**
- * Everything of an account. First the fish-ID photos it let us keep, and the files of the photos it sent from the app (once their rows are gone nothing finds
+ * Everything of an account. First the fish-ID photos it let us keep, its chat conversations, and the files of the photos it sent from the app (once their rows are gone nothing finds
  * them again; deleting twice does no harm). Then in one batch: its comments and photos, its saved tanks, pending email
- * codes for its addresses (so a code sent before can't sign in after), sign-ins and sessions, then the account.
+ * codes for its addresses (so a code sent before can't sign in after), sign-ins and sessions, then the account. Then its
+ * chat once more: a question answered meanwhile wrote its conversation back.
  */
-export async function deleteUser(db: D1Database, userId: string, buckets: { UPLOADS?: R2Bucket; MEDIA?: R2Bucket; COMMENT_HMAC_KEY?: string } = {}): Promise<void> {
-  const { UPLOADS, MEDIA, COMMENT_HMAC_KEY } = buckets
+export async function deleteUser(db: D1Database, userId: string, buckets: { UPLOADS?: R2Bucket; MEDIA?: R2Bucket; ACCOUNT_HMAC_KEY?: string } = {}): Promise<void> {
+  const { UPLOADS, MEDIA, ACCOUNT_HMAC_KEY } = buckets
   // The fish-ID photos it let us keep (fishid/kept.ts): files only, no rows.
   if (UPLOADS) await deleteAllKept(UPLOADS, userId)
   // Its chat conversations and retries' answers (chat/store.ts), under the account's HMAC: without the key, chat never ran.
-  if (UPLOADS && COMMENT_HMAC_KEY) await deleteChatOf(UPLOADS, await chatAccount(COMMENT_HMAC_KEY, userId))
+  const chat = UPLOADS && ACCOUNT_HMAC_KEY ? await chatAccount(ACCOUNT_HMAC_KEY, userId) : undefined
+  if (UPLOADS && chat) await deleteChatOf(UPLOADS, chat)
   if (UPLOADS && MEDIA) {
     const { results } = await db.prepare(`SELECT id FROM photos WHERE account_id = ?`).bind(userId).all<{ id: string }>()
     await Promise.all(results.map(p => deletePhotoFiles({ UPLOADS, MEDIA }, p.id)))
@@ -69,6 +71,8 @@ export async function deleteUser(db: D1Database, userId: string, buckets: { UPLO
     ...['tank_records', 'credentials', 'sessions'].map(t => db.prepare(`DELETE FROM ${t} WHERE user_id = ?`).bind(userId)),
     db.prepare(`DELETE FROM users WHERE id = ?`).bind(userId),
   ])
+  // A question answered while this ran, its run past its check that the account is there: its writes, once more.
+  if (UPLOADS && chat) await deleteChatOf(UPLOADS, chat).catch(e => console.error('chat, deleted account:', e))
 }
 
 /**
