@@ -31,7 +31,7 @@ import { parseArgs } from 'node:util'
 import type { PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type ChatRun, type Start } from '../../../apps/site/worker/chat/agent'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import { factsOf, handbookOf, type Handbook, type Index, type Source } from '../../../apps/site/worker/chat/handbook'
+import { figuresOf, handbookOf, type Handbook, type Index, type Source } from '../../../apps/site/worker/chat/handbook'
 import { textOf } from '../../../apps/site/worker/chat/tools'
 import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
@@ -228,7 +228,7 @@ async function grade(model: string, question: Question, run: ChatRun | undefined
   for (const path of read) {
     const doc = await hb.page(path)
     const item = hb.byPath(path)
-    seen.push(doc ? textOf(doc.blocks) : '', item ? JSON.stringify(factsOf(item)) : '')
+    seen.push(doc ? textOf(doc.blocks) : '', item && (item.kind === 'fish' || item.kind === 'plant') ? JSON.stringify(figuresOf(item, hb.byId)) : '')
   }
   const known = new Set(numbersIn(seen.join('\n')))
   const invented = [...new Set(numbersIn(run?.answer?.text ?? ''))].filter(n => !known.has(n))
