@@ -145,10 +145,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         const seen = new Set(first.map(i => i.path))
         const more = (topics ? searchTopics(topics, d.handbook.byPath, String(input.query)).filter(h => !seen.has(h.item.path)) : []).slice(0, 12 - first.length)
         const byTopic = new Set(more.map(h => h.item.path))
-        const all = [...first.map(listed), ...more.map(h => ({ ...listed(h.item), section: { id: h.section, text: h.text } })), ...named.slice(8).filter(i => !byTopic.has(i.path)).map(listed)]
-        // A guide held out of the chat isn't found.
-        const shown = await Promise.all(all.map(async h => !(h.kind === 'guide' && (await d.handbook.held(h.path)))))
-        const hits = all.filter((_, i) => shown[i]).slice(0, 12)
+        const hits = [...first.map(listed), ...more.map(h => ({ ...listed(h.item), section: { id: h.section, text: h.text } })), ...named.slice(8).filter(i => !byTopic.has(i.path)).map(listed)].slice(0, 12)
         return hits.length ? JSON.stringify(hits) : 'No page by that name. Try other words, the scientific name, or another kind.'
       },
     },
@@ -164,7 +161,6 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         const path = String(input.path)
         const item = d.handbook.byPath(path)
         if (!item) throw new Error(`No page at ${path}: search_handbook gives the paths.`)
-        if (item.kind === 'guide' && (await d.handbook.held(path))) throw new Error(`${path} is held out of the chat while it is checked again: use another page.`)
         const doc = await d.handbook.page(path)
         if (!doc) throw new Error(`${path} can't be read now.`)
         const sections = sectionsOf(doc)

@@ -379,25 +379,29 @@ test('a guide held out of the chat (a video guide being checked again) is never 
   expect(topics.pages[algae]).toBeUndefined()
   expect(topicsOf(docs)).not.toHaveProperty('held')
   const h = (await handbookOf({ ...source, topics: async () => topics }, 'vi'))!
-  expect(await h.held(algae)).toBe(true)
-  expect(await h.held('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')).toBe(false)
-  // Not by its name, nor by a heading only it has (CO2), nor read, nor shown as a section.
+  // Not in the chat's handbook at all; the other video guide is.
+  expect(h.byPath(algae)).toBeUndefined()
+  expect(h.items.some(i => i.path === algae)).toBe(false)
+  expect(h.byPath('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')).toBeDefined()
+  // Not by its name, nor by a heading only it has (CO2), nor read (no step names it), nor shown as a section.
   const found = async (query: string) => {
     const out = (await run('search_handbook', { query, kind: null }, h)).out as string
     return out.startsWith('No page') ? [] : JSON.parse(out).map((x: { path: string }) => x.path)
   }
   expect(await found('hạn chế rêu hại')).not.toContain(algae)
   expect((await run('search_handbook', { query: 'CO2', kind: null }, h)).out).toMatch(/^No page/)
-  await expect(run('read_page', { path: algae, heading: null }, h)).rejects.toThrow(/held out of the chat/)
+  await expect(run('read_page', { path: algae, heading: null }, h)).rejects.toThrow(/No page at/)
+  expect(chatTools({ handbook: h, tanks: async () => [] }).find(t => t.name === 'read_page')!.step?.({ path: algae, heading: null })).toBeUndefined()
   const { blocks, dropped } = await fill(answer([pick({ t: 'section', path: algae, heading: 'anh-sang-va-co2' })]), h)
   expect(blocks).toEqual([])
-  expect(dropped).toEqual([`section: ${algae} held`])
+  expect(dropped).toEqual([`section: no page "${algae}"`])
   // Without the hold, the same search finds it.
   expect(JSON.parse((await run('search_handbook', { query: 'hạn chế rêu hại', kind: null })).out as string).map((x: { path: string }) => x.path)).toContain(algae)
   // With no topics file to say which, every video guide is held, and no other page.
   const blind = (await handbookOf({ ...source, topics: async () => null }, 'vi'))!
-  expect(await blind.held(algae)).toBe(true)
-  expect(await blind.held('/vi/huong-dan/thay-nuoc-dung-cach/')).toBe(false)
+  expect(blind.byPath(algae)).toBeUndefined()
+  expect(blind.byPath('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')).toBeUndefined()
+  expect(blind.byPath('/vi/huong-dan/thay-nuoc-dung-cach/')).toBeDefined()
 })
 
 test('a guide is found by a section heading or a FAQ question past its title, with the section to open it at; its title still first', async () => {

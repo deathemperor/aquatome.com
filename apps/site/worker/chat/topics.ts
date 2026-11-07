@@ -8,12 +8,12 @@ import type { PageDoc } from '@aq/schema/app-page'
  * assets; the app doesn't read it.
  */
 export type Topic = [section: string | null, text: string]
-/** `held`: the guides held out of the chat while they're checked again (`heldOf`), by path; their topics aren't listed. */
+/** `held`: the guides held out of the chat while they're checked again (`heldOf`), by path; their topics aren't listed, and the chat's handbook leaves them out (handbook.ts). */
 export type Topics = { v: 1; pages: Record<string, Topic[]>; held?: string[] }
 
 /**
  * The guides held out of the chat, by path: a video guide marked `quality.chat: false` until the stricter review passes
- * it (packages/engine/src/video-hold.ts). The chat never finds, reads or shows one (handbook.ts `held`).
+ * it (packages/engine/src/video-hold.ts). The chat never finds, reads or shows one (handbook.ts).
  */
 export const heldOf = (guides: readonly { t: { slug: string; quality?: { chat?: false } } }[], at: (viPath: string) => string): string[] =>
   guides.filter(g => g.t.quality?.chat === false).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
