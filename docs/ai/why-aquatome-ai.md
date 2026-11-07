@@ -9,18 +9,23 @@ stocking all depend on the particular tank and take weeks to fix. That is where 
 
 ## What sets us apart
 
-| | Today | Saved by the app, not yet read by the chat | To build |
-| --- | --- | --- | --- |
-| **Grounded in a cited handbook** | About 900 guides: some 70 on algae, 23 on cycling, 54 on disease, over 100 on light, CO₂ and fertiliser. 747 fish, plants and breeds with sourced figures. The chat answers only from them, and a card's figures come from the page, never from the model. | | The source under each claim. |
-| **Knows your tank** | Size, and fish with counts, from "Bể của tôi". | Plants, substrate, notes, each light's schedule with on, off, ramp and levels, and what each plug powers. | The chat reads the whole tank. |
-| **Tools a chatbot lacks** | The tank-mates check, which is our code and not the model's guess. Volume, budget at Vietnamese shop prices, fish ID from a photo. | | Algae ID from a photo. Changing a light schedule from the answer once the reader confirms. |
-| **Local** | Vietnamese hobby names. "Nuôi ở Việt Nam" notes on every fish for the northern winter, southern cool nights and summer heat. Shop price ranges, Shopee links on equipment. | | Tap water by city. Seasonal advice, since summer heat brings algae and low oxygen. |
-| **Follows up over weeks** | A conversation lasts 24 hours and is kept under the account. | | A tank journal of water tests, water changes and photos that the chat reads. Check-ins a week later. |
-| **What worked for others** | Nothing yet, and we won't invent it. | | Outcomes readers choose to report, once the owner OKs the privacy side. |
+| | Today | To build |
+| --- | --- | --- |
+| **Grounded in a cited handbook** | About 900 guides: some 70 on algae, 23 on cycling, 54 on disease, over 100 on light, CO₂ and fertiliser. 747 fish, plants and breeds with sourced figures. The chat starts from them and uses common hobby practice where they stop. A page's figure wins, a medicine's or chemical's dose comes only from a page, and a card's figures are the page's, never the model's. | The source under each claim. |
+| **Knows your tank** | Everything in "Bể của tôi": size, fish with counts, plants, substrate, notes, each light's schedule with on, off, ramp and levels, and what each plug powers. | |
+| **Tools a chatbot lacks** | The tank-mates check, which is our code and not the model's guess. Volume, budget at Vietnamese shop prices, fish ID from a photo. | Algae ID from a photo. Changing a light schedule from the answer once the reader confirms. |
+| **Local** | Vietnamese hobby names. "Nuôi ở Việt Nam" notes on every fish for the northern winter, southern cool nights and summer heat. Shop price ranges, Shopee links on equipment. | Tap water by city. Seasonal advice, since summer heat brings algae and low oxygen. |
+| **Follows up over weeks** | A conversation lasts 24 hours and is kept under the account. | Past conversations to reopen and carry on. A tank journal of water tests, water changes and photos that the chat reads. Check-ins a week later. |
+| **What worked for others** | Nothing yet, and we won't invent it. | Outcomes readers choose to report, once the owner OKs the privacy side. |
 
-**Today's limit on hard problems.** An answer is two or three sentences plus up to five blocks, such as a card, a guide's
-section or a tool, within 5 model calls and 27 seconds. That fits "can a betta live with neons?". "My tank is full of
-hair algae" needs a plan in steps that fits the tank. The eval shows it costs us most of the hard questions (below).
+**Fishkeeping only.** The owner's condition for general knowledge: "just don't let them ask about football." Anything
+that isn't fish, shrimp, snails, plants, their tanks, ponds, water or gear gets one fixed line in the reader's language.
+It costs about $0.0006 and doesn't count toward the reader's 30, for up to 30 such questions a day, so one account
+can't use up the site's daily count.
+
+**Today's limit on hard problems.** An answer to a problem is its likely cause, the steps one a line, then what to watch,
+within 5 model calls, 8 tool calls and 27 seconds. Most hard questions use up that budget before the chat has read all
+it wanted, and a few run out of time with no answer at all (below).
 
 ## The five hard problems, and how we solve each
 
@@ -102,38 +107,52 @@ the journal, plus the reader's region and its weather.
 
 ## How we prove it, and where we stand
 
-47 real hard questions, from public Vietnamese hobby forums (reworded, no names) and the existing chat eval. The owner's
+48 real hard questions, from public Vietnamese hobby forums (reworded, no names) and the existing chat eval. The owner's
 own past research comes in if they share it. Our chat and plain Claude each answer every question. Plain Claude is the
 same Haiku model with no tools and no handbook. A judge (Opus) sees the two answers without our name, twice with the
 order swapped, and a win counts only when both judgements agree. Two conditions are reported apart: the full forum
 post given to both, and a short question about a saved tank, where only we have the tank. The eval runs again on every
 change to the chat's brain (`docs/review/chat-vs-plain.md`).
 
-**First run, 2026-11-07: plain Claude wins clearly.** Full post: plain 43, ours 4, scores 6.8 and 3.5 out of 10. Saved
-tank: plain 36, ours 8, 3 ties, scores 5.5 and 3.9. Ours lost every kind of problem. The judge's reasons agree:
-- Ours won't diagnose. Told to answer only from the handbook, it says "the handbook doesn't say, so I can't be sure"
-  where plain Claude names the likely cause.
-- No plan. Two or three sentences and a pasted guide section, where plain Claude gives ordered steps for this tank.
-- It doesn't fit the tank. Today it reads only size and fish, not plants, light, CO₂ or notes.
-- Its reading budget runs out on hard questions: 8 of 94 answers failed and most stopped half-read.
-- Some errors are our guides' own, such as "90% of hair algae is low CO₂" and "never more than 4 hours of light at a
-  stretch". Those go back to the content side.
+| Wins, ours to plain | Full post | Saved tank |
+| --- | ---: | ---: |
+| First run: handbook only, two or three sentences, size and fish only | 4–43 | 8–36 |
+| Expert answers with steps, the whole tank read | 8–38 | 23–21 |
+| General knowledge beside the handbook, fishkeeping only | 10–31 | 28–14 |
 
-Next: answer as an expert who has read the handbook. Name the likely cause from the reader's details, then steps in
-order, what to watch and when to check back, with figures and doses only from our pages. Read the whole tank, fix the
-name search, read more per call. If that still loses, the question for the owner is whether the chat may use general
-knowledge beside the handbook: common hobby figures our pages don't give, with a page's figure winning, and medicine
-or chemical doses only from a page. I'll bring that with evidence.
+**Where that leaves us.** We now win when we know the reader's tank: 28 to 14, scores 6.2 and 5.0. By problem that's
+algae 9–1, stocking 7–3, sick fish 5–3, cycling 4–3, and setting up a tank 3–4, the one we still lose. Give both the whole
+post and plain Claude still wins 31 to 10, scores 6.6 and 5.8, with sick fish level at 4–4. The judge says we use less of
+what the post tells us (tank-fit 35 times) and are too thin (22), and it marks plain Claude too long 34 times but picks it
+anyway. On the grounded count we lead on both: 15–5 and 22–5.
+
+**What still costs us.**
+- The budget. 77 of 96 answers stop at a limit rather than when the chat is done.
+- Time. The last row's first pass came out 8–35 and 23–19, because 24 of 96 ran out the 27 seconds and counted as losses.
+  They followed the clock, not the questions: over nine minutes the median answer went from 16 to 28 seconds. Asked
+  again, 23 of the 24 answered, and the row shows that; one still timed out. So when the model slows, readers get errors.
+  That's the next fix.
+- Some errors are our guides' own, such as "90% of hair algae is low CO₂". Those went to the writing lead, and the guides
+  written from one video stay out of the chat until they are re-checked.
+
+**The owner's rules, checked.** The off-topic set is 66 questions in Vietnamese, Indonesian and Thai: football and other
+plain off-topic, cooking and catching fish, jailbreaks (including instructions planted in a saved tank's notes), mixed
+questions, and fishkeeping at the edge such as stands, electrics and ponds. It passes 66 of 66 and has to stay there
+(`docs/review/chat-offtopic.md`). In the 96 answers, every medicine or chemical dose my search found was on a page the
+chat had read. The search looks for common units, so it could miss an odd wording.
 
 ## Order of work
 
-1. The eval: done, first result above.
-2. Close the gap it shows: expert answers with a plan, the whole tank read, the name search fixed ("cá vàng" finds a
-   shrimp before the goldfish), more read per call. The eval runs after each.
-3. The algae doctor, with the first equipment action: a shorter light schedule, applied once the reader confirms.
-4. Heat and cold warnings, once the owner OKs the region and the forecast service.
-5. More equipment actions: dimming, feeding mode, master-button scenes.
-6. Setup planner; tank journal with maintenance reminders, cycling steps and check-ins.
-7. The tank health review, once the journal gives it something to read, and only if the eval shows a panel beats one
+1. The eval: done, and it runs on every change.
+2. Close the gap it shows: expert answers with a plan, the whole tank read, the name search fixed ("cá vàng" found a
+   shrimp before the goldfish) and general knowledge are all done. Loosening the reading budget didn't change wins, so I
+   dropped it. Next is the answers that time out.
+3. The stop button and past conversations, which the owner approved. The contract is written and its table is live.
+   The server is next.
+4. The algae doctor, with the first equipment action: a shorter light schedule, applied once the reader confirms.
+5. Heat and cold warnings, once the owner OKs the region and the forecast service.
+6. More equipment actions: dimming, feeding mode, master-button scenes.
+7. Setup planner; tank journal with maintenance reminders, cycling steps and check-ins.
+8. The tank health review, once the journal gives it something to read, and only if the eval shows a panel beats one
    strong model.
-8. A stronger model only for hard-problem flows, and only where the eval shows it pays for itself.
+9. A stronger model only for hard-problem flows, and only where the eval shows it pays for itself.
