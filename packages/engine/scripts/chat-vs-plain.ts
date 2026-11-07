@@ -25,6 +25,7 @@
  */
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
+import { existsSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
@@ -72,7 +73,10 @@ const hash = (...xs: unknown[]) => createHash('sha256').update(JSON.stringify(xs
 const git = (...a: string[]) => { try { return execFileSync('git', a, { cwd: ROOT, encoding: 'utf8' }).trim() } catch { return '' } }
 /** The chat's code as it is in this checkout: its last commit and any change not committed, so a changed brain asks again. */
 const BRAIN = ['apps/site/worker/chat', 'apps/site/worker/agent']
-const brain = hash(git('log', '-1', '--format=%H', '--', ...BRAIN), git('diff', 'HEAD', '--', ...BRAIN))
+/** The chat's code by its content: each file's blob, committed or not, so committing a change keeps its answers. */
+const brainFiles = git('ls-files', '--cached', '--others', '--exclude-standard', '--', ...BRAIN).split('\n').filter(f => f && existsSync(join(ROOT, f))).sort()
+const brainBlobs = brainFiles.length ? git('hash-object', '--', ...brainFiles).split('\n') : []
+const brain = hash(brainFiles.map((f, i) => [f, brainBlobs[i]]))
 const commit = `${git('log', '-1', '--format=%h', '--', ...BRAIN)}${git('status', '--porcelain', '--', ...BRAIN) ? ', with changes not committed' : ''}`
 
 let cacheDir = ''
