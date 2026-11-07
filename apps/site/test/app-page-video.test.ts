@@ -6,6 +6,7 @@ import { PageDoc, type Block, type Inline } from '@aq/schema/app-page'
 import { appSeries } from '../src/lib/app-index'
 import { videoDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
+import { seriesParts } from '../src/lib/series-page'
 import { appHref, appPage } from './dist'
 
 // The app draws a video series' page from this copy (once the index counts the kind): what it holds must be the page.
@@ -61,6 +62,20 @@ test('a series\' guides go in its order, with their counts; a guide of one part 
     ['/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/', 'Cách hạn chế rêu hại trong bể thủy sinh', 'Chăm cây · 3 đoạn · 29:15'],
     ['/vi/huong-dan/phan-hai/', 'Phần hai', 'Chăm cây · 29:15'],
   ])
+})
+
+// 2026-11-07, the check on aquatome.com: two videos of "[Aquarium Data Nerds]" took the same Commons photo of a heater
+// (each video's own file of it) for a section, and the series page showed it on both cards ("repeat").
+test('a series\' cards show no picture twice: a later guide takes its next picture, the same photo in another file too', async () => {
+  const c0 = await getContent('vi')
+  const { s, guides: [first] } = appSeries('vi', c0)[0]!
+  const photo = first!.video.figures!.find(f => f.photo)!.photo!
+  const copy = { ...photo, url: 'https://media.aquatome.com/video/bbbbbbbbbbb/p0-x.webp', thumb: 'https://media.aquatome.com/video/bbbbbbbbbbb/p0-x-480.webp' }
+  const second = { ...first!, id: 'youtube-phan-hai', t: { ...first!.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...first!.video, youtubeId: 'bbbbbbbbbbb', figures: [{ heading: 'x', moments: [], photo: copy }], series: { id: s.id, position: 1 } } }
+  const hashes = { ...c0.pictureHashes, [photo.url]: '0b4d37cf2f190603', [copy.url]: '0b4d37cf2f190603' }
+  const c = { ...c0, guides: [second, ...c0.guides], pictureHashes: hashes } as Content
+  const shrimp = c.species.find(x => x.id === 'neocaridina-davidi')!.photos[0]!
+  expect(seriesParts('vi', c, s).guides.map(x => x.photo?.url)).toEqual([photo.url, shrimp.url])
 })
 
 test('a series\' copy in Indonesian has the Indonesian pages\' paths only', async () => {
