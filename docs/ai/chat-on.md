@@ -4,28 +4,36 @@ The owner's rulings, 2026-11-07. `CHAT` stays `"0"` in `apps/site/wrangler.jsonc
 
 ## The privacy page
 
-The chat section goes live in that PR, not before. The Vietnamese below is approved. The Writing Lead may fix small wording.
-A fix that changes the meaning goes back to the owner.
+All of the Vietnamese below is approved, and it goes live in that PR, not before. A change that alters the meaning goes back
+to the owner. Translate it into Indonesian and Thai (`apps/site/src/i18n/{id,th}.json`) and into the page's English part,
+and move the page's date.
 
-Translate it (`apps/site/src/i18n/{id,th}.json`, and the page's English part), add a line under "6. Thời gian lưu", and
-move the page's date.
+### The new section: Hỏi về cá
 
-### Hỏi đáp về cá
+Khi đã đăng nhập, bạn có thể hỏi về cá và bể đang nuôi. Câu hỏi được gửi tới máy chủ của chúng tôi rồi chuyển tới Claude,
+mô hình AI của Anthropic, để trả lời. Để câu trả lời đúng với bể của bạn, Claude có thể đọc các bể bạn đã lưu: tên, kích
+thước, cá, cây, nền, ghi chú, lịch đèn và thiết bị nào đang cắm vào ổ cắm thông minh. Nếu bạn hỏi tiếp từ kết quả nhận
+diện cá, chúng tôi chỉ gửi kèm tên loài và độ tin cậy, không gửi ảnh.
 
-Khi đã đăng nhập, bạn có thể hỏi về cá và bể của mình. Câu hỏi được gửi tới máy chủ của chúng tôi rồi chuyển tới Claude,
-mô hình AI của Anthropic, để trả lời. Để trả lời sát bể của bạn, Claude có thể đọc các bể bạn đã lưu: tên, kích thước,
-cá, cây, nền, ghi chú, lịch đèn và thiết bị cắm ở ổ điện. Nếu bạn hỏi tiếp từ kết quả nhận diện cá, chỉ tên loài và độ
-tin cậy được gửi kèm, không gửi ảnh.
+Chúng tôi lưu câu hỏi và câu trả lời gắn với tài khoản của bạn, cùng nhật ký của từng câu hỏi, kể cả câu bạn đã dừng:
+Claude đã nghĩ gì, tra gì và đọc được gì, kể cả dữ liệu bể nếu Claude đọc tới. Nhật ký này dùng để kiểm tra chất lượng câu
+trả lời. Chúng tôi không lưu kèm địa chỉ IP hay thông tin về máy của bạn. Tất cả được giữ không thời hạn và bị xóa khi bạn
+xóa tài khoản.
 
-Chúng tôi lưu câu hỏi và câu trả lời dưới tài khoản của bạn, cùng một bản ghi cách trả lời (những gì Claude đã tra và
-đọc), không kèm địa chỉ IP hay thông tin thiết bị. Không có hạn lưu; tất cả bị xóa khi bạn xóa tài khoản.
+Chọn "Ẩn" chỉ bỏ một cuộc trò chuyện khỏi danh sách của bạn trên mọi máy, không xóa nó. Chúng tôi vẫn giữ cuộc trò chuyện
+đó và nhật ký của nó cho tới khi bạn xóa tài khoản, và tệp bạn tải bằng "Tải dữ liệu tài khoản" vẫn có những cuộc trò
+chuyện đã ẩn. Muốn xóa hẳn một cuộc trò chuyện thì hiện chỉ có cách xóa cả tài khoản.
 
-Ẩn một cuộc trò chuyện chỉ bỏ nó khỏi danh sách của bạn, không xóa nó. Chúng tôi vẫn giữ cuộc đó và bản ghi của nó cho
-tới khi bạn xóa tài khoản, và tệp "Tải dữ liệu tài khoản" vẫn có những cuộc đã ẩn.
+### Three lines elsewhere on the page
+
+- What's in the file, in the account part: "Tệp tải dữ liệu có thông tin tài khoản và các cách đăng nhập, các bể, thông tin
+  về các ảnh nhận diện bạn cho giữ (không gồm tệp ảnh) và các cuộc trò chuyện, cả những cuộc đã ẩn. Tệp không có nhật ký,
+  và không có bình luận, ảnh bạn đã gửi."
+- What deleting an account removes, adding: "các cuộc trò chuyện cùng nhật ký của chúng".
+- Under "6. Thời gian lưu": "Câu hỏi, câu trả lời và nhật ký khi hỏi về cá: đến khi bạn xóa tài khoản."
 
 ## The rest
 
-- The Worker serves the stop and past-conversation calls in `protocols/chat.openapi.json`, and the account's export holds
-  the conversations, hidden ones marked, without the transcripts.
-- The new table's production migration has run and been verified, and the owner has been told. It's approved for that
-  one table. Any other production migration needs its own OK.
+- The Worker serves the stop and past-conversation calls in `protocols/chat.openapi.json`. The account's export holds the
+  conversations, hidden ones marked, without the logs, comments or photos.
+- A stopped question's log is kept, the owner's ruling.
