@@ -69,17 +69,20 @@ jobs:
             echo upload=yes >> "$GITHUB_OUTPUT"
           fi
       # Where the upload runs: GitHub's Macs, or the own Mac (apps/ios/README.md, "CI's own Mac") when GitHub's are backed
-      # up and the own Mac isn't taking main's iOS runs (IOS_LOCAL_RUNNER off). On 2026-11-08 v2's upload waited 2 h 50 min
+      # up, the own Mac isn't taking main's iOS runs (IOS_LOCAL_RUNNER off) and TESTFLIGHT_OWN_MAC is on. That's off: signing
+      # there takes the owner's keychains off the user's list for a few minutes (below), which every app and session of
+      # the user's misses, gh's and git's sign-in among them. It stays off until signing there leaves that list alone. On 2026-11-08 v2's upload waited 2 h 50 min
       # behind about 30 iOS jobs while the own Mac sat idle. The own Mac's Xcode can be newer than GitHub's image. Only
       # main's own runs go there: its job-started hook refuses anything else.
       - id: where
         env:
           GH_TOKEN: ${{ github.token }}
           LOCAL_RUNS: ${{ vars.IOS_LOCAL_RUNNER }}
+          OWN_MAC: ${{ vars.TESTFLIGHT_OWN_MAC }}
           OWN: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && inputs.github_mac != true }}
         run: |
           waiting=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/ios.yml/runs?status=queued&per_page=1" --jq .total_count || true)
-          if [ "$OWN" = true ] && [ "$LOCAL_RUNS" != on ] && [ "${waiting:-0}" -ge 3 ] 2>/dev/null; then
+          if [ "$OWN_MAC" = on ] && [ "$OWN" = true ] && [ "$LOCAL_RUNS" != on ] && [ "${waiting:-0}" -ge 3 ] 2>/dev/null; then
             echo "$waiting iOS runs wait for GitHub's Macs: this upload runs on the own Mac"
             echo 'runner=["self-hosted","macOS","aquatome"]' >> "$GITHUB_OUTPUT"
           else
