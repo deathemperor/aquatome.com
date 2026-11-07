@@ -230,7 +230,7 @@ def check(runs, left, reached):
     for p in (APP + 'Handbook/FishIdView.swift', KIT + 'Sources/Handbook/FishId.swift', APP + 'Account/AccountModel.swift',
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
-    assert {'FishIdFlowTests', 'ReaderPostFlowTests'} <= reached([APP + 'Handbook/ImagePicker.swift'])
+    assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
     # The catalog: the two flows that read its Indonesian.
     assert reached([APP + 'Localizable.xcstrings']) == {
         'HandbookFlowTests/testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo',

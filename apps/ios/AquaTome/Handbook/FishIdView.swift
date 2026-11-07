@@ -94,7 +94,7 @@ struct FishIdView: View {
       ImagePicker(source: .camera, picked: { data in
         camera = false
         guard let data else { return }
-        // The library's photo is no longer the one shown: picking it again is a change.
+        // The library's photo, if one was picked, isn't kept.
         picked = nil
         Task { await take { data } }
       }, cancelled: { camera = false })
