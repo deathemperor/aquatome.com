@@ -243,7 +243,33 @@ final class OwnerFlowTests: XCTestCase {
   }
 
   private func signIn(_ app: XCUIApplication) { app.signInWithStandInApple() }
+  /// The owner asked for a bar's own figures on a phone: a tap on a column, or a finger dragged across, reads that day.
+  func testTappingOrDraggingAcrossAChartReadsThatDay() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    section(app, "Nhận diện cá")
+    let chart = app.descendants(matching: .any).matching(identifier: "owner-chart")
+      .containing(NSPredicate(format: "label == 'Lượt gửi ảnh mỗi ngày, theo kết quả'")).firstMatch
+    let columns = chart.descendants(matching: .any)["owner-chart-columns"], day = chart.staticTexts["owner-chart-day"]
+    XCTAssertTrue(columns.waitForExistence(timeout: 10), "no chart")
+    repeatUntil(columns.isHittable, times: 4) { app.swipeUp(velocity: .slow) }
+    // Untouched: the last of its 30 days, today, not over yet.
+    XCTAssertEqual(day.label, "04/11 (chưa hết ngày) · Có kết quả 11 · Không có kết quả 0 · Chặn trước khi gọi 1")
+    let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
+    // A tap on the first column: each series' value that day.
+    at(0).tap()
+    XCTAssertTrue(says(day, "06/10 · Có kết quả 12 · Không có kết quả 0 · Chặn trước khi gọi 2"), day.label)
+    // A finger pressed there and dragged to the third: the column under it.
+    at(0).press(forDuration: 0.1, thenDragTo: at(2))
+    XCTAssertTrue(says(day, "08/10 · Có kết quả 14 · Không có kết quả 0 · Chặn trước khi gọi 1"), day.label)
+  }
+
   private func open(_ app: XCUIApplication, _ id: String) { app.scrollToAndTap(id) }
+  /// It reads `label` within 5 s.
+  private func says(_ e: XCUIElement, _ label: String) -> Bool {
+    XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", label), object: e)], timeout: 5) == .completed
+  }
   private func section(_ app: XCUIApplication, _ name: String) { app.openOwnersSection(name) }
 
   /// A text by its words: a part's lines are one text, its first line first.

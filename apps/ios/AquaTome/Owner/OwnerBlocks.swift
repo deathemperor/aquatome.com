@@ -308,6 +308,9 @@ struct OwnerImage: View {
 /// gives its lowest and highest number, the title the unit, a line under it the series' colours.
 struct OwnerChart: View {
   let chart: Owner.Chart
+  /// The day a tap, or a finger dragged across, picked: its column marked and its values read out under the chart, as
+  /// the site's charts do (#510). nil: the last day.
+  @State private var picked: Int?
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
@@ -323,9 +326,28 @@ struct OwnerChart: View {
             Text(verbatim: Owner.number(low, unit: chart.unit))
           }
           .font(.caption2).foregroundStyle(.secondary).monospacedDigit()
-          Canvas { ctx, size in draw(ctx, size, low, high) }
-            .accessibilityLabel(Text(verbatim: chart.title))
-            .accessibilityValue(Text(verbatim: readout))
+          GeometryReader { g in
+            Canvas { ctx, size in draw(ctx, size, low, high) }
+              .contentShape(Rectangle())
+              .gesture(SpatialTapGesture().onEnded { picked = column(at: $0.location.x, of: g.size.width) })
+              // Alongside the page's scroll: a finger moving across reads each column it passes.
+              .simultaneousGesture(DragGesture(minimumDistance: 6).onChanged { d in
+                guard abs(d.translation.width) > abs(d.translation.height) else { return }
+                picked = column(at: d.location.x, of: g.size.width)
+              })
+          }
+          .accessibilityElement()
+          .accessibilityLabel(Text(verbatim: chart.title))
+          .accessibilityValue(Text(verbatim: day(shown) + ". " + readout))
+          // VoiceOver: swiping up or down reads the next or the previous day.
+          .accessibilityAdjustableAction { d in
+            switch d {
+            case .increment: picked = min(chart.days.count - 1, shown + 1)
+            case .decrement: picked = max(0, shown - 1)
+            @unknown default: break
+            }
+          }
+          .accessibilityIdentifier("owner-chart-columns")
         }
         .frame(height: 150)
         HStack {
@@ -334,6 +356,7 @@ struct OwnerChart: View {
           Text(verbatim: chart.days.last.map(Owner.dayLabel) ?? "")
         }
         .font(.caption2).foregroundStyle(.secondary)
+        Text(verbatim: day(shown)).font(.caption).monospacedDigit().accessibilityIdentifier("owner-chart-day")
         if chart.series.count > 1 || chart.whole != nil {
           // The colours' squares aren't words: VoiceOver gets the names.
           key.font(.caption).accessibilityLabel(Text(verbatim: (chart.series + [chart.whole].compactMap { $0 }).map(\.label).joined(separator: ", ")))
@@ -345,6 +368,25 @@ struct OwnerChart: View {
     }
     .accessibilityElement(children: .contain)
     .accessibilityIdentifier("owner-chart")
+  }
+
+  /// The day read out: the one picked, else the last.
+  private var shown: Int { min(picked ?? chart.days.count - 1, max(chart.days.count - 1, 0)) }
+
+  /// The column under a finger at `x` across a chart `width` wide.
+  private func column(at x: CGFloat, of width: CGFloat) -> Int {
+    let n = chart.days.count
+    return min(max(Int(x / max(width, 1) * CGFloat(n)), 0), max(n - 1, 0))
+  }
+
+  /// A day's values, as the site's readout gives them: the day, then each series' value ("—": not recorded), the
+  /// whole's last; today's says it isn't over.
+  private func day(_ i: Int) -> String {
+    guard chart.days.indices.contains(i) else { return "" }
+    let n = { (v: Double?) in v.map { Owner.number($0, unit: chart.unit) } ?? "—" }
+    var day = Owner.dayLabel(chart.days[i])
+    if chart.partialLast && i == chart.days.count - 1 { day += " (" + String(localized: "chưa hết ngày") + ")" }
+    return ([day] + (chart.series + [chart.whole].compactMap { $0 }).map { "\($0.label) \(n($0.values[safe: i] ?? nil))" }).joined(separator: " · ")
   }
 
   /// The lowest and highest the columns reach, 0 between them.
@@ -364,6 +406,8 @@ struct OwnerChart: View {
       let top = y(max(from, to)), rect = CGRect(x: CGFloat(i) * step + step * 0.15, y: top, width: step * 0.7, height: max(1, y(min(from, to)) - top))
       ctx.fill(Path(rect), with: .color(color.opacity(chart.partialLast && i == n - 1 ? 0.45 : 1)))
     }
+    // The column read out, marked behind its bars.
+    ctx.fill(Path(CGRect(x: CGFloat(shown) * step, y: 0, width: step, height: size.height)), with: .color(.secondary.opacity(0.18)))
     for i in 0..<n {
       if let w = chart.whole?.values[safe: i] ?? nil { bar(i, 0, w, Self.whole) }
       var up = 0.0, down = 0.0
