@@ -1,10 +1,13 @@
 {
   "slug": "gulf-of-paria",
-  "name": "Gulf of Paria",
-  "altNames": [],
+  "name": "vịnh Paria",
+  "altNames": [
+    "Gulf of Paria"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

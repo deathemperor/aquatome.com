@@ -1,10 +1,13 @@
 {
   "slug": "rio-xingu",
-  "name": "Rio Xingu",
-  "altNames": [],
+  "name": "sông Xingu",
+  "altNames": [
+    "Rio Xingu"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

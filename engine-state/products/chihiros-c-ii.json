@@ -1,0 +1,341 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Power (C II white)",
+      "value": "16 W",
+      "source": 5
+    },
+    {
+      "key": "LED count (C II white)",
+      "value": "60 white LEDs",
+      "source": 5
+    },
+    {
+      "key": "Luminous flux (C II white)",
+      "value": "1,500 lm (lab value)",
+      "source": 5
+    },
+    {
+      "key": "Colour temperature (C II white)",
+      "value": "6,964 K in the technical data, 8,000 K in the feature list (the page contradicts itself)",
+      "source": 5
+    },
+    {
+      "key": "LED lifespan",
+      "value": "50,000 hours",
+      "source": 5
+    },
+    {
+      "key": "Lamp body dimensions (C II white)",
+      "value": "240 × 45 × 13 mm",
+      "source": 5
+    },
+    {
+      "key": "Overall dimensions with mount (C II white)",
+      "value": "240 × 140 × 180 mm",
+      "source": 5
+    },
+    {
+      "key": "Suitable tank length",
+      "value": "20–40 cm",
+      "source": 5
+    },
+    {
+      "key": "Max glass thickness",
+      "value": "8 mm",
+      "source": 5
+    },
+    {
+      "key": "Materials",
+      "value": "Plastic and aluminium; the mount's screws and bracket are silicone-coated",
+      "source": 5
+    },
+    {
+      "key": "Controller",
+      "value": "Bluetooth controller built into the cable; scheduling, stepless dimming and sunrise/sunset through the My Chihiros app",
+      "source": 5
+    },
+    {
+      "key": "In the box (EU version)",
+      "value": "Lamp with mount, power adapter, 2 O-rings, Allen key; the C II Base stand is sold separately",
+      "source": 5
+    },
+    {
+      "key": "Head rotation",
+      "value": "360°",
+      "source": 0
+    },
+    {
+      "key": "Warranty (GreenDeal)",
+      "value": "6 months",
+      "source": 0
+    },
+    {
+      "key": "Origin",
+      "value": "China",
+      "source": 0
+    }
+  ],
+  "variants": [
+    {
+      "name": "C II (C2 Normal Edition, white)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "16 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,500 lm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "best up to 45 cm, maximum 60 cm (GreenDeal); 20–40 cm (Aquasabi)",
+          "source": 0
+        },
+        {
+          "key": "Control",
+          "value": "Bluetooth, My Chihiros app",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "C II RGB (C2 RGB)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "20 W",
+          "source": 2
+        },
+        {
+          "key": "LEDs",
+          "value": "40 RGB 3-in-1 LEDs",
+          "source": 2
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,580 lm",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "235 × 49 × 13 mm, with a 20 cm clamp arm",
+          "source": 2
+        },
+        {
+          "key": "Dimensions (another shop's listing)",
+          "value": "280 × 40 × 5 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "20–40 cm",
+          "source": 2
+        },
+        {
+          "key": "Tank size (another shop's listing)",
+          "value": "20–45 cm",
+          "source": 4
+        },
+        {
+          "key": "Water resistance",
+          "value": "IP43",
+          "source": 4
+        },
+        {
+          "key": "Body",
+          "value": "Aluminium, for heat dissipation",
+          "source": 2
+        },
+        {
+          "key": "Control",
+          "value": "Bluetooth in the fixture; RGB colour mixing and timers in the app",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "GreenDeal",
+      "url": "https://www.greendeal.vn/chihiros-led-c2-normal-edition",
+      "variant": "C2 Normal Edition (white), out of stock",
+      "vnd": 1300000,
+      "source": 0
+    },
+    {
+      "shop": "GreenDeal",
+      "url": "https://www.greendeal.vn/chihiros-led-c2-rgb",
+      "variant": "C2 RGB, out of stock",
+      "vnd": 1850000,
+      "source": 1
+    },
+    {
+      "shop": "Thủy Sinh Tím",
+      "url": "https://thuysinhtim.vn/den-led-kep-cao-cap-chihiros-c2-rgb",
+      "variant": "C2 RGB, listed as nearly sold out",
+      "vnd": 1950000,
+      "source": 2
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-c2-rgb",
+      "variant": "C2 RGB",
+      "vnd": 1850000,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Quới Decor",
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-c2-rgb/",
+      "variant": "C2 RGB, 2 units in stock",
+      "vnd": 1780000,
+      "source": 4
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Built for nano tanks of roughly 20–40 cm, with a clamp that takes glass up to 8 mm thick.",
+      "source": 5
+    },
+    {
+      "fact": "Shouldn't be used under an aquarium lid or cover.",
+      "source": 5
+    },
+    {
+      "fact": "With the separately sold C II Base stand, it can light Wabi-kusa bowls.",
+      "source": 5
+    },
+    {
+      "fact": "GreenDeal rates it best for tanks up to 45 cm and usable on tanks up to 60 cm, clamped to the rim.",
+      "source": 0
+    },
+    {
+      "fact": "Bách Khoa Aqua says the RGB version helps green and red plants grow and brings out shrimp colours.",
+      "source": 3
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Setup: install the My Chihiros app and create an account, clamp the light to the tank, pair it over Bluetooth, then set brightness and on/off times.",
+      "source": 0
+    },
+    {
+      "fact": "The head rotates 360° and the arm height can be changed, so you can tilt the light out of the way during maintenance.",
+      "source": 2
+    },
+    {
+      "fact": "The app gives a sunrise/sunset schedule and stepless dimming.",
+      "source": 5
+    },
+    {
+      "fact": "Quới Decor's warranty doesn't cover damage from drops or water.",
+      "source": 4
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Aquasabi reviewers say the clamp doesn't hold firmly: the light sits tilted under its own weight and wobbles.",
+      "source": 5
+    },
+    {
+      "fact": "One 2024 Aquasabi reviewer says the clamp cracked their tank glass.",
+      "source": 5
+    },
+    {
+      "fact": "Dimming isn't smooth: the first step is a big jump and light drops off sharply at the low end, and one reviewer said a firmware update didn't fix it.",
+      "source": 5
+    },
+    {
+      "fact": "Aquasabi's average rating is 3.5 out of 5 from 4 reviews. Reviewers like the colour rendering, brightness and app control.",
+      "source": 5
+    },
+    {
+      "fact": "Version differences: the white C II has 60 white LEDs at 16 W. The newer C II RGB has 40 RGB LEDs at 20 W and moves the Bluetooth controller from the cable into the fixture.",
+      "source": 3
+    },
+    {
+      "fact": "Warranty depends on the shop: 6 months at GreenDeal, but only 1 month at Bách Khoa Aqua and Quới Decor.",
+      "source": 1
+    },
+    {
+      "fact": "Both versions were out of stock at GreenDeal, and Thủy Sinh Tím said it was nearly sold out.",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Week Aqua",
+      "model": "RGB UV Mini 9 Pro clamp light",
+      "why": "Much cheaper Vietnamese option at about 440,000₫ on Shrimp Home (out of stock when checked). Shrimp Home gives no specs, and one review site says Week Aqua quality varies from unit to unit.",
+      "source": 7
+    },
+    {
+      "brand": "ONF",
+      "model": "Flat Nano",
+      "why": "Premium nano light (15 W, about 1,300 lm, for rimless tanks of about 2–7 gallons). On a UKAPS forum, one owner of both lights preferred its diffuser and on-light controls over the C II RGB, but it costs more. I found no Vietnamese shop price.",
+      "source": 8
+    },
+    {
+      "brand": "Chihiros",
+      "model": "C2 Normal Edition (white C II)",
+      "why": "The cheaper sibling (about 1,300,000₫ vs about 1,780,000–1,950,000₫ for the RGB) for anyone who doesn't need adjustable colour.",
+      "source": 0
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.greendeal.vn/chihiros-led-c2-normal-edition",
+      "title": "CHIHIROS - Led C2 Normal Edition (GreenDeal)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.greendeal.vn/chihiros-led-c2-rgb",
+      "title": "CHIHIROS - LED C2 RGB (GreenDeal)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-led-kep-cao-cap-chihiros-c2-rgb",
+      "title": "Đèn LED Kẹp Cao Cấp Chihiros C2 RGB (Thủy Sinh Tím)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-c2-rgb",
+      "title": "Đèn Led Chihiros C2 RGB (Bách Khoa Aqua)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-c2-rgb/",
+      "title": "Chihiros C2 RGB (Thủy Sinh Quới Decor)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.de/Chihiros-LED-System-CII_1",
+      "title": "Chihiros LED System CII (Aquasabi)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/best-nano-tank-light-%E2%80%93-onf-flat-nano-vs-chihiros-cii-rgb-vs-something-else.76118/post-769013",
+      "title": "Best nano tank light – ONF Flat Nano vs Chihiros CII RGB (UKAPS)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://shrimphome.vn/week",
+      "title": "Week - Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=33798",
+      "title": "ONF Flat Nano LED Review: Small Tank Pendant (Gensou)",
+      "kind": "review"
+    }
+  ]
+}

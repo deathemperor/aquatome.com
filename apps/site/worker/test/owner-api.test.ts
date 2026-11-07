@@ -53,7 +53,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['not set up', () => readersPage(S.NOW, undefined, S.TZ), () => readersSection(S.NOW, undefined, S.TZ)],
     ['failed', () => readersPage(S.NOW, F, S.TZ), () => readersSection(S.NOW, F, S.TZ)],
     ...(() => {
-      const asks = { days: 14, rows: [{ cc: 'GB', shown: 5, picked: { vi: 2, id: 0, th: 1 } }, { cc: 'US', shown: 3, picked: { vi: 0, id: 0, th: 0 } }] }
+      const asks = { days: 14, rows: [{ cc: 'GB', shown: 5, picked: { vi: 2, id: 0, th: 1, ms: 0 } }, { cc: 'US', shown: 3, picked: { vi: 0, id: 0, th: 0, ms: 0 } }] }
       return [
         ['language chooser', () => readersPage(S.NOW, S.READERS, S.TZ, asks), () => readersSection(S.NOW, S.READERS, S.TZ, asks)],
         ['language chooser failed', () => readersPage(S.NOW, S.READERS, S.TZ, F), () => readersSection(S.NOW, S.READERS, S.TZ, F)],
@@ -428,7 +428,7 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   // Shipped: the change log's last 24 hours; the costs, fish ID's.
   expect(t.tiles[2]).toMatchObject({ value: '3', sub: '1 site · 1 app · 1 engine' })
   expect(t.shipped).toMatchObject({ section: 'thay-doi', link: 'Changelog · 3 in 24 h' })
-  expect(t.costs.keys).toMatchObject({ text: '1 of 2 resting', tone: 'bad', section: 'nhan-dien-ca', anchor: 'key' })
+  expect(t.costs.keys).toMatchObject({ text: '2 of 2 resting', tone: 'bad', section: 'nhan-dien-ca', anchor: 'key' })
   // Every section once, in NAV's order; every place a section, an anchor one of its headings.
   expect(t.pages.flatMap(g => g.pages.map(p => p.key))).toEqual(KEYS)
   expect(PAGE_GROUPS.flatMap(([, ps]) => ps.map(([k]) => k))).toEqual(KEYS)

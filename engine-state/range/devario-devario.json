@@ -1,0 +1,107 @@
+{
+  "id": "devario-devario",
+  "native": {
+    "input": "827ff6e52f06a5a4",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "According to current knowledge it occurs throughout much of the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "According to current knowledge it occurs throughout much of the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "According to current knowledge it occurs throughout much of the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "According to current knowledge it occurs throughout much of the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "According to current knowledge it occurs throughout much of the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario devario",
+    "status": "ACCEPTED",
+    "taxonKey": 2361579,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        37
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        13
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "NP",
+      "BD"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

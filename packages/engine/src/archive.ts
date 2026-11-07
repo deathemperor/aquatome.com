@@ -6,29 +6,57 @@ import { isChallenge } from './outline'
  * pages on AquaTome still name and link the source's own URL. An archived challenge page counts as "no copy".
  */
 export const WAYBACK = 'https://web.archive.org'
+/**
+ * Between two calls to the archive. Each is two requests, the redirect to a capture and the capture itself. At 5 s the
+ * archive answered 429 and then refused the connection within a few pages (2Hr Aquarist, November 2026); this stays
+ * under 15 requests a minute.
+ */
+export const ARCHIVE_POLITE = 10_000
 type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: AbortSignal }) => Promise<{ ok: boolean; status: number; headers: { get(name: string): string | null }; text(): Promise<string>; arrayBuffer(): Promise<ArrayBuffer> }>
 
 export class ArchiveFetcher {
   constructor(private d: { fetch: Fetch; now: () => Date; sleep: (ms: number) => Promise<void>; ua: string }) {}
 
   /** Latest copy: the Wayback Machine serves the capture nearest the stamp, and today is after every capture. */
-  private stamp(kind: 'id_' | 'im_') { return `${this.d.now().toISOString().slice(0, 10).replace(/-/g, '')}${kind}` }
+  private today() { return this.d.now().toISOString().slice(0, 10).replace(/-/g, '') }
 
-  /** One request, with one longer wait when the archive says too many requests. */
+  /** One request, with one longer wait when the archive says too many requests or stops answering. */
   private async call(url: string) {
     for (let attempt = 0; ; attempt++) {
-      const r = await this.d.fetch(url, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000) })
+      let r
+      try {
+        r = await this.d.fetch(url, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000) })
+      } catch (e) {
+        if (attempt > 0) throw new Error(`the archive isn't answering (${(e as Error).message})`)
+        await this.d.sleep(60_000)
+        continue
+      }
       if (r.status !== 429 || attempt > 0) return r
-      await this.d.sleep(60_000)
+      await this.d.sleep(Math.min(Number(r.headers.get('retry-after')) || 60, 300) * 1000)
     }
   }
 
-  async get(url: string): Promise<{ status: number; html: string; finalUrl: string }> {
-    const r = await this.call(`${WAYBACK}/web/${this.stamp('id_')}/${url}`)
+  /** `id_` is the page as it was captured, without the archive's toolbar or rewritten links. */
+  private async capture(stamp: string, url: string) {
+    const r = await this.call(`${WAYBACK}/web/${stamp}id_/${url}`)
     const html = await r.text()
     if (!r.ok) throw new Error(`no archived copy (HTTP ${r.status})`)
-    if (isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html)) throw new Error('no archived copy (the archive holds a browser-check page)')
-    return { status: r.status, html, finalUrl: url }
+    const date = r.headers.get('memento-datetime')
+    return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, ...(date ? { capturedAt: new Date(date).toISOString() } : {}) } }
+  }
+
+  /** The newest copy; if that is a browser check, the next newest of the last few that isn't. */
+  async get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> {
+    const newest = await this.capture(this.today(), url)
+    if (!newest.challenge) return newest.page
+    await this.d.sleep(ARCHIVE_POLITE)
+    const stamps = (await this.text(capturesQuery(url)).catch(() => '')).split('\n').filter(Boolean).reverse()
+    for (const stamp of stamps) {
+      await this.d.sleep(ARCHIVE_POLITE)
+      const older = await this.capture(stamp, url)
+      if (!older.challenge) return older.page
+    }
+    throw new Error('no archived copy (the archive holds a browser-check page)')
   }
 
   /** Plain text from the archive itself (the capture index). */
@@ -45,7 +73,7 @@ export class ArchiveFetcher {
   }
 
   async bytes(url: string): Promise<Uint8Array> {
-    const r = await this.call(`${WAYBACK}/web/${this.stamp('im_')}/${url}`)
+    const r = await this.call(`${WAYBACK}/web/${this.today()}im_/${url}`)
     if (!r.ok) throw new Error(`no archived image (HTTP ${r.status})`)
     // PlanetCatfish answers image hotlinks with a page, and the archive kept that page.
     if (!/^image\//.test(r.headers.get('content-type') ?? '')) throw new Error(`no archived image (${r.headers.get('content-type')})`)
@@ -57,3 +85,5 @@ export class ArchiveFetcher {
 
 /** Capture-index query: every URL archived under `prefix` with a good capture, one row per URL. */
 export const cdxQuery = (prefix: string) => `${WAYBACK}/cdx/search/cdx?${new URLSearchParams({ url: `${prefix}*`, fl: 'original', filter: 'statuscode:200', collapse: 'urlkey' })}`
+/** Capture-index query: the last few good captures of one URL, oldest first. */
+const capturesQuery = (url: string) => `${WAYBACK}/cdx/search/cdx?${new URLSearchParams({ url, fl: 'timestamp', filter: 'statuscode:200', limit: '-4' })}`

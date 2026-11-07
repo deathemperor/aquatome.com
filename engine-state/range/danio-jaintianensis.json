@@ -1,0 +1,43 @@
+{
+  "id": "danio-jaintianensis",
+  "native": {
+    "input": "d8393e87ad70603a",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To date known only from the Jaintia Hills district, Meghalaya state, northeastern India, meaning its natural waters are part of the Brahmaputra River system.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "To date known only from the Jaintia Hills district, Meghalaya state, northeastern India, meaning its natural waters are part of the Brahmaputra River system.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio jaintianensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2362692,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

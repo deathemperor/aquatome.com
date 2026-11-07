@@ -1,10 +1,13 @@
 {
   "slug": "demerara-river",
-  "name": "Demerara River",
-  "altNames": [],
+  "name": "sông Demerara",
+  "altNames": [
+    "Demerara River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "kabili-river",
-  "name": "Kabili River",
-  "altNames": [],
+  "name": "sông Kabili",
+  "altNames": [
+    "Kabili River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

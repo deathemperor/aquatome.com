@@ -1,10 +1,13 @@
 {
   "slug": "aru-islands",
-  "name": "Aru Islands",
-  "altNames": [],
+  "name": "quần đảo Aru",
+  "altNames": [
+    "Aru Islands"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

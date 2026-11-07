@@ -1,10 +1,13 @@
 {
   "slug": "nile",
-  "name": "Nile",
-  "altNames": [],
+  "name": "sông Nin",
+  "altNames": [
+    "Nile"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

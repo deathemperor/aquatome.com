@@ -203,6 +203,17 @@ that would have caught it).
     block it sends, in each of its states, one the contract describes; its buttons set the delivery as the page's form
     does; and the phones the report notifies (`POST`/`DELETE /api/owner/push-token`: kept once with the time, a bad token
     refused), the same session only.
+  - The owner's reports (`apps/site/worker/feedback.ts`, `src/owner/`, `scripts/owner-feedback-deliver.mjs`), against
+    `protocols/owner-feedback.openapi.json`. They feed the thread that runs the project, so: only the owner's signed-in
+    account sends one (no session, an ended one, the owner bar's flag, the dashboard token or another account stores
+    nothing), the owner's cookie only from the site's own pages, 30 an hour, and only the words are free text: each other
+    field passes its own check or is left out, an address only on this site, as a plain path and a query of short words at most. The queue opens to the
+    dashboard token alone, and a delivered report and its image are deleted (`worker/test/feedback.test.ts`). The Mac's job:
+    an empty queue is one request, a failed send keeps the report, a run that died after sending doesn't send twice, the
+    owner's words quoted apart from everything recorded with them, no report's words in its log
+    (`test/owner-feedback-deliver.test.ts`). In the browser (`e2e/owner-report.spec.ts`): a reader loads none of it, the
+    report's journey with the send a stand-in, a failed send keeping the words. The script in every page only loads the
+    bar and may not grow (`worker/test/owner.test.ts`).
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
@@ -779,6 +790,9 @@ The layers above still check the result.
       own check runs once, when it is written, and a card changes without its page changing. Found in a design lab
       (2026-11-07): Cá neon vua's summary said 23–27 °C beside a card of 23–29 °C, as the card had taken Seriously
       Fish's range that day; 54 of 505 approved summaries were off their card. A real-content test holds them at zero
+    - a Vietnamese place name with River, Island, Lake, Basin, Province, Mountains, Peninsula or a leading Rio or Río left
+      in another language: `pnpm engine name-places-vi` gives rivers and regions the names readers use ("sông Hồng"),
+      reviewed, and the sweep puts the generic word in Vietnamese until it has. Found by a reader's page, held over all.
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
@@ -867,7 +881,9 @@ The layers above still check the result.
   ("Ở Việt Nam…") goes beside the source's advice, never inside it: its own field, `localNote`, with its citations. The
   build puts it first in the guide's text. Every writer keeps it (a source read again, a video checked again, a rewrite),
   and no reviewer scores it, so the re-check's rule that a guide says only what its video says doesn't fight it. A note
-  gives a dose only from a source it cites. A body fixed by hand is marked `bodyFixed`, and no writer replaces it. Found
+  gives a dose only from a source it cites. A body fixed by hand is marked `bodyFixed`, and no writer replaces it
+  or trims it (a source read again, a video or topic rewritten, a rewrite or reader pass, the off-topic check); the sweep's
+  fixed tidying rules still apply. Found
   by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
   peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
 
@@ -889,6 +905,14 @@ The layers above still check the result.
    author checks their work against those pairs before asking for review, and a reviewer checks each claim. Run it
    before pushing with `apps/site/e2e/page-shots.mjs` (apps/site/e2e/README.md). A page that changed but isn't in the
    sample is named: `node e2e/page-shots.mjs <before> <after> <out> /x/,/y/`.
+
+**The Anthropic key pool looks after itself (the owner's rule, 2026-11-07).** A key stays out of credit until credit is
+added, and nobody asks the owner to top one up. A key that answers out of credit or refused is turned off for 24 hours and
+the next key takes over by itself, for fish ID, the chat and the evals alike: they all go through `fishid/keys.ts`
+(`classify`, `rotate`, `healthyKeys`; `key-pool.test.ts`, and a key emptying in the middle of a run in
+`fishid-agent.test.ts`). It is tried again after the 24 hours, so added credit needs no step from anyone. One key out, or
+some, is not a problem to raise: only the fish ID page shows it. **Every key out stops fish ID and the chat: that alone is
+a blocker**, on the dashboard's to-dos and in the daily report.
 
 ### main's ruleset (GitHub)
 
@@ -925,7 +949,7 @@ fixed forward first, in a PR of its own. Android
 | **Telemetry** (`Telemetry`) against `FakeCollector`, the Worker's endpoints in process, and the contract `protocols/app-telemetry.openapi.json` (sample batches and reports checked against its schema, and the app's own rules for what it sends against what the schema takes) | an event, batch or report the Worker would drop or refuse (a field it doesn't list, a mark, path, code or link out of its patterns, an envelope out of range), the app and the contract disagreeing on what may be sent, a field the privacy policy doesn't list (the field audit), a message or name sent where a code goes (a kind outside the app's fixed list, a refusal code outside the site's), a search's words in a path, an iOS report carrying more than the policy names (the region, low power mode, free text such as an exception's message, network, location, display, GPU or disk measures, other diagnostics, a field MetricKit doesn't write at any depth, a field of another shape) or sent with nothing in it, anything sent or written before the site's flag or with the reader's switch off, a request sent after a switch went off (on then off at once, or off while the queue is being sent), a queue that outlives the switch going off, batches over 100 or a queue over 500 (the oldest not dropped first), a retry before its wait, a refused batch retried, a batch sent under another session's id | same |
 | **Pages on the phone** (`PageCache`, `KeptPictures`, `HandbookPaths`), with the site stood in for | a guide read once not opening offline, a kept copy shown without the newer one read for next time (or read more than once a run), a page newer than its kept shard opened on the web, a kept shard of another shard count or one this app can't read used, a shelf's guide listed as kept before it and its pictures are whole, a stop that lets a guide on the list or reads further shards, a removal that deletes a shard or picture a kept guide still needs, kept pictures that don't outlast the run, a page kept, saved or read under "/vi/" lost or not opening offline once the index has the Vietnamese pages at the root (or back), a move of the kept shards cut short losing a page or not tried again, a link in either form not opening the app's screen for it | same |
 | **UI flows** (XCUITest) on the simulator, which gets the fake light | journeys that stop working, by flow class: "UI flows, by class" under this table | `xcodebuild test` (jobs `app`, `handbook` for the handbook's flows, the tank volume and tank-mates tools and a tank's fish, plants, guides and tank-mates check, and `lights` for the light flows, each in two halves, on runners side by side, one job at a time on the repository's own Mac, where `app` and `handbook` run three classes at once on copies of its simulator (apps/ios/README.md); a test that hangs is stopped after ten minutes; on a pull request, the smoke set (ten flows across the main journeys), the classes of the flow files it edits and the page shots when its change can reach the pages, as `apps/ios/scripts/flows-to-run.py` decides, packed into as few jobs as hold them in 25 minutes of tests each (the page shots in `handbook (1)`, which uploads them; the light flows in their halves), each job skipped when it has none, and the run's notice naming what each job ran; every flow on main after merges (a run that started is never cancelled; of those waiting, only the newest is kept, and it covers every merge since), every night on main, by hand, on a pull request labelled `ios-full`, and on one that changes `ios.yml`, the scripts that pick and run the flows or the flows' shared code); a failed test runs once more, as the site's journeys do, and one that passed only on its retry is a warning on the run |
-| **Translations**: every string in the code and Info.plist has Indonesian and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `perf`, on every ready PR) |
+| **Translations**: every string in the code and Info.plist has Indonesian, Malay and Thai, with the same placeholders | untranslated or broken strings | `apps/ios/scripts/check-strings.py` (job `perf`, on every ready PR) |
 | **Performance budgets** (`apps/ios/perf-budgets.json`): launch to the first responsive screen, the CPU time and peak memory of flinging through 800 fish, the archived app's size; each test's median against its budget | the app getting slower, heavier or bigger without anyone deciding it should | `PerformanceTests` and `apps/ios/scripts/check-perf.py` (job `perf`, always on GitHub's Macs, on every ready PR and every push to main; not nightly, as each change was measured by its PR's run); on a PR, `--tightens-only` against main's budgets |
 | **Signing**: the app archived, signed and exported as for the App Store | signing that stopped working (certificates, profiles, entitlements); App Store Connect's own checks run at the upload on main | `testflight.yml`, on a PR that changes the project, `Config/` or the workflow; on main it uploads |
 
@@ -951,7 +975,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, one removed only once the owner says yes, a page hidden by the section's form and brought back, a refusal showing the server's message, the daily report's email turned off then on again, a session ending while it's open (sign in again, the row kept), the server's storage down (its message, then tried again), a long cell (a page's review notes) showing two lines until tapped open, then shut again, and the daily report's notifications turned on here once iOS allows them, kept on, then off.
 
-- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools and its whole home (light, dark, the largest text, and a new phone with nothing read), the Tài khoản sheet signed out and signed in as the owner (light, dark and the largest text), and the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings).
+- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools and its whole home (light, dark, the largest text, and a new phone with nothing read), the Tài khoản sheet signed out and signed in as the owner (light, dark and the largest text), the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay, a fish's page and Khám phá, light, dark and at the largest text.
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
@@ -973,6 +997,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, from the Tài khoản sheet, with no tanks and signed out too.
 
+- `V2FlowTests`: the app's v2 behind the Tài khoản sheet's switch (debug and TestFlight builds): off by default, v1's three tabs; turned on, v2's tabs, and off again, v1's, with the same tanks (UIKit's animations on), and Tìm with the page Khám phá or Hôm nay had open; a tank card on Hôm nay opening the tank on Bể của tôi; the app's home from outside opening Hôm nay's top; a link from outside opening its fish's page; a page read on one shelf of Khám phá; the tab bar whole while Hôm nay and a fish's page scroll; nothing showing under the tab bar, and a tap there opening nothing.
+
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
 - `VideoFlowTests`: a guide's video played in the page in YouTube's own player and not the YouTube app (nothing of the player before play is pressed; YouTube's script stood in for, saying what it was asked), a chapter seeking it or starting it at its time, two tapped as it loads ending on the second, a link out of YouTube's player not taking its place and one to a new window opening outside the app, its own captions in the page's language or else the original ones untranslated, full screen with the same player playing on and swiped down back to the page, another tab pausing it, the page left with it playing or loading taking its player with it, one left before its player is ready not starting unseen, one whose player never comes up giving its thumbnail back to try again, one YouTube refuses opening on YouTube, a fish's second video stopping its first, each video's controls named for it.
@@ -990,14 +1016,16 @@ Rules (as for the site):
 4. No real device names (they carry the device's address), addresses or IDs, and no signing team ID, in the repository.
 5. **A performance budget only tightens.** A change that makes the app cheaper may lower its budget. Raising one needs a
    new `reason` in `perf-budgets.json` saying why the cost is worth it; the PR check fails on a budget raised with the
-   old reason, or removed.
+   old reason, or removed. The app's size is the one not to lower: 20 MB is the owner's room (2026-11-08), not a reading,
+   so it stays until the owner changes it. The job still reports each measured size.
 6. **A change to how a screen looks shows it before and after**, so its author critiques their own work against them
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
    pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, the fish's top in large text, and a
    guide's video playing in its page), the fish-ID screen with its guesses, light and dark, Tìm's tools (light, dark and the largest text), the home's section for kit and
    a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the Tài khoản sheet
    signed out and signed in as the owner, light, dark and the largest text (the stand-in server), the lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
-   the stand-in server (its overview, a section with charts and tables, and the daily report's settings). Job
+   the stand-in server (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay,
+   its suggested fish's page and Khám phá, light, dark and at the largest text. Job
    `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs
    them (`apps/ios/scripts/shots.py`): on every run on main, and on a PR whose change can reach the pages, or one

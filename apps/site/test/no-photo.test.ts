@@ -19,7 +19,7 @@ test('a fish page left with no photo and no gallery is still put together, for t
 
   const p = await speciesParts('vi', c, s)
   expect({ gallery: p.gallery, strip: p.strip, more: p.more, figures: p.figures }).toEqual({ gallery: [], strip: [], more: [], figures: [] })
-  expect(p.jumps.map(j => j.href)).not.toContain('#gal-h')
+  expect(p.jumps.filter(j => j.end)).toEqual([]) // no chip for the photos: nothing to open or go to
 
   const d = await fishDoc('vi', c, s, listedPaths('vi', c))
   expect(d).not.toHaveProperty('lead')

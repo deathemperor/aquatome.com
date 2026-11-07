@@ -1,0 +1,87 @@
+{
+  "id": "danio-nigrofasciatus",
+  "native": {
+    "input": "54cca5fc5d807c1c",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Myanmar but its range doesn't appear to extend into the north as sometimes reported, rather it seems restricted to central parts of the country in the divisions of Yangon and Bago as well as Mon State.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Ayeyarwady/Irrawaddy River drainage and the Sittaung and Bago rivers so occurs on both sides of the Pegu/Bago Yoma (mountain) range.",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Ayeyarwady/Irrawaddy River drainage and the Sittaung and Bago rivers so occurs on both sides of the Pegu/Bago Yoma (mountain) range.",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Ayeyarwady/Irrawaddy River drainage and the Sittaung and Bago rivers so occurs on both sides of the Pegu/Bago Yoma (mountain) range.",
+        "ok": true
+      },
+      {
+        "name": "Bago",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Ayeyarwady/Irrawaddy River drainage and the Sittaung and Bago rivers so occurs on both sides of the Pegu/Bago Yoma (mountain) range.",
+        "ok": true
+      },
+      {
+        "name": "Pegu/Bago Yoma",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from the Ayeyarwady/Irrawaddy River drainage and the Sittaung and Bago rivers so occurs on both sides of the Pegu/Bago Yoma (mountain) range.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio nigrofasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2362704,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        44
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

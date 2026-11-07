@@ -1,4 +1,40 @@
 {
+  "vi/products/chihiros-c-ii": [
+    {
+      "at": "2026-11-07T03:38:14Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Thủy Sinh Tím báo bản RGB gần hết\": the facts only say Thủy Sinh Tím said it was nearly sold out. They don't say it was the RGB version.",
+        "\"Nhà sản xuất ghi bể dài khoảng 20–40 cm\" and similar: the facts source this to Aquasabi, a retailer, not the manufacturer.",
+        "\"trang nhà sản xuất tự mâu thuẫn\": the facts say the page contradicts itself but don't say it is the manufacturer's page.",
+        "\"Không. Nhà sản xuất ghi không nên dùng đèn dưới nắp\": the facts don't attribute this to the manufacturer.",
+        "\"Bản trắng rẻ hơn\" in the Q&A is supported, but the page gives no prices. The facts' price figures were left out.",
+        "\"bản RGB ... một shop ghi 20–40 cm, shop khác ghi 20–45 cm\": supported. \"GreenDeal ghi bản trắng\": the facts' variant data supports this."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T03:38:14Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Nhiều người kêu kẹp không chắc\" / \"Nhiều người đánh giá trên Aquasabi\": facts say 'reviewers' generally, with only 4 reviews in total; 'many' is a stretch.",
+        "\"Bể kính dày hơn thì đèn không kẹp vào được\": this is an inference; the facts only give 8 mm as the maximum.",
+        "\"Kiểu bể hợp nhất là bể mở, không nắp\": invented elaboration; the facts only say not to use it under a lid.",
+        "\"C II chỉ có một cỡ\": not in the facts; the facts list two versions with different dimensions.",
+        "\"Bản trắng rẻ hơn bản RGB khá nhiều\": the facts give about 1.3M vs 1.78–1.95M, which is cheaper but not necessarily 'khá nhiều'. Mildly overstated.",
+        "\"Bản RGB ... pha màu ánh sáng ngay trên app\" and \"chỉ cần đèn sáng và hẹn giờ được\": the white version's scheduling is supported, but the suggestion for the RGB buyer (colour for red plants and shrimp) draws on one shop's claim presented as general fit.",
+        "\"bạn nên kẹp vừa tay và kiểm tra kính sau khi lắp\": invented advice not in the facts.",
+        "\"Bạn nhớ cẩn thận lúc thao tác gần nước\": invented safety advice.",
+        "\"công suất cao hơn một chút\": 16 W vs 20 W is a 25% rise; the wording is a small characterisation not in the facts.",
+        "\"Trên diễn đàn UKAPS, một người dùng cả hai đèn\": supported. \"hay hết\" (often out of stock) in the intro generalises from one-time stock checks."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-wrgb-ii-pro": [
     {
       "at": "2026-11-06T21:03:59Z",

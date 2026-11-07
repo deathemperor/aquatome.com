@@ -1,0 +1,83 @@
+{
+  "id": "desmopuntius-pentazona",
+  "native": {
+    "input": "fe4c6c383c1ed519",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Baram River, Sarawak state, Borneo, East Malaysia', which corresponds to the Baram River drainage in the Malaysian state of Sarawak, Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Originally it comes from the river Baram on Borneo, which flows through the Malaysian part (Sarawak) of the big island.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Baram River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Baram River, Sarawak state, Borneo, East Malaysia', which corresponds to the Baram River drainage in the Malaysian state of Sarawak, Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Baram River, Sarawak state, Borneo, East Malaysia', which corresponds to the Baram River drainage in the Malaysian state of Sarawak, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Baram",
+        "source": "glaser",
+        "quote": "Originally it comes from the river Baram on Borneo, which flows through the Malaysian part (Sarawak) of the big island.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Originally it comes from the river Baram on Borneo, which flows through the Malaysian part (Sarawak) of the big island.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Desmopuntius pentazona",
+    "status": "ACCEPTED",
+    "taxonKey": 7894327,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

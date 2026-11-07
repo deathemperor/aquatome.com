@@ -89,10 +89,12 @@ test('a renamed guide keeps its name, address and old addresses when its source 
 
 test('a source read again keeps a local note and a body fixed by hand; without the mark the body is the new one', () => {
   const localNote = { html: '<h3>Ở Việt Nam</h3><p>x</p>', refs: [{ url: 'https://a.test/', title: 'A' }] }
-  const vi = { slug: 'tao-lam', name: 'Tảo lam', altNames: [], sections: {}, body: '<p>người sửa</p>', quality: { score: 1, indexable: true }, localNote }
+  const refs = [{ url: 'https://b.test/', title: 'B' }]
+  const vi = { slug: 'tao-lam', name: 'Tảo lam', altNames: [], sections: {}, body: '<p>người sửa</p>', quality: { score: 1, indexable: true }, localNote, refs }
   const again = (bodyFixed: boolean) => writeGuide(page({ kind: 'guide', sections: [], guide: { kind: 'setup', viTitle: 'Tảo lam', viBody: '<p>dịch lại</p>' } }), { source: 'aquariumcoop', url: 'https://www.aquariumcoop.com/blogs/aquarium/bga', now: '2026-11-07', takenSlugs: new Set(), existing: { vi: { ...vi, ...(bodyFixed ? { bodyFixed } : {}) } } })
-  expect(again(true)?.vi).toMatchObject({ body: '<p>người sửa</p>', bodyFixed: true, localNote })
+  expect(again(true)?.vi).toMatchObject({ body: '<p>người sửa</p>', bodyFixed: true, localNote, refs })
   expect(again(false)?.vi).toMatchObject({ body: '<p>dịch lại</p>', localNote })
+  expect(again(false)?.vi.refs).toBeUndefined()
 })
 
 test('vague or phrase-like regions are dropped', () => {

@@ -1,10 +1,13 @@
 {
   "slug": "lake-mweru",
-  "name": "Lake Mweru",
-  "altNames": [],
+  "name": "hồ Mweru",
+  "altNames": [
+    "Lake Mweru"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "ajamaru-lakes",
-  "name": "Ajamaru Lakes",
-  "altNames": [],
+  "name": "hồ Ajamaru",
+  "altNames": [
+    "Ajamaru Lakes"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

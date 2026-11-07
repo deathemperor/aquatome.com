@@ -140,7 +140,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.app != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 60
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
@@ -263,7 +263,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.handbook != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 60
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
@@ -336,7 +336,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.lights != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: 60
+    timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:

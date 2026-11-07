@@ -66,7 +66,7 @@ test('the jump row marks the part being read, none between parts', async ({ page
   expect(await chips.count(), 'chips').toBeLessThanOrEqual(5)
   if (info.project.name === 'phone') {
     const box = (await row.locator('ul').boundingBox())!
-    const cut = await chips.evaluateAll((as, b) => as.filter(a => { const r = a.getBoundingClientRect(); return r.right > b.x + b.width + 1 }).length, box)
+    const cut = await row.locator('ul a').evaluateAll((as, b) => as.filter(a => { const r = a.getBoundingClientRect(); return r.right > b.x + b.width + 1 }).length, box)
     if (cut) await expect(row.locator('ul'), 'a row wider than the screen fades at the end').toHaveAttribute('data-more', /end|both/)
   }
   const marked = row.locator('a[aria-current]')

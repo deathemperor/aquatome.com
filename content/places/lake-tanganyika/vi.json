@@ -1,10 +1,13 @@
 {
   "slug": "lake-tanganyika",
-  "name": "Lake Tanganyika",
-  "altNames": [],
+  "name": "hồ Tanganyika",
+  "altNames": [
+    "Lake Tanganyika"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

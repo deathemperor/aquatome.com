@@ -1,10 +1,13 @@
 {
   "slug": "cayman-islands",
-  "name": "Cayman Islands",
-  "altNames": [],
+  "name": "quần đảo Cayman",
+  "altNames": [
+    "Cayman Islands"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

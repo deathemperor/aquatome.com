@@ -20,6 +20,17 @@ export function namedCard(c: Content, s: SpeciesEntity) {
 }
 
 const JUMPS: [SectionKey, string][] = [['aquariumSize', 'Bể'], ['waterConditions', 'Nước'], ['diet', 'Thức ăn'], ['behaviour', 'Nuôi chung'], ['reproduction', 'Sinh sản']]
+/** Five chips fit a phone's row, or nearly. Past that these give way, in this order: breeding, then the tank, whose size is in the key facts just over the row and whose part comes first under it. The photos never do. */
+const JUMP_MAX = 5
+const JUMPS_GIVE_WAY = ['#muc-reproduction', '#muc-aquariumSize']
+type JumpChip = { href: string; label: string; end?: boolean }
+
+/** The jump row (components/JumpChips.astro) from its chips in page order, as many as the row holds. */
+export function jumpRow<T extends { href: string }>(chips: T[]): T[] {
+  const out = new Set<string>()
+  for (const href of JUMPS_GIVE_WAY) if (chips.length - out.size > JUMP_MAX && chips.some(c => c.href === href)) out.add(href)
+  return chips.filter(c => !out.has(c.href))
+}
 
 /**
  * What a species' page shows, put together once for the page (pages/ca/[slug].astro) and for the app's copy of it
@@ -42,10 +53,13 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   pics.add(s.photos[0]?.url)
   const gallery = distinctPhotos(c, c.galleries[s.id] ?? [])
   const galleryPath = `/vi/ca/${s.t.slug}/anh/`
-  const strip = gallery.length >= GALLERY_MIN && served(lang, galleryPath) ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
+  const grid = gallery.length >= GALLERY_MIN && served(lang, galleryPath)
+  const strip = grid ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
   const figures = s.photos.slice(1).filter(p => pics.take([p]))
   // Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.
   const vn = lang === 'vi'
+  // What to buy (Vietnam's shops: Vietnamese pages only), after the care text, with a chip in the jump row.
+  const kit = vn && s.productSlots.length > 0
   const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
   const breeds = breedsOf(lang, c, s.id)
   const breedPhotos = takeEach(pics, breeds, b => b.photos)
@@ -55,12 +69,17 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
   // A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
   const text = foldNearEmpty(s.sections, s.t, t)
-  // The jump row's care questions, in page order; the page adds the shop and the photos, which come after the text.
+  // The jump row: the care questions, the shop, then the gallery page at its end, with how many it has. A fish with no
+  // grid has no chip for its photos: the photo is right above the row.
   const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
-  const jumps = JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) }))
+  const jumps = jumpRow<JumpChip>([
+    ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
+    ...(kit ? [{ href: '#mua-do', label: t('Mua đồ') }] : []),
+    ...(grid ? [{ href: galleryPath, label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
+  ])
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   return {
-    country, firstSource, researched, ...namedCard(c, s), summary, gallery, galleryPath, strip, more, figures, vn, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,
+    country, firstSource, researched, ...namedCard(c, s), summary, gallery, galleryPath, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps,
     guides: mentioning.filter(g => !g.video), videoGuides: mentioning.filter(g => g.video),
   }
 }
