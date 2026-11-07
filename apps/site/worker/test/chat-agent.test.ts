@@ -92,8 +92,11 @@ test('the blocks are filled from the handbook, each of the contract\'s shape: a 
   expect(blocks[4]).toEqual({ t: 'tool', tool: 'tank-mates', name: h.byPath('/vi/cong-cu/nuoi-chung/')!.short ?? h.byPath('/vi/cong-cu/nuoi-chung/')!.name, url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:10,ca-dia:2&l=60&w=30&h=36' })
   // A breed's card: its own figures (its page's data card), not its species'; a plant's on the plants' scale.
   const breed = await fill(answer([pick({ ids: ['pigeon-blood-discus'] }), pick({ ids: ['oranda-goldfish'] }), pick({ ids: ['anubias-barteri-nana'] })]), h)
-  expect(h.byId('symphysodon-aequifasciatus')!.tempC).toEqual({ min: 28, max: 31 })
-  expect(breed.blocks[0]).toEqual(expect.objectContaining({ page: expect.objectContaining({ id: 'pigeon-blood-discus', kind: 'breed' }), facts: { tempC: { min: 28, max: 30 }, sizeCm: 15 } }))
+  // The figures as the fixture's pages have them, read from the index: the breed's card differs from its species'.
+  const own = h.byId('pigeon-blood-discus')!.card!
+  expect(own.tempC).toBeDefined()
+  expect(own.tempC).not.toEqual(h.byId('symphysodon-aequifasciatus')!.tempC)
+  expect(breed.blocks[0]).toEqual(expect.objectContaining({ page: expect.objectContaining({ id: 'pigeon-blood-discus', kind: 'breed' }), facts: { tempC: own.tempC, sizeCm: own.sizeCm } }))
   expect(breed.blocks[1]).toMatchObject({ page: { id: 'oranda-goldfish', kind: 'breed' }, facts: { tempC: { min: 18, max: 24 }, lifeYears: { min: 10, max: 15 } } })
   expect(breed.blocks[2]).toEqual(expect.objectContaining({ page: expect.objectContaining({ id: 'anubias-barteri-nana', kind: 'plant' }), plant: { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground', 'epiphyte'] } }))
   expect(breed.blocks[2]).not.toHaveProperty('facts')

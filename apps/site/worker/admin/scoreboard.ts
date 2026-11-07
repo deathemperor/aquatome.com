@@ -354,10 +354,10 @@ const PARTS: Record<Part, string> = {
 }
 const GROUP_PARTS: Partial<Record<Group, Part[]>> = { reach: ['beacon'], act: ['clicks'], back: ['community'], community: ['community'], app: ['app'], supply: ['content'], guard: ['checks'] }
 
-const row = (m: Metric) => {
+const row = (mondays: string[]) => (m: Metric) => {
   const was = before(m)
   const chip = m.unit === 'count' && m.now !== null && was ? chipHtml(chipOf(m.now, was.v, was.vs, m.good)) : ''
-  return `<tr><th scope="row">${esc(m.name)}${m.note ? `<small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}">${spark(m.weeks, 1)}</td></tr>`
+  return `<tr><th scope="row">${esc(m.name)}${m.note ? `<small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}">${spark(m.weeks, 1, { labels: mondays.map(d => `Tuần ${dayLabel(d)}`), format: v => shown(v, m.unit) })}</td></tr>`
 }
 const COLUMNS = ['Tuần này', 'Cùng lúc tuần trước', 'Cả tuần trước', '12 tuần'] as const
 const HEAD = `<thead><tr><th>Chỉ số</th>${COLUMNS.map(c => `<th>${c}</th>`).join('')}</tr></thead>`
@@ -378,7 +378,7 @@ export function scoreboardPage(s: Scoreboard, tz = HOME_TZ): string {
   })
   const groups = (Object.keys(GROUPS) as Group[]).filter(g => g !== 'star').map(g => {
     const boxes = (GROUP_PARTS[g] ?? []).flatMap(p => (s.failed[p] ? [failedBox(PARTS[p], { failed: s.failed[p]! } satisfies Failed)] : []))
-    const rows = s.metrics.filter(m => m.group === g).map(row).join('')
+    const rows = s.metrics.filter(m => m.group === g).map(row(mondays)).join('')
     return `<section aria-labelledby="g-${g}"><h2 id="g-${g}">${GROUPS[g]}</h2>${boxes.join('')}<div class="scroll"><table class="score">${HEAD}<tbody>${rows}</tbody></table></div>${g === 'reach' ? countriesBlock(s) : ''}</section>`
   }).join('')
   const later = `<section aria-labelledby="g-later"><h2 id="g-later">Chưa đo được</h2><ul class="gaps">${s.notYet.map(x => `<li><p><b>${esc(x.name)}.</b> ${esc(x.needs)}</p></li>`).join('')}</ul></section>`

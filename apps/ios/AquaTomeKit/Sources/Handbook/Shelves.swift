@@ -31,6 +31,11 @@ public struct HandbookShelves: Sendable {
   private let byKind: [HandbookIndex.Kind: [HandbookIndex.Item]]
   /// The index's language: the glossary's letters go as it sorts them.
   private let lang: String
+  /// The places with an origin page, and the site's words for the taxon and origin pages.
+  private let places: [HandbookIndex.Place]
+  private let words: HandbookIndex.Labels
+  /// The form of the index's Vietnamese paths: a shelf's links are given in it.
+  private let form: PathForm?
 
   /// The site's orders for keys whose words come as a map (a newer key goes after these, by name).
   static let placementOrder = ["foreground", "midground", "background", "epiphyte", "floating"]
@@ -46,7 +51,10 @@ public struct HandbookShelves: Sendable {
     byKind[.guide]?.removeAll { $0.section == Self.news || $0.video != nil }
     self.byKind = byKind
     lang = ix.lang
+    places = ix.places
+    form = PathForm(ix)
     let words = ix.labels
+    self.words = words
     let byPath = Dictionary(ix.items.map { ($0.path, $0) }, uniquingKeysWith: { a, _ in a })
     let fish = byKind[.fish] ?? []
     let plants = byKind[.plant] ?? []
@@ -114,6 +122,152 @@ public struct HandbookShelves: Sendable {
     // One scalar: a Thai tone or vowel mark after it isn't part of the letter.
     let s = String(c).uppercased(with: locale)
     return s == "Đ" ? s : s.folding(options: .diacriticInsensitive, locale: locale)
+  }
+
+  // MARK: Taxon and origin pages
+
+  /// A taxon page (/vi/phan-loai/…) or an origin page (/vi/nguon-goc/…), as the app draws it: its heading, the line
+  /// under it, the pages under it, and the fish it lists.
+  public struct Page: Sendable {
+    /// A page under this one: a lower rank's taxon with how many fish it lists, or a continent's country.
+    public struct Link: Sendable, Identifiable {
+      public let title: String
+      public let path: String
+      public let count: Int?
+      /// A genus, written in italics as the site writes it.
+      public let italic: Bool
+      public var id: String { path }
+    }
+    public let kind: HandbookIndex.Kind
+    /// The taxon's name, the place's own title or its name; the section's title for its first page.
+    public let title: String
+    /// A genus: in italics.
+    public let italic: Bool
+    /// The pages above it, from the section's first page down, as the site's trail above the heading: the way up.
+    public let up: [Link]
+    /// The site's line under the heading; nil on a section's first page (the app says what it lists).
+    public let intro: String?
+    public let links: [Link]
+    /// A country's regions and rivers: words, with no page of their own.
+    public let words: [String]
+    /// The fish it lists, in the site's list order; none on a section's first page.
+    public let fish: [HandbookIndex.Item]
+    /// The page as an item, to open as the index's pages open (AppScreen's `.page`, a navigation value).
+    public let item: HandbookIndex.Item
+  }
+
+  /// Each language's words for the two sections in a path (apps/site/src/lib/i18n.ts, SECTIONS).
+  static let sectionWords = ["vi": ("phan-loai", "nguon-goc"), "id": ("taksonomi", "asal"), "th": ("taxonomy", "origin")]
+
+  /// The taxon or origin page at `path` (a Vietnamese one under "/vi/" or at the root), when the index has what it lists
+  /// in its own language; nil for any other path, a taxon none of its fish is in, or a place it has no page for: those
+  /// open as the web page.
+  public func page(at path: String) -> Page? {
+    let end = path.firstIndex(where: { $0 == "?" || $0 == "#" }) ?? path.endIndex
+    let parts = PathForm.underVi.path(String(path[..<end])).split(separator: "/").map { $0.lowercased() }
+    guard parts.count >= 2, parts[0] == lang, let (taxa, origins) = Self.sectionWords[lang] else { return nil }
+    let rest = Array(parts.dropFirst(2))
+    switch parts[1] {
+    case taxa: return taxon(rest)
+    case origins: return origin(rest)
+    default: return nil
+    }
+  }
+
+  /// The taxon at `path`: its names down from the order, lowercased, a rank with no name skipped (as the site's
+  /// addresses skip it: a family with no order is /vi/phan-loai/lymnaeidae/); none for the section's first page, which
+  /// lists the orders.
+  private func taxon(_ path: [String]) -> Page? {
+    guard path.count <= 3, let title = words["taxon", "title"] else { return nil }
+    // Fish with a taxonomy (breeds have none): the first page lists them by their first named rank.
+    let fish = all(.fish).filter { f in
+      let s = Self.steps(f)
+      return s.count >= max(path.count, 1) && path.indices.allSatisfy { s[$0].name.lowercased() == path[$0] }
+    }
+    guard !fish.isEmpty else { return nil }
+    // Its own rank, whatever its depth (Lymnaeidae is a family at /vi/phan-loai/lymnaeidae/); the rank below is the
+    // next one, or the orders on the first page.
+    let own = path.isEmpty ? nil : Self.steps(fish[0])[path.count - 1]
+    let next = own.map { $0.rank + 1 } ?? 0
+    // The next step down, as the site's page lists it: the most fish first, then the Latin name in plain character
+    // order. One of a lower rank than that (a family with no order, among the orders) says its rank.
+    var below: [String: (name: String, rank: Int, count: Int)] = [:]
+    for f in fish {
+      let s = Self.steps(f)
+      guard s.count > path.count else { continue }
+      let step = s[path.count]
+      below[step.name.lowercased(), default: (step.name, step.rank, 0)].count += 1
+    }
+    let links = below.values.sorted { $0.count != $1.count ? $0.count > $1.count : $0.name < $1.name }.map { b in
+      let word = b.rank == next ? nil : words["taxon", Self.ranks[b.rank]]
+      return Page.Link(title: word.map { "\($0) \(b.name)" } ?? b.name, path: link(taxa: path + [b.name.lowercased()]), count: b.count,
+                       italic: b.rank == 2)
+    }
+    let at = link(taxa: path)
+    guard let step = own else {
+      return Page(kind: .taxon, title: title, italic: false, up: [], intro: nil, links: links, words: [], fish: [],
+                  item: .init(kind: .taxon, name: title, path: at))
+    }
+    let above = Self.steps(fish[0]).prefix(path.count - 1).enumerated().map { i, s in
+      Page.Link(title: s.name, path: link(taxa: Array(path[...i])), count: nil, italic: s.rank == 2)
+    }
+    let up = [Page.Link(title: title, path: link(taxa: []), count: nil, italic: false)] + above
+    let level = words["taxon", Self.ranks[step.rank]] ?? ""
+    let intro = words["taxon", "intro"].map { fill($0, ["level": level, "name": step.name, "n": "\(fish.count)"]) }
+    return Page(kind: .taxon, title: step.name, italic: step.rank == 2, up: up, intro: intro, links: links, words: [], fish: fish,
+                item: .init(kind: .taxon, name: step.name, path: at))
+  }
+
+  /// The words' keys for the order, the family and the genus.
+  static let ranks = ["order", "family", "genus"]
+
+  /// A fish's ranks that have a name, with which rank each is (0 order, 1 family, 2 genus): its taxon pages' addresses.
+  static func steps(_ f: HandbookIndex.Item) -> [(rank: Int, name: String)] {
+    (f.tax ?? []).enumerated().compactMap { $0.element.isEmpty ? nil : ($0.offset, $0.element) }
+  }
+
+  /// The origin page at `path`: a continent's id, or its id and a country's; none for the section's first page, which
+  /// lists the continents.
+  private func origin(_ path: [String]) -> Page? {
+    guard let title = words["origin", "title"] else { return nil }
+    let continents = places.filter { $0.kind == .continent }
+    if path.isEmpty {
+      guard !continents.isEmpty else { return nil }
+      let links = continents.map { Page.Link(title: $0.name, path: link(origin: [$0.id]), count: nil, italic: false) }
+      return Page(kind: .origin, title: title, italic: false, up: [], intro: nil, links: links, words: [], fish: [],
+                  item: .init(kind: .origin, name: title, path: link(origin: [])))
+    }
+    let place: HandbookIndex.Place?
+    switch path.count {
+    case 1: place = continents.first { $0.id == path[0] }
+    case 2: place = places.first { $0.kind == .country && $0.id == path[1] && $0.parent == path[0] }
+    default: place = nil
+    }
+    guard let place else { return nil }
+    let fish = all(.fish).filter { $0.from.contains(place.id) }
+    let links = place.kind == .continent
+      ? places.filter { $0.kind == .country && $0.parent == place.id }.map { Page.Link(title: $0.name, path: link(origin: [place.id, $0.id]), count: nil, italic: false) }
+      : []
+    let name = words["placeTitle", place.id] ?? place.name
+    let intro = words["placeIntro", place.id] ?? words["origin", "intro"].map { fill($0, ["n": "\(fish.count)", "place": place.name]) }
+    let continent = place.kind == .country ? continents.first { $0.id == place.parent } : nil
+    let up = [Page.Link(title: title, path: link(origin: []), count: nil, italic: false)]
+      + (continent.map { [Page.Link(title: $0.name, path: link(origin: [$0.id]), count: nil, italic: false)] } ?? [])
+    return Page(kind: .origin, title: name, italic: false, up: up, intro: intro, links: links, words: place.kids, fish: fish,
+                item: .init(kind: .origin, name: name, path: link(origin: path)))
+  }
+
+  /// A page's path in the index's language and form: "/vi/phan-loai/cypriniformes/", "/nguon-goc/asia/".
+  private func link(taxa path: [String]) -> String { link(Self.sectionWords[lang]?.0, path) }
+  private func link(origin path: [String]) -> String { link(Self.sectionWords[lang]?.1, path) }
+  private func link(_ section: String?, _ path: [String]) -> String {
+    let p = "/" + ([lang, section ?? ""] + path).joined(separator: "/") + "/"
+    return form?.path(p) ?? p
+  }
+
+  /// The site's words with their placeholders filled: "{n} loài có nguồn gốc từ {place}." → "3 loài có nguồn gốc từ Peru."
+  private func fill(_ text: String, _ values: [String: String]) -> String {
+    values.reduce(text) { $0.replacingOccurrences(of: "{\($1.key)}", with: $1.value) }
   }
 
   /// Keys in the site's order, then any newer ones by name.

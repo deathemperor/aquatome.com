@@ -70,6 +70,8 @@ export type AgentOutcome = {
   stopped: Stopped | 'fallback'
   /** A later call the API refused as our request: its message, cut short. */
   later400?: string
+  /** What the agent sent and was answered, its first message (with the photo) included, for the run's transcript. */
+  history: Anthropic.MessageParam[]
 } & ({ ok: true; message: Anthropic.Message; hash: string } | { ok: false; reason: 'resting' | 'unavailable' | 'request' })
 
 export type AgentOptions = {
@@ -140,13 +142,15 @@ export async function identifyWithAgent(o: AgentOptions): Promise<AgentOutcome> 
     },
     schema: AGENT_SCHEMA as unknown as Record<string, unknown>,
     effort: o.effort ?? 'low',
+    // Its thinking as a readable summary (billed as before), for the run's transcript (fishid/transcript.ts).
+    thinking: { type: 'adaptive', display: 'summarized' },
     maxTokens: MAX_TOKENS,
     limits: o.limits,
     onStep: o.onStep,
     recheck: m => recheckOf(o.tools.catalog, m, listed),
     clock,
   })
-  const base = { calls: run.calls, tools: run.tools, photos: run.photos, steps: run.steps, spent: run.spent, attempts, ...(run.rechecked ? { rechecked: true } : {}), ...(later400 !== undefined ? { later400 } : {}) }
+  const base = { calls: run.calls, tools: run.tools, photos: run.photos, steps: run.steps, spent: run.spent, attempts, history: run.history, ...(run.rechecked ? { rechecked: true } : {}), ...(later400 !== undefined ? { later400 } : {}) }
   if (run.message) return { ...base, ok: true, message: run.message, hash: key!.hash, stopped: run.stopped }
   if (run.error instanceof FirstCall) return { ...base, ok: false, reason: run.error.reason, stopped: 'error' }
   // A bug of ours, not an answer from the API nor the clock.

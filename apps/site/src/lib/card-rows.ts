@@ -19,8 +19,8 @@ export function gapMatters(field: DataCardField, vals: { value: Range | number }
 
 /**
  * A data card's rows in the card's order, each with its one value and every source's own (DataCard.astro, and the app's
- * copy of its "Nguồn và độ tin cậy"). Sources that disagree: the range they all accept (resolveDataCard); a lifespan,
- * the widest. `marked`: they disagree by enough to mark on the card (gapMatters).
+ * copy of its "Nguồn và độ tin cậy"). Sources that disagree: Seriously Fish's figure, else the full span; difficulty, the
+ * easiest (resolveDataCard). `marked`: they disagree by enough to mark on the card (gapMatters).
  */
 export function cardRows<S extends string>(card: Partial<Record<DataCardField, { source: S; value: Range | number }[]>>) {
   return FIELD_ORDER.flatMap(field => {

@@ -18,7 +18,6 @@ import VideoPlayer from '../../components/VideoPlayer.astro'
 import { clock, guideChapters, isoDuration, watchUrl } from '../../lib/video'
 import BackToTop from '../../components/BackToTop.astro'
 import { guideParts } from '../../lib/guide-page'
-import { slugify } from '@aq/schema/slug'
 import { i18n, langOf, isVietnamese } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
 
@@ -59,7 +58,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
   <article class="wrap art">
     <header class="ahead">
-      <nav class="crumb" aria-label={t('Đường dẫn')}>{v ? <><a href="/vi/video/">{t('Video')}</a> / {series ? <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a> : <a href={`/vi/video/kenh/${slugify(v.channel)}/`}>{v.channel}</a>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
+      <nav class="crumb" aria-label={t('Đường dẫn')}>{v ? <><a href="/vi/video/">{t('Video')}</a>{series && <> / <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a></>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
       <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])} · {v && <>{t('video {time}', { time: clock(v.durationSec) })} · </>}{t('đọc khoảng {n} phút', { n: minutes })}{series && pos >= 0 && <> · {t('phần {i}/{n}', { i: pos + 1, n: inSeries.length })}</>}</p>
       <h1>{g.t.name}</h1>
       <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={refs} />
