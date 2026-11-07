@@ -180,11 +180,18 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
     app.navigationBars.buttons.element(boundBy: 0).tap()
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    // The well-known fish under the row, as rows.
-    XCTAssertTrue(app.scrolledDown(to: item(app, "Cá neon")).exists, "the well-known fish not as rows")
+    // The well-known fish under the row, as rows; each row as its shelf names it, with no line saying what it is (the
+    // shelf's header says it): a fish with its scientific name, a guide alone, a series with how many videos (not its
+    // channel), a kind of kit alone.
+    let neon = app.scrolledDown(to: item(app, "Cá neon"))
+    XCTAssertEqual(neon.label, "Cá neon, Paracheirodon innesi", "the well-known fish not as rows")
+    let guide = app.scrolledDown(to: item(app, "Nuôi cá neon"))
+    XCTAssertEqual(guide.label, "Nuôi cá neon trong bể nhỏ", "the guide to start from")
+    let series = app.scrolledDown(to: item(app, "Rêu hại từ A đến Z"))
+    XCTAssertEqual(series.label, "Rêu hại từ A đến Z, 1 video", "the video series")
     let kit = item(app, "Lọc")
     repeatUntil(kit.exists && kit.isHittable, times: 30) { app.swipeUp() }
-    XCTAssertTrue(kit.exists, "the kit not as rows")
+    XCTAssertEqual(kit.label, "Lọc", "the kit not as rows")
     XCTAssertFalse(app.descendants(matching: .any)["kit"].exists, "the kit's grid at the largest text")
   }
 

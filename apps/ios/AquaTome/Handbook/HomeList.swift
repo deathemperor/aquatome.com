@@ -128,7 +128,7 @@ private struct BrowseShelf<Pick: View>: View {
       if !shown.isEmpty {
         if large {
           if let caption { Text(caption).font(.subheadline.weight(.semibold)) }
-          ForEach(shown) { Row(item: $0) }
+          ForEach(shown) { ShelfRow(item: $0) }
         } else {
           VStack(alignment: .leading, spacing: 8) {
             if let caption { Text(caption).font(.subheadline.weight(.semibold)).accessibilityAddTraits(.isHeader) }
@@ -203,6 +203,33 @@ private struct Picks<Pick: View>: View {
       .padding(.trailing, 16)
     }
     .scrollClipDisabled()
+  }
+}
+
+/// A page of a shelf as a row, at the accessibility text sizes: its name with the row's width (ItemRow's, with no
+/// picture), its scientific name, or a series' count of videos as its card says (no channel: the series' page credits
+/// it); a kind of kit with its tile's symbol. No line saying what it is: the shelf's header says it.
+private struct ShelfRow: View {
+  let item: HandbookIndex.Item
+
+  var body: some View {
+    NavigationLink(value: item) {
+      HStack(spacing: 12) {
+        if item.kind == .equipment {
+          Image(systemName: KitGrid.symbol(item)).foregroundStyle(.tint).accessibilityHidden(true)
+        }
+        VStack(alignment: .leading, spacing: 2) {
+          Text(item.name).foregroundStyle(.primary)
+          if item.kind == .video {
+            if let n = item.parts { Text("\(n) video").font(.caption).foregroundStyle(.secondary) }
+          } else if let sub = item.sub {
+            Text(sub).font(.caption).italic().foregroundStyle(.secondary)
+          }
+        }
+      }
+      .accessibilityElement(children: .combine)
+      .accessibilityIdentifier("item")
+    }
   }
 }
 
@@ -295,7 +322,7 @@ private struct KitGrid: View {
 
   var body: some View {
     if size.isAccessibilitySize {
-      ForEach(items) { Row(item: $0) }
+      ForEach(items) { ShelfRow(item: $0) }
     } else {
       LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8, alignment: .top), count: 3), spacing: 8) {
         ForEach(items) { item in
@@ -317,6 +344,8 @@ private struct KitGrid: View {
       .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
       .listRowBackground(Color.clear)
       .listRowSeparator(.hidden)
+      // A grid of one kind is a row with one link, which List gives its own chevron, outside the tile.
+      .navigationLinkIndicatorVisibility(.hidden)
     }
   }
 
