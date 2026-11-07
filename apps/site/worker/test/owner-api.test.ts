@@ -53,7 +53,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['not set up', () => readersPage(S.NOW, undefined, S.TZ), () => readersSection(S.NOW, undefined, S.TZ)],
     ['failed', () => readersPage(S.NOW, F, S.TZ), () => readersSection(S.NOW, F, S.TZ)],
     ...(() => {
-      const asks = { days: 14, rows: [{ cc: 'GB', shown: 5, picked: { vi: 2, id: 0, th: 1 } }, { cc: 'US', shown: 3, picked: { vi: 0, id: 0, th: 0 } }] }
+      const asks = { days: 14, rows: [{ cc: 'GB', shown: 5, picked: { vi: 2, id: 0, th: 1, ms: 0 } }, { cc: 'US', shown: 3, picked: { vi: 0, id: 0, th: 0, ms: 0 } }] }
       return [
         ['language chooser', () => readersPage(S.NOW, S.READERS, S.TZ, asks), () => readersSection(S.NOW, S.READERS, S.TZ, asks)],
         ['language chooser failed', () => readersPage(S.NOW, S.READERS, S.TZ, F), () => readersSection(S.NOW, S.READERS, S.TZ, F)],

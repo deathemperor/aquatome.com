@@ -3220,6 +3220,20 @@
                 {
                   "text": "—"
                 }
+              ],
+              [
+                {
+                  "text": "Người đọc · Bahasa Melayu"
+                },
+                {
+                  "text": "0"
+                },
+                {
+                  "text": "—"
+                },
+                {
+                  "text": "—"
+                }
               ]
             ]
           },
@@ -3600,6 +3614,20 @@
               [
                 {
                   "text": "Trang · ภาษาไทย"
+                },
+                {
+                  "text": "—"
+                },
+                {
+                  "text": "—"
+                },
+                {
+                  "text": "—"
+                }
+              ],
+              [
+                {
+                  "text": "Trang · Bahasa Melayu"
                 },
                 {
                   "text": "—"
@@ -4364,7 +4392,7 @@
               {
                 "label": "Trang đã build",
                 "value": "2.000",
-                "sub": "tiếng Việt 1.500 · Indonesia 300 · Thái 200"
+                "sub": "tiếng Việt 1.500 · Indonesia 300 · Thái 200 · Mã Lai 0"
               },
               {
                 "label": "Ảnh trên trang",
@@ -4384,7 +4412,8 @@
               "Loại",
               "Bài",
               "Có tiếng Indonesia",
-              "Có tiếng Thái"
+              "Có tiếng Thái",
+              "Có tiếng Mã Lai"
             ],
             "rows": [
               [
@@ -4399,6 +4428,9 @@
                 },
                 {
                   "text": "95"
+                },
+                {
+                  "text": "0"
                 }
               ],
               [
@@ -4407,6 +4439,9 @@
                 },
                 {
                   "text": "92"
+                },
+                {
+                  "text": "0"
                 },
                 {
                   "text": "0"
@@ -4427,6 +4462,9 @@
                 },
                 {
                   "text": "0"
+                },
+                {
+                  "text": "0"
                 }
               ],
               [
@@ -4441,6 +4479,9 @@
                 },
                 {
                   "text": "0"
+                },
+                {
+                  "text": "0"
                 }
               ],
               [
@@ -4449,6 +4490,9 @@
                 },
                 {
                   "text": "60"
+                },
+                {
+                  "text": "0"
                 },
                 {
                   "text": "0"
@@ -4469,6 +4513,9 @@
                 },
                 {
                   "text": "0"
+                },
+                {
+                  "text": "0"
                 }
               ],
               [
@@ -4483,6 +4530,9 @@
                 },
                 {
                   "text": "0"
+                },
+                {
+                  "text": "0"
                 }
               ],
               [
@@ -4491,6 +4541,9 @@
                 },
                 {
                   "text": "30"
+                },
+                {
+                  "text": "0"
                 },
                 {
                   "text": "0"
@@ -4917,6 +4970,41 @@
                   5,
                   null
                 ]
+              },
+              {
+                "label": "Mã Lai",
+                "values": [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  0,
+                  null,
+                  null,
+                  0,
+                  null
+                ]
               }
             ],
             "empty": "Chưa có bài dịch mới nào trong những ngày đã lưu.",
@@ -4956,123 +5044,123 @@
             "readouts": [
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Ba 06/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Ba 06/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Tư 07/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Tư 07/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Năm 08/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Năm 08/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Sáu 09/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Sáu 09/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Bảy 10/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Bảy 10/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Chủ nhật 11/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Chủ nhật 11/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Hai 12/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Hai 12/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Ba 13/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Ba 13/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Tư 14/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Tư 14/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Năm 15/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Năm 15/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Sáu 16/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Sáu 16/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Bảy 17/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Bảy 17/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Chủ nhật 18/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Chủ nhật 18/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Hai 19/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Hai 19/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Ba 20/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Ba 20/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Tư 21/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Tư 21/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Năm 22/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Năm 22/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Sáu 23/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Sáu 23/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Bảy 24/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Bảy 24/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Chủ nhật 25/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Chủ nhật 25/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Hai 26/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Hai 26/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Ba 27/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Ba 27/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Tư 28/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Tư 28/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Năm 29/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Năm 29/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Sáu 30/10 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Sáu 30/10 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "60 indonesia",
-                "detail": "Thứ Bảy 31/10 · 10 thái"
+                "detail": "Thứ Bảy 31/10 · 10 thái · 0 mã Lai"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Chủ nhật 01/11 · thái: chưa lưu số liệu ngày này"
+                "detail": "Chủ nhật 01/11 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Hai 02/11 · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Hai 02/11 · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               },
               {
                 "title": "40 indonesia",
-                "detail": "Thứ Ba 03/11 · 5 thái"
+                "detail": "Thứ Ba 03/11 · 5 thái · 0 mã Lai"
               },
               {
                 "title": "indonesia: chưa lưu số liệu ngày này",
-                "detail": "Thứ Tư 04/11 · chưa hết ngày · thái: chưa lưu số liệu ngày này"
+                "detail": "Thứ Tư 04/11 · chưa hết ngày · thái: chưa lưu số liệu ngày này · mã Lai: chưa lưu số liệu ngày này"
               }
             ]
           },

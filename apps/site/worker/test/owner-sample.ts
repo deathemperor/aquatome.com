@@ -107,17 +107,17 @@ export const ACCOUNTS = {
 }
 
 const totals = (fish: number, plant: number, guide: number, id: number, th: number, sources: Record<string, number>): Totals =>
-  ({ kinds: { fish: { vi: fish, id, th }, plant: { vi: plant, id: 0, th: 0 }, guide: { vi: guide, id, th: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources, photos: { pages: 0, gallery: 0 } })
+  ({ kinds: { fish: { vi: fish, id, th, ms: 0 }, plant: { vi: plant, id: 0, th: 0, ms: 0 }, guide: { vi: guide, id, th: 0, ms: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources, photos: { pages: 0, gallery: 0 } })
 export const SNAPSHOTS: Snapshot[] = [
   { day: days30[20]!, totals: totals(700, 90, 300, 100, 80, { seriouslyfish: 500, youtube: 120 }) },
   { day: days30[25]!, totals: totals(720, 92, 305, 130, 90, { seriouslyfish: 515, youtube: 125 }) },
   { day: days30[28]!, totals: totals(730, 92, 310, 150, 95, { seriouslyfish: 520, youtube: 132 }) },
 ]
-const inv = (total: number, id = 0, th = 0) => ({ total, id, th })
+const inv = (total: number, id = 0, th = 0, ms = 0) => ({ total, id, th, ms })
 export const STATS = {
   v: 1, builtAt: '2026-11-04T06:00:00.000Z', publicBuild: true,
   inventory: { fish: inv(730, 150, 95), breed: inv(40), plant: inv(92), guide: inv(250, 20), videoGuide: inv(60), series: inv(5), glossary: inv(120), equipment: inv(0), place: inv(30), product: inv(0) },
-  built: { total: { vi: 1500, id: 300, th: 200 }, byKind: {} },
+  built: { total: { vi: 1500, id: 300, th: 200, ms: 0 }, byKind: {} },
   sources: { seriouslyfish: { name: 'Seriously Fish', fish: 520, plant: 0, guide: 0 }, youtube: { name: 'YouTube', fish: 0, plant: 0, guide: 132 } },
   photos: { pages: 2100, byOrigin: { commons: 900, inaturalist: 700 }, byLicence: { 'CC BY': 1000, CC0: 600 }, covered: { fish: { with: 600, of: 730 }, plant: { with: 80, of: 92 } }, waitingMirror: 14, gallery: { pages: 300, photos: 2400 } },
   engine: {
