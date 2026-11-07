@@ -27,7 +27,7 @@ export async function readKit(contentRoot: string): Promise<Kit[]> {
 
 const prompt = (v: { title: string; channel: string; description: string; chapters: { start: number; title: string }[] }, transcript: string, kit: Kit[]) => `From this aquarium video, list what it shows, uses or recommends.
 
-taxa: scientific names ("Genus species", or "Genus sp.") of the fish, shrimp, snails and aquatic plants the video shows, keeps, recommends or warns against. Translate trade names you are sure of ("Monte Carlo" → "Micranthemus tweediei", "cherry shrimp" → "Neocaridina davidi"). Leave out anything you can't name to species or genus with confidence, and algae.
+taxa: scientific names ("Genus species", or "Genus sp.") of the fish, shrimp, crabs, snails and aquatic plants the video shows, keeps, recommends or warns against. Translate trade names you are sure of ("Monte Carlo" → "Micranthemus tweediei", "cherry shrimp" → "Neocaridina davidi"). Leave out anything you can't name to species or genus with confidence, and algae.
 
 gear: the equipment and products the video uses, shows or recommends, one entry per distinct product:
 - category: one of the ids below, or "khac" for anything else (fertiliser, tools, hardscape, medicine, water treatment).

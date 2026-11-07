@@ -1,0 +1,135 @@
+{
+  "id": "farlowella-amazonum",
+  "scientificName": "Farlowella amazonum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Farlowella",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 22.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
+      "html": "<ul><li>Scientific name: Farlowella amazonum (Günther, 1864)</li><li>Common name: Twig Catfish</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
+      "html": "<p>South America: Amazon, Tocantins and La Plata river basins. Type locality: Amazon River at Santarém, Pará State, Brazil.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
+      "html": "<p>Smaller tetras or rasboras are suitably mannered tankmates, and perhaps hatchetfish are best. Avoid fast or \"nippy\" fishes such as danios or barbs. It will do well with Corydoras catfish, but larger catfish or cichlids are to be avoided.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
+      "html": "<p>Sometimes seen under the misspelling Farlowella amazona. The genus is named after W. G. Farlow of Harvard University; the species is named for the Amazon River, where it was found.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1271",
+      "html": "<p>Catalogue of the fishes in the British Museum v. 5, pp 261.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e6e2491b7dd4120d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e6e2491b7dd4120d-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "caption": "Farlowella amazonum: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2fe6b5215e0a87e6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2fe6b5215e0a87e6-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "caption": "Farlowella amazonum: ventral view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f0c374dc3e2d374b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f0c374dc3e2d374b-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/farlowella_amazonum.htm",
+      "caption": "Farlowella amazonum",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi nhiệt độ bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "viên rau củ cho cá dọn tảo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

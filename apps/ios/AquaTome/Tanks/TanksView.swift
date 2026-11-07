@@ -16,8 +16,8 @@ struct TanksView: View {
     NavigationStack(path: $path) {
       Group {
         // A store left alone (newer, unreadable) is said so in the list; after a failed save there's still a first tank to add.
-        // Signed in, the list stays, for the account's buttons.
-        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil {
+        // Signed in, the list stays, for the account's buttons; so does the owner's dashboard after its session ended.
+        if tanks.tanks.isEmpty && (tanks.problem == nil || tanks.problem == .saveFailed) && account.user == nil && account.owner.isOwner != true {
           // Centred on the screen; it scrolls when the sign-in and its fine print run past the tab bar (a small phone,
           // large text).
           GeometryReader { g in
@@ -55,15 +55,26 @@ struct TanksView: View {
               }
             }
             AccountSection()
+            OwnerEntry()
+            PlugKeysSection()
             BlockedSection()
             TelemetrySwitch()
           }
         }
       }
+      #if DEBUG
+      .background {
+        // For the UI tests (debug builds only): the server has said whether it offers accounts, and to whom.
+        if account.state != .unknown { Text(verbatim: "answered").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("account-answered") }
+      }
+      #endif
       .navigationTitle("Bể của tôi")
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
+      .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
+      .ownerDashboard()
+      .navigationDestination(for: TankMatesTool.self) { TankMatesView(query: $0.query) }
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
           Button { adding = true } label: { Label("Thêm bể", systemImage: "plus") }
@@ -147,7 +158,17 @@ private struct TankDetail: View {
         }
         PlugsSection(tank: t)
         Section {
+          // On the button: iOS shows the question as a popover from the view it's on.
           Button("Xóa bể", role: .destructive) { confirmDelete = true }.accessibilityIdentifier("delete")
+            .confirmationDialog(
+              lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
+              isPresented: $confirmDelete, titleVisibility: .visible
+            ) {
+              Button("Xóa", role: .destructive) {
+                try? tanks.delete(id)
+                dismiss()
+              }
+            }
         }
       }
       .readsPlugs()
@@ -157,15 +178,6 @@ private struct TankDetail: View {
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
       .sheet(isPresented: $editing) { TankForm(editing: t) }
       .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
-      .confirmationDialog(
-        lights.isEmpty ? String(localized: "Xóa bể “\(t.name)”?") : String(localized: "Xóa bể “\(t.name)” cùng \(lights.count) đèn đã lưu trên bể?"),
-        isPresented: $confirmDelete, titleVisibility: .visible
-      ) {
-        Button("Xóa", role: .destructive) {
-          try? tanks.delete(id)
-          dismiss()
-        }
-      }
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
     }

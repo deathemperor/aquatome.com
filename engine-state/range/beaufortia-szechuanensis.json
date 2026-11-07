@@ -1,0 +1,43 @@
+{
+  "id": "beaufortia-szechuanensis",
+  "native": {
+    "input": "9fd2a3bd25888590",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Upper Yangtze River (aka Chang Jiang) basin, Sichuan province, southwestern China where it's been recorded from various tributary systems including the Qing, Ming, Wu and Da Ning He rivers.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Upper Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Native to the Upper Yangtze River (aka Chang Jiang) basin, Sichuan province, southwestern China where it's been recorded from various tributary systems including the Qing, Ming, Wu and Da Ning He rivers.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Beaufortia szechuanensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5205371,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

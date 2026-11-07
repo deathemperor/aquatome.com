@@ -1,0 +1,153 @@
+{
+  "id": "barbonymus-schwanefeldii",
+  "native": {
+    "input": "25b91369350c1225",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "In Singapore it was thought to have become locally extinct although it appears that introduced feral populations now exist.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "It is present in several major river systems including the Mekong and Chao Phraya.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "It is present in several major river systems including the Mekong and Chao Phraya.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "seriouslyfish",
+        "quote": "This species is currently accepted to have an enormous distribution that covers much of Southeast Asia including the countries Cambodia, Laos, Thailand, Vietnam, Singapore, Malaysia (states of Sarawak and Sabah, Borneo), Brunei Darussalam and Indonesia (Sumatra and Kalimantan, Borneo).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbonymus schwanefeldii",
+    "status": "ACCEPTED",
+    "taxonKey": 10374537,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        20
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        5
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ]
+    ],
+    "native": [
+      "KH",
+      "LA",
+      "TH",
+      "VN",
+      "MY",
+      "BN",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

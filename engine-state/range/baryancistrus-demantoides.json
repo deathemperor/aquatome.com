@@ -1,0 +1,83 @@
+{
+  "id": "baryancistrus-demantoides",
+  "native": {
+    "input": "4b8c0c1bb37c7f89",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The green phantom pleco, Baryancistrus demantoides, is a suckermouth catfish known only from where the río Ventuari meets the Orinoco in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Venezuela, Colombia",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Venezuela, Colombia",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ventuari",
+        "source": "seriouslyfish",
+        "quote": "The green phantom pleco, Baryancistrus demantoides, is a suckermouth catfish known only from where the río Ventuari meets the Orinoco in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The green phantom pleco, Baryancistrus demantoides, is a suckermouth catfish known only from where the río Ventuari meets the Orinoco in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Guapuchi",
+        "source": "seriouslyfish",
+        "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, and also occurs in the lower reaches of the Ventuari as far as the inflowing río Guapuchi.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Baryancistrus demantoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2339924,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

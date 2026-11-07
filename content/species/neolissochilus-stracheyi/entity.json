@@ -1,0 +1,90 @@
+{
+  "id": "neolissochilus-stracheyi",
+  "scientificName": "Neolissochilus stracheyi",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Neolissochilus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "india",
+    "myanmar",
+    "thailand",
+    "cambodia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/neolissochilus-stracheyi-blue-tor-2/",
+      "html": "<p>A splendid large barb from Burma (Myanmar), reaching a maximum size of approx. 60 cm. The extremely large, diamond-shaped blue scales on the back shine brightly in a swimming fish, and the orange-red stripe on the side looks gorgeous. Under flash photography from the front the fish looks rather drab silvery; the colours can be shown in photos only in slightly underexposed pictures and grazing light.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/neolissochilus-stracheyi-blue-tor-2/",
+      "html": "<p>Neolissochilus inhabit rivers in primary forests of subtropical regions of northern India, Burma, Thailand and most probably Cambodia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/neolissochilus-stracheyi-blue-tor-2/",
+      "html": "<p>The water in their habitats is always very clean, and the fish are known to disappear when human activities (clearing, water pollution) increase.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/neolissochilus-stracheyi-blue-tor-2/",
+      "html": "<p>Due to its geographical distribution the species is adapted to water temperatures between 16 and 26°C. It is already a much sought-after fish for koi carp ponds in tropical Asia (at temperatures between 22 and 24°C).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/neolissochilus-stracheyi-blue-tor-2/",
+      "html": "<p>Lexicon: Neolissochilus: ancient Greek, means \"new Lissochilus\"; Lissochilus is another genus of barb. stracheyi: dedication name. Blue Tor: the common name refers to the large blue scales on the back and the overall similarity of the fish to the members of the carp genus Tor.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "hồ cá koi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho hồ lớn",
+        "máy lọc hồ koi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá koi",
+        "thức ăn cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

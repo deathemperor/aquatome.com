@@ -1,0 +1,251 @@
+{
+  "id": "brachyplatystoma-vaillantii",
+  "native": {
+    "input": "b7cf49753bbeafff",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cayenne, French Guiana; Suriname; Colombia.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cayenne, French Guiana; Suriname; Colombia.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cayenne, French Guiana; Suriname; Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Valenciennes states that the type series derived from Cayenne, the capital of French Guiana, and Suriname but the species is currently understood to range throughout the Amazon and Orinoco watersheds, including numerous major tributaries, plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Valenciennes states that the type series derived from Cayenne, the capital of French Guiana, and Suriname but the species is currently understood to range throughout the Amazon and Orinoco watersheds, including numerous major tributaries, plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Valenciennes states that the type series derived from Cayenne, the capital of French Guiana, and Suriname but the species is currently understood to range throughout the Amazon and Orinoco watersheds, including numerous major tributaries, plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Amazon and Orinoco River basins and major rivers of the Guianas and northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Valenciennes states that the type series derived from Cayenne, the capital of French Guiana, and Suriname but the species is currently understood to range throughout the Amazon and Orinoco watersheds, including numerous major tributaries, plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Valenciennes states that the type series derived from Cayenne, the capital of French Guiana, and Suriname but the species is currently understood to range throughout the Amazon and Orinoco watersheds, including numerous major tributaries, plus other important fluvial systems in the Guianas and northeastern Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE",
+        "GY",
+        "BO",
+        "EC",
+        "PE",
+        "TT"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyplatystoma vaillantii",
+    "status": "ACCEPTED",
+    "taxonKey": 2338837,
+    "datasets": [
+      [
+        "00d324d6-5211-47a1-a84d-82175f84e678",
+        769
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        129
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        15
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        14
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        11
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "7d3ad006-2cec-4488-ad1f-6e5998602de0",
+        4
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GF",
+      "SR",
+      "CO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -15,9 +15,9 @@ import { excerpt } from '../../lib/meta'
 import GearList from '../../components/GearList.astro'
 import { categoryLabel } from '../../lib/format'
 import VideoPlayer from '../../components/VideoPlayer.astro'
-import { clock, isoDuration, watchUrl } from '../../lib/video'
+import { clock, guideChapters, isoDuration, watchUrl } from '../../lib/video'
+import BackToTop from '../../components/BackToTop.astro'
 import { guideParts } from '../../lib/guide-page'
-import { slugify } from '@aq/schema/slug'
 import { i18n, langOf, isVietnamese } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
 
@@ -41,7 +41,7 @@ if (v) {
     '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description, thumbnailUrl: [ph?.url], ...(v.publishedAt ? { uploadDate: v.publishedAt } : {}),
     duration: isoDuration(v.durationSec), embedUrl: `https://www.youtube-nocookie.com/embed/${v.youtubeId}`, url: watchUrl(v.youtubeId), inLanguage: v.lang ?? 'en',
     author: { '@type': 'Person', name: v.channel, url: v.channelUrl },
-    ...(v.chapters.length > 1 ? { hasPart: v.chapters.map((ch, i) => ({ '@type': 'Clip', name: g.t.chapters?.[i] ?? ch.title, startOffset: ch.start, endOffset: v.chapters[i + 1]?.start ?? v.durationSec, url: watchUrl(v.youtubeId, ch.start) })) } : {}),
+    ...(guideChapters(v, g.t.chapters).length > 1 ? { hasPart: guideChapters(v, g.t.chapters).map(ch => ({ '@type': 'Clip', name: ch.title, startOffset: ch.start, endOffset: ch.end, url: watchUrl(v.youtubeId, ch.start) })) } : {}),
   })
 } else {
   // A written guide: an article in the page's language, citing the pages its facts come from.
@@ -58,7 +58,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   <Nav slot="header" current={v ? '/vi/video/' : undefined} />
   <article class="wrap art">
     <header class="ahead">
-      <nav class="crumb" aria-label={t('Đường dẫn')}>{v ? <><a href="/vi/video/">{t('Video')}</a> / {series ? <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a> : <a href={`/vi/video/kenh/${slugify(v.channel)}/`}>{v.channel}</a>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
+      <nav class="crumb" aria-label={t('Đường dẫn')}>{v ? <><a href="/vi/video/">{t('Video')}</a>{series && <> / <a href={`/vi/video/${series.vi.slug}/`}>{series.vi.name}</a></>}</> : <a href={back[0]}>{back[1]}</a>}</nav>
       <p class="kind">{t(GUIDE_KIND_LABELS[g.kind])} · {v && <>{t('video {time}', { time: clock(v.durationSec) })} · </>}{t('đọc khoảng {n} phút', { n: minutes })}{series && pos >= 0 && <> · {t('phần {i}/{n}', { i: pos + 1, n: inSeries.length })}</>}</p>
       <h1>{g.t.name}</h1>
       <SourceCredit source={g.source} url={g.sourceUrl} sources={c.sources} video={v} refs={refs} />
@@ -90,10 +90,14 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
         {g.t.faq.map(f => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
       </section>
     )}
-    {refs && refs.length > 0 && (
+    {/* The sources, out of the reader's way: a video guide's video first, its title and channel (never named above). */}
+    {(v || (refs && refs.length > 0)) && (
       <section class="refs" id="nguon" aria-labelledby="ref-h" data-pagefind-ignore>
         <h2 id="ref-h">{t('Nguồn tham khảo')}</h2>
-        <ol>{refs.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnamese(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
+        <ol>
+          {v && <li class="video">{t('Video gốc:')} <a href={watchUrl(v.youtubeId)} rel="nofollow noopener" target="_blank">{v.title}</a>{t(', kênh')} <a href={v.channelUrl} rel="nofollow noopener" target="_blank">{v.channel}</a> · {clock(v.durationSec)}</li>}
+          {refs?.map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" lang={isVietnamese(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnamese(r.title) && <> ({t('tiếng Việt')})</>}</li>)}
+        </ol>
       </section>
     )}
   </article>
@@ -118,6 +122,7 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   )}
   <div class="wrap end"><Comments entity={`guide:${g.id}`} /></div>
   <GlossaryTip />
+  <BackToTop />
 </Base>
 <style>
   .art { display: grid; grid-template-columns: minmax(0, var(--measure)); padding-block: var(--space-4) var(--space-6); }
@@ -136,6 +141,8 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   .toc li ol { margin-top: var(--space-1); font-size: 0.9rem; }
   .toc li li { padding-block: 3px; }
   .toc a { color: var(--c-ink); text-decoration-color: var(--c-rule); }
+  /* On a touch screen each entry is a row a finger can take (44 px). */
+  @media (pointer: coarse) { .toc li, .toc li li { padding-block: 0; } .toc a { display: inline-flex; align-items: center; min-height: 44px; } }
   .toc a:hover { text-decoration-color: var(--c-ink); }
   .prose :global(h3) { font-size: var(--step-2); margin: var(--space-7) 0 var(--space-3); scroll-margin-top: var(--space-5); }
   /* A heading over sub-sections (lib/toc.ts) opens a part, with the rule the page's other parts open with; its first
@@ -176,10 +183,11 @@ const back = g.kind === 'discovery' ? ['/vi/kham-pha/', t('Khám phá')] : ['/vi
   .prose :global(p) { font-size: 1.0625rem; line-height: 1.75; }
   .prose :global(.ml) { color: inherit; text-decoration-color: var(--c-moss); text-decoration-thickness: 1.5px; }
   .prose :global(.gl) { color: inherit; text-decoration: underline dotted var(--c-moss); text-decoration-thickness: 1.5px; }
-  .related { padding-bottom: var(--space-6); }
+  /* The closing parts after the article: room above each heading, as between the article's own parts. */
+  .related { padding-block: var(--space-6); }
   .related h2, .wrap :global(.comments h2) { font-size: var(--step-2); }
   .related h2 { border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-5); }
-  .end { padding-bottom: var(--space-8); }
+  .end { padding-block: var(--space-6) var(--space-8); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-6) var(--space-5); }
   .rest { margin: var(--space-5) 0 0; color: var(--c-ink-soft); }
   .chips { display: flex; flex-wrap: wrap; gap: var(--space-2); list-style: none; padding: 0; }

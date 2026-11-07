@@ -1,0 +1,184 @@
+{
+  "id": "youtube-RSG9M7lgzG8",
+  "kind": "disease",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=RSG9M7lgzG8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens",
+    "vesicularia-montagnei",
+    "poecilia-sphenops"
+  ],
+  "updatedAt": "2026-11-06",
+  "video": {
+    "youtubeId": "RSG9M7lgzG8",
+    "title": "How to Fight Fungus on Aquarium Fish",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 481,
+    "publishedAt": "2020-09-24",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Causes of fish fungus"
+      },
+      {
+        "start": 170,
+        "title": "Medications for fish fungus"
+      },
+      {
+        "start": 323,
+        "title": "Dosing salt to treat fungus"
+      }
+    ],
+    "series": {
+      "id": "PLNM4mDAXGxWyWwI9j6NsO6swhmXLkwojx",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/RSG9M7lgzG8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Poecilia sphenops",
+      "Betta splendens",
+      "Vesicularia montagnei"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Aquarium Solutions",
+        "model": "Ich-X",
+        "t": 170
+      },
+      {
+        "category": "khac",
+        "brand": "Mardel",
+        "model": "Maracyn",
+        "t": 170
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Freshwater Salt",
+        "t": 340
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Equilibrium",
+        "t": 30
+      },
+      {
+        "category": "khac",
+        "brand": "Wonder Shell",
+        "model": "Wonder Shell",
+        "t": 30
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 61
+      },
+      {
+        "category": "loc",
+        "t": 61
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 91
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao cá bị nấm",
+        "moments": [
+          {
+            "t": 5,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá molly yếu, thân đốm trắng, bơi trong bể nước ngọt."
+          },
+          {
+            "t": 29,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t29.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cá molly đốm bơi giữa bụi cây thủy sinh xanh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RSG9M7lgzG8/p0-lfZmVtYWxlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/RSG9M7lgzG8/p0-lfZmVtYWxlLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Gourami Watcher",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balloon_Molly_female.jpg",
+          "caption": "Cá molly đốm trong bể nước ngọt, loài hay yếu và dễ bị nấm."
+        }
+      },
+      {
+        "heading": "Bước đầu tiên: dọn bể thật kỹ",
+        "moments": [
+          {
+            "t": 181,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t181.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Dùng ống siphon hút nước và cặn ra khỏi bể."
+          },
+          {
+            "t": 201,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t201.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Ống hút đáy đang hút cặn bẩn trong bể cây thủy sinh."
+          }
+        ]
+      },
+      {
+        "heading": "Nấm ở miệng: chữa bằng kháng sinh",
+        "moments": [
+          {
+            "t": 216,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t216.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cá vàng bơi gần cây thủy sinh, vùng quanh miệng cần được kiểm tra."
+          }
+        ]
+      },
+      {
+        "heading": "Nấm trên thân và vây: dùng cả thuốc nấm lẫn kháng sinh",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RSG9M7lgzG8/p3-zNTQxMTUwKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/RSG9M7lgzG8/p3-zNTQxMTUwKS5qcGc-480.webp",
+          "width": 960,
+          "height": 483,
+          "licence": "Public domain",
+          "author": "Internet Archive Book Images",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20483541150).jpg",
+          "caption": "Tranh minh họa cá vàng bị nấm bám trắng trên thân và vây."
+        }
+      },
+      {
+        "heading": "Không có thuốc thì dùng muối thế nào",
+        "moments": [
+          {
+            "t": 343,
+            "url": "https://media.aquatome.com/video/RSG9M7lgzG8/t343.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Gói muối dùng cho bể cá, phía sau là bể thủy sinh."
+          }
+        ]
+      }
+    ]
+  }
+}

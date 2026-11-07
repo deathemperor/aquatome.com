@@ -1,0 +1,95 @@
+{
+  "id": "nemapteryx-nenga",
+  "scientificName": "Nemapteryx nenga",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Nemapteryx",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
+      "html": "<p>Nemapteryx nenga is a catfish from India, formerly placed in the genus Arius. It is not a shark, despite the name \"freshwater shark\". It reaches about 30 cm and should be kept in large aquariums only.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
+      "html": "<p>These \"freshwater sharks\" live in the mouths of large rivers, so they can live in pure freshwater as well as in pure seawater.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
+      "html": "<p>Keeping them in brackish water with a salt content of 5-10 grams per litre is recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
+      "html": "<p>These catfish should always be kept in groups (5-10 specimens). Singly kept specimens do not thrive very well.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
+      "html": "<p>As far as is known, all species of the Arius relatives are mouthbrooders. The male takes the eggs into his mouth until they hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/nemapteryx_nenga_en/",
+      "html": "<p>Because of its nicely shaped dorsal fin, the popular name \"whimple freshwater shark\" could be used.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/4a21e64b01c10d7c.webp",
+      "width": 960,
+      "height": 405,
+      "licence": "Public domain",
+      "author": "Robert Mintern",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arius_nenga_Mintern_104.jpg",
+      "caption": "Nemapteryx nenga syn. Arius nengaThe species names / identity need verification. The original plates showed the fishes facing right and have been flipped here. Arius nenga",
+      "thumb": "https://media.aquatome.com/commons/4a21e64b01c10d7c-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước nhiễm mặn"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "khúc xạ kế đo độ mặn",
+        "máy đo độ mặn nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

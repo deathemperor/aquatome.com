@@ -1,0 +1,135 @@
+{
+  "id": "axelrodia-riesei",
+  "native": {
+    "input": "1a929d4e13810346",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ruby tetra, Axelrodia riesei, is a tiny characid known only from the upper Río Meta basin in Colombia, part of the Orinoco system.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Upper Río Meta basin, east of Villavicencio, Colombia', and this species is currently known only from the upper Meta.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Axelrodia riesei has a very narrow natural distribution and can only be found in the basin of the Meta River, a left tributary of the Orinoco River, in Colombia, South America.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Tiny, brilliant ruby-red tetra from Colombia. Sexually mature at 1.5–2 cm (wild-collected animals); in aquaria up to 3 cm. Soft, acidic water (GH below 10 °dGH, pH 4.5–6.5), 20–26 °C.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is endemic to the upper Rio Meta region in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "The ruby tetra, Axelrodia riesei, is a tiny characid known only from the upper Río Meta basin in Colombia, part of the Orinoco system.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The ruby tetra, Axelrodia riesei, is a tiny characid known only from the upper Río Meta basin in Colombia, part of the Orinoco system.",
+        "ok": true
+      },
+      {
+        "name": "Meta River",
+        "source": "aquariumbreeder",
+        "quote": "Axelrodia riesei has a very narrow natural distribution and can only be found in the basin of the Meta River, a left tributary of the Orinoco River, in Colombia, South America.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Orinoco River",
+        "source": "aquariumbreeder",
+        "quote": "Axelrodia riesei has a very narrow natural distribution and can only be found in the basin of the Meta River, a left tributary of the Orinoco River, in Colombia, South America.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Rio Meta",
+        "source": "glaser",
+        "quote": "The species is endemic to the upper Rio Meta region in Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Axelrodia riesei",
+    "status": "ACCEPTED",
+    "taxonKey": 2352795,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        12
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

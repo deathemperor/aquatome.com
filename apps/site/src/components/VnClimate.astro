@@ -10,7 +10,7 @@ const { t } = i18n(Astro.url)
 ---
 {notes.length > 0 && (
   <aside class="vn" aria-labelledby="vn-h">
-    <h2 id="vn-h">{t('Nuôi ở Việt Nam')}</h2>
+    <h3 id="vn-h">{t('Nuôi ở Việt Nam')}</h3>
     <ul>
       {notes.map(n => {
         const parts = t(n.text).split('{t}')
@@ -26,7 +26,7 @@ const { t } = i18n(Astro.url)
 )}
 <style>
   .vn { margin-top: var(--space-5); padding: var(--space-4); border: 1px solid var(--c-rule); border-radius: 10px; background: var(--c-plate); }
-  .vn h2 { font-size: var(--step-1); margin-bottom: var(--space-2); }
+  .vn h3 { font-size: var(--step-1); margin-bottom: var(--space-2); }
   .vn ul { list-style: none; margin: 0; padding: 0; }
   .vn li { padding: var(--space-1) 0 var(--space-1) 1.4rem; position: relative; font-size: 0.95rem; }
   .vn li::before { position: absolute; left: 0; font-weight: 600; }

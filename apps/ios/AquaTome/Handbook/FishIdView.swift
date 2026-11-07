@@ -48,7 +48,8 @@ struct FishIdView: View {
         Section {
           Text("Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.")
             .font(.footnote).foregroundStyle(.secondary)
-          Button("Chính sách bảo mật") { onSite = URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca")) }
+          // In the browser, as the site's pages about itself open (PageRoute): a screen in the app would be left blank.
+          Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca"))!)
             .font(.footnote)
         }
         Section("Chụp sao cho dễ nhận") {
@@ -216,7 +217,7 @@ struct FishIdView: View {
   /// A page a guess names: the app's own screen for it, else its web page in the app.
   private func open(_ l: FishId.Linked) {
     guard let path = l.path, let u = URL(string: path, relativeTo: handbook.site)?.absoluteURL else { return }
-    if let screen = AppScreen.of(u, site: handbook.site, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
+    if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
   }
 
   // MARK: Doing it

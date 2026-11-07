@@ -77,7 +77,7 @@ const h = (f: keyof typeof FIELD_ANCHORS) => ({ id: FIELD_ANCHORS[f] })
   <p>{t('Các mức này không cộng lại thành độ khó. Độ khó là của nguồn, và nguồn có thể tính cả điều bảng không ghi, như thức ăn. Một loài được chấm dễ vẫn có thể có một nhu cầu khó, chẳng hạn cần nước mềm.')}</p>
 
   <h2 id={CONFLICT_ANCHOR}>{t('Khi các nguồn ghi khác nhau')}</h2>
-  <p>{t('Một chấm đỏ cạnh tên ô nghĩa là các nguồn ghi số khác nhau. Mở "Nguồn và độ tin cậy" dưới bảng để xem số của từng nguồn. Bảng chỉ ghi một số, chọn như sau:')}</p>
+  <p>{t('Một chấm đỏ cạnh tên ô nghĩa là các nguồn ghi số cách xa nhau, đủ để đổi cách nuôi: như nhiệt độ cách nhau hơn 1°C, kích thước hay bể lệch hơn một phần năm. Hai khoảng còn chồng lên nhau, hay lệch ít hơn thế (mỗi nguồn làm tròn một kiểu), thì không có chấm. Mở "Nguồn và độ tin cậy" dưới bảng để xem số của từng nguồn. Bảng chỉ ghi một số, chọn như sau:')}</p>
   <ul>
     <li><TextFigures text={t('Khi các nguồn ghi số khác nhau, như nhiệt độ, pH, kích thước hay bể tối thiểu, bảng lấy số của Seriously Fish, nguồn ghi chi tiết và dẫn nguồn kỹ nhất. Một nguồn ghi {a}, Seriously Fish ghi {b} thì bảng ghi {c}. Mục "Nguồn và độ tin cậy" ghi mức của từng nguồn.')} vars={{ a: { c: [23, 27] }, b: { c: [24, 30] }, c: { c: [24, 30] } }} /></li>
     <li>{t('Độ khó lấy mức dễ nhất mà một nguồn chấm, để một nguồn chấm khắt khe không làm loài dễ nuôi thành khó.')}</li>

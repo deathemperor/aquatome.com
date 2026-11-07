@@ -1,0 +1,96 @@
+{
+  "id": "betta-dimidiata",
+  "native": {
+    "input": "25392aa3e1f2dc47",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to Kalimantan, Borneo (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta dimidiata is a small mouthbrooding labyrinth fish that appears endemic to the upper Kapuas drainage in West Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "The Seriang is a tributary in the Kapuas River system, Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia and the species appears to be endemic to the upper portion of the Kapuas drainage including the Danau Sentarum lakes region.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "The Seriang is a tributary in the Kapuas River system, Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia and the species appears to be endemic to the upper portion of the Kapuas drainage including the Danau Sentarum lakes region.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "The Seriang is a tributary in the Kapuas River system, Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia and the species appears to be endemic to the upper portion of the Kapuas drainage including the Danau Sentarum lakes region.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "bwaquatics",
+        "quote": "Native to Kalimantan, Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Native to Kalimantan, Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta dimidiata",
+    "status": "ACCEPTED",
+    "taxonKey": 2394003,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

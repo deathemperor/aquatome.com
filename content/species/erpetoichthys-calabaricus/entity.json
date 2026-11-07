@@ -14,6 +14,144 @@
     "equatorial-guinea",
     "benin"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "AO",
+        "NG",
+        "CM",
+        "GQ",
+        "BJ"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread in Western Africa, it has been collected in Democratic Republic of Congo, Angola, Nigeria, Cameroon, Equatorial Guinea and Benin.",
+          "countries": [
+            "CD",
+            "AO",
+            "NG",
+            "CM",
+            "GQ",
+            "BJ"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2346564,
+      "total": 48,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "NG",
+          21
+        ],
+        [
+          "BJ",
+          20
+        ],
+        [
+          "CM",
+          4
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "EG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          2,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          1.40625,
+          5.625,
+          14,
+          14
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          2.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          7.03125,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          7.03125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          29.53125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

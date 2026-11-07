@@ -1,0 +1,132 @@
+{
+  "id": "betta-imbellis",
+  "native": {
+    "input": "75b84b5e5461dbe7",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The crescent betta, Betta imbellis, is a labyrinth fish thought to be native to southern Thailand, Peninsular Malaysia and northern Sumatra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The crescent betta, Betta imbellis, is a labyrinth fish thought to be native to southern Thailand, Peninsular Malaysia and northern Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to Southeast Asia, including southern Thailand, Peninsular Malaysia, and northern Sumatra, with introduced populations in Singapore.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to Southeast Asia, including southern Thailand, Peninsular Malaysia, and northern Sumatra, with introduced populations in Singapore.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "bwaquatics",
+        "quote": "Native to Southeast Asia, including southern Thailand, Peninsular Malaysia, and northern Sumatra, with introduced populations in Singapore.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID",
+        "SG",
+        "VN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta imbellis",
+    "status": "ACCEPTED",
+    "taxonKey": 2394051,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        74
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

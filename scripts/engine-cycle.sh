@@ -188,6 +188,10 @@ if part rewrite; then
   # A bred fish's difficulty and lifespan from its own sources (breeds.ts breedCare): a breed whose card lacks either
   # (one written by older code, or whose research found neither) gets one research call, once. No call once all are tried.
   pnpm engine breed-care --limit "${BREED_CARE_LIMIT:-2}" || log "breed-care: failed"
+  # Plant pages that say nothing on where the plant goes or how to plant it get a short part on it, written from the page
+  # and the video guides that cover it, kept only when its reviewer passes it; PLANTING_LIMIT plants a cycle, each once.
+  # Before localizing, so the plant's Indonesian and Thai pages follow.
+  pnpm engine planting --limit "${PLANTING_LIMIT:-4}" || log "planting: failed"
   # Pages under the bar whose review left no notes (written before reviews were kept, engine-state/reviews/), reviewed
   # again as they are, nothing rewritten: REVIEW_BACKFILL_LIMIT model calls a kind (video guides: video-cycle.sh). Before
   # rewrite-vi, which starts a page from its last review's notes.

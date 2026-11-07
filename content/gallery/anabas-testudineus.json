@@ -38,6 +38,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/427337940.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/427337940-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Navapol Komanasin",
+      "sourceUrl": "https://www.inaturalist.org/photos/427337940",
+      "caption": "Hai con cá rô đồng bơi trong chậu nhựa xanh",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/617710483.webp",
       "thumb": "https://media.aquatome.com/inaturalist/617710483-480.webp",
       "width": 1024,
@@ -170,7 +182,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 160,
-  "updatedAt": "2026-11-03",
-  "builtAt": "2026-11-03"
+  "seen": 166,
+  "updatedAt": "2026-11-06",
+  "builtAt": "2026-11-06"
 }

@@ -41,6 +41,10 @@ export const REVIEW_KINDS = [
   'places',
   /** An equipment buying guide in another language, against the Vietnamese (equipment-intl.ts). */
   'equipment',
+  /** A plant's "where it goes and how to plant it", against the page's figures, text and video guides (planting.ts). */
+  'planting',
+  /** A species page AquaTome writes from research, against it (species-research.ts); part: a video's id, for what that video added to the page (species-videos.ts). */
+  'species',
 ] as const
 export type ReviewKind = (typeof REVIEW_KINDS)[number]
 /** The kinds that review a page's own text (not its title, summary or review section): what a rewrite of the text starts from. */

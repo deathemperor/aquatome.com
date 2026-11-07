@@ -81,7 +81,8 @@ function credited(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>) 
   expect(marks(d).length, d.path).toBe(dom.querySelectorAll('.body .prose a.cite, .body #muc-range a.cite').length)
   for (const m of marks(d)) expect(typeof m !== 'string' && m.tip?.text, d.path).toMatch(/dịch từ nguồn$/)
   // The sections under their questions, with the ids the page's jump row links.
-  expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2'))]))
+  // (The sources' reference lists are the source list's, closed, under an h3.)
+  expect(all(d, 'h').map(h => [h.id, h.text]), d.path).toEqual(dom.querySelectorAll('.body section[data-section]').map(s => [s.id, txt(s.querySelector('h2, h3'))]))
 }
 
 const isMap = (img: Image) => img.src.startsWith('https://aquatome.com/app/range/')
@@ -176,8 +177,8 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
     // "Nguồn và độ tin cậy": every field's sources, each source's own figure where they disagree, and no figure else.
     const trust = one(d, 'trust')
     const rows = dom.querySelectorAll('.datacard .by > div')
-    expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
-      r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
+    expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
+      r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
     ]))
     // Tank mates: who and why, as the page's chips, and the tool set to this fish.
     const mates = one(d, 'mates')
@@ -190,7 +191,7 @@ test('each fish\'s copy reads as its built page: header, credits, sources, card 
       expect(mates.tool.href, d.path).toBe(appHref(box.querySelector('.how a')!.getAttribute('href')!))
       expect(mates.note, d.path).toBe(box.querySelector('.how span') ? txt(box.querySelector('.how span')) : undefined)
     } else {
-      const a = dom.querySelector('.facts > .srcline a')!
+      const a = dom.querySelector('#muc-behaviour .mates-tool a, .body .mates-tool a')!
       expect(d.blocks.some(b => b.t === 'p' && b.c.some(r => typeof r !== 'string' && r.href === appHref(a.getAttribute('href')!) && r.text === txt(a))), d.path).toBe(true)
     }
     // Vietnam's climate, on Vietnamese pages.
@@ -257,8 +258,8 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       // "Nguồn và độ tin cậy", as the card's.
       const trust = one(d, 'trust')
       const rows = dom.querySelectorAll('.datacard .by > div')
-      expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
-        r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
+      expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
+        r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
       ]))
       // The gallery's strip; its gallery page's photos when it has one.
       const g = one(d, 'gallery')
@@ -394,6 +395,7 @@ test('each plant\'s copy reads as its built page: header, credits, sources, gall
     const { dom } = appPage(d.path)
     expect(d.title, d.path).toBe(txt(dom.querySelector('h1')))
     expect(d.sub, d.path).toBe(txt(dom.querySelector('.binomial')))
+    expect(d.aka, d.path).toBe(dom.querySelector('.alt') ? txt(dom.querySelector('.alt')) : undefined)
     expect(d.lead?.src, d.path).toBe(dom.querySelector('header .gallery img')?.getAttribute('src'))
     expect(d.talk, d.path).toEqual(talk(dom))
     expect(d.talk?.comments, d.path).toBeTruthy()

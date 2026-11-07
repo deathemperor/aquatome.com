@@ -10,6 +10,64 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Shweli River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Badis kyar is a slender badid from the upper Ayeyarwady River basin in northern Myanmar, recorded near Myitkyina and in the lower Shweli River.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwady",
+            "Shweli River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389477,
+      "total": 37,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          37
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          95.625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          32,
+          32
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +195,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể thủy sinh mini"
+        "bể cá 60cm"
       ]
     },
     {

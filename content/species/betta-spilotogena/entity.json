@@ -10,6 +10,50 @@
     "indonesia",
     "riau-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bintan",
+        "Singkep",
+        "Riau Archipelago",
+        "Lingga Islands Archipelago"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta spilotogena is a mouthbrooding labyrinth fish from Bintan and Singkep islands in the Riau Islands province of Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a 'small stream' in the north of Bintan Island, Riau Archipelago, Indonesia and subsequently recorded from Singkep Island in the Lingga Islands Archipelago.",
+          "countries": [],
+          "regions": [
+            "Bintan",
+            "Singkep",
+            "Riau Archipelago",
+            "Lingga Islands Archipelago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393999,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -160,8 +204,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể thủy sinh 80x30"
+        "bể cá 80cm"
       ]
     },
     {

@@ -14,6 +14,104 @@
     "vietnam",
     "phu-quoc"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH",
+        "LA",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Phú Quốc"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta prima is a paternal mouthbrooding labyrinth fish from south-eastern Thailand and the Mekong basin in Cambodia and Laos.",
+          "countries": [
+            "TH",
+            "KH",
+            "LA"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has been collected at numerous localities in south-eastern Thailand and from parts of the Mekong basin in Cambodia, Laos, plus the delta region and offshore island of Phú Quốc in southern Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Phú Quốc"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394052,
+      "total": 42,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          23
+        ],
+        [
+          "KH",
+          14
+        ],
+        [
+          "VN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          11.25,
+          15,
+          15
+        ],
+        [
+          101.25,
+          12.65625,
+          6,
+          6
+        ],
+        [
+          102.65625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          12,
+          12
+        ],
+        [
+          105.46875,
+          9.84375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -141,8 +239,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá mini thủy sinh"
+        "bể cá 60cm"
       ]
     },
     {

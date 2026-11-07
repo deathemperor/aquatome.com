@@ -10,6 +10,44 @@
     "thailand",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Boraras micros is a tiny cyprinid from the Mekong basin in northeastern Thailand, recorded in Nong Khai, Udon Thani and Sakon Nakhon provinces.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Mostly restricted to parts of the Mekong basin in northeastern Thailand where it's been collected in the provinces of Nong Khai, Udon Thani and Sakon Nakhon.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366586,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -144,8 +182,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá thủy sinh 45cm",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

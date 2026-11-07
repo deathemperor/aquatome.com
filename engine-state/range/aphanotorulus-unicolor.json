@@ -1,8 +1,8 @@
 {
   "id": "aphanotorulus-unicolor",
   "native": {
-    "input": "be4b8bd48114366c",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "ffa23ec69621cc1e",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "BR",
@@ -19,19 +19,33 @@
         "quote": "South America: Brazil; Upper Amazon River basin.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "However, aquarists are by far more splitting in this respect and distinguish at least four different species, among them A. frankei from Peru.",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Upper Amazon",
+        "name": "Amazon",
         "source": "planetcatfish",
         "quote": "South America: Upper Amazon River basin.",
         "ok": true
       },
       {
-        "name": "Upper Amazon",
+        "name": "Amazon",
         "source": "scotcat",
         "quote": "South America: Brazil; Upper Amazon River basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The genus Aphanotorulus contains only two species, following some scientists: A. ammophilus from the Orinoco basin and A. unicolor from the complete upper Amazon basin.",
         "ok": true
       },
       {
@@ -46,8 +60,7 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "BO",
-        "PE"
+        "BO"
       ],
       "sourcesOnly": []
     }
@@ -135,9 +148,10 @@
       ]
     ],
     "native": [
-      "BR"
+      "BR",
+      "PE"
     ],
     "requests": 12,
-    "at": "2026-11-06T06:16:32.822Z"
+    "at": "2026-11-06T18:08:44.169Z"
   }
 }

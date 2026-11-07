@@ -15,6 +15,146 @@
     "manipur",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "CN",
+        "MM"
+      ],
+      "regions": [
+        "Salween",
+        "Ayeyarwady",
+        "Sittaung",
+        "Ataran"
+      ],
+      "sources": [
+        "loachesonline",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "loachesonline",
+          "quote": "Collected in the Salween Basin of India, China and Myanmar (Burma).",
+          "countries": [
+            "IN",
+            "CN",
+            "MM"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the Indian state of Manipur, Yunnan Province, China (upper Ayeyarwady River basin), and throughout much of Myanmar including the Ayeyarwady, Sittaung, Salween and Ataran river drainages.",
+          "countries": [],
+          "regions": [
+            "Ayeyarwady",
+            "Sittaung",
+            "Ataran"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368029,
+      "total": 20,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          13
+        ],
+        [
+          "CN",
+          5
+        ],
+        [
+          "IN",
+          1
+        ],
+        [
+          "NP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          81.5625,
+          28.125,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          95.625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          23.90625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -251,7 +391,6 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 200 lít",
         "bể cá 120cm"
       ]
     },

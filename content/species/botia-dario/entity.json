@@ -14,6 +14,160 @@
     "bhutan",
     "gaylegphug"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "BT"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Found throughout much of the middle to lower Ganges and Brahmaputra river drainages in northern India, Bangladesh and Bhutan.",
+          "countries": [
+            "IN",
+            "BD",
+            "BT"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368034,
+      "total": 77,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          55
+        ],
+        [
+          "BD",
+          21
+        ],
+        [
+          "NP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          3,
+          3
+        ],
+        [
+          84.375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          1,
+          0
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          88.59375,
+          25.3125,
+          5,
+          5
+        ],
+        [
+          90,
+          22.5,
+          9,
+          9
+        ],
+        [
+          90,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          22.5,
+          7,
+          7
+        ],
+        [
+          91.40625,
+          23.90625,
+          15,
+          15
+        ],
+        [
+          91.40625,
+          25.3125,
+          6,
+          6
+        ],
+        [
+          92.8125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          28.125,
+          10,
+          10
+        ],
+        [
+          94.21875,
+          26.71875,
+          6,
+          6
+        ],
+        [
+          95.625,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -181,8 +335,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

@@ -12,6 +12,98 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta taeniata is a mouthbrooding labyrinth fish endemic to Borneo, known from southern Sarawak in Malaysia and northern West Kalimantan in Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394036,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          3
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "SG",
+          1
+        ],
+        [
+          "TH",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -191,8 +283,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

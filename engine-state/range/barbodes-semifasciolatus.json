@@ -1,0 +1,221 @@
+{
+  "id": "barbodes-semifasciolatus",
+  "native": {
+    "input": "fb83322849a5004c",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout Vietnam, Taiwan, and southwestern China and northern Laos, and has also been recorded in Russia though it's unclear whether the latter population is naturally-occurring or not.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout Vietnam, Taiwan, and southwestern China and northern Laos, and has also been recorded in Russia though it's unclear whether the latter population is naturally-occurring or not.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout Vietnam, Taiwan, and southwestern China and northern Laos, and has also been recorded in Russia though it's unclear whether the latter population is naturally-occurring or not.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout Vietnam, Taiwan, and southwestern China and northern Laos, and has also been recorded in Russia though it's unclear whether the latter population is naturally-occurring or not.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout Vietnam, Taiwan, and southwestern China and northern Laos, and has also been recorded in Russia though it's unclear whether the latter population is naturally-occurring or not.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Information pertaining to Laos is scant but the species certainly occurs in the Nam Ou river watershed, Phôngsali Province. In Taiwan the species is known to be at risk through habitat loss/degradation and the introduction of exotic species, while feral populations exist in both Singapore and Hawaii.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Red River",
+        "source": "sprucepets",
+        "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color.",
+        "ok": true
+      },
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'China' but the type specimens appear to have been collected from the Red River drainage (probably the northern Vietnam section although the river originates in Yunnan province, China), and occurence records show that it's also been collected from numerous other localities in northern Vietnam, the Chinese provinces of Guangxi and Guangdong and the islands of Hainan, Hong Kong, and Taiwan.",
+        "ok": true
+      },
+      {
+        "name": "Hainan",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'China' but the type specimens appear to have been collected from the Red River drainage (probably the northern Vietnam section although the river originates in Yunnan province, China), and occurence records show that it's also been collected from numerous other localities in northern Vietnam, the Chinese provinces of Guangxi and Guangdong and the islands of Hainan, Hong Kong, and Taiwan.",
+        "ok": true
+      },
+      {
+        "name": "Nam Ou",
+        "source": "seriouslyfish",
+        "quote": "Information pertaining to Laos is scant but the species certainly occurs in the Nam Ou river watershed, Phôngsali Province.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [
+      {
+        "code": "TH",
+        "source": "sprucepets",
+        "quote": "Originating from China, Laos, Vietnam, and Thailand (Red River Basin; also Taiwan), this fish is known worldwide as the Chinese barb, but the species is naturally green in color."
+      }
+    ],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbodes semifasciolatus",
+    "status": "ACCEPTED",
+    "taxonKey": 9515715,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        113
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        23
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        21
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        19
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        16
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        3
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "TW",
+      "CN",
+      "LA"
+    ],
+    "requests": 14,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

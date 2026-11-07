@@ -1,0 +1,195 @@
+{
+  "id": "bagrus-bajad",
+  "native": {
+    "input": "173495f399a0aca2",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Nile River, Egypt.",
+        "words": "Egypt",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nile River",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana.",
+        "ok": true
+      },
+      {
+        "name": "Lake Chad",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana.",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Sénégal River",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana.",
+        "ok": true
+      },
+      {
+        "name": "Lake Albert",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana.",
+        "ok": true
+      },
+      {
+        "name": "Lake Turkana",
+        "source": "planetcatfish",
+        "quote": "Africa: Nile River, Lake Chad, Niger and Sénégal River, Lakes Mobutu (Lake Albert) and Turkana.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TD",
+        "NG",
+        "NE",
+        "SN",
+        "CM",
+        "UG",
+        "KE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bagrus bajad",
+    "status": "ACCEPTED",
+    "taxonKey": 5201752,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        54
+      ],
+      [
+        "90b6055a-c12b-4c91-951a-7efbe184bca1",
+        44
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        18
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        14
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "5764708e-2a95-4d95-9447-2ed8a3bc46bd",
+        8
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "48a18d17-96f2-4a0d-89ad-bbe1ac6ce72c",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        2
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "EG"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

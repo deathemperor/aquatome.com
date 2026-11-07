@@ -1,0 +1,109 @@
+{
+  "id": "axelrodia-stigmatias",
+  "native": {
+    "input": "0f9f52b063f7ce08",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Axelrodia stigmatias is a tiny characid from the western Amazon region in Brazil and Peru, sometimes traded as the 'white star' or 'pepper' tetra.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Axelrodia stigmatias is a tiny characid from the western Amazon region in Brazil and Peru, sometimes traded as the 'white star' or 'pepper' tetra.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Rio Solimões",
+        "source": "seriouslyfish",
+        "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Río Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Native to the western Amazon region with confirmed records existing from the rio Madeira and lago Manacapuru complex off the rio Solimões (Amazon) main channel, upstream from Manaus, in Brazil plus the Río Ucayali in Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Axelrodia stigmatias",
+    "status": "ACCEPTED",
+    "taxonKey": 2352796,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        17
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

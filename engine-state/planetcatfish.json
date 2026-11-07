@@ -2532,5 +2532,241 @@
     "processedHash": "50b053361b4d882d49ed6390634126c71642bbfdb0958e6ee95a43607d94a609",
     "status": "skipped",
     "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1255": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T12:52:14.914Z",
+    "hash": "324e81dac1933d18e70d34f4f5aa32f80d0481e293b4068af5320b49a8327c81",
+    "processedHash": "324e81dac1933d18e70d34f4f5aa32f80d0481e293b4068af5320b49a8327c81",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1256": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:06:17.776Z",
+    "hash": "2daaffd9b5b91cfff2cd50c0b24cfae49f5ced4d0423e7a8e034a525fe1a9a45",
+    "processedHash": "2daaffd9b5b91cfff2cd50c0b24cfae49f5ced4d0423e7a8e034a525fe1a9a45",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1257": {
+    "entityIds": [
+      "species/glanidium-ribeiroi"
+    ],
+    "updatedAt": "2026-11-06T13:12:24.632Z",
+    "hash": "e6029a7b802b547b549a50a904b450b02cf8d3482117b3bce1431637619f1aaa",
+    "processedHash": "e6029a7b802b547b549a50a904b450b02cf8d3482117b3bce1431637619f1aaa",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1258": {
+    "entityIds": [
+      "species/lasiancistrus-caucanus"
+    ],
+    "updatedAt": "2026-11-06T13:14:56.166Z",
+    "hash": "2544150a71a04cf5a0d7decec8d39dcc3fac3e223415bef3e91c45ed8de6a843",
+    "processedHash": "2544150a71a04cf5a0d7decec8d39dcc3fac3e223415bef3e91c45ed8de6a843",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1259": {
+    "entityIds": [
+      "species/malapterurus-beninensis"
+    ],
+    "updatedAt": "2026-11-06T13:16:11.074Z",
+    "hash": "14bf4f82d34b1ddc0be1b895ae769148ae35161960ac1ba8a61d5a02506d480f",
+    "processedHash": "14bf4f82d34b1ddc0be1b895ae769148ae35161960ac1ba8a61d5a02506d480f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=126": {
+    "entityIds": [
+      "species/panaqolus-albivermis"
+    ],
+    "updatedAt": "2026-11-06T20:07:02.980Z",
+    "hash": "dad0f7dee79e558108347a6fb6053763bbadf82c3f4e4d89e6fc0f345c5a6723",
+    "processedHash": "dad0f7dee79e558108347a6fb6053763bbadf82c3f4e4d89e6fc0f345c5a6723",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1260": {
+    "entityIds": [
+      "species/malapterurus-minjiriya"
+    ],
+    "updatedAt": "2026-11-06T20:08:19.616Z",
+    "hash": "059b7554b97639c6b305388a1a3bb3f086c67defe56eed78b0b3a96b4da00fd3",
+    "processedHash": "059b7554b97639c6b305388a1a3bb3f086c67defe56eed78b0b3a96b4da00fd3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1261": {
+    "entityIds": [
+      "species/malapterurus-oguensis"
+    ],
+    "updatedAt": "2026-11-06T20:09:23.338Z",
+    "hash": "5477fe164f30d7f02fa9b42bb10cab348e5d308a25be5e6709bc21326e97eda1",
+    "processedHash": "5477fe164f30d7f02fa9b42bb10cab348e5d308a25be5e6709bc21326e97eda1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1262": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:10:12.720Z",
+    "hash": "8ef751b9871dc8e334dd2f4f8061b70f3e62c58d871792a36b8b3755383f7f96",
+    "processedHash": "8ef751b9871dc8e334dd2f4f8061b70f3e62c58d871792a36b8b3755383f7f96",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1263": {
+    "entityIds": [
+      "species/harttia-surinamensis"
+    ],
+    "updatedAt": "2026-11-06T20:10:48.501Z",
+    "hash": "80dbc14832c76306a0939955215141e98370ef256cdf044427e082f0de1cc6f2",
+    "processedHash": "80dbc14832c76306a0939955215141e98370ef256cdf044427e082f0de1cc6f2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1264": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:11:33.333Z",
+    "hash": "c5374a29cbee66b5640b2665aacf25af8183def6bc662d60090bd22c12a37582",
+    "processedHash": "c5374a29cbee66b5640b2665aacf25af8183def6bc662d60090bd22c12a37582",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1265": {
+    "entityIds": [
+      "species/noturus-elegans"
+    ],
+    "updatedAt": "2026-11-06T20:12:51.844Z",
+    "hash": "fbdcb9697599decf03a0f875068603db5f8da3f4b56d9c0174c365d66003c5ac",
+    "processedHash": "fbdcb9697599decf03a0f875068603db5f8da3f4b56d9c0174c365d66003c5ac",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1266": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:14:08.256Z",
+    "hash": "8c22029c883c17626f9e85382c8b65daf9a54527be16d28cc5ff69cc8bd3da4e",
+    "processedHash": "8c22029c883c17626f9e85382c8b65daf9a54527be16d28cc5ff69cc8bd3da4e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1267": {
+    "entityIds": [
+      "species/loricaria-cataphracta"
+    ],
+    "updatedAt": "2026-11-06T20:20:20.584Z",
+    "hash": "dff37daa857fd5a46399cf98c4bde48ebf2dac4adf24fcf01b10a3993e379eea",
+    "processedHash": "dff37daa857fd5a46399cf98c4bde48ebf2dac4adf24fcf01b10a3993e379eea",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1268": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:21:12.201Z",
+    "hash": "ed8ee1e2a917ac784b62688f41d40b6ebe53dd5694d03caa54561db8cdd7a22a",
+    "processedHash": "ed8ee1e2a917ac784b62688f41d40b6ebe53dd5694d03caa54561db8cdd7a22a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1269": {
+    "entityIds": [
+      "species/otothyris-travassosi"
+    ],
+    "updatedAt": "2026-11-06T20:22:00.960Z",
+    "hash": "b227d5c020ab4da667e27f8c4dde5ab1da9dba9398e14a6780c60721a6b1c5b3",
+    "processedHash": "b227d5c020ab4da667e27f8c4dde5ab1da9dba9398e14a6780c60721a6b1c5b3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=127": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:22:55.081Z",
+    "hash": "3eda83677e4ce8f1344af9f09fe86c3527ad8e0cb30de59304426d3370ae1f6b",
+    "processedHash": "3eda83677e4ce8f1344af9f09fe86c3527ad8e0cb30de59304426d3370ae1f6b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1270": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:23:21.818Z",
+    "hash": "43129f2e9fa1dbfd28fc492031264f5810d86769abe4cd2436fd985344565ea6",
+    "processedHash": "43129f2e9fa1dbfd28fc492031264f5810d86769abe4cd2436fd985344565ea6",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1271": {
+    "entityIds": [
+      "species/farlowella-amazonum"
+    ],
+    "updatedAt": "2026-11-06T20:23:55.375Z",
+    "hash": "a0cb4118cf6b2270773fb6d5e8ba92bb65526e610ae70885e57565f27a31c0a2",
+    "processedHash": "a0cb4118cf6b2270773fb6d5e8ba92bb65526e610ae70885e57565f27a31c0a2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1272": {
+    "entityIds": [
+      "species/rineloricaria-morrowi"
+    ],
+    "updatedAt": "2026-11-06T20:24:41.799Z",
+    "hash": "cee495dc664611dd1f8c551485d4d9255047e751424bc066c3ce7ea795ee9f31",
+    "processedHash": "cee495dc664611dd1f8c551485d4d9255047e751424bc066c3ce7ea795ee9f31",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1273": {
+    "entityIds": [
+      "species/ditrupa-arietina"
+    ],
+    "updatedAt": "2026-11-06T20:25:54.298Z",
+    "hash": "3cc37ce2bd37c63a6bd9079f6028268f5a4365125f35354f6effa286e9831e2c",
+    "processedHash": "3cc37ce2bd37c63a6bd9079f6028268f5a4365125f35354f6effa286e9831e2c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1274": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:28:29.081Z",
+    "hash": "9c2e9f76a44d0af7e01a371caadde3d8d10d5cd0ad488523527f80bd80462199",
+    "processedHash": "9c2e9f76a44d0af7e01a371caadde3d8d10d5cd0ad488523527f80bd80462199",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1275": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:28:59.237Z",
+    "hash": "be90f79183f9bafb5383db4ce1815a93eb71d013d2c0f969dd6f4e3f7efe3a6c",
+    "processedHash": "be90f79183f9bafb5383db4ce1815a93eb71d013d2c0f969dd6f4e3f7efe3a6c",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1276": {
+    "entityIds": [
+      "species/aphanotorulus-unicolor"
+    ],
+    "updatedAt": "2026-11-06T20:29:51.156Z",
+    "hash": "45e7dc59b1bd68cc779d47960f8ef23aef6ee9c1038beee9992b98af81e94d61",
+    "processedHash": "45e7dc59b1bd68cc779d47960f8ef23aef6ee9c1038beee9992b98af81e94d61",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1277": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:30:39.473Z",
+    "hash": "a67452c5a1b3623f26b4552c53b3fdeac3ea9050390e2117a8210108e01ce6dc",
+    "processedHash": "a67452c5a1b3623f26b4552c53b3fdeac3ea9050390e2117a8210108e01ce6dc",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1278": {
+    "entityIds": [],
+    "updatedAt": "2026-11-06T20:31:59.790Z",
+    "hash": "ceda40046f88fea2305df2e09a2b54a85b8808ca9ad80a16a52676984d421524",
+    "processedHash": "ceda40046f88fea2305df2e09a2b54a85b8808ca9ad80a16a52676984d421524",
+    "status": "skipped",
+    "attempts": 0
   }
 }

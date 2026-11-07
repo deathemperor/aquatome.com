@@ -1,0 +1,39 @@
+{
+  "id": "apistogramma-uaupesi",
+  "native": {
+    "input": "6746b872c159bb1a",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma uaupesi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371279,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        39
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

@@ -17,15 +17,17 @@
   "range": {
     "native": {
       "countries": [
-        "BR"
+        "BR",
+        "PE"
       ],
       "regions": [
-        "Upper Amazon",
+        "Amazon",
         "Rio Purus"
       ],
       "sources": [
         "planetcatfish",
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
@@ -39,11 +41,19 @@
           ]
         },
         {
+          "source": "glaser",
+          "quote": "However, aquarists are by far more splitting in this respect and distinguish at least four different species, among them A. frankei from Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
           "source": "planetcatfish",
           "quote": "South America: Upper Amazon River basin.",
           "countries": [],
           "regions": [
-            "Upper Amazon"
+            "Amazon"
           ]
         }
       ]
@@ -79,25 +89,25 @@
           -78.75,
           -5.625,
           7,
-          0
+          7
         ],
         [
           -78.75,
           -4.21875,
           21,
-          0
+          21
         ],
         [
           -77.34375,
           -7.03125,
           6,
-          0
+          6
         ],
         [
           -77.34375,
           -2.8125,
           1,
-          0
+          1
         ],
         [
           -77.34375,
@@ -109,19 +119,19 @@
           -75.9375,
           -9.84375,
           6,
-          0
+          6
         ],
         [
           -75.9375,
           -8.4375,
           3,
-          0
+          3
         ],
         [
           -75.9375,
           -1.40625,
           5,
-          0
+          2
         ],
         [
           -75.9375,
@@ -133,7 +143,7 @@
           -74.53125,
           -12.65625,
           1,
-          0
+          1
         ],
         [
           -73.125,
@@ -151,7 +161,7 @@
           -71.71875,
           -11.25,
           3,
-          0
+          3
         ],
         [
           -71.71875,
@@ -163,13 +173,13 @@
           -70.3125,
           -14.0625,
           2,
-          0
+          2
         ],
         [
           -70.3125,
           -12.65625,
           8,
-          0
+          2
         ],
         [
           -70.3125,
@@ -323,12 +333,6 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/aphanotorulus_unicolor.htm",
       "html": "<p>South America: Brazil; Upper Amazon River basin.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/aphanotorulus_frankei_bolivia_en/",
-      "html": "<p>Aphanotorulus frankei is known from Peru. The fish received in the shipment come from the Madre de Dios basin in Bolivia and are very similar to A. frankei.</p>"
     },
     {
       "key": "maintenance",

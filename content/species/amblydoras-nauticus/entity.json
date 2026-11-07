@@ -11,6 +11,140 @@
     "amazon",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Marañón",
+        "Ucayali",
+        "Tigre",
+        "Amazonia"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Amazon",
+            "Marañón",
+            "Ucayali",
+            "Tigre"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "One of the most common species of Doradidae in Amazonia.",
+          "countries": [],
+          "regions": [
+            "Amazonia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344001,
+      "total": 19,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          13
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -276,8 +410,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30",
-        "bể cá 54 lít"
+        "bể cá 60cm"
       ]
     },
     {
@@ -302,120 +435,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06",
-  "range": {
-    "native": {
-      "countries": [
-        "PE"
-      ],
-      "regions": [
-        "Amazon",
-        "Marañón",
-        "Ucayali",
-        "Tigre"
-      ],
-      "sources": [
-        "seriouslyfish",
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "seriouslyfish",
-          "quote": "Occurs in Peru: Amazon, Marañón, Tigre and Ucayali.",
-          "countries": [
-            "PE"
-          ],
-          "regions": [
-            "Amazon",
-            "Marañón",
-            "Ucayali",
-            "Tigre"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2344001,
-      "total": 19,
-      "fetched": "2026-11-06",
-      "countries": [
-        [
-          "PE",
-          13
-        ],
-        [
-          "BR",
-          2
-        ],
-        [
-          "CO",
-          2
-        ],
-        [
-          "EC",
-          1
-        ],
-        [
-          "VE",
-          1
-        ]
-      ],
-      "cells": [
-        [
-          -75.9375,
-          -5.625,
-          1,
-          1
-        ],
-        [
-          -75.9375,
-          -1.40625,
-          1,
-          0
-        ],
-        [
-          -75.9375,
-          0,
-          1,
-          0
-        ],
-        [
-          -74.53125,
-          -4.21875,
-          11,
-          11
-        ],
-        [
-          -73.125,
-          -4.21875,
-          1,
-          1
-        ],
-        [
-          -70.3125,
-          0,
-          1,
-          0
-        ],
-        [
-          -68.90625,
-          2.8125,
-          1,
-          0
-        ],
-        [
-          -66.09375,
-          -11.25,
-          1,
-          0
-        ],
-        [
-          -64.6875,
-          -8.4375,
-          1,
-          0
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-06"
 }

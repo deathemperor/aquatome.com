@@ -110,11 +110,11 @@
     ]
   },
   "anubias-barteri-nana": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "Anubias Nana",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "Anubias nana",
     "confidence": "high",
-    "score": 1,
+    "score": 0.95,
     "notes": []
   },
   "anubias-barteri-petite": {
@@ -435,57 +435,49 @@
     ]
   },
   "bucephalandra-sp": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "Bucephalandra Dark Leaf",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "Bucephalandra sp. 'Dark Leaf'",
     "confidence": "low",
-    "score": 0.85,
-    "notes": [
-      "Item 1: \"Bucephalandra\" vs source \"Bucephelandra\" — the source spelling is a typo; the corrected Latin name is fine, no change needed unless strict fidelity is wanted.",
-      "Item 2: \"habitat ready\" was translated as \"akuarium ... sudah siap\"; better to keep it closer to the source, e.g. \"pastikan tempat tumbuh/aquascape sudah siap sebelum membeli\".",
-      "Item 1: \"emersed\" is rendered as \"tumbuh di atas permukaan air\"; the common hobby wording is \"emers\" (tumbuh di luar air/semi-terendam). Consider \"emers\" and \"submers\" alongside the English terms."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "bucephalandra-sp-dark-skeleton-king": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "Bucephalandra Dark Skeleton King",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "\"tumbuh di atas permukaan air / emers (emersed)\": slash-separated alternatives look unpolished; use \"tumbuh emers (emersed)\" or \"tumbuh di luar air (emers)\".",
-      "\"aquascape/akuarium bertanaman\": slash alternatives; choose one, e.g. \"akuarium tanaman (planted tank)\".",
-      "\"habitat/lingkungan tumbuhnya\": drop the slash and choose one, e.g. \"lingkungan tumbuhnya\" or \"akuarium/habitatnya\"."
+      "Item 1: \"kadang muncul ke permukaan/emers (emersed)\" is imprecise. Emersed means growing with leaves above the water, not surfacing. Use \"kadang tumbuh di atas permukaan air (emers)\".",
+      "Item 1: the source spells the genus \"Bucephelandra\" and the translation silently changes it to \"Bucephalandra\". The correct spelling is fine, but the Latin name was altered from the source.",
+      "Item 2: the source text is Vietnamese, not English. The Indonesian is faithful, so there is no translation error, but the source field looks mislabelled."
     ]
   },
   "bucephalandra-sp-degori": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "Bucephalandra Degori",
-    "confidence": "high",
+    "confidence": "medium",
     "score": 0.75,
     "notes": [
-      "\"Bucephalandra\": the source spells it \"Bucephelandra\"; the Latin name should stay as in the source, or silently correct it only if intended. This is a minor point.",
-      "\"Isi per porsi: 3 rizoma\": the source says \"Portion\", which is a plant portion. \"Satu porsi: 3 rizoma\" or \"Per porsi: 3 rizoma\" is more natural.",
-      "\"2-3 inches (about 5-8 cm)\": the translation gives \"sekitar 5–8 cm\" and adds \"panjang\", which the source does not say. Fine to convert, but \"panjang\" is an added word.",
-      "\"di atas permukaan air (emersed)\": \"emersed\" means grown out of water with the roots in a wet substrate. Prefer \"tumbuh emers (di luar air)\" so it does not read as floating.",
-      "\"akuarium atau wadahnya\": the source \"habitat\" means the tank or setup. \"Akuarium atau wadahnya\" adds a nuance. Use \"akuarium/aquascape\" or \"tempat tinggalnya\" instead.",
-      "\"akuarium cupang sederhana\": \"simple betta tanks\" is fine, but \"low-maintenance\" is rendered as \"perawatannya mudah\", which is acceptable. No change needed here."
+      "Item 1: The source spells the genus \"Bucephelandra\", but the translation has \"Bucephalandra\". The correct spelling is fine, but it is a change to the Latin name, so make sure it is intentional.",
+      "Item 1: \"emersed (di atas permukaan air)\" leaves the English term in place. Use the Indonesian \"emers\" or \"tumbuh di atas permukaan air\", with \"emersed\" in brackets if needed.",
+      "Item 2: The source is Vietnamese, not English, so it can't be checked against an English original. The Indonesian follows the Vietnamese closely. Check that the correct source text was supplied.",
+      "Item 4: \"tempatnya\" is too vague for \"habitat\". Use \"habitat\" or \"akuarium/tempat tumbuhnya\" so the advice is clear.",
+      "Item 2: \"Buce\" is a slangy short form. Use \"Bucephalandra\" at first mention, then \"Buce\" if wanted."
     ]
   },
   "bucephalandra-sp-mini-melawi": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "Bucephalandra Mini Melawi",
     "confidence": "high",
-    "score": 0.8,
+    "score": 0.9,
     "notes": [
-      "\"Anda\" in \"yang akan Anda terima\" is fine, but consider more neutral \"yang akan diterima\".",
-      "\"emersed\" left in English while \"submersed\" is also English: use \"emers\"/\"submers\" or Indonesian \"terendam\" and \"di atas permukaan air\" consistently, e.g. \"tumbuh terendam (submersed) dan tumbuh emers (emersed)\".",
-      "Source says \"grown submersed and emersed at times\" (cultivated); translation says \"di habitat aslinya kadang tumbuh\" - slight shift, consider \"dapat ditanam secara terendam maupun emers\".",
-      "\"Single, Double, atau Triple\" left in English; consider adding Indonesian like \"Single (1 rimpang), Double (2), Triple (3)\" for clarity.",
-      "\"habitatnya (akuarium/aquascape)\" adds interpretation in brackets; \"habitat\" here means the setup/tank, better \"akuarium atau aquascape-nya\" without the bracket.",
-      "Genus name spelled \"Bucephalandra\" vs source \"Bucephelandra\": the source typo was corrected; acceptable but note change."
+      "Item 2: the source text is Vietnamese, not English. The Indonesian follows it faithfully, but the source should be checked.",
+      "Item 1: the source spells it \"Bucephelandra\" and the translation silently changes it to \"Bucephalandra\". This is a correct typo fix, so it is only worth confirming.",
+      "Item 1: \"3 rimpang di foto sebagai perkiraan kasar ukuran porsinya\" is slightly clumsy. Consider \"foto menampilkan 3 rimpang sebagai perkiraan kasar porsi yang Anda terima\"."
     ]
   },
   "bucephalandra-sp-needle-leaf": {
@@ -516,29 +508,31 @@
     ]
   },
   "bucephalandra-sp-red-cherry": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "Bucephalandra Red Cherry",
     "confidence": "medium",
-    "score": 0.8,
+    "score": 0.72,
     "notes": [
-      "\"Dijual per porsi berisi 3 rimpang (tersedia porsi tunggal, ganda, atau tripel)\": \"tripel\" is awkward; use \"porsi 1x, 2x, atau 3x\" or \"satu, dua, atau tiga porsi\" to make clear that each portion is 3 rhizomes.",
-      "\"Tempat untuk tanamannya\" for \"habitat\" is vague; better \"akuarium/aquascape atau lingkungan tumbuhnya\" so the care advice is clear.",
-      "\"jelas ideal\" for \"definitely ideal\" is slightly stiff; \"sangat ideal\" reads more naturally.",
-      "\"akuarium tanaman air\" is acceptable, but \"aquascape\" or \"akuarium bertanaman\" may be more common among hobbyists."
+      "Item 1: \"kadang emersed\" leaves the English word bare, while \"submersed\" is translated and bracketed. Use \"terendam (submersed)\" and \"tumbuh di atas permukaan air (emersed/emers)\".",
+      "Item 1: the source spells the genus \"Bucephelandra\" and the translation changes it to \"Bucephalandra\". This is the correct spelling, so it is only a minor point. Keep the Latin name as the source has it, or apply the same spelling everywhere.",
+      "Item 1: \"di habitat aslinya kadang tumbuh terendam\" is slightly loose. Consider \"dapat tumbuh terendam maupun emers, sesuai habitat aslinya\"."
     ]
   },
   "bucephalandra-sp-round-leaf": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "Bucephalandra Round Leaf",
     "confidence": "medium",
-    "score": 0.8,
+    "score": 0.55,
     "notes": [
-      "\"Porsi: 3 rizom\": \"Portion\" here means a plant portion/cutting; \"Porsi\" sounds like food serving. Prefer \"Per paket/porsi: 3 rimpang (rhizome)\" or \"Jumlah: 3 rizom\".",
-      "\"Buce\" is introduced without explanation (source says Bucephelandra); use \"Bucephalandra\" or \"Buce\" with a first-mention gloss.",
-      "\"tempat atau akuariumnya\" in #3: \"habitat\" means the setup/tank; simplify to \"akuarium atau aquascape-nya\" for natural wording.",
-      "\"semua akuarium tanaman air\" is slightly stiff; \"semua akuarium aquascape/tanaman\" reads more naturally."
+      "Item 2: the source is Vietnamese, not English, but the ID follows it faithfully, so no translation fault there.",
+      "Item 2: 'Bông đá' means rockwool, and 'Membersihkan rockwool' / 'cabuti semua rockwool' is fine. But 'lepaskan saja dari pot' is added: the source says 'gỡ ra', which means take the plant out. It also says 'ngâm riêng trong nước', so 'rendam terpisah di air' is OK.",
+      "Item 2: 'Bụi to, thân dày' is rendered as 'Rumpun yang besar dengan batang tebal'. Bucephalandra has rhizomes, so 'batang' should be 'rimpang'.",
+      "Item 2: 'hút bớt phân dư' is rendered as 'menyerap kelebihan pupuk'. This is acceptable, but 'nutrisi berlebih' would be more natural.",
+      "Item 3: 'Bucephelandra' is misspelled. The genus is Bucephalandra, and the Latin name must be correct. Item 2 uses the right spelling.",
+      "Item 3: 'grown submersed and emersed at times from their habitats' is rendered as 'di habitat aslinya tumbuh terendam ... dan kadang-kadang di atas permukaan air'. This is acceptable. 'submersed' and 'emersed' could be given as 'terendam penuh' and 'tumbuh di atas air'.",
+      "Item 1: 'Portion' is rendered as 'Jumlah', which is acceptable. 'Porsi' or 'Takaran' would fit better."
     ]
   },
   "bucephelandra-sp": {
@@ -928,17 +922,12 @@
     ]
   },
   "eleocharis-parvula": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Eleocharis parvula",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "Dwarf Hairgrass",
     "confidence": "medium",
-    "score": 0.75,
-    "notes": [
-      "\"geragih (runner)\": \"geragih\" is an unusual term; hobbyists usually say \"stolon\" or \"sulur\". Also it is inconsistent with item 1, which uses \"stolon\".",
-      "\"Tanaman latar depan yang ideal\": fine in meaning, but \"foreground\" is more naturally \"tanaman latar depan/foreground\" as a full sentence, e.g. \"Cocok sebagai tanaman latar depan\".",
-      "\"berjarak cukup rapat\" is slightly contradictory/awkward; use \"dengan jarak cukup rapat\" or \"ditanam cukup rapat\".",
-      "\"Asal: kosmopolitan\" is fine, but \"Tipe: stolon\" would be clearer as \"Tipe: berstolon\" or \"Tipe pertumbuhan: stolon\"."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "eleocharis-pusilla": {
     "at": "2026-10-31",
@@ -1977,44 +1966,101 @@
       "Item 8: \"arus yang lembut paling optimal\" is slightly stilted. Use \"arus yang pelan/lembut paling ideal\"."
     ]
   },
+  "solenostoma-tetragonum": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Pearl Moss",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Kecepatan tumbuh\" is fine, but \"layout\" could be \"tata letak\" for natural Indonesian. This is minor.",
+      "\"liverwort\" is left in English; consider adding the Indonesian \"lumut hati\" in brackets for readers who don't know the term. This is minor.",
+      "\"rata-rata tinggi setelah dua bulan\" reads slightly awkwardly; \"tinggi rata-rata setelah dua bulan\" is more natural."
+    ]
+  },
+  "spirodela-polyrrhiza": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Giant Duckweed",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"aquarist\" is left in English; use \"aquascaper\" or \"penghobi akuarium\" instead.",
+      "\"Daunnya\" for \"fronds\": duckweed has thalli, not true leaves. This is acceptable, but \"talus\" or \"daun\" is fine and not a real error.",
+      "\"Kebutuhan cahaya\": \"Tuntutan cahaya\" is not needed. The current wording is fine."
+    ]
+  },
   "staurogyne-repens": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "Staurogyne repens",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "#8: \"Otocinclus\" drops \"catfish\" from \"Otocinclus catfish\"; use \"ikan sapu-sapu Otocinclus\" or \"Otocinclus (catfish)\".",
-      "#8: \"(MTS)\" was added after \"siput Malaysian trumpet\". It isn't in the source, so remove it or write the local name \"keong/siput trumpet Malaysia\".",
-      "#7: \"(tabung)\" was added after \"sistem CO2 bertekanan\". It isn't in the source, so remove it.",
-      "#9: \"jatuh ke tanah\" for \"fall onto the soil\" sounds odd for an aquarium. Use \"jatuh ke substrat\"."
+      "Item 9: \"White Mountain minnow (white cloud)\" adds an alias that is not in the source. Keep only the name, or use the common local name.",
+      "Item 9: \"Karena lembut dan disukai pemakan tanaman\" is a loose rendering of \"delicate and palatable\". Something like \"Karena daunnya lembut dan enak dimakan\" is clearer."
     ]
   },
   "taxiphyllum-alternans": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "Taiwan Moss",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.75,
     "notes": [
-      "\"percabangan\" for \"branching nodes\" loses the nodes detail; consider \"lebih banyak buku percabangan\" or \"titik percabangan\".",
-      "\"Moss ini\" is fine, but \"Java moss\" and \"Taiwan moss\" could be given as \"lumut Jawa\"/\"Java moss\" consistently; minor.",
-      "\"burayak\" is a regional term for fry; \"anakan ikan\" or \"benih\" is more common among Indonesian hobbyists."
+      "Item 4: \"Be sure to have the habitat ready before purchase\" is translated as \"Pastikan tempatnya sudah siap\". \"Tempatnya\" is vague. Use \"habitatnya\" or \"akuarium/penataannya\".",
+      "Item 5: \"family Isopterygium\" is kept as written, but Isopterygium is a genus, not a family. The source error is carried over. Consider \"genus\" if the translator may correct it, or flag it.",
+      "Item 3: \"diikat ke kayu\" is fine, but \"Attaching\" could be \"ditempelkan/diikat\". \"menyamarkan peralatan\" for \"hiding installations\" is slightly narrow. \"instalasi/perlengkapan\" would be closer."
     ]
   },
   "taxiphyllum-barbieri": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-10-31",
     "name": "Java Moss",
     "confidence": "high",
     "score": 0.85,
     "notes": [
-      "\"Udang akan dengan senang hati memakan serabut putih tersebut sampai habis\": \"white fluff\" is the hair algae; consider \"serabut putih\" -> \"alga berbulu putih\" for clarity, and avoid implying the moss itself is eaten.",
-      "\"Udang juga bisa membersihkan moss dengan hati-hati\": \"delicately\" is better as \"dengan lembut\" or \"tanpa merusaknya\".",
-      "\"cukup dipangkas sebentar\": \"give it a quick trim\" is better as \"cukup dipangkas sedikit/ringan\".",
-      "\"mirip tanaman rambat\" for ivy: consider \"mirip tanaman ivy/sulur\" for accuracy.",
-      "\"burayak\" for fry is fine in a hobby context, but \"anakan ikan\" is more widely understood.",
-      "\"disampirkan di atas atau ditempelkan pada dahan kayu\": \"high or low\" refers to placement within the tank; \"di atas\" is ambiguous with \"over\". Use \"baik di bagian atas maupun bawah akuarium\" for the placement only."
+      "#5: \"burayak\" is a regional term for fry; \"benih ikan\" or \"anakan ikan\" is more common for hobbyists, and \"burayak\" also sounds inconsistent next to \"anakan ikan\" in the same passage.",
+      "#6: \"mirip tanaman rambat\" for ivy is loose; \"mirip ivy/sirih belanda\" would be more precise.",
+      "#3: \"Udang dengan senang hati akan memakan habis serabut putih\" is slightly stiff; the \"white fluff\" is also vague, so say that the shrimp eat the algae.",
+      "#6: \"melayang di situ\" for \"float there\" is awkward; \"mengambang\" would be more natural."
+    ]
+  },
+  "taxiphyllum-sp-flame-moss": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Flame Moss",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"cup tertutup\": 'cup' left in English; prefer \"cup tertutup\" is acceptable but more natural is \"dalam wadah/cup tertutup (closed cup)\" - minor.",
+      "\"Ikatkan moss ini pada batu-batu kecil atau dalam ikatan-ikatan kecil\": slightly awkward; use \"atau dalam ikatan kecil pada akar kayu\" and avoid reduplicated plurals.",
+      "\"permukaan yang datar\": English says 'horizontal surfaces'; fine, but 'menyebar ke samping' is okay; consider \"permukaan horizontal\" for fidelity.",
+      "Height in list (3–10+ cm) vs text (5–15 cm) is a source inconsistency, correctly preserved; no change needed."
+    ]
+  },
+  "taxiphyllum-sp-spiky-moss": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Spiky Moss",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 2: \"Paling pas disebut sebagai kakaknya Christmas moss\" is colloquial; better \"Bisa digambarkan sebagai versi lebih besar dari Christmas moss\".",
+      "Item 2: \"tetap subur di bawah cahaya yang sangat redup\" is a bit loose for \"thrives at a very low light intensity\"; \"tumbuh baik pada intensitas cahaya sangat rendah\" is more faithful.",
+      "Item 2: \"dengan jarak sedikit di antaranya\" is awkward; use \"dengan jarak tanam yang rapat/kecil antarrumpun\"."
+    ]
+  },
+  "utricularia-graminifolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Utricularia graminifolia",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"rumput lapangan\" is slightly awkward; \"hamparan seperti padang rumput/halaman rumput\" would read more naturally.",
+      "\"famili bladderwort\" leaves the English name; a local name such as \"famili Lentibulariaceae\" or \"tanaman kantung semar air\" may be clearer.",
+      "\"Asal: Asia\" is fine, but \"Asal daerah\" or \"Asal-usul\" is more common."
     ]
   },
   "vallisneria": {

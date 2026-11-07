@@ -12,6 +12,106 @@
     "peru",
     "madre-de-dios"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Río Madre de Dios"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brachyrhamdia meesi is a small heptapterid catfish described from near Belém, at the mouth of the Amazon in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its precise distribution is unclear, with one record from the Río Madre de Dios basin in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Madre de Dios"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'near Belem, Brazil', i.e., the city of Belém near the mouth of the Amazon River in Pará state.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343648,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          5
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -127,7 +227,52 @@
       "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Sullivan, J. P., J. G. Lundberg and M. Hardman (2006). A phylogenetic analysis of the major groups of catfishes (Teleostei: Siluriformes) using rag1 and rag2 nuclear gene sequences. Molecular Phylogenetics and Evolution 41(3), 636–662</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4bd81e8664581d03.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4bd81e8664581d03-480.webp",
+      "width": 500,
+      "height": 295,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_meesi.htm",
+      "caption": "Brachyrhamdia meesi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6038cf4e9ba0ef08.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6038cf4e9ba0ef08-480.webp",
+      "width": 500,
+      "height": 317,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_meesi.htm",
+      "caption": "Brachyrhamdia meesi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/820511a7d2996255.webp",
+      "thumb": "https://media.aquatome.com/scotcat/820511a7d2996255-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_meesi.htm",
+      "caption": "Brachyrhamdia meesi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4bb44171669efed0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4bb44171669efed0-480.webp",
+      "width": 500,
+      "height": 270,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralp / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/brachyrhamdia_meesi.htm",
+      "caption": "Brachyrhamdia meesi",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "tf2OGQmlrZE",
@@ -158,8 +303,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá 72 lít"
+        "bể cá 80cm"
       ]
     },
     {

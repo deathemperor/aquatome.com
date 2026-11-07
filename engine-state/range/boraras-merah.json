@@ -1,0 +1,95 @@
+{
+  "id": "boraras-merah",
+  "native": {
+    "input": "1195703220e075c5",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Boraras merah is a miniature cyprinid from southern Borneo, described from the Jelai Bila river basin near Sukamara in Central Kalimantan, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from the Jelai Bila river basin at Nataik Sedawak, presumably a settlement of some kind, near the town of Sukamara in the Indonesian province of Kalimantan Tengah (Central Kalimantan).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Jelai Bila",
+        "source": "seriouslyfish",
+        "quote": "Boraras merah is a miniature cyprinid from southern Borneo, described from the Jelai Bila river basin near Sukamara in Central Kalimantan, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to southern Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Boraras merah",
+    "status": "ACCEPTED",
+    "taxonKey": 2366584,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        3
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

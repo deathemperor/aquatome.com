@@ -1,0 +1,83 @@
+{
+  "id": "barilius-caudiocellatus",
+  "native": {
+    "input": "49bc6024af66a19f",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Opsarius caudiocellatus is a cyprinid known only from the Salween in southern China, Myanmar and western Thailand, and the upper Mekong in Yunnan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Opsarius caudiocellatus is a cyprinid known only from the Salween in southern China, Myanmar and western Thailand, and the upper Mekong in Yunnan.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Opsarius caudiocellatus is a cyprinid known only from the Salween in southern China, Myanmar and western Thailand, and the upper Mekong in Yunnan.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Opsarius caudiocellatus is a cyprinid known only from the Salween in southern China, Myanmar and western Thailand, and the upper Mekong in Yunnan.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Opsarius caudiocellatus is a cyprinid known only from the Salween in southern China, Myanmar and western Thailand, and the upper Mekong in Yunnan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius caudiocellatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2363325,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "MM",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

@@ -1,19 +1,21 @@
 {
   "slug": "anubias-nana",
-  "name": "Anubias Nana",
+  "name": "Anubias nana",
   "altNames": [
-    "Anubias barteri nana",
     "Anubias barteri var. nana",
-    "Anubias"
+    "Anubias barteri nana",
+    "Dwarf Anubias"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li><strong>Asal:</strong> Afrika</li><li><strong>Kecepatan tumbuh:</strong> Lambat</li><li><strong>Tinggi:</strong> 5–15+ cm (tinggi rata-rata setelah dua bulan di akuarium)</li><li><strong>Kebutuhan cahaya:</strong> Rendah</li><li><strong>Kebutuhan CO2:</strong> Rendah</li></ul>"
+    "quickFacts:tropica": "<ul><li><strong>Asal:</strong> Afrika</li><li><strong>Kecepatan tumbuh:</strong> Lambat</li><li><strong>Tinggi:</strong> 5–15+ cm (tinggi rata-rata setelah dua bulan di akuarium)</li><li><strong>Kebutuhan cahaya:</strong> Rendah</li><li><strong>Kebutuhan CO2:</strong> Rendah</li></ul>",
+    "maintenance:aquatome": "<p>Anubias nana cocok untuk bagian depan dan tengah aquascape. Tanaman ini hidup menempel di kayu atau batu, jadi kebanyakan hobiis mengikatnya ke kayu, bukan menanamnya di substrat.</p><ul><li>Rumpun anubias yang besar biasanya punya akar yang sangat panjang, sehingga susah menempel rapat ke kayu. Potong akarnya sedikit, lalu bagi rumpunnya jadi beberapa bagian kecil supaya bisa disebar di beberapa titik pada kayu.</li><li>Coba letakkan tiap bagian di kayu dulu, dan ikat setelah tata letaknya sudah pas. Dengan begitu, Anda tidak perlu berkali-kali melepas dan mengikat ulang.</li><li>Lilitkan senar pancing ke tanaman dan kayu dengan sangat pelan, karena kalau ditarik terlalu kencang daunnya gampang patah. Jangan lupa pakai simpul ganda. Simpul tunggal gampang lepas, sehingga tanamannya jadi longgar dan terus-terusan miring.</li><li>Untuk celah sempit yang tidak bisa dilewati senar, pakai lem tipe gel. Selama proses mengikat, tanaman cukup lama berada di luar air, jadi semprot dengan air setiap kali tanamannya mulai terlihat kering.</li></ul>"
   },
   "quality": {
-    "score": 1,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "tropica": 1
+      "tropica": 0.95,
+      "aquatome": 0.95
     }
   }
 }

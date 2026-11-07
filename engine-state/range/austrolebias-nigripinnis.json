@@ -1,0 +1,87 @@
+{
+  "id": "austrolebias-nigripinnis",
+  "native": {
+    "input": "83b5d5689bc14765",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They originate from the south of South America (Argentina, Paraguay, Uruguay and southern Brazil), but are exclusively traded as offspring.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They originate from the south of South America (Argentina, Paraguay, Uruguay and southern Brazil), but are exclusively traded as offspring.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They originate from the south of South America (Argentina, Paraguay, Uruguay and southern Brazil), but are exclusively traded as offspring.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They originate from the south of South America (Argentina, Paraguay, Uruguay and southern Brazil), but are exclusively traded as offspring.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Austrolebias nigripinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2349007,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "2cc6a882-3bfb-4232-a6c8-c46d4f1cf25f",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "AR",
+      "PY",
+      "UY",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

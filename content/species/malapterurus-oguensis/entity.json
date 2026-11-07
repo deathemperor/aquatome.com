@@ -1,0 +1,85 @@
+{
+  "id": "malapterurus-oguensis",
+  "scientificName": "Malapterurus oguensis",
+  "order": "Siluriformes",
+  "family": "Malapteruridae",
+  "genus": "Malapterurus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gabon",
+    "ogooue",
+    "cameroon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Malapterurus oguensis Sauvage, 1879. Type locality: Ogôoué River at Duomé, Congo [should be Gabon]. Size: 215 mm SL. IUCN Red List: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Etymology: Malapterurus comes from the Greek malakos, meaning soft, pteron, meaning fin and oura, meaning tail; presumably in reference to the adipose fin, which appears all the more prominent in the absence of the rayed dorsal fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1261",
+      "html": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 3, pp99 [10].</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a3fbe24dc4e38b86.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a3fbe24dc4e38b86-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_oguensis.htm",
+      "caption": "Malapterurus oguensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy lọc bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

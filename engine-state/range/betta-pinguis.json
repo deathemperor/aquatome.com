@@ -1,0 +1,58 @@
+{
+  "id": "betta-pinguis",
+  "native": {
+    "input": "925c6d63619a8826",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta pinguis is a paternal mouthbrooding labyrinth fish known only from the middle and upper Kapuas watershed in West Kalimantan, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as ‘Sungai Letang near Kampung Kandung Suli (Kecamatan Jongkong), Kapuas basin, Kalimantan Barat, Borneo’, and this species is known only from the middle and upper Kapuas watershed in Kalimantan Barat province, Indonesia (Borneo).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Betta pinguis is a paternal mouthbrooding labyrinth fish known only from the middle and upper Kapuas watershed in West Kalimantan, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Betta pinguis is a paternal mouthbrooding labyrinth fish known only from the middle and upper Kapuas watershed in West Kalimantan, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta pinguis",
+    "status": "ACCEPTED",
+    "taxonKey": 2393981,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

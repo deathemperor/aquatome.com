@@ -1,0 +1,87 @@
+{
+  "id": "badis-blosyrus",
+  "native": {
+    "input": "93ce62b4f40fa514",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Badis blosyrus is a badid from western Assam and northern West Bengal in India, in the Brahmaputra drainage.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type series was collected close to the town of Raimana in western Assam state, northern India and at the time represented the only known population of the species.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been collected in the nearby Buxa (often spelled 'Buxar') National Park, West Bengal state, from the Raidak River, a tributary of the Brahmaputra rising in Bhutan, and from streams of the western Garo Hills in Meghalaya state, south of the main Brahmaputra channel (tentative identifications).",
+        "words": "Bhutan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Badis blosyrus is a badid from western Assam and northern West Bengal in India, in the Brahmaputra drainage.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Raidak River",
+        "source": "seriouslyfish",
+        "quote": "It has since been collected in the nearby Buxa (often spelled 'Buxar') National Park, West Bengal state, from the Raidak River, a tributary of the Brahmaputra rising in Bhutan, and from streams of the western Garo Hills in Meghalaya state, south of the main Brahmaputra channel (tentative identifications).",
+        "ok": true
+      },
+      {
+        "name": "Garo Hills",
+        "source": "seriouslyfish",
+        "quote": "It has since been collected in the nearby Buxa (often spelled 'Buxar') National Park, West Bengal state, from the Raidak River, a tributary of the Brahmaputra rising in Bhutan, and from streams of the western Garo Hills in Meghalaya state, south of the main Brahmaputra channel (tentative identifications).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "BT"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Badis blosyrus",
+    "status": "ACCEPTED",
+    "taxonKey": 2389468,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BT"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

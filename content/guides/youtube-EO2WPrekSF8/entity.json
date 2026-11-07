@@ -1,0 +1,120 @@
+{
+  "id": "youtube-EO2WPrekSF8",
+  "kind": "disease",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=EO2WPrekSF8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carassius-auratus"
+  ],
+  "updatedAt": "2026-11-06",
+  "video": {
+    "youtubeId": "EO2WPrekSF8",
+    "title": "How To Treat Ich On Fish - Tested On 1,000s Of Fish.",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 915,
+    "publishedAt": "2018-08-28",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "How I treat Ich on fish"
+      },
+      {
+        "start": 42,
+        "title": "How to identify Ich"
+      },
+      {
+        "start": 108,
+        "title": "What does Ich do?"
+      },
+      {
+        "start": 155,
+        "title": "How to change the life cycle of Ich"
+      },
+      {
+        "start": 238,
+        "title": "How to treat Ich on fish"
+      }
+    ],
+    "series": {
+      "id": "PLNM4mDAXGxWyWwI9j6NsO6swhmXLkwojx",
+      "position": 5
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/EO2WPrekSF8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Carassius auratus"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Aquarium Solutions",
+        "model": "Ich X",
+        "t": 219
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Nhận biết bệnh đốm trắng thế nào cho đúng",
+        "moments": [
+          {
+            "t": 69,
+            "url": "https://media.aquatome.com/video/EO2WPrekSF8/t69-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh vây đuôi và thân cá màu cam, nơi Ich thường bám vào."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EO2WPrekSF8/p0-oaXJpYXNpcy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/EO2WPrekSF8/p0-oaXJpYXNpcy5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Djpalme",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichthyophthiriasis.jpg",
+          "caption": "Cá có những chấm trắng li ti như hạt muối trên vây và thân."
+        }
+      },
+      {
+        "heading": "Có nên tăng nhiệt độ để trị Ich không",
+        "moments": [
+          {
+            "t": 226,
+            "url": "https://media.aquatome.com/video/EO2WPrekSF8/t226-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh các đốm Ich trắng bám trên da cá."
+          }
+        ]
+      },
+      {
+        "heading": "Trị xong rồi, làm sao để không tái phát",
+        "moments": [
+          {
+            "t": 610,
+            "url": "https://media.aquatome.com/video/EO2WPrekSF8/t610-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con cá bị Ich phủ đầy đốm trắng li ti trên thân."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EO2WPrekSF8/p6-MzYxMTUwMikuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/EO2WPrekSF8/p6-MzYxMTUwMikuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "Benson Kua from Toronto, Canada",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lippy_Update_(2963611502).jpg",
+          "caption": "Cá vàng mắt lồi khỏe mạnh, da sạch và không còn đốm trắng."
+        }
+      }
+    ]
+  }
+}

@@ -17,6 +17,8 @@ const KIND_LABEL: Record<ReviewKind, string> = {
   glossary: 'glossary terms in Indonesian and Thai (reviewed in batches)',
   places: 'place names in Indonesian and Thai (reviewed in batches)',
   equipment: 'equipment buying guides in Indonesian and Thai, against the Vietnamese',
+  planting: 'plants\' planting text, against their page and video guides',
+  species: 'species pages AquaTome writes from research, and what a species video adds to a page, against their research or video',
 }
 
 /**

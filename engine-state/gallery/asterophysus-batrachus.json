@@ -9,7 +9,19 @@
   "https://media.aquatome.com/scotcat/7616908563756506.webp": "9f8e7a61c382339b",
   "https://media.aquatome.com/scotcat/909bd49ea8f73c31.webp": "c5c4c0ec8c90b2c6",
   "https://media.aquatome.com/scotcat/5d178338d4a77269.webp": "1c397a9dd9bd3f0e",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a6/%E3%83%90%E3%83%88%E3%83%A9%E3%82%AF%E3%82%B9%E3%82%AD%E3%83%A3%E3%83%83%E3%83%88_Asterophysus_batrachus.jpg": "fffffdc58dbbe312"
+  "https://media.aquatome.com/commons/71f098e21c47248a.webp": "fffff9c58fbbe317"
  },
- "commons": "2026-11-06"
+ "commons": "2026-11-06",
+ "inat": {
+  "taxon": 608814,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2344563,
+  "next": null
+ }
 }

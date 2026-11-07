@@ -557,6 +557,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/netuma_thalassina.htm": {
+    "entityIds": [
+      "species/netuma-thalassina"
+    ],
+    "updatedAt": "2026-11-06T11:43:46.575Z",
+    "hash": "075678b97dafc257f43ffa1355b88bc21e802e4dfaa74adbddac81343a0b9e2f",
+    "processedHash": "075678b97dafc257f43ffa1355b88bc21e802e4dfaa74adbddac81343a0b9e2f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm": {
     "entityIds": [
       "species/amaralia-hypsiura"
@@ -577,6 +587,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm": {
+    "entityIds": [
+      "species/auchenipterus-nigripinnis"
+    ],
+    "updatedAt": "2026-11-06T18:45:28.910Z",
+    "hash": "c297e01b58a723e9ce32fa1e958aed952fc2778d898086f8713bd05af4d228fa",
+    "processedHash": "c297e01b58a723e9ce32fa1e958aed952fc2778d898086f8713bd05af4d228fa",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm": {
     "entityIds": [
       "species/centromochlus-heckelii"
@@ -594,6 +614,16 @@
     "updatedAt": "2026-11-02T21:42:25.911Z",
     "hash": "d8a376b0fb15b15a328d255019d71a65be6601c8c866c3eaaea26060441d1df8",
     "processedHash": "d8a376b0fb15b15a328d255019d71a65be6601c8c866c3eaaea26060441d1df8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm": {
+    "entityIds": [
+      "species/auchenoglanis-occidentalis"
+    ],
+    "updatedAt": "2026-11-06T18:48:05.585Z",
+    "hash": "02a8c7970842532f822b2ab3d192b248a735e29372155b2430bd3bae193b6cbe",
+    "processedHash": "02a8c7970842532f822b2ab3d192b248a735e29372155b2430bd3bae193b6cbe",
     "status": "processed",
     "attempts": 0
   },
@@ -694,6 +724,16 @@
     "updatedAt": "2026-11-06T03:49:35.983Z",
     "hash": "a2571038efa63492acb7767de679b5a4dcf04843183555466086c0e195d9fcca",
     "processedHash": "a2571038efa63492acb7767de679b5a4dcf04843183555466086c0e195d9fcca",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/callichthyidae/lepthoplosternum_pectorale.htm": {
+    "entityIds": [
+      "species/lepthoplosternum-pectorale"
+    ],
+    "updatedAt": "2026-11-06T11:36:54.494Z",
+    "hash": "7bf60f0e7c29c07138e5a22c4cf2c90b311ce0f99a093fc21000510dba8c53f7",
+    "processedHash": "7bf60f0e7c29c07138e5a22c4cf2c90b311ce0f99a093fc21000510dba8c53f7",
     "status": "processed",
     "attempts": 0
   },
@@ -844,6 +884,26 @@
     "updatedAt": "2026-11-04T13:36:10.418Z",
     "hash": "8bd12837790946bbe77495dae6e9b02302a24db90bfe2647b0377970bf79a53e",
     "processedHash": "8bd12837790946bbe77495dae6e9b02302a24db90bfe2647b0377970bf79a53e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm": {
+    "entityIds": [
+      "species/noturus-crypticus"
+    ],
+    "updatedAt": "2026-11-06T18:54:25.697Z",
+    "hash": "82acc22f1920e5ac2758d55c2fa85e4b81bf7083d21d8d8e5d87aed6498e1948",
+    "processedHash": "82acc22f1920e5ac2758d55c2fa85e4b81bf7083d21d8d8e5d87aed6498e1948",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ictaluridae/noturus_gladiator.htm": {
+    "entityIds": [
+      "species/noturus-gladiator"
+    ],
+    "updatedAt": "2026-11-06T18:55:49.146Z",
+    "hash": "1d5df46b2d60aee49adbba2771b6bc899f9c8906dbe75088cd5d59a9ebd2c927",
+    "processedHash": "1d5df46b2d60aee49adbba2771b6bc899f9c8906dbe75088cd5d59a9ebd2c927",
     "status": "processed",
     "attempts": 0
   },
@@ -1027,6 +1087,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hypostomus_pusarum.htm": {
+    "entityIds": [
+      "species/hypostomus-pusarum"
+    ],
+    "updatedAt": "2026-11-06T11:33:57.783Z",
+    "hash": "955527d2bad855e4a37b1102301e64f2604493ba800cff0c6bbb19437df32a44",
+    "processedHash": "955527d2bad855e4a37b1102301e64f2604493ba800cff0c6bbb19437df32a44",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/kronichthys_heylandi.htm": {
     "entityIds": [
       "species/kronichthys-heylandi"
@@ -1044,6 +1114,16 @@
     "updatedAt": "2026-11-03T08:22:41.220Z",
     "hash": "1372da02aa73c3dc2f6e2009430d1341eacc0d2401b6d73fff1a6136cedfa14b",
     "processedHash": "1372da02aa73c3dc2f6e2009430d1341eacc0d2401b6d73fff1a6136cedfa14b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/loricaria_simillima.htm": {
+    "entityIds": [
+      "species/loricaria-simillima"
+    ],
+    "updatedAt": "2026-11-06T11:39:14.399Z",
+    "hash": "9d7bc66174a63831ced7b17944c1d5d10ddfb6fef6cae83acd0990f41a3895d4",
+    "processedHash": "9d7bc66174a63831ced7b17944c1d5d10ddfb6fef6cae83acd0990f41a3895d4",
     "status": "processed",
     "attempts": 0
   },
@@ -1125,6 +1205,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm": {
+    "entityIds": [
+      "species/malapterurus-beninensis"
+    ],
+    "updatedAt": "2026-11-06T18:51:43.160Z",
+    "hash": "519ca1e0976f2050f3c52b908c1820f4be9ce59909a4a6b58842e52b3be44cb7",
+    "processedHash": "519ca1e0976f2050f3c52b908c1820f4be9ce59909a4a6b58842e52b3be44cb7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/mochokidae/synodontis_eupterus_marbled.htm": {
     "entityIds": [
       "species/synodontis-eupterus"
@@ -1132,6 +1222,16 @@
     "updatedAt": "2026-10-31T03:59:37.681Z",
     "hash": "aa69b536e3940bdcd50daf7643abc7f117381af6dfba21ccf45c9664dcfe6f23",
     "processedHash": "aa69b536e3940bdcd50daf7643abc7f117381af6dfba21ccf45c9664dcfe6f23",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/nematogenyidae/nematogenys_inermis.htm": {
+    "entityIds": [
+      "species/nematogenys-inermis"
+    ],
+    "updatedAt": "2026-11-06T11:40:50.594Z",
+    "hash": "abf60a41381866c7b98974d6f9a518b905cd89e80e2492ced71c9c2d2c4c0589",
+    "processedHash": "abf60a41381866c7b98974d6f9a518b905cd89e80e2492ced71c9c2d2c4c0589",
     "status": "processed",
     "attempts": 0
   },

@@ -2,7 +2,9 @@
   "slug": "ca-da-tron-hoi-khong-lo",
   "name": "Cá da trơn hồi khổng lồ",
   "altNames": [
-    "Giant Salmon Catfish"
+    "Giant Salmon Catfish",
+    "Cá úc biển",
+    "Giant seacatfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Netuma thalassina (Rüppell, 1837)</li><li>Tên thường gọi: Giant Salmon Catfish</li><li>Nơi thu mẫu chuẩn: Massawa, Eritrea, Biển Đỏ</li><li>Kích thước: 1850 mm SL (khoảng 1,85 m)</li><li>Nhiệt độ: 26,0–29,0°C</li><li>Sách Đỏ IUCN: Chưa đánh giá</li></ul>",
@@ -10,13 +12,20 @@
     "habitat:planetcatfish": "<p>Đây là loài cá biển. Chúng hay xuất hiện ở các cửa sông nhưng ít khi vào hẳn nước ngọt. Dù vậy, cũng có ghi nhận chúng thỉnh thoảng bơi ngược lên vùng nước ngọt.</p>",
     "diet:planetcatfish": "<p>Thức ăn chính của chúng là cua, tôm và tôm tít (các loài Squilla). Ngoài ra chúng cũng ăn cá và động vật thân mềm.</p>",
     "reproduction:planetcatfish": "<p>Chưa có thông tin. Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Neue Wirbelthiere zu der Fauna von Abyssinien gehörig. Fische des Rothen Meeres, pp 75, Pl. 20 (fig. 2).</p>"
+    "references:planetcatfish": "<p>Neue Wirbelthiere zu der Fauna von Abyssinien gehörig. Fische des Rothen Meeres, pp 75, Pl. 20 (fig. 2).</p>",
+    "distribution:scotcat": "<p>Từ Đông Phi qua Nam Á và Đông Nam Á đến New Guinea và Úc, gồm Ấn Độ, Thái Lan, Việt Nam, Indonesia, Malaysia, Philippines, Trung Quốc, Papua New Guinea và Úc. Nơi thu mẫu chuẩn: Massawa, Eritrea, Biển Đỏ (Bagrus thalassinus Rüppell, 1837).</p>",
+    "habitat:scotcat": "<p>Những nơi chắc chắn có loài này là Biển Đỏ và vùng tây bắc Ấn Độ Dương. Ở Philippines và vịnh Thái Lan có một dạng rất gần với nó. Tài liệu thường ghi cho loài này một vùng phân bố rộng hơn, nhưng đó là do nhầm với những loài trông giống nó sống chồng lấn cùng khu vực. Loài này cũng có ghi nhận ở Úc, Polynesia và Nhật Bản, và hiếm khi gặp ở đồng bằng sông Mekong.</p><p>Đây là cá biển. Chúng hay xuất hiện ở cửa sông nhưng hiếm khi vào nước ngọt. Loài này thường chịu được độ mặn dao động rộng (euryhaline). Có ghi nhận cá thỉnh thoảng bơi ngược lên vùng nước ngọt. Nhiệt độ ghi nhận ở nơi chúng sống nằm trong khoảng 26–29°C.</p>",
+    "waterConditions:scotcat": "<ul><li>Nhiệt độ: 26–29°C</li><li>pH: 7,0–8,5</li></ul>",
+    "diet:scotcat": "<p>Cá ăn chủ yếu cua, tôm và tôm tít (các loài Squilla), ngoài ra còn ăn cá và động vật thân mềm. Đây là loài cá thực phẩm quan trọng. Phần lớn cá được bán tươi, và cũng hay được phơi khô.</p>",
+    "notes:scotcat": "<p>Từ nguyên: Tên chi Netuma là một từ tiếng Tamil, nghĩa là \"nhảy múa\". Tên loài thalassina nghĩa là \"thuộc về biển\". Đây là loài cá da trơn sống ở biển và nước lợ, mô tả từ mẫu thu ở Biển Đỏ.</p><p>Danh sách Đỏ IUCN: Loài này phân bố rộng, có nơi rất nhiều, và sống ở nhiều kiểu môi trường ven biển. Ở nhiều vùng trong khu phân bố, nó là nguồn lợi thủy sản có giá trị. Tại những nơi đánh bắt mạnh (ví dụ Ấn Độ, Nam Sumatra và Pakistan), quần thể địa phương đang bị khai thác quá mức. Dù vậy, hiện chưa có cơ sở để nghi rằng việc đánh bắt đang kéo quần thể toàn cầu giảm tới gần 30%. Vì thế loài này nằm trong nhóm Ít quan tâm (Least Concern). Kèm theo đó là khuyến nghị nghiên cứu thêm về vòng đời của loài, giảm cường độ đánh bắt ở những nơi nó bị khai thác nhiều, và nói chung cải thiện quản lý nghề cá (IUCN 2024).</p>",
+    "references:scotcat": "<ul><li>Bucol, A. &amp; Carpenter, K.E. 2024. Netuma thalassina. The IUCN Red List of Threatened Species 2024.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009).</li><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.9
     }
   }
 }

@@ -1,0 +1,192 @@
+{
+  "id": "malapterurus-beninensis",
+  "scientificName": "Malapterurus beninensis",
+  "order": "Siluriformes",
+  "family": "Malapteruridae",
+  "genus": "Malapterurus",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "ghana",
+    "volta",
+    "nigeria",
+    "cross-river",
+    "cameroon",
+    "sanaga",
+    "angola",
+    "shiloango",
+    "democratic-republic-of-the-congo",
+    "equatorial-guinea",
+    "fernando-po",
+    "old-calabar-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 22.3
+      },
+      {
+        "source": "scotcat",
+        "value": 22.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1259",
+      "html": "<ul><li>Scientific name: Malapterurus beninensis Murray, 1855</li><li>Type locality: Old Calabar River, Nigeria.</li><li>Synonym: Malapterurus affinis</li><li>IUCN Red List: Least Concern (last assessed 2019).</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "html": "<ul><li>Synonym: Malapterurus affinis</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1259",
+      "html": "<p>Africa: distributed along the coastal plain of west and central Africa from the lower Volta River (Ghana) to the Shiloango system (Angola and Congo DR), and on the Island of Fernando Po. Waters include the Cross, Cameroon's Sanaga and Lokunje.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "html": "<p>Africa: Coastal plain of West and Central Africa from the lower Volta River (Ghana) to the Shiloango system (Angola and Congo DR), and on the island of Fernando Po. Type Locality: Old Calabar River, Nigeria.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "html": "<p>Mostly occurs in lowland habitats.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "html": "<p>They fed mainly on mealworms, earthworms, frozen brineshrimp and most prepared tropical fish foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "html": "<p>Found to be highly aggressive towards conspecifics. They were found to be entirely nocturnal (Norris, S.M., 2002).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1259",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1259",
+      "html": "<p>Etymology: Malapterurus: From the Greek malakos, meaning soft, pteron, meaning fin and oura, meaning tail; presumably in reference to the adipose fin, which appears all the more prominent in the absence of the rayed dorsal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "html": "<p>Diagnosis: body cylindrical; tooth patches narrow; vertically oriented pectoral fins, placed near body mid-depth; 6-7 branched caudal-fin rays; pectoral-fin rays usually 8, rarely 7 or 9; 34-38 vertebrae; eyes relatively small, interorbital space relatively broad; caudal saddle and bar pattern quite distinct in juveniles and young and usually apparent in adults, but often subdued. Dorsum and flank nearly always spotted, sometimes extensively. Commonly 10-15 gill rakers on first arch (total range 4-22). Caudal saddle and anal-fin pigmentation not continuous. Venter often dusky, occasionally lightly spotted.</p><p>Etymology: The specific epithet beninensis is geographic, in general reference to southern Nigeria, where the types originated.</p><p>IUCN Red List: This species has a wide distribution, with no known major widespread threats. It is therefore listed as Least Concern (IUCN 2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1259",
+      "html": "<p>Proceedings of the Royal Physical Society of Edinburgh. v. 1, pp 20, Pl.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "html": "<p>Lalèyè, P., Moelants, T. &amp; Olaosebikan, B.D. 2020. Malapterurus beninensis. The IUCN Red List of Threatened Species 2020.</p><p>Norris, S.M., 2002. A revision of the African electric catfishes, family Malapteruridae (Teleostei, Siluriformes), with erection of a new genus and descriptions of fourteen new species, and an annotated bibliography. Ann. Mus. R. Afr. Centr., Sci. Zool., 289:1-155.</p><p>Norris, S.M., 2007. Malapteruridae. p. 692-697. In M.L.J. Stiassny, G.G. Teugels and C.D. Hopkins (eds.) The fresh and brackish water fishes of Lower Guinea, West-Central Africa. Volume I. Collection Faune et Flore tropicales 42. Institut de Recherche pour le Développement, Paris, France, Muséum National d’Histoire Naturelle, Paris, France, and Musée Royal de l’Afrique Centrale, Tervuren, Belgium. 800 pp.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/6a9b12e919601405.webp",
+      "thumb": "https://media.aquatome.com/commons/6a9b12e919601405-480.webp",
+      "width": 960,
+      "height": 1280,
+      "licence": "CC BY-SA 4.0",
+      "author": "Intipata",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malapterurus_beniensis.jpg",
+      "caption": "Malapterurus beniensis"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/160394a1cdf71b7e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/160394a1cdf71b7e-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Russell Brian Tate / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm",
+      "caption": "Malapterurus beninensis - habitat - swamp forest in western Cameroon",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "HV3Zi0NyUjQ",
+      "title": "Malapterurus electricus Feeding",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5D_m4RHBm6U",
+      "title": "Malapterurus beninensis/ electric catfish",
+      "durationSec": 105,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "e3jeCNEdA8k",
+      "title": "Electric Catfish Eating",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OSn-kjwvnBQ",
+      "title": "electric sausage eating a worm",
+      "durationSec": 155,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá trê điện"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

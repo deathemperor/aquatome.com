@@ -1,0 +1,77 @@
+{
+  "id": "batasio-fluviatilis",
+  "native": {
+    "input": "78f81a6c7d1c37c6",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Batasio fluviatilis is a small bagrid catfish from southern Thailand and Peninsular Malaysia, below the Isthmus of Kra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Batasio fluviatilis is a small bagrid catfish from southern Thailand and Peninsular Malaysia, below the Isthmus of Kra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is a stream in the district of Ron Phibun, Nakhon Si Thammarat province, southern Thailand, and the species is known from other localities below the Isthmus of Kra in both Thailand and Peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is a stream in the district of Ron Phibun, Nakhon Si Thammarat province, southern Thailand, and the species is known from other localities below the Isthmus of Kra in both Thailand and Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Batasio fluviatilis",
+    "status": "ACCEPTED",
+    "taxonKey": 5961271,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

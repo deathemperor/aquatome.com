@@ -1,0 +1,59 @@
+{
+  "id": "betta-pallifina",
+  "native": {
+    "input": "5f13f969285f2bf6",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To date it has only been collected from a remote part of the upper Barito river basin in the Indonesian province of Kalimantan Tengah (Central Kalimantan), Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Barito",
+        "source": "seriouslyfish",
+        "quote": "To date it has only been collected from a remote part of the upper Barito river basin in the Indonesian province of Kalimantan Tengah (Central Kalimantan), Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "To date it has only been collected from a remote part of the upper Barito river basin in the Indonesian province of Kalimantan Tengah (Central Kalimantan), Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta pallifina",
+    "status": "ACCEPTED",
+    "taxonKey": 2393986,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

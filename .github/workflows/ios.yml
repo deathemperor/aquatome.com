@@ -33,10 +33,11 @@ permissions:
 jobs:
   # Whether a pull request is ready (a draft runs nothing on macOS), and which flows each flow job runs: the full suite
   # on main, nightly, by hand and on a pull request labelled `ios-full`; on any other pull request, the smoke set, the
-  # classes of the flow files it edits, and the page shots when its change can reach the pages, while main's run after
-  # the merge runs the other flows its change can reach (apps/ios/scripts/flows-to-run.py says how it decides; job
-  # `report` opens an issue when main's run fails). A job with no flows to run is skipped, and doesn't hold a Mac. Jobs
-  # `kit` and `perf` run on every ready pull request.
+  # classes of the flow files it edits, and the page shots when its change can reach the pages, packed into as few jobs
+  # as hold them (each job builds the app and holds one of GitHub's five Macs), while main's run after the merge runs
+  # the other flows its change can reach (apps/ios/scripts/flows-to-run.py says how it decides; job `report` opens an
+  # issue when main's run fails). A job with no flows to run is skipped, and doesn't hold a Mac. Job `perf` runs on
+  # every ready pull request, with the kit's tests; job `kit` runs them nightly, when `perf` doesn't.
   changes:
     name: "iOS app: which flows this change needs"
     runs-on: ubuntu-latest
@@ -52,6 +53,7 @@ jobs:
       lights_1: ${{ steps.pick.outputs.lights_1 }}
       lights_2: ${{ steps.pick.outputs.lights_2 }}
       runner: ${{ steps.where.outputs.runner }}
+      parallel: ${{ steps.where.outputs.parallel }}
     steps:
       # A pull request is checked out as its merge with main: its first parent is main, so the diff is its change.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -78,6 +80,9 @@ jobs:
             git -c core.quotePath=false diff --no-renames --name-only HEAD^1 HEAD |
               python3 apps/ios/scripts/flows-to-run.py > "$RUNNER_TEMP/flows"
             tee -a "$GITHUB_OUTPUT" < "$RUNNER_TEMP/flows"
+            # What each job runs, by class: a job's name no longer says which flows it holds.
+            ran=$(sed -n 's/^ran=//p' "$RUNNER_TEMP/flows")
+            if [ -n "$ran" ]; then echo "::notice title=Flows by job::$ran"; fi
             left=$(sed -n 's/^left=//p' "$RUNNER_TEMP/flows")
             if [ -n "$left" ]; then
               echo "::notice title=Left to main::main's run after the merge runs the other flows this change can reach: $left. The label ios-full runs them on this pull request: ask for it on a change to a model many flows share (LightsModel, HandbookModel's fixture, AccountModel)"
@@ -85,24 +90,33 @@ jobs:
               echo "::notice title=Some flows::the smoke set, and the classes of the flow files this change edits; ios-full runs every flow"
             fi
           fi
-      # Where jobs `kit`, `app`, `handbook` and `lights` run: the repository's own Mac (label `aquatome`,
+      # Where jobs `kit` (nightly), `app`, `handbook` and `lights` run: the repository's own Mac (label `aquatome`,
       # apps/ios/README.md) for main (a push, the nightly run, a run by hand) while the repository variable
       # IOS_LOCAL_RUNNER is "on"; GitHub's Macs otherwise, and always for pull requests, which then have GitHub's five
       # Macs to themselves. A job can't take whichever Mac is free: runs-on names one kind. The Mac runs one job at a time
       # (aquatome-mac-1). Job `perf` stays on GitHub's Macs. This only routes: a fork's pull request runs its own copy of
       # this file, so what keeps others' code off that Mac is the runner's own job-started hook, outside the repository.
+      # There, jobs `app` and `handbook` run their classes on three copies of the runner's simulator at once (`parallel`):
+      # Xcode hands each copy a class at a time. Three, not more: the Mac is also someone's working machine. GitHub's
+      # Macs (three cores) keep one. Job `lights` is one class, so it keeps one too.
       - id: where
         env:
           LOCAL: >-
             ${{ vars.IOS_LOCAL_RUNNER == 'on' && github.ref == 'refs/heads/main' &&
             contains(fromJSON('["push", "schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
-          if [ "$LOCAL" = true ]; then echo 'runner=["self-hosted","macOS","aquatome"]'; else echo 'runner="macos-26"'; fi |
-            tee -a "$GITHUB_OUTPUT"
+          if [ "$LOCAL" = true ]; then
+            echo 'runner=["self-hosted","macOS","aquatome"]'
+            echo 'parallel=-parallel-testing-enabled YES -parallel-testing-worker-count 3'
+          else
+            echo 'runner="macos-26"'
+          fi | tee -a "$GITHUB_OUTPUT"
   kit:
     name: "iOS kit: unit tests"
     needs: changes
-    if: needs.changes.outputs.ready == 'true'
+    # Nightly only: every other ready run has them in job `perf`, which saves a Mac and its wait for a minute and a half
+    # of tests.
+    if: needs.changes.outputs.ready == 'true' && github.event_name == 'schedule'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
     timeout-minutes: 20
     steps:
@@ -113,7 +127,7 @@ jobs:
         working-directory: apps/ios/AquaTomeKit
   # In two halves, as `handbook` and `lights` are (APP_FIRST in flows-to-run.py): on GitHub's Macs the whole job takes
   # about a minute a test, and #553's run of it was stopped at its hour with 42 of 56 passed and none failed
-  # (2026-11-05). A pull request's smoke set runs in the first half.
+  # (2026-11-05). A pull request's flows are packed into as few job halves as hold them (`pack` in flows-to-run.py).
   app:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: other flows"
@@ -128,10 +142,20 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
+      # Main's runs on the own Mac (`parallel`): the copies of its simulator that xcodebuild made, named "Clone <n> of" it,
+      # deleted, before the flows and after. A cancel or the hour's limit kills xcodebuild about ten seconds after asking
+      # it to stop, often before it deletes them, and three simulators left running would load someone's working Mac.
+      - name: The own Mac's simulator copies deleted
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       # The full suite: the main flows (apps/ios/AquaTomeUITests), but the handbook's (job `handbook`) and the lights'
       # (job `lights`), the performance tests (job `perf`), and the App Store's screenshots (app-store.yml), which read
-      # the live site. A pull request: the smoke set, and the classes of the flow files it edits that are none of those.
-      # Each half runs its share.
+      # the live site. Each half runs its share. A pull request: whichever of its flows `pack` put in this half.
       # A failed test runs once more, as the site's journeys do on CI: the simulator on these runners sometimes stops
       # answering for 30 s, then drops the next tap or loses the app (PRs #234, #248 on 2026-10-31, in their
       # recordings). A test that fails twice fails the job; one that passed only on its retry is flagged below.
@@ -145,7 +169,7 @@ jobs:
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/ui.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
-          -retry-tests-on-failure -test-iterations 2 $TESTS
+          -retry-tests-on-failure -test-iterations 2 $TESTS ${{ needs.changes.outputs.parallel }}
       # Flaky tests are seen, not hidden: each one that needed its retry is a warning on the run and in its summary.
       - name: Tests that passed only on a retry
         if: always()
@@ -153,6 +177,14 @@ jobs:
       - name: The own Mac's simulator shut down
         if: always()
         run: apps/ios/scripts/wait-for-simulator.sh --done
+      - name: The own Mac's simulator copies deleted after
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       - if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
@@ -164,7 +196,7 @@ jobs:
   # a regression unseen. Measured apart from the flows, so a flow's retry never touches a measurement. Budgets are
   # checked in code, not in an Xcode .xcbaseline: a baseline belongs to one machine model, and on hosted runners it
   # would stop applying, silently, the day the machines change. The translations are checked here too, from this
-  # job's build: it runs on every ready pull request, and a flow job may not.
+  # job's build: it runs on every ready pull request, and a flow job may not. So are the kit's unit tests.
   perf:
     name: "iOS app: performance, size and strings"
     needs: changes
@@ -173,11 +205,16 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # The kit's unit tests, as job `kit` runs them nightly: first, so a broken kit fails in a minute and a half,
+      # before the measurements.
+      - name: Kit unit tests
+        run: swift build && swift test
+        working-directory: apps/ios/AquaTomeKit
       - run: apps/ios/scripts/wait-for-simulator.sh
       - name: Performance tests
         run: >-
           xcodebuild test -project apps/ios/AquaTome.xcodeproj -scheme AquaTome
-          -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5'
+          -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/perf.xcresult CODE_SIGNING_ALLOWED=NO
           -only-testing:AquaTomeUITests/PerformanceTests
       # Every string the app shows is translated into Indonesian and Thai.
@@ -212,9 +249,8 @@ jobs:
   # `app` ran out of its hour on a slow runner, in the performance tests after 52 minutes of flows (15 of them the
   # build), with only the facts card added to main; the handbook stack (#313 to #341) adds more. Then this job alone
   # took 53 to 58 minutes on every pull request of 2026-11-03, and ran out of its hour with the tank volume flows
-  # (#400): in two halves since, as the light flows are. On a pull request, a half runs only the classes of that half
-  # whose flow files it edits, and the page shots in the first, and a half with none is left out (`halves` in
-  # flows-to-run.py).
+  # (#400): in two halves since, as the light flows are. On a pull request, a half runs whichever of its flows `pack`
+  # (flows-to-run.py) put there, the page shots always in the first, and a half with none is left out.
   handbook:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: handbook and tank-life flows"
@@ -229,6 +265,17 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: apps/ios/scripts/wait-for-simulator.sh
+      # Main's runs on the own Mac (`parallel`): the copies of its simulator that xcodebuild made, named "Clone <n> of" it,
+      # deleted, before the flows and after. A cancel or the hour's limit kills xcodebuild about ten seconds after asking
+      # it to stop, often before it deletes them, and three simulators left running would load someone's working Mac.
+      - name: The own Mac's simulator copies deleted
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       # Retried once, as in job `app`, and for the same reason.
       - env:
           TESTS: ${{ needs.changes.outputs[format('handbook_{0}', matrix.half)] }}
@@ -238,13 +285,21 @@ jobs:
           -destination "${AQ_CI_DEST:-platform=iOS Simulator,name=iPhone 17,OS=26.5}"
           -derivedDataPath build/dd -resultBundlePath build/handbook.xcresult CODE_SIGNING_ALLOWED=NO
           -test-timeouts-enabled YES -default-test-execution-time-allowance 600
-          -retry-tests-on-failure -test-iterations 2 $TESTS
+          -retry-tests-on-failure -test-iterations 2 $TESTS ${{ needs.changes.outputs.parallel }}
       - name: Tests that passed only on a retry
         if: always()
         run: apps/ios/scripts/retried-tests.py build/handbook.xcresult
       - name: The own Mac's simulator shut down
         if: always()
         run: apps/ios/scripts/wait-for-simulator.sh --done
+      - name: The own Mac's simulator copies deleted after
+        if: always() && needs.changes.outputs.parallel != ''
+        run: |
+          name=$(xcrun simctl list devices -j | jq -r --arg u "$AQ_CI_UDID" '[.devices[][] | select(.udid == $u)][0].name // empty')
+          [ -n "$name" ] || exit 0
+          for u in $(xcrun simctl --set testing list devices -j | jq -r --arg n " of $name" '.devices[][] | select(.name | endswith($n)) | .udid'); do
+            xcrun simctl --set testing shutdown "$u" 2>/dev/null; xcrun simctl --set testing delete "$u"
+          done
       # The pages' screenshots (PageShotsFlowTests, in the first half), a pull request's before (main's run) or after
       # (its own): see docs/governance.md. Only when this half ran them.
       - name: Page screenshots

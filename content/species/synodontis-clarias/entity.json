@@ -1,0 +1,79 @@
+{
+  "id": "synodontis-clarias",
+  "scientificName": "Synodontis clarias",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "nile",
+    "nigeria",
+    "niger",
+    "lake-chad",
+    "volta",
+    "gambia",
+    "senegal"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_clarias_en/",
+      "html": "<p>Synodontis clarias is the first Synodontis species that became known to science. It was originally described by Linnaeus in 1758. The species is exported for aquarium purposes only very occasionally. It attains a length of more than 30 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_clarias_en/",
+      "html": "<p>The species has an enormous distribution: the Nile, Chad, Niger, Volta, Gambia and Senegal. S. clarias is a food fish in all countries where it occurs.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_clarias_en/",
+      "html": "<p>Juveniles, like the 6-8 cm long specimens recently imported, look very different from adults in coloration. Adults have a slate-coloured body and a red caudal fin.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "04PldQlVT9o",
+      "title": "Synodontis clarias",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn cho cá trê",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá trê",
+        "thức ăn viên cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

@@ -14,6 +14,115 @@
     "vietnam",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "CN",
+        "LA",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Sekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Mekong river system in southern China, Laos, Thailand, Vietnam, and Cambodia, and possibly the Chao Phraya watershed in central Thailand although this appears to be in question.",
+          "countries": [
+            "CN",
+            "LA",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It undergoes seasonal migrations, moving upstream into the Sekong, Sesan, and Srepok rivers in May and June, at the onset of the wet season, and returning downstream during the dry months between November and February.",
+          "countries": [],
+          "regions": [
+            "Sekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361256,
+      "total": 9,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          5
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -141,12 +250,6 @@
     },
     {
       "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/bangana_behri_en/",
-      "html": "<p>Like most Labeo-type fish, Bangana behri are somewhat quarrelsome towards conspecifics. In the importer's fishhouse about 30 specimens are kept together in one tank and live peacefully, but two or three specimens together can be expected not to do well. One should therefore keep them either solitary or in larger groups, a rule that holds for almost all fish related to Labeo.</p>"
-    },
-    {
-      "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/incisilabeo-behri",
       "html": "<p>May be aggressive in confined spaces, i.e., smaller aquaria.</p>"
@@ -223,8 +326,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn",
-        "hồ cá koi"
+        "bể cá 200cm"
       ]
     },
     {

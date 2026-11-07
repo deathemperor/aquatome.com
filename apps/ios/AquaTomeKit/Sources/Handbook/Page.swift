@@ -188,11 +188,13 @@ public struct PageDoc: Sendable {
   }
 
   /// One figure's sources: `field` is the index's name for it (tempC, ph, gh, sizeCm, tankCm, difficulty); where the
-  /// sources disagree (`conflict`), each one's own figure and which the facts show (`note`).
+  /// sources disagree (`conflict`), each one's own figure and which the facts show (`note`); `marked`, they disagree by
+  /// enough to change how the fish is kept (the site's card puts its dot on these only).
   public struct TrustRow: Sendable {
     public let field: String
     public let label: String
     public let conflict: Bool
+    public let marked: Bool
     public let note: String?
     public let items: [String]
 
@@ -200,6 +202,7 @@ public struct PageDoc: Sendable {
       guard let o = v as? [String: Any], let field = o["field"] as? String, let label = o["label"] as? String, let items = o["items"] as? [String] else { return nil }
       self.field = field; self.label = label; self.items = items
       conflict = o["conflict"] as? Bool ?? false
+      marked = o["marked"] as? Bool ?? false
       note = o["note"] as? String
     }
   }
@@ -503,6 +506,15 @@ extension PageDoc {
 
   /// A YouTube video's picture, as a page shows it.
   public static func thumbnail(_ youtubeId: String) -> String { "https://i.ytimg.com/vi/\(youtubeId)/hqdefault.jpg" }
+
+  /// Whether `id` is a video id as YouTube gives them, 11 of A–Z, a–z, 0–9, `-` and `_`: the app plays only those in a
+  /// page. Any other (one starting `//` makes no link, one with markup would break the player's page) opens on YouTube.
+  public static func isYouTubeId(_ id: String) -> Bool {
+    id.utf8.count == 11 && id.utf8.allSatisfy { c in
+      (UInt8(ascii: "a")...UInt8(ascii: "z")).contains(c) || (UInt8(ascii: "A")...UInt8(ascii: "Z")).contains(c)
+        || (UInt8(ascii: "0")...UInt8(ascii: "9")).contains(c) || c == UInt8(ascii: "-") || c == UInt8(ascii: "_")
+    }
+  }
 }
 
 /// A page's list of other pages. One longer than 30 (the fish a kind of kit is for: over a thousand on the site) shows

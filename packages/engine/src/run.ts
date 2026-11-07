@@ -15,6 +15,7 @@ import { htmlToOutline, isChallenge, type PageImage } from './outline'
 import { findPhotos } from './photos'
 import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
+import { readVarietyPages, recordVarietyPage } from './species-sources'
 import { rewriteVi, VI_WRITE } from './vi-rewrite'
 import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { logReviews, type Review } from './review-log'
@@ -175,6 +176,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     return w
   }, new Map() as Wanted)
   const onSource: Record<string, string> = {}
+  const varietyPages = await readVarietyPages(root)
 
   /** The site's Vietnamese style over the first translation (VI_WRITE, scripts/eval-translate.ts); unchanged if the output is
    * unusable. A model failure (usage limit) stops the run like any other: no page publishes unpolished without a trace. */
@@ -223,6 +225,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       let taxon = await gbifMatch(page.scientificName!, http, gbifCache)
       for (const syn of page.synonyms) if (!taxon) taxon = await gbifMatch(syn, http, gbifCache)
       if (!taxon) return null
+      // A page about one variety or strain says what that line is, not the species: kept off its page (species-sources.ts).
+      if (page.variety || varietyPages[url]) {
+        if (!varietyPages[url]) await recordVarietyPage(root, url, varietyPages[url] = { species: slugify(taxon.canonicalName), variety: page.variety, at: now })
+        return null
+      }
       const existing = await s.read<z.infer<typeof SpeciesSchema>>('species', slugify(taxon.canonicalName))
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`species/${slugify(taxon.canonicalName)}`]
       const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: new Set([...await s.takenNames('species', slugify(taxon.canonicalName)), ...await s.takenNames('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })

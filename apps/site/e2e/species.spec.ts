@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { expect, test } from './fixtures'
+import { expect, openCard, test } from './fixtures'
 import { sourcePages } from './pages'
 
 // A species' numbers agree wherever the page shows them (resolveDataCard in @aq/schema): here the data card's temperature
@@ -71,11 +71,13 @@ test('species page: the jump row takes the reader to a part and marks where they
   }, { message: 'the marked chip is in sight in the row' }).toBe(true)
 })
 
-// One "Nguồn và độ tin cậy" toggle per data card (it used to be one per value, 17 px tall); only the values the sources
-// disagree on are marked, and the toggle shows each source's own figure for them. Cá neon vua's sources disagree (see the
-// first check), on the fixture and on aquatome.com.
-test('species data card: one sources toggle, the disagreeing values marked, each source\'s figure inside', async ({ page }, info) => {
+// One "Nguồn và độ tin cậy" toggle per data card (it used to be one per value, 17 px tall); the values the sources
+// disagree on show each source's own figure there, and only those far enough apart to matter carry the card's dot (a dot
+// for 1 °C or 1 cm sat on 5 of 7 cells: design critique, 2026-11-06). Cá neon vua's sources disagree (see the first
+// check), on the fixture and on aquatome.com.
+test('species data card: one sources toggle, the disagreeing values listed, each source\'s figure inside', async ({ page }, info) => {
   await page.goto('/ca/ca-neon-vua/')
+  await openCard(page)
   const card = page.locator('.facts .datacard')
   // The sources toggle; the difficulty cell's "Vì sao?" is its own (card-guide.spec.ts).
   const summary = card.locator('.trust > summary')
@@ -84,7 +86,12 @@ test('species data card: one sources toggle, the disagreeing values marked, each
   const marked = card.locator('.card [data-conflict]')
   const n = await marked.count()
   expect(n, 'values the sources disagree on').toBeGreaterThanOrEqual(1)
-  await expect(card.locator('.card .mark')).toHaveCount(n)
+  // A dot only on a cell whose sources disagree, and each dot says so to a screen reader.
+  expect(await card.locator('.card .mark').count(), 'dots').toBeLessThanOrEqual(n)
+  for (const dot of await card.locator('.card .mark').all()) {
+    await expect(dot.locator('xpath=ancestor::div[@data-field][1]')).toHaveAttribute('data-conflict', 'true')
+    await expect(dot).toHaveText('Các nguồn ghi khác nhau')
+  }
   const field = (await marked.first().getAttribute('data-field'))!
   const by = card.locator(`.trust [data-src-field="${field}"]`)
   await expect(by).toBeHidden()
@@ -160,15 +167,16 @@ test('species page: each "Tránh" chip says why; a size reason gives a size of t
 async function speciesWithGallery(page: Page) {
   for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p))) {
     await page.goto(gallery.replace(/anh\/$/, ''))
-    if (await page.locator('header.top > .facts').count() && await page.locator('header.top .photo').count() && await page.locator('main section.strip').count()) return true
+    if (await page.locator('header.top > .facts').count() && await page.locator('header.top .photo').count() && await page.locator('main section.strip').count()) return (await openCard(page), true)
   }
   return false
 }
 
 // On a computer the photo column used to end under the photo while the facts beside it ran on, a screen and more (the
 // owner's screenshot of Cá neon vua), with the thumbnails below both. They now fill the column under the photo; on a phone
-// they come after the facts. One strip either way, each thumbnail once. Read from the page, so it holds on aquatome.com.
-test('species page: the gallery\'s thumbnails sit under the photo beside the facts on a computer, after the facts on a phone, once', async ({ page, errors }, info) => {
+// they come after the care text (its first screens are the answer: design critique, 2026-11-06), and are read there too.
+// One strip either way, each thumbnail once. Read from the page, so it holds on aquatome.com.
+test('species page: the gallery\'s thumbnails sit under the photo beside the facts on a computer, after the care text on a phone, once', async ({ page, errors }, info) => {
   test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
   const strip = page.locator('main section.strip')
   await expect(strip).toHaveCount(1)
@@ -183,7 +191,10 @@ test('species page: the gallery\'s thumbnails sit under the photo beside the fac
 
   const [photo, facts, box] = [(await page.locator('header.top .photo').boundingBox())!, (await page.locator('header.top > .facts').boundingBox())!, (await strip.boundingBox())!]
   if (info.project.name === 'phone') {
-    expect(box.y, 'below the facts').toBeGreaterThanOrEqual(facts.y + facts.height)
+    const text = (await page.locator('.body > section[data-section]').last().boundingBox())!
+    expect(box.y, 'below the care text').toBeGreaterThanOrEqual(text.y + text.height)
+    expect(await strip.evaluate(s => !!(s.compareDocumentPosition(document.querySelector('.body')!) & Node.DOCUMENT_POSITION_PRECEDING)), 'after the text in reading order').toBe(true)
+    expect(facts.y, 'the facts above').toBeLessThan(photo.y)
   } else {
     expect(Math.abs(box.x - photo.x), 'in the photo column').toBeLessThanOrEqual(1)
     expect(box.x + box.width, 'left of the facts').toBeLessThanOrEqual(facts.x)
@@ -222,9 +233,11 @@ test('species page on a computer: the photo column stays in view while the facts
   const strip = page.locator('main section.strip')
   const head = strip.locator('.head')
   const last = strip.locator('li').nth(await strip.locator('li a').evaluateAll(as => as.findLastIndex(a => Number(/#a(\d+)$/.exec(a.getAttribute('href')!)?.[1] ?? 1) <= 8)))
-  const [top, end, facts] = [(await head.boundingBox())!, (await last.boundingBox())!, (await page.locator('header.top > .facts').boundingBox())!]
+  const [top, end] = [(await head.boundingBox())!, (await last.boundingBox())!]
+  // The column beside the photo's: the name, the card and the summary.
+  const beside = await page.locator('header.top').evaluate(t => Math.max(...[...t.children].filter(c => !c.classList.contains('side')).map(c => c.getBoundingClientRect().bottom + scrollY)))
   const bottom = end.y + end.height
-  test.skip(facts.y + facts.height - bottom < bottom - top.y + 16, 'the facts end with the photo column')
+  test.skip(beside - bottom < bottom - top.y + 16, 'the facts end with the photo column')
   for (const height of [800, 700]) {
     await page.setViewportSize({ width: 1280, height })
     await page.evaluate(y => scrollTo({ top: y, behavior: 'instant' }), bottom)
@@ -244,7 +257,7 @@ async function speciesWithBigGallery(page: Page) {
   for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p)).slice(0, 20)) {
     const path = gallery.replace(/anh\/$/, '')
     await page.goto(path)
-    const all = page.locator('header.top .strip .head a')
+    const all = page.locator('main section.strip .head a') // in the photo column; on a phone, after the care text
     if (await page.locator('header.top > .facts').count() && await all.count() && Number(/\d+/.exec((await all.textContent())!)![0]) >= 40) return path
   }
   return undefined
@@ -267,12 +280,15 @@ async function photoColumn(page: Page, path: string, width: number, height: numb
   await page.waitForLoadState('networkidle')
   page.off('request', log)
   const col = await page.locator('header.top').evaluate(top => {
-    const list = top.querySelector('.strip ul')!.getBoundingClientRect()
-    const thumbs = [...top.querySelectorAll('.strip li')].map(li => {
+    // In the photo column; on a phone, after the care text.
+    const strip = document.querySelector('main section.strip')!
+    const list = strip.querySelector('ul')!.getBoundingClientRect()
+    const thumbs = [...strip.querySelectorAll('li')].map(li => {
       const b = li.getBoundingClientRect()
       return { n: Number(/#a(\d+)$/.exec(li.querySelector('a')!.getAttribute('href')!)?.[1]), src: li.querySelector('img')!.src, top: b.top, bottom: b.bottom, shown: b.height > 0 && b.bottom > list.top && b.top < list.bottom }
     })
-    return { thumbs, list: list.bottom, facts: top.querySelector('.facts')!.getBoundingClientRect().bottom, window: innerHeight }
+    // The column beside it: the name, the card and the summary.
+    return { thumbs, list: list.bottom, facts: Math.max(...[...top.children].filter(c => !c.classList.contains('side')).map(c => c.getBoundingClientRect().bottom)), window: innerHeight }
   })
   return { ...col, thumbs: col.thumbs.map(t => ({ ...t, downloaded: asked.has(t.src) })) }
 }
@@ -311,8 +327,8 @@ test('species page on a computer: the photo column fills its room with whole row
   for (const t of thumbs) expect(pictures.filter(p => p === pictureOf(t.src)), `#a${t.n}: ${pictureOf(t.src)} once on the page`).toHaveLength(1)
 })
 
-// On a phone the strip is as before: its 8 thumbnails, 6 on a screen under 640 px, after the facts; the gallery's further
-// photos are neither shown nor downloaded.
+// On a phone the strip is as before: its 8 thumbnails, 6 on a screen under 640 px, after the care text; the gallery's
+// further photos are neither shown nor downloaded.
 test('species page on a phone: the strip\'s 8 thumbnails, 6 on a narrow screen, nothing more', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'the phone layout')
   const path = await speciesWithBigGallery(page)

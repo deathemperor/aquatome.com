@@ -16,6 +16,185 @@
     "pakistan",
     "sutlej"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BD"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "East Rapti River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely distributed in the Ganges and Brahmaputra river systems in northern India, Nepal, and Bangladesh.",
+          "countries": [
+            "IN",
+            "NP",
+            "BD"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the East Rapti River, a tributary draining the Chitwan (inner Terai) valley in Nepal and flowing west to join the Narayani (Gandaki) River close to the Indian border, B. vagra is a perennial resident and occurs alongside numerous other species including Neolissochilus hexagonolepis, Pethia conchonius, Puntius sophore, Tor putitora, Barilius barila, O. bendelisis, O. shacra, Garra gotyla, Schizothorax richardsoni, Acanthocobitis botia, Schistura beavani, S. rupecula, Amblyceps mangois, Glyptothorax telchitta, and Mastacembelus armatus.",
+          "countries": [],
+          "regions": [
+            "East Rapti River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363287,
+      "total": 82,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "NP",
+          40
+        ],
+        [
+          "IN",
+          39
+        ],
+        [
+          "PK",
+          2
+        ],
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          67.5,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          73.125,
+          30.9375,
+          1,
+          0
+        ],
+        [
+          74.53125,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          74.53125,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          77.34375,
+          29.53125,
+          20,
+          20
+        ],
+        [
+          78.75,
+          28.125,
+          2,
+          2
+        ],
+        [
+          78.75,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          5,
+          5
+        ],
+        [
+          80.15625,
+          28.125,
+          11,
+          11
+        ],
+        [
+          81.5625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          81.5625,
+          28.125,
+          4,
+          4
+        ],
+        [
+          82.96875,
+          26.71875,
+          11,
+          11
+        ],
+        [
+          82.96875,
+          28.125,
+          2,
+          2
+        ],
+        [
+          84.375,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          87.1875,
+          26.71875,
+          8,
+          8
+        ],
+        [
+          88.59375,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -143,8 +322,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150x60",
-        "bể cá lớn 540 lít"
+        "bể cá 150cm"
       ]
     },
     {

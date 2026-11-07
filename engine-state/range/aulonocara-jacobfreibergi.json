@@ -1,0 +1,73 @@
+{
+  "id": "aulonocara-jacobfreibergi",
+  "native": {
+    "input": "8f671c10a4da7e3a",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "MW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded in Malawi, Mozambique and Tanzania (Lake Malawi).",
+        "words": "Malawi",
+        "ok": true
+      },
+      {
+        "code": "MZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded in Malawi, Mozambique and Tanzania (Lake Malawi).",
+        "words": "Mozambique",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded in Malawi, Mozambique and Tanzania (Lake Malawi).",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "The Malawi butterfly, Aulonocara jacobfreibergi, is a cichlid endemic to Lake Malawi, living where rocky shores give way to sand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aulonocara jacobfreibergi",
+    "status": "ACCEPTED",
+    "taxonKey": 2370488,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        4
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "MW",
+      "MZ",
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

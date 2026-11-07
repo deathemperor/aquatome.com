@@ -10,6 +10,50 @@
     "thailand",
     "mae-klong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mae Klong River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from headwater tributaries within the Khwae Yai and Khwae Noi branches of the Mae Klong River in western Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mae Klong River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7386808,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +181,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120x45",
-        "bể cá dài 120cm"
+        "bể cá 120cm"
       ]
     },
     {

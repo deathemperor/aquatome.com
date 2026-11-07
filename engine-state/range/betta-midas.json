@@ -1,0 +1,73 @@
+{
+  "id": "betta-midas",
+  "native": {
+    "input": "e0e00335d13c3e40",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta midas is a stout-bodied labyrinth fish from the lower Kapuas basin in West Kalimantan, Indonesian Borneo, and may also occur in western Sarawak.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Kapuas river basin in West Kalimantan province, Indonesian Borneo near the village of Anjungan, about 60 km away from the town of Pontianak towards Mandor and Tayan.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It may also occur in the Sambas river drainage and extreme western Sarawak (Malaysian Borneo), in heath forest streams near the town of Lundu (Batang Kayan river system).",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Kapuas river basin in West Kalimantan province, Indonesian Borneo near the village of Anjungan, about 60 km away from the town of Pontianak towards Mandor and Tayan.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Kapuas river basin in West Kalimantan province, Indonesian Borneo near the village of Anjungan, about 60 km away from the town of Pontianak towards Mandor and Tayan.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta midas",
+    "status": "ACCEPTED",
+    "taxonKey": 2394029,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

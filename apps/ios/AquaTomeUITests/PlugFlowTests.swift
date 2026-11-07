@@ -7,10 +7,14 @@ import XCTest
 final class PlugFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
+  // The keys are set up once, in Bể của tôi's list: a tank says nothing of plugs until there are some.
   func testSetsUpTheTuyaKeysChecksThemAndRemovesThem() {
     let app = launch(keys: false)
-    XCTAssertTrue(element(app, "plugs-intro").waitForExistence(timeout: 5), "no word on what plugs need")
-    XCTAssertFalse(element(app, "add-plug").exists)
+    XCTAssertTrue(reveal(app, app.buttons["delete"]).exists, "the end of the tank not reached")
+    XCTAssertFalse(element(app, "plugs-header").exists, "plugs on a tank without keys")
+    XCTAssertFalse(element(app, "plug-setup").exists, "the keys set up from a tank")
+    back(app)
+    XCTAssertTrue(reveal(app, element(app, "plugs-intro")).exists, "no word on what plugs need")
     XCTAssertFalse(element(app, "apple-sign-in").exists, "an AquaTome account asked for")
     tap(app, "plug-setup")
     // Wrong keys: said so, not kept.
@@ -26,16 +30,25 @@ final class PlugFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "keys-saved").waitForExistence(timeout: 5))
     XCTAssertEqual(element(app, "keys-saved").label, "Đã lưu khóa của một dự án ở Tây Mỹ (Western America).")
     app.buttons["setup-done"].tap()
-    XCTAssertTrue(element(app, "add-plug").waitForExistence(timeout: 5), "the tank doesn't offer the plugs")
+    XCTAssertFalse(element(app, "plugs-intro").waitForExistence(timeout: 2), "still saying what plugs need")
+    openTank(app)
+    addPlug(app, "Ổ cắm bể 60")
+    back(app)
     // Removed: back to setting up; nothing on the tank is lost.
     tap(app, "plug-setup")
-    tap(app, "remove-keys")
+    let remove = reveal(app, element(app, "remove-keys"))
+    remove.tap()
     let confirm = app.buttons["confirm-remove-keys"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5))
+    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 150, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(waitGone(element(app, "keys-saved")), "the keys weren't removed")
     app.buttons["setup-done"].tap()
-    XCTAssertTrue(element(app, "plugs-intro").waitForExistence(timeout: 5))
+    XCTAssertTrue(reveal(app, element(app, "plugs-intro")).exists)
+    // The plug stays on the tank, saying where the keys are set up; nothing more is offered.
+    openTank(app)
+    XCTAssertTrue(reveal(app, element(app, "plugs-no-keys")).exists, "not told where the keys are set up")
+    XCTAssertTrue(element(app, "plug-name").exists, "the plug went with the keys")
     XCTAssertFalse(element(app, "add-plug").exists)
   }
 
@@ -62,9 +75,12 @@ final class PlugFlowTests: XCTestCase {
     field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 50) + "Lọc thùng")
     app.buttons["save-plug"].tap()
     XCTAssertTrue(app.staticTexts["Lọc thùng"].waitForExistence(timeout: 5), "the label isn't shown")
-    // A strip is on one tank: it isn't offered again.
+    // Every plug the project has is listed; one on a tank says so and can't be picked again: a strip is on one tank.
     tap(app, "add-plug")
     XCTAssertTrue(app.navigationBars["Thêm ổ cắm"].waitForExistence(timeout: 5))
+    let taken = app.descendants(matching: .any).matching(identifier: "plug-taken").matching(NSPredicate(format: "label BEGINSWITH %@", "Ổ cắm bể 60")).firstMatch
+    XCTAssertTrue(taken.waitForExistence(timeout: 5), "a plug on a tank left out of the list")
+    XCTAssertTrue(taken.label.contains("Đã ở bể này"), taken.label)
     XCTAssertFalse(choice(app, "Ổ cắm bể 60").exists, "a plug already on a tank offered again")
     app.buttons["Hủy"].firstMatch.tap()
     app.terminate()
@@ -74,6 +90,28 @@ final class PlugFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Lọc thùng"].waitForExistence(timeout: 5), "the plug wasn't kept on the tank")
     XCTAssertTrue(outlet(app, "switch_1").waitForExistence(timeout: 5))
     XCTAssertEqual(outlet(app, "switch_1").value as? String, "1")
+  }
+
+  func testAPlugOnAnotherTankIsListedByThatTanksName() {
+    let app = launch()
+    addPlug(app, "Ổ cắm bể 60")
+    // A second tank: the strip on "Bể 60" is in its list too, naming that tank, and can't be picked there.
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tap(app, "add-row")
+    let field = app.textFields["name"]
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no tank form")
+    field.tap()
+    field.typeText("Bể 30")
+    app.buttons["save"].tap()
+    let other = app.buttons.matching(identifier: "tank").matching(NSPredicate(format: "label CONTAINS %@", "Bể 30")).firstMatch
+    XCTAssertTrue(other.waitForExistence(timeout: 5), "no second tank")
+    other.tap()
+    tap(app, "add-plug")
+    XCTAssertTrue(app.navigationBars["Thêm ổ cắm"].waitForExistence(timeout: 5))
+    let taken = app.descendants(matching: .any).matching(identifier: "plug-taken").matching(NSPredicate(format: "label BEGINSWITH %@", "Ổ cắm bể 60")).firstMatch
+    XCTAssertTrue(taken.waitForExistence(timeout: 5), "a plug on another tank left out of the list")
+    XCTAssertTrue(taken.label.contains("Đang ở bể “Bể 60”"), taken.label)
+    XCTAssertFalse(choice(app, "Ổ cắm bể 60").exists, "a plug on another tank offered")
   }
 
   func testSwitchesAnOutletAndShowsWhatThePlugConfirmed() {
@@ -146,9 +184,12 @@ final class PlugFlowTests: XCTestCase {
     let app = launch()
     addPlug(app, "Ổ cắm bể 60")
     tap(app, "edit-plug")
-    tap(app, "remove-plug")
+    let remove = reveal(app, element(app, "remove-plug"))
+    remove.tap()
     let confirm = app.buttons["confirm-remove-plug"].firstMatch
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
+    // It pointed at the top of the form, far from the button tapped at its end.
+    XCTAssertLessThan(abs(confirm.frame.midY - remove.frame.midY), 150, "the question isn't by the button that asked it")
     confirm.tap()
     XCTAssertTrue(element(app, "add-plug").waitForExistence(timeout: 5))
     XCTAssertFalse(element(app, "plug-name").exists, "still on the tank")
@@ -174,11 +215,21 @@ final class PlugFlowTests: XCTestCase {
       field.typeText("Bể 60")
       app.buttons["save"].tap()
     }
-    let tank = app.buttons["tank"].firstMatch
-    XCTAssertTrue(tank.waitForExistence(timeout: 5), "no tank")
-    tank.tap()
+    openTank(app)
     return app
   }
+
+  /// From Bể của tôi's list, the tank's screen.
+  private func openTank(_ app: XCUIApplication) {
+    let tank = app.buttons["tank"].firstMatch
+    _ = tank.waitForExistence(timeout: 5)
+    // Rows scrolled above the screen aren't made: up the list until it's there.
+    repeatUntil(tank.exists && tank.isHittable, times: 4) { app.swipeDown() }
+    XCTAssertTrue(tank.isHittable, "no tank")
+    tank.tap()
+  }
+
+  private func back(_ app: XCUIApplication) { app.navigationBars.buttons.element(boundBy: 0).tap() }
 
   /// Puts one of the project's plugs on the tank, maybe with roles, and saves it.
   private func addPlug(_ app: XCUIApplication, _ name: String, roles: [String: String] = [:], save: Bool = true) {
@@ -248,7 +299,7 @@ final class PlugFlowTests: XCTestCase {
   @discardableResult
   private func reveal(_ app: XCUIApplication, _ e: XCUIElement) -> XCUIElement {
     _ = e.waitForExistence(timeout: 3)
-    for _ in 0..<8 where !(e.exists && e.isHittable) {
+    repeatUntil(e.exists && e.isHittable, times: 8) {
       app.swipeUp()
       _ = e.waitForExistence(timeout: 1)
     }

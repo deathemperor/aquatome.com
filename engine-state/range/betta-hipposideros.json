@@ -1,0 +1,84 @@
+{
+  "id": "betta-hipposideros",
+  "native": {
+    "input": "bec28a27e9b57481",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta hipposideros is a paternal mouthbrooding labyrinth fish from peat swamps in western Peninsular Malaysia and eastern Sumatra, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta hipposideros is a paternal mouthbrooding labyrinth fish from peat swamps in western Peninsular Malaysia and eastern Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Described from the north Selangor peat swamp forest in Selangor state, western Peninsular Malaysia, and subsequently recorded from localities in Perak state to the north.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Its range also extends into Riau province, eastern Sumatra, and the Riau Archipelago, Riau Islands province, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Riau Archipelago",
+        "source": "seriouslyfish",
+        "quote": "Its range also extends into Riau province, eastern Sumatra, and the Riau Archipelago, Riau Islands province, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta hipposideros",
+    "status": "ACCEPTED",
+    "taxonKey": 2394025,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}
