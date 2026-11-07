@@ -1,0 +1,66 @@
+{
+  "id": "corydoras-incolicana",
+  "native": {
+    "input": "13e7505d4d5d1561",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Içana in the upper rio Negro basin of Amazonas state, northern Brazil, but presumably also occurs in one or more of Guainía, Guaviare, and Vaupés departments, eastern Colombia, since the Içana forms the border between the two countries for a considerable portion of its length and drains all three regions.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Içana in the upper rio Negro basin of Amazonas state, northern Brazil, but presumably also occurs in one or more of Guainía, Guaviare, and Vaupés departments, eastern Colombia, since the Içana forms the border between the two countries for a considerable portion of its length and drains all three regions.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Içana",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Içana in the upper rio Negro basin of Amazonas state, northern Brazil, but presumably also occurs in one or more of Guainía, Guaviare, and Vaupés departments, eastern Colombia, since the Içana forms the border between the two countries for a considerable portion of its length and drains all three regions.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Içana in the upper rio Negro basin of Amazonas state, northern Brazil, but presumably also occurs in one or more of Guainía, Guaviare, and Vaupés departments, eastern Colombia, since the Içana forms the border between the two countries for a considerable portion of its length and drains all three regions.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "CO"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Corydoras incolicana",
+    "status": "ACCEPTED",
+    "taxonKey": 2342675,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

@@ -12,6 +12,113 @@
     "peru",
     "rio-nanay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Amazon River",
+        "Río Nanay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis agassizii, long known as Corydoras agassizii, is an armoured catfish from the Amazon around the border of Brazil and Peru, described from near Tabatinga.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Amazon River near Tabatinga, Amazonas, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Amazon River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records exist from the Río Nanay, more than 200 kilometres upstream of the type locality, so it appears to range at least as far as the city of Iquitos in Loreto Regio, Peru, but distribution is usually given as 'Amazon River basin near border of Brazil and Peru'.",
+          "countries": [],
+          "regions": [
+            "Río Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342761,
+      "total": 15,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          8
+        ],
+        [
+          "BR",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

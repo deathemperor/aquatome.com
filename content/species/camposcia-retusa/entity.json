@@ -880,6 +880,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Because of their relatively small size, even a nano marine tank (10 gallons or 40 litres) is good enough for one crab."
+  },
   "dataCard": {
     "tempC": [
       {

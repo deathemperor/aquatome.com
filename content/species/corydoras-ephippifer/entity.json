@@ -10,6 +10,68 @@
     "brazil",
     "rio-amapari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Amapari"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The saddle cory, Brochis ephippifera, long known as Corydoras ephippifer, is an armoured catfish native to Amapá state in northeastern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Cachoera Creek at right bank of Rio Amapari, 4 kilometers downstream of Casa do 7, Amapa State, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Rio Amapari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342598,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,80 @@
+{
+  "id": "corydoras-axelrodi",
+  "native": {
+    "input": "43a38deba25f4d37",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Axelrod's cory, Hoplisoma axelrodi, long known as Corydoras axelrodi, is an armoured catfish apparently endemic to the Río Meta drainage in Colombia, a tributary of the Orinoco.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Río Meta, Colombia', and this species is apparently endemic to that drainage although precise locality details are scarce.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "Axelrod's cory, Hoplisoma axelrodi, long known as Corydoras axelrodi, is an armoured catfish apparently endemic to the Río Meta drainage in Colombia, a tributary of the Orinoco.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Axelrod's cory, Hoplisoma axelrodi, long known as Corydoras axelrodi, is an armoured catfish apparently endemic to the Río Meta drainage in Colombia, a tributary of the Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Río Manacacias",
+        "source": "seriouslyfish",
+        "quote": "There appears to exist evidence to suggest that the type locality is situated in the Río Manacacias basin, Meta Department, near the municipality of Puerto Gaitan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras axelrodi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342754,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

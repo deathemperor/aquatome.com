@@ -1,0 +1,87 @@
+{
+  "id": "corydoras-imitator",
+  "native": {
+    "input": "5217216f8ba5da83",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The imitator cory, Brochis imitator, long known as Corydoras imitator, is an armoured catfish endemic to the upper rio Negro basin in northern Brazil and southern Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The imitator cory, Brochis imitator, long known as Corydoras imitator, is an armoured catfish endemic to the upper rio Negro basin in northern Brazil and southern Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the upper rio Negro basin in Amazonas state, northern Brazil, and Amazonas state, southern Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the upper rio Negro basin in Amazonas state, northern Brazil, and Amazonas state, southern Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras imitator is currently imported from the upper Rio Negro in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the upper rio Negro basin in Amazonas state, northern Brazil, and Amazonas state, southern Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Corydoras imitator is currently imported from the upper Rio Negro in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras imitator",
+    "status": "ACCEPTED",
+    "taxonKey": 2342697,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

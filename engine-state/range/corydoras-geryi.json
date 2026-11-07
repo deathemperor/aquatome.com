@@ -1,0 +1,60 @@
+{
+  "id": "corydoras-geryi",
+  "native": {
+    "input": "07b9854b048e3010",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brochis geryi, long known as Corydoras geryi, is an armoured catfish from the Río Mamoré basin in Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Mamoré basin, Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Mamoré",
+        "source": "seriouslyfish",
+        "quote": "Brochis geryi, long known as Corydoras geryi, is an armoured catfish from the Río Mamoré basin in Bolivia.",
+        "country": "BO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras geryi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342693,
+    "datasets": [
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        5
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ]
+    ],
+    "native": [
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

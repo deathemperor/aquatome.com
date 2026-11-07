@@ -1,16 +1,20 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules: docs/governance.md, "Photos".
-4163 verdicts. Shows it: 2941; its habitat: 61; something else: 122; not a photo of it: 104; dead or as food: 181; a logo on it: 13; can't tell: 722.
+Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules: docs/governance.md, "Photos".
+4177 verdicts. Shows it: 2932; its habitat (asked again): 61; something else: 145; not a photo of it: 104; dead or as food: 181; a person in it: 0; a logo on it: 13; can't tell: 716.
 
-## Left with no photo (23)
+## Left with no photo (33)
 
 - plants/vesicularia-ferriei
 - plants/cyperus-helferi
 - species/hyphessobrycon-elachys
 - species/channa-stewartii
 - plants/vesicularia-montagnei
+- species/symphysodon-discus
+- species/bagrichthys-hypselopterus
+- species/clarias-pachynema
 - species/cyclocheilichthys-janthochir
+- species/gymnocorymbus-bondi
 - species/laemolyta-taeniata
 - species/neblinichthys-pilosus
 - species/nemacheilus-guentheri
@@ -18,18 +22,24 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 - species/potamotrygon-scobina
 - species/pseudanos-trimaculatus
 - species/acestrorhynchus-isalineae
+- species/ailia-coila
 - species/ailiichthys-punctata
 - species/akysis-variegatus
+- species/amblyceps-caecutiens
+- species/ancistrus-pirareta
 - species/aphyocharax-rathbuni
 - species/barbodes-everetti
 - species/clupisoma-garua
 - species/eutropiichthys-burmannicus
+- species/eutropiichthys-cetosus
 - species/garra-arupi
+- species/garra-kalpangi
 - species/garra-mullya
+- species/laides-hexanema
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (722)
+## Can't tell: still shown (716)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -82,7 +92,6 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/astronotus-ocellatus | [photo](https://media.aquatome.com/commons/32dab8303dcedaa8.webp) | oscar-like tiger pattern but unnatural blue fins and serrated dorsal; may be edited or digital art |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/inaturalist/215552042.webp) | fine-stemmed sedge with white flowering spikelets among other plants; can't confirm species |
 | plants/eleocharis-acicularis | [photo](https://media.aquatome.com/inaturalist/89276688.webp) | close-up of fine stems with pale flowering spikelets; could be another small sedge |
-| species/anentome-helena | [photo](https://media.aquatome.com/commons/98d669efa37acd54.webp) | empty faded brown shell on black; banding not clear enough to confirm Anentome |
 | plants/anubias-barteri | [photo](https://media.aquatome.com/commons/fde5b46b5460a750.webp) | Rooted cuttings with pointed heart-shaped leaves on a white surface; looks more like pothos than round-leaved coin leaf  |
 | species/xiphophorus-maculatus | [photo](https://media.aquatome.com/commons/11563ae715b66eab.webp) | planted tank, small distant red wagtail platy-like fish |
 | species/xiphophorus-maculatus | [photo](https://media.aquatome.com/inaturalist/207091518.webp) | blurry pale yellowish livebearer in cloudy water, too unclear to identify |
@@ -379,7 +388,6 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/606726185.webp) | distant dark fish in a shallow pool, view is poor |
 | species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/722674967.webp) | large grey fish underwater; body shape doesn't clearly match pacu, could be a different characin |
 | species/aphyocharax-anisitsi | [photo](https://media.aquatome.com/inaturalist/63954585.webp) | Slender silvery tetra with only a faint red patch at the tail base and none on the other fins; could be a pale or young  |
-| species/symphysodon-discus (a guide photo) | [photo](https://media.aquatome.com/video/7EUCwvZpKvg/p1-faGVhcnRfMS5qcGc.webp) | raw beef heart on cutting board (food prep), no fish |
 | species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/80b38cf4cd7e9c78.webp) | sailfin plecos with vermiculated maze pattern; may be P. disjunctivus rather than pardalis |
 | species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/a6e25aaa7d8407e0.webp) | pale juvenile sailfin pleco with bold leopard spots; could be P. gibbiceps |
 | species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/b81769d9074f3a6a.webp) | pale wavy lines on dark body; looks more like P. disjunctivus |
@@ -457,7 +465,6 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/auchenipterus-nigripinnis | [photo](https://media.aquatome.com/scotcat/645b86f9b3658d42.webp) | pinkish small catfish in bare tank, blurry; ID not certain |
 | species/auchenoglanis-occidentalis | [photo](https://media.aquatome.com/scotcat/b048cf319b46178b.webp) | dark, distant view of a large catfish; can't confirm the species |
 | species/auchenoglanis-occidentalis | [photo](https://media.aquatome.com/scotcat/f96051c32847a8aa.webp) | spotted catfish with long barbels; may be a different claroteid |
-| species/bagrichthys-hypselopterus | [photo](https://media.aquatome.com/scotcat/4ef7f583904cb584.webp) | close-up of a dark bagrid catfish's head, held in a hand; tall dorsal fin not visible, so species can't be confirmed |
 | species/bagrichthys-macracanthus | [photo](https://media.aquatome.com/scotcat/b1fda7e69abe3ae2.webp) | smaller pinkish-black catfish with white stripe and short dorsal on sand; possibly juvenile or other Bagrichthys |
 | species/barbodes-semifasciolatus | [photo](https://media.aquatome.com/inaturalist/673322750.webp) | silvery barb with short bars on black background; could be wild type but other barbs can't be ruled out |
 | species/barbodes-semifasciolatus | [photo](https://media.aquatome.com/sprucepets/3213eda1134f0646.webp) | reddish checkered barb with red fins; looks more like a checker barb (Pethia oligolepis) than a golden barb |
@@ -545,7 +552,6 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/commons/5e54e7a532a4db8f.webp) | yellow-brown puffer with dense small dark spots, no green colour; could be a faded green puffer or another Tetraodontid |
 | species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/commons/9b9338f35b62109c.webp) | Large yellow-green puffer with dark saddles and marbling, not the usual spotted green puffer; possibly a Pao species |
 | species/dichotomyctere-fluviatilis | [photo](https://media.aquatome.com/inaturalist/631012652.webp) | Spotted puffer, yellow with round black spots; could be D. fluviatilis or D. nigroviridis, can't rule out the look-alike |
-| species/dicrossus-filamentosus | [photo](https://media.aquatome.com/commons/a0a2fbc3bea9878a.webp) | Pale juvenile or specimen dwarf cichlid on white background with one row of black side blotches. No lyre tail or checker |
 | species/diplomystes-nahuelbutaensis | [photo](https://media.aquatome.com/scotcat/06f6d37e18ba1fed.webp) | small juvenile catfish next to a ruler; looks like a young diplomystid, but the species can't be confirmed over other Di |
 | species/diplomystes-nahuelbutaensis | [photo](https://media.aquatome.com/scotcat/74f4fef54a646031.webp) | tiny juvenile catfish next to a syringe scale; looks like a diplomystid, but the species can't be confirmed |
 | species/ditrupa-arietina | [photo](https://media.aquatome.com/seriouslyfish/5f1ca4eda4c4c08b.webp) | slender long-snouted cory; thin stripe along the side doesn't reach the eye, unlike arcuatus's arched stripe |
@@ -601,7 +607,6 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/kronichthys-subteres | [photo](https://media.aquatome.com/scotcat/1e19ac2fede5b9f2.webp) | several mixed loricariids in a white basin at the collecting site; ID uncertain |
 | species/kronichthys-subteres | [photo](https://media.aquatome.com/scotcat/6f1a7cd0d09014b9.webp) | two live loricariids in a white tub, one mottled, one reddish-brown; can't confirm species |
 | species/labeo-chrysophekadion | [photo](https://media.aquatome.com/seriouslyfish/154cfcf63af0867d.webp) | grey Labeo with dark band across tail base; may be another Labeo species |
-| species/labeo-chrysophekadion | [photo](https://media.aquatome.com/seriouslyfish/2c53f8f15cd6dede.webp) | grey Labeo with tall falcate dorsal on black background; pale colour, can't confirm it's black shark |
 | species/labeo-chrysophekadion | [photo](https://media.aquatome.com/seriouslyfish/9b1dff401d2f84fb.webp) | close-up of large grey cyprinid head in a tank; species unclear |
 | species/ladigesia-roloffi | [photo](https://media.aquatome.com/commons/e94f558871529523.webp) | mixed fish under green light; small one may be this species, larger fish may be another species |
 | species/leiarius-marmoratus | [photo](https://media.aquatome.com/commons/ff572107e005b396.webp) | small brown/orange banded juvenile catfish with long white barbels; lacks the marbled pattern, possibly another pimelodi |
@@ -633,7 +638,6 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/metynnis-lippincottianus | [photo](https://media.aquatome.com/inaturalist/733956018.webp) | small, blurry, distant disc-shaped fish against a blue background |
 | species/misgurnus-anguillicaudatus | [photo](https://media.aquatome.com/inaturalist/695915082.webp) | distant view of greyish spotted loaches on gravel under blue light; Paramisgurnus can't be ruled out |
 | species/misgurnus-anguillicaudatus (a guide photo) | [photo](https://media.aquatome.com/seriouslyfish/7fc8e4e53af9e8a5.webp) | caption is about Cobitis sp. 1; shows several striped Cobitis loaches on sand, not the weather loach |
-| species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/6f8de1ac4e713448.webp) | silvery large-eyed tetra on white; lacks the black caudal-peduncle band of M. oligolepis, so identity uncertain |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/71084a5c8fadf2f3.webp) | Single live golden tetra side-on, with netted scales and a red eye, but the expected black tail-base spot is missing |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/inaturalist/11831777.webp) | Four live Moenkhausia-like tetras by a submerged log, with large netted scales and red eyes, but no clear black tail-bas |
 | species/monocirrhus-polyacanthus | [photo](https://media.aquatome.com/commons/f3981236ca4c840b.webp) | small brown fish head-down among plants; snout hidden, can't confirm the species |
@@ -756,9 +760,9 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/aphyosemion-bivittatum | [photo](https://media.aquatome.com/commons/5e19d31c0c91347a.webp) | Two-banded Chromaphyosemion killifish, but no lyre tail or red body spots; could be a female/young bivittatum or a relat |
 | species/apricaphanius-baeticus | [photo](https://media.aquatome.com/seriouslyfish/b874dd7f15a4ac8d.webp) | several small brownish fish in a pink net, seen from above; too small to tell from Gambusia |
 
-## Removed (420)
+## Removed (443)
 
-"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), and "logo" a mark added on the photo, both off every page; the rest are maps, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | What it shows |
 | --- | --- | --- |
@@ -919,6 +923,29 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/aphyocharax-anisitsi | [photo](https://media.aquatome.com/commons/1b3e4f34475ab0b9.webp) | Old museum plate of several characins (Spintherobolus, Aphyocharax) in black and white with captions; a scientific figur |
 | species/moenkhausia-sanctaefilomenae | [photo](https://media.aquatome.com/commons/c574fc4659730771.webp) | dead: preserved museum specimen with tag and ruler |
 | species/moenkhausia-sanctaefilomenae | [photo](https://media.aquatome.com/commons/f78a05b4d9f93843.webp) | dead: preserved museum specimen with tag and ruler |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1548425923-a7d6c37d7f18?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8U3ltcGh5c29kb24lMjBkaXNjdXN8ZW58MXx8fHwxNzkzNDQ1MzMyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1564989769610-40bbae0aa5e9?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8U3ltcGh5c29kb24lMjBkaXNjdXN8ZW58MXx8fHwxNzkzNDQ1MzMyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1568795502903-139a42d67ba1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fFN5bXBoeXNvZG9uJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQ0NTMzMnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1581720001997-af0c81be7818?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTB8fFN5bXBoeXNvZG9uJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQ0NTMzMnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1708190789008-68fd99495d89?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjR8fFN5bXBoeXNvZG9uJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQ0NTMzMnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1735476600186-23d3506052a1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8U3ltcGh5c29kb24lMjBkaXNjdXN8ZW58MXx8fHwxNzkzNDQ1MzMyfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1737915971912-0ee1c7acff6f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTJ8fFN5bXBoeXNvZG9uJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQ0NTMzMnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://images.unsplash.com/photo-1754722779079-e9ad2e963e0d?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mjh8fFN5bXBoeXNvZG9uJTIwZGlzY3VzfGVufDF8fHx8MTc5MzQ0NTMzMnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/06a41720873f6ac6.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/0958dcb4f6b1c968.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/141b5ed40120bdfb.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/172316de87fb8acf.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/177a26a905332984.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/2f8a0501694bfb9f.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/9a3deaf553eee94b.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/bb3fdd5b0b76cc45.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/e6935fc1e0ed7998.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/ebbb18c5cb3f8c3f.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/f50465bcbe1a992b.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/commons/fad3f9b9c7fd8600.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/inaturalist/259006404.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/inaturalist/409250999.webp) | captive-bred colour form of Symphysodon aequifasciatus, not the wild Heckel discus (the owner, 2026-11-07, looked at by eye) |
+| species/symphysodon-discus | [photo](https://media.aquatome.com/sprucepets/9d5a6550519a7967.webp) | red bred discus, a form of Symphysodon aequifasciatus, not the wild Heckel discus |
 | species/pterygoplichthys-pardalis | [photo](https://images.unsplash.com/photo-1747133482499-8b0d78240e69?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8UHRlcnlnb3BsaWNodGh5cyUyMHBhcmRhbGlzfGVufDF8fHx8MTc5MzQ5NDY0Nnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | mottled catfish with long barbels and no sucker mouth, likely an auchenipterid/driftwood catfish, not a pleco |
 | species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/7d51443a469716ee.webp) | dead: pile of caught sailfin plecos lying on a plastic bag on the ground |
 | species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/0b50511348d0540d.webp) | brown Ancistrus with gold spots and barred dorsal; lacks L183's black body and white fin edges |
@@ -1114,6 +1141,7 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/82681e637f6c2942.webp) | dead: dead catfish lying on red tray at a market |
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/916d6ac8add48994.webp) | dead: head of a dead catfish in a metal basin at a market |
 | species/synodontis-angelicus | [photo](https://media.aquatome.com/commons/f04d1e24a2e68e4a.webp) | dead: mounted museum specimen on a stand in a display case, with a label |
+| species/tetraodon-mbu | [photo](https://media.aquatome.com/commons/4e937a6562221908.webp) | dead: two dead mbu puffers lying on a black plastic sheet next to a scale bar |
 | species/xiphophorus-variatus | [photo](https://media.aquatome.com/commons/d2b5899a8a870087.webp) | dead: wild-caught male variatus-like platy held up in an open hand: a landed catch, can't tell if it's alive |
 | plants/eriocaulon-cinereum | [photo](https://media.aquatome.com/commons/5f98dc8ae9a9150c.webp) | dead: pressed, dried Eriocaulon plant with flower heads laid flat on white paper, like a herbarium specimen |
 | species/acanthodoras-cataphractus | [photo](https://media.aquatome.com/commons/3952b2b5e57850d6.webp) | Old museum sheet of engraved drawings of Doras cataphractus, not a photo |
@@ -1178,7 +1206,6 @@ Written by `pnpm engine check-photos` (2026-11-06), most-read pages first. Rules
 | species/pimelodella-gracilis | [photo](https://media.aquatome.com/commons/aec7d2b7a4d89428.webp) | dead: old black-and-white photo of a preserved museum specimen; figure number '2' printed below the fish |
 | species/sulcospira-testudinaria | [photo](https://media.aquatome.com/commons/ab7ef29218707e20.webp) | dead: single empty museum shell with Naturalis labels |
 | species/sulcospira-testudinaria | [photo](https://media.aquatome.com/commons/e1c1490121b0a7d3.webp) | dead: museum shells with Naturalis labels and a vial |
-| species/tetraodon-mbu | [photo](https://media.aquatome.com/commons/4e937a6562221908.webp) | dead: two dead mbu puffers lying on a black plastic sheet next to a scale bar |
 | species/tinca-tinca | [photo](https://media.aquatome.com/commons/04744fab0c981d6d.webp) | dead: mounted taxidermy tench on wood plaque with label 'lín obecný (Tinca tinca)' |
 | plants/caloglossa-beccarii | [photo](https://media.aquatome.com/commons/4b41fb03e44d7a69.webp) | dead: pressed herbarium sheet of algae with labels and colour bar |
 | plants/caloglossa-beccarii | [photo](https://media.aquatome.com/commons/9036d5aa070f15cd.webp) | dead: pressed herbarium sheet of algae with labels and colour bar |

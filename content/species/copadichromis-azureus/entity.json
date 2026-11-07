@@ -10,6 +10,61 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Maleri Islands",
+        "Mbenji Islands"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's found in the southern part of the lake around the Maleri Islands, Mbenji Islands, Nkhomo reef and Eccles reef.",
+          "countries": [],
+          "regions": [
+            "Maleri Islands",
+            "Mbenji Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373836,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MW",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          4
+        ],
+        [
+          33.75,
+          -11.25,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

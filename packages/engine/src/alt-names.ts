@@ -50,6 +50,8 @@ const parts = (s: string) => {
   const m = s.match(/^(.+?)\s*\(([^()]+)\)\s*$/)
   return m ? [s, m[1]!, m[2]!] : [s]
 }
+/** Brackets that are a note on the name, not another name or a form: "(tên quen gọi, dù cá gốc Nam Mỹ)", "(tên chung của loài)". */
+const NAME_NOTE = /^tên\s/iu
 const colourless = (ws: string[]) => nameKey(bare(ws.filter(w => !COLOURS.has(w))).join(' '))
 /** Where a marker's words stand in a name's words. */
 const markerAt = (ws: string[], m: string[]) => ws.findIndex((_, i) => m.every((w, j) => ws[i + j] === w))
@@ -100,6 +102,8 @@ function better(a: string, b: string) {
  *   its kinds, and keeps them.
  * - a name written twice ("Siamese Fighting Fish"), the page's own name again, its scientific name with "Cá" before
  *   it, or "X (Y)" where X and Y are both its names already.
+ * - a name the page also has with a note on it ("Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)"): the noted
+ *   one stays.
  */
 export function cleanAltNames(page: { name: string; sci: string; altNames: string[] }, breeds: BreedName[] = []): { altNames: string[]; off: NameOff[] } {
   const off: NameOff[] = []
@@ -155,10 +159,19 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
   }
   // "X (Y)" whose X and Y are both names the page has.
   const have = new Set([...nameParts, sci, ...out.map(altKey)])
-  const altNames = out.filter(n => {
+  const distinct = out.filter(n => {
     const p = parts(n)
     if (p.length < 3 || !p.slice(1).every(x => have.has(altKey(x)))) return true
     off.push({ name: n, why: 'duplicate', of: `${p[1]} / ${p[2]}` })
+    return false
+  })
+  // A name with a note on the name ("Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)"): the same name without it
+  // leaves, as a translation may bring it back, and the note says what the bare name can't.
+  const noted = new Map(distinct.flatMap(n => { const p = parts(n); return p.length === 3 && NAME_NOTE.test(p[2]!) ? [[altKey(p[1]!), n] as const] : [] }))
+  const altNames = distinct.filter(n => {
+    const by = noted.get(altKey(n))
+    if (!by) return true
+    off.push({ name: n, why: 'duplicate', of: by })
     return false
   })
   return { altNames, off }

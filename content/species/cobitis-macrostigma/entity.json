@@ -9,6 +9,52 @@
     "asia",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A beautiful and absolutely peaceful loach from China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368237,
+      "total": 2,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          29.53125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

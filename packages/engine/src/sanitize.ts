@@ -65,11 +65,14 @@ export const unescapePlain = (s: string) => {
  *   African tilapia, stays.
  * - "setup bể": the hobby says "set bể" (vi-style.md; the council's review: the betta guide's title "Cách setup bể cá
  *   betta đẹp"). "Setup" anywhere else ("setup một bể", a creator's own "SETUP Bể" title) stays.
+ * - "chỉtiêu": two words a translation ran together ("que thử đa chỉ tiêu", the tank-cycling guide; a design lab,
+ *   2026-11-07). The content rule `glued` lists any other such word for a person, who adds it here.
  * No capture groups in `find`: viWording reads the match's offset as the replacer's second argument.
  */
 const WORDING: { find: RegExp; use: string }[] = [
   { find: /(?<!\p{L})(?<![Rr]ô )[Pp]hi châu(?!\p{L})(?! Phi)/gu, use: 'châu Phi' },
   { find: /(?<!\p{L})[Ss]etup bể(?!\p{L})/gu, use: 'set bể' },
+  { find: /(?<!\p{L})[Cc]hỉtiêu(?!\p{L})/gu, use: 'chỉ tiêu' },
 ]
 const SENTENCE_START = /(?:^\s*|[.!?…]\s+|<(?:p|li|h3|td|th)>\s*)$/
 

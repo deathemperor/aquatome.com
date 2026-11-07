@@ -10,6 +10,82 @@
     "argentina",
     "iguazu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR"
+      ],
+      "regions": [
+        "Iguazu",
+        "Paraná",
+        "La Plata"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Lower Iguazu River basin (La Plata, Paraná, Iguazu). Type locality: small arroyo, left bank tributary of Río Iguazu, 50 kilometers from Puerto Iguazu, Paraná basin, Misiones Province, Argentina.",
+          "countries": [
+            "AR"
+          ],
+          "regions": [
+            "Iguazu",
+            "Paraná",
+            "La Plata"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342713,
+      "total": 42,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          36
+        ],
+        [
+          "AR",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -28.125,
+          6,
+          6
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          11,
+          0
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          4,
+          0
+        ],
+        [
+          -53.4375,
+          -26.71875,
+          18,
+          0
+        ],
+        [
+          -53.4375,
+          -25.3125,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

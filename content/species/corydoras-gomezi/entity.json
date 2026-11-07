@@ -11,6 +11,70 @@
     "amazon",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Isla de Mocagua"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis gomezi, long known as Corydoras gomezi, is an armoured catfish from the western Amazon basin in Colombia and Peru, including the 'Tres Fronteras' region.",
+          "countries": [
+            "CO",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' range is unclear with collection records scarce, although it certainly occurs in the 'Tres Fronteras' region of the western Amazon river basin where the borders of Brazil, Colombia, and Peru meet.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Lakes of the Isla de Mocagua, Amazon River, near Leticia, Comisaría del Amazonas, 3°54'S, 70°14'W, Colombia'.",
+          "countries": [],
+          "regions": [
+            "Isla de Mocagua"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342660,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
