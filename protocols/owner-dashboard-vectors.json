@@ -8721,12 +8721,16 @@
                 "label": "Lượt trả lại cho người đọc",
                 "value": "3",
                 "sub": "nhiều nhất một người: 2"
+              },
+              {
+                "label": "Câu hỏi ngoài chuyện nuôi cá",
+                "value": "0"
               }
             ]
           },
           {
             "kind": "note",
-            "text": "Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính.",
+            "text": "Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính. Câu hỏi ngoài chuyện nuôi cá: chat trả lời một câu cố định và trả lại lượt, tối đa bằng số lượt một ngày của người đó.",
             "tone": "plain"
           },
           {
@@ -13157,12 +13161,16 @@
                 "label": "Lượt trả lại cho người đọc",
                 "value": "3",
                 "sub": "nhiều nhất một người: 2"
+              },
+              {
+                "label": "Câu hỏi ngoài chuyện nuôi cá",
+                "value": "0"
               }
             ]
           },
           {
             "kind": "note",
-            "text": "Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính.",
+            "text": "Cùng ngày với bảng key. Lượt trả lại: lỗi phía mình (503) nên người đọc không mất lượt; ảnh hay yêu cầu của người đọc lỗi (502) thì vẫn tính. Câu hỏi ngoài chuyện nuôi cá: chat trả lời một câu cố định và trả lại lượt, tối đa bằng số lượt một ngày của người đó.",
             "tone": "plain"
           },
           {
