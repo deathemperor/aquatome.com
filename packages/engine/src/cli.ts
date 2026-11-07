@@ -443,11 +443,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
 } else if (cmd === 'fit') {
   // Is each page written for its reader (fit.ts)? The model reads the pages due in a random order, so a run stopped part
   // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
-  // pnpm engine fit [--limit N] [--jobs N]. FIT_MODEL: the reading model (default sonnet; docs/review/fit.md has its accuracy).
-  const pages = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
-  const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'sonnet', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20), root: ROOT })
+  // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th]. FIT_MODEL: the reading model. Opus by
+  // default: on a test sample Sonnet missed about half of what's written for elsewhere and a quarter of the source talk.
+  const all = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
+  const pages = all.filter(p => (!values.kind || values.kind.split(',').includes(p.kind)) && (!values.lang || values.lang.split(',').includes(p.lang)))
+  const { report: r, state } = await runFit(pages, join(ROOT, 'engine-state/_fit.json'), { llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 2), limit: Number(values.limit ?? 20), root: ROOT })
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
-  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state))
   console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'traits') {

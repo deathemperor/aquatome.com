@@ -26,6 +26,7 @@ test('what only looks like a hit is not one', () => {
   }
   expect(found('units', '<p>Dùng 5 ml cho mỗi 38 lít nước.</p>')).toEqual([])
   expect(found('units', '<p>Bể 40 lít là đủ.</p>')).toEqual([])
+  expect(found('units', '<p>1 sendok teh per 19–38 liter.</p>', { lang: 'id' })).toEqual([]) // a dose's range
   // A product sold here is no finding, in product or in dose.
   expect(checks('<p>Dùng 5 ml Seachem Prime.</p>').filter(c => c === 'product' || c === 'dose')).toEqual([])
 })
@@ -153,9 +154,9 @@ test('what isn\'t a conflict: another strength, a converted gallon, a page\'s ow
   expect(doseGroups([levels.p, a.p], state([levels, a])).flatMap(g => g.conflicts)).toEqual([])
 })
 
-test('a dose says what it\'s for and how: the program works that out, and the model can\'t report it itself', () => {
+test('a dose says what it\'s for: the program works that out, and the model can\'t report it itself', () => {
   const x = dosed('x', [dose({ use: '', quote: '3 ml cho mỗi 4 lít' }), dose({ method: '', amount: 5, quote: '5 ml cho mỗi 4 lít' })])
-  expect(fitFindings(x.p, x.e).filter(f => f.check === 'dose-purpose').map(f => f.why)).toEqual(['doesn\'t say what this dose is for', 'doesn\'t say how to use this dose'])
+  expect(fitFindings(x.p, x.e).filter(f => f.check === 'dose-purpose').map(f => f.quote)).toEqual(['3 ml cho mỗi 4 lít'])
   expect(keepFit([{ check: 'dose-purpose', part: 'P1', quote: 'x', why: 'y' }], 'x', 'vi')).toEqual([])
 })
 

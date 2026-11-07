@@ -30,7 +30,7 @@ export const FIT_TITLE: Record<FitCheck, string> = {
   units: 'Imperial units, or a volume that shows it was converted',
   words: 'Words keepers here don\'t use',
   elsewhere: 'Written for a reader who lives elsewhere',
-  'dose-purpose': 'A dose that doesn\'t say what it\'s for or how to use it',
+  'dose-purpose': 'A dose that doesn\'t say what it\'s for',
   'dose-conflict': 'The same treatment, for the same thing, dosed differently on another page',
   'dose-caution': 'A dose without the caution its source gives for shrimp or other sensitive animals',
 }
@@ -81,7 +81,7 @@ const IMPERIAL = [
 ]
 /** A volume only a conversion from gallons would give. A dose's figures are the dose check's. */
 const CONVERTED = re(`(?<![\\d.,])(?:19|38|57|76|114|151|208|284|379)\\s*(?:lít|liter|litre|l|ลิตร)(?![\\p{L}\\p{N}])`)
-const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
+const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?(?:\d+\s*[–-]\s*)?$/iu
 const DOSE = re(WORD(`${AMOUNT}(?:ml|gói|viên|thìa|muỗng|giọt|mg|g|nắp|sachet|tablet|butir|ซอง|เม็ด|หยด)`))
 
 /** A page with an amount of something per volume, by its words: how a sample finds doses, which are too few at random. */
@@ -256,7 +256,8 @@ export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
     const x = productOf(n, p.lang)
     return x && (x.status === 'hard' || (x.status === 'no data' && p.lang !== 'vi')) ? [{ check: 'product' as const, part: '', quote: x.name, why: x.status === 'hard' ? 'not found at shops here (market.ts)' : 'in the table, market unknown', product: x.name, by: 'model' as const }] : []
   })
-  const unsaid = (entry?.doses ?? []).filter(d => !d.use || !d.method).map(d => ({ check: 'dose-purpose' as const, part: '', quote: clip(d.quote), why: !d.use ? 'doesn\'t say what this dose is for' : 'doesn\'t say how to use this dose', by: 'model' as const }))
+  // What it's for, not how: two readers agree on the first and not on the second, which is only for comparing doses.
+  const unsaid = (entry?.doses ?? []).filter(d => !d.use).map(d => ({ check: 'dose-purpose' as const, part: '', quote: clip(d.quote), why: 'doesn\'t say what this dose is for', by: 'model' as const }))
   return dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
 }
 

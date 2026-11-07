@@ -78,7 +78,7 @@ export const forWriter = (products: GuideFacts['products']) => products.map(x =>
 export type ForReader = { written: Written; facts: GuideFacts; market: string; score: number; notes: string[]; findings: FitFinding[]; tries: number; kept: boolean }
 
 /** A Vietnamese guide from its source's text. `voice`: another voice's rules, tried on the side before the owner picks one. */
-export async function writeForReader(d: { llm: Llm }, id: string, source: string, o: { factsModel?: string; writeModel?: string; checkModel?: string; voice?: string; now?: () => Date } = {}): Promise<ForReader> {
+export async function writeForReader(d: { llm: Llm }, id: string, source: string, o: { factsModel?: string; writeModel?: string; checkModel?: string; fitModel?: string; voice?: string; now?: () => Date } = {}): Promise<ForReader> {
   const facts = await d.llm<GuideFacts>({ system: FACTS, prompt: source.slice(0, 120_000), schema: FACTS_SCHEMA, model: o.factsModel ?? 'sonnet' })
   const market = marketFor('vi', facts.products.map(x => x.name).join('\n'), facts.problems)
   const input = `--- DỮ KIỆN ---\n${JSON.stringify({ topic: facts.topic, facts: facts.facts, products: forWriter(facts.products) }, null, 1)}\n\n--- THỊ TRƯỜNG ---\n${market}`
@@ -90,7 +90,7 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     const clean = { ...w, name: unescapePlain(w.name).trim(), body: sanitizeHtml(w.body) }
     const page = asPage(id, clean)
     // The same checks every page passes (fit.ts), its cautions against the facts and the table the writer had.
-    const made = await readFit(d.llm, page, o.checkModel ?? 'sonnet', o.now?.() ?? new Date(), `${JSON.stringify(facts)}\n${market}`)
+    const made = await readFit(d.llm, page, o.fitModel ?? 'opus', o.now?.() ?? new Date(), `${JSON.stringify(facts)}\n${market}`)
     const findings = fitFindings(page, made)
     const wrong = findings.filter(f => f.check !== 'words')
     const outside = amountsOutside(plain(clean), input)
@@ -106,7 +106,7 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
   }
   let best = await check(await write())
   let tries = 1
-  if (!best.ok || best.notes.length) {
+  if (!best.ok || best.score < 0.85) {
     const again = await check(await write(best.notes))
     tries = 2
     if (again.ok || (!best.ok && again.score >= best.score)) best = again
