@@ -141,3 +141,18 @@ test('in Indonesian and Thai: every word translated, the countries named in that
     expect(words, lang).toContain(countryName('VE', lang))
   }
 })
+
+test('off the Vietnamese pages, a place written in Vietnamese the site has no page of is marked so: its region and its sentence (Bagarius rutilus\' Sông Kỳ Cùng)', async () => {
+  const quotes = [{ source: 'seriouslyfish' as const, quote: 'Known from the Thái Bình, Sông Kỳ Cùng and Lam rivers in Vietnam.', countries: [], regions: ['Sông Kỳ Cùng', 'Lam'] }]
+  const r = { native: native({ countries: ['VN'], regions: ['Sông Kỳ Cùng', 'Lam'], quotes }) }
+  for (const lang of ['id', 'th'] as const) {
+    const p = rangeParts(lang, await getContent(lang), { id: 'x', name: 'Bagarius', range: r }, marks(['seriouslyfish']))!
+    expect(p.words, lang).toContain('<span lang="vi">Sông Kỳ Cùng</span>, Lam')
+    expect(p.said?.html, lang).toContain('<span lang="vi">Sông Kỳ Cùng</span>, Lam</strong>')
+    expect(p.said?.html, lang).toContain('the Thái Bình, <span lang="vi">Sông Kỳ Cùng</span> and Lam')
+    // Once the marked names are out, as the page check reads the page, no Vietnamese is left.
+    for (const html of [p.words, p.said!.html]) expect(isVietnamese(plain(html.replace(/<span lang="vi">[^<]*<\/span>/g, ''))), `${lang}: ${html}`).toBe(false)
+  }
+  // A Vietnamese page is Vietnamese throughout: nothing to mark.
+  expect(parts(r)!.words).not.toContain('lang="vi"')
+})
