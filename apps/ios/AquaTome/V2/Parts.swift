@@ -27,9 +27,14 @@ struct V2Photo: View {
       .task(id: "\(src ?? "")|\(Int(pixels.width))x\(Int(pixels.height))") {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
-        let big = pixels.width > 480 || pixels.height > 480
-        var image = PageImages.cached(src, size)
-        if image == nil, big { image = await PageImages.image(V2Photo.full(src), size) }
+        let full = V2Photo.full(src)
+        var image: UIImage?
+        // A big frame: the full photo, the small copy shown meanwhile if it's in memory (a 480 px copy counts as large
+        // enough for any frame to the cache, which never decodes past a picture's own size).
+        if full != src, pixels.width > 480 || pixels.height > 480 {
+          if picture?.src != src, let quick = PageImages.cached(src) { picture = (src, quick) }
+          image = await PageImages.image(full, size)
+        }
         if image == nil { image = await PageImages.image(src, size) }
         guard let image, !Task.isCancelled else { return }
         withAnimation(.easeOut(duration: 0.2)) { picture = (src, image) }
@@ -127,7 +132,7 @@ struct Lockup: View {
               .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {
-            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).lineLimit(size.isAccessibilitySize ? 3 : 1)
+            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).lineLimit(size.isAccessibilitySize ? 4 : 2)
               .foregroundStyle(onDark ? .white : .primary)
             if let line = line ?? Lockup.line(item) {
               Text(verbatim: line).font(.subheadline).lineLimit(size.isAccessibilitySize ? 2 : 1)
@@ -252,6 +257,7 @@ struct FactsStrip: View {
     if let v = facts.sizeCm { add("Kích thước", "\(HandbookIndex.Facts.number(v, locale)) cm") }
     if let d = facts.difficulty { add("Độ khó", FactsCard.level(d), caption: "\(HandbookIndex.Facts.number(d, locale))/8") }
     if let r = facts.ph { add("pH", HandbookIndex.Facts.range(r, locale), bar: scale(r, 4, 9), upper: false) }
+    if let r = facts.gh { add("Độ cứng (dGH)", HandbookIndex.Facts.range(r, locale), upper: false) }
     if let r = facts.lifeYears { add("Tuổi thọ", "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))") }
     if let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
     return out

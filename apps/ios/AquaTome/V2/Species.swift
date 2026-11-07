@@ -17,6 +17,7 @@ struct SpeciesPage: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(\.openScreen) private var openScreen
   @Environment(\.v2OpenFull) private var openFull
+  @Environment(\.dismiss) private var dismiss
   @State private var doc: PageDoc?
   @State private var colour = PhotoColour.fallback
   @State private var putting = false
@@ -50,9 +51,9 @@ struct SpeciesPage: View {
       VStack(spacing: 0) {
         V2Photo(src: hero) { colour = $0 }
           .frame(height: 420)
-          // A shade under the status bar and the bar's buttons, so they read on a light photo.
+          // A shade under the status bar, so it reads on a light photo.
           .overlay(alignment: .top) {
-            LinearGradient(colors: [.black.opacity(0.4), .clear], startPoint: .top, endPoint: .bottom).frame(height: 150)
+            LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom).frame(height: 130)
           }
           .overlay(alignment: .bottom) {
             LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
@@ -92,9 +93,12 @@ struct SpeciesPage: View {
     .accessibilityIdentifier("v2-species")
     .navigationTitle(scrolled ? item.name : "")
     .navigationBarTitleDisplayMode(.inline)
-    .toolbarBackgroundVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
+    // Over the photo, the page's own round buttons: iOS 26's bar draws its glass light on any photo, under white symbols
+    // in a dark bar. The bar itself once the name has gone under it.
+    .toolbarVisibility(scrolled ? .visible : .hidden, for: .navigationBar)
+    .overlay(alignment: .top) { if !scrolled { overPhoto } }
     .modifier(TopEdge(shown: scrolled))
-    // Over the photo and the colour under it, the status bar and the bar's buttons in white.
+    // Over the photo and the colour under it, the status bar in white.
     .toolbarColorScheme(scrolled ? nil : .dark, for: .navigationBar)
     .toolbar {
       ToolbarItemGroup(placement: .topBarTrailing) {
@@ -115,6 +119,34 @@ struct SpeciesPage: View {
       doc = await handbook.doc(item)
       handbook.read(item)
     }
+  }
+
+  /// Back, save and share, over the photo.
+  private var overPhoto: some View {
+    HStack(spacing: 10) {
+      Button { dismiss() } label: { round("chevron.left") }
+        .accessibilityLabel(Text("Quay lại"))
+        .accessibilityIdentifier("v2-back")
+      Spacer()
+      let saved = handbook.isSaved(item)
+      Button { handbook.toggleSaved(item) } label: { round(saved ? "bookmark.fill" : "bookmark") }
+        .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
+        .accessibilityIdentifier("save-for-later")
+      ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
+        .accessibilityLabel(Text("Chia sẻ"))
+    }
+    .buttonStyle(.plain)
+    .padding(.horizontal, 16)
+    .padding(.top, 4)
+  }
+
+  private func round(_ symbol: String) -> some View {
+    Image(systemName: symbol)
+      .font(.body.weight(.semibold))
+      .foregroundStyle(.white)
+      .frame(width: 44, height: 44)
+      .background(.black.opacity(0.45), in: Circle())
+      .contentShape(Circle())
   }
 
   private var header: some View {
@@ -261,6 +293,8 @@ private struct MatesRow: View {
   let mates: [PageDoc.Mates.Mate]
   let good: Bool
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dynamicTypeSize) private var size
+  @ScaledMetric(relativeTo: .subheadline) private var width: CGFloat = 150
 
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
@@ -269,26 +303,36 @@ private struct MatesRow: View {
       }
       .font(.headline)
       .padding(.horizontal, 20)
-      ScrollView(.horizontal, showsIndicators: false) {
-        HStack(alignment: .top, spacing: 12) {
-          ForEach(mates, id: \.path) { m in
-            let item = handbook.item(at: m.path)
-            NavigationLink(value: item) {
-              VStack(alignment: .leading, spacing: 6) {
-                V2Photo(src: m.img?.src ?? item?.img)
-                  .frame(width: 150, height: 100)
-                  .clipShape(.rect(cornerRadius: 14, style: .continuous))
-                Text(verbatim: m.name).font(.subheadline.weight(.semibold)).lineLimit(2)
-                if let why = m.why { Text(verbatim: why).font(.caption).foregroundStyle(.secondary).lineLimit(2) }
-              }
-              .frame(width: 150, alignment: .leading)
-            }
-            .buttonStyle(.plain)
-            .disabled(item == nil)
-          }
+      // Why to keep a fish away is what decides: whole, down the screen at the accessibility sizes.
+      if size.isAccessibilitySize {
+        VStack(alignment: .leading, spacing: 16) {
+          ForEach(mates, id: \.path) { m in tile(m, photo: 88, why: nil) }
         }
         .padding(.horizontal, 20)
+      } else {
+        ScrollView(.horizontal, showsIndicators: false) {
+          HStack(alignment: .top, spacing: 12) {
+            ForEach(mates, id: \.path) { m in tile(m, photo: width * 0.67, why: 3).frame(width: width, alignment: .leading) }
+          }
+          .padding(.horizontal, 20)
+        }
       }
     }
+  }
+
+  private func tile(_ m: PageDoc.Mates.Mate, photo: CGFloat, why lines: Int?) -> some View {
+    let item = handbook.item(at: m.path)
+    return NavigationLink(value: item) {
+      VStack(alignment: .leading, spacing: 6) {
+        V2Photo(src: m.img?.src ?? item?.img)
+          .frame(width: lines == nil ? photo * 1.5 : width, height: photo)
+          .clipShape(.rect(cornerRadius: 14, style: .continuous))
+        Text(verbatim: m.name).font(.subheadline.weight(.semibold)).lineLimit(lines == nil ? nil : 2)
+        if let why = m.why { Text(verbatim: why).font(.caption).foregroundStyle(.secondary).lineLimit(lines) }
+      }
+      .multilineTextAlignment(.leading)
+    }
+    .buttonStyle(.plain)
+    .disabled(item == nil)
   }
 }

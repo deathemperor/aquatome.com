@@ -1505,6 +1505,22 @@
         }
       }
     },
+    "Chia sẻ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bagikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แชร์"
+          }
+        }
+      }
+    },
     "Chính sách bảo mật": {
       "localizations": {
         "id": {
@@ -6493,6 +6509,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดินปลูกไม้น้ำ (aqua soil)"
+          }
+        }
+      }
+    },
+    "Quay lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kembali"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กลับ"
           }
         }
       }

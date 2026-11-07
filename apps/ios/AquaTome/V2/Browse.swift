@@ -16,7 +16,7 @@ struct BrowseHome: View {
   @ScaledMetric(relativeTo: .title3) private var featuredHeight: CGFloat = 230
   @ScaledMetric(relativeTo: .subheadline) private var tileHeight: CGFloat = 104
   @ScaledMetric(relativeTo: .subheadline) private var tileWidth: CGFloat = 168
-  @ScaledMetric(relativeTo: .body) private var rowHeight: CGFloat = 64
+  @ScaledMetric(relativeTo: .body) private var rowHeight: CGFloat = 76
   @ScaledMetric(relativeTo: .subheadline) private var guideWidth: CGFloat = 250
   @ScaledMetric(relativeTo: .headline) private var videoWidth: CGFloat = 200
   @ScaledMetric(relativeTo: .headline) private var videoHeight: CGFloat = 190
@@ -24,12 +24,14 @@ struct BrowseHome: View {
   var body: some View {
     let s = handbook.shelves
     let top = featuredItems(s)
-    let onTop = Set(top.map(\.path))
+    let saved = handbook.saved(nil).filter { !top.map(\.path).contains($0.path) }
+    let recent = handbook.recent(nil).filter { r in !(top + saved).contains { $0.path == r.path } }
+    // A page on one shelf only, the first it's on (its zoom starts there).
+    let onTop = Set((top + saved + recent).map(\.path))
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 34) {
           featured(top)
-          let saved = handbook.saved(nil), recent = handbook.recent(nil).filter { r in !saved.contains { $0.path == r.path } }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved, action: .view) }
           if !recent.isEmpty { columns("Đọc gần đây", recent, action: .view) }
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
@@ -41,9 +43,10 @@ struct BrowseHome: View {
           }
           let fish = s.featuredFish.filter { !onTop.contains($0.path) }
           if !fish.isEmpty { columns("Loài quen thuộc", fish, more: Browse.fish(nil)) }
-          if !s.easyPlants.isEmpty || !s.placements.isEmpty {
+          let plants = s.easyPlants.filter { !onTop.contains($0.path) }
+          if !plants.isEmpty || !s.placements.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
-              if !s.easyPlants.isEmpty { columns("Cây thủy sinh", s.easyPlants, more: Browse.plants(nil)) }
+              if !plants.isEmpty { columns("Cây thủy sinh", plants, more: Browse.plants(nil)) }
               chips(s.placements.map { ($0.label, $0.count, Browse.plants($0.key)) })
             }
           }
@@ -54,7 +57,7 @@ struct BrowseHome: View {
           }
           let series = s.all(.video)
           if !series.isEmpty { videos(Array(series.prefix(8))) }
-          let kit = s.all(.equipment)
+          let kit = s.all(.equipment).filter { !onTop.contains($0.path) }
           if !kit.isEmpty { columns("Thiết bị", kit, action: .view) }
           tools
         }

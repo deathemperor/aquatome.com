@@ -57,9 +57,11 @@ struct V2Root: View {
       if tab == .handbook && !handbookPath.isEmpty { selection = .browse }
       follow(tab)
     }
-    // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws.
+    // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws; with nothing open on
+    // Khám phá, what the search tab had open (v1's own screens, its Tìm's).
     .onDisappear {
       if let f = ownFrom, handbookPath.count > f { handbookPath.removeLast(handbookPath.count - f) }
+      if handbookPath.isEmpty && !searchPath.isEmpty { handbookPath = searchPath }
     }
     // The app's home from outside (`aquatome://`, the site's home): AquaTomeApp empties Khám phá's stack, which v2 can't
     // tell from no change; v2's home is Hôm nay, at its top.

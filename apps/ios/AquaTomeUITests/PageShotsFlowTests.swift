@@ -11,7 +11,7 @@ import XCTest
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
 /// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
 /// overview, a section with charts and tables, and the daily report's settings; and v2's Hôm nay, its fish of the day's
-/// page and Khám phá, light and dark. Each checks only that its screen opened:
+/// page and Khám phá, light, dark and at the largest text. Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -47,6 +47,7 @@ final class PageShotsFlowTests: XCTestCase {
   func testWhatsNewInTheDark() { shootWhatsNew("whats-new-dark", dark: true) }
   func testV2() { shootV2("v2-light") }
   func testV2InTheDark() { shootV2("v2-dark", dark: true) }
+  func testV2InTheLargestText() { shootV2("v2-largest-light", size: largest) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -140,10 +141,10 @@ final class PageShotsFlowTests: XCTestCase {
 
   /// v2 (V2Root, `-v2 YES`): Hôm nay's first screen, its fish of the day's page, Hôm nay's next screen, and Khám phá's
   /// first.
-  private func shootV2(_ name: String, dark: Bool = false) {
+  private func shootV2(_ name: String, dark: Bool = false, size: String? = nil) {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures",
-                           "-v2", "YES"] + (dark ? ["-dark"] : [])
+                           "-v2", "YES"] + (dark ? ["-dark"] : []) + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
     app.launchForFlow()
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
@@ -160,7 +161,7 @@ final class PageShotsFlowTests: XCTestCase {
     fish.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     shot()
-    app.navigationBars.buttons.element(boundBy: 0).tap()
+    app.buttons["v2-back"].tap()
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "not back on Hôm nay")
     app.swipeUp()
     shot()
