@@ -133,7 +133,7 @@ test('a pick the handbook doesn\'t have is dropped with its reason, and the rest
   const tools = await fill(answer([
     pick({ t: 'tool', tool: 'tank-mates', fish: [{ id: 'no-such-fish', count: 3 }] }),
     pick({ t: 'tool', tool: null }),
-    pick({ t: 'species', ids: ['anubias-barteri-nana'] }), pick({ t: 'species', ids: ['anubias-barteri-nana'] }), pick({ t: 'species', ids: ['anubias-barteri-nana'] }), pick({ t: 'species', ids: ['anubias-barteri-nana'] }), pick({ t: 'species', ids: ['anubias-barteri-nana'] }),
+    ...['anubias-barteri-nana', 'paracheirodon-innesi', 'paracheirodon-axelrodi', 'pterophyllum-scalare', 'danio-margaritatus'].map(id => pick({ t: 'species', ids: [id] })),
   ]), h)
   expect(tools.dropped).toEqual(['tool: tank-mates with none of ["no-such-fish"]', 'tool: no null in vi', '2 blocks past 5'])
   expect(tools.blocks.map(b => b.t)).toEqual(['species', 'species', 'species'])
@@ -442,6 +442,28 @@ test('Thai, written without spaces, is searched by its words: a word inside a ti
   expect(search(items, 'ปลาทอง', null)).toEqual([])
   // Vietnamese as before: accents folded.
   expect(fold('Cá Đĩa')).toBe('ca dia')
+})
+
+test('a card or section shown earlier in the conversation, or twice in one answer, isn\'t shown again; a comparison or tool may be', async () => {
+  const h = await hb()
+  const neon = pick({ t: 'species', ids: ['paracheirodon-innesi'] })
+  const section = pick({ t: 'section', path: '/vi/huong-dan/phan-loai-ca-dia/', heading: 'la-gi' })
+  const compare = pick({ t: 'compare', ids: ['paracheirodon-innesi', 'paracheirodon-axelrodi'] })
+  const volume = pick({ t: 'tool', tool: 'tank-volume', tank: { l: 60, w: 30, h: 36 } })
+  const before = (await fill(answer([neon, section, compare, volume]), h)).blocks
+  const again = await fill(answer([neon, section, compare, volume, pick({ t: 'species', ids: ['paracheirodon-axelrodi'] })]), h, [], before)
+  expect(again.blocks.map(b => b.t)).toEqual(['compare', 'tool', 'species'])
+  expect(again.dropped).toEqual(['species: paracheirodon-innesi shown before', 'section: /vi/huong-dan/phan-loai-ca-dia/#la-gi shown before'])
+  // The page's opening is another section than its heading's; one answer's twin card goes once.
+  const opening = await fill(answer([pick({ t: 'section', path: '/vi/huong-dan/phan-loai-ca-dia/', heading: null }), neon, neon]), h)
+  expect(opening.blocks.map(b => b.t)).toEqual(['section', 'species'])
+  expect(opening.dropped).toEqual(['species: paracheirodon-innesi shown before'])
+  // The agent hands fill the earlier turns' blocks.
+  const out = await answerQuestion({
+    send: async () => message([{ type: 'text', text: JSON.stringify(answer([neon, compare], { text: 'Cá neon xanh sống theo đàn.' })) }]),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Còn gì nữa?', earlier: [{ question: 'Nuôi cá này thế nào?', text: 'x', blocks: before }], start: {}, handbook: h, tanks: async () => [],
+  })
+  expect(out.blocks.map(b => b.t)).toEqual(['compare'])
 })
 
 test('the chat\'s forced last call is told to answer from what it read', async () => {

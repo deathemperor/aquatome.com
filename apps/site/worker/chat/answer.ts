@@ -26,7 +26,7 @@ export const ANSWER_SCHEMA = {
   additionalProperties: false,
   required: ['text', 'covered', 'blocks', 'suggestions'],
   properties: {
-    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer, pointing to the blocks below for the figures.' },
+    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer. Never refer to the blocks; a figure only when it is the answer, the page\'s own.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',
@@ -117,6 +117,11 @@ function speciesOf(id: string, hb: Handbook): Item | undefined {
   return s?.kind === 'fish' ? s : undefined
 }
 
+/** What a block shows that the reader needn't see twice in a conversation: a species card, a page's section (a comparison
+ * and a tool, which change with what they hold, may come again). */
+const repeatKey = (b: ChatBlock): string[] =>
+  b.t === 'species' ? [`species: ${b.page.id}`] : b.t === 'section' ? [`section: ${b.page.url}${b.heading ? `#${b.heading.id}` : ''}`] : []
+
 /** The ids among these that aren't fish (a plant, a typo): a tank-mates check or block that names one checks the rest only. */
 export const notFish = (fish: readonly { id: string }[], hb: Handbook) => fish.map(f => f.id).filter(id => !speciesOf(id, hb))
 
@@ -129,8 +134,11 @@ const r1 = (n: number) => String(Math.round(n * 10) / 10)
  * `checks`: the run's check_tank_mates answers (mates.ts). A tank-mates block of two fish or more goes out only with the
  * check Claude read for the same fish, counts and tank, and carries it as the app's tank check draws it: what the
  * answer said is what the block shows.
+ * `shownBefore`: the blocks of the conversation's earlier turns. A species card or a page's section shown already (or
+ * twice in this answer) isn't shown again: the reader has it above, and a chat from a fish's page would carry its card
+ * under nearly every answer.
  */
-export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = []): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
+export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = []): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
   const dropped: string[] = []
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
@@ -199,10 +207,16 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
     }
   }
   const blocks: ChatBlock[] = []
+  const seen = new Set(shownBefore.flatMap(repeatKey))
   for (const p of answer.blocks.slice(0, MAX_BLOCKS)) {
     const b = await one(p)
+    const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
     if (typeof b === 'string') dropped.push(b)
-    else blocks.push(b)
+    else if (again.length) dropped.push(`${again[0]} shown before`)
+    else {
+      blocks.push(b)
+      repeatKey(b).forEach(k => seen.add(k))
+    }
   }
   if (answer.blocks.length > MAX_BLOCKS) dropped.push(`${answer.blocks.length - MAX_BLOCKS} blocks past ${MAX_BLOCKS}`)
   return { blocks, dropped }
