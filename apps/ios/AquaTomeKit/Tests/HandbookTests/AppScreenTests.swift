@@ -10,6 +10,7 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://aquatome.com/vi/cong-cu/be-cua-toi/#be-3f2a9c1e-0d4b-4e8a-9b7c-1a2b3c4d5e6f") == .tanks("3f2a9c1e-0d4b-4e8a-9b7c-1a2b3c4d5e6f"))
   #expect(screen("https://aquatome.com/id/alat/akuarium-saya/#be-t1") == .tanks("t1"))
   #expect(screen("https://www.aquatome.com/th/tools/my-tanks/#be-t1") == .tanks("t1"))
+  #expect(screen("https://aquatome.com/ms/alat/tangki-saya/#be-t1") == .tanks("t1"))
 }
 
 @Test func theTanksPageWithoutATankOpensTheList() {
@@ -23,6 +24,7 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://aquatome.com/vi/cong-cu/den-chihiros/") == .lights)
   #expect(screen("https://aquatome.com/id/alat/lampu-chihiros/") == .lights)
   #expect(screen("https://aquatome.com/th/tools/chihiros-light/") == .lights)
+  #expect(screen("https://aquatome.com/ms/alat/lampu-chihiros/") == .lights)
 }
 
 @Test func theTankVolumeToolInEachLanguageOpensTheAppsScreenWithWhatItsLinkSets() {
@@ -30,6 +32,7 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://www.aquatome.com/vi/cong-cu/the-tich-be") == .tankVolume(nil))
   #expect(screen("https://aquatome.com/id/alat/volume-akuarium/") == .tankVolume(nil))
   #expect(screen("https://aquatome.com/th/tools/tank-volume/#faq-h") == .tankVolume(nil))
+  #expect(screen("https://aquatome.com/ms/alat/isi-padu-tangki/") == .tankVolume(nil))
   // The page keeps its state in its address (a row of its table, a result shared): the screen opens set to it.
   #expect(screen("https://aquatome.com/vi/cong-cu/the-tich-be/?hinh=chu-nhat&l=60&w=30&h=36") == .tankVolume("hinh=chu-nhat&l=60&w=30&h=36"))
   #expect(screen("https://aquatome.com/vi/cong-cu/the-tich-be/?") == .tankVolume(nil))
@@ -43,6 +46,7 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://www.aquatome.com/vi/cong-cu/nuoi-chung") == .tankMates(nil))
   #expect(screen("https://aquatome.com/id/alat/kecocokan-ikan/") == .tankMates(nil))
   #expect(screen("https://aquatome.com/th/tools/tank-mates/#mat-do") == .tankMates(nil))
+  #expect(screen("https://aquatome.com/ms/alat/rakan-setangki/") == .tankMates(nil))
   // A fish page's link sets the tool to the fish; a shared result, to its fish and tank. In each language.
   #expect(screen("https://aquatome.com/vi/cong-cu/nuoi-chung/?ca=ca-neon:6") == .tankMates("ca=ca-neon:6"))
   #expect(screen("https://aquatome.com/id/alat/kecocokan-ikan/?ca=neon-tetra:6,discus:2&l=60&w=30&h=36") == .tankMates("ca=neon-tetra:6,discus:2&l=60&w=30&h=36"))
@@ -150,6 +154,7 @@ private func screen(_ s: String) -> AppScreen? { AppScreen.of(URL(string: s)!, s
   #expect(screen("https://aquatome.com/vi/cong-cu/nhan-dien-ca/") == .fishId)
   #expect(screen("https://aquatome.com/id/alat/kenali-ikan/") == .fishId)
   #expect(screen("https://www.aquatome.com/th/tools/fish-id") == .fishId)
+  #expect(screen("https://aquatome.com/ms/alat/kenal-pasti-ikan/") == .fishId)
   #expect(screen("https://example.com/vi/cong-cu/nhan-dien-ca/") == nil)
 }
 
