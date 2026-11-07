@@ -2,7 +2,12 @@
   "id": "neolamprologus-brichardi",
   "temperament": "semi-aggressive",
   "finNipper": false,
-  "schoolMin": 6,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-11-04",
-  "generatedAt": "2026-11-04T16:34:56.003Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-07T12:53:50.274Z"
 }

@@ -326,10 +326,13 @@ export const SummarySchema = z.object({
   problems: z.array(z.string()).optional(),
 })
 
-/** Behaviour facts read from a species page's own text, for the tank-mates checker. Re-read when the page changes. */
+/**
+ * Behaviour facts read from a species page's own text, for the tank-mates checker. Re-read when the page changes; a
+ * field also when its rule in the prompt has changed (`rules`: each field's rule, hashed, as it was read).
+ */
 export const TraitsSchema = z.object({
   id: z.string(),
   temperament: z.enum(['peaceful', 'semi-aggressive', 'aggressive', 'predator']).nullable(),
   finNipper: z.boolean(), schoolMin: z.number().int().min(2).max(50).nullable(),
-  speciesUpdatedAt: z.string(), generatedAt: z.string(),
+  speciesUpdatedAt: z.string(), rules: z.partialRecord(z.enum(['temperament', 'finNipper', 'schoolMin']), z.string()).optional(), generatedAt: z.string(),
 })
