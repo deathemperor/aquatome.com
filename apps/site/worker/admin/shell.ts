@@ -12,9 +12,10 @@ export const NAV = [
   ['/_ab/anh-nhan-dien/', 'Ảnh nhận diện'],
   ['/_ab/affiliate/', 'Affiliate'],
   ['/_ab/muon-co/', 'Bạn đọc muốn có'],
-  ['/_ab/anh-ban-doc/', 'Ảnh bạn đọc'],
   ['/_ab/an-trang/', 'Ẩn trang'],
-  ['/_ab/tai-khoan/', 'Tài khoản · Bình luận'],
+  ['/_ab/binh-luan/', 'Comments'],
+  ['/_ab/anh-ban-doc/', 'Ảnh bạn đọc'],
+  ['/_ab/tai-khoan/', 'Tài khoản'],
   ['/_ab/bao-cao/', 'Báo cáo hằng ngày'],
 ] as const
 export type AdminPath = (typeof NAV)[number][0]
@@ -339,6 +340,23 @@ button.go,a.go{background:var(--ink);border-color:var(--ink);color:var(--paper);
 button.go:hover,a.go:hover{background:var(--moss);border-color:var(--moss);color:var(--paper)}
 a.go{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border-radius:9px;text-decoration:none}
 .thumb{display:block;width:96px;height:auto;border-radius:8px}
+/* Comments: the filter by state, then each comment with why it is there and its buttons beside it */
+.filters{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;margin:6px 0 12px;background:var(--grid);border-radius:12px}
+.filters a{display:inline-flex;align-items:center;min-height:36px;padding:6px 14px;border-radius:9px;font-size:13.5px;font-weight:600;color:var(--ink-2);text-decoration:none}
+.filters a[aria-current=page]{background:var(--plate);color:var(--ink);box-shadow:0 0 0 1px var(--rule)}
+.cm{list-style:none;margin:0 0 10px;padding:0;background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.cm li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;padding:14px 16px}
+.cm li+li{border-top:1px solid var(--rule)}
+.cm p{margin:0}
+.cm .by{font-size:13px;color:var(--muted)}
+.cm .by b{color:var(--ink);font-size:14.5px}
+.cm .text{margin:4px 0;white-space:pre-line;overflow-wrap:anywhere}
+.cm .why,.cm .reports{font-size:13px;color:var(--muted)}
+.cm .why b{color:var(--rust)}
+.cm form{display:flex;gap:8px;align-items:start}
+.cm.none{padding:14px 16px;color:var(--muted)}
+button.bad{color:var(--rust)}
+@media (max-width:600px){.cm li{grid-template-columns:minmax(0,1fr)}}
 /* A report as it was mailed: its own colours, inline, on the white a mail reads on */
 .mail{background:#fff;color:#1d2a22;border:1px solid var(--rule);border-radius:var(--r);overflow-x:auto;margin:16px 0}
 i.sci{font-style:italic}

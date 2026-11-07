@@ -1,4 +1,5 @@
 import { deltaOf, fmt, type DayChart, type Ranked, type Tile } from './chart'
+import type { CommentsBlock } from './comments'
 import type { Failed } from './shell'
 
 /**
@@ -37,6 +38,8 @@ export type Block =
   | { kind: 'switch'; label: string; on: boolean; href: string }
   /** Buttons on their own, in a row: each makes its request, then the section is read again. */
   | { kind: 'actions'; actions: Action[] }
+  /** Readers' comments in one state, with their filter and buttons (admin/comments.ts). */
+  | CommentsBlock
 export type Section = { title: string; blocks: Block[] }
 
 const ENTITY: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" }
