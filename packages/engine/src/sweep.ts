@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type WrittenLang } from '@aq/schema'
+import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -12,6 +12,7 @@ import { logReviews } from './review-log'
 import { viWording } from './sanitize'
 import { snapshotName } from './snapshot'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
+import { cardOf, cardProblems } from './summaries'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 import { readVideoRejected } from './videos'
@@ -31,6 +32,9 @@ import { readVideoRejected } from './videos'
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
+ * - a fish's approved summary that states a card figure the card no longer shows (summaries.ts cardProblems, against the
+ *   card as the build shows it): back to pending, hidden until the summaries step writes it again. A card changes
+ *   without its page changing, so the summary's own check, made once, can't hold it
  * - a species' Seriously Fish difficulty: the word its stored page rates it (process.ts sfDifficulty), or none when the
  *   page rates nothing, for cards read before the engine read that word; a page in the old layout keeps its figure. Its
  *   approved summary goes back to pending, as above
@@ -454,6 +458,22 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         report.summaries.push(id)
       }
     }
+  }
+
+  // Every approved fish summary against its card as the build shows it (after the figures hidden above): one that states a
+  // figure the card doesn't show waits to be written again (summaries.ts cardProblems). A card changes under a summary
+  // without its page changing: the rule for sources that disagree (2026-11-07) left Cá neon vua's at 23–27 °C beside a
+  // card of 23–29 °C, and 53 more.
+  const cards = new Map((await loadAll({ root: content, lang: 'vi', publicBuild: true })).species.map(s => [s.id, cardOf(s)]))
+  for (const f of (await readdir(join(content, 'summaries')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+    const file = join(content, 'summaries', f)
+    const raw = await readFile(file, 'utf8')
+    const s = JSON.parse(raw) as Summary
+    const card = cards.get(s.id)
+    if (s.review !== 'approved' || !card || !cardProblems(s, card).length) continue
+    await write(file, raw, { ...s, review: 'pending', problems: undefined })
+    changed(`summaries/${f}`)
+    if (!report.summaries.includes(s.id)) report.summaries.push(s.id)
   }
 
   // A species' tank search, from its card as the build shows it (after the figures hidden above).
