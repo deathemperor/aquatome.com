@@ -192,6 +192,75 @@ final class LightFlowTests: XCTestCase {
     expectFrames(app, ".* 07 02 64 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
   }
 
+  // "Bật với màu của lịch". The weekday masks are today's, whichever day the flow runs: the kit's tests check the bits.
+  private let sixDays = "(3f|5f|6f|77|7b|7d|7e)", oneDay = "(40|20|10|08|04|02|01)"
+
+  func testLightsUpWithTheSchedulesColoursUntilItsOffThenTheoLichWritesEveryDayAgain() {
+    let app = launch("-now", "08:00") // before the schedule's on
+    connect(app)
+    // Only with a schedule AquaTome wrote: the light's own isn't known.
+    XCTAssertFalse(element(app, "quick-as-scheduled").exists, "offered with no schedule written from AquaTome")
+    tap(app, "preset-new")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    tap(app, "quick-as-scheduled")
+    let confirm = app.alerts.buttons["Bật với màu của lịch"]
+    XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
+    let asked = app.alerts.staticTexts.matching(NSPredicate(format: "label == %@", "Đèn sáng từ bây giờ tới 19:00 (giờ tắt của lịch), 11 giờ."))
+    XCTAssertTrue(asked.firstMatch.exists, "the confirmation doesn't say until when")
+    confirm.tap()
+    expect(app, "notice", contains: "Đèn sáng với màu của lịch tới 19:00, rồi tự chạy lại theo lịch.")
+    // The scenes cleared, the six other days as they were, today's from a ramp ago (07:30) to the schedule's own 19:00,
+    // then one status read.
+    expectFrames(app, ".* 05 28 ff ff .. \\| .* 05 12 ff ff .. \\| a5 01 13 .. .. 19 0d 00 13 00 1e \(sixDays) 28 28 28 ff ff ff ff ff .. "
+                 + "\\| a5 01 13 .. .. 19 07 1e 13 00 1e \(oneDay) 28 28 28 ff ff ff ff ff .. \\| 5a 01 06 .. .. 04 01 ..")
+
+    // "Theo lịch": the schedule for every day again, and nothing left to take back.
+    tap(app, "quick-auto")
+    expect(app, "notice", contains: "Đèn chạy lại theo lịch.")
+    expectFrames(app, ".* 05 28 ff ff .. \\| .* 05 12 ff ff .. \\| a5 01 13 .. .. 19 0d 00 13 00 1e 7f 28 28 28 ff .*")
+    let back = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == false"), object: element(app, "quick-auto"))
+    XCTAssertEqual(XCTWaiter().wait(for: [back], timeout: 5), .completed, "“Theo lịch” still offered")
+  }
+
+  func testAfterTheSchedulesOffItLightsUpForAnHourOrTwo() {
+    let app = launch("-now", "21:00") // after the schedule's off
+    connect(app)
+    tap(app, "preset-new")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    tap(app, "quick-as-scheduled")
+    let hour = app.buttons["1 giờ, tới 22:00"]
+    XCTAssertTrue(hour.waitForExistence(timeout: 5), "no hour to choose")
+    XCTAssertTrue(app.buttons["2 giờ, tới 23:00"].exists, "no two hours to choose")
+    hour.tap()
+    expect(app, "notice", contains: "Đèn sáng với màu của lịch tới 22:00, rồi tự chạy lại theo lịch.")
+    // Today's period is the schedule's own, stretched to 22:00: never past it into the night.
+    expectFrames(app, ".* a5 01 13 .. .. 19 0d 00 13 00 1e \(sixDays) 28 28 28 ff ff ff ff ff .. "
+                 + "\\| a5 01 13 .. .. 19 0d 00 16 00 1e \(oneDay) 28 28 28 ff ff ff ff ff .. \\| 5a 01 06 .. .. 04 01 ..")
+  }
+
+  func testTheFirstConnectionAfterItEndsPutsTheScheduleForEveryDayBack() {
+    var app = launch("-now", "08:00")
+    connect(app)
+    tap(app, "preset-new")
+    write(app)
+    expect(app, "notice", contains: "Đã ghi: bật 13:00, tắt 19:00.")
+    tap(app, "quick-as-scheduled")
+    let confirm = app.alerts.buttons["Bật với màu của lịch"]
+    XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
+    confirm.tap()
+    expect(app, "notice", contains: "Đèn sáng với màu của lịch tới 19:00")
+    app.terminate()
+
+    // Past its end: connected again, the light gets the schedule for every day before the card says it's connected.
+    app = launch("-now", "20:00", reset: false)
+    tap(app, "saved-light")
+    expect(app, "notice", contains: "Đã kết nối WRGB II Slim.")
+    expectFrames(app, ".* 05 28 ff ff .. \\| .* 05 12 ff ff .. \\| a5 01 13 .. .. 19 0d 00 13 00 1e 7f 28 28 28 ff .*")
+    XCTAssertFalse(element(app, "quick-auto").isEnabled, "still taken for a light with a period for today alone")
+  }
+
   func testADroppedLightConnectsAgainWithoutAScan() {
     // The fake light drops at the first level set by hand, and no scan sees it again: only connecting to it as it was
     // works.
@@ -764,6 +833,7 @@ final class LightFlowTests: XCTestCase {
     app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", part)).firstMatch
   }
 
+  /// By its identifier. The lookup also matches labels, so a text anywhere in the app that reads the same is found too.
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     app.descendants(matching: .any).matching(identifier: id).firstMatch
   }

@@ -10,6 +10,11 @@
     "united-states",
     "gulf-of-mexico"
   ],
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "The addition of marine salt at a rate of 3-10 g/L should be considered essential, however."
+  },
   "dataCard": {
     "tempC": [
       {

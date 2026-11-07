@@ -1,0 +1,82 @@
+{
+  "id": "crossocheilus-langei",
+  "native": {
+    "input": "7697d806361622e4",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in Borneo, Peninsular Malaysia, southern and western Thailand, and possibly southern Myanmar.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in Borneo, Peninsular Malaysia, southern and western Thailand, and possibly southern Myanmar.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in Borneo, Peninsular Malaysia, southern and western Thailand, and possibly southern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Palembang, Sumatra, Indonesia'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to occur in Borneo, Peninsular Malaysia, southern and western Thailand, and possibly southern Myanmar.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Palembang, Sumatra, Indonesia'.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crossocheilus langei",
+    "status": "ACCEPTED",
+    "taxonKey": 2361958,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH",
+      "ID"
+    ],
+    "requests": 13,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

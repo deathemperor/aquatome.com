@@ -1,0 +1,126 @@
+{
+  "id": "crossocheilus-reticulatus",
+  "native": {
+    "input": "962179f8a71a3fbc",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Chao Phraya river drainage in central Thailand and the Mekong basin in eastern Thailand, Cambodia, Laos, Vietnam and southern China (Yunnan province).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Chao Phraya river drainage in central Thailand and the Mekong basin in eastern Thailand, Cambodia, Laos, Vietnam and southern China (Yunnan province).",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Chao Phraya river drainage in central Thailand and the Mekong basin in eastern Thailand, Cambodia, Laos, Vietnam and southern China (Yunnan province).",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Chao Phraya river drainage in central Thailand and the Mekong basin in eastern Thailand, Cambodia, Laos, Vietnam and southern China (Yunnan province).",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Chao Phraya river drainage in central Thailand and the Mekong basin in eastern Thailand, Cambodia, Laos, Vietnam and southern China (Yunnan province).",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Chao Phraya river drainage in central Thailand and the Mekong basin in eastern Thailand, Cambodia, Laos, Vietnam and southern China (Yunnan province).",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Occurs throughout the Chao Phraya river drainage in central Thailand and the Mekong basin in eastern Thailand, Cambodia, Laos, Vietnam and southern China (Yunnan province).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crossocheilus reticulatus",
+    "status": "ACCEPTED",
+    "taxonKey": 8240642,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        50
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        22
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        11
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH",
+      "LA",
+      "VN",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

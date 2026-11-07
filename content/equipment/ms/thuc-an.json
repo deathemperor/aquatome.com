@@ -1,0 +1,110 @@
+{
+  "category": "thuc-an",
+  "name": "Makanan ikan",
+  "lead": "Makanan yang pelbagai menjadikan ikan lebih cantik warnanya dan lebih sihat. Gabungkan makanan kering dengan makanan beku atau hidup beberapa kali seminggu.",
+  "intro": "<p>Tiada spesies ikan yang patut makan satu jenis makanan sahaja. Pelet berkualiti ialah asasnya. Artemia, cacing tubifex dan kutu air, sama ada beku atau hidup, menambah protein serta merangsang ikan untuk memburu makanan dan membiak.</p><p>Pilih saiz makanan yang muat dengan mulut ikan dan sesuai dengan aras tempat ia makan. Pelet terapung untuk ikan aras permukaan, pelet tenggelam untuk ikan aras dasar seperti corydoras, ikan loach dan ikan bandaraya (pleco). Ikan pemakan alga perlu makanan tumbuhan sebagai tambahan.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/commons/fe9a60556ef04213.webp",
+    "thumb": "https://media.aquatome.com/commons/fe9a60556ef04213-480.webp",
+    "width": 960,
+    "height": 819,
+    "licence": "CC BY-SA 3.0",
+    "author": "Taken by User:Pinpin - fr:Utilisateur:Pinpin",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_dried_food2.jpg",
+    "caption": "Aquarium - dried food2.jpg"
+  },
+  "types": [
+    {
+      "id": "dong-lanh",
+      "name": "Makanan beku",
+      "match": "đông lạnh",
+      "desc": "<p>Cacing tubifex, artemia, kutu air dan jentik-jentik yang dibekukan. Tinggi protein, kurang membawa kuman penyakit berbanding makanan hidup dan tahan lama.</p>",
+      "pick": "Cairkan dalam sedikit air akuarium, kemudian toskan airnya sebelum diberi makan. Beri 2–3 kali seminggu.",
+      "buy": "artemia đông lạnh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/45e295d097a20478.webp",
+        "thumb": "https://media.aquatome.com/commons/45e295d097a20478-480.webp",
+        "width": 960,
+        "height": 639,
+        "licence": "CC BY 3.0",
+        "author": "Matthias Tilly",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tubifex01.jpg",
+        "caption": "Tubifex in fishtank-ground"
+      }
+    },
+    {
+      "id": "gel",
+      "name": "Makanan gel dan sayur-sayuran",
+      "match": "gel|repashy|rau|dưa|bí|tảo|spirulina",
+      "desc": "<p>Serbuk gel yang dibancuh sendiri, pelet alga spirulina dan sayur rebus seperti timun dan labu. Untuk ikan bandaraya (pleco), ikan pemakan alga, udang dan ikan omnivor.</p>",
+      "pick": "Masukkan sayur pada waktu malam dan angkat selepas 12–24 jam supaya air tidak kotor.",
+      "buy": "thức ăn spirulina cho cá"
+    },
+    {
+      "id": "song",
+      "name": "Makanan hidup",
+      "match": "sống|artemia|trùn|daphnia|bo bo|giun|lăng quăng",
+      "desc": "<p>Artemia yang ditetaskan daripada telur, kutu air, cacing tubifex dan cacing. Merangsang ikan yang memilih makanan dan ikan yang sedang bersedia untuk membiak.</p>",
+      "pick": "Artemia yang ditetaskan sendiri ialah sumber makanan hidup paling bersih untuk anak ikan. Jika membeli cacing tubifex hidup, bilas dengan air bersih beberapa kali sebelum diberi makan.",
+      "buy": "trứng artemia",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/da03950efbfdce2b.webp",
+        "thumb": "https://media.aquatome.com/commons/da03950efbfdce2b-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY 2.0",
+        "author": "Saul Dolgin",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_brine_shrimp.jpg",
+        "caption": "Original description: live brine shrimp which will be fed to my tropical fish"
+      }
+    },
+    {
+      "id": "kho",
+      "name": "Makanan kering (pelet, flake, pelet tenggelam)",
+      "match": "viên|mảnh|khô|cám|chìm|thức ăn",
+      "desc": "<p>Pelet terapung, pelet lambat tenggelam, flake dan pelet tenggelam untuk ikan dasar. Mudah digunakan, cukup zat dan tahan lama.</p>",
+      "pick": "Pilih saiz butir yang lebih kecil daripada mata ikan. Ikan dasar perlu pelet tenggelam yang diberi selepas lampu dipadamkan.",
+      "buy": "cám cá cảnh",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/f3f5f548f5c24a16.webp",
+        "thumb": "https://media.aquatome.com/commons/f3f5f548f5c24a16-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY 2.0",
+        "author": "USFWS Mountain-Prairie",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Food_pellets.jpg",
+        "caption": "Fish Food pellets.jpg"
+      }
+    }
+  ],
+  "order": [
+    "kho",
+    "dong-lanh",
+    "song",
+    "gel"
+  ],
+  "choose": [
+    "<p>Beri kuantiti yang habis dimakan dalam 2 minit, 1–2 kali sehari. Tidak mengapa jika ikan tidak diberi makan sehari dalam seminggu.</p>",
+    "<p>Ikan dasar dan ikan yang aktif pada waktu malam: masukkan pelet tenggelam selepas lampu dipadamkan supaya tidak direbut oleh ikan aras tengah.</p>",
+    "<p>Anak ikan: artemia yang baru menetas, serbuk kuning telur atau makanan serbuk khas, diberi sedikit tetapi kerap.</p>"
+  ],
+  "mistakes": [
+    "<p>Memberi makan terlalu banyak: lebihan makanan reput, paras ammonia naik dan air menjadi keruh.</p>",
+    "<p>Memberi satu jenis pelet sahaja selama bertahun-tahun.</p>",
+    "<p>Memberi cacing tubifex hidup yang belum dibersihkan: mudah membawa kuman penyakit ke dalam akuarium.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Berapa kali sehari ikan hiasan perlu diberi makan?",
+      "a": "<p>Ikan dewasa 1–2 kali; anak ikan 3–4 kali, sedikit setiap kali. Jika anda tiada di rumah selama 2–3 hari, ikan yang sihat boleh tahan tanpa makan.</p>"
+    },
+    {
+      "q": "Adakah makanan beku lebih baik daripada makanan hidup?",
+      "a": "<p>Makanan beku lebih selamat dari segi kuman penyakit dan lebih mudah digunakan. Makanan hidup pula merangsang naluri memburu, jadi baik untuk ikan yang memilih makanan dan ikan yang hampir bertelur.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.93,
+    "indexable": true
+  }
+}

@@ -152,6 +152,33 @@ test('an archived source falls back on its last good index while the archive ind
   expect(down.errors.join('\n')).toMatch(/using the last index \(1 pages\)/)
 })
 
+test('the archive slowing us down stops that source at once, with no attempt used and the other sources still running', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const pages = [9, 10, 11].map(n => `https://www.planetcatfish.com/common/species.php?species_id=${n}`)
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new Error('no archived copy (HTTP 429)') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
+  expect(asked).toBe(1)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: stopping: the archive asked us to slow down/)
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  const state = JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8')) as Record<string, { attempts: number }>
+  expect(Object.values(state).map(s => s.attempts)).toEqual([0])
+})
+
+test('a page read through the archive records its capture date beside the real address', async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  const page = 'https://www.planetcatfish.com/common/species.php?species_id=9'
+  const html = await d.fetcher.get('https://www.seriouslyfish.com/species/paracheirodon-axelrodi/')
+  const archive = { ...d.fetcher, text: async () => `${page}\n`, get: async () => ({ ...html, finalUrl: page, capturedAt: '2025-10-17T04:09:55.000Z' }) }
+  await runEngine({ ...d, archive }, { sources: ['planetcatfish'] })
+  const snapshot = await readFile(join(root, 'sources/planetcatfish/common-species-php.md'), 'utf8')
+  expect(snapshot).toContain(`url: ${page}`)
+  expect(snapshot).toContain('capturedAt: 2025-10-17T04:09:55.000Z')
+  expect(snapshot).not.toContain('web.archive.org')
+})
+
 test('a name newer than GBIF is found under a synonym the page gives', async () => {
   const root = await fresh()
   const { d } = deps(root, { urls: ['paracheirodon-axelrodi'], page: { ...species, scientificName: 'Novum axelrodi', synonyms: ['Paracheirodon axelrodi'] } })

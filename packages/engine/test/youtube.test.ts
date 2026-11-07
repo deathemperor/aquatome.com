@@ -341,11 +341,13 @@ test('redo rewrites a written guide with the same slug and cover; the reviewer i
   const first = deps(root)
   await videoGuides(first.d, { playlists: ['PL1'] })
   const file = join(root, 'content/guides/youtube-a1/vi.json')
-  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), cover: 'Bí quyết trị rêu hại' }))
+  const localNote = { html: '<h3>Ở Việt Nam</h3><p>x</p>', refs: [{ url: 'https://a.test/', title: 'A' }] }
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), cover: 'Bí quyết trị rêu hại', localNote }))
   const again = deps(root, { drafts: [draft('Tiêu đề mới')] })
   const r = await videoGuides(again.d, { playlists: ['PL1'], redo: true, write: { style: true, model: 'opus' } })
   expect(r.written).toEqual(['youtube-a1 (0.90)'])
   expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', slug: 'cach-han-che-reu-hai-trong-be-thuy-sinh', cover: 'Bí quyết trị rêu hại' })
+  expect((await read(root, 'content/guides/youtube-a1/vi.json')).localNote).toEqual(localNote) // a note for local readers isn't the video's: a redo keeps it
   expect(again.calls.prompts.find(p => p.includes('TRANSCRIPT:'))).toContain('by MJ Aquascaping')
   expect(again.calls.prompts.some(p => p.includes('Giọng văn'))).toBe(true) // style guide in the writer's prompt
 })

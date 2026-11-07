@@ -1,9 +1,9 @@
 {
-  "slug": "ca-rong-tao-xiem",
-  "name": "Cá rong tảo Xiêm",
+  "slug": "ca-but-chi",
+  "name": "Cá bút chì",
   "altNames": [
+    "Cá rong tảo Xiêm",
     "Cá ăn tảo Xiêm",
-    "Cá tai tượng Thái",
     "Siamese Algae Eater",
     "SAE",
     "Siamese flying fox"
@@ -28,5 +28,12 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-tao-xiem",
+      "name": "Cá rong tảo Xiêm"
+    }
+  ]
 }

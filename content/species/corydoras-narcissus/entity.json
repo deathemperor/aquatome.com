@@ -10,6 +10,50 @@
     "brazil",
     "rio-purus"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Purus"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be endemic to the Rio Purus, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Purus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342745,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

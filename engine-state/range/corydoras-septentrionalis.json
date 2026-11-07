@@ -1,0 +1,147 @@
+{
+  "id": "corydoras-septentrionalis",
+  "native": {
+    "input": "dcac5c26951370d0",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras septentrionalis occurs in Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras septentrionalis occurs in Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Orinoco in Venezuela and possibly Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Rio Orinoco in Venezuela and possibly Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "According to the IUCN Red List, it is a common species found throughout the lowlands of the Orinoco River Basin in Colombia, Venezuela and the north of Guyana.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "According to the IUCN Red List, it is a common species found throughout the lowlands of the Orinoco River Basin in Colombia, Venezuela and the north of Guyana.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "According to the IUCN Red List, it is a common species found throughout the lowlands of the Orinoco River Basin in Colombia, Venezuela and the north of Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Rio Orinoco in Venezuela and possibly Colombia.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "According to the IUCN Red List, it is a common species found throughout the lowlands of the Orinoco River Basin in Colombia, Venezuela and the north of Guyana.",
+        "ok": true
+      }
+    ],
+    "disputed": [
+      "CO"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras septentrionalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342626,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        87
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        33
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        22
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}
