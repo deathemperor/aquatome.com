@@ -313,6 +313,16 @@ extension Locale {
   }()
 }
 
+extension LocalizedStringResource {
+  /// Looked up in the app's language (Locale.app). A resource looks its words up in its own locale, `Locale.current`, so on
+  /// a phone in a language the app doesn't have, Đèn's presets read in Malay (8 Nov).
+  var inApp: LocalizedStringResource {
+    var r = self
+    r.locale = .app
+    return r
+  }
+}
+
 extension EnvironmentValues {
   /// Opens one of the app's own screens in place of the site's page for it (AppScreen).
   @Entry var openScreen: (AppScreen) -> Void = { _ in }
