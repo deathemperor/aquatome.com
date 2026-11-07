@@ -290,6 +290,10 @@ if part photos; then
   # (docs/review/reviews.md), what prompt fixes start from.
   pnpm engine reviews || log "reviews: failed"
 fi
+# The reader-fit gate (gate.ts), after everything that writes pages: the pages whose text this cycle changed are read
+# against the checklist, about 60 reads 3 at a time, mostly waiting on the network. A new page that fails is held back from
+# readers, a live page that got worse gets its committed text back, and a page no rewording fixes is held.
+pnpm engine gate --limit "${GATE_LIMIT:-150}" || log "gate: failed"
 if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; then
   # Only the engine's own records changed (pages tried, photo verdicts, pages kept as they were): keep them, or the next
   # cycle redoes that work. The site doesn't read them, so no build and no deploy.

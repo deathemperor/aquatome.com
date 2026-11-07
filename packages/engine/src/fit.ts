@@ -35,6 +35,21 @@ export const FIT_TITLE: Record<FitCheck, string> = {
   'dose-conflict': 'The same treatment, for the same thing, dosed differently on another page',
   'dose-caution': 'A dose without the caution its source gives for shrimp or other sensitive animals',
 }
+/** The same, as the owner's daily report shows them. */
+export const FIT_LABEL_VI: Record<FitCheck, string> = {
+  product: 'Sản phẩm tiệm ở đây có thể không bán',
+  shop: 'Tiệm ở nước ngoài',
+  price: 'Giá hay phí ship ở nước ngoài',
+  dose: 'Liều theo sản phẩm nước ngoài',
+  source: 'Nhắc tới bài hay video gốc',
+  units: 'Gallon, inch hay số lít đổi từ đó',
+  words: 'Chữ người chơi ở đây không dùng',
+  elsewhere: 'Viết cho người đọc ở nước khác',
+  kit: 'Bộ đồ hay danh mục của tiệm nước ngoài',
+  'dose-purpose': 'Liều không nói để trị gì',
+  'dose-conflict': 'Cùng một cách trị mà trang này liều khác trang kia',
+  'dose-caution': 'Liều thiếu lời dặn cho tép và con vật nhạy',
+}
 export type FitFinding = { check: FitCheck; part: string; quote: string; why: string; product?: string; fix?: string; by: 'rule' | 'model' }
 /** A dose as a page states it. A figure in here is on the page: keepDoses drops one whose figures aren't in its quote. */
 export type FitDose = { treatment: string; strength: string; amount: number; amountMax: number; unit: string; per: number; perUnit: string; use: string; method: string; quote: string }
