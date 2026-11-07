@@ -47,5 +47,6 @@ extension View {
   /// (AquaTomeApp), whichever tab is open.
   func ownerDashboard() -> some View {
     navigationDestination(for: OwnerRoute.self) { OwnerScreen(key: $0.key, anchor: $0.anchor) }
+      .navigationDestination(for: OwnerTableRoute.self) { OwnerTableScreen(route: $0) }
   }
 }

@@ -39,10 +39,64 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
   }
 }
 
-/// The daily report on this phone, at the top of the dashboard's overview: turned on, iOS asks first; refused there, or
-/// turned off since in Settings, it says where to allow them. Whether the site sends the report at all is its own
-/// setting ("Báo cáo").
+/// The daily report's delivery, from the overview's bell: by email, and by notification on this phone. Turning this
+/// phone's on turns the site's notifications on too when they're off, so it gets them; turning it off is this phone's
+/// alone. In English, as the dashboard's words are.
+struct OwnerDelivery: View {
+  @Environment(AccountModel.self) private var account
+  @Environment(\.dismiss) private var dismiss
+  @State private var email: Bool?
+  @State private var push: Bool?
+  @State private var working = false
+  @State private var problem: String?
+
+  var body: some View {
+    NavigationStack {
+      Form {
+        Section {
+          Toggle(isOn: Binding(get: { email ?? false }, set: { on in Task { await set { email = try await $0.reportEmail(on) } } })) { Text(verbatim: "Email") }
+            .disabled(email == nil || working)
+            .accessibilityIdentifier("owner-email")
+          OwnerPushRow(siteOff: push == false) { await set { c in
+            try await c.run(Owner.Action(label: "", method: "POST", path: "/api/owner/report-settings", body: ["push": true]))
+            push = true
+          } }
+        } footer: {
+          Text(verbatim: "Every morning at 7:00, Vietnam time.")
+        }
+        if let problem { Text(verbatim: problem).foregroundStyle(.red).accessibilityIdentifier("owner-message") }
+      }
+      .navigationTitle(Text(verbatim: "Daily report"))
+      .navigationBarTitleDisplayMode(.inline)
+      .toolbar { ToolbarItem(placement: .confirmationAction) { Button { dismiss() } label: { Text(verbatim: "Done") } } }
+      .task {
+        await set { c in
+          let now = try await c.reportSettings()
+          email = now.email
+          push = now.push
+        }
+      }
+    }
+  }
+
+  private func set(_ call: @escaping @MainActor (OwnerClient) async throws -> Void) async {
+    working = true
+    defer { working = false }
+    do {
+      try await account.owner.ask { try await call($0) }
+      problem = nil
+    } catch {
+      problem = await account.owner.say(error, overview: false)
+    }
+  }
+}
+
+/// The daily report on this phone: turned on, iOS asks first; refused there, or turned off since in Settings, it says
+/// where to allow them. `siteOff`: the site sends no phone notifications at all, so turning this on turns them on there
+/// (`siteOn`).
 struct OwnerPushRow: View {
+  var siteOff = false
+  var siteOn: @MainActor () async -> Void = {}
   @Environment(AccountModel.self) private var account
   @Environment(\.scenePhase) private var phase
   @State private var refused = false
@@ -50,16 +104,14 @@ struct OwnerPushRow: View {
   var body: some View {
     let push = account.push
     VStack(alignment: .leading, spacing: 6) {
-      Toggle(isOn: Binding(get: { push.wanted }, set: { on in Task { await turn(on) } })) {
-        Text("Nhận thông báo báo cáo trên máy này")
+      Toggle(isOn: Binding(get: { push.wanted && !siteOff }, set: { on in Task { await turn(on) } })) {
+        Text(verbatim: "Notifications on this phone")
       }
       .accessibilityIdentifier("owner-push")
       if refused {
-        Text("Thông báo của AquaTome đang tắt trong Cài đặt.").font(.footnote).foregroundStyle(.secondary)
-        Button("Mở Cài đặt") {
-          if let u = URL(string: UIApplication.openNotificationSettingsURLString) { UIApplication.shared.open(u) }
-        }
-        .font(.footnote)
+        Text(verbatim: "AquaTome's notifications are off in Settings.").font(.footnote).foregroundStyle(.secondary)
+        Button { if let u = URL(string: UIApplication.openNotificationSettingsURLString) { UIApplication.shared.open(u) } } label: { Text(verbatim: "Open Settings") }
+          .font(.footnote)
       }
     }
     // On here, but not allowed in Settings (since): the site sends, iOS shows nothing.
@@ -77,5 +129,6 @@ struct OwnerPushRow: View {
     guard granted else { refused = true; return }
     await account.push.want(true)
     UIApplication.shared.registerForRemoteNotifications()
+    if siteOff { await siteOn() }
   }
 }
