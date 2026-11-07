@@ -106,7 +106,8 @@ chì" (42 uses in the references, none of them Nannostomus), so that name moved 
 became "cá chì" (0 uses, so it is no other fish; the references never mention Nannostomus or "pencil", so no hobby name
 exists to take). "Cá tỳ bà bướm" has 26 uses and names no genus: it goes to the genera the sources call butterfly-shaped
 or describe with fused pelvic fins, and the rest stay "cá bám đá". "Cá cờ" (48 uses) never means a flagfish, so Jordanella
-became "cá flagfish". Which of the other "cá cờ" pages move is still open.
+became "cá flagfish". The owner then settled the rest: "cá cờ" is the paradise fish (Macropodus opercularis), and the flag
+cichlids go by their genus ("Cá Mesonauta", "Cá Laetacara").
 
 The editors' fifth round (rows from "lọc bọt biển" on) added to the style guide: one name for one thing, the hobbyists',
 with no dictionary name in brackets; the names cá otto (Otocinclus; 47 in the shop blogs, 0 for "otocinclus"), cá killi
