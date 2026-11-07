@@ -32,9 +32,10 @@ push() {
     if ! git pull -q --rebase; then
       log "another part changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
       git rebase --abort 2>/dev/null || true
-      # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
+      # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked with the
+      # steps the commit needs (verify_cycle): a commit of only the engine's records gets the tests, not a real-site build.
       if git pull -q --rebase -X theirs; then
-        verify 'pnpm build && pnpm test' || { log "build/tests failed after that merge, not publishing"; return 1; }
+        verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -294,11 +295,10 @@ fi
 git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
 # Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago. Real content must
-# build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new Indonesian or Thai
-# page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content. A commit that
-# fails stays here unpushed, and the next cycle drops it.
+# build (the test suite builds fixtures), then the suite must pass; a commit that changed only sources/ needs no build
+# (verify_cycle). A commit that fails stays here unpushed, and the next cycle drops it.
 catch_up
-if ! verify 'I18N_LENIENT=1 pnpm build && pnpm test'; then
+if ! verify_cycle; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 push || exit 1
