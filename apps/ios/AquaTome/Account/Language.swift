@@ -29,10 +29,11 @@ enum AppLanguage: String, CaseIterable, Identifiable {
     return String(localized: "Ứng dụng sẽ dùng \(name) từ lần mở sau.", bundle: own ?? .main)
   }
 
-  /// Text in its own language, so VoiceOver reads it in that language's voice.
+  /// Text in its own language, so VoiceOver reads it in that language's voice (and it's set as that language's text).
   func spoken(_ s: String) -> AttributedString {
     var a = AttributedString(s)
     a.languageIdentifier = rawValue
+    a.accessibilitySpeechLanguage = rawValue
     return a
   }
 
@@ -56,7 +57,7 @@ enum AppLanguage: String, CaseIterable, Identifiable {
   /// What "Theo máy" gives: the first of the three in the phone's languages, else Vietnamese, as iOS opens the app. An app
   /// with a language of its own is shown only that one (`Locale.preferredLanguages`, and the phone's global list reads
   /// empty from the app), so the phone's is taken when the app opens without one and kept for when it has one. Read
-  /// before the choice can change (the row asks first), so it's of how the app opened.
+  /// as the app starts (AquaTomeApp), before the choice can change, so it's of how the app opened.
   static let phone: AppLanguage = {
     let kept = "phoneLanguage"
     guard stored == .system else { return UserDefaults.standard.string(forKey: kept).flatMap(AppLanguage.init(rawValue:)) ?? .vi }
