@@ -627,6 +627,95 @@
               "url": {
                 "type": "string",
                 "pattern": "^/(vi|id|th)/[^?#]+/\\?ca=[a-z0-9-]+:[0-9]+(,[a-z0-9-]+:[0-9]+)*(&l=[0-9.]+&w=[0-9.]+&h=[0-9.]+)?$"
+              },
+              "check": {
+                "description": "What the tank-mates check (the tool's own code, apps/site/src/scripts/tank-check.ts, which the app runs too) said of these fish, two or more, in this tank, in the reader's language: the check Claude read before it wrote, so the text and the block agree. A client draws it as its own tank check draws one (the app: TankCheckView; the verdict's mark by `level`), instead of checking the link again; opening the tool checks afresh. Missing (one fish, or an older Worker): the client checks the link itself.",
+                "type": "object",
+                "required": [
+                  "warnings"
+                ],
+                "properties": {
+                  "verdict": {
+                    "type": "object",
+                    "required": [
+                      "level",
+                      "text"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "level": {
+                        "type": "string",
+                        "enum": [
+                          "no",
+                          "care",
+                          "unsure",
+                          "yes"
+                        ],
+                        "description": "no: something rules it out; care: it can work with care; unsure: the data there is can't say; yes: all checked."
+                      },
+                      "text": {
+                        "type": "string",
+                        "description": "The tool's sentence: its head, then why (\"Không nên nuôi chung: Cá đĩa có thể ăn Cá neon xanh.\"). The answer's text opens with the head."
+                      }
+                    }
+                  },
+                  "warnings": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "The tool's warnings under the verdict: who may eat or nip whom, temperaments."
+                  },
+                  "stocking": {
+                    "type": "object",
+                    "required": [
+                      "percent",
+                      "level",
+                      "text",
+                      "notes"
+                    ],
+                    "additionalProperties": false,
+                    "description": "How full the tank would be with these fish, as the tool's meter reads it: only when the tank's size is known.",
+                    "properties": {
+                      "percent": {
+                        "type": "number"
+                      },
+                      "level": {
+                        "type": "string",
+                        "enum": [
+                          "light",
+                          "ok",
+                          "full",
+                          "over"
+                        ]
+                      },
+                      "text": {
+                        "type": "string",
+                        "description": "The meter's line."
+                      },
+                      "notes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "Schools too small, a tank too short."
+                      }
+                    }
+                  },
+                  "minTank": {
+                    "type": "string",
+                    "description": "With no tank size: the shortest tank they all need."
+                  },
+                  "unsized": {
+                    "type": "string",
+                    "description": "Fish with no size: not counted in how full the tank is."
+                  },
+                  "unchecked": {
+                    "type": "string",
+                    "description": "Fish the handbook has no page for: not checked."
+                  }
+                },
+                "additionalProperties": false
               }
             },
             "additionalProperties": false
