@@ -106,3 +106,17 @@ test('days: a new day starts empty, and days past the last three are cleared', a
   expect(await ledger.read(DAY)).toMatchObject({ calls: 0, usd: 0, open: 0 })
   expect([...storage.m.keys()].sort()).toEqual(['day:2026-11-03', 'day:2026-11-04'])
 })
+
+test('chat\'s questions count against chat\'s own day, not the identifications\'; the dollar cap is the one both share', async () => {
+  const { ledger, storage } = slow()
+  const chat = await Promise.all(Array.from({ length: 4 }, (_, i) => ledger.admit({ ...base, reader: `chat:acct:a${i}`, perDay: 2, kind: 'chat' })))
+  expect(chat.map(a => (a.ok ? 'ok' : a.error))).toEqual(['ok', 'ok', 'busy', 'busy'])
+  // Chat's day is full; an identification is still admitted, under its own day.
+  expect((await ledger.admit({ ...base, perDay: 1 })).ok).toBe(true)
+  expect(saved(storage)).toMatchObject({ calls: 1, chat: 2, usd: 1.5 })
+  expect(await ledger.read(DAY)).toMatchObject({ calls: 1, chat: 2 })
+  // The shared cap: $13.50 spent or reserved by both, so a chat question reserving $2 is busy.
+  storage.m.set(`day:${DAY}`, { ...saved(storage), usd: 13.5 })
+  const fresh = new Ledger(storage, () => 'run-x')
+  expect(await fresh.admit({ ...base, reader: 'chat:acct:z', perDay: 100, reserve: 2, kind: 'chat' })).toEqual({ ok: false, error: 'busy' })
+})

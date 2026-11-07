@@ -1,5 +1,6 @@
 import { pageShard, type PageDoc, type PageShard } from '@aq/schema/app-page'
 import type { Lang } from '@aq/schema/langs'
+import type { Topics } from './topics'
 
 /**
  * What the chat reads of the handbook: the app's index (/app/<lang>.json: every page's kind, name, path and a fish's
@@ -43,10 +44,11 @@ export type Item = {
 }
 export type Index = { lang: Lang; items: Item[]; shards?: Partial<Record<PageDoc['kind'], { n: number }>> }
 
-/** Where the chat's handbook comes from: the index and one shard, each null when it can't be read. */
+/** Where the chat's handbook comes from: the index, one shard, and the guides' topics (topics.ts), each null when it can't be read. */
 export type Source = {
   index: (lang: Lang) => Promise<Index | null>
   shard: (lang: Lang, kind: PageDoc['kind'], n: number) => Promise<PageShard | null>
+  topics?: (lang: Lang) => Promise<Topics | null>
 }
 
 /** The figures a fish's card shows, the app index's facts (protocols/chat.openapi.json `Facts`): measures, then behaviour. */
@@ -81,6 +83,8 @@ export type Handbook = {
   byPath: (path: string) => Item | undefined
   byId: (id: string) => Item | undefined
   page: (path: string) => Promise<PageDoc | undefined>
+  /** The guides' section headings and FAQ questions, read once, when the search first needs them; null when they can't be. */
+  topics: () => Promise<Topics | null>
 }
 
 /** The index's pages kinds each have their own shards; a tool's page has no app copy. */
@@ -91,6 +95,7 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
   if (!index) return null
   const paths = new Map(index.items.map(i => [i.path, i]))
   const ids = new Map(index.items.flatMap(i => (i.id ? [[i.id, i] as const] : [])))
+  let topics: Promise<Topics | null> | undefined
   return {
     lang,
     items: index.items,
@@ -103,6 +108,7 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
       const shard = await source.shard(lang, item.kind as PageDoc['kind'], pageShard(path, n))
       return shard?.pages[path]
     },
+    topics: () => (topics ??= source.topics ? source.topics(lang).catch(() => null) : Promise.resolve(null)),
   }
 }
 
