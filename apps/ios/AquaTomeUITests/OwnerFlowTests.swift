@@ -185,7 +185,8 @@ final class OwnerFlowTests: XCTestCase {
     hide(app, "/")
     let said = app.staticTexts["owner-message"]
     XCTAssertTrue(said.waitForExistence(timeout: 10), "nothing said")
-    XCTAssertEqual(said.label, "Chỉ ẩn được một trang của trang web (không phải trang chủ).")
+    // The Worker's own words, as the contract's vector has them ("hide the home page"): English since its version 2.
+    XCTAssertEqual(said.label, "Only one page of the site can be hidden, and not the home page.")
   }
 
   func testTheOwnerTurnsTheDailyReportsEmailOffThenOnAgain() {
@@ -211,7 +212,8 @@ final class OwnerFlowTests: XCTestCase {
     section(app, "Người đọc")
     let said = app.staticTexts["owner-message"]
     XCTAssertTrue(said.waitForExistence(timeout: 10), "nothing said")
-    XCTAssertEqual(said.label, "Không làm được lúc này: máy chủ không đọc hay ghi được. Thử lại sau.")
+    // As the contract's vector "storage down" has it: English since its version 2.
+    XCTAssertEqual(said.label, "Couldn't do that just now: the server couldn't read or write its storage. Try again later.")
     app.buttons["owner-again"].tap()
     XCTAssertTrue(app.descendants(matching: .any)["owner-chart"].firstMatch.waitForExistence(timeout: 10), "the section didn't come")
     XCTAssertFalse(said.exists)
