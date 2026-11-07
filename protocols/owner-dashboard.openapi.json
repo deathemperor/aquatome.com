@@ -2378,7 +2378,7 @@
           "url": {
             "type": "string",
             "pattern": "^https://aquatome\\.com/_ab/bao-cao/[^/?#]+/$",
-            "description": "The report's page on the dashboard. The app opens it on a tap, and ignores a url that isn't https on aquatome.com; signed out on the web, the page asks the owner to sign in and comes back."
+            "description": "The report's page on the dashboard. The app opens it on a tap, and ignores a url that isn't https on aquatome.com; a browser is sent on to the dashboard's own address, where Cloudflare Access asks a signed-out owner to sign in, and lands on the report."
           }
         }
       },
