@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { plainParts, sanitizeHtml, tidyHeadings, unescapePlain } from '../src/sanitize'
+import { plainParts, sanitizeHtml, tidyHeadings, unescapePlain, viWording, wordingSlips } from '../src/sanitize'
 
 test('keeps allowed tags and strips every attribute', () => {
   expect(sanitizeHtml('<p class="x" onclick="y">ok <strong style="c">b</strong></p>')).toBe('<p>ok <strong>b</strong></p>')
@@ -43,4 +43,15 @@ test('plain text (a title, a summary point, an FAQ) holds no entities', () => {
   expect(unescapePlain('A &amp;amp; B &#8211; C &lt; D')).toBe('A & B – C < D')
   expect(unescapePlain('&#99999999; &#x0;')).toBe('&#99999999; &#x0;')
   expect(plainParts([' a &amp; b ', ''], [{ q: 'Q &amp;?', a: ' ' }, { q: 'Hỏi', a: 'Đáp &gt; 1' }])).toEqual({ summary: ['a & b'], faq: [{ q: 'Hỏi', a: 'Đáp > 1' }] })
+})
+
+test('"Phi châu" is written "châu Phi", with a capital where a sentence starts; tilapia\'s "rô phi châu Phi" and "Phi Châu" stay', () => {
+  expect(viWording('Cá Oscar (cá tai tượng Phi châu)')).toBe('Cá Oscar (cá tai tượng châu Phi)')
+  expect(viWording('Cá tetra phi châu Nannocharax brevis')).toBe('Cá tetra châu Phi Nannocharax brevis')
+  expect(viWording('<p>Phi châu có nhiều hồ. Phi châu nóng.</p><li>phi châu</li>')).toBe('<p>Châu Phi có nhiều hồ. Châu Phi nóng.</p><li>Châu Phi</li>')
+  expect(viWording('Phi châu')).toBe('Châu Phi')
+  for (const kept of ['cát nuôi cá rô phi châu Phi', 'Cá rô phi châu Phi', 'Rô phi châu Phi', 'cá Phi Châu', 'Philippines châu Á', 'phi châuX']) expect(viWording(kept)).toBe(kept)
+  const once = viWording('<p>Cá dao Phi châu. phi châu</p>')
+  expect(viWording(once)).toBe(once)
+  expect(wordingSlips('Cá dao Phi châu, cá rô phi châu Phi, tetra phi châu')).toEqual(['"Phi châu" → "châu Phi"', '"phi châu" → "châu Phi"'])
 })

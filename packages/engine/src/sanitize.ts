@@ -57,6 +57,26 @@ export const unescapePlain = (s: string) => {
   return out
 }
 
+/**
+ * Words the models write one way and Vietnamese readers another (prompts/vi-style.md), each with the way to write it. At
+ * the start of a sentence, a block or the text, the word takes a capital.
+ * - "Phi châu": a continent is "châu Phi", as "châu Á" and "châu Âu" (the council's review of the home page, 2026-11-06:
+ *   "Cá Oscar (cá tai tượng Phi châu)"; the name's own evidence writes "cá tai tượng châu Phi"). "Cá rô phi châu Phi",
+ *   African tilapia, stays.
+ * No capture groups in `find`: viWording reads the match's offset as the replacer's second argument.
+ */
+const WORDING: { find: RegExp; use: string }[] = [
+  { find: /(?<!\p{L})(?<![Rr]ô )[Pp]hi châu(?!\p{L})(?! Phi)/gu, use: 'châu Phi' },
+]
+const SENTENCE_START = /(?:^\s*|[.!?…]\s+|<(?:p|li|h3|td|th)>\s*)$/
+
+/** Text (plain or HTML) with the words in WORDING written the way Vietnamese readers write them. */
+export const viWording = (s: string) => WORDING.reduce((out, w) =>
+  out.replace(w.find, (_m, at: number, all: string) => (SENTENCE_START.test(all.slice(0, at)) ? w.use[0]!.toUpperCase() + w.use.slice(1) : w.use)), s)
+
+/** Each word in WORDING a text has, and what viWording writes instead: `"Phi châu" → "châu Phi"`. */
+export const wordingSlips = (s: string) => WORDING.flatMap(w => [...s.matchAll(w.find)].map(m => `"${m[0]}" → "${w.use}"`))
+
 /** A written page's summary points and FAQ, as plain text: trimmed, entities undone, empty ones dropped. */
 export const plainParts = (summary: string[], faq: { q: string; a: string }[]) => ({
   summary: summary.map(s => unescapePlain(s).trim()).filter(Boolean),
