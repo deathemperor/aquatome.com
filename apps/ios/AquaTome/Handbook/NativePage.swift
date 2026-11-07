@@ -108,6 +108,14 @@ struct NativePage: View {
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
       // A chapter or a still tapped: its video in view.
       .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      // Opened at a heading: there once it's drawn, as a `#id` link goes.
+      .task {
+        guard let at = handbook.openingAt, at.path == path else { return }
+        handbook.openingAt = nil
+        try? await Task.sleep(for: .milliseconds(100))
+        proxy.scrollTo(at.heading, anchor: .top)
+        focus = at.heading
+      }
       .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
     .environment(player)

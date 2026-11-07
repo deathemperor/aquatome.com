@@ -286,7 +286,12 @@ private struct ChatThread: View {
   }
 
   private func open(_ u: URL) {
-    if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
+    guard let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil }) else {
+      onSite = u
+      return
+    }
+    if case .page(let path) = screen, let heading = u.fragment(percentEncoded: false) { handbook.openingAt = (path, heading) }
+    openScreen(screen)
   }
 }
 
