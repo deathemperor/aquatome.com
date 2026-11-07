@@ -38,7 +38,9 @@ hair algae" needs a plan in steps that fits the tank. The eval shows it costs us
 5. **Stocking.** Our strongest today. The tank-mates check runs on the reader's own tank and says how full it is. Next,
    add adult size and the climate notes, and suggest fish from the handbook that fit.
 
-## Two more of the owner's ideas
+## The owner's three later ideas
+
+Equipment control, a council-style tank review, and proactive care. Each one's place is in the order of work below.
 
 **Ask the AI to run the equipment.** "Dim the lights", "feeding mode", "run my master button". Only our app drives the
 reader's lights and plugs, so no general chatbot can do this.
@@ -103,13 +105,13 @@ order swapped, and a win counts only when both judgements agree. Two conditions 
 post given to both, and a short question about a saved tank, where only we have the tank. The eval runs again on every
 change to the chat's brain (`docs/review/chat-vs-plain.md`).
 
-**First run, 2026-11-07: plain Claude wins clearly.** Full post: plain 43, ours 4, scores 6.9 and 3.4 out of 10. Saved
-tank: plain 33, ours 8, 6 ties, scores 5.5 and 4.0. Ours lost every kind of problem. The judge's reasons agree:
+**First run, 2026-11-07: plain Claude wins clearly.** Full post: plain 43, ours 4, scores 6.8 and 3.5 out of 10. Saved
+tank: plain 36, ours 8, 3 ties, scores 5.5 and 3.9. Ours lost every kind of problem. The judge's reasons agree:
 - Ours won't diagnose. Told to answer only from the handbook, it says "the handbook doesn't say, so I can't be sure"
   where plain Claude names the likely cause.
 - No plan. Two or three sentences and a pasted guide section, where plain Claude gives ordered steps for this tank.
 - It doesn't fit the tank. Today it reads only size and fish, not plants, light, CO₂ or notes.
-- Its reading budget runs out on hard questions: 3 of 94 answers failed and many stopped half-read.
+- Its reading budget runs out on hard questions: 8 of 94 answers failed and most stopped half-read.
 - Some errors are our guides' own, such as "90% of hair algae is low CO₂" and "never more than 4 hours of light at a
   stretch". Those go back to the content side.
 
