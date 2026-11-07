@@ -64,12 +64,13 @@ test('overview: a day whose AI spend passed 80% of its cap is the owner\'s to ra
   o.keys = { ...keys, cap: 50, spend: [{ day: '2026-11-02', usd: 41 }, { day: '2026-11-01', usd: 39 }] }
   const t = todos(o)
   expect(t).toEqual([{
-    kind: 'spend', title: 'Chi phí AI ngày 02/11: $41,00, 82% mức một ngày', href: '/_ab/nhan-dien-ca/', action: 'Xem chi phí',
-    text: 'Nhận diện cá và chat dùng chung mức $50 một ngày, tính từ 07:00; tới mức đó cả hai trả lời "bận" tới ngày sau. Nâng mức bằng FISH_ID_USD_PER_DAY.',
-    en: { title: 'AI spend on 02/11: $41.00, 82% of the daily cap', text: 'Fish ID and chat share a $50 cap a day, counted from 07:00; at the cap both answer "busy" until the next day. Raise it with FISH_ID_USD_PER_DAY.', action: 'See costs' },
+    kind: 'spend', title: 'Chi phí AI hôm nay: $41,00 (82% mức $50)', href: '/_ab/nhan-dien-ca/', action: 'Xem chi phí',
+    text: 'Nhận diện cá và chat dùng chung mức này; hết mức thì cả hai nghỉ tới 07:00.',
+    en: { title: 'AI spend today: $41.00 (82% of the $50 cap)', text: 'Fish ID and chat share this cap; once it\'s reached, both rest until 07:00.', action: 'See costs' },
   }])
-  o.keys = { ...keys, cap: 50, spend: [{ day: '2026-11-02', usd: 40 }] }
-  expect(todos(o).map(x => x.kind)).toEqual(['spend'])
+  // A past day says its date, as the daily report does.
+  o.keys = { ...keys, cap: 50, spend: [{ day: '2026-11-02', usd: 3 }, { day: '2026-11-01', usd: 40 }] }
+  expect(todos(o).map(x => x.title)).toEqual(['Chi phí AI ngày 01/11: $40,00 (80% mức $50)'])
   o.keys = { ...keys, cap: 50, spend: [{ day: '2026-11-02', usd: 39.99 }, { day: '2026-11-01', usd: 12 }] }
   expect(todos(o)).toEqual([])
 })

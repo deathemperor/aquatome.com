@@ -424,7 +424,7 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['spend', 'wait', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
   expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
   expect(t.tiles[0]).toMatchObject({ value: '10', sub: '8 to review · 2 to fix', tone: 'bad' })
-  expect(t.needs[1]).toMatchObject({ text: 'AI spend on 04/11: $42.50, 85% of the daily cap', label: 'See costs' })
+  expect(t.needs[1]).toMatchObject({ text: 'AI spend today: $42.50 (85% of the $50 cap)', label: 'See costs' })
   // Shipped: the change log's last 24 hours; the costs, fish ID's.
   expect(t.tiles[2]).toMatchObject({ value: '3', sub: '1 site · 1 app · 1 engine' })
   expect(t.shipped).toMatchObject({ section: 'thay-doi', link: 'Changelog · 3 in 24 h' })

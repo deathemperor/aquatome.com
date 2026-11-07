@@ -109,11 +109,12 @@ export function todos(o: Overview): Todo[] {
       if (s.usd < SPEND_WARN * o.keys.cap) continue
       const pct = Math.round((s.usd / o.keys.cap) * 100)
       const began = `${s.day}T00:00:00Z`
+      const today = s.day === o.now.toISOString().slice(0, 10)
       const date = dayText(localDay(began, tz), o.now, tz)
-      const from = hourMinute(began, tz)
-      out.push({ kind: 'spend', title: `Chi phí AI ngày ${date}: ${usd(s.usd)}, ${pct}% mức một ngày`, href: '/_ab/nhan-dien-ca/', action: 'Xem chi phí',
-        text: `Nhận diện cá và chat dùng chung mức $${fmt(o.keys.cap)} một ngày, tính từ ${from}; tới mức đó cả hai trả lời "bận" tới ngày sau. Nâng mức bằng FISH_ID_USD_PER_DAY.`,
-        en: { title: `AI spend on ${date}: ${usdEn(s.usd)}, ${pct}% of the daily cap`, text: `Fish ID and chat share a $${fmtEn(o.keys.cap)} cap a day, counted from ${from}; at the cap both answer "busy" until the next day. Raise it with FISH_ID_USD_PER_DAY.`, action: 'See costs' } })
+      const until = hourMinute(began, tz)
+      out.push({ kind: 'spend', title: `Chi phí AI ${today ? 'hôm nay' : `ngày ${date}`}: ${usd(s.usd)} (${pct}% mức $${fmt(o.keys.cap)})`, href: '/_ab/nhan-dien-ca/', action: 'Xem chi phí',
+        text: `Nhận diện cá và chat dùng chung mức này; hết mức thì cả hai nghỉ tới ${until}.`,
+        en: { title: `AI spend ${today ? 'today' : `on ${date}`}: ${usdEn(s.usd)} (${pct}% of the $${fmtEn(o.keys.cap)} cap)`, text: `Fish ID and chat share this cap; once it's reached, both rest until ${until}.`, action: 'See costs' } })
     }
     if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key, en: { title: `${plural(o.keys.bad, 'line')} of ANTHROPIC_KEYS can't be read`, text: 'The tool skips them: fix the ANTHROPIC_KEYS secret.', action: seeKey } })
   }

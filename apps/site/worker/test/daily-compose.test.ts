@@ -136,8 +136,8 @@ test('needs care: the AI spend of the day that just ended, past 80% of the cap, 
   const keys = o.keys as Exclude<Overview['keys'], { failed: string } | undefined>
   // The report goes at 07:00 in Vietnam, as the ledger's UTC day turns: yesterday's is the whole day.
   const spent = (usd: number) => input({ overview: { ...o, keys: { ...keys, cap: 50, spend: [{ day: '2026-11-06', usd: 0.4 }, { day: '2026-11-05', usd }] } } })
-  expect(needsCare(spent(46.5))).toEqual([{ title: 'AI spend on 05/11: $46.50, 93% of the daily cap', text: 'Fish ID and chat share a $50 cap a day, counted from 07:00; at the cap both answer "busy" until the next day. Raise it with FISH_ID_USD_PER_DAY.', href: '/_ab/nhan-dien-ca/' }])
-  expect(compose(spent(46.5)).text).toContain('AI spend on 05/11: $46.50, 93% of the daily cap')
+  expect(needsCare(spent(46.5))).toEqual([{ title: 'AI spend on 05/11: $46.50 (93% of the $50 cap)', text: 'Fish ID and chat share this cap; once it\'s reached, both rest until 07:00.', href: '/_ab/nhan-dien-ca/' }])
+  expect(compose(spent(46.5)).text).toContain('AI spend on 05/11: $46.50 (93% of the $50 cap)')
   expect(needsCare(spent(39))).toEqual([])
 })
 
