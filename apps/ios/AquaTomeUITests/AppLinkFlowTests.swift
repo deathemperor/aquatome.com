@@ -24,10 +24,10 @@ final class AppLinkFlowTests: XCTestCase {
     follow(app, link("https://example.com/ca/ca-neon/"))
     XCTAssertFalse(app.buttons["scan"].waitForNonExistence(timeout: 3), "another site's link left the Lights tab")
 
-    // Not in the index: no screen of the app's.
-    follow(app, link("https://aquatome.com/gioi-thieu/"))
+    // Not in the index: no screen of the app's. (Not the site's pages about itself, which open in the browser, #566.)
+    follow(app, link("https://aquatome.com/tim-kiem/"))
     XCTAssertTrue(app.descendants(matching: .any)["page"].waitForExistence(timeout: 5), "not the web page")
-    XCTAssertTrue(app.webViews.staticTexts["/gioi-thieu/"].waitForExistence(timeout: 15), "not the stand-in page")
+    XCTAssertTrue(app.webViews.staticTexts["/tim-kiem/"].waitForExistence(timeout: 15), "not the stand-in page")
     XCTAssertTrue(app.tabBars.buttons["Tìm"].isSelected, "the web page isn't on the Tìm tab")
 
     follow(app, URL(string: "aquatome://")!)
