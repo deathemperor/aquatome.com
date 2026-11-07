@@ -22,13 +22,13 @@ import type { Step, Tank } from './tools'
  *   them. No session is 401; a bearer that isn't a live app session never falls back to the cookie.
  * - Counts: per account a day and chat's own day, under the dollar cap fish ID's ledger keeps (ledger.ts, `kind`).
  * - The conversation: kept in R2 (UPLOADS, `chat-conv/<account>/<id>.json`, the account as its HMAC; store.ts) with no
- *   time limit, and deleted with the account. R2 reads its own writes, where KV can show a stale one for a minute at
+ *   time limit, and deleted with the account (a run still answering when it's deleted deletes what it wrote). R2 reads its own writes, where KV can show a stale one for a minute at
  *   another location. Questions go in it for 24 hours from its first. An id another account used is another
  *   conversation. The question being answered is marked in it, written only over the version read (an etag match), or
  *   only where none is yet, so two questions at once can't both run: the second is 409 answering, or with the first's
  *   key waits for its answer.
  * - Retries (`Idempotency-Key`): the turn, or its error, read for 15 minutes under the account and key
- *   (`chat-turn/<account>/<key>.json`). A retry while the first run still answers waits for it and gets its answer,
+ *   (`chat-turn/<account>/<key>.json`), swept within a day by the daily cron. A retry while the first run still answers waits for it and gets its answer,
  *   counted once.
  *
  * The transcripts (kept as the conversation is, and deleted with it) come in their own pull request.
@@ -45,6 +45,8 @@ export type ChatEnv = {
   FISH_ID_USD_PER_DAY?: string
   ANTHROPIC_KEYS?: string
   COMMENT_HMAC_KEY?: string
+  /** Names an account in the chat's storage (chat/store.ts), as accounts' own data: never rotated. */
+  ACCOUNT_HMAC_KEY?: string
   AB: KVNamespace
   ASSETS: Fetcher
   DB?: D1Database
@@ -78,8 +80,8 @@ const json = (data: unknown, status = 200) => Response.json(data, { status, head
 const sse = (event: string, data: unknown) => `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
 const streamHeaders = { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-store' }
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
-const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANTHROPIC_KEYS' | 'COMMENT_HMAC_KEY' | 'DB' | 'UPLOADS' | 'FISHID_LEDGER'>> =>
-  env.CHAT === '1' && Boolean(env.ANTHROPIC_KEYS && env.COMMENT_HMAC_KEY && env.DB && env.UPLOADS && env.FISHID_LEDGER)
+const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANTHROPIC_KEYS' | 'COMMENT_HMAC_KEY' | 'ACCOUNT_HMAC_KEY' | 'DB' | 'UPLOADS' | 'FISHID_LEDGER'>> =>
+  env.CHAT === '1' && Boolean(env.ANTHROPIC_KEYS && env.COMMENT_HMAC_KEY && env.ACCOUNT_HMAC_KEY && env.DB && env.UPLOADS && env.FISHID_LEDGER)
 
 /** The chat's most a question can cost, reserved at admission: every call's input past the trigger by half, all written to cache, and every output in full. */
 export function chatWorstCost(model: string): number {
@@ -89,7 +91,7 @@ export function chatWorstCost(model: string): number {
 
 /** The contract's `Turn`. */
 export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[] }
-/** A conversation as kept: whose it is (an HMAC of the account), when it began, its turns, and the question being answered. */
+/** A conversation as kept (under its account's prefix): when it began, its turns, and the question being answered. */
 export type Conversation = { created: number; turns: (Earlier & { n: number; at: number })[]; running?: { key: string; at: number } }
 /** A question's outcome, kept for its retries: its turn, or the error it ended on. */
 type Kept = { at: number } & ({ turn: Turn } | { status: number; error: string })
@@ -187,7 +189,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const stream = /(^|[\s,])text\/event-stream\b/i.test(req.headers.get('accept') ?? '')
 
   // The account as the stores name it: an HMAC, never its id.
-  const account = await chatAccount(env.COMMENT_HMAC_KEY, session.userId)
+  const account = await chatAccount(env.ACCOUNT_HMAC_KEY, session.userId)
   const convKey = conversationKey(account, q.conversation)
   const keptKey = idem ? retryKey(account, idem) : ''
   const readKept = async (): Promise<Kept | undefined> => {
@@ -322,6 +324,10 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
     await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
+    // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
+    // second pass, after the account's rows, comes after these writes and deletes them.
+    const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
+    if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : [])]).catch(e => console.error('chat deleted account:', e))
     await Promise.all(spends)
     // Our side failed (503: no key, Claude unreachable): the reader's count goes back. A failed answer (502) still counts.
     const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
