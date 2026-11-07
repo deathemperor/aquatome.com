@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import type { WrittenLang } from '@aq/schema'
+import { SWAPPED, type SwappedName } from './names'
 
 /**
  * Per language the engine writes: words and turns it writes far more often than that language's hobbyists do, each with
@@ -154,5 +155,12 @@ const viPrompt = (list: Phrase[]) => !list.length ? '' : [
   ...list.map(p => `- "${p.say}" → ${p.instead}`),
 ].join('\n')
 
-/** The style guide every Vietnamese writer reads (prompts/vi-style.md), with the Vietnamese list. */
-export const VI_STYLE = [readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8').trimEnd(), viPrompt(listOf('vi'))].filter(Boolean).join('\n\n')
+/** The owner's fish names (names.ts), as the writers read them: the fish, its name, the name it no longer has. */
+const q = (s: string) => `"${s}"`
+export const namesPrompt = (list: readonly SwappedName[] = SWAPPED) => [
+  'Tên cá chủ trang đã chốt. Gọi đúng tên này, kể cả khi nguồn hay bản dịch cũ gọi khác:',
+  ...list.map(r => `- ${r.fish.join(', ')}: ${r.now.split(', ').map(q).join(' hoặc ')}, không gọi là ${q(r.was)}${r.stillFor ? ` (${q(r.was)} là ${r.stillFor.join(', ')})` : ''}.`),
+].join('\n')
+
+/** The style guide every Vietnamese writer reads (prompts/vi-style.md), with the Vietnamese list and the owner's fish names. */
+export const VI_STYLE = [readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8').trimEnd(), viPrompt(listOf('vi')), namesPrompt()].filter(Boolean).join('\n\n')
