@@ -121,7 +121,10 @@ that would have caught it).
     refused (`apps/site/worker/test/chat-stream.test.ts`); the helper holding the page and tank schemas' own rules
     (`not`, exclusive bounds, a schema for other keys and for key names); every heading in the app's copy of a page on
     the built web page with the same id, its section there not running into the next one, where the site's chat draws a
-    section from (`apps/site/test/chat-sections.test.ts`).
+    section from (`apps/site/test/chat-sections.test.ts`). The app reads the same recorded answers: every event of
+    them, `done` holding what streamed; an event, block or figure it doesn't know left out, not the turn; its question
+    of the contract's names, fish ID's guesses within its limits; the event stream's own rules (line ends, comments, an
+    event cut off at the end), through the app's session too (`AquaTomeKit/Tests/HandbookTests/ChatTests.swift`).
     The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words), a
     guide found past its title by a section heading or FAQ question with the section to open it at (the build's
     `/app/chat/<lang>.json`, each guide's own; a query's words weighed by how rare they are, so its subject counts),
