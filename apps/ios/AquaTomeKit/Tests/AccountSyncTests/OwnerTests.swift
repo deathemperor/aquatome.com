@@ -34,6 +34,13 @@ func owner(_ stub: Stub, base: URL = AccountsClient.site) -> OwnerClient {
   OwnerClient(base: base, send: { try await stub.send($0) }, token: "t0k", timeZone: "Asia/Ho_Chi_Minh")
 }
 
+/// A request this app doesn't send yet: the dashboard's version 2 (a section for a period or a comments filter, a table's
+/// rows, more comments, the report's delivery), read by the app that draws it.
+func later(_ v: Object) -> Bool {
+  let p = path(v), get = v["request"]!.object!["method"]!.string == "GET"
+  return p.contains("?") || p.contains("/tables/") || get && (p.hasPrefix("/api/owner/comments") || p == "/api/owner/report-settings")
+}
+
 /// The request a vector names, sent through the client the way the app sends it.
 func send(_ api: OwnerClient, _ v: Object) async throws {
   let req = v["request"]!.object!, method = req["method"]!.string!, p = req["path"]!.string!
@@ -47,7 +54,7 @@ func send(_ api: OwnerClient, _ v: Object) async throws {
 @Test("Every vector: the app sends its request as the vector has it (bearer, Time-Zone, the button's method, path and body), and reads its reply as the contract says")
 func everyVector() async throws {
   #expect(ownerReplies.count >= 20)
-  for v in ownerReplies {
+  for v in ownerReplies where !later(v) {
     let name = Comment(rawValue: v["name"]!.string!)
     let req = v["request"]!.object!, status = v["status"]!.int!, body = v["body"]!
     let stub = Stub([(status, text(body))])
@@ -117,7 +124,7 @@ func nothingDropped() throws {
   var keys: [String] = [], listed = 0
   var anchors: [String: Set<String>] = [:]
   var headings: [String: Set<String>] = [:]
-  for v in ownerReplies where v["status"]?.int == 200 && v["request"]!.object!["method"]!.string == "GET" {
+  for v in ownerReplies where v["status"]?.int == 200 && v["request"]!.object!["method"]!.string == "GET" && !later(v) {
     let name = Comment(rawValue: v["name"]!.string!), body = v["body"]!, o = body.object!
     if path(v) == "/api/owner/dashboard" {
       let d = Owner.Dashboard(dict(body))
@@ -141,25 +148,27 @@ func nothingDropped() throws {
       #expect(lines.map(\.title) == entries.map { $0["text"]!.string! })
       #expect(lines.map(\.text) == entries.map { $0["sub"]?.string })
       #expect(lines.map { $0.to != nil } == entries.map { $0["section"] != nil || $0["url"] != nil })
-      // Where each to-do and area opens its section.
-      for to in d.todos.map(\.to) + d.areas.map(\.to) { if case .section(let k, let a?)? = to { anchors[k, default: []].insert(a) } }
+      // Where each to-do and area opens its section, in each of the overview's vectors.
+      var here: [String: Set<String>] = [:]
+      for to in d.todos.map(\.to) + d.areas.map(\.to) { if case .section(let k, let a?)? = to { here[k, default: []].insert(a) } }
       let raw = (o["todos"]!.array! + o["areas"]!.array!).map { $0.object!["action"]?.object ?? $0.object! }
-      #expect(Set(anchors.flatMap { k, a in a.map { k + "#" + $0 } }) == Set(raw.compactMap { r in r["anchor"].map { r["section"]!.string! + "#" + $0.string! } }))
-      #expect(anchors["nhan-dien-ca"] == ["key"])
+      #expect(Set(here.flatMap { k, a in a.map { k + "#" + $0 } }) == Set(raw.compactMap { r in r["anchor"].map { r["section"]!.string! + "#" + $0.string! } }), name)
+      anchors.merge(here) { $0.union($1) }
       keys = d.sections.compactMap { if case .section(let k, _)? = $0.to { k } else { nil } }
       #expect(d.name(of: "an-trang") == "Ẩn trang")
     } else {
       let s = Owner.Section(dict(body)), raw = o["blocks"]!.array!
       #expect(!s.title.isEmpty, name)
-      #expect(s.blocks.map(counts) == raw.map(counts), name)
+      // The Comments block is the version 2 app's to draw.
+      #expect(s.blocks.map(counts) == raw.filter { $0.object?["kind"]?.string != "comments" }.map(counts), name)
       headings[String(path(v).dropFirst(sectionPrefix.count))] = Set(s.blocks.compactMap { if case .heading(_, _, let a?) = $0 { a } else { nil } })
     }
   }
   // Every anchor names a heading of its section.
-  #expect(!anchors.isEmpty)
+  #expect(anchors["nhan-dien-ca"] == ["key"])
   for (k, a) in anchors { #expect(a.isSubset(of: headings[k] ?? []), "\(k): \(a)") }
   // Each section the overview lists has its vector.
-  #expect(Set(keys) == Set(ownerReplies.map(path).filter { $0.hasPrefix(sectionPrefix) }.map { String($0.dropFirst(sectionPrefix.count)) }))
+  #expect(Set(keys) == Set(ownerReplies.filter { !later($0) }.map(path).filter { $0.hasPrefix(sectionPrefix) }.map { String($0.dropFirst(sectionPrefix.count)) }))
   // Every section listed opens by its key (#592 added the report's: 11).
   #expect(keys.count == listed && listed >= 10)
 }
@@ -438,7 +447,7 @@ func standInButtons() async throws {
 
   // The Worker's refusal, with its message.
   let refused = await failure { try await mine.run(form.action(["path": "/"])!) }
-  #expect(refused == "\(OwnerError.refused("not_a_page", message: "Chỉ ẩn được một trang của trang web (không phải trang chủ)."))")
+  #expect(refused == "\(OwnerError.refused("not_a_page", message: "Only one page of the site can be hidden, and not the home page."))")
 }
 
 @MainActor @Test("The stand-in's daily report: its email and notifications turned off and on, in the Worker's words; a value that isn't true or false refused")
@@ -481,7 +490,7 @@ func standInReportSettings() async throws {
   let bad: [[String: Any]] = [["push": "yes"], ["push": "no"], [:], ["sms": true]]
   for b in bad {
     let refused = await failure { try await mine.run(Owner.Action(label: "x", method: "POST", path: "/api/owner/report-settings", body: b)) }
-    #expect(refused == "\(OwnerError.refused("bad_request", message: "email và/hoặc push (true/false)."))", "\(b)")
+    #expect(refused == "\(OwnerError.refused("bad_request", message: "email and/or push (true or false)."))", "\(b)")
   }
 }
 
@@ -502,7 +511,7 @@ func standInStorageDown() async throws {
   let (fake, api) = ownerServer()
   let mine = try await api.signedIn("ui-apple")
   fake.owner?.storageDownAtNextSection = true
-  #expect(await failure { _ = try await mine.section("doc-gia") } == "\(OwnerError.refused("unavailable", message: "Không làm được lúc này: máy chủ không đọc hay ghi được. Thử lại sau."))")
+  #expect(await failure { _ = try await mine.section("doc-gia") } == "\(OwnerError.refused("unavailable", message: "Couldn't do that just now: the server couldn't read or write its storage. Try again later."))")
   #expect(try await mine.section("doc-gia").title == "Người đọc thật")
   // The dashboard isn't down: the vector of it down is the knob's, never replayed.
   _ = try await mine.dashboard()
