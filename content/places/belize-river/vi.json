@@ -1,10 +1,13 @@
 {
   "slug": "belize-river",
-  "name": "Belize River",
-  "altNames": [],
+  "name": "sông Belize",
+  "altNames": [
+    "Belize River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

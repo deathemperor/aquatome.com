@@ -6,7 +6,15 @@
   "genus": "Clarias",
   "group": "catfish",
   "places": [
-    "africa"
+    "africa",
+    "south-africa",
+    "vaal-river",
+    "asia",
+    "jordan",
+    "israel",
+    "lebanon",
+    "syria",
+    "turkey"
   ],
   "range": {
     "records": {
@@ -2307,13 +2315,44 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 80
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/clarias-gariepinus-2/",
       "html": "<p>The airbreathing catfishes of the genus Clarias are among the most important food fishes that are bred in aquaculture in the tropics. They are absolutely undemanding in respect of water quality and readily accept any food as long as it contains enough protein, which makes them ideal candidates for aquaculture. They are fast growing and can survive for hours outside the water due to their breathing organ. So they can be offered alive on the food markets, where other fish often rot quite fast due to the heat. Mainly the species Clarias gariepinus is bred that way all over the world where the temperatures allow this.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_gariepinus.htm",
+      "html": "<p>Family: Clariidae. Common name: Sharptooth Catfish. Synonym: Silurus gariepinus. Size: 80 cm. Temperature: 20-26°C. pH: 6.0-7.5.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -2328,6 +2367,24 @@
       "html": "<p>Initially this catfish originates from Africa. The species can cause huge ecological problems where it escapes.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_gariepinus.htm",
+      "html": "<p>Africa: nearly Pan-African, as well as Asia Minor; introduced into Laos. Asia: Jordan, Israel, Lebanon, Syria and southern Turkey. Widely introduced to other parts of Africa, Europe and Asia. Several countries report adverse ecological impact after introduction. Trade is restricted in Germany. Type locality: Vaal River at Smidtsdrift, above the confluence with the Riet River, Cape Province, South Africa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_gariepinus.htm",
+      "html": "<p>Occurs mainly in quiet waters, lakes and pools but may also occur in fast flowing rivers and in rapids. Widely tolerant of extreme environmental conditions.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_gariepinus.htm",
+      "html": "<p>As with all Clarias species it will need to be housed in a large tank with tankmates of the same size or larger, as they are extremely predatory.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/clarias-gariepinus-2/",
@@ -2338,6 +2395,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/clarias-gariepinus-2/",
       "html": "<p>Many breeders of ornamental fish keep a Clarias to have an opportunity to use deformed bred fishes as feeder fish and so to fulfill the animal welfare laws.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_gariepinus.htm",
+      "html": "<p>Possess accessory breathing organs which allow survival for long periods out of water. Can 'walk' on land using its pectoral spines as support. No dorsal spine. Dorsal spines (total): 0; dorsal soft rays (total): 61-80; anal spines: 0; anal soft rays: 45-65; vertebrae: 56-63. Body depth is 6-8 times in standard length, the head 3-3.5 times. The head is somewhat between rectangular and pointed in dorsal outline; the snout is broadly rounded. The eyes have a supero-lateral position and are relatively small. Teeth on the premaxilla and lower jaw are small, fine and arranged in several rows. Nasal barbels are from 1/5 to 1/2 times as long as the head in fishes longer than 12 cm, and from 1/2 to 4/5 of the head length in smaller individuals; maxillary barbels are rarely shorter than the head, usually somewhat longer and reaching to a point midway between the origin of the dorsal fin and the insertion of the pelvic fins; the outer mandibular barbel is longer than the inner pair.</p><p>Etymology: the specific name gariepinus is from -inus (Latin), belonging to: Gariep (meaning \"Great Water\") River (now known as the Orange River), the longest river in South Africa, type locality.</p><p>Remarks: the 4 images by contributor Philip Marazzi depict a dried up pool in the Maasai Mara in Kenya, East Africa, where there are easy pickings for the Marabou Stork, Leptoptilos crumeniferus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/clariidae/clarias_gariepinus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -2388,5 +2457,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-07"
 }

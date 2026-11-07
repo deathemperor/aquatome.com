@@ -1,0 +1,265 @@
+{
+  "id": "chihiros-c-ii",
+  "brand": "Chihiros",
+  "model": "C II",
+  "category": "den",
+  "type": "thuy-sinh",
+  "specs": [
+    {
+      "key": "Power (C II white)",
+      "value": "16 W",
+      "source": 5
+    },
+    {
+      "key": "LED count (C II white)",
+      "value": "60 white LEDs",
+      "source": 5
+    },
+    {
+      "key": "Luminous flux (C II white)",
+      "value": "1,500 lm (lab value)",
+      "source": 5
+    },
+    {
+      "key": "Colour temperature (C II white)",
+      "value": "6,964 K in the technical data, 8,000 K in the feature list (the page contradicts itself)",
+      "source": 5
+    },
+    {
+      "key": "LED lifespan",
+      "value": "50,000 hours",
+      "source": 5
+    },
+    {
+      "key": "Lamp body dimensions (C II white)",
+      "value": "240 × 45 × 13 mm",
+      "source": 5
+    },
+    {
+      "key": "Overall dimensions with mount (C II white)",
+      "value": "240 × 140 × 180 mm",
+      "source": 5
+    },
+    {
+      "key": "Suitable tank length",
+      "value": "20–40 cm",
+      "source": 5
+    },
+    {
+      "key": "Max glass thickness",
+      "value": "8 mm",
+      "source": 5
+    },
+    {
+      "key": "Materials",
+      "value": "Plastic and aluminium; the mount's screws and bracket are silicone-coated",
+      "source": 5
+    },
+    {
+      "key": "Controller",
+      "value": "Bluetooth controller built into the cable; scheduling, stepless dimming and sunrise/sunset through the My Chihiros app",
+      "source": 5
+    },
+    {
+      "key": "In the box (EU version)",
+      "value": "Lamp with mount, power adapter, 2 O-rings, Allen key; the C II Base stand is sold separately",
+      "source": 5
+    },
+    {
+      "key": "Head rotation",
+      "value": "360°",
+      "source": 0
+    },
+    {
+      "key": "Warranty (GreenDeal)",
+      "value": "6 months",
+      "source": 0
+    },
+    {
+      "key": "Origin",
+      "value": "China",
+      "source": 0
+    }
+  ],
+  "variants": [
+    {
+      "name": "C II (C2 Normal Edition, white)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "16 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "60",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,500 lm",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "best up to 45 cm, maximum 60 cm (GreenDeal); 20–40 cm (Aquasabi)",
+          "source": 0
+        },
+        {
+          "key": "Control",
+          "value": "Bluetooth, My Chihiros app",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "C II RGB (C2 RGB)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "20 W",
+          "source": 2
+        },
+        {
+          "key": "LEDs",
+          "value": "40 RGB 3-in-1 LEDs",
+          "source": 2
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1,580 lm",
+          "source": 2
+        },
+        {
+          "key": "Dimensions",
+          "value": "235 × 49 × 13 mm, with a 20 cm clamp arm",
+          "source": 2
+        },
+        {
+          "key": "Dimensions (another shop's listing)",
+          "value": "280 × 40 × 5 mm",
+          "source": 4
+        },
+        {
+          "key": "Tank size",
+          "value": "20–40 cm",
+          "source": 2
+        },
+        {
+          "key": "Tank size (another shop's listing)",
+          "value": "20–45 cm",
+          "source": 4
+        },
+        {
+          "key": "Water resistance",
+          "value": "IP43",
+          "source": 4
+        },
+        {
+          "key": "Body",
+          "value": "Aluminium, for heat dissipation",
+          "source": 2
+        },
+        {
+          "key": "Control",
+          "value": "Bluetooth in the fixture; RGB colour mixing and timers in the app",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.greendeal.vn/chihiros-led-c2-normal-edition",
+      "title": "CHIHIROS - Led C2 Normal Edition (GreenDeal)",
+      "kind": "shop",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://www.greendeal.vn/chihiros-led-c2-rgb",
+      "title": "CHIHIROS - LED C2 RGB (GreenDeal)",
+      "kind": "shop",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-led-kep-cao-cap-chihiros-c2-rgb",
+      "title": "Đèn LED Kẹp Cao Cấp Chihiros C2 RGB (Thủy Sinh Tím)",
+      "kind": "shop",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-c2-rgb",
+      "title": "Đèn Led Chihiros C2 RGB (Bách Khoa Aqua)",
+      "kind": "shop",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-c2-rgb/",
+      "title": "Chihiros C2 RGB (Thủy Sinh Quới Decor)",
+      "kind": "shop",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://www.aquasabi.de/Chihiros-LED-System-CII_1",
+      "title": "Chihiros LED System CII (Aquasabi)",
+      "kind": "shop",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/best-nano-tank-light-%E2%80%93-onf-flat-nano-vs-chihiros-cii-rgb-vs-something-else.76118/post-769013",
+      "title": "Best nano tank light – ONF Flat Nano vs Chihiros CII RGB (UKAPS)",
+      "kind": "forum",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://shrimphome.vn/week",
+      "title": "Week - Shrimp Home",
+      "kind": "shop",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://gensou.sg/?p=33798",
+      "title": "ONF Flat Nano LED Review: Small Tank Pendant (Gensou)",
+      "kind": "review",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=TryG3NgYkbE",
+      "title": "Chihiros C2 vs Chihiros C2 RGB! Perfect LED LIGHT For Nano Aquascape",
+      "kind": "video",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=KPBBOmorlug",
+      "title": "Chihiros Vivid RGB 2 & C2 First Impressions!!",
+      "kind": "video",
+      "at": "2026-11-07"
+    },
+    {
+      "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31",
+      "title": "Ghi chép thử nghiệm của AquaTome: điều khiển đèn thủy sinh qua Bluetooth (31/10/2026)",
+      "kind": "test",
+      "at": "2026-11-07"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-07",
+    "videos": [
+      {
+        "youtubeId": "TryG3NgYkbE",
+        "title": "Chihiros C2 vs Chihiros C2 RGB! Perfect LED LIGHT For Nano Aquascape",
+        "durationSec": 389,
+        "lang": "en",
+        "channel": "MJ Aquascaping"
+      },
+      {
+        "youtubeId": "KPBBOmorlug",
+        "title": "Chihiros Vivid RGB 2 & C2 First Impressions!!",
+        "durationSec": 356,
+        "lang": "en",
+        "channel": "The Planted Tank"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-07"
+}

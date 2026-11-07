@@ -132,6 +132,12 @@ export async function mountReaderPhotos(section: HTMLElement) {
     list.querySelectorAll<HTMLElement>('button[data-i]')[from]?.focus()
   })
   section.hidden = false
+  // A gallery page's link down to them (GalleryPage.astro), when there are any; the number only when it's all of them.
+  const down = document.querySelector<HTMLAnchorElement>('[data-to-readers]')
+  if (down && data.photos.length) {
+    down.textContent = data.next ? ct('Xem ảnh bạn đọc gửi ↓') : ct('Xem {n} ảnh bạn đọc gửi ↓', { n: data.photos.length })
+    down.hidden = false
+  }
   if (data.verification === 'phone') return
   const ts = await loadTurnstile().catch(() => null)
   if (!ts) return

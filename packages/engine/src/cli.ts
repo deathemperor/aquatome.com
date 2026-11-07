@@ -48,6 +48,7 @@ import { tidyCredits } from './wiki-author'
 import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
+import { namePlacesVi } from './place-names'
 import { speciesRanges } from './range'
 import { gbifClient } from './range-records'
 import { speciesWater } from './water'
@@ -793,6 +794,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo]`)
   const r = await localizeGlossary(ROOT, claudeCli, lang, { redo: values.redo, model: 'opus', only: values.only?.split(',').map(s => s.trim()).filter(Boolean) })
   console.log(`localize-glossary ${lang}: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.reviews, ...r.failed].join('\n')}`)
+} else if (cmd === 'name-places-vi') {
+  // Vietnamese names for rivers and regions, the ones readers use (place-names.ts): every place not yet named (--redo: all of them).
+  const r = await namePlacesVi(ROOT, claudeCli, { redo: values.redo, model: 'opus' })
+  console.log(`name-places-vi: ${r.done.length} done, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.reviews, ...r.failed].join('\n')}`)
 } else if (cmd === 'localize-places') {
   // Place names in another language (the origin pages): every place not yet named (--redo: all of them).
   const lang = values.lang as TargetLang

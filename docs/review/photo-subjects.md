@@ -1,9 +1,9 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules: docs/governance.md, "Photos".
-4177 verdicts. Shows it: 2932; its habitat (asked again): 61; something else: 145; not a photo of it: 104; dead or as food: 181; a person in it: 0; a logo on it: 13; can't tell: 716.
+4177 verdicts. Shows it: 2927; its habitat (asked again): 61; something else: 147; not a photo of it: 104; dead or as food: 181; a person in it: 1; a logo on it: 13; can't tell: 718.
 
-## Left with no photo (33)
+## Left with no photo (29)
 
 - plants/vesicularia-ferriei
 - plants/cyperus-helferi
@@ -30,6 +30,7 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 - species/aphyocharax-rathbuni
 - species/barbodes-everetti
 - species/clupisoma-garua
+- species/datnioides-undecimradiatus
 - species/eutropiichthys-burmannicus
 - species/eutropiichthys-cetosus
 - species/garra-arupi
@@ -39,22 +40,24 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (716)
+## Can't tell: still shown (718)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
-| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/8ddc20899d042531.webp) | White oscar with orange-red markings, but the pupil looks dark rather than clear red. It could be a lutino or a mixed-ge |
-| breeds/balloon-molly | [photo](https://media.aquatome.com/commons/2cf1ed06e3421dee.webp) | Dalmatian-spotted molly; body fairly deep but not clearly balloon-shaped, may be a normal-bodied molly |
-| breeds/black-moor-goldfish | [photo](https://images.unsplash.com/photo-1642136331165-08690beed14b?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YmxhY2slMjBtb29yJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDU5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | black-and-white photo of a telescope-eye goldfish; color can't be confirmed |
-| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/7836d3540215c861.webp) | black fancy goldfish; can't see whether the eyes are telescope eyes from this angle |
-| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/a2b410fe31df8255.webp) | black fancy goldfish, ryukin-like body; eyes don't clearly look like telescope eyes |
-| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/b262d48ce5db4cdb.webp) | mirror image of photo 1; black fancy goldfish, telescope eyes unclear |
-| breeds/blood-parrot-cichlid | [photo](https://media.aquatome.com/commons/3cecec96aa8f48ba.webp) | dark brown cichlid with yellow fins, possibly a blood parrot changing colour; stingrays behind |
-| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | dark blue shrimp with near-black head and banded blue body; body shape suggests a Caridina blue (e.g. Taiwan bee type) r |
-| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | dark blue-purple shrimp with reddish patches on moss; could be Blue Dream or a Caridina/other Neocaridina dark line |
-| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1603546609526-2fc9c4cf48c1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | white koi with red head, front view in tank; fin length unclear |
-| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1625369730563-3e7d485ed341?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjR8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | red-and-white long-finned fish in tank; could be butterfly koi or sarasa comet goldfish |
-| breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/15934252a12ce521.webp) | cream/yellow koi with somewhat longer, wavy-edged fins; may be a butterfly koi, but the fins aren't clearly long enough  |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/5019ddb756604251.webp) | near-white oscar with red-orange marks; orange iris but pupil looks dark, true albino not confirmed |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/5ba6d16a878e66e5.webp) | pale oscars with orange-red marks in blue tank; yellow iris and dark pupil, not clear red eye |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/7be6e0d108401431.webp) | peach-toned oscar with orange spots; yellow iris, dark pupil, grey tail spot centre, lutino look-alike possible |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/8ddc20899d042531.webp) | pale oscar with orange-red marks, but yellow iris and dark pupil, not clear red eye; possibly not true albino |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/c1076224289ea009.webp) | pale yellow-orange oscar above a tiger oscar in a shop tank; distant view, eye not red, lutino-like |
+| breeds/albino-oscar | [photo](https://media.aquatome.com/commons/c836d47f858a56f6.webp) | group of pale oscars with orange-red marks; yellow iris and dark pupil, not clear red eye |
+| breeds/balloon-molly | [photo](https://media.aquatome.com/commons/479c1b9bb3a309cc.webp) | blurred yellow molly-like fish head-down among corydoras, body shape unclear |
+| breeds/black-moor-goldfish | [photo](https://images.unsplash.com/photo-1642136331165-08690beed14b?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YmxhY2slMjBtb29yJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDU5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | Telescope-eyed goldfish head-on in black and white; colour cannot be confirmed |
+| breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/7836d3540215c861.webp) | velvety black double-tailed goldfish, small and dim; telescope eyes not clearly visible |
+| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | deep blue shrimp on leaf; blackish head and underside, could be a Caridina blue form |
+| breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | dark navy shrimp with reddish-brown patches; mottling unlike even Blue Dream colour, look-alike not ruled out |
+| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1603546609526-2fc9c4cf48c1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | white fish with red head, head-on in dark tank; fins only moderately long, could be koi or goldfish |
+| breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/deee119c227bb1bf.webp) | blurry yellow-orange long-finned koi in murky water among small red goldfish |
+| breeds/crystal-red-shrimp | [photo](https://media.aquatome.com/commons/e4eb3a3787b65603.webp) | faded brownish-red banded shrimp with blotchy colour, poor colour; may be a low-grade or different bee shrimp |
 | breeds/full-red-guppy | [photo](https://images.unsplash.com/photo-1465420824608-b6cb6dd080d2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTV8fGZ1bGwlMjByZWQlMjBndXBweXxlbnwxfHx8fDE3OTM0MTAyOTR8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | red-bodied guppy-like fish, possibly Full Red females/juveniles, dark and blurry shot |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/02e704d0e523ae30.webp) | blue betta flaring at its reflection; fins look shortish, so it could be a halfmoon plakat or a female, not a clear long |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/2adae8349e1ed380.webp) | blue long-finned male at surface, angled view, spread unclear |
@@ -569,6 +572,9 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 | species/harttia-carvalhoi | [photo](https://media.aquatome.com/scotcat/40d977a63b8679a1.webp) | elongated brown loricariid resting on a plant stem; could be a Harttia, but I can't confirm the species |
 | species/harttia-kronei | [photo](https://media.aquatome.com/scotcat/ea85f2ff8aad2399.webp) | Mottled brown flat-bodied whiptail-type loricariid with a pointed snout, seen from the side. It fits Harttia, but the sp |
 | species/hemigrammus-rhodostomus | [photo](https://media.aquatome.com/aquariumcoop/962a822e80eb7fa5.webp) | red extends past gill cover; could be H. bleheri look-alike |
+| species/hemigrammus-rhodostomus | [photo](https://media.aquatome.com/commons/16f72b06740945c7.webp) | group of rummy-nose type tetras in planted tank, too small to separate from H. bleheri/Petitella |
+| species/hemigrammus-rhodostomus | [photo](https://media.aquatome.com/commons/5c5aa9250bdff345.webp) | single rummy-nose type tetra over driftwood, distant view |
+| species/hemigrammus-rhodostomus | [photo](https://media.aquatome.com/commons/61f277b28873fa96.webp) | rummy-nose type; red extends behind gill, could be H. bleheri |
 | species/hemiodontichthys-acipenserinus | [photo](https://media.aquatome.com/scotcat/3bc3831530865ffd.webp) | Broad, flat, boldly blotched whiptail on gravel; no clear rostral knob, so it could be Pseudohemiodon or a similar speci |
 | species/homaloptera-parclitella | [photo](https://media.aquatome.com/commons/4d246666636493dd.webp) | field specimen in photo tank, duller brown saddled loach; may be a different Homaloptera |
 | species/homaloptera-parclitella | [photo](https://media.aquatome.com/inaturalist/154549834.webp) | same photo-tank specimen, side view; species not certain |
@@ -690,6 +696,8 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 | species/platystacus-cotylephorus | [photo](https://media.aquatome.com/commons/767f9302aa7f5180.webp) | underside of banjo catfish on glass, tail not visible |
 | species/platystacus-cotylephorus | [photo](https://media.aquatome.com/scotcat/fbf3a06c748f064e.webp) | pale, long-bodied catfish under driftwood, side view; could be Aspredo or a similar aspredinid |
 | species/poecilocharax-weitzmani | [photo](https://media.aquatome.com/seriouslyfish/36420d3a7e6173ea.webp) | small golden fish with dark stripe, possibly female darter tetra or pencilfish |
+| species/pseudohomaloptera-leonardi | [photo](https://media.aquatome.com/commons/1fd659b9f6bf78df.webp) | yellowish lizard loach with dark bars on dark gravel; could be another Homaloptera-type species |
+| species/pseudohomaloptera-leonardi | [photo](https://media.aquatome.com/seriouslyfish/5d5cb3629c2fe56f.webp) | underside view of a hillstream loach clinging to glass; can't confirm species |
 | species/pseudomugil-luminatus | [photo](https://media.aquatome.com/bwaquatics/48ca613a6ab505fa.webp) | same image as photo 1: blue-eyed fish in a dark tank, species unclear |
 | species/pseudomugil-luminatus | [photo](https://media.aquatome.com/bwaquatics/ec3a33bd635a6587.webp) | small blue-eyed fish with neon lateral line in dim, tannin-lit tank; red colour not visible, could be another Pseudomugi |
 | species/pseudomugil-signifer | [photo](https://media.aquatome.com/inaturalist/184142946.webp) | two small fish over leaf litter in a wild stream, too unclear to confirm the species |
@@ -724,11 +732,32 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 | species/rita-kuturnee | [photo](https://media.aquatome.com/scotcat/2263707a38156c82.webp) | small silvery juvenile catfish in a tank; can't confirm it is Rita kuturnee |
 | species/rita-kuturnee | [photo](https://media.aquatome.com/scotcat/c485cf2b518204db.webp) | silvery juvenile bagrid catfish against a green background; species unclear |
 | species/salminus-brasiliensis | [photo](https://media.aquatome.com/commons/8cfcc41ecef75124.webp) | distant dark fish under water surface, not identifiable |
+| species/satanoperca-jurupari | [photo](https://media.aquatome.com/commons/ac65977605ff4e68.webp) | orange-tinted eartheater, shorter snout; may be a Geophagus look-alike or a young fish |
 | species/schistura-nicholsi | [photo](https://media.aquatome.com/seriouslyfish/4e14b2354a536d8d.webp) | Wild underwater shot of a banded Schistura loach with red spot at dorsal base; tail not red, so species can't be confirm |
+| species/serrasalmus-geryi | [photo](https://media.aquatome.com/commons/7735ed5c35d1fdb0.webp) | spotted silvery Serrasalmus piranha in an aquarium; lacks the clear black-edged fins of S. geryi, possibly another Serra |
+| species/serrasalmus-geryi | [photo](https://media.aquatome.com/commons/c53692168159d92e.webp) | extreme frontal close-up of a fish's face; species can't be identified |
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/b2c1cd03b4b9ad26.webp) | Small silvery schilbeid in a tank; may be a juvenile, could also be Clupisoma or a similar species |
+| species/sinibotia-robusta | [photo](https://media.aquatome.com/seriouslyfish/df0a1dbee6b7fe2a.webp) | Sinibotia loach with fewer, broader bars; could be another Sinibotia such as S. pulchra |
+| species/sphaerichthys-selatanensis | [photo](https://media.aquatome.com/seriouslyfish/0b8ddfe53e1c35e7.webp) | many tiny fry in a plastic tub, too small to confirm species |
+| species/sphaerichthys-vaillanti | [photo](https://media.aquatome.com/commons/4e6a31967276fa12.webp) | dim view of a striped gourami among branches |
+| species/stigmatogobius-sadanundio | [photo](https://media.aquatome.com/inaturalist/425156099.webp) | brownish goby on shells and sand, not clearly knight goby |
+| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/seriouslyfish/63111369d097b776.webp) | striped female Stiphodon goby on rock; females of the genus look alike |
+| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/seriouslyfish/f14cedd8719f327e.webp) | blue-chequered male Stiphodon with long dorsal filaments; pattern differs from typical atropurpureus |
+| species/stiphodon-ornatus | [photo](https://media.aquatome.com/seriouslyfish/309ac1ff66f48d1a.webp) | collage of striped females/juvenile gobies; can't confirm species |
+| species/stiphodon-ornatus | [photo](https://media.aquatome.com/seriouslyfish/6c721776bb00f6ac.webp) | strip of small, distant shots of a dark blue-headed goby; too small to confirm the species |
+| species/stiphodon-pelewensis | [photo](https://media.aquatome.com/seriouslyfish/81bf5a3ecf0a4ccb.webp) | striped female Stiphodon in aquarium; females of the genus look alike |
+| species/stiphodon-pelewensis | [photo](https://media.aquatome.com/seriouslyfish/ff75b6380e6691d3.webp) | distant striped gobies on stream rock, likely females |
+| species/synodontis-ocellifer | [photo](https://media.aquatome.com/commons/815e5845915aa9f5.webp) | dark, blurry catfish in a tank; ocellated spots can't be seen to confirm the species |
+| species/tateurndina-ocellicauda | [photo](https://media.aquatome.com/commons/6e79963b83d51702.webp) | elongated mottled goby guarding eggs on a leaf; slim build and dark head don't clearly match the peacock gudgeon |
+| species/tateurndina-ocellicauda | [photo](https://media.aquatome.com/inaturalist/309626844.webp) | reddish-spotted fish on sand in a tank, seen from a distance; maybe a peacock gudgeon but hard to confirm |
+| species/trichogaster-fasciata | [photo](https://media.aquatome.com/inaturalist/443340993.webp) | blue reticulated gourami under blue light; may be a blue dwarf gourami colour form |
 | species/trichopsis-pumila | [photo](https://media.aquatome.com/commons/0cae5d0aa6b49eb8.webp) | green iridescent Trichopsis with orange eye; species unclear |
 | species/trichopsis-pumila | [photo](https://media.aquatome.com/seriouslyfish/8d81ea240370e70a.webp) | slender pale Trichopsis with faint stripe; could be a female pumila or another Trichopsis |
 | species/trichopsis-pumila | [photo](https://media.aquatome.com/seriouslyfish/ce73ec5ca5c3f01c.webp) | head close-up of a larger Trichopsis, likely croaking gourami (T. vittata); can't confirm |
+| species/trichopsis-schalleri | [photo](https://media.aquatome.com/seriouslyfish/c0465c67f9822abd.webp) | green iridescent Trichopsis with a red eye; could be T. vittata |
+| species/trichopsis-schalleri | [photo](https://media.aquatome.com/seriouslyfish/f53f812606cbf003.webp) | golden Trichopsis with bold dark stripes; could be T. vittata |
+| species/trigonopoma-pauciperforatum | [photo](https://media.aquatome.com/inaturalist/377653440.webp) | blurry greenish view of a slim striped fish among plants, stripe colour hard to judge |
+| species/uaru-amphiacanthoides (a guide photo) | [photo](https://media.aquatome.com/video/KQPY_PVu6UM/p5-fbGV0dHVjZS5qcGc.webp) | romaine lettuce head, caption is about food not the fish |
 | species/yasuhikotakia-morleti | [photo](https://media.aquatome.com/seriouslyfish/310bafabb58bdd78.webp) | pale loach with dark band at the tail base but no visible dark stripe along the back; could be a faded skunk loach, but  |
 | plants/eriocaulon-cinereum | [photo](https://media.aquatome.com/inaturalist/22989902.webp) | Small rosette among other marsh plants in shallow water; no flowers, so the species can't be confirmed |
 | plants/shinnersia-rivularis | [photo](https://media.aquatome.com/aquariumbreeder/564d939ab019f4eb.webp) | close-up of glossy, opposite, shallowly lobed leaves; looks like emersed Shinnersia, but other plants can't be ruled out |
@@ -760,19 +789,22 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 | species/aphyosemion-bivittatum | [photo](https://media.aquatome.com/commons/5e19d31c0c91347a.webp) | Two-banded Chromaphyosemion killifish, but no lyre tail or red body spots; could be a female/young bivittatum or a relat |
 | species/apricaphanius-baeticus | [photo](https://media.aquatome.com/seriouslyfish/b874dd7f15a4ac8d.webp) | several small brownish fish in a pink net, seen from above; too small to tell from Gambusia |
 
-## Removed (443)
+## Removed (446)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | What it shows |
 | --- | --- | --- |
+| breeds/balloon-molly | [photo](https://media.aquatome.com/commons/2cf1ed06e3421dee.webp) | dalmatian molly: longer, normal body without balloon shape |
 | breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/b2e0ff2ba234e7e2.webp) | telescope-eye goldfish with orange/bronze patches (tricolor/calico type), not solid black |
 | breeds/bubble-eye-goldfish | [photo](https://images.unsplash.com/photo-1642378675428-60a11d6a74ca?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8YnViYmxlJTIwZXllJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDkzfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | pompom goldfish: orange nasal pompoms, has dorsal fin, normal eyes |
 | breeds/bubble-eye-goldfish | [photo](https://images.unsplash.com/photo-1642378675430-6802842c3cde?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YnViYmxlJTIwZXllJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDkzfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | pompom goldfish: nasal pompoms, dorsal fin, no eye bubbles |
 | breeds/bubble-eye-goldfish | [photo](https://images.unsplash.com/photo-1775807423650-5c31a2323869?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mjd8fGJ1YmJsZSUyMGV5ZSUyMGdvbGRmaXNofGVufDF8fHx8MTc5MzQwMDQ5M3ww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | orange/albino bristlenose pleco (Ancistrus), not a goldfish |
+| breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1625369730563-3e7d485ed341?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjR8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | likely sarasa comet goldfish: red and white, no visible barbels, long forked tail, short pectoral fins |
 | breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1695145752654-1830d43f43a8?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTl8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | standard short-finned koi (Showa/Kujaku-type), not butterfly koi |
 | breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/5d63636767678801.webp) | standard koi (kohaku and others) with short, normal fins, not butterfly |
 | breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/661ca6d53217c897.webp) | yellow standard koi (yamabuki-type); fins are normal length, not long and flowing |
+| breeds/flowerhorn-cichlid | [photo](https://media.aquatome.com/commons/2a7afa5526087613.webp) | people: red pearly flowerhorn with small kok; fingers or hand at bottom right edge |
 | breeds/full-red-guppy | [photo](https://images.unsplash.com/photo-1781694348959-10cfe53f6ea7?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OHx8ZnVsbCUyMHJlZCUyMGd1cHB5fGVufDF8fHx8MTc5MzQxMDI5NHww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | red wag platy (Xiphophorus maculatus): red body with black fins, in planted tank |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/1db0354aa802f715.webp) | koi plakat / halfmoon plakat: short fins, not long-finned halfmoon |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/65b40156aa52d78e.webp) | turquoise halfmoon plakat: short-finned plakat form |
@@ -1138,10 +1170,25 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 | species/rita-kuturnee | [photo](https://media.aquatome.com/commons/740ff44d8c2a9094.webp) | engraved black-and-white drawing of a catfish |
 | species/rita-kuturnee | [photo](https://media.aquatome.com/commons/9110107fd7147121.webp) | colour illustration of a Rita catfish |
 | species/salminus-brasiliensis | [photo](https://media.aquatome.com/commons/d7d6e40b3b086302.webp) | dead: figure panel of many dead caught fish species, held or on trays |
+| species/satanoperca-acuticeps | [photo](https://media.aquatome.com/commons/153dc626e9a8ea38.webp) | dead: caught fish held up in a hand by a river |
+| species/satanoperca-acuticeps | [photo](https://media.aquatome.com/commons/2ac3b3a72a0ec779.webp) | watercolour drawing of two Satanoperca |
+| species/satanoperca-acuticeps | [photo](https://media.aquatome.com/commons/ae2a0e15faf3055a.webp) | watercolour drawing of eartheater |
+| species/satanoperca-acuticeps | [photo](https://media.aquatome.com/commons/c66f53de877c9973.webp) | watercolour drawing of a small cichlid |
+| species/serrasalmus-rhombeus | [photo](https://media.aquatome.com/commons/c4260f1298482af8.webp) | old engraved plate of Salmo rhombeus (Bloch) |
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/82681e637f6c2942.webp) | dead: dead catfish lying on red tray at a market |
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/916d6ac8add48994.webp) | dead: head of a dead catfish in a metal basin at a market |
+| species/stigmatogobius-sadanundio | [photo](https://media.aquatome.com/commons/c88efd51ccb46067.webp) | engraved drawing of the goby |
 | species/synodontis-angelicus | [photo](https://media.aquatome.com/commons/f04d1e24a2e68e4a.webp) | dead: mounted museum specimen on a stand in a display case, with a label |
+| species/synodontis-ocellifer | [photo](https://media.aquatome.com/commons/28c02716657cb202.webp) | line drawing of an ocellated Synodontis, side and head views |
+| species/tetraodon-lineatus | [photo](https://media.aquatome.com/commons/6a713c7355815279.webp) | old engraved colour plate of Tetrodon lineatus, inflated |
 | species/tetraodon-mbu | [photo](https://media.aquatome.com/commons/4e937a6562221908.webp) | dead: two dead mbu puffers lying on a black plastic sheet next to a scale bar |
+| species/trichogaster-fasciata | [photo](https://media.aquatome.com/commons/0ae1a3b0779c0630.webp) | dead: banded gourami catch held in palm, may not be alive |
+| species/trichogaster-fasciata | [photo](https://media.aquatome.com/commons/2c88ac55356184ce.webp) | engraved plate 'Colisa vulgaris' |
+| species/trichogaster-fasciata | [photo](https://media.aquatome.com/commons/c1a0a78c3a6b7718.webp) | old colour drawing of a gourami |
+| species/trichogaster-fasciata | [photo](https://media.aquatome.com/inaturalist/151525248.webp) | logo: banded gourami with orange body and blue oblique bars in a tank |
+| species/uaru-amphiacanthoides | [photo](https://media.aquatome.com/commons/0fc8c7de1c9dea9a.webp) | watercolour drawing with handwritten notes |
+| species/uaru-amphiacanthoides | [photo](https://media.aquatome.com/commons/1ac659a7619769ec.webp) | watercolour drawing with handwritten notes |
+| species/uaru-amphiacanthoides | [photo](https://media.aquatome.com/commons/ba268c24c65b0b84.webp) | engraved plate of Pomotis fasciatus |
 | species/xiphophorus-variatus | [photo](https://media.aquatome.com/commons/d2b5899a8a870087.webp) | dead: wild-caught male variatus-like platy held up in an open hand: a landed catch, can't tell if it's alive |
 | plants/eriocaulon-cinereum | [photo](https://media.aquatome.com/commons/5f98dc8ae9a9150c.webp) | dead: pressed, dried Eriocaulon plant with flower heads laid flat on white paper, like a herbarium specimen |
 | species/acanthodoras-cataphractus | [photo](https://media.aquatome.com/commons/3952b2b5e57850d6.webp) | Old museum sheet of engraved drawings of Doras cataphractus, not a photo |
@@ -1182,6 +1229,7 @@ Written by `pnpm engine check-photos` (2026-11-07), most-read pages first. Rules
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/90593384f9b617a2.webp) | dead: dead specimen on white background |
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/9e86195ae37d9960.webp) | dead: dead fish lying on orange board |
 | species/ctenopoma-acutirostre | [photo](https://media.aquatome.com/commons/d9884dc9cb3bdad4.webp) | dead: mounted taxidermy specimen of leopard bushfish on a wire stand |
+| species/datnioides-undecimradiatus | [photo](https://media.aquatome.com/seriouslyfish/cea4d4ccb1a7ddd6.webp) | dead: dead specimen laid on dark board with a specimen tag |
 | species/dawkinsia-arulius | [photo](https://media.aquatome.com/seriouslyfish/442d7baddd036185.webp) | dead: dead specimen lying on a board beside a measuring grid |
 | species/devario-aequipinnatus | [photo](https://media.aquatome.com/commons/4c639eec226f71ae.webp) | dead: preserved museum specimens in a scientific figure; panel letters a, b, c added on the left |
 | species/devario-assamensis | [photo](https://media.aquatome.com/seriouslyfish/67de2da4efb648bc.webp) | dead: caught Devario with orange-red stripe held out of water in palm of a hand |

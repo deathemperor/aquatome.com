@@ -1,10 +1,13 @@
 {
   "slug": "coral-sea",
-  "name": "Coral Sea",
-  "altNames": [],
+  "name": "biển San Hô",
+  "altNames": [
+    "Coral Sea"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "lake-sentani",
-  "name": "Lake Sentani",
-  "altNames": [],
+  "name": "hồ Sentani",
+  "altNames": [
+    "Lake Sentani"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -44,6 +44,14 @@ verify_cycle() { verify 'pnpm test'; }
 # and a test that main failed then and has fixed since would hold back all of the cycle's pages: the pages part of
 # 2026-11-06 started from a main whose page-vectors test failed, fixed 11 minutes later, and lost 229 files at its check.
 # A clash with what landed meanwhile is left to push(), which settles it and checks again.
+# Main's changes and this run's meet only at a merge: a card from main and a summary from this run can then disagree, which
+# the sweep fixes and the tests fail on (the sf and pages runs of 2026-11-07 didn't publish over 30 such pages). So it runs
+# again before those tests.
+sweep_merged() {
+  pnpm engine sweep || log "sweep: failed"
+  git add content sources engine-state docs/review
+  git diff --cached --quiet || git commit -q -m "content: sweep on main as it is now"
+}
 catch_up() {
   git pull -q --rebase && return 0
   git rebase --abort 2>/dev/null || true

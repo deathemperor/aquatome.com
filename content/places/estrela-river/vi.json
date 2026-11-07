@@ -1,10 +1,13 @@
 {
   "slug": "estrela-river",
-  "name": "Estrela River",
-  "altNames": [],
+  "name": "sông Estrela",
+  "altNames": [
+    "Estrela River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

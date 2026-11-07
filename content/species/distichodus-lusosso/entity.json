@@ -1,0 +1,183 @@
+{
+  "id": "distichodus-lusosso",
+  "scientificName": "Distichodus lusosso",
+  "order": "Characiformes",
+  "family": "Distichodontidae",
+  "genus": "Distichodus",
+  "group": "other",
+  "places": [
+    "africa",
+    "cameroon",
+    "republic-of-the-congo",
+    "democratic-republic-of-the-congo",
+    "angola",
+    "central-african-republic"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 37.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>The long-nosed distichodus, Distichodus lusosso, is a citharinid from rivers in Cameroon, the Republic of Congo and Democratic Republic of Congo. One of only a handful of Distichodus seen with any regularity in the hobby, it loses much of its juvenile colour and patterning as it matures. It resembles D. sexfasciatus but has a narrow, pointed head, and some specimens become very spiteful with age.</p><ul><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Cameroon, Republic of Congo, Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Inhabits large rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>A single specimen would need a tank measuring at least 150 x 45 x 45 cm, about 275 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Not a good choice for the planted tank, as it will munch most greenery. Furnish the tank with smooth rocks and driftwood branches instead. Sand or gravel can be used as substrate. If you want to try some plants, use species such as Anubias or Bolbitis, as most fish leave these alone. A little water flow is appreciated. It's an excellent jumper, so the tank must have a tightly-fitting, heavy cover.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Omnivorous and will accept most foods offered. It should be fed a decent proportion of vegetable matter to keep it in the best of health. A diet of live and frozen foods such as earthworms, prawn and mussel, along with frozen peas (remove the shells), Spirulina flake and blanched spinach would provide the desired balance.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Somewhat unpredictable. While some specimens remain peaceful with similarly-sized tankmates, others can become very spiteful as they mature. Certainly don't attempt to keep one of these with much smaller or shy species. Some of this potential aggression can be removed by keeping it in a group, provided enough space is available. Other tankmates in a big tank could include bichirs, large characins, cyprinids, catfish and Loricariids.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>Unrecorded in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
+      "html": "<p>One of only a handful of Distichodus seen with any regularity in the hobby. This species is undeniably attractive when juvenile, but unfortunately loses much of its colour and patterning as it matures. It is superficially similar to the more commonly seen D. sexfasciatus but has a much smaller adult size and a narrow, pointed head.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/634b498d0653b326.webp",
+      "width": 960,
+      "height": 466,
+      "licence": "CC BY-SA 4.0",
+      "author": "The Great Mule of Eupatoria",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Distichodus_with_a_long_nose.jpg",
+      "caption": "Distichodus lusosso",
+      "thumb": "https://media.aquatome.com/commons/634b498d0653b326-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ec9b00a6d88c3c60.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "The Great Mule of Eupatoria",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dlusosso_map.png",
+      "caption": "Range of Distichodus lusosso",
+      "thumb": "https://media.aquatome.com/commons/ec9b00a6d88c3c60-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá",
+        "thức ăn viên cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

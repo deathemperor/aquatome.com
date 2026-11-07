@@ -9,6 +9,7 @@ import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
 import { dashboardHostRoute } from './dashboard-host'
 import { dailyReportRoute } from './daily/api'
+import { feedbackQueue, sendFeedback } from './feedback'
 import { ownerApi } from './owner-api'
 import { isOwnerVisit } from './owner'
 import { recordSnapshot } from './admin/content'
@@ -240,6 +241,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/api/v1/app/diagnostics') return finish(await appDiagnosticsRoute(req, env, new Date()), env)
   // The owner's dashboard as JSON, for the iOS app (worker/owner-api.ts): the owner's app session only.
   if (url.pathname === '/api/owner' || url.pathname.startsWith('/api/owner/')) return finish(await ownerApi(req, url, env), env)
+  // What the owner sends from a page or an app screen (worker/feedback.ts): the owner's signed-in account only.
+  if (url.pathname === '/api/feedback' || url.pathname.startsWith('/api/feedback/')) return finish(await sendFeedback(req, url, env, new Date()), env)
   if (url.pathname.startsWith('/api/')) return finish(await accounts(req, url, env, new Date(), accountDeps ?? depsFor(env)), env)
   if (url.pathname.startsWith('/go/')) return goRoute(req, url, env, wait)
   if (url.pathname === '/_aff/products') return affAdmin(req, env)
@@ -251,6 +254,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname.startsWith('/_p/admin/')) return bearerOk(req, env) ? photosAdmin(req, url, env, new Date()) : new Response('Not found', { status: 404 })
   // The daily report's GitHub half, from daily-report.yml (worker/daily): the dashboard token only.
   if (url.pathname === '/_ab/report') return dailyReportRoute(req, url, env)
+  // The owner's reports waiting for the Mac (worker/feedback.ts): the dashboard token only.
+  if (url.pathname === '/_ab/feedback' || url.pathname.startsWith('/_ab/feedback/')) return finish(await feedbackQueue(req, url, env), env)
   // The owner's dashboard (worker/dashboard.ts): every /_ab path, each behind the token.
   if (url.pathname === '/_ab' || url.pathname.startsWith('/_ab/')) return adminRoute(req, url, env)
 

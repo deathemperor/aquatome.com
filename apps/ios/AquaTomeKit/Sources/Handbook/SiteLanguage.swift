@@ -28,8 +28,12 @@ public struct SiteLanguage: Sendable, Hashable {
       "lien-he": "contact", "chinh-sach-bao-mat": "privacy", "the-tich-be": "tank-volume", "den-chihiros": "chihiros-light",
       "be-cua-toi": "my-tanks", "nuoi-chung": "tank-mates", "nhan-dien-ca": "fish-id", "trang": "page",
     ]),
-    // Its words come with the site's, when it serves it.
-    .init(code: "ms", name: "Bahasa Melayu", served: false, words: [:]),
+    .init(code: "ms", name: "Bahasa Melayu", served: true, words: [
+      "cong-cu": "alat", "nhom": "kumpulan", "phan-loai": "taksonomi", "nguon-goc": "asal", "gioi-thieu": "tentang",
+      "lien-he": "hubungi", "chinh-sach-bao-mat": "dasar-privasi", "the-tich-be": "isi-padu-tangki",
+      "den-chihiros": "lampu-chihiros", "be-cua-toi": "tangki-saya", "nuoi-chung": "rakan-setangki",
+      "nhan-dien-ca": "kenal-pasti-ikan", "trang": "halaman",
+    ]),
   ]
 
   /// The languages the app offers, Vietnamese first.
