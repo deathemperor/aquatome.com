@@ -136,7 +136,10 @@ final class TankLifeFlowTests: XCTestCase {
     shoot("owner")
     XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
     XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
-    XCTAssertTrue(app.descendants(matching: .any)["plugs-header"].firstMatch.waitForExistence(timeout: 10), "no plugs on the tank")
+    // Below the guides, in a list that builds its rows as they come on screen.
+    let plugs = app.descendants(matching: .any)["plugs-header"].firstMatch
+    for _ in 0..<6 where !plugs.exists { app.swipeUp() }
+    XCTAssertTrue(plugs.waitForExistence(timeout: 5), "no plugs on the tank")
   }
 
   /// A link to a tank opened while on the Tìm tab, its tanks tab never opened: the tab changes and the tank is pushed
