@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, parseTranscript, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, parseTranscript, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -162,6 +162,19 @@ test('a guide that still names the creator or the video gets one editor pass; th
   const clean = deps(await mkdtemp(join(tmpdir(), 'yt-')))
   await videoGuides(clean.d, { playlists: ['PL1'] })
   expect(clean.calls.prompts.filter(p => p.includes('Bài cần biên tập'))).toEqual([])
+})
+
+test('the reviewer gets each sentence that speaks for many people or ranks something, to hold against the transcript', async () => {
+  const d = { viTitle: 'Trồng ráy', summary: ['Ráy là cây dễ nhất cho người mới.'], body: '<p>Nhiều người chơi luôn cắt bớt rễ trước khi trồng. Lá vàng thì tỉa đi.</p><ul><li>Ai cũng dùng keo 502.</li></ul>', faq: [{ q: 'Có cần phân nước không?', a: 'Không cần.' }] }
+  expect(crowdLines(d)).toEqual(['Ráy là cây dễ nhất cho người mới.', 'Nhiều người chơi luôn cắt bớt rễ trước khi trồng.', 'Ai cũng dùng keo 502.'])
+  const prompts: string[] = []
+  const llm = async <T,>(a: { prompt: string }) => { prompts.push(a.prompt); return { score: 0.9, notes: [] } as T }
+  await reviewDraft(llm, 'I always trim the roots.', d)
+  expect(prompts[0]).toContain('CHECK THESE SENTENCES')
+  expect(prompts[0]).toContain('- Nhiều người chơi luôn cắt bớt rễ trước khi trồng.')
+  expect(prompts[0]).not.toContain('- Lá vàng thì tỉa đi.')
+  await reviewDraft(llm, 'I trim yellow leaves.', { ...d, summary: [], body: '<p>Lá vàng thì tỉa đi.</p>' })
+  expect(prompts[1]).not.toContain('CHECK THESE SENTENCES')
 })
 
 test('every review of a guide is kept: the first draft\'s and the rewrite\'s, with the one on the page marked', async () => {
