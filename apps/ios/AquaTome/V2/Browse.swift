@@ -31,9 +31,13 @@ struct BrowseHome: View {
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 34) {
+          // The kept copy in use, or none at all, as v1's Tìm says.
+          if handbook.status == .offline || handbook.status == .failed {
+            StatusText().font(.footnote).padding(.horizontal, 20)
+          }
           featured(top)
-          if !saved.isEmpty { columns("Đã lưu để đọc sau", saved, action: .view) }
-          if !recent.isEmpty { columns("Đọc gần đây", recent, action: .view) }
+          if !saved.isEmpty { columns("Đã lưu để đọc sau", saved) }
+          if !recent.isEmpty { columns("Đọc gần đây", recent) }
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
           if !s.groups.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
@@ -58,7 +62,7 @@ struct BrowseHome: View {
           let series = s.all(.video)
           if !series.isEmpty { videos(Array(series.prefix(8))) }
           let kit = s.all(.equipment).filter { !onTop.contains($0.path) }
-          if !kit.isEmpty { columns("Thiết bị", kit, action: .view) }
+          if !kit.isEmpty { columns("Thiết bị", kit) }
           tools
         }
         .padding(.vertical, 12)
@@ -128,15 +132,14 @@ struct BrowseHome: View {
   }
 
   /// Pages as lockups in columns of three that page sideways, each with its button, the next column peeking; at the
-  /// accessibility sizes, a list of the first five down the screen.
-  private func columns(_ title: LocalizedStringKey, _ items: [HandbookIndex.Item], more: Browse? = nil,
-                       action: LockupAction = .add) -> some View {
+  /// accessibility sizes, a list down the screen: the first five with a whole list to go to, else them all.
+  private func columns(_ title: LocalizedStringKey, _ items: [HandbookIndex.Item], more: Browse? = nil) -> some View {
     VStack(alignment: .leading, spacing: 12) {
       ShelfHeader(title: title, more: more)
       if size.isAccessibilitySize {
         VStack(alignment: .leading, spacing: 14) {
-          ForEach(items.prefix(5)) { item in
-            Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub, action: action)
+          ForEach(items.prefix(more == nil ? items.count : 5)) { item in
+            Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
               .matchedTransitionSource(id: item.path, in: zoom)
           }
         }
@@ -145,7 +148,7 @@ struct BrowseHome: View {
         ScrollView(.horizontal, showsIndicators: false) {
           LazyHGrid(rows: Array(repeating: GridItem(.fixed(rowHeight), spacing: 12), count: min(3, items.count)), spacing: 16) {
             ForEach(items) { item in
-              Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub, action: action)
+              Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
                 .containerRelativeFrame(.horizontal) { w, _ in w - 72 }
                 .matchedTransitionSource(id: item.path, in: zoom)
             }

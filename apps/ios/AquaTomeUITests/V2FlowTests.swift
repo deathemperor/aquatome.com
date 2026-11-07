@@ -100,9 +100,39 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     fish.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
-    app.open(URL(string: "aquatome://")!)
+    follow(app, URL(string: "aquatome://")!)
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "the home link left the fish's page open")
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
+  }
+
+  func testALinkFromOutsideOpensItsPageOnKhamPha() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    XCTAssertTrue(app.staticTexts["Cá neon"].waitForExistence(timeout: 5), "not the fish the link names")
+  }
+
+  func testAPageReadIsOnOneShelfOfKhamPha() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon"))
+    XCTAssertTrue(neon.firstMatch.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    neon.firstMatch.tap()
+    XCTAssertTrue(app.buttons["v2-back"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.buttons["v2-back"].tap()
+    XCTAssertTrue(neon.firstMatch.waitForExistence(timeout: 5), "not back on Khám phá")
+    XCTAssertEqual(neon.count, 1, "Cá neon is on two shelves")
+  }
+
+  /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
+  private func follow(_ app: XCUIApplication, _ url: URL) {
+    XCUIDevice.shared.system.open(url)
+    let ask = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
+    if ask.waitForExistence(timeout: 2) { ask.buttons.element(boundBy: ask.buttons.count - 1).tap() }
+    XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "the app isn't in front")
   }
 
   /// The sheet's switch, tapped, and the sheet closed.

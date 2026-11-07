@@ -19,6 +19,10 @@ struct TodayView: View {
       ScrollView {
         VStack(alignment: .leading, spacing: 28) {
           header
+          // The kept copy in use, or none at all, as v1's Tìm says.
+          if handbook.status == .offline || handbook.status == .failed {
+            StatusText().font(.footnote).padding(.horizontal, 20)
+          }
           ForEach(cards) { card in
             switch card {
             case .fish(let item): FishOfTheDay(item: item, zoom: zoom)
@@ -42,6 +46,7 @@ struct TodayView: View {
       }
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
+      .refreshable { await handbook.load() }
     }
     .v2StackLinks($path)
   }
@@ -109,11 +114,12 @@ struct TodayView: View {
   }
 }
 
-/// The words on a card above its title.
+/// The words on a card above its title; `faded` on a photo's colour, not on a colour of their own (4.5:1 on white).
 private struct Eyebrow: View {
   let text: LocalizedStringKey
+  var faded = true
   var body: some View {
-    Text(text).font(.footnote.weight(.bold)).textCase(.uppercase).opacity(0.8)
+    Text(text).font(.footnote.weight(.bold)).textCase(.uppercase).opacity(faded ? 0.8 : 1)
   }
 }
 
@@ -144,7 +150,11 @@ private struct FishOfTheDay: View {
         V2Photo(src: item.img) { colour = $0 }
           .frame(height: min(height, 640))
           .overlay {
-            LinearGradient(stops: [.init(color: colour.opacity(0.85), location: 0), .init(color: colour.opacity(0), location: 0.5)],
+            // Down as far as the name goes, which at the accessibility sizes is most of the photo.
+            let large = size.isAccessibilitySize
+            LinearGradient(stops: [.init(color: colour.opacity(large ? 0.95 : 0.85), location: 0),
+                                   .init(color: colour.opacity(large ? 0.95 : 0), location: large ? 0.7 : 0.5),
+                                   .init(color: colour.opacity(0), location: large ? 0.85 : 0.5)],
                            startPoint: .top, endPoint: .bottom)
           }
           .overlay(alignment: .topLeading) {
@@ -189,8 +199,10 @@ private struct GuideCard: View {
         .frame(height: min(height, 700))
         .overlay {
           // Opaque under the words: a light photo's sand doesn't come through behind them (4.5:1 for the label).
-          LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.3), .init(color: colour.opacity(0.95), location: 0.55),
-                                 .init(color: colour, location: 0.65)], startPoint: .top, endPoint: .bottom)
+          // Starts higher at the accessibility sizes, where the title takes most of the card.
+          let large = size.isAccessibilitySize
+          LinearGradient(stops: [.init(color: colour.opacity(0), location: large ? 0.05 : 0.3), .init(color: colour.opacity(0.95), location: large ? 0.25 : 0.55),
+                                 .init(color: colour, location: large ? 0.35 : 0.65)], startPoint: .top, endPoint: .bottom)
         }
         .overlay(alignment: .bottomLeading) {
           VStack(alignment: .leading, spacing: 6) {
@@ -223,13 +235,13 @@ private struct SeasonCard: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
-      Eyebrow(text: "Miền Bắc vào đông").foregroundStyle(Color.accentColor)
+      Eyebrow(text: "Miền Bắc vào đông", faded: false).foregroundStyle(Color.accentColor)
       Text("Trời trở lạnh: vài loài quen thuộc cần sưởi").font(.system(.title2, weight: .heavy))
         .fixedSize(horizontal: false, vertical: true)
       VStack(spacing: 0) {
         ForEach(items) { item in
           Lockup(item: item, line: item.facts.tempC.map { "\(HandbookIndex.Facts.range($0, Locale(identifier: handbook.lang))) °C" },
-                 action: .view, thumb: 52)
+                 thumb: 52)
             .padding(.vertical, 6)
             .matchedTransitionSource(id: item.path, in: zoom)
           if item.path != items.last?.path { Divider().padding(.leading, 64) }
@@ -249,11 +261,12 @@ private struct SeasonCard: View {
 private struct TankCard: View {
   let tank: Tank
   @Environment(\.openScreen) private var openScreen
+  private var empty: Bool { tank.species.isEmpty && tank.plants.isEmpty }
 
   var body: some View {
     Button { openScreen(.tanks(tank.id)) } label: {
       VStack(alignment: .leading, spacing: 4) {
-        Eyebrow(text: "Bể đang nuôi")
+        Eyebrow(text: empty ? "Việc tiếp theo" : "Bể đang nuôi")
         Text(verbatim: tank.name).font(.system(.title2, weight: .heavy)).lineLimit(2)
         TankSketch(dims: tank.dims, fish: tank.species.reduce(0) { $0 + ($1.count ?? 1) }, plants: tank.plants.count)
           .frame(height: 140)
@@ -262,9 +275,9 @@ private struct TankCard: View {
           if let l = tank.totalLitres {
             fact("Nước", "\(Int(l.rounded())) l")
           }
-          // An empty tank says so, not "0" twice.
-          if tank.species.isEmpty && tank.plants.isEmpty {
-            Text("Chưa có cá hay cây nào").font(.subheadline).opacity(0.8)
+          // An empty tank says what's next, not "0" twice.
+          if empty {
+            Text("Thêm cá hoặc cây đầu tiên").font(.subheadline.weight(.semibold))
           } else {
             fact("Cá", "\(tank.species.reduce(0) { $0 + ($1.count ?? 1) })")
             fact("Cây", "\(tank.plants.count)")
@@ -389,7 +402,7 @@ private struct LatestCard: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
-      Eyebrow(text: "Mới trên AquaTome").foregroundStyle(Color.accentColor)
+      Eyebrow(text: "Mới trên AquaTome", faded: false).foregroundStyle(Color.accentColor)
       HStack(alignment: .firstTextBaseline) {
         Text("Mới cập nhật").font(.system(.title2, weight: .heavy))
         Spacer()
@@ -397,7 +410,7 @@ private struct LatestCard: View {
       }
       VStack(spacing: 0) {
         ForEach(rows) { row in
-          Lockup(item: row.item, action: row.item.kind == .guide ? .read : .view, thumb: 52).padding(.vertical, 6)
+          Lockup(item: row.item, thumb: 52).padding(.vertical, 6)
             .matchedTransitionSource(id: row.item.path, in: zoom)
           if row.id != rows.last?.id { Divider().padding(.leading, 64) }
         }

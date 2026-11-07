@@ -6,8 +6,8 @@ import UIKit
 // action), the facts strip, a shelf's header, and the press of a card.
 
 /// A handbook photo filling its frame, and the colour drawn from it once it's decoded (`colour`), for the band, wash or
-/// page around it. The index carries a 480 px copy and the page the full one: the full one only for a frame wider or
-/// taller than 480 px, so a shelf's small squares never fetch it.
+/// page around it. The index carries a 480 px copy and the page the full one: the full one only for a frame much past
+/// 480 px, so a shelf's squares and tiles never fetch it.
 struct V2Photo: View {
   let src: String?
   var colour: ((Color) -> Void)?
@@ -31,7 +31,7 @@ struct V2Photo: View {
         var image: UIImage?
         // A big frame: the full photo, the small copy shown meanwhile if it's in memory (a 480 px copy counts as large
         // enough for any frame to the cache, which never decodes past a picture's own size).
-        if full != src, pixels.width > 480 || pixels.height > 480 {
+        if full != src, pixels.width > 600 || pixels.height > 600 {
           if picture?.src != src, let quick = PageImages.cached(src) { picture = (src, quick) }
           image = await PageImages.image(full, size)
         }
@@ -99,17 +99,14 @@ enum PhotoColour {
   }
 }
 
-/// What a lockup's button does: puts the fish or plant on a tank, or opens the page.
-enum LockupAction { case add, read, view, none }
-
 /// A page as one line of a shelf or a card: its photo as a rounded square (the page's "icon"), its name, a line, and its
-/// action. The name and photo open the page; the button is its own.
+/// button, the same wherever the page shows: "Thêm" onto a tank for a fish or plant, "Đọc" for a guide, else "Xem". The
+/// name and photo open the page; the button is its own.
 struct Lockup: View {
   let item: HandbookIndex.Item
   /// Its first line, the page's name unless the card already says it.
   var title: String?
   var line: String?
-  var action = LockupAction.add
   var onDark = false
   /// Its photo as a rounded square, left out where the card shows it already.
   var icon = true
@@ -150,26 +147,24 @@ struct Lockup: View {
   }
 
   @ViewBuilder private var button: some View {
-    switch action {
-    case .add where Life(item) != nil:
+    if Life(item) != nil {
       Button { putting = true } label: { Text("Thêm").capsule(onDark) }
         .buttonStyle(.plain)
         // Not into a store this app must leave alone (newer, unreadable), as v1's page.
         .disabled(!tanks.canEdit)
         // Read with the fish's name: a shelf of them isn't "Thêm vào bể" again and again.
         .accessibilityLabel(Text("Thêm \(item.name) vào bể"))
-    case .read, .view, .add:
+    } else {
       // The same page the row opens: one stop for VoiceOver, the row.
-      NavigationLink(value: item) { Text(action == .read ? "Đọc" : "Xem").capsule(onDark) }.buttonStyle(.plain)
+      NavigationLink(value: item) { Text(item.kind == .guide ? "Đọc" : "Xem").capsule(onDark) }.buttonStyle(.plain)
         .accessibilityHidden(true)
-    case .none:
-      EmptyView()
     }
   }
 
-  /// The line under a page's name: a fish's scientific name, a plant's, a guide's kind.
+  /// The line under a page's name: a fish's scientific name, a plant's, a guide's kind; none for kit, under its own
+  /// heading.
   static func line(_ item: HandbookIndex.Item) -> String? {
-    item.sub ?? item.kind.title
+    item.sub ?? (item.kind == .equipment ? nil : item.kind.title)
   }
 }
 

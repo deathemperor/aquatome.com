@@ -70,7 +70,7 @@ struct SpeciesPage: View {
       .background(colour)
       .animation(.easeInOut(duration: 0.45), value: colour)
       VStack(alignment: .leading, spacing: 28) {
-        summary
+        if hasSummary { summary } else { firstParagraph }
         mates
         Button { openFull(item) } label: {
           HStack {
@@ -216,6 +216,18 @@ struct SpeciesPage: View {
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
+  }
+
+  private var hasSummary: Bool {
+    doc?.blocks.contains { if case let .summary(_, items, text, _, _) = $0 { text != nil || !items.isEmpty } else { false } } == true
+  }
+
+  /// A page with no summary (none approved yet): its text's first paragraph, so it isn't figures alone.
+  @ViewBuilder private var firstParagraph: some View {
+    if let runs = doc?.blocks.lazy.compactMap({ b -> [PageDoc.Run]? in if case let .paragraph(r) = b { r } else { nil } }).first {
+      // Its sources' numbers left out: they mark the page's own list, not shown here.
+      Text(verbatim: runs.filter { !$0.isSourceMark }.map(\.text).joined()).font(.body).lineSpacing(3).padding(.horizontal, 20)
+    }
   }
 
   /// The page's answer: its paragraph, or its points where it has no paragraph.
