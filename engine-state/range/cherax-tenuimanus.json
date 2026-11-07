@@ -1,0 +1,72 @@
+{
+  "id": "cherax-tenuimanus",
+  "native": {
+    "input": "15fd4693be8785fc",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Cherax tenuimanus (Hairy marron or Margaret River marron) is endemic to the Margaret River in southwestern Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Margaret River",
+        "source": "aquariumbreeder",
+        "quote": "Cherax tenuimanus (Hairy marron or Margaret River marron) is endemic to the Margaret River in southwestern Australia.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax tenuimanus",
+    "status": "ACCEPTED",
+    "taxonKey": 4648604,
+    "datasets": [
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        149
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        9
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        7
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "4ffe66a0-6c8b-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "2ca312ee-40cf-49e0-b864-31531b7eba81",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

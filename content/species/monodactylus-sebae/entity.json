@@ -266,6 +266,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "A value of 3-4 g/l has proven to be the ideal salt content."
+  },
   "dataCard": {
     "tempC": [
       {

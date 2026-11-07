@@ -1,0 +1,52 @@
+{
+  "id": "channa-ornatipinnis",
+  "native": {
+    "input": "91b88003cad9a00a",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Channa ornatipinnis is a comparatively small (about 20-25 cm) and very colourful snakehead species, described in 2007 from Rakhine State in Burma.",
+        "words": "Burma",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa ornatipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2391446,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

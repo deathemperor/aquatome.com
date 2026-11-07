@@ -1,0 +1,89 @@
+{
+  "id": "chlamydogobius-eremius",
+  "native": {
+    "input": "e9314a326eb46880",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lake Eyre is a vast endorheic basin within which lies the lowest point in Australia at some 15 m BMSL.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Eyre",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Coward Spring, in a small pool of water around an artesian well, central Australia', and this species is endemic to the Lake Eyre drainage basin, South Australia.",
+        "ok": true
+      },
+      {
+        "name": "Neales River",
+        "source": "seriouslyfish",
+        "quote": "It's quite widely-distributed in southern and western parts of the basin, with a range extending southwards from the Neales River to Clayton Bore, west of the small town of Marree.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chlamydogobius eremius",
+    "status": "ACCEPTED",
+    "taxonKey": 2379254,
+    "datasets": [
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        632
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        316
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        22
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        9
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

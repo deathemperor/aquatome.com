@@ -1,0 +1,125 @@
+{
+  "id": "channa-orientalis",
+  "native": {
+    "input": "a4af1e0f1bf19982",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southwestern Sri Lanka where it appears restricted to the so-called 'wet zone' (see Habitat).",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bentota",
+        "source": "seriouslyfish",
+        "quote": "Confirmed localities are all within the Bentota and Kelani river systems and Kottawa Forest Reserve in Galle district, Southern Province.",
+        "ok": true
+      },
+      {
+        "name": "Kelani",
+        "source": "seriouslyfish",
+        "quote": "Confirmed localities are all within the Bentota and Kelani river systems and Kottawa Forest Reserve in Galle district, Southern Province.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa orientalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2391488,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        75
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        30
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        15
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        8
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        8
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "db5e874b-3e69-4380-bd61-f4cf5237e0f5",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "271220a4-6665-402a-9e85-87e9f4762e99",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}
