@@ -538,9 +538,24 @@ test('an off-topic question is answered with the fixed line and gives the reader
   expect([r.res.status, r.body]).toMatchObject([200, { n: 1, text: OFF_TOPIC.vi, blocks: [], suggestions: [] }])
   expect(Object.values(ledger.day()!.readers)).toEqual([0])
   expect(ledger.day()!.chat).toBe(1)
+  // Counted apart from our side's failures, which the owner's dashboard shows as refunds.
+  expect(ledger.day()!.counts).toMatchObject({ offTopic: 1, refunds: 0 })
   // The reader's one question a day is still theirs.
   const ok = await run(ask(bearer(me.token), { question: 'Bể 60 lít thả bao nhiêu con?' }), e, deps(claude([() => answers({})]).fetch))
   expect([ok.res.status, ok.body]).toMatchObject([200, { n: 2 }])
+})
+
+test('off-topic questions give the count back only up to a day\'s worth: past that they count, so one account can\'t use up chat\'s day for everyone', async () => {
+  const { e, db, ledger } = env({ CHAT_PER_ACCOUNT: '2' })
+  const me = await signIn(db)
+  const off = () => msg([{ type: 'text', text: JSON.stringify({ offTopic: true, text: 'x', covered: true, blocks: [], suggestions: [] }) }])
+  const ask1 = () => run(ask(bearer(me.token), { question: 'Tối qua MU đá thế nào?', conversation: crypto.randomUUID() }), e, deps(claude([off]).fetch))
+  for (const used of [0, 0, 1, 2]) {
+    expect((await ask1()).res.status).toBe(200)
+    expect(Object.values(ledger.day()!.readers)).toEqual([used])
+  }
+  expect([(await ask1()).body]).toEqual([{ error: 'rate', limit: 2 }])
+  expect(ledger.day()!.counts).toMatchObject({ offTopic: 4, refunds: 0 })
 })
 
 test('limits: the account\'s day (rate, with its limit), the site\'s spend (busy); neither calls Claude', async () => {

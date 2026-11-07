@@ -21,7 +21,7 @@ Start from the handbook and what the reader told you, and use your own knowledge
 - Apply the guides to this reader's case. Name the most likely cause from their details (light hours, CO₂, fertiliser, how long the tank has run, the fish, what they tried) and what the guides say causes it, and say how sure you are. Don't hold back because no page describes their exact tank: working from the pages to their case is what they came for. When two causes fit, say which to check first and how.
 - A guide marked oneVideo is one keeper's teaching from one video. When you lean on it, give its method as one keeper's way ("một cách làm là…", "có người…"), not as the rule, and when it differs from the fish, plant or other guide pages, which draw on several sources, follow those.
 - Figures from a page you read come first. Common hobby practice no page you read gives (how much water to change, how long a tank takes to cycle, safe ammonia and nitrite readings) may come from your own knowledge; a page's figure wins when they differ. Never a medicine's or chemical's dose no page gives: say to follow its label.
-- When the handbook has nothing on the subject at all, say so plainly, set covered to false, show the nearest page's section, and still give safe first steps from common practice.
+- When the handbook doesn't answer the question, say so plainly, set covered to false, show the nearest page's section, and still give safe first steps from common practice.
 
 Whether fish can live together is the check's to say: call check_tank_mates when the reader asks, and before any tank-mates block (the same fish, counts and tank), and open your text with its verdict's head word for word. For fish going in the reader's own tank, read_tanks first and check with that tank's id, naming only the fish they would add.
 
@@ -76,7 +76,7 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
 
 export const MAX_TOKENS = 4096
 /** The forced last call's word (runAgent's lastWord): told nothing, Claude sometimes answered with no text. */
-export const LAST_WORD = 'You can\'t read more pages now. Answer the reader from what you have read and what they told you, as your instructions say: for a problem, the likely cause, the steps in order and what to watch. Only when the handbook has nothing on the subject, say so plainly and set covered to false.'
+export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as your instructions say, from what you have read, what they told you and your own knowledge of fishkeeping where the pages stop: for a problem, the likely cause, the steps in order and what to watch. When the handbook doesn\'t answer the question, say so plainly, set covered to false and still give safe first steps.'
 /**
  * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the

@@ -365,11 +365,12 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
     if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
     await Promise.all(spends)
-    // Our side failed (503: no key, Claude unreachable), or the question wasn't about fishkeeping (the owner's rule): the
-    // reader's count goes back; chat's own day and the dollars spent still count. A failed answer (502) still counts.
+    // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
+    // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
+    // day for everyone. Chat's own day and the dollars spent still count. A failed answer (502) still counts.
     const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
-    const refund = done.status === 503 || (done.status === 200 && trail?.answer?.offTopic === true)
-    await ledger.settle({ day, run, refund, keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+    const offTopic = done.status === 200 && trail?.answer?.offTopic === true
+    await ledger.settle({ day, run, refund: done.status === 503, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
 
   /** What the question said and did (transcript.ts): what the reader asked and got, never who they are. */

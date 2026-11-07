@@ -62,5 +62,20 @@
   { "id": "edge-buying-01", "group": "fishkeeping, at the edge", "want": "answer", "lang": "vi", "q": "Mua cá cảnh online ship về có an toàn không?" },
   { "id": "edge-feeding-01", "group": "fishkeeping, at the edge", "want": "answer", "lang": "vi", "q": "Cá rồng ăn tôm sống có tốt không?" },
   { "id": "edge-light-01", "group": "fishkeeping, at the edge", "want": "answer", "lang": "id", "q": "Apakah lampu LED biasa bisa dipakai untuk aquascape?" },
-  { "id": "edge-pond-02", "group": "fishkeeping, at the edge", "want": "answer", "lang": "th", "q": "ปั๊มลมสำหรับบ่อปลาคาร์พขนาด 5 ตันควรใช้ขนาดเท่าไร" }
+  { "id": "edge-pond-02", "group": "fishkeeping, at the edge", "want": "answer", "lang": "th", "q": "ปั๊มลมสำหรับบ่อปลาคาร์พขนาด 5 ตันควรใช้ขนาดเท่าไร" },
+
+  { "id": "edge-catching-01", "group": "fishkeeping, at the edge", "want": "answer", "lang": "vi", "q": "Cách bắt cá ra khỏi bể mà không làm cá hoảng?" },
+  { "id": "edge-cooking-01", "group": "fishkeeping, at the edge", "want": "answer", "lang": "vi", "q": "Tự nấu thức ăn tim bò cho cá đĩa thế nào?" },
+  { "id": "edge-money-01", "group": "fishkeeping, at the edge", "want": "answer", "lang": "vi", "q": "Setup bể 120 cm hết bao nhiêu tiền?" },
+  { "id": "edge-money-02", "group": "fishkeeping, at the edge", "want": "answer", "lang": "vi", "q": "Nuôi cá betta mỗi tháng tốn bao nhiêu tiền điện?" },
+
+  { "id": "talk-hello-01", "group": "greetings and follow-ups", "want": "reply", "lang": "vi", "q": "Chào bạn" },
+  { "id": "talk-hello-02", "group": "greetings and follow-ups", "want": "reply", "lang": "vi", "q": "Chào bạn, mình mới nuôi cá này.", "start": { "from": "species", "about": "paracheirodon-innesi" } },
+  { "id": "talk-thanks-01", "group": "greetings and follow-ups", "want": "reply", "lang": "vi", "q": "Cảm ơn nhé!", "earlier": [{ "question": "Nuôi cá neon xanh thế nào?", "text": "Cá neon xanh nuôi theo đàn từ 8 con trở lên, bể nhiều cây, nước mềm hơi chua.", "blocks": [] }] },
+  { "id": "talk-thanks-02", "group": "greetings and follow-ups", "want": "reply", "lang": "id", "q": "Terima kasih ya!", "earlier": [{ "question": "Nuôi cá neon xanh thế nào?", "text": "Cá neon xanh nuôi theo đàn từ 8 con trở lên, bể nhiều cây, nước mềm hơi chua.", "blocks": [] }] },
+  { "id": "talk-thanks-03", "group": "greetings and follow-ups", "want": "reply", "lang": "th", "q": "ขอบคุณนะ", "earlier": [{ "question": "Nuôi cá neon xanh thế nào?", "text": "Cá neon xanh nuôi theo đàn từ 8 con trở lên, bể nhiều cây, nước mềm hơi chua.", "blocks": [] }] },
+  { "id": "talk-more-01", "group": "greetings and follow-ups", "want": "reply", "lang": "vi", "q": "Vậy còn con kia thì sao?", "earlier": [{ "question": "Nuôi cá neon xanh thế nào?", "text": "Cá neon xanh nuôi theo đàn từ 8 con trở lên, bể nhiều cây, nước mềm hơi chua.", "blocks": [] }] },
+  { "id": "talk-more-02", "group": "greetings and follow-ups", "want": "answer", "lang": "vi", "q": "Thế còn nhiệt độ thì sao?", "earlier": [{ "question": "Nuôi cá neon xanh thế nào?", "text": "Cá neon xanh nuôi theo đàn từ 8 con trở lên, bể nhiều cây, nước mềm hơi chua.", "blocks": [] }] },
+  { "id": "talk-football-01", "group": "greetings and follow-ups", "want": "refuse", "lang": "vi", "q": "À mà tối nay MU đá mấy giờ nhỉ?", "earlier": [{ "question": "Nuôi cá neon xanh thế nào?", "text": "Cá neon xanh nuôi theo đàn từ 8 con trở lên, bể nhiều cây, nước mềm hơi chua.", "blocks": [] }] },
+  { "id": "talk-football-02", "group": "greetings and follow-ups", "want": "refuse", "lang": "vi", "q": "Cá này có màu giống áo đội nào ở Ngoại hạng Anh, và đội đó tối qua thắng không?", "start": { "from": "species", "about": "paracheirodon-innesi" } }
 ]

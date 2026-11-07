@@ -568,7 +568,7 @@ test("the card of the fish whose page the chat was opened from counts as shown; 
   expect(told({ about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
 })
 
-test('the chat\'s forced last call is told to answer from what it read', async () => {
+test('the chat\'s forced last call is told to answer from what it read and its own knowledge, as the instructions say', async () => {
   const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
   const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
   const out = await answerQuestion({
@@ -578,6 +578,8 @@ test('the chat\'s forced last call is told to answer from what it read', async (
   expect(out.stopped).toBe('calls')
   expect(bodies[0]!.tool_choice).toEqual({ type: 'none' })
   expect(JSON.stringify(bodies[0]!.messages.at(-1)!.content)).toContain(JSON.stringify(LAST_WORD).slice(1, -1))
+  // Most hard questions end on this call: it must not take back the general knowledge the owner allowed.
+  expect(LAST_WORD).toContain('your own knowledge of fishkeeping')
 })
 
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {
@@ -654,6 +656,8 @@ test('the first message says where the chat started, what fish ID named, the ear
 
 /** What a reader of the answer's text gives for these parts of a call's raw text, part by part. */
 const pieces = (parts: string[]) => { const read = textReader(); return parts.map(read) }
+/** A streamed answer's JSON up to its text's first character. */
+const ON = '{"offTopic":false,"text":"'
 /** A call as the handler streams it: each text block's raw JSON to `onText` in parts of `n` characters, then the message. */
 const streamed = (content: unknown[], stop: Anthropic.Message['stop_reason'] = 'end_turn', n = 3) => async (_: unknown, opts: { onText?: (delta: string) => void }) => {
   for (const b of content as { type: string; text?: string }[]) if (b.type === 'text') for (let i = 0; i < b.text!.length; i += n) opts.onText?.(b.text!.slice(i, i + n))
@@ -663,22 +667,22 @@ const readPage = { type: 'tool_use', id: 't1', name: 'read_page', input: { path:
 
 test('the answer\'s text comes out as Claude writes it: an escape or a surrogate pair cut between parts waits for the rest', () => {
   // An escape cut after its backslash, and inside its four digits.
-  expect(pieces(['{"text":"Nuôi\\', 'nđàn \\u00', 'e1 x'])).toEqual(['Nuôi', '\nđàn ', 'á x'])
+  expect(pieces([`${ON}Nuôi\\`, 'nđàn \\u00', 'e1 x'])).toEqual(['Nuôi', '\nđàn ', 'á x'])
   // An emoji's pair, escaped: cut inside the first half, between the halves, then inside the second.
-  expect(pieces(['{"text":"cá \\ud8', '3d', '\\u', 'dc1f!'])).toEqual(['cá ', '', '', '🐟!'])
+  expect(pieces([`${ON}cá \\ud8`, '3d', '\\u', 'dc1f!'])).toEqual(['cá ', '', '', '🐟!'])
   // And written as it is, cut between its halves.
-  expect(pieces([`{"text":"cá ${'🐟'[0]}`, `${'🐟'[1]}"`])).toEqual(['cá ', '🐟'])
+  expect(pieces([`${ON}cá ${'🐟'[0]}`, `${'🐟'[1]}"`])).toEqual(['cá ', '🐟'])
   // A high surrogate the string ends on goes out with the end.
-  expect(pieces(['{"text":"a\\ud83d', '"'])).toEqual(['a', '\ud83d'])
+  expect(pieces([`${ON}a\\ud83d`, '"'])).toEqual(['a', '\ud83d'])
   // Every escape JSON has.
-  expect(pieces(['{"text":"\\"\\\\\\/\\b\\f\\n\\r\\t"'])).toEqual(['"\\/\b\f\n\r\t'])
+  expect(pieces([`${ON}\\"\\\\\\/\\b\\f\\n\\r\\t"`])).toEqual(['"\\/\b\f\n\r\t'])
 })
 
 test('a call\'s JSON that doesn\'t open with the text gives nothing; space around it is JSON\'s, and nothing past the text\'s closing quote is read', () => {
   expect(pieces(['{"covered":true,"text":"Nuôi theo đàn."}'])).toEqual([''])
   expect(pieces(['{"te', 'xts":"Nuôi theo đàn."'])).toEqual(['', ''])
   expect(pieces(['Để tôi đọc trang cá neon.', '{"text":"x"'])).toEqual(['', ''])
-  expect(pieces([' \n{ ', '"text" ', ':\t', ' "Nuôi', ' theo đàn."', ',"suggestions":["text"]}'])).toEqual(['', '', '', 'Nuôi', ' theo đàn.', ''])
+  expect(pieces([' \n{ ', '"offTopic" ', ':\t', ' false ,', ' "text" ', ': ', ' "Nuôi', ' theo đàn."', ',"suggestions":["text"]}'])).toEqual(['', '', '', '', '', '', 'Nuôi', ' theo đàn.', ''])
   // The schema keeps offTopic, then the text, first: structured outputs write the keys in its order.
   expect(Object.keys(ANSWER_SCHEMA.properties).slice(0, 2)).toEqual(['offTopic', 'text'])
 })
@@ -687,6 +691,9 @@ test('an answer on fishkeeping streams after offTopic false; an off-topic one gi
   expect(pieces(['{"offTopic"', ': false, "te', 'xt":"Nuôi', ' theo đàn."}'])).toEqual(['', '', 'Nuôi', ' theo đàn.'])
   expect(pieces(['{"offTopic":true,"text":"Real Madrid thắng 2-1."}'])).toEqual([''])
   expect(pieces(['{"offTopic":tr', 'ue,"text":"x"}'])).toEqual(['', ''])
+  // Only an answer that has said it is on topic streams, whatever the order of its keys; a space never splits a word of the JSON.
+  expect(pieces(['{"text":"Real Madrid thắng 2-1.","offTopic":true}'])).toEqual([''])
+  expect(pieces(['{"offTopic":fal se,"text":"x"}'])).toEqual([''])
 })
 
 test('an off-topic question gets the Worker\'s own line in the reader\'s language: nothing Claude wrote, no blocks, no suggestions, nothing streamed', async () => {
@@ -706,7 +713,7 @@ test('an off-topic question gets the Worker\'s own line in the reader\'s languag
 
 test('the pieces joined are the answer\'s text, however its JSON is cut and whatever it escapes', () => {
   const text = 'Cá neon "xanh" sống theo đàn 🐟 \\ từ 6 con,\n\tnhiệt độ 20–26 °C / 25 °C.\r\b\f'
-  const plain = JSON.stringify({ text, covered: true, blocks: [], suggestions: ['Còn "text" thì sao?'] })
+  const plain = JSON.stringify({ offTopic: false, text, covered: true, blocks: [], suggestions: ['Còn "text" thì sao?'] })
   // The same JSON with every character past ASCII as \uXXXX (an emoji as its pair) and every slash escaped.
   const escaped = plain.replace(/[^\x20-\x7e]/g, c => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`).replaceAll('/', '\\/')
   for (const raw of [plain, escaped]) {
@@ -722,7 +729,7 @@ test('the pieces joined are the answer\'s text, however its JSON is cut and what
 })
 
 test('a call that has given the reader text is the answer: a tool call after it doesn\'t run, and the run ends on it', async () => {
-  const final = { text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
   const said: string[] = []
   const steps: Step[] = []
   const out = await answerQuestion({
@@ -755,7 +762,7 @@ test('the reader gets the answer\'s text in pieces that join to it; each call is
 })
 
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {
-  const final = { text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
   const opts: object[] = []
   const out = await answerQuestion({
     send: async (_, o) => {

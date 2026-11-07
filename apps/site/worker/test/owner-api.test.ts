@@ -82,7 +82,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['30 days', () => fishIdPage({ ...S.FISH, period: 'd30' }), () => fishIdSection({ ...S.FISH, period: 'd30' })],
     ['failed', () => fishIdPage({ ...S.FISH, stats: F, keys: F }), () => fishIdSection({ ...S.FISH, stats: F, keys: F })],
     ['no keys', () => fishIdPage({ ...S.FISH, keys: undefined }), () => fishIdSection({ ...S.FISH, keys: undefined })],
-    ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } })],
+    ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } })],
   ],
   'anh-nhan-dien': [
     ['sample', () => keptPage(S.KEPT, S.NOW, S.TZ), () => keptSection(S.KEPT, S.NOW, S.TZ)],
