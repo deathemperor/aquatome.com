@@ -56,6 +56,18 @@ test('overview: what needs the owner comes first, each with the one place to dea
   expect(overviewPage(o)).toContain('<span class="badge">3<span class="vh"> việc</span></span>')
 })
 
+test('the fish ID card is flagged when every key rests, not when the rotation can still skip one', () => {
+  const row = (n: number, state: 'ok' | 'credit') => ({ n, hash: `h${n}`, workspace: false, state, calls: 0, answered: 0 })
+  const flagged = (...states: ('ok' | 'credit')[]) => {
+    const o = well()
+    if (o.keys && !('failed' in o.keys)) o.keys.rows = states.map((s, i) => row(i + 1, s))
+    return areas(o).find(a => a.name === 'Nhận diện cá')?.warn
+  }
+  expect(flagged('ok', 'ok')).toBe(false)
+  expect(flagged('credit', 'ok')).toBe(false)
+  expect(flagged('credit', 'credit')).toBe(true)
+})
+
 test('overview: a day whose AI spend passed 80% of its cap is the owner\'s to raise; below, nothing', () => {
   const o = well()
   const keys = o.keys as Exclude<Overview['keys'], { failed: string } | undefined>

@@ -170,7 +170,7 @@ export function areas(o: Overview): Area[] {
   }
   if (isFailed(o.clicks)) out.push(failedArea('Affiliate', '/_ab/affiliate/', o.clicks))
   else out.push({ name: 'Affiliate', href: '/_ab/affiliate/', fig: fmt(ago(o.clicks.clicks, 7, 1)), sub: 'lượt bấm sang sàn · 7 ngày', spark: whole(o.clicks.clicks), chip: chipOf(ago(o.clicks.clicks, 7, 1), ago(o.clicks.clicks, 14, 8), VS, 'up') })
-  const keysOff = isFailed(o.keys) || !o.keys || o.keys.rows.some(k => k.state !== 'ok')
+  const keysOff = isFailed(o.keys) || !o.keys || o.keys.rows.every(k => k.state !== 'ok')
   if (isFailed(o.fish)) out.push(failedArea('Nhận diện cá', '/_ab/nhan-dien-ca/', o.fish))
   else {
     const { periods: p, perDay } = o.fish
