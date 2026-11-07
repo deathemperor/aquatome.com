@@ -1,6 +1,5 @@
 import AccountSync
 import Handbook
-import PhotosUI
 import SwiftUI
 import UIKit
 
@@ -228,7 +227,8 @@ private struct OwnerReportSheet: View {
   private let close: () -> Void
   @State private var jpeg: Data?
   @State private var words = ""
-  @State private var picked: PhotosPickerItem?
+  /// The phone's photo library is open (ImagePicker: not PhotosUI, which every reader's launch would pay for).
+  @State private var library = false
   /// The picture is one they picked, not this screen drawn.
   @State private var theirs = false
   @State private var sending = false
@@ -262,7 +262,8 @@ private struct OwnerReportSheet: View {
                 .accessibilityLabel(Text(verbatim: "Ảnh sẽ gửi kèm"))
                 .accessibilityIdentifier("owner-report-image")
             }
-            PhotosPicker(selection: $picked, matching: .images) { Text(verbatim: "Chọn ảnh vừa chụp") }
+            Button { library = true } label: { Text(verbatim: "Chọn ảnh vừa chụp") }
+              .accessibilityIdentifier("owner-report-pick")
           }
         }
         Section {
@@ -293,19 +294,23 @@ private struct OwnerReportSheet: View {
       }
     }
     .onAppear { typing = true }
-    .onChange(of: picked) {
-      guard let picked else { return }
-      Task {
-        // As the app sends any photo: no metadata, any format the site takes, and a size it does.
-        let data = try? await picked.loadTransferable(type: Data.self)
-        if let data, let small = await Task.detached(operation: { Readers.shrink(data) }).value {
-          jpeg = small
-          theirs = true
-          problem = nil
-        } else {
-          problem = "Không đọc được ảnh này. Chọn ảnh khác nhé."
-        }
-      }
+    .sheet(isPresented: $library) {
+      ImagePicker(source: .photoLibrary, picked: { data in
+        library = false
+        Task { await take(data) }
+      }, cancelled: { library = false })
+      .ignoresSafeArea()
+    }
+  }
+
+  /// A photo they picked, as the app sends any photo: no metadata, any format the site takes, and a size it does.
+  private func take(_ data: Data?) async {
+    if let data, let small = await Task.detached(operation: { Readers.shrink(data) }).value {
+      jpeg = small
+      theirs = true
+      problem = nil
+    } else {
+      problem = "Không đọc được ảnh này. Chọn ảnh khác nhé."
     }
   }
 
