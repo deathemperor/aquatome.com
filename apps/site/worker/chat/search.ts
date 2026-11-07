@@ -5,13 +5,18 @@ import type { Topics } from './topics'
  * The chat's search of the handbook's pages by their names (the app index: a page's name, other names and scientific
  * name or channel), for Claude's search_handbook tool. Not the site's search (Pagefind, in the browser), which the
  * Worker can't run: guides are found by the words of their titles. Accents and đ are matched as readers type them, a
- * leading "cá" is optional, and a page named exactly what was searched for comes first, as the site's search does.
+ * leading "cá" is optional (but "cá vàng" isn't "tép vàng"), and a page named exactly what was searched for comes first, as the site's search does, then a page whose own name it is before one that has it among its other names.
  * Thai, written without spaces between words, is cut into words by the platform's word breaker (Intl.Segmenter), so a
  * word matches inside a name or title, and its marks are kept: they are letters there, not accents.
  */
 export const fold = (s: string) => s.normalize('NFD').replace(/(\p{Script=Latin})\p{M}+/gu, '$1').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase()
   .replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()
-const bare = (s: string) => s.replace(/^(ca|tep|oc|cay) /, '')
+const LEAD = /^(ca|tep|oc|cay) /
+const bare = (s: string) => s.replace(LEAD, '')
+const lead = (s: string) => LEAD.exec(s)?.[1]
+/** Two names alike once a leading "cá" is dropped (the same, or one beginning with the other): unless each leads with
+ * another animal's word, as "cá vàng" (a goldfish) and "tép vàng" (a shrimp) do. */
+const bareTo = (n: string, q: string, alike: (a: string, b: string) => boolean) => alike(bare(n), bare(q)) && (!lead(n) || !lead(q) || lead(n) === lead(q))
 const THAI = /\p{Script=Thai}/u
 const thai = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter('th', { granularity: 'word' }) : undefined
 /** A folded text's words: a space between each, and Thai cut into its words. */
@@ -22,9 +27,13 @@ const words = (s: string) => split(fold(s)).filter(w => w.length > 1 || /\d/.tes
 export function score(item: Item, query: string): number {
   const q = fold(query)
   if (!q) return 0
-  const names = [item.name, ...(item.aka ?? []), ...(item.sub && item.kind !== 'video' ? [item.sub] : [])].map(fold)
-  if (names.some(n => n === q || bare(n) === bare(q))) return 100
-  if (names.some(n => n.startsWith(q) || bare(n).startsWith(bare(q)))) return 60
+  const own = fold(item.name)
+  const others = [...(item.aka ?? []), ...(item.sub && item.kind !== 'video' ? [item.sub] : [])].map(fold)
+  const names = [own, ...others]
+  // Named exactly that, then alike past a leading "cá", then beginning with it; at each, its own name before its others.
+  const by = (best: number, match: (n: string) => boolean) => (match(own) ? best : others.some(match) ? best - 5 : 0)
+  const named = by(100, n => n === q) || by(90, n => bareTo(n, q, (a, b) => a === b)) || by(60, n => n.startsWith(q) || bareTo(n, q, (a, b) => a.startsWith(b)))
+  if (named) return named
   const want = words(bare(q))
   if (!want.length) return 0
   const hay = new Set([...names, fold(item.sub ?? ''), fold(item.path.split('/').filter(Boolean).at(-1) ?? '')].flatMap(split))

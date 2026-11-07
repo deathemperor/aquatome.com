@@ -12,6 +12,90 @@
     "bangladesh",
     "nepal"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "NP"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Sikkim state, northeastern India and also known from West Bengal, Bihar and Assam states plus northern Bangladesh and, more recently, Nepal.",
+          "countries": [
+            "IN",
+            "BD",
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All records thus pertain to the Ganges and Brahmaputra river systems in the region north of their confluence.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394085,
+      "total": 8,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          6
+        ],
+        [
+          "BD",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          25.3125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

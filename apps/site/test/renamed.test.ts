@@ -18,8 +18,32 @@ test("the shop discus's old address 301s to /ca/ca-dia/; /ca/ca-dia/, now its pa
   expect(Object.entries(table).filter(([, to]) => to.startsWith('/ca/ca-dia-heckel/'))).toEqual([])
 }, 60_000)
 
+// The owner's names of 2026-11-07: locked, old address 301s here, old name still finds the fish.
+test.each([
+  ['Crossocheilus langei', 'Cá bút chì', 'ca-but-chi', 'ca-rong-tao-xiem', 'Cá rong tảo Xiêm'],
+  ['Crossocheilus atrilimes', 'Cá bút chì Thái', 'ca-but-chi-thai', 'ca-rong-reu-thai', 'Cá rong rêu Thái'],
+  ['Nannostomus marginatus', 'Cá chì lùn', 'ca-chi-lun', 'ca-but-chi-lun', 'Cá bút chì lùn'],
+  ['Nannostomus beckfordi', 'Cá chì vàng', 'ca-chi-vang', 'ca-chi-do', 'Cá bút chì vàng'],
+  ['Beaufortia kweichowensis', 'Cá tỳ bà bướm', 'ca-ty-ba-buom', 'ca-bam-da-buom', 'Cá bám đá bướm'],
+  ['Sewellia lineolata', 'Cá tỳ bà bướm hổ', 'ca-ty-ba-buom-ho', 'ca-bam-da-ho', 'Cá bám đá hổ'],
+  ['Sinogastromyzon wui', 'Cá tỳ bà bướm wui', 'ca-ty-ba-buom-wui', 'ca-chach-suoi-sinogastromyzon-wui', 'Cá chạch suối Sinogastromyzon wui'],
+  ['Jordanella floridae', 'Cá flagfish Florida', 'ca-flagfish-florida', 'ca-co-florida', 'Cá cờ Florida'],
+])('%s is %s, and its old address and name still lead to it', async (sci, name, slug, oldSlug, oldName) => {
+  const c = await loadAll({ root: CONTENT, lang: 'vi', publicBuild: false })
+  const t = c.species.find(s => s.scientificName === sci)!.t
+  expect(t).toMatchObject({ name, slug, nameFixed: true })
+  expect(t.altNames).toContain(oldName)
+  expect(renamedPages(c)[`/ca/${oldSlug}/`]).toBe(`/ca/${slug}/?tu=${oldSlug}`)
+}, 60_000)
+
+test('the pencilfish guide took "cá chì" and its old address 301s to it', async () => {
+  const c = await loadAll({ root: CONTENT, lang: 'vi', publicBuild: false })
+  const old = 'huong-dan-nuoi-ca-but-chi-nhom-ca-dan-song-o-tang-mat'
+  expect(renamedPages(c)[`/huong-dan/${old}/`]).toBe(`/huong-dan/huong-dan-nuoi-ca-chi-nhom-ca-dan-song-o-tang-mat/?tu=${old}`)
+}, 60_000)
+
 test('an old address another page has taken since stays that page: it never redirects', () => {
   const t = (slug: string, redirectFrom?: { slug: string; name: string }[]) => ({ t: { slug, ...(redirectFrom ? { redirectFrom } : {}) } })
-  const c = { species: [t('ca-dia', [{ slug: 'ca-dia-nau', name: 'Cá đĩa nâu' }]), t('ca-dia-heckel', [{ slug: 'ca-dia', name: 'Cá đĩa' }])], breeds: [], plants: [] }
-  expect(renamedPages(c as unknown as Pick<Content, 'species' | 'breeds' | 'plants'>)).toEqual({ '/ca/ca-dia-nau/': '/ca/ca-dia/?tu=ca-dia-nau' })
+  const c = { species: [t('ca-dia', [{ slug: 'ca-dia-nau', name: 'Cá đĩa nâu' }]), t('ca-dia-heckel', [{ slug: 'ca-dia', name: 'Cá đĩa' }])], breeds: [], plants: [], guides: [] }
+  expect(renamedPages(c as unknown as Pick<Content, 'species' | 'breeds' | 'plants' | 'guides'>)).toEqual({ '/ca/ca-dia-nau/': '/ca/ca-dia/?tu=ca-dia-nau' })
 })

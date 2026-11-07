@@ -11,6 +11,74 @@
     "bolivia",
     "pantanal"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO"
+      ],
+      "regions": [
+        "Pantanal"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis pantanalensis is found in the Bolivian part of it.",
+          "countries": [
+            "BO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "As its species name suggests, it hails from the famous Pantanal wetland area.",
+          "countries": [],
+          "regions": [
+            "Pantanal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342616,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -16.875,
+          6,
+          0
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,75 @@
+{
+  "id": "cyclocheilichthys-lagleri",
+  "native": {
+    "input": "6e8c0f874dcd03eb",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Chao Phraya river system in central Thailand, and the lower Mekong basin in Thailand and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Chao Phraya river system in central Thailand, and the lower Mekong basin in Thailand and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Known from the Chao Phraya river system in central Thailand, and the lower Mekong basin in Thailand and Cambodia.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from the Chao Phraya river system in central Thailand, and the lower Mekong basin in Thailand and Cambodia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyclocheilichthys lagleri",
+    "status": "ACCEPTED",
+    "taxonKey": 2364447,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

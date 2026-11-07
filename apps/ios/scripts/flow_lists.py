@@ -9,7 +9,8 @@ these paths runs and leaves to main (main runs every flow, HANDBOOK deciding onl
 UI = 'AquaTomeUITests'
 
 # The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check), run by
-# job `handbook`; job `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
+# job `handbook` (on GitHub's Macs a full run puts some beside the light flows: WITH_LIGHTS in flows-to-run.py); job
+# `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
             'TankMatesFlowTests', 'VideoFlowTests',

@@ -456,6 +456,11 @@
       ]
     }
   },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Maintenance in pure freshwater may also present problems, so the addition of marine salt to a standard gravity of ≥1.010 is recommended."
+  },
   "dataCard": {
     "tempC": [
       {

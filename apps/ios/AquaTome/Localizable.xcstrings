@@ -513,6 +513,22 @@
         }
       }
     },
+    "1 giờ, tới %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 jam, sampai %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 ชั่วโมง ถึง %@"
+          }
+        }
+      }
+    },
     "1–2 tuần, kèm thay nước, vệ sinh.": {
       "localizations": {
         "id": {
@@ -525,6 +541,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "1–2 สัปดาห์ ควบคู่กับการเปลี่ยนน้ำและทำความสะอาด"
+          }
+        }
+      }
+    },
+    "2 giờ, tới %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 jam, sampai %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 ชั่วโมง ถึง %@"
           }
         }
       }
@@ -1153,6 +1185,22 @@
         }
       }
     },
+    "Bật ngay với màu của lịch tới %@, rồi chạy lại theo lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan sekarang dengan warna jadwal sampai %@, lalu kembali mengikuti jadwal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดไฟทันทีด้วยสีตามตารางเวลาถึง %@ แล้วกลับมาทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
     "Bật tắt nhanh": {
       "localizations": {
         "id": {
@@ -1181,6 +1229,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดปิดปลั๊กไฟ Smart Life ได้จากหน้าตู้ ด้วยโปรเจกต์ Tuya ของคุณเอง ไม่ต้องมีบัญชี AquaTome"
+          }
+        }
+      }
+    },
+    "Bật với màu của lịch": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan dengan warna jadwal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดด้วยสีตามตารางเวลา"
           }
         }
       }
@@ -1789,6 +1853,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งอีเมลไม่สำเร็จ โปรดลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Chưa kết nối đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu belum terhubung."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้เชื่อมต่อโคมไฟ"
           }
         }
       }
@@ -6721,6 +6801,22 @@
         }
       }
     },
+    "Sau giờ tắt của lịch, đèn chỉ bật thêm 1 hoặc 2 giờ: để đèn sáng qua đêm dễ sinh rêu.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setelah jam mati jadwal, lampu hanya bisa dinyalakan 1 atau 2 jam lagi: lampu yang menyala semalaman mudah memicu alga."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หลังเวลาปิดตามตารางเวลา เปิดไฟเพิ่มได้แค่ 1 หรือ 2 ชั่วโมง เพราะเปิดไฟข้ามคืนทำให้ตะไคร่ขึ้นง่าย"
+          }
+        }
+      }
+    },
     "Spam hoặc quảng cáo": {
       "localizations": {
         "id": {
@@ -7581,6 +7677,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เกิน 8 ชั่วโมงตะไคร่ขึ้นง่าย"
+          }
+        }
+      }
+    },
+    "Trước giờ bật của lịch, đèn chỉ bật được tới giờ tắt của lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebelum jam nyala jadwal, lampu hanya bisa dinyalakan sampai jam mati jadwal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ก่อนถึงเวลาเปิดตามตารางเวลา เปิดไฟได้จนถึงเวลาปิดตามตารางเวลาเท่านั้น"
           }
         }
       }
@@ -10001,6 +10113,22 @@
         }
       }
     },
+    "Đã 23:59: hôm nay không còn giờ để bật thêm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah pukul 23:59: hari ini tidak ada waktu lagi untuk menyalakan lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตอนนี้ 23:59 แล้ว วันนี้ไม่มีเวลาเหลือให้เปิดไฟเพิ่ม"
+          }
+        }
+      }
+    },
     "Đã chỉnh giờ đèn: %@.": {
       "localizations": {
         "id": {
@@ -10673,6 +10801,22 @@
         }
       }
     },
+    "Đèn này chỉ giữ một lịch cho mọi ngày, nên không bật riêng hôm nay được.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini hanya menyimpan satu jadwal untuk semua hari, jadi tidak bisa dinyalakan khusus untuk hari ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โคมไฟรุ่นนี้เก็บตารางเวลาได้ชุดเดียวสำหรับทุกวัน จึงเปิดเฉพาะวันนี้ไม่ได้"
+          }
+        }
+      }
+    },
     "Đèn sáng %@ tiếng mỗi ngày": {
       "localizations": {
         "id": {
@@ -10701,6 +10845,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดไฟสว่างเต็มที่แล้ว โคมไฟจะไม่ทำงานตามตารางเวลาจนกว่าจะกด “ตามตารางเวลา”"
+          }
+        }
+      }
+    },
+    "Đèn sáng từ bây giờ tới %@ (giờ tắt của lịch), %@ giờ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala dari sekarang sampai %1$@ (jam mati jadwal), %2$@ jam."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟจะสว่างตั้งแต่ตอนนี้ถึง %1$@ (เวลาปิดตามตารางเวลา) รวม %2$@ ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Đèn sáng với màu của lịch tới %@, rồi tự chạy lại theo lịch.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala dengan warna jadwal sampai %@, lalu kembali mengikuti jadwal dengan sendirinya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟสว่างด้วยสีตามตารางเวลาถึง %@ แล้วจะกลับมาทำงานตามตารางเวลาเอง"
           }
         }
       }
@@ -10781,6 +10957,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "โคมไฟกำลังแสดงสีทดสอบ"
+          }
+        }
+      }
+    },
+    "Đèn đang sáng theo lịch rồi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu sudah menyala sesuai jadwal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟกำลังเปิดตามตารางเวลาอยู่แล้ว"
           }
         }
       }

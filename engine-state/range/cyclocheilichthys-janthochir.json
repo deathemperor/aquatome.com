@@ -1,0 +1,74 @@
+{
+  "id": "cyclocheilichthys-janthochir",
+  "native": {
+    "input": "d9dd90fd396d7eba",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cyclocheilichthys janthochir is a cyprinid endemic to Borneo, known from West and Central Kalimantan in Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Cyclocheilichthys janthochir is a cyprinid endemic to Borneo, known from West and Central Kalimantan in Indonesia.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Indonesia: Borneo: Kalimantan Barat: Kapuas River in Pontianak'.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "In the exceptionally diverse Danau Sentarum lake system of the upper Kapuas River basin, West Kalimantan, sympatric species include Scleropages formosus, Barbonymus gonionotus, B. schwanenfeldii, Crossocheilus nigriloba, Cyclocheilichthys apogon, C. repasson, Epalzeorhynchos kalopterus, Labiobarbus ocellatus, Leptobarbus hoevenii, Luciosoma spilopleura plus various representatives of Barbodes, Rasbora and Osteochilus.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "The species originates from the island of Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cyclocheilichthys janthochir",
+    "status": "ACCEPTED",
+    "taxonKey": 2364422,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

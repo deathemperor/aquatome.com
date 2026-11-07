@@ -545,6 +545,8 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         // A guide held out of the chat (video-hold.ts) stays held while its new version is under the bar.
         quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score }, ...(held && score < QUALITY_THRESHOLD ? { chat: false as const } : {}) },
         ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
+        // A note for local readers isn't the video's: a new version of the guide keeps it.
+        ...(prev.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
       }, 'vi'))
       await mkdir(dir, { recursive: true })
       await writeJson(join(dir, 'entity.json'), entity)

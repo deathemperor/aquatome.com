@@ -291,6 +291,47 @@
     ],
     "ruled": "7aa49724477a0e4f"
   },
+  "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp": {
+    "at": "2026-11-07",
+    "hash": "2b0502a994a2c676",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Cho tép Amano sinh sản trong bể nuôi thì khó, nhưng làm được. Nhiều thí nghiệm cho thấy thức",
+        "problem": "The conclusion stops mid-word, so the page ends broken.",
+        "rule": "The last body paragraph ends without closing punctuation.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đèn quá mạnh hoặc bật quá lâu. Nên cho tảo nghỉ đèn một khoảng ngắn, ít nhất 3–5 giờ.",
+        "problem": "The FAQ tells readers to give the algae at least 3–5 hours without light, but the culture steps say to keep the light on 24 hours a day, and the page never squares the two.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ảnh của K-I Hayashi và T. Hamano",
+        "problem": "This photo credit is left over from the source web page, and there is no picture next to it.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sau đó rút nước trong tô xuống sát đáy",
+        "problem": "The word \"tô\" (bowl) shows up out of nowhere. Everywhere else the page calls the larval tank \"bể ương\".",
+        "fix": "Sau đó rút nước trong bể ương xuống sát đáy",
+        "field": "body"
+      }
+    ],
+    "ruled": "2b0502a994a2c676"
+  },
   "vi/guides/aquariumbreeder-can-i-put-snails-in-an-uncycled-tank": {
     "at": "2026-11-06",
     "hash": "03361a6f4f0e2c14",
@@ -1250,6 +1291,12 @@
     "hash": "fd1966a6dfa10dd4",
     "findings": [],
     "ruled": "fd1966a6dfa10dd4"
+  },
+  "vi/guides/aquariumbreeder-what-is-this-thing-in-my-tank": {
+    "at": "2026-11-07",
+    "hash": "3e16e03a1864bfe8",
+    "findings": [],
+    "ruled": "3e16e03a1864bfe8"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners": {
     "at": "2026-11-01",
@@ -5910,6 +5957,173 @@
     ],
     "ruled": "15c1f1b9f6e7ff8a"
   },
+  "vi/guides/loachesonline-articles-breeding-sewellia": {
+    "at": "2026-11-07",
+    "hash": "2c7c906085b68860",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "29/6/2006; 29/6/2006; 10/7/2006; 7/8/2006; 25/8/2006; 25/8/2006 (màu sẫm do vừa chuyển từ nền tối)",
+        "problem": "Captions from the source's photo gallery appear in the body as a bare list of dates, with no photos to go with them.",
+        "rule": "A body line made up only of dates separated by semicolons.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "10/12/2006; 12/12/2006; 16/12/2006 (hai cá con đánh nhau); 5/1/2007",
+        "problem": "A second list of leftover photo-caption dates in the body, with no photos.",
+        "rule": "A body line made up only of dates separated by semicolons.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tôi đã đăng vài bức ảnh lên website: tại đây (Một số hình ảnh có thể không còn hiển thị trong chủ đề",
+        "problem": "A leftover link text ('tại đây') with no link, plus a forum note copied from the web page.",
+        "fix": "tôi đã đăng vài bức ảnh lên diễn đàn này.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bốn bức ảnh sau được chụp ngày 16/6/2006.",
+        "problem": "This points to four photos that are not in the text at that spot.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Emma Turner\nHình ảnh: Ảnh đầu tiên: Martin Thoene (chụp tại Maidenhead Aquatics).",
+        "problem": "The author's sign-off and photo-credit lines from the original web page were left in the body.",
+        "rule": "A body line that is only a person's name, right before a line starting with 'Hình ảnh:'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "phóng ra một làn mịn trứng/tinh dịch vào bể",
+        "problem": "'Một làn mịn' is an unnatural, garbled rendering of 'a fine cloud'.",
+        "fix": "phóng ra một đám trứng và tinh dịch li ti vào nước",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có ngay một miếng mút đã vi sinh",
+        "problem": "'Đã vi sinh' is missing its verb and reads oddly. It should say the sponge has already built up bacteria.",
+        "fix": "có ngay một miếng mút đã có sẵn vi sinh",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-07",
+        "field": "body",
+        "score": 0.8,
+        "kept": true,
+        "problems": [
+          "'Oxygenation' is translated as 'oxy hóa' (oxidation), which is the wrong term: the point is a high dissolved-oxygen level."
+        ]
+      }
+    ],
+    "ruled": "2c7c906085b68860"
+  },
+  "vi/guides/loachesonline-articles-clown-loach-breeding-related-items": {
+    "at": "2026-11-07",
+    "hash": "1081fcedb53ffb13",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Cho cá chuột hề sinh sản",
+        "problem": "Clown loach (Chromobotia macracanthus) is called \"cá heo hề\" in the Vietnamese hobby. \"Cá chuột\" means Corydoras, so the name points to the wrong fish throughout the page and in the title.",
+        "fix": "Cho cá heo hề sinh sản",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Bình luận của Ken Childs",
+        "problem": "Ola Ahlander's 2002 post, the editor's note and the closing note on hormone breeding all sit under the heading for Ken Childs' comment.",
+        "fix": "Thêm tiêu đề \"## Thư của Ola Ahlander\" trước \"Từ: Ola Ahlander\" và \"## Cập nhật\" trước \"Phần lớn nội dung trên…\"",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-07",
+        "field": "body",
+        "score": 0.3,
+        "kept": false,
+        "problems": [
+          "Clown loach (Chromobotia macracanthus) is called \"cá heo hề\" in the Vietnamese hobby. \"Cá chuột\" means Corydoras, so the name points to the wrong fish throughout the page and in the title."
+        ]
+      }
+    ],
+    "ruled": "1081fcedb53ffb13"
+  },
+  "vi/guides/loachesonline-articles-clown-loach-coloration-marking-variations": {
+    "at": "2026-11-07",
+    "hash": "a05ef9cc5586f840",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Những vệt sẫm thấy ở hai bên thân không phải vết xước thật. Đó là vết bẩn và rêu bám trên kính bể.",
+        "problem": "The source says real scratches show on the alpha's sides and only the dark marks are on the glass. The page says the marks on the body are not scratches, which also clashes with the earlier 'nhiều vết xước thấy rõ trên thân'.",
+        "fix": "Để ý các vết xước thấy rõ hai bên thân nó. Còn những vệt sẫm là vết bẩn và rêu bám trên kính bể.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhưng thực tế quan sát cho thấy con đầu đàn lại thường là con mang màu này.",
+        "problem": "In the source this is one keeper's observation of his own alpha fish. The page states it as a general finding.",
+        "fix": "Nhưng có người nuôi để ý thấy con đầu đàn trong bể mình lại thường là con mang màu này.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Ảnh cá hổ có hoa văn khác thường:",
+        "problem": "This heading promises photos of fish with unusual markings, but the only thing under it is a thank-you line.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thủ phạm có thể là tâm trạng, tính hung hăng, có thể là stress và vài yếu tố khác.",
+        "problem": "'Thủ phạm' (culprit) is the wrong word for normal, harmless causes of a colour change, and 'có thể' is repeated.",
+        "fix": "Màu cá có thể đổi theo tâm trạng, lúc hung hăng, có khi do stress và vài yếu tố khác.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "và mức đa dạng sinh học nhất định đó đã tạo ra những khác biệt rõ rệt",
+        "problem": "'đó' points back to nothing, so the phrase reads as a literal translation.",
+        "fix": "nên giữa các vùng đã hình thành những khác biệt rõ rệt",
+        "field": "body"
+      }
+    ],
+    "ruled": "a05ef9cc5586f840"
+  },
   "vi/guides/loachesonline-articles-fishes-of-the-genus-botia-in-the-indian-region": {
     "at": "2026-11-01",
     "hash": "667b49cbb5d1aa62",
@@ -6194,6 +6408,47 @@
     ],
     "ruled": "ea2ea654de299fed"
   },
+  "vi/guides/loachesonline-articles-sewellia-lineolata-natural-habitat-and-how-they-get-to-our-aquariums": {
+    "at": "2026-11-07",
+    "hash": "09ad47a7d92d909c",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "ở tỉnh Cà Mau (Mau ca), miền Nam Việt Nam",
+        "problem": "The source only says 'Mau ca Province'. The page adds that this is Cà Mau, a flat delta province with no rocky streams or waterfalls, so it misleads readers about where the fish lives.",
+        "fix": "ở một vùng mà nguồn ghi là tỉnh \"Mau ca\", miền Nam Việt Nam",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "110 loại cá khác với các cỡ từ 4 đến 10",
+        "problem": "The source means each fish comes in 4 to 10 size classes. The page instead reads as sizes 4 to 10 with no unit, which makes no sense.",
+        "fix": "110 loại cá khác, mỗi loại có từ 4 đến 10 cỡ",
+        "field": "body"
+      }
+    ],
+    "ruled": "09ad47a7d92d909c"
+  },
+  "vi/guides/loachesonline-articles-sewellia-lineolata-the-reticulated-hillstream-loach-easy-to-spawn-or-a-whole-lot-of-luck": {
+    "at": "2026-11-07",
+    "hash": "d7435875ed9d8621",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Thao tác với tài liệu\n- Gửi trang này",
+        "problem": "Leftover web-page menu (\"Document actions / Send this page\") from the source site appears at the end of the article.",
+        "rule": "A heading or list item matching known web-menu phrases like \"Gửi trang này\" or \"Thao tác với tài liệu\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "d7435875ed9d8621"
+  },
   "vi/guides/loachesonline-articles-sexing-and-breeding-pseudogastromyzon-cheni": {
     "at": "2026-11-07",
     "hash": "c026ba5b695b47ad",
@@ -6352,6 +6607,49 @@
     ],
     "ruled": "e50b92851cd2ede9"
   },
+  "vi/guides/loachesonline-articles-the-spawning-of-sewellia-sp-spotted-fry-growth-development": {
+    "at": "2026-11-07",
+    "hash": "f371f3a293776c6f",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lần sinh sản thành công của S. lineolata vào mùa hè 2006 của tôi đã được ghi lại trong bài viết này.",
+        "problem": "The source's 'this article' was a link to another article. Without the link, 'bài viết này' reads as if it meant the current page, which is about a different species.",
+        "fix": "Lần sinh sản thành công của S. lineolata vào mùa hè 2006 đã được ghi lại trong một bài viết riêng.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tôi hy vọng bạn thích bài báo cáo này,\nEmma Turner",
+        "problem": "The author's sign-off and name from the original web page were left in the text, which goes against the site's own style.",
+        "rule": "a final line that is only a person's name, right after a closing line like 'Tôi hy vọng bạn thích'.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sọc biến thành đốm:",
+        "problem": "This line and several others end with a colon that points to a photo below, but no photo appears there, so the sentences are left hanging.",
+        "rule": "a paragraph that ends with a colon and is not followed by a list or an image.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "hàng rào vây ngực",
+        "problem": "This is a word-for-word translation of 'pectoral fin fences' and Vietnamese readers won't understand it without an explanation.",
+        "fix": "hàng gai (fence) trên vây ngực",
+        "field": "body"
+      }
+    ],
+    "ruled": "f371f3a293776c6f"
+  },
   "vi/guides/loachesonline-articles-tigers-of-terror-and-their-partners-in-crime": {
     "at": "2026-11-06",
     "hash": "b9e3ddaaed92dde4",
@@ -6425,6 +6723,60 @@
       }
     ],
     "ruled": "4f49a6a51715d31e"
+  },
+  "vi/guides/loachesonline-articles-why-loaches-should-not-be-kept-with-malawi-cichlids": {
+    "at": "2026-11-07",
+    "hash": "05731acf41e2a70a",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tại sao không nên nuôi cá chạch chung với cá cichlid Malawi",
+        "problem": "The body text opens by repeating the page title word for word, which is left over from the source web page.",
+        "rule": "The first line of the body is identical to the page title.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Quá thường xuyên, các cửa hàng thiếu lương tâm",
+        "problem": "This is a word-for-word rendering of 'All too often' and does not read like natural Vietnamese.",
+        "fix": "Rất nhiều khi, các cửa hàng thiếu lương tâm",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có một mức độ hoạt động thủy triều nhẹ nhàng nhất định",
+        "problem": "The phrasing reads as machine translation.",
+        "fix": "cũng có thủy triều nhẹ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rất nên đọc thêm về điều hòa thẩm thấu và sốc thẩm thấu.",
+        "problem": "'Rất nên' is an unnatural calque of 'highly recommended'.",
+        "fix": "Bạn nên tìm đọc thêm về điều hòa thẩm thấu và sốc thẩm thấu.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-07",
+        "field": "body",
+        "score": 0.88,
+        "kept": true,
+        "problems": [
+          "The source's 'should have to' is lost, so the sentence wrongly says loaches already endure this level of aggression when it means more than they should have to bear."
+        ]
+      }
+    ],
+    "ruled": "05731acf41e2a70a"
   },
   "vi/guides/loachesonline-care-the-loach-almanac": {
     "at": "2026-11-06",
@@ -6920,6 +7272,58 @@
       }
     ],
     "ruled": "130510c66c9ac0d4"
+  },
+  "vi/guides/seriouslyfish-articles-heating-the-aquarium": {
+    "at": "2026-11-07",
+    "hash": "c580c82e7ad3f095",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bộ sưởi kèm điều nhiệt là thiết bị gần như phổ biến mà hầu hết người chơi dùng để sưởi bể.",
+        "problem": "'Near universal' is translated word for word as 'gần như phổ biến', which reads oddly and loses the meaning that almost everyone uses it.",
+        "fix": "Bộ sưởi kèm điều nhiệt là thiết bị gần như ai chơi cá cũng dùng để sưởi bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "hiếm khi xuống thấp hơn nhiều so với 20°C, ít nhất là trong một khoảng thời gian dài",
+        "problem": "The English 'at least for any sustained length of time' is carried over literally, so the sentence reads unnaturally and its meaning is unclear.",
+        "fix": "hiếm khi xuống dưới 20°C quá nhiều, hoặc nếu có thì cũng không kéo dài.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Heaterstat, như thường được gọi, là thiết bị tự động",
+        "problem": "The English apposition 'as it is commonly known' is copied word for word and reads like machine translation.",
+        "fix": "Thiết bị này thường được gọi là heaterstat. Nó tự động",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tấm cavity",
+        "problem": "'Cavity boards' is only half-translated, which leaves a meaningless English word in the phrase.",
+        "fix": "tấm cách nhiệt hốc tường",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Xin cảm ơn Jeroen Wijnands đã góp ý và bổ sung, và Steven Gielis đã đưa ra gợi ý.",
+        "problem": "This thank-you note was left over from the original article and makes no sense on this page.",
+        "rule": "a final paragraph that starts with 'Xin cảm ơn' followed by people's names",
+        "field": "body"
+      }
+    ],
+    "ruled": "c580c82e7ad3f095"
   },
   "vi/guides/seriouslyfish-articles-how-to-take-care-of-a-siamese-fighting-fish-betta-splendens": {
     "at": "2026-11-01",
@@ -8667,6 +9071,12 @@
     "findings": [],
     "ruled": "4c8ea9eef96827fe"
   },
+  "vi/guides/youtube--MG8jX9LOvI": {
+    "at": "2026-11-07",
+    "hash": "d9e604d6f7a869e4",
+    "findings": [],
+    "ruled": "d9e604d6f7a869e4"
+  },
   "vi/guides/youtube--Rj-jBl65Mc": {
     "at": "2026-11-06",
     "hash": "a95f1c426a04b22c",
@@ -9309,6 +9719,23 @@
     ],
     "ruled": "bf5f605be891eea3"
   },
+  "vi/guides/youtube-7UaAsA16woY": {
+    "at": "2026-11-07",
+    "hash": "09683967a45d74da",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Không nêu cụ thể",
+        "problem": "This table cell is a note from the writing process (\"not specified\") that leaked into the page, not advice for the reader.",
+        "fix": "Khoảng 30% lượng nước trong bể",
+        "rule": "A table cell reading \"Không nêu cụ thể\" or a similar 'not stated' placeholder.",
+        "field": "body"
+      }
+    ],
+    "ruled": "09683967a45d74da"
+  },
   "vi/guides/youtube-7X823MgJlHo": {
     "at": "2026-11-07",
     "hash": "d8448d32efe44723",
@@ -9445,6 +9872,12 @@
     "hash": "9410c3e2c1c08818",
     "findings": [],
     "ruled": "9410c3e2c1c08818"
+  },
+  "vi/guides/youtube-8wuOuc1u1NM": {
+    "at": "2026-11-07",
+    "hash": "77356decf7c691e8",
+    "findings": [],
+    "ruled": "77356decf7c691e8"
   },
   "vi/guides/youtube-8ZjRvJ_5pTE": {
     "at": "2026-11-03",
@@ -11234,6 +11667,31 @@
     ],
     "ruled": "90002c24dfc8b2e3"
   },
+  "vi/guides/youtube-K2U29-mR8a0": {
+    "at": "2026-11-07",
+    "hash": "039638f6fa00823b",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Với cường độ này, đèn có thể dùng cho bể lớn gấp đôi.",
+        "problem": "The page says two bulbs (about 0.5 W per litre) are needed because carpet plants want a lot of light, then says the same lights would do for a tank twice the size, which halves the light per litre.",
+        "fix": "Với cường độ này, đèn còn dư sáng cho bể trồng cây dễ lớn gấp đôi.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bạn có thể cân nhắc cách khuếch tán tốt hơn sau.",
+        "problem": "The word \"sau\" left dangling at the end of the sentence reads unnaturally.",
+        "fix": "bạn nên cân nhắc đổi sang cách khuếch tán CO2 tốt hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "039638f6fa00823b"
+  },
   "vi/guides/youtube-k3xDjE_A8t0": {
     "at": "2026-11-04",
     "hash": "5c61da9fa748a6f4",
@@ -11457,6 +11915,22 @@
     "findings": [],
     "ruled": "4b725d9b27967785"
   },
+  "vi/guides/youtube-LiCZUjqLck8": {
+    "at": "2026-11-07",
+    "hash": "ee24db67eaf924e9",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L9",
+        "quote": "cả hai bể đều không châm phân nước trong ít nhất tháng đầu",
+        "problem": "The word order of 'trong ít nhất tháng đầu' is unnatural in Vietnamese.",
+        "fix": "cả hai bể đều không châm phân nước, ít nhất là trong tháng đầu",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "ee24db67eaf924e9"
+  },
   "vi/guides/youtube-lIvdfAD26BE": {
     "at": "2026-11-06",
     "hash": "fecf15e6e5cdc5f0",
@@ -11675,6 +12149,22 @@
     ],
     "ruled": "595a2c592bb3ea53"
   },
+  "vi/guides/youtube-naWrFEnwALY": {
+    "at": "2026-11-07",
+    "hash": "3b0bb10ec3ee409e",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "Lọc thùng chạy thực tế thường chỉ đạt chưa tới một nửa lưu lượng ghi trên hộp.",
+        "problem": "The summary makes a general rule that the page's own figures contradict: the Eheim 1500 reaches about 2,040 of its 2,270 L/h after the fixes, and even the FX4 gets about 1,400 of 2,650 L/h, which is more than half.",
+        "fix": "Lọc thùng lắp theo kiểu thông thường có thể chỉ đạt chưa tới một nửa lưu lượng ghi trên hộp, nhưng sửa đúng chỗ nghẽn thì lấy lại được phần lớn.",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "3b0bb10ec3ee409e"
+  },
   "vi/guides/youtube-nFXsyqdY37s": {
     "at": "2026-11-04",
     "hash": "7a3ec12322487cb9",
@@ -11869,6 +12359,21 @@
       }
     ],
     "ruled": "ad38fd2aa9ab0d58"
+  },
+  "vi/guides/youtube-OJ0X5fuRvAA": {
+    "at": "2026-11-07",
+    "hash": "e4a46e44bb884f6f",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Bể đặt cắt theo kích thước",
+        "problem": "The cost table lists tank and filter costs too, but it sits inside the CO2 section, so it reads as if it covers only CO2 costs.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e4a46e44bb884f6f"
   },
   "vi/guides/youtube-Omxb5ByqLMs": {
     "at": "2026-11-03",
@@ -12343,6 +12848,12 @@
     ],
     "ruled": "30e739e9d0312d8f"
   },
+  "vi/guides/youtube-RBtMtrL4tAQ": {
+    "at": "2026-11-07",
+    "hash": "9c0ae8d45c216181",
+    "findings": [],
+    "ruled": "9c0ae8d45c216181"
+  },
   "vi/guides/youtube-rho_cQXD7yA": {
     "at": "2026-11-05",
     "hash": "a7e6bff670c55f1f",
@@ -12685,6 +13196,12 @@
     "findings": [],
     "ruled": "0d25ccae740e0ad6"
   },
+  "vi/guides/youtube-T5Vf6PGipG4": {
+    "at": "2026-11-07",
+    "hash": "ffcdc20eee8b43fa",
+    "findings": [],
+    "ruled": "ffcdc20eee8b43fa"
+  },
   "vi/guides/youtube-tau-i3HxVFQ": {
     "at": "2026-11-05",
     "hash": "8c067b384c9ede29",
@@ -12746,6 +13263,12 @@
       }
     ],
     "ruled": "2412285ce62e9b4a"
+  },
+  "vi/guides/youtube-TRpaZNjeRE4": {
+    "at": "2026-11-07",
+    "hash": "a157cff19934b9fb",
+    "findings": [],
+    "ruled": "a157cff19934b9fb"
   },
   "vi/guides/youtube-tRV48fsAOZU": {
     "at": "2026-11-02",
