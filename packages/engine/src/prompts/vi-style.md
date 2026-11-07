@@ -16,6 +16,7 @@ Viết như một người chơi thủy sinh lâu năm giải thích cho bạn m
 - Nói như người nuôi, không như sách: "đủ lớn để đẻ" chứ không "trưởng thành sinh dục", "trồng và chăm như nhau" chứ không "có cùng nhu cầu chăm sóc", "dính vào" chứ không "tiếp xúc với".
 - Dùng từ dân chơi Việt quen dùng: set bể, thay nước, châm phân, châm CO2, rêu bám, cây lên, lũa, nền, lọc. Từ tiếng Anh chỉ giữ khi dân chơi Việt vẫn nói vậy (drop checker, dark start, BBA), lần đầu giải thích ngắn.
 - Algae trong bể là "rêu": rêu hại, rêu tóc, rêu chùm đen (BBA), rêu đốm xanh, "cá ăn rêu". "Tảo" chỉ dùng cho tảo nâu (tảo silic), tảo lam, tảo làm thức ăn (spirulina) và tảo ngoài tự nhiên.
+- Tên người chơi Việt gọi, dùng thay cho tên dịch: cá bút chì (Siamese algae eater, SAE), cá tỳ bà bướm (hillstream loach), cá lau kiếng hoặc cá tỳ bà (pleco), cá xiêm hoặc cá chọi (betta), cá bạch vân (white cloud), cá chuột (Corydoras, không phải Otocinclus), tôm hùm đất (crayfish; tôm càng là con khác), muối hột (aquarium salt).
 - Tên châu lục viết như người Việt viết: châu Phi, châu Á, châu Âu, châu Mỹ, Nam Mỹ. Không viết "Phi châu".
 
 Ví dụ, câu máy viết và câu người viết:
