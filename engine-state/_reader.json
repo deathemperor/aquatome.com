@@ -252,6 +252,32 @@
     ],
     "ruled": "307604ca83d14f35"
   },
+  "vi/guides/aquariumbreeder-amano-shrimp-and-dwarf-shrimp-species-compatibility": {
+    "at": "2026-11-07",
+    "hash": "e71d57cb9291add7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "lớp vỏ mới mới đang dần hình thành",
+        "problem": "Writing \"mới mới\" twice in a row makes the reader stumble, and it looks like a typo.",
+        "fix": "lớp vỏ mới đang dần hình thành",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lưu ý. Nói thẳng ra,",
+        "problem": "A note label followed by a full stop reads as a broken sentence. It should take a colon.",
+        "fix": "Lưu ý: Nói thẳng ra,",
+        "rule": "The word \"Lưu ý\" directly followed by a full stop.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e71d57cb9291add7"
+  },
   "vi/guides/aquariumbreeder-are-african-frogs-and-shrimp-compatible": {
     "at": "2026-11-05",
     "hash": "e9b32bfd2bf4c92a",
@@ -290,6 +316,51 @@
       }
     ],
     "ruled": "7aa49724477a0e4f"
+  },
+  "vi/guides/aquariumbreeder-blue-green-algae-cyanobacteria-profile-and-how-to-remove": {
+    "at": "2026-11-07",
+    "hash": "6dfda71450fa19e0",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Cách che tối bể (blackout)",
+        "problem": "The blackout steps belong under method 4, but they sit under an unnumbered top-level heading placed among the numbered method headings, so they look like a separate section.",
+        "fix": "### 4.1 Cách che tối bể (blackout)",
+        "rule": "An unnumbered heading at the same level as numbered headings, placed right after a numbered heading.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "3.1 Erythromycin",
+        "problem": "The numbered sub-methods 3.1–3.7 are plain text lines rather than subheadings, so the product sections run into each other.",
+        "fix": "### 3.1 Erythromycin",
+        "rule": "A plain line starting with a sub-number like '3.1' that follows a numbered heading.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nitơ quá thấp (dưới 10) cũng là một nguyên nhân chính gây tảo lam.",
+        "problem": "The nitrogen thresholds (10, 50) have no unit, so the reader cannot compare them with a test kit reading.",
+        "fix": "Nitrat quá thấp (dưới 10 mg/l) cũng là một nguyên nhân chính gây tảo lam.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhưng chưa thấy ai tận mắt chứng kiến chuyện này",
+        "problem": "The source only says the writer and their friends never saw it. The page turns this into a claim that nobody has ever seen it.",
+        "fix": "nhưng dân chơi quanh mình chưa ai tận mắt thấy chuyện này",
+        "field": "body"
+      }
+    ],
+    "ruled": "6dfda71450fa19e0"
   },
   "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp": {
     "at": "2026-11-07",
@@ -337,6 +408,23 @@
     "hash": "03361a6f4f0e2c14",
     "findings": [],
     "ruled": "03361a6f4f0e2c14"
+  },
+  "vi/guides/aquariumbreeder-crayfish-and-suitable-tank-mates": {
+    "at": "2026-11-07",
+    "hash": "7aa00f6e2efbee55",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Cá",
+        "problem": "The numbered tips 1–6 use the same heading level as their parent section \"Nuôi tôm hùm đất trong bể cộng đồng: vài lưu ý\", so they read as separate sections of the page instead of points under it.",
+        "fix": "### 1. Cá",
+        "rule": "Headings starting with a number at the same level as the unnumbered heading just before them, when that heading introduces them.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7aa00f6e2efbee55"
   },
   "vi/guides/aquariumbreeder-cryptocoryne-disease-identifying-and-addressing-plant-issues": {
     "at": "2026-11-01",
@@ -851,6 +939,32 @@
       }
     ],
     "ruled": "f7c6775aa42867dd"
+  },
+  "vi/guides/aquariumbreeder-optimize-your-biofilter-a-guide-to-ideal-biological-filtration": {
+    "at": "2026-11-07",
+    "hash": "05f35ba5cc76203f",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Nhiệt độ",
+        "problem": "Temperature is the fourth factor in the numbered list of factors (1. 2. 3.) but its heading has no number, so it reads as a separate section.",
+        "fix": "## 4. Nhiệt độ",
+        "rule": "An unnumbered heading directly after a run of numbered headings, before the next unrelated section.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bạn hãy cho vật liệu lấp ít nhất 2/3 khoang lọc.",
+        "problem": "The troubleshooting tip says media should fill at least 2/3 of the chamber, but the media-volume section says at least 1/2 to 2/3.",
+        "fix": "Bạn hãy cho vật liệu lấp ít nhất 1/2 đến 2/3 khoang lọc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "05f35ba5cc76203f"
   },
   "vi/guides/aquariumbreeder-problems-of-the-planted-tanks-and-liebigs-law-of-the-minimum": {
     "at": "2026-11-01",
@@ -2701,6 +2815,12 @@
     ],
     "ruled": "c6aecd923d432b08"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-freshwater-dwarf-shrimp": {
+    "at": "2026-11-07",
+    "hash": "8354fbf354ca6d2f",
+    "findings": [],
+    "ruled": "8354fbf354ca6d2f"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-frozen-fish-food": {
     "at": "2026-11-02",
     "hash": "fee04e804b0eeefd",
@@ -3289,6 +3409,22 @@
     "hash": "b0f3e4aef94a6508",
     "findings": [],
     "ruled": "b0f3e4aef94a6508"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-plant-nutrient-deficiencies": {
+    "at": "2026-11-07",
+    "hash": "42e317e1c03430df",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Nutrient Deficiencies: Why Your Aquarium Plants Are Dying - Aquarium Co-Op",
+        "problem": "The caption is just the source article's page title. It doesn't describe what the photo shows, so a reader can't tell which deficiency or plant is pictured.",
+        "rule": "Flag a caption that is the same as the source page title or ends in ' - <site name>'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "42e317e1c03430df"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-planted-aquarium-substrate": {
     "at": "2026-11-01",
@@ -5229,6 +5365,31 @@
     ],
     "ruled": "1afaea1fcc203aa8"
   },
+  "vi/guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung": {
+    "at": "2026-11-07",
+    "hash": "a9fb1aab6a03336f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Cá nước ngọt nhạy cảm\n| Nhỏ giọt vừa\n| 15–30 phút",
+        "problem": "The table gives 15–30 minutes for drip acclimation of sensitive fish, but the drip section says dripping until the water doubles usually takes 30–60 minutes.",
+        "fix": "| Cá nước ngọt nhạy cảm\n| Nhỏ giọt vừa\n| 30–60 phút",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mỗi nguồn ghi một khác.",
+        "problem": "This phrase is garbled and unnatural Vietnamese. A word is missing or wrong.",
+        "fix": "Mỗi nguồn ghi một kiểu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a9fb1aab6a03336f"
+  },
   "vi/guides/aquatome-thuc-an-giup-ca-len-mau-dep-va-vitamin-cho-ca": {
     "at": "2026-11-06",
     "hash": "bd79710092d02bc6",
@@ -5567,6 +5728,12 @@
     "findings": [],
     "ruled": "fd2e983c45468b4a"
   },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-further-species-of-corydoras-from-peru-en": {
+    "at": "2026-11-07",
+    "hash": "82b365608edb1d96",
+    "findings": [],
+    "ruled": "82b365608edb1d96"
+  },
   "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-new-corydoras-from-peru-en": {
     "at": "2026-11-04",
     "hash": "9555ab4e43db02e5",
@@ -5578,6 +5745,12 @@
     "hash": "26f87ae2dc93d92c",
     "findings": [],
     "ruled": "26f87ae2dc93d92c"
+  },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-once-more-four-corydoras-from-peru-en": {
+    "at": "2026-11-07",
+    "hash": "f9b34dc4f0d93947",
+    "findings": [],
+    "ruled": "f9b34dc4f0d93947"
   },
   "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en": {
     "at": "2026-11-05",
@@ -6407,6 +6580,38 @@
       }
     ],
     "ruled": "ea2ea654de299fed"
+  },
+  "vi/guides/loachesonline-articles-river-tank-manifold-design": {
+    "at": "2026-11-07",
+    "hash": "0cd1c649871b9384",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đây là toàn bộ các linh kiện được bày ra sau khi cắt, mài ba via và lắp thử trong bể.",
+        "problem": "This line and the next ones are captions for the original article's photos, but the page has no photos, so they point at nothing.",
+        "rule": "A body line starting with 'Đây là' or 'Hình bên dưới' that refers to a photo on a page with no photo captions.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Và ở dưới cùng là hệ thống đã lắp hoàn chỉnh, chỉ còn chờ gắn mút lọc và power-head.",
+        "problem": "This refers to a photo 'at the bottom' that is not on the page.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hình bên dưới cho thấy 3 ống chạy dọc.",
+        "problem": "This refers to a picture below, but the page has no picture.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0cd1c649871b9384"
   },
   "vi/guides/loachesonline-articles-sewellia-lineolata-natural-habitat-and-how-they-get-to-our-aquariums": {
     "at": "2026-11-07",
@@ -8297,6 +8502,45 @@
       }
     ]
   },
+  "vi/guides/sprucepets-common-fish-names-beginning-with-s-1378555": {
+    "at": "2026-11-07",
+    "hash": "8130e70621072349",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Cá có thể dài tới khoảng 38 cm. Vì vậy, nó cần bể rộng từ 75 lít trở lên",
+        "problem": "A tank of 75 litres is far too small for a fish up to 38 cm long. The source's 20-gallon figure doesn't fit the size it gives either, so readers would buy an unsuitable tank.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C3",
+        "quote": "Pepper corydora sifting through substrate",
+        "problem": "The pepper corydoras isn't an 'S' species, and it doesn't appear on this page.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C5",
+        "quote": "Electric blue heap fish with light blue scales and dark blue stripes",
+        "problem": "The electric blue hap isn't one of the species listed on this page.",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C6",
+        "quote": "Red-Bellied Piranha",
+        "problem": "The photo shows a red-bellied piranha, a different species from the serrated piranha the page describes.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "8130e70621072349"
+  },
   "vi/guides/sprucepets-cory-species-1381075": {
     "at": "2026-11-01",
     "hash": "028a4b843310444d",
@@ -8491,6 +8735,22 @@
       }
     ],
     "ruled": "d81eda6c96a0bba7"
+  },
+  "vi/guides/sprucepets-killifishes-or-egg-laying-tooth-carps-4107831": {
+    "at": "2026-11-07",
+    "hash": "9a44604fd30990dc",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C5",
+        "quote": "Aqueon Aquarium Fish Tank Starter Kits with LED Lighting",
+        "problem": "The caption is for a product photo of an aquarium starter kit, not a photo of killifish or their habitat.",
+        "rule": "A caption that contains a brand or product name such as 'Kit' or 'Starter'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "9a44604fd30990dc"
   },
   "vi/guides/sprucepets-large-fish-for-freshwater-aquariums-7570272": {
     "at": "2026-11-01",
@@ -9102,6 +9362,22 @@
     ],
     "ruled": "a95f1c426a04b22c"
   },
+  "vi/guides/youtube-025oy0MtL-s": {
+    "at": "2026-11-07",
+    "hash": "aaa16a9ba3403cc1",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Thể tích là 12 × 4 × 1,5 = 183 cm khối, tức cá nặng khoảng 720 g.",
+        "problem": "12 × 4 × 1.5 is 72 cubic inches, not 183 cm³. The 720 g weight only works if the volume is 72 in³ (about 1,180 cm³), so the unit and figure are wrong.",
+        "fix": "Đổi ra inch thì cá dài khoảng 12, cao 4 và dày 1,5 inch. Thể tích là 12 × 4 × 1,5 = 72 inch khối (khoảng 1.180 cm³), tức cá nặng khoảng 720 g.",
+        "field": "body"
+      }
+    ],
+    "ruled": "aaa16a9ba3403cc1"
+  },
   "vi/guides/youtube-09uEH7Mct1s": {
     "at": "2026-11-07",
     "hash": "6304557c18c51a57",
@@ -9258,6 +9534,22 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-1GBH8YUQeTg": {
+    "at": "2026-11-07",
+    "hash": "f64a489c5ff863e7",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhưng một nửa thời gian là để quay phim",
+        "problem": "The page mentions filming from the source video, which a reader of a written guide would find confusing.",
+        "fix": "Cả buổi chăm bể thực tế chỉ mất chừng một tiếng mỗi tháng.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f64a489c5ff863e7"
   },
   "vi/guides/youtube-1TkcARfJKCQ": {
     "at": "2026-11-06",
@@ -9950,6 +10242,30 @@
     ],
     "ruled": "371f6dbbc10832e5"
   },
+  "vi/guides/youtube-9o5lEWqK1pU": {
+    "at": "2026-11-07",
+    "hash": "bdb793007c7d29a8",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cuối bài có vài lưu ý về kích cỡ Oscar trước khi bạn quyết định nuôi.",
+        "problem": "The intro promises notes on Oscar size at the end of the page, but no such section exists.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể mới thay toàn bộ nước thì có còn vi sinh không",
+        "problem": "The heading talks about a new tank, but the section is about an established tank getting a 100% water change.",
+        "fix": "Bể cũ thay toàn bộ nước thì có còn vi sinh không",
+        "field": "body"
+      }
+    ],
+    "ruled": "bdb793007c7d29a8"
+  },
   "vi/guides/youtube-9TtB817u8eE": {
     "at": "2026-11-05",
     "hash": "f812811e50106a20",
@@ -10196,6 +10512,12 @@
     "hash": "9c2871136b79eb0f",
     "findings": [],
     "ruled": "9c2871136b79eb0f"
+  },
+  "vi/guides/youtube-BiNf-SlKfLI": {
+    "at": "2026-11-07",
+    "hash": "9f8aea373799d355",
+    "findings": [],
+    "ruled": "9f8aea373799d355"
   },
   "vi/guides/youtube-buMZbrbhJVs": {
     "at": "2026-11-04",
@@ -10476,6 +10798,12 @@
     "hash": "7e832ba7f9356ed1",
     "findings": [],
     "ruled": "7e832ba7f9356ed1"
+  },
+  "vi/guides/youtube-da78xmuwTHo": {
+    "at": "2026-11-07",
+    "hash": "f395df02d286663d",
+    "findings": [],
+    "ruled": "f395df02d286663d"
   },
   "vi/guides/youtube-ddIenwrxWgU": {
     "at": "2026-11-06",
@@ -11358,6 +11686,60 @@
       }
     ],
     "ruled": "abdd0752c0c57d18"
+  },
+  "vi/guides/youtube-iS8fJvjUa1Q": {
+    "at": "2026-11-07",
+    "hash": "d068c9eb0ad964e8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ở đây nó đen là do nền manzanita trong bể.",
+        "problem": "Manzanita is driftwood, not a substrate, so calling it \"nền\" is the wrong hobby term.",
+        "fix": "Ở đây nó đen là do lũa manzanita trong bể.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Bảo trì sump hằng ngày",
+        "problem": "The heading says daily maintenance, but the section gives intervals of every few days and every few months.",
+        "fix": "## Bảo trì sump định kỳ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L2",
+        "quote": "kể cả khi bể chỉ trống khoảng nửa tiếng",
+        "problem": "\"Bể trống\" means the tank is empty, but the tank is only without filtration for about half an hour.",
+        "fix": "kể cả khi bể chỉ mất lọc khoảng nửa tiếng",
+        "field": "summary.1"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L7",
+        "quote": "kể cả khi bể chỉ trống khoảng nửa tiếng",
+        "problem": "\"Bể trống\" wrongly suggests the tank is emptied, when it is only without filtration.",
+        "fix": "kể cả khi bể chỉ mất lọc khoảng nửa tiếng",
+        "field": "faq.0.a"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-07",
+        "field": "body",
+        "score": 0.72,
+        "kept": false,
+        "problems": [
+          "Manzanita is driftwood, not a substrate, so calling it \"nền\" is the wrong hobby term."
+        ]
+      }
+    ],
+    "ruled": "d068c9eb0ad964e8"
   },
   "vi/guides/youtube-Iu4XrX7m100": {
     "at": "2026-11-06",
@@ -12729,6 +13111,22 @@
     "findings": [],
     "ruled": "690d5f05fb9759a2"
   },
+  "vi/guides/youtube-QoLZvjObqYM": {
+    "at": "2026-11-07",
+    "hash": "332fc06e40fbd210",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nắm chắc sáu yếu tố cây cần: đất, nước, dinh dưỡng, ánh sáng, rêu hại và CO2.",
+        "problem": "The list says plants need algae, but the factor is controlling algae, as L2 puts it.",
+        "fix": "Nắm chắc sáu yếu tố cây cần: đất, nước, dinh dưỡng, ánh sáng, kiểm soát rêu hại và CO2.",
+        "field": "body"
+      }
+    ],
+    "ruled": "332fc06e40fbd210"
+  },
   "vi/guides/youtube-qqHJr-5enM8": {
     "at": "2026-11-01",
     "hash": "cec8ab7f2af4b477",
@@ -13263,6 +13661,12 @@
       }
     ],
     "ruled": "2412285ce62e9b4a"
+  },
+  "vi/guides/youtube-tPkJ5PEBVYA": {
+    "at": "2026-11-07",
+    "hash": "032787910b2f8f4f",
+    "findings": [],
+    "ruled": "032787910b2f8f4f"
   },
   "vi/guides/youtube-TRpaZNjeRE4": {
     "at": "2026-11-07",

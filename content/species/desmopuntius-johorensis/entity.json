@@ -16,6 +16,127 @@
     "sumatra",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "ID",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Muar River",
+        "Batang Hari",
+        "Mahakam",
+        "Mentaya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern Thailand, Penisular Malaysia, Singapore, and the islands of Sumatra (Indonesia) and Borneo (Malaysia, Indonesia and Brunei Darussalam) with type locality 'Muar River, Tebing Tinggi, Johore, Malaysia'.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG",
+            "ID",
+            "BN"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Muar River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Sumatra it's known from the provinces of Jambi (Batang Hari River) and Riau (Siak and Indragiri basins) and on Borneo in the Malaysian state of Sarawak and Indonesian provinces of Central Kalimantan (Mentaya River, Kalimantan Tengah) and East Kalimantan (Mahakam River, Kalimantan Timur).",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Mahakam",
+            "Mentaya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8239511,
+      "total": 17,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          12
+        ],
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          0,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          5.625,
+          4,
+          4
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

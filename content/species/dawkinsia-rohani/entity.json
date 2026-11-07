@@ -10,6 +10,60 @@
     "india",
     "kanyakumari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Kodayar River",
+        "Paralayar",
+        "Pamburivaikal"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kodayar River drainage, near Mayilar, KWS, Kanyakumari District, Tamil Nadu, India, 8.5052°N, 77.3015°E, elevation 110 metres', and it has also been collected in the Paralayar and Pamburivaikal river systems.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Kodayar River",
+            "Paralayar",
+            "Pamburivaikal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7861567,
+      "total": 6,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          75.9375,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          77.34375,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

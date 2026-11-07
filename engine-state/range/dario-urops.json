@@ -1,0 +1,62 @@
+{
+  "id": "dario-urops",
+  "native": {
+    "input": "48dc7f5caf9c1020",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from a single locality within the Valapattanam river system in southern Karnataka state, southwestern India, with additional population records from Agumbe in Karnataka, plus headwaters of the Cauvery River in Wayanad District, northeastern Kerala state.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Valapattanam",
+        "source": "seriouslyfish",
+        "quote": "Known from a single locality within the Valapattanam river system in southern Karnataka state, southwestern India, with additional population records from Agumbe in Karnataka, plus headwaters of the Cauvery River in Wayanad District, northeastern Kerala state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Known from a single locality within the Valapattanam river system in southern Karnataka state, southwestern India, with additional population records from Agumbe in Karnataka, plus headwaters of the Cauvery River in Wayanad District, northeastern Kerala state.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Though described in 2012 it was in fact first collected in the latter half of the 19th century with Day (1875-1878) having mentioned the presence of Badis dario in ‘Wynaad’ and its occurrence \"along the Western Ghats\" (the chain of mountains in southwestern India).",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dario urops",
+    "status": "ACCEPTED",
+    "taxonKey": 8313475,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

@@ -10,6 +10,56 @@
     "india",
     "meghalaya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Umiam Lake"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "So far only known from the East Khasi Hills district of Meghalaya State, north-east India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type series was collected near Umiam Lake, also known as Barapani.",
+          "countries": [],
+          "regions": [
+            "Umiam Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362718,
+      "total": 2,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

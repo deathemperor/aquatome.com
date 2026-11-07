@@ -1,0 +1,49 @@
+{
+  "id": "danionella-dracula",
+  "native": {
+    "input": "ff17906a63f6bfd3",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mogaung Chaung",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Ayeyarwady",
+        "source": "seriouslyfish",
+        "quote": "This is a tributary of the Ayeyarwady River and the species is probably found only over a relatively small area.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danionella dracula",
+    "status": "ACCEPTED",
+    "taxonKey": 2359135,
+    "datasets": [],
+    "native": [
+      "MM"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}
