@@ -10,6 +10,100 @@
     "ecuador",
     "bogota"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Bogota",
+        "Chimbo",
+        "San Juan"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Salidero, northwestern Ecuador [= near Bulún [Pulún], about 1°05'N, 78°40'W, Rio Bogota, Esmeraldas, Ecuador, elevation 50-110 m].",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Bogota, Chimbo and San Juan River basins.",
+          "countries": [],
+          "regions": [
+            "Bogota",
+            "Chimbo",
+            "San Juan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202383,
+      "total": 18,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          9
+        ],
+        [
+          "EC",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          0,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          -77.34375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

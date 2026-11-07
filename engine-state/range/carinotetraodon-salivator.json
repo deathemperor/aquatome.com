@@ -1,0 +1,70 @@
+{
+  "id": "carinotetraodon-salivator",
+  "native": {
+    "input": "18fe79dffbb10ced",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Malaysian state of Sarawak, Borneo, with records from the Lupar, Sarawak, and Rajang river systems.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Malaysian state of Sarawak, Borneo, with records from the Lupar, Sarawak, and Rajang river systems.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Lupar",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Malaysian state of Sarawak, Borneo, with records from the Lupar, Sarawak, and Rajang river systems.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Malaysian state of Sarawak, Borneo, with records from the Lupar, Sarawak, and Rajang river systems.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Carinotetraodon salivator",
+    "status": "ACCEPTED",
+    "taxonKey": 2407800,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

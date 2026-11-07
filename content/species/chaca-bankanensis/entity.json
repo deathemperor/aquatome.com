@@ -11,6 +11,90 @@
     "indonesia",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID",
+        "BN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The chocolate frogmouth catfish, Chaca bankanensis, is an ambush predator from rainforest waters in Malaysia, Indonesia and Brunei.",
+          "countries": [
+            "MY",
+            "ID",
+            "BN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337565,
+      "total": 8,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          7
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

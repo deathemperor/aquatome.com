@@ -132,6 +132,37 @@
       "kept": true
     }
   ],
+  "vi/guides/2hraquarist-blogs-algae-control-how-to-remove-brown-algae-diatoms-planted-aquarium#2hraquarist": [
+    {
+      "at": "2026-11-07T02:37:00Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Cách giải quyết lâu dài là...\" became \"Muốn hết hẳn, bạn cần...\" – slightly stronger certainty than the original.",
+        "\"nhiều bể ở đó\" vs \"phải bị tảo cát quanh năm\" – \"triền miên\" rendered as \"quanh năm\" (a specific time frame), a minor nuance shift.",
+        "\"hầu hết bể không thiếu chất này\" became \"gần như bể nào cũng không thiếu\" – equivalent, no real loss.",
+        "\"tảo không bị đẩy mạnh lên\" became \"tảo không được tiếp sức\" – equivalent in meaning, slightly more colloquial.",
+        "\"cho vi khuẩn có lợi thời gian tự phát triển\" – fine, but drops \"các quần thể\" (minor)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-localized-algae-problems#2hraquarist": [
+    {
+      "at": "2026-11-07T02:37:42Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Intro: \"nhiều đến mức rêu không còn chỗ trú\" is a slight elaboration of \"để rêu không còn chỗ trú\".",
+        "\"Chỉ cần nhổ cụm Rotala florida đi\": \"Chỉ cần\" adds a faint nuance of ease. BEFORE already says the fix was simple, so this is minor.",
+        "\"thay bằng một loài cây khỏe hơn\" became \"trồng một loài cây khỏe hơn vào đúng vị trí đó\". The replacement is kept, so the meaning is unchanged.",
+        "\"Còn chỗ nước chảy xiết…\" adds a contrastive \"Còn\" that is not in BEFORE. This is harmless."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp#aquariumbreeder": [
     {
       "at": "2026-11-06T12:39:37Z",
@@ -189,6 +220,35 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-grow-algae-for-shrimp#aquariumbreeder": [
+    {
+      "at": "2026-11-07T02:38:50Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Lưu ý. ... tép ngoài tự nhiên ăn tảo...\" adds \"ngoài tự nhiên\"; BEFORE said \"khẩu phần tự nhiên của tép\" (equivalent, minor).",
+        "\"Tảo là một trong những nguồn thức ăn chính\" replaces \"quan trọng nhất\" — slight softening of the praise.",
+        "\"Trong bể, tép không tự có được nguồn thức ăn đa dạng như vậy\" — nuance shifted from \"mình không thể tự nhiên mà có được sự đa dạng đó\"; minor.",
+        "\"Ngoài đèn ra thì đừng đụng vào thứ gì khác, vì tép có thể gặp rủi ro quá lớn\" — adds an explicit causal link absent in BEFORE.",
+        "\"nước tù đọng mới thúc tảo sinh sôi\" — adds emphasis \"mới\"; \"nói chung là do chất lượng nước\" adds \"do\"; both minor."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-how-to-improve-breeding-efficiency-of-caridina-shrimp#aquariumbreeder": [
+    {
+      "at": "2026-11-07T02:40:35Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Chuyện này ai cũng nhắc mãi rồi\": BEFORE has no \"ai cũng\" (everyone). It is a small addition.",
+        "\"một bể đã chạy lâu và ổn định\": BEFORE says \"đã ủ lâu, chạy ổn định\". The \"ủ\" (maturing or cycling) nuance is blurred."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species#aquariumbreeder": [
     {
       "at": "2026-11-06T18:30:44Z",
@@ -200,6 +260,37 @@
         "'Thả vài con làm điểm nhấn' - 'vài con' (a few) added, not in BEFORE",
         "'chịu đựng' became 'lì' - register shift, minor",
         "'Hy vọng bài này' became 'Mong là danh sách này' - trivial wording change"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-questions-about-crabs#aquariumbreeder": [
+    {
+      "at": "2026-11-07T02:42:02Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Q24: BEFORE \"tùy kích thước của từng loài cua\" vs AFTER \"tùy từng loài cua to hay nhỏ\" — minor nuance shift.",
+        "Q45: BEFORE \"thức ăn tự nhiên của cá nóc chủ yếu là…\" vs AFTER \"ngoài tự nhiên cá nóc ăn chủ yếu là…\" — essentially same.",
+        "Q20: \"muốn cua vui là phải giữ cua khỏe\" became \"cua khỏe là cua vui\" — reverses causal direction slightly.",
+        "Q17: \"Nếu không, chúng bị đói và quay sang bắt nạt\" became \"Để chúng đói thì chúng sẽ quay sang bắt nạt\" — slight certainty shift.",
+        "Q36: \"Đừng bóp mạnh vì có thể làm cua bị thương\" became \"Bóp mạnh có thể làm cua bị thương\" — the prohibition was softened."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-20-gallon-oddball-fish#aquariumcoop": [
+    {
+      "at": "2026-11-07T02:42:37Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Con cá này\" replaces \"Loài này\" for the marbled hatchetfish: a trivial wording change.",
+        "\"Ngoài tự nhiên\" is added before the marbled hatchetfish's habitat. It is implied by the context, so the nuance change is minimal.",
+        "\"để chúng đẻ trứng trong đó\" adds \"trong đó\" (inside them): a small elaboration.",
+        "\"Thả thêm cây nổi ... thì cá có chỗ trú và yên tâm hơn\" turns the advice \"bạn nên thả\" into a conditional statement, which slightly softens the recommendation."
       ],
       "attempt": "first",
       "kept": true
@@ -257,6 +348,67 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-breed-livebearers-for-profit#aquariumcoop": [
+    {
+      "at": "2026-11-07T02:43:15Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Cá đẻ con ... rất dễ cho đẻ\" replaces \"không khó\" (not difficult); slightly stronger.",
+        "\"Cây càng dày càng tốt\" is added; BEFORE has no such general statement, only the \"gần như không nhìn xuyên qua\" version.",
+        "\"Không bọc thì cá bột dễ lỡ bơi vào mô-tơ\" turns a purposive statement into an explicit consequence; slight change.",
+        "\"Bù lại, đây là một trong những cách dễ nhất\" adds a compensating framing; minor nuance.",
+        "\"Bể sinh sản hợp nhất với lọc sponge\" changes \"nên dùng\" (should use) to \"most suitable\"; small shift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-camallanus-worms#aquariumcoop": [
+    {
+      "at": "2026-11-07T02:43:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"Nước phải giữ sạch\" is slightly firmer than \"Giữ nước sạch\", but this is only a style change.",
+        "Minor: \"một hoạt chất nhắm vào giun tròn\" adds the word \"hoạt chất\", which BEFORE did not have, though it is accurate.",
+        "Minor: \"bạn cứ giữ nước sạch\" is a little more casual than \"hãy giữ nước sạch\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-dwarf-gourami#aquariumcoop": [
+    {
+      "at": "2026-11-07T02:44:55Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "BEFORE: \"sau nhiều năm nhập hàng nghìn con sặc lùn về bán ở cửa hàng cá, bệnh này vẫn chưa xuất hiện lần nào\" (general experience). AFTER: \"có cửa hàng cá đã nhập hàng nghìn con ... mà chưa gặp ca bệnh nào\" is narrowed to some shops and drops the generalisation.",
+        "Spawning order changed: BEFORE says the pair repeats until hundreds of eggs, then after each round the male moves the eggs to the nest. AFTER reorders to \"Sau mỗi lần như vậy... Hai con lặp lại nhiều lần\". Meaning is mostly kept but the sequence is slightly different.",
+        "\"Sau đó set một bể đẻ\" adds a sequencing word (\"Sau đó\") that BEFORE does not have. This is minor.",
+        "\"vớt cá cái ra, vì lúc canh tổ cá đực sẽ đuổi nó\" turns two sentences into a causal link. BEFORE only states them side by side. This is minor.",
+        "\"có dịp là nó sẽ đớp bất cứ thứ gì vừa miệng\" keeps the meaning. No problem found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-easy-fertilizer-for-aquarium-plants#aquariumcoop": [
+    {
+      "at": "2026-11-07T02:45:30Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Nếu bạn dùng nước giếng\" became \"Nước giếng có thể chứa...\": the conditional is gone, but the meaning is nearly the same.",
+        "\"Mục tiêu là làm cho chuyện bón phân đơn giản hết mức\" became \"Bộ phân này nhắm tới...\": the framing shifts slightly.",
+        "\"gần như nước RODI\" became \"gần giống nước RODI\": negligible change.",
+        "\"Nếu bạn thấy lá non bị vàng...\" became \"Khi lá non bị vàng...\": negligible nuance."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-freshwater-sharks#aquariumcoop": [
     {
       "at": "2026-11-06T18:32:38Z",
@@ -272,6 +424,24 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-plants-for-breeding-fish#aquariumcoop": [
+    {
+      "at": "2026-11-07T02:46:22Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Added: in item 1 'phân nước tổng hợp Easy Green' – BEFORE did not name Easy Green there (only 'phân nước tổng hợp').",
+        "Dropped: item 2 'Cây thường được chuyển dần sang dạng thủy sinh trước khi bán' is omitted.",
+        "Changed: 'rữa dần' became 'tan dần' (minor nuance).",
+        "Changed: 'cá khủng' became 'cá săn mồi cỡ lớn' (adds 'săn mồi' meaning).",
+        "Item 9: 'baby tears' became 'cây trân châu (baby tears)', a name added; 'Pearl Weed' became 'cỏ ngọc trai' (acceptable naming).",
+        "Item 10: 'một trong những loại được ưa chuộng nhất' became 'một loại rất được ưa chuộng', so the superlative is weakened.",
+        "Item 4: added explanatory 'Cũng vì dễ gãy' (acceptable clarification)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-barbs#aquariumcoop": [
     {
       "at": "2026-11-06T18:33:21Z",
@@ -282,6 +452,22 @@
         "Tiger barb: 'ít quấy cá khác hơn' kept, but the causal link is split into two sentences; meaning intact",
         "Melon barb: 'Nên nuôi chúng' became 'Bạn nên nuôi chúng'; no change in meaning",
         "No numbers, names or cautions found dropped or altered; all litre and cm figures match"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-rainbowfish#aquariumcoop": [
+    {
+      "at": "2026-11-07T02:47:09Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"được chơi nhiều trong giới cá cảnh\" became \"được chơi nhiều\"; this is minor.",
+        "\"khó tìm ở cửa hàng hơn\" became \"khó tìm ở cửa hàng hơn các loài khác\"; the comparison is made explicit, which is a small addition.",
+        "\"Dù vậy, bạn nên nuôi số cái nhiều hơn số đực thì cá đực mới khoe màu đẹp nhất\" is rephrased. It is still faithful.",
+        "\"lộng lẫy ... lúc lên màu\" in \"Bù lại, lúc lên màu thì chúng lộng lẫy\" adds the idea of coloring up, which BEFORE did not state; it is a slight nuance shift.",
+        "\"mà không gặp khó khăn gì\" for \"dễ dàng chịu được\" is equivalent."
       ],
       "attempt": "first",
       "kept": true

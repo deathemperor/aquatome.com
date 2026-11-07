@@ -1,0 +1,152 @@
+{
+  "id": "chaetostoma-leucomelas",
+  "native": {
+    "input": "cbafe9aabca0c5eb",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Patía and upper Cauca River basins in Colombia (Colombian Pacific rivers: Patía; Colombian Caribbean rivers: Magdalena, Cauca).",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Patia and upper Cauca River basins, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Patía",
+        "source": "planetcatfish",
+        "quote": "South America: Patía and upper Cauca River basins in Colombia (Colombian Pacific rivers: Patía; Colombian Caribbean rivers: Magdalena, Cauca).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cauca",
+        "source": "planetcatfish",
+        "quote": "South America: Patía and upper Cauca River basins in Colombia (Colombian Pacific rivers: Patía; Colombian Caribbean rivers: Magdalena, Cauca).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Magdalena",
+        "source": "planetcatfish",
+        "quote": "South America: Patía and upper Cauca River basins in Colombia (Colombian Pacific rivers: Patía; Colombian Caribbean rivers: Magdalena, Cauca).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Patia",
+        "source": "scotcat",
+        "quote": "South America: Patia and upper Cauca River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cauca",
+        "source": "scotcat",
+        "quote": "South America: Patia and upper Cauca River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaetostoma leucomelas",
+    "status": "ACCEPTED",
+    "taxonKey": 5202372,
+    "datasets": [
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        115
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        84
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        78
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        53
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        41
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        13
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        9
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        9
+      ],
+      [
+        "5fb7b99b-4340-438f-801e-2bd6162d03f7",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "d4ba9607-189b-4c35-af5c-0b6ca3a54d50",
+        4
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "cf679f54-a82a-4892-b581-23b61b1e78bb",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

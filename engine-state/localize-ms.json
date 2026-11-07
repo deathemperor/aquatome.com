@@ -50,6 +50,20 @@
       "Item 29: 'turquoise' rendered 'biru firus' fine; 'oren' fine. Item 21/22: 'Species with body shapes ... ' in 22 omits 'similar' mismatch: English says 'body shapes or trailing finnage' (to avoid), MS adds 'serupa' – an added qualifier that is not in the source."
     ]
   },
+  "boraras-brigittae": {
+    "at": "2026-11-07",
+    "from": "2026-11-06",
+    "name": "Chili Rasbora",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 30: \"pemotongan perkembangan\" is too literal for \"developmental truncation\". Use \"pemendekan perkembangan\" or give the English term in brackets. This also keeps it consistent with 'developmentally truncated' earlier in the same item.",
+      "Item 29: \"a couple of days\" became \"beberapa hari\", which means \"several\". Use \"dua hari\". \"a couple of weeks\" in items 3 and 29 has the same issue, so use \"dua minggu\".",
+      "Item 12: \"mungkin sukar berenang jika arusnya deras\" adds \"berenang\" (swim). The English only says the fish \"may struggle\". Use \"mungkin bergelut/tidak selesa\".",
+      "Item 22: \"ikan pembersih/loricariid kecil\" is awkward. Use \"loricariid kecil seperti Otocinclus\".",
+      "Item 12: \"Tambahan sampah daun kering lagi menonjolkan\" is clumsy. Use \"Penambahan daun kering lebih menonjolkan suasana semula jadi\"."
+    ]
+  },
   "corydoras-aeneus": {
     "at": "2026-11-06",
     "from": "2026-11-02",
@@ -248,6 +262,14 @@
       "Item 2: \"tangki\" used for aquarium inconsistently with \"akuarium\"; keep one term for consistency."
     ]
   },
+  "macropodus-opercularis": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Ikan paradise",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
   "mikrogeophagus-ramirezi": {
     "at": "2026-11-06",
     "from": "2026-10-30",
@@ -269,6 +291,14 @@
       "\"bersalin kulit (molting)\": \"bersalin\" usually means giving birth. Hobbyists more commonly write \"menyalin kulit\" or \"tukar kulit\". Minor.",
       "\"zukini\": the usual Malaysian spelling is \"zucchini\" or \"zuchini\". Minor."
     ]
+  },
+  "oryzias-latipes": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Medaka",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
   },
   "osteoglossum-bicirrhosum": {
     "at": "2026-11-06",
@@ -307,6 +337,17 @@
     "score": 0.9,
     "notes": [
       "Item 3: \"Neon tetra pada umumnya semuanya hasil ternakan\" is redundant and awkward. Use \"Neon tetra yang dijual pada umumnya hasil ternakan\"."
+    ]
+  },
+  "pelvicachromis-pulcher": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Kribensis",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 8: \"very vigorous\" is translated as \"terlalu aktif\". This is slightly off, because \"vigorous\" here means boisterous or robust. \"Lasak\" or \"agresif\" would be more accurate.",
+      "Item 10: \"intensifying in the colour\" is translated as \"menjadi lebih terang\". \"Lebih pekat\" or \"lebih garang\" would be closer, since the colour deepens rather than brightens."
     ]
   },
   "pethia-conchonius": {
@@ -365,6 +406,19 @@
       "Item 6: \"flake sayuran\" leaves English untranslated; use \"serpihan (flake) sayuran\".",
       "Item 7: \"hanya\" placement is awkward: \"patut dipelihara bersama ikan yang boleh tahan keadaan air yang sama sahaja\"; use \"hanya bersama ikan yang boleh menerima keadaan air yang sama\".",
       "Item 10: \"Dalmatian\" corrects the English typo \"Dalmation\", which is fine; \"kitaran nitrogen (cycling)\" is acceptable."
+    ]
+  },
+  "poecilia-wingei": {
+    "at": "2026-11-07",
+    "from": "2026-11-02",
+    "name": "Endler",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"boleh mudah dijangkiti\" is awkward; use \"mudah dijangkiti\" or \"cenderung dijangkiti\".",
+      "Item 17: \"menayangkan diri kepada betina\" is unnatural for courtship display; use \"mempamerkan diri\" or \"menunjuk-nunjuk\".",
+      "Items 8 and 17: \"tangki bertumbuhan\" and \"kawasan bertumbuhan padat\" are non-standard; use \"tangki bertanaman\" or \"ditanam dengan tumbuhan akuatik\" and \"kawasan tumbuhan padat\".",
+      "Item 17: \"sangat cepat membiak\" for \"incredibly prolific\" is acceptable but flat; \"sangat subur membiak\" is more natural."
     ]
   },
   "pterophyllum-scalare": {

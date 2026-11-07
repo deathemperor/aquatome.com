@@ -12,6 +12,84 @@
     "myanmar",
     "moei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM"
+      ],
+      "regions": [
+        "Thoungyin River",
+        "Moei",
+        "Salween River"
+      ],
+      "sources": [
+        "aquariumbreeder",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Brotia pagodula is restricted to the Thoungyin River in Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Thoungyin River"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is 327 kilometres long and forms a portion of the border between Thailand and Myanmar (Burma).",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Brotia pagodula is endemic to the Moei, a border river between Myanmar and Thailand.",
+          "countries": [],
+          "regions": [
+            "Moei"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "This river is a tributary of the Salween River.",
+          "countries": [],
+          "regions": [
+            "Salween River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7365087,
+      "total": 10,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TH",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          16.875,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          12.65625,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

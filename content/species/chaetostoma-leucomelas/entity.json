@@ -178,5 +178,138 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-02",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Patía",
+        "Cauca",
+        "Magdalena"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Patía and upper Cauca River basins in Colombia (Colombian Pacific rivers: Patía; Colombian Caribbean rivers: Magdalena, Cauca).",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Patía",
+            "Cauca",
+            "Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202372,
+      "total": 428,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CO",
+          428
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -77.34375,
+          2.8125,
+          42,
+          42
+        ],
+        [
+          -77.34375,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -75.9375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          2.8125,
+          22,
+          22
+        ],
+        [
+          -75.9375,
+          4.21875,
+          67,
+          67
+        ],
+        [
+          -75.9375,
+          5.625,
+          225,
+          225
+        ],
+        [
+          -75.9375,
+          7.03125,
+          43,
+          43
+        ],
+        [
+          -74.53125,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -74.53125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

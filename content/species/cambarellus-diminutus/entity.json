@@ -11,6 +11,55 @@
     "mississippi",
     "mexico"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Gulf Coastal Plain"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Cambarellus diminutus has a very restricted range (water bodies within an approximate 3260 km2 area) along the Gulf Coastal Plain of southeastern Mississippi and southwestern Alabama.",
+          "countries": [],
+          "regions": [
+            "Gulf Coastal Plain"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2227427,
+      "total": 15,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "US",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          29.53125,
+          2
+        ],
+        [
+          -88.59375,
+          29.53125,
+          12
+        ],
+        [
+          -87.1875,
+          30.9375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
