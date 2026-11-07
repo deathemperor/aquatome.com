@@ -15,8 +15,8 @@
         "tz": "Asia/Ho_Chi_Minh",
         "todos": [
           {
-            "title": "1 key Anthropic đang nghỉ",
-            "text": "#1 hết credit đến 05/11 09:00",
+            "title": "Nhận diện cá và chat không chạy: mọi key đang nghỉ",
+            "text": "#1 hết credit đến 05/11 09:00 · #2 bị giới hạn tốc độ đến 04/11 16:30",
             "action": {
               "label": "Xem key",
               "section": "nhan-dien-ca",
@@ -606,8 +606,8 @@
         "needs": [
           {
             "kind": "key",
-            "text": "1 Anthropic key resting",
-            "sub": "#1 out of credit until 05/11 09:00",
+            "text": "Fish ID and chat are down: every Anthropic key is resting",
+            "sub": "#1 out of credit until 05/11 09:00 · #2 rate limited until 04/11 16:30",
             "label": "See key",
             "tone": "bad",
             "section": "nhan-dien-ca",
@@ -812,7 +812,7 @@
             "label": "Anthropic keys",
             "section": "nhan-dien-ca",
             "anchor": "key",
-            "text": "1 of 2 resting",
+            "text": "2 of 2 resting",
             "tone": "bad"
           },
           "fixed": [
@@ -916,7 +916,7 @@
                 "key": "nhan-dien-ca",
                 "name": "Calls and keys",
                 "figure": {
-                  "text": "1 key resting",
+                  "text": "2 keys resting",
                   "tone": "bad"
                 }
               },
@@ -1991,8 +1991,8 @@
         "tz": "Asia/Ho_Chi_Minh",
         "todos": [
           {
-            "title": "1 key Anthropic đang nghỉ",
-            "text": "#1 hết credit đến 05/11 09:00",
+            "title": "Nhận diện cá và chat không chạy: mọi key đang nghỉ",
+            "text": "#1 hết credit đến 05/11 09:00 · #2 bị giới hạn tốc độ đến 04/11 16:30",
             "action": {
               "label": "Xem key",
               "section": "nhan-dien-ca",
@@ -2528,8 +2528,8 @@
         "needs": [
           {
             "kind": "key",
-            "text": "1 Anthropic key resting",
-            "sub": "#1 out of credit until 05/11 09:00",
+            "text": "Fish ID and chat are down: every Anthropic key is resting",
+            "sub": "#1 out of credit until 05/11 09:00 · #2 rate limited until 04/11 16:30",
             "label": "See key",
             "tone": "bad",
             "section": "nhan-dien-ca",
@@ -2631,7 +2631,7 @@
             "label": "Anthropic keys",
             "section": "nhan-dien-ca",
             "anchor": "key",
-            "text": "1 of 2 resting",
+            "text": "2 of 2 resting",
             "tone": "bad"
           },
           "fixed": [
@@ -2735,7 +2735,7 @@
                 "key": "nhan-dien-ca",
                 "name": "Calls and keys",
                 "figure": {
-                  "text": "1 key resting",
+                  "text": "2 keys resting",
                   "tone": "bad"
                 }
               },
@@ -8593,7 +8593,7 @@
                   "text": "tổ chức + workspace"
                 },
                 {
-                  "text": "đang dùng"
+                  "text": "bị giới hạn tốc độ đến 04/11 16:30"
                 },
                 {
                   "text": "40"
@@ -13029,7 +13029,7 @@
                   "text": "tổ chức + workspace"
                 },
                 {
-                  "text": "đang dùng"
+                  "text": "bị giới hạn tốc độ đến 04/11 16:30"
                 },
                 {
                   "text": "40"
