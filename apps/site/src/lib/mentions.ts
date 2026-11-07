@@ -38,9 +38,16 @@ const PLACE_STOP = new Set(['Kong', 'Tone', 'Meta', 'Negro', 'Nan', 'Han', 'Chad
 const multiWord = (n: string) => n.trim().split(/\s+/).length >= 2 // single words ("cá", "betta") are too generic to link
 /** Group names ("cá neon", "cá chạch suối") begin several other species' names: linking them would point a group at one species. */
 const specific = (all: string[]) => {
-  const lower = [...new Set(all.map(n => n.toLowerCase()))]
+  // Each name under every start of it that ends before a space ("cá neon vua" under "cá" and "cá neon"): a lookup per
+  // name, where comparing every name with every other took seconds on the real site's ~9,000 names.
+  const begun = new Map<string, string[]>()
+  for (const o of new Set(all.map(n => n.toLowerCase()))) for (let i = o.indexOf(' '); i >= 0; i = o.indexOf(' ', i + 1)) {
+    const head = o.slice(0, i)
+    if (begun.has(head)) begun.get(head)!.push(o)
+    else begun.set(head, [o])
+  }
   // `own`: the page's own names ("Cá hồng két King Kong" is a line on the Cá hồng két page, not another fish).
-  return (n: string, own: string[] = []) => lower.filter(o => o.startsWith(`${n.toLowerCase()} `) && !own.some(x => x.toLowerCase() === o)).length < 2
+  return (n: string, own: string[] = []) => (begun.get(n.toLowerCase()) ?? []).filter(o => !own.some(x => x.toLowerCase() === o)).length < 2
 }
 
 export function linkTargets(c: Content): LinkTarget[] {
