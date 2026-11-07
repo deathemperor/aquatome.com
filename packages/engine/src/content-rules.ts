@@ -583,7 +583,7 @@ export const RULES: Rule[] = [
   },
   {
     id: 'wording', title: 'Words Vietnamese readers write another way',
-    about: '"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays). The sweep writes each the readers\' way (sanitize.ts viWording) in a page\'s name, other names, text, summary and FAQ, and in the fish summaries.',
+    about: '"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays), "setup bể" for "set bể". The sweep writes each the readers\' way (sanitize.ts viWording) in a page\'s name, other names, text, summary and FAQ, and in the fish summaries.',
     check: p => [...new Set([p.title, ...p.fields.map(f => f.html), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].flatMap(wordingSlips))],
   },
   {

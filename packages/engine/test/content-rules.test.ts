@@ -181,6 +181,14 @@ test('"Phi châu" in a name, text, summary or FAQ is found, and fixTranslation w
   expect(found(page({ kind: 'species', title: out.name, fields: [{ field: 'sections.distribution:sf', html: out.sections['distribution:sf'] }] }), 'wording')).toEqual([])
 })
 
+test('the betta guide\'s "Cách setup bể cá betta đẹp" is found, and fixTranslation writes it "Cách set bể cá betta đẹp"', () => {
+  const t = { name: 'Cách setup bể cá betta đẹp', body: '<h3>Cách setup bể betta</h3><p>Khi đã có đủ đồ.</p>' }
+  expect(found(page({ title: t.name, fields: [{ field: 'body', html: t.body }] }), 'wording')).toEqual(['"setup bể" → "set bể"'])
+  const out = fixTranslation(t) as typeof t
+  expect(out).toEqual({ name: 'Cách set bể cá betta đẹp', body: '<h3>Cách set bể betta</h3><p>Khi đã có đủ đồ.</p>' })
+  expect(found(page({ title: out.name, fields: [{ field: 'body', html: out.body }] }), 'wording')).toEqual([])
+})
+
 test('a title\'s count held by numbered labels or as many bold leads; else the number dropped from the title', () => {
   // "13 mẹo…": Mẹo 1 to Mẹo 13 as bold leads under 8 headings; "10 sai lầm…" numbered out of order; "7 nguyên nhân" as 7 bold leads.
   const tips = `<h3>A</h3>${Array.from({ length: 13 }, (_, i) => `<p><strong>Mẹo ${i + 1}: x.</strong> y</p>`).join('')}`

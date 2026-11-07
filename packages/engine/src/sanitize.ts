@@ -63,10 +63,13 @@ export const unescapePlain = (s: string) => {
  * - "Phi châu": a continent is "châu Phi", as "châu Á" and "châu Âu" (the council's review of the home page, 2026-11-06:
  *   "Cá Oscar (cá tai tượng Phi châu)"; the name's own evidence writes "cá tai tượng châu Phi"). "Cá rô phi châu Phi",
  *   African tilapia, stays.
+ * - "setup bể": the hobby says "set bể" (vi-style.md; the council's review: the betta guide's title "Cách setup bể cá
+ *   betta đẹp"). "Setup" anywhere else ("setup một bể", a creator's own "SETUP Bể" title) stays.
  * No capture groups in `find`: viWording reads the match's offset as the replacer's second argument.
  */
 const WORDING: { find: RegExp; use: string }[] = [
   { find: /(?<!\p{L})(?<![Rr]ô )[Pp]hi châu(?!\p{L})(?! Phi)/gu, use: 'châu Phi' },
+  { find: /(?<!\p{L})[Ss]etup bể(?!\p{L})/gu, use: 'set bể' },
 ]
 const SENTENCE_START = /(?:^\s*|[.!?…]\s+|<(?:p|li|h3|td|th)>\s*)$/
 
