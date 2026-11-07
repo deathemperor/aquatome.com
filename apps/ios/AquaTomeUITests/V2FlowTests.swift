@@ -286,6 +286,20 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
+  /// The edge swipe goes back from a fish's top, where the back button on the bar is the page's own, not iOS's.
+  func testAFishsPageGoesBackByTheEdgeSwipe() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    card.tap()
+    let back = app.buttons["v2-back"]
+    XCTAssertTrue(back.waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.005, dy: 0.5))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)), withVelocity: .default, thenHoldForDuration: 0)
+    XCTAssertTrue(back.waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
+  }
+
   /// Every figure in view, none off a strip's edge, and the page's colour on under the tab bar with no white between.
   func testAFishsPageShowsEveryFigureOnItsColourUnderTheTabBar() {
     let app = launch("-v2", "YES")

@@ -171,6 +171,13 @@ struct SpeciesPage: View {
     // Over the photo and its colour, the page's own round buttons: iOS 26's bar draws its glass light on them, under white
     // symbols (2.4:1). Its own back and glass once the colour has gone.
     .navigationBarBackButtonHidden(colourAt.top)
+    // The edge swipe back, whatever iOS's own does with its back button hidden and a zoom: under test, none of its gestures
+    // went back from a zoomed page.
+    .overlay(alignment: .leading) {
+      Color.clear.frame(width: 16).contentShape(.rect)
+        .gesture(DragGesture(minimumDistance: 12).onEnded { if $0.translation.width > 60 { dismiss() } })
+        .accessibilityHidden(true)
+    }
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
     .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
