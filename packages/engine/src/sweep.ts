@@ -1,10 +1,10 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type WrittenLang } from '@aq/schema'
-import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, type BreedName, type NameOff } from './alt-names'
+import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sfDifficulty } from './process'
 import { rewriteTitle } from './reader'
@@ -45,6 +45,9 @@ import { readVideoRejected } from './videos'
  *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
+ * - a species', plant's or breed's Vietnamese name as hobbyists write it (alt-names.ts tidyName): a place keeps its capital
+ *   ("Rêu Java"), a plant's name has no "Cây thủy sinh" before it. A name a person fixed (`nameFixed`) stays; the address
+ *   stays.
  * - a species' other names, in each language: its own only (alt-names.ts). A breed page's name leaves it (that page is
  *   found by it), a colour form's or bred line's goes, a name written twice is kept once. Each name taken off is kept in
  *   engine-state/_names-off.json with why, for a person to check.
@@ -59,7 +62,7 @@ import { readVideoRejected } from './videos'
 export type SweepReport = {
   /** Files changed, `kind/id/file`. */
   files: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
@@ -86,7 +89,7 @@ export type SweepReport = {
   stopped: string
 }
 
-type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
 /** A file's own indentation, so a change is the lines it changes. */
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
@@ -171,7 +174,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue
         const before = JSON.parse(raw) as Stored
-        const { t, fixed } = sweepTranslation(before)
+        const swept = sweepTranslation(before)
+        // A name as hobbyists write it (alt-names.ts tidyName): Vietnamese, on the pages named for what they are.
+        const t = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
+        const fixed = t === swept.t ? swept.fixed : [...swept.fixed, 'name']
         if (fixed.length) {
           await write(file, raw, t)
           changed(`${kind}/${id}/${lang}.json`)

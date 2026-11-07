@@ -271,3 +271,29 @@ test('a card\'s Seriously Fish difficulty read before the engine read its word i
   await sweep(root)
   expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).dataCard.difficulty).toEqual([{ source: 'glaser', value: 5 }])
 })
+
+test('a name as hobbyists write it: "Rêu Java", "Vallisneria (cỏ lươn)"; a name a person fixed and the addresses stay (home page review, 2026-11-07)', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const plant = async (id: string, sci: string, t: object) => {
+    await mkdir(join(c, 'plants', id), { recursive: true })
+    await writeFile(join(c, 'plants', id, 'entity.json'), JSON.stringify({ id, scientificName: sci, difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['epiphyte'], sections: [{ key: 'notes', source: 'tropica', sourceUrl: `https://tropica.com/${id}`, html: '<p>Easy.</p>' }], photos: [], productSlots: [], updatedAt: '2026-10-01' }, null, 2))
+    await writeFile(join(c, 'plants', id, 'vi.json'), JSON.stringify({ sections: { 'notes:tropica': '<p>Dễ trồng.</p>' }, quality: { score: 0.9, indexable: true }, ...t }, null, 1))
+  }
+  await plant('taxiphyllum-barbieri', 'Taxiphyllum barbieri', { slug: 'reu-java', name: 'Rêu java', altNames: ['Rêu java Bogor', 'Java moss'] })
+  await plant('vallisneria', 'Vallisneria', { slug: 'cay-thuy-sinh-vallisneria-co-luon', name: 'Cây thủy sinh Vallisneria (cỏ lươn)', altNames: ['Cỏ lươn', 'Vallisneria'] })
+  await plant('microsorum-pteropus', 'Microsorum pteropus', { slug: 'duong-xi-java', name: 'Dương xỉ java', altNames: [], nameFixed: true })
+  const held = async () => ratcheted(checkPages(await loadPages(c), RULES.filter(r => r.id === 'name')).findings).map(f => `${f.page.path}: ${f.detail}`)
+  expect(await held()).toEqual(['/vi/cay/reu-java/: "Rêu java" → "Rêu Java"', '/vi/cay/cay-thuy-sinh-vallisneria-co-luon/: "Cây thủy sinh Vallisneria (cỏ lươn)" → "Vallisneria (cỏ lươn)"'])
+
+  const r = await sweep(root)
+  expect(await held()).toEqual([])
+  const moss = await json(root, 'content/plants/taxiphyllum-barbieri/vi.json')
+  expect([moss.name, moss.altNames, moss.slug]).toEqual(['Rêu Java', ['Rêu Java Bogor', 'Java moss'], 'reu-java'])
+  const vallis = await json(root, 'content/plants/vallisneria/vi.json')
+  expect([vallis.name, vallis.altNames, vallis.slug]).toEqual(['Vallisneria (cỏ lươn)', ['Cỏ lươn', 'Vallisneria'], 'cay-thuy-sinh-vallisneria-co-luon'])
+  expect((await json(root, 'content/plants/microsorum-pteropus/vi.json')).name).toBe('Dương xỉ java')
+  expect((await readFile(join(c, 'plants/vallisneria/vi.json'), 'utf8')).startsWith('{\n "sections"')).toBe(true) // its own indentation
+  expect(r.text.name?.sort()).toEqual(['plants/taxiphyllum-barbieri/vi', 'plants/vallisneria/vi'])
+  expect((await sweep(root)).files).toEqual([])
+})

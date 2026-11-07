@@ -693,6 +693,15 @@ The layers above still check the result.
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
+    - a species', plant's or breed's Vietnamese name and other names as hobbyists write them (`alt-names.ts`
+      tidyName), on write (the merge) and each sweep: a place keeps its capital ("Rêu java" → "Rêu Java", beside
+      "Dương xỉ Java"; a short list, `NAME_PLACES`, since "anh đào", "trang trí", "cá úc" and Latin epithets are words),
+      and a plant's name loses "Cây thủy sinh" before it, which a list of plants says already ("Cây thủy sinh
+      Vallisneria (cỏ lươn)" wrapped on the home page). A name a person fixed (`nameFixed`) stays, and the address stays.
+      Found in a design review of the home page (2026-11-07), which also found the Java barb under "Cá hường Java", a
+      calque of "Java barb" on another fish's name (cá hường is the kissing gourami): it is "Cá mè vinh", fixed by
+      hand, and the translator's list of names that belong to one fish has both. A rule preferring a Vietnamese other
+      name to a translated one was weighed and left: most other names are the model's translations too
     - a species' other names ("Tên khác", its search names, the names other pages' text links it by), in each language:
       its own only (`packages/engine/src/alt-names.ts`). A breed page's own name leaves it, that page being found by it
       ("Bubble Eye Goldfish"; never a breed's other names: a name both list is the species'). A bred line's or colour form's (the species' name with a word such as Alien, hybrid, lai, albino, koi,

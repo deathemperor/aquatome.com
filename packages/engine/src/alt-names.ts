@@ -243,3 +243,35 @@ export function keptOf(page: { name: string; sci: string; altNames: string[] }, 
   const { altNames } = cleanAltNames({ ...page, altNames: [...page.altNames, ...add] }, breeds)
   return add.filter(n => altNames.includes(n))
 }
+
+/**
+ * Places hobby names carry, as they are written: "Rêu Java", "Cỏ Nhật Bản". A list, not every place the site has a page
+ * for: "anh đào" (cherry), "trang trí", "cá úc" and Latin epithets ("niger", "tigris") are words, not places. A continent
+ * is "châu Phi", "châu Á" (sanitize.ts WORDING), so none is here.
+ */
+export const NAME_PLACES = ['Java', 'Borneo', 'Sumatra', 'Sulawesi', 'Kalimantan', 'Bali', 'Nhật Bản', 'Thái Lan', 'Ấn Độ', 'Trung Quốc', 'Đài Loan',
+  'Hồng Kông', 'Việt Nam', 'Nam Mỹ', 'Amazon', 'Mekong', 'Malawi', 'Tanganyika', 'Congo', 'Madagascar', 'Sri Lanka']
+const PLACE = new RegExp(`(?<![\\p{L}\\p{M}])(?:${NAME_PLACES.join('|')})(?![\\p{L}\\p{M}])`, 'giu')
+/** "Cây thủy sinh" (aquatic plant) before a plant's name, when a name follows. */
+const AQUATIC_PLANT = /^cây th(?:ủy|uỷ) sinh\s+(?=\S)/iu
+
+/**
+ * A Vietnamese page name as hobbyists write it, on a species, plant or breed page: a place keeps its capital ("Rêu java"
+ * beside "Dương xỉ Java", NAME_PLACES), and a plant's name has no "Cây thủy sinh" before it, which says again what a list
+ * of plants already says ("Cây thủy sinh Vallisneria (cỏ lươn)" wrapped on the home page's plant row). Found in a design
+ * review of the home page, 2026-11-07.
+ */
+export function tidyName(name: string, kind: string): string {
+  const n = kind === 'plants' && AQUATIC_PLANT.test(name) ? name.replace(AQUATIC_PLANT, '').replace(/^\p{Ll}/u, c => c.toUpperCase()) : name
+  return n.replace(PLACE, w => NAME_PLACES.find(p => p.toLowerCase() === w.toLowerCase()) ?? w)
+}
+
+/**
+ * A page's names tidied (tidyName): its name, unless a person fixed it (`nameFixed`), and its other names, each once and
+ * never its name again ("Nymphoides hydrophylla 'Taiwan'" once "Cây thủy sinh" goes). The same object when nothing changes.
+ */
+export function tidyNames<T extends { name: string; altNames: string[]; nameFixed?: boolean }>(t: T, kind: string): T {
+  const name = t.nameFixed ? t.name : tidyName(t.name, kind)
+  const altNames = [...new Set(t.altNames.map(a => tidyName(a, kind)))].filter(a => a !== name)
+  return name === t.name && JSON.stringify(altNames) === JSON.stringify(t.altNames) ? t : { ...t, name, altNames }
+}
