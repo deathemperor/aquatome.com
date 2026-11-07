@@ -267,7 +267,7 @@ private struct SeriesCard: View {
     .frame(maxWidth: .infinity, alignment: .topLeading)
     .background(Color.accentColor.opacity(0.12), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     .accessibilityElement(children: .combine)
-    .accessibilityIdentifier("item")
+    .accessibilityIdentifier("series")
   }
 }
 

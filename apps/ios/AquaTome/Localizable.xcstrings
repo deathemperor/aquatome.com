@@ -273,6 +273,22 @@
         }
       }
     },
+    "%lld bộ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld seri"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ชุด"
+          }
+        }
+      }
+    },
     "%lld con": {
       "localizations": {
         "id": {
@@ -381,6 +397,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld หน้า"
+          }
+        }
+      }
+    },
+    "%lld video": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld video"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld วิดีโอ"
           }
         }
       }
@@ -2369,6 +2401,22 @@
         }
       }
     },
+    "Chủ đề": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Topik"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หัวข้อ"
+          }
+        }
+      }
+    },
     "Chữ AT": {
       "localizations": {
         "id": {
@@ -3709,6 +3757,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ง่าย"
+          }
+        }
+      }
+    },
+    "Dễ trồng, không cần CO₂": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudah ditanam, tanpa CO₂"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลูกง่าย ไม่ต้องใช้ CO₂"
           }
         }
       }
@@ -6257,6 +6321,22 @@
         }
       }
     },
+    "Nhóm cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kelompok ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กลุ่มปลา"
+          }
+        }
+      }
+    },
     "Nhận diện": {
       "localizations": {
         "id": {
@@ -8177,6 +8257,22 @@
         }
       }
     },
+    "Tất cả cây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua tanaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม้น้ำทั้งหมด"
+          }
+        }
+      }
+    },
     "Tất cả hướng dẫn": {
       "localizations": {
         "id": {
@@ -8205,6 +8301,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ทุกสายพันธุ์"
+          }
+        }
+      }
+    },
+    "Tất cả video": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semua video"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอทั้งหมด"
           }
         }
       }
@@ -8369,6 +8481,22 @@
         }
       }
     },
+    "Từ điển thuật ngữ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamus istilah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อภิธานศัพท์"
+          }
+        }
+      }
+    },
     "Tự nhiên": {
       "localizations": {
         "id": {
@@ -8413,6 +8541,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "วิดีโอ"
+          }
+        }
+      }
+    },
+    "Video hướng dẫn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video panduan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วิดีโอแนะนำ"
           }
         }
       }
@@ -8551,6 +8695,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Posisi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตำแหน่งปลูก"
+          }
+        }
+      }
+    },
+    "Vị trí trồng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posisi tanam"
           }
         },
         "th": {
@@ -11149,6 +11309,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "อ่านล่าสุด"
+          }
+        }
+      }
+    },
+    "Đọc tiếp": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lanjut membaca"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านต่อ"
           }
         }
       }

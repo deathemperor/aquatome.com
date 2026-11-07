@@ -7,27 +7,6 @@ import XCTest
 final class OfflineFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
-  func testKeepsAShelfAtOnceOnWiFiListsItInOnePlaceAndLetsItGo() {
-    let app = openGuides()
-    app.buttons["keep-offline"].tap()
-    XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
-    // On the Tìm home, with how many.
-    app.navigationBars.buttons.element(boundBy: 0).tap()
-    let kept = app.descendants(matching: .any)["all-kept"]
-    repeatUntil(kept.exists && kept.isHittable, times: 6) { app.swipeDown() }
-    XCTAssertTrue(kept.waitForExistence(timeout: 5), "the kept pages aren't listed")
-    XCTAssertTrue(kept.label.contains("1"), kept.label)
-    kept.tap()
-    let guide = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch
-    XCTAssertTrue(guide.waitForExistence(timeout: 5))
-    app.buttons["unkeep-all"].tap()
-    XCTAssertTrue(guide.waitForNonExistence(timeout: 5), "still kept")
-    app.navigationBars.buttons.element(boundBy: 0).tap()
-    // The home again, at its top, where kept pages are listed above every fish.
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "not back on the home")
-    XCTAssertFalse(kept.exists, "the home still lists kept pages")
-  }
-
   func testAStoppedKeepKeepsNothingHalfDone() {
     // Each picture takes 20 s to come (the guide has one): stopped before, its page isn't kept, even once it comes.
     let app = openGuides("-slow-keep")
@@ -38,13 +17,9 @@ final class OfflineFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["Tải về đọc offline"].waitForExistence(timeout: 2), "didn't stop")
     XCTAssertTrue(keepsEnded(app), "the stopped keep is still at work")
     XCTAssertFalse(app.buttons["Đã tải về đọc offline"].exists, "kept after all")
-    // Back up to the top of the Tìm home, where kept pages are listed, above every fish.
+    // The Tài khoản sheet, where kept pages are counted, has none.
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    let fish = app.descendants(matching: .any)["all-fish"]
-    repeatUntil(fish.exists && fish.isHittable, times: 6) { app.swipeDown() }
-    app.swipeDown()
-    XCTAssertTrue(fish.waitForExistence(timeout: 5), "not back on the home")
-    XCTAssertFalse(app.descendants(matching: .any)["all-kept"].exists, "listed as kept")
+    XCTAssertFalse(keptRow(app).exists, "listed as kept")
   }
 
   func testAKeepGoesOnWhenItsShelfIsLeftAndStopsFromItWhenBack() {
@@ -53,8 +28,7 @@ final class OfflineFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["Dừng tải"].waitForExistence(timeout: 5), "not started")
     // Back to the home and into the shelf again: the keep is still on its way, and stops from there.
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    app.descendants(matching: .any)["all-guides"].tap()
-    XCTAssertTrue(app.navigationBars["Tất cả hướng dẫn"].waitForExistence(timeout: 5))
+    openShelf(app)
     let stop = app.buttons["Dừng tải"]
     XCTAssertTrue(stop.waitForExistence(timeout: 2), "the keep is lost: no way to stop it")
     stop.tap()
@@ -64,8 +38,8 @@ final class OfflineFlowTests: XCTestCase {
   }
 
   func testRemovingKeptPagesStopsAKeepOnItsWay() {
-    // The video kept first, at once.
-    var app = launch()
+    // The video kept first, at once (from the list of every series, more than the home's eight).
+    var app = launch(["-series", "9"])
     let videos = app.descendants(matching: .any)["all-videos"]
     repeatUntil(videos.exists && videos.isHittable, times: 8) { app.swipeUp() }
     videos.tap()
@@ -76,17 +50,14 @@ final class OfflineFlowTests: XCTestCase {
     app.buttons["keep-offline"].tap()
     XCTAssertTrue(app.buttons["Dừng tải"].waitForExistence(timeout: 5), "not started")
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    let kept = app.descendants(matching: .any)["all-kept"]
-    repeatUntil(kept.exists && kept.isHittable, times: 6) { app.swipeDown() }
+    let kept = keptRow(app)
     // Only the video is kept yet: the guide's keep is still on its way.
-    XCTAssertTrue(kept.label.contains("1"), kept.label)
+    XCTAssertTrue(kept.label.contains("1 trang"), kept.label)
     kept.tap()
     app.buttons["unkeep-all"].tap()
     app.navigationBars.buttons.element(boundBy: 0).tap()
     // The keep was stopped (its pictures would come after the removal): its shelf offers to keep again.
-    let guides = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(guides.exists && guides.isHittable, times: 6) { app.swipeUp() }
-    guides.tap()
+    openShelf(app)
     XCTAssertTrue(app.buttons["Tải về đọc offline"].waitForExistence(timeout: 5), "the keep goes on after the removal")
     XCTAssertFalse(app.buttons["Dừng tải"].exists, "the keep goes on after the removal")
   }
@@ -101,11 +72,9 @@ final class OfflineFlowTests: XCTestCase {
     app.launchForFlow()
     let fish = app.descendants(matching: .any)["all-fish"]
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "no handbook")
-    app.swipeDown()
-    XCTAssertFalse(app.descendants(matching: .any)["all-kept"].exists, "listed as kept")
-    let guides = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(guides.exists && guides.isHittable, times: 6) { app.swipeUp() }
-    guides.tap()
+    XCTAssertFalse(keptRow(app).exists, "listed as kept")
+    app.buttons["account-done"].tap()
+    openShelf(app)
     XCTAssertTrue(app.buttons["Tải về đọc offline"].waitForExistence(timeout: 5), "shown as kept")
   }
 
@@ -143,15 +112,29 @@ final class OfflineFlowTests: XCTestCase {
     return XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == '0'"), object: working)], timeout: 30) == .completed
   }
 
-  /// The Tìm tab's "every guide" shelf: the fixture's one written guide, drawn by the app.
+  /// A shelf of guides on the Tìm tab: "Chăm sóc", the fixture's one written guide, drawn by the app. (Its one guide is
+  /// the home's pick too, so the home has no "Tất cả hướng dẫn".)
   private func openGuides(_ more: String..., reset: Bool = true) -> XCUIApplication {
     let app = launch(more, reset: reset)
     XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 5), "no handbook")
-    // Further down the home (a lazy list draws only what's on screen).
-    let all = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
-    all.tap()
-    XCTAssertTrue(app.navigationBars["Tất cả hướng dẫn"].waitForExistence(timeout: 5))
+    openShelf(app)
     return app
+  }
+
+  /// From the Tìm home, the guides' "Chăm sóc" chip, further down (a lazy list draws only what's on screen).
+  private func openShelf(_ app: XCUIApplication) {
+    let chip = app.descendants(matching: .any).matching(identifier: "shelf").matching(NSPredicate(format: "label BEGINSWITH 'Chăm sóc'")).firstMatch
+    repeatUntil(chip.exists && chip.isHittable, times: 8) { app.swipeUp() }
+    chip.tap()
+    XCTAssertTrue(app.navigationBars["Chăm sóc"].waitForExistence(timeout: 5), "the guides' shelf didn't open")
+  }
+
+  /// The Tài khoản sheet's row for the pages kept (none: no row), the sheet left open.
+  private func keptRow(_ app: XCUIApplication) -> XCUIElement {
+    app.openAccount()
+    let row = app.buttons["kept-row"], icon = app.descendants(matching: .any)["app-icon-row"]
+    repeatUntil(icon.exists && icon.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(icon.exists, "no Ứng dụng section")
+    return row
   }
 }

@@ -115,31 +115,76 @@ final class HandbookFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(id)", "-AppleLocale", "id_ID", "-reset-defaults", "-fixed-handbook"]
     app.launchForFlow()
-    let all = app.descendants(matching: .any)["all-videos"]
-    repeatUntil(all.exists && all.isHittable, times: 8) { app.swipeUp() }
-    all.tap()
+    search(app, "rêu hại")
     let video = item(app, "Cách hạn chế rêu hại")
     XCTAssertTrue(video.waitForExistence(timeout: 5))
     XCTAssertEqual(video.value as? String, "29:15")
   }
 
+  /// The video series as tinted cards, each with its count of videos; the fixture's one is all of them, so no "Tất cả
+  /// video". The written guides' shelf shows its one guide and no "Tất cả" either: the video guide isn't among them, as on
+  /// the site's guide list.
   func testVideosHaveAShelfOfTheirOwn() {
     let app = launch()
+    let series = app.descendants(matching: .any).matching(identifier: "series").firstMatch
+    repeatUntil(series.exists && series.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(series.exists, "no video series on the home")
+    XCTAssertTrue(series.label.hasPrefix("Rêu hại từ A đến Z") && series.label.contains("1 video"), series.label)
+    XCTAssertFalse(app.descendants(matching: .any)["all-videos"].exists, "a whole list of the one series shown")
+    XCTAssertTrue(app.staticTexts["Bắt đầu từ đây"].exists, "no guides to start from")
+    XCTAssertFalse(app.descendants(matching: .any)["all-guides"].exists, "the video guide counted among the written guides")
+    series.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the series didn't open")
+  }
+
+  /// More series than the shelf's eight: "Tất cả video" counts them all, in series, and lists them.
+  func testMoreVideoSeriesThanTheShelfShowsAreAllATapAway() {
+    let app = launch("-series", "9")
     let all = app.descendants(matching: .any)["all-videos"]
     repeatUntil(all.exists && all.isHittable, times: 8) { app.swipeUp() }
-    XCTAssertTrue(item(app, "Rêu hại từ A đến Z").exists, "no video series on the home")
+    XCTAssertTrue(all.exists, "no way to every series")
+    XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "series").count, 8)
+    XCTAssertTrue(all.label.hasPrefix("Tất cả video") && all.label.contains("9 bộ"), all.label)
     all.tap()
-    XCTAssertTrue(app.navigationBars["Video"].waitForExistence(timeout: 5))
-    let video = item(app, "Cách hạn chế rêu hại")
-    XCTAssertTrue(video.waitForExistence(timeout: 5))
-    XCTAssertEqual(video.value as? String, "29:15", "no length")
-    // Not among the written guides, as on the site's guide list.
+    XCTAssertTrue(app.navigationBars["Video hướng dẫn"].waitForExistence(timeout: 5))
+    XCTAssertTrue(item(app, "Rêu hại từ A đến Z").exists)
+    let last = item(app, "Bộ video 9")
+    repeatUntil(last.exists && last.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(last.exists, "not every series")
+  }
+
+  /// A site with no video series (the Indonesian and Thai ones): no shelf for them.
+  func testNoVideoSeriesNoShelf() {
+    let app = launch("-series", "0")
+    let end = app.descendants(matching: .any)["all-glossary"]
+    repeatUntil(end.exists && end.isHittable, times: 12) { app.swipeUp() }
+    XCTAssertTrue(end.exists, "not at the home's end")
+    XCTAssertFalse(app.staticTexts["Video hướng dẫn"].exists, "a video shelf with no series")
+    XCTAssertFalse(app.descendants(matching: .any).matching(identifier: "series").firstMatch.exists)
+  }
+
+  /// At the accessibility text sizes a shelf's chips are one row that lists them, its picks three rows, and the kit a
+  /// list.
+  func testAtTheLargestTextAShelfIsRows() {
+    let app = launch("-equipment", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    let ways = app.descendants(matching: .any).matching(identifier: "ways").firstMatch
+    repeatUntil(ways.exists && ways.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(ways.exists, "no row for the fish groups")
+    XCTAssertTrue(ways.label.hasPrefix("Nhóm cá") && ways.label.contains("3"), ways.label)
+    XCTAssertFalse(app.descendants(matching: .any).matching(identifier: "shelf").firstMatch.exists, "chips at the largest text")
+    XCTAssertTrue(item(app, "Cá neon").exists, "the well-known fish not as rows")
+    ways.tap()
+    XCTAssertTrue(app.navigationBars["Nhóm cá"].waitForExistence(timeout: 5))
+    let cichlid = shelf(app, "Cichlid")
+    XCTAssertTrue(cichlid.waitForExistence(timeout: 5), "the groups not listed")
+    cichlid.tap()
+    XCTAssertTrue(item(app, "Cá đĩa").waitForExistence(timeout: 5))
     app.navigationBars.buttons.element(boundBy: 0).tap()
-    let guides = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(guides.exists && guides.isHittable, times: 8) { app.swipeDown() }
-    guides.tap()
-    XCTAssertTrue(item(app, "Nuôi cá neon").waitForExistence(timeout: 5))
-    XCTAssertFalse(item(app, "Cách hạn chế rêu hại").exists, "a video among the written guides")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let kit = item(app, "Lọc")
+    repeatUntil(kit.exists && kit.isHittable, times: 30) { app.swipeUp() }
+    XCTAssertTrue(kit.exists, "the kit not as rows")
+    XCTAssertFalse(app.descendants(matching: .any)["kit"].exists, "the kit's grid at the largest text")
   }
 
   func testSearchesOneKind() {
@@ -383,9 +428,9 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(app.webViews.staticTexts["/vi/cong-cu/du-toan-be/"].waitForExistence(timeout: 10), "not the budget tool's page")
     app.navigationBars.buttons.element(boundBy: 0).tap()
     // At the bottom of the shelves, no tools section any more.
-    let contact = app.descendants(matching: .any)["contact"]
-    repeatUntil(contact.exists && contact.isHittable, times: 30) { app.swipeUp() }
-    XCTAssertTrue(contact.isHittable, "the bottom of the shelves not reached")
+    let end = app.descendants(matching: .any)["all-glossary"]
+    repeatUntil(end.exists && end.isHittable, times: 30) { app.swipeUp() }
+    XCTAssertTrue(end.isHittable, "the bottom of the shelves not reached")
     for name in ["Đèn Chihiros", "Bể của tôi", "Bể bao nhiêu lít?", "Đây là cá gì?"] {
       XCTAssertFalse(item(app, name).exists, "\(name) still listed at the bottom")
     }
@@ -418,7 +463,8 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     // The last section: drawn once it's scrolled to.
     let all = app.descendants(matching: .any)["all-glossary"]
-    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
+    repeatUntil(all.exists && all.isHittable, times: 8) { app.swipeUp() }
+    XCTAssertTrue(all.label.hasPrefix("Từ điển thuật ngữ") && all.label.contains("1"), all.label)
     all.tap()
     XCTAssertTrue(app.navigationBars["Thuật ngữ"].waitForExistence(timeout: 5))
     XCTAssertTrue(app.staticTexts["Đ"].exists, "no letter")
@@ -433,7 +479,7 @@ final class HandbookFlowTests: XCTestCase {
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
     let all = app.descendants(matching: .any)["all-latest"]
     repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
-    XCTAssertTrue(all.label.hasSuffix("28/10/2026"), all.label)
+    XCTAssertEqual(all.label, "Mới cập nhật")
     all.tap()
     XCTAssertTrue(app.navigationBars["Mới cập nhật"].waitForExistence(timeout: 5))
     let rows = app.descendants(matching: .any).matching(identifier: "latest")
@@ -455,10 +501,12 @@ final class HandbookFlowTests: XCTestCase {
   func testNoWhatsNewOnTheHomeOfASiteWithoutIt() {
     let app = launch()
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
-    let contact = app.descendants(matching: .any)["contact"]
-    repeatUntil(contact.exists && contact.isHittable, times: 12) { app.swipeUp() }
-    XCTAssertTrue(contact.exists, "not at the home's end")
+    let end = app.descendants(matching: .any)["all-glossary"]
+    repeatUntil(end.exists && end.isHittable, times: 12) { app.swipeUp() }
+    XCTAssertTrue(end.exists, "not at the home's end")
     XCTAssertFalse(app.descendants(matching: .any)["all-latest"].exists)
+    // How to reach AquaTome is in the Tài khoản sheet, not here.
+    XCTAssertFalse(app.descendants(matching: .any)["contact"].exists)
   }
 
   // A kind of kit, drawn by the app from the site's blocks: from the home, its types with their shop links, its long list
@@ -466,9 +514,9 @@ final class HandbookFlowTests: XCTestCase {
   func testAKindOfKitIsDrawnByTheAppWithItsLongListATapAway() {
     let app = launch("-equipment")
     XCTAssertTrue(shelf(app, "Cichlid").waitForExistence(timeout: 5))
-    let kit = item(app, "Lọc")
+    let kit = app.buttons.matching(identifier: "kit").firstMatch
     repeatUntil(kit.exists && kit.isHittable, times: 8) { app.swipeUp() }
-    XCTAssertTrue(kit.label.contains("Thiết bị"), kit.label)
+    XCTAssertEqual(kit.label, "Lọc")
     kit.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "not drawn by the app")
     XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "the web page")

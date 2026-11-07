@@ -44,6 +44,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheToolsOnTim() { shootTools("tools-light") }
   func testTheToolsOnTimInTheDark() { shootTools("tools-dark", dark: true) }
   func testTheToolsOnTimInTheLargestText() { shootTools("tools-largest-light", size: largest, screens: 2) }
+  func testTheHome() { shootHome("tim-light") }
+  func testTheHomeOnANewPhone() { shootHome("tim-new-light", read: false) }
+  func testTheHomeInTheDark() { shootHome("tim-dark", dark: true) }
+  func testTheHomeInTheLargestText() { shootHome("tim-largest-light", size: largest) }
   func testKitOnTheHomeAndALongList() { shootKit("kit-home-light") }
   func testKitOnTheHomeAndALongListInTheDark() { shootKit("kit-home-dark", dark: true) }
   func testWhatsNew() { shootWhatsNew("whats-new-light") }
@@ -168,10 +172,34 @@ final class PageShotsFlowTests: XCTestCase {
     }
   }
 
+  /// Tìm before a search, top to bottom, with every shelf (nine video series, a kind of kit, what's new): after a page is
+  /// read and saved ("Đọc tiếp"), or on a new phone (`read` false).
+  private func shootHome(_ name: String, dark: Bool = false, size: String? = nil, read: Bool = true) {
+    let app = launch(dark: dark, size: size, ["-equipment", "-whats-new", "-series", "9"])
+    XCTAssertTrue(app.buttons["tool-fish-id"].waitForExistence(timeout: 5), "no home")
+    if read {
+      let field = app.searchFields.firstMatch
+      field.tap()
+      field.typeText("nuoi ca neon")
+      let guide = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch
+      XCTAssertTrue(guide.waitForExistence(timeout: 5), "the guide not found")
+      guide.tap()
+      let save = app.buttons["save-for-later"]
+      XCTAssertTrue(save.waitForExistence(timeout: 5), "the guide didn't open")
+      save.tap()
+      app.navigationBars.buttons.element(boundBy: 0).tap()
+      let close = app.buttons.matching(NSPredicate(format: "label IN {'Đóng', 'Hủy'}")).firstMatch
+      XCTAssertTrue(close.waitForExistence(timeout: 5), "no way out of the search")
+      close.tap()
+      XCTAssertTrue(app.descendants(matching: .any)["all-saved"].waitForExistence(timeout: 5), "nothing read and saved")
+    }
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 16)
+  }
+
   /// The home's section for kit, then a long list's whole list: screens a kind of kit's own shots don't reach.
   private func shootKit(_ name: String, dark: Bool = false) {
     let app = launch(dark: dark, size: nil, ["-equipment"])
-    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", "Lọc")).firstMatch
+    let row = app.buttons.matching(identifier: "kit").matching(NSPredicate(format: "label BEGINSWITH %@", "Lọc")).firstMatch
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
     repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(row.exists, "no kit on the home")

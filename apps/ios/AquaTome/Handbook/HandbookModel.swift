@@ -362,7 +362,15 @@ final class HandbookModel {
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
-      let items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
+      if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
+        let own = items.filter { $0.kind == .video }
+        items.removeAll { $0.kind == .video }
+        items += Array(own.prefix(n)) + (own.count..<max(n, own.count)).map {
+          .init(kind: .video, name: "Bộ video \($0 + 1)", sub: "Kênh \($0 + 1)", path: "/vi/video/bo-video-\($0 + 1)/", parts: $0 + 2)
+        }
+      }
       // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
       return .fixed(HandbookIndex(lang: f.lang, items: items, home: f.home, labels: f.labels, pages: pages, places: f.places,
                                   telemetry: args.contains("-site-telemetry"),
