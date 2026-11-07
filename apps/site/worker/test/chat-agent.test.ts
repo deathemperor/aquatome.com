@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
 import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, type Answer, type Choice } from '../chat/answer'
+import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { topicsOf, type Topics } from '../chat/topics'
@@ -548,4 +548,99 @@ test('the first message says where the chat started, what fish ID named, the ear
   expect(text).toContain('The chat is about Cá neon xanh (Paracheirodon innesi), id paracheirodon-innesi, page /vi/ca/ca-neon-xanh/.')
   expect(text).toContain('1. Reader: Nuôi cá này thế nào?\nYou: Nuôi theo đàn.\nShown: tool: /vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6')
   expect(text.endsWith('The reader asks:\nBể 60 lít nuôi được bao nhiêu con?')).toBe(true)
+})
+
+/** What a reader of the answer's text gives for these parts of a call's raw text, part by part. */
+const pieces = (parts: string[]) => { const read = textReader(); return parts.map(read) }
+/** A call as the handler streams it: each text block's raw JSON to `onText` in parts of `n` characters, then the message. */
+const streamed = (content: unknown[], stop: Anthropic.Message['stop_reason'] = 'end_turn', n = 3) => async (_: unknown, opts: { onText?: (delta: string) => void }) => {
+  for (const b of content as { type: string; text?: string }[]) if (b.type === 'text') for (let i = 0; i < b.text!.length; i += n) opts.onText?.(b.text!.slice(i, i + n))
+  return message(content, stop)
+}
+const readPage = { type: 'tool_use', id: 't1', name: 'read_page', input: { path: '/vi/ca/ca-neon-xanh/', heading: null } }
+
+test('the answer\'s text comes out as Claude writes it: an escape or a surrogate pair cut between parts waits for the rest', () => {
+  // An escape cut after its backslash, and inside its four digits.
+  expect(pieces(['{"text":"Nuôi\\', 'nđàn \\u00', 'e1 x'])).toEqual(['Nuôi', '\nđàn ', 'á x'])
+  // An emoji's pair, escaped: cut inside the first half, between the halves, then inside the second.
+  expect(pieces(['{"text":"cá \\ud8', '3d', '\\u', 'dc1f!'])).toEqual(['cá ', '', '', '🐟!'])
+  // And written as it is, cut between its halves.
+  expect(pieces([`{"text":"cá ${'🐟'[0]}`, `${'🐟'[1]}"`])).toEqual(['cá ', '🐟'])
+  // A high surrogate the string ends on goes out with the end.
+  expect(pieces(['{"text":"a\\ud83d', '"'])).toEqual(['a', '\ud83d'])
+  // Every escape JSON has.
+  expect(pieces(['{"text":"\\"\\\\\\/\\b\\f\\n\\r\\t"'])).toEqual(['"\\/\b\f\n\r\t'])
+})
+
+test('a call\'s JSON that doesn\'t open with the text gives nothing; space around it is JSON\'s, and nothing past the text\'s closing quote is read', () => {
+  expect(pieces(['{"covered":true,"text":"Nuôi theo đàn."}'])).toEqual([''])
+  expect(pieces(['{"te', 'xts":"Nuôi theo đàn."'])).toEqual(['', ''])
+  expect(pieces(['Để tôi đọc trang cá neon.', '{"text":"x"'])).toEqual(['', ''])
+  expect(pieces([' \n{ ', '"text" ', ':\t', ' "Nuôi', ' theo đàn."', ',"suggestions":["text"]}'])).toEqual(['', '', '', 'Nuôi', ' theo đàn.', ''])
+  // The schema keeps the text first: structured outputs write the keys in its order.
+  expect(Object.keys(ANSWER_SCHEMA.properties)[0]).toBe('text')
+})
+
+test('the pieces joined are the answer\'s text, however its JSON is cut and whatever it escapes', () => {
+  const text = 'Cá neon "xanh" sống theo đàn 🐟 \\ từ 6 con,\n\tnhiệt độ 20–26 °C / 25 °C.\r\b\f'
+  const plain = JSON.stringify({ text, covered: true, blocks: [], suggestions: ['Còn "text" thì sao?'] })
+  // The same JSON with every character past ASCII as \uXXXX (an emoji as its pair) and every slash escaped.
+  const escaped = plain.replace(/[^\x20-\x7e]/g, c => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`).replaceAll('/', '\\/')
+  for (const raw of [plain, escaped]) {
+    expect(JSON.parse(raw).text).toBe(text)
+    for (const n of [1, 2, 3, 5, 7, raw.length]) {
+      const read = textReader()
+      const out: string[] = []
+      for (let i = 0; i < raw.length; i += n) out.push(read(raw.slice(i, i + n)))
+      expect(out.join(''), `${n}`).toBe(text)
+      expect(out.some(p => /[\ud800-\udbff]$/.test(p) || p.includes('\\u')), `${n}`).toBe(false)
+    }
+  }
+})
+
+test('a call that has given the reader text is the answer: a tool call after it doesn\'t run, and the run ends on it', async () => {
+  const final = { text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const said: string[] = []
+  const steps: Step[] = []
+  const out = await answerQuestion({
+    send: streamed([{ type: 'text', text: JSON.stringify(final) }, readPage], 'tool_use'),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+    onStep: s => steps.push(s), onText: p => said.push(p),
+  })
+  expect(out).toMatchObject({ calls: 1, tools: 0, stopped: 'answer', answer: final })
+  expect(steps).toEqual([])
+  expect(out.message!.content.map(b => b.type)).toEqual(['text'])
+  expect(out.message!.stop_reason).toBe('end_turn')
+  expect(said.join('')).toBe(final.text)
+})
+
+test('the reader gets the answer\'s text in pieces that join to it; each call is read afresh, and one with only words before its tool call gives nothing', async () => {
+  const final: Answer = answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] })], { text: 'Cá neon "xanh" sống theo đàn 🐟, từ 6 con.\nBể 60 lít là vừa.' })
+  const said: string[] = []
+  let calls = 0
+  const out = await answerQuestion({
+    send: (body, opts) => (++calls === 1
+      ? streamed([{ type: 'text', text: 'Để tôi đọc trang cá neon.' }, readPage], 'tool_use')
+      : streamed([{ type: 'thinking', thinking: 'Đủ rồi.', signature: 's' }, { type: 'text', text: JSON.stringify(final) }]))(body, opts),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], onText: p => said.push(p),
+  })
+  expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer' })
+  expect(out.blocks.map(b => b.t)).toEqual(['species'])
+  expect(said.length).toBeGreaterThan(1)
+  expect(said.every(p => p.length > 0)).toBe(true)
+  expect(said.join('')).toBe(out.answer!.text)
+})
+
+test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {
+  const final = { text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const opts: object[] = []
+  const out = await answerQuestion({
+    send: async (_, o) => {
+      opts.push(o)
+      return opts.length === 1 ? message([{ type: 'text', text: JSON.stringify(final) }, readPage], 'tool_use') : message([{ type: 'text', text: JSON.stringify(final) }])
+    },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+  })
+  expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'call'], ['timeoutMs', 'call']])
+  expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer', answer: final })
 })
