@@ -167,26 +167,35 @@ struct FishIdView: View {
         BoxedPhoto(image: preview, boxing: boxing && !sending, box: $box)
           .frame(maxWidth: .infinity)
           .listRowInsets(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-        if boxing {
-          Button("Dùng cả ảnh") { boxing = false; box = nil }.disabled(sending).accessibilityIdentifier("fish-id-whole")
-        } else {
-          Button("Khoanh một con cá") { boxing = true }.disabled(sending).accessibilityIdentifier("fish-id-box")
-        }
-        if boxing {
-          Text(boxSaid).font(.footnote).foregroundStyle(.secondary).accessibilityIdentifier("fish-id-box-said")
+        // While it's identified, the photo is the one sent: no box to change, and nothing greyed out that reads as broken.
+        if !sending {
+          if boxing {
+            Button("Dùng cả ảnh") { boxing = false; box = nil }.accessibilityIdentifier("fish-id-whole")
+          } else {
+            Button("Khoanh một con cá") { boxing = true }.accessibilityIdentifier("fish-id-box")
+          }
+          if boxing {
+            Text(boxSaid).font(.footnote).foregroundStyle(.secondary).accessibilityIdentifier("fish-id-box-said")
+          }
         }
       }
-      // Here the reader's opt-in to keep the photo goes (`keep`), with the site's next change.
-      Button { Task { await send() } } label: {
-        Text("Nhận diện").frame(maxWidth: .infinity).fontWeight(.semibold)
-      }
-      .disabled(sending || sent == nil)
-      .accessibilityIdentifier("fish-id-send")
-      if let said {
-        HStack(spacing: 8) {
-          if sending { ProgressView().accessibilityHidden(true) }
-          Text(said).accessibilityIdentifier("fish-id-said")
+      if sending {
+        // In the button's place, what it's doing: a spinner and the words, as live as the wait is.
+        HStack(spacing: 10) {
+          ProgressView().accessibilityHidden(true)
+          Text(said ?? "").accessibilityIdentifier("fish-id-said")
         }
+        .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+      } else {
+        // Here the reader's opt-in to keep the photo goes (`keep`), with the site's next change.
+        Button { Task { await send() } } label: {
+          // Its line under it runs from the row's edge, as the other rows' do, not from the centred word.
+          Text("Nhận diện").frame(maxWidth: .infinity).fontWeight(.semibold)
+            .alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
+        }
+        .disabled(sent == nil)
+        .accessibilityIdentifier("fish-id-send")
+        if let said { Text(said).accessibilityIdentifier("fish-id-said") }
       }
     }
   }
