@@ -52,6 +52,9 @@ pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-12}" || log "video-still
 # Photos that show their page's fish, plant or breed (the GitHub engine's account runs out of model calls mid-week):
 # 20 calls a run, most-read pages first, verdicts cached.
 pnpm engine check-photos --limit 20 || log "check-photos: failed"
+# No dead fish on a page (dead-screen.ts): video thumbnails and main photos the photo check never asked about, 48 a run
+# (4 model calls); a dead one leaves every page for good.
+pnpm engine dead-screen --limit "${DEAD_SCREEN_LIMIT:-48}" || log "dead-screen: failed"
 # New guides' video stills and photos: none with a watermark (macOS Vision reads the text, the model judges it).
 pnpm engine watermarks --limit 20 || log "watermarks: failed"
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
