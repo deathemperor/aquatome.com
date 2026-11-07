@@ -1,10 +1,13 @@
 {
   "slug": "peninsular-malaysia",
-  "name": "Peninsular Malaysia",
-  "altNames": [],
+  "name": "Malaysia bán đảo",
+  "altNames": [
+    "Peninsular Malaysia"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

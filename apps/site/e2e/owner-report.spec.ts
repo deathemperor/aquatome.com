@@ -67,6 +67,8 @@ test('a report that doesn\'t go keeps the words, and says what to do', async ({ 
   await page.locator('[data-owner-report-open]').click()
   const sheet = page.locator('[data-owner-report]')
   await sheet.locator('textarea').fill('Sai chữ')
+  // Sending waits for the screenshot, which takes longer on a real page than this check's 5 seconds for the answer.
+  await expect(sheet.locator('[data-owner-report-shot]')).toHaveText('Đã chụp màn hình', { timeout: 30_000 })
   await sheet.getByRole('button', { name: 'Gửi' }).click()
   await expect(sheet.getByRole('status')).toContainText('mở /dang-nhap/')
   await expect(sheet.locator('textarea')).toHaveValue('Sai chữ')

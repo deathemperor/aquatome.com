@@ -1,10 +1,13 @@
 {
   "slug": "guangdong",
-  "name": "Guangdong",
-  "altNames": [],
+  "name": "Quảng Đông",
+  "altNames": [
+    "Guangdong"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

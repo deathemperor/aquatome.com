@@ -1,10 +1,13 @@
 {
   "slug": "malay-peninsula",
-  "name": "Malay Peninsula",
-  "altNames": [],
+  "name": "bán đảo Mã Lai",
+  "altNames": [
+    "Malay Peninsula"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

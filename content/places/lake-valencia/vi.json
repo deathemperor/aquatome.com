@@ -1,10 +1,13 @@
 {
   "slug": "lake-valencia",
-  "name": "Lake Valencia",
-  "altNames": [],
+  "name": "hồ Valencia",
+  "altNames": [
+    "Lake Valencia"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

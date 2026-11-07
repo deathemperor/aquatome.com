@@ -1,10 +1,13 @@
 {
   "slug": "cross-river",
-  "name": "Cross River",
-  "altNames": [],
+  "name": "sông Cross",
+  "altNames": [
+    "Cross River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

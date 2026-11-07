@@ -1,10 +1,14 @@
 {
   "slug": "ben-hai",
-  "name": "Ben Hai",
-  "altNames": [],
+  "name": "sông Bến Hải",
+  "altNames": [
+    "Ben Hai",
+    "Bến Hải"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

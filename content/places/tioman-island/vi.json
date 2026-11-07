@@ -1,10 +1,13 @@
 {
   "slug": "tioman-island",
-  "name": "Tioman Island",
-  "altNames": [],
+  "name": "đảo Tioman",
+  "altNames": [
+    "Tioman Island"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -9,7 +9,7 @@ import { smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
-import { appRange, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
+import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
 import { seriesGuides } from './video'
 
@@ -201,8 +201,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const origins = originPages(lang, c)
   const paged = new Set(origins.map(p => p.id))
   const places: AppPlace[] = origins.map(p => {
-    const kids = p.kind === 'country' ? c.places.filter(x => x.parent === p.id).map(x => x.t.name) : []
-    return { id: p.id, name: p.t.name, kind: p.kind as AppPlace['kind'], ...(p.parent ? { parent: p.parent } : {}), ...(kids.length ? { kids } : {}) }
+    const kids = p.kind === 'country' ? c.places.filter(x => x.parent === p.id).map(x => capitalized(x.t.name)) : []
+    return { id: p.id, name: capitalized(p.t.name), kind: p.kind as AppPlace['kind'], ...(p.parent ? { parent: p.parent } : {}), ...(kids.length ? { kids } : {}) }
   })
   const regionName = regionNames(c.places)
   const taxa = served(lang, '/vi/phan-loai/x/')

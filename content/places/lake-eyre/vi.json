@@ -1,10 +1,13 @@
 {
   "slug": "lake-eyre",
-  "name": "Lake Eyre",
-  "altNames": [],
+  "name": "hồ Eyre",
+  "altNames": [
+    "Lake Eyre"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

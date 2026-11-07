@@ -1,10 +1,13 @@
 {
   "slug": "yunnan",
-  "name": "Yunnan",
-  "altNames": [],
+  "name": "Vân Nam",
+  "altNames": [
+    "Yunnan"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

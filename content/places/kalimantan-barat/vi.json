@@ -1,10 +1,13 @@
 {
   "slug": "kalimantan-barat",
-  "name": "Kalimantan Barat",
-  "altNames": [],
+  "name": "Tây Kalimantan",
+  "altNames": [
+    "Kalimantan Barat"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

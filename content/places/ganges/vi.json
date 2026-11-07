@@ -1,10 +1,13 @@
 {
   "slug": "ganges",
-  "name": "Ganges",
-  "altNames": [],
+  "name": "sông Hằng",
+  "altNames": [
+    "Ganges"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

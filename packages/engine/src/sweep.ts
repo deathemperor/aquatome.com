@@ -6,6 +6,7 @@ import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
+import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
@@ -169,6 +170,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
+  // A place's Vietnamese name with no generic word left in English (place-names.ts).
+  for (const id of await sweepPlaceNames(root)) changed(`places/${id}/vi.json`)
 
   // Text, in every language the engine writes.
   for (const kind of SWEPT_KINDS) {
