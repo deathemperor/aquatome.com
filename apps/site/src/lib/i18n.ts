@@ -1,6 +1,7 @@
 import { LANG, OTHER_LANGS, type Lang, type OtherLang } from '@aq/schema/langs'
 import id from '../i18n/id.json' with { type: 'json' }
 import th from '../i18n/th.json' with { type: 'json' }
+import ms from '../i18n/ms.json' with { type: 'json' }
 import { withoutVi } from '../../worker/paths.ts'
 
 /**
@@ -31,11 +32,18 @@ const SECTIONS: Record<OtherLang, Record<string, string>> = {
     'thuat-ngu': 'glossary', 'tim-kiem': 'search', 'gioi-thieu': 'about', 'lien-he': 'contact', 'chinh-sach-bao-mat': 'privacy',
     'moi-cap-nhat': 'latest', 'phan-loai': 'taxonomy', 'nguon-goc': 'origin', nhom: 'groups', 'san-pham': 'products', 'ung-dung': 'mobile-app',
   },
+  // Malaysia's words, not Indonesia's (tumbuhan, hubungi, dasar privasi, terkini, kumpulan): the ones its UI text uses.
+  ms: {
+    ca: 'ikan', cay: 'tumbuhan', 'huong-dan': 'panduan', video: 'video', 'thiet-bi': 'peralatan', 'kham-pha': 'teroka', 'cong-cu': 'alat',
+    'thuat-ngu': 'istilah', 'tim-kiem': 'cari', 'gioi-thieu': 'tentang', 'lien-he': 'hubungi', 'chinh-sach-bao-mat': 'dasar-privasi',
+    'moi-cap-nhat': 'terkini', 'phan-loai': 'taksonomi', 'nguon-goc': 'asal', nhom: 'kumpulan', 'san-pham': 'produk', 'ung-dung': 'aplikasi',
+  },
 }
 /** Fixed segments below a section: /vi/cong-cu/the-tich-be/, /vi/cong-cu/den-chihiros/, /vi/cong-cu/be-cua-toi/, /vi/cong-cu/nuoi-chung/, /vi/cong-cu/nhan-dien-ca/, /vi/cong-cu/du-toan-be/, /vi/gioi-thieu/bang-du-lieu/, /vi/video/kenh/<slug>/, /vi/ca/<slug>/anh/, /vi/cay/<slug>/anh/, /vi/huong-dan/trang/<n>/ (and any list's numbered page, /vi/cay/trang/<n>/, /vi/nhom/<group>/trang/<n>/). */
 const SUB: Record<OtherLang, { 'the-tich-be': string; 'den-chihiros': string; 'be-cua-toi': string; 'nuoi-chung': string; 'nhan-dien-ca': string; 'du-toan-be': string; 'bang-du-lieu': string; kenh: string; anh: string; trang: string }> = {
   id: { 'the-tich-be': 'volume-akuarium', 'den-chihiros': 'lampu-chihiros', 'be-cua-toi': 'akuarium-saya', 'nuoi-chung': 'kecocokan-ikan', 'nhan-dien-ca': 'kenali-ikan', 'du-toan-be': 'anggaran-akuarium', 'bang-du-lieu': 'tabel-data', kenh: 'kanal', anh: 'foto', trang: 'halaman' },
   th: { 'the-tich-be': 'tank-volume', 'den-chihiros': 'chihiros-light', 'be-cua-toi': 'my-tanks', 'nuoi-chung': 'tank-mates', 'nhan-dien-ca': 'fish-id', 'du-toan-be': 'tank-budget', 'bang-du-lieu': 'data-table', kenh: 'channel', anh: 'photos', trang: 'page' },
+  ms: { 'the-tich-be': 'isi-padu-tangki', 'den-chihiros': 'lampu-chihiros', 'be-cua-toi': 'tangki-saya', 'nuoi-chung': 'rakan-setangki', 'nhan-dien-ca': 'kenal-pasti-ikan', 'du-toan-be': 'bajet-tangki', 'bang-du-lieu': 'jadual-data', kenh: 'saluran', anh: 'foto', trang: 'halaman' },
 }
 /** A list's numbered page, ["", "vi", "huong-dan", "trang", "2", ""]: the page word, then its number (or the route's [n]), last. */
 const numbered = (seg: string[], word: string) => seg.length >= 6 && seg.at(-3) === word && /^(\d+|\[n\])$/.test(seg.at(-2)!) && seg.at(-1) === ''
@@ -104,7 +112,7 @@ export function toVi(path: string): string {
   return seg.join('/')
 }
 
-const DICTS: Record<OtherLang, Record<string, string>> = { id, th }
+const DICTS: Record<OtherLang, Record<string, string>> = { id, th, ms }
 type Missing = Map<Lang, Set<string>>
 /** UI strings a page asked for that its language has no translation for (the build fails on any: see i18nRoutes). */
 export const missing: Missing = ((globalThis as { __aqI18nMissing?: Missing }).__aqI18nMissing ??= new Map())
@@ -131,7 +139,8 @@ export const i18n = (url: URL) => {
 
 /** Page files (under src/pages/) each other language has: a section joins once its pages are translated. */
 const PILOT = ['index.astro', 'ca/index.astro', 'ca/[slug].astro', 'ca/[breed].astro', 'ca/[slug]/anh.astro', 'thiet-bi/index.astro', 'thiet-bi/[category].astro', 'cong-cu/index.astro', 'cong-cu/the-tich-be.astro', 'cong-cu/den-chihiros.astro', 'cong-cu/be-cua-toi.astro', 'cong-cu/nuoi-chung.astro', 'cong-cu/nhan-dien-ca.astro', 'cong-cu/du-toan-be.astro', 'gioi-thieu/index.astro', 'gioi-thieu/bang-du-lieu.astro', 'lien-he/index.astro', 'chinh-sach-bao-mat/index.astro', 'huong-dan/index.astro', 'huong-dan/[slug].astro', 'huong-dan/trang/[n].astro', 'cay/index.astro', 'cay/[slug].astro', 'cay/[slug]/anh.astro', 'cay/trang/[n].astro', 'tim-kiem/index.astro', 'thuat-ngu/index.astro', 'thuat-ngu/[slug].astro', 'nhom/[group].astro', 'nhom/[group]/trang/[n].astro', 'phan-loai/[...path].astro', 'nguon-goc/[...path].astro', 'ung-dung/[...path].astro']
-export const PAGES: Record<OtherLang, string[]> = { id: PILOT, th: PILOT }
+// Malay has no setup budget (cong-cu/du-toan-be) until Malaysia's electricity tariff is researched (scripts/budget.ts TARIFFS).
+export const PAGES: Record<OtherLang, string[]> = { id: PILOT, th: PILOT, ms: PILOT.filter(f => f !== 'cong-cu/du-toan-be.astro') }
 const segments = (file: string) => file.replace(/\.astro$/, '').replace(/(^|\/)index$/, '').split('/').filter(Boolean)
 /** A page file's address in a language: "ca/[slug]/anh.astro" → "/id/ikan/[slug]/foto". */
 export const routeIn = (lang: Lang, file: string) => localizePath(lang, `/vi/${segments(file).map(s => `${s}/`).join('')}`).replace(/(.)\/$/, '$1')

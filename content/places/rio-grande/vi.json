@@ -1,10 +1,13 @@
 {
   "slug": "rio-grande",
-  "name": "Rio Grande",
-  "altNames": [],
+  "name": "sông Rio Grande",
+  "altNames": [
+    "Rio Grande"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

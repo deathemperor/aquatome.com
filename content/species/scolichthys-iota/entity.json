@@ -1,0 +1,57 @@
+{
+  "id": "scolichthys-iota",
+  "scientificName": "Scolichthys iota",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Scolichthys",
+  "group": "livebearers",
+  "places": [],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/scolichthys_iota_en/",
+      "html": "<p>Scolichthys iota is a tiny species of livebearer. It was discovered and described in 1967, but it remained unknown alive to hobbyists until very recently. The specimens offered are German bred.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/scolichthys_iota_en/",
+      "html": "<p>Males attain a maximum length of only 1.5 cm, females get almost double of that length. The number of dark stripes on the flanks of the males varies individually.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 30cm",
+        "bể nano"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt biển cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng bột",
+        "artemia mới nở"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-07"
+}

@@ -5,8 +5,11 @@
   "sourceUrl": "https://www.youtube.com/watch?v=5uUPuLt0j2s",
   "html": "",
   "photos": [],
-  "mentions": [],
-  "updatedAt": "2026-10-30",
+  "mentions": [
+    "caridina-multidentata",
+    "fissidens-fontanus"
+  ],
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "5uUPuLt0j2s",
     "title": "Hair Algae in Aquarium! THE ALGAE GUIDE EPISODE #6",
@@ -32,90 +35,122 @@
       {
         "category": "khac",
         "brand": "Seachem",
-        "model": "Excel",
-        "t": 227
-      },
-      {
-        "category": "khac",
-        "brand": "Seachem",
         "model": "Easy Carbo",
-        "t": 227
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "t": 316
+        "t": 220
       },
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 452
-      },
-      {
-        "category": "be-ca",
-        "type": "nano",
-        "t": 38
+        "t": 464
       }
     ],
     "figures": [
       {
-        "heading": "Rêu tóc gồm những loại nào",
+        "heading": "Vì sao rêu tóc mọc trong bể",
         "moments": [
-          {
-            "t": 5,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t5.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh bụi cây trong hồ thủy sinh, rêu sợi thường mọc lẫn trong lá."
-          },
           {
             "t": 40,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t40.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây thủy sinh xanh dày, nơi rêu hại dạng sợi dễ bám vào."
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cây xanh dày và cây thân đỏ trong bể thủy sinh."
+          },
+          {
+            "t": 80,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at80-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây rậm rạp, không có chữ trên hình."
           }
         ]
       },
       {
-        "heading": "Vì sao rêu tóc mọc",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/5uUPuLt0j2s/p1-uYV9ydWJyYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/5uUPuLt0j2s/p1-uYV9ydWJyYS5qcGc-480.webp",
-          "width": 960,
-          "height": 727,
-          "licence": "CC BY 2.0",
-          "author": "Carnat Joel",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brackish_water_tank_for_Halocaridina_rubra.jpg",
-          "caption": "Bể thủy sinh nhỏ bị rêu tóc xanh mọc um tùm trên đá và cây."
-        }
-      },
-      {
-        "heading": "Gỡ rêu tóc ra khỏi bể",
+        "heading": "Thế nào là đèn quá nhiều",
         "moments": [
           {
-            "t": 247,
-            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/t247.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng dụng cụ xoay gỡ rêu hại ra khỏi thảm cỏ trong bể."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm cây thân có ngọn đỏ cam dưới đèn mạnh, phát triển khỏe."
           }
         ]
       },
       {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Gỡ rêu tóc ra khỏi bể bằng cách nào",
+        "moments": [
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng dụng cụ xoay gỡ rêu tóc trong thảm cỏ trong bể."
+          }
+        ]
+      },
+      {
+        "heading": "Sửa nguyên nhân: kiểm tra CO2 bằng drop checker",
+        "moments": [
+          {
+            "t": 350,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at350-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Drop checker trong bể thủy sinh có dung dịch màu xanh lá, cạnh cây thủy sinh."
+          }
+        ]
+      },
+      {
+        "heading": "Bể không châm CO2 thì làm gì",
+        "moments": [
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thủy sinh lá dài dưới vòi nước máy, nguồn CO2 sẵn có."
+          },
+          {
+            "t": 385,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at385-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn LED đặt trên bể thủy sinh đầy cây, mặt nước gần như phẳng."
+          }
+        ]
+      },
+      {
+        "heading": "Trồng thêm cây, ưu tiên cây mọc nhanh",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/5uUPuLt0j2s/p6-YW4sMjAwNykuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5uUPuLt0j2s/p6-YW4sMjAwNykuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/5uUPuLt0j2s/p5-d25fQmVsb3cuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5uUPuLt0j2s/p5-d25fQmVsb3cuanBn-480.webp",
           "width": 960,
-          "height": 638,
-          "licence": "CC BY-SA 3.0",
-          "author": "Seotaro",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caridina_multidentata(Hamamatsu,Shizuoka,Japan,2007).jpg",
-          "caption": "Tép Amano bò trên nền sỏi trong bể, sẵn sàng ăn rêu tóc."
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Coughdrop12",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green_Algae_Down_Below.jpg",
+          "caption": "Cây lá mịn mọc trong bể, bên cạnh đám tảo xanh đang bám."
         }
+      },
+      {
+        "heading": "Hai trường hợp thực tế",
+        "moments": [
+          {
+            "t": 490,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at490-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cụm rêu xanh và rêu hại dạng sợi mọc trong bể."
+          },
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/5uUPuLt0j2s/at510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nano thủy sinh với hai khối đá, đang được chăm sóc."
+          }
+        ]
       }
     ]
   }

@@ -1,0 +1,62 @@
+{
+  "id": "danio-aesculapii",
+  "native": {
+    "input": "5be701865a74f939",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rakhine Yoma",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Kananmae Chaung",
+        "source": "seriouslyfish",
+        "quote": "It was originally collected from a handful of streams and rivers of the western, interior, slopes of which the type specimens originated from the Kananmae Chaung, a coastal rivulet draining into the Bay of Bengal (Kullander and Fang, 2009).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio aesculapii",
+    "status": "ACCEPTED",
+    "taxonKey": 2362722,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        13
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        10
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

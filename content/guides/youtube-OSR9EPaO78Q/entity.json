@@ -9,7 +9,7 @@
     "caridina-multidentata",
     "bucephalandra-sp"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "OSR9EPaO78Q",
     "title": "Xử lý rêu thủy sinh trong 1 nốt nhạc | Nguyễn Du aqua",
@@ -31,9 +31,7 @@
     "taxa": [
       "Nerita sp.",
       "Caridina multidentata",
-      "Otocinclus sp.",
-      "Rhinogobius sp.",
-      "Vesicularia dubyana",
+      "Taiwan moss",
       "Anubias sp.",
       "Bucephalandra sp."
     ],
@@ -41,51 +39,46 @@
       {
         "category": "khac",
         "brand": "Seachem",
-        "model": "Flourish Excel",
-        "t": 220
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "reu",
+        "model": "Excel",
         "t": 220
       }
     ],
     "figures": [
       {
-        "heading": "Tảo nâu: vì sao bể mới nào cũng bị",
+        "heading": "Tảo nâu: vì sao mọc và xử lý thế nào",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hình minh họa rêu nâu phủ dày, bên cạnh là bể thủy sinh mới set."
+            "t": 120,
+            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bể thủy sinh có cây và đá, nơi rêu hại hay bám."
           },
           {
-            "t": 118,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t118.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh lá cây và đá trong bể thủy sinh, nơi rêu hại dễ bám."
+            "t": 125,
+            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cây với ốc vằn được giới thiệu để ăn rêu hại."
           }
         ]
       },
       {
-        "heading": "Rêu tóc: vì sao chỉ dựa vào tép và cá là không đủ",
+        "heading": "Rêu tóc: vì sao khó diệt hết",
         "moments": [
           {
-            "t": 187,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t187.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh bể thủy sinh cây đỏ và cây xanh, có tay đang chỉnh cây."
+            "t": 190,
+            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đang chạm vào cụm cây thủy sinh xanh đỏ rậm rạp trong bể."
           },
           {
-            "t": 192,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t192.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cây xanh um tùm, tay đưa vào gần mặt nước."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây xanh um tươi, tay đưa vào gần mặt nước."
           }
         ],
         "photo": {
@@ -96,18 +89,18 @@
           "licence": "CC BY 2.0",
           "author": "aquarist.me",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emerald_Crab_munching_on_Hair_Algae.jpg",
-          "caption": "Rêu tóc xanh mọc thành búi dài, bám kín đá trong bể."
+          "caption": "Rêu sợi xanh mọc thành búi dày bám trên đá trong bể."
         }
       },
       {
-        "heading": "Rêu chùm đen và rêu sừng hươu: xử lý thế nào cho dứt",
+        "heading": "Rêu chùm đen (BBA) xử lý ra sao",
         "moments": [
           {
-            "t": 311,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t311.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh chai thuốc diệt rêu hại cầm trên tay cạnh bể."
+            "t": 315,
+            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/at315-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh tay cầm xi lanh hút thuốc để xịt vào bể thủy sinh."
           }
         ],
         "photo": {
@@ -118,56 +111,41 @@
           "licence": "CC BY 3.0",
           "author": "Emboli",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_beard_algae.png",
-          "caption": "Rêu chùm đen bám thành từng chùm lông sẫm trên lá cây trong bể."
+          "caption": "Rêu chùm đen bám dày trên lá cây thủy sinh trong bể."
         }
       },
       {
-        "heading": "Rêu nhớt xanh: nhận biết và xử lý",
+        "heading": "Rêu xanh bám kính có cần dùng thuốc không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/OSR9EPaO78Q/p4-9ycGhhXzAxLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/OSR9EPaO78Q/p4-9ycGhhXzAxLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.5",
+          "author": "Tucsouffle",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:20061213210458_trigonostigma-heteromorpha_01.jpg",
+          "caption": "Bể cá cảnh có cây thủy sinh, nước xanh do rêu tảo phát triển nhiều."
+        }
+      },
+      {
+        "heading": "Rêu nhớt xanh: mọc ở đâu và xử lý thế nào",
         "moments": [
           {
-            "t": 458,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t458.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh thảm cỏ xanh sát mặt nền trong bể thủy sinh."
+            "t": 455,
+            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có cây đỏ và thảm cỏ, nước trong, cá bơi."
           },
           {
-            "t": 468,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t468.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây mọc dày sát nền, chỗ nước dễ lưu thông kém."
+            "t": 460,
+            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cây trải nền xanh tốt, sát gốc và phần nền phía dưới."
           }
         ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 123,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t123.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh và ốc Nerita dùng để dọn tảo nâu."
-          },
-          {
-            "t": 197,
-            "url": "https://media.aquatome.com/video/OSR9EPaO78Q/t197.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây trong bể, chỗ cần kiểm tra xem rêu hại bám ở đâu."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/OSR9EPaO78Q/p6-5femVicmEpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/OSR9EPaO78Q/p6-5femVicmEpLmpwZw-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY 4.0",
-          "author": "Evan Baldonado",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebra_Nerite_Snail_(Neritina_natalensis_sp._zebra).jpg",
-          "caption": "Ốc Nerita vằn bò trên nền cát trong bể, cạnh cục rêu."
-        }
       }
     ]
   }

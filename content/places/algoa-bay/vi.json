@@ -1,10 +1,13 @@
 {
   "slug": "algoa-bay",
-  "name": "Algoa Bay",
-  "altNames": [],
+  "name": "vịnh Algoa",
+  "altNames": [
+    "Algoa Bay"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

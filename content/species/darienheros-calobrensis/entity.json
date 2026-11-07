@@ -9,6 +9,94 @@
     "north-america",
     "panama"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA"
+      ],
+      "regions": [
+        "Bayano",
+        "Changuinola",
+        "Cricamola"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to coastal rivers draining Panama's Pacific slope.",
+          "countries": [
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the Bayano, Changuinola and Cricamola.",
+          "countries": [],
+          "regions": [
+            "Bayano",
+            "Changuinola",
+            "Cricamola"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9475979,
+      "total": 69,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PA",
+          67
+        ],
+        [
+          "CR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -82.96875,
+          8.4375,
+          22,
+          22
+        ],
+        [
+          -80.15625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          8.4375,
+          13,
+          13
+        ],
+        [
+          -78.75,
+          7.03125,
+          22,
+          22
+        ],
+        [
+          -78.75,
+          8.4375,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

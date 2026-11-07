@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
@@ -8,12 +9,13 @@ import { RUNS_PATH, runPath, runsJsonPath } from '../admin/runs'
 import { APP_PAGES } from '../app-switch'
 import { putReport } from '../daily/log'
 import { handle, type Env } from '../index'
-import { OWNER_SCRIPT } from '../owner'
 import { DASHBOARD_HOST, dashboardUrl, SITE_HOST } from '../paths'
 import { testD1 } from './d1'
 import { memoryR2 } from './r2'
 
 /** A fish-ID run's id, for its page's address. */
+/** The owner bar's words, from its source (the script in every page only loads it). */
+const ownerBar = () => readFileSync(fileURLToPath(new URL('../../src/owner/bar.ts', import.meta.url).href), 'utf8')
 const RUN = '00000000-0000-4000-8000-000000000001'
 
 /**
@@ -295,8 +297,8 @@ test('unconfigured: /_ab/ on the site is exactly today\'s, with no redirect: the
       expect((await site(p, e)).status, p).toBe(200) // signed out: the sign-in in its place
     }
   }
-  expect(OWNER_SCRIPT).toContain("['Quản trị','/_ab/']")
-  expect(OWNER_SCRIPT).toContain("['Người đọc','/_ab/doc-gia/']")
+  expect(ownerBar()).toContain("['Quản trị', '/_ab/']")
+  expect(ownerBar()).toContain("['Người đọc', '/_ab/doc-gia/']")
 })
 
 // ---- Configured: the site's /_ab/ after the move ----
@@ -316,7 +318,7 @@ test('configured: a browser\'s GET of a dashboard page on the site 301s to the s
   expect((await site('/_ab/doc-gia', e)).headers.get('location')).toBe(`${DASH}/doc-gia/`)
   expect((await site('/_ab/ung-dung/?test=1', e)).headers.get('location')).toBe(`${DASH}/ung-dung/?test=1`)
   for (const link of ['/_ab/', '/_ab/doc-gia/']) {
-    expect(OWNER_SCRIPT).toContain(`'${link}'`)
+    expect(ownerBar()).toContain(`'${link}'`)
     expect((await site(link, e)).status).toBe(301)
   }
 })
@@ -532,8 +534,8 @@ test('the owner\'s private images open with the token, on this host', async () =
 })
 
 test('the owner bar\'s sign-in hint names the site\'s own sign-in: /_ab/ leads to the host, whose Access session doesn\'t make the site\'s', () => {
-  expect(OWNER_SCRIPT).toContain('mở /dang-nhap/ để đăng nhập')
-  expect(OWNER_SCRIPT).not.toContain('mở /_ab/')
+  expect(ownerBar()).toContain('mở /dang-nhap/ để đăng nhập')
+  expect(ownerBar()).not.toContain('mở /_ab/')
 })
 
 // ---- The configuration the deploy reads ----

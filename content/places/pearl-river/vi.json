@@ -1,10 +1,13 @@
 {
   "slug": "pearl-river",
-  "name": "Pearl River",
-  "altNames": [],
+  "name": "sông Châu Giang",
+  "altNames": [
+    "Pearl River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

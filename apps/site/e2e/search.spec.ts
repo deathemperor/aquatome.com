@@ -75,7 +75,7 @@ test('a site search by scientific name finds the species first', async ({ page }
   expect(hits[0]?.href).toBe('/ca/ca-neon-vua/')
 })
 
-for (const [path, all] of [['/tim-kiem/', '/ca/'], ['/id/cari/', '/id/ikan/'], ['/th/search/', '/th/fish/']] as const) {
+for (const [path, all] of [['/tim-kiem/', '/ca/'], ['/id/cari/', '/id/ikan/'], ['/th/search/', '/th/fish/'], ['/ms/cari/', '/ms/ikan/']] as const) {
   test(`a nonsense word says there is nothing, with a way on (${path})`, async ({ page, errors }) => {
     await page.goto(`${path}?q=xyzzyq`)
     await expect(page.locator('[data-none]')).toBeVisible()

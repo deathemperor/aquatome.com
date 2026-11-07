@@ -178,17 +178,16 @@ final class FishIdFlowTests: XCTestCase {
     XCTAssertTrue(library.isEnabled, "the library stays off")
   }
 
-  /// While it identifies, the end of the screen (the tips' last line) still comes up above the tab bar, shrunk or not.
+  /// While it identifies, the end of the screen (the tips' last line) still comes up above the tab bar.
   func testWhileItIdentifiesTheScreensEndIsAboveTheTabBar() {
     let app = launch("-picked-photo", "-fish-id-slow")
     openTool(app)
     signIn(app)
     let bar = app.tabBars.firstMatch
     XCTAssertTrue(bar.waitForExistence(timeout: 5), "no tab bar")
-    let top = bar.frame.minY
     send(app)
     XCTAssertTrue(element(app, "fish-id-said").waitForExistence(timeout: 5), "not identifying")
-    app.endsAboveTheTabBar(top, "fish ID while it identifies")
+    app.endsAboveTheTabBar("fish ID while it identifies")
     let last = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Công cụ chỉ đoán từ ảnh'")).firstMatch
     XCTAssertTrue(last.exists && last.frame.maxY <= bar.frame.minY + 0.5, "the tips' last line isn't above the bar: \(last.frame) \(bar.frame)")
   }

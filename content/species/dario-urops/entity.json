@@ -10,6 +10,61 @@
     "india",
     "valapattanam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Valapattanam",
+        "Cauvery",
+        "Western Ghats"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from a single locality within the Valapattanam river system in southern Karnataka state, southwestern India, with additional population records from Agumbe in Karnataka, plus headwaters of the Cauvery River in Wayanad District, northeastern Kerala state.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Valapattanam",
+            "Cauvery"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Though described in 2012 it was in fact first collected in the latter half of the 19th century with Day (1875-1878) having mentioned the presence of Badis dario in ‘Wynaad’ and its occurrence \"along the Western Ghats\" (the chain of mountains in southwestern India).",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8313475,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

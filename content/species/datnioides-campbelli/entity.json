@@ -12,6 +12,65 @@
     "indonesia",
     "papua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "PG"
+      ],
+      "regions": [
+        "Fly River",
+        "New Guinea",
+        "Lorentz River",
+        "Kikori River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently restricted to the southern portion of New Guinea, between the Lorentz River in Papua province, Indonesia, and Kikori River in Gulf province, Papua New Guinea.",
+          "countries": [
+            "ID",
+            "PG"
+          ],
+          "regions": [
+            "New Guinea",
+            "Lorentz River",
+            "Kikori River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records pertain to the lower Fly River basin in Western province, southwestern Papua New Guinea.",
+          "countries": [],
+          "regions": [
+            "Fly River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5210839,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          143.4375,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

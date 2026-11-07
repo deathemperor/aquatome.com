@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-06). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-07). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 77 | 24 | 30 | 202 |
 | popular | 40 | 19 | 0 | 0 | 1 | 18 |
-| covered | 30 | 388 | 8 | 9 | 11 | 394 |
-| rest | 20 | 1054 | 90 | 0 | 5 | 1139 |
+| covered | 30 | 395 | 10 | 9 | 11 | 403 |
+| rest | 20 | 1101 | 88 | 0 | 6 | 1183 |
 
-## Short of target: every source read (84)
+## Short of target: every source read (96)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -92,10 +92,22 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/hygrophila-difformis | shop | 14 | 60 |
 | species/caridina-multidentata | shop | 38 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
+| plants/hygrophila-corymbosa | shop | 7 | 60 |
+| species/melanotaenia-lacustris | shop | 1 | 60 |
+| plants/cryptocoryne-spiralis | shop | 3 | 60 |
+| species/melanotaenia-parkinsoni | shop | 1 | 60 |
 | species/alestopetersius-caudalis | shop | 1 | 60 |
+| plants/cryptocoryne-albida | shop | 0 | 60 |
 | species/trichogaster-lalius | shop | 33 | 60 |
+| plants/heteranthera-zosterifolia | shop | 6 | 60 |
 | species/hyphessobrycon-elachys | shop | 0 | 60 |
+| species/hyphessobrycon-eques | shop | 7 | 60 |
+| plants/anubias-gracilis | shop | 0 | 60 |
+| species/hyphessobrycon-pulchripinnis | shop | 5 | 60 |
+| species/kryptopterus-vitreolus | shop | 13 | 60 |
 | species/thayeria-boehlkei | shop | 5 | 60 |
+| species/labidochromis-caeruleus | shop | 16 | 60 |
+| plants/ammannia-gracilis | shop | 2 | 60 |
 | species/scleropages-jardinii | shop | 8 | 60 |
 | species/channa-asiatica | shop | 5 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |

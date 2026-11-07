@@ -1,10 +1,13 @@
 {
   "slug": "sekong",
-  "name": "Sekong",
-  "altNames": [],
+  "name": "sông Sê Kông",
+  "altNames": [
+    "Sekong"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

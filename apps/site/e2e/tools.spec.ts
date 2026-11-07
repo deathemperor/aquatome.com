@@ -117,7 +117,7 @@ test('Chihiros page without Bluetooth: says which browsers work; the schedule fo
 test('tank volume: the ready-made tank table fits a small phone in every language, glass column included', async ({ page }, info) => {
   test.skip(info.project.name !== 'phone', 'only a phone is narrow enough')
   await page.setViewportSize({ width: 360, height: 800 })
-  for (const path of ['/cong-cu/the-tich-be/', '/id/alat/volume-akuarium/', '/th/tools/tank-volume/']) {
+  for (const path of ['/cong-cu/the-tich-be/', '/id/alat/volume-akuarium/', '/th/tools/tank-volume/', '/ms/alat/isi-padu-tangki/']) {
     await page.goto(path)
     const table = await page.locator('.scroll').first().evaluate(el => ({ fits: el.scrollWidth <= el.clientWidth, hint: getComputedStyle(el).backgroundImage }))
     expect(table.fits, `${path}: the table is wider than a 360 px phone`).toBe(true)

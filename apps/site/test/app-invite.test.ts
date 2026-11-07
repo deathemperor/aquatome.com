@@ -7,8 +7,9 @@ import { describe, expect, test } from 'vitest'
 import { toMarkdown } from '../scripts/markdown'
 import id from '../src/i18n/id.json'
 import th from '../src/i18n/th.json'
+import ms from '../src/i18n/ms.json'
 import { APP_PAGES, APP_PT, APP_SCREENSHOTS, APP_STATE, APP_STORE_ID, appDevice, inviteCheck, openInApp, ownerReveal, storeLink, type AppState } from '../src/lib/app'
-import { localizePath, toVi } from '../src/lib/i18n'
+import { LANGS, localizePath, toVi } from '../src/lib/i18n'
 import { qrPath } from '../src/lib/qr'
 import { APP_SWITCH } from '../worker/app-switch'
 import { DIST } from './dist'
@@ -263,7 +264,7 @@ describe('the footer and About page link to the app page', () => {
 
 describe('the app page', () => {
   test('its addresses, each way', () => {
-    expect(APP_PAGES).toEqual(['vi', 'id', 'th'].map(l => localizePath(l as 'vi', '/vi/ung-dung/')))
+    expect(APP_PAGES).toEqual(LANGS.map(l => localizePath(l, '/vi/ung-dung/')))
     for (const p of APP_PAGES) expect(toVi(p)).toBe('/vi/ung-dung/')
   })
   test.each([
@@ -317,9 +318,9 @@ describe('the app page', () => {
   })
 })
 
-test('every string of the invitations has Indonesian and Thai, also those no page of that language renders yet', () => {
+test('every string of the invitations has Indonesian, Thai and Malay, also those no page of that language renders yet', () => {
   const sources = ['components/AppInvite.astro', 'components/AppProductInvite.astro', 'components/AppStoreBadge.astro', 'pages/ung-dung/[...path].astro']
   const strings = sources.flatMap(f => [...readFileSync(new URL(`../src/${f}`, import.meta.url), 'utf8').matchAll(/\bt\('((?:\\.|[^'])*)'/g)].map(m => m[1]!))
   expect(strings.length).toBeGreaterThan(20)
-  for (const s of strings) for (const [lang, dict] of [['id', id], ['th', th]] as const) expect((dict as Record<string, string>)[s], `${lang}: ${s}`).toBeTruthy()
+  for (const s of strings) for (const [lang, dict] of [['id', id], ['th', th], ['ms', ms]] as const) expect((dict as Record<string, string>)[s], `${lang}: ${s}`).toBeTruthy()
 })

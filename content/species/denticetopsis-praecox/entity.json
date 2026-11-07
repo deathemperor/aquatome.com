@@ -11,6 +11,122 @@
     "rio-negro",
     "rio-baria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Negro River",
+        "Río Baria"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: upper Negro River basin. Type locality: Neblina base camp, Río Mawarinuma, Río Baria drainage, Territory Fed. Amazonas, southern Venezuela, 0°55'N, 66°10'W, elevation 120 meters.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Río Baria"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: upper Negro River basin.",
+          "countries": [],
+          "regions": [
+            "Negro River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337964,
+      "total": 13,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          5
+        ],
+        [
+          "CO",
+          5
+        ],
+        [
+          "VE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

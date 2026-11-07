@@ -1,10 +1,13 @@
 {
   "slug": "hau-giang",
-  "name": "Hau Giang",
-  "altNames": [],
+  "name": "Hậu Giang",
+  "altNames": [
+    "Hau Giang"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

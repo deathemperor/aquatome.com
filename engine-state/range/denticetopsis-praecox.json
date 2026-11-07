@@ -1,0 +1,82 @@
+{
+  "id": "denticetopsis-praecox",
+  "native": {
+    "input": "e1d345addfa5b71d",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: upper Negro River basin. Type locality: Neblina base camp, Río Mawarinuma, Río Baria drainage, Territory Fed. Amazonas, southern Venezuela, 0°55'N, 66°10'W, elevation 120 meters.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Venezuela; Baria River, Upper Negro River basin.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Negro River",
+        "source": "planetcatfish",
+        "quote": "South America: upper Negro River basin.",
+        "ok": true
+      },
+      {
+        "name": "Río Baria",
+        "source": "planetcatfish",
+        "quote": "South America: upper Negro River basin. Type locality: Neblina base camp, Río Mawarinuma, Río Baria drainage, Territory Fed. Amazonas, southern Venezuela, 0°55'N, 66°10'W, elevation 120 meters.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Denticetopsis praecox",
+    "status": "ACCEPTED",
+    "taxonKey": 2337964,
+    "datasets": [
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

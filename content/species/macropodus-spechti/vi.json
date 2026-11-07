@@ -1,13 +1,14 @@
 {
-  "slug": "ca-thien-duong-den",
-  "name": "Cá thiên đường đen",
+  "slug": "ca-co-den",
+  "name": "Cá cờ đen",
   "altNames": [
+    "Cá thiên đường đen",
     "Cá thiên đường Specht",
     "Black Paradise Fish",
     "Cá bơi lội đen Specht"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Đây là một loài cá thiên đường. Trong Danh sách Đỏ IUCN, loài này được xếp hạng LC (ít quan tâm).</p><p>Cá thiên đường đen có thân màu sẫm, dáng giống cá sặc, và mỗi chiếc vảy có một đường viền đen rất đẹp. Khác với cá betta, loài này sống chung được với đồng loại. Khi nuôi theo đàn, chúng thường tự phân ngôi thứ với nhau. Cá rất khỏe và chịu được nhiều mức nhiệt khác nhau, nên rất hợp với người mới chơi.</p>",
+    "quickFacts:bwaquatics": "<p>Đây là một loài cá cờ. Trong Danh sách Đỏ IUCN, loài này được xếp hạng LC (ít quan tâm).</p><p>Cá cờ đen có thân màu sẫm, dáng giống cá sặc, và mỗi chiếc vảy có một đường viền đen rất đẹp. Khác với cá betta, loài này sống chung được với đồng loại. Khi nuôi theo đàn, chúng thường tự phân ngôi thứ với nhau. Cá rất khỏe và chịu được nhiều mức nhiệt khác nhau, nên rất hợp với người mới chơi.</p>",
     "distribution:bwaquatics": "<p>Loài này có nguồn gốc ở miền Trung Việt Nam. Chúng tập trung nhiều nhất ở hệ thống sông Thu Bồn thuộc tỉnh Quảng Nam và lưu vực sông Hương thuộc tỉnh Thừa Thiên-Huế.</p>",
     "aquariumSize:bwaquatics": "<p>Một cặp có thể sống chung trong bể khoảng 40–75 lít.</p>",
     "waterConditions:bwaquatics": "<ul><li>TDS: từ khoảng 60 trở lên. Cá chịu được nước có TDS cao.</li><li>pH: 6,0–7,8. Thông số nước không quá quan trọng với loài này.</li><li>Nhiệt độ: 21–28 °C. Cá sống tốt ở nước mát, nhưng nước ấm hơn sẽ kích cá lên màu và bắt đầu sinh sản.</li></ul>",
@@ -16,7 +17,7 @@
     "dimorphism:bwaquatics": "<p>Cá đực có vây hậu môn, vây lưng và vây đuôi dài ra. Cá cái thì thân tròn hơn hẳn.</p>",
     "reproduction:bwaquatics": "<p>Cá sinh sản bằng cách làm tổ bọt.</p>",
     "notes:bwaquatics": "<p>Kích thước tối đa: khoảng 13 cm, tính cả đuôi.</p>",
-    "quickFacts:seriouslyfish": "<p>Cá thiên đường đen (Macropodus spechti) là một loài cá mê cung ở miền Trung Việt Nam. Hiện chỉ biết chắc loài này có ở hệ thống sông Thu Bồn và sông Hương. Tên của nó hay bị gán nhầm cho M. erythropterus, một loài trông khá giống. M. erythropterus dễ nhận ra nhờ sắc đỏ ở vây lưng, vây hậu môn và vây đuôi. Một số tài liệu cũ gọi loài này là M. concolor. Cá khá hiền, trừ lúc sinh sản, và thường được nuôi theo cặp.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá cờ đen (Macropodus spechti) là một loài cá mê cung ở miền Trung Việt Nam. Hiện chỉ biết chắc loài này có ở hệ thống sông Thu Bồn và sông Hương. Tên của nó hay bị gán nhầm cho M. erythropterus, một loài trông khá giống. M. erythropterus dễ nhận ra nhờ sắc đỏ ở vây lưng, vây hậu môn và vây đuôi. Một số tài liệu cũ gọi loài này là M. concolor. Cá khá hiền, trừ lúc sinh sản, và thường được nuôi theo cặp.</p>",
     "distribution:seriouslyfish": "<p>Loài này chỉ được ghi nhận chắc chắn ở hệ thống sông Thu Bồn (tỉnh Quảng Nam) và lưu vực sông Hương, tên tiếng Anh là Perfume River (tỉnh Thừa Thiên-Huế), đều thuộc miền Trung Việt Nam.</p><p>Nơi thu mẫu chuẩn (type locality) của loài bị ghi nhầm là 'Dutch Indies [Indonesia]'.</p>",
     "habitat:seriouslyfish": "<p>Người ta đã bắt được loài này ở mương thủy lợi, ruộng lúa, vũng nước, đầm lầy, suối vùng đồi và những đoạn nước tù ven các con sông lớn.</p>",
     "aquariumSize:seriouslyfish": "<p>Với một cặp, bể nên có đáy tối thiểu 80 × 30 cm hoặc tương đương (khoảng 72 lít).</p>",
@@ -36,5 +37,12 @@
       "bwaquatics": 0.82,
       "seriouslyfish": 0.95
     }
-  }
+  },
+  "redirectFrom": [
+    {
+      "slug": "ca-thien-duong-den",
+      "name": "Cá thiên đường đen"
+    }
+  ],
+  "nameFixed": true
 }

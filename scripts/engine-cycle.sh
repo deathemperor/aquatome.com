@@ -35,6 +35,7 @@ push() {
       # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
       # (verify_cycle: the tests).
       if git pull -q --rebase -X theirs; then
+        sweep_merged
         verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
@@ -220,6 +221,8 @@ if part rewrite; then
   # Their other names gain the ones Wikidata gives (CC0), where no other page uses the name: pages made or remade this cycle too.
   for lang in id th; do pnpm engine wikidata-names --lang "$lang" || log "wikidata-names $lang: failed"; done
   for lang in vi id th; do pnpm engine shop-names --lang "$lang" || log "shop-names $lang: failed"; done
+  # Rivers and regions under the names Vietnamese readers use, before the other languages name them.
+  pnpm engine name-places-vi || log "name-places-vi: failed"
   # Plants, glossary terms, place names, AquaTome's own guides, breed pages, photo captions and buying guides in both: only what is new or whose source changed.
   for lang in id th; do
     pnpm engine localize --lang "$lang" --kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}" || log "localize plants $lang: failed"
@@ -242,7 +245,9 @@ if part rewrite; then
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
-  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live.
+  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live;
+  # and Malay, served since its UI text was complete, still at a new language's pace (10 species a cycle) here, its new UI
+  # strings now asked for by the build above.
   # After everything readers see, and each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES: they give
   # first when a cycle runs long. A cycle starts every 3 hours and took 91-135 min in November 2026, so 135 leaves the
   # longest step here (10 species, about 20 min) and the build, tests and push (about 6) inside the 170 min the next cycle
@@ -306,6 +311,7 @@ git commit -q -m "content: engine $PART $(date -u +%F)"
 # (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails stays here unpushed, and the
 # next cycle drops it.
 catch_up
+sweep_merged
 if ! verify_cycle; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi

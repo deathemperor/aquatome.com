@@ -10,6 +10,50 @@
     "bahamas",
     "san-salvador-island"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BS"
+      ],
+      "regions": [
+        "San Salvador Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to San Salvador Island in the Bahamas where it's known from six hypersaline lakes; Crescent Pond, Osprey Lake, Oyster Lake, Little Lake, Mermaid Pond and Great Lake.",
+          "countries": [
+            "BS"
+          ],
+          "regions": [
+            "San Salvador Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7976049,
+      "total": 69,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BS",
+          69
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          23.90625,
+          69,
+          69
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
