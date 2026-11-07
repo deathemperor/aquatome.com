@@ -10,6 +10,68 @@
     "brazil",
     "rio-purus"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Purus"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The long-nosed smudge spot cory, Corydoras ourastigma, is an armoured catfish from the Rio Purus basin in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Purus basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Purus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342777,
+      "total": 3,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

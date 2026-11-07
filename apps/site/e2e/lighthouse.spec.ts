@@ -34,7 +34,7 @@ const KNOWN: Record<string, Partial<Budget>> = {
 
 // One page of each kind, the first in the build (or the sitemap), so the same page is measured each time. The plant and
 // guide lists too: their filters and chips must not shift the page as it loads.
-const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/2', 'vi/cay/3', 'vi/huong-dan/2', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1']
+const KINDS = ['vi//1', 'vi/ca/2', 'vi/ca/3', 'vi/cay/2', 'vi/cay/3', 'vi/huong-dan/2', 'vi/huong-dan/3', 'vi/cong-cu/2', 'vi/cong-cu/3', 'th//1', 'ms//1']
 // Plus the pages whose weight isn't their kind's: search, tank-mates (every species' index inline), fish ID (its
 // script and the slot its Turnstile widget fills), and the setup budget (its price tables in its script).
 // A kind's first page that search engines are offered: a noindex page (a thin species or plant) fails SEO by design

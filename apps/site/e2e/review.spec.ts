@@ -21,14 +21,14 @@ const daily = LIVE && pool.length ? Array.from({ length: 6 }, (_, i) => pool[(se
 // E2E_REVIEW_PAGES: other pages instead (comma-separated paths), for a one-off review.
 const PAGES = process.env.E2E_REVIEW_PAGES ? process.env.E2E_REVIEW_PAGES.split(',') : [...new Set([...KEY, ...daily, ...recheckPages()])]
 
-const SYSTEM = `You review pages of AquaTome, an aquarium handbook (Vietnamese, with Indonesian and Thai versions), as a reader would see them.
+const SYSTEM = `You review pages of AquaTome, an aquarium handbook (Vietnamese, with Indonesian, Thai and Malay versions), as a reader would see them.
 You get the page's address, its outline, and screenshots: phone.png (a phone's first three screens) and desktop.png (a computer's first screen). Open both with the Read tool.
 
 Report only problems a reader would notice and be hurt by:
 - the page doesn't do what its address promises: a search (?q=…) or filter whose results aren't what the first screens show; a tool whose answer isn't visible after its form
 - broken layout: overlapping or cut-off text, elements wider than the screen, controls that look broken or unusable on a phone
 - empty or placeholder sections, missing pictures where a picture is clearly meant to be, "undefined", raw code or template text
-- text in the wrong language for the page (Vietnamese words on an Indonesian or Thai page; names of species and products are fine)
+- text in the wrong language for the page (Vietnamese words on an Indonesian, Thai or Malay page; names of species and products are fine)
 - something plainly wrong at a glance: impossible numbers or units, a heading that contradicts its content, a picture that obviously shows something else
 
 Do not report: style or taste, things you cannot see in the screenshots, missing features, ads being absent (they are blocked in this check), pictures from other websites failing to load (they are blocked too: a grey box where a photo goes is expected).
@@ -41,7 +41,7 @@ const SCHEMA = {
   properties: { findings: { type: 'array', items: { type: 'object', required: ['severity', 'title', 'evidence', 'fix'], additionalProperties: false, properties: { severity: { enum: ['high', 'medium', 'low'] }, title: { type: 'string' }, evidence: { type: 'string' }, fix: { type: 'string' } } } } },
 }
 // A local build (a PR's check) is built from test/fixture-content: a few sample entries, none in some languages.
-const TEST_BUILD = '\n\nThis is a test build made from a small sample of content: a section with few or no entries (for example no species in the Indonesian or Thai version) is expected here, and some sample captions contain HTML tags on purpose (to check they show as text). Don\'t report those; report everything else as usual.'
+const TEST_BUILD = '\n\nThis is a test build made from a small sample of content: a section with few or no entries (for example no species in the Indonesian, Thai or Malay version) is expected here, and some sample captions contain HTML tags on purpose (to check they show as text). Don\'t report those; report everything else as usual.'
 /** The site's media host (photos, the hero); the checks block every other origin (fixtures.ts). A later route wins. */
 const MEDIA = (url: URL) => url.hostname === 'media.aquatome.com'
 /** Pictures from other websites (Wikimedia, YouTube…) arrive as a grey box, as the prompt says; anything else blocked stays blocked. */

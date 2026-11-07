@@ -12,6 +12,80 @@
     "malaysia",
     "langkawi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Koh Yao Yai",
+        "Malay Peninsula",
+        "Phuket",
+        "Ko Lanta",
+        "Langkawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Koh Yao Yai",
+            "Malay Peninsula",
+            "Phuket",
+            "Ko Lanta",
+            "Langkawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362690,
+      "total": 9,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TH",
+          8
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          98.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

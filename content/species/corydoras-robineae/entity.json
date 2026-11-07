@@ -10,6 +10,68 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The flagtail cory, Brochis robineae, long known as Corydoras robineae, is an armoured catfish from the upper Rio Negro in Brazil, also known as the bannertail cory.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Upper Rio Negro, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342652,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          0,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

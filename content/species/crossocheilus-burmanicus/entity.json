@@ -14,6 +14,108 @@
     "salween",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "IN",
+        "TH"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to Myanmar plus rivers in northeastern India and western Thailand draining into the Irrawaddy and Salween river systems.",
+          "countries": [
+            "MM",
+            "IN",
+            "TH"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361955,
+      "total": 19,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          14
+        ],
+        [
+          "CN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          94.21875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          95.625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          23.90625,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          23.90625,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

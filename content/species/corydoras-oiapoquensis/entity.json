@@ -10,6 +10,82 @@
     "french-guiana",
     "oyapock"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF"
+      ],
+      "regions": [
+        "Oyapock"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Cumuri Creek at left bank of Oyapock R., French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Oyapock River basin.",
+          "countries": [],
+          "regions": [
+            "Oyapock"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342699,
+      "total": 59,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GF",
+          29
+        ],
+        [
+          "BR",
+          28
+        ],
+        [
+          "EC",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -53.4375,
+          1.40625,
+          23,
+          5
+        ],
+        [
+          -53.4375,
+          2.8125,
+          32,
+          23
+        ],
+        [
+          -52.03125,
+          2.8125,
+          2,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

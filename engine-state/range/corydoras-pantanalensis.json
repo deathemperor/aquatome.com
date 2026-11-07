@@ -1,0 +1,55 @@
+{
+  "id": "corydoras-pantanalensis",
+  "native": {
+    "input": "0b39784a49375628",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brochis pantanalensis is found in the Bolivian part of it.",
+        "words": "Bolivian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pantanal",
+        "source": "seriouslyfish",
+        "quote": "As its species name suggests, it hails from the famous Pantanal wetland area.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras pantanalensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342616,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

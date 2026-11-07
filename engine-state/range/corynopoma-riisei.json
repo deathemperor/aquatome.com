@@ -1,0 +1,131 @@
+{
+  "id": "corynopoma-riisei",
+  "native": {
+    "input": "a59bc658e57378c1",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Northern Venezuela and the Villavicencio area in Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Northern Venezuela and the Villavicencio area in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There's also a thriving extant population existing on the island of Trinidad.",
+        "words": "Trinidad",
+        "ok": false,
+        "why": "\"Trinidad\" is not TT"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Trinidad",
+        "source": "seriouslyfish",
+        "quote": "There's also a thriving extant population existing on the island of Trinidad.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TT"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corynopoma riisei",
+    "status": "ACCEPTED",
+    "taxonKey": 2352683,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        43
+      ],
+      [
+        "640ae8b7-14b9-4188-894a-a2bc3821c752",
+        39
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        19
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        13
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        13
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        9
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "0d055e8f-d1be-43dd-be4b-f44b53605554",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

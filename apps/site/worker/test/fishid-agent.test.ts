@@ -290,6 +290,21 @@ test('the agent on: a call after the first fails → its key set aside as the ro
   expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'fallback', turns: 3, tools: 1, attempts: 3 })
 })
 
+test('the agent on: a key that runs out of credit between calls is set aside, the next key answers, and the reader is not charged for it', async () => {
+  const { e, kv, points } = agentEnv()
+  const c = claude([
+    () => asks([['search_handbook', { query: 'Paracheirodon innesi', genus: null }]]),
+    // What an organisation with no credit answers (a real key, 2026-11-07): a 400, not a 402.
+    () => apiError(400, 'invalid_request_error', 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'),
+    () => message(NEON),
+  ])
+  const res = await run(post(), e, deps(c.fetch))
+  expect(res.status).toBe(200)
+  expect(c.calls.map(x => x.key)).toEqual([A, A, B])
+  expect(JSON.parse(kv.get(`fishid:key:${await keyHash(A)}`)!.v)).toMatchObject({ why: 'credit' })
+  expect(fields(points[0]!)).toMatchObject({ outcome: 'ok', stopped: 'fallback' })
+})
+
 test('the agent on: a failed call with under 10 s left answers unavailable, and the reader\'s count is given back', async () => {
   const { e, kv, points, ledger } = agentEnv()
   const c = claude([() => asks([['search_handbook', { query: 'neon', genus: null }]]), () => apiError(529, 'overloaded_error', 'Overloaded')])
