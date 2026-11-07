@@ -1,10 +1,13 @@
 {
   "slug": "lake-shiraz",
-  "name": "Lake Shiraz",
-  "altNames": [],
+  "name": "hồ Shiraz",
+  "altNames": [
+    "Lake Shiraz"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "nilgiri-hills",
-  "name": "Nilgiri Hills",
-  "altNames": [],
+  "name": "đồi Nilgiri",
+  "altNames": [
+    "Nilgiri Hills"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "lake-tuz",
-  "name": "Lake Tuz",
-  "altNames": [],
+  "name": "hồ Tuz",
+  "altNames": [
+    "Lake Tuz"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

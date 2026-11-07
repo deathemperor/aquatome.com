@@ -165,7 +165,7 @@ export function ensurePlaces(places: PagePlace[], known: Set<string>): Item<Plac
 }
 
 /** A river or region only a species' range names, so the translator pass names it and the page shows it in each language. */
-export function rangePlace(name: string, country?: string): Item<PlaceEntity> {
+export function rangePlace(name: string, countries: string[] = []): Item<PlaceEntity> {
   const id = placeId(name)
-  return { entity: { id, kind: regionKind(name), ...(country ? { country } : {}) }, vi: { slug: id, name, altNames: [], sections: {}, quality: DEFAULT_QUALITY } }
+  return { entity: { id, kind: regionKind(name), ...(countries.length ? { countries } : {}) }, vi: { slug: id, name, altNames: [], sections: {}, quality: DEFAULT_QUALITY } }
 }

@@ -189,11 +189,11 @@ test('every river and region a range names gets a place for the names step: its 
   await mkdir(join(s.root, 'content/places/red-river'), { recursive: true })
   await writeFile(join(s.root, 'content/places/red-river/entity.json'), JSON.stringify({ id: 'red-river', kind: 'river', parent: 'vietnam' }))
   await writeRangePlaces(s.root, ['betta-splendens', 'betta-older'])
-  expect(await place('song-ky-cung')).toEqual({ id: 'song-ky-cung', kind: 'region', country: 'VN' })
+  expect(await place('song-ky-cung')).toEqual({ id: 'song-ky-cung', kind: 'region', countries: ['VN', 'CN'] })
   expect(await place('song-ky-cung', 'vi')).toMatchObject({ slug: 'song-ky-cung', name: 'Sông Kỳ Cùng' })
-  expect(await place('western-ghats')).toEqual({ id: 'western-ghats', kind: 'region', country: 'VN' })
-  expect(await place('rio-negro')).toEqual({ id: 'rio-negro', kind: 'river', country: 'CN' })
-  expect(await place('ma')).toEqual({ id: 'ma', kind: 'region', country: 'TH' })
+  expect(await place('western-ghats')).toEqual({ id: 'western-ghats', kind: 'region', countries: ['VN', 'CN'] })
+  expect(await place('rio-negro')).toEqual({ id: 'rio-negro', kind: 'river', countries: ['CN'] })
+  expect(await place('ma')).toEqual({ id: 'ma', kind: 'region', countries: ['TH'] })
   expect(await place('red-river')).toEqual({ id: 'red-river', kind: 'river', parent: 'vietnam' })
 })
 
@@ -208,7 +208,7 @@ test('the step writes each species\' range after its places, keeps the sentences
   expect(r.records.fetched).toEqual(['betta-quiet', 'betta-splendens'])
   const e = SpeciesSchema.parse(JSON.parse(await s.read('betta-splendens')))
   expect(Object.keys(e).slice(6, 8)).toEqual(['places', 'range'])
-  expect(JSON.parse(await readFile(join(s.root, 'content/places/chao-phraya/entity.json'), 'utf8'))).toEqual({ id: 'chao-phraya', kind: 'region', country: 'TH' })
+  expect(JSON.parse(await readFile(join(s.root, 'content/places/chao-phraya/entity.json'), 'utf8'))).toEqual({ id: 'chao-phraya', kind: 'region', countries: ['TH'] })
   expect(e.range).toEqual({
     native: {
       countries: ['TH'], regions: ['Chao Phraya'], sources: ['seriouslyfish'],

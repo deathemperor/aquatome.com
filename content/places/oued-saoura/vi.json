@@ -1,10 +1,13 @@
 {
   "slug": "oued-saoura",
-  "name": "Oued Saoura",
-  "altNames": [],
+  "name": "sông Saoura",
+  "altNames": [
+    "Oued Saoura"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

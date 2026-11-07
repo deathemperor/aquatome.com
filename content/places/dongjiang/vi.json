@@ -1,10 +1,13 @@
 {
   "slug": "dongjiang",
-  "name": "Dongjiang",
-  "altNames": [],
+  "name": "Đông Giang",
+  "altNames": [
+    "Dongjiang"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

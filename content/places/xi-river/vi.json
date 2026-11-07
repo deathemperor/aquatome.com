@@ -1,10 +1,13 @@
 {
   "slug": "xi-river",
-  "name": "Xi River",
-  "altNames": [],
+  "name": "sông Tây Giang",
+  "altNames": [
+    "Xi River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

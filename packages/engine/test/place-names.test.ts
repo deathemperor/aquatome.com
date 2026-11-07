@@ -28,7 +28,7 @@ const llmNaming = (names: Record<string, string>, wrong: string[] = []) => {
 test('rivers and regions get the name readers use: the old one kept as another name, the address the same, and asked once', async () => {
   const s = await site({
     'red-river': { entity: { kind: 'river', parent: 'vietnam' }, name: 'Red River' },
-    ma: { entity: { kind: 'region', country: 'VN' }, name: 'Mã', altNames: ['Song Ma'] },
+    ma: { entity: { kind: 'region', countries: ['VN', 'CN'] }, name: 'Mã', altNames: ['Song Ma'] },
     china: { entity: { kind: 'country', parent: 'asia' }, name: 'Trung Quốc' },
     asia: { entity: { kind: 'continent' }, name: 'Châu Á' },
     'cayman-islands': { entity: { kind: 'country', parent: 'north-america' }, name: 'Cayman Islands' },
@@ -38,7 +38,7 @@ test('rivers and regions get the name readers use: the old one kept as another n
   const r = await namePlacesVi(s.root, llm)
   expect(r.done.sort()).toEqual(['cayman-islands', 'ma', 'red-river'])
   expect(prompts[0]).toContain('### red-river (river, in vietnam): Red River')
-  expect(prompts[0]).toContain('### ma (region, in VN): Mã (Song Ma)')
+  expect(prompts[0]).toContain('### ma (region, in VN, CN): Mã (Song Ma)')
   expect(prompts[0]).not.toContain('### china')
   expect(prompts[0]).not.toContain('### kept-by-owner')
   expect(await s.read('red-river')).toMatchObject({ slug: 'red-river', name: 'sông Hồng', altNames: ['Red River'], nameFixed: true })
@@ -67,7 +67,7 @@ test('a name the reviewer calls wrong, with an English word or none is not writt
 })
 
 test('until then the sweep puts the generic word in Vietnamese, so no name keeps one in English, and leaves the rest', async () => {
-  for (const [name, vi] of [['Congo River', 'sông Congo'], ['Lake Tumba', 'hồ Tumba'], ['Bangka Island', 'đảo Bangka'], ['Riau Islands', 'quần đảo Riau'], ['Ajamaru Lakes', 'hồ Ajamaru'], ['Chad basin', 'lưu vực Chad'], ['Congo River Basin', 'lưu vực sông Congo'], ['Aceh Province', 'tỉnh Aceh'], ['Cross River State', 'sông Cross State'], ['Anatolia', 'Anatolia'], ['Annamite Mountains', 'dãy Annamite'], ['Malay Peninsula', 'bán đảo Malay'], ['Rio Negro', 'sông Negro'], ['Río Orinoco', 'sông Orinoco'], ['Rio Negro Basin', 'lưu vực sông Negro'], ['Rio de Janeiro', 'Rio de Janeiro'], ['Rio Grande do Sul', 'Rio Grande do Sul']] as const) {
+  for (const [name, vi] of [['Congo River', 'sông Congo'], ['Lake Tumba', 'hồ Tumba'], ['Bangka Island', 'đảo Bangka'], ['Riau Islands', 'quần đảo Riau'], ['Ajamaru Lakes', 'hồ Ajamaru'], ['Chad basin', 'lưu vực Chad'], ['Congo River Basin', 'lưu vực sông Congo'], ['Aceh Province', 'tỉnh Aceh'], ['Cross River State', 'sông Cross State'], ['Anatolia', 'Anatolia'], ['Annamite Mountains', 'dãy Annamite'], ['Malay Peninsula', 'bán đảo Malay'], ['Rio Negro', 'sông Negro'], ['Río Orinoco', 'sông Orinoco'], ['Rio Negro Basin', 'lưu vực sông Negro'], ['Rio de Janeiro', 'Rio de Janeiro'], ['Rio Grande do Sul', 'Rio Grande do Sul'], ['Río Muni', 'Río Muni'], ['Río de la Plata', 'Río de la Plata']] as const) {
     expect(genericWordsInVietnamese(name)).toBe(vi)
     expect(genericWordsInVietnamese(name)).not.toMatch(ENGLISH_PLACE_WORD)
   }

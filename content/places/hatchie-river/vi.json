@@ -1,10 +1,13 @@
 {
   "slug": "hatchie-river",
-  "name": "Hatchie River",
-  "altNames": [],
+  "name": "sông Hatchie",
+  "altNames": [
+    "Hatchie River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

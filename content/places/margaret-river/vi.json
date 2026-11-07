@@ -1,10 +1,13 @@
 {
   "slug": "margaret-river",
-  "name": "Margaret River",
-  "altNames": [],
+  "name": "sông Margaret",
+  "altNames": [
+    "Margaret River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

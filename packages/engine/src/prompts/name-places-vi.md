@@ -2,7 +2,7 @@ Give each place below the name Vietnamese readers use, for an aquarium handbook'
 
 - Use the name Vietnamese readers already use, as Vietnamese atlases, encyclopedias and newspapers write it: "Red River" in Vietnam is "sông Hồng", "Mekong River" is "sông Mê Kông", "Yunnan" is "Vân Nam", "Annamite Mountains" is "dãy Trường Sơn", "Malay Peninsula" is "bán đảo Mã Lai".
 - With no established name, put the generic word in Vietnamese and keep the proper name as the source spells it: "Congo River" is "sông Congo", "Río Orinoco" is "sông Orinoco", "Bangka Island" is "đảo Bangka", "Riau Islands" is "quần đảo Riau", "Lake Tumba" is "hồ Tumba", "Congo basin" is "lưu vực sông Congo", "Aceh Province" is "tỉnh Aceh", "Cardamom Mountains" is "dãy Cardamom".
-- "Rio" or "Río" is the generic word only for a river: "Rio Negro" is "sông Negro". A city or state keeps it: "Rio de Janeiro", "Rio Grande do Sul".
+- "Rio" or "Río" is the generic word only for a river: "Rio Negro" is "sông Negro". A city, a state, a region or an estuary known by the whole name keeps it: "Rio de Janeiro", "Rio Grande do Sul", "Río Muni", "Río de la Plata".
 - Never invent a Vietnamese name. Never translate a proper name word by word: "Green River" is "sông Green", not "sông Xanh", and "Cross River" is "sông Cross".
 - If you are unsure, keep the source's name, with its generic word in Vietnamese if it has one. A name with no generic word and no established Vietnamese name stays as it is: "Anatolia", "Mã". The kind on the line is a guess, so don't add "sông" because of it.
 - The generic word in lower case, the proper name as a name: "sông Hồng", not "Sông hồng".

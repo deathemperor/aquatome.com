@@ -1,10 +1,13 @@
 {
   "slug": "mekong",
-  "name": "Mekong",
-  "altNames": [],
+  "name": "Mê Kông",
+  "altNames": [
+    "Mekong"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

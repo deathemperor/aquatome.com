@@ -1,10 +1,13 @@
 {
   "slug": "bogota",
-  "name": "Bogota",
-  "altNames": [],
+  "name": "Bogotá",
+  "altNames": [
+    "Bogota"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

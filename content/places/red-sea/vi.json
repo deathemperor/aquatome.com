@@ -1,10 +1,13 @@
 {
   "slug": "red-sea",
-  "name": "Red Sea",
-  "altNames": [],
+  "name": "Biển Đỏ",
+  "altNames": [
+    "Red Sea"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

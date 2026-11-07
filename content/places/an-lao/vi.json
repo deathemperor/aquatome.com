@@ -1,10 +1,13 @@
 {
   "slug": "an-lao",
-  "name": "An Lao",
-  "altNames": [],
+  "name": "An Lão",
+  "altNames": [
+    "An Lao"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

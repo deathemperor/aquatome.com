@@ -1,10 +1,13 @@
 {
   "slug": "jorai-river",
-  "name": "Jorai River",
-  "altNames": [],
+  "name": "sông Jorai",
+  "altNames": [
+    "Jorai River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

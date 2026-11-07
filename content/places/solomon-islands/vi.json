@@ -1,10 +1,13 @@
 {
   "slug": "solomon-islands",
-  "name": "Solomon Islands",
-  "altNames": [],
+  "name": "quần đảo Solomon",
+  "altNames": [
+    "Solomon Islands"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

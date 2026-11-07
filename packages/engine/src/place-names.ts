@@ -9,8 +9,8 @@ const PROMPT = readFileSync(new URL('./prompts/name-places-vi.md', import.meta.u
 const NAMES_SCHEMA = { type: 'object', required: ['places'], properties: { places: { type: 'array', items: { type: 'object', required: ['id', 'name'], properties: { id: { type: 'string' }, name: { type: 'string' } } } } } }
 const REVIEW_SCHEMA = { type: 'object', required: ['score', 'notes', 'wrong'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } }, wrong: { type: 'array', items: { type: 'string' } } } }
 
-// "Rio" and "Río" at the start of a name, as a river's; a city and a state keep theirs.
-const RIO = /^r[ií]o\b(?! de Janeiro\b| Grande do Sul\b)/i
+// "Rio" and "Río" at the start of a name, as a river's; a city, a state, a region and an estuary known by the whole name keep theirs.
+const RIO = /^r[ií]o\b(?! de Janeiro\b| Grande do Sul\b| Muni\b| de la Plata\b)/i
 /** A generic word left in a foreign language in a Vietnamese place name. The real-content test holds every place to none. */
 export const ENGLISH_PLACE_WORD = new RegExp(`\\b(rivers?|islands?|lakes?|basins?|provinces?|mountains?|peninsulas?)\\b|${RIO.source}`, 'i')
 
@@ -62,11 +62,11 @@ export async function namePlacesVi(root: string, llm: Llm, o: { model?: string; 
   const dir = join(root, 'content/places')
   const todo: { id: string; line: string; t: Translation }[] = []
   for (const id of (await readdir(dir).catch(() => [] as string[])).sort()) {
-    const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8').catch(() => '{}')) as { kind?: string; parent?: string; country?: string }
+    const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8').catch(() => '{}')) as { kind?: string; parent?: string; countries?: string[] }
     const t = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8').catch(() => '{}')) as Translation
     if (!t.name || (t.nameFixed && !o.redo)) continue
     if (e.kind !== 'river' && e.kind !== 'region' && !ENGLISH_PLACE_WORD.test(t.name)) continue
-    const where = e.parent ?? e.country
+    const where = e.parent ?? e.countries?.join(', ')
     const source = sourceName(t)
     const others = t.altNames.filter(a => a !== source)
     todo.push({ id, t: { ...t, name: source, altNames: others }, line: `### ${id} (${e.kind}${where ? `, in ${where}` : ''}): ${source}${others.length ? ` (${others.join(', ')})` : ''}` })

@@ -180,8 +180,8 @@ export const SeriesSchema = z.object({
 export const GlossarySchema = z.object({ id: z.string(), en: z.string(), latin: z.string().optional() })
 export const PlaceSchema = z.object({
   id: z.string(), kind: z.enum(['continent', 'country', 'region', 'river']), parent: z.string().optional(),
-  /** Where a river or region only a species' range names lies (ISO code), for whoever names it. A `parent` would list it on the country's page and link its name in guides. */
-  country: z.string().optional(),
+  /** The countries (ISO codes) of the sentence that names a river or region only a species' range names, for whoever names it. A `parent` would list it on the country's page and link its name in guides. */
+  countries: z.array(z.string()).optional(),
 })
 
 /** AquaTome's own buying guide for one equipment category (content/equipment/<category>.json, Vietnamese). */

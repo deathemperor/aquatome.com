@@ -1,10 +1,13 @@
 {
   "slug": "french-broad-river",
-  "name": "French Broad River",
-  "altNames": [],
+  "name": "sông French Broad",
+  "altNames": [
+    "French Broad River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

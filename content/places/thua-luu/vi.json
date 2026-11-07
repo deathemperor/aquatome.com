@@ -1,10 +1,13 @@
 {
   "slug": "thua-luu",
-  "name": "Thua Luu",
-  "altNames": [],
+  "name": "Thừa Lưu",
+  "altNames": [
+    "Thua Luu"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }
