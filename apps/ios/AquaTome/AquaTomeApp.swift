@@ -54,6 +54,9 @@ struct AquaTomeApp: App {
     // as a reader sees it.
     if ProcessInfo.processInfo.arguments.contains("-no-animations") { UIView.setAnimationsEnabled(false) }
     #endif
+    // The phone's language, taken while the app has none of its own (after the tests' reset): what "Theo máy" gives
+    // once it has, though the sheet was never opened (Language.swift).
+    _ = AppLanguage.phone
     // Read after the tests' reset above (the handbook keeps the pages read).
     let handbook = HandbookModel()
     _handbook = State(initialValue: handbook)

@@ -70,19 +70,23 @@ struct Tile: View {
   }
 }
 
-/// "Ứng dụng": the app's icon (the current one beside it), its appearance, and the pages kept to read offline, how many,
+/// "Ứng dụng": the app's icon (the current one beside it), its appearance and language, and the pages kept to read offline, how many,
 /// which opens their shelf on the Tìm tab, where pages open.
 private struct AppSection: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
 
+  /// "Ngôn ngữ" as kept, which the section's footer reads too.
+  @State private var language = AppLanguage.stored
+
   var body: some View {
-    Section("Ứng dụng") {
+    Section {
       NavigationLink { AppIconPicker() } label: {
         Label { Text("Biểu tượng ứng dụng") } icon: { CurrentIcon() }
       }
       .accessibilityIdentifier("app-icon-row")
       AppearanceRow()
+      LanguageRow(choice: $language)
       let kept = handbook.keptItems.count
       if kept > 0 {
         Button { openScreen(.kept) } label: {
@@ -97,6 +101,10 @@ private struct AppSection: View {
         }
         .accessibilityIdentifier("kept-row")
       }
+    } header: {
+      Text("Ứng dụng")
+    } footer: {
+      LanguageNote(choice: language)
     }
   }
 }
