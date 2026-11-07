@@ -28,6 +28,8 @@ test('a stream\'s order, as the contract has it (x-order, x-whole): steps, then 
   expect(streamMisfits(`${ev('block', tool)}${ev('text', { text: 'ab' })}${done({ blocks: [tool] })}`, sse).join()).toMatch(/\[1\] text: after a later kind of event/)
   expect(streamMisfits(`${ev('text', { text: 'ab' })}${ev('block', tool)}${ev('step', step)}${done({ blocks: [tool], steps: [step] })}`, sse).join()).toMatch(/\[2\] step: after a later kind of event/)
   expect(streamMisfits(`${ev('text', { text: 'a' })}${done({})}`, sse)).toEqual(["done: its text isn't the pieces joined"])
+  // A retry's replay: the kept turn as one done, nothing streamed before it.
+  expect(streamMisfits(done({ blocks: [tool], steps: [step] }), sse)).toEqual([])
   expect(streamMisfits(`${ev('text', { text: 'ab' })}${done({ blocks: [tool] })}`, sse)).toEqual(["done: its blocks aren't the blocks streamed"])
   expect(streamMisfits(`${ev('step', step)}${ev('text', { text: 'ab' })}${done({})}`, sse)).toEqual(["done: its steps aren't the steps streamed"])
 })
