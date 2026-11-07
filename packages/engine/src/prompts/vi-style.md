@@ -12,6 +12,7 @@ Viết như một người chơi thủy sinh lâu năm giải thích cho bạn m
 - Giữ đúng mức chắc chắn của nguồn. Nguồn nói "có thể", "tôi đoán", "nghe hơi khó tin" thì viết "có thể", "nhiều khả năng", "chuyện này khó xảy ra". Không biến ý kiến thành khẳng định, không thêm chi tiết nguồn không nói.
 - Không nhắc tác giả, người làm video, kênh hay bài gốc: không viết "theo tác giả", "tác giả cho rằng", "trong video này", "bài gốc". Trang đã ghi nguồn, nên cứ viết thẳng ý. Bỏ dòng tên tác giả và phần giới thiệu tác giả. Người mô tả loài trong phân loại học ("Knaack, 1962", "các tác giả xếp loài này vào…") thì giữ.
 - Dùng từ dân chơi Việt quen dùng: set bể, thay nước, châm phân, châm CO2, rêu bám, cây lên, lũa, nền, lọc. Từ tiếng Anh chỉ giữ khi dân chơi Việt vẫn nói vậy (drop checker, dark start, BBA), lần đầu giải thích ngắn.
+- Tên châu lục viết như người Việt viết: châu Phi, châu Á, châu Âu, châu Mỹ, Nam Mỹ. Không viết "Phi châu".
 
 Ví dụ, câu máy viết và câu người viết:
 

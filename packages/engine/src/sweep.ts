@@ -8,6 +8,7 @@ import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropP
 import { loadPages, sectionFields } from './pages'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
+import { viWording } from './sanitize'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
@@ -37,6 +38,8 @@ import { readVideoRejected } from './videos'
  *   or a card with no minimum tank, is left as it is
  * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
  *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
+ * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
+ *   viWording), as the page's own text has them (fixTranslation)
  * - a species' other names, in each language: its own only (alt-names.ts). A breed page's name leaves it (that page is
  *   found by it), a colour form's or bred line's goes, a name written twice is kept once. Each name taken off is kept in
  *   engine-state/_names-off.json with why, for a person to check.
@@ -159,6 +162,18 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
       }
     }
+  }
+
+  // A fish's summary, written from its page: the words Vietnamese readers write another way, written their way, as on the page.
+  for (const f of (await readdir(join(content, 'summaries')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()) {
+    const file = join(content, 'summaries', f)
+    const raw = await readFile(file, 'utf8')
+    const s = JSON.parse(raw) as { summary: string; mistakes: string[] }
+    const next = { ...s, summary: viWording(s.summary), mistakes: s.mistakes.map(viWording) }
+    if (JSON.stringify(next) === JSON.stringify(s)) continue
+    await write(file, raw, next)
+    changed(`summaries/${f}`)
+    ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
   }
 
   // A species' other names: its own, each once.

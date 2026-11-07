@@ -4,7 +4,7 @@ import { HTMLElement, parse } from 'node-html-parser'
 import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang } from '@aq/schema'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
-import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice } from './sanitize'
+import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
 
 /**
@@ -495,6 +495,7 @@ export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
   furniture: SWEPT_KINDS, headings: SWEPT_KINDS, repeated: SWEPT_KINDS, labels: SWEPT_KINDS,
   // A guide's title is written; a breed's or product's is its name (a person may have fixed it: nameFixed), listed only.
   'title-count': ['guides'],
+  wording: SWEPT_KINDS,
   caption: ['species', 'plants'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
 }
 /** The findings the real-content test holds at zero. */
@@ -579,6 +580,11 @@ export const RULES: Rule[] = [
       const copies = [...laterCopies(fields)].flatMap(([fi, is]) => parse(fields[fi]!.html).querySelectorAll('p').filter((_, i) => is.has(i)).map(x => x.text.replace(/\s+/g, ' ').trim()))
       return [...new Set(copies)].map(s => `"${clip(s, 70)}"`)
     },
+  },
+  {
+    id: 'wording', title: 'Words Vietnamese readers write another way',
+    about: '"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays). The sweep writes each the readers\' way (sanitize.ts viWording) in a page\'s name, other names, text, summary and FAQ, and in the fish summaries.',
+    check: p => [...new Set([p.title, ...p.fields.map(f => f.html), ...p.lines.filter(l => /^(summary|faq)\./.test(l.field)).map(l => l.text)].flatMap(wordingSlips))],
   },
   {
     id: 'english', title: 'Sentences left in English',
@@ -685,17 +691,22 @@ ${sections.join('\n')}`
 }
 
 type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
-/** The fixes made on write, on one stored translation: tidyHtml on its HTML, unescapePlain on its plain text. */
+/**
+ * The fixes made on write (tidyHtml on its HTML, unescapePlain on its plain text) and, on both, the words Vietnamese
+ * readers write another way (viWording), on one stored translation.
+ */
 export function fixTranslation(t: Stored): Stored {
+  const plain = (s: string) => viWording(unescapePlain(s))
+  const html = (s: string) => viWording(tidyHtml(s))
   return {
     ...t,
-    ...(t.name !== undefined ? { name: unescapePlain(t.name) } : {}),
-    ...(t.altNames ? { altNames: t.altNames.map(unescapePlain) } : {}),
-    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, tidyHtml(v)])) } : {}),
-    ...(t.body !== undefined ? { body: tidyHtml(t.body) } : {}),
-    ...(t.definition !== undefined ? { definition: tidyHtml(t.definition) } : {}),
-    ...(t.summary ? { summary: t.summary.map(unescapePlain) } : {}),
-    ...(t.faq ? { faq: t.faq.map(f => ({ q: unescapePlain(f.q), a: unescapePlain(f.a) })) } : {}),
+    ...(t.name !== undefined ? { name: plain(t.name) } : {}),
+    ...(t.altNames ? { altNames: t.altNames.map(plain) } : {}),
+    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, html(v)])) } : {}),
+    ...(t.body !== undefined ? { body: html(t.body) } : {}),
+    ...(t.definition !== undefined ? { definition: html(t.definition) } : {}),
+    ...(t.summary ? { summary: t.summary.map(plain) } : {}),
+    ...(t.faq ? { faq: t.faq.map(f => ({ q: plain(f.q), a: plain(f.a) })) } : {}),
   }
 }
 

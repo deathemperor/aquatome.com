@@ -227,3 +227,26 @@ test("a language the site doesn't serve yet is swept too: its text fixed, its na
   expect((await json(root, 'content/species/corydoras-sterbai/ms.json')).altNames).toEqual(['Ikan Sterbai'])
   expect(r.files).toEqual(expect.arrayContaining(['guides/g/ms.json', 'species/corydoras-sterbai/ms.json']))
 })
+
+test('"Phi châu" is written "châu Phi" on a page, in its name, other names and summary, and tilapia\'s "rô phi châu Phi" stays', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  await mkdir(join(c, 'species/xenomystus-nigri'), { recursive: true })
+  await writeFile(join(c, 'species/xenomystus-nigri/entity.json'), JSON.stringify(species('xenomystus-nigri', 'Xenomystus nigri'), null, 1))
+  await writeFile(join(c, 'species/xenomystus-nigri/vi.json'), JSON.stringify({
+    ...vi('Cá dao Phi châu', { 'distribution:seriouslyfish': '<p>Phi châu, lưu vực Congo. Không nuôi chung với cá rô phi châu Phi.</p>' }), altNames: ['Cá dao đen phi châu'],
+  }, null, 1))
+  await writeFile(join(c, 'summaries/xenomystus-nigri.json'), JSON.stringify({ id: 'xenomystus-nigri', summary: 'Cá dao Phi châu hợp bể lớn.', mistakes: ['Thả chung cá nhỏ thì cá dao phi châu ăn mất.'], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' }, null, 2))
+  const held = async () => ratcheted(checkPages(await loadPages(c), RULES.filter(r => r.id === 'wording')).findings).map(f => `${f.page.path}: ${f.detail}`)
+  expect(await held()).toEqual(['/vi/ca/cá-dao-phi-châu/: "Phi châu" → "châu Phi"'])
+
+  const r = await sweep(root)
+  expect(await held()).toEqual([])
+  const t = await json(root, 'content/species/xenomystus-nigri/vi.json')
+  expect([t.name, t.altNames, t.sections]).toEqual(['Cá dao châu Phi', ['Cá dao đen châu Phi'], { 'distribution:seriouslyfish': '<p>Châu Phi, lưu vực Congo. Không nuôi chung với cá rô phi châu Phi.</p>' }])
+  expect(t.slug).toBe('cá-dao-phi-châu') // the address stays
+  expect(await json(root, 'content/summaries/xenomystus-nigri.json')).toMatchObject({ summary: 'Cá dao châu Phi hợp bể lớn.', mistakes: ['Thả chung cá nhỏ thì cá dao châu Phi ăn mất.'], review: 'approved' })
+  expect(r.text.wording).toEqual(['summaries/xenomystus-nigri'])
+  expect(r.text.tidy).toContain('species/xenomystus-nigri/vi')
+  expect((await sweep(root)).files).toEqual([])
+})

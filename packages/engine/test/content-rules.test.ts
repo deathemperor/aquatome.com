@@ -168,6 +168,19 @@ test('the fixes made on write, on a stored translation: HTML tidied, plain text 
   expect(fixTranslation(out)).toEqual(out)
 })
 
+test('"Phi châu" in a name, text, summary or FAQ is found, and fixTranslation writes it "châu Phi"; a product\'s review lines aren\'t the rule\'s', () => {
+  const p = page({ kind: 'species', title: 'Cá Oscar (cá tai tượng Phi châu)', fields: [{ field: 'sections.distribution:sf', html: '<p>Phi châu. Cá rô phi châu Phi.</p>' }], lines: [{ field: 'faq.0.a', text: 'Ở phi châu.' }] })
+  expect(found(p, 'wording')).toEqual(['"Phi châu" → "châu Phi"', '"phi châu" → "châu Phi"'])
+  expect(found(page({ kind: 'products', lines: [{ field: 'reviews.agree.0', text: 'Phi châu' }] }), 'wording')).toEqual([])
+  const t = { name: 'Cá Oscar (cá tai tượng Phi châu)', altNames: ['Cá dao Phi châu'], sections: { 'distribution:sf': '<p>Phi châu. Cá rô phi châu Phi.</p>' }, summary: ['Gốc phi châu.'], faq: [{ q: 'Phi châu?', a: 'Có.' }] }
+  const out = fixTranslation(t) as typeof t
+  expect(out).toEqual({
+    name: 'Cá Oscar (cá tai tượng châu Phi)', altNames: ['Cá dao châu Phi'], sections: { 'distribution:sf': '<p>Châu Phi. Cá rô phi châu Phi.</p>' }, summary: ['Gốc châu Phi.'], faq: [{ q: 'Châu Phi?', a: 'Có.' }],
+  })
+  expect(fixTranslation(out)).toEqual(out)
+  expect(found(page({ kind: 'species', title: out.name, fields: [{ field: 'sections.distribution:sf', html: out.sections['distribution:sf'] }] }), 'wording')).toEqual([])
+})
+
 test('a title\'s count held by numbered labels or as many bold leads; else the number dropped from the title', () => {
   // "13 mẹo…": Mẹo 1 to Mẹo 13 as bold leads under 8 headings; "10 sai lầm…" numbered out of order; "7 nguyên nhân" as 7 bold leads.
   const tips = `<h3>A</h3>${Array.from({ length: 13 }, (_, i) => `<p><strong>Mẹo ${i + 1}: x.</strong> y</p>`).join('')}`
