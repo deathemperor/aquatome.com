@@ -2,7 +2,9 @@
 """Which simulator flows each flow job of ios.yml runs (`app`, `handbook` and `lights`, in two halves each), as
 xcodebuild's -only-testing and -skip-testing arguments.
 
-`--full`: every flow, as main runs them (after merges, nightly and by hand) and a pull request labelled `ios-full`.
+`--full`: every flow, as main runs them (after merges, nightly and by hand) and a pull request labelled `ios-full`;
+`--full --own-mac` on the repository's own Mac, which runs jobs `app` and `handbook` on three simulators at once and
+the light flows on one, so nothing goes beside the light flows there (WITH_LIGHTS).
 Otherwise the changed paths of a pull request come on stdin, one a line. A pull request runs:
 - the smoke set (SMOKE, a few flows across the app's main journeys), when its change can reach any flow;
 - the whole class of each flow file it changes, so a check added or changed is seen to pass;
@@ -57,9 +59,10 @@ LIGHT_FIRST = [
 # Then (#677's run) 1,457 s here and 2,628 s in the rest: the tanks' flows moved here, 1,872 s, and two classes beside
 # the light flows (WITH_LIGHTS), 1,845 s left.
 APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests', 'TanksFlowTests']
-# Classes a full run puts beside each half of the light flows (832 s and 1,114 s in #677's run), out of the others' jobs:
-# about 1,900 s of flows in each of the six, under 45 minutes a job with its build. A pull request's light flows run
-# without them.
+# Classes a full run on GitHub's Macs puts beside each half of the light flows (832 s and 1,114 s in #677's run), out of
+# the others' jobs: about 1,900 s of flows in each of the six, under 45 minutes a job with its build. A pull request's
+# light flows run without them, and so does the own Mac's full run: its light jobs run one simulator, and its light
+# flows there already take 17 and 29 minutes of tests, 1.25 to 1.5 times GitHub's (main's runs of 2026-11-07).
 WITH_LIGHTS = {'1': ['TankVolumeFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests'],
                '2': ['FactsCardFlowTests', 'OfflineFlowTests', 'ViAtRootFlowTests', 'AppLinkFlowTests']}
 # Run elsewhere: the performance tests by job `perf`, the App Store's screenshots by app-store.yml.
@@ -158,13 +161,14 @@ def lights(beside=True):
     return halves(lights_1, lights_2)
 
 
-def full():
-    beside = WITH_LIGHTS['1'] + WITH_LIGHTS['2']
+def full(own_mac=False):
+    """Every flow, in each job's halves; on the own Mac (`own_mac`), none beside the light flows."""
+    beside = [] if own_mac else WITH_LIGHTS['1'] + WITH_LIGHTS['2']
     rest = [c for c in HANDBOOK if c not in HANDBOOK_FIRST + beside]
     # Job `app`'s second half skips the others' flows rather than naming its own, so a new class runs in it.
     skipped = dict.fromkeys(ELSEWHERE + ['LightFlowTests'] + HANDBOOK + APP_FIRST + beside)
     app = halves(only(APP_FIRST), ' '.join(f'-skip-testing:{UI}/{c}' for c in skipped))
-    return app, halves(only(HANDBOOK_FIRST), only(rest)), lights()
+    return app, halves(only(HANDBOOK_FIRST), only(rest)), lights(beside=not own_mac)
 
 
 def pick(paths):
@@ -222,7 +226,8 @@ def test():
     for name, text in source.items():
         assert not name.endswith('Tests') or re.search(rf'class {name}\b', text), f'{name}.swift has no class {name}'
     classes = {c for s in source.values() for c in re.findall(r'class (\w+): XCTestCase', s)}
-    named = set(HANDBOOK + HANDBOOK_FIRST + ELSEWHERE + SMOKE + ['LightFlowTests/' + t for t in LIGHT_FIRST])
+    named = set(HANDBOOK + HANDBOOK_FIRST + APP_FIRST + WITH_LIGHTS['1'] + WITH_LIGHTS['2'] + ELSEWHERE + SMOKE
+                + ['LightFlowTests/' + t for t in LIGHT_FIRST])
     named |= {f for r in REACH.values() if isinstance(r, list) for f in r}
     for f in named:
         cls, _, t = f.partition('/')
@@ -245,22 +250,24 @@ def test():
         rs = [reach(p) for p in paths]
         return ALL if ALL in rs else {f for r in rs if isinstance(r, list) for f in r}
 
-    # The full suite: both halves of each, every class of `app` in one of its halves (the second skips the first's).
-    everything = dict(zip(('app', 'handbook', 'lights'), full()))
-    assert everything['app']['halves'] == everything['handbook']['halves'] == everything['lights']['halves'] == '[1, 2]'
+    # The full suite, on GitHub's Macs and on the own Mac: both halves of each, and every class in one job (the light
+    # flows in their two halves): named by one, or left to `app (2)`, which skips the named ones and those run elsewhere.
     assert set(APP_FIRST) <= classes - set(HANDBOOK + ELSEWHERE + ['LightFlowTests']), APP_FIRST
-    assert all(f'-skip-testing:{UI}/{c}' in everything['app']['2'] for c in APP_FIRST)
-    # Every class in one job of the full run (the light flows in their two halves): named by one, or left to `app (2)`,
-    # which skips the named ones.
-    named_in = {}
-    for name, job in everything.items():
-        for n in '12':
-            for c in {t.split('/')[0] for t in re.findall(rf'-only-testing:{UI}/(\S+)', job[n])}:
-                named_in.setdefault(c, []).append(f'{name}_{n}')
-    assert all(len(js) == 1 or c == 'LightFlowTests' for c, js in named_in.items()), named_in
-    left_to_app = classes - set(named_in) - set(ELSEWHERE)
-    assert left_to_app and all(f'-skip-testing:{UI}/{c}' not in everything['app']['2'] for c in left_to_app), left_to_app
-    assert all(f'-skip-testing:{UI}/{c}' in everything['app']['2'] for c in named_in), everything['app']['2']
+    for own_mac in (False, True):
+        everything = dict(zip(('app', 'handbook', 'lights'), full(own_mac)))
+        assert everything['app']['halves'] == everything['handbook']['halves'] == everything['lights']['halves'] == '[1, 2]'
+        named_in = {}
+        for name, job in everything.items():
+            for n in '12':
+                for c in {t.split('/')[0] for t in re.findall(rf'-only-testing:{UI}/(\S+)', job[n])}:
+                    named_in.setdefault(c, []).append(f'{name}_{n}')
+        assert all(len(js) == 1 or c == 'LightFlowTests' for c, js in named_in.items()), named_in
+        left_to_app = classes - set(named_in) - set(ELSEWHERE)
+        assert left_to_app and all(f'-skip-testing:{UI}/{c}' not in everything['app']['2'] for c in left_to_app), left_to_app
+        assert all(f'-skip-testing:{UI}/{c}' in everything['app']['2'] for c in list(named_in) + ELSEWHERE), everything['app']['2']
+        # Beside the light flows on GitHub's Macs only.
+        beside = {c for c, js in named_in.items() if any(j.startswith('lights') for j in js)} - {'LightFlowTests'}
+        assert beside == (set() if own_mac else set(WITH_LIGHTS['1'] + WITH_LIGHTS['2'])), beside
     # The lists aren't what selects the flows: a change to them alone runs none.
     assert not machinery('apps/ios/scripts/flow_lists.py')
     assert runs(['apps/ios/scripts/flow_lists.py']) == {} and left(['apps/ios/scripts/flow_lists.py']) == ''
@@ -338,7 +345,8 @@ def test():
     got = runs([f'apps/ios/{UI}/LightFlowTests.swift'])
     assert got['app_1'] == [t for t in SMOKE if not t.startswith('Light')], got
     assert got['lights_1'] == ['LightFlowTests/' + t for t in LIGHT_FIRST], got
-    assert pick([f'apps/ios/{UI}/LightFlowTests.swift'])[0][2] == lights(beside=False)
+    # The light halves as the own Mac's full run has them.
+    assert pick([f'apps/ios/{UI}/LightFlowTests.swift'])[0][2] == full(own_mac=True)[2]
     assert not any(c in pick([f'apps/ios/{UI}/LightFlowTests.swift'])[0][2][n] for n in '12' for c in WITH_LIGHTS[n])
     # With the code it checks: its class and the page shots run; the other classes it reaches are left to main.
     # The page shots in `handbook (1)` first, whose step uploads them; then the smoke set (315 s) beside them, and the
@@ -356,8 +364,8 @@ def test():
 if __name__ == '__main__':
     if sys.argv[1:] == ['--test']:
         test()
-    elif sys.argv[1:] == ['--full']:
-        print(output(*full()))
+    elif sys.argv[1:] in (['--full'], ['--full', '--own-mac']):
+        print(output(*full(own_mac='--own-mac' in sys.argv)))
     else:
         jobs, left = pick([l.strip() for l in sys.stdin if l.strip()])
         print(output(*jobs, left))
