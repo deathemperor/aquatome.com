@@ -14,6 +14,7 @@ struct ChatComposer: View {
   let toNew: () -> Void
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
   private var length: Int { model.draft.utf16.count }
   private var over: Bool { length > model.maxChars }
@@ -30,17 +31,30 @@ struct ChatComposer: View {
           .focused(typing)
           .padding(.vertical, 8)
           .accessibilityIdentifier("chat-box")
-        Button(action: send) {
-          Image(systemName: "arrow.up.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+        // The same place, size and colour: until the text begins, the question being answered can be stopped.
+        if model.stoppable {
+          Button(action: model.stopAsking) {
+            Image(systemName: "stop.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+          }
+          .disabled(model.stopping)
+          .accessibilityLabel(Text("Dừng"))
+          .accessibilityIdentifier("chat-stop")
+          .transition(.scale(scale: 0.8).combined(with: .opacity))
+        } else {
+          Button(action: send) {
+            Image(systemName: "arrow.up.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+          }
+          .disabled(!canSend)
+          .accessibilityLabel(Text("Gửi"))
+          .accessibilityIdentifier("chat-send")
+          .transition(.scale(scale: 0.8).combined(with: .opacity))
         }
-        .disabled(!canSend)
-        .accessibilityLabel(Text("Gửi"))
-        .accessibilityIdentifier("chat-send")
       }
       .padding(.leading, 14)
       .padding(.trailing, 4)
       .padding(.vertical, 2)
       .background(.fill.tertiary, in: .rect(cornerRadius: 20))
+      .animation(reduceMotion ? nil : .smooth(duration: 0.2), value: model.stoppable)
       under
     }
     .padding(.horizontal)
@@ -80,6 +94,8 @@ struct ChatComposer: View {
     HStack(alignment: .firstTextBaseline, spacing: 8) {
       if over {
         Text("Câu hỏi dài quá: rút gọn để gửi.").foregroundStyle(.red)
+      } else if model.stopped != nil {
+        Text("Đã dừng. Câu này không bị tính.").accessibilityIdentifier("chat-stopped-note")
       } else if model.answering, model.thread.last?.reply.writing == false {
         Text("Thường dưới nửa phút.")
       } else if model.thread.isEmpty {

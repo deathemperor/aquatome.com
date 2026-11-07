@@ -12465,54 +12465,6 @@
         }
       }
     },
-    "Bắt đầu cuộc mới?": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mulai percakapan baru?"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เริ่มบทสนทนาใหม่ไหม"
-          }
-        }
-      }
-    },
-    "Bắt đầu cuộc mới": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mulai percakapan baru"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เริ่มบทสนทนาใหม่"
-          }
-        }
-      }
-    },
-    "Cuộc này sẽ không mở lại được.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Percakapan ini tidak bisa dibuka lagi."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "จะเปิดบทสนทนานี้อีกไม่ได้"
-          }
-        }
-      }
-    },
     "Hỏi gì về cây này?": {
       "localizations": {
         "id": {
@@ -13197,6 +13149,342 @@
           "stringUnit": {
             "state": "translated",
             "value": "คำถามยาวเกินไป: ย่อให้สั้นลงเพื่อส่ง"
+          }
+        }
+      }
+    },
+    "Cuộc trò chuyện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percakapan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บทสนทนา"
+          }
+        }
+      }
+    },
+    "Hôm nay": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hari ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้"
+          }
+        }
+      }
+    },
+    "Hôm qua": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kemarin"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อวาน"
+          }
+        }
+      }
+    },
+    "7 ngày qua": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 hari terakhir"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 วันที่ผ่านมา"
+          }
+        }
+      }
+    },
+    "Trước đó": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebelumnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ก่อนหน้านี้"
+          }
+        }
+      }
+    },
+    "%lld câu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pertanyaan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld คำถาม"
+          }
+        }
+      }
+    },
+    "Ảnh của bạn: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto Anda: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปของคุณ: %@"
+          }
+        }
+      }
+    },
+    "Ảnh của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto Anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปของคุณ"
+          }
+        }
+      }
+    },
+    "Ẩn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อน"
+          }
+        }
+      }
+    },
+    "Ẩn cuộc trò chuyện này?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan percakapan ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อนบทสนทนานี้ไหม"
+          }
+        }
+      }
+    },
+    "Chỉ ẩn khỏi danh sách của bạn, không bị xóa. Xóa tài khoản sẽ xóa toàn bộ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya disembunyikan dari daftar Anda, tidak dihapus. Menghapus akun akan menghapus semuanya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อนจากรายการของคุณเท่านั้น ไม่ได้ลบ การลบบัญชีจะลบทั้งหมด"
+          }
+        }
+      }
+    },
+    "Chưa có cuộc trò chuyện nào.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada percakapan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีบทสนทนา"
+          }
+        }
+      }
+    },
+    "Chưa tải được danh sách.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daftar belum bisa dimuat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดรายการไม่ได้"
+          }
+        }
+      }
+    },
+    "Chưa mở được cuộc này. Thử lại sau nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percakapan ini belum bisa dibuka. Coba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดบทสนทนานี้ไม่ได้ ลองอีกครั้งภายหลัง"
+          }
+        }
+      }
+    },
+    "Chưa ẩn được cuộc này. Thử lại sau nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percakapan ini belum bisa disembunyikan. Coba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อนบทสนทนานี้ไม่ได้ ลองอีกครั้งภายหลัง"
+          }
+        }
+      }
+    },
+    "Đang dừng…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghentikan…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังหยุด…"
+          }
+        }
+      }
+    },
+    "Đã dừng. Câu này không bị tính.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dihentikan. Pertanyaan ini tidak dihitung."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หยุดแล้ว คำถามนี้ไม่นับ"
+          }
+        }
+      }
+    },
+    "Cuộc trước về %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percakapan sebelumnya tentang %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บทสนทนาก่อนหน้าเกี่ยวกับ %@"
+          }
+        }
+      }
+    },
+    "Vừa rồi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baru saja"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อสักครู่"
+          }
+        }
+      }
+    },
+    "Hôm nay, %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hari ini, %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้ %@"
+          }
+        }
+      }
+    },
+    "Hôm qua, %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kemarin, %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อวาน %@"
           }
         }
       }

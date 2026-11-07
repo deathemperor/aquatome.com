@@ -158,6 +158,7 @@ REACH = {
     # The chat's contract, the event stream it's read from and the answer as the screen draws it: the chat's flows
     # (job `kit` tests them too).
     KIT + 'Sources/Handbook/Chat.swift': ['ChatFlowTests'], KIT + 'Sources/Handbook/ChatReply.swift': ['ChatFlowTests'],
+    KIT + 'Sources/Handbook/ChatHistory.swift': ['ChatFlowTests'],
     KIT + 'Sources/Handbook/ServerEvents.swift': ['ChatFlowTests'],
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).

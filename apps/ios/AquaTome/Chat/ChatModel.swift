@@ -27,6 +27,19 @@ struct ChatRoute: Hashable {
   let subject: ChatSubject
 }
 
+extension ChatRoute {
+  /// A row of the list reopened: what it's about, by the page's current name and photo where the handbook still has it
+  /// (the list's are in the language it was asked in). Fish ID's photo never left the phone.
+  init(row: Chat.Row, page: (String) -> HandbookIndex.Item?) {
+    let about = row.first.about, item = about.flatMap { page($0.id) }
+    let name = item?.name ?? about?.name ?? "AquaTome"
+    let photo = row.first.from == .fishId
+    self.init(start: row.start, subject: ChatSubject(plant: about?.kind == "plant", name: name,
+                                                     img: photo ? nil : item?.img.flatMap(URL.init(string:)) ?? about?.img,
+                                                     guesses: photo ? name : nil, second: nil))
+  }
+}
+
 /// The chat as GET /api/chat last said, for the entries (a species page's "Hỏi về …", fish ID's row): asked when the app
 /// comes to the front, not by each page. And the one conversation the app keeps: the latest, reopened from the same page
 /// or fish ID result within its 24 hours, by the same account.
@@ -38,7 +51,33 @@ final class ChatStore {
   private(set) var maxChars = 500
   /// Questions a day for an account, for the day-used card.
   private(set) var perAccount: Int?
+  /// The reader has earlier conversations: the history button lights.
+  private(set) var hasPast = false
   @ObservationIgnored private var current: ChatModel?
+
+  /// Whether the signed-in reader has any conversation to list.
+  func lookForPast(account: AccountModel, site: URL) async {
+    guard account.user != nil else {
+      hasPast = false
+      return
+    }
+    guard let (data, status) = try? await account.send({ Chat.conversations(limit: 1, site: site, token: $0, version: ChatModel.version, ownCopy: ChatModel.ownCopy) }),
+          let page = Chat.history(data, status: status) else { return }
+    hasPast = !page.rows.isEmpty
+  }
+
+  /// A question answered: there's something to list now.
+  func answered() { hasPast = true }
+
+  /// A row of the list opened in the chat screen: read back, then the current chat. Nil when it can't be read.
+  func open(_ row: Chat.Row, account: AccountModel, site: URL, lang: String, page: (String) -> HandbookIndex.Item?) async -> ChatModel? {
+    guard let past = await ChatModel.read(row, account: account, site: site) else { return nil }
+    current?.leave()
+    let m = ChatModel(route: ChatRoute(row: row, page: page), account: account, site: site, lang: lang, store: self)
+    current = m
+    m.fill(row, past)
+    return m
+  }
 
   func refresh(account: AccountModel, site: URL) async {
     guard let (data, status) = await account.fetch(Chat.status(site: site, version: ChatModel.version, ownCopy: ChatModel.ownCopy)) else { return }
@@ -93,6 +132,14 @@ final class ChatModel {
     var resumed = false
     /// The stream's last event's data (`done` or `error`), kept with the conversation.
     var last: String?
+    /// When it was asked: on the first question of a conversation reopened from the list, shown above it.
+    var at: Date?
+  }
+
+  /// A question just stopped, said under the box for a few seconds. `returned`: its words went back into the box.
+  struct Stopped: Equatable {
+    let id = UUID()
+    let returned: Bool
   }
 
   /// What stops a question before it goes, shown over the box; the question stays in the box. (Signed out is the
@@ -115,6 +162,15 @@ final class ChatModel {
   /// The network is down as far as the phone knows: send is off.
   private(set) var pathOffline = false
   private(set) var couldntSend = false
+  /// The stop is on its way to the Worker: the wait's last row says so.
+  private(set) var stopping = false
+  private(set) var stopped: Stopped?
+  /// The latest earlier conversation about this page, offered under the starters.
+  private(set) var earlier: Chat.Row?
+  /// That one is the conversation just left for a new one.
+  private(set) var earlierJustNow = false
+  /// The conversation on screen.
+  var conversationId: UUID? { conversation?.id }
 
   @ObservationIgnored private let account: AccountModel
   @ObservationIgnored private let site: URL
@@ -160,6 +216,8 @@ final class ChatModel {
   /// The latest question is still being answered, or its answer was cut short (its run may still be going on): send
   /// stays off (a second question would be 409) until it's answered or asked again.
   var answering: Bool { [.asking, .failed("cut")].contains(thread.last?.outcome) }
+  /// From the moment a question is sent until the first piece of text: once text has begun, the answer finishes.
+  var stoppable: Bool { thread.last?.outcome == .asking && thread.last?.reply.writing == false }
   var maxChars: Int { store?.maxChars ?? 500 }
   var perAccount: Int? { store?.perAccount }
 
@@ -197,8 +255,11 @@ final class ChatModel {
   /// A new conversation when there's none, or the one there is has ended for `user` (another account, or 24 hours on):
   /// true when one starts after earlier questions (the divider).
   private func startIfNeeded(_ user: String) -> Bool {
-    if let c = conversation, !c.ended(account: user, now: .now) { return false }
-    conversation = Chat.Conversation(account: user)
+    if let c = conversation, !c.ended(account: user, now: .now) {
+      // A new conversation whose first question was stopped, its divider gone with it: this question brings it back.
+      return c.turns == 0 && thread.last?.outcome == .answered
+    }
+    conversation = conversation?.next(account: user) ?? Chat.Conversation(account: user)
     return thread.contains { $0.outcome == .answered }
   }
 
@@ -217,7 +278,7 @@ final class ChatModel {
       ask(i)
       return
     case .lost:
-      conversation = Chat.Conversation(account: user)
+      conversation = conversation?.next(account: user) ?? Chat.Conversation(account: user)
       thread[i].anew = thread[..<i].contains { $0.outcome == .answered }
       thread[i].key = UUID()
     default:
@@ -245,13 +306,115 @@ final class ChatModel {
     running = nil
   }
 
-  /// "Bắt đầu cuộc mới": the thread gone, the next question in a new conversation.
+  /// The new-conversation button: the thread gone at once, the next question in a new conversation that carries nothing
+  /// on. The one left is in the list, and offered under the starters.
   func startOver() {
+    let had = thread.contains { $0.outcome == .answered }
     leave()
     thread = []
     conversation = nil
     stop = nil
+    stopped = nil
     keep()
+    guard had else { return }
+    earlierJustNow = true
+    Task { await lookBack(reopen: false) }
+  }
+
+  // MARK: Stopping
+
+  /// The stop button: asks the Worker to stop the question. Whichever comes first ends it here: this call's answer, or the
+  /// question's own request or stream saying `cancelled`. Too late, or no answer: the question goes on, and lands.
+  func stopAsking() {
+    guard stoppable, !stopping, let last = thread.last else { return }
+    stopping = true
+    let id = last.id, key = last.key
+    Task {
+      let answer = try? await account.send { Chat.cancel(key: key, site: self.site, token: $0, version: Self.version, ownCopy: Self.ownCopy) }
+      stopping = false
+      if let answer, Chat.stopped(answer.0, status: answer.1) == .cancelled { halted(id) }
+    }
+  }
+
+  /// Stopped: nothing of it kept, not counted. Its words go back into the box, or with something typed there, they go.
+  /// A conversation left with no question shows its empty screen again, and a divider opened for it goes with it.
+  private func halted(_ id: UUID) {
+    guard let i = index(id) else { return }
+    stopping = false
+    running?.cancel()
+    running = nil
+    let q = thread.remove(at: i).question
+    let returned = draft.isEmpty
+    if returned { draft = q }
+    conversation?.failed()
+    keep()
+    let said = Stopped(returned: returned)
+    stopped = said
+    Task {
+      try? await Task.sleep(for: .seconds(4))
+      if stopped == said { stopped = nil }
+    }
+  }
+
+  // MARK: Past conversations
+
+  /// A row's conversations, read back in its order. Nil when one can't be read.
+  static func read(_ row: Chat.Row, account: AccountModel, site: URL) async -> [Chat.Past]? {
+    var out: [Chat.Past] = []
+    for c in row.conversations {
+      guard let (data, status) = try? await account.send({ Chat.conversation(c.id, site: site, token: $0, version: version, ownCopy: ownCopy) }),
+            let past = Chat.past(data, status: status) else { return nil }
+      out.append(past)
+    }
+    return out
+  }
+
+  /// This chat is now that row: its questions as they were answered, a divider where one conversation carried on another,
+  /// the next question going on in its last while that's open, else in a new one that continues it.
+  func fill(_ row: Chat.Row, _ past: [Chat.Past]) {
+    guard let user = account.user?.id else { return }
+    leave()
+    conversation = Chat.Conversation(reopening: row.last, account: user)
+    thread = past.enumerated().flatMap { k, p in
+      p.turns.enumerated().map { j, t in
+        var a = Asked(id: UUID(), question: t.question, key: UUID(), anew: k > 0 && j == 0, last: t.data)
+        a.outcome = .answered
+        a.resumed = true
+        a.reply.take(.done(t.turn))
+        if k == 0 && j == 0 { a.at = t.asked }
+        return a
+      }
+    }
+    earlier = nil
+    stop = nil
+    stopped = nil
+    keep()
+  }
+
+  /// A page's chat with nothing on screen: its latest conversation about the page, reopened while it's open, else offered
+  /// under the starters. Never fish ID's: a photo's chat always starts fresh.
+  func lookBack(reopen: Bool = true) async {
+    guard thread.isEmpty, route.start.from == .species, let about = route.start.about, account.user != nil else {
+      earlier = nil
+      return
+    }
+    guard let (data, status) = try? await account.send({ Chat.conversations(limit: 1, about: about, site: self.site, token: $0, version: Self.version, ownCopy: Self.ownCopy) }),
+          let page = Chat.history(data, status: status), thread.isEmpty else { return }
+    guard let row = page.rows.first else {
+      earlier = nil
+      return
+    }
+    if reopen, row.last.open, let past = await Self.read(row, account: account, site: site), thread.isEmpty {
+      fill(row, past)
+      return
+    }
+    if reopen { earlierJustNow = false }
+    earlier = row
+  }
+
+  /// Conversations the reader hid from the list: no longer offered here.
+  func hid(_ ids: [UUID]) {
+    if ids.contains(where: { earlier?.holds($0) == true }) { earlier = nil }
   }
 
   private func ask(_ i: Int) {
@@ -275,7 +438,7 @@ final class ChatModel {
     // Left, or started over, meanwhile: the question waits, or is gone.
     guard !Task.isCancelled, index(id) != nil else { return }
     let ask = { (token: String) in
-      Chat.ask(item.question, conversation: c.id, lang: self.lang, start: first ? self.route.start : nil, key: item.key, site: self.site,
+      Chat.ask(item.question, conversation: c.id, lang: self.lang, start: first ? self.route.start : nil, continues: first ? c.continues : nil, key: item.key, site: self.site,
                token: token, version: Self.version, ownCopy: Self.ownCopy)
     }
     var admitted = false
@@ -315,11 +478,16 @@ final class ChatModel {
   /// One event of `id`'s stream: false once it ends the answer.
   private func take(_ e: Chat.Event, data: String, _ id: UUID) -> Bool {
     guard let i = index(id) else { return false }
+    if case .error("cancelled") = e {
+      halted(id)
+      return false
+    }
     thread[i].reply.take(e)
     switch e {
     case .done(let t):
       thread[i].outcome = .answered
       thread[i].last = data
+      store?.answered()
       // A turn numbered 1 over earlier turns: the Worker no longer held them.
       if conversation?.answered(n: t.n) == true, i > 0 { thread[i].anew = true }
       keep()
@@ -348,14 +516,16 @@ final class ChatModel {
       unsend(id, .busy)
     case .refused("chat_off", _):
       unsend(id, .off)
+    case .refused("cancelled", _):
+      halted(id)
     case .refused("ended", _) where thread[i].resumed:
       thread[i].outcome = .lost
       conversation?.failed()
       keep()
     case .refused("ended", _):
       // Past the conversation's 24 hours or its questions: the same question in a new one, with where the chat started.
-      guard let user = conversation?.account else { return }
-      conversation = Chat.Conversation(account: user)
+      guard let c = conversation else { return }
+      conversation = c.next(account: c.account)
       thread[i].anew = thread[..<i].contains { $0.outcome == .answered }
       thread[i].key = UUID()
       ask(i)
@@ -402,9 +572,10 @@ final class ChatModel {
       let outcome: String
       let anew: Bool
       let last: String?
+      let at: Date?
 
       var asked: Asked {
-        var a = Asked(id: UUID(), question: question, key: key, anew: anew, last: last)
+        var a = Asked(id: UUID(), question: question, key: key, anew: anew, last: last, at: at)
         a.outcome = switch outcome { case "asking": .asking; case "answered": .answered; case "lost": .lost; default: .failed(outcome) }
         if let last, let e = Chat.event(ServerEvent(name: outcome == "answered" ? "done" : "error", data: last)) { a.reply.take(e) }
         return a
@@ -428,7 +599,7 @@ final class ChatModel {
     }
     let items = thread.map { a in
       let o = switch a.outcome { case .asking: "asking"; case .answered: "answered"; case .lost: "lost"; case .failed(let c): c }
-      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last)
+      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last, at: a.at)
     }
     try? FileManager.default.createDirectory(at: Self.file.deletingLastPathComponent(), withIntermediateDirectories: true)
     try? JSONEncoder().encode(Kept(start: route.start, conversation: conversation, thread: items)).write(to: Self.file, options: .atomic)

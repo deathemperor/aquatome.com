@@ -12,26 +12,34 @@ struct ChatView: View {
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
   @State private var model: ChatModel?
-  @State private var confirming = false
+  @State private var showingHistory = false
 
   var body: some View {
     Group {
-      if let model { ChatThread(model: model) } else { Color.clear }
+      // Another conversation opened: a thread of its own, from its top.
+      if let model { ChatThread(model: model, open: { await open($0) }).id(ObjectIdentifier(model)) } else { Color.clear }
     }
     .navigationTitle("Hỏi AquaTome")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
-      ToolbarItem(placement: .topBarTrailing) {
-        Button { confirming = true } label: { Label("Cuộc trò chuyện mới", systemImage: "square.and.pencil") }
+      ToolbarItemGroup(placement: .topBarTrailing) {
+        Button { showingHistory = true } label: { Label("Cuộc trò chuyện", systemImage: "clock.arrow.circlepath") }
+          .disabled(!store.hasPast)
+          .accessibilityIdentifier("chat-history")
+        Button { model?.startOver() } label: { Label("Cuộc trò chuyện mới", systemImage: "square.and.pencil") }
           .disabled(model?.thread.isEmpty != false)
           .accessibilityIdentifier("chat-new")
       }
     }
-    // No list of earlier chats yet: the one closing can't be opened again.
-    .confirmationDialog("Bắt đầu cuộc mới?", isPresented: $confirming, titleVisibility: .visible) {
-      Button("Bắt đầu cuộc mới", role: .destructive) { model?.startOver() }
-    } message: {
-      Text("Cuộc này sẽ không mở lại được.")
+    .sheet(isPresented: $showingHistory) {
+      ChatHistoryView(on: model?.conversationId, open: { await open($0) }) { ids in
+        model?.hid(ids)
+        Task { await store.lookForPast(account: account, site: handbook.site) }
+      }
+    }
+    .task(id: account.user?.id) {
+      await store.lookForPast(account: account, site: handbook.site)
+      await model?.lookBack()
     }
     .onAppear {
       if model == nil { model = store.model(for: route, account: account, site: handbook.site, lang: handbook.lang) }
@@ -39,10 +47,18 @@ struct ChatView: View {
       model?.resume()
     }
   }
+
+  /// A row of the list, or the one offered under the starters, as the chat on screen.
+  private func open(_ row: Chat.Row) async -> Bool {
+    guard let opened = await store.open(row, account: account, site: handbook.site, lang: handbook.lang, page: { handbook.page($0) }) else { return false }
+    model = opened
+    return true
+  }
 }
 
 private struct ChatThread: View {
   @Bindable var model: ChatModel
+  let open: (Chat.Row) async -> Bool
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
@@ -73,6 +89,8 @@ private struct ChatThread: View {
                 // and nothing that shrinks under it (the steps folding) moves it.
                 .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
                 .onScrollVisible(last) { lastInView = $0; if $0 { newBelow = false } }
+                // Stopped: back down towards the box as it fades; under Reduce Motion, a plain fade.
+                .transition(.asymmetric(insertion: .identity, removal: reduceMotion ? .opacity : .opacity.combined(with: .move(edge: .bottom))))
             }
           }
           .padding(.horizontal)
@@ -99,6 +117,14 @@ private struct ChatThread: View {
     .sensoryFeedback(.impact(weight: .light), trigger: model.thread.count) { a, b in b > a }
     .sensoryFeedback(.impact(flexibility: .soft), trigger: model.thread.last?.reply.writing) { _, b in b == true }
     .sensoryFeedback(.warning, trigger: warned) { _, b in b }
+    .sensoryFeedback(.impact(weight: .light), trigger: model.stopped) { _, b in b != nil }
+    // The question stopped: back in the box to edit, with the keyboard up, and said aloud.
+    .onChange(of: model.stopped) { _, s in
+      guard let s else { return }
+      if s.returned { typing = true }
+      AccessibilityNotification.Announcement(String(localized: "Đã dừng. Câu này không bị tính.")).post()
+    }
+    .animation(reduceMotion ? .easeInOut(duration: 0.2) : .smooth(duration: 0.35), value: model.stopped)
   }
 
   private var warned: Bool {
@@ -131,6 +157,9 @@ private struct ChatThread: View {
         ChatSignIn().padding(.top, 12)
       } else {
         Chips(items: starters, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12)
+        if let row = model.earlier {
+          EarlierRow(row: row, justNow: model.earlierJustNow, name: subjectName) { Task { _ = await open(row) } }.padding(.top, 16)
+        }
       }
     }
     .padding(.top, 24)
@@ -151,6 +180,9 @@ private struct ChatThread: View {
 
   @ViewBuilder private func turn(_ a: ChatModel.Asked, last: Bool) -> some View {
     VStack(alignment: .leading, spacing: 12) {
+      if let at = a.at {
+        Text(ChatTimes.heading(at)).font(.footnote).foregroundStyle(.secondary).frame(maxWidth: .infinity).accessibilityIdentifier("chat-asked-at")
+      }
       if a.anew { NewConversation() }
       Bubble(text: a.question).id(a.id)
       switch a.outcome {
@@ -173,7 +205,7 @@ private struct ChatThread: View {
       // Waiting: each step done as it comes, above the one row that waits.
       VStack(alignment: .leading, spacing: 8) {
         ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s).transition(.opacity.combined(with: .offset(y: 4))) }
-        if a.outcome == .asking { Waiting() }
+        if a.outcome == .asking { Waiting(stopping: last && model.stopping) }
       }
       .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: r.steps.count)
     } else {
@@ -312,12 +344,14 @@ private struct Bubble: View {
   }
 }
 
-/// The one row that waits, said once by VoiceOver as it starts.
+/// The one row that waits, said once by VoiceOver as it starts; "Đang dừng…" while a stop is on its way.
 private struct Waiting: View {
+  let stopping: Bool
+
   var body: some View {
     HStack(spacing: 8) {
       ProgressView()
-      Text("Đang soạn câu trả lời…").foregroundStyle(.secondary)
+      (stopping ? Text("Đang dừng…") : Text("Đang soạn câu trả lời…")).foregroundStyle(.secondary)
     }
     .font(.subheadline)
     .accessibilityElement(children: .combine)
@@ -366,6 +400,38 @@ private struct AnswerText: View {
     .accessibilityHidden(!whole)
     .accessibilityIdentifier("chat-answer")
     .onChange(of: whole) { _, w in if w { AccessibilityNotification.Announcement(text).post() } }
+  }
+}
+
+/// The latest earlier conversation about this page, under the starters.
+private struct EarlierRow: View {
+  let row: Chat.Row
+  let justNow: Bool
+  let name: String
+  let open: () -> Void
+
+  var body: some View {
+    Button(action: open) {
+      HStack(spacing: 10) {
+        Image(systemName: "clock.arrow.circlepath").foregroundStyle(.secondary).accessibilityHidden(true)
+        VStack(alignment: .leading, spacing: 2) {
+          Text("Cuộc trước về \(name)").font(.subheadline.weight(.semibold))
+          Text(verbatim: (justNow ? String(localized: "Vừa rồi") : ChatTimes.day(row.last.last)) + " · " + row.first.question)
+            .font(.footnote)
+            .foregroundStyle(.secondary)
+            .lineLimit(1)
+        }
+        Spacer(minLength: 0)
+        Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+      }
+      .padding(12)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .background(.fill.quaternary, in: .rect(cornerRadius: 12))
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .accessibilityElement(children: .combine)
+    .accessibilityIdentifier("chat-earlier")
   }
 }
 
