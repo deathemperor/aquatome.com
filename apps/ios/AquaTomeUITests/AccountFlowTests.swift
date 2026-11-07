@@ -242,13 +242,21 @@ final class AccountFlowTests: XCTestCase {
     }
   }
 
-  /// The owner's row counts the overview's to-dos (protocols/owner-dashboard-vectors.json has two), grey, as a value.
-  func testTheOwnersRowCountsTheOverviewsToDos() {
+  /// The owner's row counts the overview's to-dos, grey, as a value: as many as the stand-in's overview has, the
+  /// Worker's own reply in protocols/owner-dashboard-vectors.json (read here, as the stand-in reads it, so a to-do the
+  /// dashboard adds there doesn't fail this).
+  func testTheOwnersRowCountsTheOverviewsToDos() throws {
+    var repo = URL(fileURLWithPath: #filePath)
+    for _ in 0..<4 { repo.deleteLastPathComponent() }
+    let vectors = try JSONSerialization.jsonObject(with: Data(contentsOf: repo.appending(path: "protocols/owner-dashboard-vectors.json"))) as? [String: Any]
+    let overview = (vectors?["replies"] as? [[String: Any]])?.first { $0["name"] as? String == "dashboard" }?["body"] as? [String: Any]
+    let todos = try XCTUnwrap((overview?["todos"] as? [Any])?.count, "no overview in the vectors")
+    XCTAssertGreaterThan(todos, 0, "the overview has no to-dos to count")
     let app = launch(resetServer: true, "-fake-owner", "ui-apple")
     signIn(app)
     let row = reached(app, "owner-dashboard")
     XCTAssertTrue(row.exists, "no owner's row")
-    XCTAssertTrue(waitFor(row, contains: "2 việc cần làm"), row.label)
+    XCTAssertTrue(waitFor(row, contains: "\(todos) việc cần làm"), row.label)
   }
 
   /// A session that ended while no account is kept on the phone (its copy unreadable after an update): plain signed
