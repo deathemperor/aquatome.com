@@ -74,7 +74,7 @@ export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks
  * chat helps with, so no reply to a question about football (or a trick to get one) ever reaches the reader.
  */
 export const OFF_TOPIC: Record<Lang, string> = {
-  vi: 'Mình chỉ giúp được chuyện nuôi cá: cá, tép, ốc, cây thủy sinh, bể, hồ, nước và thiết bị. Bạn hỏi mình về bể của bạn nhé!',
+  vi: 'Mình chỉ giúp được chuyện nuôi cá thôi: cá, tép, ốc, cây thủy sinh, bể, hồ, nước và thiết bị. Có gì về bể cá thì bạn cứ hỏi nhé!',
   id: 'Aku hanya bisa membantu soal memelihara ikan: ikan, udang, siput, tanaman air, akuarium, kolam, air, dan peralatannya. Tanyakan soal akuariummu, ya!',
   th: 'เราช่วยได้เฉพาะเรื่องการเลี้ยงปลา ทั้งปลา กุ้ง หอย ไม้น้ำ ตู้ บ่อ น้ำ และอุปกรณ์ ลองถามเรื่องตู้ของคุณได้เลยนะ',
 }
