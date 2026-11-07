@@ -38,6 +38,38 @@ hair algae" needs a plan in steps that fits the tank. The eval will show how muc
 5. **Stocking.** Our strongest today. The tank-mates check runs on the reader's own tank and says how full it is. Next,
    add adult size and the climate notes, and suggest fish from the handbook that fit.
 
+## Two more of the owner's ideas
+
+**Ask the AI to run the equipment.** "Dim the lights", "feeding mode", "run my master button". Only our app drives the
+reader's lights and plugs, so no general chatbot can do this.
+- How. The chat proposes an action in its answer. The Worker checks it against the reader's saved devices: the device
+  exists, the values are in range, and it marks whether the gear keeps the fish alive. The app shows what changes, from
+  what to what. Nothing happens until the reader taps to confirm, and the app's own control code carries it out. The
+  next turn hears whether it worked.
+- Safety. A heater, filter or air pump never switches off without its own explicit confirmation and a warning. A
+  timed action such as feeding mode ends on the plug's own countdown, so the filter comes back on even if the phone is
+  gone. Web Bluetooth can't run on an iPhone browser, so there the card says to open the app.
+- Cost. No extra model spend: it happens inside the chat turn, about a third of a cent. The work is a new answer block
+  in the contract, the Worker's checks, and the app's confirm card. The iOS lead owns the app side.
+- Where. Its first use is in the algae doctor, which proposes a shorter light schedule and applies it once the reader
+  confirms. Dimming, feeding mode and master-button scenes follow, once the master button exists.
+
+**A tank health review, council style.** Several reviewers read one tank, each through its own lens: water and
+cycling, plants and algae, fish and stocking. They read its photos, water tests, fish, light hours, plants and history,
+then agree a health score and the top issues, each with its fix from our guides.
+- How. It runs weekly or when the reader asks, never on every message. Where reviewers disagree, the review says so
+  rather than averaging it away.
+- Which models. Readers' traffic runs on our Anthropic keys, so the panel is Anthropic models with different lenses. The
+  owner's Cursor plan can't serve readers, and another provider's API would be a new vendor (cost and privacy), which is
+  the owner's call.
+- Cost. A tank's file is about 20,000 tokens with three photos. Three Sonnet lenses sharing a cached copy, plus a
+  summary, cost about $0.13 a review. Opus plus two Sonnet lenses cost about $0.24. A weekly review of 1,000 tanks would
+  run about 140 a day, $19–34, most of the $50 cap. So: on request, at most one a tank a week, inside its own slice of
+  the cap (say $10 a day, 40–75 reviews).
+- Prove it first. The eval runs a panel against one Opus pass on the same tanks, judged blind. If the panel doesn't
+  clearly win, one strong model does the review at a third of the cost.
+- Where. After the tank journal: without water tests and photos over time there is little for a panel to review.
+
 ## How we prove it
 
 About 40 real hard questions, from public Vietnamese hobby forums (reworded, no names), the existing chat eval, and the
@@ -50,7 +82,12 @@ The eval runs again on every change to the chat's brain.
 ## Order of work
 
 1. The eval, now.
-2. Whatever the eval shows first. Likely the chat reading the whole tank, then longer step-by-step answers for hard
-   problems.
-3. Algae doctor, setup planner, tank journal and check-ins, in the order the eval's gaps show.
-4. A stronger model only for hard-problem flows, and only where the eval shows it pays for itself.
+2. Whatever the eval shows first. Already found: the chat's name search puts the wrong fish first ("cá vàng" finds a
+   shrimp before the goldfish). Likely next: the chat reads the whole tank, lights and plugs included, then gives
+   step-by-step answers for hard problems.
+3. The algae doctor, with the first equipment action: a shorter light schedule, applied once the reader confirms.
+4. More equipment actions: dimming, feeding mode, master-button scenes.
+5. Setup planner, tank journal and check-ins.
+6. The tank health review, once the journal gives it something to read, and only if the eval shows a panel beats one
+   strong model.
+7. A stronger model only for hard-problem flows, and only where the eval shows it pays for itself.
