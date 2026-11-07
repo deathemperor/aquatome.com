@@ -133,13 +133,16 @@ private struct FishOfTheDay: View {
   let item: HandbookIndex.Item
   let zoom: Namespace.ID
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dynamicTypeSize) private var size
   @State private var colour = PhotoColour.fallback
+  /// Taller with the text, so a long name at the larger sizes stays on the photo.
+  @ScaledMetric(relativeTo: .largeTitle) private var height: CGFloat = 380
 
   var body: some View {
     VStack(spacing: 0) {
       NavigationLink(value: item) {
         V2Photo(src: item.img) { colour = $0 }
-          .frame(height: 380)
+          .frame(height: min(height, 640))
           .overlay {
             LinearGradient(stops: [.init(color: colour.opacity(0.85), location: 0), .init(color: colour.opacity(0), location: 0.5)],
                            startPoint: .top, endPoint: .bottom)
@@ -147,7 +150,7 @@ private struct FishOfTheDay: View {
           .overlay(alignment: .topLeading) {
             VStack(alignment: .leading, spacing: 4) {
               Eyebrow(text: "Gợi ý hôm nay")
-              Text(verbatim: item.name).font(.system(.largeTitle, weight: .heavy)).lineLimit(2)
+              Text(verbatim: item.name).font(.system(.largeTitle, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 5 : 2)
             }
             .foregroundStyle(.white)
             .padding(20)
@@ -176,12 +179,14 @@ private struct GuideCard: View {
   let item: HandbookIndex.Item
   let zoom: Namespace.ID
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dynamicTypeSize) private var size
   @State private var colour = PhotoColour.fallback
+  @ScaledMetric(relativeTo: .title) private var height: CGFloat = 420
 
   var body: some View {
     NavigationLink(value: item) {
       V2Photo(src: item.img) { colour = $0 }
-        .frame(height: 420)
+        .frame(height: min(height, 700))
         .overlay {
           // Opaque under the words: a light photo's sand doesn't come through behind them (4.5:1 for the label).
           LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.3), .init(color: colour.opacity(0.95), location: 0.55),
@@ -194,7 +199,8 @@ private struct GuideCard: View {
             } else {
               Eyebrow(text: "Hướng dẫn")
             }
-            Text(verbatim: item.name).font(.system(.title, weight: .heavy)).lineLimit(4).multilineTextAlignment(.leading)
+            Text(verbatim: item.name).font(.system(.title, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 8 : 4)
+              .multilineTextAlignment(.leading)
           }
           .foregroundStyle(.white)
           .padding(20)

@@ -131,6 +131,7 @@ struct SpeciesPage: View {
         Button { putting = true } label: {
           Label("Thêm vào bể", systemImage: "plus")
             .font(.body.weight(.semibold))
+            .lineLimit(1).minimumScaleFactor(0.6)
             .foregroundStyle(colour)
             .padding(.horizontal, 18)
             .frame(minHeight: 44)
@@ -220,7 +221,7 @@ struct SpeciesPage: View {
           if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.secondary) }
           Button { open(m.tool.href) } label: {
             // Its words end in their own arrow.
-            Text(verbatim: m.tool.text).font(.subheadline.weight(.semibold))
+            Text(verbatim: m.tool.text).font(.subheadline.weight(.semibold)).multilineTextAlignment(.leading)
               .frame(minHeight: 44)
             .contentShape(.rect)
           }

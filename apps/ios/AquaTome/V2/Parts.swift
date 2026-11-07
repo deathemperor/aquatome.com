@@ -114,14 +114,17 @@ struct Lockup: View {
   @State private var putting = false
 
   var body: some View {
-    HStack(spacing: 12) {
+    // At the accessibility sizes the button goes under the words, which get the row's whole width.
+    let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(spacing: 12))
+    let side = min(thumb, 88)
+    layout {
       NavigationLink(value: item) {
         HStack(spacing: 12) {
           if icon {
             V2Photo(src: item.img)
-              .frame(width: thumb, height: thumb)
-              .clipShape(.rect(cornerRadius: thumb * 0.23, style: .continuous))
-              .overlay { RoundedRectangle(cornerRadius: thumb * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
+              .frame(width: side, height: side)
+              .clipShape(.rect(cornerRadius: side * 0.23, style: .continuous))
+              .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {
             Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).lineLimit(size.isAccessibilitySize ? 3 : 1)
