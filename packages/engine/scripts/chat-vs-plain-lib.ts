@@ -149,15 +149,8 @@ export type Verdict = {
 /** The rubric's version: a judge's verdict is cached under it, so a changed rubric judges again. */
 export const RUBRIC_VERSION = 2
 export const JUDGE_SYSTEM = 'You are an experienced Vietnamese aquarium and planted-tank hobbyist judging two answers to a fellow hobbyist. Reply only with JSON.'
-export function judgePrompt(question: string, tank: string | null, x: string, y: string): string {
-  return `A Vietnamese hobbyist asked an AI assistant for help. Two assistants answered (X and Y). Judge which answer would help this hobbyist more, as an experienced keeper who knows what actually fixes these problems in tanks in Vietnam.
-
-The question, as the hobbyist typed it:
-"""
-${question}
-"""
-${tank ? `\nWhat is true about their tank (their app holds it; they didn't type it, and an assistant may or may not have been able to read it):\n${tank}\n` : ''}
-An answer may show content under its text: a guide's excerpt, a fish's card, a tool's result, suggested next questions, each marked in [brackets]. The reader sees it on screen under the text: judge it as part of the answer. An excerpt shows its first few lines; "[chạm để đọc tiếp]" means the reader can tap to read the rest of that guide's section.
+/** How to judge, the same words for the judge (one pair) and the panel (many): between the question and the answers. */
+const RUBRIC = `An answer may show content under its text: a guide's excerpt, a fish's card, a tool's result, suggested next questions, each marked in [brackets]. The reader sees it on screen under the text: judge it as part of the answer. An excerpt shows its first few lines; "[chạm để đọc tiếp]" means the reader can tap to read the rest of that guide's section.
 
 Judge on each count, X, Y or tie:
 - correct: the facts are right and the advice is safe for the fish and plants. A wrong cause, a harmful step or a wrong dose loses.
@@ -171,7 +164,16 @@ Also give:
 - scoreX, scoreY: 1–10, how well each answer helps this hobbyist.
 - lacksX, lacksY: up to three of what each answer most lacks, from: plan (no steps in order), diagnosis (doesn't say the likely cause), tank-fit (ignores their details), figures (lacks the numbers needed: hours, %, doses, temperatures, days), follow-up (no what to watch or when to check), local, too-thin, too-long, asks-only, wrong, unsafe, off-topic. Empty if it lacks nothing that matters.
 - errorsX, errorsY: each factual error or unsafe advice, quoted briefly with why it's wrong. Empty if none.
-- why: one or two sentences.
+- why: one or two sentences.`
+export function judgePrompt(question: string, tank: string | null, x: string, y: string): string {
+  return `A Vietnamese hobbyist asked an AI assistant for help. Two assistants answered (X and Y). Judge which answer would help this hobbyist more, as an experienced keeper who knows what actually fixes these problems in tanks in Vietnam.
+
+The question, as the hobbyist typed it:
+"""
+${question}
+"""
+${tank ? `\nWhat is true about their tank (their app holds it; they didn't type it, and an assistant may or may not have been able to read it):\n${tank}\n` : ''}
+${RUBRIC}
 
 === X ===
 ${x}
@@ -223,3 +225,56 @@ export function outcome(j: Judged) {
   }
 }
 export type PairOutcome = ReturnType<typeof outcome>
+
+/**
+ * The panel: other providers' models (through Infinitus, on the owner's Cursor plan) judging many pairs in one reply, so
+ * one judge's taste doesn't decide the eval. Each pair once, ours on the side its hash picks (`panelSide`), with the
+ * judge's rubric and a verdict per pair; the judge's both-orders rule stays the headline.
+ */
+export type PanelPair = { pair: number; question: string; tank: string | null; x: string; y: string }
+export function panelPrompt(pairs: PanelPair[]): string {
+  const one = (p: PanelPair) => `## Pair ${p.pair}
+
+The question, as the hobbyist typed it:
+"""
+${p.question}
+"""
+${p.tank ? `\nWhat is true about their tank (their app holds it; they didn't type it, and an assistant may or may not have been able to read it):\n${p.tank}\n` : ''}
+=== X ===
+${p.x}
+
+=== Y ===
+${p.y}`
+  return `You are an experienced Vietnamese aquarium and planted-tank hobbyist. Below are ${pairs.length} pairs. In each, a Vietnamese hobbyist asked an AI assistant for help and two assistants answered (X and Y). Judge each pair on its own: which answer would help this hobbyist more, as an experienced keeper who knows what actually fixes these problems in tanks in Vietnam.
+
+${RUBRIC}
+
+Reply with one JSON array and nothing else: one object per pair, in order, each {"pair": its number, "criteria": {"correct", "fits", "actionable", "grounded", "local": each "X", "Y" or "tie"}, "better": "X", "Y" or "tie", "scoreX", "scoreY", "lacksX", "lacksY", "errorsX", "errorsY", "why"}.
+
+${pairs.map(one).join('\n\n---\n\n')}
+`
+}
+/** Which side ours is on in the panel's packet, from the pair's own hash: the same every time it's written. */
+export const panelSide = (hex: string): 'X' | 'Y' => (parseInt(hex.slice(0, 8), 16) % 2 ? 'X' : 'Y')
+/** A panel reply's verdicts by pair: the JSON array, in a code fence or not. A pair without every field is left out. */
+export function readPanel(text: string): Map<number, Verdict> {
+  const json = text.slice(text.indexOf('['), text.lastIndexOf(']') + 1)
+  const out = new Map<number, Verdict>()
+  const sides = ['X', 'Y', 'tie']
+  for (const v of JSON.parse(json) as (Verdict & { pair: number })[]) {
+    const ok = Number.isInteger(v.pair) && sides.includes(v.better) && CRITERIA.every(c => sides.includes(v.criteria?.[c])) &&
+      typeof v.scoreX === 'number' && typeof v.scoreY === 'number'
+    if (ok) out.set(v.pair, { ...v, lacksX: v.lacksX ?? [], lacksY: v.lacksY ?? [], errorsX: v.errorsX ?? [], errorsY: v.errorsY ?? [], why: v.why ?? '' })
+  }
+  return out
+}
+/** One order's verdict, read back to ours and plain. */
+export function single(v: Verdict, oursIs: 'X' | 'Y') {
+  const plainIs = oursIs === 'X' ? 'Y' : 'X'
+  return {
+    better: asOurs(v.better, oursIs),
+    criteria: Object.fromEntries(CRITERIA.map(c => [c, asOurs(v.criteria[c], oursIs)])) as Record<Criterion, Outcome>,
+    ours: v[`score${oursIs}`],
+    plain: v[`score${plainIs}`],
+  }
+}

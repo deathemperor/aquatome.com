@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import { agreed, blockText, FOLDED, outcome, savedTank, seenOurs, unbrand, type PostTank, type Verdict } from '../scripts/chat-vs-plain-lib'
+import { agreed, blockText, FOLDED, judgePrompt, outcome, panelPrompt, panelSide, readPanel, savedTank, seenOurs, single, unbrand, type PostTank, type Verdict } from '../scripts/chat-vs-plain-lib'
 
 const verdict = (v: Partial<Verdict>): Verdict => ({
   criteria: { correct: 'tie', fits: 'tie', actionable: 'tie', grounded: 'tie', local: 'tie' },
@@ -101,5 +101,26 @@ describe("our answer as the reader sees it", () => {
   })
   it('the text, the blocks, then the suggestions', () => {
     expect(seenOurs('Rêu tóc do thừa sáng.', [section], ['Bao lâu thì hết?'])).toBe(`Rêu tóc do thừa sáng.\n\n${blockText(section)}\n\n[Gợi ý hỏi tiếp] Bao lâu thì hết?`)
+  })
+})
+
+describe('the panel: other judges read many pairs in one packet, each once', () => {
+  it("the judge's rubric, word for word, and each pair's question, tank and answers", () => {
+    const prompt = panelPrompt([{ pair: 1, question: 'Rêu tóc?', tank: 'Bể 60 lít', x: 'Giảm đèn.', y: 'Thay nước.' }, { pair: 2, question: 'Cá bỏ ăn?', tank: null, x: 'a', y: 'b' }])
+    const rubric = judgePrompt('q', null, 'x', 'y')
+    expect(prompt).toContain(rubric.slice(rubric.indexOf('An answer may show'), rubric.indexOf('=== X ===')).trim())
+    expect(prompt).toContain('## Pair 1')
+    expect(prompt).toContain('Bể 60 lít')
+    expect(prompt).toContain('=== Y ===\nb')
+  })
+  it('ours keeps its side for a pair, and both sides come up', () => {
+    expect(panelSide('80000000')).toBe('Y')
+    expect(panelSide('00000001')).toBe('X')
+  })
+  it('a reply read back by pair, in a code fence or not; a verdict missing a field is left out', () => {
+    const v = { pair: 2, criteria: { correct: 'X', fits: 'X', actionable: 'Y', grounded: 'tie', local: 'X' }, better: 'X', scoreX: 7, scoreY: 5, lacksX: [], lacksY: ['plan'], errorsX: [], errorsY: [], why: '' }
+    const read = readPanel(`Here:\n\`\`\`json\n${JSON.stringify([v, { pair: 3, better: 'X' }])}\n\`\`\``)
+    expect([...read.keys()]).toEqual([2])
+    expect(single(read.get(2)!, 'Y')).toEqual({ better: 'plain', criteria: { correct: 'plain', fits: 'plain', actionable: 'ours', grounded: 'tie', local: 'plain' }, ours: 5, plain: 7 })
   })
 })

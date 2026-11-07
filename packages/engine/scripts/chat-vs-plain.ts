@@ -17,7 +17,8 @@
  *   pnpm --filter @aq/engine exec tsx scripts/chat-vs-plain.ts                      # every question, both conditions
  *   … --only algae-01,sick-03 --conditions tank --concurrency 4 --judges 3
  *   … --model claude-haiku-5-5 --judge claude-opus-5-5 --site https://aquatome.com --out <file>
- *   … --packet <dir> --n 12     # also a blind packet of n pairs for a council round, and its key
+ *   … --panel <dir>             # also one blind packet for other judges (panel.md, key.json); their replies,
+ *                               # saved there as verdicts-<judge>.json, join the report on the next run
  *
  * Keys: ~/.config/aquatome/anthropic-keys, as chat-eval.ts reads them. Answers and verdicts are cached in --cache, under
  * the chat's code and the question, so a run after a change to the chat's brain asks again and plain Claude's answers
@@ -26,7 +27,7 @@
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { existsSync } from 'node:fs'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
@@ -40,8 +41,8 @@ import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { claudeCli } from '../src/claude'
 import {
-  CONDITIONS, CRITERIA, JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, LACKS, outcome, RUBRIC_VERSION, savedTank, seenOurs, tankFacts, TOPICS, unbrand,
-  type Condition, type HardQuestion, type Judged, type PairOutcome, type Verdict,
+  CONDITIONS, CRITERIA, JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, LACKS, outcome, panelPrompt, panelSide, readPanel, RUBRIC_VERSION, savedTank, seenOurs, single,
+  tankFacts, TOPICS, unbrand, type Condition, type HardQuestion, type Judged, type PairOutcome, type Verdict,
 } from './chat-vs-plain-lib'
 import { pool, retry } from './eval-lib'
 
@@ -64,8 +65,7 @@ const { values: args } = parseArgs({
     site: { type: 'string', default: 'https://aquatome.com' },
     cache: { type: 'string', default: '/tmp/chat-vs-plain' },
     out: { type: 'string', default: join(ROOT, 'docs/review/chat-vs-plain.md') },
-    packet: { type: 'string' },
-    n: { type: 'string', default: '12' },
+    panel: { type: 'string' },
   },
 })
 const MODEL = args.model!
@@ -210,10 +210,33 @@ async function main() {
     }
   }), Number(args.judges))
 
-  await writeFile(args.out!, report(pairs, questions.length))
+  const judged = args.panel ? await panelOf(pairs.filter(p => p.result), args.panel) : []
+  await writeFile(args.out!, report(pairs, questions.length, judged))
   console.log(`Written: ${args.out}`)
-  if (args.packet) await packet(pairs.filter(p => p.result), args.packet, Number(args.n))
 }
+
+/**
+ * The panel (`--panel <dir>`): writes the pairs the judge judged as one blind packet, panel.md (the rubric once, each
+ * pair once, ours on the side its hash picks), and which side is ours, key.json. Each other judge's reply, its JSON
+ * array, saved as verdicts-<judge>.json in the same folder, is read back into the report on the next run.
+ */
+async function panelOf(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: Answered; result?: PairOutcome }[], dir: string) {
+  await mkdir(dir, { recursive: true })
+  const sorted = [...pairs].sort((a, b) => hash(a.q.id, a.c).localeCompare(hash(b.q.id, b.c)))
+  const sides = sorted.map(p => panelSide(hash('side', p.q.id, p.c)))
+  await writeFile(join(dir, 'panel.md'), panelPrompt(sorted.map((p, i) => {
+    const [x, y] = sides[i] === 'X' ? [p.ours.text, p.plain.text] : [p.plain.text, p.ours.text]
+    return { pair: i + 1, question: asked(p.q, p.c), tank: p.c === 'tank' && p.q.tank ? tankFacts(p.q.tank) : null, x: unbrand(x), y: unbrand(y) }
+  })))
+  await writeFile(join(dir, 'key.json'), JSON.stringify({ commit, model: MODEL, pairs: sorted.map((p, i) => ({ pair: i + 1, id: p.q.id, condition: p.c, oursIs: sides[i] })) }, null, 2))
+  console.log(`Panel: ${join(dir, 'panel.md')} (${sorted.length} pairs)`)
+  const files = (await readdir(dir)).filter(f => /^verdicts-.+\.json$/.test(f)).sort()
+  return Promise.all(files.map(async f => {
+    const verdicts = readPanel(await readFile(join(dir, f), 'utf8'))
+    return { judge: f.slice('verdicts-'.length, -'.json'.length), results: sorted.flatMap((p, i) => (verdicts.has(i + 1) ? [{ p, r: single(verdicts.get(i + 1)!, sides[i]!) }] : [])) }
+  }))
+}
+type Panel = Awaited<ReturnType<typeof panelOf>>
 
 const pct = (k: number, n: number) => (n ? `${k}/${n}` : '–')
 const avg = (xs: number[]) => (xs.length ? (xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1) : '–')
@@ -221,7 +244,7 @@ const cell = (s: string) => s.replace(/\|/g, '\\|').replace(/\n+/g, ' ')
 const cut = (s: string, n: number) => (s.length <= n ? s : `${s.slice(0, n - 1)}…`)
 const counts = (xs: string[]) => Object.entries(xs.reduce<Record<string, number>>((m, x) => ({ ...m, [x]: (m[x] ?? 0) + 1 }), {})).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(', ') || '–'
 
-function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: Answered; result?: PairOutcome }[], n: number): string {
+function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: Answered; result?: PairOutcome }[], n: number, panel: Panel = []): string {
   const done = pairs.filter(p => p.result)
   // Ours failed and plain answered: the reader got an error, so plain wins it on every count (no score: nothing to judge).
   const lost = (p: (typeof pairs)[number]) => Boolean(p.ours.failed) && !p.plain.failed
@@ -250,6 +273,20 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     head,
     ...WANTED.map(c => row(c, pairs.filter(p => p.c === c))),
     '',
+    ...(panel.length ? [
+      '## Other judges',
+      '',
+      `Other providers' models, through Infinitus on the owner's Cursor plan, read the same pairs in one blind packet: each pair once, ours on a side its hash picks, with the judge's rubric. One order each, so a judge's lean to one side isn't cancelled out as above. "Same as ${JUDGE}": the pairs where its pick matches the headline's (a split there counts as a tie).`,
+      '',
+      `| | Ours / plain / tie | Score: ours · plain | ${CRITERIA.join(' | ')} | Same as ${JUDGE} |`,
+      `| --- | --- | ---: | ${CRITERIA.map(() => '---:').join(' | ')} | ---: |`,
+      ...panel.flatMap(j => WANTED.map(c => {
+        const rs = j.results.filter(x => x.p.c === c)
+        const w = (o: 'ours' | 'plain' | 'tie') => rs.filter(x => x.r.better === o).length
+        return `| ${j.judge} · ${c} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${rs.length} | ${avg(rs.map(x => x.r.ours))} · ${avg(rs.map(x => x.r.plain))} | ${CRITERIA.map(k => `${rs.filter(x => x.r.criteria[k] === 'ours').length}–${rs.filter(x => x.r.criteria[k] === 'plain').length}`).join(' | ')} | ${pct(rs.filter(x => x.r.better === x.p.result!.better).length, rs.length)} |`
+      })),
+      '',
+    ] : []),
     '## By problem',
     '',
     head,
@@ -296,24 +333,6 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     )
   }
   return `${lines.join('\n')}\n`
-}
-
-/** A blind packet for a council round: n pairs, each answer as A or B at random, and the key to read the verdicts back. */
-async function packet(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: Answered }[], dir: string, n: number) {
-  await mkdir(dir, { recursive: true })
-  const picked = [...pairs].sort((a, b) => hash(a.q.id, a.c).localeCompare(hash(b.q.id, b.c))).slice(0, n)
-  const key: Record<string, 'A' | 'B'> = {}
-  const parts = picked.map((p, i) => {
-    const id = `${i + 1}`
-    const oursIs = parseInt(hash('side', p.q.id, p.c), 16) % 2 ? 'A' : 'B'
-    key[id] = oursIs
-    const [a, b] = oursIs === 'A' ? [p.ours.text, p.plain.text] : [p.plain.text, p.ours.text]
-    const tank = p.c === 'tank' && p.q.tank ? `\nWhat is true about their tank (their app holds it; they didn't type it):\n${tankFacts(p.q.tank)}\n` : ''
-    return `## Pair ${id}\n\nThe question:\n"""\n${asked(p.q, p.c)}\n"""\n${tank}\n### A\n\n${unbrand(a)}\n\n### B\n\n${unbrand(b)}\n`
-  })
-  await writeFile(join(dir, 'packet.md'), parts.join('\n---\n\n'))
-  await writeFile(join(dir, 'key.json'), JSON.stringify({ oursIs: key, pairs: picked.map((p, i) => ({ pair: i + 1, id: p.q.id, condition: p.c })) }, null, 2))
-  console.log(`Packet: ${join(dir, 'packet.md')} (${picked.length} pairs), key ${join(dir, 'key.json')}`)
 }
 
 await main()
