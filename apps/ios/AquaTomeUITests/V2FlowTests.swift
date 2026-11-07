@@ -169,6 +169,31 @@ final class V2FlowTests: XCTestCase {
     whole("a fish's page")
   }
 
+  /// Under the bar, left of the home indicator, the page's own colour as at the screen's edge: no card, photo or words
+  /// showing there, or through the glass above it.
+  func testNothingShowsUnderTheTabBar() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    let foot = app.tabBars.buttons["Hôm nay"].frame.maxY + 10
+    let shot = XCUIScreen.main.screenshot().image
+    let scale = shot.scale
+    let cg = shot.cgImage!
+    let bitmap = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                           bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+    bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self)
+    func pixel(_ x: CGFloat) -> [Int] {
+      let at = Int(foot * scale) * bitmap.bytesPerRow + Int(x * scale) * 4
+      return (0..<3).map { Int(bytes[at + $0]) }
+    }
+    let page = pixel(4)
+    for x in stride(from: CGFloat(24), to: 120, by: 8) {
+      let off = zip(pixel(x), page).map { abs($0 - $1) }.max()!
+      XCTAssertLessThan(off, 40, "something under the tab bar at x \(x): \(pixel(x)) on a page of \(page)")
+    }
+  }
+
   func testAPageReadIsOnOneShelfOfKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()

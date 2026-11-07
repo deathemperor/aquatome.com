@@ -32,6 +32,7 @@ struct V2Root: View {
             if todayOwnFrom == nil { todayOwnFrom = todayPath.count }
             todayPath.append(FullPage(item: item))
           }
+          .v2ClearUnderTabBar()
       }
       Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
         BrowseHome(path: $handbookPath)
@@ -39,13 +40,14 @@ struct V2Root: View {
             if ownFrom == nil { ownFrom = handbookPath.count }
             handbookPath.append(FullPage(item: item))
           }
+          .v2ClearUnderTabBar()
       }
-      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath) }
-      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView() }
-      Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath) }
+      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath).v2ClearUnderTabBar() }
+      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar() }
+      Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar() }
     }
-    // The owner's: the bar stays whole on every screen, on the soft edge, no band behind it. The same two values go on
-    // AquaTomeApp's Group for v1 too; these two lines go when they do.
+    // The owner's: the bar stays whole on every screen, no band behind it, and nothing through its glass (ClearUnderTabBar
+    // on each tab).
     .v2WholeTabBar()
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
@@ -114,7 +116,39 @@ extension View {
 
 private extension View {
   @ViewBuilder func v2WholeTabBar() -> some View {
-    if #available(iOS 26, *) { tabBarMinimizeBehavior(.never).scrollEdgeEffectStyle(.soft, for: .bottom) } else { self }
+    if #available(iOS 26, *) { tabBarMinimizeBehavior(.never).scrollEdgeEffectHidden(true, for: .bottom) } else { self }
+  }
+
+  func v2ClearUnderTabBar() -> some View { modifier(ClearUnderTabBar()) }
+}
+
+/// A tab's screens fade out just above the tab bar, so nothing shows through its glass or around it (the owner: words
+/// through the bar). iOS's own edges can't do it: the soft one leaves the words legible in the glass, and the hard one cuts
+/// them on a line with a band under it. A tab's own, not each page's: it holds for every page of the tab, v1's too.
+private struct ClearUnderTabBar: ViewModifier {
+  /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
+  @State private var bar: CGFloat = 0
+
+  func body(content: Content) -> some View {
+    if #available(iOS 26, *) {
+      content
+        .background {
+          Color.clear.ignoresSafeArea(.keyboard).onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.bottom } action: { bar = $0 }
+        }
+        .mask {
+          VStack(spacing: 0) {
+            Color.black
+            // A bar at the foot of the screen; an iPad's is at the top, with only the home indicator's inset here.
+            if bar >= 49 {
+              LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: 24) // Short: a page's pinned controls end just above the bar.
+              Color.clear.frame(height: bar)
+            }
+          }
+          .ignoresSafeArea()
+        }
+    } else {
+      content
+    }
   }
 }
 
