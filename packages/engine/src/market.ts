@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
   // Never "erythromycin": the maker's page, seen only in a search excerpt, says it contains none.
   { name: 'Slime Out', match: /\bslime[\s-]?out\b/i, kind: 'treatment', problems: ['cyanobacteria'],
     ingredient: { en: 'not disclosed', ref: COOP('blue-green-algae', 'How to Get Rid of Blue-Green Algae in Freshwater Aquariums') },
-    market: { vi: hard({ noIngredient: 'không rõ hoạt chất, đừng ghi hoạt chất nào, kể cả erythromycin', says: 'Slime Out là thuốc trị tảo lam. AquaTome chưa tìm được nguồn nêu rõ hoạt chất của nó.' }) } },
+    market: { vi: hard({ noIngredient: 'không rõ thuốc này có hoạt chất gì, đừng nói nó chứa gì. Điều dữ kiện nói về một hoạt chất (như erythromycin) thì vẫn nói được, nhưng tách khỏi thuốc này', says: 'Slime Out là thuốc trị tảo lam. AquaTome chưa tìm được nguồn nêu rõ hoạt chất của nó.' }) } },
   { name: 'Easy Green', match: /\beasy\s?green\b/i, kind: 'fertilizer',
     ingredient: { en: 'nitrogen, phosphorus, potassium and six micronutrients', ref: COOP('which-aquatic-fertilizer-is-right-for-you', 'Which Planted Tank Fertilizer Is Right for You? | Aquarium Plants 101') },
     market: { vi: hard({ ingredient: 'phân nước có đạm, lân, kali và vi lượng' }) } },
@@ -186,7 +186,7 @@ export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
         text: 'Với tảo lam, bạn tắt lọc để vi sinh không bị ảnh hưởng, tắt sủi oxy để nước gần như đứng yên, rồi tắt đèn, vì có ánh sáng thì oxy già phân hủy nhanh hơn nhiều. Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước, rồi bơm thẳng lên chỗ có tảo lam, đừng để trúng cây, tép và cá. Vài giờ sau, gỡ bằng tay chỗ tảo đang chết rồi bật lọc, sủi oxy và đèn lại. Hôm sau thay nước như mọi tuần.',
         words: ['Hút oxy già 3% vào xi lanh, liều 3 ml cho mỗi 4 lít nước'] },
     ],
-    risks: 'Oxy già có thể làm bỏng mang, nên quá liều sẽ hại cả cá và tép. Nguồn của liều này không nêu mức thấp hơn cho bể có tép. Làm cách này là bạn tự chịu rủi ro. Rêu cảnh, hẹ nước (Vallisneria) và Bucep có thể bị nhũn lá, còn nhiều cây khác thường chịu được. Oxy già chỉ diệt phần tảo đang có. Chưa sửa nguyên nhân thì tảo lam vẫn có thể quay lại.',
+    risks: 'Oxy già có thể làm bỏng mang, nên quá liều sẽ hại cả cá và tép. Nguồn của liều này không ghi liều nhẹ hơn cho bể có tép, và nói làm cách này là có rủi ro, bể nào cũng vậy. Rêu cảnh, hẹ nước (Vallisneria) và Bucep có thể bị nhũn lá, còn nhiều cây khác thường chịu được. Oxy già chỉ diệt phần tảo đang có. Chưa sửa nguyên nhân thì tảo lam vẫn có thể quay lại.',
     carried: /oxy già 3%[^.]{0,40}\d ml/i,
     refs: [{ url: 'https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/', title: 'Blue-Green Algae (Cyanobacteria) Profile and How to Remove' }],
   },
@@ -203,7 +203,7 @@ export const REMEDIES: Partial<Record<Lang, Remedy[]>> = { vi: [
     },
     uses: [
       { problem: 'parasites', label: { url: GENERAL_CURE_LABEL.url, readOn: CHECKED, quote: 'For each 10 gallons (38 L) of water, empty one packet directly into aquarium. Repeat dose after 48 hours. Wait another 48 hours then change 25% of the aquarium water' },
-        text: 'Nhãn thuốc ghi 1 gói cho mỗi 38 lít nước, 48 giờ sau cho thêm một liều, chờ thêm 48 giờ rồi thay 25% nước. Nhãn cũng bảo lấy than hoạt tính hoặc tấm lọc ra khỏi lọc trong lúc trị. Với ký sinh trùng bên trong, muối kém hiệu quả hơn.',
+        text: 'Nhãn thuốc ghi 1 gói cho mỗi 38 lít nước, 48 giờ sau cho thêm một liều, chờ thêm 48 giờ rồi thay 25% nước. Nhãn cũng bảo lấy than hoạt tính hoặc tấm lọc có tẩm than ra khỏi lọc trong lúc trị. Với ký sinh trùng bên trong, muối kém hiệu quả hơn.',
         words: ['1 gói cho mỗi 38 lít nước', '48 giờ', '25% nước'] },
     ],
     carried: /general cure[^.]{0,60}\d gói/i,

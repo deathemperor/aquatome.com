@@ -65,6 +65,9 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'bể cộng đồng', find: '(?:bể|cá) cộng đồng', instead: '"nuôi chung", "thả chung với cá hiền"' }, // species 521, guides 226 | 4 | 15; nuôi chung 86 in the forum
     { say: 'được xem là', instead: 'nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là"' }, // species 184, guides 44 | 7 | 4
     { say: 'ghi nhận', instead: '"có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó)' }, // species 1021, guides 104 | 12 | 4
+    { say: 'viên phân nền', instead: '"phân nhét" ("phân nền" là lớp đất trải đáy bể)' }, // 15 | 0 | 0; phân nhét 19 uses
+    { say: 'gỡ tay', instead: '"gỡ bằng tay", "chà rồi hút"' }, // 5.5 | 0 | 0
+    { say: 'máy tạo dòng', instead: '"thổi luồng"' }, // 4.8 | 0 | 0; thổi luồng 14 uses
     { say: 'không xương sống', instead: 'gọi tên con: "tép, ốc"' }, // species 242, guides 176 | 0.7 | 0
     { say: 'cá mê cung', find: '(?:cá|nhóm|họ|loài) mê cung', instead: 'gọi tên con: "cá sặc, cá betta"' }, // mê cung: species 263, guides 37 | 0.7 | 0
     { say: 'bơi tự do', instead: '"tự bơi được", "bơi được"' }, // species 194, guides 59 | 7 | 0

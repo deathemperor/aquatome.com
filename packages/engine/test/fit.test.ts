@@ -19,6 +19,11 @@ test('the chief\'s samples: each is found, by the check it belongs to', () => {
   expect(found('price', '<p>Tiền ship và phí vận chuyển bằng đường hàng không từ Canada.</p>')).toEqual(['phí vận chuyển'])
 })
 
+test('a sentence opening on "mình" and a verb is the writer\'s voice; a fish\'s body is not', () => {
+  expect(found('source', '<p>Không biết cá bị gì. Mình chỉ thấy cá có gì đó không ổn.</p>')).toEqual(['Mình chỉ'])
+  expect(found('source', '<p>Thân dài. Mình cá dẹp, cá cọ mình vào đá.</p>')).toEqual([])
+})
+
 test('what only looks like a hit is not one', () => {
   // The river, a fish called a dollar, a temperature, an author in taxonomy, a dose's own volume.
   for (const html of ['<p>Cá sống ở lưu vực Amazon, trên sông Amazon.</p>', '<p>Cá đô la và cá silver dollar ăn cây.</p>', '<p>Giữ nước 25 độ C, 19 đến 26 độ.</p>', '<p>Các tác giả xếp loài này vào họ khác.</p>']) {

@@ -74,7 +74,8 @@ const PRICE = [
   re(`(?:US\\$|\\$|£|€)\\s?\\d|\\d\\s?(?:\\$|£|€)|(?<!\\d\\s*)${WORD('USD')}|${WORD('vài đô|mấy đô|phí vận chuyển|cước vận chuyển|phí ship|ongkos kirim|ongkir|air freight')}|\\d[\\d.,]*\\s*ดอลลาร์|ค่าส่ง|ค่าขนส่ง`),
 ]
 const PRICE_OTHER = re(WORD(`${AMOUNT}(?:đồng|VND|VNĐ)`))
-const SOURCE = re(`${WORD('bài gốc|bài viết gốc|video này|trong video|theo video|kênh này|chúng tôi|artikel asli|video ini|dalam video|kami')}|บทความต้นฉบับ|วิดีโอนี้|ในวิดีโอ|พวกเรา`)
+/** "Mình" opening a sentence with a verb is the writer's own voice. "Mình cá dẹp" is a fish's body. */
+const SOURCE = re(`${WORD('bài gốc|bài viết gốc|video này|trong video|theo video|kênh này|chúng tôi|artikel asli|video ini|dalam video|kami')}|บทความต้นฉบับ|วิดีโอนี้|ในวิดีโอ|พวกเรา|(?<=^|[.!?…:]\\s)Mình (?:chỉ|đã|thấy|nghĩ|khuyên|từng|hay|thường|dùng|làm|không|cũng|nuôi|mua)(?![\\p{L}\\p{N}])`)
 const IMPERIAL = [
   re(WORD(`${AMOUNT}(?:gal|inch(?:es)?|inci|feet|ft|foot|pounds?|lbs?|ounces?|oz|độ F)`)),
   re(`${WORD('gallons?|galon|ga-?\\s?lông')}|แกลลอน|°\\s?F|\\d\\s*นิ้ว`),

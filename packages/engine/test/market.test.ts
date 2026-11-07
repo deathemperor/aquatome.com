@@ -14,7 +14,7 @@ const remedies = REMEDIES.vi!
  * After that a rewrite can change a guide's words, and this test must not stop a cycle over it (RATCHETED's comment says
  * why): the command leaves the guides whose note needs those words, and says so (`a figure gone from its file`, below).
  */
-const TABLE_READ = '8bed0c1c115d5151'
+const TABLE_READ = 'ec8ca6097751c45c'
 
 test('every figure in the table is word for word in the file it cites, read whenever the table changes', async () => {
   const hash = createHash('sha256').update(JSON.stringify(remedies)).digest('hex').slice(0, 16)
