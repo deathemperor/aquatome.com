@@ -764,6 +764,7 @@ final class LightFlowTests: XCTestCase {
     app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", part)).firstMatch
   }
 
+  /// By its identifier. The lookup also matches labels, so a text anywhere in the app that reads the same is found too.
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     app.descendants(matching: .any).matching(identifier: id).firstMatch
   }
