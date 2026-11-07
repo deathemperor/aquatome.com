@@ -75,6 +75,12 @@
             "value": "%@ kemarin"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ semalam"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -333,6 +339,12 @@
             "value": "%lld akuarium"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tangki"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -347,6 +359,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld akuarium di perangkat ini"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tangki pada peranti ini"
           }
         },
         "th": {
@@ -517,6 +535,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "%lld tugas"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tugasan"
           }
         },
         "th": {
@@ -1217,6 +1241,12 @@
             "value": "Komentar dan foto semua orang ditampilkan di perangkat ini."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Komen dan foto semua orang dipaparkan pada peranti ini."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -1319,6 +1349,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Anda belum memblokir siapa pun"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anda belum menyekat sesiapa"
           }
         },
         "th": {
@@ -1865,6 +1901,12 @@
             "value": "Akuarium di perangkat ini tetap ada."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tangki pada peranti ini masih ada."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -2277,6 +2319,12 @@
             "value": "Tidak ada koneksi"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiada sambungan internet"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -2423,6 +2471,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Belum bisa terhubung ke aquatome.com."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dapat menyambung ke aquatome.com."
           }
         },
         "th": {
@@ -2661,6 +2715,12 @@
             "value": "Belum disinkronkan"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum disegerakkan"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -2675,6 +2735,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Belum bisa disinkronkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat disegerakkan"
           }
         },
         "th": {
@@ -4013,6 +4079,12 @@
             "value": "Akuarium di perangkat ini belum bisa disinkronkan."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tangki pada peranti ini belum dapat disegerakkan."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -4049,6 +4121,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Akuarium tetap tersimpan di perangkat ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tangki masih disimpan pada peranti ini."
           }
         },
         "th": {
@@ -4089,6 +4167,12 @@
             "value": "Perubahan tetap tersimpan di perangkat ini"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perubahan masih disimpan pada peranti ini"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -4122,6 +4206,12 @@
     "Cách khác": {
       "localizations": {
         "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cara lain"
+          }
+        },
+        "ms": {
           "stringUnit": {
             "state": "translated",
             "value": "Cara lain"
@@ -4671,6 +4761,12 @@
             "value": "Perbarui aplikasi"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kemas kini aplikasi"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -5193,6 +5289,12 @@
             "value": "Email"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E-mel"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -5339,6 +5441,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tampilan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penampilan"
           }
         },
         "th": {
@@ -7315,6 +7423,12 @@
             "value": "Pukul %1$@ · %2$lld akuarium"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pada %1$@ · %2$lld tangki"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -7329,6 +7443,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Saat ini belum bisa masuk ke akun aquatome.com."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buat masa ini tidak dapat daftar masuk ke akaun aquatome.com."
           }
         },
         "th": {
@@ -7455,6 +7575,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Terakhir pukul %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kali terakhir pada %@"
           }
         },
         "th": {
@@ -7801,6 +7927,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ingin melihat akuarium Anda di aquatome.com atau di perangkat lain? Masuk untuk menyinkronkan. Tidak wajib: tanpa masuk, akuarium tetap tersimpan di perangkat ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mahu melihat tangki anda di aquatome.com atau pada peranti lain? Daftar masuk untuk menyelaraskan. Tidak wajib: tanpa daftar masuk, tangki tetap disimpan pada peranti ini."
           }
         },
         "th": {
@@ -8809,6 +8941,12 @@
             "value": "Passkey"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunci laluan"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -8845,6 +8983,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sesi masuk sudah berakhir. Terakhir kali Anda masuk dengan %@."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sesi daftar masuk telah tamat. Kali terakhir anda daftar masuk dengan %@."
           }
         },
         "th": {
@@ -8946,6 +9090,12 @@
     "Quyền riêng tư": {
       "localizations": {
         "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privasi"
+          }
+        },
+        "ms": {
           "stringUnit": {
             "state": "translated",
             "value": "Privasi"
@@ -9119,6 +9269,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Terang"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerah"
           }
         },
         "th": {
@@ -9465,6 +9621,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ikuti perangkat"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikut peranti"
           }
         },
         "th": {
@@ -9987,6 +10149,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Statistik tidak mencakup akun, nama akuarium, isi pencarian, atau foto."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statistik tidak termasuk akaun, nama tangki, carian atau foto."
           }
         },
         "th": {
@@ -11303,6 +11471,12 @@
             "value": "Gelap"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gelap"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -11713,6 +11887,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lihat alasannya di Akuarium saya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat sebabnya dalam Tangki saya."
           }
         },
         "th": {
@@ -12347,6 +12527,12 @@
             "value": "dengan %@"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dengan %@"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -12358,6 +12544,12 @@
     "bằng %@ · từ tháng %@": {
       "localizations": {
         "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dengan %1$@ · sejak %2$@"
+          }
+        },
+        "ms": {
           "stringUnit": {
             "state": "translated",
             "value": "dengan %1$@ · sejak %2$@"
@@ -12597,6 +12789,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "perlu masuk lagi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "perlu daftar masuk semula"
           }
         },
         "th": {
@@ -13363,6 +13561,12 @@
             "value": "Menyinkronkan…"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menyegerakkan…"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -13707,6 +13911,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sudah menyimpan akuarium di aquatome.com atau perangkat lain?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah menyimpan tangki di aquatome.com atau peranti lain?"
           }
         },
         "th": {
@@ -14055,6 +14265,12 @@
             "value": "Sudah masuk"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah daftar masuk"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -14091,6 +14307,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sudah disinkronkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah disegerakkan"
           }
         },
         "th": {
@@ -14857,6 +15079,12 @@
             "value": "Masuk untuk menyimpannya juga di aquatome.com"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daftar masuk untuk menyimpannya juga di aquatome.com"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -14871,6 +15099,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Masuk untuk mengambilnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daftar masuk untuk mendapatkannya semula"
           }
         },
         "th": {
@@ -15131,6 +15365,12 @@
             "value": "Sinkronkan akuarium antarperangkat"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segerakkan tangki antara peranti"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -15145,6 +15385,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Terakhir disinkronkan pukul %@ · perubahan tetap tersimpan di perangkat ini"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kali terakhir disegerakkan pada %@ · perubahan masih disimpan pada peranti ini"
           }
         },
         "th": {
@@ -15427,6 +15673,12 @@
             "value": "sudah masuk"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sudah daftar masuk"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -15485,6 +15737,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "sinkronisasi gagal"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "penyegerakan gagal"
           }
         },
         "th": {
