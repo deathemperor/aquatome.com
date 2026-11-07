@@ -280,9 +280,9 @@ final class OwnerFlowTests: XCTestCase {
     repeatUntil(row.exists, times: 6) { app.swipeUp() }
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the row went")
     XCTAssertTrue(row.label.contains("đăng nhập lại"), row.label)
-    let message = app.staticTexts["account-message"]
-    XCTAssertTrue(message.waitForExistence(timeout: 5))
-    XCTAssertEqual(message.label, "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.")
+    let ended = app.staticTexts["session-ended"]
+    XCTAssertTrue(ended.waitForExistence(timeout: 5))
+    XCTAssertEqual(ended.label, "Phiên đăng nhập đã hết. Lần trước bạn đăng nhập bằng Apple.")
 
     // Signed in again (its button back up the list): the dashboard opens as before.
     repeatUntil(app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists, times: 6) { app.swipeDown() }

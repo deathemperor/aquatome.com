@@ -288,7 +288,8 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["Ảnh của Lan"].exists, "let back, their photo still hidden")
   }
 
-  /// The posters blocked are listed in the Tài khoản sheet, under the sign-in, each to let back; not in the tanks tab.
+  /// The posters blocked are a row of the Tài khoản sheet (how many), opening their page, each to let back; not in the
+  /// tanks tab. After the last, the page says nobody is blocked and the row goes.
   func testABlockedPosterIsListedInTheAccountSheet() {
     let app = launch()
     openNeon(app)
@@ -299,15 +300,20 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(gone(comment(app, "Minh")), "the blocked poster's comment still shows")
     app.openTab("Bể của tôi")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not the tanks tab")
-    let header = app.descendants(matching: .any)["blocked-header"]
-    XCTAssertFalse(header.exists, "the blocked list in the tanks tab")
+    let row = app.descendants(matching: .any)["blocked-row"].firstMatch
+    XCTAssertFalse(row.exists, "the blocked in the tanks tab")
     app.openAccount()
-    repeatUntil(header.exists, times: 4) { app.swipeUp() }
-    XCTAssertTrue(header.waitForExistence(timeout: 5), "no blocked list in the Tài khoản sheet")
+    repeatUntil(row.exists && row.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no blocked row in the Tài khoản sheet")
+    XCTAssertTrue(row.label.contains("1"), row.label)
+    row.tap()
     let unblock = app.buttons["unblock"]
+    XCTAssertTrue(unblock.waitForExistence(timeout: 5), "the row didn't open the blocked")
     XCTAssertEqual(unblock.label, "Bỏ chặn Minh")
     unblock.tap()
-    XCTAssertTrue(gone(header), "the list stayed with no one in it")
+    XCTAssertTrue(app.descendants(matching: .any)["blocked-none"].firstMatch.waitForExistence(timeout: 5), "the page doesn't say nobody is blocked")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    XCTAssertTrue(gone(row), "the row stayed with no one blocked")
     app.openTab("Tìm")
     XCTAssertTrue(comment(app, "Minh").waitForExistence(timeout: 5), "let back, still hidden")
   }
