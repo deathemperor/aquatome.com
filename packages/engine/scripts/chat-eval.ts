@@ -28,10 +28,11 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
-import type { PageShard } from '@aq/schema/app-page'
+import type { PageDoc, PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type ChatRun, type Start } from '../../../apps/site/worker/chat/agent'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import { figuresOf, handbookOf, type Handbook, type Index, type Source } from '../../../apps/site/worker/chat/handbook'
+import { figuresOf, handbookOf, type Handbook, type Index, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
+import { topicsOf, type Topics } from '../../../apps/site/worker/chat/topics'
 import { textOf } from '../../../apps/site/worker/chat/tools'
 import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
@@ -117,7 +118,19 @@ async function cached<T>(path: string): Promise<T | null> {
   await writeFile(file, text)
   return JSON.parse(text) as T
 }
-const source: Source = { index: lang => cached<Index>(`/app/${lang}.json`), shard: (lang, kind, n) => cached<PageShard>(`/app/pages/${lang}/${kind}-${n}.json`) }
+/** Every guide's app copy, from its shards. */
+async function guideDocs(lang: Lang): Promise<PageDoc[]> {
+  const n = (await cached<Index>(`/app/${lang}.json`))?.shards?.guide?.n ?? 0
+  const shards = await Promise.all(Array.from({ length: n }, (_, i) => cached<PageShard>(`/app/pages/${lang}/guide-${i}.json`)))
+  return shards.flatMap(s => Object.values(s?.pages ?? {}))
+}
+/** The guides' topics the build writes; worked out from the page copies, as the build does, where the site has none yet. */
+let topicsFrom: 'site' | 'pages' = 'site'
+const source: Source = {
+  index: lang => cached<Index>(`/app/${lang}.json`),
+  shard: (lang, kind, n) => cached<PageShard>(`/app/pages/${lang}/${kind}-${n}.json`),
+  topics: async lang => (await cached<Topics>(`/app/chat/${lang}.json`)) ?? ((topicsFrom = 'pages'), topicsOf(await guideDocs(lang))),
+}
 
 /** One FAQ question per guide, from n guides at random. */
 async function faqQuestions(index: Index, n: number): Promise<Question[]> {
@@ -239,6 +252,14 @@ async function grade(model: string, question: Question, run: ChatRun | undefined
 async function main() {
   await mkdir(args.cache!, { recursive: true })
   const hb = await handbookOf(source, 'vi')
+  // A FAQ question is asked as its guide words it, and the search reads the guides' FAQ questions: it is left out of
+  // them while it is asked, as a reader's own words would differ (fish ID's eval leaves out the test photo the same way).
+  const all = await hb?.topics()
+  const asked = async (q: Question) => {
+    if (q.set !== 'faq' || !all) return hb!
+    const pages = Object.fromEntries(Object.entries(all.pages).map(([path, list]) => [path, list.filter(([, text]) => text.trim() !== q.q)]))
+    return (await handbookOf({ ...source, topics: async () => ({ v: 1, pages }) }, 'vi'))!
+  }
   const index = await source.index('vi')
   if (!hb || !index) { console.error(`No app index at ${args.site}/app/vi.json`); process.exit(1) }
   const questions = [...(await faqQuestions(index, Number(args.n))), ...WRITTEN].filter(q => !args.only || q.q.includes(args.only))
@@ -262,7 +283,7 @@ async function main() {
       let run: ChatRun | undefined
       let failed: string | undefined
       try {
-        run = await answerQuestion({ send, model, lang: 'vi', question: question.q, earlier: [], start: question.start, handbook: hb, tanks: async () => [] })
+        run = await answerQuestion({ send, model, lang: 'vi', question: question.q, earlier: [], start: question.start, handbook: await asked(question), tanks: async () => [] })
         if (!run.answer) failed = run.error ? String((run.error as Error).message ?? run.error).slice(0, 120) : `no answer (stopped: ${run.stopped})`
       } catch (e) {
         failed = String((e as Error).message ?? e).slice(0, 120)
@@ -286,11 +307,11 @@ function report(rows: Row[], index: Index): string {
   const lines = [
     '# Chat: how it answers',
     '',
-    `${DRY ? '**Dry run: a fake Claude, these numbers mean nothing.** ' : ''}${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-eval.ts\`, seed ${SEED}. The Worker's own agent, prompt, schema, effort and limits (\`apps/site/worker/chat/\`), over ${args.site}'s handbook (app index version ${(index as { version?: unknown }).version ?? '?'}), in Vietnamese, no saved tanks.`,
+    `${DRY ? '**Dry run: a fake Claude, these numbers mean nothing.** ' : ''}${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-eval.ts\`, seed ${SEED}. The Worker's own agent, prompt, schema, effort and limits (\`apps/site/worker/chat/\`), over ${args.site}'s handbook (app index version ${(index as { version?: unknown }).version ?? '?'}; the guides' headings and FAQ questions ${topicsFrom === 'site' ? 'as the site serves them' : 'worked out from its page copies, as the build does'}), in Vietnamese, no saved tanks.`,
     '',
     `${faqs} questions from the guides' FAQs, one per guide, guides at random; ${WRITTEN.filter(q => q.set === 'start').length} asked from a fish's page or fish ID, or naming fish or a tank; ${WRITTEN.filter(q => q.set === 'outside').length} the handbook doesn't answer or aren't about aquariums.`,
     '',
-    '- **FAQ:** the guide the question came from was read or shown / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page. Another guide may answer as well; the search reads page titles only, so a guide whose title doesn\'t name the topic is often missed.',
+    '- **FAQ:** the guide the question came from was read or shown / another page shown, answered as covered / answered as not covered (with the nearest page) or with no page. Another guide may answer as well. The search reads the guides\' FAQ questions too, so the question asked is left out of them while it is asked.',
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
     '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
     '- **Figures not in a page:** answers whose text has a number that neither the question nor a page it read has (listed below).',
