@@ -38,8 +38,10 @@ struct V2Photo: View {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
         let full = V2Photo.full(src)
-        // Its colour now, not once the full photo has come.
-        if let colour, let shown = image { colour(await PhotoColour.of(shown, key: colourKey ?? src)) }
+        // Its colour now, not once the full photo has come. Asked before loading: the loader puts what it decodes in memory,
+        // where `image` finds it, so after it a first photo would look as if it had been there and pop in.
+        let shown = image
+        if let colour, let shown { colour(await PhotoColour.of(shown, key: colourKey ?? src)) }
         var loaded: UIImage?
         // A big frame: the full photo (a 480 px copy counts as large enough for any frame to the cache, which never decodes
         // past a picture's own size).
@@ -47,7 +49,7 @@ struct V2Photo: View {
         if loaded == nil { loaded = await PageImages.image(src, size) }
         guard let loaded, !Task.isCancelled else { return }
         // Faded in as it comes; one in its place already, swapped.
-        withAnimation(image == nil ? .easeOut(duration: 0.2) : nil) { picture = (src, loaded) }
+        withAnimation(shown == nil ? .easeOut(duration: 0.2) : nil) { picture = (src, loaded) }
         if let colour { colour(await PhotoColour.of(loaded, key: colourKey ?? src)) }
       }
   }
