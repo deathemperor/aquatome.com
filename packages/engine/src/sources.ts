@@ -1,4 +1,5 @@
 import type { SourceId } from '@aq/schema'
+import { ARCHIVE_POLITE } from './archive'
 
 export type SourceConfig = {
   id: SourceId
@@ -41,12 +42,12 @@ const SCOTCAT_FAMILIES = ['ailiidae', 'akysid', 'amblycip', 'amphill', 'anchar',
 export const SOURCES: SourceConfig[] = [
   { id: 'seriouslyfish', tier: 'specialist', discover: { kind: 'sitemap', urls: ['https://www.seriouslyfish.com/sitemap.xml'] }, include: /seriouslyfish\.com\/(species|articles)\/[a-z0-9-]+\/?$/, exclude: /\/articles\/all\/?$/, contentSelector: 'main', profiles: /\/species\//, search: n => `https://www.seriouslyfish.com/search?q=${encodeURIComponent(n)}`, delayMs: POLITE },
   // Cloudflare challenges every request (2026-10-29), so the Cat-eLog is read from the Internet Archive's copies.
-  { id: 'planetcatfish', tier: 'specialist', discover: { kind: 'archive', prefix: 'planetcatfish.com/common/species.php' }, via: 'archive', keepQuery: true, contentSelector: '#main-page', include: /^https:\/\/www\.planetcatfish\.com\/common\/species\.php\?species_id=\d+$/, delayMs: POLITE },
+  { id: 'planetcatfish', tier: 'specialist', discover: { kind: 'archive', prefix: 'planetcatfish.com/common/species.php' }, via: 'archive', keepQuery: true, contentSelector: '#main-page', include: /^https:\/\/www\.planetcatfish\.com\/common\/species\.php\?species_id=\d+$/, delayMs: ARCHIVE_POLITE },
   { id: 'loachesonline', tier: 'specialist', discover: { kind: 'crawl', start: ['https://www.loaches.com/species-index', 'https://www.loaches.com/articles', 'https://www.loaches.com/care'] }, include: /loaches\.com\/(species-index|articles|care|disease-treatment)\/[a-z0-9-]+/, exclude: /\/species-index\/(photos|photo-search|pictorial-species-search-index|species-index|loach-species-index-front-page)(\/|$)|\/(images|sendto_form|@@[a-z-]+|login_form|search)(\/|$)/, contentSelector: '#content', profiles: /\/species-index\//, delayMs: POLITE },
   { id: 'glaser', tier: 'specialist', shop: true, discover: { kind: 'sitemap', urls: ['https://www.aquariumglaser.de/sitemap_index.xml'] }, include: /aquariumglaser\.de\/en\/[a-z0-9-]+\/[a-z0-9-]+/, exclude: /\/(category|tag|page|author)\//, delayMs: POLITE },
   { id: 'bwaquatics', tier: 'specialist', shop: true, discover: { kind: 'sitemap', urls: ['https://bwaquatics.com/sitemap.xml'] }, include: /bwaquatics\.com\/products\/[a-z0-9-]+$/, exclude: /\/products\/test$/, delayMs: POLITE },
   // Cloudflare challenges the engine's browser on every request (2026-10-29 on), so its articles are read from the Internet Archive's copies.
-  { id: '2hraquarist', tier: 'specialist', discover: { kind: 'archive', prefix: '2hraquarist.com/blogs/' }, via: 'archive', include: /^https:\/\/www\.2hraquarist\.com\/blogs\/[a-z0-9-]+\/[a-z0-9-]+$/, delayMs: POLITE },
+  { id: '2hraquarist', tier: 'specialist', discover: { kind: 'archive', prefix: '2hraquarist.com/blogs/' }, via: 'archive', include: /^https:\/\/www\.2hraquarist\.com\/blogs\/[a-z0-9-]+\/[a-z0-9-]+$/, delayMs: ARCHIVE_POLITE },
   { id: 'aquariumcoop', tier: 'specialist', discover: { kind: 'sitemap', urls: ['https://www.aquariumcoop.com/sitemap.xml'] }, include: /aquariumcoop\.com\/blogs\/aquarium\/[a-z0-9-]+$/, delayMs: POLITE },
   // Spruce: 416xxxx ids are category hubs (dogs, cats, …), not articles.
   { id: 'sprucepets', tier: 'general', discover: { kind: 'crawl', start: ['https://www.thesprucepets.com/freshwater-fish-breeds-4162057'], scope: 'main' }, include: /thesprucepets\.com\/[a-z0-9-]+-\d{7,}$/, exclude: /-416\d{4}$/, delayMs: POLITE },
