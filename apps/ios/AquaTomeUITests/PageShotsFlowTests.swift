@@ -8,8 +8,8 @@ import XCTest
 /// the tanks tab on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
-/// Tuya cloud; what's new, its row on the home then its list, and kit's section on the home then a long list's whole
-/// list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
+/// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
+/// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
 /// overview, a section with charts and tables, and the daily report's settings. Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
@@ -37,6 +37,9 @@ final class PageShotsFlowTests: XCTestCase {
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
   func testAKindOfKit() { shoot("kit-light", "loc", "Lọc", more: ["-equipment"]) }
   func testAKindOfKitInTheDark() { shoot("kit-dark", "loc", "Lọc", dark: true, more: ["-equipment"]) }
+  func testTheToolsOnTim() { shootTools("tools-light") }
+  func testTheToolsOnTimInTheDark() { shootTools("tools-dark", dark: true) }
+  func testTheToolsOnTimInTheLargestText() { shootTools("tools-largest-light", size: largest, screens: 2) }
   func testKitOnTheHomeAndALongList() { shootKit("kit-home-light") }
   func testKitOnTheHomeAndALongListInTheDark() { shootKit("kit-home-dark", dark: true) }
   func testWhatsNew() { shootWhatsNew("whats-new-light") }
@@ -123,6 +126,22 @@ final class PageShotsFlowTests: XCTestCase {
         row.tap()
         XCTAssertTrue(app.descendants(matching: .any)["latest"].firstMatch.waitForExistence(timeout: 5), "the list didn't open")
       }
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+  }
+
+  /// Tìm's first screen: its tools, fish ID's card leading them, then their tiles (at the largest text, the next screen
+  /// too).
+  private func shootTools(_ name: String, dark: Bool = false, size: String? = nil, screens: Int = 1) {
+    let app = launch(dark: dark, size: size)
+    XCTAssertTrue(app.buttons["tool-fish-id"].waitForExistence(timeout: 5), "no tools")
+    XCTAssertTrue(app.buttons.matching(identifier: "tool-tile").firstMatch.waitForExistence(timeout: 5), "no tiles")
+    for n in 1...screens {
+      if n > 1 { app.swipeUp() }
       settle()
       let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
       a.name = String(format: "shot-%@-%02d", name, n)

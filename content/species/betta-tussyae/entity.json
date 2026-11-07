@@ -10,6 +10,52 @@
     "malaysia",
     "pahang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to coastal parts of Pahang and Terengganu states, eastern Peninsular Malaysia with type locality 'About 77 kilometers south of Kuantan on road parallel to east coast, 17 kilometers south of Pekan, about 77 kilometers from Pahang, about 1 kilometer from sea, Pahang State, Malaysia'.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394015,
+      "total": 11,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          2.8125,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

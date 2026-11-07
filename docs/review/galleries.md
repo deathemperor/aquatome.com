@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-06). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 77 | 24 | 30 | 202 |
 | popular | 40 | 19 | 0 | 0 | 1 | 18 |
-| covered | 30 | 377 | 5 | 9 | 12 | 379 |
-| rest | 20 | 1037 | 93 | 0 | 3 | 1127 |
+| covered | 30 | 388 | 8 | 9 | 11 | 394 |
+| rest | 20 | 1054 | 90 | 0 | 5 | 1139 |
 
-## Short of target: every source read (78)
+## Short of target: every source read (84)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -70,7 +70,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-paleatus | shop | 26 | 60 |
 | plants/cryptocoryne-wendtii | shop | 5 | 60 |
 | breeds/red-tailed-golden-arowana | shop | 8 | 60 |
-| species/corydoras-pygmaeus | shop | 10 | 60 |
+| species/corydoras-pygmaeus | shop | 6 | 60 |
 | plants/cryptocoryne-crispatula | shop | 0 | 60 |
 | breeds/crossback-golden-arowana | shop | 0 | 60 |
 | species/corydoras-hastatus | shop | 1 | 60 |
@@ -84,7 +84,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/cyperus-helferi | shop | 0 | 60 |
 | species/garra-flavatra | shop | 8 | 60 |
 | plants/aponogeton-madagascariensis | shop | 1 | 60 |
+| plants/riccardia-chamedryfolia | shop | 56 | 60 |
 | species/synodontis-petricola | shop | 2 | 60 |
+| species/peckoltia-compta | shop | 0 | 60 |
+| plants/monosolenium-tenerum | shop | 3 | 60 |
+| plants/echinodorus-grisebachii | shop | 5 | 60 |
+| plants/hygrophila-difformis | shop | 14 | 60 |
+| species/caridina-multidentata | shop | 38 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
 | species/alestopetersius-caudalis | shop | 1 | 60 |
 | species/trichogaster-lalius | shop | 33 | 60 |

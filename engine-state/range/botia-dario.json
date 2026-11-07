@@ -1,0 +1,103 @@
+{
+  "id": "botia-dario",
+  "native": {
+    "input": "c323ca41cd983209",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of the middle to lower Ganges and Brahmaputra river drainages in northern India, Bangladesh and Bhutan.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of the middle to lower Ganges and Brahmaputra river drainages in northern India, Bangladesh and Bhutan.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of the middle to lower Ganges and Brahmaputra river drainages in northern India, Bangladesh and Bhutan.",
+        "words": "Bhutan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of the middle to lower Ganges and Brahmaputra river drainages in northern India, Bangladesh and Bhutan.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of the middle to lower Ganges and Brahmaputra river drainages in northern India, Bangladesh and Bhutan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia dario",
+    "status": "ACCEPTED",
+    "taxonKey": 2368034,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        33
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        29
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "BD",
+      "BT"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

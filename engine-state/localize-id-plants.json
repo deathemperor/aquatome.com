@@ -469,18 +469,15 @@
     ]
   },
   "bucephalandra-sp-mini-melawi": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "Bucephalandra Mini Melawi",
     "confidence": "high",
-    "score": 0.8,
+    "score": 0.9,
     "notes": [
-      "\"Anda\" in \"yang akan Anda terima\" is fine, but consider more neutral \"yang akan diterima\".",
-      "\"emersed\" left in English while \"submersed\" is also English: use \"emers\"/\"submers\" or Indonesian \"terendam\" and \"di atas permukaan air\" consistently, e.g. \"tumbuh terendam (submersed) dan tumbuh emers (emersed)\".",
-      "Source says \"grown submersed and emersed at times\" (cultivated); translation says \"di habitat aslinya kadang tumbuh\" - slight shift, consider \"dapat ditanam secara terendam maupun emers\".",
-      "\"Single, Double, atau Triple\" left in English; consider adding Indonesian like \"Single (1 rimpang), Double (2), Triple (3)\" for clarity.",
-      "\"habitatnya (akuarium/aquascape)\" adds interpretation in brackets; \"habitat\" here means the setup/tank, better \"akuarium atau aquascape-nya\" without the bracket.",
-      "Genus name spelled \"Bucephalandra\" vs source \"Bucephelandra\": the source typo was corrected; acceptable but note change."
+      "Item 2: the source text is Vietnamese, not English. The Indonesian follows it faithfully, but the source should be checked.",
+      "Item 1: the source spells it \"Bucephelandra\" and the translation silently changes it to \"Bucephalandra\". This is a correct typo fix, so it is only worth confirming.",
+      "Item 1: \"3 rimpang di foto sebagai perkiraan kasar ukuran porsinya\" is slightly clumsy. Consider \"foto menampilkan 3 rimpang sebagai perkiraan kasar porsi yang Anda terima\"."
     ]
   },
   "bucephalandra-sp-needle-leaf": {
@@ -511,16 +508,15 @@
     ]
   },
   "bucephalandra-sp-red-cherry": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
     "name": "Bucephalandra Red Cherry",
     "confidence": "medium",
-    "score": 0.8,
+    "score": 0.72,
     "notes": [
-      "\"Dijual per porsi berisi 3 rimpang (tersedia porsi tunggal, ganda, atau tripel)\": \"tripel\" is awkward; use \"porsi 1x, 2x, atau 3x\" or \"satu, dua, atau tiga porsi\" to make clear that each portion is 3 rhizomes.",
-      "\"Tempat untuk tanamannya\" for \"habitat\" is vague; better \"akuarium/aquascape atau lingkungan tumbuhnya\" so the care advice is clear.",
-      "\"jelas ideal\" for \"definitely ideal\" is slightly stiff; \"sangat ideal\" reads more naturally.",
-      "\"akuarium tanaman air\" is acceptable, but \"aquascape\" or \"akuarium bertanaman\" may be more common among hobbyists."
+      "Item 1: \"kadang emersed\" leaves the English word bare, while \"submersed\" is translated and bracketed. Use \"terendam (submersed)\" and \"tumbuh di atas permukaan air (emersed/emers)\".",
+      "Item 1: the source spells the genus \"Bucephelandra\" and the translation changes it to \"Bucephalandra\". This is the correct spelling, so it is only a minor point. Keep the Latin name as the source has it, or apply the same spelling everywhere.",
+      "Item 1: \"di habitat aslinya kadang tumbuh terendam\" is slightly loose. Consider \"dapat tumbuh terendam maupun emers, sesuai habitat aslinya\"."
     ]
   },
   "bucephalandra-sp-round-leaf": {
@@ -926,17 +922,12 @@
     ]
   },
   "eleocharis-parvula": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Eleocharis parvula",
+    "at": "2026-11-06",
+    "from": "2026-11-06",
+    "name": "Dwarf Hairgrass",
     "confidence": "medium",
-    "score": 0.75,
-    "notes": [
-      "\"geragih (runner)\": \"geragih\" is an unusual term; hobbyists usually say \"stolon\" or \"sulur\". Also it is inconsistent with item 1, which uses \"stolon\".",
-      "\"Tanaman latar depan yang ideal\": fine in meaning, but \"foreground\" is more naturally \"tanaman latar depan/foreground\" as a full sentence, e.g. \"Cocok sebagai tanaman latar depan\".",
-      "\"berjarak cukup rapat\" is slightly contradictory/awkward; use \"dengan jarak cukup rapat\" or \"ditanam cukup rapat\".",
-      "\"Asal: kosmopolitan\" is fine, but \"Tipe: stolon\" would be clearer as \"Tipe: berstolon\" or \"Tipe pertumbuhan: stolon\"."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "eleocharis-pusilla": {
     "at": "2026-10-31",
@@ -2058,6 +2049,18 @@
       "Item 2: \"Paling pas disebut sebagai kakaknya Christmas moss\" is colloquial; better \"Bisa digambarkan sebagai versi lebih besar dari Christmas moss\".",
       "Item 2: \"tetap subur di bawah cahaya yang sangat redup\" is a bit loose for \"thrives at a very low light intensity\"; \"tumbuh baik pada intensitas cahaya sangat rendah\" is more faithful.",
       "Item 2: \"dengan jarak sedikit di antaranya\" is awkward; use \"dengan jarak tanam yang rapat/kecil antarrumpun\"."
+    ]
+  },
+  "utricularia-graminifolia": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Utricularia graminifolia",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"rumput lapangan\" is slightly awkward; \"hamparan seperti padang rumput/halaman rumput\" would read more naturally.",
+      "\"famili bladderwort\" leaves the English name; a local name such as \"famili Lentibulariaceae\" or \"tanaman kantung semar air\" may be clearer.",
+      "\"Asal: Asia\" is fine, but \"Asal daerah\" or \"Asal-usul\" is more common."
     ]
   },
   "vallisneria": {

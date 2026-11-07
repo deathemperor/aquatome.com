@@ -13,6 +13,142 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Kapuas River",
+        "Muar River",
+        "Tasek Bera",
+        "Mentaya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to southern Thailand, Peninsular Malaysia and the Greater Sunda islands of Borneo and Sumatra.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas River",
+            "Mentaya"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Muar River, Tebinh Tinggi, Johore, Malaysia'.",
+          "countries": [],
+          "regions": [
+            "Muar River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.",
+          "countries": [],
+          "regions": [
+            "Tasek Bera"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962644,
+      "total": 26,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          17
+        ],
+        [
+          "MY",
+          8
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          109.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          4,
+          4
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

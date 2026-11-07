@@ -15,6 +15,72 @@
     "bangkok",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Lamag, Kinabatangan District, East Coast Residency, Malaysia', which corresponds to Kinabatangan district in modern-day Sandakan Division, Sabah state, Malaysia (northeastern Borneo).",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377139,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          3
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

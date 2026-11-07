@@ -59,14 +59,16 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   {"version":1,"lang":"vi","items":[
    {"kind":"video","name":"Rêu hại từ A đến Z","sub":"MJ Aquascaping","path":"/vi/video/reu-hai-tu-a-den-z/","img":"https://i.ytimg.com/vi/x/hqdefault.jpg","parts":14},
    {"kind":"guide","name":"Cách hạn chế rêu hại","path":"/vi/huong-dan/cach-han-che-reu-hai/","section":"plantCare","video":1755},
-   {"kind":"tool","name":"Bể bao nhiêu lít?","path":"/vi/cong-cu/the-tich-be/","words":["Tính thể tích bể cá: lít, gallon, độ dày kính"]},
-   {"kind":"tool","name":"Công cụ","path":"/vi/cong-cu/","words":"not a list","video":"long","parts":-0.5}
+   {"kind":"tool","name":"Bể bao nhiêu lít?","path":"/vi/cong-cu/the-tich-be/","words":["Tính thể tích bể cá: lít, gallon, độ dày kính"],"short":"Thể tích bể"},
+   {"kind":"tool","name":"Công cụ","path":"/vi/cong-cu/","words":"not a list","video":"long","parts":-0.5,"short":7}
   ]}
   """#.utf8))
   #expect(ix.items.map(\.kind) == [.video, .guide, .tool, .tool])
   #expect(ix.items[0].sub == "MJ Aquascaping" && ix.items[0].parts == 14 && ix.items[0].video == nil)
   #expect(ix.items[1].video == 1755 && ix.items[1].words.isEmpty)
   #expect(ix.items[2].words == ["Tính thể tích bể cá: lít, gallon, độ dày kính"])
+  // Its short name, as Tìm's tiles say it; one this app can't read is left out, not the tool.
+  #expect(ix.items[2].short == "Thể tích bể" && ix.items[3].short == nil && ix.items[1].short == nil)
   // A value this app can't read is left out, never the item.
   #expect(ix.items[3].words.isEmpty && ix.items[3].video == nil && ix.items[3].parts == nil)
   #expect(try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix)) == ix, "kept on the phone and read back the same")
@@ -180,6 +182,27 @@ func names(_ items: [HandbookIndex.Item]) -> [String] { items.map(\.name) }
   #expect(route("https://www.youtube-nocookie.com/embed/x", mainFrame: false) == .app)
   #expect(route("about:blank", mainFrame: false) == .app)
   #expect(route("about:blank", newWindow: true) == .none)
+}
+
+// The site's pages about itself open in the browser, not the app's web view (the owner's call): about, with its data
+// table, contact and privacy, in each language, the Vietnamese under "/vi/" or at the root.
+@Test func theSitesPagesAboutItselfOpenInTheBrowser() {
+  let site = URL(string: "https://aquatome.com")!
+  func route(_ s: String) -> PageRoute { PageRoute.of(URL(string: s)!, site: site, mainFrame: true, newWindow: false) }
+  for s in ["https://aquatome.com/vi/gioi-thieu/", "https://aquatome.com/vi/gioi-thieu/bang-du-lieu/",
+            "https://aquatome.com/vi/lien-he/", "https://www.aquatome.com/vi/chinh-sach-bao-mat/#tai-khoan",
+            "https://aquatome.com/lien-he/", "https://aquatome.com/gioi-thieu",
+            "https://aquatome.com/id/tentang/", "https://aquatome.com/id/tentang/tabel-data/", "https://aquatome.com/id/kontak/",
+            "https://aquatome.com/id/kebijakan-privasi/#tai-khoan", "https://aquatome.com/th/about/",
+            "https://aquatome.com/th/about/data-table/", "https://aquatome.com/th/contact/", "https://aquatome.com/th/privacy/"] {
+    #expect(route(s) == .outside, "\(s)")
+  }
+  // The handbook stays: the home page, a page whose slug starts as one does, one language's words in another's.
+  for s in ["https://aquatome.com/vi/", "https://aquatome.com/", "https://aquatome.com/vi/huong-dan/lien-he-nguon-nuoc/",
+            "https://aquatome.com/vi/gioi-thieu-ca-canh/", "https://aquatome.com/vi/about/", "https://aquatome.com/id/contact/",
+            "https://aquatome.com/about/"] {
+    #expect(route(s) == .app, "\(s)")
+  }
 }
 
 @Test func shopLinksAreTheSitesGoPaths() {

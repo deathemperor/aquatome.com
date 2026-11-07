@@ -89,6 +89,9 @@ REACH = {
     APP + 'InfoPlist.xcstrings': NONE, APP + 'PrivacyInfo.xcprivacy': NONE,
     APP + 'Handbook/': HANDBOOK_SCREENS,
     APP + 'Handbook/HandbookModel.swift': HANDBOOK_MODEL,
+    # Tìm's home: the handbook's screens start there, the volume tool opens from its tile, and the root form's reading
+    # list is read there.
+    APP + 'Handbook/HomeList.swift': HANDBOOK_SCREENS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'],
     APP + 'Handbook/PageView.swift': PAGES,
     # Its pictures are kept for offline too (PageImages).
     APP + 'Handbook/NativePage.swift': PAGES + ['OfflineFlowTests'],
@@ -185,7 +188,8 @@ def check(runs, left, reached):
                   ['apps/ios/store/listing.json', 'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py']):
         assert runs(paths) == [] and left(paths) == '', paths
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
-    assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_SCREENS) - {'PageShotsFlowTests'}))
+    assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_SCREENS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'])
+                                                                - {'PageShotsFlowTests'}))
     assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'
     assert left([APP + 'Tanks/TankCheckView.swift']) == 'TankCheckFlowTests TankLifeFlowTests TankMatesFlowTests'
 
