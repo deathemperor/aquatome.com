@@ -9,6 +9,7 @@ import { contract } from './contract'
 import { testD1 } from './d1'
 import { memoryLedger } from './ledger'
 import { emptyDay } from '../fishid/ledger'
+import { memoryR2 } from './r2'
 
 const JPEG = new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 4, 5, 6, 7, 8])
 const A = 'sk-ant-api03-aaaaaaaaaaaa'
@@ -182,6 +183,60 @@ test('the agent on: it searches the handbook, opens two pages and their photos, 
   expect(fields(points[0]!).cost).toBeCloseTo(cost, 10)
   expect(ledger.day()!.usd).toBeCloseTo(cost, 10)
   expect(readerCount(ledger)).toEqual([1])
+})
+
+test('every run is kept a year as text: the agent asks for its thinking summarised; its turns and the answer under the day; never the photo, the reader\'s address or a key; today\'s call too, its request as before', async () => {
+  const r2 = memoryR2()
+  const { e } = agentEnv({ UPLOADS: r2.bucket })
+  const c = claude([() => asks([['get_entry', { id: 'paracheirodon-innesi' }]]), () => message(CHECKED, 'end_turn', usage3)])
+  const waits: Promise<unknown>[] = []
+  await (await handle(post(), e, p => { waits.push(p) }, undefined, deps(c.fetch))).json()
+  await Promise.all(waits)
+  for (const x of c.calls) expect(x.body.thinking).toEqual({ type: 'adaptive', display: 'summarized' })
+  const runs = [...r2.m].filter(([k]) => k.startsWith('fish-id-runs/'))
+  expect(runs).toHaveLength(1)
+  const [key, o] = runs[0]!
+  expect(key).toMatch(new RegExp(`^fish-id-runs/${new Date().toISOString().slice(0, 10)}/[0-9a-f-]{36}\\.json$`))
+  const text = new TextDecoder().decode(o.bytes)
+  const r = JSON.parse(text)
+  expect(r).toMatchObject({ v: 1, lang: 'vi', from: '', model: 'claude-opus-5-5', outcome: 'ok', agent: { calls: 2, tools: 1, photos: 2, stopped: 'answer' }, verdict: 'fish',
+    results: [{ scientificName: 'Paracheirodon innesi', confidence: 0.92, reason: 'Sọc xanh ánh kim, nửa sau thân đỏ.', page: 'paracheirodon-innesi' }, { scientificName: 'Paracheirodon axelrodi', page: 'paracheirodon-axelrodi' }] })
+  expect(key).toContain(r.id)
+  expect(r.turns).toHaveLength(2)
+  expect(r.turns[0].tools).toEqual([{ name: 'get_entry', input: { id: 'paracheirodon-innesi' }, result: expect.stringMatching(/^paracheirodon-innesi \(species\): Cá neon xanh[\s\S]*The other 1 species of Paracheirodon/), photos: ['https://media.aquatome.com/neon-480.webp', 'https://media.aquatome.com/neon-2-480.webp'] }])
+  expect(r.turns[1].text).toBe(JSON.stringify(CHECKED))
+  for (const never of [btoa(String.fromCharCode(...JPEG)), '203.0.113.7', A, B, 'iPhone']) expect(text).not.toContain(never)
+
+  // Today's single call (the agent off): its answer kept the same way, its request unchanged (no thinking asked for).
+  const r2b = memoryR2()
+  const { e: off } = env({ UPLOADS: r2b.bucket })
+  const d = claude([() => message(NEON)])
+  const waits2: Promise<unknown>[] = []
+  await (await handle(post(), off, p => { waits2.push(p) }, undefined, deps(d.fetch))).json()
+  await Promise.all(waits2)
+  expect(d.calls[0]!.body).toStrictEqual(TODAY_REQUEST)
+  const single = JSON.parse(new TextDecoder().decode([...r2b.m.values()][0]!.bytes))
+  expect(single).toMatchObject({ outcome: 'ok', turns: [{ text: JSON.stringify(NEON) }] })
+  expect(single).not.toHaveProperty('agent')
+  // Streamed (the app's progress): the same, one record when the run ends.
+  const r2c = memoryR2()
+  const { e: s3 } = agentEnv({ UPLOADS: r2c.bucket })
+  const waits3: Promise<unknown>[] = []
+  expect(await (await handle(streamed(), s3, p => { waits3.push(p) }, undefined, deps(claude([() => message(CHECKED, 'end_turn', usage3)]).fetch))).text()).toContain('event: result')
+  await Promise.all(waits3)
+  expect([...r2c.m.keys()].filter(k => k.startsWith('fish-id-runs/'))).toHaveLength(1)
+  // A bucket that fails to save: the reader's answer as ever, the error logged.
+  const { e: broken } = agentEnv({ UPLOADS: { put: async () => { throw new Error('r2 down') } } })
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const waits4: Promise<unknown>[] = []
+  const res4 = await handle(post(), broken, p => { waits4.push(p) }, undefined, deps(claude([() => message(CHECKED)]).fetch))
+  expect(res4.status).toBe(200)
+  await Promise.all(waits4)
+  expect(errors.mock.calls.some(c => c[0] === 'fish-id transcript:')).toBe(true)
+  errors.mockRestore()
+  // No bucket: the identification as before, nothing kept.
+  const { e: bare } = agentEnv()
+  expect((await run(post(), bare, deps(claude([() => message(CHECKED)]).fetch))).status).toBe(200)
 })
 
 test('the agent on: a page the answer names without checking still links by its name, and a guess with no page stays unlinked', async () => {

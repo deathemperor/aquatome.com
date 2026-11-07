@@ -10,18 +10,18 @@ describe('species page', () => {
     expect(html).toContain('Paracheirodon axelrodi')
     expect(dom.querySelector('a[href="https://www.seriouslyfish.com/species/paracheirodon-axelrodi"]')).not.toBeNull()
   })
-  test('sources disagree on temperature: the range they all accept, each source one tap away', () => {
+  test('sources disagree on temperature: Seriously Fish\'s range, each source one tap away', () => {
     const t = dom.querySelector('.card [data-field="tempC"][data-conflict="true"]')!
-    expect(t.querySelector('.v')?.text).toBe('24–27°C') // Seriously Fish 24–30, Glaser 23–27
+    expect(t.querySelector('.v')?.text).toBe('24–30°C') // Seriously Fish 24–30, Glaser 23–27
     // Only the cell the sources disagree on is told apart; one toggle per card holds every value's sources. Ranges that
-    // overlap get no dot (card-rows.test.ts): the card shows what they share.
+    // overlap get no dot (card-rows.test.ts).
     expect(dom.querySelectorAll('.card [data-conflict]').map(c => c.getAttribute('data-field'))).toEqual(['tempC'])
     expect(dom.querySelectorAll('.card .mark').length).toBe(0)
     expect(dom.querySelector('.datacard .trust .legend')).toBeNull()
     expect(dom.querySelectorAll('.datacard details.trust').length).toBe(1) // the difficulty cell's "Vì sao?" is its own (card-guide.test.ts)
     expect(dom.querySelector('.datacard .trust summary .label')?.text).toBe('Nguồn và độ tin cậy')
     const by = dom.querySelector('.trust [data-src-field="tempC"]')!
-    expect(by.querySelector('p')?.text).toBe('Mức mọi nguồn cùng khuyên')
+    expect(by.querySelector('p')?.text).toBe('Mỗi nguồn ghi một mức')
     expect(by.querySelectorAll('li').map(l => l.text)).toEqual(['Seriously Fish: 24–30°C', 'Aquarium Glaser: 23–27°C'])
     expect(by.querySelectorAll('li span').map(s => s.getAttribute('data-c'))).toEqual(['24,30', '23,27']) // °F toggle too
     expect(dom.querySelector('.trust [data-src-field="ph"] li')?.text).toBe('Seriously Fish')
@@ -42,7 +42,7 @@ describe('species page', () => {
     expect(dom.querySelector('#anh-dien-thoai')).not.toBeNull()
     const facts = top.querySelectorAll('.id .keyfacts > div')
     expect(facts.map(f => f.getAttribute('data-field'))).toEqual(['tempC', 'ph', 'tankCm', 'difficulty'])
-    expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,27') // the card's resolved range, °F toggle too
+    expect(facts[0]!.querySelector('[data-c]')?.getAttribute('data-c')).toBe('24,30') // the card's resolved range, °F toggle too
     expect(facts[2]!.querySelector('[data-cm]')?.text).toBe('60 cm')
     expect(facts[3]!.querySelector('dd')?.text.trim()).toBe('Dễ')
   })
@@ -65,8 +65,8 @@ describe('species page', () => {
     expect(box.querySelector('.traits')?.text).toContain('8 con')
     const [good, avoid] = box.querySelectorAll('.row')
     expect(good!.querySelectorAll('a').map(a => a.getAttribute('href'))).toEqual(['/ca/ca-neon-xanh/', '/ca/ca-boraras-do/'])
-    expect(avoid!.querySelector('a')?.getAttribute('href')).toBe('/ca/ca-apisto-cacatuoides/')
-    expect(avoid!.querySelector('.why')?.text).toBe('Hơi dữ, có thể rượt đuổi Cá neon vua')
+    expect(avoid!.querySelector('a')?.getAttribute('href')).toBe('/ca/ca-dia/')
+    expect(avoid!.querySelector('.why')?.text).toBe('Lớn tới 15 cm, có thể ăn Cá neon vua')
     expect(box.querySelector('a[href="/cong-cu/nuoi-chung/?ca=ca-neon-vua:8"]')).not.toBeNull()
     expect(box.getAttribute('data-pagefind-ignore')).not.toBeNull()
   })
@@ -93,12 +93,13 @@ describe('species page', () => {
   })
   test('a block stating a figure the card shows otherwise says which source it follows, with both figures', () => {
     const note = dom.querySelector('section[data-section="waterConditions"] p.off')!
-    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Seriously Fish ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 24–27°C).')
-    expect(note.getAttribute('data-source')).toBe('seriouslyfish')
+    // The card is Seriously Fish's 24–30 °C; Glaser's block says 23–27 °C.
+    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Aquarium Glaser ghi khác bảng dữ liệu: nhiệt độ 23–27°C (bảng: 24–30°C).')
+    expect(note.getAttribute('data-source')).toBe('glaser')
     expect(note.getAttribute('data-pagefind-ignore')).not.toBeNull()
-    expect(note.querySelectorAll('[data-c]').map(x => x.getAttribute('data-c'))).toEqual(['24,30', '24,27']) // °F toggle too
-    expect(note.nextElementSibling?.getAttribute('data-source')).toBe('seriouslyfish') // above its own block
-    expect(dom.querySelectorAll('p.off').length).toBe(1) // pH 4–6 is the card's own figure: nothing to say
+    expect(note.querySelectorAll('[data-c]').map(x => x.getAttribute('data-c'))).toEqual(['23,27', '24,30']) // °F toggle too
+    expect(note.nextElementSibling?.getAttribute('data-source')).toBe('glaser') // above its own block
+    expect(dom.querySelectorAll('p.off').length).toBe(1) // Seriously Fish's block states the card's own figures: nothing to say
   })
   // The betta's page said "Dung tích bể tối thiểu: 8 lít" twice under a 45 cm card (design critique 2026-11-06): a volume
   // that makes a shorter tank than the card's is noted, and a quick-facts line that says it goes.
@@ -256,7 +257,7 @@ describe('browse pages', () => {
     expect(result.getAttribute('data-total')).toBe('9')
     expect(JSON.parse(readFileSync(`${DIST}/data/vi/species.json`, 'utf8'))).toHaveLength(9)
     expect(dom.querySelector('#species-index')).toBeNull()
-    expect(page('/ca/ca-neon-vua/').html).toMatch(/data-c="24,27"/)
+    expect(page('/ca/ca-neon-vua/').html).toMatch(/data-c="24,30"/)
     expect(html).toContain('data-units-toggle')
   })
   // The angelfish card ended at its Latin name, beside cards with figures, and read as unfinished (page review 2026-11-01).
@@ -574,7 +575,10 @@ describe('video pages', () => {
     expect(dom.querySelectorAll('.new .gc').map(a => a.getAttribute('href'))).toEqual(['/huong-dan/bon-phan-cho-cay-thuy-sinh/', '/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'])
     const card = dom.querySelector('.new .gc[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')
     expect(card?.querySelector('.dur')?.text).toContain('29:15')
-    expect(card?.querySelector('.cover')?.text).toBe('Bí quyết trị rêu hại')
+    // No YouTube thumbnail and no label over it: a thumbnail shows the people in the video. A photo from its sections.
+    expect(card?.querySelector('.cover')).toBeNull()
+    expect(card?.querySelector('img')?.getAttribute('src')).not.toMatch(/ytimg/)
+    expect(card?.querySelector('.src')?.text).not.toMatch(/Theo video/)
   })
   test('series page lists parts in order with an ItemList', () => {
     const { dom } = page('/video/reu-hai-tu-a-den-z/')
@@ -591,13 +595,14 @@ describe('video pages', () => {
     expect(idx.querySelector('a[href="/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/"]')).toBeNull()
     expect(idx.querySelector('.vid a[href="/video/"]')).not.toBeNull()
   })
-  test('single videos: grouped by channel on /video/, a channel page, a breadcrumb to it; no caption promise when transcribed', () => {
+  test('single videos: grouped by channel on /video/, a channel page; the guide\'s path names no channel; no caption promise when transcribed', () => {
     const idx = page('/video/').dom
     expect(idx.querySelector('.rows a[href="/video/kenh/green-aqua/"] h3')?.text).toBe('Video lẻ của Green Aqua')
     const ch = page('/video/kenh/green-aqua/').dom
     expect(ch.querySelector('.grid a[href="/huong-dan/bon-phan-cho-cay-thuy-sinh/"]')).not.toBeNull()
     const g = page('/huong-dan/bon-phan-cho-cay-thuy-sinh/').dom
-    expect(g.querySelector('.crumb a[href="/video/kenh/green-aqua/"]')).not.toBeNull()
+    // The owner's decision (2026-11-07): a page never names a channel in its path; the source list credits it.
+    expect(g.querySelector('.crumb')?.text.trim()).toBe('Video')
     expect(g.querySelector('.facade .cc')).toBeNull()
     expect(page('/video/kenh/mj-aquascaping/').dom.querySelector('.series a[href="/video/reu-hai-tu-a-den-z/"]')).not.toBeNull()
   })
@@ -847,8 +852,8 @@ describe('man-made fish (breeds)', () => {
     expect(dom.querySelector('.where')!.textContent).toContain('Dòng cá cảnh')
     expect(dom.querySelector('.where a')!.getAttribute('href')).toBe('/ca/ca-dia/')
     expect(dom.querySelector('.crumb a[href="/ca/ca-dia/"]')).toBeTruthy()
-    // Two sources disagree on temperature: the range both accept, each source named by its title.
-    expect(dom.querySelector('[data-field="tempC"] .v')!.textContent).toBe('28–30°C')
+    // Two sources disagree on temperature: the span they give between them, each source named by its title.
+    expect(dom.querySelector('[data-field="tempC"] .v')!.textContent).toBe('27–31°C')
     expect(dom.querySelector('.trust [data-src-field="tempC"]')!.textContent).toContain('Trại cá đĩa A')
     expect(dom.querySelector('.sources a[href="https://breeder.example/pigeon"]')!.getAttribute('rel')).toContain('nofollow')
     const ld = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!)).flat()

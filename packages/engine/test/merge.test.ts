@@ -171,6 +171,14 @@ test('quick facts: the figures this page gives the card, and the family, are dro
   expect(ph.vi.sections['quickFacts:glaser']).toBe('<ul><li>pH: 6–7</li></ul>')
 })
 
+test('a page read again from a source keeps its water: only the water step changes it', () => {
+  const water = { kind: 'brackish' as const, source: 'seriouslyfish' as const, quote: 'it is recommended that a brackish setup is always used' }
+  const a = mergeSpecies({}, page(), ctx('seriouslyfish'))
+  const b = mergeSpecies({ ...a, entity: { ...a.entity, water } }, page(), ctx('glaser'))
+  expect(b.entity.water).toEqual(water)
+  expect(Object.keys(b.entity).indexOf('water')).toBe(Object.keys(b.entity).indexOf('places') + 1)
+})
+
 test('a page read again from a source keeps its range: only the range step changes it', () => {
   const range = { native: { countries: ['BR'], regions: ['Rio Negro'], sources: ['seriouslyfish' as const] } }
   const a = mergeSpecies({}, page(), ctx('seriouslyfish'))

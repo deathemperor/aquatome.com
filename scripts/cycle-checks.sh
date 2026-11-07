@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# The engine cycle's checks before it publishes (sourced by engine-cycle.sh, which defines log and TEST_LOG).
+# The engine cycle's and the video job's checks before they publish (sourced by engine-cycle.sh and video-cycle.sh, which
+# define log and TEST_LOG).
 # The Mac's engine parts and video job share one machine, so their builds and test runs take turns: two suites at once
 # slowed a 0.6 s test past vitest's 5 s and failed a cycle. GitHub runs one part a runner.
 # The Mac's load also comes from the iOS simulators and builds: 500 and more on 16 cores at times (2026-11-04), when even

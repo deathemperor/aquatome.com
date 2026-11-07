@@ -216,11 +216,13 @@ export function tiles(xs: Tile[]): string {
 }
 
 /**
- * A row's whole days as small columns, the shape only (the row's figure and chip say the numbers): the last `recent`
- * days, which the figure counts, in moss; the `recent` before them, which the chip compares with, paler; the rest faint.
- * A missing day (null) draws nothing.
+ * A row's whole days as small columns: the last `recent` days, which the figure counts, in moss; the `recent` before
+ * them, which the chip compares with, paler; the rest faint. A missing day (null) draws nothing. With `labels` (one a
+ * column), a tap on a column, a finger sliding across or the pointer over it shows that column's day and value beside
+ * the chart (`format`, the page's script), and a tap there doesn't follow the row's link: the owner (2026-11-07)
+ * couldn't read a column's number by touch.
  */
-export function spark(values: (number | null)[], recent = 7): string {
+export function spark(values: (number | null)[], recent = 7, o: { labels?: string[]; format?: (v: number) => string } = {}): string {
   const n = values.length
   const max = Math.max(0, ...values.map(v => (known(v) ? v : 0)))
   if (n < 2 || !(max > 0)) return ''
@@ -231,9 +233,12 @@ export function spark(values: (number | null)[], recent = 7): string {
     if (!known(v) || v <= 0) return ''
     const bh = Math.max(1.5, (v / max) * (h - 2))
     const cls = i >= n - recent ? 'now' : i >= n - 2 * recent ? 'was' : 'old'
-    return `<rect class="${cls}" x="${f2(i * band + 0.5)}" y="${f2(h - 1 - bh)}" width="${f2(Math.max(1, band - 1))}" height="${f2(bh)}" rx=".8"/>`
+    return `<rect class="${cls}" data-i="${i}" x="${f2(i * band + 0.5)}" y="${f2(h - 1 - bh)}" width="${f2(Math.max(1, band - 1))}" height="${f2(bh)}" rx=".8"/>`
   }).join('')
-  return `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><line x1="0" x2="${w}" y1="${h - 0.5}" y2="${h - 0.5}"/>${bars}</svg>`
+  const svg = `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><line x1="0" x2="${w}" y1="${h - 0.5}" y2="${h - 0.5}"/>${bars}</svg>`
+  if (o.labels?.length !== n) return svg
+  const shown = values.map(v => (known(v) ? (o.format ?? fmt)(v) : '—'))
+  return `<span class="spk" data-spark data-d="${esc(o.labels.join('|'))}" data-v="${esc(shown.join('|'))}">${svg}<span class="so" aria-hidden="true"></span></span>`
 }
 
 /**

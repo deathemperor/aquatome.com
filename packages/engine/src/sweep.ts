@@ -11,6 +11,7 @@ import { logReviews } from './review-log'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
+import { readVideoRejected } from './videos'
 
 /**
  * The content rules' safe fixes (content-rules.ts, RATCHETED) on every page, each cycle, before the build, as
@@ -23,6 +24,7 @@ import { breedsNamed } from './topics'
  * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery). A map
  *   leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
  *   it is taken off again whenever a later run brings it back here
+ * - a rejected video (engine-state/_video-rejected.json): off every species and plant page
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
@@ -53,6 +55,8 @@ export type SweepReport = {
   text: Record<string, string[]>
   photos: string[]
   rejected: number
+  /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
+  videos: string[]
   card: string[]
   /** Summaries sent back to be written again, their card having changed. */
   summaries: string[]
@@ -132,7 +136,7 @@ function hideSlips(card: Partial<Record<DataCardField, Value[]>>, shown: (card: 
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -296,6 +300,21 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
+  }
+  // A rejected video (engine-state/_video-rejected.json: a thumbnail with a dead fish, …) leaves every page.
+  const videoRejected = await readVideoRejected(root)
+  for (const kind of Object.keys(videoRejected).length ? ['species', 'plants'] : []) {
+    for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+      const file = join(content, kind, id, 'entity.json')
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const e = JSON.parse(raw) as { videos?: { youtubeId: string }[] }
+      const off = (e.videos ?? []).filter(v => videoRejected[v.youtubeId])
+      if (!off.length) continue
+      for (const v of off) report.videos.push(`${kind}/${id}: ${v.youtubeId} (${videoRejected[v.youtubeId]})`)
+      await write(file, raw, { ...e, videos: e.videos!.filter(v => !videoRejected[v.youtubeId]) })
+      changed(`${kind}/${id}/entity.json`)
+    }
   }
 
   // A shop's own talk, and pages about one variety (species-sources.ts): before the card, which then reads what is left.

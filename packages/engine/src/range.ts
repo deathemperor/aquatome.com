@@ -63,7 +63,7 @@ export type RegionClaim = { name: string; source: string; quote: string; country
 type Native = NonNullable<SpeciesRange['native']>
 
 /** Text as quotes are compared: one kind of quote mark, dash and space, no case. */
-const flat = (s: string) => s.normalize('NFKC').replace(/[‘’ʼ`´]/g, "'").replace(/[“”„«»]/g, '"').replace(/[‐-―−]/g, '-').replace(/\s+/g, ' ').trim().toLowerCase()
+export const flat = (s: string) => s.normalize('NFKC').replace(/[‘’ʼ`´]/g, "'").replace(/[“”„«»]/g, '"').replace(/[‐-―−]/g, '-').replace(/\s+/g, ' ').trim().toLowerCase()
 /** The same, without accents: a name matched inside its quote ("Rio Solimões" written "Rio Solimoes"). */
 const bare = (s: string) => flat(s).normalize('NFD').replace(/\p{M}/gu, '')
 

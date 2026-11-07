@@ -1,16 +1,19 @@
 import Handbook
 import SwiftUI
 
-/// A shelf of fish the reader can narrow to their tank and water, as the site's fish list does (FishFilter).
+/// A shelf of fish the reader can narrow to their tank and water, as the site's fish list does (FishFilter), under what
+/// the page says first (a taxon's or a place's line and the pages under it), if anything.
 struct FishShelf: View {
   let items: [HandbookIndex.Item]
+  var header: AnyView?
   @State private var filter = FishFilter()
   @State private var editing = false
 
   var body: some View {
     let s = filter.split(items)
     FilteredGrid(fit: s.fit, unsure: s.unsure, filtering: !filter.isEmpty, clear: { filter = FishFilter() },
-                 why: "Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.")
+                 why: "Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.",
+                 header: header)
       .toolbar { FilterButton(active: !filter.isEmpty) { editing = true } }
       .sheet(isPresented: $editing) { FishFilterForm(filter: $filter) }
   }
@@ -25,7 +28,8 @@ struct PlantShelf: View {
   var body: some View {
     let s = filter.split(items)
     FilteredGrid(fit: s.fit, unsure: s.unsure, filtering: !filter.isEmpty, clear: { filter = PlantFilter() },
-                 why: "Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.")
+                 why: "Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.",
+                 header: nil)
       .toolbar { FilterButton(active: !filter.isEmpty) { editing = true } }
       .sheet(isPresented: $editing) { PlantFilterForm(filter: $filter) }
   }
@@ -40,10 +44,12 @@ private struct FilteredGrid: View {
   let filtering: Bool
   let clear: () -> Void
   let why: LocalizedStringKey
+  let header: AnyView?
 
   var body: some View {
     ScrollView {
       VStack(alignment: .leading, spacing: 16) {
+        header
         if filtering {
           HStack(alignment: .firstTextBaseline) {
             count.font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("filter-count")

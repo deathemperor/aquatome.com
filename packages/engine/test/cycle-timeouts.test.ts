@@ -48,3 +48,11 @@ test('the engine cycle checks through verify before every publish', () => {
   expect(cycle.match(/\bverify '/g)).toHaveLength(2)
   expect(cycle).not.toMatch(/\bchecks '/)
 })
+
+test('the video job checks as the engine cycle does: it waits for a calmer Mac, and tests that ran out of time run again', () => {
+  // 2026-11-07: its own checks, without either, failed twice at a load of 667 on 16 cores and held back the videos.
+  const cycle = readFileSync(join(ROOT, 'scripts/video-cycle.sh'), 'utf8')
+  expect(cycle).toContain('source scripts/cycle-checks.sh')
+  expect(cycle.match(/\bverify '/g)).toHaveLength(2)
+  expect(cycle).not.toMatch(/\bchecks '|^checks\(\)/m)
+})
