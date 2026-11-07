@@ -47,6 +47,8 @@ test('plain text (a title, a summary point, an FAQ) holds no entities', () => {
 
 test('"Phi châu" is written "châu Phi", with a capital where a sentence starts; tilapia\'s "rô phi châu Phi" and "Phi Châu" stay', () => {
   expect(viWording('Cá Oscar (cá tai tượng Phi châu)')).toBe('Cá Oscar (cá tai tượng châu Phi)')
+  // Two words a translation ran together (the tank-cycling guide, 2026-11-07).
+  expect(viWording('<li>Chỉtiêu đo pH. Que thử đa chỉtiêu.</li>')).toBe('<li>Chỉ tiêu đo pH. Que thử đa chỉ tiêu.</li>')
   expect(viWording('Cá tetra phi châu Nannocharax brevis')).toBe('Cá tetra châu Phi Nannocharax brevis')
   expect(viWording('<p>Phi châu có nhiều hồ. Phi châu nóng.</p><li>phi châu</li>')).toBe('<p>Châu Phi có nhiều hồ. Châu Phi nóng.</p><li>Châu Phi</li>')
   expect(viWording('Phi châu')).toBe('Châu Phi')

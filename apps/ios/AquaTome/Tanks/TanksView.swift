@@ -3,6 +3,26 @@ import SwiftUI
 import Tanks
 import Telemetry
 
+/// Signed out, under the tanks: they're kept on this phone alone, and (with accounts on) a way to keep them on
+/// aquatome.com too, which opens the Tài khoản sheet.
+private struct KeptHere: View {
+  @Environment(AccountModel.self) private var account
+  @Environment(\.openScreen) private var openScreen
+
+  var body: some View {
+    if account.state == .signedOut && account.canSync {
+      Button { openScreen(.account) } label: {
+        Text("Các bể lưu trên máy này, không cần tài khoản.") + Text(verbatim: " ")
+          + Text("Đăng nhập để giữ cả trên aquatome.com").foregroundStyle(.tint)
+      }
+      .buttonStyle(.plain)
+      .accessibilityIdentifier("keep-online-hint")
+    } else {
+      Text("Các bể lưu trên máy này, không cần tài khoản.")
+    }
+  }
+}
+
 /// "Bể của tôi": the reader's tanks and the lights on them, as on the site's page (/vi/cong-cu/be-cua-toi/).
 struct TanksView: View {
   @Environment(TanksModel.self) private var tanks
@@ -45,11 +65,8 @@ struct TanksView: View {
                 .disabled(!tanks.canAdd)
                 .accessibilityIdentifier("add-row")
             } footer: {
-              if account.user != nil {
-                Text("Các bể lưu trên máy này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy.")
-              } else {
-                Text("Các bể lưu trên máy này, không cần tài khoản.")
-              }
+              // Signed in, the Tài khoản sheet says where they're kept.
+              if account.user == nil { KeptHere() }
             }
             PlugKeysSection()
           }
