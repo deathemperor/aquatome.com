@@ -19,11 +19,16 @@ difficulty as the site's coloured word and its "6/8"; the sources behind each an
 substrate, notes, the fish and plants on it, each opening its page; put on from a fish or plant page, or from the tank, a fish with how many, and swiped to change the number or take one off; one the handbook has no page for put on by name, marked "chưa có trang" until a page has its scientific name, and sent once, with no account, as a name readers want pages for; checked as the site's tank-mates tool checks them: whether they go together, and whether the tank is big and long enough; and the guides that name them, the video guides apart) on the phone with no account, in the same store the
 site uses, and shares a copy as JSON; **Đèn** controls the lights, and each light connected is kept on a tank with the
 schedules written to it (as the site does). The profile button at the top right of each tab opens **Tài khoản**, a sheet
-(as the App Store's): the aquatome.com account (below), the owner's dashboard for the owner's account, the app's icon
-and the anonymous statistics' switch, the posters blocked on this phone, and the site's about, contact and privacy
-pages (in the browser). It says so when the server offers no accounts or can't be reached (the account signed in on the
-phone shows as last seen), and the button carries a dot while the account has a problem to tell (a sync that failed, a
-session that ended); an empty Bể của tôi offers a hint that opens it. A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
+(as the App Store's), laid out as iOS's settings: the aquatome.com account (below: who is signed in and since when, the
+sync's state with the one button that helps, a passkey), the owner's dashboard for the owner's account (with its to-dos
+counted), the app's icon and the pages kept to read offline (opening their shelf on Tìm), the anonymous statistics'
+switch and the posters blocked on this phone (their own page), the site's about, contact and privacy pages (in the
+browser), then signing out, deleting the account and the app's version. It says so when the server offers no accounts or
+can't be reached (the account signed in on the phone shows as last seen, with its last sync), and the button carries a
+dot for a fault (a sync that failed, a session that ended, until the sheet is seen), none for no network: the changes
+wait on the phone. A session that ended names the ways the account signed in and offers those first, so the reader
+doesn't make a second account with another. An empty Bể của tôi offers a hint that opens it, and a list signed out a
+link to keep the tanks on aquatome.com too. A tank also shows its Smart Life power strips ("Ổ cắm"), each outlet
 named for what it powers, with its switch: the app calls Tuya's cloud itself, with the reader's own Tuya project keys
 kept in the Keychain, and no AquaTome account (docs/smart-plugs.md). A light's card warns when the outlet the reader
 picked for it has a Smart Life timer that cuts its power, which stops the light's clock.

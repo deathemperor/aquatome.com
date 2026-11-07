@@ -159,7 +159,7 @@ final class AccountFlowTests: XCTestCase {
     // The Tài khoản sheet says so, rather than showing nothing.
     let off = element(app, "account-off")
     XCTAssertTrue(off.waitForExistence(timeout: 5), "the Tài khoản sheet is blank with accounts off")
-    XCTAssertEqual(off.label, "Lúc này chưa đăng nhập được tài khoản aquatome.com. Các bể vẫn lưu trên máy này.")
+    XCTAssertEqual(oneLine(off.label), "Lúc này chưa đăng nhập được tài khoản aquatome.com. Các bể vẫn lưu trên máy này.")
     XCTAssertFalse(element(app, "apple-sign-in").exists, "sign-in offered with accounts off")
     XCTAssertFalse(element(app, "account-header").exists)
     tanksTab(app)
@@ -182,7 +182,7 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "apple-sign-in").exists, "sign-in offered for a store this app can't keep")
   }
 
-  /// Signed in, with a store this app can't keep: "Đồng bộ ngay" can't run, and the tab says why.
+  /// Signed in, with a store this app can't keep: no "Đồng bộ ngay", and the sheet says why.
   func testSignedInAStoreFromANewerAppSaysWhyItIsntSynced() {
     var app = launch(resetServer: true)
     signIn(app)
@@ -190,13 +190,14 @@ final class AccountFlowTests: XCTestCase {
 
     app = launch(newPhone: false, "-seed-tanks", "newer")
     XCTAssertTrue(app.staticTexts["account-status"].waitForExistence(timeout: 5), "not signed in")
-    XCTAssertFalse(element(app, "sync-now").isEnabled, "a sync offered for a store this app can't keep")
     XCTAssertTrue(element(app, "account-cant-sync").exists, "no word on why the tanks aren't synced")
+    XCTAssertFalse(element(app, "sync-now").exists, "a sync offered for a store this app can't keep")
   }
 
-  /// With no network at launch, the account signed in on this phone shows as it was kept, not as accounts off; a change
-  /// that can't reach it puts a dot on the profile button; a phone never signed in is told the server can't be reached.
-  func testOfflineTheAccountShowsAsKeptAndAProblemMarksTheProfileButton() {
+  /// With no network at launch, the account signed in on this phone shows as it was kept, not as accounts off, with when
+  /// it last synced and "Thử lại"; no network is no fault (the changes wait on the phone): no dot on the profile button,
+  /// a change made offline included. A phone never signed in is told the server can't be reached.
+  func testOfflineTheAccountShowsAsKeptAndNoNetworkIsNoFault() {
     var app = launch(resetServer: true)
     signIn(app)
     app.terminate()
@@ -207,19 +208,69 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(status.label.contains("Apple"), status.label)
     XCTAssertTrue(element(app, "sign-out").exists && element(app, "delete-account").exists, "the account's buttons gone offline")
     XCTAssertFalse(element(app, "account-off").exists, "offline read as accounts off")
-    XCTAssertFalse(badged(app), "a dot before anything went wrong")
+    let sync = element(app, "sync-status")
+    XCTAssertTrue(sync.waitForExistence(timeout: 10), "no sync row")
+    XCTAssertTrue(sync.label.contains("Chưa có mạng") && sync.label.contains("Đồng bộ lần cuối lúc"), sync.label)
+    XCTAssertTrue(element(app, "sync-retry").exists, "no Thử lại offline")
     // Seen from the tanks tab, where the change is made.
     add(app, "Bể tép", first: true)
-    XCTAssertTrue(waitForBadge(app), "no dot on the profile button for a sync that failed")
+    XCTAssertEqual(profile(app), "đã đăng nhập", "a dot for no network")
     accountTab(app)
-    XCTAssertTrue(says(app, "Chưa đồng bộ được: không có mạng. Các thay đổi vẫn lưu trên máy này."), message(app))
+    XCTAssertTrue(element(app, "sync-status").label.contains("Chưa có mạng"), element(app, "sync-status").label)
     app.terminate()
 
     app = launch("-server-offline")
     let unreached = element(app, "account-unreached")
     XCTAssertTrue(unreached.waitForExistence(timeout: 10), "a new phone offline isn't told the server can't be reached")
-    XCTAssertEqual(unreached.label, "Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.")
+    XCTAssertEqual(oneLine(unreached.label), "Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.")
     XCTAssertFalse(element(app, "account-off").exists, "offline read as accounts off")
+  }
+
+  /// A sync the server fails puts a dot on the profile button from any tab; the sheet says why, with "Thử lại", which
+  /// syncs and takes the dot away.
+  func testAFailedSyncMarksTheProfileButtonUntilItGoesThrough() {
+    var app = launch(resetServer: true)
+    signIn(app)
+    app.terminate()
+
+    // Busy past the app's own tries (4) at the sync on launch.
+    app = launch(newPhone: false, open: false, "-sync-busy", "4")
+    XCTAssertTrue(waitForBadge(app), "no dot on the profile button for a sync that failed")
+    XCTAssertEqual(profile(app), "đồng bộ lỗi")
+    app.openAccount()
+    let sync = element(app, "sync-status")
+    XCTAssertTrue(sync.waitForExistence(timeout: 5), "no sync row")
+    XCTAssertTrue(sync.label.contains("Chưa đồng bộ được"), sync.label)
+    XCTAssertFalse(element(app, "sync-now").exists, "Đồng bộ ngay beside a failure")
+    tap(app, "sync-retry")
+    XCTAssertTrue(waitForSyncs(app, 1), "Thử lại didn't sync")
+    XCTAssertTrue(element(app, "sync-status").label.contains("Đã đồng bộ"), element(app, "sync-status").label)
+    XCTAssertEqual(profile(app), "đã đăng nhập", "the dot stayed after the sync went through")
+  }
+
+  /// A session ended elsewhere: a dot until the sheet is seen; the way the account signed in is named and offered first
+  /// (another would make a second account), the others under "Cách khác".
+  func testAnEndedSessionOffersTheWayTheAccountSignedInFirst() {
+    var app = launch(resetServer: true)
+    signIn(app)
+    app.terminate()
+
+    app = launch(newPhone: false, open: false, "-end-sessions", "ui-apple")
+    XCTAssertTrue(waitForBadge(app), "no dot for a session that ended")
+    XCTAssertEqual(profile(app), "cần đăng nhập lại")
+    app.openAccount()
+    let ended = element(app, "session-ended")
+    XCTAssertTrue(ended.waitForExistence(timeout: 5), "not told the session ended")
+    XCTAssertEqual(ended.label, "Phiên đăng nhập đã hết. Lần trước bạn đăng nhập bằng Apple.")
+    XCTAssertTrue(element(app, "apple-sign-in").exists, "the account's way to sign in isn't offered")
+    XCTAssertFalse(element(app, "google-sign-in").exists, "another way offered before Cách khác")
+    tap(app, "sign-in-others")
+    XCTAssertTrue(element(app, "google-sign-in").waitForExistence(timeout: 5), "Cách khác offers nothing")
+    app.buttons["account-done"].tap()
+    XCTAssertEqual(profile(app), "", "the dot stayed once the sheet was seen")
+
+    signIn(app)
+    XCTAssertFalse(element(app, "session-ended").exists, "still told the session ended")
   }
 
   /// The account is in the profile button's sheet, from every tab: an empty "Bể của tôi" offers a hint that opens it,
@@ -250,34 +301,40 @@ final class AccountFlowTests: XCTestCase {
     tanksTab(app)
     let hint = app.buttons["sign-in-hint"]
     XCTAssertTrue(hint.waitForExistence(timeout: 5), "no hint to sign in on a new phone")
-    XCTAssertEqual(hint.label, "Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về.")
+    XCTAssertEqual(oneLine(hint.label), "Đã lưu bể trên aquatome.com hoặc máy khác? Đăng nhập để lấy về")
     XCTAssertFalse(element(app, "apple-sign-in").exists, "the sign-in in the tanks tab")
     XCTAssertFalse(element(app, "account-header").exists, "the account in the tanks tab")
     hint.tap()
     XCTAssertTrue(app.buttons["account-done"].waitForExistence(timeout: 5), "the hint didn't open the Tài khoản sheet")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "no sign-in after the hint")
 
+    // Signed out with a tank: kept on this phone, and a way to keep them on aquatome.com too, into the sheet.
     add(app, "Bể tép", first: true)
+    let keep = app.buttons["keep-online-hint"]
+    XCTAssertTrue(keep.waitForExistence(timeout: 5), "no way to sign in under the tanks")
+    keep.tap()
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "the link didn't open the Tài khoản sheet")
     signIn(app)
+    let stored = "Các bể lưu trên máy này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy."
+    XCTAssertTrue(app.staticTexts[stored].exists, "the sheet doesn't say the tanks are kept in the account too")
     tanksTab(app)
     XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "no tank listed")
-    for id in ["account-header", "account-status", "sync-now", "passkey-add", "sign-out", "delete-account", "sign-in-hint"] {
+    for id in ["account-header", "account-status", "sync-now", "passkey-add", "sign-out", "delete-account", "sign-in-hint", "keep-online-hint"] {
       XCTAssertFalse(element(app, id).exists, "\(id) in the tanks tab")
     }
-    XCTAssertTrue(app.staticTexts["Các bể lưu trên máy này và trong tài khoản của bạn trên máy chủ AquaTome (Cloudflare), để các thiết bị đã đăng nhập cùng thấy."].exists,
-                  "the list doesn't say the tanks are kept in the account too")
+    XCTAssertFalse(app.staticTexts[stored].exists, "the tanks tab says where they're kept, signed in")
   }
 
   // MARK: Helpers
 
-  /// In the Tài khoản sheet. `newPhone`: as a new install (signed out, nothing saved); otherwise the phone as the last
-  /// launch left it.
-  private func launch(resetServer: Bool = false, newPhone: Bool = true, accounts: String = "on", _ args: String...) -> XCUIApplication {
+  /// In the Tài khoản sheet (`open`; else on the first tab). `newPhone`: as a new install (signed out, nothing saved);
+  /// otherwise the phone as the last launch left it.
+  private func launch(resetServer: Bool = false, newPhone: Bool = true, accounts: String = "on", open: Bool = true, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", accounts]
       + (newPhone ? ["-reset-defaults"] : []) + (resetServer ? ["-reset-fake-server"] : []) + args
     app.launchForFlow()
-    accountTab(app)
+    if open { accountTab(app) }
     return app
   }
 
@@ -302,10 +359,18 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertEqual(add.label, "Thêm passkey cho máy này")
   }
 
-  /// Whether the profile button marks a problem with the account, as it says to VoiceOver (its dot).
+  /// Whether the profile button marks a fault with the account, as it says to VoiceOver (its dot).
   private func badged(_ app: XCUIApplication) -> Bool {
-    app.buttons.matching(identifier: "profile").allElementsBoundByIndex.contains { $0.value as? String == "Có vấn đề cần xem" }
+    ["đồng bộ lỗi", "cần đăng nhập lại"].contains(profile(app))
   }
+
+  /// What the profile button on screen says to VoiceOver after "Tài khoản".
+  private func profile(_ app: XCUIApplication) -> String {
+    app.buttons.matching(identifier: "profile").allElementsBoundByIndex.first { $0.isHittable }?.value as? String ?? ""
+  }
+
+  /// Two lines read as one, as they're written.
+  private func oneLine(_ s: String) -> String { s.replacingOccurrences(of: "\n", with: " ") }
 
   /// Looked for every half second, for up to 10 s.
   private func waitForBadge(_ app: XCUIApplication) -> Bool {

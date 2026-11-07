@@ -117,6 +117,8 @@ REACH = {
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     # The anonymous statistics: their own flows; and a light connected is one of the events sent.
     APP + 'Telemetry/': ['TelemetryFlowTests'], KIT + 'Sources/Telemetry/': ['TelemetryFlowTests'],
+    # Its switch, a row of the Tài khoản sheet.
+    APP + 'Telemetry/TelemetrySwitch.swift': ACCOUNT_SHEET,
     APP + 'Lights/': ['LightFlowTests', CONNECT_SENT],
     # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
     APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT, 'PageShotsFlowTests'],
@@ -126,9 +128,11 @@ REACH = {
     # dashboard (its session, and signing out on a 401).
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests'],
     # The Tài khoản sheet and the button that opens it on every tab: the flows that go through it (the account, the
-    # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it.
+    # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it; its card's
+    # Apple and Google buttons too.
     APP + 'Account/AccountView.swift': ACCOUNT_SHEET, APP + 'Account/ProfileButton.swift': ACCOUNT_SHEET,
-    APP + 'Account/AccountSection.swift': ACCOUNT_SHEET,
+    APP + 'Account/AccountSection.swift': ACCOUNT_SHEET, APP + 'Account/AppleSignIn.swift': ACCOUNT_SHEET,
+    APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET,
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
@@ -227,8 +231,9 @@ def check(runs, left, reached):
     # the page shots too; the account's other files, its flows alone.
     assert 'PageShotsFlowTests' in reached([APP + 'Tanks/TanksView.swift'])
     assert 'OwnerFlowTests' not in reached([APP + 'Tanks/TanksView.swift'])
-    for screen in ('AccountView.swift', 'AccountSection.swift', 'ProfileButton.swift'):
-        assert reached([APP + 'Account/' + screen]) == set(ACCOUNT_SHEET), screen
+    for screen in ('Account/AccountView.swift', 'Account/AccountSection.swift', 'Account/ProfileButton.swift',
+                   'Account/AppleSignIn.swift', 'Telemetry/TelemetrySwitch.swift'):
+        assert reached([APP + screen]) == set(ACCOUNT_SHEET), screen
     assert 'PageShotsFlowTests' not in reached([APP + 'Account/AccountModel.swift'])
     assert 'OwnerFlowTests' not in reached([APP + 'Tanks/TankForm.swift'])
     # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.

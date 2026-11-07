@@ -1,17 +1,34 @@
 import SwiftUI
 
-/// "Bảng điều khiển": a row only for the owner's account. One view, with `ownerDashboard()` on the navigation stack it's
-/// in, to move with the account wherever the app shows it.
+/// "Bảng điều khiển": a row only for the owner's account, its own section under the account, with how many to-dos the
+/// overview has (grey: they're the day's work, not a fault). One view, with `ownerDashboard()` on the navigation stack
+/// it's in, to move with the account wherever the app shows it.
 struct OwnerEntry: View {
   @Environment(AccountModel.self) private var account
 
   var body: some View {
-    if account.owner.isOwner == true {
+    let owner = account.owner
+    if owner.isOwner == true {
       Section {
         NavigationLink(value: OwnerRoute(key: "", anchor: nil)) {
-          account.owner.sessionEnded
-            ? Text("Bảng điều khiển") + Text(verbatim: "\n") + Text("Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.").font(.footnote).foregroundStyle(.red)
-            : Text("Bảng điều khiển")
+          LabeledContent {
+            if !owner.sessionEnded, let n = owner.dashboard?.todos.count, n > 0 {
+              Text(n, format: .number)
+                .font(.subheadline.monospacedDigit())
+                .padding(.horizontal, 8)
+                .padding(.vertical, 2)
+                .background(.quaternary, in: .capsule)
+                .accessibilityLabel(Text("\(n) việc cần làm"))
+            }
+          } label: {
+            Label {
+              owner.sessionEnded
+                ? Text("Bảng điều khiển") + Text(verbatim: "\n") + Text("Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.").font(.footnote).foregroundStyle(.red)
+                : Text("Bảng điều khiển")
+            } icon: {
+              Tile(symbol: "chart.bar.xaxis", color: .accentColor)
+            }
+          }
         }
         .accessibilityIdentifier("owner-dashboard")
       }

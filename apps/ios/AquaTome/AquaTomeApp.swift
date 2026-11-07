@@ -171,6 +171,13 @@ struct AquaTomeApp: App {
     switch screen {
     case .lights: tab = .lights
     case .account: showingAccount = true
+    case .kept:
+      // From the Tài khoản sheet: closed, and the shelf on the Tìm tab, where its pages open.
+      showingAccount = false
+      var path = NavigationPath()
+      path.append(Browse.kept)
+      handbookPath = path
+      tab = .handbook
     case .fishId:
       // A tool of the handbook's: on the Tìm tab, where the pages its guesses lead to open too.
       tab = .handbook

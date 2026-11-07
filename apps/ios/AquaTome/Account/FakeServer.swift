@@ -10,7 +10,8 @@ import Tanks
 /// (`/api/fish-id`): `-fish-id-used N` gives each account N identifications made today already, `-fish-id-busy` uses up
 /// the site's day, `-fish-id-slow` keeps an identification waiting 40 s, then fails it as a request's time running out
 /// does, and `-fish-id-session-refused` refuses it the account's session (401 `session`) while the session itself holds.
-/// `-server-offline`: it can't be reached, as with no network. `-slow-post`: a reader's comment or photo takes 6 s to
+/// `-server-offline`: it can't be reached, as with no network. `-sync-busy N`: the next N syncs answer 409 busy (the app
+/// tries one 4 times); `-end-sessions <account>`: that account's sessions end, as signing out on another device does. `-slow-post`: a reader's comment or photo takes 6 s to
 /// arrive, as on a slow network, so a test sees it being sent. `-fake-owner <account>` serves the owner's dashboard to
 /// that account (`ui-apple`, or another, so `ui-apple` isn't the owner): the replies of
 /// protocols/owner-dashboard-vectors.json, read from this checkout (the simulator runs on the Mac that built it).
@@ -42,6 +43,8 @@ final class FakeServer {
     if let i = args.firstIndex(of: "-fish-id-used"), i + 1 < args.count, let n = Int(args[i + 1]) { fake.fishIdUsedBefore = n }
     if args.contains("-fish-id-busy") { fake.fishIdSiteLeft = 0 }
     fake.offline = args.contains("-server-offline")
+    if let i = args.firstIndex(of: "-sync-busy"), i + 1 < args.count, let n = Int(args[i + 1]) { fake.busy = n }
+    if let i = args.firstIndex(of: "-end-sessions"), i + 1 < args.count { fake.endSessions(of: args[i + 1]) }
     slowFishId = args.contains("-fish-id-slow")
     fishIdRefusesSession = args.contains("-fish-id-session-refused")
     // The fixed pages' readers' comments and photos (HandbookIndex.fixtureReaders), as reports find them.
