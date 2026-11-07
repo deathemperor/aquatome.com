@@ -87,6 +87,14 @@ test('a renamed guide keeps its name, address and old addresses when its source 
   expect(g?.vi).toMatchObject({ name: 'Nuôi cá chì', slug: 'nuoi-ca-chi', nameFixed: true, redirectFrom: vi.redirectFrom, body: '<p>y</p>' })
 })
 
+test('a source read again keeps a local note and a body fixed by hand; without the mark the body is the new one', () => {
+  const localNote = { html: '<h3>Ở Việt Nam</h3><p>x</p>', refs: [{ url: 'https://a.test/', title: 'A' }] }
+  const vi = { slug: 'tao-lam', name: 'Tảo lam', altNames: [], sections: {}, body: '<p>người sửa</p>', quality: { score: 1, indexable: true }, localNote }
+  const again = (bodyFixed: boolean) => writeGuide(page({ kind: 'guide', sections: [], guide: { kind: 'setup', viTitle: 'Tảo lam', viBody: '<p>dịch lại</p>' } }), { source: 'aquariumcoop', url: 'https://www.aquariumcoop.com/blogs/aquarium/bga', now: '2026-11-07', takenSlugs: new Set(), existing: { vi: { ...vi, ...(bodyFixed ? { bodyFixed } : {}) } } })
+  expect(again(true)?.vi).toMatchObject({ body: '<p>người sửa</p>', bodyFixed: true, localNote })
+  expect(again(false)?.vi).toMatchObject({ body: '<p>dịch lại</p>', localNote })
+})
+
 test('vague or phrase-like regions are dropped', () => {
   const r = mergeSpecies({}, page({ places: [
     { continent: 'Europe', country: 'Germany', region: 'mainly western' },

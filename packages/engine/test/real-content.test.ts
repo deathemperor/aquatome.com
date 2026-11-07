@@ -1,6 +1,7 @@
+import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll } from '@aq/schema'
+import { loadAll, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
@@ -27,6 +28,19 @@ test('no page calls a fish by the name it no longer has', async () => {
   expect(errors).toEqual([])
   expect(findings.map(f => `${f.page.path}: ${f.detail}`)).toEqual([])
 }, 300_000)
+
+// The owner, 2026-11-07: "fritz slim out is not for Vietnamese. I can effectively treat this with very cheap oxy già."
+test('the blue-green algae guide leads Vietnamese readers to oxy già, cited, and the engine keeps it', async () => {
+  const t = JSON.parse(await readFile(fileURLToPath(new URL('../../../content/guides/aquariumcoop-blogs-aquarium-blue-green-algae/vi.json', import.meta.url)), 'utf8')) as Translation
+  expect(t.bodyFixed).toBe(true)
+  expect(t.localNote!.html).toMatch(/^<h3>Ở Việt Nam/)
+  expect(t.localNote!.html).toContain('oxy già 3%')
+  expect(t.localNote!.html).toContain('3 ml cho mỗi 4 lít')
+  expect(t.localNote!.refs.map(r => r.url)).toContain('https://aquariumbreeder.com/blue-green-algae-cyanobacteria-profile-and-how-to-remove/')
+  expect(t.body).not.toContain('Một sản phẩm bạn có thể dùng là Fritz')
+  // Not in another language's text: what's sold in Vietnam is about Vietnam.
+  for (const lang of ['id', 'th']) expect(await readFile(fileURLToPath(new URL(`../../../content/guides/aquariumcoop-blogs-aquarium-blue-green-algae/${lang}.json`, import.meta.url)), 'utf8').catch(() => '')).not.toContain('Ở Việt Nam')
+})
 
 // A fish's summary states its card's figures, as the card is now: the sweep sends back any that doesn't (cardProblems).
 // On 2026-11-07, 54 of 505 approved summaries didn't (size 27 figures, temperature 23, pH 18, hardness 10, difficulty 10,
