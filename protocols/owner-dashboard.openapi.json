@@ -2751,11 +2751,12 @@
               "comments",
               "photos",
               "key",
+              "spend",
               "engine",
               "moderation",
               "failed"
             ],
-            "description": "For its icon. comments: held comments; photos: readers' photos waiting; key: the fish ID keys; engine: the content engine; moderation: the nightly moderation missed a night; failed: a part of the dashboard that couldn't load."
+            "description": "For its icon. comments: held comments; photos: readers' photos waiting; key: the fish ID keys; spend: a day's AI spend (fish ID and chat) past 80% of its daily cap; engine: the content engine; moderation: the nightly moderation missed a night; failed: a part of the dashboard that couldn't load."
           },
           "text": {
             "type": "string",

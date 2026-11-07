@@ -24,6 +24,14 @@
             }
           },
           {
+            "title": "Chi phí AI ngày 04/11: $42,50, 85% mức một ngày",
+            "text": "Nhận diện cá và chat dùng chung mức $50 một ngày, tính từ 07:00; tới mức đó cả hai trả lời \"bận\" tới ngày sau. Nâng mức bằng FISH_ID_USD_PER_DAY.",
+            "action": {
+              "label": "Xem chi phí",
+              "section": "nhan-dien-ca"
+            }
+          },
+          {
             "title": "Nguồn 2Hr Aquarist cần bạn qua kiểm tra trình duyệt",
             "text": "Engine dừng lấy trang từ 2Hr Aquarist (từ 04/11 05:00) cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.",
             "action": {
@@ -517,8 +525,8 @@
           {
             "key": "needs",
             "label": "Needs you",
-            "value": "9",
-            "sub": "7 to review · 2 to fix",
+            "value": "10",
+            "sub": "8 to review · 2 to fix",
             "tone": "bad"
           },
           {
@@ -604,6 +612,14 @@
             "tone": "bad",
             "section": "nhan-dien-ca",
             "anchor": "key"
+          },
+          {
+            "kind": "spend",
+            "text": "AI spend on 04/11: $42.50, 85% of the daily cap",
+            "sub": "Fish ID and chat share a $50 cap a day, counted from 07:00; at the cap both answer \"busy\" until the next day. Raise it with FISH_ID_USD_PER_DAY.",
+            "label": "See costs",
+            "tone": "wait",
+            "section": "nhan-dien-ca"
           },
           {
             "kind": "engine",
@@ -1508,7 +1524,7 @@
             "label": "Needs you",
             "value": "All clear",
             "sub": "Nothing to review or fix",
-            "tone": "plain"
+            "tone": "good"
           },
           {
             "key": "answers",
@@ -1981,6 +1997,14 @@
               "label": "Xem key",
               "section": "nhan-dien-ca",
               "anchor": "key"
+            }
+          },
+          {
+            "title": "Chi phí AI ngày 04/11: $42,50, 85% mức một ngày",
+            "text": "Nhận diện cá và chat dùng chung mức $50 một ngày, tính từ 07:00; tới mức đó cả hai trả lời \"bận\" tới ngày sau. Nâng mức bằng FISH_ID_USD_PER_DAY.",
+            "action": {
+              "label": "Xem chi phí",
+              "section": "nhan-dien-ca"
             }
           },
           {
@@ -2477,8 +2501,8 @@
           {
             "key": "needs",
             "label": "Needs you",
-            "value": "10",
-            "sub": "7 to review · 3 to fix",
+            "value": "11",
+            "sub": "8 to review · 3 to fix",
             "tone": "bad"
           },
           {
@@ -2510,6 +2534,14 @@
             "tone": "bad",
             "section": "nhan-dien-ca",
             "anchor": "key"
+          },
+          {
+            "kind": "spend",
+            "text": "AI spend on 04/11: $42.50, 85% of the daily cap",
+            "sub": "Fish ID and chat share a $50 cap a day, counted from 07:00; at the cap both answer \"busy\" until the next day. Raise it with FISH_ID_USD_PER_DAY.",
+            "label": "See costs",
+            "tone": "wait",
+            "section": "nhan-dien-ca"
           },
           {
             "kind": "engine",

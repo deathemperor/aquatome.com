@@ -7,7 +7,7 @@ import { isViPage, withoutVi } from '../paths'
 import type { Readers } from '../readers'
 import type { LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
-import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
+import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, lastDays, rankTable, spark, tiles, usd, usdEn, fmtEn, type Chip, type DayChart, type Ranked, type Tile } from './chart'
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
@@ -71,6 +71,8 @@ const waitingText = (w: Waiting) => [w.comments ? `${fmt(w.comments)} bình lu�
 const plural = (n: number, one: string, many = `${one}s`) => `${fmt(n)} ${n === 1 ? one : many}`
 /** What's waiting in English, for the daily report (daily/compose.ts). */
 export const waitingEn = (w: Waiting) => [w.comments ? plural(w.comments, 'comment') : '', w.photos ? plural(w.photos, 'photo') : ''].filter(Boolean).join(', ')
+/** A day's AI spend past this share of its cap is flagged to the owner. */
+export const SPEND_WARN = 0.8
 /** Waiting this long, the moderation missed a night. */
 export const MODERATION_MISSED_MS = 30 * 3_600_000
 
@@ -83,8 +85,8 @@ const parts = (o: Overview): [string, Soft<unknown>, string, string][] => [
 ]
 
 /** `en`: the same to-do for the daily report, in English and with no error text. Beside the Vietnamese, so a new to-do can't reach the page without it; the app's JSON (overviewJson) never reads it. */
-export type Todo = { kind: 'key' | 'engine' | 'moderation' | 'failed'; title: string; text: string; href: string; action: string; en: { title: string; text: string; action: string } }
-/** What needs the owner, each with the one place to deal with it: the fish-ID keys, a moderation that stopped, a part that won't load. */
+export type Todo = { kind: 'key' | 'spend' | 'engine' | 'moderation' | 'failed'; title: string; text: string; href: string; action: string; en: { title: string; text: string; action: string } }
+/** What needs the owner, each with the one place to deal with it: the fish-ID keys, the AI spend near its cap, a moderation that stopped, a part that won't load. */
 export function todos(o: Overview): Todo[] {
   const out: Todo[] = []
   const tz = o.tz ?? HOME_TZ
@@ -100,6 +102,18 @@ export function todos(o: Overview): Todo[] {
       const all = off.length === o.keys.rows.length
       out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
         en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · '), action: seeKey } })
+    }
+    // Fish ID and chat share one AI spend cap a UTC day (fishid/ledger.ts): a day past 80% of it is the owner's to raise
+    // before readers are told "busy".
+    for (const s of o.keys.spend) {
+      if (s.usd < SPEND_WARN * o.keys.cap) continue
+      const pct = Math.round((s.usd / o.keys.cap) * 100)
+      const began = `${s.day}T00:00:00Z`
+      const date = dayText(localDay(began, tz), o.now, tz)
+      const from = hourMinute(began, tz)
+      out.push({ kind: 'spend', title: `Chi phí AI ngày ${date}: ${usd(s.usd)}, ${pct}% mức một ngày`, href: '/_ab/nhan-dien-ca/', action: 'Xem chi phí',
+        text: `Nhận diện cá và chat dùng chung mức $${fmt(o.keys.cap)} một ngày, tính từ ${from}; tới mức đó cả hai trả lời "bận" tới ngày sau. Nâng mức bằng FISH_ID_USD_PER_DAY.`,
+        en: { title: `AI spend on ${date}: ${usdEn(s.usd)}, ${pct}% of the daily cap`, text: `Fish ID and chat share a $${fmtEn(o.keys.cap)} cap a day, counted from ${from}; at the cap both answer "busy" until the next day. Raise it with FISH_ID_USD_PER_DAY.`, action: 'See costs' } })
     }
     if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key, en: { title: `${plural(o.keys.bad, 'line')} of ANTHROPIC_KEYS can't be read`, text: 'The tool skips them: fix the ANTHROPIC_KEYS secret.', action: seeKey } })
   }

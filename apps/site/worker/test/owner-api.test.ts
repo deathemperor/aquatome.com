@@ -82,7 +82,7 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['30 days', () => fishIdPage({ ...S.FISH, period: 'd30' }), () => fishIdSection({ ...S.FISH, period: 'd30' })],
     ['failed', () => fishIdPage({ ...S.FISH, stats: F, keys: F }), () => fishIdSection({ ...S.FISH, stats: F, keys: F })],
     ['no keys', () => fishIdPage({ ...S.FISH, keys: undefined }), () => fishIdSection({ ...S.FISH, keys: undefined })],
-    ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 } })],
+    ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } })],
   ],
   'anh-nhan-dien': [
     ['sample', () => keptPage(S.KEPT, S.NOW, S.TZ), () => keptSection(S.KEPT, S.NOW, S.TZ)],
@@ -421,9 +421,10 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   expect(ch.today).toBe(2) // Wednesday: Thursday to Sunday still to come
   expect(ch.series[0]!.values.slice(3)).toEqual([null, null, null, null])
   // Needs: faults first, then what waits on the owner; the tile counts the items.
-  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
+  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['spend', 'wait', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
   expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
-  expect(t.tiles[0]).toMatchObject({ value: '9', sub: '7 to review · 2 to fix', tone: 'bad' })
+  expect(t.tiles[0]).toMatchObject({ value: '10', sub: '8 to review · 2 to fix', tone: 'bad' })
+  expect(t.needs[1]).toMatchObject({ text: 'AI spend on 04/11: $42.50, 85% of the daily cap', label: 'See costs' })
   // Shipped: the change log's last 24 hours; the costs, fish ID's.
   expect(t.tiles[2]).toMatchObject({ value: '3', sub: '1 site · 1 app · 1 engine' })
   expect(t.shipped).toMatchObject({ section: 'thay-doi', link: 'Changelog · 3 in 24 h' })
@@ -440,7 +441,7 @@ test('the overview\'s version 2: the tiles add up to their parts, found an answe
   // Nothing needs the owner.
   const calm = todayJson(S.CALM)
   expect(calm.needs).toEqual([])
-  expect(calm.tiles[0]).toMatchObject({ value: 'All clear', sub: 'Nothing to review or fix', tone: 'plain' })
+  expect(calm.tiles[0]).toMatchObject({ value: 'All clear', sub: 'Nothing to review or fix', tone: 'good' }) // the mockup's green tick
   // The beacon down: the answers say so, the rest comes.
   const down = todayJson({ ...S.TODAY, beacon: F })
   expect(down.answers).toEqual({ title: 'Readers who found an answer', note: { kind: 'note', text: `Couldn't load the readers' beacon: ${F.failed}`, tone: 'bad' } })

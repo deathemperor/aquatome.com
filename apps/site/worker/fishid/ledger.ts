@@ -178,6 +178,12 @@ export class FishIdLedger {
 }
 
 export const LEDGER_ID = 'ledger'
+/**
+ * The site's AI spend a UTC day at list price (USD), fish ID's and chat's together: past it both answer `busy` until the
+ * next day. FISH_ID_USD_PER_DAY overrides it. The owner's dashboard and daily report flag a day past 80% of it (admin/pages.ts).
+ */
+export const USD_PER_DAY = 50
+export const usdCap = (v: string | undefined) => (Number(v) > 0 ? Number(v) : USD_PER_DAY)
 /** The Worker's side: the one ledger, near the readers (they are in Southeast Asia). */
 export function ledgerClient(ns: DurableObjectNamespace) {
   const call = async <T>(op: string, body: unknown): Promise<T> => {

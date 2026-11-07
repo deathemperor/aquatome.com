@@ -31,7 +31,7 @@ const well = (): Overview => {
     periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none } }
   return {
     now: NOW, readers: [], clicks: { days, clicks: [...zeros] }, fish, photos: 3, hidden: {},
-    keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'ok', calls: 0, answered: 0 }], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 },
+    keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'ok', calls: 0, answered: 0 }], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] },
     waiting: { comments: 0, photos: 0, oldest: null }, wanted: { names: [], more: false }, content: stats(), snapshots: [],
     accounts: { days: lastDays(NOW, 30), users: 5, newUsers: zeros.slice(1), synced: 2, openSessions: 1, credentials: [], comments: [], newComments: zeros.slice(1) },
   }
@@ -39,7 +39,7 @@ const well = (): Overview => {
 
 test('overview: what needs the owner comes first, each with the one place to deal with it', () => {
   const o = { ...well(), fish: { failed: 'x' } }
-  o.keys = { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit', until: '2026-11-03T08:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok', calls: 9, answered: 9 }], bad: 1, today: 12, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 }
+  o.keys = { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit', until: '2026-11-03T08:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok', calls: 9, answered: 9 }], bad: 1, today: 12, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] }
   o.waiting = { comments: 2, photos: 1, oldest: '2026-11-01T02:00:00.000Z' } // 32 hours before NOW: a night was missed
   const t = todos(o)
   expect(t.map(x => x.title)).toEqual(['1 key Anthropic đang nghỉ', '1 dòng trong ANTHROPIC_KEYS không đọc được', 'Kiểm duyệt đêm chưa chạy', 'Không tải được nhật ký nhận diện cá'])
@@ -55,6 +55,23 @@ test('overview: what needs the owner comes first, each with the one place to dea
   expect(html).toContain('Không có việc gì cần bạn')
   expect(html).not.toContain('class="badge"')
   expect(overviewPage(o)).toContain('<span class="badge">3<span class="vh"> việc</span></span>')
+})
+
+test('overview: a day whose AI spend passed 80% of its cap is the owner\'s to raise; below, nothing', () => {
+  const o = well()
+  const keys = o.keys as Exclude<Overview['keys'], { failed: string } | undefined>
+  // Today (UTC, from 07:00 in Vietnam) at 82%, yesterday at 78%: today's only. At exactly 80%, flagged.
+  o.keys = { ...keys, cap: 50, spend: [{ day: '2026-11-02', usd: 41 }, { day: '2026-11-01', usd: 39 }] }
+  const t = todos(o)
+  expect(t).toEqual([{
+    kind: 'spend', title: 'Chi phí AI ngày 02/11: $41,00, 82% mức một ngày', href: '/_ab/nhan-dien-ca/', action: 'Xem chi phí',
+    text: 'Nhận diện cá và chat dùng chung mức $50 một ngày, tính từ 07:00; tới mức đó cả hai trả lời "bận" tới ngày sau. Nâng mức bằng FISH_ID_USD_PER_DAY.',
+    en: { title: 'AI spend on 02/11: $41.00, 82% of the daily cap', text: 'Fish ID and chat share a $50 cap a day, counted from 07:00; at the cap both answer "busy" until the next day. Raise it with FISH_ID_USD_PER_DAY.', action: 'See costs' },
+  }])
+  o.keys = { ...keys, cap: 50, spend: [{ day: '2026-11-02', usd: 40 }] }
+  expect(todos(o).map(x => x.kind)).toEqual(['spend'])
+  o.keys = { ...keys, cap: 50, spend: [{ day: '2026-11-02', usd: 39.99 }, { day: '2026-11-01', usd: 12 }] }
+  expect(todos(o)).toEqual([])
 })
 
 test('overview: a source behind a browser check is the owner\'s to pass; the content and engine rows count the items and the video queue', () => {

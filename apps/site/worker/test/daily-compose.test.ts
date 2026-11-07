@@ -21,7 +21,7 @@ function quiet(now = NOW): Overview {
   return {
     now, tz: TZ, readers: [], clicks: { days, clicks: days.map(() => 0) },
     fish: { days: days.slice(1), perDay: { ok: z, none: z, blocked: z, usd: z, tin: z, tout: z }, unmatched: [], recent: [], periods: { today: none, yesterday: none, last30: none, d7: none, d7prev: none, d30: none, d30prev: none, mtd: none, mtdPrev: none } },
-    keys: { rows: [KEY], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 },
+    keys: { rows: [KEY], bad: 0, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] },
     photos: 3, waiting: { comments: 0, photos: 0, oldest: null }, wanted: { names: [], more: false }, hidden: {},
     accounts: { days: days.slice(1), users: 5, newUsers: z, synced: 2, openSessions: 1, credentials: [], comments: [], newComments: z },
     content: { engine: { needsHuman: [], sources: [], videos: { waiting: 0, writtenAt: [] } }, inventory: {} } as unknown as Overview['content'],
@@ -131,8 +131,18 @@ test('needs care: a moderation queue only once it is late; past 30 hours the ove
   expect(compose(waiting(5)).text).toContain('Comments waiting: 2')
 })
 
+test('needs care: the AI spend of the day that just ended, past 80% of the cap, so the owner can raise it before readers are told "busy"', () => {
+  const o = quiet()
+  const keys = o.keys as Exclude<Overview['keys'], { failed: string } | undefined>
+  // The report goes at 07:00 in Vietnam, as the ledger's UTC day turns: yesterday's is the whole day.
+  const spent = (usd: number) => input({ overview: { ...o, keys: { ...keys, cap: 50, spend: [{ day: '2026-11-06', usd: 0.4 }, { day: '2026-11-05', usd }] } } })
+  expect(needsCare(spent(46.5))).toEqual([{ title: 'AI spend on 05/11: $46.50, 93% of the daily cap', text: 'Fish ID and chat share a $50 cap a day, counted from 07:00; at the cap both answer "busy" until the next day. Raise it with FISH_ID_USD_PER_DAY.', href: '/_ab/nhan-dien-ca/' }])
+  expect(compose(spent(46.5)).text).toContain('AI spend on 05/11: $46.50, 93% of the daily cap')
+  expect(needsCare(spent(39))).toEqual([])
+})
+
 test('needs care: fish ID keys, in English', () => {
-  const keys = (rows: NonNullable<Exclude<Overview['keys'], { failed: string }>>['rows'], bad = 0) => input({ overview: { ...quiet(), keys: { rows, bad, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 } } })
+  const keys = (rows: NonNullable<Exclude<Overview['keys'], { failed: string }>>['rows'], bad = 0) => input({ overview: { ...quiet(), keys: { rows, bad, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0, cap: 50, spend: [] } } })
   const resting = { ...KEY, state: 'credit' as const, until: '2026-11-06T08:00:00.000Z' }
   expect(needsCare(keys([resting, { ...KEY, n: 2 }]))).toEqual([{ title: '1 Anthropic key resting', text: '#1 out of credit until 06/11 15:00', href: '/_ab/nhan-dien-ca/#key' }])
   expect(titles(keys([resting]))).toEqual(['Fish ID is down: every Anthropic key is resting'])
