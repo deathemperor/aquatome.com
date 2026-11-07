@@ -107,14 +107,41 @@ public enum Chat {
     public let path: String
   }
 
-  /// A tool, filled from the conversation: its page with its inputs in the query, as the page reads them.
+  /// A tool, filled from the conversation: its page with its inputs in the query, as the page reads them; for the
+  /// tank-mates tool, also the check Claude read and the reader's tank it was of.
   public struct Tool: Sendable, Hashable {
     /// "tank-mates", "tank-volume" or "tank-budget".
     public let tool: String
     /// The tool's short name, as its card on the tools page has it.
     public let name: String
-    /// Its path and query ("/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6").
-    public let path: String
+    /// Its path and query ("/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6"). None for a tank-mates check the tool's page
+    /// can't hold (past six kinds, a tank saved as litres): the reader's tank opens instead, or nothing.
+    public let path: String?
+    /// The tank-mates check, as JSON of the tool's own shape (TankCheck reads it); none from an older Worker or for one
+    /// fish.
+    public let check: Data?
+    /// The reader's tank it checked.
+    public let tank: CheckedTank?
+
+    public init(tool: String, name: String, path: String?, check: Data? = nil, tank: CheckedTank? = nil) {
+      self.tool = tool; self.name = name; self.path = path; self.check = check; self.tank = tank
+    }
+  }
+
+  /// The reader's saved tank a tank-mates check was of: its fish as saved, and those the reader would add (not saved).
+  public struct CheckedTank: Sendable, Hashable {
+    public struct Fish: Sendable, Hashable {
+      public let name: String
+      public let count: Int?
+      public init(name: String, count: Int?) { self.name = name; self.count = count }
+    }
+    public let id: String
+    public let name: String
+    /// Its inside length, width and height in cm, when saved.
+    public let dims: [Double]?
+    public let litres: Double?
+    public let fish: [Fish]
+    public let added: [Fish]
   }
 
   /// One block of a turn, in the order to show them.
@@ -290,11 +317,26 @@ public enum Chat {
       let blocks = raw.prefix { ($0 as? [String: Any])?["t"] as? String != "h" }.map(PageDoc.Block.read)
       return blocks.isEmpty ? nil : .section(page: page, heading: heading, blocks: blocks)
     case "tool":
-      guard let tool = o["tool"] as? String, let name = o["name"] as? String, let path = own(o["url"]) else { return nil }
-      return .tool(Tool(tool: tool, name: name, path: path))
+      guard let tool = o["tool"] as? String, let name = o["name"] as? String else { return nil }
+      let path = own(o["url"])
+      // A link that isn't this site's own: not a tool to open. Only a tank-mates check goes without one.
+      guard path != nil || (o["url"] == nil && tool == "tank-mates") else { return nil }
+      let check = (o["check"] as? [String: Any]).flatMap { try? JSONSerialization.data(withJSONObject: $0) }
+      return .tool(Tool(tool: tool, name: name, path: path, check: check, tank: (o["tank"] as? [String: Any]).flatMap(checkedTank)))
     default:
       return nil
     }
+  }
+
+  private static func checkedTank(_ o: [String: Any]) -> CheckedTank? {
+    guard let id = o["id"] as? String, let name = o["name"] as? String else { return nil }
+    func fish(_ v: Any?) -> [CheckedTank.Fish] {
+      (v as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap { f in (f["name"] as? String).map { CheckedTank.Fish(name: $0, count: f["count"] as? Int) } } }
+    }
+    let d = o["dims"] as? [String: Any]
+    let dims = d.flatMap { d in [d["l"], d["w"], d["h"]].map { ($0 as? NSNumber)?.doubleValue }.reduce([Double]()) { a, v in v.map { a + [$0] } ?? a } }
+    return CheckedTank(id: id, name: name, dims: dims?.count == 3 ? dims : nil, litres: (o["litres"] as? NSNumber)?.doubleValue,
+                       fish: fish(o["fish"]), added: fish(o["added"]))
   }
 
   private static func card(_ o: [String: Any]) -> Card? {

@@ -486,3 +486,50 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
 @Test func theMatesStepIsRead() {
   guard case .step(.mates)? = Chat.event(ServerEvent(name: "step", data: #"{"kind":"mates"}"#)) else { Issue.record("no mates step"); return }
 }
+
+// MARK: Blocks
+
+@Test func aComparisonSaysWhatDiffersAndBoldsOnlyTheOneThatAloneDoes() {
+  #expect(Chat.differs([60, 60, 60]) == .init(differ: false, alone: nil))
+  // A missing figure is never a difference.
+  #expect(Chat.differs([60, 60, nil]) == .init(differ: false, alone: nil))
+  #expect(Chat.differs([60, 60, 80]) == .init(differ: true, alone: 2))
+  #expect(Chat.differs([60, 80, 60, nil]) == .init(differ: true, alone: 1))
+  // Two species, all different, two and two: "khác", none bold.
+  #expect(Chat.differs([60, 80]) == .init(differ: true, alone: nil))
+  #expect(Chat.differs([60, 80, 100]) == .init(differ: true, alone: nil))
+  #expect(Chat.differs([60, 60, 80, 80]) == .init(differ: true, alone: nil))
+  #expect(Chat.differs([60, nil, 80]) == .init(differ: true, alone: nil))
+}
+
+@Test func aSectionShowsWholeBlocksAndCountsWhatsLeft() {
+  let p = PageDoc.Block.paragraph([])
+  let steps = PageDoc.Block.list(ordered: true, items: [[p], [p], [p]])
+  let points = PageDoc.Block.list(ordered: false, items: [[p], [p]])
+  let parts = Chat.parts([p, steps, points, .heading("x", id: "x"), .web])
+  #expect(parts.count == 6)
+  guard case .item(let n, _) = parts[3] else { Issue.record("no third step"); return }
+  #expect(n == 3)
+  var rest = Chat.Rest(parts.dropFirst(2))
+  #expect(rest.steps == 2 && rest.items == 2 && rest.paragraphs == 0 && rest.photos == 0)
+  rest = Chat.Rest([])
+  #expect(rest.isEmpty)
+}
+
+@Test func aTankMatesBlockCarriesItsCheckAndTheReadersTankAndMayHaveNoLink() throws {
+  let data = #"""
+  {"t":"tool","tool":"tank-mates","name":"Nuôi chung","check":{"verdict":{"level":"no","text":"Không nên nuôi chung: Cá betta (cá xiêm) hung dữ."},"warnings":[]},
+   "tank":{"id":"t1","name":"Bể phòng khách","dims":{"l":60,"w":30,"h":36},"fish":[{"name":"Cá neon xanh","count":6},{"name":"Ốc lạ"}],"added":[{"name":"Cá betta","count":1}]}}
+  """#
+  guard case .block(.tool(let t))? = Chat.event(ServerEvent(name: "block", data: data)) else { Issue.record("no tool"); return }
+  #expect(t.path == nil)
+  let check = try #require(t.check.flatMap { try JSONSerialization.jsonObject(with: $0) as? [String: Any] })
+  #expect((check["verdict"] as? [String: Any])?["level"] as? String == "no")
+  let tank = try #require(t.tank)
+  #expect(tank.id == "t1" && tank.dims == [60, 30, 36] && tank.litres == nil)
+  #expect(tank.fish == [.init(name: "Cá neon xanh", count: 6), .init(name: "Ốc lạ", count: nil)] && tank.added == [.init(name: "Cá betta", count: 1)])
+  // Another tool needs its link; a link that isn't the site's own is no tool.
+  for d in [#"{"t":"tool","tool":"tank-volume","name":"Thể tích"}"#, #"{"t":"tool","tool":"tank-mates","name":"Nuôi chung","url":"https://x.com/"}"#] {
+    if case .block? = Chat.event(ServerEvent(name: "block", data: d)) { Issue.record("a tool read from \(d)") }
+  }
+}
