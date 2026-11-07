@@ -580,7 +580,15 @@ The layers above still check the result.
     design review (2026-11-07): hands planting a sword plant and a person siphoning a tank leading two guides, and an
     Aquarium Co-op test-strip bottle in the betta setup guide, where only the face detector (no face in either) and the
     watermark step (which calls a product's own label part of the scene) had looked; 5,960 of 6,428 guide pictures had
-    never had a model look for a mark. A video's own stills are screened by `video-stills` instead (faces, text).
+    never had a model look for a mark.
+    - It asks the same of a video guide's stills, after every photo, guides in order: teaching videos show hands
+      planting and siphoning, and `video-stills` looks only for faces and text. A person or a mark takes the still off
+      its guide and onto `_photo-rejected.json`; a figure left with no still and no photo goes. A brand in a still's
+      scene is recorded, not acted on. The picker chose a guide's stills once, when it was written, so nothing takes a
+      removed one's place. A still is judged once `video-stills` won't change it again (the video's own frame, or a
+      tile it keeps for good): a tile waits for its frame, so it isn't judged twice, and `video-stills` never touches
+      a still that was taken off. 3,868 stills on 2026-11-07, 240 of them frames: about 645 calls, done in about 5
+      days, as `video-stills` makes the rest frames.
   - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
     YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
     shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
@@ -596,6 +604,7 @@ The layers above still check the result.
     - It screens a frame as a new guide's, before uploading it: a face takes the still off the page; text keeps the
       old still's watermark verdict or goes to the model, and a watermark takes the still off and onto
       `_photo-rejected.json`. A frame of another moment leaves the tile for good (`engine-state/_video-stills.json`).
+      Hands and a person seen from behind are `guide-photos`' to find (Guides' photos, above).
     - Found by the owner (2026-11-06): the stills looked blurry and low-res, most of all on a computer.
   - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
     page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page

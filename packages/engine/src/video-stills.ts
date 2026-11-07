@@ -26,6 +26,8 @@ export type StillsState = Record<string, { at: string; timed?: true; kept?: Reco
 type Moment = NonNullable<NonNullable<GuideEntity['video']>['figures']>[number]['moments'][number]
 
 const SHARP = /-hd\.webp$/
+/** A still this step won't change again: the video's own frame, or a tile it keeps for good (`kept`, by `t`). */
+export const stillDone = (m: { t: number; url: string }, kept: Record<string, string> = {}) => SHARP.test(m.url) || String(m.t) in kept
 /** A still's address before 2026-11-07, `t<t>.webp` or `t<t>-hd.webp`: the `t` it was given, its tile k ÷ fps. */
 const BY_FPS = /\/t(\d+)(?:-hd)?\.webp$/
 const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.fromEntries(Object.entries(o).sort(([a], [b]) => (a < b ? -1 : 1))), null, 2)}\n`
@@ -61,7 +63,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
     if (o.only && !o.only.includes(id)) continue
     const e = JSON.parse(await readFile(file('content', 'guides', id, 'entity.json'), 'utf8')) as GuideEntity
     const all = (e.video?.figures ?? []).flatMap(f => f.moments)
-    const tiles = all.some(m => !SHARP.test(m.url) && !(String(m.t) in (state[id]?.kept ?? {})))
+    const tiles = all.some(m => !stillDone(m, state[id]?.kept))
     if (tiles || (!state[id]?.timed && all.some(m => BY_FPS.test(m.url)))) queue.push({ id, e, tiles })
   }
   queue.sort((a, b) => Number(!!state[a.id]?.failed) - Number(!!state[b.id]?.failed) || Number(a.tiles) - Number(b.tiles))
@@ -111,7 +113,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       const grabbed: { m: Moment; hd: Uint8Array; png: string }[] = []
       let left = 0
       for (const m of figures.flatMap(f => f.moments)) {
-        if (SHARP.test(m.url) || String(m.t) in kept) continue
+        if (stillDone(m, kept)) continue
         if (m.url in rejected) { kept[String(m.t)] = 'rejected'; continue } // never given a new address that escapes it
         try {
           const hd = await sharpFrame(d.grab, frames.stream, m.t, await d.get(m.url))

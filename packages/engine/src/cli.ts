@@ -323,13 +323,14 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of r.dead) console.log(`dead: ${x}`)
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'guide-photos') {
-  // No people or logos in guides' and equipment guides' photos (guide-photos.ts): --limit model calls a run (default 20),
-  // 6 photos each, leads first; a person or a mark leaves every page for good, a brand on a product leaves the guides.
+  // No people or logos in guides' and equipment guides' photos and video guides' stills (guide-photos.ts): --limit model
+  // calls a run (default 20), 6 photos each, leads first, stills last; a person or a mark leaves every page for good, a
+  // brand on a product leaves the guides (not a still). A tile video-stills will replace waits for the video's frame.
   const r = await screenGuidePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' }),
   }, { limit: values.limit ? Number(values.limit) : 20, parallel: values.parallel ? Number(values.parallel) : 1 })
-  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.off) console.log(`off: ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const x of r.kept) console.log(`kept (a required hero with nothing to replace it): ${x}`)
