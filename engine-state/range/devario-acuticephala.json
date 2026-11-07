@@ -1,0 +1,60 @@
+{
+  "id": "devario-acuticephala",
+  "native": {
+    "input": "fb204d28ebf12003",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Manipur state, northeastern India and also known from neighbouring Nagaland state with type locality 'On Ukjhang sang Road, 1 mile from Yaribuk, Manipur, Assam, India'.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Manipur river basin",
+        "source": "seriouslyfish",
+        "quote": "Most habitats lie within the Manipur river basin, including the tributary Iril and Khuga drainages, and the Dikhu watershed in Nagaland.",
+        "ok": true
+      },
+      {
+        "name": "Iril",
+        "source": "seriouslyfish",
+        "quote": "Most habitats lie within the Manipur river basin, including the tributary Iril and Khuga drainages, and the Dikhu watershed in Nagaland.",
+        "ok": true
+      },
+      {
+        "name": "Khuga",
+        "source": "seriouslyfish",
+        "quote": "Most habitats lie within the Manipur river basin, including the tributary Iril and Khuga drainages, and the Dikhu watershed in Nagaland.",
+        "ok": true
+      },
+      {
+        "name": "Dikhu",
+        "source": "seriouslyfish",
+        "quote": "Most habitats lie within the Manipur river basin, including the tributary Iril and Khuga drainages, and the Dikhu watershed in Nagaland.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario acuticephala",
+    "status": "ACCEPTED",
+    "taxonKey": 2361500,
+    "datasets": [],
+    "native": [
+      "IN"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

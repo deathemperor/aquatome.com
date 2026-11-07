@@ -2,6 +2,18 @@
   "id": "atractosteus-tropicus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/111138560.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/111138560-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Adam Kranz",
+      "sourceUrl": "https://www.inaturalist.org/photos/111138560",
+      "caption": "Hai cá sấu hỏa tiễn nhiệt đới bơi cạnh nhau trong bể",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/commons/f7ffbcdc67597d8f.webp",
       "thumb": "https://media.aquatome.com/commons/f7ffbcdc67597d8f-480.webp",
       "width": 1200,
@@ -12,6 +24,30 @@
       "caption": "Hai cá sấu hỏa tiễn nhiệt đới bơi sát đáy trong nước trong",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/400248836.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/400248836-480.webp",
+      "width": 1024,
+      "height": 1020,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/400248836",
+      "caption": "Cá sấu hỏa tiễn nhiệt đới bơi gần đáy đá trong nước",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/361488932.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/361488932-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY-SA",
+      "author": "Leonardo Manuel Baez Schuh",
+      "sourceUrl": "https://www.inaturalist.org/photos/361488932",
+      "caption": "Cá sấu hỏa tiễn nhiệt đới bơi trong bể lớn có đá",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/acf5b68bdcbdbe9b.webp",
@@ -26,7 +62,7 @@
       "kind": "other"
     }
   ],
-  "seen": 6,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 20,
+  "updatedAt": "2026-11-07",
+  "builtAt": "2026-11-07"
 }

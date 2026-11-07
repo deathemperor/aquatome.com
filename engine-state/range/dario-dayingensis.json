@@ -1,0 +1,55 @@
+{
+  "id": "dario-dayingensis",
+  "native": {
+    "input": "b67da5a062ca954c",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Dario dayingensis is a small badid from a tributary of the Daying River in the Irrawaddy drainage of Yunnan Province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Daying River",
+        "source": "seriouslyfish",
+        "quote": "Dario dayingensis is a small badid from a tributary of the Daying River in the Irrawaddy drainage of Yunnan Province, China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Dario dayingensis is a small badid from a tributary of the Daying River in the Irrawaddy drainage of Yunnan Province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dario dayingensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2389484,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

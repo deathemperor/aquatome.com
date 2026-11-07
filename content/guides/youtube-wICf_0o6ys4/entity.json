@@ -9,7 +9,7 @@
     "betta-splendens",
     "carassius-auratus"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "wICf_0o6ys4",
     "title": "How to Cure Fin Rot the EASY Way!",
@@ -58,6 +58,18 @@
     ],
     "gear": [
       {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Maracyn",
+        "t": 346
+      },
+      {
+        "category": "khac",
+        "brand": "Ich-X",
+        "model": "Ich-X",
+        "t": 346
+      },
+      {
         "category": "test-nuoc",
         "type": "test",
         "t": 92
@@ -69,19 +81,8 @@
       },
       {
         "category": "suoi",
+        "type": "chinh-nhiet",
         "t": 158
-      },
-      {
-        "category": "khac",
-        "brand": "Seachem",
-        "model": "Maracyn",
-        "t": 346
-      },
-      {
-        "category": "khac",
-        "brand": "Ich-X",
-        "model": "Ich-X",
-        "t": 346
       },
       {
         "category": "loc",
@@ -99,10 +100,10 @@
         "moments": [
           {
             "t": 25,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t25-hd.webp",
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at25-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá vàng bơi trong bể, quan sát vây và đuôi."
+            "caption": "Đàn cá vàng bơi trong bể, vây và đuôi dài dễ bị thối."
           }
         ],
         "photo": {
@@ -113,73 +114,109 @@
           "licence": "CC BY-SA 4.0",
           "author": "Dizzy Respect",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fin_Rot_on_Betta_Fish.jpg",
-          "caption": "Cá betta có đuôi bị nham nhở, rách mép, dấu hiệu thối vây."
+          "caption": "Cá betta có mép đuôi lởm chởm, rách nham nhở do thối vây."
         }
       },
       {
         "heading": "Vì sao cá bị thối vây",
         "moments": [
           {
-            "t": 119,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t119-hd.webp",
+            "t": 120,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at120-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá neon bơi trong bể có lũa và nền cát tối."
+            "caption": "Đàn cá neon xanh bơi trong bể trồng cây có lũa."
           },
           {
-            "t": 134,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t134-hd.webp",
+            "t": 135,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at135-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh cây xanh um tùm, nước trong và sạch."
+            "caption": "Bể thủy sinh sạch, cây phát triển xanh tốt."
           }
         ]
       },
       {
-        "heading": "Trường hợp riêng của betta",
+        "heading": "Các nguồn gây căng thẳng khác cần kiểm tra",
         "moments": [
           {
-            "t": 198,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t198-hd.webp",
+            "t": 140,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at140-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Con betta xanh xòe vây bơi giữa bể có đá và cây."
-          },
-          {
-            "t": 213,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t213-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Betta đối diện bóng phản chiếu của mình trên kính, như đang đánh nhau."
+            "caption": "Bể thủy sinh trồng nhiều cây, bố cục gọn gàng, không có đồ sắc cạnh."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/wICf_0o6ys4/p2-Q1NjYxOTIwLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/wICf_0o6ys4/p2-Q1NjYxOTIwLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/wICf_0o6ys4/p2-JfZm9hbV8yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/wICf_0o6ys4/p2-JfZm9hbV8yLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_2.jpg",
+          "caption": "Miếng mút xốp lọc dùng cho lọc vi sinh, dòng chảy nhẹ cho cá."
+        }
+      },
+      {
+        "heading": "Trường hợp riêng của cá betta",
+        "moments": [
+          {
+            "t": 200,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con betta xanh căng vây giữa bể có nhiều cây và đá."
+          },
+          {
+            "t": 215,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at215-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Betta đối mặt với bóng phản chiếu của chính nó trên kính."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wICf_0o6ys4/p3-Q1NjYxOTIwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/wICf_0o6ys4/p3-Q1NjYxOTIwLmpwZw-480.webp",
           "width": 960,
           "height": 625,
           "licence": "CC0",
           "author": "ivabalk https://pixabay.com/pt/users/ivabalk-782511/",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Betta_-34245661920.jpg",
-          "caption": "Betta xòe hết cỡ bộ vây sát mặt kính, như đang gây hấn với bóng mình."
+          "caption": "Con betta xòe vây sát thành kính, như đang đối đầu với bóng phản chiếu."
         }
       },
       {
-        "heading": "Dọn bể trước khi châm thuốc",
+        "heading": "Khi nào cần dùng thuốc",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wICf_0o6ys4/p4-Npbl9BXzNELnBuZw.webp",
+          "thumb": "https://media.aquatome.com/video/wICf_0o6ys4/p4-Npbl9BXzNELnBuZw-480.webp",
+          "width": 960,
+          "height": 795,
+          "licence": "CC BY-SA 4.0",
+          "author": "Jovan.gec",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Erythromycin_A_3D.png",
+          "caption": "Mô hình phân tử erythromycin, kháng sinh phổ rộng trong thuốc Maracyn."
+        }
+      },
+      {
+        "heading": "Chuẩn bị bể trước khi chữa",
         "moments": [
           {
-            "t": 302,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t302-hd.webp",
+            "t": 305,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at305-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh có lũa, cỏ và nền đen đang được dọn dẹp."
+            "caption": "Dùng ống xi phông hút chất thải dưới nền cát trong bể cây."
           },
           {
-            "t": 312,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t312-hd.webp",
+            "t": 315,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at315-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thùng nhựa trong chứa cá để chuyển sang bể bệnh riêng."
+            "caption": "Bể nhỏ đựng cá được chuyển riêng ra để chữa bệnh."
           }
         ]
       },
@@ -187,44 +224,59 @@
         "heading": "Châm thuốc thế nào",
         "moments": [
           {
-            "t": 416,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t416-hd.webp",
+            "t": 405,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at405-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh bể có cây thủy sinh và thiết bị lọc, sủi khí."
-          }
-        ]
-      },
-      {
-        "heading": "Không mua được thuốc thì sao",
-        "moments": [
+            "caption": "Pha thuốc vào thùng đong nước theo liều lượng trước khi châm vào bể."
+          },
           {
-            "t": 436,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t436-hd.webp",
+            "t": 420,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at420-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thùng nhựa có vạch chia dùng để pha nước muối cho cá."
+            "caption": "Sủi khí và lọc trong bể có cây thủy sinh để giữ đủ oxy."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wICf_0o6ys4/p6-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/wICf_0o6ys4/p6-uZF9zdG9uZS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
+          "caption": "Máy sủi khí mini kèm dây dẫn khí và đá sủi để tăng oxy cho bể."
+        }
       },
       {
         "heading": "Dấu hiệu cá đang khỏi bệnh",
         "moments": [
           {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t495-hd.webp",
+            "t": 500,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at500-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá betta xanh bơi trong hồ trồng cây, đang hồi phục."
+            "caption": "Cá betta xanh dương bơi giữa cây thủy sinh, đang hồi phục."
           },
           {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/t500-hd.webp",
+            "t": 505,
+            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at505-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá betta xanh với bộ vây dài xòe rộng, khỏe mạnh."
+            "caption": "Cá betta xanh dương bơi khỏe, vây xòe đầy đặn trong bể."
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wICf_0o6ys4/p7-Q1NjYxOTIwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/wICf_0o6ys4/p7-Q1NjYxOTIwLmpwZw-480.webp",
+          "width": 960,
+          "height": 625,
+          "licence": "CC0",
+          "author": "ivabalk https://pixabay.com/pt/users/ivabalk-782511/",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Male_Betta_-34245661920.jpg",
+          "caption": "Cá betta khỏe mạnh với vây xòe rộng, màu xanh đỏ rực rỡ."
+        }
       }
     ]
   }

@@ -1,10 +1,13 @@
 {
   "slug": "dong-jiang",
-  "name": "Dong Jiang",
-  "altNames": [],
+  "name": "sông Đông Giang",
+  "altNames": [
+    "Dong Jiang"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

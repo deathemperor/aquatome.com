@@ -1,10 +1,13 @@
 {
   "slug": "atlantic-forest",
-  "name": "Atlantic Forest",
-  "altNames": [],
+  "name": "rừng Đại Tây Dương",
+  "altNames": [
+    "Atlantic Forest"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

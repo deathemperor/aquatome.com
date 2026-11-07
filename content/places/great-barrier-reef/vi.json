@@ -1,10 +1,13 @@
 {
   "slug": "great-barrier-reef",
-  "name": "Great Barrier Reef",
-  "altNames": [],
+  "name": "rạn san hô Great Barrier",
+  "altNames": [
+    "Great Barrier Reef"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

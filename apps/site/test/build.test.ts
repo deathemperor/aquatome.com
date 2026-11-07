@@ -47,13 +47,16 @@ describe('species page', () => {
     expect(facts[2]!.querySelector('[data-cm]')?.text).toBe('60 cm')
     expect(facts[3]!.querySelector('dd')?.text.trim()).toBe('Dễ')
   })
-  // At most five chips (seven ran off a phone's row): the care questions, the shop, the photos; breeding gives way first.
-  test('jump row: at most five of the main parts this page has, in page order, each to its section', () => {
+  // At most five chips (seven ran off a phone's row): the care questions, the shop, the photos; breeding gives way first
+  // (test/jump-row.test.ts: the tank next, the photos never). Each to its section, the photos to their gallery with its count.
+  test('jump row: at most five of the main parts this page has, in page order, the photos last with their count', () => {
     const links = dom.querySelectorAll('nav.jump a')
     expect(links.map(a => [a.text, a.getAttribute('href')])).toEqual([
-      ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh', '#gal-h'],
+      ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh 45', '/ca/ca-neon-vua/anh/'],
     ])
-    for (const a of links) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
+    for (const a of links.slice(0, -1)) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
+    expect(dom.querySelector('#muc-reproduction')).not.toBeNull() // the part that gave way
+    expect(page('/ca/ca-neon-vua/anh/').dom.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(45) // the chip's count
     // Just before the text: after the summary and the photo.
     expect(dom.querySelector('header.top')?.nextElementSibling?.tagName).toBe('NAV')
   })
@@ -441,9 +444,15 @@ test('cards use the recorded thumb, Wikimedia 500px, else the full photo', async
   expect(smallSrc({ ...base, url: 'https://upload.wikimedia.org/w/thumb/a/F.jpg/960px-F.jpg' })).toBe('https://upload.wikimedia.org/w/thumb/a/F.jpg/500px-F.jpg')
 })
 
-test('owner hide button script is on content pages but not the 404 page', () => {
-  expect(page('/ca/ca-dia/').dom.querySelector('script[data-owner]')?.text).toContain('/_ab/hidden')
-  expect(page('/').dom.querySelector('script[data-owner]')?.text).toContain("['Quản trị','/_ab/']") // admin link on every page, home included
+test('the script that loads the owner bar is on content pages but not the 404 page, and the bar is a file of its own', () => {
+  // A page holds only what loads the bar: its buttons are in a file only a browser with the owner's flag fetches.
+  for (const path of ['/ca/ca-dia/', '/']) {
+    expect(page(path).dom.querySelector('script[data-owner]')?.text, path).toContain("import('/_owner/bar.js')")
+    expect(page(path).html, path).not.toContain('/_ab/hidden')
+    expect(page(path).html, path).not.toContain('Báo lỗi')
+  }
+  const bar = readFileSync(`${DIST}/_owner/bar.js`, 'utf8')
+  for (const words of ['/_ab/hidden', 'Quản trị', '/_ab/doc-gia/', 'Báo lỗi', '/api/feedback']) expect(bar, words).toContain(words)
   expect(page('/').dom.querySelectorAll('footer a[href^="/_ab"]')).toHaveLength(0) // no admin link for visitors; the owner bar needs the owner cookie
   expect(page('/404').dom.querySelector('script[data-owner]')).toBeNull()
 })
@@ -787,9 +796,30 @@ describe('photo gallery', () => {
     expect(credits).toContain('File:NeonVua43.jpg')
     expect(credits).not.toContain('File:NeonVua44.jpg')
   })
-  test('a species with too few photos gets no strip and no gallery page', () => {
-    expect(page('/ca/ca-neon-xanh/').dom.querySelector('section.strip')).toBeNull()
+  test('a species with too few photos gets no strip, no gallery page and no chip for its photos: its photo is right above the row', () => {
+    const { dom } = page('/ca/ca-neon-xanh/')
+    expect(dom.querySelector('section.strip')).toBeNull()
     expect(() => readFileSync(`${DIST}/ca/ca-neon-xanh/anh/index.html`)).toThrow()
+    expect(dom.querySelectorAll('nav.jump a').map(a => [a.text, a.getAttribute('href')])).toEqual([['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do']])
+    expect(dom.querySelector('header.top #anh img')).not.toBeNull()
+  })
+  test('gallery page: its title is the count, nothing but the crumbs before it; the fish\'s name stays in the page\'s title', () => {
+    const { dom } = page('/ca/ca-neon-vua/anh/')
+    const h1 = dom.querySelector('h1')!
+    expect(h1.text).toBe('45 ảnh')
+    expect(dom.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(45)
+    expect(h1.previousElementSibling?.classList.contains('crumb')).toBe(true)
+    expect(h1.previousElementSibling?.previousElementSibling).toBeNull()
+    expect(h1.nextElementSibling?.classList.contains('lead')).toBe(true)
+    expect(dom.querySelector('title')!.text).toContain('Cá neon vua')
+    expect(page('/cay/cryptocoryne-wendtii/anh/').dom.querySelector('h1')!.text).toBe('6 ảnh')
+  })
+  test('a fish\'s gallery page has a link down to its readers\' photos, hidden until there are any; a breed\'s and a plant\'s have none', () => {
+    const { dom } = page('/ca/ca-neon-vua/anh/')
+    const down = dom.querySelector('.lead a[data-to-readers]')!
+    expect(down.hasAttribute('hidden')).toBe(true)
+    expect(dom.querySelector(down.getAttribute('href')!)?.tagName).toBe('H2')
+    for (const other of ['/ca/ca-la-han/anh/', '/cay/cryptocoryne-wendtii/anh/']) expect(page(other).dom.querySelector('[data-to-readers]'), other).toBeNull()
   })
   test('gallery page: every photo credited (author, licence, source), each tile its full photo for the viewer, ImageObject licence data, captions escaped', () => {
     const { html, dom } = page('/ca/ca-neon-vua/anh/')
@@ -841,7 +871,7 @@ describe('photo gallery', () => {
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
     const g = page('/cay/cryptocoryne-wendtii/anh/').dom
     expect(g.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(6)
-    expect(g.querySelector('.lead')!.textContent).toContain('6 ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
+    expect(g.querySelector('.lead')!.textContent).toContain('Ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
     expect(g.querySelector('.lead a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/')
     expect(g.querySelector('.lead a')!.textContent).toContain('Cách trồng')
     expect(g.querySelector('.crumb a[href="/cay/"]')).toBeTruthy()
@@ -885,7 +915,7 @@ describe('man-made fish (breeds)', () => {
   })
   test('a breed gallery page has no scientific name', () => {
     const { dom } = page('/ca/ca-la-han/anh/')
-    expect(dom.querySelector('.lead')!.textContent).toMatch(/^7 ảnh từ Wikimedia Commons/)
+    expect(dom.querySelector('.lead')!.textContent).toMatch(/^Ảnh từ Wikimedia Commons/)
     expect(dom.querySelector('.lead .sci')).toBeNull()
   })
   test('the species page lists its lines and hybrids, crediting their pictures; the species list shows them', () => {
@@ -961,15 +991,15 @@ test('the logo link is named by its visible text (no aria-label that differs fro
 
 test('every page has the language menu; a fish without other-language pages offers their fish lists', () => {
   // The header's (computers) and the menu sheet's (phones).
-  for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/']) for (const menu of ['header', '#site-menu']) {
+  for (const path of ['/', '/ca/ca-neon-vua/', '/video/', '/id/', '/th/', '/ms/']) for (const menu of ['header', '#site-menu']) {
     const links = page(path).dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
     expect(links.map(a => a.getAttribute('data-lang')), `${path} ${menu}`).toEqual([...LANGS])
   }
   for (const menu of ['header', '#site-menu']) {
     const fish = page('/ca/ca-neon-vua/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined]])
+    expect(fish.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/ca/ca-neon-vua/', 'true'], ['/id/ikan/', undefined], ['/th/fish/', undefined], ['/ms/ikan/', undefined]])
     // On an Indonesian page the Vietnamese link stays Vietnamese (localizeLinks leaves hreflang links alone).
     const id = page('/id/').dom.querySelectorAll(`${menu} [data-lang-menu] a[data-lang]`)
-    expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/', undefined], ['/id/', 'true'], ['/th/', undefined]])
+    expect(id.map(a => [a.getAttribute('href'), a.getAttribute('aria-current')]), menu).toEqual([['/', undefined], ['/id/', 'true'], ['/th/', undefined], ['/ms/', undefined]])
   }
 })

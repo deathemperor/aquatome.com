@@ -1,6 +1,6 @@
 {
   "id": "youtube-Jf2NkrQm6pg",
-  "kind": "setup",
+  "kind": "disease",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=Jf2NkrQm6pg",
   "html": "",
@@ -8,7 +8,7 @@
   "mentions": [
     "poecilia-latipinna"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-07",
   "video": {
     "youtubeId": "Jf2NkrQm6pg",
     "title": "How to Make a Quick & Easy Quarantine Tank",
@@ -44,13 +44,18 @@
       "height": 720
     },
     "taxa": [
-      "Poecilia latipinna"
+      "Poecilia sp."
     ],
     "gear": [
       {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 31
+      },
+      {
         "category": "loc",
         "type": "bot-bien",
-        "t": 120
+        "t": 105
       },
       {
         "category": "suoi",
@@ -61,50 +66,44 @@
         "category": "thuc-an",
         "type": "dong-lanh",
         "t": 220
-      },
-      {
-        "category": "khac",
-        "brand": "Aquarium Co-Op",
-        "model": "Quarantine medication trio",
-        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Bể cách ly cần những gì",
+        "heading": "Chọn thùng hay bể để cách ly",
         "moments": [
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t79-hd.webp",
+            "t": 65,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at65-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thùng nhựa trong có nắp, bên hông có vạch số lít."
+            "caption": "Bể kính trong suốt dùng để cách ly, dễ quan sát cá."
           },
           {
-            "t": 84,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t84-hd.webp",
+            "t": 80,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at80-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nắp thùng nhựa đậy khít bằng khóa gài, chặn cá nhảy ra."
+            "caption": "Thùng nhựa có nắp đậy, thành thùng kẻ vạch mức nước."
           }
         ]
       },
       {
-        "heading": "Giữ cho lọc luôn có sẵn vi sinh",
+        "heading": "Lọc gì và làm sao để lọc luôn có sẵn vi sinh",
         "moments": [
           {
-            "t": 148,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t148-hd.webp",
+            "t": 130,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at130-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lọc bông xanh đã bám vi sinh đang chạy trong bể chính."
+            "caption": "Lọc bọt biển đặt trong bể trồng cây, dòng sủi khí nhẹ."
           },
           {
-            "t": 163,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t163-hd.webp",
+            "t": 150,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at150-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thùng cách ly đặt lọc bông, có cây thủy sinh và đá."
+            "caption": "Miếng lọc bọt biển chạy sủi khí trong bể có cây thủy sinh."
           }
         ],
         "photo": {
@@ -115,108 +114,140 @@
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Cận cảnh miếng bông lọc xốp, nơi vi sinh bám vào."
+          "caption": "Miếng bọt biển lọc xốp, nhiều lỗ nhỏ cho vi sinh bám."
         }
       },
       {
-        "heading": "Chặn lây chéo giữa bể cách ly và bể chính",
+        "heading": "Sưởi, đồ trang trí và cây",
         "moments": [
           {
-            "t": 272,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t272-hd.webp",
+            "t": 165,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at165-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rửa tay sạch dưới vòi nước trước khi chạm sang bể khác."
-          }
-        ]
-      },
-      {
-        "heading": "Khử trùng và cất bể sau khi cách ly xong",
-        "moments": [
-          {
-            "t": 296,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t296-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đang được ngâm dung dịch thuốc tẩy loãng cùng đồ bên trong."
-          },
-          {
-            "t": 301,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t301-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tráng và lau bể trống sau khi ngâm thuốc tẩy."
-          }
-        ]
-      },
-      {
-        "heading": "Bước kiểm tra thêm cho người muốn thật chắc",
-        "moments": [
-          {
-            "t": 336,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t336-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cá có cây giả và tượng trang trí, nơi thả cá thử bệnh."
-          }
-        ]
-      },
-      {
-        "heading": "Bể cách ly cứu cá thế nào",
-        "moments": [
-          {
-            "t": 346,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t346-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một con molly bóng bơi trong bể trồng cây, rêu xanh um tùm."
-          },
-          {
-            "t": 356,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t356-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Con molly có vẻ ngoài sần sùi, loang lổ như bị nấm."
+            "caption": "Thùng cách ly có vài món trang trí giả và một cục lọc xốp."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/p6-X0JhbGxvb24uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Jf2NkrQm6pg/p6-X0JhbGxvb24uanBn-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 2.0",
-          "author": "Bernat Arlandis",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Molly_Balloon.jpg",
-          "caption": "Cá molly trắng bơi trong bể trồng cây, khỏe mạnh và rõ nét."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 153,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t153-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc bông đang chạy trong bể, sẵn vi sinh cho bể cách ly."
-          },
-          {
-            "t": 173,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/t173-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng cách ly có lọc bông nhỏ và cây thủy sinh bên trong."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/p7-ha3dhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/Jf2NkrQm6pg/p7-ha3dhcml1bS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/p2-ha3dhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Jf2NkrQm6pg/p2-ha3dhcml1bS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 3.0",
           "author": "Ewkaa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Một chiếc sưởi bể cá có giác hút, dùng cho bể cách ly."
+          "caption": "Một chiếc sưởi bể cá có giác hút và dây điện dài."
+        }
+      },
+      {
+        "heading": "Dùng thuốc và muối khi cách ly",
+        "moments": [
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng nhựa cách ly có cây thủy sinh và dây sục khí."
+          }
+        ]
+      },
+      {
+        "heading": "Cho cá ăn thế nào khi cách ly",
+        "moments": [
+          {
+            "t": 245,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at245-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con cá nhỏ đang bơi trong bể cách ly."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/p4-RfZmlsbGV0LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Jf2NkrQm6pg/p4-RfZmlsbGV0LmpwZw-480.webp",
+          "width": 960,
+          "height": 960,
+          "licence": "CC0",
+          "author": "Fumikas Sagisavas",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frozen_fresh_cod_fillet.jpg",
+          "caption": "Những miếng thịt cá đông lạnh trên đá, sạch và giàu dinh dưỡng."
+        }
+      },
+      {
+        "heading": "Tránh lây chéo sang bể chính",
+        "moments": [
+          {
+            "t": 275,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rửa tay thật kỹ ở bồn rửa trong nhà tắm."
+          },
+          {
+            "t": 300,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng cách ly đặt riêng, người nuôi đeo găng tay khi thao tác."
+          }
+        ]
+      },
+      {
+        "heading": "Vệ sinh và cất thùng sau khi cách ly",
+        "moments": [
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng kính trống đang được ngâm và khử trùng trong bồn."
+          },
+          {
+            "t": 305,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đeo găng tay khử trùng thùng kính và đồ bên trong."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/p6-5fYmxlYWNoLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/Jf2NkrQm6pg/p6-5fYmxlYWNoLkpQRw-480.webp",
+          "width": 960,
+          "height": 1281,
+          "licence": "CC BY-SA 3.0",
+          "author": "Mk2010",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitchen_bleach.JPG",
+          "caption": "Chai thuốc tẩy clo dùng để khử trùng thùng và đồ dùng."
+        }
+      },
+      {
+        "heading": "Cách ly có cứu được cá không",
+        "moments": [
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con molly đốm trắng đen bơi trong bể nước xanh đục."
+          },
+          {
+            "t": 365,
+            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at365-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con molly bơi cạnh cây giả trong thùng nuôi riêng."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/p8-b25fTW9sbHkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Jf2NkrQm6pg/p8-b25fTW9sbHkuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 2.0",
+          "author": "Bernat Arlandis",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balloon_Molly.jpg",
+          "caption": "Một con molly cái bụng tròn đang bơi trong bể."
         }
       }
     ]

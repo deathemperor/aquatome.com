@@ -12,7 +12,7 @@
     "run_worker_first": [
       "/", "/.well-known/api-catalog", "/.well-known/apple-app-site-association", "/vi", "/vi/*",
       "/ca/*", "/cay/*", "/chinh-sach-bao-mat/*", "/cong-cu/*", "/dang-nhap/*", "/gioi-thieu/*", "/huong-dan/*", "/kham-pha/*", "/lien-he/*", "/moi-cap-nhat/*",
-      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/ung-dung/*", "/video/*", "/id/aplikasi/*", "/th/mobile-app/*",
+      "/nguon-goc/*", "/nhom/*", "/phan-loai/*", "/san-pham/*", "/thiet-bi/*", "/thuat-ngu/*", "/tim-kiem/*", "/ung-dung/*", "/video/*", "/id/aplikasi/*", "/th/mobile-app/*", "/ms/aplikasi/*",
       "/_e", "/_ab", "/_ab/*", "/go/*", "/_aff/*", "/_c", "/_c/*", "/_p", "/_p/*", "/api/*",
       // The dashboard's own host (worker/dashboard-host.ts): its pages at /<key>/ (shell.ts WEB_PAGES; "/" and "/ung-dung/*"
       // are above), a page's JSON and its robots.txt. Without its line a page there is the site's 404 page, the Worker never
@@ -72,8 +72,8 @@
     // Cloudflare Access on dashboard.aquatome.com (worker/access.ts): the team domain (<team>.cloudflareaccess.com) and the
     // Access app's audience tag. While either is empty, that host refuses everything and /_ab/ here is still the dashboard.
     // Set them here, not on Cloudflare's dashboard: each deploy writes this file's vars over what's there.
-    "ACCESS_TEAM_DOMAIN": "",
-    "ACCESS_AUD": ""
+    "ACCESS_TEAM_DOMAIN": "weathered-salad-2c9e.cloudflareaccess.com",
+    "ACCESS_AUD": "cda5ca0b32ae11e3cbe70639b62f5411e797e4a4ed9f9f02636265ac29288282"
   },
   "routes": [
     { "pattern": "aquatome.com", "zone_name": "aquatome.com", "custom_domain": true },

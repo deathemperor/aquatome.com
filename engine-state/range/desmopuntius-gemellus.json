@@ -1,0 +1,75 @@
+{
+  "id": "desmopuntius-gemellus",
+  "native": {
+    "input": "4e4007c50b12fec0",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Desmopuntius gemellus is a rarely-traded cyprinid from eastern Sumatra and the island of Bangka, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Desmopuntius gemellus is a rarely-traded cyprinid from eastern Sumatra and the island of Bangka, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bangka",
+        "source": "seriouslyfish",
+        "quote": "Desmopuntius gemellus is a rarely-traded cyprinid from eastern Sumatra and the island of Bangka, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Indragiri",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it may be restricted to the Indragiri and Batang Hari river systems.",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it may be restricted to the Indragiri and Batang Hari river systems.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Desmopuntius gemellus",
+    "status": "ACCEPTED",
+    "taxonKey": 8192102,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

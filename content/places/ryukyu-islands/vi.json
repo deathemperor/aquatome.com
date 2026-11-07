@@ -1,10 +1,13 @@
 {
   "slug": "ryukyu-islands",
-  "name": "Ryukyu Islands",
-  "altNames": [],
+  "name": "quần đảo Ryukyu",
+  "altNames": [
+    "Ryukyu Islands"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

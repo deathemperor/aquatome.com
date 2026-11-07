@@ -1,10 +1,13 @@
 {
   "slug": "sok-river",
-  "name": "Sok River",
-  "altNames": [],
+  "name": "sông Sok",
+  "altNames": [
+    "Sok River"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

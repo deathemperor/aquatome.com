@@ -53,7 +53,7 @@ test('the loader reads content.json through ASSETS; a build without it gives und
   await expect(loadContentStats(assets(JSON.stringify({ v: 2 })), 'https://x.test')).rejects.toThrow('content.json v2')
   // Every built page by path, each with its kind and, for an item's page, its item.
   const index = pageIndex(STATS)
-  expect(index.size).toBe(146)
+  expect(index.size).toBe(176)
   expect(index.get('/ca/ca-neon-vua/')).toEqual({ path: '/ca/ca-neon-vua/', title: 'Cá neon vua', kind: 'fish', id: 'paracheirodon-axelrodi' })
 })
 
@@ -73,17 +73,17 @@ const views = [
 test('reads: readers per page kind, the most-read pages with their titles, the pages no reader opened', () => {
   const r = joinReads(STATS, sessions, views, 30)
   expect(r.readers).toBe(2)
-  expect(r.byKind.find(k => k.kind === 'fish')).toEqual({ kind: 'fish', pages: 9, read: 1, readers: 2, views: 3 })
-  expect(r.byKind.find(k => k.kind === 'guide')).toEqual({ kind: 'guide', pages: 7, read: 1, readers: 1, views: 1 })
+  expect(r.byKind.find(k => k.kind === 'fish')).toEqual({ kind: 'fish', pages: 10, read: 1, readers: 2, views: 3 })
+  expect(r.byKind.find(k => k.kind === 'guide')).toEqual({ kind: 'guide', pages: 8, read: 1, readers: 1, views: 1 })
   // Viewed, but by no reader: counts as views, not as read.
-  expect(r.byKind.find(k => k.kind === 'plant')).toEqual({ kind: 'plant', pages: 4, read: 0, readers: 0, views: 1 })
+  expect(r.byKind.find(k => k.kind === 'plant')).toEqual({ kind: 'plant', pages: 5, read: 0, readers: 0, views: 1 })
   expect(r.top.map(p => [p.path, p.title, p.kind, p.readers, p.views])).toEqual([
     ['/ca/ca-neon-vua/', 'Cá neon vua', 'fish', 2, 3],
     ['/huong-dan/thay-nuoc-dung-cach/', 'Thay nước đúng cách', 'guide', 1, 1],
     ['/cay/monte-carlo/', 'Monte Carlo', 'plant', 0, 1],
   ])
-  expect(r.unread.n).toBe(144)
-  expect(r.unread.byKind).toMatchObject({ fish: 8, guide: 6, plant: 4 })
+  expect(r.unread.n).toBe(174)
+  expect(r.unread.byKind).toMatchObject({ fish: 9, guide: 7, plant: 5 })
   expect(r.unread.pages.map(p => p.path)).not.toContain('/ca/ca-neon-vua/')
   expect(r.unread.pages).toHaveLength(100)
   expect(r.elsewhere).toEqual({ views: 4, paths: 1 })
@@ -169,7 +169,9 @@ test('growth: the day\'s totals kept under stats:YYYY-MM-DD with them as metadat
   expect(store.m.get('stats:2026-11-02')).toEqual({ value: JSON.stringify(today), metadata: today })
   // Days loaded without metadata are read one by one; a build without content.json records nothing. Days kept before
   // 2026-11-06 hold each count as [vi, id, th]: they read back by language, whether from the metadata or the value.
-  const older: Totals = { ...STATS.totals, kinds: { ...STATS.totals.kinds, fish: { vi: 5, id: 0, th: 0 } }, sources: { seriouslyfish: 4 }, built: { vi: 7, id: 2, th: 1 } }
+  // Malay joined later: those days count none of it.
+  const noMs = Object.fromEntries(Object.entries(STATS.totals.kinds).map(([k, n]) => [k, { ...n, ms: 0 }])) as Totals['kinds']
+  const older: Totals = { ...STATS.totals, kinds: { ...noMs, fish: { vi: 5, id: 0, th: 0, ms: 0 } }, sources: { seriouslyfish: 4 }, built: { vi: 7, id: 2, th: 1, ms: 0 } }
   const kept = { ...older, kinds: Object.fromEntries(Object.entries(older.kinds).map(([k, n]) => [k, [n.vi, n.id, n.th]])), built: [7, 2, 1] }
   await store.put('stats:2026-10-30', JSON.stringify(kept))
   await store.put('stats:2026-10-31', JSON.stringify(kept), { metadata: kept })
@@ -179,9 +181,9 @@ test('growth: the day\'s totals kept under stats:YYYY-MM-DD with them as metadat
   expect(days[0]!.totals).toEqual(older)
   expect(days[1]!.totals).toEqual(older)
   // Rows read by the order kept with them, 0 for a language the day had none for.
-  expect(readKept({ ...today, kinds: { ...today.kinds, fish: [1, 5] }, langs: ['th', 'vi'] }).kinds.fish).toEqual({ vi: 5, id: 0, th: 1 })
+  expect(readKept({ ...today, kinds: { ...today.kinds, fish: [1, 5] }, langs: ['th', 'vi'] }).kinds.fish).toEqual({ vi: 5, id: 0, th: 1, ms: 0 })
   const a = added(days[0]!.totals, days[2]!.totals)
-  expect(a.kinds.fish).toEqual({ vi: 4, id: 0, th: 0 })
+  expect(a.kinds.fish).toEqual({ vi: 4, id: 0, th: 0, ms: 1 })
   expect(a.sources).toMatchObject({ seriouslyfish: 3, youtube: 2 })
   expect(a.photos).toEqual({ pages: 0, gallery: 0 })
 })

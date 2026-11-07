@@ -1,10 +1,13 @@
 {
   "slug": "lake-aitinjo",
-  "name": "Lake Aitinjo",
-  "altNames": [],
+  "name": "hồ Aitinjo",
+  "altNames": [
+    "Lake Aitinjo"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

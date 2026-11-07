@@ -13,19 +13,19 @@ test("each language's line on the chooser is its home page's subtitle, as the si
 })
 
 test('asked to choose: a country Cloudflare placed, with none of our languages', () => {
-  expect(['GB', 'US', 'KR', 'MY'].every(asksLang)).toBe(true)
-  expect(['VN', 'ID', 'TH', 'XX', 'T1', '', 'gb', 'GBR'].some(asksLang)).toBe(false)
+  expect(['GB', 'US', 'KR', 'PH'].every(asksLang)).toBe(true)
+  expect(['VN', 'ID', 'TH', 'MY', 'BN', 'XX', 'T1', '', 'gb', 'GBR'].some(asksLang)).toBe(false)
 })
 
 test('the counts: shown and picked by country, most shown first; the readers\' sessions leave the chooser\'s rows out', () => {
   const a = summariseAsks([
     { cc: 'US', p: '/', n: '3' }, { cc: 'US', p: '/?lang=vi', n: 2 }, { cc: 'GB', p: '/', n: 5 },
-    { cc: 'GB', p: '/?lang=th', n: '1' }, { cc: 'GB', p: '/?lang=id', n: 1 }, { cc: 'KR', p: '/?lang=vi', n: 1 }, { cc: 'KR', p: '/x', n: 9 },
+    { cc: 'GB', p: '/?lang=th', n: '1' }, { cc: 'GB', p: '/?lang=id', n: 1 }, { cc: 'GB', p: '/?lang=ms', n: 2 }, { cc: 'KR', p: '/?lang=vi', n: 1 }, { cc: 'KR', p: '/x', n: 9 },
   ], 14)
   expect(a).toEqual({ days: 14, rows: [
-    { cc: 'GB', shown: 5, picked: { vi: 0, id: 1, th: 1 } },
-    { cc: 'US', shown: 3, picked: { vi: 2, id: 0, th: 0 } },
-    { cc: 'KR', shown: 0, picked: { vi: 1, id: 0, th: 0 } },
+    { cc: 'GB', shown: 5, picked: { vi: 0, id: 1, th: 1, ms: 2 } },
+    { cc: 'US', shown: 3, picked: { vi: 2, id: 0, th: 0, ms: 0 } },
+    { cc: 'KR', shown: 0, picked: { vi: 1, id: 0, th: 0, ms: 0 } },
   ] })
   expect(SESSIONS_SQL(14)).toContain("blob2 != 'lang'")
 })

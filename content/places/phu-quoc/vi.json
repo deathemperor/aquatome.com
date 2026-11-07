@@ -1,10 +1,13 @@
 {
   "slug": "phu-quoc",
-  "name": "Phu Quoc",
-  "altNames": [],
+  "name": "Phú Quốc",
+  "altNames": [
+    "Phu Quoc"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

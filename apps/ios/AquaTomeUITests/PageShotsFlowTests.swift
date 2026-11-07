@@ -11,7 +11,9 @@ import XCTest
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
 /// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
-/// overview, a section with charts and tables, and the daily report's settings. Each checks only that its screen opened:
+/// overview, a section with charts and tables, and the daily report's settings; the tab bar over what scrolls under
+/// it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the day's
+/// page and Khám phá, light, dark and at the largest text. Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -52,6 +54,13 @@ final class PageShotsFlowTests: XCTestCase {
   func testKitOnTheHomeAndALongListInTheDark() { shootKit("kit-home-dark", dark: true) }
   func testWhatsNew() { shootWhatsNew("whats-new-light") }
   func testWhatsNewInTheDark() { shootWhatsNew("whats-new-dark", dark: true) }
+  func testTheTabBarOverText() { shootTabBar("tab-bar-text-light", overText: true) }
+  func testTheTabBarOverTextInTheDark() { shootTabBar("tab-bar-text-dark", overText: true, dark: true) }
+  func testTheTabBarOverPhotos() { shootTabBar("tab-bar-photos-light", overText: false) }
+  func testTheTabBarOverPhotosInTheDark() { shootTabBar("tab-bar-photos-dark", overText: false, dark: true) }
+  func testV2() { shootV2("v2-light") }
+  func testV2InTheDark() { shootV2("v2-dark", dark: true) }
+  func testV2InTheLargestText() { shootV2("v2-largest-light", size: largest) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -134,6 +143,29 @@ final class PageShotsFlowTests: XCTestCase {
     capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 12)
   }
 
+  /// The tab bar with what scrolls under it, screen by screen: a fish's long text, or Tìm's photos. The site's own pages and
+  /// photos, read from the network: the stand-ins are a dim gradient, which hides what a bright photo does to the bar.
+  private func shootTabBar(_ name: String, overText: Bool, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults"] + (dark ? ["-dark"] : [])
+    app.launchForFlow()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 30), "no home")
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 30), "the handbook didn't come")
+    if overText {
+      field.tap()
+      field.typeText("ca neon")
+      let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+      XCTAssertTrue(row.waitForExistence(timeout: 30), "no Cá neon")
+      row.tap()
+      XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 30), "not drawn by the app")
+    }
+    // Time for the photos to come.
+    let until = Date().addingTimeInterval(5)
+    while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+    capture(app, name, dark: dark, large: true, screens: 6)
+  }
+
   /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.
   private func shootWhatsNew(_ name: String, dark: Bool = false) {
     let app = XCUIApplication()
@@ -154,6 +186,37 @@ final class PageShotsFlowTests: XCTestCase {
       a.lifetime = .keepAlways
       add(a)
     }
+  }
+
+  /// v2 (V2Root, `-v2 YES`): Hôm nay's first screen, its fish of the day's page, Hôm nay's next screen, and Khám phá's
+  /// first.
+  private func shootV2(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures",
+                           "-v2", "YES"] + (dark ? ["-dark"] : []) + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    var n = 0
+    func shot() {
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    shot()
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    shot()
+    app.buttons["v2-back"].tap()
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "not back on Hôm nay")
+    app.swipeUp()
+    shot()
+    app.openTab("Khám phá")
+    XCTAssertTrue(app.navigationBars["Khám phá"].waitForExistence(timeout: 5), "no Khám phá")
+    shot()
   }
 
   /// Tìm's first screen: its tools, fish ID's card leading them, then their tiles (at the largest text, the next screen

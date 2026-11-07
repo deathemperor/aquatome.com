@@ -251,6 +251,36 @@ test('"Phi châu" is written "châu Phi" on a page, in its name, other names and
   expect((await sweep(root)).files).toEqual([])
 })
 
+test('a fish\'s old name can\'t stop a publish: the sweep writes its name wherever the rule reads, in Vietnamese only, and what it can\'t say stays listed', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  await mkdir(join(c, 'species/nannostomus-eques'), { recursive: true })
+  await writeFile(join(c, 'species/nannostomus-eques/entity.json'), JSON.stringify(species('nannostomus-eques', 'Nannostomus eques'), null, 1))
+  await writeFile(join(c, 'species/nannostomus-eques/vi.json'), JSON.stringify(vi('Cá bút chì Nannostomus eques', { 'distribution:seriouslyfish': '<p>Cá bút chì (Nannostomus eques) sống ở Nam Mỹ.</p>' }), null, 1))
+  await writeFile(join(c, 'species/nannostomus-eques/id.json'), JSON.stringify(vi('Cá bút chì Nannostomus eques', { 'distribution:seriouslyfish': '<p>Ikan.</p>' }), null, 1))
+  await writeFile(join(c, 'summaries/nannostomus-eques.json'), JSON.stringify({ id: 'nannostomus-eques', summary: 'Cá bút chì (Nannostomus eques) hiền.', mistakes: ['Cá bút chì (pencilfish) nhát.'], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' }, null, 2))
+  await mkdir(join(c, 'equipment'), { recursive: true })
+  const guide = (await readFile(new URL('../../../content/equipment/co2.json', import.meta.url), 'utf8'))
+  await writeFile(join(c, 'equipment/co2.json'), JSON.stringify({ ...JSON.parse(guide), lead: 'Cá bút chì (pencilfish) không cần CO2.', intro: '<p>Cá cờ (Mesonauta) cũng vậy.</p>' }, null, 2))
+  const listed = async () => checkPages(await loadPages(c), RULES.filter(r => r.id === 'swapped-name')).findings.map(f => f.page.path)
+  expect((await listed()).length).toBeGreaterThan(0)
+
+  const r = await sweep(root)
+  expect(await listed()).toEqual([])
+  const t = await json(root, 'content/species/nannostomus-eques/vi.json')
+  expect([t.name, t.sections['distribution:seriouslyfish']]).toEqual(['Cá chì Nannostomus eques', '<p>Cá chì (Nannostomus eques) sống ở Nam Mỹ.</p>'])
+  expect((await json(root, 'content/species/nannostomus-eques/id.json')).name).toBe('Cá bút chì Nannostomus eques')
+  expect(await json(root, 'content/summaries/nannostomus-eques.json')).toMatchObject({ summary: 'Cá chì (Nannostomus eques) hiền.', mistakes: ['Cá chì (pencilfish) nhát.'] })
+  expect(await json(root, 'content/equipment/co2.json')).toMatchObject({ lead: 'Cá chì (pencilfish) không cần CO2.', intro: '<p>Cá Mesonauta (Mesonauta) cũng vậy.</p>' })
+  expect(r.text.renamed).toEqual(expect.arrayContaining(['species/nannostomus-eques/vi', 'equipment/co2']))
+  expect((await sweep(root)).files).toEqual([])
+
+  // A sentence that doesn't say which fish: not guessed at, and the test goes on listing it.
+  await writeFile(join(c, 'species/nannostomus-eques/vi.json'), JSON.stringify(vi('Cá chì', { 'distribution:seriouslyfish': '<p>Cá cờ lùn (dwarf flag cichlid) sống ở Nam Mỹ.</p>' }), null, 1))
+  await sweep(root)
+  expect(await listed()).toEqual(['/vi/ca/cá-chì/'])
+})
+
 test('a card\'s Seriously Fish difficulty read before the engine read its word is corrected from the stored page, and its summary written again', async () => {
   const root = await store()
   await sweep(root)

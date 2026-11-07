@@ -1,10 +1,13 @@
 {
   "slug": "rio-huallaga",
-  "name": "Rio Huallaga",
-  "altNames": [],
+  "name": "sông Huallaga",
+  "altNames": [
+    "Rio Huallaga"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

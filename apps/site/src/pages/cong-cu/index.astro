@@ -4,13 +4,14 @@ import { VN_WATER } from '../../lib/climate'
 import { SUBSTRATES } from '../../scripts/calc'
 import { EI_WEEK, SALTS } from '../../scripts/ferts'
 import { fmt } from '../../lib/format'
-import { i18n } from '../../lib/i18n'
+import { i18n, served } from '../../lib/i18n'
 import { toolCards } from '../../lib/tools'
 
 const { lang, t } = i18n(Astro.url)
 // The heater's default room temperature: unheated tank water in a northern Vietnamese winter; elsewhere a neutral 20 °C to change.
 const room = lang === 'vi' ? VN_WATER.northWinter : 20
-const TOOLS = toolCards(t)
+// A tool this language has no page for yet isn't listed (Malay's setup budget).
+const TOOLS = toolCards(t).filter(x => x.href.startsWith('#') || served(lang, x.href))
 ---
 <Browse title={t('Công cụ')} heading={t('Công cụ')} intro={t('Kiểm tra cá nuôi chung, thả bao nhiêu con là vừa, tính thể tích bể, lượng nền cần mua, công suất sưởi và liều phân nước.')}>
   <script is:inline>

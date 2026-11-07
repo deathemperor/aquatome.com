@@ -94,7 +94,7 @@ for (const { who, userAgent, touch, sees } of READERS) {
 test.describe('the app page', () => {
   test.beforeEach(({ page, baseURL }) => fromOnBuild(page, baseURL!))
 
-  for (const [path, lang] of [['/ung-dung/', 'vi'], ['/id/aplikasi/', 'id'], ['/th/mobile-app/', 'th']] as const) {
+  for (const [path, lang] of [['/ung-dung/', 'vi'], ['/id/aplikasi/', 'id'], ['/th/mobile-app/', 'th'], ['/ms/aplikasi/', 'ms']] as const) {
     test(`${path}: the badge in its language, the QR code on a computer only, no sideways scroll at 320 px`, async ({ page, errors }, info) => {
       await page.goto(path)
       await expect(page.locator('h1')).toHaveCount(1)

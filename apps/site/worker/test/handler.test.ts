@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { handle, type Env } from '../index'
 import { prefersMarkdown } from '../markdown'
@@ -377,6 +378,21 @@ test('agent discovery: API catalog as linkset+json; the home page and its langua
   expect((await handle(get('/ca/'), e)).headers.get('link')).toBeNull()
 })
 
+test('Malay: a browser asking for it, a reader in Malaysia or Brunei, the menu and the chooser all lead to /ms/', async () => {
+  const { e } = env()
+  const at = (path: string, country: string, headers: Record<string, string>) => Object.assign(get(path, headers), { cf: { country } })
+  const en = { ...browser, 'accept-language': 'en-US,en;q=0.9' }
+  for (const al of ['ms-MY', 'ms-BN,ms;q=0.9', 'en-US,en;q=0.9,ms;q=0.8']) expect((await handle(at('/', 'US', { ...browser, 'accept-language': al }), e)).headers.get('location'), al).toBe('/ms/')
+  // Its countries' readers whose browser asks for none of ours get Malay, never the chooser.
+  for (const c of ['MY', 'BN']) expect((await handle(at('/', c, en), e)).headers.get('location'), c).toBe('/ms/')
+  // A browser ranking Indonesian above Malay gets Indonesian, in Malaysia too; the language picked wins over both.
+  expect((await handle(at('/', 'MY', { ...browser, 'accept-language': 'id,ms;q=0.9' }), e)).headers.get('location')).toBe('/id/')
+  expect((await handle(at('/', 'ID', { ...browser, 'accept-language': 'id', cookie: 'aq_lang=ms' }), e)).headers.get('location')).toBe('/ms/')
+  const picked = await handle(at('/?lang=ms', 'GB', en), e)
+  expect([picked.status, picked.headers.get('location'), picked.headers.get('set-cookie')]).toEqual([302, '/ms/', 'aq_lang=ms; Path=/; Max-Age=31536000; SameSite=Lax; Secure'])
+  expect(await (await handle(at('/', 'GB', en), e)).text()).toContain('<a href="/?lang=ms" lang="ms" hreflang="ms"><b>Bahasa Melayu</b><span>Buku panduan ikan hiasan & aquascape</span></a>')
+})
+
 test('a browser asking for none of our languages, from a country with none of them, is asked to choose; the pick is remembered and counted', async () => {
   const { e, points } = env()
   const at = (path: string, country: string, headers: Record<string, string>) => Object.assign(get(path, headers), { cf: { country } })
@@ -480,7 +496,9 @@ test('owner: opening /_ab/ signed in sets the owner flag cookie; the taken-down 
   expect(dash.headers.getSetCookie()[0]).toMatch(/^aq_owner=1; Path=\/;.*SameSite=Strict/)
   const gone = await gonePage().text()
   expect(gone).toContain('data-gone="1"')
-  expect(gone).toContain('Hiện lại trang này')
+  // With the owner's flag it loads the bar, which offers "bring back" on a page marked gone (src/owner/bar.ts).
+  expect(gone).toContain('/_owner/bar.js')
+  expect(readFileSync(fileURLToPath(new URL('../../src/owner/bar.ts', import.meta.url).href), 'utf8')).toContain("gone ? 'Hiện lại trang này'")
 })
 
 test('a renamed page\'s old address 301s to the new one with ?tu=<old slug>, its old /vi/ address too in one hop; unknown paths stay 404', async () => {

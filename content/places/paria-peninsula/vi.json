@@ -1,10 +1,13 @@
 {
   "slug": "paria-peninsula",
-  "name": "Paría Peninsula",
-  "altNames": [],
+  "name": "bán đảo Paría",
+  "altNames": [
+    "Paría Peninsula"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,10 +1,13 @@
 {
   "slug": "cape-york-peninsula",
-  "name": "Cape York Peninsula",
-  "altNames": [],
+  "name": "bán đảo Cape York",
+  "altNames": [
+    "Cape York Peninsula"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

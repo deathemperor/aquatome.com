@@ -1,10 +1,13 @@
 {
   "slug": "tibet",
-  "name": "Tibet",
-  "altNames": [],
+  "name": "Tây Tạng",
+  "altNames": [
+    "Tibet"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }
