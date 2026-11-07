@@ -399,6 +399,12 @@ The layers above still check the result.
     after its redo its own review counts, under the bar or not; a guide the redo skips is left as it is, and one it
     fails on goes to the video job's retries, which write from the transcript alone. A recheck changes only the review,
     not the page's score: a guide keeps its old score, and its place in search, until its redo.
+  - **Held out of the chat meanwhile:** `quality.chat: false` in each of a video guide's language files keeps it out of
+    the chat's search and read_page (the site reads it); absent, the guide is fine. `pnpm engine video-hold --class
+    risk1|risk2|risk3|all [--clear]` sets it on a risk group (`video-order.ts`); the medicine group got it on
+    2026-11-07. It goes when the version on the site gets a review at or above the bar: its recheck, or the review of a
+    version the video writer wrote (the redo, or the video job's retry of a failed one). A new version still under the
+    bar keeps it, as does every other writer of these files (`video-hold.test.ts` and the writers' tests hold that).
 - **Page depth.** A species page made only from a shop listing, a dealer's note or a stub is thin. It is published but
   kept out of search (`quality.indexable` false, `quality.reason: "thin"`) until it is deep (`packages/schema/src/depth.ts`):
   - **deep** means it has an in-depth source, or it reaches the bar on its own:

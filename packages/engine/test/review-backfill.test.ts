@@ -69,6 +69,21 @@ test('--reviewed-before: every video guide without a review from then on is revi
   expect(prompts).toHaveLength(3)
 })
 
+test('a held video guide (out of the chat) that passes its recheck goes back in; one under the bar stays held', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  for (const vid of ['pass', 'fail']) {
+    await guide(root, vid, 0.8)
+    const file = join(root, `content/guides/youtube-${vid}/vi.json`)
+    const vi = JSON.parse(await readFile(file, 'utf8'))
+    await writeFile(file, JSON.stringify({ ...vi, quality: { ...vi.quality, chat: false } }))
+  }
+  const llm: Llm = async <T,>(a: { prompt: string }) => (a.prompt.includes('Thân bài pass.') ? { score: 0.8, notes: [] } : { score: 0.6, notes: ['Ranks it "the best"; the speaker never does.'] }) as T
+  const r = await reviewBackfill({ root, llm, yt, now: () => new Date('2026-11-07T14:00:00Z'), sleep: async () => {} }, { kinds: ['video-guide'], limit: 5, reviewedBefore: '2026-11-07T12:00:00Z' })
+  expect(r.checked).toEqual(['video-guide vi/guides/youtube-fail: 0.60 (was 0.80), 1 notes', 'video-guide vi/guides/youtube-pass: 0.80 (was 0.80), 0 notes, back in the chat'])
+  expect(JSON.parse(await readFile(join(root, 'content/guides/youtube-pass/vi.json'), 'utf8')).quality).toEqual({ score: 0.8, indexable: true })
+  expect(JSON.parse(await readFile(join(root, 'content/guides/youtube-fail/vi.json'), 'utf8')).quality).toEqual({ score: 0.8, indexable: true, chat: false })
+})
+
 test('--parallel: a few reviewed at once, never past the limit, in the rank given; a model failure starts no more', async () => {
   const root = await mkdtemp(join(tmpdir(), 'rb-'))
   for (const vid of ['a', 'b', 'c', 'd', 'e', 'f']) await guide(root, vid, 0.9)

@@ -16,6 +16,7 @@ import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
 import type { Storyboard, Stream, VideoFrames } from './video-images'
 import { extractVideoItems, readKit, resolveTaxa, type Kit } from './video-items'
+import { setHold } from './video-hold'
 import { byRank } from './video-order'
 import { seconds } from './videos'
 
@@ -516,6 +517,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       const id = `youtube-${vid}`
       const dir = join(contentRoot, 'guides', id)
       const prev = { entity: await readJson<GuideEntity>(join(dir, 'entity.json')), vi: await readJson<Translation>(join(dir, 'vi.json')) }
+      const held = prev.vi?.quality?.chat === false
       const taxa = items?.taxa ?? prev.entity?.video?.taxa
       const gear = items?.gear ?? prev.entity?.video?.gear
       const now = deps.now().toISOString().slice(0, 10)
@@ -529,12 +531,14 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
         body: sanitizeHtml(d.body), ...plainParts(d.summary, d.faq),
         ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
-        quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score } },
+        // A guide held out of the chat (video-hold.ts) stays held while its new version is under the bar.
+        quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score }, ...(held && score < QUALITY_THRESHOLD ? { chat: false as const } : {}) },
         ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
       }, 'vi'))
       await mkdir(dir, { recursive: true })
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
+      if (held && score >= QUALITY_THRESHOLD) await setHold(contentRoot, id, false) // its other languages too
       await inTurn(() => appendChangelog(contentRoot, [{ date: now, kind: 'guide', id, source: 'youtube', action: prev.entity ? 'updated' : 'new' }]))
       await logReviews(root, 'video-guide', { id: `guides/${id}`, lang: 'vi' }, tries, kept, { now: deps.now() })
       await set(vid, { status: 'processed', entityIds: [id] })

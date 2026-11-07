@@ -289,9 +289,10 @@ export const TranslationSchema = z.object({
   refs: z.array(z.object({ url: z.string(), title: z.string() })).optional(),
   /**
    * Species pages: `reason` is why the page is out of search: `thin` (below the depth bar with no in-depth source, depth.ts)
-   * or a low translation `score`; thin is named when both.
+   * or a low translation `score`; thin is named when both. Video guides: `chat: false` holds the guide out of the chat
+   * until it passes the stricter reviewer (the engine's video-hold.ts); absent, it is fine.
    */
-  quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional(), reason: z.enum(['thin', 'score']).optional() }),
+  quality: z.object({ score: z.number(), indexable: z.boolean(), bySource: z.partialRecord(SourceId, z.number()).optional(), reason: z.enum(['thin', 'score']).optional(), chat: z.literal(false).optional() }),
 })
 
 export const ChangelogEntrySchema = z.object({

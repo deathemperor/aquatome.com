@@ -32,16 +32,22 @@ const json = async <T>(f: string): Promise<T | undefined> => { try { return JSON
  */
 export async function guideRank(root: string, popular: string[]): Promise<(id: string) => number[]> {
   const at = new Map(popular.map((id, i) => [id, i]))
-  const ranks = new Map<string, number[]>()
+  const ranks = new Map((await guideRisks(root)).map(g => [g.id, [RECHECK_FIRST.includes(g.id) ? 0 : 1, g.risk, Math.min(...g.mentions.map(m => at.get(m) ?? Infinity))]]))
+  return id => ranks.get(id) ?? [1, 3, Infinity]
+}
+
+/** Every video guide's id (`youtube-<id>`), risk (guideRisk) and the species it is about. */
+export async function guideRisks(root: string): Promise<{ id: string; risk: 1 | 2 | 3; mentions: string[] }[]> {
+  const out: { id: string; risk: 1 | 2 | 3; mentions: string[] }[] = []
   const dir = join(root, 'content/guides')
-  for (const id of (await readdir(dir).catch(() => [] as string[])).filter(d => d.startsWith('youtube-'))) {
+  for (const id of (await readdir(dir).catch(() => [] as string[])).filter(d => d.startsWith('youtube-')).sort()) {
     const e = await json<GuideEntity>(join(dir, id, 'entity.json'))
     const vi = await json<Translation>(join(dir, id, 'vi.json'))
     if (!e || !vi) continue
     const text = [vi.body ?? '', ...(vi.summary ?? []), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].join(' ').replace(/<[^>]+>/g, ' ')
-    ranks.set(id, [RECHECK_FIRST.includes(id) ? 0 : 1, guideRisk(`${vi.name} ${e.video?.title ?? ''}`, text), Math.min(...(e.mentions ?? []).map(m => at.get(m) ?? Infinity))])
+    out.push({ id, risk: guideRisk(`${vi.name} ${e.video?.title ?? ''}`, text), mentions: e.mentions ?? [] })
   }
-  return id => ranks.get(id) ?? [1, 3, Infinity]
+  return out
 }
 
 /** Two ranks, first place first. */

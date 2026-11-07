@@ -6,6 +6,7 @@ import { LlmError, type Llm } from './claude'
 import { placeLine, review as reviewLocalized, reviewPlaces, translatableIn, type TargetLang } from './localize'
 import { reviewTranslation } from './quality'
 import { itemReviews, logReviews, readReviews, reviewKey, type PageRef, type ReviewKind } from './review-log'
+import { setHold } from './video-hold'
 import { byRank } from './video-order'
 import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
 
@@ -135,7 +136,9 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
         calls++
         done++
         await logReviews(d.root, kind, j.page, [r], r, recheck())
-        report.checked.push(`${kind} ${reviewKey(j.page)}: ${r.score.toFixed(2)} (was ${j.score.toFixed(2)}), ${r.notes.length} notes`)
+        // A video guide held out of the chat (video-hold.ts) that passes goes back in; under the bar, it waits for its redo.
+        const back = kind === 'video-guide' && r.score >= QUALITY_THRESHOLD && await setHold(content, id, false)
+        report.checked.push(`${kind} ${reviewKey(j.page)}: ${r.score.toFixed(2)} (was ${j.score.toFixed(2)}), ${r.notes.length} notes${back ? ', back in the chat' : ''}`)
       } catch (e) {
         if (e instanceof LlmError) { report.stopped ||= `${reviewKey(j.page)}: ${e.message}`; return }
         if (throttled(e)) { report.stopped ||= `YouTube is throttling (${j.page.id})`; return }

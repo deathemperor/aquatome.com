@@ -295,6 +295,23 @@ test('a redo after a recheck writes `parallel` guides at once, in the rank given
   expect(await recheckedGuides(root, SINCE)).toEqual([])
 })
 
+test('a guide held out of the chat stays held when its redo is still under the bar, and goes back in when it passes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const videos = { a1: {}, a2: {} }
+  await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
+  for (const v of ['a1', 'a2']) {
+    const file = join(root, `content/guides/youtube-${v}/vi.json`)
+    const vi = await read(root, `content/guides/youtube-${v}/vi.json`)
+    await writeFile(file, JSON.stringify({ ...vi, quality: { ...vi.quality, chat: false } }))
+    await recheck(root, v, 0.6, ['Says "nhiều người" for one creator\'s habit'])
+  }
+  // a1's new version scores 0.6, then 0.6 after its edit; a2's 0.9.
+  await videoGuides(later(root, { videos, scores: [0.6, 0.6] }).d, { redo: true, rechecked: SINCE, limit: 1 })
+  await videoGuides(later(root, { videos }).d, { redo: true, rechecked: SINCE, limit: 1 })
+  expect((await read(root, 'content/guides/youtube-a1/vi.json')).quality).toEqual({ score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false })
+  expect((await read(root, 'content/guides/youtube-a2/vi.json')).quality).toEqual({ score: 0.9, indexable: true, bySource: { youtube: 0.9 } })
+})
+
 test('redo rewrites only guides already written: a video not done yet waits for an ordinary run', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   await videoGuides(deps(root).d, { playlists: ['PL1'] })
