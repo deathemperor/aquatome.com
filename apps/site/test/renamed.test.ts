@@ -32,6 +32,7 @@ test.each([
   ['Sinogastromyzon wui', 'Cá tỳ bà bướm wui', 'ca-ty-ba-buom-wui', 'ca-chach-suoi-sinogastromyzon-wui', 'Cá chạch suối Sinogastromyzon wui'],
   ['Jordanella floridae', 'Cá flagfish Florida', 'ca-flagfish-florida', 'ca-co-florida', 'Cá cờ Florida'],
   ['Macropodus opercularis', 'Cá cờ', 'ca-co', 'ca-thien-duong', 'Cá thiên đường'],
+  ['Macropodus spechti', 'Cá cờ đen', 'ca-co-den', 'ca-thien-duong-den', 'Cá thiên đường đen'],
 ])('%s is %s, and its old address and name still lead to it', (sci, name, slug, oldSlug, oldName) => {
   const t = c.species.find(s => s.scientificName === sci)!.t
   expect(t).toMatchObject({ name, slug, nameFixed: true })
