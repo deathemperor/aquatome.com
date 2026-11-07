@@ -16,7 +16,7 @@ export type Schema = {
  * it (`x-end`: `result` and `error` when missing, as fish ID's), the order its other events come in (`x-order`: all of
  * one name before the next name's first), the end event that holds the whole of what was streamed (`x-whole`: its
  * `text` the `text` events' pieces joined, its `blocks` the `block` events, its `steps` the `step` events; chat's
- * `done`) and the recorded streams that follow it (`x-fixtures`, files in protocols/).
+ * `done`; a stream of that event alone, a retry's replay, holds itself) and the recorded streams that follow it (`x-fixtures`, files in protocols/).
  */
 export type Media = { schema: Schema; 'x-events'?: Record<string, Schema>; 'x-end'?: string[]; 'x-order'?: string[]; 'x-whole'?: string; 'x-fixtures'?: string[] }
 export type Op = { responses: Record<string, { description: string; content: { 'application/json': Media; 'text/event-stream'?: Media } }> }
@@ -127,7 +127,8 @@ export function contract(file: string) {
     const order = media['x-order'] ?? []
     const rank = names.map(n => order.indexOf(n!))
     rank.forEach((r, i) => { if (r >= 0 && rank.slice(0, i).some(p => p > r)) out.push(`[${i}] ${names[i]}: after a later kind of event (${order.join(', ')}, in that order)`) })
-    const whole = media['x-whole'] && events.find(b => b.event === media['x-whole'])
+    // A replay (a retry's kept answer) is the end event alone: nothing came before it to hold.
+    const whole = media['x-whole'] && events.length > 1 ? events.find(b => b.event === media['x-whole']) : undefined
     if (whole) {
       const data = (name: string) => events.filter(b => b.event === name).map(b => { try { return JSON.parse(b.data!) } catch { return undefined } })
       let turn: { text?: string; blocks?: unknown[]; steps?: unknown[] } = {}
