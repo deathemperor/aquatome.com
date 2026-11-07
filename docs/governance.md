@@ -122,7 +122,8 @@ that would have caught it).
     (`not`, exclusive bounds, a schema for other keys and for key names); every heading in the app's copy of a page on
     the built web page with the same id, its section there not running into the next one, where the site's chat draws a
     section from (`apps/site/test/chat-sections.test.ts`).
-    The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words),
+    The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words), a guide found past its title by a
+    section heading or FAQ question with the section to open it at (the build's `/app/chat/<lang>.json`, each guide's own),
     a page's outline and one section read by heading id, the reader's tanks read, every tool's input and the answer's
     schema what structured outputs take; each block filled from the app index and the app's page copies and of the
     contract's shape (a breed's card with its own figures, a plant's with its own, a section whole to the next heading, a

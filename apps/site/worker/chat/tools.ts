@@ -1,7 +1,7 @@
 import type { Block, Inline, PageDoc } from '@aq/schema/app-page'
 import type { Tool } from '../agent/tools'
 import { figuresOf, sectionsOf, type Handbook, type Item } from './handbook'
-import { search } from './search'
+import { search, searchTopics } from './search'
 
 /**
  * The chat agent's tools (the loop: ../agent/loop.ts): search the handbook, read a page (its outline, or one section),
@@ -62,15 +62,21 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
   return [
     {
       name: 'search_handbook',
-      description: 'Search the handbook\'s pages by name: fish, shrimp and snails (kind fish), plants, guides, glossary terms, videos, equipment kinds and tools. A fish or plant is found by its Vietnamese, other or scientific name; a guide by words of its title. Give kind to search one kind, or null for all. Returns up to 12 pages as JSON: path (open it with read_page), kind, name, id (a fish\'s or plant\'s, for a card), sub (scientific name), of (a breed: the species it is a form of).',
+      description: 'Search the handbook\'s pages by name: fish, shrimp and snails (kind fish), plants, guides, glossary terms, videos, equipment kinds and tools. A fish or plant is found by its Vietnamese, other or scientific name; a guide by words of its title, or of one of its section headings or FAQ questions, when `section` says which (open the guide at that heading id with read_page; null: read its outline). Give kind to search one kind, or null for all. Returns up to 12 pages as JSON: path (open it with read_page), kind, name, id (a fish\'s or plant\'s, for a card), sub (scientific name), of (a breed: the species it is a form of), section.',
       input_schema: strict({
         query: { type: 'string', description: 'A name, or a few words of a title, in the reader\'s language or the scientific name.' },
         kind: { anyOf: [{ type: 'string', enum: [...KINDS] }, { type: 'null' }], description: 'One kind of page, or null for all.' },
       }),
       step: input => ({ kind: 'search', query: String(input.query) }),
       run: async input => {
-        const hits = search(d.handbook.items, String(input.query), (input.kind as Item['kind'] | null) ?? null)
-        return hits.length ? JSON.stringify(hits.map(listed)) : 'No page by that name. Try other words, the scientific name, or another kind.'
+        const kind = (input.kind as Item['kind'] | null) ?? null
+        const named = search(d.handbook.items, String(input.query), kind)
+        // Guides found past their titles come after the best names, so a page's own name still comes first.
+        const topics = kind === null || kind === 'guide' ? await d.handbook.topics() : null
+        const seen = new Set(named.map(i => i.path))
+        const more = topics ? searchTopics(topics, d.handbook.byPath, String(input.query)).filter(h => !seen.has(h.item.path)) : []
+        const hits = [...named.slice(0, 8).map(listed), ...more.slice(0, 12 - Math.min(8, named.length)).map(h => ({ ...listed(h.item), section: { id: h.section, text: h.text } })), ...named.slice(8).map(listed)].slice(0, 12)
+        return hits.length ? JSON.stringify(hits) : 'No page by that name. Try other words, the scientific name, or another kind.'
       },
     },
     {

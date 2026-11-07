@@ -1,18 +1,20 @@
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
+import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
 import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
-import { fold, search } from '../chat/search'
+import { fold, search, searchTopics } from '../chat/search'
+import { topicsOf } from '../chat/topics'
 import { chatTools, SECTION_CHARS, type Step } from '../chat/tools'
 import { contract } from './contract'
 
 // The fixture build's app index and page copies (pnpm test builds the site first), as the Worker reads them from its assets.
 const DIST = fileURLToPath(new URL('../../dist/', import.meta.url).href)
 const json = (file: string) => (existsSync(DIST + file) ? JSON.parse(readFileSync(DIST + file, 'utf8')) : null)
-const source: Source = { index: async lang => json(`app/${lang}.json`), shard: async (lang, kind, n) => json(`app/pages/${lang}/${kind}-${n}.json`) }
+const source: Source = { index: async lang => json(`app/${lang}.json`), shard: async (lang, kind, n) => json(`app/pages/${lang}/${kind}-${n}.json`), topics: async lang => json(`app/chat/${lang}.json`) }
 const hb = async (): Promise<Handbook> => (await handbookOf(source, 'vi'))!
 const { misfits } = contract('chat.openapi.json')
 const block = { $ref: '#/components/schemas/Block' }
@@ -134,6 +136,28 @@ test('a section is every block under its heading, to the next heading, however m
   expect(blocks[0]).toMatchObject({ t: 'section', heading: { id: 'mot' }, blocks: paras })
   expect(blocks[1]).toMatchObject({ t: 'section', blocks: [{ t: 'p', c: ['Mở đầu.'] }] })
   for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
+})
+
+test('a guide is found by a section heading or a FAQ question past its title, with the section to open it at; its title still first', async () => {
+  const h = await hb()
+  // The build's /app/chat/vi.json is every guide's headings and FAQ questions, as the app's copy of each guide has them.
+  const guides = (readdirSync(`${DIST}app/pages/vi`).filter(f => f.startsWith('guide-')).flatMap(f => Object.values(json(`app/pages/vi/${f}`).pages))) as PageDoc[]
+  expect(await h.topics()).toEqual(topicsOf(guides))
+  const algae = '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'
+  expect((await h.topics())!.pages[algae]).toEqual([['khoi-dong-be-moi', 'Khởi động bể mới'], ['anh-sang-va-co2', 'Ánh sáng và CO2'], ['bat-dau-tu-dau', 'Bắt đầu từ đâu'], ['bat-dau-tu-dau', 'Nên thay nước lúc nào?']])
+  // No title says CO2; a heading of the algae guide does. A FAQ question, at the section that holds it.
+  const searched = async (query: string, kind: string | null = null) => JSON.parse((await run('search_handbook', { query, kind }, h)).out as string)
+  expect(await searched('CO2')).toEqual([expect.objectContaining({ path: algae, kind: 'guide', section: { id: 'anh-sang-va-co2', text: 'Ánh sáng và CO2' } })])
+  expect((await searched('thay nước lúc nào'))[0]).toMatchObject({ path: algae, section: { id: 'bat-dau-tu-dau', text: 'Nên thay nước lúc nào?' } })
+  // A guide named for it comes first, without a section; the same guide isn't listed twice.
+  const water = await searched('thay nước', 'guide')
+  expect(water[0]).toEqual({ path: '/vi/huong-dan/thay-nuoc-dung-cach/', kind: 'guide', name: 'Thay nước đúng cách' })
+  expect(water.filter((x: { path: string }) => x.path === algae)).toHaveLength(1)
+  // Another kind than guides, or topics that can't be read: names only.
+  expect(await run('search_handbook', { query: 'CO2', kind: 'fish' }, h).then(r => r.out)).toMatch(/^No page by that name/)
+  const bare = (await handbookOf({ ...source, topics: async () => null }, 'vi'))!
+  expect((await run('search_handbook', { query: 'CO2', kind: null }, bare)).out).toMatch(/^No page by that name/)
+  expect(searchTopics({ v: 1, pages: {} }, h.byPath, 'CO2')).toEqual([])
 })
 
 test('Thai, written without spaces, is searched by its words: a word inside a title, a fish without "ปลา"', () => {

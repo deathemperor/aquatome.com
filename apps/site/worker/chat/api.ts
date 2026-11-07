@@ -132,7 +132,7 @@ export function assetSource(env: Pick<ChatEnv, 'ASSETS'>, origin: string): Sourc
     void value.then(v => { if (v === null) assets.delete(path) })
     return value
   }
-  return { index: lang => read(`/app/${lang}.json`) as never, shard: (lang, kind, n) => read(`/app/pages/${lang}/${kind}-${n}.json`) as never }
+  return { index: lang => read(`/app/${lang}.json`) as never, shard: (lang, kind, n) => read(`/app/pages/${lang}/${kind}-${n}.json`) as never, topics: lang => read(`/app/chat/${lang}.json`) as never }
 }
 
 /** The account's saved tanks as the chat tells Claude about them (tools.ts `Tank`), fish named as the handbook names them. */
