@@ -320,7 +320,9 @@ jobs:
   # The light flows on the simulator's fake light, which answers like the real one (with its pauses, so each flow takes
   # a minute or more): in two halves, beside jobs `app` and `handbook`. One runner outgrew its hour on 2026-11-01 (#312:
   # 58 minutes of flows, 37 of them the lights'), then the lights alone reached 51 minutes on a slow runner (#315). On
-  # a pull request, both halves run only when it edits the light flows' file.
+  # a pull request, both halves run only when it edits the light flows' file. In a full run, other classes run beside
+  # each half (WITH_LIGHTS in flows-to-run.py): on 2026-11-07 the lights' halves took 21 and 25 minutes while
+  # `handbook (2)` stopped at its hour, so the six jobs now hold about the same, under 45 minutes each.
   lights:
     # No matrix value in the name: Actions adds "(1)" and "(2)", and a skipped job then reads as a plain name.
     name: "iOS app: light flows"
