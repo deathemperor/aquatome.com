@@ -1,6 +1,6 @@
 {
   "category": "suoi",
-  "name": "Heater",
+  "name": "Heater dan pendingin",
   "lead": "Ikan tropis butuh air hangat yang stabil. Saat suhu turun, akuarium tanpa heater paling rawan kehilangan ikan.",
   "intro": "<p>Sebagian besar ikan hias hidup di suhu 24–28 °C. Di daerah dingin atau dataran tinggi, suhu air akuarium bisa turun di bawah 18 °C. Ikan tropis yang kedinginan akan berhenti makan, terserang penyakit bintik putih (white spot), lalu mati perlahan.</p><p>Heater dengan pengatur suhu (termostat) akan mati sendiri saat suhu yang disetel sudah tercapai, sehingga suhu air tetap stabil siang dan malam. Termometer wajib dipakai bersamanya: jangan sepenuhnya percaya pada angka di kenop heater.</p>",
   "hero": {
@@ -49,6 +49,11 @@
         "caption": "Grzałka do akwarium"
       }
     }
+  ],
+  "order": [
+    "mini",
+    "chinh-nhiet",
+    "lam-lanh"
   ],
   "choose": [
     "<p>Daya: sekitar 1 W per liter air; untuk ruangan dingin atau akuarium tanpa tutup, tambahkan 30–50%.</p>",

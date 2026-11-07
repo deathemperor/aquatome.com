@@ -20,9 +20,16 @@ export const FIELD_LABELS: Record<DataCardField, string> = {
 export const FIELD_ORDER: DataCardField[] = ['tempC', 'ph', 'gh', 'sizeCm', 'lifeYears', 'tankCm', 'difficulty']
 
 export const CATEGORY_LABELS: Record<string, string> = {
-  'be-ca': 'Bể cá', loc: 'Lọc', 'thuc-an': 'Thức ăn', suoi: 'Sưởi', 'cay-thuy-sinh': 'Cây thủy sinh', 'phan-nen': 'Nền và lá', den: 'Đèn', co2: 'CO2', 'test-nuoc': 'Bộ test nước', 'o-cam': 'Ổ cắm thông minh',
+  'be-ca': 'Bể cá', loc: 'Lọc, sủi khí và tạo dòng', 'thuc-an': 'Thức ăn', suoi: 'Sưởi và làm mát', 'cay-thuy-sinh': 'Cây thủy sinh', 'phan-nen': 'Nền và lá', den: 'Đèn', co2: 'CO2', 'test-nuoc': 'Bộ test nước', 'o-cam': 'Ổ cắm thông minh',
 }
 export const categoryLabel = (c: string) => CATEGORY_LABELS[c] ?? c
+/**
+ * The kinds of kit in the order a keeper sets up a tank: the tank, what keeps its water clean and warm, the light, what
+ * goes in it, then what it takes to run. The home page, the equipment index and the app's copy list them so.
+ */
+export const CATEGORY_ORDER = ['be-ca', 'loc', 'suoi', 'den', 'phan-nen', 'cay-thuy-sinh', 'co2', 'test-nuoc', 'thuc-an', 'o-cam']
+/** A kind of kit's place in `CATEGORY_ORDER`; one it doesn't name goes last. */
+export const categoryRank = (c: string) => { const i = CATEGORY_ORDER.indexOf(c); return i < 0 ? CATEGORY_ORDER.length : i }
 
 /** Tracked affiliate link; the Worker resolves it to a checked product or a marketplace search (see worker/affiliate). */
 /** The marketplaces a shop link can search, the first the one a page's links go to until the reader picks another (ShopPicker.astro). */
