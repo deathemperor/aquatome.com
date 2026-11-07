@@ -7,7 +7,7 @@ import { isViPage, withoutVi } from '../paths'
 import type { Readers } from '../readers'
 import type { LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
-import { chipHtml, chipOf, dayChart, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
+import { chipHtml, chipOf, dayChart, dayLabel, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
 import { chart, failedNote, figures, heading, note, rankBlock, table, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
 import type { AccountStats, Waiting } from './data'
 import type { ContentStats, Snapshot } from './content'
@@ -236,7 +236,9 @@ export function overviewPage(o: Overview): string {
   const todoHtml = t.length
     ? `<ul class="todo">${t.map(x => `<li>${ICON.alert}<div><b>${esc(x.title)}</b><p>${esc(x.text)}</p></div><a class="act" href="${esc(x.href)}">${esc(x.action)}</a></li>`).join('')}</ul>`
     : `<p class="clear panel">${ICON.check}Không có việc gì cần bạn lúc này.</p>`
-  const rows = areas(o).map(a => `<li><a class="area" href="${esc(a.href)}"><span><span class="name">${a.warn ? '<span class="dot" role="img" aria-label="cần xem"></span>' : ''}${esc(a.name)}</span><span class="fig">${esc(a.fig)}</span><span class="sub">${esc(a.sub)}</span></span><span class="trend">${a.spark ? spark(a.spark) : ''}${chipHtml(a.chip)}</span>${ICON.chevron}</a></li>`).join('')
+  // Every row's columns are its whole days, the last one yesterday.
+  const wholeDays = lastDays(o.now, 31, o.tz ?? HOME_TZ).slice(0, -1).map(dayLabel)
+  const rows = areas(o).map(a => `<li><a class="area" href="${esc(a.href)}"><span><span class="name">${a.warn ? '<span class="dot" role="img" aria-label="cần xem"></span>' : ''}${esc(a.name)}</span><span class="fig">${esc(a.fig)}</span><span class="sub">${esc(a.sub)}</span></span><span class="trend">${a.spark ? spark(a.spark, 7, { labels: wholeDays.slice(-a.spark.length) }) : ''}${chipHtml(a.chip)}</span>${ICON.chevron}</a></li>`).join('')
   const days = log(o).map(d => `<section><h3>${esc(d.label)}${d.partial ? ` <span class="muted">· ${PARTIAL}</span>` : ''}</h3>${d.items.length ? `<ol>${d.items.map(i => `<li><p>${esc(i.text)}</p>${i.small ? `<small>${esc(i.small)}</small>` : ''}</li>`).join('')}</ol>` : `<p class="muted">${QUIET}</p>`}</section>`).join('')
   return page('/_ab/', 'Tổng quan', `<h1 class="vh">Tổng quan</h1><div class="home-grid"><div>
 <section aria-labelledby="h-todo"><h2 id="h-todo">Cần bạn${t.length ? ` <span class="badge">${fmt(t.length)}<span class="vh"> việc</span></span>` : ''}</h2>${todoHtml}</section>
