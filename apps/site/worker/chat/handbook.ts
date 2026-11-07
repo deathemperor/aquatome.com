@@ -29,6 +29,8 @@ export type Item = {
   card?: Partial<Pick<Item, (typeof FIGURES)[number]>>
   /** A plant's figures, on the plants' scale (difficulty 1–3, not a fish's 1–8). */
   plant?: PlantFacts
+  /** A guide written from one video: the video's length in seconds. One keeper's teaching, kept faithful to the video. */
+  video?: number
   /** A tool's name on its card (the tools page). */
   short?: string
   tempC?: Range
@@ -83,7 +85,7 @@ export type Handbook = {
   byPath: (path: string) => Item | undefined
   byId: (id: string) => Item | undefined
   page: (path: string) => Promise<PageDoc | undefined>
-  /** The guides' section headings and FAQ questions, read once, when the search first needs them; null when they can't be. */
+  /** The guides' section headings and FAQ questions, read with the index; null when they can't be. */
   topics: () => Promise<Topics | null>
 }
 
@@ -91,20 +93,26 @@ export type Handbook = {
 const topicsIn = (t: Topics | null): Topics | null =>
   t?.v === 1 && t.pages && typeof t.pages === 'object' &&
   Object.values(t.pages).every(list => Array.isArray(list) && list.every(e => Array.isArray(e) && (e[0] === null || typeof e[0] === 'string') && typeof e[1] === 'string'))
+    && (t.held === undefined || (Array.isArray(t.held) && t.held.every(p => typeof p === 'string')))
     ? t : null
 
 /** The index's pages kinds each have their own shards; a tool's page has no app copy. */
 const PAGE_KINDS = new Set<string>(['guide', 'fish', 'plant', 'glossary', 'video', 'equipment'])
 
 export async function handbookOf(source: Source, lang: Lang): Promise<Handbook | null> {
-  const index = await source.index(lang)
+  const [index, read] = await Promise.all([source.index(lang), source.topics ? source.topics(lang).catch(() => null) : null])
   if (!index) return null
-  const paths = new Map(index.items.map(i => [i.path, i]))
-  const ids = new Map(index.items.flatMap(i => (i.id ? [[i.id, i] as const] : [])))
-  let topics: Promise<Topics | null> | undefined
+  const topics = topicsIn(read)
+  // A guide held out of the chat while it is checked again (topics.ts `held`) isn't in its handbook at all: never found,
+  // read, shown or named in a step. A topics file with no list holds none; with no topics file to say which, every video
+  // guide is held.
+  const held = topics ? new Set(topics.held ?? []) : null
+  const items = index.items.filter(i => (held ? !held.has(i.path) : !(i.kind === 'guide' && i.video !== undefined)))
+  const paths = new Map(items.map(i => [i.path, i]))
+  const ids = new Map(items.flatMap(i => (i.id ? [[i.id, i] as const] : [])))
   return {
     lang,
-    items: index.items,
+    items,
     byPath: p => paths.get(p),
     byId: id => ids.get(id),
     page: async path => {
@@ -114,7 +122,7 @@ export async function handbookOf(source: Source, lang: Lang): Promise<Handbook |
       const shard = await source.shard(lang, item.kind as PageDoc['kind'], pageShard(path, n))
       return shard?.pages[path]
     },
-    topics: () => (topics ??= source.topics ? source.topics(lang).then(topicsIn, () => null) : Promise.resolve(null)),
+    topics: async () => topics,
   }
 }
 

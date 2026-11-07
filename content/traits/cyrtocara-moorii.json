@@ -2,7 +2,12 @@
   "id": "cyrtocara-moorii",
   "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": 8,
+  "schoolMin": null,
   "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-31T00:45:54.581Z"
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-07T12:50:28.920Z"
 }

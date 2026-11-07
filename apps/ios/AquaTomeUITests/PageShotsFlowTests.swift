@@ -34,6 +34,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheDailyReportsSettings() { shootOwner("owner-report-light", section: "Báo cáo hằng ngày", shows: "owner-action") }
   func testSigningIn() { shootSignIn("sign-in-light") }
   func testSigningInInTheDark() { shootSignIn("sign-in-dark", dark: true) }
+  func testSigningInInTheLargestText() { shootSignIn("sign-in-largest-light", size: largest) }
+  func testTheAccountSignedIn() { shootAccount("account-light") }
+  func testTheAccountSignedInInTheDark() { shootAccount("account-dark", dark: true) }
+  func testTheAccountSignedInInTheLargestText() { shootAccount("account-largest-light", size: largest) }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
   func testAKindOfKit() { shoot("kit-light", "loc", "Lọc", more: ["-equipment"]) }
@@ -96,25 +100,38 @@ final class PageShotsFlowTests: XCTestCase {
     add(a)
   }
 
-  /// The Tài khoản sheet on a new phone, signed out, with each way to sign in the stand-in server offers: the sheet as it
-  /// opens, then scrolled to its end (the app's settings, the site's pages about itself).
-  private func shootSignIn(_ name: String, dark: Bool = false) {
-    let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
-                           "-reset-fake-server"] + (dark ? ["-dark"] : [])
-    app.launchForFlow()
+  /// The Tài khoản sheet on a new phone, signed out, with each way to sign in the stand-in server offers, screen by
+  /// screen to its end (the app's settings, the site's pages about itself).
+  private func shootSignIn(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server"])
     app.openAccount()
     XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].waitForExistence(timeout: 5), "no sign-in")
-    for n in 1...2 {
-      if n == 2 { app.swipeUp(); app.swipeUp(); app.swipeUp() }
-      settle()
-      let shot = XCUIScreen.main.screenshot()
-      XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
-      let a = XCTAttachment(screenshot: shot)
-      a.name = String(format: "shot-%@-%02d", name, n)
-      a.lifetime = .keepAlways
-      add(a)
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 10)
+  }
+
+  /// The Tài khoản sheet signed in, as the owner (the dashboard's row too), screen by screen to its end (signing out,
+  /// deleting the account, the version).
+  private func shootAccount(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, XCUIApplication.standInOwner)
+    app.openAccount()
+    // Signed in, back at the sheet's top: at the largest text the button is a few screens down.
+    app.scrollToAndTap("apple-sign-in")
+    let top = app.staticTexts["account-status"], owner = app.descendants(matching: .any)["owner-dashboard"].firstMatch
+    repeatUntil(top.exists && top.isHittable, times: 12) { app.swipeDown() }
+    XCTAssertTrue(top.waitForExistence(timeout: 10), "not signed in")
+    // At the largest text the dashboard's row is screens under the account's: down to it, and back up.
+    repeatUntil(owner.exists, times: 6) { app.swipeUp() }
+    XCTAssertTrue(owner.waitForExistence(timeout: 10), "not the owner's account")
+    // Back to the sheet's top, its first line under the bar (and the avatar, above it at the largest text): short slow
+    // drags, held before letting go, so none flings or pulls the sheet away.
+    let first = app.staticTexts["Đã đăng nhập"], bar = app.navigationBars.firstMatch
+    let middle = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4))
+    let clear: CGFloat = size == nil ? 0 : 70
+    repeatUntil(first.exists && first.frame.minY > bar.frame.maxY + clear, times: 20) {
+      middle.press(forDuration: 0.1, thenDragTo: middle.withOffset(CGVector(dx: 0, dy: 160)), withVelocity: .slow, thenHoldForDuration: 0.2)
     }
+    XCTAssertGreaterThan(first.frame.minY, bar.frame.maxY + clear, "not at the sheet's top")
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 12)
   }
 
   /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.

@@ -8,11 +8,21 @@ import type { PageDoc } from '@aq/schema/app-page'
  * assets; the app doesn't read it.
  */
 export type Topic = [section: string | null, text: string]
-export type Topics = { v: 1; pages: Record<string, Topic[]> }
+/** `held`: the guides held out of the chat while they're checked again (`heldOf`), by path; their topics aren't listed, and the chat's handbook leaves them out (handbook.ts). */
+export type Topics = { v: 1; pages: Record<string, Topic[]>; held?: string[] }
 
-export function topicsOf(docs: PageDoc[]): Topics {
+/**
+ * The guides held out of the chat, by path: a video guide marked `quality.chat: false` until the stricter review passes
+ * it (packages/engine/src/video-hold.ts). The chat never finds, reads or shows one (handbook.ts).
+ */
+export const heldOf = (guides: readonly { t: { slug: string; quality?: { chat?: false } } }[], at: (viPath: string) => string): string[] =>
+  guides.filter(g => g.t.quality?.chat === false).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
+
+export function topicsOf(docs: PageDoc[], held: readonly string[] = []): Topics {
   const pages: Record<string, Topic[]> = {}
+  const skip = new Set(held)
   for (const doc of docs) {
+    if (skip.has(doc.path)) continue
     let at: string | null = null
     const out: Topic[] = []
     for (const b of doc.blocks) {
@@ -23,5 +33,5 @@ export function topicsOf(docs: PageDoc[]): Topics {
     }
     if (out.length) pages[doc.path] = out
   }
-  return { v: 1, pages }
+  return { v: 1, pages, ...(held.length ? { held: [...held].sort() } : {}) }
 }

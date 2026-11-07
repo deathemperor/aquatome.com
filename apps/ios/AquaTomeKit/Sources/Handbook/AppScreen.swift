@@ -23,6 +23,9 @@ public enum AppScreen: Equatable, Sendable {
   /// The app's Tài khoản sheet (the profile button's), which no page of the site is: the empty "Bể của tôi" opens it to
   /// sign in.
   case account
+  /// The pages kept on the phone to read offline, as their shelf on the Tìm tab, which no page of the site is either: the
+  /// Tài khoản sheet's "Đã tải để đọc offline" opens it.
+  case kept
 
   /// The screen `url` is, if it's one of these pages on `site`, in any of the site's languages (Vietnamese under "/vi/"
   /// or at the root, PathForm); with `listed` (whether the app index has a path, as the link gives it), also any other

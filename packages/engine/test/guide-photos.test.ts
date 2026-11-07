@@ -5,6 +5,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
+import { videoStills, type StillDeps } from '../src/video-stills'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -60,11 +61,12 @@ test('hands or a person on a guide\'s photos, a mark on a video section\'s photo
     stamped: { mark: true, note: 'round logo, top left' },
   })
   const r = await screenGuidePhotos(root, d, { limit: 10 })
-  // Leads first (a guide's first photo, an equipment guide's hero), then the rest in order; a video's stills aren't judged here.
+  // Leads first (a guide's first photo, an equipment guide's hero), then the rest in order; a still that is still a
+  // storyboard tile waits for the video's own frame.
   expect(seen.map(s => s.photos)).toEqual([['betta', 'hands', 'siphon', 'kit', 'signed', 'stamped'], ['strips', 'carpet']])
   expect(seen[0]!.prompt).toContain('- person: true if a person or any part of one is in it: a hand or fingers')
   expect(seen[0]!.prompt).toContain('- brand: true if a shop\'s or dealer\'s logo or name can be read or recognised in the photo')
-  expect(r).toMatchObject({ sheets: 2, judged: 8, left: 0, failed: [], stopped: '' })
+  expect(r).toMatchObject({ sheets: 2, judged: 8, left: 0, waiting: 1, failed: [], stopped: '' })
   expect(urls((await json(root, 'content/guides/how-to-plant/entity.json')).photos)).toEqual(['carpet'])
   expect(urls((await json(root, 'content/guides/water-change/entity.json')).photos)).toEqual([])
   expect(urls((await json(root, 'content/guides/betta-setup/entity.json')).photos)).toEqual(['betta'])
@@ -122,4 +124,88 @@ test('a usage limit stops the run with nothing lost; a download that is not an i
   expect(r.failed).toHaveLength(1)
   expect(urls((await json(root, 'content/guides/a/entity.json')).photos)).toEqual(['html-gone', 'ok'])
   expect(Object.keys(await json(root, 'engine-state/_photo-guides.json')).map(name)).toEqual(['hands', 'ok'])
+})
+
+/** A video guide as the engine stores it (video-stills.ts parses it), its stills by `t`: the video's own frames (`-hd`) or storyboard tiles. */
+const still = (t: number, hd: boolean) => ({ t, url: url(`video/b1/${hd ? `at${t}-hd` : `t${t}`}`), width: hd ? 1200 : 320, height: hd ? 675 : 180, caption: `still ${t}` })
+const videoGuide = (photos: object[], figures: object[]) => ({
+  kind: 'aquascaping', source: 'youtube', sourceUrl: 'https://www.youtube.com/watch?v=b1', html: '', photos, mentions: [], updatedAt: '2026-11-06',
+  video: { youtubeId: 'b1', title: 'Scape', channel: 'S', channelUrl: 'https://x', durationSec: 100, chapters: [], figures },
+})
+const stillsOf = async (root: string) => ((await json(root, 'content/guides/youtube-b1/entity.json')).video.figures as { heading: string; moments: { url: string }[]; photo?: { url: string } }[])
+  .map(f => ({ heading: f.heading, moments: urls(f.moments), ...(f.photo ? { photo: name(f.photo.url) } : {}) }))
+
+test('a video still with hands, a person or a mark leaves its guide for good, and video-stills doesn\'t bring it back; one with no one in it stays, a brand in the scene too; a tile waiting for its frame is judged once it is one', async () => {
+  // Teaching videos show hands planting and siphoning; video-stills screens a frame only for faces and text.
+  const root = await store({
+    'youtube-b1': videoGuide([photo('lead')], [
+      { heading: 'Trồng', moments: [still(20, true), still(30, true)] },
+      { heading: 'Nền', moments: [still(45, false)] },
+      { heading: 'Hút', moments: [still(50, false)] },
+      { heading: 'Bố cục', moments: [still(60, true)], photo: photo('scape') },
+    ]),
+  })
+  // video-stills kept the t50 tile for good (its frame showed another moment); t45 is a tile it hasn't reached yet.
+  await writeFile(join(root, 'engine-state/_video-stills.json'), JSON.stringify({ 'youtube-b1': { at: '2026-11-06', timed: true, kept: { 50: "the frame at 50 s isn't the tile's moment" } } }))
+  const { d, seen } = model({
+    'at20-hd': { person: true, note: 'hands planting a stem plant' },
+    'at30-hd': { brand: true, note: 'a carpet, an Aquarium Co-op bottle at the edge' },
+    t50: { person: true, note: 'an arm siphoning the gravel' },
+    'at60-hd': { mark: true, note: 'channel logo, bottom right' },
+  })
+  const r = await screenGuidePhotos(root, d, { limit: 10 })
+  // The guide's photos first, then its stills; not the tile waiting for its frame.
+  expect(seen.map(s => s.photos)).toEqual([['lead', 'scape', 'at20-hd', 'at30-hd', 't50', 'at60-hd']])
+  expect(seen[0]!.prompt).toContain('Numbered photos and video frames')
+  expect(r).toMatchObject({ sheets: 1, judged: 6, left: 0, waiting: 1, failed: [], stopped: '' })
+  expect(await stillsOf(root)).toEqual([
+    { heading: 'Trồng', moments: ['at30-hd'] },
+    { heading: 'Nền', moments: ['t45'] },
+    { heading: 'Bố cục', moments: [], photo: 'scape' },
+  ])
+  expect(Object.fromEntries(Object.entries(await json(root, 'engine-state/_photo-rejected.json')).map(([u, w]) => [name(u), w]))).toEqual({
+    'at20-hd': 'people: hands planting a stem plant',
+    t50: 'people: an arm siphoning the gravel',
+    'at60-hd': 'watermark: channel logo, bottom right',
+  })
+
+  // video-stills turns the waiting tile into the video's frame, and leaves the stills taken off out.
+  const grey = (w: number, h: number) => sharp({ create: { width: w, height: h, channels: 3, background: { r: 110, g: 110, b: 110 } } })
+  const sd: StillDeps = {
+    frames: async () => ({ storyboard: { fps: 0.1, interval: 5, rows: 3, columns: 3, width: 320, height: 180, fragments: [] }, stream: { url: 'https://stream/b1' } }),
+    grab: async () => grey(1280, 720).png().toBuffer(),
+    get: async () => grey(320, 180).webp().toBuffer(),
+    faces: async files => files.map(() => 0),
+    read: async files => files.map(() => []),
+    look: async () => { throw new Error('no text to judge') },
+    media: { urlFor: k => url(k.replace('.webp', '')), put: async k => ({ url: url(k.replace('.webp', '')), width: 1200, height: 675 }) },
+    now: () => new Date('2026-11-07T12:00:00Z'),
+  }
+  expect((await videoStills(root, sd)).done).toEqual(['youtube-b1: 1 sharp, 0 dropped, 1 kept as tiles'])
+  expect(await stillsOf(root)).toEqual([
+    { heading: 'Trồng', moments: ['at30-hd'] },
+    { heading: 'Nền', moments: ['at45-hd'] },
+    { heading: 'Bố cục', moments: [], photo: 'scape' },
+  ])
+
+  // The next screen judges only the new frame; what it took off stays off.
+  const next = model({})
+  const again = await screenGuidePhotos(root, next.d, { limit: 10 })
+  expect(next.seen.map(s => s.photos)).toEqual([['at45-hd']])
+  expect(again).toMatchObject({ judged: 1, removed: [], waiting: 0 })
+  expect((await stillsOf(root)).flatMap(f => f.moments)).toEqual(['at30-hd', 'at45-hd'])
+})
+
+test('the limit caps model calls with video stills too: leads, then the other photos, then the stills, guides in order', async () => {
+  const root = await store({
+    'youtube-a': videoGuide([photo('a1')], [{ heading: 'x', moments: [1, 2, 3, 4, 5, 6].map(t => ({ ...still(t, true), url: url(`s${t}-hd`) })) }]),
+    'youtube-b': videoGuide([], [{ heading: 'y', moments: [{ ...still(7, true), url: url('s7-hd') }] }]),
+  }, { 'test-nuoc': { hero: photo('kit'), types: [{ photo: photo('t1') }] } })
+  const { d, seen } = model({})
+  const one = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)).toEqual([['a1', 'kit', 't1', 's1-hd', 's2-hd', 's3-hd']])
+  expect(one).toMatchObject({ sheets: 1, left: 4 })
+  const two = await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen.map(s => s.photos)[1]).toEqual(['s4-hd', 's5-hd', 's6-hd', 's7-hd'])
+  expect(two.left).toBe(0)
 })

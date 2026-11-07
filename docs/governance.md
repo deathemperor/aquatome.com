@@ -247,7 +247,9 @@ that would have caught it).
     - no figure of another fish under a heading about one fish (it names the fish, or its scientific name in brackets)
     - no "Name (Scientific name)" linked to a page with another scientific name; a plant's former names are its own
       ("Rêu java (Vesicularia dubyana)"): `synonyms` on its page, from its sources, GBIF and a few hobby names
-      (`pnpm engine plant-synonyms`, each cycle)
+      (`pnpm engine plant-synonyms`, each cycle). A trade or cultivar name a page has in quotes is that page's however
+      the text quotes it, or with none (`@aq/schema` linkTerms): "Pogostemon stellatus Octopus" is the easy
+      *P. quadrifolius*, not *P. stellatus*, which wants strong light and CO₂ (a design lab, 2026-11-07)
     - in a list of fish, no fish's section without a photo while the fish has one the page doesn't show yet
     - the contents match the headings, in order, each numbered heading under its own number; numbered headings count up
     - no heading with nothing under it: nothing before the next heading of its level or higher, or the end. A heading
@@ -382,11 +384,29 @@ The layers above still check the result.
     noindex, each of the engine's review kinds to scoring a page or not, and the page and its app blocks to each other
     (`apps/site/test/content-stats.test.ts`, `worker/test/dashboard.test.ts`, `owner-api.test.ts`).
   - **Pages reviewed before traces were kept** get theirs from `pnpm engine review-backfill`: a recheck of the page as
-    it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (video guides in the video job, the
-    owner's videos first; Vietnamese translations per source, Indonesian and Thai pages and place names in the rewrite
-    part). A guide translated from a source keeps no English to check against: it gets its notes when it is next
-    translated. Found by the owner (2026-11-06): their video guide scored 0.60 and nobody could say why; 175 of 471
-    video guides were in the same state.
+    it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (Vietnamese translations per source,
+    Indonesian and Thai pages and place names in the rewrite part). A guide translated from a source keeps no English
+    to check against: it gets its notes when it is next translated. Found by the owner (2026-11-06): their video guide
+    scored 0.60 and nobody could say why; 175 of 471 video guides were in the same state.
+  - **Video guides scored before the stricter reviewer** (2026-11-07: nothing the video doesn't say, one creator's
+    habit kept one person's, no overstating) are checked again by their own hourly job on the Mac,
+    `scripts/video-recheck.sh` (its own clone, `install-video-recheck-schedule.sh`; the video job checks none again, so
+    the two never check one guide at once). From `VIDEO_RECHECK_SINCE`: `review-backfill --kind video-guide
+    --reviewed-before` rechecks every guide with no review from that time on, whatever its score (and the ones never
+    reviewed), `VIDEO_REREVIEW_LIMIT` a run (60); then `videos --redo --rechecked-since` writes again, from the
+    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (30). Both `VIDEO_PARALLEL` (4) at
+    once, on the engine's Claude accounts, stopping when every account is at its limit. The riskiest guides first:
+    `RECHECK_FIRST` (a guide the chat quotes), then medicine, doses, chemicals and treatments, then water, then the rest,
+    each the most read first (the guide's most popular species; `packages/engine/src/video-order.ts`). Each guide once:
+    after its redo its own review counts, under the bar or not; a guide the redo skips is left as it is, and one it
+    fails on goes to the video job's retries, which write from the transcript alone. A recheck changes only the review,
+    not the page's score: a guide keeps its old score, and its place in search, until its redo.
+  - **Held out of the chat meanwhile:** `quality.chat: false` in each of a video guide's language files keeps it out of
+    the chat's search and read_page (the site reads it); absent, the guide is fine. `pnpm engine video-hold --class
+    risk1|risk2|risk3|all [--clear]` sets it on a risk group (`video-order.ts`); the medicine group got it on
+    2026-11-07. It goes when the version on the site gets a review at or above the bar: its recheck, or the review of a
+    version the video writer wrote (the redo, or the video job's retry of a failed one). A new version still under the
+    bar keeps it, as does every other writer of these files (`video-hold.test.ts` and the writers' tests hold that).
 - **Page depth.** A species page made only from a shop listing, a dealer's note or a stub is thin. It is published but
   kept out of search (`quality.indexable` false, `quality.reason: "thin"`) until it is deep (`packages/schema/src/depth.ts`):
   - **deep** means it has an in-depth source, or it reaches the bar on its own:
@@ -562,7 +582,15 @@ The layers above still check the result.
     design review (2026-11-07): hands planting a sword plant and a person siphoning a tank leading two guides, and an
     Aquarium Co-op test-strip bottle in the betta setup guide, where only the face detector (no face in either) and the
     watermark step (which calls a product's own label part of the scene) had looked; 5,960 of 6,428 guide pictures had
-    never had a model look for a mark. A video's own stills are screened by `video-stills` instead (faces, text).
+    never had a model look for a mark.
+    - It asks the same of a video guide's stills, after every photo, guides in order: teaching videos show hands
+      planting and siphoning, and `video-stills` looks only for faces and text. A person or a mark takes the still off
+      its guide and onto `_photo-rejected.json`; a figure left with no still and no photo goes. A brand in a still's
+      scene is recorded, not acted on. The picker chose a guide's stills once, when it was written, so nothing takes a
+      removed one's place. A still is judged once `video-stills` won't change it again (the video's own frame, or a
+      tile it keeps for good): a tile waits for its frame, so it isn't judged twice, and `video-stills` never touches
+      a still that was taken off. 3,868 stills on 2026-11-07, 240 of them frames: about 645 calls, done in about 5
+      days, as `video-stills` makes the rest frames.
   - **Video stills.** A video guide's "Trong video" pictures are the video's own frames. The model picks moments on
     YouTube's storyboard tiles (scrub previews of 320 or 160 px), then ffmpeg takes the frame at the second the tile
     shows from a stream of up to 1280 px (one yt-dlp call a video). The frame is checked against its tile and stored as
@@ -578,6 +606,7 @@ The layers above still check the result.
     - It screens a frame as a new guide's, before uploading it: a face takes the still off the page; text keeps the
       old still's watermark verdict or goes to the model, and a watermark takes the still off and onto
       `_photo-rejected.json`. A frame of another moment leaves the tile for good (`engine-state/_video-stills.json`).
+      Hands and a person seen from behind are `guide-photos`' to find (Guides' photos, above).
     - Found by the owner (2026-11-06): the stills looked blurry and low-res, most of all on a computer.
   - **Credits.** Every photo names its author and links its own page on the source (the gallery's viewer and the
     page's credits), with its open licence by name; a photo a source let us use names no licence, and nothing on a page
@@ -708,6 +737,11 @@ The layers above still check the result.
     HTML or entities left in the text; a paragraph repeated; sentences left in English; Vietnamese on Indonesian and
     Thai pages outside the names the site marks; imperial units with no metric figure beside them; a photo caption
     naming another fish; data card figures out of bounds, or a minimum tank shorter than twice the adult fish.
+    Two Vietnamese words written as one ("que thử đa chỉtiêu": a word that reads as two syllables, loanwords such as
+    "nitơ" aside) are listed; once a person confirms one, the sweep's wording fixes write it apart on every page. Found
+    in a design lab (2026-11-07): that word in the tank-cycling guide, a translation's typo, and the least killifish's
+    list of traits run together ("Sống bầy đàn: cóMức độ hoạt động…"), the only section in the content stored with no
+    tags.
   - A rule never holds a page back. The safe fixes are made whenever the engine writes a page (`tidyHtml`,
     `unescapePlain` in sanitize.ts; `--fix` makes them on what is already stored): a heading inside a numbered run
     becomes its item's lead line, an entity escaped twice is escaped once, empty blocks go, plain text loses its
@@ -740,6 +774,11 @@ The layers above still check the result.
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card
+    - a fish's approved summary that states a card figure (temperature, pH, hardness, size, minimum tank, difficulty)
+      the card, as the build shows it, doesn't: back to pending, hidden until the summaries step writes it again. Its
+      own check runs once, when it is written, and a card changes without its page changing. Found in a design lab
+      (2026-11-07): Cá neon vua's summary said 23–27 °C beside a card of 23–29 °C, as the card had taken Seriously
+      Fish's range that day; 54 of 505 approved summaries were off their card. A real-content test holds them at zero
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
@@ -762,7 +801,11 @@ The layers above still check the result.
       Found by the owner: 25 of the betta's 32 other names were its Alien hybrids' and a Red Spade Tail's, from
       shop listings of one variety each that every merge had kept. A run on a copy (2026-11-04) took 769 names off 451 species
       (571 pages in three languages): 5 breed names (4 species), 52 variety names (15), 335 written twice (239), 174 the
-      page's own name again, 203 its scientific name again. The betta keeps 6.
+      page's own name again, 203 its scientific name again. The betta keeps 6. A name with a note on the name in
+      brackets ("Cá tai tượng châu Phi (tên quen gọi, dù cá gốc Nam Mỹ)") stays, and the same name without the note
+      leaves. Found in a design lab (2026-11-07): the Oscar, a South American fish, was named "Cá Oscar (cá tai tượng
+      châu Phi)". Shops and hobby sites do sell it by that name, so it stays a name readers search for, noted, and the
+      page's own name (`nameFixed`) is "Cá Oscar"
     - a breed's links to the species it is a form of (`basedOn`) and to its parents' pages (`parents[].species`),
       from its research (`engine-state/breeds/<id>.json`, `breeds.ts` linkBreed): set where it has none and exactly one
       species page is that species, by the page's scientific name or a synonym GBIF gave the engine
@@ -880,7 +923,7 @@ fixed forward first, in a PR of its own. Android
 
 UI flows, by class (a line each, with a blank line between, so pull requests that change different flows don't conflict):
 
-- `AccountFlowTests`: signing in to an account on a stand-in server, in the Tài khoản sheet (opened by the profile button on each tab and by the hint on an empty "Bể của tôi", none of the account in the tanks tab, never blank, with no network the account signed in on the phone shown as last seen and a new phone told the server can't be reached rather than that accounts are off, a sync that failed putting a dot on the profile button): a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account (the sheet then saying the account has one, and still offering one for this phone), and long after signing in, adding one asks to sign in again first (with Apple, the add then finding this phone has it already, or by email, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app, and no sync of one signed in (the sheet saying so).
+- `AccountFlowTests`: signing in to an account on a stand-in server, in the Tài khoản sheet (opened by the profile button on each tab and by the hint on an empty "Bể của tôi", none of the account in the tanks tab, never blank, with no network the account signed in on the phone shown as last seen, with "Thử lại" and no dot, a sheet closed before the server answers still waiting for it when opened again, and a new phone told the server can't be reached rather than that accounts are off, a sync the server fails putting a dot on the profile button and "Thử lại" taking it away, a session ended elsewhere naming the way the account signed in and offering it first, the others under "Cách khác", its dot gone once the sheet is seen, a list signed out linking to the sheet): a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account (the sheet then saying the account has one, and still offering one for this phone), and long after signing in, adding one asks to sign in again first (with Apple, the add then finding this phone has it already, or by email, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app, and no sync of one signed in (the sheet saying so); the appearance chosen in the sheet (light or dark against the phone's) drawing the sheet and the tabs under it at once, kept after a relaunch, and the phone's again on "Theo máy".
 
 - `AppIconFlowTests`: the app's icon chosen from its picker (every icon listed in the app with a preview to draw, none unlisted) and the default again.
 
@@ -896,17 +939,17 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `NativePageFlowTests`: a fish drawn by the app with each of its parts, in the order the site's page has them on a phone (where it's from, other names, the sources behind its figures with the dot only where their gap could change how the fish is kept, the summary and keepers' mistakes, "Thông tin nhanh" folded, the Vietnamese climate at the end of the water section, tank-mates with its temperament and smallest school and why to keep one away where "Nuôi chung" is or would be, its gallery after the care text with every photo credited and its words read once, the sources' terms, breeds, videos; none left to the web) and saying what each part is to VoiceOver, a tank-mate opening its page, a group named in its text opening the app's shelf of that group, a taxon named in it opening the app's shelf of its fish as the site's taxon page lists them (its line, the rank below with each one's count, a genus opening its own, the way up to its order and the taxonomy's first page listing the orders), the country under a fish's name and a continent in the text opening the app's shelves of the fish from there (a country's rivers named, three lines of them until more is asked for, a continent's countries a tap away, the way up to the first page listing the continents), a breed the index lacks opening as a web page in the app, a fish's readers' photos and comments as the site has them (each comment's day as the site writes it, the site's mark on a good answer) and a plant with none showing neither, an Unsplash photo's credit naming its photographer and Unsplash, each a link and not the whole line (in a card's credits the photo's own page a number), a plant (its other names under its name) and a glossary term drawn by the app, a video series drawn by the app (its counts, the playlist and channel it follows, its guides as cards, each picture credited) and a card opening its guide, a guide drawn by the app from the site's blocks (no web page; a table as a grid while its columns fit, else each cell under its column's name, none without it), a page it names and a link in its text opening in the app on the same tab, a word's tip, a source's mark small and raised after the words it backs and naming its source, the credit's link scrolling to the sources, the bar naming a page once its name has scrolled away, sharing and the browser in one menu, a part it can't draw opening the web page and two in a row offering one, a guide opened before the app draws its kind staying on the web page, every part saying what it is to VoiceOver, a link from the tanks tab opening on the tanks tab, a tool it names opening its tab.
 
-- `OfflineFlowTests`: a shelf of guides kept for reading offline, at once on Wi-Fi, listed in one place on the home and let go of there, asked first on mobile data, stopped with nothing half-kept, also from the shelf left and come back to, stopped by removing the kept pages, no longer listed once the site splits its pages anew, not started with too little room.
+- `OfflineFlowTests`: a shelf of guides kept for reading offline, at once on Wi-Fi, listed in one place on the home and let go of there, counted in the Tài khoản sheet, whose row closes it and opens their shelf on Tìm (no row with none kept), asked first on mobile data, stopped with nothing half-kept, also from the shelf left and come back to, stopped by removing the kept pages, no longer listed once the site splits its pages anew, not started with too little room.
 
 - `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, one removed only once the owner says yes, a page hidden by the section's form and brought back, a refusal showing the server's message, the daily report's email turned off then on again, a session ending while it's open (sign in again, the row kept), the server's storage down (its message, then tried again), a long cell (a page's review notes) showing two lines until tapped open, then shut again, and the daily report's notifications turned on here once iOS allows them, kept on, then off.
 
-- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet and its ways to sign in (light and dark), the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay, a fish's page and Khám phá, light, dark and at the largest text.
+- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet signed out and signed in as the owner (light, dark and the largest text), the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay, a fish's page and Khám phá, light, dark and at the largest text.
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
 - `PlugFlowTests`: smart plugs on a tank, on the stand-in Tuya cloud and with no account: the project's keys set up, wrong ones said so and not kept, the right ones checked by reading the list and kept, then removed, a plug added and its outlets named (labels from Smart Life, kept across a launch, not offered for a second tank), an outlet switched and confirmed, a heater, a CO2 or an outlet with no role asks first, a plug that doesn't confirm shown as it reports, a plug gone offline refused and shown offline, a plug taken off the tank.
 
-- `ReaderPostFlowTests`: a comment posted as the reader's account (signing in first) and shown on the page at once, still there when the page reads its comments again, a reader's photo not sent without a name, the reader's consent or one picked (the site's words for each), a photo sent with consent showing the photo and the link that takes it back once, to keep (a tap doesn't open it), no posting with accounts off, another reader's comment reported signed out (asked why, thanked, and kept off the phone past a relaunch) and their photo reported from its viewer, a poster blocked (their comments and photos hidden, the others kept) and let back from the page and from the Tài khoản sheet (not listed in the tanks tab), AquaTome's contact page on the home with accounts off.
+- `ReaderPostFlowTests`: a comment posted as the reader's account (signing in first) and shown on the page at once, still there when the page reads its comments again, a reader's photo not sent without a name, the reader's consent or one picked (the site's words for each), a photo sent with consent showing the photo and the link that takes it back once, to keep (a tap doesn't open it), no posting with accounts off, another reader's comment reported signed out (asked why, thanked, and kept off the phone past a relaunch) and their photo reported from its viewer, a poster blocked (their comments and photos hidden, the others kept) and let back from the page and from the Tài khoản sheet (a row counting them, opening their page, which says when nobody is left; not listed in the tanks tab), AquaTome's contact page on the home with accounts off.
 
 - `ReadingFlowTests`: a guide saved to read later and kept after a relaunch then taken off, the pages read last newest first.
 
@@ -947,9 +990,9 @@ Rules (as for the site):
    pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, the fish's top in large text, and a
    guide's video playing in its page), the fish-ID screen with its guesses, light and dark, Tìm's tools (light, dark and the largest text), the home's section for kit and
    a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the Tài khoản sheet
-   with its ways to sign in, light and dark (the stand-in server), the lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
+   signed out and signed in as the owner, light, dark and the largest text (the stand-in server), the lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
    the stand-in server (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay,
-   its fish of the day's page and Khám phá, light, dark and at the largest text. Job
+   its suggested fish's page and Khám phá, light, dark and at the largest text. Job
    `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs
    them (`apps/ios/scripts/shots.py`): on every run on main, and on a PR whose change can reach the pages, or one

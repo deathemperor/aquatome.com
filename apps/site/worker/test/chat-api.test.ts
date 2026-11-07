@@ -92,7 +92,7 @@ const CONV = '6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
 const convKey = async (u: { id: string }) => conversationKey(await chatAccount('k', u.id), CONV)
 const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, headers: Record<string, string> = {}) => new Request('https://x.test/api/chat', {
   method: 'POST', headers: { 'content-type': 'application/json', ...auth, ...headers },
-  body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'species', about: 'paracheirodon-innesi', ...body }),
+  body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'fish-id', about: 'paracheirodon-innesi', ...body }),
 })
 const bearer = (token: string) => ({ authorization: `Bearer ${token}` })
 const { answer, streamMisfits, api } = contract('chat.openapi.json')
@@ -570,6 +570,45 @@ test('read_tanks reads the account\'s synced tanks with their ids, its fish name
   expect(result).toContain('Bể phòng khách')
   expect(result).toContain('\\"id\\":\\"a1b2c3d4-0000-4000-8000-000000000001\\"')
   expect(result).toContain('\\"name\\":\\"Cá neon xanh\\",\\"id\\":\\"paracheirodon-innesi\\",\\"count\\":12')
+})
+
+test('read_tanks reads the whole saved tank: plants, substrate, notes, days since saved, each light\'s active schedule, what its plugs power', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const now = new Date()
+  const ago = (days: number) => new Date(now.getTime() - days * 86_400_000).toISOString()
+  const tankId = 'a1b2c3d4-0000-4000-8000-000000000002'
+  const at = now.toISOString()
+  await syncStore(db, me.id, {
+    v: 1,
+    tanks: [{ id: tankId, name: 'Bể rêu', dims: { l: 60, w: 30, h: 36 }, substrate: 'soil', notes: 'Thay 30% nước mỗi tuần.', species: [], plants: [{ id: 'taxiphyllum-barbieri' }], createdAt: ago(10), updatedAt: at }],
+    devices: [
+      {
+        id: 'b1b2c3d4-0000-4000-8000-000000000001', tankId, kind: 'light', brand: 'chihiros', model: 'WRGB II', activeScheduleId: 'c1b2c3d4-0000-4000-8000-000000000002', createdAt: at, updatedAt: at,
+        schedules: [
+          { id: 'c1b2c3d4-0000-4000-8000-000000000001', on: '08:00', off: '20:00', ramp: 30, levels: [100, 100, 100, 100], savedAt: at },
+          { id: 'c1b2c3d4-0000-4000-8000-000000000002', on: '13:00', off: '21:00', ramp: 30, levels: [80, 70, 60, 50], savedAt: at },
+        ],
+      },
+      { id: 'b1b2c3d4-0000-4000-8000-000000000002', tankId, kind: 'plug', brand: 'tuya', remoteId: 'x1', outlets: [{ code: 'switch_1', role: 'co2' }, { code: 'switch_2', role: 'heater' }, { code: 'switch_3', label: 'Quạt' }], createdAt: at, updatedAt: at },
+      // Another tank's light isn't this tank's.
+      { id: 'b1b2c3d4-0000-4000-8000-000000000003', tankId: 'a1b2c3d4-0000-4000-8000-000000000009', kind: 'light', schedules: [], createdAt: at, updatedAt: at },
+      // A schedule saved but never written to the light is no schedule it runs; its levels set by hand are.
+      {
+        id: 'b1b2c3d4-0000-4000-8000-000000000004', tankId, kind: 'light', nickname: 'Đèn phụ', manual: { levels: [50], at }, createdAt: at, updatedAt: at,
+        schedules: [{ id: 'c1b2c3d4-0000-4000-8000-000000000003', on: '08:00', off: '14:00', ramp: 0, levels: [100], savedAt: ago(1) }],
+      },
+    ],
+  }, now)
+  const c = claude([() => msg([{ type: 'tool_use', id: 't1', name: 'read_tanks', input: {} }], 'tool_use'), () => answers({})])
+  await run(ask(bearer(me.token), { question: 'Bể của tôi bị rêu, sao vậy?' }), e, deps(c.fetch))
+  const told = (JSON.parse(String(((c.bodies[1]!.messages as { content: unknown }[]).at(-1)!.content as { content: string }[])[0]!.content)) as Record<string, unknown>[])[0]!
+  expect(told).toMatchObject({
+    substrate: 'soil', savedDaysAgo: 10, readerNotes: 'Thay 30% nước mỗi tuần.',
+    lights: ['chihiros WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no schedule running, last set by hand to 50%'],
+    plugsPower: ['co2', 'heater', 'Quạt'],
+  })
+  expect((told.plants as string[]).length).toBe(1)
 })
 
 test('the daily cron sweeps retries\' answers a day old, and nothing else of the chat\'s, every page of them', async () => {
