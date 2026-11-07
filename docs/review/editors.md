@@ -16,13 +16,22 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 
 | Seat | Rounds | Findings | Held | Dropped | Open | Judges it well |
 |---|---|---|---|---|---|---|
-| Anthropic (`claude-opus-5-5`) | 3 | 8 | 7 | 0 | 1 | not yet (one round) |
-| OpenAI (`gpt-5.6-sol`) | 3 | 7 | 4 | 0 | 3 | not yet (one round) |
-| Google (`gemini-4-argon`) | 3 | 15 | 11 | 3 | 1 | not yet (one round) |
-| xAI (`grok-4.7`) | 3 | 10 | 6 | 3 | 1 | not yet (one round) |
+| Anthropic (`claude-opus-5-5`) | 3, 4 | 18 | 13 | 2 | 3 | yes |
+| OpenAI (`gpt-5.6-sol`) | 3, 4 | 13 | 10 | 0 | 3 | yes: none dropped |
+| Google (`gemini-4-argon`) | 3, 4 | 24 | 17 | 4 | 3 | yes, but check every name it offers |
+| xAI (`grok-4.7`) | 3, 4 | 19 | 14 | 3 | 2 | yes, but check every name it offers |
+
+Every seat's findings held four times in five or better over two rounds. Where Google and xAI went wrong, it was mostly
+a name: a fish or a term they offered that no hobbyist writes. A name a seat offers is checked in the references
+before it goes anywhere.
 
 Round 3 (2026-11-07), what was dropped:
 - Google: "cho thuốc" → "đánh thuốc" (the forum writes "cho thuốc" 33 times a million words, more than the site);
   "đi kèm" (48 in the videos); "cá trực thăng mỏ neo" for the anchor catfish (in neither reference).
 - xAI: "cá hút rêu Thái" for the Siamese algae eater, which it said the site uses (it doesn't, and neither reference
   does: hobbyists say "cá bút chì"); "ốc sừng" for Clithon (in neither reference); "đi kèm".
+
+Round 4 (2026-11-07), what was dropped:
+- Anthropic: "cá bình tích" for molly (the forum says "molly" three times as often); "có tiếng là" for "nổi tiếng là"
+  (rarer in the references than what it replaces).
+- Google: "rễ gió" for the roots on a stem (in neither reference).
