@@ -97,11 +97,12 @@ export function todos(o: Overview): Todo[] {
   if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key, en: { title: 'Could not read the Anthropic keys\' state', text: 'The fish ID page has the error.', action: seeKey } })
   else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key, en: { title: 'Fish ID is off', text: 'ANTHROPIC_KEYS holds no key.', action: seeKey } })
   else {
+    // A key out of credit or refused is the rotation's to skip (fishid/keys.ts), and the fish ID page shows it. Only every
+    // key resting stops fish ID and chat, so only that is the owner's (the owner's rule, 2026-11-07; docs/governance.md).
     const off = o.keys.rows.filter(r => r.state !== 'ok')
-    if (off.length) {
-      const all = off.length === o.keys.rows.length
-      out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
-        en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · '), action: seeKey } })
+    if (off.length && off.length === o.keys.rows.length) {
+      out.push({ title: 'Nhận diện cá và chat không chạy: mọi key đang nghỉ', text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
+        en: { title: 'Fish ID and chat are down: every Anthropic key is resting', text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · '), action: seeKey } })
     }
     // Fish ID and chat share one AI spend cap a UTC day (fishid/ledger.ts): a day past 80% of it is the owner's to raise
     // before readers are told "busy".
