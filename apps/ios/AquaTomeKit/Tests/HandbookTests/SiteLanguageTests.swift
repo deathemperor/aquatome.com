@@ -5,7 +5,7 @@ import Testing
 /// A file of the site's, from the repository's root.
 private func site(_ path: String) throws -> String {
   var url = URL(fileURLWithPath: #filePath)
-  for _ in 0..<5 { url.deleteLastPathComponent() } // HandbookTests, Tests, AquaTomeKit, ios, apps
+  for _ in 0..<6 { url.deleteLastPathComponent() } // the file, HandbookTests, Tests, AquaTomeKit, ios, apps
   return try String(contentsOf: url.appending(path: path), encoding: .utf8)
 }
 
