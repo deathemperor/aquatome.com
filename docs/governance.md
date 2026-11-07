@@ -900,7 +900,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, one removed only once the owner says yes, a page hidden by the section's form and brought back, a refusal showing the server's message, the daily report's email turned off then on again, a session ending while it's open (sign in again, the row kept), the server's storage down (its message, then tried again), a long cell (a page's review notes) showing two lines until tapped open, then shut again, and the daily report's notifications turned on here once iOS allows them, kept on, then off.
 
-- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet and its ways to sign in (light and dark), and the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings).
+- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet and its ways to sign in (light and dark), the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay, a fish's page and Khám phá, light and dark.
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
@@ -921,6 +921,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 - `TanksFlowTests`: add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a tank's fish and plants opening their pages, a store from a newer app or one it can't read left alone, adding again after a failed save.
 
 - `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, from the Tài khoản sheet, with no tanks and signed out too.
+
+- `V2FlowTests`: the app's v2 behind the Tài khoản sheet's switch (debug and TestFlight builds): off by default, v1's three tabs; turned on, v2's tabs, and off again, v1's, with the same tanks (UIKit's animations on); a tank card on Hôm nay opening the tank on Bể của tôi.
 
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
@@ -946,7 +948,8 @@ Rules (as for the site):
    guide's video playing in its page), the fish-ID screen with its guesses, light and dark, Tìm's tools (light, dark and the largest text), the home's section for kit and
    a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the Tài khoản sheet
    with its ways to sign in, light and dark (the stand-in server), the lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
-   the stand-in server (its overview, a section with charts and tables, and the daily report's settings). Job
+   the stand-in server (its overview, a section with charts and tables, and the daily report's settings), and v2's Hôm nay,
+   its fish of the day's page and Khám phá, light and dark. Job
    `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs
    them (`apps/ios/scripts/shots.py`): on every run on main, and on a PR whose change can reach the pages, or one

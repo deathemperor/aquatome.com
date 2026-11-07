@@ -7,6 +7,8 @@ import SwiftUI
 struct AccountView: View {
   @Environment(AccountModel.self) private var account
   @Environment(\.dismiss) private var dismiss
+  /// The app's v2 in place of v1 (V2Root): debug and TestFlight builds only (V2Switch).
+  @AppStorage("v2") private var v2 = false
 
   var body: some View {
     NavigationStack {
@@ -15,6 +17,9 @@ struct AccountView: View {
         OwnerEntry()
         Section("Ứng dụng") {
           NavigationLink("Biểu tượng ứng dụng") { AppIconPicker() }.accessibilityIdentifier("app-icon-row")
+          if #available(iOS 18, *), V2Switch.offered {
+            Toggle("Giao diện mới (thử nghiệm)", isOn: $v2).accessibilityIdentifier("v2-switch")
+          }
         }
         TelemetrySwitch()
         BlockedSection()
