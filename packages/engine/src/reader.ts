@@ -253,9 +253,9 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
       rewrites--
       const file = join(root, 'content', p.kind, p.id, 'vi.json')
       try {
-        const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string }
+        const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean }
         const html = fieldOf(t, field)
-        if (!html) continue
+        if (!html || (field === 'body' && t.bodyFixed)) continue // a body a person fixed is theirs (schemas.ts bodyFixed)
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
         const r = await rewritePart(d.llm, html, fs, { en: p.en?.[field], source: source && names[source]?.name })
         if (!r) continue

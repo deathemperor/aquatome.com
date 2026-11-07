@@ -1,12 +1,14 @@
 {
-  "slug": "ca-but-chi-mieng-do",
-  "name": "Cá bút chì miệng đỏ",
+  "slug": "ca-chi-mieng-do",
+  "name": "Cá chì miệng đỏ",
   "altNames": [
+    "Cá bút chì miệng đỏ",
     "Cá bút chì Nannostomus nigrotaeniatus",
-    "Redmouth Pencilfish"
+    "Redmouth Pencilfish",
+    "Cá chì Nannostomus nigrotaeniatus"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Loài cá bút chì rất đẹp này chỉ mới có mô tả khoa học cách đây vài tháng. Nhìn qua, nó khá giống N. trifasciatus. Điểm khác là dải sọc dọc giữa thân của nó rộng hơn nhiều. Với người chơi, khác biệt dễ thấy nhất là con đực và con cái có màu khác nhau. Chỉ con đực mới có những đốm đỏ rất đẹp trên vây.</p>",
+    "quickFacts:glaser": "<p>Loài cá chì rất đẹp này chỉ mới có mô tả khoa học cách đây vài tháng. Nhìn qua, nó khá giống N. trifasciatus. Điểm khác là dải sọc dọc giữa thân của nó rộng hơn nhiều. Với người chơi, khác biệt dễ thấy nhất là con đực và con cái có màu khác nhau. Chỉ con đực mới có những đốm đỏ rất đẹp trên vây.</p>",
     "maintenance:glaser": "<p>Bạn có thể nuôi loài mới này giống như N. trifasciatus quen thuộc. Tuy vậy, nó hợp với nhiệt độ cao hơn một chút, chẳng hạn 24-28°C. Tên thường gọi đề xuất cho Nannostomus nigrotaeniatus là \"Redmouth Pencilfish\".</p>",
     "dimorphism:glaser": "<p>Con đực và con cái của loài này khác nhau về màu sắc. Chỉ con đực mới có đốm đỏ trên vây.</p>"
   },
@@ -17,5 +19,12 @@
       "glaser": 0.8
     },
     "reason": "thin"
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-but-chi-mieng-do",
+      "name": "Cá bút chì miệng đỏ"
+    }
+  ]
 }
