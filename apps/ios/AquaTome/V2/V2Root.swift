@@ -5,7 +5,8 @@ import SwiftUI
 /// from the photos), behind "Giao diện mới (thử nghiệm)" in the Tài khoản sheet: `v2` in UserDefaults, off by default.
 /// It runs on the app's own models (AquaTomeApp's environment), so switching back and forth keeps the tanks, the
 /// account and the pages kept and saved. Its tabs: Hôm nay; Khám phá, the handbook's shelves, where links from pages and
-/// from outside the app open (v1's Tìm tab, `handbookPath`); Bể của tôi and Đèn, v1's own; and Tìm, the search tab.
+/// from outside the app open (v1's Tìm tab, `handbookPath`); Bể của tôi and Đèn, v1's own; and Tìm, the search tab
+/// (v1's Tìm screen as it is, its search and its lists; a fish found there opens v1's page).
 @available(iOS 18, *)
 struct V2Root: View {
   /// v1's tab: the app's links set it (AquaTomeApp.open), and v2 follows; v2 sets it for the tabs both have.
@@ -15,13 +16,23 @@ struct V2Root: View {
   @State private var selection = Pick.today
   @State private var todayPath = NavigationPath()
   @State private var searchPath = NavigationPath()
+  @Environment(HandbookModel.self) private var handbook
+  /// Where the first of v2's own screens (FullPage) sits on `handbookPath`, which v1 shares: v1 has no screen for it, so
+  /// switching back cuts the path there.
+  @State private var ownFrom: Int?
 
   enum Pick: Hashable { case today, browse, tanks, lights, search }
 
   var body: some View {
     TabView(selection: $selection) {
       Tab("Hôm nay", systemImage: "sparkles", value: Pick.today) { TodayView(path: $todayPath) }
-      Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) { BrowseHome(path: $handbookPath) }
+      Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
+        BrowseHome(path: $handbookPath)
+          .environment(\.v2OpenFull) { item in
+            if ownFrom == nil { ownFrom = handbookPath.count }
+            handbookPath.append(FullPage(item: item))
+          }
+      }
       Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) { TanksView(path: $tanksPath) }
       Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView() }
       Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath) }
@@ -29,7 +40,10 @@ struct V2Root: View {
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
-    .onChange(of: handbookPath.count) { old, new in if new > old { selection = .browse } }
+    .onChange(of: handbookPath.count) { old, new in
+      if new > old { selection = .browse }
+      if let f = ownFrom, new <= f { ownFrom = nil }
+    }
     .onChange(of: tanksPath) { if !tanksPath.isEmpty { selection = .tanks } }
     .onChange(of: selection) {
       switch selection {
@@ -39,6 +53,18 @@ struct V2Root: View {
       }
     }
     .onAppear { follow(tab) }
+    // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws.
+    .onDisappear {
+      if let f = ownFrom, handbookPath.count > f { handbookPath.removeLast(handbookPath.count - f) }
+    }
+    // The app's home from outside (`aquatome://`, the site's home): AquaTomeApp empties Khám phá's stack, which v2 can't
+    // tell from no change; v2's home is Hôm nay, at its top.
+    .onOpenURL { url in
+      guard AppLink.of(url, site: handbook.site) == .home else { return }
+      todayPath = NavigationPath()
+      searchPath = NavigationPath()
+      selection = .today
+    }
   }
 
   private func follow(_ tab: AquaTomeApp.Tab) {
@@ -72,6 +98,12 @@ extension View {
   func v2StackLinks(_ path: Binding<NavigationPath>) -> some View { modifier(StackLinks(path: path)) }
 }
 
+extension EnvironmentValues {
+  /// A fish's whole page (v1's, FullPage) pushed on the stack in front ("Xem trang đầy đủ"): Khám phá's counts it, for
+  /// switching back to v1 (V2Root).
+  @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
+}
+
 @available(iOS 18, *)
 private struct Destinations: ViewModifier {
   let zoom: Namespace.ID
@@ -100,15 +132,17 @@ private struct StackLinks: ViewModifier {
   @Environment(HandbookModel.self) private var handbook
 
   func body(content: Content) -> some View {
-    content.environment(\.openScreen) { screen in
-      switch screen {
-      case .page(let p): if let item = handbook.item(at: p) { path.append(item) }
-      case .group(let g): path.append(Browse.fish(g))
-      case .tankVolume(let q): path.append(VolumeTool(query: q))
-      case .tankMates(let q): path.append(TankMatesTool(query: q))
-      case .fishId: path.append(FishIdRoute())
-      default: parent(screen)
+    content
+      .environment(\.v2OpenFull) { path.append(FullPage(item: $0)) }
+      .environment(\.openScreen) { screen in
+        switch screen {
+        case .page(let p): if let item = handbook.item(at: p) { path.append(item) }
+        case .group(let g): path.append(Browse.fish(g))
+        case .tankVolume(let q): path.append(VolumeTool(query: q))
+        case .tankMates(let q): path.append(TankMatesTool(query: q))
+        case .fishId: path.append(FishIdRoute())
+        default: parent(screen)
+        }
       }
-    }
   }
 }

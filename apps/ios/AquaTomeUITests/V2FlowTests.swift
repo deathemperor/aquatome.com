@@ -1,8 +1,10 @@
 import XCTest
 
 /// The app's v2 (V2Root) behind the Tài khoản sheet's switch: off by default, v1's three tabs; turned on, v2's tabs, and
-/// turned off again, v1's, with the same tanks; a link to a tank opens it in v2. The switch's own flows run with UIKit's
-/// animations on (a plain `launch()`): the switch swaps the whole tab bar under the open sheet.
+/// turned off again, v1's, with the same tanks, and Tìm with the page Khám phá had open (v2's whole-page screen, which
+/// v1 has none for, cut); a link to a tank opens it in v2, and the app's home from outside is Hôm nay's top. The
+/// switch's own flow runs with UIKit's animations on (a plain `launch()`): the switch swaps the whole tab bar under the
+/// open sheet.
 final class V2FlowTests: XCTestCase {
   private func launch(_ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
@@ -47,6 +49,41 @@ final class V2FlowTests: XCTestCase {
     card.tap()
     XCTAssertTrue(app.navigationBars["Bể 60"].waitForExistence(timeout: 5), "the tank didn't open")
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened on another tab")
+  }
+
+  func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
+    let app = launch()
+    app.launchForFlow()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
+    flip(app)
+    app.openTab("Khám phá")
+    let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    fish.tap()
+    let full = app.buttons["v2-full-page"]
+    repeatUntil(full.exists && full.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(full.isHittable, "no Xem trang đầy đủ on the fish's page")
+    full.tap()
+    app.openTab("Hôm nay")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    // The fish's page, one step from Tìm's top.
+    let back = app.navigationBars.buttons.element(boundBy: 0)
+    XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
+    back.tap()
+    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
+  }
+
+  func testTheHomeFromOutsideIsHomNaysTop() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.open(URL(string: "aquatome://")!)
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "the home link left the fish's page open")
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
   }
 
   /// The sheet's switch, tapped, and the sheet closed.

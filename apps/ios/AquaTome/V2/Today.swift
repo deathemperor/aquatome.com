@@ -11,6 +11,8 @@ struct TodayView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Namespace private var zoom
+  /// The feed scrolled under the status bar: a bar's material behind it then, none at the top.
+  @State private var under = false
 
   var body: some View {
     NavigationStack(path: $path) {
@@ -23,8 +25,9 @@ struct TodayView: View {
             case .guide(let item): GuideCard(item: item, zoom: zoom)
             case .season(let items): SeasonCard(items: items, zoom: zoom)
             case .tank(let tank): TankCard(tank: tank)
+            case .firstTank: FirstTankCard()
             case .series(let item): SeriesCard(item: item, zoom: zoom)
-            case .latest(let rows): LatestCard(rows: rows)
+            case .latest(let rows): LatestCard(rows: rows, zoom: zoom)
             }
           }
           if handbook.status == .loading { ProgressView().frame(maxWidth: .infinity).padding(.top, 80) }
@@ -32,8 +35,11 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .toolbarVisibility(.hidden, for: .navigationBar)
-      // With no bar, the feed would scroll bare under the status bar: a material behind it, as a bar has.
-      .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(.bar) }
+      // With no bar, the feed would scroll bare under the status bar: a bar's material behind it once it does.
+      .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 4 } action: { _, u in under = u }
+      .safeAreaInset(edge: .top, spacing: 0) {
+        Color.clear.frame(height: 0).background(.bar.opacity(under ? 1 : 0)).animation(.easeInOut(duration: 0.2), value: under)
+      }
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
     }
@@ -48,14 +54,14 @@ struct TodayView: View {
         Text("Hôm nay").font(.largeTitle.weight(.bold))
       }
       Spacer()
-      ProfileButton().font(.title).padding(.bottom, 4)
+      ProfileButton().font(.title).frame(minWidth: 44, minHeight: 44).padding(.bottom, 2)
     }
     .padding(.horizontal, 20)
     .padding(.top, 8)
   }
 
   enum Card: Identifiable {
-    case fish(HandbookIndex.Item), guide(HandbookIndex.Item), season([HandbookIndex.Item]), tank(Tank)
+    case fish(HandbookIndex.Item), guide(HandbookIndex.Item), season([HandbookIndex.Item]), tank(Tank), firstTank
     case series(HandbookIndex.Item), latest([Latest.Row])
 
     var id: String {
@@ -64,13 +70,15 @@ struct TodayView: View {
       case .guide(let i): "guide" + i.path
       case .season: "season"
       case .tank(let t): "tank" + t.id
+      case .firstTank: "first-tank"
       case .series(let i): "series" + i.path
       case .latest: "latest"
       }
     }
   }
 
-  /// Today's cards: each from the handbook's picks, a different one each day, and what the reader has.
+  /// Today's cards: each from the handbook's picks, a different one each day, and what the reader has. A page shows on
+  /// one card only (its card is where it zooms from).
   private var cards: [Card] {
     let s = handbook.shelves
     let day = Calendar.current.ordinality(of: .day, in: .era, for: .now) ?? 0
@@ -84,13 +92,18 @@ struct TodayView: View {
     if let g = pick(s.firstGuides) { out.append(.guide(g)) }
     // The northern winter (November to March): the well-known fish that need a heater. Vietnam's season, so Vietnamese only.
     let month = Calendar.current.component(.month, from: .now)
+    var shown = Set(out.compactMap { if case let .fish(i) = $0 { i.path } else if case let .guide(i) = $0 { i.path } else { nil } })
     if handbook.lang == "vi", [11, 12, 1, 2, 3].contains(month) {
-      let warm = s.featuredFish.filter { ($0.facts.tempC?.min ?? 0) >= 23 && $0.img != nil }
-      if warm.count >= 2 { out.append(.season(Array(warm.prefix(4)))) }
+      let warm = s.featuredFish.filter { ($0.facts.tempC?.min ?? 0) >= 23 && $0.img != nil && !shown.contains($0.path) }
+      if warm.count >= 2 {
+        out.append(.season(Array(warm.prefix(4))))
+        shown.formUnion(warm.prefix(4).map(\.path))
+      }
     }
-    if let t = tanks.tanks.first { out.append(.tank(t)) }
+    // The reader's tank, or, with none yet, the way to add one.
+    out.append(tanks.tanks.first.map { .tank($0) } ?? .firstTank)
     if let v = pick(s.all(.video), 3) { out.append(.series(v)) }
-    let latest = handbook.latest.filter { $0.item.img != nil }.prefix(3)
+    let latest = handbook.latest.filter { $0.item.img != nil && !shown.contains($0.item.path) }.prefix(3)
     if !latest.isEmpty { out.append(.latest(Array(latest))) }
     return out
   }
@@ -133,7 +146,7 @@ private struct FishOfTheDay: View {
           }
           .overlay(alignment: .topLeading) {
             VStack(alignment: .leading, spacing: 4) {
-              Eyebrow(text: "Cá của ngày")
+              Eyebrow(text: "Gợi ý hôm nay")
               Text(verbatim: item.name).font(.system(.largeTitle, weight: .heavy)).lineLimit(2)
             }
             .foregroundStyle(.white)
@@ -145,7 +158,8 @@ private struct FishOfTheDay: View {
       }
       .buttonStyle(CardPress())
       .accessibilityIdentifier("v2-fish-of-the-day")
-      Lockup(item: item, line: factsLine(item, handbook.lang), onDark: true)
+      // The name is the card's title: under it, the fish's other name and figures, not the name and photo again.
+      Lockup(item: item, title: item.sub ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false)
         .padding(.horizontal, 16).padding(.vertical, 10)
         .background(colour)
     }
@@ -169,8 +183,9 @@ private struct GuideCard: View {
       V2Photo(src: item.img) { colour = $0 }
         .frame(height: 420)
         .overlay {
-          LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.35), .init(color: colour.opacity(0.85), location: 0.62),
-                                 .init(color: colour, location: 1)], startPoint: .top, endPoint: .bottom)
+          // Opaque under the words: a light photo's sand doesn't come through behind them (4.5:1 for the label).
+          LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.3), .init(color: colour.opacity(0.95), location: 0.55),
+                                 .init(color: colour, location: 0.65)], startPoint: .top, endPoint: .bottom)
         }
         .overlay(alignment: .bottomLeading) {
           VStack(alignment: .leading, spacing: 6) {
@@ -232,9 +247,9 @@ private struct TankCard: View {
   var body: some View {
     Button { openScreen(.tanks(tank.id)) } label: {
       VStack(alignment: .leading, spacing: 4) {
-        Eyebrow(text: "Bể của bạn")
+        Eyebrow(text: "Bể đang nuôi")
         Text(verbatim: tank.name).font(.system(.title2, weight: .heavy)).lineLimit(2)
-        TankSketch(dims: tank.dims, fish: tank.species.reduce(0) { $0 + ($1.count ?? 1) })
+        TankSketch(dims: tank.dims, fish: tank.species.reduce(0) { $0 + ($1.count ?? 1) }, plants: tank.plants.count)
           .frame(height: 140)
           .padding(.vertical, 12)
         HStack(alignment: .bottom, spacing: 24) {
@@ -270,10 +285,39 @@ private struct TankCard: View {
   }
 }
 
+/// With no tank yet: an empty one drawn, and the way to add the first, on the tanks tab.
+@available(iOS 18, *)
+private struct FirstTankCard: View {
+  @Environment(\.openScreen) private var openScreen
+
+  var body: some View {
+    Button { openScreen(.tanks(nil)) } label: {
+      VStack(alignment: .leading, spacing: 4) {
+        Eyebrow(text: "Bể của bạn")
+        Text("Thêm bể đầu tiên").font(.system(.title2, weight: .heavy))
+        TankSketch(dims: nil, fish: 0).frame(height: 120).padding(.vertical, 12)
+        Text("Thêm bể đầu tiên để ghi lại kích thước, nền và ghi chú.").font(.subheadline).opacity(0.85)
+          .fixedSize(horizontal: false, vertical: true)
+      }
+      .foregroundStyle(.white)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(20)
+      .background(LinearGradient(colors: [Color(red: 0.12, green: 0.35, blue: 0.26), Color(red: 0.07, green: 0.22, blue: 0.16)],
+                                 startPoint: .topLeading, endPoint: .bottomTrailing))
+      .v2Card()
+    }
+    .buttonStyle(CardPress())
+    .accessibilityIdentifier("v2-first-tank")
+    .padding(.horizontal, 20)
+  }
+}
+
 /// A tank drawn at its length to height: glass, water, sand, a few plants and its fish as small marks.
 private struct TankSketch: View {
   let dims: (l: Double, w: Double, h: Double)?
   let fish: Int
+  /// Its plants, up to four stems: none drawn for none.
+  var plants = 0
 
   var body: some View {
     Canvas { ctx, size in
@@ -286,8 +330,8 @@ private struct TankSketch: View {
         startPoint: box.origin, endPoint: CGPoint(x: box.minX, y: box.maxY)))
       let sand = CGRect(x: box.minX, y: box.maxY - h * 0.16, width: w, height: h * 0.16)
       ctx.fill(Path(roundedRect: sand, cornerRadius: 4), with: .color(Color(red: 0.78, green: 0.64, blue: 0.42)))
-      for (i, x) in [0.08, 0.14, 0.82, 0.9].enumerated() {
-        let ph = h * [0.6, 0.45, 0.7, 0.5][i]
+      for (i, x) in [0.08, 0.82, 0.14, 0.9].prefix(min(plants, 4)).enumerated() {
+        let ph = h * [0.6, 0.7, 0.45, 0.5][i]
         let stem = CGRect(x: box.minX + w * x, y: sand.minY - ph, width: 7, height: ph)
         ctx.fill(Path(roundedRect: stem, cornerRadius: 3.5), with: .color(Color(red: 0.42, green: 0.78, blue: 0.4)))
       }
@@ -335,6 +379,7 @@ private struct SeriesCard: View {
 @available(iOS 18, *)
 private struct LatestCard: View {
   let rows: [Latest.Row]
+  let zoom: Namespace.ID
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
@@ -342,11 +387,12 @@ private struct LatestCard: View {
       HStack(alignment: .firstTextBaseline) {
         Text("Mới cập nhật").font(.system(.title2, weight: .heavy))
         Spacer()
-        NavigationLink(value: Browse.latest) { Text("Xem tất cả") }
+        NavigationLink(value: Browse.latest) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }
       }
       VStack(spacing: 0) {
         ForEach(rows) { row in
           Lockup(item: row.item, action: row.item.kind == .guide ? .read : .view, thumb: 52).padding(.vertical, 6)
+            .matchedTransitionSource(id: row.item.path, in: zoom)
           if row.id != rows.last?.id { Divider().padding(.leading, 64) }
         }
       }

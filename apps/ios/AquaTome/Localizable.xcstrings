@@ -1345,6 +1345,22 @@
         }
       }
     },
+    "Bể đang nuôi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium yang dipelihara"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ที่เลี้ยงอยู่"
+          }
+        }
+      }
+    },
     "Bể đã ổn định": {
       "localizations": {
         "id": {
@@ -2477,22 +2493,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลาหางนกยูงสีฟ้าทะเล"
-          }
-        }
-      }
-    },
-    "Cá của ngày": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ikan hari ini"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ปลาประจำวัน"
           }
         }
       }
@@ -4013,6 +4013,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "นำ “%@” ออกจากตู้ไหม"
+          }
+        }
+      }
+    },
+    "Gợi ý hôm nay": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rekomendasi hari ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แนะนำวันนี้"
           }
         }
       }
@@ -6957,6 +6973,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่ม"
+          }
+        }
+      }
+    },
+    "Thêm %@ vào bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan %@ ke akuarium"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม %@ ลงตู้"
           }
         }
       }

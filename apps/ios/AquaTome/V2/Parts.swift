@@ -99,25 +99,33 @@ enum LockupAction { case add, read, view, none }
 /// action. The name and photo open the page; the button is its own.
 struct Lockup: View {
   let item: HandbookIndex.Item
+  /// Its first line, the page's name unless the card already says it.
+  var title: String?
   var line: String?
   var action = LockupAction.add
   var onDark = false
-  var thumb: CGFloat = 60
+  /// Its photo as a rounded square, left out where the card shows it already.
+  var icon = true
+  @ScaledMetric(relativeTo: .body) var thumb: CGFloat = 60
+  @Environment(TanksModel.self) private var tanks
+  @Environment(\.dynamicTypeSize) private var size
   @State private var putting = false
 
   var body: some View {
     HStack(spacing: 12) {
       NavigationLink(value: item) {
         HStack(spacing: 12) {
-          V2Photo(src: item.img)
-            .frame(width: thumb, height: thumb)
-            .clipShape(.rect(cornerRadius: thumb * 0.23, style: .continuous))
-            .overlay { RoundedRectangle(cornerRadius: thumb * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
+          if icon {
+            V2Photo(src: item.img)
+              .frame(width: thumb, height: thumb)
+              .clipShape(.rect(cornerRadius: thumb * 0.23, style: .continuous))
+              .overlay { RoundedRectangle(cornerRadius: thumb * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
+          }
           VStack(alignment: .leading, spacing: 2) {
-            Text(verbatim: item.name).font(.body.weight(.semibold)).lineLimit(1)
+            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).lineLimit(size.isAccessibilitySize ? 3 : 1)
               .foregroundStyle(onDark ? .white : .primary)
             if let line = line ?? Lockup.line(item) {
-              Text(verbatim: line).font(.subheadline).lineLimit(1)
+              Text(verbatim: line).font(.subheadline).lineLimit(size.isAccessibilitySize ? 2 : 1)
                 .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
             }
           }
@@ -136,9 +144,14 @@ struct Lockup: View {
     case .add where Life(item) != nil:
       Button { putting = true } label: { Text("Thêm").capsule(onDark) }
         .buttonStyle(.plain)
-        .accessibilityLabel(Text("Thêm vào bể"))
+        // Not into a store this app must leave alone (newer, unreadable), as v1's page.
+        .disabled(!tanks.canEdit)
+        // Read with the fish's name: a shelf of them isn't "Thêm vào bể" again and again.
+        .accessibilityLabel(Text("Thêm \(item.name) vào bể"))
     case .read, .view, .add:
+      // The same page the row opens: one stop for VoiceOver, the row.
       NavigationLink(value: item) { Text(action == .read ? "Đọc" : "Xem").capsule(onDark) }.buttonStyle(.plain)
+        .accessibilityHidden(true)
     case .none:
       EmptyView()
     }
@@ -169,6 +182,8 @@ struct FactsStrip: View {
   let facts: HandbookIndex.Facts
   var onDark = false
   @Environment(HandbookModel.self) private var handbook
+  /// A column's width, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
+  @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 108
 
   struct Column: Identifiable {
     let id: Int
@@ -186,7 +201,8 @@ struct FactsStrip: View {
       HStack(alignment: .top, spacing: 0) {
         ForEach(columns) { c in
           VStack(spacing: 5) {
-            Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(1)
+            Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
+              .multilineTextAlignment(.center)
               .foregroundStyle(onDark ? .white.opacity(0.6) : .secondary)
             Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
               .foregroundStyle(onDark ? .white : .primary)
@@ -203,7 +219,7 @@ struct FactsStrip: View {
               Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.7) : .secondary)
             }
           }
-          .frame(width: 108)
+          .frame(width: column)
           .padding(.vertical, 4)
           .overlay(alignment: .leading) {
             if c.id > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5).padding(.vertical, 8) }
@@ -245,7 +261,9 @@ struct ShelfHeader<More: Hashable>: View {
     HStack(alignment: .firstTextBaseline) {
       Text(title).font(.title2.weight(.bold))
       Spacer()
-      if let more { NavigationLink(value: more) { Text("Xem tất cả") }.font(.body) }
+      if let more {
+        NavigationLink(value: more) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }.font(.body)
+      }
     }
     .padding(.horizontal, 20)
   }
@@ -261,7 +279,7 @@ struct CardPress: ButtonStyle {
 }
 
 extension View {
-  /// A card's shape: rounded, its shadow in the light look, a hairline in the dark.
+  /// A card's shape: rounded, with a soft shadow.
   func v2Card(_ radius: CGFloat = 22) -> some View {
     clipShape(.rect(cornerRadius: radius, style: .continuous))
       .shadow(color: .black.opacity(0.14), radius: 16, y: 8)
