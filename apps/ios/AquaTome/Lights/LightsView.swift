@@ -33,6 +33,7 @@ struct LightsView: View {
       }
       .background(Color(.systemGroupedBackground))
       .navigationTitle("Đèn Chihiros")
+      .profileButton()
       // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar
       // is fixed to the bottom on a phone too).
       .safeAreaInset(edge: .bottom) { VStack(spacing: 0) { NoticeBar(); if pinned { WriteBar(pinned: true) } } }

@@ -134,7 +134,8 @@ that would have caught it).
     breed in a tank-mates link as its species), a tank-mates block of two fish or more only with the check Claude ran on
     the same fish, counts and tank (`check_tank_mates`: the tool's own code, in the reader's language; an id that isn't a
     fish refused by name; in the reader's saved tank by its id, its fish and size added as the app's tank page adds them)
-    and carrying it whole, a tank's block naming it and linking every kind up to the six the tool's page reads, a pick
+    and carrying it whole, a tank's block naming it and linking every kind up to the six the tool's page reads, a card or
+    section shown earlier in the conversation (or twice in one answer) not shown again, a pick
     the handbook doesn't have dropped with its reason while the rest go
     out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
     loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
@@ -144,8 +145,10 @@ that would have caught it).
     within 100 characters; a question answered, its blocks filled, the conversation keeping the turn under the account's
     HMAC and chat's own day counting it under the shared dollar cap; the next question reading the turns before it;
     another account's conversation 404, one past a day or its turns 410; the stream's order, `done` sent once the turn is
-    saved; a retry by `Idempotency-Key` answered from the kept turn, or, while its run answers, waiting for that run,
-    counted once, and another question meanwhile 409; the kept answer written before the conversation loses its mark;
+    saved; a retry by `Idempotency-Key` answered from the kept turn for the conversation's 24 hours (a 503 for 15
+    minutes) and refused after, the retry itself never counted, or, while its run answers, waiting for that run even past
+    the conversation's end, counted once, and another question meanwhile 409; the kept answer written before the
+    conversation loses its mark;
     two first questions at once in a new conversation, one run (a create-only write); a reader who leaves mid-answer or
     while the handbook loads, the run going on to its end; an R2 error marking the question 503; the account's day and
     the spend; Claude unreachable giving the count back and an unreadable answer keeping it; the account's synced tanks
@@ -852,7 +855,7 @@ fixed forward first, in a PR of its own. Android
 
 UI flows, by class (a line each, with a blank line between, so pull requests that change different flows don't conflict):
 
-- `AccountFlowTests`: signing in to an account on a stand-in server: a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account and, long after signing in, signing in again comes first (by email too, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app.
+- `AccountFlowTests`: signing in to an account on a stand-in server, in the Tài khoản sheet (opened by the profile button on each tab and by the hint on an empty "Bể của tôi", none of the account in the tanks tab, never blank, with no network the account signed in on the phone shown as last seen and a new phone told the server can't be reached rather than that accounts are off, a sync that failed putting a dot on the profile button): a new phone gets the tanks made before and after signing in, Google signs in (on stand-ins for its page and token endpoint) and closing its page leaves the reader signed out with nothing said, a code sent by email signs in (a wrong one refused) and the same address on a new phone opens the same account, a passkey added on the website opens its account (one no account has is refused with what to do), a passkey added in the app opens its account (the sheet then saying the account has one, and still offering one for this phone), and long after signing in, adding one asks to sign in again first (with Apple, the add then finding this phone has it already, or by email, with what the add says kept), signing out keeps the tanks, deleting the account empties it, no sign-in with accounts off or for a store from a newer app, and no sync of one signed in (the sheet saying so).
 
 - `AppIconFlowTests`: the app's icon chosen from its picker (every icon listed in the app with a preview to draw, none unlisted) and the default again.
 
@@ -872,13 +875,13 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `OwnerFlowTests`: the owner's dashboard (the stand-in server serving `protocols/owner-dashboard-vectors.json`) shown only to the owner's account, its "Mấy ngày qua", a to-do opening its section at the heading it names, a section's chart and table, a reader's photo approved and the section read again, one removed only once the owner says yes, a page hidden by the section's form and brought back, a refusal showing the server's message, the daily report's email turned off then on again, a session ending while it's open (sign in again, the row kept), the server's storage down (its message, then tried again), a long cell (a page's review notes) showing two lines until tapped open, then shut again, and the daily report's notifications turned on here once iOS allows them, kept on, then off.
 
-- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), and the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings).
+- `PageShotsFlowTests`: a fish, a plant, a guide, a kind of kit and the fish-ID screen screenshotted top to bottom for a change's before and after, Tìm's tools (light, dark and the largest text), the Tài khoản sheet and its ways to sign in (light and dark), and the owner's dashboard (its overview, a section with charts and tables, and the daily report's settings).
 
 - `PhotoViewerFlowTests`: its photo viewer (opened where tapped, the row's thumbnail at once while the full photo comes, only the two photos either side fetched, swiped, tapped bare, zoomed without swiping, pulled down to close).
 
 - `PlugFlowTests`: smart plugs on a tank, on the stand-in Tuya cloud and with no account: the project's keys set up, wrong ones said so and not kept, the right ones checked by reading the list and kept, then removed, a plug added and its outlets named (labels from Smart Life, kept across a launch, not offered for a second tank), an outlet switched and confirmed, a heater, a CO2 or an outlet with no role asks first, a plug that doesn't confirm shown as it reports, a plug gone offline refused and shown offline, a plug taken off the tank.
 
-- `ReaderPostFlowTests`: a comment posted as the reader's account (signing in first) and shown on the page at once, still there when the page reads its comments again, a reader's photo not sent without a name, the reader's consent or one picked (the site's words for each), a photo sent with consent showing the photo and the link that takes it back once, to keep (a tap doesn't open it), no posting with accounts off, another reader's comment reported signed out (asked why, thanked, and kept off the phone past a relaunch) and their photo reported from its viewer, a poster blocked (their comments and photos hidden, the others kept) and let back from the page and from the tanks tab, AquaTome's contact page on the home with accounts off.
+- `ReaderPostFlowTests`: a comment posted as the reader's account (signing in first) and shown on the page at once, still there when the page reads its comments again, a reader's photo not sent without a name, the reader's consent or one picked (the site's words for each), a photo sent with consent showing the photo and the link that takes it back once, to keep (a tap doesn't open it), no posting with accounts off, another reader's comment reported signed out (asked why, thanked, and kept off the phone past a relaunch) and their photo reported from its viewer, a poster blocked (their comments and photos hidden, the others kept) and let back from the page and from the Tài khoản sheet (not listed in the tanks tab), AquaTome's contact page on the home with accounts off.
 
 - `ReadingFlowTests`: a guide saved to read later and kept after a relaunch then taken off, the pages read last newest first.
 
@@ -892,7 +895,7 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 
 - `TanksFlowTests`: add a tank with its size and litres (shown as typed, halves rounded up), a partial size refused, a name kept to 80 characters, edit a tank keeping its other fields and find it after a relaunch, a new size dropping litres given for the old one, delete a tank, a tank's fish and plants opening their pages, a store from a newer app or one it can't read left alone, adding again after a failed save.
 
-- `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, also from Bể của tôi with no tanks, signed out.
+- `TelemetryFlowTests`: anonymous telemetry on a stand-in Worker: nothing sent until the site's index says it takes it, nor on the flag of the index kept from an earlier launch while the site's doesn't come, then a page the app draws and the tab sent, a light connected sent without its name or the account's id, the reader's switch off sending nothing and emptying the queue's file at once, from the Tài khoản sheet, with no tanks and signed out too.
 
 - `ViAtRootFlowTests`: with the Vietnamese pages at the root (`-vi-at-root`), a fish from search, a link in a page, a card still linking under "/vi/", a group, both tools, and a guide saved under "/vi/" still saved and opening.
 
@@ -916,8 +919,8 @@ Rules (as for the site):
    before asking for review, and a reviewer can check what it claims. `PageShotsFlowTests` screenshots the handbook's
    pages top to bottom (a fish, a plant, a guide and a kind of kit, in light and dark, the fish's top in large text, and a
    guide's video playing in its page), the fish-ID screen with its guesses, light and dark, Tìm's tools (light, dark and the largest text), the home's section for kit and
-   a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the
-   lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
+   a long list's whole list, with stand-in photos (`-fixed-pictures`), the app's icon picker in light and dark, the Tài khoản sheet
+   with its ways to sign in, light and dark (the stand-in server), the lights tab's card with its outlet's warning (the fake light and the stand-in Tuya cloud), and the owner's dashboard on
    the stand-in server (its overview, a section with charts and tables, and the daily report's settings). Job
    `handbook (1)` puts them in its `ios-page-shots`
    artifact whenever it runs
