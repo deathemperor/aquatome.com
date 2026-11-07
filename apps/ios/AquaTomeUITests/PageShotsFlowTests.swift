@@ -419,7 +419,7 @@ final class PageShotsFlowTests: XCTestCase {
     snap("\(name)-02")
     app.swipeDown(velocity: .fast)
     app.swipeDown(velocity: .fast)
-    let link = app.links["Xem 2 ảnh bạn đọc gửi ↓"]
+    let link = app.links["Xem 2 ảnh bạn đọc gửi ↓"].firstMatch
     XCTAssertTrue(link.waitForExistence(timeout: 5), "no link to the readers' photos")
     link.tap()
     settle()

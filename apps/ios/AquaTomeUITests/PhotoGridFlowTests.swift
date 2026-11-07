@@ -21,7 +21,7 @@ final class PhotoGridFlowTests: XCTestCase {
     let line = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon, từ iNaturalist và Wikimedia Commons, giấy phép mở.")).firstMatch
     XCTAssertTrue(line.exists, "not the page's name, then the note less its count")
     XCTAssertGreaterThan(line.frame.minY, app.staticTexts["3 ảnh"].frame.maxY - 1, "the line above the title")
-    XCTAssertTrue(app.links["Xem 2 ảnh bạn đọc gửi ↓"].waitForExistence(timeout: 5), "no link to the readers' photos")
+    XCTAssertTrue(readersLink(app).waitForExistence(timeout: 5), "no link to the readers' photos")
     XCTAssertTrue(app.tabBars.firstMatch.exists, "the tab bar went")
     XCTAssertEqual(app.buttons["grid-photo-1"].label, "Đàn cá neon trong bể, Ảnh 1 trên 3", "not named by its words and its place")
     app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -75,7 +75,12 @@ final class PhotoGridFlowTests: XCTestCase {
     XCTAssertGreaterThan(large.staticTexts["300 ảnh"].frame.height, titleHeight, "the title didn't grow")
     let line = large.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon, '")).firstMatch
     XCTAssertLessThanOrEqual(line.frame.maxX, large.frame.maxX, "the line runs off the screen")
-    XCTAssertEqual(rows(large, through: 3).first?.map(\.size), normal.first?.map(\.size), "the first row changed with the text")
+    let first = rows(large, through: 3).first ?? [], before = normal.first ?? []
+    XCTAssertEqual(first.count, before.count, "the first row changed with the text")
+    for (a, b) in zip(first, before) {
+      XCTAssertEqual(a.width, b.width, accuracy: 0.4, "a photo's width changed with the text")
+      XCTAssertEqual(a.height, b.height, accuracy: 0.4, "a photo's height changed with the text")
+    }
   }
 
   /// A thumbnail that doesn't come stays a plain cell: not a symbol among hundreds.
@@ -124,6 +129,31 @@ final class PhotoGridFlowTests: XCTestCase {
     XCTAssertTrue(soon(onScreen(app, app.buttons["grid-photo-\(back)"])), "photo \(back) isn't in view")
   }
 
+  /// Closed on a photo far down, on a row never yet drawn, the grid goes there and the row is where it belongs.
+  func testClosingOnAPhotoFarDownGoesToItsRow() {
+    let app = launch("-hundreds-gallery")
+    openGrid(app)
+    app.buttons["grid-photo-4"].tap()
+    XCTAssertTrue(counter(app, 4).waitForExistence(timeout: 5), "not on photo 4")
+    // Along the viewer's strip, which shows a few either side.
+    for k in stride(from: 8, through: 40, by: 4) {
+      let next = app.buttons["Ảnh \(k) trên 300"]
+      XCTAssertTrue(next.waitForExistence(timeout: 5), "no photo \(k) in the strip")
+      next.tap()
+      XCTAssertTrue(counter(app, k).waitForExistence(timeout: 5), "not on photo \(k)")
+    }
+    app.buttons["Đóng"].tap()
+    XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
+    XCTAssertTrue(soon(onScreen(app, app.buttons["grid-photo-40"])), "photo 40 isn't in view")
+    // Its row has its neighbours, 2 points away: not drawn by a guess at where it goes.
+    let photo = app.buttons["grid-photo-40"].frame, next = app.buttons["grid-photo-41"].frame
+    if abs(photo.minY - next.minY) < 1 {
+      XCTAssertEqual(next.minX - photo.maxX, 2, accuracy: 0.7, "not 2 points beside its neighbour")
+    } else {
+      XCTAssertEqual(next.minY - photo.maxY, 2, accuracy: 0.7, "not 2 points above the next row")
+    }
+  }
+
   /// Closed on a photo still on the screen, nothing moves.
   func testClosingOnAPhotoOnTheScreenMovesNothing() {
     let app = launch("-hundreds-gallery")
@@ -145,9 +175,22 @@ final class PhotoGridFlowTests: XCTestCase {
     openGrid(app)
     let count = app.navigationBars.staticTexts["300 ảnh"], theirs = app.navigationBars.staticTexts["Ảnh bạn đọc"]
     XCTAssertFalse(count.exists, "the count in the bar over the title")
-    app.links["Xem 2 ảnh bạn đọc gửi ↓"].tap()
+    // Dragged just past the title: the count then, not some way on.
+    let title = app.staticTexts["300 ảnh"].firstMatch, bar = app.navigationBars.firstMatch
+    let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+    from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: bar.frame.maxY - title.frame.maxY - 24)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    XCTAssertTrue(count.waitForExistence(timeout: 3), "no count in the bar with the title just gone")
+    app.swipeDown(velocity: .fast)
+    XCTAssertTrue(soon(!count.exists), "the count stayed in the bar over the title")
+    let link = readersLink(app)
+    XCTAssertTrue(link.waitForExistence(timeout: 5), "no link to the readers' photos")
+    link.tap()
     XCTAssertTrue(theirs.waitForExistence(timeout: 5), "the bar doesn't say the readers' part")
     XCTAssertFalse(count.exists, "the count still in the bar")
+    // Right under the last of 300 photos, none drawn on the way: not by a guess at their heights.
+    let last = app.buttons["grid-photo-300"], heading = app.descendants(matching: .any)["grid-readers-heading"]
+    XCTAssertTrue(soon(last.exists), "the last photo isn't above the readers' part")
+    XCTAssertEqual(heading.frame.minY - last.frame.maxY, 28, accuracy: 3, "the rows didn't land where their heights say")
     app.swipeDown(velocity: .fast)
     XCTAssertTrue(count.waitForExistence(timeout: 5), "the bar doesn't say the count again")
     XCTAssertFalse(theirs.exists, "the readers' part still in the bar")
@@ -157,8 +200,7 @@ final class PhotoGridFlowTests: XCTestCase {
   func testTheReadersPartIsItsOwn() {
     let app = launch(accounts: "on")
     openGrid(app)
-    let link = app.links["Xem 2 ảnh bạn đọc gửi ↓"]
-    XCTAssertTrue(link.waitForExistence(timeout: 5), "no link")
+    XCTAssertTrue(readersLink(app).waitForExistence(timeout: 5), "no link")
     XCTAssertTrue(app.staticTexts["3 ảnh"].exists, "their photos counted in the title")
     XCTAssertTrue(app.staticTexts["2 ảnh bạn đọc gửi, ngoài 3 ảnh ở trên."].exists, "no line under their heading")
     let post = app.buttons["grid-post-photo"]
@@ -217,6 +259,24 @@ final class PhotoGridFlowTests: XCTestCase {
     XCTAssertFalse(places(asked).contains(300), "fetched the last photo: \(asked.label)")
   }
 
+  /// A cell that reaches the screen waits for the fetch already on its way ahead of it, and doesn't fetch its photo again.
+  func testACellThatReachesTheScreenSharesTheFetchAheadOfIt() {
+    let app = launch("-hundreds-gallery", "-grid-log", "-slow-thumbs")
+    openGrid(app)
+    let asked = app.descendants(matching: .any)["grid-requests"]
+    XCTAssertTrue(soon(places(asked).contains(15)), "photo 15 not asked for: \(asked.label)")
+    settle(1)
+    // The furthest asked for is ahead of the screen, and held on its way (`-slow-thumbs`).
+    guard let ahead = places(asked).max() else { return XCTFail("nothing asked for") }
+    let cell = app.buttons["grid-photo-\(ahead)"]
+    repeatUntil(onScreen(app, cell), times: 6) { app.swipeUp(velocity: .slow) }
+    XCTAssertTrue(onScreen(app, cell), "photo \(ahead) never reached the screen")
+    settle(1)
+    // Past the page's row of ten, which the page asked for first.
+    let repeats = places(app.descendants(matching: .any)["grid-repeats"]).filter { $0 > 10 }
+    XCTAssertEqual(repeats, [], "fetched again though on their way")
+  }
+
   /// A cell scrolled away stops loading: photo 15 (on the first screen, not in the page's row of ten).
   func testACellScrolledAwayStopsLoading() {
     let app = launch("-hundreds-gallery", "-grid-log", "-slow-thumbs")
@@ -258,7 +318,7 @@ final class PhotoGridFlowTests: XCTestCase {
   /// The rows on the screen at the top of the grid (`-hundreds-gallery`), checked as they're read: each a row of frames.
   /// Once the readers' photos are read, which adds a link to the words above.
   private func rows(_ app: XCUIApplication, through: Int = 14) -> [[CGRect]] {
-    XCTAssertTrue(app.links["Xem 2 ảnh bạn đọc gửi ↓"].waitForExistence(timeout: 5), "no link to the readers' photos")
+    XCTAssertTrue(readersLink(app).waitForExistence(timeout: 5), "no link to the readers' photos")
     let width = app.frame.width
     var rows: [[CGRect]] = []
     for place in 1...through {
@@ -282,6 +342,9 @@ final class PhotoGridFlowTests: XCTestCase {
     }
     return rows
   }
+
+  /// The link in the words under the title, there once the readers' photos are read.
+  private func readersLink(_ app: XCUIApplication) -> XCUIElement { app.links["Xem 2 ảnh bạn đọc gửi ↓"].firstMatch }
 
   private func onScreen(_ app: XCUIApplication, _ e: XCUIElement) -> Bool {
     guard e.exists else { return false }

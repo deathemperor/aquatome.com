@@ -37,11 +37,6 @@ public enum PhotoRows {
     return rows
   }
 
-  /// All the rows' height, with the gaps between them: the place they take before any is drawn.
-  public static func height(_ rows: [Row]) -> Double {
-    rows.reduce(0) { $0 + $1.height } + gap * Double(max(rows.count - 1, 0))
-  }
-
   /// The row holding the photo at `place`.
   public static func row(of place: Int, in rows: [Row]) -> Int? {
     rows.firstIndex { $0.photos.contains(place) }

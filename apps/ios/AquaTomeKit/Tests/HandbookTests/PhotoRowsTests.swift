@@ -65,13 +65,6 @@ private func close(_ a: Double, _ b: Double) -> Bool { abs(a - b) < 0.001 }
     #expect(PhotoRows.rows(ratios: [], width: 402).isEmpty)
     // Before the screen's width is known.
     #expect(PhotoRows.rows(ratios: ratios, width: 0).isEmpty)
-    #expect(PhotoRows.height([]) == 0)
-  }
-
-  @Test func theirHeightCountsTheGaps() {
-    let rows = PhotoRows.rows(ratios: ratios, width: 402)
-    let sum = rows.map(\.height).reduce(0, +)
-    #expect(close(PhotoRows.height(rows), sum + 2 * Double(rows.count - 1)))
   }
 
   @Test func aPhotoIsFoundInItsRow() {

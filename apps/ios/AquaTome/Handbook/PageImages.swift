@@ -57,7 +57,9 @@ struct PageImage: View {
         let size = PageImages.Size.filling(pixels), src = src
         if let hit = PageImages.cached(src, size) { picture = (src, hit); return }
         let had = image != nil
-        let loaded = await PageImages.image(src, size)
+        // On its way already, ahead of the reader (the photo grid): not fetched a second time.
+        var loaded = await PageImages.ahead[src]?.value
+        if loaded == nil { loaded = await PageImages.image(src, size) }
         guard !Task.isCancelled else { return }
         // Faded in as it comes; one in memory at a smaller size, swapped.
         if let loaded {
@@ -118,6 +120,9 @@ enum PageImages {
     c.totalCostLimit = 40 << 20
     return c
   }()
+
+  /// Thumbnails being fetched ahead of the reader (the photo grid), for a cell that reaches the screen first.
+  @MainActor static var ahead: [String: Task<UIImage?, Never>] = [:]
 
   /// In memory at any size: shown at once while the right size comes.
   static func cached(_ src: String) -> UIImage? { memory.object(forKey: src as NSString)?.image }

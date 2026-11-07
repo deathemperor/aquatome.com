@@ -63,24 +63,33 @@ struct PhotoGrid: View {
             header(readers: readers.count)
             PhotoGridRows(rows: photoRows, photos: gallery.photos, readers: false, screen: outer.size.height) { show(false, $0) }
             if !readers.isEmpty {
-              readersHeader(count: readers.count, screen: outer.size.height)
-              PhotoGridRows(rows: readerRows, photos: readerImages, readers: true, screen: outer.size.height) { show(true, $0) }
-              if talk?.photos != nil, account.state != .unknown, account.state != .off {
-                Button { posting = true } label: { Label("Gửi ảnh của bạn", systemImage: "plus").frame(maxWidth: .infinity) }
-                  .buttonStyle(.bordered)
-                  .buttonBorderShape(.capsule)
-                  .controlSize(.large)
-                  .padding(.horizontal)
-                  .padding(.top, 16)
-                  .accessibilityIdentifier("grid-post-photo")
+              VStack(alignment: .leading, spacing: 0) {
+                readersHeader(count: readers.count)
+                PhotoGridRows(rows: readerRows, photos: readerImages, readers: true, screen: outer.size.height) { show(true, $0) }
+                if talk?.photos != nil, account.state != .unknown, account.state != .off {
+                  Button { posting = true } label: { Label("Gửi ảnh của bạn", systemImage: "plus").frame(maxWidth: .infinity) }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.capsule)
+                    .controlSize(.large)
+                    .padding(.horizontal)
+                    .padding(.top, 16)
+                    .accessibilityIdentifier("grid-post-photo")
+                }
               }
+              .id(Self.readersPart)
+              // In the upper half of the screen, or a part too short ever to get there, its end in view.
+              .onGeometryChange(for: Bool.self) { g in
+                let f = g.frame(in: .scrollView), screen = outer.size.height
+                return f.minY < screen / 2 || f.maxY <= screen
+              } action: { readersUp = $0 }
             }
           }
           .padding(.bottom, 32)
         }
-        // The one link here: down to the readers' part.
+        // The one link here: down to the readers' part. At once: a slide past hundreds of photos would start and stop a
+        // fetch for each.
         .environment(\.openURL, OpenURLAction { _ in
-          withAnimation(reduceMotion ? nil : .default) { proxy.scrollTo(Self.readersPart, anchor: .top) }
+          proxy.scrollTo(Self.readersPart, anchor: .top)
           return .handled
         })
         .onAppear {
@@ -116,10 +125,11 @@ struct PhotoGrid: View {
   }
 
   /// Nothing while the title shows; the count once it has scrolled away; "Ảnh bạn đọc" once their part is in the upper
-  /// half of the screen.
+  /// half of the screen or ends on it.
   private var barTitle: Text {
     guard pastTitle else { return Text(verbatim: "") }
-    return readersUp ? Text("Ảnh bạn đọc") : Text("\(gallery.photos.count) ảnh")
+    // Not of a part that's gone, its last photo reported.
+    return readersUp && !shownReaders.isEmpty ? Text("Ảnh bạn đọc") : Text("\(gallery.photos.count) ảnh")
   }
 
   private func header(readers: Int) -> some View {
@@ -148,17 +158,15 @@ struct PhotoGrid: View {
     return out
   }
 
-  private func readersHeader(count: Int, screen: CGFloat) -> some View {
+  private func readersHeader(count: Int) -> some View {
     VStack(alignment: .leading, spacing: 4) {
-      Text("Ảnh bạn đọc").font(.pageHeading).accessibilityAddTraits(.isHeader)
+      Text("Ảnh bạn đọc").font(.pageHeading).accessibilityAddTraits(.isHeader).accessibilityIdentifier("grid-readers-heading")
       Text("\(count) ảnh bạn đọc gửi, ngoài \(gallery.photos.count) ảnh ở trên.").font(.subheadline).foregroundStyle(.secondary)
     }
     .padding(.horizontal)
     .padding(.top, 28)
     .padding(.bottom, 10)
     .frame(maxWidth: .infinity, alignment: .leading)
-    .id(Self.readersPart)
-    .onGeometryChange(for: Bool.self) { $0.frame(in: .scrollView).minY < screen / 2 } action: { readersUp = $0 }
   }
 
   /// The viewer at photo `i`: sliding up, or with Reduce Motion there at once.
@@ -171,14 +179,20 @@ struct PhotoGrid: View {
   private static func ratios(_ photos: [PageDoc.Image]) -> [Double] { photos.map { Double($0.w) / Double($0.h) } }
 
   #if DEBUG
-  /// For the UI tests (`-grid-log`, debug builds only): the photos whose thumbnail was fetched and those whose fetch was
-  /// stopped (their places, from 1).
+  /// For the UI tests (`-grid-log`, debug builds only): the photos whose thumbnail was fetched, those whose fetch was
+  /// stopped, and those fetched more than once (their places, from 1).
   @ViewBuilder private var testsRead: some View {
     if ProcessInfo.processInfo.arguments.contains("-grid-log") {
       let log = PictureLog.shared
       Text(verbatim: places(log.page)).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("grid-requests")
       Text(verbatim: places(log.stopped)).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("grid-stopped")
+      Text(verbatim: places(repeats(log.page))).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("grid-repeats")
     }
+  }
+
+  private func repeats(_ srcs: [String]) -> [String] {
+    var seen = Set<String>()
+    return srcs.filter { !seen.insert($0).inserted }
   }
 
   private func places(_ srcs: [String]) -> String {
@@ -188,8 +202,10 @@ struct PhotoGrid: View {
   #endif
 }
 
-/// One list's rows, edge to edge: a lazy stack the height of all of them. Each photo a button named by its words and its
-/// place, loading its thumbnail at its size, with a plain fill until it comes (and if it never does).
+/// One list's rows, edge to edge, each its own lazy stack at the height its photos give it. One lazy stack of them all
+/// would place rows it hasn't drawn by a guess from those it has: after a jump to a row far down, or to the part below,
+/// they'd land off by screens. Each photo a button named by its words and its place, loading its thumbnail at its size,
+/// with a plain fill until it comes (and if it never does).
 private struct PhotoGridRows: View {
   let rows: [PhotoRows.Row]
   let photos: [PageDoc.Image]
@@ -200,19 +216,21 @@ private struct PhotoGridRows: View {
   @Environment(\.displayScale) private var scale
 
   var body: some View {
-    LazyVStack(alignment: .leading, spacing: PhotoRows.gap) {
-      ForEach(rows.indices.map { PhotoGrid.RowID(readers: readers, row: $0) }, id: \.self) { id in
-        let row = rows[id.row]
-        HStack(spacing: PhotoRows.gap) {
-          ForEach(row.photos, id: \.self) { place in
-            cell(place, width: row.widths[place - row.photos.lowerBound], height: row.height)
+    VStack(alignment: .leading, spacing: PhotoRows.gap) {
+      ForEach(rows.indices, id: \.self) { r in
+        let row = rows[r]
+        LazyVStack(alignment: .leading, spacing: 0) {
+          HStack(spacing: PhotoRows.gap) {
+            ForEach(row.photos, id: \.self) { place in
+              cell(place, width: row.widths[place - row.photos.lowerBound], height: row.height)
+            }
           }
+          .onAppear { ahead.reached(r, rows: rows, photos: photos, screen: Double(screen), scale: Double(scale)) }
         }
-        .onAppear { ahead.reached(id.row, rows: rows, photos: photos, span: Double(2 * screen), scale: Double(scale)) }
+        .frame(height: CGFloat(row.height), alignment: .top)
+        .id(PhotoGrid.RowID(readers: readers, row: r))
       }
     }
-    // What the page under it, and the scroll bar, go by before a row is drawn: never a guess from the rows seen so far.
-    .frame(height: PhotoRows.height(rows), alignment: .top)
     .onDisappear { ahead.stop() }
   }
 
@@ -234,55 +252,71 @@ private struct PhotoGridRows: View {
 }
 
 /// The thumbnails of the next two screens the way the reader is scrolling, nearest first and four at a time, so a steady
-/// scroll meets them decoded. Those no longer ahead stop.
+/// scroll meets them decoded. One whose row reaches the screen keeps going, and its cell waits for it (PageImages.ahead);
+/// one left a screen behind stops.
 @MainActor private final class ThumbnailsAhead {
+  /// The row last looked ahead from.
   private var last = 0
+  /// The rows shown since then: a layout pass shows several at once, and in no order to go by.
+  private var pass: [Int] = []
   private var wanted: [(src: String, size: PageImages.Size)] = []
-  private var loads: [String: Task<Void, Never>] = [:]
+  private var loads: Set<String> = []
   /// Those started and not since left behind: one that didn't come isn't asked for again each time a row shows.
   private var tried: Set<String> = []
-  private var waking = false
 
-  func reached(_ row: Int, rows: [PhotoRows.Row], photos: [PageDoc.Image], span: Double, scale: Double) {
-    let down = row >= last
-    last = row
-    wanted = PhotoRows.ahead(of: row, in: rows, down: down, span: span).flatMap { r in
-      let row = rows[r]
-      return zip(row.photos, row.widths).map { place, width in
-        (src: photos[place].thumb ?? photos[place].src, size: PageImages.Size.filling(CGSize(width: width * scale, height: row.height * scale)))
-      }
-    }
-    let ahead = Set(wanted.map(\.src))
-    for (src, load) in loads where !ahead.contains(src) {
-      load.cancel()
-      loads[src] = nil
-    }
-    tried.formIntersection(ahead)
-    // After this pass: the first layout shows a screen of rows at once, and only the last of them says what's ahead.
-    guard !waking else { return }
-    waking = true
-    Task { [weak self] in
-      self?.waking = false
-      self?.next()
-    }
+  func reached(_ row: Int, rows: [PhotoRows.Row], photos: [PageDoc.Image], screen: Double, scale: Double) {
+    pass.append(row)
+    guard pass.count == 1 else { return }
+    Task { [weak self] in self?.look(rows: rows, photos: photos, screen: screen, scale: scale) }
   }
 
   func stop() {
-    loads.values.forEach { $0.cancel() }
-    loads = [:]
+    for src in loads {
+      PageImages.ahead[src]?.cancel()
+      PageImages.ahead[src] = nil
+    }
+    loads = []
+    pass = []
     wanted = []
     tried = []
   }
 
+  /// A pass that reaches above the last place is the reader going up, from its top row; otherwise down, from its last.
+  private func look(rows: [PhotoRows.Row], photos: [PageDoc.Image], screen: Double, scale: Double) {
+    guard let low = pass.min(), let high = pass.max() else { return }
+    pass = []
+    let down = low >= last
+    last = down ? high : low
+    func thumb(_ place: Int) -> String { photos[place].thumb ?? photos[place].src }
+    wanted = PhotoRows.ahead(of: last, in: rows, down: down, span: 2 * screen).flatMap { r in
+      zip(rows[r].photos, rows[r].widths).map { place, width in
+        (src: thumb(place), size: PageImages.Size.filling(CGSize(width: width * scale, height: rows[r].height * scale)))
+      }
+    }
+    // On the screen or still ahead.
+    let near = [last] + PhotoRows.ahead(of: last, in: rows, down: !down, span: screen)
+    let keep = Set(wanted.map(\.src)).union(near.flatMap { rows[$0].photos.map(thumb) })
+    for src in loads where !keep.contains(src) {
+      PageImages.ahead[src]?.cancel()
+      PageImages.ahead[src] = nil
+      loads.remove(src)
+    }
+    tried.formIntersection(keep)
+    next()
+  }
+
   private func next() {
-    for (src, size) in wanted where loads.count < 4 && loads[src] == nil && !tried.contains(src) {
+    for (src, size) in wanted where loads.count < 4 && !loads.contains(src) && !tried.contains(src) {
       tried.insert(src)
       if PageImages.cached(src, size) != nil { continue }
-      loads[src] = Task { [weak self] in
-        _ = await PageImages.image(src, size)
-        guard !Task.isCancelled else { return }
-        self?.loads[src] = nil
+      loads.insert(src)
+      PageImages.ahead[src] = Task { [weak self] in
+        let image = await PageImages.image(src, size)
+        guard !Task.isCancelled else { return image }
+        PageImages.ahead[src] = nil
+        self?.loads.remove(src)
         self?.next()
+        return image
       }
     }
   }
