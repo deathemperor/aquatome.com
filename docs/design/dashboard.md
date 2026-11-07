@@ -44,14 +44,17 @@ photos · **App**: iPhone app · **Records**: Daily reports, Changelog.
    - **Found an answer**: the scoreboard's star figure (from search, then stayed 30 s or read half the page, so never
      more than readers), this week so far against the same point last week, one small bar per day.
    - **Shipped in 24 hours**: the count, "1 site · 1 app · 1 engine".
-   - **Fish ID cost, this week**, with its Claude calls. It becomes "Costs" once it counts every running cost.
+   - **Fish ID cost, this week**, with its Claude calls. Once the chat agent logs its calls too, "Claude API cost,
+     this week", fish ID and chat.
 2. **Needs you.** One line each: the thing and its page. The web adds the button that acts (Review, See key, See
    engine). Photo approvals show their thumbnails. With nothing: one line, "Nothing needs you right now", and the
    owner's last action.
 3. **Readers who found an answer.** The week's figure and its change, a day chart, then readers, sessions and shop
    clicks with their changes. A week runs Monday to Sunday, as the scoreboard's; days still to come are empty.
 4. **Shipped in 24 hours.** The changelog's lines, tagged Site, App or Engine, then the whole changelog.
-5. **Costs.** Fish ID this week and over 30 days, the keys' state, and "Only fish ID is counted so far" until more is.
+5. **Costs.** Fish ID (then chat too) this week and over 30 days, and the keys' state. Then the fixed costs as lines,
+   not figures: "Engine: Claude subscription, flat", "Cloudflare: fixed plan". The evals' API key isn't counted: its
+   spend needs an admin key only the owner can make.
 6. **The last three days.** Today's overview lines, kept: readers, fish ID calls and cost, comments, pages.
 7. **Every page**, grouped, each with its figure.
 
@@ -114,7 +117,8 @@ Dark: `img/dash-phone-dark.png`, `img/dash-sections-dark.png`, `img/dash-web-dar
 
 **Site lead**:
 
-1. The contract first: the overview's new shape (needs, each with its page and action; found an answer by day;
+1. The contract first, with the comment actions' requests and replies (and errors such as "past its 30 days"): the
+   overview's new shape (needs, each with its page and action; found an answer by day;
    shipped lines, the changelog's last 24 hours; costs; the last three days; each page's group and figure), the
    Comments section, folded rows and paging, and the app's section list with Scoreboard, Changelog and Comments
    (`NAV`, `protocols/owner-dashboard*.json`).
@@ -125,8 +129,8 @@ Dark: `img/dash-phone-dark.png`, `img/dash-sections-dark.png`, `img/dash-web-dar
 5. Fish ID by period: "This week" (Monday to now) beside today, 7 days, 30 days and the month, against the same point
    last week (the daily rows are whole days, so this needs the calls' times); "led to a page" from the rows' guessed
    and linked; paging past the 100 recent calls.
-6. Record each dashboard page open (page, web or app, time). No screen for it yet.
-7. Every running cost the server can see, for the cost tile.
+6. Record each dashboard page open (page, web or app, time) in Analytics Engine. No screen for it yet.
+7. The chat agent logs each call as fish ID does, so the tile reads "Claude API cost".
 
 **iOS lead**, once the contract has merged:
 
