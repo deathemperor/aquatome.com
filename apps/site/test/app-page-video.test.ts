@@ -6,6 +6,10 @@ import { PageDoc, type Block, type Inline } from '@aq/schema/app-page'
 import { appSeries } from '../src/lib/app-index'
 import { videoDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
+import { smallSrc } from '../src/lib/img'
+import { guideImage } from '../src/lib/mentions'
+import { pagePictures } from '../src/lib/pictures'
+import { seriesParts } from '../src/lib/series-page'
 import { appHref, appPage } from './dist'
 
 // The app draws a video series' page from this copy (once the index counts the kind): what it holds must be the page.
@@ -80,4 +84,25 @@ test('the series page and the app\'s copy are put together by the same code', ()
   const astro = readFileSync(new URL('../src/pages/video/[slug].astro', import.meta.url), 'utf8')
   expect(astro).toContain("from '../../lib/series-page'")
   for (const own of ['seriesGuides(', 'seriesSeconds(', 'guideImage(', 'clock(', 'GUIDE_KIND_LABELS']) expect(astro, own).not.toContain(own)
+})
+
+// Found 2026-11-07 (#683): two videos of a series illustrate a section with the same Commons photo, each kept under its
+// own video's address, and the series page showed it on both cards (page-check "repeat"). Each card takes the first of
+// its guide's pictures the page doesn't show yet (lib/pictures.ts), as every other list of cards does.
+test('a series\' cards show no picture twice, even from two files of one photo', async () => {
+  const c0 = await getContent('vi')
+  const { s, guides: [first] } = appSeries('vi', c0)[0]!
+  const photo = first!.video.figures!.find(f => f.photo)!.photo!
+  const copy = { ...photo, url: photo.url.replace(first!.video.youtubeId, 'bbbbbbbbbbb') }
+  const figures = [{ heading: 'Phần hai', moments: [], photo: copy }]
+  const second = { ...first!, id: 'youtube-phan-hai', t: { ...first!.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...first!.video, youtubeId: 'bbbbbbbbbbb', figures, series: { id: s.id, position: 1 } } }
+  const c = { ...c0, guides: [...c0.guides, second], pictureHashes: { ...c0.pictureHashes, [copy.url]: c0.pictureHashes[photo.url] ?? '0b4d37cf2f190603', [photo.url]: c0.pictureHashes[photo.url] ?? '0b4d37cf2f190603' } } as Content
+  const [a, b] = seriesParts('vi', c, s).guides.map(x => x.photo)
+  expect(a?.url).toBe(guideImage(c, first!)?.url)
+  expect(b, 'the second card has a picture').toBeTruthy()
+  const seen = pagePictures(c)
+  seen.add(a?.url)
+  expect(seen.has(b!.url), b!.url).toBe(false)
+  // The app's copy shows the same pictures.
+  expect(cardsOf(videoDoc('vi', c, s))!.items.map(i => i.img?.src)).toEqual(seriesParts('vi', c, s).guides.map(x => x.photo && smallSrc(x.photo)))
 })
