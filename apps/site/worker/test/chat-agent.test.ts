@@ -43,6 +43,17 @@ test('the search finds a page by its name as readers type it, a page named exact
   expect(JSON.parse(out as string)[0]).toEqual({ path: '/vi/ca/ca-dia/', kind: 'fish', name: 'Cá đĩa', id: 'symphysodon-aequifasciatus', sub: 'Symphysodon aequifasciatus' })
 })
 
+test('a page read twice in a turn, its outline then a section, is one read step; the next turn shows it again', async () => {
+  const h = await hb()
+  const read = (tools: ReturnType<typeof chatTools>, path: string, heading: string | null) => tools.find(t => t.name === 'read_page')!.step?.({ path, heading })
+  const turn = chatTools({ handbook: h, tanks: async () => [] })
+  const guide = '/vi/huong-dan/phan-loai-ca-dia/'
+  expect(read(turn, guide, null)).toEqual({ kind: 'read', page: { kind: 'guide', title: 'Phân loại cá dĩa', url: guide } })
+  expect(read(turn, guide, 'la-gi')).toBeUndefined()
+  expect(read(turn, '/vi/ca/ca-neon-xanh/', null)).toMatchObject({ kind: 'read', page: { url: '/vi/ca/ca-neon-xanh/' } })
+  expect(read(chatTools({ handbook: h, tanks: async () => [] }), guide, 'la-gi')).toMatchObject({ kind: 'read', page: { url: guide } })
+})
+
 test('read_page gives a page\'s outline (a fish\'s or plant\'s figures too), then one section\'s text by its heading id; an unknown page or heading is an error Claude reads', async () => {
   const h0 = await hb()
   const guide = '/vi/huong-dan/phan-loai-ca-dia/'
@@ -144,7 +155,8 @@ test('check_tank_mates checks fish as the tank-mates tool does, in the reader\'s
   const h = await hb()
   const checks: MatesCheck[] = []
   const tool = chatTools({ handbook: h, tanks: async () => [], checks }).find(t => t.name === 'check_tank_mates')!
-  expect(tool.step?.({})).toBeUndefined()
+  // The reader sees that the fish were checked together ("Đã kiểm tra nuôi chung").
+  expect(tool.step?.({})).toEqual({ kind: 'mates' })
   const out = JSON.parse(await tool.run({ fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }], tank: null }, { photosLeft: 0 }) as string) as MatesCheck
   // Each fish as checked: a breed as its species, as the block's link names it.
   expect(out.fish).toEqual([

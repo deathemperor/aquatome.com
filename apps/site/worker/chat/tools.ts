@@ -7,13 +7,13 @@ import { search, searchTopics } from './search'
 
 /**
  * The chat agent's tools (the loop: ../agent/loop.ts): search the handbook, read a page (its outline, or one section),
- * read the reader's saved tanks, check fish together as the tank-mates tool does. Each says what the reader may be shown while it runs (`Step`,
+ * read the reader's saved tanks, check fish together as the tank-mates tool does. Each says what the reader may be shown while it runs (`Step`: search, read, tanks, mates;
  * protocols/chat.openapi.json). What they return is what Claude may answer from: the handbook's own words and figures.
  *
  * Plain TypeScript, no Cloudflare types: the eval script runs the same tools in Node.
  */
 export type Page = { kind: PageDoc['kind']; title: string; url: string }
-export type Step = { kind: 'search'; query: string } | { kind: 'read'; page: Page } | { kind: 'tanks' }
+export type Step = { kind: 'search'; query: string } | { kind: 'read'; page: Page } | { kind: 'tanks' } | { kind: 'mates' }
 
 /** A saved tank as the chat reads it (api.ts `tanksOf`): its size, its species by id and its entries without a page. */
 export type Tank = {
@@ -78,9 +78,13 @@ const listed = (i: Item) => ({ path: i.path, kind: i.kind, name: i.name, ...(i.i
 const strict = (properties: Record<string, unknown>) => ({ type: 'object' as const, properties, required: Object.keys(properties), additionalProperties: false })
 
 export function chatTools(d: ToolDeps): Tool<Step>[] {
+  // One read step a page a turn (the tools are made for each turn): its outline and each section opened are one page read.
+  const read = new Set<string>()
   const pageStep = (path: unknown): Step | undefined => {
     const item = d.handbook.byPath(String(path))
-    return item && item.kind !== 'tool' ? { kind: 'read', page: { kind: item.kind, title: item.name, url: item.path } } : undefined
+    if (!item || item.kind === 'tool' || read.has(item.path)) return undefined
+    read.add(item.path)
+    return { kind: 'read', page: { kind: item.kind, title: item.name, url: item.path } }
   }
   return [
     {
@@ -150,6 +154,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
         },
         tankId: { anyOf: [{ type: 'string' }, { type: 'null' }], description: 'The reader\'s saved tank (its id from read_tanks) the fish would go in, or null.' },
       }),
+      step: () => ({ kind: 'mates' }),
       run: async input => {
         const fish = input.fish as { id: string; count: number }[]
         const odd = notFish(fish, d.handbook)
