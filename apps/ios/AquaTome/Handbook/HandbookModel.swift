@@ -20,7 +20,7 @@ final class HandbookModel {
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
   var query: String { get { searching.query } set { searching.query = newValue } }
-  /// A page about to open at one of its headings (a chat section's "Đọc tiếp"): read once, by that page.
+  /// A page about to open at one of its headings (a chat section's "Đọc tiếp"): taken by that page as it opens.
   var openingAt: (path: String, heading: String)?
   var kind: HandbookIndex.Kind? { get { searching.kind } set { searching.kind = newValue } }
   var results: [HandbookIndex.Item] { searching.results }

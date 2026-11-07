@@ -56,6 +56,8 @@ private struct ChatThread: View {
   /// The reader is up the thread while an answer lands: "Câu trả lời mới ↓" over the box.
   @State private var newBelow = false
   @State private var lastInView = true
+  /// A section closed with its heading off the screen: back to it.
+  @State private var scrollBack: String?
 
   private var signedOut: Bool { account.user == nil }
 
@@ -85,6 +87,11 @@ private struct ChatThread: View {
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }
         }
         .onChange(of: model.thread.last?.outcome) { _, o in if o == .answered, !lastInView { newBelow = true } }
+        .onChange(of: scrollBack) { _, id in
+          guard let id else { return }
+          scrollBack = nil
+          withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) }
+        }
         .safeAreaInset(edge: .bottom, spacing: 0) {
           ChatComposer(model: model, typing: $typing, signedOut: signedOut, newBelow: newBelow) {
             newBelow = false
@@ -189,7 +196,8 @@ private struct ChatThread: View {
         }
         // Once the text is whole: the blocks it leans on, then the next questions.
         if !t.blocks.isEmpty {
-          ChatBlocks(blocks: t.blocks, about: model.route.start.about, staggered: !a.resumed && !r.whole && !reduceMotion) { path in
+          ChatBlocks(blocks: t.blocks, about: model.route.start.about, covered: t.covered, staggered: !a.resumed && !r.whole && !reduceMotion, turn: a.id,
+                     reveal: { scrollBack = $0 }) { path in
             if let u = URL(string: path, relativeTo: handbook.site)?.absoluteURL { open(u) }
           }
         }
@@ -273,7 +281,7 @@ private struct ChatHeader: View {
     HStack(alignment: subject.fromPhoto ? .top : .center, spacing: 12) {
       Group {
         if let img = subject.img {
-          AsyncImage(url: img) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.15) }
+          PageImage(src: img.absoluteString, ratio: 1, corner: 0)
         } else {
           Image(systemName: "photo").font(.title3).foregroundStyle(.secondary).frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.fill.tertiary)
@@ -520,7 +528,7 @@ private struct Wrap: Layout {
   }
 }
 
-private extension View {
+extension View {
   /// Told whether this view is on screen as the thread scrolls (iOS 18 on; before, always).
   @ViewBuilder func onScrollVisible(_ watch: Bool, _ seen: @escaping (Bool) -> Void) -> some View {
     if watch, #available(iOS 18.0, *) { onScrollVisibilityChange(threshold: 0.05, seen) } else { self }

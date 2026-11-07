@@ -11,6 +11,8 @@ import Tanks
 /// the index change, not on every redraw.
 struct TankCheckSection: View {
   let tank: Tank
+  /// The chat's check of this tank, shown in place of its own while the reader looks at it.
+  var trial: TankTrial?
   @Environment(HandbookModel.self) private var handbook
   @State private var memo = Memo()
 
@@ -20,7 +22,12 @@ struct TankCheckSection: View {
     let key = Key(tank: tank, pages: handbook.count, status: handbook.status, lang: handbook.lang)
     if memo.key != key { memo.key = key; memo.check = make() }
     return Group {
-      if let check = memo.check, check.verdict != nil || check.stocking != nil || check.minTank != nil || check.unsized != nil || check.unchecked != nil {
+      if let trial, let check = trial.check {
+        Section("Nuôi chung") {
+          if let added = trial.added { Text("Thêm \(added), chưa lưu vào bể.").font(.subheadline).accessibilityIdentifier("trial-added").id(TankTrial.addedRow) }
+          TankCheckRows(check: check)
+        }
+      } else if let check = memo.check, check.verdict != nil || check.stocking != nil || check.minTank != nil || check.unsized != nil || check.unchecked != nil {
         Section("Nuôi chung") { TankCheckRows(check: check) }
       }
     }
@@ -56,6 +63,17 @@ struct TankCheckSection: View {
   }
 }
 
+/// A check the chat ran on a tank, on the way to that tank's page: the fish it would add, shown and never saved.
+struct TankTrial {
+  /// The tank's id.
+  let tank: String
+  /// The fish added, as named: "Cá betta × 1".
+  let added: String?
+  let check: TankCheck?
+  /// Where the tank's page opens: the first row of "Nuôi chung".
+  static let addedRow = "trial-added", verdictRow = "tank-verdict"
+}
+
 /// The tool's marks for its four answers.
 /// A check's rows, as a tank's "Nuôi chung" draws them and the chat's tank-mates block does: the verdict with its mark,
 /// the warnings, how full the tank is and its notes, then what wasn't counted or checked. A row each in a list.
@@ -65,7 +83,7 @@ struct TankCheckRows: View {
   var body: some View {
     if let v = check.verdict {
       Label { Text(v.text) } icon: { Mark(level: v.level) }
-        .accessibilityElement(children: .combine).accessibilityIdentifier("verdict")
+        .accessibilityElement(children: .combine).accessibilityIdentifier("verdict").id(TankTrial.verdictRow)
     }
     ForEach(Array(check.warnings.enumerated()), id: \.offset) { Text($0.element).font(.subheadline) }
     if let s = check.stocking {

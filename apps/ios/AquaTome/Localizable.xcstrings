@@ -13201,6 +13201,70 @@
         }
       }
     },
+    "Trang gần nhất": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman terdekat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าที่ใกล้เคียงที่สุด"
+          }
+        }
+      }
+    },
+    "hai loài kia": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dua spesies lainnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อีกสองชนิด"
+          }
+        }
+      }
+    },
+    "ba loài kia": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tiga spesies lainnya"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อีกสามชนิด"
+          }
+        }
+      }
+    },
+    "Thêm %@, chưa lưu vào bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah %@, belum disimpan ke akuarium."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม %@ ยังไม่ได้บันทึกลงตู้"
+          }
+        }
+      }
+    },
     "Thường dưới nửa phút.": {
       "localizations": {
         "id": {

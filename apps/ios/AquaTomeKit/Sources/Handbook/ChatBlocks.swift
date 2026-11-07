@@ -30,13 +30,19 @@ extension Chat {
     case other(PageDoc.Block)
   }
 
-  /// A section's parts, in order. A photo the turn already showed (`shown`, by its source) is left out.
+  /// One photo at any of its sizes: a card's has a width in its name ("…79-480.webp"), a figure's the whole ("…79.webp").
+  public static func samePhoto(_ src: String) -> String {
+    src.replacing(/-\d+(\.\w+)$/) { $0.output.1 }
+  }
+
+  /// A section's parts, in order. A photo the turn already showed (`shown`, by its source, at any size) is left out.
   public static func parts(_ blocks: [PageDoc.Block], shown: Set<String> = []) -> [Part] {
-    blocks.flatMap { b -> [Part] in
+    let shown = Set(shown.map(samePhoto))
+    return blocks.flatMap { b -> [Part] in
       switch b {
       case .paragraph(let runs): [.paragraph(runs)]
       case let .list(ordered, items): items.enumerated().map { .item(n: ordered ? $0.offset + 1 : nil, $0.element) }
-      case let .figure(img, caption, href): shown.contains(img.src) ? [] : [.figure(img, caption: caption, href: href)]
+      case let .figure(img, caption, href): shown.contains(samePhoto(img.src)) ? [] : [.figure(img, caption: caption, href: href)]
       case .heading, .web: []
       default: [.other(b)]
       }

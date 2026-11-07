@@ -39,6 +39,8 @@ final class TanksModel {
   var tanks: [Tank] { store.liveTanks }
   func devices(in tank: Tank) -> [Device] { store.devices(in: tank.id) }
   /// Nothing to add to while the store on the phone isn't this app's to write; after a failed save, try again.
+  /// The chat's check of a tank, on the way to that tank's page, which takes it.
+  var trial: TankTrial?
   var canAdd: Bool { canEdit && tanks.count < maxTanks }
   /// Whether this phone's store is this app's to write (none newer or unreadable is there); after a failed save, try again.
   var canEdit: Bool { problem == nil || problem == .saveFailed }
