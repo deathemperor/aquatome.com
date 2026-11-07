@@ -3,13 +3,14 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, metricPage, QUALITY_THRESHOLD, slugify, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
+import { foreignProducts } from './market'
 import { lastKept, logReviews } from './review-log'
 import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { readForumState, topicLeads } from './forum'
 
-const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
+const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8').replace('{{FOREIGN_PRODUCTS}}', foreignProducts('vi'))
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const INTL = readFileSync(new URL('./prompts/topic-intl.md', import.meta.url), 'utf8')
 
@@ -56,6 +57,8 @@ const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slu
 
 const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
+/** The writer is told to name these beside a product, so they aren't its claims. A dose or use with one is. */
+const INGREDIENTS = `A product's active ingredient named beside it, in the words of this list, is supported: the writer was told to add it. A dose, amount or use with it is not.\n${foreignProducts('vi')}`
 
 /** Scientific name → page id, for the species and plants we have. */
 async function idsByName(content: string): Promise<Map<string, string>> {
@@ -121,7 +124,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
   })
   const check = async (x: Written) => {
-    const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n${INGREDIENTS}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
   // A redo starts from what the last review of the guide on the site found, as the rewrite below does.

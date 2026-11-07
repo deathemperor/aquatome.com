@@ -872,6 +872,20 @@ The layers above still check the result.
   fixed tidying rules still apply. Found
   by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
   peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
+  - **The market table** (`packages/engine/src/market.ts`): each foreign product, how to find its name, its active
+    ingredient, whether Vietnamese shops list it, with the date and evidence, and what's sold here for the problems it
+    treats, with a seller and strength. It is by language, so Indonesian and Thai can get their own market.
+  - **The notes are code's** (`pnpm engine local-notes`, each cycle, `LOCAL_NOTES_LIMIT`, `local-notes.ts`): no model writes
+    one, and a guide's text stays as it is. A guide gets one when it names a treatment twice or more, with the remedies
+    for the problems it is about and its sources name. A guide that already gives a remedy's dose gets a line saying so.
+    Fertilizers, minerals and a treatment named once stay listed by the content rule `foreign-product`: a note first in
+    the guide would be out of proportion.
+  - **Every figure is held** (`market.test.ts`): word for word in a Vietnamese guide, whose metric wording the site already
+    gives, or on a label the table quotes, at the strength sold here, with no figure converted. The test reads the files
+    whenever the table's doses change. A rewrite that later changes a guide's words can't stop a cycle: the guides whose
+    note needs them wait, and the command says why.
+  - **Writers name the ingredient** beside such a product, from the same table, with no dose (`process.md`, `video-guide.md`,
+    `topic.md`), and their reviewers are told that isn't an added fact or a change of meaning.
 
 ## Rules for every change (people and agents)
 

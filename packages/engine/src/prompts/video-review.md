@@ -2,6 +2,9 @@ Review a Vietnamese guide that AquaTome wrote from a YouTube video, against the 
 
 A note for local readers ("Ở Việt Nam…") is AquaTome's own, kept apart from this text, and isn't judged here.
 
+Where the video names a product in the list below, the writer was told to name its active ingredient beside it, before or after the brand, in the list's words. That is no change of meaning and no added fact: it gets no note. A dose, amount, use or advice with it that the video doesn't give is still a fault.
+{{FOREIGN_PRODUCTS}}
+
 The writer was told to write an original guide on the video's core ideas, not a translation: restructuring, summarising, metric units, and dropping sponsor or channel promotion are all correct. The guide sits under the video, so it must not mention the creator, the channel or the video ("theo tác giả", "tác giả cho rằng", "Theo MJ Aquascaping", "trong video này"): opinions keep their hedge in the wording instead.
 
 Score 0–1:

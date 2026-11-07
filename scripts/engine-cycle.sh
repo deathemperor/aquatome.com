@@ -211,6 +211,9 @@ if part rewrite; then
   pnpm engine rewrite-vi --limit "${VI_REWRITE_LIMIT:-12}" || log "rewrite-vi: failed"
   # Guides keep to their title's subject (before localizing, so the copies follow): off-topic sections dropped.
   pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-40}" || log "topic-check: failed"
+  # A note for local readers on guides that name a foreign treatment (local-notes.ts): code writes it from the market
+  # table, with no model call, and a guide's text stays as it is. On 2026-11-07: 11 guides, so 3 cycles, then none.
+  pnpm engine local-notes --limit "${LOCAL_NOTES_LIMIT:-5}" || log "local-notes: failed"
   # A reader's eye: the model reads READER_LIMIT pages as a reader would (not read yet first, then changed ones), against
   # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
   # docs/review/reader.md.

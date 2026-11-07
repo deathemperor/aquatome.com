@@ -33,6 +33,8 @@ export type Page = {
   en?: Record<string, string>
   /** Guides: the source page they were written from. */
   origin?: { source: string; url: string }
+  /** Guides: they have a note for local readers (schemas.ts localNote), which their `body` here starts with. */
+  localNote?: boolean
   /** The channels whose videos the page is written from: a video guide's, a product's reviews'. */
   credited?: string[]
   /** Products: whether AquaTome controls it (@aq/schema controlOf). */
@@ -102,7 +104,7 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
       captions: captionsOf([...p.photos, ...(c.galleries[p.id] ?? [])]), sci: p.scientificName, latinNames: latin(p.t.altNames), card: [],
       en: Object.fromEntries(p.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
-    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl }, ...(g.video ? { credited: [g.video.channel] } : {}) })),
+    ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl }, ...(g.t.localNote ? { localNote: true } : {}), ...(g.video ? { credited: [g.video.channel] } : {}) })),
     ...c.breeds.map(b => ({
       ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), ...(b.t.nameFixed ? { nameFixed: true } : {}), captions: captionsOf(b.photos), latinNames: [],
       card: Object.entries(b.care).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: `source ${v.source + 1}`, value: v.value }))),

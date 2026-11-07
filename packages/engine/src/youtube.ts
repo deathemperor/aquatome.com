@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { GuideSchema, metricPage, QUALITY_THRESHOLD, SeriesSchema, TranslationSchema, type GuideEntity, type Series, type Translation } from '@aq/schema'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
+import { foreignProducts } from './market'
 import { pickSlug } from './merge'
 import { gate } from './quality'
 import { lastKept, logReviews, readReviews } from './review-log'
@@ -50,8 +51,8 @@ const base = (l?: string | null) => (l ?? '').toLowerCase().split(/[-_]/)[0] || 
 
 const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
 export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
-const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8')
-const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
+const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8').replace('{{FOREIGN_PRODUCTS}}', foreignProducts('vi'))
+const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8').replace('{{FOREIGN_PRODUCTS}}', foreignProducts('vi'))
 const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'utf8')
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')

@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
   blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
+  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, RATCHETED, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
   swappedNames, titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -78,6 +78,18 @@ test('markdown left in the text, not a footnote\'s asterisks; entities in plain 
   expect(leftoverMarkup('pH 6,5 – 7,5; GH 4–8')).toEqual([])
   expect(plainEntities('Cacing Jangkar &amp; Kutu Ikan')).toEqual(['&amp;'])
   expect(found(page({ lang: 'id', title: 'Cacing Jangkar &amp; Kutu Ikan' }), 'markup')).toEqual(['"&amp;" in plain text'])
+})
+
+test('a guide naming a product shops here may not list, with no note for local readers, is listed and never held at zero', () => {
+  const guide = (html: string, o: Partial<Page> = {}) => found(page({ fields: [{ field: 'body', html }], ...o }), 'foreign-product')
+  expect(guide('<p>Trị đốm trắng bằng Ich-X, rồi bón Easy Green.</p>')).toEqual(['Ich-X', 'Easy Green'])
+  expect(found(page({ lines: [{ field: 'faq.0.a', text: 'Dùng Maracyn.' }] }), 'foreign-product')).toEqual(['Maracyn'])
+  expect(found(page({ title: 'Cách dùng Fritz Slime Out' }), 'foreign-product')).toEqual(['Slime Out'])
+  expect(guide('<p>Trị đốm trắng bằng Ich-X.</p>', { localNote: true })).toEqual([])
+  expect(guide('<p>Dùng Maracyn Two và Seachem Prime.</p>')).toEqual([]) // shops here list them
+  expect(guide('<p>Trị đốm trắng bằng Ich-X.</p>', { kind: 'species' })).toEqual([])
+  expect(guide('<p>Ich-X</p>', { lang: 'id' })).toEqual([]) // only Vietnamese shops were searched
+  expect(RATCHETED['foreign-product']).toBeUndefined()
 })
 
 test('English sentences on a page, outside reference lists, citations and quotes', () => {

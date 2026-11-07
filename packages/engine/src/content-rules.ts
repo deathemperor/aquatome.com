@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang } from '@aq/schema'
 import { tidyName } from './alt-names'
+import { hardProducts } from './market'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
@@ -574,6 +575,11 @@ export const RULES: Rule[] = [
     id: 'control-claim', title: 'A product AquaTome doesn\'t control, said to be controlled',
     about: 'A product page saying AquaTome controls it, when the code doesn\'t (@aq/schema controlOf: the Chihiros lines the light tool drives, the plug makers the app switches). The page\'s control block comes from the code; running text doesn\'t get to promise it.',
     check: p => (p.kind !== 'products' || p.control !== false ? [] : [...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].filter(claimsControl).map(t => `"${clip(t, 80)}"`)),
+  },
+  {
+    id: 'foreign-product', title: 'A guide naming a product shops here may not list, with no note for local readers',
+    about: 'A guide that names a product the market table (market.ts) marks as not found at Vietnamese shops, and has no note for local readers. Listed: `pnpm engine local-notes` writes the note on a guide that names a treatment twice or more. A fertilizer, a mineral or a treatment named once stays here, because a note first in the guide would be out of proportion.',
+    check: p => (p.kind !== 'guides' || p.localNote ? [] : hardProducts(p.lang, [p.title, ...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].join('\n')).map(x => x.name)),
   },
   {
     id: 'markup', title: 'Markdown, HTML or entities left in the text',

@@ -1,10 +1,11 @@
 import { readFileSync } from 'node:fs'
 import type { Llm } from './claude'
+import { foreignProducts } from './market'
 
 import { QUALITY_THRESHOLD } from '@aq/schema'
 
 export { QUALITY_THRESHOLD }
-const TEMPLATE = readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8')
+const TEMPLATE = readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8').replace('{{FOREIGN_PRODUCTS}}', foreignProducts('vi'))
 const SCHEMA = { type: 'object', properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } }, required: ['score', 'notes'] }
 
 /** A second Claude pass scores fidelity + fluency of the Vietnamese against the English (0–1). */
