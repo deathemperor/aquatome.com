@@ -25,6 +25,6 @@ test('a row that fits gives nothing up; past five, only as many as it takes, bre
   const chip = (href: string) => ({ href })
   const care = ['#muc-aquariumSize', '#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#muc-reproduction'].map(chip)
   expect(jumpRow(care)).toEqual(care)
-  expect(jumpRow([...care, chip('#anh')]).map(c => c.href)).toEqual(['#muc-aquariumSize', '#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#anh'])
-  expect(jumpRow([...care, chip('#mua-do'), chip('#anh')]).map(c => c.href)).toEqual(['#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#mua-do', '#anh'])
+  expect(jumpRow([...care, chip('/ca/x/anh/')]).map(c => c.href)).toEqual(['#muc-aquariumSize', '#muc-waterConditions', '#muc-diet', '#muc-behaviour', '/ca/x/anh/'])
+  expect(jumpRow([...care, chip('#mua-do'), chip('/ca/x/anh/')]).map(c => c.href)).toEqual(['#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#mua-do', '/ca/x/anh/'])
 })

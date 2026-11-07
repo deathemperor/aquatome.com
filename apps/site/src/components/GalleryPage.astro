@@ -3,7 +3,7 @@ import type { Lang, Photo } from '@aq/schema'
 import Browse from '../layouts/Browse.astro'
 import { getContent } from '../lib/content'
 import { creditsFor } from '../lib/credits'
-import { galleryNote, licenceUrl, photoFrom } from '../lib/gallery'
+import { galleryLine, licenceUrl, photoFrom } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
 import { i18n, isVietnamese, licenceLabel } from '../lib/i18n'
 import { isUnsplash } from '../lib/unsplash'
@@ -21,7 +21,7 @@ const c = await getContent(lang)
 // A photo site's own Vietnamese name (Diễn Đàn Cá Cảnh) is a name, marked as Vietnamese on every other language's page,
 // as the about page marks it: the line split around each one, the names at the odd places.
 const viSites = lang === 'vi' ? [] : photoFrom(photos, c.sources).filter(s => isVietnamese(s))
-const note = galleryNote(t, photos, c.sources)
+const note = galleryLine(t, photos, c.sources)
 const noteParts = viSites.length ? note.split(new RegExp(`(${viSites.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`)) : [note]
 const jsonld = [{
   '@context': 'https://schema.org', '@type': 'ImageGallery', name: `${t('Ảnh {name}', { name })}${sci ? ` (${sci})` : ''}`,

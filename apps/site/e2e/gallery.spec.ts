@@ -147,7 +147,7 @@ test('a fish\'s jump row ends with the photos and their count, in sight, and ope
   expect(errors).toEqual([])
 })
 
-test('a fish with no gallery page: its jump row ends with "Ảnh", which goes to its photo on the page', async ({ page, errors }, info) => {
+test('a fish with no gallery page has no photos chip: its photo is right above the row', async ({ page, errors }) => {
   const pages = sourcePages()
   let found = false
   for (const fish of pages.filter(p => /^\/ca\/[^/]+\/$/.test(p) && !pages.includes(`${p}anh/`)).slice(0, 30)) {
@@ -156,15 +156,9 @@ test('a fish with no gallery page: its jump row ends with "Ảnh", which goes to
   }
   test.skip(!found, 'no fish with a photo, a jump row and no gallery in this build')
   const row = page.locator('nav.jump')
-  const chip = row.locator('a').last()
-  await expect(chip).toHaveText('Ảnh')
-  await expect(chip).toHaveAttribute('href', '#anh')
+  await expect(row.locator('a[href="#anh"]')).toHaveCount(0)
   await expect(row.locator('a[href$="/anh/"]')).toHaveCount(0)
-  await row.scrollIntoViewIfNeeded()
-  await expect(chip).toBeInViewport({ ratio: 1 })
-  await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }))
-  if (info.project.name === 'phone') await chip.tap(); else await chip.click()
-  await expect(page.locator('#anh img')).toBeInViewport()
+  await expect(page.locator('#anh img')).toBeVisible()
   expect(errors).toEqual([])
 })
 

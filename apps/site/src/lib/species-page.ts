@@ -69,13 +69,13 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
   // A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
   const text = foldNearEmpty(s.sections, s.t, t)
-  // The jump row: the care questions, the shop, then the photos at its end: the gallery page, with how many it has, or
-  // without one the page's own photo.
+  // The jump row: the care questions, the shop, then the gallery page at its end, with how many it has. A fish with no
+  // grid has no chip for its photos: the photo is right above the row.
   const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
   const jumps = jumpRow<JumpChip>([
     ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
     ...(kit ? [{ href: '#mua-do', label: t('Mua đồ') }] : []),
-    ...(grid ? [{ href: galleryPath, label: t('Ảnh {n}', { n: gallery.length }), end: true }] : s.photos.length > 0 ? [{ href: '#anh', label: t('Ảnh'), end: true }] : []),
+    ...(grid ? [{ href: galleryPath, label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
   ])
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   return {

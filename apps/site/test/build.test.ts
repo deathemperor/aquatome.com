@@ -790,11 +790,11 @@ describe('photo gallery', () => {
     expect(credits).toContain('File:NeonVua43.jpg')
     expect(credits).not.toContain('File:NeonVua44.jpg')
   })
-  test('a species with too few photos gets no strip and no gallery page; its jump row ends with its own photo', () => {
+  test('a species with too few photos gets no strip, no gallery page and no photos' chip: its photo is right above the row', () => {
     const { dom } = page('/ca/ca-neon-xanh/')
     expect(dom.querySelector('section.strip')).toBeNull()
     expect(() => readFileSync(`${DIST}/ca/ca-neon-xanh/anh/index.html`)).toThrow()
-    expect(dom.querySelectorAll('nav.jump a').map(a => [a.text, a.getAttribute('href')])).toEqual([['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh', '#anh']])
+    expect(dom.querySelectorAll('nav.jump a').map(a => [a.text, a.getAttribute('href')])).toEqual([['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do']])
     expect(dom.querySelector('header.top #anh img')).not.toBeNull()
   })
   test('gallery page: its title is the count, nothing but the crumbs before it; the fish\'s name stays in the page\'s title', () => {
@@ -865,7 +865,7 @@ describe('photo gallery', () => {
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
     const g = page('/cay/cryptocoryne-wendtii/anh/').dom
     expect(g.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(6)
-    expect(g.querySelector('.lead')!.textContent).toContain('6 ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
+    expect(g.querySelector('.lead')!.textContent).toContain('Ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
     expect(g.querySelector('.lead a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/')
     expect(g.querySelector('.lead a')!.textContent).toContain('Cách trồng')
     expect(g.querySelector('.crumb a[href="/cay/"]')).toBeTruthy()
@@ -909,7 +909,7 @@ describe('man-made fish (breeds)', () => {
   })
   test('a breed gallery page has no scientific name', () => {
     const { dom } = page('/ca/ca-la-han/anh/')
-    expect(dom.querySelector('.lead')!.textContent).toMatch(/^7 ảnh từ Wikimedia Commons/)
+    expect(dom.querySelector('.lead')!.textContent).toMatch(/^Ảnh từ Wikimedia Commons/)
     expect(dom.querySelector('.lead .sci')).toBeNull()
   })
   test('the species page lists its lines and hybrids, crediting their pictures; the species list shows them', () => {
