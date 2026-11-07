@@ -11,6 +11,46 @@
     "brazil",
     "rio-mamore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Mamoré",
+        "Rio Poranga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis seussi, long known as Corydoras seussi, is an armoured catfish from the Rio Mamoré basin and Rio Poranga in Brazil, also referred to by its C-number, C027.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Mamoré basin and Rio Poranga, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Mamoré",
+            "Rio Poranga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342632,
+      "total": 0,
+      "fetched": "2026-11-07",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

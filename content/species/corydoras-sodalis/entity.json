@@ -13,6 +13,72 @@
     "amazonas",
     "upper-amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the upper Amazon in the department of Loreto, Peru and the state of Amazonas, Brazil.",
+          "countries": [
+            "PE",
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342622,
+      "total": 11,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          8
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          0,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

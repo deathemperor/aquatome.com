@@ -10,6 +10,60 @@
     "malaysia",
     "kinabatangan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Segama",
+        "Kinabatangan",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Segama and Kinabatangan river systems in Sabah state, eastern Malaysia (northern Borneo).",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Segama",
+            "Kinabatangan",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167037,
+      "total": 2,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

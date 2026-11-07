@@ -1,0 +1,30 @@
+{
+  "slug": "batrochoglanis-raninus",
+  "name": "บัมเบิ้ลบีแคทฟิช",
+  "altNames": [
+    "Bumblebee catfish",
+    "Frog catfish",
+    "South American bumblebee catfish",
+    "แคทฟิชบัมเบิ้ลบี"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>แหล่งที่มา: โคลอมเบีย ขนาดที่มีขายในตลาด: 6–8 ซม.</p>",
+    "quickFacts:scotcat": "<ul><li>สถานภาพการอนุรักษ์: กลุ่มที่เป็นห่วงน้อยที่สุด (Least Concern, LC) (IUCN 2022) ได้รับการประเมินเช่นนี้เพราะมีเขตการกระจายพันธุ์กว้าง แม้ข้อมูลจะยังมีอยู่จำกัด</li></ul>",
+    "distribution:scotcat": "<p>อเมริกาใต้: ลุ่มแม่น้ำแอมะซอน กายอานา และเฟรนช์เกียนา</p>",
+    "habitat:scotcat": "<p>พบได้ทั่วไปทั้งในลำธารและในแม่น้ำ อาศัยอยู่ในช่วงของแม่น้ำที่ร่มมากและลึก ซึ่งกระแสน้ำไหลช้า พื้นท้องน้ำมีร่มเงา และกรวดถูกปกคลุมด้วยเศษซากพืช ในเวลากลางวันจะซ่อนตัวอยู่ใต้กิ่งไม้หรือก้อนหิน</p>",
+    "diet:scotcat": "<p>ในธรรมชาติจะล่าแบบค่อย ๆ ย่องเข้าหาเหยื่อ แล้วกลืนเหยื่อที่อยู่ในระยะที่กลืนได้ ในช่วงแรกจะกินครัสเตเชียนขนาดเล็กและตัวอ่อนของแมลงน้ำ จากนั้นจึงเปลี่ยนมากินปลาที่มีขนาดค่อนข้างใหญ่ ในตู้ปลากินอาหารปลาได้ทุกประเภทโดยไม่มีปัญหา ทั้งอาหารแผ่น อาหารเม็ดแบบเม็ดแบน (tablet) อาหารเม็ด อาหารสด และอาหารแช่แข็ง</p>",
+    "behaviour:glaser": "<p>ปลาในสกุล Batrochoglanis เป็นปลาที่ออกหากินกลางคืนและชอบหลบซ่อนตัว ไม่ก้าวร้าวต่อปลาอื่นที่ใหญ่เกินกว่าจะกินได้ แม้จะไม่ใช่ปลาที่อยู่เป็นฝูงโดยธรรมชาติ แต่ก็มักมารวมตัวกันเป็นกลุ่มใหญ่ในท่อพลาสติกที่จัดไว้ให้เป็นที่หลบซ่อน</p>",
+    "behaviour:scotcat": "<p>ในตู้ปลาเป็นปลานักล่า จะกินปลาที่เล็กกว่า ควรจัดที่หลบซ่อนให้มากพอสำหรับหลบในเวลากลางวัน และเลี้ยงเป็นกลุ่มเล็ก ๆ 2–3 ตัวจะดีที่สุด เป็นปลาที่ชอบหลบซ่อนตัวมาก</p>",
+    "notes:glaser": "<p>สกุล Batrochoglanis เคยถูกจัดอยู่ในสกุล Pseudopimelodus มาก่อน วิธีแยก Batrochoglanis ออกจาก Pseudopimelodus ที่ดีที่สุดคือดูจากรูปทรงของครีบหาง โดย Pseudopimelodus มีครีบหางเว้าลึกเป็นแฉก ส่วน Batrochoglanis มีครีบหางเว้าเพียงเล็กน้อยเท่านั้น</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด raninus เป็นภาษาละติน แปลว่า เหมือนกบ หมายถึงรูปร่างหรือลักษณะที่คล้ายกบ โดยเฉพาะปากและหัวที่กว้าง</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl, 1985. Aquarien atlas. Band 2. Mergus, Verlag für Natur-und Heimtierkunde GmbH, Melle, Germany. 1216 p.</p><p>Brejão, G.L. 2022. Batrochoglanis raninus. The IUCN Red List of Threatened Species 2022.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Shibatta, O.A., 2003. Pseudopimelodidae (Bumblebee catfishes, dwarf marbled catfishes). p. 401-405. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85,
+      "scotcat": 0.85
+    }
+  }
+}

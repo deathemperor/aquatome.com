@@ -1,0 +1,54 @@
+{
+  "id": "corydoras-loxozonus",
+  "native": {
+    "input": "c1749b2b1b0e8441",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma loxozonum, long known as Corydoras loxozonus, is an armoured catfish from the Rio Meta basin in Colombia, also referred to by its C-number, C082.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Orinoco",
+        "source": "glaser",
+        "quote": "C. loxozonus originates from the Rio Orinoco and its affluents.",
+        "ok": true
+      },
+      {
+        "name": "Rio Meta",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma loxozonum, long known as Corydoras loxozonus, is an armoured catfish from the Rio Meta basin in Colombia, also referred to by its C-number, C082.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras loxozonus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342801,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

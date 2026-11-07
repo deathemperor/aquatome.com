@@ -12,6 +12,72 @@
     "colombia",
     "rio-meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Orinoco",
+        "Rio Meta"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma loxozonum, long known as Corydoras loxozonus, is an armoured catfish from the Rio Meta basin in Colombia, also referred to by its C-number, C082.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Meta"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "C. loxozonus originates from the Rio Orinoco and its affluents.",
+          "countries": [],
+          "regions": [
+            "Rio Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342801,
+      "total": 3,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
