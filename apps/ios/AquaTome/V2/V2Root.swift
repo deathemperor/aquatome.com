@@ -46,9 +46,8 @@ struct V2Root: View {
       Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar() }
       Tab(value: Pick.search, role: .search) { HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar() }
     }
-    // The owner's: the bar stays whole on every screen, no band behind it, and nothing through its glass (ClearUnderTabBar
-    // on each tab).
-    .v2WholeTabBar()
+    // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
+    .v2NoBottomEdge()
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
@@ -116,8 +115,9 @@ extension View {
 }
 
 private extension View {
-  @ViewBuilder func v2WholeTabBar() -> some View {
-    if #available(iOS 26, *) { tabBarMinimizeBehavior(.never).scrollEdgeEffectHidden(true, for: .bottom) } else { self }
+  /// iOS's own edge off, for the fade (ClearUnderTabBar). The bar stays whole by the app's Group (`tabBarNeverMinimizes`).
+  @ViewBuilder func v2NoBottomEdge() -> some View {
+    if #available(iOS 26, *) { scrollEdgeEffectHidden(true, for: .bottom) } else { self }
   }
 
   func v2ClearUnderTabBar() -> some View { modifier(ClearUnderTabBar()) }

@@ -10,7 +10,8 @@ import XCTest
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
 /// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
-/// overview, a section with charts and tables, and the daily report's settings; and v2's Hôm nay, its fish of the day's
+/// overview, a section with charts and tables, and the daily report's settings; the tab bar over what scrolls under
+/// it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the day's
 /// page and Khám phá, light, dark and at the largest text. Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
@@ -49,6 +50,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testKitOnTheHomeAndALongListInTheDark() { shootKit("kit-home-dark", dark: true) }
   func testWhatsNew() { shootWhatsNew("whats-new-light") }
   func testWhatsNewInTheDark() { shootWhatsNew("whats-new-dark", dark: true) }
+  func testTheTabBarOverText() { shootTabBar("tab-bar-text-light", overText: true) }
+  func testTheTabBarOverTextInTheDark() { shootTabBar("tab-bar-text-dark", overText: true, dark: true) }
+  func testTheTabBarOverPhotos() { shootTabBar("tab-bar-photos-light", overText: false) }
+  func testTheTabBarOverPhotosInTheDark() { shootTabBar("tab-bar-photos-dark", overText: false, dark: true) }
   func testV2() { shootV2("v2-light") }
   func testV2InTheDark() { shootV2("v2-dark", dark: true) }
   func testV2InTheLargestText() { shootV2("v2-largest-light", size: largest) }
@@ -132,6 +137,29 @@ final class PageShotsFlowTests: XCTestCase {
     }
     XCTAssertGreaterThan(first.frame.minY, bar.frame.maxY + clear, "not at the sheet's top")
     capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 12)
+  }
+
+  /// The tab bar with what scrolls under it, screen by screen: a fish's long text, or Tìm's photos. The site's own pages and
+  /// photos, read from the network: the stand-ins are a dim gradient, which hides what a bright photo does to the bar.
+  private func shootTabBar(_ name: String, overText: Bool, dark: Bool = false) {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults"] + (dark ? ["-dark"] : [])
+    app.launchForFlow()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 30), "no home")
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 30), "the handbook didn't come")
+    if overText {
+      field.tap()
+      field.typeText("ca neon")
+      let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+      XCTAssertTrue(row.waitForExistence(timeout: 30), "no Cá neon")
+      row.tap()
+      XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 30), "not drawn by the app")
+    }
+    // Time for the photos to come.
+    let until = Date().addingTimeInterval(5)
+    while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
+    capture(app, name, dark: dark, large: true, screens: 6)
   }
 
   /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.
