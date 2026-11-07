@@ -224,6 +224,19 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
+  /// What's faded out under the bar can't be tapped: a tap under it, with a card behind, opens nothing.
+  func testATapUnderTheTabBarOpensNothing() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    let foot = app.tabBars.buttons["Hôm nay"].frame.maxY + 10
+    app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: 100, dy: foot)).tap()
+    // Hôm nay still there, its fish's card in view, and no page pushed over it.
+    XCTAssertFalse(fish.waitForNonExistence(timeout: 2), "a tap under the bar opened what's behind it")
+    XCTAssertTrue(fish.isHittable, "a tap under the bar opened what's behind it")
+  }
+
   func testAPageReadIsOnOneShelfOfKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()

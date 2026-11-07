@@ -147,6 +147,17 @@ private struct ClearUnderTabBar: ViewModifier {
           }
           .ignoresSafeArea()
         }
+        // A mask hides what's under it but leaves it live: a tap beside or under the bar stops here, not on a card that
+        // can't be seen. VoiceOver still reaches what's hidden, and scrolls it into view.
+        .overlay {
+          if bar >= 49 {
+            VStack(spacing: 0) {
+              Spacer(minLength: 0)
+              Color.clear.contentShape(.rect).frame(height: bar).onTapGesture {}.accessibilityHidden(true)
+            }
+            .ignoresSafeArea()
+          }
+        }
     } else {
       content
     }
