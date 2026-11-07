@@ -87,8 +87,10 @@ const LIMIT_REACHED = 'Limit reached: no more tool calls in this identification.
 /** The history with `word` after the last message's content, for one call; the history itself is left as it is. */
 const withWord = (history: Anthropic.MessageParam[], word: string): Anthropic.MessageParam[] => {
   const last = history.at(-1)!
+  // A call always follows the reader's turn (the first message, or tool results); were it not, the word is a turn of its own.
+  if (last.role !== 'user') return [...history, { role: 'user', content: [{ type: 'text', text: word }] }]
   const content: Anthropic.ContentBlockParam[] = typeof last.content === 'string' ? [{ type: 'text', text: last.content }] : [...last.content]
-  return [...history.slice(0, -1), { ...last, content: [...content, { type: 'text', text: word }] }]
+  return [...history.slice(0, -1), { role: 'user', content: [...content, { type: 'text', text: word }] }]
 }
 
 export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step>> {
