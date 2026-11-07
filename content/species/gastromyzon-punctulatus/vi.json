@@ -1,7 +1,8 @@
 {
-  "slug": "ca-bam-suoi-cham",
-  "name": "Cá bám suối chấm",
+  "slug": "ca-ty-ba-buom-cham",
+  "name": "Cá tỳ bà bướm chấm",
   "altNames": [
+    "Cá bám suối chấm",
     "Cá chạch suối Gastromyzon punctulatus",
     "Spotted hillstream loach"
   ],
@@ -19,5 +20,12 @@
     "bySource": {
       "glaser": 0.6
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-bam-suoi-cham",
+      "name": "Cá bám suối chấm"
+    }
+  ]
 }
