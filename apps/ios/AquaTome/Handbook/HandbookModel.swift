@@ -10,8 +10,10 @@ import Telemetry
 final class HandbookModel {
   enum Status: Equatable { case loading, ready, offline, failed }
 
-  /// The site's language for this app's language: Vietnamese unless the app runs in Indonesian or Thai.
+  /// The site's language for this app's language: the one iOS chose, if the app offers it (SiteLanguage), else Vietnamese.
   let lang: String
+  /// The app's language, as the site has it: its pages' addresses (SiteLanguage).
+  var language: SiteLanguage { SiteLanguage.served(lang) ?? .vietnamese }
   let site = URL(string: "https://aquatome.com")!
   private(set) var status = Status.loading
   private(set) var count = 0
@@ -87,7 +89,7 @@ final class HandbookModel {
 
   init(source: Source = HandbookModel.defaultSource(), preferred: [String] = Bundle.main.preferredLocalizations) {
     self.source = source
-    lang = preferred.first.flatMap { ["vi", "id", "th"].contains($0) ? $0 : nil } ?? "vi"
+    lang = SiteLanguage.of(preferred).code
     drawn = Self.pageCache(source, site: site)
     paths = HandbookPaths(lang: lang, cache: drawn)
     #if DEBUG

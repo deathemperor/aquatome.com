@@ -20,13 +20,17 @@ export const MAX_FISH = 6
 export const MAX_SUGGESTIONS = 3
 
 const nullable = (s: Record<string, unknown>) => ({ anyOf: [s, { type: 'null' }] })
-/** The answer's schema (output_config.format): what structured outputs take, every object closed and every field required. */
+/**
+ * The answer's schema (output_config.format): what structured outputs take, every object closed and every field required.
+ * `text` stays first: structured outputs write the keys in the schema's order, and the reader sees the text as it is
+ * written (`textReader`).
+ */
 export const ANSWER_SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: ['text', 'covered', 'blocks', 'suggestions'],
   properties: {
-    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer, pointing to the blocks below for the figures.' },
+    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer. Never refer to the blocks; a figure only when it is the answer, the page\'s own.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',
@@ -79,6 +83,59 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
   }
 }
 
+const SPACE = new Set([' ', '\t', '\n', '\r'])
+/** What comes before the text's first character: each of these in turn, with JSON's whitespace before each. */
+const HEAD = ['{', '"text"', ':', '"']
+const ESCAPES: Record<string, string> = { n: '\n', t: '\t', r: '\r', b: '\b', f: '\f', '"': '"', '\\': '\\', '/': '/' }
+
+/**
+ * The answer's text as Claude writes it, for one call: fed the call's raw text as it comes, it gives back what each part
+ * adds to the top-level `text` string, decoded ('' for nothing yet). An escape or a surrogate pair cut between parts
+ * waits for the rest, so no piece holds half of one; joined, the pieces are the string JSON.parse reads. A call whose
+ * JSON doesn't open with `text` (or isn't JSON: words before a tool call) gives nothing, and nothing after the string's
+ * closing quote is read.
+ */
+export function textReader(): (part: string) => string {
+  let raw = ''
+  let at = 0
+  /** How far into HEAD: its item, and the characters of it matched. */
+  let item = 0
+  let got = 0
+  let off = false
+  let closed = false
+  let text = ''
+  let sent = 0
+  return part => {
+    if (off || closed) return ''
+    raw += part
+    while (item < HEAD.length) {
+      const c = raw[at]
+      if (c === undefined) return ''
+      at++
+      if (got === 0 && SPACE.has(c)) continue
+      if (c !== HEAD[item]![got]) { off = true; return '' }
+      if (++got === HEAD[item]!.length) { item++; got = 0 }
+    }
+    while (at < raw.length) {
+      const c = raw[at]!
+      if (c === '"') { closed = true; break }
+      if (c !== '\\') { text += c; at++; continue }
+      const e = raw[at + 1]
+      if (e === undefined) break
+      if (e !== 'u') { text += ESCAPES[e] ?? e; at += 2; continue }
+      if (at + 6 > raw.length) break
+      text += String.fromCharCode(parseInt(raw.slice(at + 2, at + 6), 16))
+      at += 6
+    }
+    // A high surrogate waits for its low half, written or escaped, unless the string ends on it.
+    const last = text.charCodeAt(text.length - 1)
+    const end = !closed && last >= 0xd800 && last <= 0xdbff ? text.length - 1 : text.length
+    const piece = text.slice(sent, end)
+    sent = end
+    return piece
+  }
+}
+
 /** The contract's blocks (protocols/chat.openapi.json `Block`). */
 export type Linked = { id: string; kind: 'species' | 'breed' | 'plant'; name: string; sci?: string; url?: string; img?: string }
 export type Card = { page: Linked } & ({ facts: Facts } | { plant: PlantFacts })
@@ -117,6 +174,11 @@ function speciesOf(id: string, hb: Handbook): Item | undefined {
   return s?.kind === 'fish' ? s : undefined
 }
 
+/** What a block shows that the reader needn't see twice in a conversation: a species card, a page's section (a comparison
+ * and a tool, which change with what they hold, may come again). */
+const repeatKey = (b: ChatBlock): string[] =>
+  b.t === 'species' ? [`species: ${b.page.id}`] : b.t === 'section' ? [`section: ${b.page.url}${b.heading ? `#${b.heading.id}` : ''}`] : []
+
 /** The ids among these that aren't fish (a plant, a typo): a tank-mates check or block that names one checks the rest only. */
 export const notFish = (fish: readonly { id: string }[], hb: Handbook) => fish.map(f => f.id).filter(id => !speciesOf(id, hb))
 
@@ -129,8 +191,11 @@ const r1 = (n: number) => String(Math.round(n * 10) / 10)
  * `checks`: the run's check_tank_mates answers (mates.ts). A tank-mates block of two fish or more goes out only with the
  * check Claude read for the same fish, counts and tank, and carries it as the app's tank check draws it: what the
  * answer said is what the block shows.
+ * `shownBefore`: the blocks of the conversation's earlier turns. A species card or a page's section shown already (or
+ * twice in this answer) isn't shown again: the reader has it above, and a chat from a fish's page would carry its card
+ * under nearly every answer.
  */
-export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = []): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
+export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = []): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
   const dropped: string[] = []
   const card = (id: string): Card | undefined => {
     const i = hb.byId(id)
@@ -199,10 +264,16 @@ export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesC
     }
   }
   const blocks: ChatBlock[] = []
+  const seen = new Set(shownBefore.flatMap(repeatKey))
   for (const p of answer.blocks.slice(0, MAX_BLOCKS)) {
     const b = await one(p)
+    const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
     if (typeof b === 'string') dropped.push(b)
-    else blocks.push(b)
+    else if (again.length) dropped.push(`${again[0]} shown before`)
+    else {
+      blocks.push(b)
+      repeatKey(b).forEach(k => seen.add(k))
+    }
   }
   if (answer.blocks.length > MAX_BLOCKS) dropped.push(`${answer.blocks.length - MAX_BLOCKS} blocks past ${MAX_BLOCKS}`)
   return { blocks, dropped }

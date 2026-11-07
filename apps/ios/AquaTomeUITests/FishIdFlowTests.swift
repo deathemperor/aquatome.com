@@ -157,22 +157,40 @@ final class FishIdFlowTests: XCTestCase {
     openTool(app)
     signIn(app)
     send(app)
+    // At once, in the button's place: a spinner and what it's doing (the words change at 10 s).
+    XCTAssertTrue(element(app, "fish-id-said").waitForLabel("Đang nhận diện… thường mất vài giây.", timeout: 5), element(app, "fish-id-said").saying)
     // Back to the top, where the photo's controls are.
     for _ in 0..<3 { app.swipeDown() }
     let library = element(app, "fish-id-library"), box = element(app, "fish-id-box")
-    XCTAssertTrue(library.waitForExistence(timeout: 5) && box.exists, "the photo's controls aren't shown")
+    XCTAssertTrue(library.waitForExistence(timeout: 5), "the photo's controls aren't shown")
     XCTAssertFalse(library.isEnabled, "another photo can be picked while one is identified")
-    XCTAssertFalse(box.isEnabled, "the photo can be boxed while it's identified")
-    // Under "Nhận diện", below the photo.
+    // Nothing greyed out that reads as broken: no box to change, and in the button's place a spinner and what it's doing.
+    XCTAssertFalse(box.exists, "the photo can be boxed while it's identified")
+    XCTAssertFalse(element(app, "fish-id-send").exists, "a greyed-out button while it's identified")
     let said = element(app, "fish-id-said")
     reveal(app, said)
     // The stand-in holds the request 40 s: the line changes at 10.
     XCTAssertTrue(said.waitForLabel("Vẫn đang nhận diện… có thể mất đến một phút.", timeout: 30), said.saying)
     XCTAssertTrue(said.waitForLabel("Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", timeout: 45), said.saying)
     XCTAssertTrue(element(app, "fish-id-send").isEnabled, "can't send again")
-    XCTAssertTrue(box.isEnabled, "the box stays off")
+    XCTAssertTrue(box.exists && box.isEnabled, "the box stays off")
     reveal(app, library, up: true)
     XCTAssertTrue(library.isEnabled, "the library stays off")
+  }
+
+  /// While it identifies, the end of the screen (the tips' last line) still comes up above the tab bar, shrunk or not.
+  func testWhileItIdentifiesTheScreensEndIsAboveTheTabBar() {
+    let app = launch("-picked-photo", "-fish-id-slow")
+    openTool(app)
+    signIn(app)
+    let bar = app.tabBars.firstMatch
+    XCTAssertTrue(bar.waitForExistence(timeout: 5), "no tab bar")
+    let top = bar.frame.minY
+    send(app)
+    XCTAssertTrue(element(app, "fish-id-said").waitForExistence(timeout: 5), "not identifying")
+    app.endsAboveTheTabBar(top, "fish ID while it identifies")
+    let last = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Công cụ chỉ đoán từ ảnh'")).firstMatch
+    XCTAssertTrue(last.exists && last.frame.maxY <= bar.frame.minY + 0.5, "the tips' last line isn't above the bar: \(last.frame) \(bar.frame)")
   }
 
   /// Back from a guess's page, the guesses and the box are as they were: the photo isn't read again, which would take

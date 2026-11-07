@@ -10,6 +10,58 @@
     "paraguay",
     "rio-monday"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PY"
+      ],
+      "regions": [
+        "Rio Monday",
+        "Rio Parana"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
+          "countries": [
+            "PY"
+          ],
+          "regions": [
+            "Rio Monday",
+            "Rio Parana"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342663,
+      "total": 32,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PY",
+          32
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -26.71875,
+          29,
+          29
+        ],
+        [
+          -56.25,
+          -25.3125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

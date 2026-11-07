@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { loadAll } from '@aq/schema'
-import { approveSummaries, cardBlock, cardOf, checkNumbers, draftSummaries, pageText, profile, readSummaries, reviewDoc } from '../src/summaries'
+import { approveSummaries, cardBlock, cardOf, cardProblems, checkNumbers, draftSummaries, pageText, profile, readSummaries, reviewDoc } from '../src/summaries'
 
 async function content() {
   const root = join(await mkdtemp(join(tmpdir(), 'sum-')), 'content')
@@ -21,6 +21,20 @@ test('numbers from the data card and the page text pass', () => {
   expect(checkNumbers(draft('Hợp với bể từ 60 × 30 cm (khoảng 54 lít), nước 23–27 °C, pH 4,6–6,2, độ cứng 1–4 dGH, độ khó 2/8.', ['Thả lẻ vài con: nên nuôi đàn 8–10 con.']), card, page)).toEqual([])
   // Vietnamese thousands and decimals; adult size in mm is the card's cm; one pH value inside the card's range.
   expect(checkNumbers(draft('Cá dài 35 mm, hợp bể trưng bày 1.200 lít, pH 4,6.'), card, page)).toEqual([])
+})
+
+// 2026-11-07, a design lab: Cá neon vua's summary said 23–27 °C where its card (and the app's index) said 23–29 °C. The
+// summary had passed against the card as it was then, its sources' overlap; that day the card took Seriously Fish's
+// range, and nothing read the summary again. The sweep now does, each cycle, with the card's figures alone.
+test('a summary\'s card figures read again against the card as it is now; other numbers are the draft check\'s', () => {
+  const d = draft('Nước mềm, chua: 23–27 °C, pH 4,6–6,2, độ cứng 1–4 dGH. Bể dài từ 60 cm, cá dài 3,5 cm, độ khó 2/8.', ['Thay 30% nước mỗi tuần, sống 12 năm.'])
+  expect(cardProblems(d, card)).toEqual([])
+  expect(cardProblems(d, { ...card, tempC: { min: 23, max: 29 }, ph: { min: 3.5, max: 7.5 }, gh: { min: 1, max: 12 } })).toEqual([
+    '"23–27 °C" is not the card\'s temperature (23–29 °C)', '"pH 4,6–6,2" is not the card\'s pH (3,5–7,5)', '"1–4 dGH" is not the card\'s hardness (1–12 dGH)',
+  ])
+  expect(cardProblems(d, { ...card, sizeCm: 5, difficulty: 4 })).toEqual(['"3,5 cm" is not the card\'s adult size (5 cm)', '"2/8" is not the card\'s difficulty (4/8)'])
+  // "30%" and "12 năm" aren't the card's: the page text has them or not, which only the draft's own check reads.
+  expect(checkNumbers(d, card, page)).toEqual(['the number "12" is in neither the page text nor the data card'])
 })
 
 test('a temperature, pH or hardness figure must be the card one, even when the page text says otherwise', () => {

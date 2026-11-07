@@ -28,7 +28,7 @@ public enum AppLink: Equatable, Sendable {
       return nil
     }
     guard ours(named, site) else { return nil }
-    let home = ["", "/", "/vi/", "/id/", "/th/", "/vi", "/id", "/th"]
+    let home = ["", "/"] + SiteLanguage.served.flatMap { [$0.prefix, String($0.prefix.dropLast())] }
     return home.contains(named.path(percentEncoded: false)) && named.query == nil && named.fragment == nil ? .home : .page(named)
   }
 

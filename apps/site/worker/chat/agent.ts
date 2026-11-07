@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { ANSWER_SCHEMA, fill, readAnswer, type Answer, type ChatBlock } from './answer'
+import { ANSWER_SCHEMA, fill, readAnswer, textReader, type Answer, type ChatBlock } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { MatesCheck } from './mates'
 import { chatTools, type Step, type Tank } from './tools'
@@ -18,8 +18,8 @@ export const SYSTEM = `You answer readers of AquaTome, a handbook of aquarium fi
 Answer only from the handbook. Read it with your tools before you answer: search_handbook finds pages by name, read_page opens a page's outline (and, for a fish or plant, its figures), then one section's full text by its heading id, read_tanks reads the reader's saved tanks when they talk about their tank or the fish they keep, and check_tank_mates checks fish together as the tank-mates tool does. Whether fish can live together is the check's to say: call check_tank_mates when the reader asks, and before any tank-mates block (the same fish, counts and tank), and open your text with its verdict's head word for word. For fish going in the reader's own tank, read_tanks first and check with that tank's id, naming only the fish they would add. Read the pages that answer the question; for most questions one search and two or three pages are enough.
 
 Your answer has two parts:
-- text: two or three sentences in the reader's language, plain and practical, as a knowledgeable friend at the shop would say it. Call the handbook what the site calls it: cẩm nang in Vietnamese, panduan in Indonesian, คู่มือ in Thai. Say what the handbook says, not what you searched or read. Don't write figures (temperatures, pH, sizes, litres, counts, doses) in the text unless a page you read gives them; prefer to point to the blocks, which show the handbook's own figures.
-- blocks: what to show under the text, from what you read. A species card (its id) for a fish or plant the answer is about; a comparison (two to four ids) when the reader weighs fish against each other; a page's section (its path and heading id, or null for the page's opening) that answers the question in the handbook's words; a tool filled from the conversation (tank-mates with the fish and how many, tank-volume or tank-budget with the tank's sides in cm) when the reader would use it next. One to three blocks is usual; never a block for a page you didn't read.
+- text: two or three sentences in the reader's language, plain and practical, as a knowledgeable friend at the shop would say it. Call the handbook what the site calls it: cẩm nang in Vietnamese, panduan in Indonesian, คู่มือ in Thai. Say what the handbook says, not what you searched or read. Never refer to the blocks in the text (no "below", "the table", "see the card"): the reader sees them under it. Write a figure (a temperature, pH, size, litres, count, dose) only when it is the answer, and then the page's own, from a page you read.
+- blocks: what to show under the text, from what you read. A species card (its id) for a fish or plant the answer is about; a comparison (two to four ids) when the reader weighs fish against each other; a page's section (its path and heading id, or null for the page's opening) that answers the question in the handbook's words; a tool filled from the conversation (tank-mates with the fish and how many, tank-volume or tank-budget with the tank's sides in cm) when the reader would use it next. One to three blocks is usual; never a block for a page you didn't read, and never a card or section shown earlier in this conversation (the reader has it above). The fish or plant the chat started from gets a card only when your text leans on its figures.
 
 When the handbook doesn't answer the question, say so plainly in the text, set covered to false, and show the nearest page's section. Never answer from memory instead, and never give a medicine's or chemical's dose that no page gives. The handbook also has guides to building and fitting out tanks, ponds, stands, filters, chillers and lights, so search before you decide a question isn't about aquariums. One that isn't about fish, plants or aquariums gets a short reply saying what you can help with, and no blocks.
 
@@ -76,7 +76,11 @@ export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens:
 
 export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[] }
 export type ChatOptions = {
-  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number }) => Promise<Anthropic.Message>
+  /**
+   * One call to Claude. With `onText`, the call streams, and each raw delta of its text content (never its thinking)
+   * goes to `onText` as it comes; the call still returns its whole message.
+   */
+  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number; onText?: (delta: string) => void }) => Promise<Anthropic.Message>
   model: string
   lang: Lang
   question: string
@@ -87,15 +91,33 @@ export type ChatOptions = {
   effort?: 'low' | 'medium' | 'high'
   limits?: Partial<Limits>
   onStep?: (step: Step) => void
+  /** The answer's text as Claude writes it: pieces of it, decoded, in order; joined, the answer's text. */
+  onText?: (piece: string) => void
   clock?: () => number
+}
+
+/**
+ * `send`, with each call's text read as it comes (`textReader`) and given to `onText`. A call that has given the reader
+ * any text is the answer: its tool calls are dropped and the run ends on it, since what the reader has read can't be
+ * taken back.
+ */
+function streaming(send: ChatOptions['send'], onText: (piece: string) => void): ChatOptions['send'] {
+  return async (body, opts) => {
+    const read = textReader()
+    let shown = false
+    const m = await send(body, { ...opts, onText: delta => { const piece = read(delta); if (piece) { shown = true; onText(piece) } } })
+    if (!shown) return m
+    return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
+  }
 }
 
 /** One turn: Claude reads and answers, then the blocks it picked are filled from the handbook. */
 export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // What check_tank_mates answered: a tank-mates block goes out with the check Claude read (answer.ts `fill`).
   const checks: MatesCheck[] = []
+  // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
   const run = await runAgent<Step>({
-    send: o.send,
+    send: o.onText ? streaming(o.send, o.onText) : o.send,
     model: o.model,
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
@@ -109,6 +131,6 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     clock: o.clock,
   })
   const answer = run.message ? readAnswer(run.message) : undefined
-  const filled = answer ? await fill(answer, o.handbook, checks) : { blocks: [], dropped: [] }
+  const filled = answer ? await fill(answer, o.handbook, checks, o.earlier.flatMap(t => t.blocks)) : { blocks: [], dropped: [] }
   return { ...run, ...(answer ? { answer } : {}), ...filled }
 }

@@ -6,7 +6,7 @@ import { accountDayKey } from '../comments/api'
 import { kvHealth } from '../fishid/api'
 import { clientFor, costOf, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { failed, healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
-import { ledgerClient } from '../fishid/ledger'
+import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
@@ -29,8 +29,8 @@ import { transcriptKey, type ChatRunRecord } from './transcript'
  *   conversation. The question being answered is marked in it, written only over the version read (an etag match), or
  *   only where none is yet, so two questions at once can't both run: the second is 409 answering, or with the first's
  *   key waits for its answer.
- * - Retries (`Idempotency-Key`): the turn, or its error, read for 15 minutes under the account and key
- *   (`chat-turn/<account>/<key>.json`), swept within a day by the daily cron. A retry while the first run still answers waits for it and gets its answer,
+ * - Retries (`Idempotency-Key`): the turn, or its error, read for 24 hours (a conversation's life; a failure on our side,
+ *   503, for 15 minutes) under the account and key (`chat-turn/<account>/<key>.json`), and swept by the daily cron after. A retry while the first run still answers waits for it and gets its answer,
  *   counted once.
  *
  * - The transcript: what each question said and did (transcript.ts), under the account and conversation
@@ -64,9 +64,12 @@ const PER_ACCOUNT = 30
 const PER_DAY = 1000
 const MAX_TURNS = 20
 const MAX_CHARS = 500
-const USD_PER_DAY = 15
 const CONVERSATION_MS = 24 * 3600_000
-const RETRY_MS = 15 * 60_000
+/** A kept turn answers retries for a conversation's life: a reader back hours later (a call, a locked phone) gets the
+ * answer that landed, not a second run. Past it, the conversation has ended too: a retry is 410, never counted again. */
+const RETRY_MS = CONVERSATION_MS
+/** A failure on our side (503) gave its count back: kept only for the retries waiting on its run, then asked again. */
+const UNAVAILABLE_MS = 15 * 60_000
 /** A question marked as answering longer than this was cut off: the conversation takes another. */
 const RUNNING_MS = 2 * 60_000
 const PING_MS = 10_000
@@ -197,7 +200,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const readKept = async (): Promise<Kept | undefined> => {
     if (!keptKey) return undefined
     const k = await (await env.UPLOADS.get(keptKey))?.json<Kept>()
-    return k && clock() - k.at < RETRY_MS ? k : undefined
+    return k && clock() - k.at < ('turn' in k || k.status !== 503 ? RETRY_MS : UNAVAILABLE_MS) ? k : undefined
   }
   const answerOf = (k: Kept) => ('turn' in k ? k.turn : undefined)
   const keptResponse = (k: Kept): Response => {
@@ -210,9 +213,11 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   if (kept) return keptResponse(kept)
   const obj = await env.UPLOADS.get(convKey)
   const conv = obj ? await obj.json<Conversation>() : undefined
-  if (conv && (clock() - conv.created > CONVERSATION_MS || conv.turns.length >= maxTurns)) return json({ error: 'ended' }, 410)
+  // A retry of the question still answering waits for it, even once the conversation has passed its end: a 410 would
+  // have it asked again elsewhere, before its kept answer is written.
   const running = conv?.running && clock() - conv.running.at < RUNNING_MS ? conv.running : undefined
   if (running && idem && running.key === idem) return waitFor(readKept, keptResponse, stream, clock, deps)
+  if (conv && (clock() - conv.created > CONVERSATION_MS || conv.turns.length >= maxTurns)) return json({ error: 'ended' }, 410)
   if (running) return json({ error: 'answering' }, 409)
 
   // Admission, in one step in the ledger: the account's day, chat's day and the site's spend, and a healthy key.
@@ -222,8 +227,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const ledger = ledgerClient(env.FISHID_LEDGER)
   const day = now.toISOString().slice(0, 10)
   const reader = `chat:acct:${(await accountDayKey(env.COMMENT_HMAC_KEY, session.userId, now)).slice(3)}`
-  const usdCap = Number(env.FISH_ID_USD_PER_DAY) > 0 ? Number(env.FISH_ID_USD_PER_DAY) : USD_PER_DAY
-  const admitted = await ledger.admit({ day, reader, perReader: perAccount, perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap, reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat' })
+  const admitted = await ledger.admit({ day, reader, perReader: perAccount, perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap: usdCap(env.FISH_ID_USD_PER_DAY), reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat' })
     .catch(e => { console.error('chat ledger:', e); return null })
   if (!admitted) return json({ error: 'unavailable' }, 503)
   if (!admitted.ok) return admitted.error === 'rate' ? json({ error: 'rate', limit: admitted.limit }, 429) : json({ error: admitted.error }, admitted.error === 'busy' ? 429 : 503)

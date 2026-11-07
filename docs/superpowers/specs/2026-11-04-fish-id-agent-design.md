@@ -188,7 +188,7 @@ has to change for it.
 - An identification counts once against the reader's day (`perIp`, `perAccount`) and the site's (`FISH_ID_PER_DAY`),
   however many calls it makes.
 - The site's daily KV counter (api.ts, one value a day) gains `usd`, the day's spend at list price. Over
-  `FISH_ID_USD_PER_DAY` (default $15) it answers `busy`, as for the count. Analytics Engine can't be read back in the
+  `FISH_ID_USD_PER_DAY` (default $50, shared with chat) it answers `busy`, as for the count. Analytics Engine can't be read back in the
   Worker, so the counter is the cap.
 - Privacy is unchanged. The photo goes to Anthropic only and is never stored. The tools read public pages. The log keeps
   counts and the steps' kinds, never the search text.

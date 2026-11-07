@@ -16,6 +16,8 @@
  * - Tank-mates: blocks picked whose fish, counts and tank Claude checked first (check_tank_mates; the Worker drops the
  *   others), and answers whose text opens with the shown block's verdict's head, word for word, as the prompt asks. The check's verdict
  *   is listed by the answer for a look.
+ * - Points to blocks: answers whose text refers to its blocks ("xem thẻ bên dưới"), which the prompt says never to do
+ *   (chat-eval-grade.ts `pointsAt`), listed by the answer.
  * - Figures: numbers in the text that nothing Claude was sent has: the question, its start, the searches' results and
  *   the parts of pages it opened (the prompt: figures only from a page read), listed for a look.
  * - Stopped, calls, tool calls, blocks dropped, seconds, and cost (usage × list price, apps/site/worker/fishid/claude.ts).
@@ -43,7 +45,7 @@ import type { Tank } from '../../../apps/site/worker/chat/tools'
 import { topicsOf, type Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
-import { faqFound, matesChecks, numbersIn, readPages, sentText } from './chat-eval-grade'
+import { faqFound, matesChecks, numbersIn, pointsAt, readPages, sentText } from './chat-eval-grade'
 import { pool } from './eval-lib'
 
 const ROOT = join(import.meta.dirname, '../../..')
@@ -240,6 +242,8 @@ type Row = {
   found: 'guide' | 'other' | 'none' | 'ok' | 'not' | 'failed'
   /** Numbers in the text nothing Claude was sent has. */
   invented: number[]
+  /** Where its text points to its blocks (`pointsAt`). */
+  points: string[]
   /** Its tank-mates blocks picked, those dropped as not checked first, whether the text opens with the shown one's verdict. */
   mates: { blocks: number; unchecked: number; opens?: boolean; verdicts: string[] }
   ms: number
@@ -271,7 +275,7 @@ function grade(model: string, question: Question, run: ChatRun | undefined, fail
     ...(heads[0] ? { opens: (run?.answer?.text ?? '').trimStart().startsWith(heads[0]) } : {}),
     verdicts: checks.flatMap(c => (c.text ? [`${c.level}: ${c.text}`] : [])),
   }
-  return { model, question, run, ...(failed ? { failed } : {}), read, found, invented, mates, ms, usd }
+  return { model, question, run, ...(failed ? { failed } : {}), read, found, invented, points: pointsAt(run?.answer?.text ?? ''), mates, ms, usd }
 }
 
 async function main() {
@@ -361,12 +365,13 @@ function report(rows: Row[]): string {
     '- **Start:** the page it should read was read or shown, and one of the blocks it should show was shown.',
     '- **Outside:** answered as not covered (and, when not about aquariums, with no blocks).',
     '- **Tank-mates: checked · opens with it:** tank-mates blocks picked whose fish, counts and tank Claude checked first (check_tank_mates; the Worker shows no other) · answers with a verdict shown whose text opens with its head, word for word. The check\'s verdict is listed under each answer.',
+    '- **Points to blocks:** answers whose text refers to its blocks ("xem thẻ bên dưới", "bảng dưới đây"), which the reader sees under it anyway; the prompt says never to. The words are listed by each answer: a flag for a look, not a count (other wordings aren\'t caught, and "below" as a place ending a clause can be).',
     '- **Figures not in a page:** answers whose text has a number that nothing Claude was sent has: the question, the searches\' results, the parts of pages it opened (listed below). A small number (a list\'s 2 or 3) may be in what it read by chance, so this is a floor.',
     '- **Stopped:** answered when Claude chose / at the calls, tool-call, time or token limit / a call failed.',
     '- **Cost:** response usage × list price, every call, per question. **Latency:** first call to the filled answer, on this machine.',
     '',
-    '| Model | FAQ: guide / other page / not covered | Start | Outside | Tank-mates: checked · opens with it | Figures not in a page | Blocks dropped | Stopped: answer / calls / tools / time / tokens / error | Calls · tools | Median | p90 | $ / question |',
-    '| --- | --- | ---: | ---: | ---: | ---: | ---: | --- | ---: | ---: | ---: | ---: |',
+    '| Model | FAQ: guide / other page / not covered | Start | Outside | Tank-mates: checked · opens with it | Points to blocks | Figures not in a page | Blocks dropped | Stopped: answer / calls / tools / time / tokens / error | Calls · tools | Median | p90 | $ / question |',
+    '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: | ---: | ---: | ---: |',
   ]
   for (const model of MODELS) {
     const rs = rows.filter(r => r.model === model)
@@ -378,13 +383,13 @@ function report(rows: Row[]): string {
     const mean = (g: (x: ChatRun) => number) => (runs.reduce((t, x) => t + g(x), 0) / Math.max(1, runs.length)).toFixed(1)
     const ms = rs.map(r => r.ms)
     const failed = f.filter(r => r.found === 'failed').length
-    lines.push(`| ${model} | ${f.filter(r => r.found === 'guide').length} / ${f.filter(r => r.found === 'other').length} / ${f.filter(r => r.found === 'none').length} of ${f.length}${failed ? `, ${failed} failed` : ''} | ${pct(s.filter(r => r.found === 'ok').length, s.length)} | ${pct(o.filter(r => r.found === 'ok').length, o.length)} | ${checked(rs)} · ${pct(rs.filter(r => r.mates.opens).length, rs.filter(r => r.mates.opens !== undefined).length)} | ${pct(rs.filter(r => r.invented.length).length, rs.length)} | ${runs.reduce((t, x) => t + x.dropped.length, 0)} | ${stops} | ${mean(x => x.calls)} · ${mean(x => x.tools)} | ${(at(ms, 0.5) / 1000).toFixed(1)} s | ${(at(ms, 0.9) / 1000).toFixed(1)} s | $${(rs.reduce((t, r) => t + r.usd, 0) / Math.max(1, rs.length)).toFixed(3)} |`)
+    lines.push(`| ${model} | ${f.filter(r => r.found === 'guide').length} / ${f.filter(r => r.found === 'other').length} / ${f.filter(r => r.found === 'none').length} of ${f.length}${failed ? `, ${failed} failed` : ''} | ${pct(s.filter(r => r.found === 'ok').length, s.length)} | ${pct(o.filter(r => r.found === 'ok').length, o.length)} | ${checked(rs)} · ${pct(rs.filter(r => r.mates.opens).length, rs.filter(r => r.mates.opens !== undefined).length)} | ${pct(rs.filter(r => r.points.length).length, rs.length)} | ${pct(rs.filter(r => r.invented.length).length, rs.length)} | ${runs.reduce((t, x) => t + x.dropped.length, 0)} | ${stops} | ${mean(x => x.calls)} · ${mean(x => x.tools)} | ${(at(ms, 0.5) / 1000).toFixed(1)} s | ${(at(ms, 0.9) / 1000).toFixed(1)} s | $${(rs.reduce((t, r) => t + r.usd, 0) / Math.max(1, rs.length)).toFixed(3)} |`)
   }
   for (const model of MODELS) {
-    lines.push('', `## ${model}`, '', '| Set | Question | Found | Read | Shown | Covered | Figures not in a page | Time | Cost |', '| --- | --- | --- | --- | --- | --- | --- | ---: | ---: |')
+    lines.push('', `## ${model}`, '', '| Set | Question | Found | Read | Shown | Covered | Points to blocks | Figures not in a page | Time | Cost |', '| --- | --- | --- | --- | --- | --- | --- | --- | ---: | ---: |')
     for (const r of rows.filter(x => x.model === model)) {
       const shown = (r.run?.blocks ?? []).map(b => keysOf(b).join(' + ').replace(/^section:\/vi\//, 'section:')).join(', ')
-      lines.push(`| ${r.question.set} | ${cell(r.question.q)} | ${r.failed ? `failed: ${cell(r.failed)}` : r.found} | ${r.read.length} | ${cell(shown) || '–'} | ${r.run?.answer?.covered ?? '–'} | ${r.invented.join(', ') || '–'} | ${(r.ms / 1000).toFixed(1)} s | $${r.usd.toFixed(3)} |`)
+      lines.push(`| ${r.question.set} | ${cell(r.question.q)} | ${r.failed ? `failed: ${cell(r.failed)}` : r.found} | ${r.read.length} | ${cell(shown) || '–'} | ${r.run?.answer?.covered ?? '–'} | ${cell(r.points.join(', ')) || '–'} | ${r.invented.join(', ') || '–'} | ${(r.ms / 1000).toFixed(1)} s | $${r.usd.toFixed(3)} |`)
     }
     lines.push('', '### Its answers', '')
     for (const r of rows.filter(x => x.model === model)) {

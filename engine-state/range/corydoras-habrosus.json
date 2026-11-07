@@ -1,0 +1,129 @@
+{
+  "id": "corydoras-habrosus",
+  "native": {
+    "input": "a767df94645e63ae",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "C. habrosus originates from the Orinoco drainage (Colombia and Venezuela).",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "C. habrosus originates from the Orinoco drainage (Colombia and Venezuela).",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Río Orinoco basin in eastern Colombia and western Venezuela, where it appears to be restricted to left bank tributaries.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Río Orinoco basin in eastern Colombia and western Venezuela, where it appears to be restricted to left bank tributaries.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "C. habrosus originates from the Orinoco drainage (Colombia and Venezuela).",
+        "ok": true
+      },
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to the upper Río Orinoco basin in eastern Colombia and western Venezuela, where it appears to be restricted to left bank tributaries.",
+        "ok": true
+      },
+      {
+        "name": "Río Apure",
+        "source": "seriouslyfish",
+        "quote": "The majority of records derive from the Río Apure watershed in southwestern Venezuela, where Hoplisoma habrosum has been collected in the states of Portuguesa, Cojedes, Barinas, Guárico, and Apure.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Arauca",
+        "source": "seriouslyfish",
+        "quote": "Its distribution in Colombia is less clear but it is known with certainty from the Río Arauca and Río Casanare, the latter a tributary of the lower Río Meta, and it makes sense that it should also be found in other left bank Orinoco affluents between the Meta and Apure, which include the ríos Cinaruco and Capanaparo.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "Its distribution in Colombia is less clear but it is known with certainty from the Río Arauca and Río Casanare, the latter a tributary of the lower Río Meta, and it makes sense that it should also be found in other left bank Orinoco affluents between the Meta and Apure, which include the ríos Cinaruco and Capanaparo.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Llanos Orientales",
+        "source": "seriouslyfish",
+        "quote": "This species occurs in the Llanos Orientales region, a vast tropical grassland plain traversed by the Orinoco and some of its major left bank tributaries.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras habrosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342708,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        52
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        20
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        17
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}
