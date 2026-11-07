@@ -50,7 +50,7 @@ describe('each check, on a page made to fail it', () => {
     byPath: new Map([['/ca/a/', 'species:a'], ['/ca/b/', 'species:b']]),
     living: new Map([['species:a', { names: new Set(['aus bus', 'cá a']), photos: new Set(['https://m/a.webp']) }], ['species:b', { names: new Set(['aus cus', 'cá b']), photos: new Set(['https://m/b.webp', 'https://m/b2.webp']) }]]),
     owner: new Map([['https://m/a.webp', 'species:a'], ['https://m/b.webp', 'species:b']]),
-    targets: { vi: [T, U], id: [T, U], th: [T, U] },
+    targets: { vi: [T, U], id: [T, U], th: [T, U], ms: [T, U] },
     genera: new Set(['Aus']),
   }
   const fig = (src: string, href?: string) => `<figure class="inl"><img src="${src}" width="1" height="1" alt=""><figcaption>${href ? `<a href="${href}">x</a>` : ''}</figcaption></figure>`

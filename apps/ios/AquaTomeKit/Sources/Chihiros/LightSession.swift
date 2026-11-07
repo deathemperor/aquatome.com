@@ -85,6 +85,26 @@ public final class LightSession {
     }
   }
 
+  /// "Bật với màu của lịch" (`TodayPlan`): the schedule as two periods, the six other days as they are and today's own,
+  /// in `writeSchedule`'s order (clock, clear the scenes, the schedule's mode, then the periods), and one status read.
+  /// Not read again until it shows them: `Snapshot` reads one period, and what the light reports holding two isn't
+  /// known. `now` is the time the plan was made for: the light runs its periods on the clock set here.
+  @discardableResult
+  public func writeToday(_ p: TodayPlan, now: Date = Date()) async throws -> Snapshot {
+    try await exclusive {
+      if let firmware = self.firmware, firmware < 20 { throw SessionError.firmwareTooOld(firmware) }
+      let channels = self.model.channels.count
+      let gap = self.pacing.scheduleGap
+      self.isManual = false
+      try await self.send({ Frame.setTime(now, id: $0) }, gap: gap)
+      try await self.send({ Frame.setMode(Mode.sceneReset, id: $0) }, gap: gap)
+      try await self.send({ Frame.setMode(Mode.scene, id: $0) }, gap: gap)
+      try await self.send({ Frame.setSchedule(p.schedule, channels: channels, weekdays: p.otherDays, id: $0) }, gap: gap)
+      try await self.send({ Frame.setSchedule(p.today, channels: channels, weekdays: p.todayBit, id: $0) }, gap: gap)
+      return try await self.readStatus()
+    }
+  }
+
   /// Sets the light's clock to `now`, then reads it back.
   @discardableResult
   public func syncClock(now: Date = Date()) async throws -> Snapshot {

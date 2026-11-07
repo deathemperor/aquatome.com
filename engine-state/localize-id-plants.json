@@ -612,12 +612,15 @@
     ]
   },
   "crinum-calamistratum": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
     "name": "Crinum calamistratum",
-    "confidence": "medium",
-    "score": 0.95,
-    "notes": []
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"daun hijau tua yang sangat sempit\" is slightly awkward for leaves. \"sangat sempit\" or \"sangat ramping/sangat langsing\" would read more naturally.",
+      "Item 2: the source text is Vietnamese, not English. The Indonesian follows it faithfully, but the source should be checked. Its leaf length of 50–75 cm also differs from item 3's 40–120 cm."
+    ]
   },
   "crinum-thaianum": {
     "at": "2026-10-30",
@@ -833,15 +836,12 @@
     ]
   },
   "echinodorus-ozelot-green": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Echinodorus Ozelot Green",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "Echinodorus 'Ozelot Green'",
     "confidence": "medium",
-    "score": 0.9,
-    "notes": [
-      "\"Roset\" for rosulate is fine, but consider \"Rosula\"; minor only if needed.",
-      "\"Substrat yang kaya nutrisi\": fine; no real issue."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "echinodorus-red-diamond": {
     "at": "2026-10-31",

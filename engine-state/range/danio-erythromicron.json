@@ -1,0 +1,56 @@
+{
+  "id": "danio-erythromicron",
+  "native": {
+    "input": "adb2fd8b6a809a09",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Danio erythromicron is a miniature danionin from Lake Inle and its surrounding watershed in Shan State, eastern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Inle",
+        "source": "seriouslyfish",
+        "quote": "Danio erythromicron is a miniature danionin from Lake Inle and its surrounding watershed in Shan State, eastern Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio erythromicron",
+    "status": "ACCEPTED",
+    "taxonKey": 2362710,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        14
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

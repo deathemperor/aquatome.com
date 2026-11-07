@@ -1,9 +1,9 @@
 {
-  "slug": "ca-rong-reu-thai",
-  "name": "Cá rong rêu Thái",
+  "slug": "ca-but-chi-thai",
+  "name": "Cá bút chì Thái",
   "altNames": [
+    "Cá rong rêu Thái",
     "Cá ăn tảo Thái Lan",
-    "Cá cầu gai Thái",
     "Siamese Algae Eater",
     "SAE",
     "Siamese flying fox"
@@ -28,5 +28,12 @@
     "bySource": {
       "seriouslyfish": 0.92
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-rong-reu-thai",
+      "name": "Cá rong rêu Thái"
+    }
+  ]
 }

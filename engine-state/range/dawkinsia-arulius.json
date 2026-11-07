@@ -1,0 +1,73 @@
+{
+  "id": "dawkinsia-arulius",
+  "native": {
+    "input": "1917e3ef73d5f42a",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given by Jerdon as 'Cavery River at Seringapatam' which corresponds to Srirangapatna in Karnataka state, southwestern India, a town located on an island completely enclosed by the Cauvery/Kaveri River.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it may now be restricted to the upper Cauvery in the vicinity of Coorg, aka Kodagu, Karnataka, plus the upper Tungabhadra River system further north, the latter a tributary within the Krishna watershed and in its lower reaches one of the most polluted rivers in India.",
+        "ok": true
+      },
+      {
+        "name": "Tungabhadra",
+        "source": "seriouslyfish",
+        "quote": "Current knowledge suggests it may now be restricted to the upper Cauvery in the vicinity of Coorg, aka Kodagu, Karnataka, plus the upper Tungabhadra River system further north, the latter a tributary within the Krishna watershed and in its lower reaches one of the most polluted rivers in India.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dawkinsia arulius",
+    "status": "ACCEPTED",
+    "taxonKey": 7868332,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

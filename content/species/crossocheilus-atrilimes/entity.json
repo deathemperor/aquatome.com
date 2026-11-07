@@ -13,6 +13,117 @@
     "chao-phraya",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Nam Mang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens were collected from the Nam Mang River, Vientiane Province, Laos but the species is thought to occur throughout the Mekong and Chao Phraya drainages, so can also be found in Thailand and Cambodia.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH"
+          ],
+          "regions": [
+            "Nam Mang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Crossocheilus atrilimes is one of several near-identical cyprinids traded as the Siamese algae eater, native to the Mekong and Chao Phraya drainages.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361915,
+      "total": 21,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TH",
+          12
+        ],
+        [
+          "LA",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

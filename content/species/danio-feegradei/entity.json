@@ -10,6 +10,56 @@
     "myanmar",
     "rakhine"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Rakhine Yoma"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently considered endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Rakhine Yoma"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362720,
+      "total": 7,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          16.875,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          18.28125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

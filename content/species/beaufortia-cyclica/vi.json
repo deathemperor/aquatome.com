@@ -1,11 +1,12 @@
 {
-  "slug": "ca-bam-da-beaufortia-cyclica",
-  "name": "Cá bám đá Beaufortia cyclica",
+  "slug": "ca-ty-ba-buom-cyclica",
+  "name": "Cá tỳ bà bướm cyclica",
   "altNames": [
+    "Cá bám đá Beaufortia cyclica",
     "Cá bám đá"
   ],
   "sections": {
-    "beforeYouBuy:seriouslyfish": "<p>Loài này có tiếng hay nhảy, vì vậy bể cần nắp đậy khít. Cá cần nước ổn định và sống nhờ lớp màng sinh học (biofilm) phủ trên bề mặt, nên tuyệt đối không thả chúng vào bể chưa ổn định vi sinh. Nắp cũng phải đậy thật kín, vì loài này leo được cả lên kính theo đúng nghĩa đen.</p><p>Beaufortia cyclica là một loài cá bám đá mới chỉ được biết đến ở vài địa điểm thuộc lưu vực sông Xi và hệ thống sông Tuoniang ở miền nam Trung Quốc. Đầu và thân dẹt, cộng với các vây cặp xòe ngang, tạo thành một chiếc giác hút. Nhờ nó, cá bám được vào đá ở những đoạn suối đầu nguồn nông, nước chảy xiết và nhiều oxy. Kottelat (2012) cho rằng B. cyclica có thể là tên đồng nghĩa của B. elongata.</p>",
+    "beforeYouBuy:seriouslyfish": "<p>Loài này có tiếng hay nhảy, vì vậy bể cần nắp đậy khít. Cá cần nước ổn định và sống nhờ lớp màng sinh học (biofilm) phủ trên bề mặt, nên tuyệt đối không thả chúng vào bể chưa ổn định vi sinh. Nắp cũng phải đậy thật kín, vì loài này leo được cả lên kính theo đúng nghĩa đen.</p><p>Beaufortia cyclica là một loài cá tỳ bà bướm mới chỉ được biết đến ở vài địa điểm thuộc lưu vực sông Xi và hệ thống sông Tuoniang ở miền nam Trung Quốc. Đầu và thân dẹt, cộng với các vây cặp xòe ngang, tạo thành một chiếc giác hút. Nhờ nó, cá bám được vào đá ở những đoạn suối đầu nguồn nông, nước chảy xiết và nhiều oxy. Kottelat (2012) cho rằng B. cyclica có thể là tên đồng nghĩa của B. elongata.</p>",
     "distribution:seriouslyfish": "<p>Loài này mới chỉ được biết đến ở vài địa điểm trong lưu vực sông Xi (Xi Jiang) thuộc Khu tự trị dân tộc Choang Quảng Tây, miền nam Trung Quốc, và ở hệ thống sông Tuoniang thuộc huyện Phú Ninh, đông nam tỉnh Vân Nam.</p><p>Địa điểm mẫu chuẩn là 'West River, Longzhow Xian, Guangxi Province, China'.</p>",
     "habitat:seriouslyfish": "<p>Các loài Beaufortia chỉ sống ở những đoạn suối đầu nguồn và nhánh sông nhỏ có nước nông, chảy xiết và giàu oxy. Những nơi này có các đoạn ghềnh cạn và đoạn nước chảy đều, có chỗ bị ngắt quãng bởi vũng sâu hoặc thác nhỏ.</p><p>Nền đáy thường gồm đá nhỏ, cát và sỏi, xen lẫn những đống đá tảng. Ven bờ thường có cây cối mọc, dưới nước hay có từng mảng lá khô chìm. Cây thủy sinh thì thường không có.</p><p>Môi trường lý tưởng nhất có nước trong và bão hòa oxy. Nước như vậy gặp ánh nắng sẽ tạo điều kiện cho một lớp màng sinh học dày phát triển, phủ kín các bề mặt chìm dưới nước.</p><p>Vào mùa mưa nhiều, một số dòng suối có thể đục tạm thời. Nguyên nhân là dòng chảy mạnh lên (có lúc thành lũ xiết) và mực nước dâng cao, cuốn theo nhiều cặn lơ lửng.</p>",
     "aquariumSize:seriouslyfish": "<p>Bể có đáy 80 × 30 cm hoặc tương đương là đủ. Thể tích khoảng 72 lít.</p>",
@@ -24,5 +25,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-bam-da-beaufortia-cyclica",
+      "name": "Cá bám đá Beaufortia cyclica"
+    }
+  ]
 }

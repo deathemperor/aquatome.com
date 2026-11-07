@@ -15,6 +15,130 @@
     "negro",
     "caqueta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Negro",
+        "Caquetá",
+        "Orinoco",
+        "Uaupés",
+        "Meta"
+      ],
+      "sources": [
+        "planetcatfish",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Luaretê (0°35'N, 69°13'W) at the confluence of Rio Papurí and Rio Uaupés, Rio Negro system, Amazonas, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to tributaries of the rios Negro, Caquetá (both within the Amazon basin), and Orinoco in northwestern Brazil and east-central Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Negro",
+            "Caquetá",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known from the rio Uaupés and its tributary the rio Tiquié in the Negro system, the Río Orteguaza in the Caquetá basin, and the Río Losada (upper Río Guaviare) in the Orinoco watershed.",
+          "countries": [],
+          "regions": [
+            "Uaupés"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Negro and Meta River basins.",
+          "countries": [],
+          "regions": [
+            "Meta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342602,
+      "total": 23,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          10
+        ],
+        [
+          "CO",
+          10
+        ],
+        [
+          "PE",
+          2
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          13,
+          13
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

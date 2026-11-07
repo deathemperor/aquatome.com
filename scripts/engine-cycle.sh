@@ -242,7 +242,9 @@ if part rewrite; then
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
-  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live.
+  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live;
+  # and Malay, served since its UI text was complete, still at a new language's pace (10 species a cycle) here, its new UI
+  # strings now asked for by the build above.
   # After everything readers see, and each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES: they give
   # first when a cycle runs long. A cycle starts every 3 hours and took 91-135 min in November 2026, so 135 leaves the
   # longest step here (10 species, about 20 min) and the build, tests and push (about 6) inside the 170 min the next cycle

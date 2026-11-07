@@ -863,6 +863,16 @@ The layers above still check the result.
     commentary was refused twice. On the same pages Sonnet reported findings it then called fine and took the local
     name "cá heo" (Botia loaches) for "dolphin", so the reader reads with Opus (`READER_MODEL`).
 
+- **A note for local readers.** A guide from a foreign source can recommend what readers here can't easily buy, or what costs far more than a local option. A labelled note
+  ("Ở Việt Nam…") goes beside the source's advice, never inside it: its own field, `localNote`, with its citations. The
+  build puts it first in the guide's text. Every writer keeps it (a source read again, a video checked again, a rewrite),
+  and no reviewer scores it, so the re-check's rule that a guide says only what its video says doesn't fight it. A note
+  gives a dose only from a source it cites. A body fixed by hand is marked `bodyFixed`, and no writer replaces it
+  or trims it (a source read again, a video or topic rewritten, a rewrite or reader pass, the off-topic check); the sweep's
+  fixed tidying rules still apply. Found
+  by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
+  peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
+
 ## Rules for every change (people and agents)
 
 1. **A page bug comes with a check that fails without the fix**, in the same PR: a journey, a page check or a vitest
@@ -881,6 +891,14 @@ The layers above still check the result.
    author checks their work against those pairs before asking for review, and a reviewer checks each claim. Run it
    before pushing with `apps/site/e2e/page-shots.mjs` (apps/site/e2e/README.md). A page that changed but isn't in the
    sample is named: `node e2e/page-shots.mjs <before> <after> <out> /x/,/y/`.
+
+**The Anthropic key pool looks after itself (the owner's rule, 2026-11-07).** A key stays out of credit until credit is
+added, and nobody asks the owner to top one up. A key that answers out of credit or refused is turned off for 24 hours and
+the next key takes over by itself, for fish ID, the chat and the evals alike: they all go through `fishid/keys.ts`
+(`classify`, `rotate`, `healthyKeys`; `key-pool.test.ts`, and a key emptying in the middle of a run in
+`fishid-agent.test.ts`). It is tried again after the 24 hours, so added credit needs no step from anyone. One key out, or
+some, is not a problem to raise: only the fish ID page shows it. **Every key out stops fish ID and the chat: that alone is
+a blocker**, on the dashboard's to-dos and in the daily report.
 
 ### main's ruleset (GitHub)
 

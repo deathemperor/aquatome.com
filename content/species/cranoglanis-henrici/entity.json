@@ -12,6 +12,68 @@
     "china",
     "red-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "CN"
+      ],
+      "regions": [
+        "Black River",
+        "Red River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Viet Nam and China.",
+          "countries": [
+            "VN",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Black River, Upper Tonkin [= Song Da], northern Vietnam.",
+          "countries": [],
+          "regions": [
+            "Black River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Vietnam and China, Red River (Song Hong).",
+          "countries": [],
+          "regions": [
+            "Red River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344146,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

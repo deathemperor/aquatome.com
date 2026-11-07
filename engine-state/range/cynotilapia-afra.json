@@ -1,0 +1,63 @@
+{
+  "id": "cynotilapia-afra",
+  "native": {
+    "input": "121a0f23c70c4ca8",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Chizumulu",
+        "source": "seriouslyfish",
+        "quote": "Along the eastern coast it can be found between Makanjila Point and Chuanga, Lumbaulo and Ikombe, and around the islands of Chizumulu and Likoma.",
+        "ok": true
+      },
+      {
+        "name": "Likoma",
+        "source": "seriouslyfish",
+        "quote": "Along the eastern coast it can be found between Makanjila Point and Chuanga, Lumbaulo and Ikombe, and around the islands of Chizumulu and Likoma.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW",
+        "TZ"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cynotilapia afra",
+    "status": "ACCEPTED",
+    "taxonKey": 2372858,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        46
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        22
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

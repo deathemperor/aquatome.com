@@ -16,7 +16,7 @@ export type SendMail = (mail: Mail) => Promise<boolean>
 export type { Lang }
 
 /** The "Bể của tôi" page in each language (apps/site/src/lib/i18n.ts: a test keeps them equal). */
-export const TANKS_PAGE: Record<Lang, string> = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/' }
+export const TANKS_PAGE: Record<Lang, string> = { vi: '/cong-cu/be-cua-toi/', id: '/id/alat/akuarium-saya/', th: '/th/tools/my-tanks/', ms: '/ms/alat/tangki-saya/' }
 export const LINK_PARAM = 'ma'
 
 const EMAIL = /^[^\s@<>()[\]\\,;:"]{1,64}@[a-z0-9-]+(?:\.[a-z0-9-]+)+$/
@@ -44,6 +44,11 @@ const TEXT: Record<Lang, { subject: (code: string) => string; body: (code: strin
     subject: code => `${code} คือรหัสเข้าสู่ระบบ AquaTome`,
     body: (code, link) => `รหัสเข้าสู่ระบบ AquaTome ของคุณ: ${code}\n\nกรอกรหัสในหน้าที่คุณขอรหัส หรือเปิดลิงก์นี้ในเบราว์เซอร์เดียวกัน:\n${link}\n\nรหัสใช้ได้ครั้งเดียว ภายใน ${CODE_MINUTES} นาที หากคุณไม่ได้ขอเข้าสู่ระบบ ไม่ต้องสนใจอีเมลนี้`,
     app: code => `รหัสเข้าสู่ระบบ AquaTome ของคุณ: ${code}\n\nกรอกรหัสในแอป AquaTome ที่คุณขอรหัส\n\nรหัสใช้ได้ครั้งเดียว ภายใน ${CODE_MINUTES} นาที หากคุณไม่ได้ขอเข้าสู่ระบบ ไม่ต้องสนใจอีเมลนี้`,
+  },
+  ms: {
+    subject: code => `${code} ialah kod log masuk AquaTome`,
+    body: (code, link) => `Kod log masuk AquaTome anda: ${code}\n\nMasukkan kod di halaman tempat anda memintanya, atau buka pautan ini dalam pelayar yang sama:\n${link}\n\nKod boleh digunakan sekali sahaja, dalam masa ${CODE_MINUTES} minit. Jika anda tidak meminta untuk log masuk, abaikan e-mel ini.`,
+    app: code => `Kod log masuk AquaTome anda: ${code}\n\nMasukkan kod dalam aplikasi AquaTome, tempat anda memintanya.\n\nKod boleh digunakan sekali sahaja, dalam masa ${CODE_MINUTES} minit. Jika anda tidak meminta untuk log masuk, abaikan e-mel ini.`,
   },
 }
 

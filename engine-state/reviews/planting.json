@@ -102,6 +102,44 @@
       "kept": true
     }
   ],
+  "vi/plants/crinum-calamistratum": [
+    {
+      "at": "2026-11-07T16:39:37Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"Lá cây có thể dài 50–75 cm\" takes the video guide's figure, but the plant's own page says 40 to 120 cm. The two don't match, and the page's range would be the safer one to use.",
+        "\"Đừng buộc cây lên lũa hay đá như dương xỉ Java\" is ambiguous: it can be read as \"don't tie it on like you would a Java fern\" or as \"don't tie it on driftwood or stone, like a Java fern\". It could be clearer, e.g. \"Khác với dương xỉ Java, đừng buộc cây lên lũa hay đá\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/echinodorus-ozelot-green": [
+    {
+      "at": "2026-11-07T13:38:26Z",
+      "model": "opus",
+      "score": 0.95,
+      "notes": [
+        "\"gần như mọi điều kiện bể\" adds \"bể\" to the source's \"gần như mọi điều kiện\". It's a harmless narrowing.",
+        "\"lá xòe ra thành bụi rộng chừng 20–40 cm\": the source says the rosette (\"cụm hoa thị\") spreads, not a \"bụi\" (bush). The wording is slightly loose, but the figure matches."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T13:38:26Z",
+      "model": "opus",
+      "score": 0.7,
+      "notes": [
+        "\"nên người mới chơi cũng trồng được\" — the INPUT says only \"dễ trồng\" and never mentions beginners, so this is added advice.",
+        "\"Vì vậy bạn nên chừa cho nó một khoảng đủ rộng trong bể\" — this spacing advice is inferred from the size; the INPUT never says it.",
+        "\"Cây cao khoảng 20–50 cm\" — this matches the notes, but the quickFacts give 20-30+ cm after two months, and the passage doesn't mention that figure."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/eleocharis-acicularis": [
     {
       "at": "2026-11-07T06:37:38Z",

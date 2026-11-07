@@ -1,0 +1,73 @@
+{
+  "id": "corydoras-vittatus",
+  "native": {
+    "input": "2f766c39d8a5b05b",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The fish originates from Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, state of Maranhão, tributary of the Rio Itapecuru at Caxias.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Itapecuru",
+        "source": "scotcat",
+        "quote": "Corydoras vittatus occurs in the Itapecuru and Parnaíba river basins, in the states of Maranhão and Piauí.",
+        "ok": true
+      },
+      {
+        "name": "Parnaíba",
+        "source": "scotcat",
+        "quote": "Corydoras vittatus occurs in the Itapecuru and Parnaíba river basins, in the states of Maranhão and Piauí.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras vittatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342784,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}
