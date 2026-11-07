@@ -1,8 +1,8 @@
 {
   "id": "kryptopterus-vitreolus",
   "native": {
-    "input": "ca5512361e8668ce",
-    "at": "2026-11-05T13:43:53.461Z",
+    "input": "a0acc62a848fab04",
+    "at": "2026-11-07T02:19:57.912Z",
     "claims": [
       {
         "code": "TH",
@@ -11,16 +11,23 @@
         "quote": "The glass catfish, Kryptopterus vitreolus, is a transparent silurid catfish from coastal river basins of peninsular and southeastern Thailand.",
         "words": "Thailand",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Kryptopterus vitreolus originates from Thailand only.",
+        "words": "Thailand",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Cardamom Mountains",
+        "name": "Cardamom (Khao Banthat) Mountains",
         "source": "seriouslyfish",
         "quote": "Known only from a series of coastal river basins of Peninsular Thailand draining into the Gulf of Thailand south of the Isthmus of Kra, plus a handful of rivers draining the Cardamom (Khao Banthat) Mountains in southeastern Thailand.",
         "country": "TH",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "ok": true
       }
     ],
     "disputed": [],

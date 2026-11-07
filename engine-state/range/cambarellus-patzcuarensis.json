@@ -1,0 +1,45 @@
+{
+  "id": "cambarellus-patzcuarensis",
+  "native": {
+    "input": "725e7d634b7e4c05",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cambarellus patzcuarensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2227438,
+    "datasets": [
+      [
+        "129704b4-762b-4f0c-8eab-ef3f8aedd478",
+        19
+      ],
+      [
+        "03b8dac0-be98-4f71-9440-76c406cbf2c1",
+        6
+      ],
+      [
+        "1ad3c2b1-04dd-4be2-992b-f74027068713",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96cdea48-b78a-4345-ae6d-b2c7c6e0278a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

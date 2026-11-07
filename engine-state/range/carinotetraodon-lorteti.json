@@ -1,0 +1,84 @@
+{
+  "id": "carinotetraodon-lorteti",
+  "native": {
+    "input": "ca8140b861fe3daa",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Mekong basin in Thailand, Vietnam, and Cambodia, the Chao Phraya watershed in central Thailand, and may occur in smaller river systems between.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Mekong basin in Thailand, Vietnam, and Cambodia, the Chao Phraya watershed in central Thailand, and may occur in smaller river systems between.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Mekong basin in Thailand, Vietnam, and Cambodia, the Chao Phraya watershed in central Thailand, and may occur in smaller river systems between.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Mekong basin in Thailand, Vietnam, and Cambodia, the Chao Phraya watershed in central Thailand, and may occur in smaller river systems between.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Known from the lower Mekong basin in Thailand, Vietnam, and Cambodia, the Chao Phraya watershed in central Thailand, and may occur in smaller river systems between.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Carinotetraodon lorteti",
+    "status": "ACCEPTED",
+    "taxonKey": 2407809,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "VN",
+      "KH"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

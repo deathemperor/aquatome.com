@@ -131,5 +131,79 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [
+    {
+      "at": "2026-11-07T04:10:35Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Bể dài tối đa\" column: facts say 'tanks up to 40/50/60 cm', not specifically tank length; small reinterpretation.",
+        "\"Số ngăn ... Không ghi\" for G60: acceptable, not a claim.",
+        "\"vì bơm không phải đẩy nước lên cao nhiều\": facts only say less flow lost to pump head; 'không phải đẩy nước lên cao nhiều' is a slight embellishment.",
+        "\"Bạn cần chạy sủi bằng pin càng sớm càng tốt\": urgency is not in facts, which only say bacteria begin dying after about an hour.",
+        "\"Lấy vật liệu vi sinh ... đặt vào bể ngay phía trên quả sủi\": facts say 'may keep bacteria alive', fine; but the FAQ answer implies this as a recommendation more firmly.",
+        "\"Khay ít lỗ quá: nước không thoát kịp\": the mechanism is a mild elaboration of the overflow fact.",
+        "\"Thả cá quá sớm\" listed under common mistakes: the facts mention this risk but not under tray mistakes; minor.",
+        "\"Dân chơi gọi... loại đặt dưới gầm bể\": 'under the tank' for lọc tràn dưới is inferred from sump facts; mild."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T04:10:35Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Mất điện là chuyện thường gặp ở mình\" is not in the facts.",
+        "\"Lớp này giữ cặn để cặn không chui xuống các tầng sau\" gives a purpose for the pre-filter that the facts do not state.",
+        "\"Nước chảy thành dòng... bỏ qua phần lớn vật liệu\" adds a detail beyond the facts, which only mention channeling being hard to avoid.",
+        "\"bạn đừng nản nếu phải chỉnh vài lần\" is an invented reassurance.",
+        "\"Cách này nhiều khả năng giữ được vi sinh sống\" strengthens the facts, which say only that it \"may keep\" the bacteria alive.",
+        "\"Bông lọc để ở ngăn đầu tiên... mỗi lớp dày khoảng 2 inch\" generalises the 2-inch depth to every layer. The facts give it only for the polyester floss in the pre-filter tray.",
+        "\"Cho nước về qua thanh phun sát mặt nước cũng là một cách để lọc chạy êm hơn\" presents as fact something the keeper only expected to be quiet.",
+        "\"lọc tràn trên ngừng ngay khi bơm tắt\" is not in the facts.",
+        "\"Xem nước có rải đều không\" is listed as a check item, but the facts do not give it as a post-outage or maintenance check.",
+        "\"Ở Việt Nam, người chơi lọc tràn trên vẫn quen dùng sứ lọc, đá nham thạch và san hô vụn\" turns a list of part names into a claim about common practice."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly": [
+    {
+      "at": "2026-11-07T04:05:24Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Phần lớn trường hợp chỉ cần đi đủ các bước sau\" is an unsupported generalization.",
+        "\"Thay nước nhiều sau khi xử lý để vớt bớt xác tảo\" is only roughly supported. The facts say a large water change after treatment removes dead algae and ammonia.",
+        "\"đây là chỗ phân biệt nước xanh với các loại rêu bám\" is an added claim. The facts only say the algae float rather than grow on glass or decor.",
+        "\"Nhiều người tin thay một lần nước lớn là hết xanh\" is a mild embellishment. The facts present it as a myth from one source, Buce Plant.",
+        "\"đèn bật quá lâu, nắng từ cửa sổ\" is listed under the light cause. This is supported, but it is merged with the 'too much light' cause.",
+        "\"bộ chỉnh độ sáng\" is a rendering of 'dimmer'. It is fine.",
+        "\"lờ đờ không phản ứng khi bị động\" adds 'lờ đờ' (lethargic), which the facts do not mention. The facts say only that fish gulp air and ignore disturbances.",
+        "\"Mùa nóng thì nguy cơ này cao hơn\" is applied to the die-off oxygen depletion. The facts link warm water to night-time oxygen loss from a dense bloom, not to the die-off."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T04:05:24Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Các cửa hàng cá cảnh ở Việt Nam đều bán đèn UV\" - facts say shops sell them; \"đều\" (all) is an overgeneralization.",
+        "\"Quan sát cá vào sáng sớm, lúc oxy trong bể thấp nhất\" - the facts say fish hang at the surface in the early morning, but they don't say this is when oxygen is lowest.",
+        "\"Vì vậy, hễ thấy nước đổi màu đột ngột thì bạn phải tăng sủi ngay\" - this instruction is not in the facts.",
+        "\"Tuyệt đối đừng tắt lọc hay sủi\" and the mistake \"Tắt sủi vào ban đêm trong lúc nước đang xanh đặc\" - the facts say to keep aeration running, but they don't list turning it off at night as a common mistake.",
+        "\"Một bể xanh đặc có thể kéo oxy hòa tan xuống gần bằng không chỉ sau một đêm\" - this is a mild embellishment of 'close to zero overnight'.",
+        "\"Cách này thường dùng kèm với một trong hai cách trên\" (fine floss) - the facts don't say it is usually combined with blackout or UV.",
+        "\"Không đặt bể ở chỗ nắng chiếu thẳng vào\" is listed under prevention - the facts give it only as a cause-cutting step, not as a prevention item. This is minor.",
+        "\"tảo dùng cạn khoáng vi lượng hoặc dinh dưỡng trong nước\" - this is close to the facts, but they don't say it directly."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

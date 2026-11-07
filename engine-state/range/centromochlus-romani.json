@@ -1,0 +1,84 @@
+{
+  "id": "centromochlus-romani",
+  "native": {
+    "input": "0e4630f2f336f2fb",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "San Juan River basin, Venezuela, Caribbean waters.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "San Juan River",
+        "source": "planetcatfish",
+        "quote": "San Juan River basin, Venezuela, Caribbean waters.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Centromochlus romani",
+    "status": "ACCEPTED",
+    "taxonKey": 2344776,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        31
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        24
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        1
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "id": "catoprion-mento",
+  "native": {
+    "input": "8b9e15204300b2b3",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia, Venezuela, Guyana, Brazil and Bolivia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia, Venezuela, Guyana, Brazil and Bolivia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia, Venezuela, Guyana, Brazil and Bolivia.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia, Venezuela, Guyana, Brazil and Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Colombia, Venezuela, Guyana, Brazil and Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pantanal",
+        "source": "seriouslyfish",
+        "quote": "It is also found in the famous Pantanal wetlands of the Mato Grosso, an area rich in aquatic plant life.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Catoprion mento",
+    "status": "ACCEPTED",
+    "taxonKey": 2353370,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        63
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        62
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        41
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        30
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        27
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        15
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        11
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        8
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        2
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE",
+      "GY",
+      "BR",
+      "BO"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

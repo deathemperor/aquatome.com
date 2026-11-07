@@ -1,0 +1,168 @@
+{
+  "id": "chaetostoma-fischeri",
+  "native": {
+    "input": "c64913abc1b03662",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Colombia: Rio Magdalena, Colombia Caribbean Rivers, Magdalena.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Ecuador and Panama.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Ecuador and Panama.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia, Ecuador and Panama.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Magdalena",
+        "source": "planetcatfish",
+        "quote": "Colombia: Rio Magdalena, Colombia Caribbean Rivers, Magdalena.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Mamoni River",
+        "source": "scotcat",
+        "quote": "Type locality: Mamoni River, near Chepo in the Isthmus of Panama.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaetostoma fischeri",
+    "status": "ACCEPTED",
+    "taxonKey": 5202393,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        373
+      ],
+      [
+        "9cc67633-537a-4acc-8d37-92feeaddb2cd",
+        198
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        174
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        40
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        38
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        18
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        17
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        13
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        13
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        12
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "28965184-3e9f-432f-8898-780e9183d526",
+        4
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "EC",
+      "PA"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

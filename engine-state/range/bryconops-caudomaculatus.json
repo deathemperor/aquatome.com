@@ -1,0 +1,161 @@
+{
+  "id": "bryconops-caudomaculatus",
+  "native": {
+    "input": "2c8d145e189518f7",
+    "at": "2026-11-07T02:19:57.912Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Venezuela.",
+        "words": "Venezuela",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bryconops caudomaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354277,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        203
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        130
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        116
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        75
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        52
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        48
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        47
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        36
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        26
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        25
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        20
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        19
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        19
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        14
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        11
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        11
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        5
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-07T02:19:57.912Z"
+  }
+}

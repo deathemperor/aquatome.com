@@ -10,6 +10,72 @@
     "taiwan",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW",
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Taiwan, Southern China.",
+          "countries": [
+            "TW",
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360854,
+      "total": 2194,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "TW",
+          2194
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          21.09375,
+          15,
+          15
+        ],
+        [
+          119.53125,
+          22.5,
+          938,
+          938
+        ],
+        [
+          119.53125,
+          23.90625,
+          376,
+          376
+        ],
+        [
+          120.9375,
+          22.5,
+          189,
+          189
+        ],
+        [
+          120.9375,
+          23.90625,
+          676,
+          676
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
