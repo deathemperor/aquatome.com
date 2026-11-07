@@ -1,0 +1,945 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AquaTome chat",
+    "version": "1",
+    "description": "A reader's question about their fish, plants and tank → Claude's short answer, with blocks drawn from the handbook, for the site's chat and the iOS app's (the Worker's apps/site/worker/chat/, to come). A chat starts from a fish-ID result (\"Hỏi về loài này\") or a species page.\n\nOur content only. Claude writes the text, two or three sentences in the reader's language, and picks the blocks: which species, which page's section, which tool. The Worker fills each block from the site's published data: the app index's facts, the app's copy of each page (protocols/page.schema.json) and the tools' own links. Nothing in a block comes from Claude's words, so a card's figure can't be made up. A question the handbook doesn't cover gets `covered: false`: the text says so plainly and offers the nearest page, and its transcript (below) marks it as a topic readers want, as fish ID counts a fish with no page.\n\nGET says whether chat is on, and its limits. It is public.\n\nPOST asks one question, for signed-in readers only, one of two ways:\n- The site's page: same-origin (`Origin`), with the account's session cookie (protocols/accounts.openapi.json). No Turnstile.\n- The app: `Authorization: Bearer <token>`, the token a sign-in with client \"app\" returns, as fish ID takes it. No Origin and no cookie.\nNo session, or one that is expired or signed out, is `401 {error: \"session\"}`; the client signs the reader in first. A bearer that is present but not a live app session is refused the same way, even with a cookie too. Questions are counted per account (`perAccount` a day), against chat's own day, and against the site's daily dollar cap, which chat shares with fish ID on fish ID's ledger (`busy` past chat's day or the cap).\n\nA conversation: the client makes its id (a UUID) when the reader opens a chat, and sends it with each question. The Worker keeps a conversation's turns under the account that began it, and Claude reads them before each answer, so a fish or tank named once stays named. The client keeps its own copy to show. A conversation is the asking account's own: an id another account has used is a separate conversation, and neither reads the other's turns. A conversation lasts 24 hours from its first question, and `maxTurns` questions: past either it has ended, `410 {error: \"ended\"}`, and the client asks the same question in a new conversation. The client also starts a new conversation itself once the first question is 24 hours old. The Worker keeps its copy with no time limit, and deletes it when the account is deleted. A conversation it doesn't hold is taken as a new one, so its turn comes back as `n: 1` and Claude remembers nothing before it. A client showing earlier turns that gets `n: 1` for a later question shows that turn as the start of a new conversation. A question while the conversation's last one is still being answered is `409 {error: \"answering\"}`.\n\nThe first question can say where the chat started (`from`), the page it is about (`about`) and, from fish ID, the identification's guesses (`identified`: names and confidence only; the photo never comes to chat). Later questions leave them out.\n\nThe reader's tanks: Claude may read the account's synced tanks (a `tanks` step), so the app syncs the account before the first question. A request never carries a tank.\n\nThe answer, a `Turn`, has the text, then its blocks in order, then up to three suggestions (next questions, shown as chips that ask them). The blocks:\n- `species`: a fish's, plant's or breed's card: its page, linked as fish ID links one, and its figures as the app index has them. A species has `facts`: the index's `Facts` and `lifeYears`. A breed has `facts` too: its own figures (the index's `card`; its species' when it has none) with its species' temperament, fin-nipping and school size. A plant has `plant` instead: the index's `plant` (difficulty on the plants' scale, 1 to 3, not the fishes' 1 to 8; light, CO₂, growth, placement).\n- `compare`: two to four of those, side by side. The client marks where they differ.\n- `section`: one section of a page as the app's copy of the page has it: its heading and every block under it up to the next heading (protocols/page.schema.json `Block`, never a heading). Without `heading`, the page's opening: every block before its first heading. It can be a guide's answer, an equipment kind's picks, a glossary term, or a page's photos or videos. The client draws them as it draws the page, and opens the page at the heading. A web client may draw the section from the web page itself instead: the element with the heading's id, which is either the heading (draw to the next heading) or a `section` or `article` that holds the heading and what is under it; or the page's opening before its first heading when there is no `heading`. Every heading the Worker can send is on the web page with the same id, and neither copy runs into the next section (apps/site/test/chat-sections.test.ts); a fish page's section on the web can hold more of what the page shows there, as its tank-mates list.\n- `tool`: the tank-mates, volume or setup-budget tool, as its own link with its inputs filled from the conversation: the fish and how many, the tank's size. The app opens it on its own screen where it has one (tank-mates, volume), and the tool's web page otherwise; the site shows it in place or opens it. A tank-mates block's verdict is the client's own tank check of the link's fish (the site's code; the app's port is held to protocols/tankmates-vectors.json), so a verdict is never Claude's.\nA client skips a block kind it doesn't know (a newer site's), and, inside a section, a page block it can't draw, as it does on pages.\n\nProgress (`Accept: text/event-stream`) works as fish ID's: the answer comes as server-sent events, `200 text/event-stream`, but only once the question is admitted. Every refusal before that (400, 401, 403, 409, 410, 413, 429, 503) is the JSON error with its status, as without the header. Chat's events are its own: on the stream come `step` events (what the agent looked at, in order), then `text` events (the text in pieces, in order: joined, they are the turn's text), then `block` events (each block once it is filled, in order), then `done` or `error`, and the stream ends. Every step comes before the text's first piece, and every piece before the first block (`x-order`). `done` is the whole `Turn`, the same body as the JSON answer, and it replaces what was streamed: its `text` is the pieces joined, its `blocks` the blocks and its `steps` the steps (`x-whole`), so a client draws the turn again from it. A retry's replay is that `done` alone. A `read` step's page is a `Page` (any page: a guide, a fish, a glossary term; with its `title` and the page's `kind`), not fish ID's `look` step with a `Linked` (a card's `kind` is species, breed or plant). A `: ping` comment line comes every 10 s while Claude works, never after the end. Send the header always. Recorded streams for a fake server, each checked against this contract by the Worker's tests:\n- protocols/chat-stream-species.sse: from fish ID, two pages read, the text in two pieces, a species card, a guide's section and the tank-mates tool, with suggestions;\n- protocols/chat-stream-uncovered.sse: a question the handbook doesn't cover (a medicine's dose it doesn't give), said so, with the nearest guide's section, whole;\n- protocols/chat-stream-failed.sse: an error after the stream began;\n- protocols/chat-rate.json: the reader's day used up, the JSON refusal, with its status, that comes instead of a stream.\n\nTiming: a turn ends within 30 s of the question (the platform keeps a run going only 30 s after the reader's connection drops); give the request 60 s. This figure, `perAccount` and `maxTurns` are placeholders until the eval of real questions sets them.\n\nRetries (`Idempotency-Key`, a UUID the client makes per question), as fish ID's: the run goes on if the connection drops, and its turn is kept for retries under the reader and that key: read for 15 minutes, deleted within a day. A retry with the same key gets that turn (as JSON, or as one `done` event) with no new turn and no new count. A retry while the first run is still answering (the app left mid-answer and came back) waits for that run and gets its turn, or its error, the same way, counted once; on a stream, pings come while it waits. Only a question with another key, or none, is `409 answering` while the conversation's last is still being answered. A key that isn't a UUID is refused, `400 {error: \"bad idempotency-key\"}`, before any count.\n\nThe reader's day: a question counts when it is admitted, so parallel requests can't pass the limit. One that ends unavailable or resting (503: Claude can't be reached, our side) gives its count back; one that ends failed (502: the request or Claude's answer couldn't be used) still counts.\n\nTranscripts: every turn is kept as text with no time limit, as its conversation is: the question, Claude's thinking (its summary), its tool calls and their answers, and the turn, under an id the Worker makes for the conversation, without the account, address, user agent or keys. They are deleted with the account's conversations. The privacy page says so before chat is on.\n\nErrors are `{error}`."
+  },
+  "paths": {
+    "/api/chat": {
+      "get": {
+        "summary": "Whether chat is on, and its limits",
+        "responses": {
+          "200": {
+            "description": "Chat's state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Ask one question in a conversation",
+        "security": [
+          {
+            "bearer": []
+          },
+          {
+            "cookie": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "One per question: a retry with the same key within 15 minutes gets the first run's turn, not a new one."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Question"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Claude's answer, with blocks from the handbook",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Turn"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "Server-sent events, asked for with `Accept: text/event-stream`: `step`, `text` and `block` events, then one `done` or `error`, then the end; `: ping` comment lines between them. Each event's data is one line of JSON, of the schema `x-events` gives for its name."
+                },
+                "x-events": {
+                  "step": {
+                    "$ref": "#/components/schemas/Step"
+                  },
+                  "text": {
+                    "$ref": "#/components/schemas/Piece"
+                  },
+                  "block": {
+                    "$ref": "#/components/schemas/Block"
+                  },
+                  "done": {
+                    "$ref": "#/components/schemas/Turn"
+                  },
+                  "error": {
+                    "$ref": "#/components/schemas/StreamError"
+                  }
+                },
+                "x-end": [
+                  "done",
+                  "error"
+                ],
+                "x-order": [
+                  "step",
+                  "text",
+                  "block"
+                ],
+                "x-whole": "done",
+                "x-fixtures": [
+                  "chat-stream-species.sse",
+                  "chat-stream-uncovered.sse",
+                  "chat-stream-failed.sse"
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Error: bad request | bad idempotency-key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Error: session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Error: cross-origin",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Error: answering (the conversation's last question is still being answered; a retry of it, with its Idempotency-Key, waits for it instead)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Error: ended (past 24 hours or `maxTurns`: ask in a new conversation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Error: too long (the question is over `maxChars`)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Error: rate (the reader's day is used up: `limit` says how many it has) | busy (the site's day, or its spend, is)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "x-fixtures": [
+                  "chat-rate.json"
+                ]
+              }
+            }
+          },
+          "502": {
+            "description": "Error: failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Error: chat_off | resting | unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "The app: the token from a sign-in with client \"app\" (protocols/accounts.openapi.json)."
+      },
+      "cookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "__Host-aq_session",
+        "description": "The site: set by a sign-in with client \"web\" (protocols/accounts.openapi.json)."
+      }
+    },
+    "schemas": {
+      "Status": {
+        "type": "object",
+        "required": [
+          "on"
+        ],
+        "description": "{on: false} when chat is off; otherwise whether every key is resting, and the limits.",
+        "properties": {
+          "on": {
+            "type": "boolean"
+          },
+          "resting": {
+            "type": "boolean",
+            "description": "Every key is set aside for now: a question would answer 503 resting."
+          },
+          "perAccount": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Questions a day for an account."
+          },
+          "maxTurns": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Questions in one conversation, after which it has ended (410)."
+          },
+          "maxChars": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "The longest question, in characters (413 past it)."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Question": {
+        "type": "object",
+        "required": [
+          "conversation",
+          "question"
+        ],
+        "properties": {
+          "conversation": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The conversation's id, made by the client when the reader opens a chat."
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "description": "What the reader asks, as typed or as the suggestion's words they tapped."
+          },
+          "lang": {
+            "type": "string",
+            "enum": [
+              "vi",
+              "id",
+              "th"
+            ],
+            "description": "The reader's language: the answer's language and the pages' addresses. vi when missing."
+          },
+          "from": {
+            "type": "string",
+            "enum": [
+              "fish-id",
+              "species",
+              "search"
+            ],
+            "description": "The first question only: where the chat started. For the owner's log."
+          },
+          "about": {
+            "type": "string",
+            "description": "The first question only: the page the chat starts from, by its id as fish ID links it (a species, breed or plant)."
+          },
+          "identified": {
+            "type": "object",
+            "required": [
+              "verdict",
+              "results"
+            ],
+            "description": "The first question from fish ID only: its answer's verdict and guesses, most likely first.",
+            "properties": {
+              "verdict": {
+                "type": "string",
+                "enum": [
+                  "fish",
+                  "plant",
+                  "other",
+                  "unclear"
+                ]
+              },
+              "results": {
+                "type": "array",
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "scientificName",
+                    "confidence"
+                  ],
+                  "properties": {
+                    "scientificName": {
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    "id": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "description": "The guess's page, when it has one."
+                    },
+                    "confidence": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Turn": {
+        "type": "object",
+        "required": [
+          "conversation",
+          "n",
+          "text",
+          "blocks",
+          "suggestions",
+          "covered",
+          "model"
+        ],
+        "properties": {
+          "conversation": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "The question's number in its conversation, from 1."
+          },
+          "text": {
+            "type": "string",
+            "description": "Claude's answer, in the reader's language: plain text, never markup."
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            },
+            "description": "In the order to show them, under the text."
+          },
+          "suggestions": {
+            "type": "array",
+            "maxItems": 3,
+            "items": {
+              "type": "string"
+            },
+            "description": "Next questions, in the reader's language: a chip each, which asks it."
+          },
+          "covered": {
+            "type": "boolean",
+            "description": "false: the handbook doesn't cover the question. The text says so and the blocks hold the nearest page; the question counts as a wanted topic."
+          },
+          "model": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Step"
+            },
+            "description": "What the agent looked at, in order. Missing when it looked at nothing."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Piece": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "description": "The stream's `text` event: the next piece of the turn's text. `done` then carries the whole text.",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Step": {
+        "description": "One thing the agent did: search, it searched the handbook (`query`: Claude's own words, to show as text, never as markup); read, it opened a page (`page`, in the reader's language); tanks, it read the reader's synced tanks.",
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "kind",
+              "query"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string",
+                "const": "search"
+              },
+              "query": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "kind",
+              "page"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string",
+                "const": "read"
+              },
+              "page": {
+                "$ref": "#/components/schemas/Page"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "type": "string",
+                "const": "tanks"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Block": {
+        "description": "One block of a turn, by its `t`. A client skips a `t` it doesn't know.",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Species"
+          },
+          {
+            "$ref": "#/components/schemas/Compare"
+          },
+          {
+            "$ref": "#/components/schemas/Section"
+          },
+          {
+            "$ref": "#/components/schemas/Tool"
+          }
+        ]
+      },
+      "Species": {
+        "type": "object",
+        "required": [
+          "t",
+          "page"
+        ],
+        "description": "A fish's, plant's or breed's card: `facts` for a species or breed, `plant` for a plant.",
+        "properties": {
+          "t": {
+            "type": "string",
+            "const": "species"
+          },
+          "page": {
+            "$ref": "#/components/schemas/Linked"
+          },
+          "facts": {
+            "$ref": "#/components/schemas/Facts"
+          },
+          "plant": {
+            "$ref": "#/components/schemas/PlantFacts"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Compare": {
+        "type": "object",
+        "required": [
+          "t",
+          "items"
+        ],
+        "description": "Two to four species side by side, in the order Claude names them.",
+        "properties": {
+          "t": {
+            "type": "string",
+            "const": "compare"
+          },
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "required": [
+                "page"
+              ],
+              "description": "`facts` for a species or breed, `plant` for a plant.",
+              "properties": {
+                "page": {
+                  "$ref": "#/components/schemas/Linked"
+                },
+                "facts": {
+                  "$ref": "#/components/schemas/Facts"
+                },
+                "plant": {
+                  "$ref": "#/components/schemas/PlantFacts"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Section": {
+        "type": "object",
+        "required": [
+          "t",
+          "page",
+          "blocks"
+        ],
+        "description": "One section of a page, from the app's copy of it: the heading Claude picked and every block under it, up to the next heading; without `heading`, every block before the first heading.",
+        "properties": {
+          "t": {
+            "type": "string",
+            "const": "section"
+          },
+          "page": {
+            "$ref": "#/components/schemas/Page"
+          },
+          "heading": {
+            "type": "object",
+            "required": [
+              "text",
+              "id"
+            ],
+            "description": "Missing for the page's opening, before its first heading.",
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "description": "The heading's id on the page, to open the page at it."
+              }
+            },
+            "additionalProperties": false
+          },
+          "blocks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "page.schema.json#/$defs/Block"
+                },
+                {
+                  "not": {
+                    "type": "object",
+                    "required": [
+                      "t"
+                    ],
+                    "properties": {
+                      "t": {
+                        "const": "h"
+                      }
+                    }
+                  }
+                }
+              ],
+              "description": "A page block, never a heading."
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tool": {
+        "description": "A tool, filled from the conversation: its page in the reader's language, with its inputs in the query as the page reads them. Sizes are the tank's length, width and height in cm, given only when the tank is known. tank-mates: `?ca=<slug>:<count>,…` (each fish's page slug, a breed as its species; then `&l=&w=&h=`). tank-volume: `?hinh=chu-nhat&l=&w=&h=` (the page reads sizes only with `hinh`), or the bare page. tank-budget: `?co=khac&l=&w=&h=` (the page reads sizes only with `co=khac`; otherwise it starts at its preset size), or the bare page.",
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "t",
+              "tool",
+              "name",
+              "url"
+            ],
+            "properties": {
+              "t": {
+                "type": "string",
+                "const": "tool"
+              },
+              "tool": {
+                "type": "string",
+                "const": "tank-mates"
+              },
+              "name": {
+                "type": "string",
+                "description": "The tool's short name, as its card on the tools page has it."
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^/(vi|id|th)/[^?#]+/\\?ca=[a-z0-9-]+:[0-9]+(,[a-z0-9-]+:[0-9]+)*(&l=[0-9.]+&w=[0-9.]+&h=[0-9.]+)?$"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "t",
+              "tool",
+              "name",
+              "url"
+            ],
+            "properties": {
+              "t": {
+                "type": "string",
+                "const": "tool"
+              },
+              "tool": {
+                "type": "string",
+                "const": "tank-volume"
+              },
+              "name": {
+                "type": "string",
+                "description": "The tool's short name, as its card on the tools page has it."
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^/(vi|id|th)/[^?#]+/(\\?hinh=chu-nhat&l=[0-9.]+&w=[0-9.]+&h=[0-9.]+)?$"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "t",
+              "tool",
+              "name",
+              "url"
+            ],
+            "properties": {
+              "t": {
+                "type": "string",
+                "const": "tool"
+              },
+              "tool": {
+                "type": "string",
+                "const": "tank-budget"
+              },
+              "name": {
+                "type": "string",
+                "description": "The tool's short name, as its card on the tools page has it."
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^/(vi|id|th)/[^?#]+/(\\?co=khac&l=[0-9.]+&w=[0-9.]+&h=[0-9.]+)?$"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Page": {
+        "type": "object",
+        "required": [
+          "kind",
+          "title",
+          "url"
+        ],
+        "description": "A handbook page, in the reader's language.",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "guide",
+              "fish",
+              "plant",
+              "glossary",
+              "video",
+              "equipment"
+            ],
+            "description": "As the app's copy of the page says (protocols/page.schema.json)."
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "The page's address in the reader's language."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Linked": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "name"
+        ],
+        "description": "A species', breed's or plant's page, as fish ID links one (protocols/fishid.openapi.json).",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "species",
+              "breed",
+              "plant"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "sci": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "The page's address in the reader's language, when it has one there."
+          },
+          "img": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Facts": {
+        "type": "object",
+        "description": "A species' or breed's figures, with the app index's names and units (apps/site/src/lib/app-index.ts): a species' `Facts` and `lifeYears`; a breed's own figures (its `card`; its species' when it has none) and its species' temperament, finNipper and schoolMin. Each only when the handbook has it.",
+        "properties": {
+          "tempC": {
+            "type": "object",
+            "required": [
+              "min",
+              "max"
+            ],
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          },
+          "ph": {
+            "type": "object",
+            "required": [
+              "min",
+              "max"
+            ],
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false
+          },
+          "gh": {
+            "type": "object",
+            "required": [
+              "min",
+              "max"
+            ],
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false,
+            "description": "General hardness, dGH."
+          },
+          "sizeCm": {
+            "type": "number",
+            "description": "Adult length, cm."
+          },
+          "tankCm": {
+            "type": "number",
+            "description": "The shortest tank it should live in, cm."
+          },
+          "temperament": {
+            "type": "string",
+            "description": "peaceful, semi-aggressive, aggressive, predator, or one a newer site adds."
+          },
+          "finNipper": {
+            "type": "boolean"
+          },
+          "schoolMin": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "The smallest group to keep."
+          },
+          "difficulty": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 8,
+            "description": "1 (easy) to 8, as the site grades it."
+          },
+          "lifeYears": {
+            "type": "object",
+            "required": [
+              "min",
+              "max"
+            ],
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false,
+            "description": "How long it lives, in years."
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlantFacts": {
+        "type": "object",
+        "description": "A plant's figures, as the app index's `plant` has them. Each only when the handbook has it.",
+        "properties": {
+          "difficulty": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3,
+            "description": "The plants' scale: 1 (easy) to 3 (hard). Not the fishes' 1 to 8."
+          },
+          "light": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "co2": {
+            "type": "string",
+            "enum": [
+              "none",
+              "optional",
+              "required"
+            ]
+          },
+          "growth": {
+            "type": "string",
+            "enum": [
+              "slow",
+              "medium",
+              "fast"
+            ]
+          },
+          "placement": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "foreground",
+                "midground",
+                "background",
+                "epiphyte",
+                "floating"
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "With rate: the reader's limit a day."
+          }
+        },
+        "additionalProperties": false
+      },
+      "StreamError": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "description": "The stream's `error` event: the turn began and ended with no answer. failed: our request or Claude's answer couldn't be used (as a JSON 502); unavailable, resting: Claude can't be reached for now (as a JSON 503). unavailable and resting give the reader's count back; failed doesn't.",
+        "properties": {
+          "error": {
+            "type": "string",
+            "enum": [
+              "failed",
+              "unavailable",
+              "resting"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

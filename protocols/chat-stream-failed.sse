@@ -1,0 +1,8 @@
+event: step
+data: {"kind":"search","query":"cá neon"}
+
+: ping
+
+event: error
+data: {"error":"failed"}
+
