@@ -172,7 +172,7 @@
             }
           },
           "400": {
-            "description": "Error: bad_request (a period the section doesn't offer, or a query the section doesn't take)",
+            "description": "Error: bad_request (a period the section doesn't offer; binh-luan: a state that isn't one)",
             "content": {
               "application/json": {
                 "schema": {
@@ -1685,6 +1685,11 @@
               "$ref": "#/components/schemas/Readout"
             },
             "description": "One per day, oldest first: what a tap on its bar shows."
+          },
+          "today": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Today's bar, drawn lighter (the day isn't over), when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). A chart whose last day is today says so with `partialLast` and this too."
           }
         }
       },
@@ -2378,9 +2383,10 @@
               "$ref": "#/components/schemas/Readout"
             }
           },
-          "partialLast": {
-            "type": "boolean",
-            "description": "The last day with a value is today, not over yet: draw it lighter."
+          "today": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Today's bar, drawn lighter; the days after it are still to come (null). Absent: today isn't among them."
           }
         }
       },

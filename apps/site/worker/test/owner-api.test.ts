@@ -582,7 +582,7 @@ test('hiding a page and bringing it back, as the page\'s form does; a home page 
   for (const path of ['/', '/id/', 'https://other.site/', '/_ab/']) {
     const r = await post({ path, hide: true })
     expect(r.status, path).toBe(400)
-    expect(await contracted(r, 'post', '/api/owner/hidden'), path).toEqual({ error: 'not_a_page', message: 'Chỉ ẩn được một trang của trang web (không phải trang chủ).' })
+    expect(await contracted(r, 'post', '/api/owner/hidden'), path).toEqual({ error: 'not_a_page', message: 'Only one page of the site can be hidden, and not the home page.' })
   }
   for (const bad of [{ path: '/ca/y/' }, { path: '/ca/y/', hide: 'yes' }, { path: 1, hide: true }, { path: '/ca/y/', hide: true, note: 3 }, 'x']) {
     const r = await post(bad)
@@ -699,7 +699,7 @@ test('the report\'s delivery from the app: the section\'s buttons set it as the 
   expect(await (await call(w.e, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), { email: false, push: true })).json()).toEqual({ ok: true, changed: false, email: false, push: true })
   for (const bad of [{}, { email: 'no' }, { push: 1 }, { email: true, quiet: true }, 'x', [], null]) {
     const r = await call(w.e, 'POST', '/api/owner/report-settings', bearer(w.ownerApp), bad)
-    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'email và/hoặc push (true/false).' }])
+    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'email and/or push (true or false).' }])
   }
   const get = await call(w.e, 'GET', '/api/owner/report-settings', bearer(w.ownerApp))
   expect([get.status, get.headers.get('allow'), await errorOf(get)]).toEqual([405, 'POST', { error: 'method' }])
@@ -734,7 +734,7 @@ test('a phone registers for the report\'s notification: kept once with its envir
   expect(await (await send('DELETE', { token: TOKEN_A })).json()).toEqual({ ok: true, changed: true })
   expect(await (await send('DELETE', { token: TOKEN_A })).json()).toEqual({ ok: true, changed: false })
   expect(Object.keys(tokens())).toEqual([TOKEN_B])
-  const POST_SAYS = 'token (hex chữ thường), environment ("sandbox" hoặc "production").'
+  const POST_SAYS = 'token (lowercase hex), environment ("sandbox" or "production").'
   for (const bad of [
     { token: TOKEN_A.toUpperCase(), environment: 'production' }, { token: 'a1b2', environment: 'production' }, { token: `${TOKEN_A}a`, environment: 'production' }, { token: 'zz'.repeat(32), environment: 'production' },
     { token: 'a1'.repeat(101), environment: 'production' }, { token: TOKEN_A }, { token: TOKEN_A, environment: 'development' }, { token: TOKEN_A, environment: 'production', name: 'x' }, 'x', [], null,
@@ -744,7 +744,7 @@ test('a phone registers for the report\'s notification: kept once with its envir
   }
   for (const bad of [{ token: 'nope' }, { token: TOKEN_B, environment: 'sandbox' }, {}]) {
     const r = await send('DELETE', bad)
-    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'token (hex chữ thường).' }])
+    expect([r.status, await errorOf(r)], JSON.stringify(bad)).toEqual([400, { error: 'bad_request', message: 'token (lowercase hex).' }])
   }
   expect(Object.keys(tokens())).toEqual([TOKEN_B])
   const get = await call(w.e, 'GET', '/api/owner/push-token', bearer(w.ownerApp))

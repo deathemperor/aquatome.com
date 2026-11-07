@@ -11,7 +11,10 @@ import { approveByOwner, photosLive, recentPhotos, removePhoto, waitingPhotos, w
 import { queryReaderDays, queryReaders } from './readers'
 import { queryAsks } from './lang-ask'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
-import { queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
+import { lastMondayStart, mondayOf, queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, scoreboardSection, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
+import type { Today } from './admin/today'
+import { readChanges } from './daily/changelog'
+import { listReports } from './daily/log'
 import { clicksByKind, listSnapshots, loadContentStats, loadLowScores, pagesByRef, queryContentReads, talkByPage } from './admin/content'
 import { commentPages } from './comments/photo'
 import { contentPage, contentSection } from './admin/content-page'
@@ -22,9 +25,9 @@ import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewPage,
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview, type RecentPhoto, type WaitingPhoto,
 } from './admin/pages'
-import { CHANGELOG_PATH, hostPath, isFailed, loginPage, NAV, REPORT_PATH, SCOREBOARD_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
-import { changelogPage, loadChangelog } from './daily/changelog'
+import { changelogPage, changelogSection, loadChangelog } from './daily/changelog'
 import { loadReports, reportPage, reportsPage, reportsSection, SETTINGS_FORM } from './daily/page'
 import type { PushEnv } from './daily/push'
 import { setSettings, type ReportSettings } from './daily/settings'
@@ -196,6 +199,25 @@ export const loadOverview: Load<Overview> = async (env, url, now, tz) => {
 
 const overviewHtml: Load<string> = async (...a) => overviewPage(await loadOverview(...a))
 
+/** The overview's version 2 (admin/today.ts): its parts, and the ones it reads besides, each failing on its own. */
+export const loadToday: Load<Today> = async (env, url, now, tz) => {
+  const a = ae(env)
+  const db = env.DB
+  const from = lastMondayStart(now)
+  const monday = mondayOf(localDay(now, HOME_TZ))
+  const [o, beacon, held, waiting, kept, crashes, lastReport, changes] = await Promise.all([
+    loadOverview(env, url, now, tz),
+    a ? soft('beacon', queryBeacon(a.account, a.token, from)) : unset(NO_AE),
+    db ? soft('held comments', db.prepare("SELECT COUNT(*) AS n FROM comments WHERE status = 'held'").first<{ n: number }>().then(r => r?.n ?? 0)) : unset('D1'),
+    photosLive(env) ? soft('waiting photos', waitingPhotos(env).then(xs => (xs ?? []).map(x => ({ id: x.id })))) : undefined,
+    env.UPLOADS ? soft('kept', recentKept(env.UPLOADS).then(xs => xs.length)) : undefined,
+    a ? soft('app crashes', queryAppWeeks(a.account, a.token, from).then(x => x.crashes.filter(c => mondayOf(localDay(c.at, HOME_TZ)) === monday).reduce((k, c) => k + Number(c.n), 0))) : unset(NO_AE),
+    soft('reports', listReports(env.AB).then(xs => xs[0] ?? null)),
+    soft('change log', readChanges(env.AB)),
+  ])
+  return { ...o, beacon, held, waitingPhotos: waiting, kept, crashes, lastReport, changes }
+}
+
 /**
  * The scoreboard's data (admin/scoreboard.ts), each part failing on its own, its weeks Vietnam's whoever asks: the page,
  * /_ab/thanh-cong.json and the daily report all read this.
@@ -217,7 +239,6 @@ export async function loadScoreboard(env: AdminEnv, url: URL, now: Date): Promis
   ])
   return summariseScoreboard({ now, owners: owners(env), beacon, app, community, clicks, content, snapshots, checks })
 }
-const scoreboardHtml: Load<string> = async (env, url, now, tz) => scoreboardPage(await loadScoreboard(env, url, now), tz)
 /** One daily report as it was sent (daily/page.ts), under the log's section: a page of the web dashboard alone. */
 const REPORT_PAGE = new RegExp(`^${REPORT_PATH}(\\d{1,20})/$`)
 const reportHtml = (id: string): Load<string | undefined> => (env, _url, now, tz) => reportPage(env.AB, id, now, tz)
@@ -235,10 +256,10 @@ const runHtml = (day: string, id: string): Load<string | undefined> => async (en
   const r = env.UPLOADS ? await readRun(env.UPLOADS, day, id) : null
   return r ? runPage(day, r, now, tz) : undefined
 }
-/** The product change log (daily/changelog.ts): web only, outside NAV, as the scoreboard. */
-const changelogHtml: Load<string> = async (env, _url, now, tz) => changelogPage(await loadChangelog(env.AB, now, tz))
 /** Each section: its loaders, side by side, each failing on its own; days and times in the viewer's zone `tz` (admin/time.ts). */
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
+  '/_ab/thanh-cong/': view(async (env, url, now, tz) => ({ tz, s: await loadScoreboard(env, url, now) }), d => scoreboardPage(d.s, d.tz), d => scoreboardSection(d.s)),
+  '/_ab/thay-doi/': view((env, _url, now, tz) => loadChangelog(env.AB, now, tz), changelogPage, changelogSection),
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
     const a = ae(env)
     const [stats, low, snapshots] = await Promise.all([contentOf(env, url.origin), env.ASSETS ? soft('reviews', loadLowScores(env.ASSETS, url.origin)) : undefined, soft('snapshots', listSnapshots(env.AB))])
@@ -399,7 +420,7 @@ export async function adminRoute(req: Request, url: URL, env: AdminEnv, now = ne
   const key = (path.endsWith('/') ? path : `${path}/`) as WebPath
   const report = REPORT_PAGE.exec(key)
   const oneRun = RUN_PAGE.exec(key)
-  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : key === SCOREBOARD_PATH ? scoreboardHtml : key === CHANGELOG_PATH ? changelogHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
+  const render: Load<string | undefined> | undefined = key === '/_ab/' ? overviewHtml : Object.hasOwn(PAGES, key) ? PAGES[key as keyof typeof PAGES].html : report ? reportHtml(report[1]!) : (key as string) === RUNS_PATH ? runsHtml : oneRun ? runHtml(oneRun[1]!, oneRun[2]!) : undefined
   if (!render) return notFound()
   if (req.method !== 'GET' && req.method !== 'HEAD') return new Response(null, { status: 405, headers: { allow: 'GET, HEAD', 'cache-control': 'no-store' } })
   // Moved to its own host once Access guards it. A bearer asked for something else, and gets what it always got. Never

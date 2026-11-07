@@ -34,7 +34,7 @@ const dayText = (day: string, now: Date, tz: string) => `${day.slice(8, 10)}/${d
 /** The page's note on days and times: the viewer's zone, named by its offset. */
 const zoneNote = (tz: string, now: Date) => `Ngày và giờ theo giờ của bạn (${zoneName(tz, now)}).`
 /** The sum of `vals` (one per day, the last is today) from `from` to `to` days ago. */
-const ago = (vals: number[], from: number, to: number) => vals.slice(vals.length - 1 - from, vals.length - to).reduce((a, b) => a + b, 0)
+export const ago = (vals: number[], from: number, to: number) => vals.slice(vals.length - 1 - from, vals.length - to).reduce((a, b) => a + b, 0)
 export const alignDaily = (days: string[], daily: Readers['daily']) => {
   const m = new Map(daily.map(d => [d.day, d]))
   return { sessions: days.map(d => m.get(d)?.sessions ?? 0), readers: days.map(d => m.get(d)?.readers ?? 0) }
@@ -83,29 +83,30 @@ const parts = (o: Overview): [string, Soft<unknown>, string, string][] => [
 ]
 
 /** `en`: the same to-do for the daily report, in English and with no error text. Beside the Vietnamese, so a new to-do can't reach the page without it; the app's JSON (overviewJson) never reads it. */
-export type Todo = { title: string; text: string; href: string; action: string; en: { title: string; text: string } }
+export type Todo = { kind: 'key' | 'engine' | 'moderation' | 'failed'; title: string; text: string; href: string; action: string; en: { title: string; text: string; action: string } }
 /** What needs the owner, each with the one place to deal with it: the fish-ID keys, a moderation that stopped, a part that won't load. */
 export function todos(o: Overview): Todo[] {
   const out: Todo[] = []
   const tz = o.tz ?? HOME_TZ
   // In the viewer's time, as the bar shows it: 2026-11-03T21:05Z → 04/11 04:05 in Vietnam.
   const short = (iso: string) => clock(iso, tz, o.now)
-  const key = { href: '/_ab/nhan-dien-ca/#key', action: 'Xem key' }
-  if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key, en: { title: 'Could not read the Anthropic keys\' state', text: 'The fish ID page has the error.' } })
-  else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key, en: { title: 'Fish ID is off', text: 'ANTHROPIC_KEYS holds no key.' } })
+  const key = { kind: 'key' as const, href: '/_ab/nhan-dien-ca/#key', action: 'Xem key' }
+  const seeKey = 'See key'
+  if (isFailed(o.keys)) out.push({ title: 'Không đọc được trạng thái key Anthropic', text: o.keys.failed.slice(0, 160), ...key, en: { title: 'Could not read the Anthropic keys\' state', text: 'The fish ID page has the error.', action: seeKey } })
+  else if (!o.keys) out.push({ title: 'Nhận diện cá đang tắt', text: 'Chưa có key Anthropic nào trong ANTHROPIC_KEYS.', ...key, en: { title: 'Fish ID is off', text: 'ANTHROPIC_KEYS holds no key.', action: seeKey } })
   else {
     const off = o.keys.rows.filter(r => r.state !== 'ok')
     if (off.length) {
       const all = off.length === o.keys.rows.length
       out.push({ title: all ? 'Nhận diện cá không chạy: mọi key đang nghỉ' : `${fmt(off.length)} key Anthropic đang nghỉ`, text: off.map(r => `#${r.n} ${KEY_STATE[r.state]}${r.until ? ` đến ${short(r.until)}` : ''}`).join(' · '), ...key,
-        en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · ') } })
+        en: { title: all ? 'Fish ID is down: every Anthropic key is resting' : `${plural(off.length, 'Anthropic key')} resting`, text: off.map(r => `#${r.n} ${KEY_STATE_EN[r.state]}${r.until ? ` until ${short(r.until)}` : ''}`).join(' · '), action: seeKey } })
     }
-    if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key, en: { title: `${plural(o.keys.bad, 'line')} of ANTHROPIC_KEYS can't be read`, text: 'The tool skips them: fix the ANTHROPIC_KEYS secret.' } })
+    if (o.keys.bad) out.push({ title: `${fmt(o.keys.bad)} dòng trong ANTHROPIC_KEYS không đọc được`, text: 'Công cụ bỏ qua những dòng đó: sửa secret ANTHROPIC_KEYS.', ...key, en: { title: `${plural(o.keys.bad, 'line')} of ANTHROPIC_KEYS can't be read`, text: 'The tool skips them: fix the ANTHROPIC_KEYS secret.', action: seeKey } })
   }
   // The moderation runs at 21:00 UTC each night (moderate.yml): anything still waiting after 30 hours means a night was missed.
   if (!isFailed(o.waiting) && o.waiting.oldest && o.now.getTime() - Date.parse(o.waiting.oldest) > MODERATION_MISSED_MS) {
-    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi ngày lúc ${hourMinute('2026-01-01T21:00:00Z', tz)}.`, href: MODERATION_RUNS, action: 'Xem lần chạy',
-      en: { title: 'Moderation has not run', text: `${waitingEn(o.waiting)} waiting since ${short(o.waiting.oldest)}.` } })
+    out.push({ title: 'Kiểm duyệt đêm chưa chạy', text: `${waitingText(o.waiting)} chờ từ ${short(o.waiting.oldest)}. Kiểm duyệt chạy mỗi ngày lúc ${hourMinute('2026-01-01T21:00:00Z', tz)}.`, kind: 'moderation', href: MODERATION_RUNS, action: 'Xem lần chạy',
+      en: { title: 'Moderation has not run', text: `${waitingEn(o.waiting)} waiting since ${short(o.waiting.oldest)}.`, action: 'See runs' } })
   }
   // A source behind a browser check stops until the owner passes it in the engine's Chrome profile.
   const engine = isFailed(o.content) ? null : o.content.engine
@@ -113,11 +114,11 @@ export function todos(o: Overview): Todo[] {
   if (human.length) {
     const name = (id: string) => engine!.sources.find(r => r.id === id)?.name ?? id
     const stopped = human.map(h => `${name(h.source)} (since ${short(h.since)})`).join(', ')
-    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, href: '/_ab/noi-dung/#engine', action: 'Xem engine',
-      en: { title: human.length > 1 ? `${fmt(human.length)} sources need you to pass a browser check` : `${name(human[0]!.source)} needs you to pass a browser check`, text: `The engine stopped fetching from ${stopped}. Open the source in the engine's Chrome profile.` } })
+    out.push({ title: human.length > 1 ? `${fmt(human.length)} nguồn cần bạn qua kiểm tra trình duyệt` : `Nguồn ${name(human[0]!.source)} cần bạn qua kiểm tra trình duyệt`, text: `Engine dừng lấy trang từ ${human.map(h => `${name(h.source)} (từ ${short(h.since)})`).join(', ')} cho tới khi bạn mở nguồn đó trong hồ sơ Chrome của engine.`, kind: 'engine', href: '/_ab/noi-dung/#engine', action: 'Xem engine',
+      en: { action: 'See engine', title: human.length > 1 ? `${fmt(human.length)} sources need you to pass a browser check` : `${name(human[0]!.source)} needs you to pass a browser check`, text: `The engine stopped fetching from ${stopped}. Open the source in the engine's Chrome profile.` } })
   }
   for (const [label, part, href, en] of parts(o)) {
-    if (isFailed(part)) out.push({ title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở', en: { title: `Could not load ${en}`, text: 'Its dashboard page has the error.' } })
+    if (isFailed(part)) out.push({ kind: 'failed', title: `Không tải được ${label}`, text: part.failed.slice(0, 160), href, action: 'Mở', en: { title: `Could not load ${en}`, text: 'Its dashboard page has the error.', action: 'Open' } })
   }
   return out
 }
@@ -340,7 +341,7 @@ const fishLede = (tz: string, now: Date) => `Mỗi lượt gửi ảnh tới cô
 const FISH_TOTALS_NOTE = '% là thay đổi so với kỳ trước: 7 hay 30 ngày trước đó, cùng kỳ tháng trước. Lượt gọi Claude: những lượt đã gọi tới API (có kết quả, hoặc không: Claude từ chối, câu trả lời hỏng, API lỗi). Chặn trước khi gọi: hết lượt, không qua Turnstile, ảnh hỏng… không tốn tiền.'
 // Tokens in and out differ tenfold: each gets its own chart and axis rather than sharing one where "out" lies flat.
 const fishCharts = (s: FishIdStats): DayChart[] => [
-  { id: 'f-calls', title: 'Lượt gửi ảnh mỗi ngày, theo kết quả', days: s.days, series: [{ label: 'Có kết quả', values: s.perDay.ok }, { label: 'Không có kết quả', values: s.perDay.none, tone: 'bad' }, { label: 'Chặn trước khi gọi', values: s.perDay.blocked, tone: 'mute' }], partialLast: true, empty: 'Chưa có lượt nào được ghi (nhật ký bắt đầu từ bản cập nhật này).' },
+  { id: 'f-calls', title: 'Lượt gửi ảnh mỗi ngày, theo kết quả', days: s.days, series: [{ label: 'Có kết quả', values: s.perDay.ok }, { label: 'Không có kết quả', values: s.perDay.none }, { label: 'Chặn trước khi gọi', values: s.perDay.blocked, tone: 'mute' }], partialLast: true, empty: 'Chưa có lượt nào được ghi (nhật ký bắt đầu từ bản cập nhật này).' },
   { id: 'f-cost', title: 'Chi phí mỗi ngày', days: s.days, series: [{ label: 'Chi phí', values: s.perDay.usd }], unit: 'usd', partialLast: true, empty: 'Chưa có chi phí nào được ghi.' },
   { id: 'f-tin', title: 'Token vào mỗi ngày', days: s.days, series: [{ label: 'Token vào', values: s.perDay.tin }], partialLast: true, empty: 'Chưa có token nào được ghi.' },
   { id: 'f-tout', title: 'Token ra mỗi ngày', days: s.days, series: [{ label: 'Token ra', values: s.perDay.tout }], partialLast: true, empty: 'Chưa có token nào được ghi.' },
@@ -377,7 +378,7 @@ export function fishIdSection(f: FishPage): Section {
   if (isFailed(f.stats)) blocks.push(failedNote('nhật ký nhận diện cá', f.stats))
   else {
     const s = f.stats
-    blocks.push(heading('Tổng'), periodBlock(s, false), periodBlock(s, true), note(FISH_TOTALS_NOTE), ...fishCharts(s).map(chart),
+    blocks.push(heading('Tổng'), periodBlock(s, false), periodBlock(s, true), note(FISH_TOTALS_NOTE), ...fishCharts(s).map(c => chart(c)),
       heading('Có trang trong cẩm nang'), figures(fishShare(s)), heading('Đoán nhiều mà chưa có trang · 30 ngày'), rankBlock(unmatchedRows(s), UNMATCHED_HEAD))
   }
   blocks.push(heading('Key Anthropic', 2, 'key'))
@@ -786,7 +787,7 @@ export function accountsSection(a: Soft<AccountStats>, now = new Date(), tz = HO
   if (isFailed(a)) blocks.push(failedNote('số liệu', a))
   else {
     const p = accountsParts(a)
-    blocks.push(figures(p.tiles), heading('Theo ngày'), ...p.charts.map(chart), heading('Cách đăng nhập'), rankBlock(p.credentials, CRED_HEAD), heading('Bình luận theo trạng thái'), rankBlock(p.comments, STATUS_HEAD))
+    blocks.push(figures(p.tiles), heading('Theo ngày'), ...p.charts.map(c => chart(c)), heading('Cách đăng nhập'), rankBlock(p.credentials, CRED_HEAD), heading('Bình luận theo trạng thái'), rankBlock(p.comments, STATUS_HEAD))
   }
   return { title: 'Tài khoản · Bình luận', blocks }
 }
