@@ -559,6 +559,12 @@
             "value": "%lld pertanyaan"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld soalan"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -1101,6 +1107,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "7 hari terakhir"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 hari lalu"
           }
         },
         "th": {
@@ -2791,6 +2803,12 @@
             "value": "Belum ada percakapan."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada perbualan."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -3137,6 +3155,12 @@
             "value": "Percakapan ini belum bisa dibuka. Coba lagi nanti."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perbualan ini tidak dapat dibuka. Cuba lagi nanti."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -3239,6 +3263,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Daftar belum bisa dimuat."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Senarai tidak dapat dimuatkan."
           }
         },
         "th": {
@@ -3411,6 +3441,12 @@
             "value": "Percakapan ini belum bisa disembunyikan. Coba lagi nanti."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perbualan ini tidak dapat disembunyikan. Cuba lagi nanti."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -3557,6 +3593,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hanya disembunyikan dari daftar Anda, tidak dihapus. Menghapus akun akan menghapus semuanya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya disembunyikan daripada senarai anda, tidak dipadam. Memadam akaun akan memadam semuanya."
           }
         },
         "th": {
@@ -4081,6 +4123,12 @@
             "value": "Percakapan"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perbualan"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -4117,6 +4165,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Percakapan sebelumnya tentang %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perbualan sebelum ini tentang %@"
           }
         },
         "th": {
@@ -7171,6 +7225,12 @@
             "value": "Hari ini, %@"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hari ini, %@"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -7187,6 +7247,12 @@
             "value": "Kemarin"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semalam"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -7201,6 +7267,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kemarin, %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semalam, %@"
           }
         },
         "th": {
@@ -12433,6 +12505,12 @@
             "value": "Sebelumnya"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lebih awal"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -14031,6 +14109,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Baru saja"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebentar tadi"
           }
         },
         "th": {
@@ -15787,6 +15871,12 @@
             "value": "Menghentikan…"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghentikan…"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -16395,6 +16485,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dihentikan. Pertanyaan ini tidak dihitung."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dihentikan. Soalan ini tidak dikira."
           }
         },
         "th": {
@@ -18855,6 +18951,12 @@
             "value": "Foto Anda"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto anda"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -18869,6 +18971,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Foto Anda: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto anda: %@"
           }
         },
         "th": {
@@ -19085,6 +19193,12 @@
             "value": "Sembunyikan"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -19099,6 +19213,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sembunyikan percakapan ini?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan perbualan ini?"
           }
         },
         "th": {
