@@ -142,7 +142,9 @@ that would have caught it).
     two first questions at once in a new conversation, one run (a create-only write); a reader who leaves mid-answer or
     while the handbook loads, the run going on to its end; an R2 error marking the question 503; the account's day and
     the spend; Claude unreachable giving the count back and an unreadable answer keeping it; the account's synced tanks
-    read (`chat-api.test.ts`, `fishid-ledger.test.ts`).
+    read; each question's transcript (a failed one's too) kept under the account and conversation with what was asked,
+    read and answered and nothing of who asked; deleting the account deleting its conversations, transcripts and
+    retries' answers, a run still answering deleting what it wrote after (`chat-api.test.ts`, `fishid-ledger.test.ts`).
   - The app's telemetry (its anonymous events and iOS's crash and performance reports) against
     `protocols/app-telemetry.openapi.json`: a status the contract lists and a body of its shape, every sample payload
     one the contract describes, an event that breaks it dropped alone and an envelope that does refused whole, nothing
