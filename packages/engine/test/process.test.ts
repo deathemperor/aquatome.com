@@ -59,3 +59,22 @@ test('a tank length that is the page\'s tank volume is dropped from the card', a
     sections: [{ key: 'quickFacts', en: '<ul><li>Minimum tank size: 10 gallons (about 38 litres)</li><li>Diet: omnivore</li></ul>', vi: '<ul><li>Bể tối thiểu: 38 lít</li><li>Thức ăn: ăn tạp</li></ul>' }] }
   expect((await processPage(fake(only), input)).dataCard.tankCm).toBeUndefined()
 })
+
+// Seriously Fish's difficulty block, as the engine stores the climbing perch's page: "6 of 8 measures" counts the measures
+// it could rate (space, water, diet…), and the rating is the word under it. The model read 6 as the rating, and the
+// climbing perch, "Moderate", showed as hard.
+const sfPage = (word: string) => `## Quick factsEdit\nMax size\n200mm SL8in SL\n## Difficulty6 of 8 measures\n${word}\nHow the rating is worked out\nSpace\nlarge tank`
+const misread = () => ({ ...structuredClone(species), dataCard: { ...species.dataCard, difficulty: 6 } })
+
+test('Seriously Fish\'s difficulty is its word on the breeds\' scale, never its count of measures', async () => {
+  for (const [word, value] of [['Moderate', 4], ['Easy', 2], ['Beginner', 2], ['Difficult', 6]] as const) {
+    expect((await processPage(fake(misread()), { ...input, outline: sfPage(word) })).dataCard.difficulty).toBe(value)
+  }
+})
+test('Seriously Fish\'s "Not enough data to rate" gives the card no difficulty', async () => {
+  expect((await processPage(fake(misread()), { ...input, outline: sfPage('Not enough data to rate') })).dataCard).not.toHaveProperty('difficulty')
+})
+test('a Seriously Fish page in the old layout, and another source\'s page, keep the difficulty read from them', async () => {
+  expect((await processPage(fake(misread()), { ...input, outline: '## Quick facts\nDifficulty: 6' })).dataCard.difficulty).toBe(6)
+  expect((await processPage(fake(misread()), { ...input, source: 'glaser', outline: sfPage('Moderate') })).dataCard.difficulty).toBe(6)
+})

@@ -112,8 +112,10 @@ if part pages; then
   # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
   pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
   # "Tóm tắt nhanh" for new or changed species, most-read first: each checked against its page (numbers against the
-  # data card, claims against the text) and shown if it passes, else listed in docs/review/summaries.md.
-  pnpm engine summaries --top "${SUMMARY_LIMIT:-40}" --jobs 4 || log "summaries: failed (those pages show no summary yet)"
+  # data card, claims against the text) and shown if it passes, else listed in docs/review/summaries.md. 150 a cycle (was
+  # 40) while the ~690 summaries sent back by Seriously Fish's difficulty fix (2026-11-07) are written again: a ceiling,
+  # so once they're done a cycle writes only the pages that changed. Back to 40 if the cycles run too long.
+  pnpm engine summaries --top "${SUMMARY_LIMIT:-150}" --jobs 4 || log "summaries: failed (those pages show no summary yet)"
 fi
 if part sf && [ -z "${ENGINE_ARGS:-}" ]; then
   # Species pages whose data card lacks a figure (minimum tank, temperature, pH, hardness, size, difficulty), most-read

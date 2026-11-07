@@ -250,3 +250,24 @@ test('"Phi châu" is written "châu Phi" on a page, in its name, other names and
   expect(r.text.tidy).toContain('species/xenomystus-nigri/vi')
   expect((await sweep(root)).files).toEqual([])
 })
+
+test('a card\'s Seriously Fish difficulty read before the engine read its word is corrected from the stored page, and its summary written again', async () => {
+  const root = await store()
+  await sweep(root)
+  const file = join(root, 'content/species/corydoras-sterbai/entity.json')
+  await writeFile(file, `${JSON.stringify({ ...await json(root, 'content/species/corydoras-sterbai/entity.json'), dataCard: { difficulty: [{ source: 'seriouslyfish', value: 6 }, { source: 'glaser', value: 5 }] } }, null, 2)}\n`)
+  await writeFile(join(root, 'content/summaries/corydoras-sterbai.json'), JSON.stringify({ id: 'corydoras-sterbai', summary: 'Độ khó 5/8 (vừa).', mistakes: [], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' }))
+  const page = (word: string) => `---\nurl: https://www.seriouslyfish.com/x\n---\n\n## Difficulty6 of 8 measures\n${word}\nHow the rating is worked out\n`
+  await mkdir(join(root, 'sources/seriouslyfish'), { recursive: true })
+  await writeFile(join(root, 'sources/seriouslyfish/x.md'), page('Easy'))
+  const r = await sweep(root)
+  expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).dataCard.difficulty).toEqual([{ source: 'seriouslyfish', value: 2 }, { source: 'glaser', value: 5 }])
+  expect(r.card).toEqual(['species/corydoras-sterbai: difficulty 6 → 2 (Seriously Fish\'s word)'])
+  expect(await json(root, 'content/summaries/corydoras-sterbai.json')).toMatchObject({ review: 'pending', summary: 'Độ khó 5/8 (vừa).' })
+  expect(r.summaries).toEqual(['corydoras-sterbai'])
+  expect((await sweep(root)).files).toEqual([])
+  // A page that rates it no more takes Seriously Fish's figure off; the other source's stays.
+  await writeFile(join(root, 'sources/seriouslyfish/x.md'), page('Not enough data to rate'))
+  await sweep(root)
+  expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).dataCard.difficulty).toEqual([{ source: 'glaser', value: 5 }])
+})
