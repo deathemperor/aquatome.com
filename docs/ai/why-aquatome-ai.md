@@ -122,7 +122,8 @@ tank: plain 36, ours 8, 3 ties, scores 5.5 and 3.9. Ours lost every kind of prob
 Next: answer as an expert who has read the handbook. Name the likely cause from the reader's details, then steps in
 order, what to watch and when to check back, with figures and doses only from our pages. Read the whole tank, fix the
 name search, read more per call. If that still loses, the question for the owner is whether the chat may use general
-knowledge beside the handbook, still never for figures or doses. I'll bring that with evidence.
+knowledge beside the handbook: common hobby figures our pages don't give, with a page's figure winning, and medicine
+or chemical doses only from a page. I'll bring that with evidence.
 
 ## Order of work
 
