@@ -480,6 +480,11 @@ extension XCUIApplication {
   func signInWithStandInApple(file: StaticString = #filePath, line: UInt = #line) {
     scrollToAndTap("apple-sign-in", file: file, line: line)
     let status = staticTexts["account-status"]
+    // At the largest text the button is screens under the sheet's top, where the status is, and a list doesn't keep what's
+    // that far off screen: once the button has gone (signed in), back up to it.
+    if !status.waitForExistence(timeout: 3), descendants(matching: .any)["apple-sign-in"].firstMatch.waitForNonExistence(timeout: 10) {
+      repeatUntil(status.exists, times: 12) { swipeDown() }
+    }
     XCTAssertTrue(status.waitForExistence(timeout: 10), "not signed in", file: file, line: line)
     let synced = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in Int(status.value as? String ?? "") ?? 0 >= 1 }, object: nil)
     XCTAssertEqual(XCTWaiter.wait(for: [synced], timeout: 10), .completed, "no sync", file: file, line: line)
@@ -488,7 +493,9 @@ extension XCUIApplication {
   /// Scrolls until the element is on screen, then taps it.
   func scrollToAndTap(_ id: String, file: StaticString = #filePath, line: UInt = #line) {
     let e = descendants(matching: .any)[id].firstMatch
-    XCTAssertTrue(e.waitForExistence(timeout: 10), "no \(id)", file: file, line: line)
+    // A row screens down a list isn't there until it's scrolled near (the largest text).
+    if !e.waitForExistence(timeout: 10) { repeatUntil(e.exists, times: 8) { swipeUp() } }
+    XCTAssertTrue(e.exists, "no \(id)", file: file, line: line)
     repeatUntil(e.isHittable, times: 6) { swipeUp() }
     e.tap()
   }
