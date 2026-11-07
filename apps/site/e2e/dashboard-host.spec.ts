@@ -31,7 +31,10 @@ async function host(page: Page, baseURL: string, access = true) {
     AB: { get: async (k: string, o?: unknown) => { const v = kv.get(k); return v === undefined ? null : o ? JSON.parse(v) : v }, put: async (k: string, v: string) => { kv.set(k, v) }, list: async () => ({ keys: [], list_complete: true }) } as unknown as AdminEnv['AB'],
     ASSETS: { fetch: (r: Request) => fetch(new URL(new URL(r.url).pathname, baseURL)) } as unknown as AdminEnv['ASSETS'],
   }
-  const seen: { path: string; site: string | undefined; origin: string | undefined; cookie: string | undefined }[] = []
+  const seen: { path: string; site: string | undefined; origin: string | undefined; cookie: string | undefined; redirect?: [number, string] }[] = []
+  // A request Chromium sent on its own, past the route.
+  const escaped: string[] = []
+  page.on('request', r => { if (r.redirectedFrom()) escaped.push(r.url()) })
   await page.route(url => url.hostname === DASHBOARD_HOST, async route => {
     const r = route.request()
     const url = new URL(r.url())
@@ -44,16 +47,23 @@ async function host(page: Page, baseURL: string, access = true) {
     const body = r.postData()
     const req = new Request(url, { method: r.method(), headers: { ...headers, ...(access ? { 'cf-access-jwt-assertion': await token() } : {}) }, ...(body ? { body } : {}) })
     const res = await dashboardHostRoute(req, url, env)
+    // Chromium follows a redirect a route fulfils past the route, to the real host, whose answer (Access's page, and what
+    // that page logs) has no place in a local check. So a redirect is noted, and the browser goes on through this stand-in.
+    const to = res.headers.get('location')
+    if (to && res.status >= 300 && res.status < 400) {
+      seen.at(-1)!.redirect = [res.status, to]
+      return route.fulfill({ contentType: 'text/html', body: `<!doctype html><meta http-equiv="refresh" content="0;url=${to}">` })
+    }
     await route.fulfill({ status: res.status, headers: Object.fromEntries(res.headers), body: Buffer.from(await res.arrayBuffer()) })
   })
-  return { seen, kv }
+  return { seen, kv, escaped }
 }
 
 test.describe('locally', () => {
   test.skip(LIVE, 'the live dashboard opens only to the owner')
 
   test('the owner moves around the dashboard on its host, and a page\'s form acts from the page', async ({ page, baseURL, errors }) => {
-    const { seen, kv } = await host(page, baseURL!)
+    const { seen, kv, escaped } = await host(page, baseURL!)
     const opened = await page.goto(`${DASH}/an-trang/`)
     expect([opened?.status(), opened?.headers()['x-robots-tag'], opened?.headers()['cache-control']]).toEqual([200, 'noindex, nofollow', 'no-store'])
     await expect(page.locator(`${IS_DASHBOARD} a[aria-current="page"]`)).toHaveAttribute('href', '/an-trang/')
@@ -61,18 +71,10 @@ test.describe('locally', () => {
     // The real browser's form. Its Origin is "null" under these pages' no-referrer, so only Sec-Fetch-Site can say it
     // came from the page.
     await page.locator('input[name=url]').fill('https://aquatome.com/ca/thu-an/')
-    const answered = page.waitForResponse(r => new URL(r.url()).pathname === '/_ab/hidden')
-    const navigated = page.waitForEvent('framenavigated', f => f === page.mainFrame())
     await page.locator('form.inline button').click()
-    const res = await answered
-    expect([res.status(), res.headers().location]).toEqual([303, '/an-trang/'])
-    // Chromium follows a redirect a route fulfilled past the route, to the real host, which answers for itself since it
-    // went live (403 without Access): open where it leads through the stand-in. (The redirects themselves are in
-    // worker/test/dashboard-host.test.ts.)
-    await navigated
-    await page.goto(`${DASH}${res.headers().location}`)
     await expect(page.locator('main table')).toContainText('/ca/thu-an/')
     const post = seen.find(s => s.path === '/_ab/hidden')
+    expect(post?.redirect).toEqual([303, '/an-trang/'])
     expect(post?.origin).toBe('null')
     expect(Object.keys(JSON.parse(kv.get('hidden')!))).toEqual(['/ca/thu-an/'])
     // A link to that public page leads to the site, this host having none.
@@ -88,6 +90,7 @@ test.describe('locally', () => {
     // The two faces load from this host.
     await page.evaluate(() => document.fonts.ready)
     expect(seen.some(s => s.path.startsWith('/_ab/fonts/'))).toBe(true)
+    expect(escaped).toEqual([])
     expect(errors).toEqual([])
   })
 
