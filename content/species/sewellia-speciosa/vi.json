@@ -1,8 +1,8 @@
 {
-  "slug": "ca-bam-da-sewellia-speciosa",
-  "name": "Cá bám đá Sewellia speciosa",
+  "slug": "ca-ty-ba-buom-lao",
+  "name": "Cá tỳ bà bướm Lào",
   "altNames": [
-    "Cá chình suối",
+    "Cá bám đá Sewellia speciosa",
     "Hillstream loach",
     "Cá bám đá Lào",
     "Laos sucker",
@@ -36,5 +36,12 @@
       "glaser": 0.8,
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-bam-da-sewellia-speciosa",
+      "name": "Cá bám đá Sewellia speciosa"
+    }
+  ]
 }

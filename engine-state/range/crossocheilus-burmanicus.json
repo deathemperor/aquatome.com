@@ -1,0 +1,81 @@
+{
+  "id": "crossocheilus-burmanicus",
+  "native": {
+    "input": "841f5d3ac5ba3c1f",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Myanmar plus rivers in northeastern India and western Thailand draining into the Irrawaddy and Salween river systems.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Myanmar plus rivers in northeastern India and western Thailand draining into the Irrawaddy and Salween river systems.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Myanmar plus rivers in northeastern India and western Thailand draining into the Irrawaddy and Salween river systems.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Native to Myanmar plus rivers in northeastern India and western Thailand draining into the Irrawaddy and Salween river systems.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Native to Myanmar plus rivers in northeastern India and western Thailand draining into the Irrawaddy and Salween river systems.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crossocheilus burmanicus",
+    "status": "ACCEPTED",
+    "taxonKey": 2361955,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        14
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "IN",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

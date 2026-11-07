@@ -31,6 +31,17 @@ test('failures are told apart by their error: usage limit, transient, the page i
   for (const e of [CRASH, 'fetch failed', 'net::ERR_CONNECTION_RESET', 'page.goto: Timeout 45000ms exceeded.', 'HTTP 503']) expect(errorKind(e)).toBe('transient')
   for (const e of ['HTTP 404', 'claude failed (1): no JSON in the reply', 'R2 upload 403', 'R2 upload: rate limit reached', undefined]) expect(errorKind(e)).toBe('other')
 })
+// What 2Hr Aquarist's state held on 2026-11-07: 9 pages at their last attempt, none of them at fault.
+test('the archive slowing us down is no fault of the page: it uses no attempt, and a page stuck on it reads again', () => {
+  for (const e of ['no archived copy (HTTP 429)', "the archive isn't answering (fetch failed)"]) {
+    expect(errorKind(e)).toBe('throttled')
+    expect(attemptsAfter({ ...base, status: 'error', attempts: 2 }, e)).toBe(2)
+    expect(needsFetch({ ...base, status: 'error', attempts: 3, error: e }, '2026-10-01', now)).toBe(true)
+    expect(retryFirst({ ...base, status: 'error', attempts: 3, error: e })).toBe(true)
+  }
+  expect(errorKind('no archived copy (HTTP 404)')).toBe('other')
+  expect(errorKind('HTTP 429')).toBe('transient') // another site's, as before
+})
 test('a usage limit uses no attempt; any other failure uses one', () => {
   const failed = { ...base, status: 'error' as const, attempts: 2 }
   expect(attemptsAfter(failed, LIMIT)).toBe(2)

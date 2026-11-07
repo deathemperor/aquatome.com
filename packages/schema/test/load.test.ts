@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { loadAll } from '../src/index'
+import { withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
 const bad = fileURLToPath(new URL('./fixtures/bad', import.meta.url))
@@ -229,4 +230,11 @@ test('Indonesian and Thai text marks the Vietnamese names in it as Vietnamese; V
   const alpha = async (lang: 'vi' | 'id') => (await loadAll({ root: dir, lang, publicBuild: false })).species.find(s => s.id === 'alpha')!.t.sections[key]
   expect(await alpha('id')).toBe('<p>Ditemukan di sungai <span lang="vi">Đồng Nai</span>, Vietnam.</p>')
   expect(await alpha('vi')).toBe('<p>Sống ở sông Đồng Nai.</p>')
+})
+
+test('a local note goes first in the text, as read everywhere; a guide without one is as stored', () => {
+  const t = { slug: 's', name: 'n', altNames: [], sections: {}, body: '<p>nguồn</p>', quality: { score: 1, indexable: true } }
+  const localNote = { html: '<h3>Ở Việt Nam</h3>', refs: [{ url: 'https://a.test/', title: 'A' }] }
+  expect(withLocalNote({ ...t, localNote }).body).toBe('<h3>Ở Việt Nam</h3><p>nguồn</p>')
+  expect(withLocalNote(t)).toEqual(t)
 })

@@ -1,0 +1,35 @@
+{
+  "id": "corydoras-pinheiroi",
+  "native": {
+    "input": "f5b672eb677c3ffb",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rondônia, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras pinheiroi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342743,
+    "datasets": [],
+    "native": [
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

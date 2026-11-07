@@ -11,6 +11,75 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The butterfly plec, Dekeyseria picta (L168), is a flattened loricariid catfish from the Rio Negro in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Rio Orinoco fish traded as L052 is now included in the same species.",
+          "countries": [],
+          "regions": [
+            "Rio Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340175,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          2
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

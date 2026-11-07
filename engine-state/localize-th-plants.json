@@ -562,16 +562,13 @@
     "notes": []
   },
   "crinum-calamistratum": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
-    "name": "คริมัม คาลามิสตราตัม",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "ครินัม คาลามิสตราตัม",
     "confidence": "low",
-    "score": 0.8,
+    "score": 0.9,
     "notes": [
-      "\"ใบหยักเป็นลอน\": source says \"curly leaves\" (leaves are curly/wavy, not serrated); \"หยัก\" suggests jagged edges. Use \"ใบเป็นลอนหยิก/ม้วนเป็นลอน\".",
-      "\"Crinum calamistratum\" is a Latin name and is correctly kept, but \"คริมัมชนิดอื่น\" is an inconsistent transliteration; use \"ครินัม\" (the form hobbyists commonly use) or keep \"Crinum\" in Latin.",
-      "\"ไม้น้ำประเภทไม้หัวที่มีรูปทรงสง่างามมาก\" is slightly stiff; \"graceful\" could read more naturally as \"ทรงต้นสวยงามอ่อนช้อย\".",
-      "\"ปลากินพืชไม่กินไม้น้ำชนิดนี้\": acceptable meaning, but \"ปลากินพืชจะไม่กิน\" reads more naturally."
+      "Item 2: \"เฟิร์นใบหอก (Java fern)\" is a poor match for Java fern. Hobbyists in Thailand usually write \"เฟินชวา\" (or \"เฟิร์นชวา\"). \"ใบหอก\" is the Lance variety, not the general name."
     ]
   },
   "crinum-thaianum": {
@@ -782,15 +779,14 @@
     ]
   },
   "echinodorus-ozelot-green": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "อเมซอน โอซีลอต กรีน",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "อเมซอน โอซีล็อต กรีน",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "Item 1: \"ไม้น้ำทรงกอ (rosulate)\" is acceptable, but \"ไม้น้ำทรงกอ/ทรงพุ่มกุหลาบ\" or a plain \"โรซูเลต\" would be more standard for hobbyists.",
-      "Item 2: \"พื้นตู้ที่มีธาตุอาหารสมบูรณ์\" is a little loose for \"nutritious bottom\". \"วัสดุรองพื้นที่อุดมด้วยธาตุอาหาร\" is more natural.",
-      "Item 2: \"จุดสีเข้มตัดกับใบสีอ่อนได้ชัดเจนกว่า\" is vague about what the contrast is compared with. \"จุดสีเข้มตัดกับสีใบที่อ่อนกว่าได้ชัดเจน\" reads more naturally."
+      "Item 2: \"ซับสเตรต\" is acceptable, but \"วัสดุปลูก\" or \"พื้นตู้\" is more familiar to Thai hobbyists. Use one term consistently across items 2 and 3.",
+      "Item 2: the source says \"Kiếm Ozelot Green\", and \"อเมซอน โอซีล็อต กรีน\" is acceptable. You could add the Latin name Echinodorus 'Ozelot' in brackets, or use \"ใบพาย\", so it matches item 3."
     ]
   },
   "echinodorus-red-diamond": {

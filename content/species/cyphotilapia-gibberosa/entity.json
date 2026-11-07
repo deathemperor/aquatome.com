@@ -12,6 +12,89 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "ZM",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs throughout this area, but localities popular in the aquarium hobby include: Kapampa, Kitumba, Mikula, and Moba in Democratic Republic of the Congo (formerly known as Zaire, which is still used in reference to some populations; see 'Notes'); Bismark, Chaitika, Nangu, and Samazi in Zambia; Mpimbwe, Ikola, Kantalamba, and Mabilili in Tanzania.",
+          "countries": [
+            "CD",
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is '8°43'S, 31°08'E, Kasenga, Zambia, Lake Tanganyika, depth 34 meters'.",
+          "countries": [
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Cyphotilapia gibberosa is a large cichlid endemic to southern Lake Tanganyika, with a hump on the forehead and broad vertical body bands.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373237,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CD",
+          2
+        ],
+        [
+          "ZM",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

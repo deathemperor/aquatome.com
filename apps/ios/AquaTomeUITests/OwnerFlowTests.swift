@@ -23,7 +23,7 @@ final class OwnerFlowTests: XCTestCase {
     app.buttons["owner-tile-cost"].tap()
     let keys = app.buttons["owner-keys"]
     XCTAssertTrue(becomesHittable(keys), "the cost tile didn't go to the costs")
-    XCTAssertTrue(keys.label.hasPrefix("Anthropic keys, 1 of 2 resting"), keys.label)
+    XCTAssertTrue(keys.label.hasPrefix("Anthropic keys, 2 of 2 resting"), keys.label)
     keys.tap()
     let heading = app.staticTexts["Key Anthropic"]
     XCTAssertTrue(heading.waitForExistence(timeout: 10), "the section didn't open")

@@ -79,7 +79,7 @@ FROM ${EVENTS} WHERE blob2 IN ('view', 'time', 'scroll', 'aff') AND timestamp >=
 export const queryBeacon = (accountId: string, token: string, from: string) => aeSql<BeaconRow>(accountId, token, BEACON_SQL(from))
 
 /** Each language's tool pages, under its word for /cong-cu/ (a test holds them to src/lib/i18n.ts). The list itself is not a tool. */
-export const TOOLS: Record<Lang, string> = { vi: '/cong-cu/', id: '/id/alat/', th: '/th/tools/' }
+export const TOOLS: Record<Lang, string> = { vi: '/cong-cu/', id: '/id/alat/', th: '/th/tools/', ms: '/ms/alat/' }
 const isTool = (path: string) => path.length > TOOLS[langOfPath(path)].length && path.startsWith(TOOLS[langOfPath(path)])
 
 /** A session as the scoreboard reads it: where it landed, from where, and what it did. */

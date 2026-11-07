@@ -12,7 +12,7 @@ import type { Wanted } from '../wanted'
 
 /**
  * One sample of everything the dashboard's pages draw, at a fixed moment in Vietnam: every part loaded, with rows of
- * each kind (a link and no link, a key resting, a photo approved, a source waiting on the owner…). The pages' HTML and
+ * each kind (a link and no link, every key resting, a photo approved, a source waiting on the owner…). The pages' HTML and
  * their blocks are drawn from it side by side (owner-api.test.ts), and protocols/owner-dashboard-vectors.json is its JSON.
  * Data only: it draws nothing itself.
  */
@@ -56,7 +56,7 @@ export const FISH = {
     // Enough for more than one page of the app's table (50 rows a page).
     ...Array.from({ length: 56 }, (_, i) => call(`2026-11-04 07:${String(59 - i).padStart(2, '0')}:00`, { sci: 'Paracheirodon innesi', page: 'paracheirodon-innesi' })),
   ], NOW, TZ),
-  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2, cap: 50, spend: [] },
+  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'rate' as const, until: '2026-11-04T09:30:00.000Z', calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2, cap: 50, spend: [] },
   pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
 }
 
@@ -107,17 +107,17 @@ export const ACCOUNTS = {
 }
 
 const totals = (fish: number, plant: number, guide: number, id: number, th: number, sources: Record<string, number>): Totals =>
-  ({ kinds: { fish: { vi: fish, id, th }, plant: { vi: plant, id: 0, th: 0 }, guide: { vi: guide, id, th: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources, photos: { pages: 0, gallery: 0 } })
+  ({ kinds: { fish: { vi: fish, id, th, ms: 0 }, plant: { vi: plant, id: 0, th: 0, ms: 0 }, guide: { vi: guide, id, th: 0, ms: 0 } } as Partial<Totals['kinds']> as Totals['kinds'], built: null, sources, photos: { pages: 0, gallery: 0 } })
 export const SNAPSHOTS: Snapshot[] = [
   { day: days30[20]!, totals: totals(700, 90, 300, 100, 80, { seriouslyfish: 500, youtube: 120 }) },
   { day: days30[25]!, totals: totals(720, 92, 305, 130, 90, { seriouslyfish: 515, youtube: 125 }) },
   { day: days30[28]!, totals: totals(730, 92, 310, 150, 95, { seriouslyfish: 520, youtube: 132 }) },
 ]
-const inv = (total: number, id = 0, th = 0) => ({ total, id, th })
+const inv = (total: number, id = 0, th = 0, ms = 0) => ({ total, id, th, ms })
 export const STATS = {
   v: 1, builtAt: '2026-11-04T06:00:00.000Z', publicBuild: true,
   inventory: { fish: inv(730, 150, 95), breed: inv(40), plant: inv(92), guide: inv(250, 20), videoGuide: inv(60), series: inv(5), glossary: inv(120), equipment: inv(0), place: inv(30), product: inv(0) },
-  built: { total: { vi: 1500, id: 300, th: 200 }, byKind: {} },
+  built: { total: { vi: 1500, id: 300, th: 200, ms: 0 }, byKind: {} },
   sources: { seriouslyfish: { name: 'Seriously Fish', fish: 520, plant: 0, guide: 0 }, youtube: { name: 'YouTube', fish: 0, plant: 0, guide: 132 } },
   photos: { pages: 2100, byOrigin: { commons: 900, inaturalist: 700 }, byLicence: { 'CC BY': 1000, CC0: 600 }, covered: { fish: { with: 600, of: 730 }, plant: { with: 80, of: 92 } }, waitingMirror: 14, gallery: { pages: 300, photos: 2400 } },
   engine: {

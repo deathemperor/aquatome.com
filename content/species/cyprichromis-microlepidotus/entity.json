@@ -12,6 +12,68 @@
     "democratic-republic-of-the-congo",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372095,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CD",
+          8
+        ],
+        [
+          "BI",
+          3
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          6
+        ],
+        [
+          29.53125,
+          -8.4375,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

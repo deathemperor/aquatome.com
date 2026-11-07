@@ -1,0 +1,25 @@
+{
+  "id": "dichotomyctere-fluviatilis",
+  "input": "29e82d31620030ce",
+  "at": "2026-11-07T13:33:43.862Z",
+  "claims": [
+    {
+      "kind": "brackish",
+      "source": "seriouslyfish",
+      "quote": "Though often sold in freshwater, it is a true brackish species and needs a specific gravity of around 1.005 to 1.010 to survive long term.",
+      "ok": true
+    },
+    {
+      "kind": "brackish",
+      "source": "seriouslyfish",
+      "quote": "Requires brackish water to a sg of around 1.005-1.010, although it can also tolerate full marine conditions.",
+      "ok": true
+    },
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "All three species are typical brackish water fishes that also tolerate pure freshwater and pure seawater.",
+      "ok": true
+    }
+  ]
+}

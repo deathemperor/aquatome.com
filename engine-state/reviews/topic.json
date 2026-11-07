@@ -262,6 +262,79 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong": [
+    {
+      "at": "2026-11-07T15:20:58Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Ikan perlu dikuarantin kerana punca dropsy mungkin berjangkit\" is supported. The FAQ line \"Kuarantin disarankan...\" is also supported.",
+        "\"(kira-kira 19–38 liter)\" is a conversion the facts don't give. It is roughly correct, but it is an added number.",
+        "\"(kira-kira 28–30 °C)\" is a conversion the facts don't give. It is added, and 82–86°F is closer to 28–30°C, so it is acceptable but unsupported.",
+        "\"(kira-kira 13 mg seliter)\" is a conversion the facts don't give. It is added and unsupported.",
+        "\"Pada dropsy ... selalunya ada tanda lain seperti mata tersembul, insang pucat atau ikan berhenti makan\" is only loosely supported. The facts say tumours lack the other signs of disease, but they don't say \"selalunya\".",
+        "\"Sumber-sumber tidak sama pendapat\" and the claim that sources disagree on the chance of recovery are a framing the facts don't state. The underlying content is supported.",
+        "\"Rawat air paip dengan penyahklorin\" is supported. The 25–50% twice-weekly water change is attributed to a single source, which is acceptable.",
+        "\"sirip terlipat rapat ke badan\" is a rewording of \"clamped fins\" and is acceptable.",
+        "\"Kuarantin paling berkesan jika penyakit dikesan awal\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T15:20:58Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Peluang sembuh paling baik jika dikesan awal\" in the intro is a generalisation. The facts only say some fish improve if treated early, and that quarantine works best when the illness is caught early.",
+        "\"Uji air tangki (ammonia, nitrit, nitrat, pH)\" lists specific parameters. The facts only say to test the water.",
+        "\"ikan ditangkap atau dipindahkan\" is a paraphrase of \"handling\". It is acceptable but loosely worded.",
+        "\"Perhatikan ikan lain, terutamanya yang sama spesies\" as a first-aid step is not stated in the facts.",
+        "\"Kebanyakan sumber mengatakan ... prognosisnya buruk\" and \"sumber-sumber agak sepakat\" are framing claims. They are roughly supported, but the FAQ line \"Bagi ikan kecil ... sering disarankan\" overstates the facts, which say the euthanasia advice comes from one source.",
+        "The intro says \"selalunya kualiti air yang teruk dalam jangka masa panjang dan jangkitan bakteria\". This is supported only loosely.",
+        "\"Sebab itu ikan yang sakit perlu dikuarantin\" in the FAQ is a reasonable inference, but it is not directly stated in that form.",
+        "\"Menurut satu sumber... masing-masing boleh menyebabkan cecair terkumpul dalam rongga perut\" is a paraphrase of ascites. It is fine.",
+        "\"Sumber lain menyebut pemulihan tidak mungkin\" is softened from \"unlikely\" to \"not possible\" (\"tidak mungkin\"), which is a slight overstatement."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/guides/aquatome-ca-bo-an-khong-chiu-an-nguyen-nhan-va-cach-xu-ly": [
+    {
+      "at": "2026-11-07T15:24:02Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"sisik menegak seperti pain\" (pinecone scales) is in the facts only as a pinecone-scales emergency sign, but the guide's phrasing is acceptable; minor.",
+        "\"Menaikkan suhu ke hujung atas julat yang sesuai untuk ikan laga\" omits the 74-81°F range from the facts; generalised but not wrong.",
+        "\"Menurut satu sumber veterinar, tiada rawatan untuknya\" for Cryptobia is supported (Merck).",
+        "\"Arowana ... secara semula jadi menjadi kurang aktif dan makan kurang\": the facts say 'slow down and eat less', which is close enough.",
+        "\"Jangan terlalu banyak\" and \"Selalunya beberapa cara ini perlu digabungkan\" are supported.",
+        "\"Jika ammonia atau nitrit melebihi sifar, tukar air dengan segera\" in the intro omits the 30-50% figure and slightly turns a conditional recommendation into an urgent one; minor.",
+        "\"Pea puffer dan scarlet badis ... memerlukan makanan hidup atau beku\" is supported.",
+        "\"Ikan juvenil ... anak ikan dan ikan juvenil yang tidak makan lebih daripada 24 jam\" is supported as an emergency.",
+        "\"Sembelit ... Jika dibiarkan, sembelit boleh menyebabkan masalah pundi renang\" is supported.",
+        "\"Ikan dewasa sudah melepasi tempoh puasa selamat untuk jenisnya\" as a worry trigger is an inference not directly stated in the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T15:24:02Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"kira-kira 23–27 °C\" is an invented Celsius conversion of 74–81°F. The facts give no Celsius figure, and 74–81°F is about 23–27°C.",
+        "\"Sembelit\" is presented as a general treatment. The facts only say that fasting for 24–48 hours can clear constipation. They do not link this to a fish that refuses food.",
+        "\"Guna blok makanan\" is listed as a common mistake. The facts only say that food blocks can leave uneaten food rotting and that many species do not recognise them, so this is a mild over-generalisation.",
+        "\"Ikan laga baru yang stres ... Ya, ikan baru yang stres ...\" and \"Beri makanan lama bersama makanan baru\" in the FAQ for betta pellets applies the old-with-new advice to this case. The facts give that advice for switching foods in general, so this is a small extension.",
+        "\"Air yang lebih panas pula meningkatkan metabolisme\" and the other general statements are supported. \"Patutkah saya terus tukar air...\" combines facts about old tank syndrome and water changes. The FAQ answer is a plausible synthesis, but it presents \"selalunya melebihi 10 mg/L\" as the trigger for avoiding water changes, which the facts do not exactly say."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "th/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": [
     {
       "at": "2026-11-07T08:03:59Z",

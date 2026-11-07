@@ -10,6 +10,66 @@
     "brazil",
     "rio-tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Brochis ornata, long known as Corydoras ornatus, is a larger armoured catfish from the lower Rio Tapajós basin in Brazil, growing to around 70 mm SL.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342781,
+      "total": 6,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          5
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
