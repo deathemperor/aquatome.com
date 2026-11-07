@@ -1,19 +1,30 @@
 {
   "slug": "ca-chuot-bao-hiem-harttia-surinamensis",
   "name": "Cá chuột bảo hiểm Harttia surinamensis",
-  "altNames": [],
+  "altNames": [
+    "Cá L040"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Harttia surinamensis Boeseman, 1971</li><li>Sách đỏ IUCN: Ít quan ngại (đánh giá gần nhất năm 2023)</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong vùng nước Guyana, các sông ven biển vùng Guiana và các sông ven biển Suriname. Mẫu chuẩn được thu tại Grandam, Gran Rio, thuộc thượng nguồn sông Suriname, Suriname.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Zoologische Verhandelingen (Leiden) No. 116, pp 28, Pl. 3.</p>"
+    "references:planetcatfish": "<p>Zoologische Verhandelingen (Leiden) No. 116, pp 28, Pl. 3.</p>",
+    "quickFacts:scotcat": "<p>Harttia surinamensis Boeseman, 1971 (L040), họ Loricariidae. Loài này trông giống H. fluminensis, nhưng khác ở màu sắc và các số đo hình thái. Kích thước: 19 cm. Nhiệt độ: 25-30°C. pH: 6,0-7,0.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ. Cá sống ở các sông ven biển, từ sông Suriname kéo về phía đông đến sông Approuague.</p>",
+    "habitat:scotcat": "<p>Cá có rất nhiều ở những đoạn nước chảy xiết, đổ ào xuống mạnh.</p>",
+    "maintenance:scotcat": "<p>Đây không phải chi cá dễ nuôi nhất. Chúng cần nước sạch, nhiều oxy và dòng chảy mạnh. Cá nhập về thường yếu vì chúng chịu cảnh di chuyển đường dài trong thùng rất kém.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ 25-30°C, pH 6,0-7,0. Nước phải sạch, nhiều oxy và có dòng chảy mạnh.</p>",
+    "diet:scotcat": "<p>Cá ăn thức ăn khô, viên tảo, Spirulina và thức ăn viên thông thường. Chúng cũng ăn đồ đông lạnh, Artemia mới nở, trùng thủy tinh và bo bo.</p>",
+    "dimorphism:scotcat": "<p>Cá đực trưởng thành có odontode mọc rất dày ở mép trước vây ngực. Odontode là những cấu trúc nhỏ trông như lông, thường nằm trên tia đầu tiên của vây ngực ở cá đực. Đầu cá đực cũng rộng hơn cá cái.</p>",
+    "notes:scotcat": "<p>Nhận dạng: muốn nhận ra loài này, bạn nhìn vào vây đuôi. Trên vây đuôi có một vệt hình lưỡi liềm màu sẫm, còn các chóp vây đuôi thì màu đen.</p><p>Nguồn gốc tên: tên chi Harttia đặt để vinh danh Charles Frederick Hartt (1840-1878). Ông là nhà địa chất, nhà cổ sinh vật học và nhà tự nhiên học. Trong chuyến thám hiểm Thayer đến Brazil (1865-1866), ông thu thập nhiều mẫu vật mà sau đó Steindachner nghiên cứu. Tên loài surinamensis nghĩa là \"đến từ Surinam\".</p><p>Danh sách đỏ IUCN: hiện chưa có con số ước tính chính xác về quy mô quần thể. Ở phần lớn vùng phân bố, quần thể được cho là khá thưa. Hoạt động khai thác mỏ có thể ảnh hưởng đến nơi sống của loài. Dù vậy, loài này phân bố rộng khắp Suriname và Guiana thuộc Pháp. Hiện loài được xếp vào mức Ít quan tâm (LC) (IUCN 2023).</p>",
+    "references:scotcat": "<p>Boujard, T., M. Pascal, F.J. Meunier and P.-Y. Le Bail, 1997. Poissons de Guyane. Guide écologique de l'Approuague et de la réserve des Nouragues. Institut National de la Recherche Agronomique, Paris, 219 p.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2015).</p><p>Lasso-Alcalá, O.M., Martínez, E.O., Mikolji, I. &amp; Quintero-T., E. 2023. Harttia surinamensis. The IUCN Red List of Threatened Species 2023.</p><p>Le Bail, P.-Y., P. Keith and P. Planquette, 2000. Atlas des poissons d'eau douce de Guyane. Tome 2, Fascicule II: Siluriformes. Collection Patrimoines Naturels 43(II): 307p. Paris: Publications scientifiques du Muséum national d'Histoire naturelle.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
+    }
   }
 }

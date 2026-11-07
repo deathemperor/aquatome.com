@@ -21888,5 +21888,27 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
-  "Zwei neue": null
+  "Zwei neue": null,
+  "Aff kriegi": null,
+  "Cambarus bartonii": {
+    "canonicalName": "Cambarus bartonii",
+    "order": "Decapoda",
+    "family": "Cambaridae",
+    "genus": "Cambarus",
+    "matchType": "EXACT"
+  },
+  "Sesarmops intermedium": {
+    "canonicalName": "Orisarma intermedium",
+    "order": "Decapoda",
+    "family": "Sesarmidae",
+    "genus": "Orisarma",
+    "matchType": "FUZZY"
+  },
+  "Tatia intermedia": {
+    "canonicalName": "Tatia intermedia",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Tatia",
+    "matchType": "EXACT"
+  }
 }
