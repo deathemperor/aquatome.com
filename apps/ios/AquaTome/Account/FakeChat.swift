@@ -11,7 +11,8 @@ import Handbook
 /// `-chat-failed`, the one that ends in `failed`; `-chat-unavailable`, a step then `unavailable` (Claude unreachable).
 /// `-chat-rate`: every question is refused as the reader's day used (protocols/chat-rate.json); `-chat-busy`, as the
 /// site's. `-chat-turns N`: a conversation ends after N questions (410 `ended`, as past `maxTurns`). `-chat-slow`: an
-/// event every 3 s, not 0.5 s, so a flow can leave mid-answer. `-chat-lost`: a question asked again with its key is 410
+/// event every 3 s, not 0.5 s, so a flow can leave mid-answer. `-chat-blocks`: the answer has one of each kind of block,
+/// as the fixed handbook has them, where the recording has only some. `-chat-lost`: a question asked again with its key is 410
 /// `ended`, as past its conversation's 24 hours. The answer to a question is fixed when it's first asked, as the
 /// Worker's run goes on without the app: asked again with its key, it comes back as its `done` (or `error`) alone.
 @MainActor
@@ -76,16 +77,44 @@ final class FakeChat {
     }
     let name = args.contains("-chat-failed") ? "chat-stream-failed.sse" : args.contains("-chat-uncovered") ? "chat-stream-uncovered.sse" : "chat-stream-species.sse"
     let whole = try String(contentsOf: protocols.appending(path: name), encoding: .utf8)
-    return whole.components(separatedBy: "\n\n").filter { !$0.isEmpty }.map { e in
+    var events = whole.components(separatedBy: "\n\n").filter { !$0.isEmpty }
+    let every = args.contains("-chat-blocks") ? try JSONSerialization.jsonObject(with: Data(Self.everyBlock.utf8)) as? [[String: Any]] : nil
+    if let every, let done = events.firstIndex(where: { $0.hasPrefix("event: done") }) {
+      let streamed = try every.map { "event: block\ndata: " + String(decoding: try JSONSerialization.data(withJSONObject: $0), as: UTF8.self) }
+      events = events[..<done].filter { !$0.hasPrefix("event: block") } + streamed + events[done...]
+    }
+    return events.map { e in
       guard e.hasPrefix("event: done\ndata: "), let o = try? JSONSerialization.jsonObject(with: Data(e.dropFirst("event: done\ndata: ".count).utf8)) as? [String: Any]
       else { return e + "\n\n" }
       var turn = o
       turn["conversation"] = conversation
       turn["n"] = n
+      if let every { turn["blocks"] = every }
       let data = (try? JSONSerialization.data(withJSONObject: turn)).map { String(decoding: $0, as: UTF8.self) } ?? ""
       return "event: done\ndata: \(data)\n\n"
     }
   }
+
+  /// `-chat-blocks`: the fish the chat started from and another, with the same facts' rows; a comparison, one of the three
+  /// with no figures and no page; a section longer than it opens to; the tank-mates tool, set by its link and checked
+  /// against a tank (`-seed-tanks litres`'s).
+  private static let everyBlock: String = {
+    let steps = (1...24).map { #"[{"t":"p","c":["Bước \#($0): thay một phần ba nước, rồi cho ăn một lượng nhỏ và xem đàn cá ăn hết trong bao lâu."]}]"# }.joined(separator: ",")
+    let neon = #""id":"paracheirodon-innesi","kind":"species","name":"Cá neon","sci":"Paracheirodon innesi","url":"/vi/ca/ca-neon/","img":"https://media.aquatome.com/a/neon.webp""#
+    let discus = #""id":"symphysodon-aequifasciatus","kind":"species","name":"Cá đĩa","sci":"Symphysodon aequifasciatus","url":"/vi/ca/ca-dia/","img":"https://media.aquatome.com/a/dia.webp""#
+    let neonFacts = #""facts":{"tempC":{"min":20,"max":26},"ph":{"min":5,"max":7},"sizeCm":4,"tankCm":60,"temperament":"peaceful","schoolMin":6,"difficulty":2}"#
+    let discusFacts = #""facts":{"tempC":{"min":20,"max":26},"ph":{"min":5,"max":6},"sizeCm":15,"tankCm":120,"temperament":"peaceful","schoolMin":6,"difficulty":7}"#
+    return #"""
+    [{"t":"species","page":{\#(neon)},\#(neonFacts)},
+     {"t":"species","page":{\#(discus)},\#(discusFacts)},
+     {"t":"compare","items":[{"page":{\#(neon)},\#(neonFacts)},{"page":{\#(discus)},\#(discusFacts)},{"page":{"id":"khong-co","kind":"species","name":"Cá lạ"}}]},
+     {"t":"section","page":{"kind":"guide","title":"Nuôi cá neon trong bể nhỏ","url":"/vi/huong-dan/nuoi-ca-neon/"},"heading":{"text":"Cho ăn","id":"cho-an"},
+      "blocks":[{"t":"p","c":["Ngày hai lần, lượng ăn hết trong hai phút."]},{"t":"list","ordered":true,"items":[\#(steps)]},{"t":"p","c":["Cá ăn ít hơn khi nước lạnh."]}]},
+     {"t":"tool","tool":"tank-mates","name":"Nuôi chung","url":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"},
+     {"t":"tool","tool":"tank-mates","name":"Nuôi chung","check":{"verdict":{"level":"no","text":"Không nên nuôi chung: Cá betta (cá xiêm) hung dữ."},"warnings":[]},
+      "tank":{"id":"00000000-0000-4000-8000-000000000001","name":"Bể cũ","dims":{"l":100,"w":40,"h":50},"fish":[{"name":"Cá neon","count":6},{"name":"Ốc lạ"}],"added":[{"name":"Cá betta","count":1}]}}]
+    """#
+  }()
 
   /// The events' bytes, `gap` apart, the first at once.
   private func stream(_ events: [String], gap: Duration) -> AsyncThrowingStream<UInt8, any Error> {
