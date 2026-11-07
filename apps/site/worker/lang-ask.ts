@@ -7,7 +7,7 @@ import { DISCOVERY_LINK } from './agents'
  * has none of them (worker/index.ts). Its own words in English; each language's name (the language table) and line in
  * that language (its home page's subtitle, src/i18n).
  */
-export const LINE: Record<Lang, string> = { vi: 'Cẩm nang cá cảnh & thủy sinh', id: 'Panduan ikan hias & aquascape', th: 'คู่มือปลาสวยงามและตู้ไม้น้ำ' }
+export const LINE: Record<Lang, string> = { vi: 'Cẩm nang cá cảnh & thủy sinh', id: 'Panduan ikan hias & aquascape', th: 'คู่มือปลาสวยงามและตู้ไม้น้ำ', ms: 'Buku panduan ikan hiasan & aquascape' }
 
 /** A country Cloudflare could place: not unknown (XX) or Tor (T1). */
 const placed = (country: string) => /^[A-Z]{2}$/.test(country) && country !== 'XX' && country !== 'T1'
@@ -34,7 +34,7 @@ b{display:block;font:600 1.5rem/1.3 Georgia,'Noto Serif Thai',Thonburi,serif;col
 span{color:var(--soft)}
 a:hover b,a:focus-visible b{text-decoration:underline;text-underline-offset:.2em}
 a:focus-visible{outline:2px solid var(--kicker);outline-offset:4px}
-</style></head><body><main><p class="k">AquaTome</p><h1>An aquarium handbook, not in your language yet</h1><p>Fish, aquatic plants and tank care, written in three languages so far. Pick the one you read best, and aquatome.com will open in it next time.</p><ul>${links}</ul></main></body></html>`
+</style></head><body><main><p class="k">AquaTome</p><h1>An aquarium handbook, not in your language yet</h1><p>Fish, aquatic plants and tank care, written in four languages so far. Pick the one you read best, and aquatome.com will open in it next time.</p><ul>${links}</ul></main></body></html>`
 
 /** The chooser; its links keep the address's own query (utm_*, …) for the page they lead to. */
 export const chooserPage = (search: URLSearchParams) => {

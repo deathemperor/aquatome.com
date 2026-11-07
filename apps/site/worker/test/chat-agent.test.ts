@@ -3,13 +3,13 @@ import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { expect, test } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, type Answer, type Choice } from '../chat/answer'
+import { answerQuestion, CHAT_LIMITS, firstMessage, LAST_WORD, SYSTEM, type Start } from '../chat/agent'
+import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
-import { topicsOf, type Topics } from '../chat/topics'
+import { heldOf, topicsOf, type Topics } from '../chat/topics'
 import { checkMates, drawnOf, type MatesCheck } from '../chat/mates'
-import { chatTools, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
+import { chatTools, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
 import { tankCheck, type TankFish } from '../../src/scripts/tank-check'
 import { factsOf } from '../chat/handbook'
 import { contract } from './contract'
@@ -43,6 +43,17 @@ test('the search finds a page by its name as readers type it, a page named exact
   expect(JSON.parse(out as string)[0]).toEqual({ path: '/vi/ca/ca-dia/', kind: 'fish', name: 'Cá đĩa', id: 'symphysodon-aequifasciatus', sub: 'Symphysodon aequifasciatus' })
 })
 
+test('a page read twice in a turn, its outline then a section, is one read step; the next turn shows it again', async () => {
+  const h = await hb()
+  const read = (tools: ReturnType<typeof chatTools>, path: string, heading: string | null) => tools.find(t => t.name === 'read_page')!.step?.({ path, heading })
+  const turn = chatTools({ handbook: h, tanks: async () => [] })
+  const guide = '/vi/huong-dan/phan-loai-ca-dia/'
+  expect(read(turn, guide, null)).toEqual({ kind: 'read', page: { kind: 'guide', title: 'Phân loại cá dĩa', url: guide } })
+  expect(read(turn, guide, 'la-gi')).toBeUndefined()
+  expect(read(turn, '/vi/ca/ca-neon-xanh/', null)).toMatchObject({ kind: 'read', page: { url: '/vi/ca/ca-neon-xanh/' } })
+  expect(read(chatTools({ handbook: h, tanks: async () => [] }), guide, 'la-gi')).toMatchObject({ kind: 'read', page: { url: guide } })
+})
+
 test('read_page gives a page\'s outline (a fish\'s or plant\'s figures too), then one section\'s text by its heading id; an unknown page or heading is an error Claude reads', async () => {
   const h0 = await hb()
   const guide = '/vi/huong-dan/phan-loai-ca-dia/'
@@ -63,14 +74,50 @@ test('read_page gives a page\'s outline (a fish\'s or plant\'s figures too), the
   expect(SECTION_CHARS).toBeLessThanOrEqual(4000)
 })
 
+test('a guide written from one video is marked so in the search and its outline, and no other page is', async () => {
+  const h = await hb()
+  const tools = chatTools({ handbook: h, tanks: async () => [] })
+  const run = (name: string, input: Record<string, unknown>) => tools.find(t => t.name === name)!.run(input, { photosLeft: 0 }) as Promise<string>
+  const found = JSON.parse(await run('search_handbook', { query: 'bón phân', kind: 'guide' })) as { path: string; oneVideo?: boolean }[]
+  expect(found.find(f => f.path === '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')?.oneVideo).toBe(true)
+  const setup = JSON.parse(await run('search_handbook', { query: 'setup bể thủy sinh đầu tiên', kind: 'guide' })) as { path: string; oneVideo?: boolean }[]
+  expect(setup.find(f => f.path === '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/')).not.toHaveProperty('oneVideo')
+  expect(JSON.parse(await run('read_page', { path: '/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/', heading: null }))).toMatchObject({ oneVideo: true })
+  expect(JSON.parse(await run('read_page', { path: '/vi/huong-dan/setup-be-thuy-sinh-dau-tien/', heading: null }))).not.toHaveProperty('oneVideo')
+  expect(JSON.parse(await run('read_page', { path: '/vi/ca/ca-neon-xanh/', heading: null }))).not.toHaveProperty('oneVideo')
+  expect(SYSTEM).toContain('oneVideo')
+})
+
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
   const h = await hb()
   const tank: Tank = { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 2 }, { name: 'Rong lạ', kind: 'plant' }] }
   const tool = (tanks: () => Promise<unknown>) => chatTools({ handbook: h, tanks: tanks as never }).find(t => t.name === 'read_tanks')!
-  // Its fish as the handbook names them, one without a page by the reader's name; a plant isn't a fish.
+  // Its fish as the handbook names them, one without a page by the reader's name; a plant isn't a fish, it's a plant.
   expect(JSON.parse(await tool(async () => [tank]).run({}, { photosLeft: 0 }) as string)).toEqual([
-    { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }] },
+    { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }], plants: ['Rong lạ'] },
   ])
+  // What else the reader saved: plants (a page's by its name, one without a page by theirs), substrate, how long ago it
+  // was saved, each light's schedule in a line, what its plugs power, and the notes as their own words, cut.
+  const full: Tank = {
+    ...tank, plants: ['taxiphyllum-barbieri'], substrate: 'soil', days: 12, notes: `Thay 30% nước mỗi tuần. ${'x'.repeat(NOTES_CHARS)}`,
+    lights: [
+      { name: 'WRGB II', schedule: { on: '13:00', off: '21:30', ramp: 30, levels: [80, 70, 60, 50] } }, { name: 'Đèn phụ', manual: [40] },
+      // A schedule that ends at midnight, then set by hand since.
+      { name: 'Đèn tối', schedule: { on: '16:00', off: '00:00', ramp: 0, levels: [60] }, manual: [100] },
+    ],
+    power: ['co2', 'heater'],
+  }
+  const read = JSON.parse(await tool(async () => [full]).run({}, { photosLeft: 0 }) as string)[0]
+  expect(read).toMatchObject({
+    plants: [h.byId('taxiphyllum-barbieri')?.name ?? 'taxiphyllum-barbieri', 'Rong lạ'], substrate: 'soil', savedDaysAgo: 12,
+    lights: [
+      'WRGB II: 13:00–21:30, 8.5 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no schedule running, last set by hand to 40%',
+      'Đèn tối: 16:00–00:00, 8 h lit, ramp 0 min, levels 60%; since then set by hand to 100%',
+    ],
+    plugsPower: ['co2', 'heater'],
+  })
+  expect(read.readerNotes.startsWith('Thay 30% nước mỗi tuần.')).toBe(true)
+  expect(read.readerNotes.length).toBe(NOTES_CHARS)
   expect(await tool(async () => []).run({}, { photosLeft: 0 })).toBe('The reader has no saved tanks.')
   await expect(tool(async () => null).run({}, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
   expect(tool(async () => []).step?.({})).toEqual({ kind: 'tanks' })
@@ -144,7 +191,8 @@ test('check_tank_mates checks fish as the tank-mates tool does, in the reader\'s
   const h = await hb()
   const checks: MatesCheck[] = []
   const tool = chatTools({ handbook: h, tanks: async () => [], checks }).find(t => t.name === 'check_tank_mates')!
-  expect(tool.step?.({})).toBeUndefined()
+  // The reader sees that the fish were checked together ("Đã kiểm tra nuôi chung").
+  expect(tool.step?.({})).toEqual({ kind: 'mates' })
   const out = JSON.parse(await tool.run({ fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }], tank: null }, { photosLeft: 0 }) as string) as MatesCheck
   // Each fish as checked: a breed as its species, as the block's link names it.
   expect(out.fish).toEqual([
@@ -319,6 +367,43 @@ test('a section is every block under its heading, to the next heading, however m
   for (const b of blocks) expect(misfits(b, block), JSON.stringify(b)).toEqual([])
 })
 
+test('a guide held out of the chat (a video guide being checked again) is never found, read or shown; the others are', async () => {
+  const algae = '/vi/huong-dan/cach-han-che-reu-hai-trong-be-thuy-sinh/'
+  // The build lists a guide marked quality.chat: false, by its path in the language, and leaves out its topics.
+  const guides = [{ t: { slug: 'cach-han-che-reu-hai-trong-be-thuy-sinh', quality: { chat: false as const } } }, { t: { slug: 'thay-nuoc', quality: {} } }]
+  expect(heldOf(guides, p => p)).toEqual([algae])
+  expect(heldOf(guides, p => p.replace('/vi/huong-dan/', '/id/panduan/'))).toEqual(['/id/panduan/cach-han-che-reu-hai-trong-be-thuy-sinh/'])
+  const docs = (readdirSync(`${DIST}app/pages/vi`).filter(f => f.startsWith('guide-')).flatMap(f => Object.values(json(`app/pages/vi/${f}`).pages))) as PageDoc[]
+  const topics = topicsOf(docs, [algae])
+  expect(topics.held).toEqual([algae])
+  expect(topics.pages[algae]).toBeUndefined()
+  expect(topicsOf(docs)).not.toHaveProperty('held')
+  const h = (await handbookOf({ ...source, topics: async () => topics }, 'vi'))!
+  // Not in the chat's handbook at all; the other video guide is.
+  expect(h.byPath(algae)).toBeUndefined()
+  expect(h.items.some(i => i.path === algae)).toBe(false)
+  expect(h.byPath('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')).toBeDefined()
+  // Not by its name, nor by a heading only it has (CO2), nor read (no step names it), nor shown as a section.
+  const found = async (query: string) => {
+    const out = (await run('search_handbook', { query, kind: null }, h)).out as string
+    return out.startsWith('No page') ? [] : JSON.parse(out).map((x: { path: string }) => x.path)
+  }
+  expect(await found('hạn chế rêu hại')).not.toContain(algae)
+  expect((await run('search_handbook', { query: 'CO2', kind: null }, h)).out).toMatch(/^No page/)
+  await expect(run('read_page', { path: algae, heading: null }, h)).rejects.toThrow(/No page at/)
+  expect(chatTools({ handbook: h, tanks: async () => [] }).find(t => t.name === 'read_page')!.step?.({ path: algae, heading: null })).toBeUndefined()
+  const { blocks, dropped } = await fill(answer([pick({ t: 'section', path: algae, heading: 'anh-sang-va-co2' })]), h)
+  expect(blocks).toEqual([])
+  expect(dropped).toEqual([`section: no page "${algae}"`])
+  // Without the hold, the same search finds it.
+  expect(JSON.parse((await run('search_handbook', { query: 'hạn chế rêu hại', kind: null })).out as string).map((x: { path: string }) => x.path)).toContain(algae)
+  // With no topics file to say which, every video guide is held, and no other page.
+  const blind = (await handbookOf({ ...source, topics: async () => null }, 'vi'))!
+  expect(blind.byPath(algae)).toBeUndefined()
+  expect(blind.byPath('/vi/huong-dan/bon-phan-cho-cay-thuy-sinh/')).toBeUndefined()
+  expect(blind.byPath('/vi/huong-dan/thay-nuoc-dung-cach/')).toBeDefined()
+})
+
 test('a guide is found by a section heading or a FAQ question past its title, with the section to open it at; its title still first', async () => {
   const h = await hb()
   // The build's /app/chat/vi.json is every guide's headings and FAQ questions, as the app's copy of each guide has them.
@@ -466,6 +551,23 @@ test('a card or section shown earlier in the conversation, or twice in one answe
   expect(out.blocks.map(b => b.t)).toEqual(['compare'])
 })
 
+test("the card of the fish whose page the chat was opened from counts as shown; from fish ID or search it doesn't, and another fish's card goes out", async () => {
+  const h = await hb()
+  const turn = (start: Start) => answerQuestion({
+    send: async () => message([{ type: 'text', text: JSON.stringify(answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] }), pick({ t: 'species', ids: ['paracheirodon-axelrodi'] })], { text: 'Cá neon xanh dễ nuôi.' })) }]),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Có dễ nuôi không?', earlier: [], start, handbook: h, tanks: async () => [],
+  })
+  const onPage = await turn({ from: 'species', about: 'paracheirodon-innesi' })
+  expect(onPage.blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-axelrodi'])
+  expect(onPage.dropped).toEqual(['species: paracheirodon-innesi shown before'])
+  expect((await turn({ from: 'fish-id', about: 'paracheirodon-innesi' })).blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+  expect((await turn({ from: 'search', about: 'paracheirodon-innesi' })).blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+  const told = (start: Start) => (firstMessage('vi', 'Có dễ nuôi không?', [], start, h).content as Anthropic.TextBlockParam[])[0]!.text
+  expect(told({ from: 'species', about: 'paracheirodon-innesi' })).toContain('They opened it from that page, so they have seen its card')
+  expect(told({ from: 'fish-id', about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
+  expect(told({ about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
+})
+
 test('the chat\'s forced last call is told to answer from what it read', async () => {
   const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
   const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
@@ -521,7 +623,7 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
         ? message([{ type: 'tool_use', id: 't1', name: 'read_page', input: { path: '/vi/ca/ca-neon-xanh/', heading: null } }], 'tool_use')
         : message([{ type: 'text', text: JSON.stringify(final) }])
     },
-    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá này thế nào?', earlier: [], start: { from: 'species', about: 'paracheirodon-innesi' },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá này thế nào?', earlier: [], start: { from: 'fish-id', about: 'paracheirodon-innesi' },
     handbook: h, tanks: async () => [], onStep: s => steps.push(s),
   })
   expect(steps).toEqual([{ kind: 'read', page: { kind: 'fish', title: 'Cá neon xanh', url: '/vi/ca/ca-neon-xanh/' } }])
@@ -548,4 +650,99 @@ test('the first message says where the chat started, what fish ID named, the ear
   expect(text).toContain('The chat is about Cá neon xanh (Paracheirodon innesi), id paracheirodon-innesi, page /vi/ca/ca-neon-xanh/.')
   expect(text).toContain('1. Reader: Nuôi cá này thế nào?\nYou: Nuôi theo đàn.\nShown: tool: /vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:6')
   expect(text.endsWith('The reader asks:\nBể 60 lít nuôi được bao nhiêu con?')).toBe(true)
+})
+
+/** What a reader of the answer's text gives for these parts of a call's raw text, part by part. */
+const pieces = (parts: string[]) => { const read = textReader(); return parts.map(read) }
+/** A call as the handler streams it: each text block's raw JSON to `onText` in parts of `n` characters, then the message. */
+const streamed = (content: unknown[], stop: Anthropic.Message['stop_reason'] = 'end_turn', n = 3) => async (_: unknown, opts: { onText?: (delta: string) => void }) => {
+  for (const b of content as { type: string; text?: string }[]) if (b.type === 'text') for (let i = 0; i < b.text!.length; i += n) opts.onText?.(b.text!.slice(i, i + n))
+  return message(content, stop)
+}
+const readPage = { type: 'tool_use', id: 't1', name: 'read_page', input: { path: '/vi/ca/ca-neon-xanh/', heading: null } }
+
+test('the answer\'s text comes out as Claude writes it: an escape or a surrogate pair cut between parts waits for the rest', () => {
+  // An escape cut after its backslash, and inside its four digits.
+  expect(pieces(['{"text":"Nuôi\\', 'nđàn \\u00', 'e1 x'])).toEqual(['Nuôi', '\nđàn ', 'á x'])
+  // An emoji's pair, escaped: cut inside the first half, between the halves, then inside the second.
+  expect(pieces(['{"text":"cá \\ud8', '3d', '\\u', 'dc1f!'])).toEqual(['cá ', '', '', '🐟!'])
+  // And written as it is, cut between its halves.
+  expect(pieces([`{"text":"cá ${'🐟'[0]}`, `${'🐟'[1]}"`])).toEqual(['cá ', '🐟'])
+  // A high surrogate the string ends on goes out with the end.
+  expect(pieces(['{"text":"a\\ud83d', '"'])).toEqual(['a', '\ud83d'])
+  // Every escape JSON has.
+  expect(pieces(['{"text":"\\"\\\\\\/\\b\\f\\n\\r\\t"'])).toEqual(['"\\/\b\f\n\r\t'])
+})
+
+test('a call\'s JSON that doesn\'t open with the text gives nothing; space around it is JSON\'s, and nothing past the text\'s closing quote is read', () => {
+  expect(pieces(['{"covered":true,"text":"Nuôi theo đàn."}'])).toEqual([''])
+  expect(pieces(['{"te', 'xts":"Nuôi theo đàn."'])).toEqual(['', ''])
+  expect(pieces(['Để tôi đọc trang cá neon.', '{"text":"x"'])).toEqual(['', ''])
+  expect(pieces([' \n{ ', '"text" ', ':\t', ' "Nuôi', ' theo đàn."', ',"suggestions":["text"]}'])).toEqual(['', '', '', 'Nuôi', ' theo đàn.', ''])
+  // The schema keeps the text first: structured outputs write the keys in its order.
+  expect(Object.keys(ANSWER_SCHEMA.properties)[0]).toBe('text')
+})
+
+test('the pieces joined are the answer\'s text, however its JSON is cut and whatever it escapes', () => {
+  const text = 'Cá neon "xanh" sống theo đàn 🐟 \\ từ 6 con,\n\tnhiệt độ 20–26 °C / 25 °C.\r\b\f'
+  const plain = JSON.stringify({ text, covered: true, blocks: [], suggestions: ['Còn "text" thì sao?'] })
+  // The same JSON with every character past ASCII as \uXXXX (an emoji as its pair) and every slash escaped.
+  const escaped = plain.replace(/[^\x20-\x7e]/g, c => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`).replaceAll('/', '\\/')
+  for (const raw of [plain, escaped]) {
+    expect(JSON.parse(raw).text).toBe(text)
+    for (const n of [1, 2, 3, 5, 7, raw.length]) {
+      const read = textReader()
+      const out: string[] = []
+      for (let i = 0; i < raw.length; i += n) out.push(read(raw.slice(i, i + n)))
+      expect(out.join(''), `${n}`).toBe(text)
+      expect(out.some(p => /[\ud800-\udbff]$/.test(p) || p.includes('\\u')), `${n}`).toBe(false)
+    }
+  }
+})
+
+test('a call that has given the reader text is the answer: a tool call after it doesn\'t run, and the run ends on it', async () => {
+  const final = { text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const said: string[] = []
+  const steps: Step[] = []
+  const out = await answerQuestion({
+    send: streamed([{ type: 'text', text: JSON.stringify(final) }, readPage], 'tool_use'),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+    onStep: s => steps.push(s), onText: p => said.push(p),
+  })
+  expect(out).toMatchObject({ calls: 1, tools: 0, stopped: 'answer', answer: final })
+  expect(steps).toEqual([])
+  expect(out.message!.content.map(b => b.type)).toEqual(['text'])
+  expect(out.message!.stop_reason).toBe('end_turn')
+  expect(said.join('')).toBe(final.text)
+})
+
+test('the reader gets the answer\'s text in pieces that join to it; each call is read afresh, and one with only words before its tool call gives nothing', async () => {
+  const final: Answer = answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] })], { text: 'Cá neon "xanh" sống theo đàn 🐟, từ 6 con.\nBể 60 lít là vừa.' })
+  const said: string[] = []
+  let calls = 0
+  const out = await answerQuestion({
+    send: (body, opts) => (++calls === 1
+      ? streamed([{ type: 'text', text: 'Để tôi đọc trang cá neon.' }, readPage], 'tool_use')
+      : streamed([{ type: 'thinking', thinking: 'Đủ rồi.', signature: 's' }, { type: 'text', text: JSON.stringify(final) }]))(body, opts),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], onText: p => said.push(p),
+  })
+  expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer' })
+  expect(out.blocks.map(b => b.t)).toEqual(['species'])
+  expect(said.length).toBeGreaterThan(1)
+  expect(said.every(p => p.length > 0)).toBe(true)
+  expect(said.join('')).toBe(out.answer!.text)
+})
+
+test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {
+  const final = { text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const opts: object[] = []
+  const out = await answerQuestion({
+    send: async (_, o) => {
+      opts.push(o)
+      return opts.length === 1 ? message([{ type: 'text', text: JSON.stringify(final) }, readPage], 'tool_use') : message([{ type: 'text', text: JSON.stringify(final) }])
+    },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+  })
+  expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'call'], ['timeoutMs', 'call']])
+  expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer', answer: final })
 })

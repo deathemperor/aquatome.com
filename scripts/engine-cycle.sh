@@ -32,9 +32,10 @@ push() {
     if ! git pull -q --rebase; then
       log "another part changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
       git rebase --abort 2>/dev/null || true
-      # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then build + test again.
+      # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
+      # (verify_cycle: the tests).
       if git pull -q --rebase -X theirs; then
-        verify 'pnpm build && pnpm test' || { log "build/tests failed after that merge, not publishing"; return 1; }
+        verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -109,7 +110,8 @@ if part pages; then
   [ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine video-items --limit 20 || log "video-items: failed"
   # YouTube (skipped on targeted ENGINE_ARGS runs): new teaching playlists (searches + known channels, vetted by the model; skipped while ≥ 150 videos are queued).
   [ -n "${ENGINE_ARGS:-}${SKIP_VIDEOS:-}" ] || pnpm engine discover-videos || log "discover-videos: failed"
-  # Temperament / fin-nipping / school size for new or changed species (tank-mates checker).
+  # Temperament / fin-nipping / school size for new or changed species (tank-mates checker), then a field read with an
+  # older rule in the prompt (traits.ts dueFields): the school rule of 2026-11-07 re-reads ~470 school sizes, 200 a cycle.
   pnpm engine traits --limit 200 || log "traits: failed (checker shows missing data)"
   # "Tóm tắt nhanh" for new or changed species, most-read first: each checked against its page (numbers against the
   # data card, claims against the text) and shown if it passes, else listed in docs/review/summaries.md. 150 a cycle (was
@@ -137,14 +139,21 @@ if part pages sf photos; then
   pnpm engine faces || log "faces: failed (unscreened photos may publish)"
 fi
 if part photos; then
-  # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map or a tank
-  # gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the page. Most-read pages
-  # first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
-  # Dead fish, fish as food (a market, a catch, a preserved specimen) and a logo take a photo off every page. Photos judged
-  # before the check asked (2026-11-05) whose notes say they may show one are judged again first, once: after that it finds
-  # none and calls no model.
+  # Every photo on a species, plant or breed page and its gallery must show that subject (another fish, a map, a tank or a
+  # landscape with no fish gets removed; can't-tell is listed in docs/review/photo-subjects.md); a typical photo leads the
+  # page. Most-read pages first, PHOTO_CHECK_LIMIT model calls a cycle; verdicts are cached per photo and page.
+  # Dead fish, fish as food (a market, a catch, a preserved specimen), a person or a hand, and a logo take a photo off every
+  # page. Verdicts from before the check asked about people (2026-11-07) are asked again in the same queue (about 1,000
+  # sheets on top of the 1,400 not judged yet: some 5 days with the video job's 20). recheck-photos takes first, once, those
+  # whose notes say a dead fish, a hand or a person, or whose verdict was the old "habitat"; then it finds none.
   pnpm engine recheck-photos --limit "${PHOTO_RECHECK_LIMIT:-40}" || log "recheck-photos: failed"
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
+  # No people or logos in guides' and equipment guides' photos, which the check above doesn't see, and no people or marks
+  # on video guides' stills (guide-photos.ts): GUIDE_PHOTOS_LIMIT model calls of 6 photos a cycle, leads first, stills
+  # last, each judged once. On 2026-11-07: 2,560 photos, about 430 calls, a day and a half with the video job's 20; then
+  # 3,868 stills, about 645 calls, each judged once video-stills has made it the video's own frame (about 140 calls a day
+  # as it goes, so all judged in about 5 days).
+  pnpm engine guide-photos --limit "${GUIDE_PHOTOS_LIMIT:-20}" || log "guide-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;
   # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
@@ -233,7 +242,9 @@ if part rewrite; then
     && node -e 'process.exit(Object.values(require("/tmp/aq-i18n-missing.json")).some(s => s.length) ? 0 : 1)'; then
     pnpm --filter @aq/engine exec tsx scripts/translate-ui.ts /tmp/aq-i18n-missing.json || log "translate-ui: failed"
   fi
-  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live.
+  # Languages the site doesn't serve yet (the language table's `served: false`): their pages, written ahead of going live;
+  # and Malay, served since its UI text was complete, still at a new language's pace (10 species a cycle) here, its new UI
+  # strings now asked for by the build above.
   # After everything readers see, and each step starts only while the cycle has run under AHEAD_BEFORE_MINUTES: they give
   # first when a cycle runs long. A cycle starts every 3 hours and took 91-135 min in November 2026, so 135 leaves the
   # longest step here (10 species, about 20 min) and the build, tests and push (about 6) inside the 170 min the next cycle
@@ -293,12 +304,11 @@ if [ -z "$(git status --porcelain -- content sources apps/site/src/i18n)" ]; the
 fi
 git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
-# Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago. Real content must
-# build (the test suite builds fixtures), then the suite must pass. I18N_LENIENT: a UI string a new Indonesian or Thai
-# page needs and src/i18n lacks shows in Vietnamese (and is logged) instead of holding back the content. A commit that
-# fails stays here unpushed, and the next cycle drops it.
+# Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago: the suite must pass
+# (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails stays here unpushed, and the
+# next cycle drops it.
 catch_up
-if ! verify 'I18N_LENIENT=1 pnpm build && pnpm test'; then
+if ! verify_cycle; then
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 push || exit 1

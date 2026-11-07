@@ -8,7 +8,9 @@ description: Use when the owner says "editors", or asks for writing, wording or 
 Models read the same text, in one language, with what it was written from, and each scores it out of 10 as a native
 reader of that language. Every finding quotes the exact words and gives the words that language's hobbyists would
 write instead. Asked to "go until the editors agree", fix at the source, rewrite and read again, round after round,
-until every seated member scores each piece at or above the bar (the owner's bar is 9.5).
+until every seated member scores each piece at or above the bar: 9 (owner, 2026-11-07: "there are many contents to
+improve"). Once a kind of text reaches it, move on: breadth first, through the engine's prompts, rules and phrase lists,
+so whole batches rise together rather than one page.
 
 It reads words, not layout: how things look goes to the design council (`.claude/skills/council/SKILL.md`).
 
@@ -38,12 +40,23 @@ report says so. Never fill a seat with another provider's model.
 |---|---|---|---|
 | Anthropic | `claudeAgent` | `claude-opus-5-5` | `effort: xhigh` |
 | OpenAI | `cursor` (the owner's own Cursor plan) | `gpt-5.6-sol` | `reasoning: xhigh` |
-| xAI | `cursor` | `grok-4.7` | `reasoning: xhigh`, `fastMode: false` |
+| Google | `cursor` | `gemini-4-argon` | `reasoning_effort: high` (its highest) |
+| xAI | `cursor` | `grok-4.7` | `reasoning_effort: xhigh`, `fastMode: false` |
 | Muse | (to fill: `muse`, off on 2026-11-07) | | |
-| Jester | (to fill: `antigravity`, Gemini, off on 2026-11-07) | | |
 
-GPT only through the owner's own plan (Cursor), never through Codex or a proxy (owner, 2026-11-07). With one seat
-seated, a score is one model's reading: say so in the record.
+Cursor lists most of its models only on a search, and each model names its options its own way: check a seat with
+`orchestrator_capabilities` (`search: "<model id>"`) before a round. GPT only through the owner's own plan (Cursor),
+never through Codex or a proxy (owner, 2026-11-07). With one seat seated, a score is one model's reading: say so in
+the record.
+
+### Weighing the seats
+
+How well a model judges what reads natural differs by language. Per language, `docs/review/editors.md` keeps each
+seat's naturalness findings and how many the corpus check (step 4) held. A seat whose findings mostly hold, over two
+rounds or more, judges that language well: its naturalness findings count even when it raised them alone, and its
+**natural** score holds the bar. A seat whose findings mostly fail the check is still read, but its naturalness
+findings count only when another seat raised them or the corpus holds them up, and its **natural** score is listed,
+not held to the bar. Faithfulness findings are weighed by the source, whoever raised them.
 
 ## A round
 
@@ -75,7 +88,8 @@ seated, a score is one model's reading: say so in the record.
      It counts each per million words (per million characters for Thai and Chinese) on the site and in the
      language's hobbyist corpus (`ref:forum`, `ref:blog`, `ref:wiki`), with examples. Keep the finding when hobbyists
      use the replacement and use the flagged words far less than the site. Drop it when they use the flagged words as
-     often as the site. When both are rare, or the language has no corpus yet, keep it only if two members raised it.
+     often as the site. When both are rare, or the language has no corpus yet, keep it only if two members raised it, or one that judges
+     that language well.
    - Faithfulness: read the source in the packet.
 5. **Fix at the source** (the table above). Words the engine writes again and again go in the language's list in
    `packages/engine/src/phrases.ts`, which the writers' prompts and the `phrasing` content rule read; a way of writing
@@ -83,7 +97,8 @@ seated, a score is one model's reading: say so in the record.
    (`pnpm --filter @aq/engine exec tsx scripts/rewrite-sample.ts <kind>/<slug>…`) and read the new packets next round.
    Pages on the site change through the engine's rewrite step, in batches the site lead agrees.
 6. **Summarise**: each member's score per packet; findings two or more raised; findings only one raised that held up;
-   findings dropped and why (what the corpus shows); what changes next.
+   findings dropped and why (what the corpus shows); what changes next. Add each seat's naturalness findings, held and
+   dropped, to its line in `docs/review/editors.md`.
 
 A fresh read after fixes is a new round, with a brief that says what changed since the last one.
 
@@ -101,9 +116,4 @@ crawlers are in `~/.cache/aquatome/corpus-tools/`. Build one before a language's
 ## The record
 
 In the PR's description, under `## Editors`: one row per round, one column per packet, each cell the seated
-members' scores (the lowest of their four). Name the seats that sat out and why. The jester has no column.
-
-## The jester
-
-As in the design council: same brief, its score ignored; act on its finding only when another member raised it or the
-corpus check holds it up; in the final reply list what it got wrong under **Gemini flub**.
+members' scores (the lowest of their four). Name the seats that sat out and why.

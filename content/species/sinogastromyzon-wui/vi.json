@@ -1,7 +1,8 @@
 {
-  "slug": "ca-chach-suoi-sinogastromyzon-wui",
-  "name": "Cá chạch suối Sinogastromyzon wui",
+  "slug": "ca-ty-ba-buom-wui",
+  "name": "Cá tỳ bà bướm wui",
   "altNames": [
+    "Cá chạch suối Sinogastromyzon wui",
     "Cá chạch đá Sinogastromyzon wui"
   ],
   "sections": {
@@ -25,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-chach-suoi-sinogastromyzon-wui",
+      "name": "Cá chạch suối Sinogastromyzon wui"
+    }
+  ]
 }

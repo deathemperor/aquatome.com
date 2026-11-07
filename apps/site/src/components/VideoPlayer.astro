@@ -32,7 +32,7 @@ const marks = guideChapters(v, chapters)
 )}
 <script>
   // No imports: a script with none is inlined into the page. Each language's own name, as in lib/i18n LANG_NAME.
-  const LANG_NAME: Record<string, string> = { vi: 'Tiếng Việt', id: 'Bahasa Indonesia', th: 'ภาษาไทย' }
+  const LANG_NAME: Record<string, string> = { vi: 'Tiếng Việt', id: 'Bahasa Indonesia', th: 'ภาษาไทย', ms: 'Bahasa Melayu' }
   type Player = {
     seekTo(s: number, allow: boolean): void; playVideo(): void
     getOption(m: string, k: string): unknown; setOption(m: string, k: string, v: unknown): void

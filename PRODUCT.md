@@ -10,7 +10,7 @@ The iOS app (apps/ios, SwiftUI, in progress) follows this record and adds its ow
 
 ## Users
 
-Aquarium and planted-tank hobbyists in Vietnam first, then Indonesia and Thailand, mostly on a phone. Two kinds, served **equally** (owner, 2026-10-31):
+Aquarium and planted-tank hobbyists in Vietnam first, then Indonesia, Thailand and Malaysia, mostly on a phone. Two kinds, served **equally** (owner, 2026-10-31):
 
 - **Beginners**, often next to a first tank: they need plain words, good defaults, guided steps and nothing they can get wrong.
 - **Experienced keepers and aquascapers**: they know photoperiods, channel mixing and water figures, and want every control, fast.
@@ -32,7 +32,7 @@ Success: readers find the answer from search and act on it. Tool users come back
 
 - **On a phone beside the tank**, often one-handed. Bluetooth control works from Chrome or Edge (Android and desktop) and from the iOS app; iPhone browsers can't use Bluetooth.
 - **Content changes many times a day.** The content engine writes and updates pages every 3 hours, and code ships through PRs (docs/governance.md).
-- **Three languages:** Vietnamese first, then Indonesian and Thai.
+- **Four languages:** Vietnamese first, then Indonesian, Thai and Malay.
 
 ## Capabilities and Constraints
 
@@ -74,4 +74,4 @@ Success: readers find the answer from search and act on it. Tool users come back
 ## Accessibility & Inclusion
 
 - Phone-first, with touch targets of at least 44px. Keyboard and screen-reader paths work for every control.
-- Content works in three languages, and layouts survive longer Indonesian and Thai strings.
+- Content works in four languages, and layouts survive longer Indonesian, Thai and Malay strings.

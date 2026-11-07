@@ -1,0 +1,60 @@
+{
+  "id": "corydoras-longipinnis",
+  "native": {
+    "input": "e14f01d683bf7a09",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Río Dulce in Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Dulce",
+        "source": "planetcatfish",
+        "quote": "South America: Río Dulce in Argentina.",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras longipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342645,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "23b81975-ae39-472d-828b-baaac3cb0956",
+        1
+      ]
+    ],
+    "native": [
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

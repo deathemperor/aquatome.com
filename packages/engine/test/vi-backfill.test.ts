@@ -136,9 +136,22 @@ test('a rewrite below the bar gets one more try with the reviewer notes; the bet
   expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>lần 2</p>')
 })
 
+test('a body fixed by hand is not rewritten, even when asked for by --match; its summary and FAQ lines still can be', async () => {
+  const root = await setup()
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>người sửa, theo tác giả</p>', bodyFixed: true, summary: ['Theo tác giả, rêu do thừa phân.'], quality: { score: 0.85, indexable: true } })
+  await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10, match: /tác giả/i })
+  const vi = await read(root, 'guides/g/vi.json')
+  expect(vi).toMatchObject({ body: '<p>người sửa, theo tác giả</p>', bodyFixed: true })
+  expect(vi.summary).toEqual(['mới summary:0'])
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>người sửa</p>', bodyFixed: true, quality: { score: 0.85, indexable: true } })
+  await rewriteExisting(root, join(root, 's2.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10 })
+  expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>người sửa</p>')
+})
+
 test('--match re-edits only the pages containing it, video guides and their summary and FAQ lines included, even if rewritten before', async () => {
   const root = await setup()
-  await put(root, 'guides/youtube-v/vi.json', { slug: 'v', name: 'V', body: '<p>Theo tác giả, thay nước mỗi tuần.</p>', summary: ['Thay nước đều.', 'Theo tác giả, rêu do thừa phân.'], faq: [{ q: 'Bao lâu thay nước?', a: 'Tác giả thay mỗi tuần.' }] })
+  // Held out of the chat (video-hold.ts): a rewrite keeps it held.
+  await put(root, 'guides/youtube-v/vi.json', { slug: 'v', name: 'V', body: '<p>Theo tác giả, thay nước mỗi tuần.</p>', summary: ['Thay nước đều.', 'Theo tác giả, rêu do thừa phân.'], faq: [{ q: 'Bao lâu thay nước?', a: 'Tác giả thay mỗi tuần.' }], quality: { score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false } })
   const state = join(root, 'state.json')
   await writeFile(state, JSON.stringify({ 'guides/youtube-v': { at: '2026-10-29', rewritten: 1, of: 1, scores: [0.9], v: 2 } }))
   const prompts: string[] = []
@@ -150,4 +163,5 @@ test('--match re-edits only the pages containing it, video guides and their summ
   expect(vi.summary).toEqual(['Thay nước đều.', 'mới summary:1']) // plain text stays plain
   expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'mới faq:0:a' }])
   expect(prompts.some(p => p.includes('### faq:0:q'))).toBe(false)
+  expect(vi.quality).toMatchObject({ bySource: { youtube: 0.6 }, chat: false })
 })

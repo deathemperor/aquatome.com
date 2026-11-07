@@ -1,0 +1,122 @@
+{
+  "id": "corydoras-melini",
+  "native": {
+    "input": "e739d004cc2f601c",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Luaretê (0°35'N, 69°13'W) at the confluence of Rio Papurí and Rio Uaupés, Rio Negro system, Amazonas, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the rios Negro, Caquetá (both within the Amazon basin), and Orinoco in northwestern Brazil and east-central Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the rios Negro, Caquetá (both within the Amazon basin), and Orinoco in northwestern Brazil and east-central Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the rios Negro, Caquetá (both within the Amazon basin), and Orinoco in northwestern Brazil and east-central Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Caquetá",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the rios Negro, Caquetá (both within the Amazon basin), and Orinoco in northwestern Brazil and east-central Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to tributaries of the rios Negro, Caquetá (both within the Amazon basin), and Orinoco in northwestern Brazil and east-central Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Uaupés",
+        "source": "seriouslyfish",
+        "quote": "It is known from the rio Uaupés and its tributary the rio Tiquié in the Negro system, the Río Orteguaza in the Caquetá basin, and the Río Losada (upper Río Guaviare) in the Orinoco watershed.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro and Meta River basins.",
+        "ok": true
+      },
+      {
+        "name": "Meta",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Negro and Meta River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras melini",
+    "status": "ACCEPTED",
+    "taxonKey": 2342602,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

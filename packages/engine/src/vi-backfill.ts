@@ -12,7 +12,7 @@ export const REWRITE_KINDS = ['guides', 'species', 'plants', 'glossary'] as cons
 type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
 type Job = { id: string; kind: Kind; slug: string; groups: Group[] }
-type Vi = { sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
+type Vi = { sections?: Record<string, string>; body?: string; bodyFixed?: boolean; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
 export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number }>
 /** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
 export const REWRITE_V = 2
@@ -34,7 +34,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       const e = await json<{ source?: string; sections?: { key: string; source: string; html: string }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
       if (kind === 'guides') {
-        if ((match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body }] })
+        if (!vi.bodyFixed && (match || e.source !== 'youtube') && vi.body && (!match || match.test(vi.body))) groups.push({ ...(e.source !== 'youtube' ? { source: e.source } : {}), parts: [{ id: 'body', vi: vi.body }] })
         const lines = !match ? [] : [
           ...(vi.summary ?? []).map((s, i) => ({ id: `summary:${i}`, vi: s })),
           ...(vi.faq ?? []).flatMap((f, i) => [{ id: `faq:${i}:q`, vi: f.q }, { id: `faq:${i}:a`, vi: f.a }]),
@@ -131,7 +131,8 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         if (Object.keys(bySource).length) {
           const min = Math.min(...Object.values(bySource))
           // The depth verdict stays (a rewrite changes no section): a thin page stays out of search (@aq/schema depth.ts).
-          vi.quality = judgeQuality({ score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
+          // The rest of it stays too: a video guide held out of the chat (video-hold.ts) is still held.
+          vi.quality = judgeQuality({ ...vi.quality, score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
         }
       }
     } catch (e) {

@@ -12,6 +12,76 @@
     "malaysia",
     "sadong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo",
+        "Sadong",
+        "Mentaya",
+        "Pinyuh",
+        "Pulau Laut"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Danau Sentarum Wildlife Reserve, 0°56'37\"N, 112°05'31\"E, Kapuas basin, Kalimantan Barat, Borneo', referring to a system of lakes in the Kapuas river system of West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Additional populations are known from the Pinyuh drainage in Kalimantan Barat, Mentaya River in Kalimantan Tengah (Central Kalimantan) and Pulau Laut (Laut Island) in Kalimantan Selatan (South Kalimantan), and the Sadong River in southern Sarawak state, Malaysian Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Sadong",
+            "Mentaya",
+            "Pinyuh",
+            "Pulau Laut"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7650745,
+      "total": 4,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

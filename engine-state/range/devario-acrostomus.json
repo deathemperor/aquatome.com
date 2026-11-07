@@ -1,0 +1,71 @@
+{
+  "id": "devario-acrostomus",
+  "native": {
+    "input": "78c1e7553c9b6a45",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Leuk river drainage both upstream and downstream of Tad Leuk waterfall, Phou Khao Khouay National Park, Vientiane Province, northwestern Laos, and subsequently recorded in Nong Bua Lamphu province, northeastern Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Leuk river drainage both upstream and downstream of Tad Leuk waterfall, Phou Khao Khouay National Park, Vientiane Province, northwestern Laos, and subsequently recorded in Nong Bua Lamphu province, northeastern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nam Leuk",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Leuk river drainage both upstream and downstream of Tad Leuk waterfall, Phou Khao Khouay National Park, Vientiane Province, northwestern Laos, and subsequently recorded in Nong Bua Lamphu province, northeastern Thailand.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "The Nam Leuk is part of the much larger Mekong River system but has suffered serious degradation since the completion of the Nam Leuk Hydroelectric Project in 1999.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Devario acrostomus",
+    "status": "ACCEPTED",
+    "taxonKey": 2361538,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

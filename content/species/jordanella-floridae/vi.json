@@ -1,13 +1,13 @@
 {
-  "slug": "ca-co-florida",
-  "name": "Cá cờ Florida",
+  "slug": "ca-flagfish-florida",
+  "name": "Cá flagfish Florida",
   "altNames": [
-    "Cá flagfish Florida",
+    "Cá cờ Florida",
     "Florida Flagfish",
     "American flagfish"
   ],
   "sections": {
-    "quickFacts:seriouslyfish": "<p>Cá cờ Florida (Jordanella floridae) là một loài cyprinodontid chỉ có ở bán đảo Florida, Mỹ. Chúng sống ở những vùng nước nông nhiều cây cỏ như nhánh sông nước tù, đầm lầy, kênh và mương. Đây là loài cá cảnh được ưa chuộng từ lâu. Cá trên thị trường là cá nhân giống thương mại, còn cá hoang dã thì rất hiếm gặp ngoài nước Mỹ. Nhiều tài liệu viết rằng loài này đào hố và chăm con lâu dài, nhưng thực tế không phải vậy. Chúng đẻ từng phần giống các loài cyprinodontid khác.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá flagfish Florida (Jordanella floridae) là một loài cyprinodontid chỉ có ở bán đảo Florida, Mỹ. Chúng sống ở những vùng nước nông nhiều cây cỏ như nhánh sông nước tù, đầm lầy, kênh và mương. Đây là loài cá cảnh được ưa chuộng từ lâu. Cá trên thị trường là cá nhân giống thương mại, còn cá hoang dã thì rất hiếm gặp ngoài nước Mỹ. Nhiều tài liệu viết rằng loài này đào hố và chăm con lâu dài, nhưng thực tế không phải vậy. Chúng đẻ từng phần giống các loài cyprinodontid khác.</p>",
     "distribution:seriouslyfish": "<p>Loài này chỉ có ở bán đảo Florida, Mỹ, phân bố ở phía nam lưu vực sông Ochlockonee và sông St. Johns. Chúng không có ở Mexico.</p><p>Nơi thu mẫu chuẩn là 'Lake Monroe, Florida, U.S.A.'. Đây là một trong rất nhiều hồ thuộc lưu vực sông St. Johns.</p>",
     "habitat:seriouslyfish": "<p>Phần lớn chúng sống ở vùng nước ngọt nông, nhiều cây cỏ, như nhánh sông nước tù, đầm lầy, kênh và mương. Đôi khi người ta cũng bắt gặp chúng ở vùng nước hơi lợ.</p>",
     "aquariumSize:seriouslyfish": "<p>Bể có đáy 60 × 30 cm hoặc tương đương (khoảng 54 lít) chỉ tạm đủ cho một cặp. Giống như phần lớn các loài trong họ Cyprinodontidae, loài này sống khỏe nhất khi nuôi theo đàn trong bể hoặc thùng lớn hơn.</p>",
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.82
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-co-florida",
+      "name": "Cá cờ Florida"
+    }
+  ]
 }

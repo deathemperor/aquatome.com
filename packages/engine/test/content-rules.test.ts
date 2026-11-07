@@ -3,9 +3,9 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sourcePagePhrases, stripCount,
-  titleCount, vietnameseLeft, wrongFish, type Ctx,
+  swappedNames, titleCount, vietnameseLeft, wrongFish, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
 
@@ -146,7 +146,7 @@ test('a rule that throws on a page is listed and the others still run; the repor
   expect(r.errors).toEqual(['boom on /vi/huong-dan/g/: bad'])
   expect(r.findings).toHaveLength(1)
   const md = rulesReport([p], r, [boom, ...RULES.filter(x => x.id === 'english')])
-  expect(md).toContain('Pages checked: 1 (Vietnamese 1, Indonesian 0, Thai 0)')
+  expect(md).toContain('Pages checked: 1 (Vietnamese 1, Indonesian 0, Thai 0, Malay 0)')
   expect(md).toContain('- boom on /vi/huong-dan/g/: bad')
   expect(md).toContain('## Sentences left in English (1)')
   expect(md).toContain('- [vi · Cá \\[đẹp\\]](https://aquatome.com/huong-dan/g/) — "The fish should be kept in a large tank with plenty of cover."')
@@ -399,4 +399,35 @@ test('a page saying AquaTome controls a product it doesn\'t: Week Aqua in progre
   const lines = [{ field: 'summary.0', text: 'Bạn có thể điều khiển đèn này bằng AquaTome.' }]
   expect(found(page({ kind: 'products', control: false, lines }), 'control-claim')).toHaveLength(1)
   expect(found(page({ kind: 'products', control: true, lines }), 'control-claim')).toEqual([])
+})
+
+// 2026-11-07, the owner's names: "cá bút chì" is the Siamese algae eater, so beside Nannostomus it's the old name.
+test('a fish given its old name beside its genus or English name is found; each name for the fish it means is not', () => {
+  expect(swappedNames('Cá bút chì (Nannostomus eques) bơi nghiêng.')).toHaveLength(1)
+  expect(swappedNames('Có thể nuôi cùng cá bút chì (pencilfish).')).toHaveLength(1)
+  expect(swappedNames('Cá bám đá (Sewellia lineolata) ăn tảo.')).toHaveLength(1)
+  expect(swappedNames('Cá cờ Florida là tên cũ của Jordanella floridae.')).toHaveLength(1)
+  expect(swappedNames('Cá cờ (Mesonauta festivus) là một loài cichlid.')).toHaveLength(1)
+  expect(swappedNames('Cá cờ lùn (dwarf flag cichlid) rất hiền.')).toHaveLength(1)
+  expect(swappedNames('Cá thiên đường (Macropodus opercularis) khỏe.')).toHaveLength(1)
+  // Each name for its own fish, and an old name in another sentence than the fish.
+  expect(swappedNames('Cá bút chì (Crossocheilus) ăn rêu. Cá chì (Nannostomus) bơi tầng mặt. Cá bám đá (Homaloptera) sống ở suối. Cá cờ (Macropodus) đẹp. Cá thiên đường đen (Macropodus spechti) hiền. Cá Mesonauta là một loài cichlid.')).toEqual([])
+  // Other fish whose names hold the words, and "cá bám đá" for the whole family.
+  expect(swappedNames('Cá trê bút chì Pareiodon và Nannostomus khác nhau.')).toEqual([])
+  expect(swappedNames('Nhiều loài cá bám đá thuộc họ Balitoridae, ví dụ các chi Gastromyzon, Pseudogastromyzon.')).toEqual([])
+})
+
+// 2026-11-07, a design lab: "que thử đa chỉtiêu" in the tank-cycling guide, a translation's typo. A Vietnamese word is one
+// syllable, so a word that reads as two is two words run together; a loanword written as one ("nitơ") is not.
+test('two Vietnamese syllables written as one word are found; one syllable, loanwords and other languages are not', () => {
+  expect(gluedSyllables('Đo bằng que thử amoniac và que thử đa chỉtiêu.')).toEqual(['chỉtiêu'])
+  // Items of a list run together (the least killifish's page): every one of them.
+  expect(gluedSyllables('Sống bầy đàn: cóMức độ hoạt động: vừa phảiVị trí: tầng giữaHiền: có')).toEqual(['cóMức', 'phảiVị', 'giữaHiền'])
+  const fine = 'nghiêng khuỷu người quyết giường thuở ngoằn ngoèo Nguyễn Việt khuya xoăn huơ gì quá chỉ tiêu nitơ Nitơ nơron ôxy kilômét hiđrô'
+    + ' contain Solimões São Amazônia Ramírez Pokémon Châu Phi đ'
+  expect(gluedSyllables(fine)).toEqual([])
+  const p = (lang: 'vi' | 'id', html: string) => page({ lang, fields: [{ field: 'body', html }] })
+  expect(found(p('vi', '<p>Que thử đa chỉtiêu.</p><ul><li>có</li><li>Mức độ</li></ul>'), 'glued')).toEqual(['"chỉtiêu"'])
+  expect(found(p('vi', 'Sống bầy đàn: cóMức độ hoạt động'), 'glued')).toEqual(['"cóMức"']) // text with no tags at all
+  expect(found(p('id', '<p>chỉtiêu</p>'), 'glued')).toEqual([])
 })

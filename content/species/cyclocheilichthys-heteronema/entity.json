@@ -20,6 +20,170 @@
     "indonesia",
     "kalimantan-barat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH",
+        "LA",
+        "KH",
+        "VN",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Tonlé Sap",
+        "Borneo",
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is currently understood to have a considerable natural range extending eastwards from Myanmar via Thailand, Laos, Cambodia as far as Vietnam and to the south through Peninsular Malaysia and into the Greater Sunda Islands of Borneo and Sumatra.",
+          "countries": [
+            "MM",
+            "TH",
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sambas, western Borneo, Indonesia', which presumably refers to the settlement of the same name in Kalimantan Barat (West Kalimantan) province which lies on the lower Sambas Besar river.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It thus occurs in the Mekong, Mae Klong and Chao Phraya drainages as well as a host of other river basins, lakes and reservoirs including the Tonlé Sap river and lake system in Cambodia.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong",
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364425,
+      "total": 24,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          9
+        ],
+        [
+          "TH",
+          9
+        ],
+        [
+          "MY",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          3,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

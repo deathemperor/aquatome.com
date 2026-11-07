@@ -1,0 +1,86 @@
+{
+  "id": "danio-kerri",
+  "native": {
+    "input": "2a57ddc34f5e980d",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Koh Yao Yai",
+        "source": "seriouslyfish",
+        "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+        "ok": true
+      },
+      {
+        "name": "Phuket",
+        "source": "seriouslyfish",
+        "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+        "ok": true
+      },
+      {
+        "name": "Ko Lanta",
+        "source": "seriouslyfish",
+        "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+        "ok": true
+      },
+      {
+        "name": "Langkawi",
+        "source": "seriouslyfish",
+        "quote": "Described from Koh Yao Yai island, Phang Nga province, south-western Thailand but it has subsequently been recorded from other islands in the area including Phuket, Ko Lanta and Langkawi as well as mainland southern Thailand (upper Malay Peninsula) including Krabi and Ranong provinces.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danio kerri",
+    "status": "ACCEPTED",
+    "taxonKey": 2362690,
+    "datasets": [
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        6
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

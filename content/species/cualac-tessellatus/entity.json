@@ -10,6 +10,74 @@
     "mexico",
     "rio-verde"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Río Verde",
+        "Río Pánuco",
+        "Media Luna"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The checkered pupfish, Cualac tessellatus, is a cyprinodontid endemic to a handful of springs in the Río Verde valley, San Luis Potosí, Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Río Verde"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The valley is believed to have once been filled by a large lake and the relict springs are part of the elevated Río (river) Verde basin which later drains into the much larger Río Pánuco system.",
+          "countries": [],
+          "regions": [
+            "Río Pánuco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "C. tessellatus can be found in the Media Luna lagoon system, a popular spot with recreational scuba divers, as well as a few smaller lagoons including 'El aguaje', 'Los anteojitos', 'Laguna de San Bartolo' and probably others.",
+          "countries": [],
+          "regions": [
+            "Media Luna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348154,
+      "total": 59,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MX",
+          59
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          21.09375,
+          58,
+          58
+        ],
+        [
+          -99.84375,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

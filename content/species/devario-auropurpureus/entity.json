@@ -10,6 +10,56 @@
     "myanmar",
     "inle-lake"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Inle"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Lake Inle in Burma has a high proportion of endemic fish species, i.e. those that are found exclusively there.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Lake Inle"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361523,
+      "total": 36,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MM",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          16,
+          16
+        ],
+        [
+          97.03125,
+          19.6875,
+          20,
+          20
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

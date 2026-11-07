@@ -1,0 +1,40 @@
+{
+  "id": "corydoras-reynoldsi",
+  "native": {
+    "input": "906d3cd603d49c5b",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Corydoras reynoldsi was collected in the Caquetà province, eastern Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras reynoldsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342701,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

@@ -14,6 +14,123 @@
     "malaysia",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SG",
+        "ID",
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Malay Peninsula",
+        "Kampar River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to parts of southern Borneo, eastern Sumatra, Singapore, and the Malay Peninsula.",
+          "countries": [
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tuluk and Gunung Sahilan, Sumatra, Indonesia' which appears to correspond to localities within the Kampar River drainage of which the former is now known as Teluk Meranti and is one of many sites on Sumatra where the ancient peat swamp forest has been cleared to make space for oil palm plantations.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kampar River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the North Selangor peat swamp, Peninsular Malaysia, sympatric fishes include Rasbora cephalotaenia, R. einthovenii, R. kalochroma, Nemacheilus selangoricus, Neohomaloptera johorensis, Kottelatlimia pristes, Mystus bimaculatus, Belontia hasselti, Betta bellica, B. livida, Sphaerichthys osphromenoides, Trichopodus trichopterus, and Luciocephalus pulcher.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "They originate from Narathiwat province in South Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7918345,
+      "total": 15,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MY",
+          11
+        ],
+        [
+          "SG",
+          3
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

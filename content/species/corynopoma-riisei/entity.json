@@ -13,6 +13,156 @@
     "trinidad-and-tobago",
     "trinidad"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Trinidad"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Northern Venezuela and the Villavicencio area in Colombia.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There's also a thriving extant population existing on the island of Trinidad.",
+          "countries": [],
+          "regions": [
+            "Trinidad"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352683,
+      "total": 176,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "VE",
+          80
+        ],
+        [
+          "TT",
+          69
+        ],
+        [
+          "CO",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          7.03125,
+          13,
+          13
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -71.71875,
+          7.03125,
+          16,
+          16
+        ],
+        [
+          -71.71875,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          -70.3125,
+          8.4375,
+          28,
+          28
+        ],
+        [
+          -68.90625,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          -64.6875,
+          9.84375,
+          9,
+          9
+        ],
+        [
+          -61.875,
+          9.84375,
+          66,
+          0
+        ],
+        [
+          -60.46875,
+          9.84375,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

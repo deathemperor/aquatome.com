@@ -11,8 +11,8 @@ final class OwnerFlowTests: XCTestCase {
     let app = launch()
     signIn(app)
     open(app, "owner-dashboard")
-    XCTAssertEqual(app.buttons.matching(identifier: "owner-todo").count, 2, "the overview's to-dos")
-    XCTAssertTrue(app.buttons["owner-todo"].firstMatch.label.contains("1 key Anthropic đang nghỉ"), app.buttons["owner-todo"].firstMatch.label)
+    XCTAssertEqual(app.buttons.matching(identifier: "owner-todo").count, 3, "the overview's to-dos")
+    XCTAssertTrue(app.buttons["owner-todo"].firstMatch.label.contains("mọi key đang nghỉ"), app.buttons["owner-todo"].firstMatch.label)
     XCTAssertEqual(app.buttons.matching(identifier: "owner-area").count, 10, "an area card each")
     XCTAssertEqual(app.buttons.matching(identifier: "owner-log").count, 16, "a line each of \"Mấy ngày qua\"")
 
@@ -63,7 +63,11 @@ final class OwnerFlowTests: XCTestCase {
     let top = columns.frame.minY
     columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.05, thenDragTo: columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: -1.5)))
     XCTAssertLessThan(columns.frame.minY, top - 100, "the page didn't scroll from the chart")
-    repeatUntil(shown(), times: 4) { app.swipeDown(velocity: .slow) }
+    // Back where it was, by as much as it went, with a finger below the chart held at the end so the page doesn't coast:
+    // a chart scrolled up but still "on screen" can have its columns under the navigation bar, where a tap misses them.
+    let below = app.windows.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45))
+    below.press(forDuration: 0.05, thenDragTo: below.withOffset(CGVector(dx: 0, dy: top - columns.frame.minY)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    XCTAssertTrue(shown() && abs(columns.frame.minY - top) < 40, "the chart isn't back where it was: \(columns.frame.minY) for \(top)")
     // Untouched: the last of its 30 days, today, not over yet.
     XCTAssertEqual(day.label, "04/11 (chưa hết ngày) · Có kết quả 11 · Không có kết quả 0 · Chặn trước khi gọi 1")
     let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.5)) }
@@ -185,7 +189,8 @@ final class OwnerFlowTests: XCTestCase {
     hide(app, "/")
     let said = app.staticTexts["owner-message"]
     XCTAssertTrue(said.waitForExistence(timeout: 10), "nothing said")
-    XCTAssertEqual(said.label, "Chỉ ẩn được một trang của trang web (không phải trang chủ).")
+    // The Worker's own words, as the contract's vector has them ("hide the home page"): English since its version 2.
+    XCTAssertEqual(said.label, "Only one page of the site can be hidden, and not the home page.")
   }
 
   func testTheOwnerTurnsTheDailyReportsEmailOffThenOnAgain() {
@@ -211,7 +216,8 @@ final class OwnerFlowTests: XCTestCase {
     section(app, "Người đọc")
     let said = app.staticTexts["owner-message"]
     XCTAssertTrue(said.waitForExistence(timeout: 10), "nothing said")
-    XCTAssertEqual(said.label, "Không làm được lúc này: máy chủ không đọc hay ghi được. Thử lại sau.")
+    // As the contract's vector "storage down" has it: English since its version 2.
+    XCTAssertEqual(said.label, "Couldn't do that just now: the server couldn't read or write its storage. Try again later.")
     app.buttons["owner-again"].tap()
     XCTAssertTrue(app.descendants(matching: .any)["owner-chart"].firstMatch.waitForExistence(timeout: 10), "the section didn't come")
     XCTAssertFalse(said.exists)
@@ -274,9 +280,9 @@ final class OwnerFlowTests: XCTestCase {
     repeatUntil(row.exists, times: 6) { app.swipeUp() }
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the row went")
     XCTAssertTrue(row.label.contains("đăng nhập lại"), row.label)
-    let message = app.staticTexts["account-message"]
-    XCTAssertTrue(message.waitForExistence(timeout: 5))
-    XCTAssertEqual(message.label, "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.")
+    let ended = app.staticTexts["session-ended"]
+    XCTAssertTrue(ended.waitForExistence(timeout: 5))
+    XCTAssertEqual(ended.label, "Phiên đăng nhập đã hết. Lần trước bạn đăng nhập bằng Apple.")
 
     // Signed in again (its button back up the list): the dashboard opens as before.
     repeatUntil(app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists, times: 6) { app.swipeDown() }

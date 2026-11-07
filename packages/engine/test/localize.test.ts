@@ -191,8 +191,9 @@ test('translation order: staples and most-kept fish, then pages the other langua
   await add('zzz-elsewhere', { 'entity.json': {}, 'th.json': {} })
   const id = await speciesOrder(root, 'id')
   expect(id.slice(0, 2)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
-  expect(id.slice(-3)).toEqual(['zzz-elsewhere', 'aaa-native', 'apistogramma-cacatuoides'])
-  expect((await speciesOrder(root, 'th')).slice(-3)).toEqual(['aaa-native', 'apistogramma-cacatuoides', 'zzz-elsewhere'])
+  // The fixture's apistogramma-cacatuoides has a Malay page: it comes with the pages another served language has.
+  expect(id.slice(-3)).toEqual(['apistogramma-cacatuoides', 'zzz-elsewhere', 'aaa-native'])
+  expect((await speciesOrder(root, 'th')).slice(-3)).toEqual(['apistogramma-cacatuoides', 'aaa-native', 'zzz-elsewhere'])
 })
 
 test("Malay's style is Malaysia's: its words, its number marks and money, and nothing asked in Indonesian's words", () => {

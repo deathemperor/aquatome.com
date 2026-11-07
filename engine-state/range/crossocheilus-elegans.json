@@ -1,0 +1,62 @@
+{
+  "id": "crossocheilus-elegans",
+  "native": {
+    "input": "6a61f7442bd49d89",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Segama and Kinabatangan river systems in Sabah state, eastern Malaysia (northern Borneo).",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Segama",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Segama and Kinabatangan river systems in Sabah state, eastern Malaysia (northern Borneo).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Kinabatangan",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Segama and Kinabatangan river systems in Sabah state, eastern Malaysia (northern Borneo).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Segama and Kinabatangan river systems in Sabah state, eastern Malaysia (northern Borneo).",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crossocheilus elegans",
+    "status": "ACCEPTED",
+    "taxonKey": 6167037,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

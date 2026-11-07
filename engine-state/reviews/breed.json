@@ -205,5 +205,73 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/breeds/electric-blue-acara": [
+    {
+      "at": "2026-11-07T15:25:55Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"sekitar 208 liter atau lebih\" – the facts say 55 gallons or more; the page converts it to 208 L, which is fine. Not a problem.",
+        "\"Satu sumber memberi kira-kira 12.7 cm\" is supported (source 6).",
+        "\"malah ada yang mencapai 16.5–20 cm\" duplicates the forum figure as if it were an extra claim. The facts give 16.5–20 cm for forum keepers, and 15–20 cm comes from a different source. The page blends them as \"kira-kira 15–20 cm, malah... 16.5–20 cm\", which is slightly muddled.",
+        "\"Ikan ini juga gemar menggali\" in the intro is supported, but \"sebaliknya bentuk warna blue acara hasil pembiakan terpilih\" in the FAQ is attributed to the retailer who said it is not a hybrid. That retailer's statement as given in the facts is only that it is not a hybrid and not dyed.",
+        "\"sedangkan spesies ini hidup liar di Trinidad, Venezuela dan Colombia\" combines two sources as if settled fact. The facts show these as separate sources' ranges.",
+        "\"Ada kedai yang menjual ikan bersaiz 6–7 cm\" is supported.",
+        "\"Pasangan yang cukup makan akan menuntut satu kawasan\" is supported.",
+        "\"Ikan ini bertelur di atas batu yang rata\" is supported.",
+        "\"Ada sumber yang mengatakan ia tidak sukar dijaga... paling sesuai dalam tangki yang stabil\" is supported.",
+        "The \"gantian\" tank range \"100 liter, sekitar 115 liter atau sekitar 150 liter\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-07T15:25:55Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"lebih baik jika sekitar 210 liter ke atas\" – facts say 55 gallons or more preferred; 55 gallons ≈ 208 L, so this is acceptable, but \"sekitar 210 liter\" is a slight rounding.",
+        "\"Spesies asalnya berasal dari Amerika Selatan\" – the facts give only Trinidad, Venezuela and Colombia, with no continent stated (a small generalisation).",
+        "\"Sediakan juga tempat bersembunyi dan ruang berenang yang terbuka\" – hiding places come from one source and open swimming space from another; they are combined into one recommendation.",
+        "\"Ikan ini secara umumnya tidak sukar dijaga\" in the intro – this is combined from sources that disagree on hardiness.",
+        "\"Kebanyakan sumber menyatakan ia ialah bentuk warna blue acara ... hasil pembiakan terpilih\" – the \"most sources\" claim is a count the facts do not give.",
+        "\"Saiz yang biasa dilaporkan ialah 10–15 cm\" in the FAQ – the facts give several size ranges and do not say 10–15 cm is the usual one.",
+        "\"Electric Blue Acara biasanya dijual lebih mahal\" – the facts say only that they sell for more, so \"biasanya\" is a small addition.",
+        "\"Sebelum membeli, sediakan tangki sekurang-kurangnya 100 liter\" – the facts give the minimum as 100 L, but other sources say about 115 L or about 150 L."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/breeds/electric-blue-ram": [
+    {
+      "at": "2026-11-07T15:27:34Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"jentik-jentik boleh digunakan untuk menarik seleranya\": the facts say mosquito larvae can tempt them to eat. Rendering this as jentik-jentik is fine, so this is only a minor point.",
+        "\"Beli daripada kedai ikan hiasan atau penternak yang dipercayai\": the facts say only \"trusted dealer or breeder\". Specifying an ornamental fish shop is a small embellishment.",
+        "\"Sumber menasihatkan supaya ikan ini tidak dimasukkan ke dalam tangki yang baru disediakan kerana ia sensitif terhadap nitrat\": the facts list the two points separately and do not state this causal link. It is a mild inference.",
+        "\"Ikan sebegini lebih lemah, jangka hayatnya lebih pendek, dan warnanya boleh pudar kemudian\": the FAQ merges the hormone claims from separate sources into one statement. This is consistent with the facts.",
+        "\"Cara paling murah untuk mendapatkan sepasang\" appears in the sexing FAQ answer. It is supported by the facts, but it sits oddly as an answer to that question."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-07T15:27:34Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Tunggu sehingga kitaran nitrogen benar-benar stabil.\" – not in the facts (the nitrogen cycle is never mentioned).",
+        "\"membiarkan mereka berpasangan sendiri\" – the facts only say that buying a group of juveniles is the cheapest way to get a pair. The pairing-off part is an added detail.",
+        "\"Ada yang menganggapnya agak sukar dan ada yang menganggapnya lebih mudah\" – the facts give only difficulty numbers (4 and 2), with no wording about which is harder or easier. This is a mild paraphrase.",
+        "\"Ikan ini dianggap cerewet\" – the facts say \"demanding\" for the fish, but only as Practical Fishkeeping's wording. The page states it as general opinion.",
+        "\"jentik-jentik boleh digunakan untuk menarik seleranya\" – this is fine (mosquito larvae). The \"Ikan ini sensitif... mudah dijangkiti\" lead is also supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

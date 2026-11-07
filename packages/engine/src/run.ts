@@ -28,10 +28,13 @@ import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
 import { addReaders, readersReport, type ReaderRow, type ReaderWant } from './readers-wanted'
 
+/** How a source is read. `capturedAt`: the date of the archive's copy, for a source read through it. */
+type Reader = Pick<ChromeFetcher, 'text' | 'links' | 'bytes'> & { get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> }
+
 export type Deps = {
-  fetcher: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
+  fetcher: Reader
   /** Reads sources with `via: 'archive'` (the Internet Archive's copies). */
-  archive?: Pick<ChromeFetcher, 'get' | 'text' | 'links' | 'bytes'>
+  archive?: Reader
   llm: Llm
   http: (url: string) => Promise<unknown>
   media: Media
@@ -362,7 +365,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         }
         if (r.status >= 400) throw new Error(`HTTP ${r.status}`)
         const hash = snapshotHash(o)
-        if (hash !== prev?.hash) await writeSnapshot(root, id, url, o, deps.now())
+        if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev
@@ -391,6 +394,11 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         if (BROWSER_GONE.test(message)) {
           report.errors.push('stopping: the browser closed — the next cycle starts a fresh one')
           break sources
+        }
+        // The archive said slow down: another request now only makes it wait longer. The next run carries on.
+        if (errorKind(message) === 'throttled') {
+          report.errors.push(`${id}: stopping: the archive asked us to slow down (${message.slice(0, 120)})`)
+          break
         }
         if (!(e instanceof LlmError) && errorKind(message) === 'transient' && ++networkFailures >= MAX_NETWORK_FAILURES) {
           report.errors.push(`${id}: stopping: ${MAX_NETWORK_FAILURES} pages in a row failed on the network (${message.slice(0, 120)})`)

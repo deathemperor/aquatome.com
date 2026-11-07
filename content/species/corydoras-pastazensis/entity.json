@@ -12,6 +12,102 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Pastaza",
+        "Ucayali",
+        "Puinahua"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has been collected in upper parts of the Pastaza river basin in Ecuador plus the ríos Ucayali and Puinahua in Peru.",
+          "countries": [
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Pastaza",
+            "Ucayali",
+            "Puinahua"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342677,
+      "total": 21,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          13
+        ],
+        [
+          "EC",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

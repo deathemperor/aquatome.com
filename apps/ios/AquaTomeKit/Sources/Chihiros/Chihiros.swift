@@ -51,6 +51,11 @@ public struct Model: Sendable, Equatable {
 
   /// The model a light's Bluetooth name belongs to (longest prefix: DYNA2N before DYNA2 before DYA), if supported.
   public static func of(name: String) -> Model? { byPrefix.first { name.hasPrefix($0.0) }?.1 }
+
+  /// Lights that keep no periods by weekday, only one for every day (chihiros-led-control's NO_WEEKDAY_PREFIXES).
+  private static let noWeekdays = ["DYZSD", "DYNA2N", "DYNA2", "DYNC2N", "DYCXD", "DYECO", "MDTM", "DYDD"]
+  /// Whether the light named so keeps a schedule period per weekday (`Weekdays`).
+  public static func hasWeekdayPeriods(name: String) -> Bool { !noWeekdays.contains { name.hasPrefix($0) } }
 }
 
 /// A time of day, minute precision ("08:30").
@@ -137,16 +142,17 @@ public enum Frame {
   /// Ask for the status reply (its byte 1 is the firmware version).
   public static func askStatus(id: UInt16) -> [UInt8] { make(cmd: 0x5a, mode: 0x04, params: [1], id: id) }
 
-  /// An everyday schedule: `[on h, on m, off h, off m, ramp minutes, weekdays, levels by channel id, 255…]`, 14 bytes.
-  /// A white-only light takes `[white, 255, 255]`; a schedule ending at 00:00 is written as 23:59.
-  public static func scheduleParams(_ s: Schedule, channels: Int) -> [UInt8] {
+  /// A schedule period: `[on h, on m, off h, off m, ramp minutes, weekdays, levels by channel id, 255…]`, 14 bytes, on
+  /// the days in `weekdays` (`Weekdays`; every day unless given). A white-only light takes `[white, 255, 255]`; a
+  /// schedule ending at 00:00 is written as 23:59.
+  public static func scheduleParams(_ s: Schedule, channels: Int, weekdays: UInt8 = Weekdays.everyday) -> [UInt8] {
     let off = s.off.minutes == 0 ? TimeOfDay(hour: 23, minute: 59) : s.off
     let levels = channels == 1 ? [clamp(s.levels.first ?? 0), 255, 255] : s.levels.prefix(channels).map(clamp)
-    let p = [s.on.hour, s.on.minute, off.hour, off.minute, max(0, min(150, s.ramp)), 127] + levels
+    let p = [s.on.hour, s.on.minute, off.hour, off.minute, max(0, min(150, s.ramp)), Int(weekdays)] + levels
     return (p + Array(repeating: 255, count: max(0, 14 - p.count))).map { UInt8($0) }
   }
-  public static func setSchedule(_ s: Schedule, channels: Int, id: UInt16) -> [UInt8] {
-    make(cmd: 0xa5, mode: 0x19, params: scheduleParams(s, channels: channels), id: id)
+  public static func setSchedule(_ s: Schedule, channels: Int, weekdays: UInt8 = Weekdays.everyday, id: UInt16) -> [UInt8] {
+    make(cmd: 0xa5, mode: 0x19, params: scheduleParams(s, channels: channels, weekdays: weekdays), id: id)
   }
 
   static func clamp(_ n: Int) -> Int { max(0, min(100, n)) }
