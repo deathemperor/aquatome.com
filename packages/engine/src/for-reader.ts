@@ -40,7 +40,7 @@ const WRITE_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['name', 'summary', 'body', 'faq'],
   properties: { name: { type: 'string' }, summary: { type: 'array', items: { type: 'string' } }, body: { type: 'string' }, faq: { type: 'array', items: { type: 'object', additionalProperties: false, required: ['q', 'a'], properties: { q: { type: 'string' }, a: { type: 'string' } } } } },
 }
-const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. Empty if none. Reply only with JSON.`
+const GROUNDED = `Below are FACTS and a MARKET table, and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to them: 1.0 = every claim, dose, number, product and piece of advice is supported; lower it for each one that isn't, most of all a dose or a safety claim. Converting units and writing in the writer's own words is fine, and so is leaving a fact out, unless it's a warning the reader needs. notes: up to 10 unsupported or wrong claims, or warnings left out, in English, quoting the phrase. List nothing that is supported, and nothing that would merely make the guide more useful. Empty if none. Reply only with JSON.`
 const REVIEW_SCHEMA = { type: 'object', additionalProperties: false, required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } }
 
 /** The amounts in a text, as numbers with their units: what a guide may not make up. */
@@ -94,7 +94,7 @@ export async function writeForReader(d: { llm: Llm }, id: string, source: string
     const findings = fitFindings(page, made)
     const wrong = findings.filter(f => f.check !== 'words')
     const outside = amountsOutside(plain(clean), input)
-    const r = await d.llm<{ score: number; notes: string[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'sonnet' })
+    const r = await d.llm<{ score: number; notes: string[] }>({ system: GROUNDED, prompt: `${input}\n\n--- GUIDE ---\n${plain(clean)}`, schema: REVIEW_SCHEMA, model: o.checkModel ?? 'opus' })
     const score = Math.min(1, Math.max(0, Number(r.score) || 0))
     const notes = [
       ...wrong.map(f => `${f.check}: "${f.quote}": ${f.why}`),

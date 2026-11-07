@@ -271,5 +271,5 @@ export function marketFor(lang: Lang, source: string, problems: ProblemId[]): st
     ...(r.how ? [r.how.text] : []),
     ...(r.risks ? [`Rủi ro: ${r.risks}`] : []),
   ].join('\n'))
-  return [...lines, unlisted, ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này, chỉ khi hợp với bài:', ...remedies] : [])].join('\n')
+  return [...lines, unlisted, ...(remedies.length ? ['', 'Có bán ở đây cho chuyện này, liều đã có nguồn. Dùng đúng con số này khi bài đang nói về việc trị đó. Bài về chuyện khác thì bỏ hẳn:', ...remedies] : [])].join('\n')
 }

@@ -27,9 +27,9 @@ Viết cho người đọc ở Việt Nam:
 - Mỗi liều nói rõ nó dùng cho việc gì và dùng cách nào: trị bệnh gì, bơm tại chỗ, cho cả bể hay tắm riêng. Cảnh báo nào dữ kiện hoặc THỊ TRƯỜNG có cho tép, ốc, cá da trơn, cá chạch, cá không vảy hay cá con thì ghi ngay cạnh liều đó, không để sang mục khác.
 - Một cách thay thế có số ngày khác lịch chính thì nói rõ là khác, và theo số ngày của nó.
 - Không khuyên mua xanh malachite hay formaldehyde. Dữ kiện dùng thuốc có các chất đó thì nói "thuốc trị đốm trắng bán ở tiệm", liều theo nhãn. Kháng sinh thì được nói tên và nói nó trị được gì, an toàn với gì, khi dữ kiện có: đừng bỏ điều đó chỉ vì thuốc của hãng khó tìm. Nhưng không khuyên đi mua hay để sẵn trong nhà, không đặt tiêu đề kiểu "phải có sẵn", không ghi liều nếu dữ kiện không có.
-- Lời bảo đảm đã thử với một sản phẩm cụ thể ("ba thuốc này dùng chung được", "an toàn cho tép") chỉ đúng với đúng sản phẩm đó. Bài không nêu tên nó thì bỏ luôn lời bảo đảm, và nói rằng thuốc khác thì đọc cảnh báo trên nhãn trước khi dùng chung. Không viết "bộ ba này", "bộ đó" khi người đọc không biết là bộ nào. Bỏ tên hãng thì bỏ luôn câu tả hãng đó.
+- Lời bảo đảm đã thử với một sản phẩm cụ thể ("ba thuốc này dùng chung được", "an toàn cho tép") chỉ đúng với đúng sản phẩm đó. Sản phẩm khó tìm thì không nêu tên, kể cả để nói lời bảo đảm chỉ đúng với nó: bỏ luôn lời bảo đảm, và nói thuốc mua được thì đọc cảnh báo trên nhãn trước khi dùng chung. Không viết "bộ ba này", "bộ đó" khi người đọc không biết là bộ nào. Bỏ tên hãng thì bỏ luôn câu tả hãng đó.
 - Lý do chỉ đúng ở nước khác thì bỏ cả lý do: nhãn thuốc nước đó tính theo cỡ bể nào, tiệm nước đó làm gì với cá mới.
-- Trong bài không có ai ngoài người đọc: không "người bán cá", "bộ thuốc gốc", "bể mẫu", "bể trong bài", "lần làm lại này", không xưng "mình". Việc nguồn đã làm thì rút ra thành điều người đọc làm được.
+- Trong bài không có ai ngoài người đọc: không "người bán cá", "bộ thuốc gốc", "bể mẫu", "bể trong bài", "lần làm lại này", "người dùng nó", không xưng "mình". Việc nguồn đã làm thì rút ra thành điều người đọc làm được.
 - Không lấy ví dụ bằng bể quy đổi ("bể 76 lít"). Nhãn hoặc nguồn ghi liều theo 38 lít thì viết đúng câu liều đó, còn bể thì gọi số tròn.
 - Không có giá, phí ship, đô la, tên shop nước ngoài, chuyện nước máy, khí hậu, mùa hay luật của nước khác.
 - Đơn vị: chỉ lít, cm, °C. Bể gọi bằng số tròn như người chơi gọi: bể 20 lít, 40 lít, 60 lít, 80 lít, 120 lít, 200 lít, hoặc bể 60 cm, 90 cm, 1,2 m. Không viết 19, 38, 57, 76, 114, 208 lít cho một cái bể. Cân nặng đổi từ pound thì làm tròn như người đi mua: 5 pound là khoảng 2 kg, 10 pound là khoảng 5 kg, 30 pound là khoảng 15 kg, không viết 2,3 kg hay 13,5 kg. Liều thì không làm tròn kiểu đó.
@@ -39,7 +39,7 @@ Chỉ viết điều DỮ KIỆN hoặc THỊ TRƯỜNG có. Không thêm con s�
 
 Viết:
 - name: tiêu đề bài, điều người Việt hay gõ tìm rồi điều bài giải đáp. Không quá 80 ký tự.
-- summary: 2–3 câu trả lời thẳng câu hỏi chính.
+- summary: 2–3 câu trả lời thẳng câu hỏi chính, không ghi liều: liều nằm trong mục của nó, cạnh cảnh báo.
 - body: HTML, chia mục h3 đặt tên bằng lời người chơi, không đặt theo khuôn. Chỉ dùng p, ul, ol, li, strong, em, h3, table, tr, th, td.
 - faq: 3–5 câu người chơi hay hỏi mà đọc bảng chưa ra ngay, trả lời ngắn từ dữ kiện, gọn hơn và bằng lời khác với trong bài, không dán lại câu trong bài.
 
