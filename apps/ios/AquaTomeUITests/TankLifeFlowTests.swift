@@ -57,9 +57,7 @@ final class TankLifeFlowTests: XCTestCase {
   /// The owner's new tank opened blank, only its name showing (7 Nov): from a fish's page with the phone's animations on,
   /// as a reader has them, the sheet closing as the tab changed and the tank was pushed.
   func testAFishPutOnANewTankFromItsPageIsSeenOnTheTankItOpens() {
-    let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults"]
-    app.launch()
+    let app = launchAnimated()
     openPage(app, "Cá neon")
     app.buttons["put-on-tank"].tap()
     let name = app.textFields["put-name"]
@@ -72,7 +70,45 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Blackwater"].waitForExistence(timeout: 5), "the tank didn't open")
     let neon = life(app, "Cá neon")
     XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't on the tank")
+    shoot("put-open")
     XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+  }
+
+  /// The same tank, reached as a reader also would: the sheet closed, then the tank from the Bể của tôi tab.
+  func testAFishPutOnANewTankFromItsPageIsSeenOnItFromTheTanksTab() {
+    let app = launchAnimated()
+    openPage(app, "Cá neon")
+    app.buttons["put-on-tank"].tap()
+    let name = app.textFields["put-name"]
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no new tank offered")
+    name.tap()
+    name.typeText("Blackwater")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "not saved")
+    app.buttons["Xong"].tap()
+    app.openTab("Bể của tôi")
+    app.buttons["tank"].firstMatch.tap()
+    XCTAssertTrue(app.navigationBars["Blackwater"].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "the fish isn't on the tank")
+    shoot("tanks-tab")
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+  }
+
+  /// A link to a tank opened while on the Tìm tab, its tanks tab never opened: the tab changes and the tank is pushed
+  /// at once, with no sheet closing.
+  func testALinkToATankOpensItShownFromAnotherTab() {
+    let app = launchAnimated("-seed-tanks", "litres") // one tank, "Bể cũ"
+    XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "not on the Tìm tab")
+    let page = "https://aquatome.com/vi/cong-cu/be-cua-toi/#be-00000000-0000-4000-8000-000000000001"
+    app.open(URL(string: "aquatome://open?url=" + page.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.navigationBars["Bể cũ"].waitForExistence(timeout: 5), "the tank didn't open")
+    let add = app.buttons["add-life"]
+    XCTAssertTrue(add.waitForExistence(timeout: 5), "the tank's list isn't there")
+    shoot("link")
+    XCTAssertTrue(add.isHittable, "the tank's list is there but not shown")
     XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
   }
 
@@ -280,6 +316,22 @@ final class TankLifeFlowTests: XCTestCase {
   }
 
   // MARK: Helpers
+
+  /// With UIKit's animations on, as on a reader's phone: every other flow turns them off (launchForFlow).
+  private func launchAnimated(_ args: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults"] + args
+    app.launch()
+    return app
+  }
+
+  /// The screen as it is, kept with the run's results.
+  private func shoot(_ name: String) {
+    let shot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    shot.name = name
+    shot.lifetime = .keepAlways
+    add(shot)
+  }
 
   private func launch(reset: Bool = true, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
