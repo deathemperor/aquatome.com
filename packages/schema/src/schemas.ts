@@ -184,6 +184,8 @@ export const EquipmentSchema = z.object({
   category: z.string(), name: z.string(), lead: z.string(), intro: z.string(), hero: Photo,
   /** `match`: a regex over the shop keywords species pages suggest; the first type that matches a keyword owns it. `buy`: the search to send shoppers to. */
   types: z.array(z.object({ id: z.string(), name: z.string(), match: z.string(), desc: z.string(), pick: z.string(), buy: z.string(), photo: Photo.optional() })),
+  /** The types' ids in the order a keeper reads them (smallest or most used first), where that isn't `types`' matching order. */
+  order: z.array(z.string()).optional(),
   choose: z.array(z.string()), mistakes: z.array(z.string()), faq: z.array(z.object({ q: z.string(), a: z.string() })),
   /** A translation's review score (content/equipment/<lang>/<category>.json); the Vietnamese original has none. */
   quality: z.object({ score: z.number(), indexable: z.boolean() }).optional(),

@@ -1,6 +1,6 @@
 {
  "category": "loc",
- "name": "Lọc",
+ "name": "Lọc, sủi khí và tạo dòng",
  "hero": {
   "url": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe.webp",
   "thumb": "https://media.aquatome.com/aquariumcoop/bd48ef5a85213dbe-480.webp",
@@ -104,6 +104,14 @@
    "desc": "Khối mút xốp chạy bằng máy sủi khí: bọt khí kéo nước qua mút, vi sinh sống trong lỗ mút. Dòng nhẹ, không hút cá bột, gần như không hỏng.",
    "pick": "Hợp bể dưới 60 lít, bể betta, bể tép, bể đẻ và cá con. Bóp mút trong nước bể cũ khi vệ sinh, đừng rửa vòi để giữ vi sinh."
   }
+ ],
+ "order": [
+  "bot-bien",
+  "treo",
+  "thung",
+  "sump",
+  "suc-khi",
+  "tao-dong"
  ],
  "choose": [
   "Tính thể tích bể (dài × rộng × cao cm ÷ 1000 = lít), rồi chọn lọc có lưu lượng 4–6 lần thể tích đó mỗi giờ.",

@@ -1,6 +1,6 @@
 {
   "category": "loc",
-  "name": "Penapis",
+  "name": "Penapis, pam udara dan pembuat arus",
   "lead": "Penapis memastikan air kekal jernih dan menjadi tempat bakteria hidup untuk memproses sisa ikan. Pilih jenis yang sesuai dengan saiz tangki dan sifat ikan.",
   "intro": "<p>Penapis melakukan tiga perkara: memerangkap kotoran (penapisan mekanikal), menjadi tempat bakteria hidup untuk menukar ammonia kepada nitrit dan kemudian nitrat (penapisan biologi), serta menghasilkan arus supaya air dapat bertukar oksigen. Daripada tiga perkara itu, penapisan biologi paling penting: air tangki boleh kelihatan jernih tetapi masih beracun jika bakteria belum mencukupi.</p><p>Tiada jenis penapis yang \"terbaik\". Penapis span murah, senyap dan selamat untuk anak ikan dan udang. Penapis gantung mudah dipasang untuk tangki 40–100 liter. Penapis kanister kuat dan kemas untuk tangki besar atau aquascape. Ikan sungai berarus seperti hillstream loach memerlukan wavemaker tambahan.</p>",
   "hero": {
@@ -104,6 +104,14 @@
         "source": "aquariumcoop"
       }
     }
+  ],
+  "order": [
+    "bot-bien",
+    "treo",
+    "thung",
+    "sump",
+    "suc-khi",
+    "tao-dong"
   ],
   "choose": [
     "<p>Kira isi padu tangki (panjang × lebar × tinggi dalam cm ÷ 1000 = liter), kemudian pilih penapis dengan kadar aliran 4–6 kali isi padu itu sejam.</p>",
