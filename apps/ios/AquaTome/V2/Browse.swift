@@ -9,7 +9,12 @@ import SwiftUI
 @available(iOS 18, *)
 struct BrowseHome: View {
   @Binding var path: NavigationPath
+  /// The tab in front. "Đọc gần đây" is as it was when it came to the front, so a page just read stays where it was
+  /// tapped, for its zoom back, and the shelves don't move; it takes its new place next time.
+  let front: Bool
+  @State private var recentShown: [HandbookIndex.Item] = []
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
   @Namespace private var zoom
   // Sizes growing with the text, so a tile's words stay whole at the larger sizes.
@@ -25,7 +30,7 @@ struct BrowseHome: View {
     let s = handbook.shelves
     let top = featuredItems(s)
     let saved = handbook.saved(nil).filter { !top.map(\.path).contains($0.path) }
-    let recent = handbook.recent(nil).filter { r in !(top + saved).contains { $0.path == r.path } }
+    let recent = recentShown.filter { r in !(top + saved).contains { $0.path == r.path } }
     // A page on one shelf only, the first it's on (its zoom starts there).
     let onTop = Set((top + saved + recent).map(\.path))
     NavigationStack(path: $path) {
@@ -41,7 +46,7 @@ struct BrowseHome: View {
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
           if !s.groups.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
-              ShelfHeader(title: "Cá", more: Browse.fish(nil))
+              ShelfHeader(title: "Cá", more: size.isAccessibilitySize ? nil : Browse.fish(nil))
               groups(s.groups)
             }
           }
@@ -56,23 +61,29 @@ struct BrowseHome: View {
           }
           let first = s.firstGuides.filter { !onTop.contains($0.path) }
           VStack(alignment: .leading, spacing: 12) {
-            if !first.isEmpty { guides(first) }
+            if !first.isEmpty {
+              if size.isAccessibilitySize { columns("Bắt đầu từ đây", first, more: Browse.guides(nil)) } else { guides(first) }
+            }
             chips(s.sections.map { ($0.label, $0.count, Browse.guides($0.key)) })
           }
-          let series = s.all(.video)
-          if !series.isEmpty { videos(Array(series.prefix(8))) }
+          let series = s.all(.video).filter { !onTop.contains($0.path) }
+          if !series.isEmpty {
+            if size.isAccessibilitySize { columns("Video", Array(series.prefix(8)), more: Browse.videos) } else { videos(Array(series.prefix(8))) }
+          }
           let kit = s.all(.equipment).filter { !onTop.contains($0.path) }
           if !kit.isEmpty { columns("Thiết bị", kit) }
           tools
         }
         .padding(.vertical, 12)
       }
+      .modifier(HardTopEdge())
       .navigationTitle("Khám phá")
       .profileButton()
       .v2Destinations(zoom: zoom)
       .overlay { if handbook.status == .loading { ProgressView() } }
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
+      .task(id: "\(front) \(handbook.status)") { recentShown = handbook.recent(nil) }
     }
   }
 
@@ -100,8 +111,40 @@ struct BrowseHome: View {
     .scrollClipDisabled()
   }
 
-  /// The fish groups as photo tiles, two rows that page sideways.
-  private func groups(_ groups: [HandbookShelves.Shelf]) -> some View {
+  /// The fish groups as photo tiles, two rows that page sideways; at the accessibility sizes, the first five down the
+  /// screen, then the whole list.
+  @ViewBuilder private func groups(_ groups: [HandbookShelves.Shelf]) -> some View {
+    if size.isAccessibilitySize {
+      VStack(alignment: .leading, spacing: 14) {
+        ForEach(groups.prefix(5)) { g in
+          NavigationLink(value: Browse.fish(g.key)) {
+            HStack(spacing: 12) {
+              V2Photo(src: g.img).frame(width: 88, height: 88).clipShape(.rect(cornerRadius: 20, style: .continuous))
+              VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: g.label).font(.body.weight(.semibold))
+                Text(g.count, format: .number).font(.subheadline).foregroundStyle(.secondary)
+              }
+              Spacer(minLength: 0)
+            }
+            .contentShape(.rect)
+          }
+          .buttonStyle(.plain)
+          .accessibilityElement(children: .combine)
+        }
+        moreLink(Browse.fish(nil))
+      }
+      .padding(.horizontal, 20)
+    } else {
+      groupTiles(groups)
+    }
+  }
+
+  /// A list's end at the accessibility sizes, where its header has no room for it.
+  private func moreLink(_ to: Browse) -> some View {
+    NavigationLink(value: to) { Text("Xem tất cả").font(.body.weight(.semibold)).frame(minHeight: 44).contentShape(.rect) }
+  }
+
+  private func groupTiles(_ groups: [HandbookShelves.Shelf]) -> some View {
     ScrollView(.horizontal, showsIndicators: false) {
       LazyHGrid(rows: [GridItem(.fixed(tileHeight), spacing: 10), GridItem(.fixed(tileHeight))], spacing: 10) {
         ForEach(groups) { g in
@@ -109,13 +152,14 @@ struct BrowseHome: View {
             V2Photo(src: g.img)
               .frame(width: tileWidth, height: tileHeight)
               .overlay {
-                LinearGradient(colors: [.clear, .black.opacity(0.6)], startPoint: .center, endPoint: .bottom)
+                // Enough under the words on a light photo: 4.5:1 for the count too.
+                LinearGradient(stops: [.init(color: .clear, location: 0.3), .init(color: .black.opacity(0.75), location: 0.85)], startPoint: .top, endPoint: .bottom)
               }
               .overlay(alignment: .bottomLeading) {
                 HStack(alignment: .firstTextBaseline) {
                   Text(verbatim: g.label).font(.subheadline.weight(.semibold)).lineLimit(2)
                   Spacer(minLength: 4)
-                  Text(g.count, format: .number).font(.caption).opacity(0.85)
+                  Text(g.count, format: .number).font(.caption)
                 }
                 .foregroundStyle(.white)
                 .padding(10)
@@ -135,13 +179,14 @@ struct BrowseHome: View {
   /// accessibility sizes, a list down the screen: the first five with a whole list to go to, else them all.
   private func columns(_ title: LocalizedStringKey, _ items: [HandbookIndex.Item], more: Browse? = nil) -> some View {
     VStack(alignment: .leading, spacing: 12) {
-      ShelfHeader(title: title, more: more)
+      ShelfHeader(title: title, more: size.isAccessibilitySize ? nil : more)
       if size.isAccessibilitySize {
         VStack(alignment: .leading, spacing: 14) {
           ForEach(items.prefix(more == nil ? items.count : 5)) { item in
             Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
               .matchedTransitionSource(id: item.path, in: zoom)
           }
+          if let more { moreLink(more) }
         }
         .padding(.horizontal, 20)
       } else {
@@ -149,7 +194,8 @@ struct BrowseHome: View {
           LazyHGrid(rows: Array(repeating: GridItem(.fixed(rowHeight), spacing: 12), count: min(3, items.count)), spacing: 16) {
             ForEach(items) { item in
               Lockup(item: item, line: factsLine(item, handbook.lang) ?? item.sub)
-                .containerRelativeFrame(.horizontal) { w, _ in w - 72 }
+                // One column's worth: the whole width for the words, no next column to peek.
+                .containerRelativeFrame(.horizontal) { w, _ in items.count <= 3 ? w - 40 : w - 72 }
                 .matchedTransitionSource(id: item.path, in: zoom)
             }
           }
@@ -223,7 +269,10 @@ struct BrowseHome: View {
                   .frame(width: 36, height: 36).background(Circle().fill(.white.opacity(0.2)))
                 Text(verbatim: item.name).font(.headline).lineLimit(4).multilineTextAlignment(.leading)
                 Spacer(minLength: 0)
-                if let n = item.parts { Text("\(n) video").font(.caption.weight(.semibold)).opacity(0.8) }
+                if let n = item.parts {
+                  SeriesTicks(count: n)
+                  Text("\(n) video").font(.caption.weight(.semibold)).opacity(0.8)
+                }
               }
               .foregroundStyle(.white)
               .padding(14)
@@ -246,15 +295,21 @@ struct BrowseHome: View {
     Color(red: 0.25, green: 0.3, blue: 0.16),
   ]
 
-  /// The tools and the glossary, as tiles (one to a row at the accessibility sizes).
+  /// Fish ID, the site's tools as v1's Tìm lists them, what's new and the glossary, as tiles (one to a row at the
+  /// accessibility sizes).
   private var tools: some View {
     VStack(alignment: .leading, spacing: 12) {
       ShelfHeader<Browse>(title: "Công cụ")
       LazyVGrid(columns: size.isAccessibilitySize ? [GridItem(.flexible())] : [GridItem(.flexible(), spacing: 10), GridItem(.flexible())],
                 spacing: 10) {
         tool("Đây là cá gì?", "camera", FishIdRoute())
-        tool("Nuôi chung", "fish", TankMatesTool())
-        tool("Bể bao nhiêu lít?", "cube.transparent", VolumeTool())
+        ForEach(siteTools) { item in
+          let screen = AppScreen.of(handbook.url(item), site: handbook.site)
+          Button { openScreen(screen ?? .page(item.path)) } label: {
+            toolLabel(Text(verbatim: item.short ?? item.name), toolSymbol(item, screen))
+          }
+          .buttonStyle(CardPress())
+        }
         tool("Mới cập nhật", "sparkles", Browse.latest)
         tool("Thuật ngữ", "character.book.closed", Browse.glossary)
       }
@@ -262,17 +317,42 @@ struct BrowseHome: View {
     }
   }
 
-  private func tool(_ title: LocalizedStringKey, _ symbol: String, _ value: some Hashable) -> some View {
-    NavigationLink(value: value) {
-      VStack(alignment: .leading, spacing: 10) {
-        Image(systemName: symbol).font(.title3).foregroundStyle(Color.accentColor)
-        Text(title).font(.subheadline.weight(.semibold)).lineLimit(3).multilineTextAlignment(.leading)
+  /// The handbook's tools, less the page listing them and those with their own places (v1's Tìm the same).
+  private var siteTools: [HandbookIndex.Item] {
+    let tools = handbook.shelves.all(.tool)
+    let page = tools.first { t in tools.count > 1 && tools.allSatisfy { $0.path.hasPrefix(t.path) } }
+    return tools.filter { item in
+      guard item.path != page?.path else { return false }
+      switch AppScreen.of(handbook.url(item), site: handbook.site) {
+      case .fishId, .lights, .tanks: return false
+      default: return true
       }
-      .frame(maxWidth: .infinity, minHeight: 84, alignment: .topLeading)
-      .padding(14)
-      .background(.fill.quaternary, in: .rect(cornerRadius: 16, style: .continuous))
     }
-    .buttonStyle(CardPress())
+  }
+
+  private func toolSymbol(_ item: HandbookIndex.Item, _ screen: AppScreen?) -> String {
+    switch screen {
+    case .some(.tankMates): return "fish"
+    case .some(.tankVolume): return "cube.transparent"
+    default:
+      let slug = item.path.split(separator: "/").last.map(String.init) ?? ""
+      return ["du-toan-be", "anggaran-akuarium", "tank-budget"].contains(slug) ? "banknote" : "wrench.and.screwdriver"
+    }
+  }
+
+  private func tool(_ title: LocalizedStringKey, _ symbol: String, _ value: some Hashable) -> some View {
+    NavigationLink(value: value) { toolLabel(Text(title), symbol) }.buttonStyle(CardPress())
+  }
+
+  private func toolLabel(_ title: Text, _ symbol: String) -> some View {
+    VStack(alignment: .leading, spacing: 10) {
+      // One height for every symbol: the words start on one line across a row.
+      Image(systemName: symbol).font(.title3).foregroundStyle(Color.accentColor).frame(height: 28, alignment: .leading)
+      title.font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(3).multilineTextAlignment(.leading)
+    }
+    .frame(maxWidth: .infinity, minHeight: 84, alignment: .topLeading)
+    .padding(14)
+    .background(.fill.quaternary, in: .rect(cornerRadius: 16, style: .continuous))
   }
 }
 
@@ -280,24 +360,51 @@ struct BrowseHome: View {
 private struct FeaturedCard: View {
   let item: HandbookIndex.Item
   let height: CGFloat
-  @State private var colour = PhotoColour.fallback
+  @Environment(\.dynamicTypeSize) private var size
+  @State private var colour: Color
+
+  init(item: HandbookIndex.Item, height: CGFloat) {
+    self.item = item
+    self.height = height
+    _colour = State(initialValue: PhotoColour.cached(item.img) ?? PhotoColour.fallback)
+  }
 
   var body: some View {
-    V2Photo(src: item.img) { colour = $0 }
-      .frame(height: height)
-      .overlay {
-        LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.4), .init(color: colour.opacity(0.92), location: 1)],
-                       startPoint: .top, endPoint: .bottom)
-      }
-      .overlay(alignment: .bottomLeading) {
-        VStack(alignment: .leading, spacing: 3) {
-          Text(verbatim: item.kind.title).font(.caption.weight(.bold)).textCase(.uppercase).opacity(0.8)
-          Text(verbatim: item.name).font(.title3.weight(.heavy)).lineLimit(2).multilineTextAlignment(.leading)
+    Group {
+      // At the accessibility sizes the words would cover the photo: they go under it, on its colour.
+      if size.isAccessibilitySize {
+        VStack(spacing: 0) {
+          V2Photo(src: item.img) { colour = $0 }.frame(height: 200)
+          words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
         }
-        .foregroundStyle(.white)
-        .padding(16)
+      } else {
+        V2Photo(src: item.img) { colour = $0 }
+          .frame(height: height)
+          .overlay {
+            // Opaque under the words: the small kind reads at 4.5:1 on a light photo too.
+            LinearGradient(stops: [.init(color: colour.opacity(0), location: 0.35), .init(color: colour, location: 0.72)],
+                           startPoint: .top, endPoint: .bottom)
+          }
+          .overlay(alignment: .bottomLeading) { words }
       }
-      .animation(.easeInOut(duration: 0.4), value: colour)
-      .clipShape(.rect(cornerRadius: 20, style: .continuous))
+    }
+    .animation(.easeInOut(duration: 0.4), value: colour)
+    .clipShape(.rect(cornerRadius: 20, style: .continuous))
+  }
+
+  private var words: some View {
+    VStack(alignment: .leading, spacing: 3) {
+      Text(verbatim: item.kind.title).font(.caption.weight(.bold)).textCase(.uppercase).opacity(0.8)
+      Text(verbatim: item.name).font(.title3.weight(.heavy)).lineLimit(size.isAccessibilitySize ? nil : 2).multilineTextAlignment(.leading)
+    }
+    .foregroundStyle(.white)
+    .padding(16)
+  }
+}
+
+/// iOS 26's hard top edge, as on a fish's page: the words under the bar's title don't show through it.
+private struct HardTopEdge: ViewModifier {
+  func body(content: Content) -> some View {
+    if #available(iOS 26, *) { content.scrollEdgeEffectStyle(.hard, for: .top) } else { content }
   }
 }

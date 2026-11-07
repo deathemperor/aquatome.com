@@ -15,6 +15,12 @@ struct FullPage: Hashable {
 @available(iOS 18, *)
 struct SpeciesPage: View {
   let item: HandbookIndex.Item
+
+  init(item: HandbookIndex.Item) {
+    self.item = item
+    _colour = State(initialValue: PhotoColour.cached(item.img) ?? PhotoColour.fallback)
+  }
+
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Environment(\.openScreen) private var openScreen
@@ -25,7 +31,9 @@ struct SpeciesPage: View {
   /// This page being read, how far down and how long, as v1's page reports it (made when it first shows).
   @State private var reading: PageReading?
   @State private var doc: PageDoc?
-  @State private var colour = PhotoColour.fallback
+  /// The page has been asked for: nil after this, it didn't come (offline, and not kept).
+  @State private var asked = false
+  @State private var colour: Color
   @State private var putting = false
   /// The gallery's photo shown full screen.
   @State private var viewing: Int?
@@ -55,19 +63,24 @@ struct SpeciesPage: View {
   var body: some View {
     ScrollView {
       VStack(spacing: 0) {
-        V2Photo(src: hero) { colour = $0 }
-          .frame(height: 420)
-          // A shade under the status bar, so it reads on a light photo.
-          .overlay(alignment: .top) {
-            LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom).frame(height: 130)
-          }
-          .overlay(alignment: .bottom) {
-            LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
-          }
-          .overlay(alignment: .bottomTrailing) { leadCredit }
-          .accessibilityElement()
-          .accessibilityLabel(Text(verbatim: doc?.lead?.alt ?? item.name))
-          .accessibilityAddTraits(.isImage)
+        if let hero {
+          V2Photo(src: hero) { colour = $0 }
+            .frame(height: 420)
+            // A shade under the status bar, so it reads on a light photo.
+            .overlay(alignment: .top) {
+              LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom).frame(height: 130)
+            }
+            .overlay(alignment: .bottom) {
+              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
+            }
+            .overlay(alignment: .bottomTrailing) { leadCredit }
+            .accessibilityElement()
+            .accessibilityLabel(Text(verbatim: doc?.lead?.alt ?? item.name))
+            .accessibilityAddTraits(.isImage)
+        } else {
+          // No photo (a third of the fish): the page starts at the name, under its buttons, not at an empty box.
+          Color.clear.frame(height: 116)
+        }
         header
         FactsStrip(facts: facts, onDark: true).padding(.vertical, 14)
         if !photos.isEmpty { gallery.padding(.bottom, 24) }
@@ -75,7 +88,11 @@ struct SpeciesPage: View {
       .background(colour)
       .animation(.easeInOut(duration: 0.45), value: colour)
       VStack(alignment: .leading, spacing: 28) {
+        if asked, doc == nil {
+          Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 20)
+        }
         if hasSummary { summary } else { firstParagraph }
+        climate
         mates
         Button { openFull(item) } label: {
           HStack {
@@ -136,6 +153,7 @@ struct SpeciesPage: View {
     }
     .task(id: item.path) {
       doc = await handbook.doc(item)
+      asked = true
       handbook.read(item)
     }
   }
@@ -162,6 +180,8 @@ struct SpeciesPage: View {
   private func round(_ symbol: String) -> some View {
     Image(systemName: symbol)
       .font(.body.weight(.semibold))
+      // It stays inside its circle at the largest text.
+      .dynamicTypeSize(...DynamicTypeSize.xLarge)
       .foregroundStyle(.white)
       .frame(width: 44, height: 44)
       .background(.black.opacity(0.45), in: Circle())
@@ -191,6 +211,7 @@ struct SpeciesPage: View {
         .buttonStyle(.plain)
         // Not into a store this app must leave alone (newer, unreadable), as v1's page.
         .disabled(!tanks.canEdit)
+        .opacity(tanks.canEdit ? 1 : 0.5)
         .accessibilityIdentifier("v2-add")
         .padding(.top, 10)
       }
@@ -222,7 +243,7 @@ struct SpeciesPage: View {
           VStack(alignment: .leading, spacing: 4) {
             Button { viewing = i } label: {
               V2Photo(src: p.thumb ?? p.src)
-                .frame(width: shot * 1.45, height: shot)
+                .frame(width: min(shot, 220) * 1.45, height: min(shot, 220))
                 .clipShape(.rect(cornerRadius: 16, style: .continuous))
             }
             .buttonStyle(CardPress())
@@ -232,7 +253,7 @@ struct SpeciesPage: View {
               Text(line).foregroundStyle(.white.opacity(0.75)).tint(.white).fixedSize(horizontal: false, vertical: true)
             }
           }
-          .frame(width: shot * 1.45, alignment: .leading)
+          .frame(width: min(shot, 220) * 1.45, alignment: .leading)
         }
       }
       .scrollTargetLayout()
@@ -276,6 +297,32 @@ struct SpeciesPage: View {
           ForEach(mistakes.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
         }
         if let by = s.by { Text(verbatim: by).font(.footnote).foregroundStyle(.secondary).padding(.top, 4) }
+      }
+      .padding(.horizontal, 20)
+    }
+  }
+
+  /// Whether it gets through a northern winter, as v1's page says: the question a fish's facts don't answer.
+  @ViewBuilder private var climate: some View {
+    if let c = doc?.blocks.lazy.compactMap({ b -> (title: String, items: [(label: String, ok: Bool, text: String)], note: String)? in
+      if case let .climate(title, items, note) = b { return (title, items, note) }
+      return nil
+    }).first {
+      VStack(alignment: .leading, spacing: 10) {
+        Text(verbatim: c.title).font(.title2.weight(.bold)).accessibilityAddTraits(.isHeader)
+        ForEach(c.items.indices, id: \.self) { i in
+          HStack(alignment: .firstTextBaseline, spacing: 8) {
+            Image(systemName: c.items[i].ok ? "checkmark.circle.fill" : "xmark.circle.fill")
+              .foregroundStyle(c.items[i].ok ? Color.green : Color.red)
+              .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 2) {
+              Text(verbatim: c.items[i].label).font(.body.weight(.semibold))
+              Text(verbatim: c.items[i].text).font(.body)
+            }
+          }
+          .accessibilityElement(children: .combine)
+        }
+        if !c.note.isEmpty { Text(verbatim: c.note).font(.footnote).foregroundStyle(.secondary) }
       }
       .padding(.horizontal, 20)
     }

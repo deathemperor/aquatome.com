@@ -35,7 +35,7 @@ struct V2Root: View {
           .v2ClearUnderTabBar()
       }
       Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
-        BrowseHome(path: $handbookPath)
+        BrowseHome(path: $handbookPath, front: selection == .browse)
           .environment(\.v2OpenFull) { item in
             if ownFrom == nil { ownFrom = handbookPath.count }
             handbookPath.append(FullPage(item: item))
@@ -52,9 +52,10 @@ struct V2Root: View {
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
-    .onChange(of: handbookPath.count) { old, new in
-      if new > old { selection = .browse }
-      if let f = ownFrom, new <= f { ownFrom = nil }
+    // Grown or replaced, not gone back: the kept pages' row replaces it, a path of the same length.
+    .onChange(of: handbookPath) { old, new in
+      if !new.isEmpty, new.count >= old.count { selection = .browse }
+      if let f = ownFrom, new.count <= f { ownFrom = nil }
     }
     .onChange(of: todayPath.count) { if let f = todayOwnFrom, todayPath.count <= f { todayOwnFrom = nil } }
     .onChange(of: tanksPath) { if !tanksPath.isEmpty { selection = .tanks } }

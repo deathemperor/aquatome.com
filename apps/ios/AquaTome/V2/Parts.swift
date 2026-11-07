@@ -32,7 +32,11 @@ struct V2Photo: View {
         // A big frame: the full photo, the small copy shown meanwhile if it's in memory (a 480 px copy counts as large
         // enough for any frame to the cache, which never decodes past a picture's own size).
         if full != src, pixels.width > 600 || pixels.height > 600 {
-          if picture?.src != src, let quick = PageImages.cached(src) { picture = (src, quick) }
+          if picture?.src != src, let quick = PageImages.cached(src) {
+            picture = (src, quick)
+            // Its colour now, not once the full photo has come.
+            if let colour { colour(await PhotoColour.of(quick, key: src)) }
+          }
           image = await PageImages.image(full, size)
         }
         if image == nil { image = await PageImages.image(src, size) }
@@ -49,9 +53,12 @@ struct V2Photo: View {
 }
 
 /// The colour a photo gives the page around it: its most vivid colour with enough of the picture behind it, deep enough
-/// for white words on it (4.5:1 at least). Worked out once per photo, off the main thread.
+/// for small white words at 75% on it (4.5:1 at least). Worked out once per photo, off the main thread.
 enum PhotoColour {
   @MainActor private static var known: [String: Color] = [:]
+
+  /// Its colour if it's already known, so a page opens in the colour of the card it opened from.
+  @MainActor static func cached(_ key: String?) -> Color? { key.flatMap { known[$0] } }
 
   @MainActor static func of(_ image: UIImage, key: String) async -> Color {
     if let c = known[key] { return c }
@@ -90,9 +97,9 @@ enum PhotoColour {
       return (v.count.squareRoot() * (0.1 + 2 * chroma) * fair, r, g, b)
     }
     guard var c = scored.max(by: { $0.score < $1.score }) else { return nil }
-    // Deepened, its hue kept, until white words on it have 4.5:1 (relative luminance at most 0.183).
+    // Deepened, its hue kept, until white at 75% on it has 4.5:1 whatever the hue (relative luminance at most 0.09).
     func lum(_ x: Double) -> Double { x <= 0.04045 ? x / 12.92 : pow((x + 0.055) / 1.055, 2.4) }
-    for _ in 0..<40 where 0.2126 * lum(c.r) + 0.7152 * lum(c.g) + 0.0722 * lum(c.b) > 0.16 {
+    for _ in 0..<40 where 0.2126 * lum(c.r) + 0.7152 * lum(c.g) + 0.0722 * lum(c.b) > 0.09 {
       c = (c.score, c.r * 0.92, c.g * 0.92, c.b * 0.92)
     }
     return (c.r, c.g, c.b)
@@ -122,18 +129,21 @@ struct Lockup: View {
     let side = min(thumb, 88)
     layout {
       NavigationLink(value: item) {
-        HStack(spacing: 12) {
+        // Its photo level with the name when the words run to many lines.
+        HStack(alignment: size.isAccessibilitySize ? .top : .center, spacing: 12) {
           if icon {
             V2Photo(src: item.img)
               .frame(width: side, height: side)
               .clipShape(.rect(cornerRadius: side * 0.23, style: .continuous))
+              .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title3).foregroundStyle(.secondary) } }
               .overlay { RoundedRectangle(cornerRadius: side * 0.23, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
           }
           VStack(alignment: .leading, spacing: 2) {
-            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).lineLimit(size.isAccessibilitySize ? 4 : 2)
+            Text(verbatim: title ?? item.name).font(.body.weight(.semibold)).italic(title != nil && title == item.sub)
+              .lineLimit(size.isAccessibilitySize ? nil : 2)
               .foregroundStyle(onDark ? .white : .primary)
             if let line = line ?? Lockup.line(item) {
-              Text(verbatim: line).font(.subheadline).lineLimit(size.isAccessibilitySize ? 2 : 1)
+              Text(verbatim: line).font(.subheadline).italic(line == item.sub).lineLimit(size.isAccessibilitySize ? nil : 1)
                 .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
             }
           }
@@ -154,6 +164,7 @@ struct Lockup: View {
         .buttonStyle(.plain)
         // Not into a store this app must leave alone (newer, unreadable), as v1's page.
         .disabled(!tanks.canEdit)
+        .opacity(tanks.canEdit ? 1 : 0.45)
         // Read with the fish's name: a shelf of them isn't "Thêm vào bể" again and again.
         .accessibilityLabel(Text("Thêm \(item.name) vào bể"))
     } else {
@@ -177,7 +188,7 @@ private extension Text {
       .foregroundStyle(onDark ? Color.white : Color.accentColor)
       .padding(.horizontal, 16)
       .frame(minWidth: 72, minHeight: 30)
-      .background(Capsule().fill(onDark ? AnyShapeStyle(.white.opacity(0.22)) : AnyShapeStyle(.fill.tertiary)))
+      .background(Capsule().fill(onDark ? AnyShapeStyle(.white.opacity(0.15)) : AnyShapeStyle(.fill.tertiary)))
       .frame(minHeight: 44)
       .contentShape(.rect)
   }
@@ -191,6 +202,7 @@ struct FactsStrip: View {
   @Environment(HandbookModel.self) private var handbook
   /// A column's narrowest, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
   @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 84
+  @Environment(\.dynamicTypeSize) private var size
 
   struct Column: Identifiable {
     let id: Int
@@ -204,6 +216,28 @@ struct FactsStrip: View {
   }
 
   var body: some View {
+    if size.isAccessibilitySize { list } else { strip }
+  }
+
+  /// At the accessibility sizes, one figure a line down the page: across, a column takes the screen and cuts the next
+  /// figure short, "150 cm" reading "15".
+  private var list: some View {
+    VStack(alignment: .leading, spacing: 12) {
+      ForEach(columns) { c in
+        VStack(alignment: .leading, spacing: 2) {
+          Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil)
+            .foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
+          Text(verbatim: c.caption.map { "\(c.value) (\($0))" } ?? c.value).font(.title3.weight(.bold))
+            .foregroundStyle(onDark ? .white : .primary)
+        }
+        .accessibilityElement(children: .combine)
+      }
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .padding(.horizontal, 20)
+  }
+
+  private var strip: some View {
     ScrollView(.horizontal, showsIndicators: false) {
       HStack(alignment: .top, spacing: 0) {
         ForEach(columns) { c in
@@ -223,10 +257,10 @@ struct FactsStrip: View {
                 }
                 .padding(.top, 2)
             } else if let caption = c.caption {
-              Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.7) : .secondary)
+              Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .secondary)
             }
           }
-          // Four whole on a phone, the fifth just showing past them: no word is cut, and there's more to see.
+          // Four whole on a phone, the fifth fading out past them (never a stray digit): there's more to see.
           .containerRelativeFrame(.horizontal) { w, _ in max((w - 44) / 4, column) }
           .padding(.vertical, 4)
           .overlay(alignment: .leading) {
@@ -235,7 +269,14 @@ struct FactsStrip: View {
           .accessibilityElement(children: .combine)
         }
       }
-      .padding(.horizontal, 12)
+      .padding(.leading, 12)
+    }
+    .contentMargins(.trailing, 28, for: .scrollContent)
+    .mask {
+      HStack(spacing: 0) {
+        Color.black
+        LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: 28)
+      }
     }
   }
 
@@ -259,6 +300,21 @@ struct FactsStrip: View {
     if let r = facts.lifeYears { add("Tuổi thọ", "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))") }
     if let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
     return out
+  }
+}
+
+/// A video series' artwork, there being no thumbnails to show (the photo rules): a tick for each of its videos, as a
+/// strip of film.
+struct SeriesTicks: View {
+  let count: Int
+
+  var body: some View {
+    HStack(spacing: 3) {
+      ForEach(0..<min(count, 20), id: \.self) { _ in
+        RoundedRectangle(cornerRadius: 1.5).fill(.white.opacity(0.45)).frame(maxWidth: 12, minHeight: 18, maxHeight: 18)
+      }
+    }
+    .accessibilityHidden(true)
   }
 }
 

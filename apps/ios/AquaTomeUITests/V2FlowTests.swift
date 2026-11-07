@@ -112,6 +112,36 @@ final class V2FlowTests: XCTestCase {
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     XCTAssertTrue(app.staticTexts["Cá neon"].waitForExistence(timeout: 5), "not the fish the link names")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the link opened on another tab")
+  }
+
+  /// The row replaces Khám phá's path with one of the same length, from another tab that shares v1's: still it shows.
+  func testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay() {
+    let app = launch()
+    app.launchForFlow()
+    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 10), "no handbook")
+    let all = app.descendants(matching: .any)["all-guides"]
+    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
+    all.tap()
+    XCTAssertTrue(app.navigationBars["Tất cả hướng dẫn"].waitForExistence(timeout: 5))
+    app.buttons["keep-offline"].tap()
+    XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't open")
+    app.openTab("Khám phá")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    neon.tap()
+    XCTAssertTrue(app.buttons["v2-back"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.openTab("Hôm nay")
+    app.openAccount()
+    let row = app.buttons["kept-row"]
+    repeatUntil(row.exists && row.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(row.exists, "the sheet doesn't list the kept pages")
+    row.tap()
+    XCTAssertTrue(app.navigationBars["Đã tải để đọc offline"].waitForExistence(timeout: 5), "their shelf didn't show")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "stayed on another tab")
   }
 
   func testAFishsPageCreditsItsPhotosAndItsTankMatesOpen() {

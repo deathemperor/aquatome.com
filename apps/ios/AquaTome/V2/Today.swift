@@ -93,7 +93,10 @@ struct TodayView: View {
       return pool.isEmpty ? nil : pool[(day + turn) % pool.count]
     }
     var out: [Card] = []
-    if let f = pick(s.featuredFish) { out.append(.fish(f)) }
+    // A reader with no fish yet isn't first shown one that needs a very large tank.
+    let beginner = tanks.tanks.allSatisfy { $0.species.isEmpty }
+    let easy = beginner ? s.featuredFish.filter { ($0.facts.tankCm ?? 0) <= 100 } : []
+    if let f = pick(easy.isEmpty ? s.featuredFish : easy) { out.append(.fish(f)) }
     if let g = pick(s.firstGuides) { out.append(.guide(g)) }
     // The northern winter (November to March): the well-known fish that need a heater. Vietnam's season, so Vietnamese only.
     let month = Calendar.current.component(.month, from: .now)
@@ -138,9 +141,16 @@ private struct Eyebrow: View {
 private struct FishOfTheDay: View {
   let item: HandbookIndex.Item
   let zoom: Namespace.ID
+
+  init(item: HandbookIndex.Item, zoom: Namespace.ID) {
+    self.item = item
+    self.zoom = zoom
+    _colour = State(initialValue: PhotoColour.cached(item.img) ?? PhotoColour.fallback)
+  }
+
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
-  @State private var colour = PhotoColour.fallback
+  @State private var colour: Color
   /// Taller with the text, so a long name at the larger sizes stays on the photo.
   @ScaledMetric(relativeTo: .largeTitle) private var height: CGFloat = 380
 
@@ -197,9 +207,16 @@ private struct FishOfTheDay: View {
 private struct GuideCard: View {
   let item: HandbookIndex.Item
   let zoom: Namespace.ID
+
+  init(item: HandbookIndex.Item, zoom: Namespace.ID) {
+    self.item = item
+    self.zoom = zoom
+    _colour = State(initialValue: PhotoColour.cached(item.img) ?? PhotoColour.fallback)
+  }
+
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
-  @State private var colour = PhotoColour.fallback
+  @State private var colour: Color
   @ScaledMetric(relativeTo: .title) private var height: CGFloat = 420
 
   var body: some View {
@@ -251,6 +268,7 @@ private struct SeasonCard: View {
   let items: [HandbookIndex.Item]
   let zoom: Namespace.ID
   @Environment(HandbookModel.self) private var handbook
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
@@ -263,7 +281,7 @@ private struct SeasonCard: View {
                  thumb: 52)
             .padding(.vertical, 6)
             .matchedTransitionSource(id: item.path, in: zoom)
-          if item.path != items.last?.path { Divider().padding(.leading, 64) }
+          if item.path != items.last?.path { Divider().padding(.leading, size.isAccessibilitySize ? 0 : 64) }
         }
       }
       .padding(.top, 10)
@@ -398,7 +416,10 @@ private struct SeriesCard: View {
           .frame(width: 48, height: 48)
           .background(Circle().fill(.white.opacity(0.18)))
         Text(verbatim: item.name).font(.system(.title2, weight: .heavy)).lineLimit(3).multilineTextAlignment(.leading)
-        if let n = item.parts { Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75) }
+        if let n = item.parts {
+          SeriesTicks(count: n)
+          Text("\(n) video").font(.subheadline.weight(.semibold)).opacity(0.75)
+        }
       }
       .foregroundStyle(.white)
       .frame(maxWidth: .infinity, alignment: .leading)
@@ -418,10 +439,10 @@ private struct SeriesCard: View {
 private struct LatestCard: View {
   let rows: [Latest.Row]
   let zoom: Namespace.ID
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     VStack(alignment: .leading, spacing: 4) {
-      Eyebrow(text: "Mới trên AquaTome", faded: false).foregroundStyle(Color.accentColor)
       HStack(alignment: .firstTextBaseline) {
         Text("Mới cập nhật").font(.system(.title2, weight: .heavy))
         Spacer()
@@ -431,7 +452,7 @@ private struct LatestCard: View {
         ForEach(rows) { row in
           Lockup(item: row.item, thumb: 52).padding(.vertical, 6)
             .matchedTransitionSource(id: row.item.path, in: zoom)
-          if row.id != rows.last?.id { Divider().padding(.leading, 64) }
+          if row.id != rows.last?.id { Divider().padding(.leading, size.isAccessibilitySize ? 0 : 64) }
         }
       }
       .padding(.top, 10)
