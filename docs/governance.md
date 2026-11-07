@@ -890,6 +890,24 @@ The layers above still check the result.
   by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
   peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
 
+- **Written for the reader** (`packages/engine/src/fit.ts`, `gate.ts`). One fixed checklist (`prompts/fit.md`) reads
+  every served guide, species, plant and breed page for what shows it was written for a reader somewhere else: the
+  source's own talk, imperial or converted units, a foreign shop, price or product (the market table, `market.ts`, says
+  what's sold here, never the model), a dose tied to a product, a dose that doesn't say what it's for or lacks its
+  source's caution for shrimp and others, and a shop abroad's kit, which no rewording fixes. Rules run on every page;
+  Opus reads for the rest, and a finding counts only with a quote on the page. Reads are kept by page and text hash
+  (`engine-state/_fit.json`), so a page is read again only when its text changes (`pnpm engine fit`, in batches).
+  - Doses on different pages for the same treatment, strength, use and method at rates that can't both be right are
+    flagged, never averaged (`docs/review/fit.md`); a person settles which holds.
+  - The owner's number, pages wrong for the reader per language against the 8 Nov 2026 baseline, with the held pages
+    and three random pages a day, is `engine-state/fit-summary.json`, which the daily report shows.
+  - The gate (`pnpm engine gate`, last in a cycle) reads the pages the cycle changed: a new page that fails is held
+    (`held` in its language file, which the build leaves out), a live page whose new text fails a check its old text
+    passed gets its committed text back, a page built on a shop abroad's kit is held, and a held page that changes and
+    passes is let out. With the accounts out, a new page waits held (`gate.test.ts`).
+  - Found by the owner on a guide that sent Vietnamese readers to an American product: "If the vast contents of the
+    product works like that nobody is able to check."
+
 ## Rules for every change (people and agents)
 
 1. **A page bug comes with a check that fails without the fix**, in the same PR: a journey, a page check or a vitest
@@ -899,9 +917,12 @@ The layers above still check the result.
 3. **Never weaken a check to get a green run.** Fix the page. A real exception is written into the check with its
    reason (as `VIETNAMESE_ALLOWED` does for decree numbers).
 4. Before merging, the gate must pass. When it can't (a check is wrong), fix the check in the same PR and say why.
-5. **A Lighthouse budget only tightens.** A fix that lifts a page past its `KNOWN` entry removes the entry in the same
+5. **An owner's complaint about one page becomes a check over every page**, in the PR that answers it: a rule when words
+   can show it (`fitRules`, `content-rules.ts`), else a line in the reader-fit checklist (`prompts/fit.md`, with its
+   `FIT_TITLE`). The engine then mends every page the check finds, the one complained about among them.
+6. **A Lighthouse budget only tightens.** A fix that lifts a page past its `KNOWN` entry removes the entry in the same
    PR. Loosening one needs the reason written next to it.
-6. **A change to how a page looks shows it before and after.** On a PR that changes `apps/site/src`, ci.yml's job
+7. **A change to how a page looks shows it before and after.** On a PR that changes `apps/site/src`, ci.yml's job
    `shots` screenshots the same pages of the base's fixture build and the change's, at a phone's size (Pixel 7, 412 px)
    and a computer's (1280 px). It keeps the pairs that differ, side by side, as the `site-page-shots` artifact, and lists
    them in its run's summary. The PR links that artifact and names the pair that shows each improvement it claims. Its
