@@ -632,7 +632,7 @@ func standInComments() async throws {
   var shown = try await commentList(mine, "shown")
   #expect(shown.state == "shown" && ids(shown) == ["2e3f", "0c1d", "6c7d", "7d8e"] && counted(shown) == [4, 21, 2])
   let moved = shown.items[1]
-  #expect(moved.state == "shown" && moved.reason == "Shown by the owner" && moved.actions.map(\.label) == ["Hide"] && moved.actions[0].asks)
+  #expect(moved.state == "shown" && moved.reason == "Shown by the owner" && moved.actions.map(\.label) == ["Hide"] && !moved.actions[0].asks)
 
   // Hidden: on Hidden, with Show again.
   try await mine.run(moved.actions[0])

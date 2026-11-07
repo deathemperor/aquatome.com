@@ -182,9 +182,9 @@ final class OwnerFlowTests: XCTestCase {
     let more = app.buttons["owner-more"]
     repeatUntil(more.exists && more.isHittable, times: 30) { app.swipeUp() }
     XCTAssertEqual(more.label, "Show 10 more of 60")
-    XCTAssertFalse(app.staticTexts["04/11 14:14"].exists, "the last row before it was read")
+    XCTAssertFalse(app.staticTexts["04/11 14:04"].exists, "the last row before it was read")
     more.tap()
-    let last = app.staticTexts["04/11 14:14"]
+    let last = app.staticTexts["04/11 14:04"]
     XCTAssertTrue(last.waitForExistence(timeout: 10), "the rest weren't read")
     XCTAssertFalse(more.exists, "more to read after the last page")
   }

@@ -462,8 +462,8 @@ public enum Owner {
       self.tone = tone
     }
 
-    /// Asks before it's sent: it deletes something.
-    public var asks: Bool { tone == .bad }
+    /// Asks before it's sent: it deletes something for good. Not hiding a comment, which "Show again" undoes for 30 days.
+    public var asks: Bool { tone == .bad && !path.hasPrefix("/api/owner/comments/") }
   }
 
   /// A section key as the dashboard lists them: only these characters, so it is one path segment.
