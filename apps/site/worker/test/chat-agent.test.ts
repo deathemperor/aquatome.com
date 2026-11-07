@@ -92,9 +92,9 @@ test('read_tanks reads the reader\'s tanks with their ids, says when there are n
   const h = await hb()
   const tank: Tank = { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 2 }, { name: 'Rong lạ', kind: 'plant' }] }
   const tool = (tanks: () => Promise<unknown>) => chatTools({ handbook: h, tanks: tanks as never }).find(t => t.name === 'read_tanks')!
-  // Its fish as the handbook names them, one without a page by the reader's name; a plant isn't a fish.
+  // Its fish as the handbook names them, one without a page by the reader's name; a plant isn't a fish, it's a plant.
   expect(JSON.parse(await tool(async () => [tank]).run({}, { photosLeft: 0 }) as string)).toEqual([
-    { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }] },
+    { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: 'Cá lạ', count: 2 }], plants: ['Rong lạ'] },
   ])
   // What else the reader saved: plants (a page's by its name, one without a page by theirs), substrate, how long ago it
   // was saved, each light's schedule in a line, what its plugs power, and the notes as their own words, cut.
