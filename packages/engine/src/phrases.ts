@@ -41,12 +41,19 @@ export const PHRASES: Partial<Record<WrittenLang, Phrase[]>> = {
     { say: 'bạn nên', find: 'bạn (?:nên|cần)', instead: '"nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần")' }, // bạn nên 848 | 187 | 240, bạn cần 366 | 51 | 137
     { say: 'hung hăng', instead: '"dữ", "hung dữ"' }, // 189 | 9 | 0
     { say: 'bạn cùng bể', instead: '"cá nuôi chung", "nuôi chung với…"' }, // 222 | 0 | 0
-    { say: 'giới chơi', instead: '"người chơi", "dân chơi"' }, // 220 | 4 | 0
+    { say: 'giới chơi', instead: '"người chơi", hoặc bỏ' }, // 220 | 4 | 0
     { say: 'thị trường cá cảnh', instead: '"tiệm cá", "trên thị trường"' }, // 126 | 2 | 0
     { say: 'thức ăn sống', find: '(?:thức ăn|mồi) sống', instead: '"thức ăn tươi sống", "đồ tươi"' }, // 427 | 9 | 0
     { say: 'giữ lãnh thổ', instead: '"hay đuổi cá khác khỏi chỗ của nó", "hay giành chỗ"' }, // 124 | 0 | 0
     { say: 'chỗ trú', instead: '"chỗ trốn"' }, // 107 | 0 | 0
     { say: 'keo siêu dính', instead: '"keo 502"' }, // 5 | 0 | 0; the videos say keo 502 (30)
+    // The editors' third round (2026-11-07), each held by the references.
+    { say: 'rất nên', instead: '"nên", "tốt nhất là"' }, // 41 | 0 | 0
+    { say: 'loricariid', instead: '"cá tỳ bà", "pleco"' }, // 48 | 0 | 0; tỳ bà 30 in the forum, pleco 11 in the videos
+    { say: 'muối bể cá', instead: '"muối hột"' }, // 4 | 0 | 0; muối hột 63 in the forum
+    // "giới chơi" used to point here, and the rewrite took it: guides 295, species 120, video guides 117 | 24 | 7.
+    { say: 'dân chơi', instead: 'thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai' },
+    { say: 'được chuộng', instead: '"nhiều người nuôi", "dễ kiếm", hoặc nói thẳng vì sao' }, // 20 | 0 | 0
     // The editors' second round (2026-11-07), each checked here: textbook words where a keeper says what happens.
     { say: 'trưởng thành sinh dục', instead: '"đủ lớn để đẻ", "bắt cặp được"' }, // 33 | 0 | 0
     { say: 'cá nhân giống', instead: '"cá trại", "cá cho đẻ trong bể" (dễ đọc nhầm thành "cá nhân")' }, // 29 | 0 | 0

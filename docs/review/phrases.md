@@ -48,13 +48,18 @@ Per million words, site | forum | videos:
 | bạn nên, bạn cần | 848, 366 | 187, 51 | 240, 137 | nên, cần, or the step itself |
 | hung hăng | 189 | 9 | 0 | dữ (244 in the forum) |
 | bạn cùng bể | 222 | 0 | 0 | nuôi chung với… |
-| giới chơi | 220 | 4 | 0 | người chơi (128, 144), dân chơi |
+| giới chơi | 220 | 4 | 0 | người chơi (128, 144), or nothing |
 | thị trường cá cảnh | 126 | 2 | 0 | tiệm cá (84 in the forum), trên thị trường |
 | thức ăn sống, mồi sống | 427 | 9 | 0 | thức ăn tươi sống, đồ tươi |
 | giữ lãnh thổ | 124 | 0 | 0 | hay đuổi cá khác khỏi chỗ của nó |
 | chỗ trú | 107 | 0 | 0 | chỗ trốn (3, 22) |
 | keo siêu dính | 5 | 0 | 0 | keo 502 (30 in the videos) |
 | một cách + adjective | 9 pages | | | the adjective alone; vi-style.md already bans it |
+| rất nên | 41 | 0 | 0 | nên, tốt nhất là |
+| loricariid | 48 | 0 | 0 | tỳ bà (30 in the forum), pleco (11 in the videos) |
+| muối bể cá | 4 | 0 | 0 | muối hột (63 in the forum) |
+| dân chơi | 170 | 24 | 7 | usually nothing ("gọi là…"); người chơi when it matters who. The list used to offer it for "giới chơi" |
+| được chuộng | 20 | 0 | 0 | nhiều người nuôi, dễ kiếm, or why |
 
 In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either reference).
 

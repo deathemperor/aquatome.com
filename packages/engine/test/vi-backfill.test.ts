@@ -154,6 +154,23 @@ test('--match re-edits only the pages containing it, video guides and their summ
   expect(vi.quality).toMatchObject({ bySource: { youtube: 0.6 }, chat: false })
 })
 
+test("a translated guide's rewrite is checked against its kept English article, and scores as a translation", async () => {
+  const root = await setup()
+  await mkdir(join(root, '../sources/aquariumcoop'), { recursive: true })
+  await writeFile(join(root, '../sources/aquariumcoop/g.md'), '---\nurl: https://x\n---\n\nMany beginners may not know this.')
+  // The guide's slug is "<source>-<article>", as on the site.
+  await put(root, 'guides/aquariumcoop-g/entity.json', { id: 'aquariumcoop-g', source: 'aquariumcoop', html: '' })
+  await put(root, 'guides/aquariumcoop-g/vi.json', { slug: 'g2', name: 'G2', body: '<p>cũ</p>', quality: { score: 0.85, indexable: true } })
+  const prompts: string[] = []
+  const calls: string[] = []
+  const llm = fake({ en: 0.9, vi: 0.9 }, calls)
+  const r = await rewriteExisting(root, join(root, '../s.json'), { llm: (async a => { prompts.push(a.prompt); return llm(a) }) as Llm, opts: { mode: 'fix' }, now }, { limit: 1, kinds: ['guides'] })
+  expect(r.done).toEqual(['guides/aquariumcoop-g (1/1, 0.90)'])
+  expect(prompts[0]).toContain('### body\nEN:\nMany beginners may not know this.\nVI:\n<p>cũ</p>')
+  expect(calls).toEqual(['rewrite', 'review'])
+  expect((await read(root, 'guides/aquariumcoop-g/vi.json')).quality).toMatchObject({ score: 0.9, bySource: { aquariumcoop: 0.9 } })
+})
+
 test('a dry run lists the pages a match takes up and how many parts each sends, calls no model and writes nothing', async () => {
   const root = await setup()
   const state = join(root, 'state.json')
