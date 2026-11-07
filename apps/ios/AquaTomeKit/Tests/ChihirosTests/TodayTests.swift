@@ -13,8 +13,12 @@ private func saturday(_ hour: Int, _ minute: Int = 0, in zone: TimeZone = vietna
   return cal.date(from: DateComponents(year: 2026, month: 11, day: 7, hour: hour, minute: minute))!
 }
 
-private func plan(_ s: Schedule = owners, _ end: TodayEnd, at date: Date, light: String = "DYSL30A1B2C3") throws -> TodayPlan {
+private func plan(_ s: Schedule, _ end: TodayEnd, at date: Date, light: String = "DYSL30A1B2C3") throws -> TodayPlan {
   try s.today(end, at: date, timeZone: vietnam, light: light)
+}
+/// The owner's schedule's.
+private func plan(_ end: TodayEnd, at date: Date, light: String = "DYSL30A1B2C3") throws -> TodayPlan {
+  try plan(owners, end, at: date, light: light)
 }
 
 private func at(_ hour: Int, _ minute: Int = 0) -> TimeOfDay { TimeOfDay(hour: hour, minute: minute) }
