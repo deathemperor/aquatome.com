@@ -22,6 +22,8 @@ struct NativePage: View {
   var nameInView: (Bool) -> Void = { _ in }
   /// The page's path on the site, for the app's anonymous telemetry (PageReading).
   var path: String?
+  /// The heading it opens at (a chat section's "Đọc tiếp"), a folded one open.
+  var heading: String?
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
@@ -36,6 +38,8 @@ struct NativePage: View {
   @State private var player = PagePlayer()
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
   @AccessibilityFocusState private var focus: String?
+  /// The folds the reader has opened or closed; until then, closed, unless the page opens at one.
+  @State private var folds: [Int: Bool] = [:]
 
   /// What the page shows, in order.
   enum Piece {
@@ -109,12 +113,11 @@ struct NativePage: View {
       // A chapter or a still tapped: its video in view.
       .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
       // Opened at a heading: there once it's drawn, as a `#id` link goes.
-      .task {
-        guard let at = handbook.openingAt, at.path == path else { return }
-        handbook.openingAt = nil
+      .task(id: heading) {
+        guard let heading else { return }
         try? await Task.sleep(for: .milliseconds(100))
-        proxy.scrollTo(at.heading, anchor: .top)
-        focus = at.heading
+        proxy.scrollTo(heading, anchor: .top)
+        focus = heading
       }
       .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
@@ -195,13 +198,13 @@ struct NativePage: View {
         Text(title).font(.headline)
       }
       .accessibilityIdentifier("page-more")
-    case let .fold(heading, anchor, text):
-      DisclosureGroup {
+    case let .fold(title, anchor, text):
+      DisclosureGroup(isExpanded: Binding(get: { folds[i] ?? (anchor != nil && anchor == heading) }, set: { folds[i] = $0 })) {
         Text(text).lineSpacing(3).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 12)
       } label: {
         // In the text's colour, as the page's other headings: only the chevron in the tint, which the links in the
         // text keep too.
-        Text(heading).foregroundStyle(Color.primary).accessibilityAddTraits(.isHeader)
+        Text(title).foregroundStyle(Color.primary).accessibilityAddTraits(.isHeader)
       }
       .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
       .id(anchor ?? "piece-\(i)")
@@ -541,7 +544,7 @@ struct NativePage: View {
 }
 
 /// A word's explanation (a glossary term, a citation), shown when its link is tapped.
-private struct Tip {
+struct Tip {
   let term: String
   let text: String
   let href: String?
@@ -574,7 +577,7 @@ func credit(_ c: PageDoc.Image.Credit, photo: Bool = true) -> AttributedString {
   return line
 }
 
-private func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -> AttributedString {
+func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -> AttributedString {
   var a = AttributedString(s)
   a.font = font
   if secondary { a.foregroundColor = .secondary }
@@ -1007,7 +1010,7 @@ private struct PutButton: View {
 /// A table as the site's, in a panel: a grid with its columns' names over them while they fit side by side; else each
 /// row's cells one under another, each under its column's name. No cell is shown without its column's name, the first
 /// column's too (a pros-and-cons table's "Ưu điểm").
-private struct TablePart: View {
+struct TablePart: View {
   let head: [AttributedString]?
   let rows: [[AttributedString]]
 

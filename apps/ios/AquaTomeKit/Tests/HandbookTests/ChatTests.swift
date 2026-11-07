@@ -720,4 +720,21 @@ private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601Forma
   #expect(sections.map(\.period) == [.today, .earlier])
   #expect(sections[0].rows.count == 2)
   #expect(Chat.Row([]) == nil)
+
+@Test func aPhotoTheTurnShowedIsLeftOutOfASectionAtAnySize() throws {
+  // As the recording has it: the card's at a width, the section's whole.
+  let image = #"{"t":"figure","img":{"src":"https://media.aquatome.com/a/4286e57c.webp","w":640,"h":402},"caption":[]}"#
+  let data = #"{"t":"section","page":{"kind":"guide","title":"G","url":"/vi/g/"},"blocks":[\#(image),{"t":"p","c":["x"]}]}"#
+  guard case .block(.section(_, _, let blocks))? = Chat.event(ServerEvent(name: "block", data: data)) else { Issue.record("no section"); return }
+  #expect(Chat.parts(blocks).count == 2)
+  #expect(Chat.parts(blocks, shown: ["https://media.aquatome.com/a/4286e57c-480.webp"]).count == 1)
+  #expect(Chat.parts(blocks, shown: ["https://media.aquatome.com/a/4286e57c.webp"]).count == 1)
+  #expect(Chat.parts(blocks, shown: ["https://media.aquatome.com/a/other-480.webp"]).count == 2)
+}
+
+@Test func aVietnamesePageAtTheRootIsStillTheSitesOwn() {
+  func block(_ json: String) -> Chat.Event? { Chat.event(ServerEvent(name: "block", data: json)) }
+  guard case .block(.species(let c))? = block(#"{"t":"species","page":{"id":"a","kind":"species","name":"A","url":"/ca/ca-neon/"}}"#)
+  else { Issue.record("the card went"); return }
+  #expect(c.page.path == "/ca/ca-neon/")
 }

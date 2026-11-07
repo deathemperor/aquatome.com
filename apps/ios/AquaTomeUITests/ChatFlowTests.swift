@@ -438,22 +438,24 @@ final class ChatFlowTests: XCTestCase {
     answerWithEveryBlock(app)
     let cards = app.descendants(matching: .any).matching(identifier: "chat-card")
     XCTAssertTrue(cards.firstMatch.waitForExistence(timeout: 5), "no card")
-    let puts = app.buttons.matching(identifier: "chat-card-put")
-    reveal(app, puts.element(boundBy: 1))
-    XCTAssertGreaterThan(cards.element(boundBy: 1).frame.height - cards.element(boundBy: 0).frame.height, 100, "the page's own fish has its whole photo again")
-    puts.element(boundBy: 1).tap()
-    XCTAssertTrue(app.navigationBars["Cá đĩa"].waitForExistence(timeout: 5), "not putting the card's fish")
-    XCTAssertTrue(app.buttons["put-save"].exists, "can't save")
-    app.buttons["Hủy"].tap()
+    // Top to bottom: `reveal` only scrolls down.
     let open = app.buttons.matching(identifier: "chat-card-open").element(boundBy: 0)
     reveal(app, open)
     open.tap()
     let page = element(app, "native-page")
     XCTAssertTrue(page.waitForExistence(timeout: 10), "no page")
     XCTAssertTrue(page.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "not the card's page")
+    app.navigationBars.buttons.firstMatch.tap()
+    let put = app.buttons.matching(identifier: "chat-card-put").element(boundBy: 1)
+    reveal(app, put)
+    XCTAssertGreaterThan(cards.element(boundBy: 1).frame.height - cards.element(boundBy: 0).frame.height, 100, "the page's own fish has its whole photo again")
+    put.tap()
+    XCTAssertTrue(app.navigationBars["Cá đĩa"].waitForExistence(timeout: 5), "not putting the card's fish")
+    XCTAssertTrue(app.buttons["put-save"].exists, "can't save")
   }
 
-  /// A comparison: a row whose figures differ says so, a missing figure says it's missing, and a fish's name opens its page.
+  /// A comparison: a row whose figures differ says so, the one that alone differs named over "the others", a missing figure
+  /// said to be missing and never a difference; a fish's name opens its page, one with no page is only its name.
   func testAComparisonMarksTheRowsThatDifferAndOpensAPage() {
     let app = launch("-chat-blocks")
     answerWithEveryBlock(app)
@@ -461,11 +463,12 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(compare.waitForExistence(timeout: 5), "no comparison")
     let differs = compare.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Bể tối thiểu, khác:'")).firstMatch
     reveal(app, differs)
-    XCTAssertTrue(differs.label.contains("Cá neon 60 cm"), differs.label)
     XCTAssertTrue(differs.label.contains("Cá đĩa 120 cm"), differs.label)
+    XCTAssertTrue(differs.label.contains("hai loài kia 60 cm"), differs.label)
     XCTAssertTrue(differs.label.contains("Cá lạ chưa có"), differs.label)
     XCTAssertTrue(compare.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Nhiệt độ:'")).firstMatch.exists,
                   "the same figures said to differ, or a missing one counted")
+    XCTAssertFalse(compare.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá lạ'")).firstMatch.exists, "a button to no page")
     let name = compare.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
     reveal(app, name)
     name.tap()
@@ -476,7 +479,7 @@ final class ChatFlowTests: XCTestCase {
   func testASectionOpensInPlaceAndItsLinkOpensThePageAtItsHeading() {
     let app = launch("-chat-blocks")
     answerWithEveryBlock(app)
-    let link = app.buttons["chat-section-open"]
+    let link = app.buttons.matching(identifier: "chat-section-open").element(boundBy: 0)
     XCTAssertTrue(link.waitForExistence(timeout: 5), "no section")
     reveal(app, link)
     XCTAssertTrue(link.label.contains("Đọc tiếp trong “Nuôi cá neon trong bể nhỏ”"), link.label)
@@ -500,14 +503,51 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertLessThan(heading.frame.minY, app.frame.height * 0.35, "the page didn't open at the heading")
   }
 
-  /// The tank-mates tool: from a link, the app's tool set to its fish; checked against a tank, what was checked and the
-  /// check's own words, opening that tank.
+  /// A short section has nothing to open; it draws a summary, its links work, and what it can't draw is counted. A tool whose
+  /// tank the reader no longer has, and no link, opens their tanks.
+  func testAShortSectionHasNothingToOpenAndAToolsTankCanBeGone() {
+    let app = launch("-chat-blocks")
+    answerWithEveryBlock(app)
+    let open = app.buttons.matching(identifier: "chat-section-open").element(boundBy: 1)
+    XCTAssertTrue(open.waitForExistence(timeout: 5), "no second section")
+    reveal(app, open)
+    XCTAssertTrue(app.staticTexts["Tóm tắt nhanh"].exists, "a summary lost")
+    XCTAssertTrue(app.staticTexts["còn tiếp: 1 phần"].exists, "what it can't draw isn't counted")
+    let linked = app.links["Cá neon sống theo đàn"]
+    XCTAssertTrue(linked.exists, "no link in its text")
+    app.descendants(matching: .any).matching(identifier: "chat-section").element(boundBy: 1).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()
+    XCTAssertFalse(app.buttons["Thu gọn"].waitForExistence(timeout: 2), "nothing to open, and yet it opened")
+    linked.tap()
+    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 10), "the link in its text did nothing")
+    app.navigationBars.buttons.firstMatch.tap()
+    let gone = app.buttons.matching(identifier: "chat-tool").element(boundBy: 1)
+    reveal(app, gone)
+    gone.tap()
+    XCTAssertTrue(app.navigationBars["Bể của tôi"].waitForExistence(timeout: 5), "didn't open the reader's tanks")
+  }
+
+  /// Not in the handbook: said under the answer, and its section labelled the nearest page.
+  func testWhatTheHandbookDoesntCoverLabelsItsSectionTheNearestPage() {
+    let app = launch("-chat-uncovered")
+    openChat(app)
+    signIn(app)
+    ask(app, "Nuôi cá neon với rùa được không?")
+    XCTAssertTrue(element(app, "chat-answer").waitForExistence(timeout: 30), "no whole answer")
+    XCTAssertTrue(app.staticTexts["Đã ghi lại câu hỏi để cẩm nang viết thêm."].waitForExistence(timeout: 5), "not said")
+    let section = element(app, "chat-section")
+    XCTAssertTrue(section.waitForExistence(timeout: 5), "no section")
+    XCTAssertTrue(section.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Trang gần nhất'")).firstMatch.exists, "not labelled the nearest page")
+  }
+
+  /// The tank-mates tool: from a link, the fish it's set to, opening the app's tool; checked against a tank, what was checked
+  /// and the check's own words, opening that tank at "Nuôi chung" with the added fish shown and not saved.
   func testAToolCardOpensTheToolSetToItsFishOrTheTankItChecked() {
     let app = launch("-chat-blocks", "-seed-tanks", "litres")
     answerWithEveryBlock(app)
     let tools = app.buttons.matching(identifier: "chat-tool")
     XCTAssertTrue(tools.firstMatch.waitForExistence(timeout: 5), "no tool")
     reveal(app, tools.element(boundBy: 0))
+    XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Cá neon × 6'")).firstMatch.exists, "doesn't name the fish alone")
     tools.element(boundBy: 0).tap()
     XCTAssertTrue(app.navigationBars["Kiểm tra nuôi chung"].waitForExistence(timeout: 5), "not the app's tool")
     XCTAssertEqual(element(app, "mate-count").value as? String, "6", "not set to the link's fish")
@@ -520,9 +560,17 @@ final class ChatFlowTests: XCTestCase {
                   "not the check's own words")
     tank.tap()
     XCTAssertTrue(app.navigationBars["Bể cũ"].waitForExistence(timeout: 5), "didn't open the tank it checked")
+    let added = element(app, "trial-added")
+    XCTAssertTrue(added.waitForExistence(timeout: 5), "the added fish aren't shown")
+    XCTAssertEqual(added.label, "Thêm Cá betta × 1, chưa lưu vào bể.")
+    let verdict = element(app, "verdict")
+    let there = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: verdict)
+    XCTAssertEqual(XCTWaiter().wait(for: [there], timeout: 5), .completed, "not at \"Nuôi chung\"")
+    XCTAssertTrue(verdict.label.contains("Không nên nuôi chung"), "not the check the answer read: \(verdict.label)")
   }
 
-  /// At the largest text: a card's two buttons stack, a comparison drops its photos, and a tool says where it goes.
+  /// At the largest text: a card's two buttons stack, a comparison keeps its names a line each, a section closed far down comes
+  /// back to its heading, and a tool says where it goes.
   func testAtTheLargestTextTheBlocksRearrange() {
     let app = launch("-chat-blocks", "-seed-tanks", "litres", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
     answerWithEveryBlock(app)
@@ -531,10 +579,21 @@ final class ChatFlowTests: XCTestCase {
     let put = app.buttons.matching(identifier: "chat-card-put").element(boundBy: 0)
     reveal(app, put, times: 10)
     XCTAssertGreaterThanOrEqual(put.frame.minY, open.frame.maxY, "a card's buttons aren't one under the other")
-    let differs = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Bể tối thiểu, khác:'")).firstMatch
+    let compare = element(app, "chat-compare")
+    let differs = compare.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Bể tối thiểu, khác:'")).firstMatch
     reveal(app, differs, times: 40)
     XCTAssertTrue(differs.label.contains("Cá đĩa 120 cm"), differs.label)
-    XCTAssertFalse(element(app, "chat-compare").buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "the comparison kept its photos")
+    let neon = compare.buttons.matching(NSPredicate(format: "label == 'Cá neon'")).firstMatch, discus = compare.buttons.matching(NSPredicate(format: "label == 'Cá đĩa'")).firstMatch
+    XCTAssertGreaterThanOrEqual(discus.frame.minY, neon.frame.maxY, "the names aren't a species to a line")
+    let heading = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Cho ăn'")).firstMatch
+    reveal(app, heading, times: 40)
+    element(app, "chat-section").coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)).tap()
+    let close = app.buttons["Thu gọn"]
+    XCTAssertTrue(close.waitForExistence(timeout: 5), "didn't open")
+    reveal(app, close, times: 20)
+    close.tap()
+    let back = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: heading)
+    XCTAssertEqual(XCTWaiter().wait(for: [back], timeout: 5), .completed, "closed, and its heading stayed off the screen")
     let tools = app.buttons.matching(identifier: "chat-tool")
     reveal(app, tools.element(boundBy: 0), times: 40)
     XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Mở công cụ nuôi chung'")).firstMatch.exists, "the tool doesn't say where it goes")

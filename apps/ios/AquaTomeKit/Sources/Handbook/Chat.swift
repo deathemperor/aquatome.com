@@ -362,7 +362,8 @@ public enum Chat {
 
   /// Only this site's own pages, in one of its languages, whatever the answer holds.
   private static func own(_ v: Any?) -> String? {
-    (v as? String).flatMap { SiteLanguage.of(path: $0) != nil ? $0 : nil }
+    // Vietnamese under "/vi/" or at the root, however the site then has it (PathForm).
+    (v as? String).flatMap { SiteLanguage.of(path: PathForm.underVi.path($0)) != nil ? $0 : nil }
   }
 
   // MARK: The conversation
