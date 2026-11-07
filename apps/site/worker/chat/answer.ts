@@ -30,7 +30,7 @@ export const ANSWER_SCHEMA = {
   additionalProperties: false,
   required: ['text', 'covered', 'blocks', 'suggestions'],
   properties: {
-    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer. Never refer to the blocks; a figure only when it is the answer, the page\'s own.' },
+    text: { type: 'string', description: 'In the reader\'s language, plain text, no markdown. A problem: the likely cause in a sentence or two, the steps in order one per line ("1. "), then what to watch. A quick question: two or three sentences. Never refer to the blocks; figures only from a page read or the reader\'s words.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',
