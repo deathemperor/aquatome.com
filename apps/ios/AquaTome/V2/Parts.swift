@@ -18,11 +18,18 @@ struct V2Photo: View {
   @State private var pixels = CGSize.zero
   @Environment(\.displayScale) private var scale
 
+  /// What this address shows: what was decoded here, or what's in memory at any size, the full photo first, so a page
+  /// zooming out of a card has it in its first frame.
+  private var image: UIImage? {
+    if let picture, picture.src == src { return picture.image }
+    return src.flatMap { PageImages.cached(V2Photo.full($0)) ?? PageImages.cached($0) }
+  }
+
   var body: some View {
     Rectangle().fill(.fill.tertiary)
       .overlay {
-        if let picture, picture.src == src {
-          Image(uiImage: picture.image).resizable().scaledToFill().transition(.opacity)
+        if let image {
+          Image(uiImage: image).resizable().scaledToFill().transition(.opacity)
         }
       }
       .clipped()
@@ -31,21 +38,17 @@ struct V2Photo: View {
         guard let src, pixels.width > 0 else { return }
         let size = PageImages.Size.filling(pixels)
         let full = V2Photo.full(src)
-        var image: UIImage?
-        // A big frame: the full photo, the small copy shown meanwhile if it's in memory (a 480 px copy counts as large
-        // enough for any frame to the cache, which never decodes past a picture's own size).
-        if full != src, pixels.width > 600 || pixels.height > 600 {
-          if picture?.src != src, let quick = PageImages.cached(src) {
-            picture = (src, quick)
-            // Its colour now, not once the full photo has come.
-            if let colour { colour(await PhotoColour.of(quick, key: colourKey ?? src)) }
-          }
-          image = await PageImages.image(full, size)
-        }
-        if image == nil { image = await PageImages.image(src, size) }
-        guard let image, !Task.isCancelled else { return }
-        withAnimation(.easeOut(duration: 0.2)) { picture = (src, image) }
-        if let colour { colour(await PhotoColour.of(image, key: colourKey ?? src)) }
+        // Its colour now, not once the full photo has come.
+        if let colour, let shown = image { colour(await PhotoColour.of(shown, key: colourKey ?? src)) }
+        var loaded: UIImage?
+        // A big frame: the full photo (a 480 px copy counts as large enough for any frame to the cache, which never decodes
+        // past a picture's own size).
+        if full != src, pixels.width > 600 || pixels.height > 600 { loaded = await PageImages.image(full, size) }
+        if loaded == nil { loaded = await PageImages.image(src, size) }
+        guard let loaded, !Task.isCancelled else { return }
+        // Faded in as it comes; one in its place already, swapped.
+        withAnimation(image == nil ? .easeOut(duration: 0.2) : nil) { picture = (src, loaded) }
+        if let colour { colour(await PhotoColour.of(loaded, key: colourKey ?? src)) }
       }
   }
 
@@ -73,7 +76,8 @@ enum PhotoColour {
   }
 
   /// The app's deep green, for a photo that gives no colour.
-  static let fallback = Color(red: 0.12, green: 0.27, blue: 0.21)
+  static let fallback = Color(red: fallbackRGB.r, green: fallbackRGB.g, blue: fallbackRGB.b)
+  fileprivate static let fallbackRGB = (r: 0.12, g: 0.27, b: 0.21)
 
   /// The photo at 24 × 24, its pixels in 4-bit buckets; the bucket that's both common and vivid, deepened until white
   /// reads on it.
@@ -99,8 +103,11 @@ enum PhotoColour {
       let fair = light < 0.15 || light > 0.9 ? 0.2 : 1
       return (v.count.squareRoot() * (0.1 + 2 * chroma) * fair, r, g, b)
     }
-    guard var c = scored.max(by: { $0.score < $1.score }) else { return nil }
-    c = calmed(c)
+    let ranked = scored.sorted { $0.score > $1.score }
+    guard let top = ranked.first else { return nil }
+    // A yellow goes olive as it deepens: the photo's next vivid colour first, if it has enough of it.
+    let own = isYellow(top) ? ranked.first { !isYellow($0) && hsb($0).s >= 0.45 && hsb($0).v >= 0.3 && $0.score >= 0.3 * top.score } : nil
+    var c = calmed(own ?? top)
     // Deepened until white at 75% on it has 4.5:1 whatever the hue (relative luminance at most 0.09).
     func lum(_ x: Double) -> Double { x <= 0.04045 ? x / 12.92 : pow((x + 0.055) / 1.055, 2.4) }
     for _ in 0..<40 where 0.2126 * lum(c.r) + 0.7152 * lum(c.g) + 0.0722 * lum(c.b) > 0.09 {
@@ -110,19 +117,39 @@ enum PhotoColour {
   }
 }
 
-/// A colour that holds up over a whole page, deepened. A yellow goes olive and a sand khaki as they deepen, mud: a yellow moves
-/// to leaf green, a sand to warm brown. A vivid red reads as a warning, with "Tránh" red on the same page: its saturation is
-/// capped. Other hues stay as the photo has them.
-private func calmed(_ c: (score: Double, r: Double, g: Double, b: Double)) -> (score: Double, r: Double, g: Double, b: Double) {
+private typealias Scored = (score: Double, r: Double, g: Double, b: Double)
+
+/// Its hue in degrees, saturation and brightness.
+private func hsb(_ c: Scored) -> (h: Double, s: Double, v: Double) {
   var h: CGFloat = 0, s: CGFloat = 0, v: CGFloat = 0
   UIColor(red: c.r, green: c.g, blue: c.b, alpha: 1).getHue(&h, saturation: &s, brightness: &v, alpha: nil)
-  let degrees = h * 360
-  if (42..<88).contains(degrees) {
-    if s < 0.35 { h = 28 / 360; s = max(s, 0.4) } else { h = 88 / 360; s = min(s, 0.85) }
+  return (h * 360, s, v)
+}
+
+private func isYellow(_ c: Scored) -> Bool {
+  let (h, s, _) = hsb(c)
+  return h >= 42 && h < 88 && s >= 0.1
+}
+
+/// A colour that holds up over a whole page, deepened. A near-grey's hue means nothing: the app's green. A yellow left goes
+/// to leaf green and a sand to warm brown, not the olive and khaki they deepen to, by degrees from amber. A vivid red reads as
+/// a warning, with "Tránh" red on the same page: its saturation is capped. Other hues stay as the photo has them.
+private func calmed(_ c: Scored) -> Scored {
+  var (h, s, v) = hsb(c)
+  if s < 0.1 { return (c.score, PhotoColour.fallbackRGB.r, PhotoColour.fallbackRGB.g, PhotoColour.fallbackRGB.b) }
+  if h >= 42 && h < 88 {
+    let by = min((h - 42) / 8, 1)
+    if s < 0.35 {
+      h = 42 - 14 * by
+      s = max(s, 0.4 * by)
+    } else {
+      h += (88 - h) * by
+      s = min(s, 0.85)
+    }
   }
-  if degrees < 25 || degrees >= 340 { s = min(s, 0.72) }
+  if h < 25 || h >= 340 { s = min(s, 0.72) }
   var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0
-  UIColor(hue: h, saturation: s, brightness: v, alpha: 1).getRed(&r, green: &g, blue: &b, alpha: nil)
+  UIColor(hue: h / 360, saturation: s, brightness: v, alpha: 1).getRed(&r, green: &g, blue: &b, alpha: nil)
   return (c.score, r, g, b)
 }
 
@@ -388,7 +415,7 @@ struct ClearUnderTopBar: ViewModifier {
   let shown: Bool
   var ground = Color(.systemBackground)
   /// Growing with the text: a line straddling the band's edge fades, not sliced.
-  @ScaledMetric(relativeTo: .body) private var fade: CGFloat = 12
+  @ScaledMetric(relativeTo: .body) private var fade: CGFloat = 16
 
   func body(content: Content) -> some View {
     edgeHidden(content)
@@ -399,8 +426,8 @@ struct ClearUnderTopBar: ViewModifier {
             LinearGradient(colors: [ground, ground.opacity(0)], startPoint: .top, endPoint: .bottom)
               .frame(height: fade).opacity(shown ? 1 : 0).allowsHitTesting(false)
           }
+          // Not on `ground`: iOS turns the bar's words at once, and black on the colour for a moment reads badly.
           .animation(.easeInOut(duration: 0.2), value: shown)
-          .animation(.easeInOut(duration: 0.2), value: ground)
       }
   }
 
@@ -434,7 +461,7 @@ private struct ShelfEdge: ViewModifier {
         HStack(spacing: 0) {
           Color.black
           // From the gap before the sliver (`shelfCard`'s 36 points), so the sliver starts faint.
-          LinearGradient(stops: [.init(color: .black, location: 0), .init(color: .black.opacity(0.3), location: 0.25), .init(color: .clear, location: 1)],
+          LinearGradient(stops: [.init(color: .black, location: 0), .init(color: .black.opacity(0.4), location: 0.25), .init(color: .clear, location: 1)],
                          startPoint: .leading, endPoint: .trailing)
             .overlay { Color.black.opacity(atEnd ? 1 : 0) }
             .frame(width: 48)
@@ -444,9 +471,9 @@ private struct ShelfEdge: ViewModifier {
 }
 
 extension ToolbarContent {
-  /// A bar item drawing its own background, without iOS 26's glass around it.
-  @ToolbarContentBuilder func v2NoGlass() -> some ToolbarContent {
-    if #available(iOS 26, *) { sharedBackgroundVisibility(.hidden) } else { self }
+  /// A bar item with iOS 26's glass around it or not, where it stays either way: the bar doesn't move when it changes.
+  @ToolbarContentBuilder func v2Glass(_ on: Bool) -> some ToolbarContent {
+    if #available(iOS 26, *) { sharedBackgroundVisibility(on ? .visible : .hidden) } else { self }
   }
 }
 

@@ -24,6 +24,7 @@ struct SpeciesPage: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Environment(\.openScreen) private var openScreen
+  @Environment(\.openURL) private var openURL
   @Environment(\.v2OpenFull) private var openFull
   @Environment(\.dismiss) private var dismiss
   @Environment(TelemetryModel.self) private var telemetry
@@ -75,10 +76,6 @@ struct SpeciesPage: View {
           V2Photo(src: hero) { colour = $0 }
             // Less on a small phone, so the name and figures still show under it.
             .containerRelativeFrame(.vertical) { h, _ in min(420, h * 0.46) }
-            // A shade under the status bar, so it reads on a light photo.
-            .overlay(alignment: .top) {
-              LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom).frame(height: 130)
-            }
             .overlay(alignment: .bottom) {
               LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
             }
@@ -93,10 +90,10 @@ struct SpeciesPage: View {
         FactsStrip(facts: facts, onDark: true, temperament: asked && !hasMates).padding(.vertical, 14)
         if !photos.isEmpty { gallery.padding(.bottom, 24) }
         // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
-        // changing, when the page comes.
+        // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.
         if !asked {
-          ProgressView().tint(.white).padding(.top, 8)
-          Color.clear.containerRelativeFrame(.vertical) { h, _ in h / 2 }
+          ProgressView().tint(.white).padding(.vertical, 8)
+          if hero != nil { Color.clear.containerRelativeFrame(.vertical) { h, _ in h / 2 } }
         }
       }
       .background(colour)
@@ -109,8 +106,9 @@ struct SpeciesPage: View {
       VStack(alignment: .leading, spacing: 28) {
         if asked && doc == nil {
           VStack(alignment: .leading, spacing: 4) {
-            // The handbook's status says nothing here: it stays online from launch, whatever the signal is now.
-            Text("Không tải được trang. Kiểm tra kết nối mạng.").font(.footnote).foregroundStyle(.v2Faint)
+            // The handbook's status says nothing here: it stays online from launch, whatever the signal is now. And it may be a
+            // page this build can't read, which "Xem trang đầy đủ" reaches.
+            Text("Không tải được trang. Kiểm tra kết nối mạng rồi thử lại, hoặc xem trang đầy đủ.").font(.footnote).foregroundStyle(.v2Faint)
             Button("Thử lại") {
               asked = false
               retries += 1
@@ -168,9 +166,21 @@ struct SpeciesPage: View {
     .navigationBarTitleDisplayMode(.inline)
     // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
     .toolbarBackground(.hidden, for: .navigationBar)
-    // Over the photo and its colour, the page's own round buttons: iOS 26's bar draws its glass light on them, under white
-    // symbols (2.4:1). Its own back and glass once the colour has gone.
-    .navigationBarBackButtonHidden(colourAt.top)
+    // The page's own buttons, in the same places all the way down: on the photo and its colour, dark circles, as iOS 26's glass
+    // goes light on them, under white symbols (2.4:1); glass after the colour.
+    .navigationBarBackButtonHidden(true)
+    .accessibilityAction(.escape) { dismiss() }
+    // A shade behind the status bar until the band comes: it reads on a light photo at any scroll.
+    .overlay(alignment: .top) {
+      if hero != nil {
+        LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom)
+          .frame(height: 130)
+          .ignoresSafeArea(edges: .top)
+          .opacity(scrolled ? 0 : 1)
+          .animation(.easeInOut(duration: 0.2), value: scrolled)
+          .allowsHitTesting(false)
+      }
+    }
     // The edge swipe back, whatever iOS's own does with its back button hidden and a zoom: under test, none of its gestures
     // went back from a zoomed page.
     .overlay(alignment: .leading) {
@@ -184,40 +194,28 @@ struct SpeciesPage: View {
     // dark one after nil, white words on the white band.
     .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
     .toolbar {
-      if colourAt.top {
-        ToolbarItem(placement: .topBarLeading) {
-          Button { dismiss() } label: { round("chevron.left") }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text("Quay lại"))
-            .accessibilityIdentifier("v2-back")
-        }
-        .v2NoGlass()
-        ToolbarItem(placement: .topBarTrailing) {
-          let saved = handbook.isSaved(item)
-          Button { handbook.toggleSaved(item) } label: { round(saved ? "bookmark.fill" : "bookmark") }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
-            .accessibilityIdentifier("save-for-later")
-        }
-        .v2NoGlass()
-        ToolbarItem(placement: .topBarTrailing) {
-          ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text("Chia sẻ"))
-        }
-        .v2NoGlass()
-      } else {
-        ToolbarItemGroup(placement: .topBarTrailing) {
-          // Saved to read later, as v1's page saves it (the Tìm tab lists them).
-          let saved = handbook.isSaved(item)
-          Button { handbook.toggleSaved(item) } label: {
-            Label(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark")
-          }
-          .accessibilityIdentifier("save-for-later")
-          ShareLink(item: handbook.url(item)) { Image(systemName: "square.and.arrow.up") }
-            .accessibilityLabel(Text("Chia sẻ"))
-        }
+      ToolbarItem(placement: .topBarLeading) {
+        Button { dismiss() } label: { round("chevron.left") }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text("Quay lại"))
+          .accessibilityIdentifier("v2-back")
       }
+      .v2Glass(!colourAt.top)
+      ToolbarItem(placement: .topBarTrailing) {
+        // Saved to read later, as v1's page saves it (the Tìm tab lists them).
+        let saved = handbook.isSaved(item)
+        Button { handbook.toggleSaved(item) } label: { round(saved ? "bookmark.fill" : "bookmark") }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
+          .accessibilityIdentifier("save-for-later")
+      }
+      .v2Glass(!colourAt.top)
+      ToolbarItem(placement: .topBarTrailing) {
+        ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text("Chia sẻ"))
+      }
+      .v2Glass(!colourAt.top)
     }
     .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
@@ -226,7 +224,8 @@ struct SpeciesPage: View {
     // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
     .task(id: "\(item.path) \(retries)") {
       guard doc == nil else { return }
-      if retries > 0 { await handbook.load() }
+      // The whole index first only when it hasn't said this page's kind is drawn here: on a weak signal it holds up the page.
+      if retries > 0, !handbook.drawsItself(item) { await handbook.load() }
       doc = await handbook.doc(item)
       asked = true
       if doc != nil { handbook.read(item) }
@@ -242,9 +241,9 @@ struct SpeciesPage: View {
       .font(.body.weight(.semibold))
       // It stays inside its circle at the largest text.
       .dynamicTypeSize(...DynamicTypeSize.xLarge)
-      .foregroundStyle(.white)
+      .foregroundStyle(colourAt.top ? Color.white : Color.primary)
       .frame(width: 44, height: 44)
-      .background(.black.opacity(0.45), in: Circle())
+      .background(.black.opacity(colourAt.top ? 0.45 : 0), in: Circle())
       .contentShape(Circle())
   }
 
@@ -382,17 +381,26 @@ struct SpeciesPage: View {
         if let text = s.text {
           Text(verbatim: text).font(.body).lineSpacing(3)
         } else {
-          ForEach(s.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
+          ForEach(s.items, id: \.self) { bullet($0) }
         }
         if let mistakes = s.mistakes, !mistakes.items.isEmpty {
           Text(verbatim: mistakes.title).font(.headline).accessibilityAddTraits(.isHeader).padding(.top, 8)
-          ForEach(mistakes.items, id: \.self) { Text(verbatim: "• " + $0).font(.body) }
+          ForEach(mistakes.items, id: \.self) { bullet($0) }
         }
         // Not the page's own line, "các nguồn bên dưới": here they're on the whole page.
-        if s.by != nil { Text("AquaTome tóm tắt từ các nguồn của trang đầy đủ.").font(.footnote).foregroundStyle(.v2Faint).padding(.top, 4) }
+        if s.by != nil { Text("AquaTome tóm tắt từ các nguồn được liệt kê trên trang đầy đủ.").font(.footnote).foregroundStyle(.v2Faint).padding(.top, 4) }
       }
       .padding(.horizontal, 20)
     }
+  }
+
+  /// A point, its wrapped lines clear of its bullet.
+  private func bullet(_ text: String) -> some View {
+    HStack(alignment: .firstTextBaseline, spacing: 6) {
+      Text(verbatim: "•").accessibilityHidden(true)
+      Text(verbatim: text)
+    }
+    .font(.body)
   }
 
   /// Whether it gets through a northern winter, as v1's page says: the question a fish's facts don't answer.
@@ -466,6 +474,7 @@ struct SpeciesPage: View {
         } label: {
           Text("Ảnh và giấy phép").font(.footnote).foregroundStyle(.v2Faint).frame(minHeight: 44)
         }
+        .foregroundStyle(.v2Faint)
         .tint(.v2Faint)
         .accessibilityIdentifier("v2-mates-credits")
         .padding(.horizontal, 20)
@@ -485,10 +494,13 @@ struct SpeciesPage: View {
 
   /// A link of the page's to one of the app's screens (the tank-mates tool), as v1's page opens it.
   private func open(_ href: String) {
-    guard let url = URL(string: href, relativeTo: handbook.site)?.absoluteURL,
-          let screen = AppScreen.of(url, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
-                                    group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) else { return }
-    openScreen(screen)
+    guard let url = URL(string: href, relativeTo: handbook.site)?.absoluteURL else { return }
+    if let screen = AppScreen.of(url, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil },
+                                 group: { !handbook.shelves.fish(group: $0, handbook.labels).isEmpty }) {
+      openScreen(screen)
+    } else {
+      openURL(url)
+    }
   }
 }
 

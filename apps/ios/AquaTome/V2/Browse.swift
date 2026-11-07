@@ -95,6 +95,7 @@ struct BrowseHome: View {
       .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
       .modifier(ClearUnderTopBar(shown: titleGone))
       .accessibilityIdentifier("v2-browse")
+      .v2ClearsFootGoingBack(path.count)
       .navigationTitle("Khám phá")
       .profileButton()
       .v2Destinations(zoom: zoom)
@@ -184,23 +185,8 @@ struct BrowseHome: View {
       LazyHGrid(rows: [GridItem(.fixed(tileHeight), spacing: 10), GridItem(.fixed(tileHeight))], spacing: 10) {
         ForEach(groups) { g in
           NavigationLink(value: Browse.fish(g.key)) {
-            V2Photo(src: g.img)
-              .frame(height: tileHeight)
+            GroupTile(group: g, height: tileHeight)
               .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 2, spacing: 10) }
-              .overlay {
-                // Enough under the words on a light photo, up to a two-line name's first line: 4.5:1.
-                LinearGradient(stops: [.init(color: .clear, location: 0.1), .init(color: .black.opacity(0.6), location: 0.5), .init(color: .black.opacity(0.75), location: 0.85)],
-                               startPoint: .top, endPoint: .bottom)
-              }
-              .overlay(alignment: .bottomLeading) {
-                HStack(alignment: .firstTextBaseline) {
-                  Text(verbatim: g.label).font(.subheadline.weight(.semibold)).lineLimit(2)
-                  Spacer(minLength: 4)
-                  Text(g.count, format: .number).font(.caption)
-                }
-                .foregroundStyle(.white)
-                .padding(10)
-              }
               .clipShape(.rect(cornerRadius: 14, style: .continuous))
           }
           .buttonStyle(CardPress())
@@ -399,6 +385,34 @@ struct BrowseHome: View {
 }
 
 /// A featured page: a wide photo with its kind and name at the foot.
+/// A family of fish on its shelf: its words on its photo's colour, as the cards have them, not a dark scrim.
+private struct GroupTile: View {
+  let group: HandbookShelves.Shelf
+  let height: CGFloat
+  @State private var colour: Color
+
+  init(group: HandbookShelves.Shelf, height: CGFloat) {
+    self.group = group
+    self.height = height
+    _colour = State(initialValue: PhotoColour.cached(group.img) ?? PhotoColour.fallback)
+  }
+
+  var body: some View {
+    V2Photo(src: group.img) { colour = $0 }
+      .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 20) {
+        HStack(alignment: .firstTextBaseline) {
+          Text(verbatim: group.label).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
+          Spacer(minLength: 4)
+          Text(group.count, format: .number).font(.caption)
+        }
+        .foregroundStyle(.white)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 8)
+      })
+      .animation(.easeInOut(duration: 0.4), value: colour)
+  }
+}
+
 private struct FeaturedCard: View {
   let item: HandbookIndex.Item
   let height: CGFloat

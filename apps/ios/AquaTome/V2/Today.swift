@@ -54,6 +54,7 @@ struct TodayView: View {
       .navigationTitle("Hôm nay")
       .profileButton()
       .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
+      .v2ClearsFootGoingBack(path.count)
       .v2Destinations(zoom: zoom)
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
@@ -132,8 +133,8 @@ private struct Eyebrow: View {
   let locale = Locale(identifier: lang), f = item.facts.any ? item.facts : item.card ?? item.facts
   var parts: [String] = []
   if let d = f.difficulty { parts.append(FactsCard.level(d)) }
-  // A figure stays with its unit when the line wraps.
-  if let t = f.tempC { parts.append("\(HandbookIndex.Facts.range(t, locale))\u{A0}°C") }
+  // A figure stays with its unit when the line wraps, and a range stays whole.
+  if let t = f.tempC { parts.append("\(HandbookIndex.Facts.range(t, locale).replacingOccurrences(of: "–", with: "\u{2060}–\u{2060}"))\u{A0}°C") }
   if let s = f.sizeCm { parts.append("\(HandbookIndex.Facts.number(s, locale))\u{A0}cm") }
   return parts.isEmpty ? nil : parts.joined(separator: " · ")
 }

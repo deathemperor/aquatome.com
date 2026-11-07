@@ -337,10 +337,12 @@ final class V2FlowTests: XCTestCase {
     // Beside its chevron, inside its circle.
     let circle = Pixels(XCUIScreen.main.screenshot()).at(back.frame.minX + 7, back.frame.midY)
     XCTAssertGreaterThan(circle.contrastWithWhite, 3, "the back button's chevron doesn't read: \(circle)")
-    repeatUntil(!back.exists, times: 6) { up() }
-    XCTAssertFalse(back.exists, "the page's colour never went")
+    let f = title.frame
+    func bar() -> Pixels.RGB { Pixels(XCUIScreen.main.screenshot()).at(f.minX - 6, f.midY) }
+    repeatUntil(bar().contrastWithWhite < 1.1, times: 6) { up() }
+    XCTAssertLessThan(bar().contrastWithWhite, 1.1, "the page's colour never went")
     let shot = Pixels(XCUIScreen.main.screenshot())
-    let f = title.frame, ground = shot.at(f.minX - 6, f.midY)
+    let ground = shot.at(f.minX - 6, f.midY)
     let strongest = stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
     XCTAssertGreaterThan(strongest, 120, "the bar's title doesn't read on its ground")
   }

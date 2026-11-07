@@ -1013,18 +1013,18 @@
         }
       }
     },
-    "AquaTome tóm tắt từ các nguồn của trang đầy đủ.": {
+    "AquaTome tóm tắt từ các nguồn được liệt kê trên trang đầy đủ.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "AquaTome merangkum dari sumber di halaman lengkap."
+            "value": "AquaTome merangkum dari sumber yang tercantum di halaman lengkap."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "AquaTome สรุปจากแหล่งข้อมูลในหน้าเต็ม"
+            "value": "AquaTome สรุปจากแหล่งข้อมูลที่ระบุไว้ในหน้าเต็ม"
           }
         }
       }
@@ -7119,6 +7119,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "โหลดคู่มือไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต แล้วดึงลงเพื่อลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không tải được trang. Kiểm tra kết nối mạng rồi thử lại, hoặc xem trang đầy đủ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman tidak dapat dimuat. Periksa koneksi lalu coba lagi, atau lihat halaman lengkap."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดหน้านี้ไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง หรือดูหน้าเต็ม"
           }
         }
       }

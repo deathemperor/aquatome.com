@@ -122,8 +122,8 @@ private extension View {
 
   /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey), so the fade doesn't
   /// show a lighter band.
-  /// `fade` shorter where a pinned footer of v1's ends just above the bar.
-  func v2ClearUnderTabBar(on ground: Color = .clear, fade: CGFloat = V2Fade.height) -> some View {
+  /// `fade` shorter where a pinned footer of v1's ends just above the bar; otherwise it grows with the text.
+  func v2ClearUnderTabBar(on ground: Color = .clear, fade: CGFloat? = nil) -> some View {
     modifier(ClearUnderTabBar(ground: ground, fade: fade))
   }
 }
@@ -135,8 +135,26 @@ enum V2Fade {
 }
 
 extension View {
+  /// A stack whose page may stand the tab on its colour: clear as the back starts, not once the page has gone, about half a
+  /// second of the colour under the tab's own screen. The page under it, if any, sets its own as it appears.
+  func v2ClearsFootGoingBack(_ depth: Int) -> some View { modifier(ClearsFootGoingBack(depth: depth)) }
+
   /// A scroll view of v2's own: its end stops above the fade over the tab bar, not in it.
-  func v2ClearOfTheFade() -> some View { safeAreaPadding(.bottom, V2Fade.height) }
+  func v2ClearOfTheFade() -> some View { modifier(ClearOfTheFade()) }
+}
+
+private struct ClearsFootGoingBack: ViewModifier {
+  let depth: Int
+  @Environment(\.v2FootGround) private var footGround
+
+  func body(content: Content) -> some View {
+    content.onChange(of: depth) { old, new in if new < old { footGround?.wrappedValue = nil } }
+  }
+}
+
+private struct ClearOfTheFade: ViewModifier {
+  @ScaledMetric(relativeTo: .body) private var fade = V2Fade.height
+  func body(content: Content) -> some View { content.safeAreaPadding(.bottom, fade) }
 }
 
 /// A tab's screens fade out just above the tab bar, so nothing shows through its glass or around it (the owner: words
@@ -144,9 +162,11 @@ extension View {
 /// them on a line with a band under it. A tab's own, not each page's: it holds for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
-  /// The fade's height. Short: v1's pinned controls end just above it. v2's own pages end above it (`v2ClearOfTheFade`);
-  /// an inset out here doesn't reach inside a navigation stack.
-  let fade: CGFloat
+  /// The fade's height, if it's a set one. Short: v1's pinned controls end just above it. v2's own pages end above it
+  /// (`v2ClearOfTheFade`); an inset out here doesn't reach inside a navigation stack.
+  let fade: CGFloat?
+  /// Otherwise as tall as a line of the text, near enough: a line at the largest size is gone before the glass.
+  @ScaledMetric(relativeTo: .body) private var scaled = V2Fade.height
   /// What a page asks to stand on while its colour reaches the bar (`v2FootGround`): the colour runs on under the bar,
   /// with no white fog between.
   @State private var footGround: FootGround?
@@ -165,7 +185,7 @@ private struct ClearUnderTabBar: ViewModifier {
             Color.black
             // A bar at the foot of the screen; an iPad's is at the top, with only the home indicator's inset here.
             if bar >= 49 {
-              LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: fade)
+              LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: fade ?? scaled)
               Color.clear.frame(height: bar)
             }
           }
