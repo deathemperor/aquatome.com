@@ -213,8 +213,9 @@ export function log(o: Overview, n = 3): LogDay[] {
       const added = MAIN.map(k => [k, (kept.totals.kinds[k]?.vi ?? 0) - (before.totals.kinds[k]?.vi ?? 0)] as const).filter(([, n]) => n > 0)
       const n = added.reduce((a, [, x]) => a + x, 0)
       if (n) items.push({ text: `${fmt(n)} bài mới`, small: added.map(([k, x]) => `${fmt(x)} ${PAGE_KIND[k].toLowerCase()}`).join(' · '), section: 'noi-dung' })
-      const translated = OTHER_LANGS.map(l => [l, inLang(kept.totals, l) - inLang(before.totals, l)] as const)
-      if (translated.some(([, n]) => n > 0)) items.push({ text: `${translated.map(([l, n]) => `${fmt(Math.max(n, 0))} bài tiếng ${LANG_VI[l]}`).join(', ')} mới`, section: 'noi-dung' })
+      // Only the languages that gained pages: one just served has none most nights.
+      const translated = OTHER_LANGS.map(l => [l, inLang(kept.totals, l) - inLang(before.totals, l)] as const).filter(([, n]) => n > 0)
+      if (translated.length) items.push({ text: `${translated.map(([l, n]) => `${fmt(n)} bài tiếng ${LANG_VI[l]}`).join(', ')} mới`, section: 'noi-dung' })
     }
     if (r && (at(r.readers, back) || at(r.sessions, back))) items.push({ text: `${fmt(at(r.readers, back))} người đọc`, small: `${fmt(at(r.sessions, back))} phiên`, section: 'doc-gia' })
     if (!isFailed(clicks) && at(clicks.clicks, back)) items.push({ text: `${fmt(at(clicks.clicks, back))} lượt bấm sang sàn`, section: 'affiliate' })

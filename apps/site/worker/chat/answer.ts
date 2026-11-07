@@ -90,9 +90,9 @@ export type ChatBlock =
 
 /** Each tool's page in each language, as the app opens it (AppScreen) and the index lists it. */
 export const TOOL_PATHS: Record<ToolName, Record<Lang, string>> = {
-  'tank-mates': { vi: '/vi/cong-cu/nuoi-chung/', id: '/id/alat/kecocokan-ikan/', th: '/th/tools/tank-mates/' },
-  'tank-volume': { vi: '/vi/cong-cu/the-tich-be/', id: '/id/alat/volume-akuarium/', th: '/th/tools/tank-volume/' },
-  'tank-budget': { vi: '/vi/cong-cu/du-toan-be/', id: '/id/alat/anggaran-akuarium/', th: '/th/tools/tank-budget/' },
+  'tank-mates': { vi: '/vi/cong-cu/nuoi-chung/', id: '/id/alat/kecocokan-ikan/', th: '/th/tools/tank-mates/', ms: '/ms/alat/rakan-setangki/' },
+  'tank-volume': { vi: '/vi/cong-cu/the-tich-be/', id: '/id/alat/volume-akuarium/', th: '/th/tools/tank-volume/', ms: '/ms/alat/isi-padu-tangki/' },
+  'tank-budget': { vi: '/vi/cong-cu/du-toan-be/', id: '/id/alat/anggaran-akuarium/', th: '/th/tools/tank-budget/', ms: '/ms/alat/bajet-tangki/' },
 }
 
 const slugOf = (path: string) => path.split('/').filter(Boolean).at(-1) ?? ''
