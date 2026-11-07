@@ -187,6 +187,12 @@ private struct ChatThread: View {
         if !t.covered {
           Text("Đã ghi lại câu hỏi để cẩm nang viết thêm.").font(.footnote).foregroundStyle(.secondary)
         }
+        // Once the text is whole: the blocks it leans on, then the next questions.
+        if !t.blocks.isEmpty {
+          ChatBlocks(blocks: t.blocks, about: model.route.start.about, staggered: !a.resumed && !r.whole && !reduceMotion) { path in
+            if let u = URL(string: path, relativeTo: handbook.site)?.absoluteURL { open(u) }
+          }
+        }
         if last, !t.suggestions.isEmpty {
           Chips(items: t.suggestions, dim: model.offline || model.stop != nil) { model.send($0) }
             .padding(.top, 4)

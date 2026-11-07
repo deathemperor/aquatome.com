@@ -575,7 +575,7 @@ private func styled(_ s: String, _ font: Font? = nil, secondary: Bool = false) -
 
 /// Runs as styled text; links as URLs the page's `openURL` understands (a site path is left relative). A source's number
 /// after a sentence is raised and small, as a printed note's; `secondary`, the words but its links.
-private func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = false) -> AttributedString {
+func styled(_ runs: [PageDoc.Run], font: Font? = nil, secondary: Bool = false) -> AttributedString {
   runs.reduce(into: AttributedString()) { s, r in
     var a = AttributedString(r.text)
     a.font = font

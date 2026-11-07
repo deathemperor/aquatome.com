@@ -21,22 +21,7 @@ struct TankCheckSection: View {
     if memo.key != key { memo.key = key; memo.check = make() }
     return Group {
       if let check = memo.check, check.verdict != nil || check.stocking != nil || check.minTank != nil || check.unsized != nil || check.unchecked != nil {
-        Section("Nuôi chung") {
-          if let v = check.verdict {
-            Label { Text(v.text) } icon: { Mark(level: v.level) }
-              .accessibilityElement(children: .combine).accessibilityIdentifier("verdict")
-          }
-          ForEach(Array(check.warnings.enumerated()), id: \.offset) { Text($0.element).font(.subheadline) }
-          if let s = check.stocking {
-            Label(s.text, systemImage: "gauge.with.dots.needle.67percent")
-              .foregroundStyle(s.level == "over" ? Color.warning : .primary)
-              .accessibilityElement(children: .combine).accessibilityIdentifier("stocking")
-            ForEach(Array(s.notes.enumerated()), id: \.offset) { Text($0.element).font(.subheadline) }
-          }
-          if let u = check.unsized { Text(u).font(.subheadline) }
-          if let m = check.minTank { Text(m).font(.subheadline) }
-          if let u = check.unchecked { Text(u).font(.subheadline).accessibilityIdentifier("unchecked") }
-        }
+        Section("Nuôi chung") { TankCheckRows(check: check) }
       }
     }
   }
@@ -72,6 +57,29 @@ struct TankCheckSection: View {
 }
 
 /// The tool's marks for its four answers.
+/// A check's rows, as a tank's "Nuôi chung" draws them and the chat's tank-mates block does: the verdict with its mark,
+/// the warnings, how full the tank is and its notes, then what wasn't counted or checked. A row each in a list.
+struct TankCheckRows: View {
+  let check: TankCheck
+
+  var body: some View {
+    if let v = check.verdict {
+      Label { Text(v.text) } icon: { Mark(level: v.level) }
+        .accessibilityElement(children: .combine).accessibilityIdentifier("verdict")
+    }
+    ForEach(Array(check.warnings.enumerated()), id: \.offset) { Text($0.element).font(.subheadline) }
+    if let s = check.stocking {
+      Label(s.text, systemImage: "gauge.with.dots.needle.67percent")
+        .foregroundStyle(s.level == "over" ? Color.warning : .primary)
+        .accessibilityElement(children: .combine).accessibilityIdentifier("stocking")
+      ForEach(Array(s.notes.enumerated()), id: \.offset) { Text($0.element).font(.subheadline) }
+    }
+    if let u = check.unsized { Text(u).font(.subheadline) }
+    if let m = check.minTank { Text(m).font(.subheadline) }
+    if let u = check.unchecked { Text(u).font(.subheadline).accessibilityIdentifier("unchecked") }
+  }
+}
+
 private struct Mark: View {
   let level: String
   var body: some View {
