@@ -32,11 +32,16 @@ extension ChatRoute {
   /// (the list's are in the language it was asked in). Fish ID's photo never left the phone.
   init(row: Chat.Row, page: (String) -> HandbookIndex.Item?) {
     let about = row.first.about, item = about.flatMap { page($0.id) }
-    let name = item?.name ?? about?.name ?? "AquaTome"
-    let photo = row.first.from == .fishId
-    self.init(start: row.start, subject: ChatSubject(plant: about?.kind == "plant", name: name,
-                                                     img: photo ? nil : item?.img.flatMap(URL.init(string:)) ?? about?.img,
-                                                     guesses: photo ? name : nil, second: nil))
+    let name = item?.name ?? about?.name
+    // Fish ID's as it worded them when it asked.
+    if row.first.from == .fishId {
+      let guesses = (row.first.identified?.results ?? []).prefix(3).map { g in (name: g.id.flatMap(page)?.name ?? g.scientificName, confidence: g.confidence) }
+      self.init(start: row.start, subject: ChatSubject(plant: row.first.identified?.verdict == "plant", name: guesses.first?.name ?? name ?? "AquaTome", img: nil,
+                                                       guesses: guesses.isEmpty ? name ?? "AquaTome" : FishIdView.worded(guesses), second: guesses.dropFirst().first?.name))
+      return
+    }
+    self.init(start: row.start, subject: ChatSubject(plant: about?.kind == "plant", name: name ?? "AquaTome", img: item?.img.flatMap(URL.init(string:)) ?? about?.img,
+                                                     guesses: nil, second: nil))
   }
 }
 
@@ -69,13 +74,23 @@ final class ChatStore {
   /// A question answered: there's something to list now.
   func answered() { hasPast = true }
 
-  /// A row of the list opened in the chat screen: read back, then the current chat. Nil when it can't be read.
+  /// Conversations the reader just hid: not offered, and not brought back from what's kept on the phone.
+  func hid(_ ids: [UUID]) {
+    current?.hid(ids)
+    ChatModel.forgetKept(holding: ids)
+  }
+
+  /// A row of the list opened in the chat screen: read back, then the current chat. Nil when it can't be read, or when the
+  /// reader asked something in the chat meanwhile: that stands. Words in the box stay there.
   func open(_ row: Chat.Row, account: AccountModel, site: URL, lang: String, page: (String) -> HandbookIndex.Item?) async -> ChatModel? {
-    guard let past = await ChatModel.read(row, account: account, site: site) else { return nil }
+    let before = current?.thread.last?.id
+    guard let past = await ChatModel.read(row, account: account, site: site), current?.thread.last?.id == before else { return nil }
+    let draft = current?.draft ?? ""
     current?.leave()
     let m = ChatModel(route: ChatRoute(row: row, page: page), account: account, site: site, lang: lang, store: self)
     current = m
     m.fill(row, past)
+    m.draft = draft
     return m
   }
 
@@ -163,20 +178,30 @@ final class ChatModel {
   private(set) var pathOffline = false
   private(set) var couldntSend = false
   /// The stop is on its way to the Worker: the wait's last row says so.
-  private(set) var stopping = false
+  var stopping: Bool { stoppingFor != nil && stoppingFor == thread.last?.id }
   private(set) var stopped: Stopped?
+  /// The question the stop is for.
+  private var stoppingFor: UUID?
+  /// Questions the reader has sent: the tap as one goes.
+  private(set) var sent = 0
   /// The latest earlier conversation about this page, offered under the starters.
   private(set) var earlier: Chat.Row?
   /// That one is the conversation just left for a new one.
   private(set) var earlierJustNow = false
-  /// The conversation on screen.
-  var conversationId: UUID? { conversation?.id }
+  /// The conversations on screen, and those they carry on: their row in the list says "Đang mở", and has no swipe.
+  private(set) var onScreen: Set<UUID> = []
+  /// The reader left the conversation for a new one: coming back to the screen doesn't reopen it.
+  @ObservationIgnored private var leftForNew = false
+  /// How many times this question was told the one before it is still running.
+  @ObservationIgnored private var waitedForLast = 0
 
   @ObservationIgnored private let account: AccountModel
   @ObservationIgnored private let site: URL
   @ObservationIgnored private let lang: String
   @ObservationIgnored private weak var store: ChatStore?
-  @ObservationIgnored private var conversation: Chat.Conversation?
+  @ObservationIgnored private var conversation: Chat.Conversation? {
+    didSet { if let conversation { noteOnScreen(conversation) } }
+  }
   @ObservationIgnored private var running: Task<Void, Never>?
   /// Which ask `running` is: an ask started from inside another (a 410's new conversation) outlives the one that started it.
   @ObservationIgnored private var runId = UUID()
@@ -190,6 +215,7 @@ final class ChatModel {
     self.store = store
     if let k = Self.kept(), k.start == route.start, let user = account.user?.id, !k.conversation.ended(account: user, now: .now) {
       conversation = k.conversation
+      noteOnScreen(k.conversation)
       thread = k.thread.map(\.asked)
     }
     #if DEBUG
@@ -212,6 +238,11 @@ final class ChatModel {
   }
 
   deinit { path.cancel() }
+
+  private func noteOnScreen(_ c: Chat.Conversation) {
+    onScreen.insert(c.id)
+    if let k = c.continues { onScreen.insert(k) }
+  }
 
   /// The latest question is still being answered, or its answer was cut short (its run may still be going on): send
   /// stays off (a second question would be 409) until it's answered or asked again.
@@ -245,6 +276,8 @@ final class ChatModel {
     }
     stop = nil
     couldntSend = false
+    sent += 1
+    waitedForLast = 0
     let anew = startIfNeeded(user)
     // A chip tapped leaves what the reader was writing in the box.
     if suggestion == nil { draft = "" }
@@ -256,8 +289,10 @@ final class ChatModel {
   /// true when one starts after earlier questions (the divider).
   private func startIfNeeded(_ user: String) -> Bool {
     if let c = conversation, !c.ended(account: user, now: .now) {
-      // A new conversation whose first question was stopped, its divider gone with it: this question brings it back.
-      return c.turns == 0 && thread.last?.outcome == .answered
+      // A new conversation whose first question was stopped, its divider gone with it: this question brings it back. Not
+      // when one that failed still shows the divider.
+      let sinceAnswered = thread.reversed().prefix { $0.outcome != .answered }
+      return c.turns == 0 && thread.contains { $0.outcome == .answered } && !sinceAnswered.contains(where: \.anew)
     }
     conversation = conversation?.next(account: user) ?? Chat.Conversation(account: user)
     return thread.contains { $0.outcome == .answered }
@@ -315,7 +350,11 @@ final class ChatModel {
     conversation = nil
     stop = nil
     stopped = nil
+    stoppingFor = nil
+    onScreen = []
+    leftForNew = true
     keep()
+    earlier = nil
     guard had else { return }
     earlierJustNow = true
     Task { await lookBack(reopen: false) }
@@ -327,12 +366,20 @@ final class ChatModel {
   /// question's own request or stream saying `cancelled`. Too late, or no answer: the question goes on, and lands.
   func stopAsking() {
     guard stoppable, !stopping, let last = thread.last else { return }
-    stopping = true
-    let id = last.id, key = last.key
+    stoppingFor = last.id
+    cancel(last.id, key: last.key)
+  }
+
+  private func cancel(_ id: UUID, key: UUID) {
     Task {
       let answer = try? await account.send { Chat.cancel(key: key, site: self.site, token: $0, version: Self.version, ownCopy: Self.ownCopy) }
-      stopping = false
-      if let answer, Chat.stopped(answer.0, status: answer.1) == .cancelled { halted(id) }
+      // Asked again under a new key meanwhile (a 410's new conversation, a retry): that's the one to stop.
+      if stoppingFor == id, let i = index(id), thread[i].outcome == .asking, thread[i].key != key {
+        cancel(id, key: thread[i].key)
+        return
+      }
+      if stoppingFor == id { stoppingFor = nil }
+      if let answer, Chat.stopped(answer.0, status: answer.1) == .cancelled, let i = index(id), thread[i].key == key { halted(id) }
     }
   }
 
@@ -340,7 +387,7 @@ final class ChatModel {
   /// A conversation left with no question shows its empty screen again, and a divider opened for it goes with it.
   private func halted(_ id: UUID) {
     guard let i = index(id) else { return }
-    stopping = false
+    if stoppingFor == id { stoppingFor = nil }
     running?.cancel()
     running = nil
     let q = thread.remove(at: i).question
@@ -374,6 +421,7 @@ final class ChatModel {
   func fill(_ row: Chat.Row, _ past: [Chat.Past]) {
     guard let user = account.user?.id else { return }
     leave()
+    onScreen = Set(row.conversations.map(\.id))
     conversation = Chat.Conversation(reopening: row.last, account: user)
     thread = past.enumerated().flatMap { k, p in
       p.turns.enumerated().map { j, t in
@@ -388,12 +436,14 @@ final class ChatModel {
     earlier = nil
     stop = nil
     stopped = nil
+    stoppingFor = nil
     keep()
   }
 
   /// A page's chat with nothing on screen: its latest conversation about the page, reopened while it's open, else offered
   /// under the starters. Never fish ID's: a photo's chat always starts fresh.
   func lookBack(reopen: Bool = true) async {
+    let reopen = reopen && !leftForNew
     guard thread.isEmpty, route.start.from == .species, let about = route.start.about, account.user != nil else {
       earlier = nil
       return
@@ -415,6 +465,12 @@ final class ChatModel {
   /// Conversations the reader hid from the list: no longer offered here.
   func hid(_ ids: [UUID]) {
     if ids.contains(where: { earlier?.holds($0) == true }) { earlier = nil }
+  }
+
+  /// What's kept on the phone, when it's one of these conversations.
+  static func forgetKept(holding ids: [UUID]) {
+    guard let k = kept(), ids.contains(k.conversation.id) || k.conversation.continues.map(ids.contains) == true else { return }
+    try? FileManager.default.removeItem(at: file)
   }
 
   private func ask(_ i: Int) {
@@ -518,6 +574,17 @@ final class ChatModel {
       unsend(id, .off)
     case .refused("cancelled", _):
       halted(id)
+    case .refused("answering", _) where waitedForLast < 20:
+      // The conversation's last question is still being answered (left and reopened while it ran, up to half a minute):
+      // this one waits for it, then goes. It hasn't been taken, so it isn't another question.
+      waitedForLast += 1
+      let run = UUID()
+      runId = run
+      running = Task { [weak self] in
+        try? await Task.sleep(for: .seconds(3))
+        guard !Task.isCancelled, let self, let i = self.index(id), self.thread[i].outcome == .asking else { return }
+        self.ask(i)
+      }
     case .refused("ended", _) where thread[i].resumed:
       thread[i].outcome = .lost
       conversation?.failed()

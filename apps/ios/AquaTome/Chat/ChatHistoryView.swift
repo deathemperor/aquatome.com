@@ -5,8 +5,8 @@ import SwiftUI
 /// qua", "7 ngày qua" and "Trước đó". A tap opens one in the chat screen, and the sheet goes. A swipe hides a row, on all
 /// the reader's devices, which deletes nothing, and says so; the conversation on screen has no swipe.
 struct ChatHistoryView: View {
-  /// The conversation on screen: its row says "Đang mở".
-  let on: UUID?
+  /// The conversations on screen: their row says "Đang mở".
+  let on: Set<UUID>
   let open: (Chat.Row) async -> Bool
   /// Conversations just hidden.
   let hid: ([UUID]) -> Void
@@ -72,7 +72,7 @@ struct ChatHistoryView: View {
       ForEach(Chat.sections(rows, now: .now), id: \.period) { section in
         Section {
           ForEach(section.rows) { row in
-            let here = row.holds(on)
+            let here = holds(row)
             Button { tap(row) } label: { ChatHistoryRow(row: row, here: here, opening: opening == row.id) }
               .buttonStyle(.plain)
               .accessibilityIdentifier("chat-row")
@@ -90,8 +90,10 @@ struct ChatHistoryView: View {
     }
   }
 
+  private func holds(_ row: Chat.Row) -> Bool { row.conversations.contains { on.contains($0.id) } }
+
   private func tap(_ row: Chat.Row) {
-    guard !row.holds(on) else { return dismiss() }
+    guard !holds(row) else { return dismiss() }
     guard opening == nil else { return }
     opening = row.id
     Task {

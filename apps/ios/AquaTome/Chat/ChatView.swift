@@ -32,8 +32,8 @@ struct ChatView: View {
       }
     }
     .sheet(isPresented: $showingHistory) {
-      ChatHistoryView(on: model?.conversationId, open: { await open($0) }) { ids in
-        model?.hid(ids)
+      ChatHistoryView(on: model?.onScreen ?? [], open: { await open($0) }) { ids in
+        store.hid(ids)
         Task { await store.lookForPast(account: account, site: handbook.site) }
       }
     }
@@ -74,8 +74,13 @@ private struct ChatThread: View {
   @State private var lastInView = true
   /// A section closed with its heading off the screen: back to it.
   @State private var scrollBack: String?
+  /// The earlier conversation under the starters, being read back, or that couldn't be.
+  @State private var openingEarlier = false
+  @State private var earlierFailed = false
 
   private var signedOut: Bool { account.user == nil }
+  /// The question whose answer has begun, while it's coming.
+  private var answerStarted: UUID? { model.thread.last.flatMap { $0.outcome == .asking && $0.reply.writing ? $0.id : nil } }
 
   var body: some View {
     ScrollViewReader { proxy in
@@ -104,7 +109,8 @@ private struct ChatThread: View {
           guard let id = model.thread.last?.id else { return }
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }
         }
-        .onChange(of: model.thread.last?.outcome) { _, o in if o == .answered, !lastInView { newBelow = true } }
+        // Not a stop, which leaves an answer last that was already there.
+        .onChange(of: model.thread.last?.outcome) { _, o in if o == .answered, !lastInView, model.stopped == nil { newBelow = true } }
         .onChange(of: scrollBack) { _, id in
           guard let id else { return }
           scrollBack = nil
@@ -121,8 +127,8 @@ private struct ChatThread: View {
     .accessibilityIdentifier("chat")
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     // A light tap as a question goes; a soft one as its answer starts; a warning when one is stopped or fails.
-    .sensoryFeedback(.impact(weight: .light), trigger: model.thread.count) { a, b in b > a }
-    .sensoryFeedback(.impact(flexibility: .soft), trigger: model.thread.last?.reply.writing) { _, b in b == true }
+    .sensoryFeedback(.impact(weight: .light), trigger: model.sent)
+    .sensoryFeedback(.impact(flexibility: .soft), trigger: answerStarted) { _, b in b != nil }
     .sensoryFeedback(.warning, trigger: warned) { _, b in b }
     .sensoryFeedback(.impact(weight: .light), trigger: model.stopped) { _, b in b != nil }
     // The question stopped: back in the box to edit, with the keyboard up, and said aloud.
@@ -165,7 +171,20 @@ private struct ChatThread: View {
       } else {
         Chips(items: starters, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12)
         if let row = model.earlier {
-          EarlierRow(row: row, justNow: model.earlierJustNow, name: subjectName) { Task { _ = await open(row) } }.padding(.top, 16)
+          EarlierRow(row: row, justNow: model.earlierJustNow, name: subjectName, opening: openingEarlier) {
+            openingEarlier = true
+            earlierFailed = false
+            Task {
+              let opened = await open(row)
+              openingEarlier = false
+              earlierFailed = !opened
+            }
+          }
+          .padding(.top, 16)
+          if earlierFailed {
+            Text("Chưa mở được cuộc này. Thử lại sau nhé.").font(.footnote).foregroundStyle(.secondary).padding(.top, 6)
+              .accessibilityIdentifier("chat-earlier-failed")
+          }
         }
       }
     }
@@ -421,6 +440,7 @@ private struct EarlierRow: View {
   let row: Chat.Row
   let justNow: Bool
   let name: String
+  let opening: Bool
   let open: () -> Void
 
   var body: some View {
@@ -435,7 +455,11 @@ private struct EarlierRow: View {
             .lineLimit(1)
         }
         Spacer(minLength: 0)
-        Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+        if opening {
+          ProgressView()
+        } else {
+          Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+        }
       }
       .padding(12)
       .frame(maxWidth: .infinity, alignment: .leading)
@@ -443,6 +467,7 @@ private struct EarlierRow: View {
       .contentShape(.rect)
     }
     .buttonStyle(.plain)
+    .disabled(opening)
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("chat-earlier")
   }

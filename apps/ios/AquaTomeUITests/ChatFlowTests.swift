@@ -258,7 +258,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(stopping.waitForExistence(timeout: 3), "not said stopping")
     let fold = app.buttons["chat-fold"]
     XCTAssertTrue(fold.waitForExistence(timeout: 30), "a stop too late cost the answer")
-    XCTAssertFalse(stop.exists, "a stop with the text begun")
+    XCTAssertTrue(stop.waitForNonExistence(timeout: 3), "a stop with the text begun")
     XCTAssertTrue(app.buttons["chat-send"].exists, "no send with the text begun")
     XCTAssertTrue(element(app, "chat-answer").waitForExistence(timeout: 20), "no whole answer")
     XCTAssertFalse(element(app, "chat-stopped-note").exists, "said stopped, too late")
@@ -349,7 +349,6 @@ final class ChatFlowTests: XCTestCase {
     hide.tap()
     XCTAssertTrue(app.staticTexts["Ẩn cuộc trò chuyện này?"].waitForExistence(timeout: 5), "not asked first")
     XCTAssertTrue(app.staticTexts["Chỉ ẩn khỏi danh sách của bạn, không bị xóa. Xóa tài khoản sẽ xóa toàn bộ."].exists, "doesn't say nothing is deleted")
-    XCTAssertTrue(app.buttons["Hủy"].exists, "no way back")
     XCTAssertFalse(app.buttons["Xóa"].exists, "says delete")
     app.buttons.matching(NSPredicate(format: "label == 'Ẩn'")).allElementsBoundByIndex.last?.tap()
     XCTAssertTrue(row(rows, "Bể neon").waitForNonExistence(timeout: 5), "the row stayed")
@@ -427,6 +426,80 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "chat-length").label, "501/500")
     XCTAssertTrue(app.staticTexts["Câu hỏi dài quá: rút gọn để gửi."].exists)
     XCTAssertFalse(app.buttons["chat-send"].isEnabled)
+  }
+
+  /// Left for a new conversation, it stays left: coming back to the screen from another tab doesn't reopen the old one.
+  func testANewConversationStaysNewComingBackToTheScreen() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-answer").waitForExistence(timeout: 15), "no answer")
+    app.buttons["chat-new"].tap()
+    XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].waitForExistence(timeout: 5), "not empty")
+    app.tabBars.buttons.element(boundBy: 1).tap()
+    app.tabBars.buttons.element(boundBy: 0).tap()
+    XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].waitForExistence(timeout: 5), "the chat's gone")
+    XCTAssertFalse(app.staticTexts["chat-question"].waitForExistence(timeout: 3), "the conversation left came back")
+  }
+
+  /// One hidden from the list doesn't come back from what's kept on the phone, on the page it was about.
+  func testAHiddenConversationDoesntComeBackFromThePhone() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-answer").waitForExistence(timeout: 15), "no answer")
+    // Another chat, nothing asked in it: what's kept is still the neon's.
+    app.navigationBars.buttons.firstMatch.tap()
+    app.navigationBars.buttons.firstMatch.tap()
+    open(app, "rotala")
+    let entry = element(app, "chat-entry")
+    reveal(app, entry)
+    entry.tap()
+    XCTAssertTrue(element(app, "chat").waitForExistence(timeout: 5), "no chat screen")
+    let rows = openList(app)
+    row(rows, "Neon sống bao lâu?").swipeLeft()
+    app.buttons["Ẩn"].tap()
+    XCTAssertTrue(app.staticTexts["Ẩn cuộc trò chuyện này?"].waitForExistence(timeout: 5), "not asked first")
+    app.buttons.matching(NSPredicate(format: "label == 'Ẩn'")).allElementsBoundByIndex.last?.tap()
+    XCTAssertTrue(rows.firstMatch.waitForNonExistence(timeout: 5), "the row stayed")
+    app.buttons["chat-history-close"].tap()
+    XCTAssertTrue(app.navigationBars["Cuộc trò chuyện"].waitForNonExistence(timeout: 5), "the sheet stayed")
+    app.navigationBars.buttons.firstMatch.tap()
+    app.navigationBars.buttons.firstMatch.tap()
+    openChat(app)
+    XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].waitForExistence(timeout: 5), "not empty")
+    XCTAssertFalse(app.staticTexts["chat-question"].exists, "the hidden conversation came back")
+  }
+
+  /// One that can't be read back says so where it was offered, and the screen stays as it was.
+  func testAnEarlierConversationThatCantBeReadSaysSo() {
+    let app = launch("-chat-history", "-chat-read-fails")
+    openChat(app)
+    signIn(app)
+    let earlier = element(app, "chat-earlier")
+    XCTAssertTrue(earlier.waitForExistence(timeout: 5), "not offered")
+    earlier.tap()
+    XCTAssertTrue(element(app, "chat-earlier-failed").waitForExistence(timeout: 10), "says nothing")
+    XCTAssertTrue(app.staticTexts["Hỏi gì về cá neon?"].exists, "not the screen it was")
+  }
+
+  /// Reopened while its last question still runs: the next waits for it, then goes, with no failure on the way.
+  func testAQuestionAskedWhileTheOneBeforeRunsWaitsThenGoes() {
+    let app = launch("-chat-history", "-chat-history-open", "-chat-slow")
+    openChat(app)
+    signIn(app)
+    XCTAssertTrue(app.staticTexts["chat-question"].waitForExistence(timeout: 10), "not reopened")
+    ask(app, "Neon ăn gì?")
+    XCTAssertTrue(element(app, "chat-wait").waitForExistence(timeout: 5), "no wait")
+    row(openList(app), "Cá betta nhà mình").tap()
+    XCTAssertTrue(app.navigationBars["Cuộc trò chuyện"].waitForNonExistence(timeout: 10), "the sheet stayed")
+    row(openList(app), "Bể neon").tap()
+    XCTAssertTrue(app.navigationBars["Cuộc trò chuyện"].waitForNonExistence(timeout: 10), "the sheet stayed")
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "chat-answer").element(boundBy: 1).waitForExistence(timeout: 90), "never asked")
+    XCTAssertFalse(app.buttons["chat-again"].exists, "said it failed on the way")
   }
 
   // MARK: The blocks

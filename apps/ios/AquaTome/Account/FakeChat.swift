@@ -17,7 +17,9 @@ import Handbook
 /// Worker's run goes on without the app: asked again with its key, it comes back as its `done` (or `error`) alone.
 ///
 /// A stop (`/api/chat/cancel`) wins until the text's first piece, and then the question's own stream or request says
-/// `cancelled`, as the Worker's does; `-chat-cancel-late` makes every stop too late, its answer 3 s coming. The list (`/api/chat/conversations`)
+/// `cancelled`, as the Worker's does, and the question isn't counted; `-chat-cancel-late` makes every stop too late, its
+/// answer 3 s coming. A question's run goes on whatever happens to its stream, and its turn is kept when the run ends; another
+/// question in that conversation meanwhile gets 409 `answering`. `-chat-read-fails`: a conversation can't be read back. The list (`/api/chat/conversations`)
 /// holds what was asked here, each conversation that `continues` another in its row. `-chat-history`: four rows already
 /// there, as the design's list has them (today, open; yesterday; this week from fish ID; a chain, weeks ago);
 /// `-chat-history-open`, yesterday's about the neon is open. `-chat-list-page N`: pages of N rows. `-chat-hidden-elsewhere`:
@@ -35,10 +37,18 @@ final class FakeChat {
   private var cancelled: Set<String> = []
   /// Questions whose text has begun: too late to stop.
   private var begun: Set<String> = []
-  /// The conversation each question went in, by its key.
-  private var askedIn: [String: String] = [:]
+  /// The questions still running, by key.
+  private var runs: [String: Run] = [:]
   private var records: [Record] = []
   private var seeded: Set<String> = []
+
+  private struct Run {
+    let account: String
+    let conversation: String
+    let question: String
+    /// Its `done`; none for one that ends in an error.
+    let turn: [String: Any]?
+  }
 
   /// A conversation as the Worker keeps it.
   private struct Record {
@@ -88,6 +98,7 @@ final class FakeChat {
     if cancelled.contains(key) { return refuse(410, #"{"error":"cancelled"}"#) }
     if let k = kept[key], k.account == sub {
       if args.contains("-chat-lost") { return refuse(410, #"{"error":"ended"}"#) }
+      finished(key)
       return (Self.response(r, 200, type: "text/event-stream"), stream([k.last], gap: .zero, key: key))
     }
     guard question.utf16.count <= 500 else { return refuse(413, #"{"error":"too long"}"#) }
@@ -99,14 +110,21 @@ final class FakeChat {
       records[i].hidden = true
     }
     if records.contains(where: { $0.id == conversation && $0.account == sub && $0.hidden }) { return refuse(410, #"{"error":"ended"}"#) }
+    if runs.values.contains(where: { $0.conversation == conversation && $0.account == sub }) { return refuse(409, #"{"error":"answering"}"#) }
     if let i = args.firstIndex(of: "-chat-turns"), i + 1 < args.count, let max = Int(args[i + 1]), turns[at, default: 0] >= max {
       return refuse(410, #"{"error":"ended"}"#)
     }
     turns[at, default: 0] = max(turns[at, default: 0], records.first { $0.id == conversation && $0.account == sub }?.kept.count ?? 0) + 1
     let events = try recorded(conversation: conversation, n: turns[at]!)
     kept[key] = (sub, events.last!)
-    askedIn[key] = conversation
-    note(sub, conversation, body, question: question, last: events.last!)
+    note(sub, conversation, body, question: question)
+    let done = events.last!.hasPrefix("event: done\ndata: ") ? (try? JSONSerialization.jsonObject(with: Data(events.last!.dropFirst("event: done\ndata: ".count).utf8))) as? [String: Any] : nil
+    runs[key] = Run(account: sub, conversation: conversation, question: question, turn: done)
+    let length = gap * (events.count - 1)
+    Task { [weak self] in
+      try? await Task.sleep(for: length)
+      self?.finished(key)
+    }
     return (Self.response(r, 200, type: "text/event-stream"), stream(events, gap: gap, key: key))
   }
 
@@ -196,11 +214,12 @@ final class FakeChat {
       guard let body = r.httpBody.flatMap({ try? JSONSerialization.jsonObject(with: $0) as? [String: Any] }), let key = body["key"] as? String else {
         return json(400, ["error": "bad request"])
       }
-      if args.contains("-chat-cancel-late") || begun.contains(key) { return json(200, ["result": "too late"]) }
+      // Too late: its text has begun, or it has ended. One the Worker hasn't seen yet holds, for when it comes.
+      if args.contains("-chat-cancel-late") || begun.contains(key) || (kept[key] != nil && runs[key] == nil) { return json(200, ["result": "too late"]) }
       cancelled.insert(key)
-      if let c = askedIn[key], let i = records.firstIndex(where: { $0.id == c && $0.account == sub }) {
-        if !records[i].kept.isEmpty { records[i].kept.removeLast() }
-        if records[i].kept.isEmpty { records.remove(at: i) }
+      if let run = runs.removeValue(forKey: key) {
+        turns["\(sub) \(run.conversation)", default: 1] -= 1
+        records.removeAll { $0.id == run.conversation && $0.account == sub && $0.kept.isEmpty }
       }
       return json(200, ["result": "cancelled"])
     }
@@ -214,22 +233,29 @@ final class FakeChat {
       return json(200, ["hidden": row])
     }
     guard !records[i].hidden else { return json(404, ["error": "unknown"]) }
+    if args.contains("-chat-read-fails") { return json(500, ["error": "unavailable"]) }
     return json(200, whole(records[i]))
   }
 
-  /// A question taken: into its conversation, made with its first.
-  private func note(_ sub: String, _ conversation: String, _ body: [String: Any], question: String, last: String) {
+  /// A question's run over: its turn kept, unless it was stopped or ended in an error.
+  private func finished(_ key: String) {
+    guard let run = runs.removeValue(forKey: key), let turn = run.turn, !cancelled.contains(key),
+          let i = records.firstIndex(where: { $0.id == run.conversation && $0.account == run.account }) else { return }
     let now = Date()
-    let done = last.hasPrefix("event: done\ndata: ") ? (try? JSONSerialization.jsonObject(with: Data(last.dropFirst("event: done\ndata: ".count).utf8))) as? [String: Any] : nil
+    records[i].kept.append((run.question, now, turn))
+    records[i].last = now
+  }
+
+  /// A question taken: its conversation, made with its first. From fish ID, about its first guess's page, for the row's name.
+  private func note(_ sub: String, _ conversation: String, _ body: [String: Any], question: String) {
+    let now = Date()
     if !records.contains(where: { $0.id == conversation && $0.account == sub }) {
-      let about = (body["about"] as? String).map { page($0) }
+      let guess = ((body["identified"] as? [String: Any])?["results"] as? [[String: Any]])?.first?["id"] as? String
+      let about = ((body["about"] as? String) ?? guess).map { page($0) }
       let continues = (body["continues"] as? String).flatMap { c in records.contains { $0.id == c && $0.account == sub && !$0.hidden } ? c : nil }
       records.append(Record(id: conversation, account: sub, question: question, from: body["from"] as? String, about: about, identified: body["identified"],
                             started: now, last: now, continues: continues))
     }
-    guard let done, let i = records.firstIndex(where: { $0.id == conversation && $0.account == sub }) else { return }
-    records[i].kept.append((question, now, done))
-    records[i].last = now
   }
 
   private func page(_ id: String) -> [String: Any] {
