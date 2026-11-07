@@ -358,6 +358,7 @@ private struct AnswerText: View {
     .textSelection(.enabled)
     .contentTransition(.opacity)
     .animation(animate ? .easeOut(duration: 0.15) : nil, value: text)
+    .accessibilityElement(children: .contain)
     .accessibilityHidden(!whole)
     .accessibilityIdentifier("chat-answer")
     .onChange(of: whole) { _, w in if w { AccessibilityNotification.Announcement(text).post() } }
@@ -438,6 +439,7 @@ struct ChatCard<Words: View, Actions: View>: View {
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(14)
     .background(.fill.quaternary, in: .rect(cornerRadius: 14))
+    .accessibilityElement(children: .contain)
   }
 }
 
@@ -453,6 +455,7 @@ struct ChatSignIn: View {
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(14)
     .background(.fill.quaternary, in: .rect(cornerRadius: 14))
+    .accessibilityElement(children: .contain)
     .accessibilityIdentifier("chat-sign-in")
   }
 }

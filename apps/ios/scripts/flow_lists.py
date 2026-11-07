@@ -32,7 +32,8 @@ NONE, ALL = None, 'all'
 APP, KIT = 'apps/ios/AquaTome/', 'apps/ios/AquaTomeKit/'
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
 HANDBOOK_SCREENS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
-                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests', 'VideoFlowTests']
+                    'PageShotsFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests', 'VideoFlowTests',
+                    'ChatFlowTests']
 # The handbook's model and the kit's Handbook: its screens, the tanks tab's parts that read it (the tank-mates check,
 # a tank's fish and plants, its guides), and the tank volume and tank-mates tools, which search and a page's links open
 # (AppScreen).
@@ -42,7 +43,7 @@ HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testL
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
 PAGES = ['NativePageFlowTests', 'PageShotsFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
-         'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests', 'TelemetryFlowTests']
+         'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests', 'TelemetryFlowTests', 'ChatFlowTests']
 # The app's icon picker: its flows, and its screenshots (the whole class, run by `handbook (1)`, which keeps them).
 ICONS = ['AppIconFlowTests', 'PageShotsFlowTests']
 # The light flows of the outlet a light is plugged into, on the stand-in Tuya cloud: its timers read, the pick taken
@@ -131,7 +132,7 @@ REACH = {
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
-    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests'],
+    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ChatFlowTests'],
     # The Tài khoản sheet and the button that opens it on every tab: the flows that go through it (the account, the
     # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it.
     APP + 'Account/AccountView.swift': ACCOUNT_SHEET, APP + 'Account/ProfileButton.swift': ACCOUNT_SHEET,
@@ -139,22 +140,27 @@ REACH = {
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
-                                       'OwnerFlowTests'],
+                                       'OwnerFlowTests', 'ChatFlowTests'],
+    # The stand-in chat: the chat's flows alone.
+    APP + 'Account/FakeChat.swift': ['ChatFlowTests'],
+    # The chat screen, opened from a fish's page and fish ID's result.
+    APP + 'Chat/': ['ChatFlowTests'],
     # Its page shots too: the overview and a section.
     APP + 'Owner/': ['OwnerFlowTests', 'PageShotsFlowTests'],
     # Its row, in the Tài khoản sheet (and none signed out).
     APP + 'Owner/OwnerEntry.swift': ['OwnerFlowTests', 'PageShotsFlowTests', 'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
-    # The chat's contract and the event stream it's read from: no screen uses them yet (job `kit` tests them).
-    KIT + 'Sources/Handbook/Chat.swift': NONE,
-    KIT + 'Sources/Handbook/ServerEvents.swift': NONE,
+    # The chat's contract, the event stream it's read from and the answer as the screen draws it: the chat's flows
+    # (job `kit` tests them too).
+    KIT + 'Sources/Handbook/Chat.swift': ['ChatFlowTests'], KIT + 'Sources/Handbook/ChatReply.swift': ['ChatFlowTests'],
+    KIT + 'Sources/Handbook/ServerEvents.swift': ['ChatFlowTests'],
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).
     KIT + 'Sources/Tanks/': ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests',
                              'PlugFlowTests', 'HandbookFlowTests/testFiltersTheFishToMyTank',
                              'TankVolumeFlowTests', 'TankMatesFlowTests'] + LIGHTS_ON_TANKS,
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
-                                   'OwnerFlowTests'],
+                                   'OwnerFlowTests', 'ChatFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # A Mac command line, not in the app: the kit's step in job `perf` builds it (job `kit`, nightly).
@@ -164,7 +170,9 @@ REACH = {
     KIT + 'Sources/FishLamp/': NONE,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
     # The owner's dashboard's flows read it: the stand-in server serves its replies.
-    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
+    'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'PageShotsFlowTests'],
+    # The stand-in chat streams the chat's recorded answers.
+    'protocols/chat-stream-': ['ChatFlowTests'], 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request.
     'apps/ios/scripts/check-strings.py': NONE,
@@ -264,9 +272,12 @@ def check(runs, left, reached):
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
-    # The chat's contract, before its screen: the kit's tests only.
-    for p in (KIT + 'Sources/Handbook/Chat.swift', KIT + 'Sources/Handbook/ServerEvents.swift'):
-        assert reached([p]) == set(), p
+    # The chat: its contract and its stand-in reach its flows alone; its entries, a fish's page and fish ID's result.
+    for p in (KIT + 'Sources/Handbook/Chat.swift', KIT + 'Sources/Handbook/ServerEvents.swift', APP + 'Chat/ChatView.swift',
+              APP + 'Account/FakeChat.swift', 'protocols/chat-stream-species.sse'):
+        assert reached([p]) == {'ChatFlowTests'}, p
+    for p in (APP + 'Handbook/PageView.swift', APP + 'Handbook/FishIdView.swift', APP + 'Account/AccountModel.swift'):
+        assert 'ChatFlowTests' in reached([p]), p
     # The catalog: the two flows that read its Indonesian.
     assert reached([APP + 'Localizable.xcstrings']) == {
         'HandbookFlowTests/testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo',
