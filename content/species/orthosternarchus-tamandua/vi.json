@@ -1,0 +1,19 @@
+{
+  "slug": "ca-dao-tamandua",
+  "name": "Cá dao Tamandua",
+  "altNames": [
+    "Cá dao mõm dài",
+    "Tamandua knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Trong các loài cá dao Nam Mỹ, Orthosternarchus tamandua nhiều khả năng là loài lạ nhất. Đã có một cá thể được nhập về từ Peru. Cá thể này dài 25-30 cm. Chiều dài tối đa từng ghi nhận ở loài này là khoảng 45 cm.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.95
+    },
+    "reason": "thin"
+  }
+}

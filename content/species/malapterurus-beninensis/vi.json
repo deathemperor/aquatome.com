@@ -1,20 +1,29 @@
 {
   "slug": "ca-tre-dien-benin",
   "name": "Cá trê điện Benin",
-  "altNames": [],
+  "altNames": [
+    "Cá trê điện Tây Phi"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Malapterurus beninensis Murray, 1855</li><li>Nơi thu mẫu chuẩn: sông Old Calabar, Nigeria.</li><li>Tên đồng nghĩa: Malapterurus affinis</li><li>Danh sách Đỏ IUCN: Ít quan tâm (lần đánh giá gần nhất vào năm 2019).</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở châu Phi. Chúng phân bố dọc dải đồng bằng ven biển Tây và Trung Phi, từ hạ lưu sông Volta (Ghana) tới hệ thống sông Shiloango (Angola và CHDC Congo). Ngoài ra chúng còn có mặt trên đảo Fernando Po. Trong vùng phân bố có sông Cross, cùng sông Sanaga và sông Lokunje của Cameroon.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi.</p>",
     "notes:planetcatfish": "<p>Từ nguyên: Tên Malapterurus ghép từ ba chữ Hy Lạp. Malakos nghĩa là mềm, pteron nghĩa là vây, còn oura nghĩa là đuôi. Cái tên này có lẽ ám chỉ vây mỡ của cá. Loài này không có vây lưng có tia, nên vây mỡ trông càng nổi bật.</p>",
-    "references:planetcatfish": "<p>Proceedings of the Royal Physical Society of Edinburgh. v. 1, pp 20, Pl.</p>"
+    "references:planetcatfish": "<p>Proceedings of the Royal Physical Society of Edinburgh. v. 1, pp 20, Pl.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên đồng nghĩa: Malapterurus affinis</li></ul>",
+    "distribution:scotcat": "<p>Châu Phi. Loài này sống ở vùng đồng bằng ven biển Tây và Trung Phi, từ hạ lưu sông Volta (Ghana) đến hệ thống sông Shiloango (Angola và CHDC Congo). Chúng cũng có mặt trên đảo Fernando Po. Mẫu chuẩn được thu ở sông Old Calabar, Nigeria.</p>",
+    "habitat:scotcat": "<p>Loài này chủ yếu sống ở các thủy vực vùng thấp.</p>",
+    "diet:scotcat": "<p>Thức ăn chính của chúng là sâu bột, giun đất, Artemia đông lạnh và phần lớn các loại thức ăn chế biến sẵn cho cá nhiệt đới.</p>",
+    "behaviour:scotcat": "<p>Các ghi nhận cho thấy loài này rất hung dữ với đồng loại. Chúng chỉ hoạt động vào ban đêm (Norris, S.M., 2002).</p>",
+    "notes:scotcat": "<p>Đặc điểm nhận dạng: Thân cá hình trụ, các mảng răng hẹp. Vây ngực dựng theo chiều thẳng đứng và nằm gần khoảng giữa chiều cao thân. Vây đuôi có 6-7 tia phân nhánh. Vây ngực thường có 8 tia, hiếm khi 7 hoặc 9. Cá có 34-38 đốt sống. Mắt tương đối nhỏ, còn khoảng cách giữa hai mắt tương đối rộng. Cá con và cá non có mảng yên và vạch ở cuống đuôi rất rõ. Ở cá trưởng thành, hoa văn này thường vẫn còn thấy được nhưng hay bị mờ đi. Lưng và hai bên thân gần như lúc nào cũng có đốm, có con đốm phủ rất dày. Cung mang thứ nhất thường có 10-15 lược mang, dao động chung từ 4 đến 22. Mảng yên ở đuôi và vùng sắc tố trên vây hậu môn không nối liền nhau. Bụng thường xám xỉn, đôi khi có đốm nhạt.</p><p>Nguồn gốc tên: Tên loài beninensis là tên chỉ địa danh, nói chung về vùng miền nam Nigeria, nơi các mẫu chuẩn được thu thập.</p><p>Danh sách đỏ IUCN: Loài này phân bố rộng và chưa ghi nhận mối đe dọa lớn nào trên diện rộng. Vì thế IUCN xếp loài vào nhóm Ít quan tâm (IUCN 2020).</p>",
+    "references:scotcat": "<p>Lalèyè, P., Moelants, T. &amp; Olaosebikan, B.D. 2020. Malapterurus beninensis. The IUCN Red List of Threatened Species 2020.</p><p>Norris, S.M., 2002. A revision of the African electric catfishes, family Malapteruridae (Teleostei, Siluriformes), with erection of a new genus and descriptions of fourteen new species, and an annotated bibliography. Ann. Mus. R. Afr. Centr., Sci. Zool., 289:1-155.</p><p>Norris, S.M., 2007. Malapteruridae. p. 692-697. In M.L.J. Stiassny, G.G. Teugels and C.D. Hopkins (eds.) The fresh and brackish water fishes of Lower Guinea, West-Central Africa. Volume I. Collection Faune et Flore tropicales 42. Institut de Recherche pour le Développement, Paris, France, Muséum National d’Histoire Naturelle, Paris, France, and Musée Royal de l’Afrique Centrale, Tervuren, Belgium. 800 pp.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ).</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.92
+    }
   }
 }

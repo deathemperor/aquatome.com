@@ -587,6 +587,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/auchenipterus_nigripinnis.htm": {
+    "entityIds": [
+      "species/auchenipterus-nigripinnis"
+    ],
+    "updatedAt": "2026-11-06T18:45:28.910Z",
+    "hash": "c297e01b58a723e9ce32fa1e958aed952fc2778d898086f8713bd05af4d228fa",
+    "processedHash": "c297e01b58a723e9ce32fa1e958aed952fc2778d898086f8713bd05af4d228fa",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/centromochlus_heckelii.htm": {
     "entityIds": [
       "species/centromochlus-heckelii"
@@ -604,6 +614,16 @@
     "updatedAt": "2026-11-02T21:42:25.911Z",
     "hash": "d8a376b0fb15b15a328d255019d71a65be6601c8c866c3eaaea26060441d1df8",
     "processedHash": "d8a376b0fb15b15a328d255019d71a65be6601c8c866c3eaaea26060441d1df8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm": {
+    "entityIds": [
+      "species/auchenoglanis-occidentalis"
+    ],
+    "updatedAt": "2026-11-06T18:48:05.585Z",
+    "hash": "02a8c7970842532f822b2ab3d192b248a735e29372155b2430bd3bae193b6cbe",
+    "processedHash": "02a8c7970842532f822b2ab3d192b248a735e29372155b2430bd3bae193b6cbe",
     "status": "processed",
     "attempts": 0
   },
@@ -864,6 +884,26 @@
     "updatedAt": "2026-11-04T13:36:10.418Z",
     "hash": "8bd12837790946bbe77495dae6e9b02302a24db90bfe2647b0377970bf79a53e",
     "processedHash": "8bd12837790946bbe77495dae6e9b02302a24db90bfe2647b0377970bf79a53e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ictaluridae/noturus_crypticus.htm": {
+    "entityIds": [
+      "species/noturus-crypticus"
+    ],
+    "updatedAt": "2026-11-06T18:54:25.697Z",
+    "hash": "82acc22f1920e5ac2758d55c2fa85e4b81bf7083d21d8d8e5d87aed6498e1948",
+    "processedHash": "82acc22f1920e5ac2758d55c2fa85e4b81bf7083d21d8d8e5d87aed6498e1948",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ictaluridae/noturus_gladiator.htm": {
+    "entityIds": [
+      "species/noturus-gladiator"
+    ],
+    "updatedAt": "2026-11-06T18:55:49.146Z",
+    "hash": "1d5df46b2d60aee49adbba2771b6bc899f9c8906dbe75088cd5d59a9ebd2c927",
+    "processedHash": "1d5df46b2d60aee49adbba2771b6bc899f9c8906dbe75088cd5d59a9ebd2c927",
     "status": "processed",
     "attempts": 0
   },
@@ -1162,6 +1202,16 @@
     "updatedAt": "2026-11-01T00:28:12.420Z",
     "hash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
     "processedHash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm": {
+    "entityIds": [
+      "species/malapterurus-beninensis"
+    ],
+    "updatedAt": "2026-11-06T18:51:43.160Z",
+    "hash": "519ca1e0976f2050f3c52b908c1820f4be9ce59909a4a6b58842e52b3be44cb7",
+    "processedHash": "519ca1e0976f2050f3c52b908c1820f4be9ce59909a4a6b58842e52b3be44cb7",
     "status": "processed",
     "attempts": 0
   },

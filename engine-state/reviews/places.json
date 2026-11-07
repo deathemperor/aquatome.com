@@ -59,6 +59,18 @@
       "kept": true
     }
   ],
+  "id/places/baek-river": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "Baek River → Baek (should be Sungai Baek)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bago": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -161,6 +173,16 @@
       "kept": true
     }
   ],
+  "id/places/biobio": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bogota": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -221,6 +243,16 @@
       "kept": true
     }
   ],
+  "id/places/canelos": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cape-york-peninsula": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -238,6 +270,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/cayman-islands": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -300,6 +342,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/cross": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "Cross → Cross (Cross River; Indonesian would be Sungai Cross)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -395,6 +449,16 @@
       "kept": true
     }
   ],
+  "id/places/dominican-republic": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/dong-jiang": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -424,6 +488,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/fernando-po": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -491,6 +565,16 @@
       "kept": true
     }
   ],
+  "id/places/grenada": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/guinea-bissau": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -508,6 +592,28 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/gyeongsangbuk-do": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "Gyeongsangbuk-do → Gyeongsang Utara (acceptable but inconsistent; Gyeongsang Utara is fine)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/haiti": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -588,6 +694,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/jamaica": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -740,6 +856,26 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/lake-candidius": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-eyre": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -903,6 +1039,16 @@
       "kept": true
     }
   ],
+  "id/places/luzon": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/macau": [
     {
       "at": "2026-11-06T13:59:22Z",
@@ -1035,6 +1181,16 @@
       "kept": true
     }
   ],
+  "id/places/mezquital": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/milne-bay-province": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -1042,6 +1198,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/moei": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "Thoungyin River → เมย (Thai script, not Indonesian; Indonesian would be Sungai Moei/Thaungyin)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1102,6 +1270,16 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/oahu": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1235,6 +1413,16 @@
       "kept": true
     }
   ],
+  "id/places/potomac": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pungwe": [
     {
       "at": "2026-11-06T13:59:22Z",
@@ -1252,6 +1440,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/quang-binh": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1378,6 +1576,18 @@
         "Rio Ivinheima → \"Ivinheima\" (a river, so it should be \"Sungai Ivinheima\")"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/rio-jurua": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "Rio Jurua → Juruá (should be Sungai Juruá)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1699,6 +1909,18 @@
       "kept": true
     }
   ],
+  "id/places/thoungyin-river": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "Thoungyin River → เมย (Thai script, not Indonesian; Indonesian would be Sungai Moei/Thaungyin)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/thua-luu": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -1726,6 +1948,16 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/tioman-island": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1891,6 +2123,18 @@
       "kept": true
     }
   ],
+  "id/places/yeongsan": [
+    {
+      "at": "2026-11-06T19:55:55Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "Gyeongsangbuk-do → Gyeongsang Utara (acceptable but inconsistent; Gyeongsang Utara is fine)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/zhu-jiang": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -1911,11 +2155,151 @@
       "kept": true
     }
   ],
+  "ms/places/baek-river": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/biobio": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/canelos": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/cayman-islands": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/choshui": [
     {
       "at": "2026-11-06T17:18:18Z",
       "model": "sonnet",
       "score": 0.68,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/cross": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/dominican-republic": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/fernando-po": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/grenada": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/gyeongsangbuk-do": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/haiti": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/jamaica": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lake-candidius": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lake-eyre": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/luzon": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -1941,11 +2325,51 @@
       "kept": true
     }
   ],
+  "ms/places/mezquital": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/moei": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/oahu": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/onon": [
     {
       "at": "2026-11-06T17:18:18Z",
       "model": "sonnet",
       "score": 0.68,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/potomac": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -1961,6 +2385,16 @@
       "kept": true
     }
   ],
+  "ms/places/quang-binh": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-amapari": [
     {
       "at": "2026-11-06T17:18:18Z",
@@ -1968,6 +2402,18 @@
       "score": 0.68,
       "notes": [
         "Amapari (river): the Malay atlas form would normally be \"Sungai Amapari\". The word for river is missing."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-jurua": [
+    {
+      "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Rio Jurua → Sungai Juruá (this uses the Brazilian spelling with an accent. The Peruvian name is Yuruá, so it is doubtful.)"
       ],
       "attempt": "first",
       "kept": true
@@ -2017,6 +2463,18 @@
       "kept": true
     }
   ],
+  "ms/places/thoungyin-river": [
+    {
+      "at": "2026-11-06T23:05:39Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Thoungyin River → Sungai Thaungyin (spelling changed from the source name, which is inconsistent. Sungai Thoungyin would be safer.)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tiete": [
     {
       "at": "2026-11-06T17:18:18Z",
@@ -2027,11 +2485,31 @@
       "kept": true
     }
   ],
+  "ms/places/tioman-island": [
+    {
+      "at": "2026-11-06T23:05:39Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/vogelkop": [
     {
       "at": "2026-11-06T17:18:18Z",
       "model": "sonnet",
       "score": 0.68,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/yeongsan": [
+    {
+      "at": "2026-11-06T23:05:39Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -2148,6 +2626,18 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/baek-river": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Baek River → แพ็ก (questionable; Baengnyeon/Baek not standard, unclear transliteration)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2271,6 +2761,18 @@
       "kept": true
     }
   ],
+  "th/places/biobio": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Biobío → บีโอบีโอ (Thai usually บิโอบิโอ)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bogota": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -2333,6 +2835,16 @@
       "kept": true
     }
   ],
+  "th/places/canelos": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cape-york-peninsula": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -2370,6 +2882,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/cayman-islands": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2479,6 +3001,16 @@
       "kept": true
     }
   ],
+  "th/places/cross": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cunene": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -2571,6 +3103,16 @@
       "kept": true
     }
   ],
+  "th/places/dominican-republic": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/dong-jiang": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -2618,6 +3160,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/fernando-po": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2711,6 +3263,16 @@
       "kept": true
     }
   ],
+  "th/places/grenada": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/guam": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -2738,6 +3300,28 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/gyeongsangbuk-do": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Gyeongsangbuk-do → คย็องซังเหนือ (official: จังหวัดคย็องซังเหนือ; acceptable but incomplete)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/haiti": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2872,6 +3456,16 @@
         "Jalisco → ฮาลิสโก (acceptable)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/jamaica": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -3141,6 +3735,28 @@
       "kept": true
     }
   ],
+  "th/places/lake-candidius": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Lake Candidius → ทะเลสาบแคนดิเดียส (obscure, unverified)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-eyre": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-izabal": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -3298,6 +3914,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/luzon": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -3465,6 +4091,16 @@
       "kept": true
     }
   ],
+  "th/places/mezquital": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/milne-bay-province": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -3482,6 +4118,19 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/moei": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Moei → เมย (acceptable, river is แม่น้ำเมย)",
+        "Thoungyin River → เมย (wrong: Thoungyin is แม่น้ำทวนยิน/ตองยิน, not เมย; missing แม่น้ำ)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -3647,6 +4296,16 @@
       "kept": true
     }
   ],
+  "th/places/oahu": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/okavango": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -3779,6 +4438,16 @@
       "kept": true
     }
   ],
+  "th/places/potomac": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/prek-tuk-sap": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -3818,6 +4487,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/quang-binh": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -3978,6 +4657,18 @@
         "Rio Ivinheima → อีวีนเยมา (omits 'Rio'/แม่น้ำ)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/rio-jurua": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Rio Jurua → ฌูรูอา (Thai usually แม่น้ำจูรูอา; ฌ is odd)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -4459,6 +5150,19 @@
       "kept": true
     }
   ],
+  "th/places/thoungyin-river": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Moei → เมย (acceptable, river is แม่น้ำเมย)",
+        "Thoungyin River → เมย (wrong: Thoungyin is แม่น้ำทวนยิน/ตองยิน, not เมย; missing แม่น้ำ)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/thua-luu": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -4510,6 +5214,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/tioman-island": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Tioman Island → เกาะติโอมัน (standard is เกาะติโอมาน)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -4698,6 +5414,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/yeongsan": [
+    {
+      "at": "2026-11-06T20:00:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Gyeongsangbuk-do → คย็องซังเหนือ (official: จังหวัดคย็องซังเหนือ; acceptable but incomplete)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],

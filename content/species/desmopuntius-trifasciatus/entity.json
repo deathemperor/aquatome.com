@@ -1,0 +1,192 @@
+{
+  "id": "desmopuntius-trifasciatus",
+  "scientificName": "Desmopuntius trifasciatus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Desmopuntius",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "indonesia",
+    "kapuas",
+    "malaysia",
+    "sadong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Desmopuntius trifasciatus is a cyprinid from Borneo, described from the Kapuas basin in West Kalimantan and also known from southern Sarawak. Like D. gemellus and D. johorensis, juveniles have 4 dark vertical bars, and fish over 40 mm have 3 or 4 broad lateral stripes, the central one broadest. It may also be confused with Striuntius lineatus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Type locality is 'Danau Sentarum Wildlife Reserve, 0°56'37\"N, 112°05'31\"E, Kapuas basin, Kalimantan Barat, Borneo', referring to a system of lakes in the Kapuas river system of West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo).</p><p>Additional populations are known from the Pinyuh drainage in Kalimantan Barat, Mentaya River in Kalimantan Tengah (Central Kalimantan) and Pulau Laut (Laut Island) in Kalimantan Selatan (South Kalimantan), and the Sadong River in southern Sarawak state, Malaysian Borneo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Mostly inhabits peat swamps and associated black water streams as well as other still waters, often in areas with submerged grasses or aquatic plants and dense riparian vegetation.</p><p>The water itself is typically stained brown with humic acids and other chemicals released by decaying organic material.</p><p>The dissolved mineral content is generally negligible, pH as low as 3.0 or 4.0, and the substrate usually littered with fallen leaves, branches, and submerged tree roots.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Base dimensions of at least 120 × 45 cm or equivalent are required (about 243 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Will thrive in a heavily-planted or forest stream-type set-up, the latter comprising a soft substrate, dim lighting, roots, branches, and leaf litter as décor.</p><p>You could also add aquatic plants that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>An ideal addition to a peaceful community of Southeast Asian fishes such as similarly sized cyprinids, cobitids, and certain anabantoids.</p><p>Some of the more commonly exported species from Borneo include Striuntius lineatus, Desmopuntius pentazona, Brevibora dorsiocellata, Trigonopoma pauciperforatum, T. gracile, and Pangio spp., for example.</p><p>It's a schooling species by nature, and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less skittish but result in a more effective, natural-looking display, plus males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Adult males tend to be slightly smaller, are noticeably slimmer and exhibit more intense colouration than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<p>This species is one of three similar-looking members of the genus alongside D. johorensis and D. gemellus, while it may also be confused with Striuntius lineatus.</p><p>Juveniles of all except S. lineatus exhibit a vertically-barred rather than laterally-striped colour pattern, the metamorphosis to adult patterning beginning at around 20 mm SL and normally being complete by 30–40 mm.</p><p>D. trifasciatus can be told apart from the other three species by the following combination of characters: 3-4 dark, lateral stripes on body in specimens larger than 40 mm, the central of which is broadest; stripes immediately above and below the central stripe (stripes '+1' and '-1', respectively) located on scale rows +3 and -3, forming the upper and lower margins of the caudal peduncle; stripes broad, typically between 0.5-1 scale rows deep; interaxial streak not distinct beneath dorsal-fin base; 2 pairs of barbels, posterior pair usually reaching beyond posterior margin of eye; 1/24/1/3 in transverse row between dorsal-fin origin and anal-fin origin; 7-11 gill rakers on anterior gill arch; mouth terminal; lower lip thin and post-labial groove interrupted medially; specimens smaller than 30 mm with 4 dark, vertical bars.</p><p>It was formerly included in the genus Puntius which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accomodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which the genus Desmopuntius was raised and diagnosed as follows: unique colour pattern made of 4–6 bars at least in juveniles, anterior bar across eye, 2nd bar behind gill opening, 3rd bar at dorsal-fin origin, 4th bar at anal-fin origin, 5th bar at middle of caudal peduncle, and 6th at caudal-fin base; often a black spot at posterior extremity of dorsal-fin base. In D. gemellus, D. johorensis and D. trifasciatus the barred pattern is present only in juveniles and with increasing size transforms into a striped pattern.</p><p>In addition, the following characters are useful in identification of Desmopuntius spp.: last simple dorsal-fin ray serrated posteriorly; rostral and maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete, with 25–27 pored scales on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 7–11 gill rakers on first gill arch.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "html": "<ul><li>Kottelat, M. (1992). The identity of Barbus johorensis Duncker, 1904 (Teleostei: Cyprinidae). Raffles Bulletin of Zoology 40(2), 187-192</li><li>Kottelat, M. (1996). The identity of Puntius eugrammus and diagnoses of two new species of striped barbs (Teleostei: Cyprinidae) from southeast Asia. Raffles Bulletin of Zoology 44(1), 301-316</li><li>Kottelat, M. and H-H Tan (2011). Systomus xouthos, a new cyprinid fish from Borneo, and revalidation of Puntius pulcher (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 22(3), 209-214</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f8e824b1771b093d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f8e824b1771b093d-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "caption": "This species has 3 or 4 dark lateral stripes on the body.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5cecd4be65626d2e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5cecd4be65626d2e-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/desmopuntius-trifasciatus",
+      "caption": "Head detail. This species has two pairs of barbels.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm",
+        "lọc ngoài cho bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ dạng mảnh",
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "nền cát bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

@@ -1,8 +1,8 @@
 {
   "id": "axelrodia-riesei",
   "native": {
-    "input": "c89f1cc8c1110853",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "1a929d4e13810346",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "CO",
@@ -15,8 +15,24 @@
       {
         "code": "CO",
         "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Upper Río Meta basin, east of Villavicencio, Colombia', and this species is currently known only from the upper Meta.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
         "source": "aquariumbreeder",
         "quote": "Axelrodia riesei has a very narrow natural distribution and can only be found in the basin of the Meta River, a left tributary of the Orinoco River, in Colombia, South America.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Tiny, brilliant ruby-red tetra from Colombia. Sexually mature at 1.5–2 cm (wild-collected animals); in aquaria up to 3 cm. Soft, acidic water (GH below 10 °dGH, pH 4.5–6.5), 20–26 °C.",
         "words": "Colombia",
         "ok": true
       },

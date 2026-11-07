@@ -150,6 +150,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -174,6 +181,10 @@
       {
         "source": "seriouslyfish",
         "value": 23
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -191,6 +202,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/bagrichthys_macracanthus_en/",
+      "html": "<p>A very seldom imported, unusual catfish from Southeast Asia (eastern Sumatra). It reaches a maximum length of about 20 cm. It is called Black Lancer in the trade.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-macracanthus",
@@ -207,6 +224,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-macracanthus",
       "html": "<p>Typically inhabits large, turbid rivers with muddy substrates and slow flow and moves into flooded riparian zones to spawn during the wet season.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/bagrichthys_macracanthus_en/",
+      "html": "<p>In the wild, the species inhabits river portions with only very low current.</p>"
     },
     {
       "key": "aquariumSize",
@@ -227,10 +250,22 @@
       "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 5.5–7.0</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/bagrichthys_macracanthus_en/",
+      "html": "<p>The chemical composition of the water is meaningless. The water temperature should be between 24 and 28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-macracanthus",
       "html": "<p>Apparently feeds on small, benthic animals and organic detritus in nature but will accept most aquarium foods.</p><p>Small live and frozen fare such as Artemia, Tubifex, bloodworm, etc., are particularly suitable, and high-quality, sinking dried products enriched with Spirulina or other vegetable content should also be offered regularly.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/bagrichthys_macracanthus_en/",
+      "html": "<p>They feed readily on any type of usual food used for ornamental fishes.</p>"
     },
     {
       "key": "behaviour",
@@ -239,10 +274,22 @@
       "html": "<p>Peaceful with species inhabiting other areas of the tank and has a relatively small mouth so is unable to swallow anything larger than a few millimetres in length.</p><p>It may be seen more often if maintained alongside schools of 'dither' fishes, for which good choices include larger rasboras, medium-sized barbs or perhaps the glass catfish Kryptopterus minor.</p><p>It is territorial towards other benthic species, especially conspecifics, and males in particular will not often tolerate each other in all but the largest aquaria. Keep a single male alongside 3 or more females for the best chance of long-term success as this should help reduce the chance of any single individual being targeted by the dominant male.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/bagrichthys_macracanthus_en/",
+      "html": "<p>Against tankmates Bagrichthys macracanthus is peaceful. One should not keep them with animals smaller than about one quarter of the length of the Black Lancer, as otherwise they may serve as food.</p><p>Bagrichthys macracanthus is night active and needs caves and other hiding places during the day to feel comfortable. At feeding times the catfish leave their hiding places even by day.</p><p>Against conspecifics males are quite quarrelsome; kept as a pair or in groups composed of one male and an excess of females, they are peaceful against each other.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagrichthys-macracanthus",
       "html": "<p>Males possess a pointed, externally visible genital papilla located just anterior to the anal fin and noticeably longer barbels, while sexually mature females are normally slightly larger-bodied.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/bagrichthys_macracanthus_en/",
+      "html": "<p>Sexually ripe animals can be easily sexed, as the males develop a very unusual, penis-like urogenital papilla; this papilla is normal-shaped in females. However, females can be recognized even in much younger specimens (about 8-10 cm long) by the much deeper body.</p>"
     },
     {
       "key": "reproduction",
@@ -287,17 +334,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/b1fda7e69abe3ae2.webp",
-      "thumb": "https://media.aquatome.com/scotcat/b1fda7e69abe3ae2-480.webp",
-      "width": 500,
-      "height": 226,
-      "licence": "dùng với sự cho phép",
-      "author": "Julian Dignall / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_macracanthus.htm",
-      "caption": "Bagrichthys macracanthus",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/2970d6522607c990.webp",
       "thumb": "https://media.aquatome.com/scotcat/2970d6522607c990-480.webp",
       "width": 500,
@@ -315,6 +351,17 @@
       "height": 315,
       "licence": "dùng với sự cho phép",
       "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_macracanthus.htm",
+      "caption": "Bagrichthys macracanthus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b1fda7e69abe3ae2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b1fda7e69abe3ae2-480.webp",
+      "width": 500,
+      "height": 226,
+      "licence": "dùng với sự cho phép",
+      "author": "Julian Dignall / ScotCat",
       "sourceUrl": "https://www.scotcat.com/bagridae/bagrichthys_macracanthus.htm",
       "caption": "Bagrichthys macracanthus",
       "source": "scotcat"
@@ -348,5 +395,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

@@ -12,6 +12,54 @@
     "malaysia",
     "kelantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta pi is a large paternal mouthbrooding labyrinth fish from peat swamps in southern Thailand and the states of Kelantan and Terengganu, Malaysia.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394008,
+      "total": 10,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

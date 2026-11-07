@@ -1,0 +1,68 @@
+{
+  "id": "betta-rubra",
+  "native": {
+    "input": "5bf2350683a36cf6",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Betta rubra is a charismatic and increasingly rare wild betta originating from northern Sumatra, specifically the Aceh region of Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta rubra is a small labyrinth fish from northwestern Sumatra, Indonesia, known from the Singkil area of Aceh and around Sibolga in North Sumatra.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known only from northwestern Sumatra, Indonesia with definitive records existing from the Singkil area in Aceh province and around Sibolga in North Sumatra (Sumatera Utara) province.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta rubra",
+    "status": "ACCEPTED",
+    "taxonKey": 2394010,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

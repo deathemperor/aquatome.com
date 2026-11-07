@@ -10,6 +10,62 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Central Kalimantan",
+        "Sabangau"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Betta hendra is a rare member of the Betta coccina complex, native to the peat-swamp forests of Central Kalimantan, Borneo (Indonesia).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo",
+            "Central Kalimantan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Palangkaraya is the capital city of Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo, and B. hendra is known only from the Sabangau peat swamp forest, home to the world's largest Orang Utan population and located to the immediate south and west of the city.",
+          "countries": [],
+          "regions": [
+            "Sabangau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7365203,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          -2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

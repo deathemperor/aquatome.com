@@ -1,0 +1,186 @@
+{
+  "id": "biotodoma-wavrini",
+  "native": {
+    "input": "5b8aed4652fc4125",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Orinoco eartheater, Biotodoma wavrini, is a geophagine cichlid from the Orinoco and rio Negro basins of Venezuela, Colombia and Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Orinoco eartheater, Biotodoma wavrini, is a geophagine cichlid from the Orinoco and rio Negro basins of Venezuela, Colombia and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Orinoco eartheater, Biotodoma wavrini, is a geophagine cichlid from the Orinoco and rio Negro basins of Venezuela, Colombia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A natural habitat of this species is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Río Cinaruco",
+        "source": "seriouslyfish",
+        "quote": "A natural habitat of this species is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Río Ventuari",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'upper Río Orinoco in Venezuela between San Fernando de Atabapo and Río Casiquiare, Venezuela', which appears to correspond to the lower Río Ventuari, a tributary of the Orinoco.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Biotodoma wavrini",
+    "status": "ACCEPTED",
+    "taxonKey": 2372966,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        208
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        43
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        26
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        20
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        16
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        15
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        10
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        7
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

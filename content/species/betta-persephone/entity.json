@@ -10,6 +10,46 @@
     "malaysia",
     "johor"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta persephone is a small bubble-nesting labyrinth fish that appears to be endemic to southwestern Johor state, Peninsular Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394050,
+      "total": 5,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          1.40625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

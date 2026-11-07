@@ -1,14 +1,14 @@
 {
   "id": "acestrorhynchus-minimus",
   "native": {
-    "input": "962bc678e0fb1358",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "7c5440d7f6d6f868",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "PE",
-        "status": "doubtful",
+        "status": "native",
         "source": "glaser",
-        "quote": "However, that species is not listed so far to occur in Peru, so we decided to name the fish “cf. minimus”.",
+        "quote": "Origin: Peru. Available size: 6-8 cm.",
         "words": "Peru",
         "ok": true
       }
@@ -17,9 +17,7 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "PE"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -109,8 +107,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-05T22:45:18.315Z"
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T18:08:44.169Z"
   }
 }

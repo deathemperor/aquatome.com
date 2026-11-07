@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "borneo",
-    "kalimantan-selatan"
+    "kalimantan-selatan",
+    "kalimantan"
   ],
   "range": {
     "native": {
@@ -90,6 +91,13 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -105,6 +113,13 @@
         "value": {
           "min": 4,
           "max": 7
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
+          "max": 8
         }
       }
     ],
@@ -132,6 +147,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ],
     "difficulty": [
@@ -142,6 +161,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
       }
     ],
     "tankCm": [
@@ -165,6 +188,12 @@
       "html": "<p>The mosquito rasbora, Boraras brigittae, is a miniature cyprinid that appears to be endemic to southwestern Borneo. It inhabits blackwater streams and pools associated with forest peat swamps, where the water is very soft and acidic. The congener B. urophthalmoides is often traded under its name, but B. brigittae is larger, lacks a distinct dark blotch at the caudal peduncle and has brighter, more uniformly red patterning. Striped males of B. merah have led to speculation that the two are the same species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>Boraras brigittae is a close relative of other micro rasboras such as the exclamation point rasbora and the strawberry rasbora. It grows to only about 2 cm long and has a slender body with pointed fins. Adults have intensely scarlet bodies with a black horizontal stripe. Unlike many red aquarium fish with a warmer red-orange hue, they show a deep, cool-toned red.</p><p>Juveniles sold in pet stores are tiny and look washed-out, so they are often passed over. Adults become temporarily paler whenever they move to a new tank; after a couple of weeks of adjustment their true colours return.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
@@ -175,6 +204,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
       "html": "<p>Appears to be endemic to southwestern Borneo though occurrence records are scant. The type locality is 'Bandjarmasin', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), and following Kottelat (1991) its range extends westwards as far as the Jelai Bila river basin, near the town of Sukamara, where it is said to occur sympatrically with the congener B. merah (but see 'Notes').</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>Chili rasboras are found in the rainforests of Borneo, Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -189,10 +224,22 @@
       "html": "<p>Inhabits blackwater streams and pools associated with ancient forest peat swamps. The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate is scattered with fallen leaves, twigs and branches.</p><p>Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly lit due to dense marginal vegetation and the forest canopy above. Across much of Southeast Asia these precious biotopes are under threat from rubber or palm oil plantations, building developments and other human activities.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>Their habitat is rainforest where many trees block out the sunlight and leaves often fall into the water, breaking down into brown tannins. The waters are therefore acidic and soft.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
       "html": "<p>Though small it still needs space to swim and dominant males will form temporary territories when spawning, so a group is best kept in an aquarium with base dimensions of at least 45 × 30 cm (about 41 litres).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>Because of their petite size, chili rasboras have a very low bioload and produce little waste. They have been kept successfully in planted tanks as small as 11 litres.</p>"
     },
     {
       "key": "maintenance",
@@ -213,10 +260,22 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>Although they come from acidic, softer waters, chili rasboras are quite hardy and can handle a much wider range of water parameters. They have been kept successfully at pH 6.0–8.0, at temperatures between 22–28°C, and in soft to hard water.</p>"
+    },
+    {
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
       "html": "<p>Provide gentle filtration with minimal current. Leaf litter, botanicals, driftwood, floating plants, and dim lighting help recreate their natural peat-swamp environment.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>To recreate the dim lighting of the jungle, use plenty of low-light plants that create shady areas and good hiding spots for both adults and fry. Suggested plants include java fern, anubias, cryptocoryne, dwarf aquarium lily and floating water sprite.</p><p>For a biotope tank imitating their natural setting, add dried catappa leaves to tint the water, gently lower the pH and create biofilm for the fish to nibble on.</p><p>They are not fast swimmers, so choose a filter with low current, such as a sponge filter. If using a hang-on-back or canister filter, cover the intake tube with a prefilter sponge so the fish will not be sucked up.</p>"
     },
     {
       "key": "diet",
@@ -231,6 +290,12 @@
       "html": "<p>As with other Boraras species it is likely to be a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature. In the aquarium it will accept dried foods of a suitable size but should not be fed these exclusively.</p><p>Daily meals of small live and frozen fare such as Daphnia and Artemia along with good quality flakes and granules will result in the best colouration and encourage the fish to come into breeding condition.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>In the wild they feed on zooplankton, micro worms, insect larvae and other tiny invertebrates. Offer foods small enough to fit in their mouths or soft enough to bite pieces from. They prefer to feed from the middle of the water column, so floating or slow-sinking foods suit them. They are not aggressive eaters and can easily be outcompeted at mealtimes unless the food is fine enough to spread everywhere.</p><p>They are not picky and will eat everything from frozen rotifers and cyclops to Repashy gel food (in powder form) and live micro worms. Crushed krill flakes, small-fish and fry foods, and baby brine shrimp help bring out their vivid red coloration.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
@@ -241,6 +306,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
       "html": "<p>This species is very peaceful but does not make an ideal community fish due to its small size and rather timid nature. It will do best when maintained alone or with other diminutive species such as Microdevario, Sundadanio, Danionella, Eirmotus, Trigonostigma, pygmy Corydoras and small Loricariids such as Otocinclus.</p><p>It also makes an ideal companion for shy anabantoids such as Sphaerichthys, Parosphromenus or the more diminutive Betta species, and in a planted set-up can be housed alongside freshwater shrimp of the genera Caridina and Neocaridina.</p><p>It is a schooling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one another for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>Chili rasboras are a shoaling fish: a larger group helps them feel more comfortable and confident about swimming in the open. Their small, slender bodies are hard to notice unless there are many of them, so a school of at least 8–12 is recommended.</p><p>Unlike most timid nano fish, they are comparatively bold and often approach the glass out of curiosity if you stay still for a few seconds.</p><p>The species is very peaceful and does well with similar-sized community fish that are not big enough to prey on them. Compatible tank mates include lambchop rasboras, rosy loaches, ember tetras, dwarf cory catfish, neon green rasboras, snails and shrimp. They will not bother adult shrimp, although all fish may opportunistically eat baby shrimp. They also get along with other peaceful nano fish such as clown killifish.</p>"
     },
     {
       "key": "dimorphism",
@@ -255,6 +326,12 @@
       "html": "<p>Mature females are noticeably rounder-bellied and often a little larger than males. Males are generally more attractive with dominant individuals often displaying intense colouration.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>Females tend to be rounder and less colourful, while males are smaller and have the brightest reds.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-brigittae-chili-rasbora",
@@ -265,6 +342,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-brigittae",
       "html": "<p>Like many small cyprinids this species is an egg-scattering, continuous spawner that exhibits zero parental care. That is to say when in good condition and in the presence of both males and females relatively small numbers of eggs will be laid daily. In a well-furnished, mature aquarium it is therefore possible that small numbers of fry may start to appear without human intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required. The adult group can still be conditioned together but one or more small, perhaps 10-15 litre, containers should also be set up.</p><p>These should be very dimly lit with the base either left bare or covered with some kind of mesh of a large enough grade so that any eggs that fail to adhere to the plant can pass through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works very well. The water itself should be of pH 5.0-6.5, 1-5 dGH with a temperature towards the upper end of the range suggested above.</p><p>A decent-sized clump of Java moss or other fine-leaved plant should also be added, filling perhaps half the available space. Filtration is not really necessary but you can use a small, air-powered sponge filter if you prefer.</p><p>Two or three pairs of well-conditioned adult fish should then be introduced to each container. It is wise to make the transfer slowly in order to avoid excessive levels of stress but if conditions are to their liking they should begin to spawn the following morning.</p><p>While this species certainly will eat its eggs it appears not to actively hunt for them as is the case with many small cyprinids. Once spawning has commenced it should continue on a daily basis.</p><p>The pair(s) should be left in situ for no more than a couple of days before being removed as the first eggs should hatch by the second day after the initial spawning. The tiny young will survive on their yolk sacs for another 24 hours or so after which they will require Paramecium or other microscopic food.</p><p>After a week to ten days they should be large enough to accept Artemia nauplii/microworm etc. As the days pass additional fry should start to appear from later spawning events. It is best to wait a week or two before starting to perform small water changes in order to avoid unduly shocking the young fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "html": "<p>The fry are nearly microscopic, so breeding works best in a mature aquarium with lots of live plants, catappa leaves and other botanicals that create mulm and microfauna for the fry to graze on constantly.</p><p>To prevent the adults from eating their own eggs, cover the bottom of the tank with plastic craft mesh and place a thick layer of java moss, a yarn spawning mop, or other fluffy, dense plants underneath. The eggs fall through the mesh, but the holes are too small for adults to enter. An acidic pH below 7.0 may improve hatch rate and survival.</p><p>Keep a group of at least 6 to ensure both sexes. Condition the adults with plenty of high-quality foods such as live baby brine shrimp, then place them in the breeding tank for a couple of days and remove them as soon as they have spawned or fry appear.</p><p>Feed the fry multiple small meals a day of fry foods such as infusoria and vinegar eels; after a couple of weeks they should be large enough to eat live micro worms and baby brine shrimp. Juveniles are not very colourful at first, but with good care and patience they will become ruby red.</p>"
     },
     {
       "key": "notes",
@@ -314,6 +397,39 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/aquariumcoop/57f42ec7afb9edeb.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/57f42ec7afb9edeb-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "caption": "Care Guide for Chili Rasboras — Spicy Red Nano Fish for Planted Tanks - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/84fb5f64489fe39a.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/84fb5f64489fe39a-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "caption": "chili rasbora",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/6f807149fb667dd9.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/6f807149fb667dd9-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "caption": "chili rasbora with clown killifish",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/bb991a4fdd2edcd5.webp",
       "thumb": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-480.webp",
       "width": 960,
@@ -324,34 +440,15 @@
       "caption": "Male Boraras Brigittae in Aquarium."
     },
     {
-      "url": "https://media.aquatome.com/commons/1254100a9b4b2caf.webp",
-      "thumb": "https://media.aquatome.com/commons/1254100a9b4b2caf-480.webp",
-      "width": 960,
-      "height": 960,
-      "licence": "CC BY-SA 4.0",
-      "author": "Daiju Azuma",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras_brigittae_by_DaijuAzuma.JPG",
-      "caption": "ja:ボララス・ブリジッタエ en:Boraras brigittae Domain: Eukaryota • Regnum: Animalia • Phylum: Chordata • Subphylum: Vertebrata • Infraphylum: Gnathostomata • Cladus: Osteichthyes • Classis: Actinopterygii • Ordo"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/3e158e81b4352d68.webp",
-      "thumb": "https://media.aquatome.com/commons/3e158e81b4352d68-480.webp",
-      "width": 960,
-      "height": 723,
-      "licence": "CC BY-SA 3.0",
-      "author": "VivienneHarper",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nano-Aquarium_mit_Boraras_brigittae.JPG",
-      "caption": "Boraras brigittae in nano tank"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b6bcaf61a7a9f2e1.webp",
-      "thumb": "https://media.aquatome.com/commons/b6bcaf61a7a9f2e1-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "CC0",
-      "author": "Fantomeno 14",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boraras-brigittae-3191524164.jpg",
-      "caption": "Un rasbora orné"
+      "url": "https://media.aquatome.com/aquariumcoop/32658b3923020409.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/32658b3923020409-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/chili-rasbora",
+      "caption": "juvenile chili rasboras with pale colors",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -410,5 +507,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

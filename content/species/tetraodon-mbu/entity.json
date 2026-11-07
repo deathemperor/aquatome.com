@@ -5,7 +5,16 @@
   "family": "Tetraodontidae",
   "genus": "Tetraodon",
   "group": "other",
-  "places": [],
+  "places": [
+    "africa",
+    "republic-of-the-congo",
+    "democratic-republic-of-the-congo",
+    "lake-tanganyika",
+    "tanzania",
+    "zambia",
+    "burundi",
+    "cameroon"
+  ],
   "dataCard": {
     "tempC": [
       {
@@ -14,18 +23,57 @@
           "min": 24,
           "max": 25
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "aquariumcoop",
         "value": 56
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 75
       }
     ],
     "difficulty": [
       {
         "source": "aquariumcoop",
         "value": 7
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240
       }
     ]
   },
@@ -37,10 +85,34 @@
       "html": "<p>The Tetraodon mbu puffer is the largest freshwater species of puffer fish, reaching 22+ inches (about 56 cm) in a home aquarium. With the fish getting so big, most aquarists struggle to keep one healthy. The author's largest one only reached 22 inches, but he suspects they could grow as large as 30 inches (about 76 cm) depending on how they are raised throughout their extended lives.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>The giant puffer, Tetraodon mbu, is a freshwater pufferfish from rivers and lakes in Central and East Africa, including Lake Tanganyika. Among the most aggressive puffers available, it can reach 75 cm and should be kept alone in a tank of around 240 by 90 by 90 cm. A molluscivore in nature, it needs snails and unshelled shellfish regularly to keep its continuously growing teeth worn down.</p><ul><li>Space: very large tank</li><li>Water: needs a steady pH</li><li>Temperature: needs a very steady temperature</li><li>Diet: needs snails to wear down its teeth</li><li>Temperament: territorial</li><li>Needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>Republic of Congo, Democratic Republic of Congo, Tanzania, Zambia, Burundi, Cameroon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>It inhabits rivers and lakes, including Lake Tanganyika.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tetraodon-mbu-the-under-water-giant-puppy",
       "html": "<p>The first question is always what size of aquarium. Some say 300 gallons (about 1,100 litres), some say 1,000 gallons (about 3,800 litres), etc. In reality the footprint is much more important than the number of gallons.</p><p>For a fish that gets to 30 inches, a tank 8 ft (about 2.4 m) long and 4 ft (about 1.2 m) front to back that is only 2 ft (about 60 cm) tall works much better than a tank that is 4 ft tall, 8 ft long and only 2 ft front to back. More area to swim is always better, and more gallons of water generally makes waste management easier.</p><p>The author's current aquarium for his second MBU puffer is 72x48x24 inches tall (about 183x122x61 cm), which is 360 gallons (about 1,360 litres). The puffer is about 13 inches (about 33 cm) at present.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>Standard length: 75 cm SL. Aquarium base: 240 × 90 cm. Volume: ~1944 litres.</p><p>Something in the region of 240 × 90 × 90 cm (~1944 litres) would be required to house an adult specimen. Juveniles can be grown on in smaller tanks, but be warned, this fish grows quickly.</p>"
     },
     {
       "key": "maintenance",
@@ -49,10 +121,22 @@
       "html": "<p>As for waste management, the author currently changes 100 gallons (about 380 litres) of the 340 gallons (about 1,290 litres) daily. This keeps nitrates at 0 in the aquarium. It is controlled by an automatic water change system so that it is never missed due to illness, holidays, etc. Live plants are also beneficial in reducing waste in this aquarium.</p><p>When you have a 22 inch fish eating 6 to 8 oz (about 170–230 g) of food a day, its feces are the size of small dogs.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>This is a freshwater puffer and does not require the addition of salt to its tank. A sandy substrate is suggested, with smooth rocks and driftwood pieces for decoration. Leave plenty of open space for swimming. You can plant the aquarium if you wish but be prepared for bite marks to appear in the leaves if the puffer spots any morsels of food on them.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tetraodon-mbu-the-under-water-giant-puppy",
       "html": "<p>A pH of above 7.0 should always be maintained. The author typically keeps his at pH 7.4; if his natural tap water were higher, he would keep it there as well. With so much water being changed, it makes more sense to adapt the puffer to the tap water pH plus shells than to alter it, especially with automated daily water changes.</p><p>For temperature, he runs his tank in the mid 70s °F (about 24–25 °C). He does not use aquarium heaters but heats the whole room, partly because he runs a lot of aquariums, but mostly so he can eliminate heater malfunction from the list of potential killers of a MBU puffer.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<ul><li>Temperature: 24–26°C</li><li>pH: 7.0–8.0</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -67,16 +151,46 @@
       "html": "<p>Diet is another difficult aspect for most owners. They need most of their diet to be shelled foods, such as clams, mussels, snails and crayfish. These are all important and help keep their oversized teeth, also known as a beak, trimmed down.</p><p>The author feeds his MBU puffers shelled foods 5 days a week and softer foods 2 days a week, such as cocktail shrimp and frozen bloodworms, soaked in a vitamin supplement. He has not had luck getting any of his MBU puffers onto dry foods after trying for years, though he knows others who have been successful.</p><p>Be prepared for a food bill that is up to a day when they get large. The monthly cost is akin to keeping a very large dog on a specialized diet. Variety is important, as it is too easy to rely on only one type of food and develop vitamin deficiencies.</p><p>Live foods help stimulate the hunting instincts of the puffer, but can also bring in parasites. There can also be danger from the claws of crayfish, fiddler crabs, etc. It is recommended to cut off one of the claws before feeding so the live food can't clamp onto an eye of the puffer.</p><p>One benefit of feeding lots of shelled foods is that the shells can be left in the aquarium, where they help buffer the water, almost forming a crushed-coral-like substrate. This helps buffer up the pH and alkalinity of the water. As the puffers get bigger and eat more, more and more shells litter the bottom. If you use sand, you can use a coarse net to scoop up shells and sand and sift the shells out if the bed is getting too thick.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>T. mbu is a molluscivore in nature, and in the aquarium relishes all kinds of shellfish, as well as worms and other live and frozen foods. It should be fed snails and unshelled shellfish (such as crab legs, mussels etc.) regularly, in order to maintain its sharp teeth. As with other puffers, these grow continuously and become a problem for the fish if they are not kept ground down.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tetraodon-mbu-the-under-water-giant-puppy",
       "html": "<p>The puffers have excellent vision and will easily learn to recognize their owners from across the room, which makes this puffer a great wet pet. As they get larger their eyes get further and further apart. This makes the puffer look at its food from the side, then line itself up and then eat it. At times tank mates swim in for food at the right moment and are eaten by mistake. This seems to happen about once every 6 months.</p><p>Casualties can be lessened by choosing the right tank mates. In general, keep very peaceful and passive tank mates. However, loaches and corydoras also love clams and other meaty foods and can go for food at the wrong time. Early on, with his first MBU puffer, the author once lost an Ellipsifer Eel from Lake Tanganyika to a mortal wound to the tail end of the eel when both went for the same piece of shrimp.</p><p>The best tank mates he has found for his MBU puffers have been fancy guppies, tetras, Siamese algae eaters, plecos, rasboras, rainbow fish, roseline sharks, Geophagus species, etc. Things that did not work out well were Flagtail Prochilodus, Giraffe Catfish, and basically anything that would touch the MBU puffer or be a pig at food time.</p><p>MBU puffers will stretch and inflate and deflate quickly from time to time in the aquarium. This is normal as long as it is not caused by a stress factor, such as a loud noise. The author likens a puffer puffing up to a human fainting: it takes so much shock to the system, it is purely a defense mechanism.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>A generally aggressive and intolerant species that really should be kept alone. Its beak-like mouth can easily bite chunks from other fish, or in extreme cases rip them to pieces. However, some specimens are less aggressive than others and it is down to the individual fish as to how it will react to tankmates. If you decide to take the risk, you will need a huge tank and tankmates that swim too quickly for the puffer to catch them easily. It is also very aggressive towards conspecifics and should never be kept in groups.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>There are no external sexual differences.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>Breeding has not occured in aquaria. A truly enormous volume of water would be required for any serious breeding attempt.</p>"
+    },
+    {
       "key": "notes",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/tetraodon-mbu-the-under-water-giant-puppy",
       "html": "<p>The author's previous MBU was 22 inches before it died at 5 years old, much too early, from a wild-caught disease with no known cure, as the necropsy revealed. It had made lots of lesions on its heart and other organs and taxed its system over time.</p><p>When you move a MBU puffer, keep it under water the entire time. If it puffs up out of water it can get air trapped, and if it cannot expel it, this can kill it.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-mbu",
+      "html": "<p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes 2 or 3 times its normal size, big enough to scare away many potential predators, or difficult to swallow.</p><p>Puffers also have several other interesting adaptations. They are one of the few fish that can actually blink or close their eyes, which only serves to add further charm to what is already a fish with bags of character. They also have beak-like mouthparts, which are formed by a fusing of 2 teeth from each jaw (hence Tetraodon). These are used to crush shelled invertebrates, the favourite food of most puffers.</p><p>Many parts of the body of puffers contain the deadly neurotoxin tetrodotoxin. This is the same poison found in the notorious blue-ringed octopus. When ingested in sufficient quantities, it can cause paralysis and death. As yet, there is no known antitoxin and to humans it is over 1000 times deadlier than cyanide. Grotesquely, the victim usually remains conscious as he or she becomes paralysed. It's a famous delicacy in Japan, but is prepared only by highly-trained chefs, and even then many people have died from eating it. This need not worry you, but if you need to get rid of your puffer, sell it on: getting the barbecue out is not recommended!</p><p>The giant puffer is also known as the giant green puffer, or simply as the mbu puffer. It is an enigmatic species, as not only is it one of the most aggressive puffers available, but it will also learn to interact with its owner, developing into a real pet. Each individual seems to have a unique personality, which is rare among fish. Its eyes appear to show real expression, and its ponderous movements are a joy to watch. It can also change colour, depending on its mood or surroundings. Some specimens will puff up when they want attention, and to see a fully-grown adult inflate to the size of several footballs is an amazing sight.</p><p>However due to its eventual size, it is only really suitable for public aquaria or those few hobbyists able to house it in a suitably sized tank. Sadly, there has been an influx of small, 10–15 cm specimens imported over the last few years, and it is feared what has happened to many of them. If you see this species for sale and are tempted to buy one, please leave it in the store unless you have the facilities and dedication to maintain what is a true aquarium giant.</p>"
     }
   ],
   "photos": [
@@ -93,13 +207,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/ec529a0192561ed3.webp",
+      "thumb": "https://media.aquatome.com/commons/ec529a0192561ed3-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Liné1",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_mbu_01_by_Line1.jpg",
-      "caption": "Tetraodon mbu in Aquarium tropical du Palais de la Porte Dorée",
-      "thumb": "https://media.aquatome.com/commons/ec529a0192561ed3-480.webp"
+      "caption": "Tetraodon mbu in Aquarium tropical du Palais de la Porte Dorée"
     }
   ],
   "videos": [],
@@ -107,8 +221,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 360 lít",
-        "bể cá kính dài 2m4"
+        "bể cá 240cm"
       ]
     },
     {
@@ -133,5 +246,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-06"
 }

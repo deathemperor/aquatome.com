@@ -1,0 +1,64 @@
+{
+  "id": "botia-lohachata",
+  "native": {
+    "input": "e570665bee883f83",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Botia lohachata was described from Bihar in India as early as 1912.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia lohachata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368026,
+    "datasets": [
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        21
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "7b88be3f-ae5e-497d-bf56-0d549300d916",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

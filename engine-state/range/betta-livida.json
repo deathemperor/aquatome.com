@@ -1,0 +1,66 @@
+{
+  "id": "betta-livida",
+  "native": {
+    "input": "135a8296795b4913",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Betta livida is a small bubble-nesting labyrinth fish endemic to peat swamps in northern Selangor state, Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Wild-caught Betta livida from Indonesia, belonging to the Betta coccina complex.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Betta livida is a small bubble-nesting labyrinth fish endemic to peat swamps in northern Selangor state, Peninsular Malaysia.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta livida",
+    "status": "ACCEPTED",
+    "taxonKey": 2394039,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

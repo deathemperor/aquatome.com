@@ -1,0 +1,44 @@
+{
+  "id": "betta-simplex",
+  "native": {
+    "input": "16ad7f303aa176b0",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from Krabi province, southern (peninsular) Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta simplex",
+    "status": "ACCEPTED",
+    "taxonKey": 2394027,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

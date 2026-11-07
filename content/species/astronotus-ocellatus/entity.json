@@ -41,14 +41,13 @@
       "regions": [
         "Amazon",
         "Orinoco",
-        "Negro",
-        "Madeira",
+        "Ucayali",
         "Solimões",
-        "Ucayali"
+        "Negro",
+        "Madeira"
       ],
       "sources": [
-        "seriouslyfish",
-        "sprucepets"
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -66,15 +65,8 @@
             "UY",
             "AR"
           ],
-          "regions": []
-        },
-        {
-          "source": "sprucepets",
-          "quote": "Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins.",
-          "countries": [],
           "regions": [
-            "Amazon",
-            "Orinoco"
+            "Amazon"
           ]
         },
         {
@@ -82,10 +74,11 @@
           "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
           "countries": [],
           "regions": [
-            "Negro",
-            "Madeira",
+            "Orinoco",
+            "Ucayali",
             "Solimões",
-            "Ucayali"
+            "Negro",
+            "Madeira"
           ]
         }
       ]

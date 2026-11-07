@@ -1,17 +1,9 @@
 {
   "id": "puntius-titteya",
   "native": {
-    "input": "6415657957e2f122",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "085b03a4611e77c1",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
-      {
-        "code": "LK",
-        "status": "native",
-        "source": "glaser",
-        "quote": "It lives endemic on the island of Sri Lanka.",
-        "words": "Sri Lanka",
-        "ok": true
-      },
       {
         "code": "LK",
         "status": "native",
@@ -24,7 +16,7 @@
         "code": "LK",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Endemic to Sri Lanka where it is restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.",
+        "quote": "The cherry barb, Puntius titteya, is a small cyprinid endemic to the Kelani and Nilwala river basins in the southwestern 'wet zone' of Sri Lanka.",
         "words": "Sri Lanka",
         "ok": true
       }
@@ -33,29 +25,13 @@
       {
         "name": "Kelani",
         "source": "seriouslyfish",
-        "quote": "Endemic to Sri Lanka where it is restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.",
-        "country": "LK",
+        "quote": "The cherry barb, Puntius titteya, is a small cyprinid endemic to the Kelani and Nilwala river basins in the southwestern 'wet zone' of Sri Lanka.",
         "ok": true
       },
       {
         "name": "Nilwala",
         "source": "seriouslyfish",
-        "quote": "Endemic to Sri Lanka where it is restricted to the Kelani and Nilwala river basins in the southwestern 'wet zone' of the island, plus smaller drainages in the area between them.",
-        "country": "LK",
-        "ok": true
-      },
-      {
-        "name": "Kelani",
-        "source": "sprucepets",
-        "quote": "The Cherry Barb, native to Sri Lanka, inhabits the Kelani and Nilwala basins.",
-        "country": "LK",
-        "ok": true
-      },
-      {
-        "name": "Nilwala",
-        "source": "sprucepets",
-        "quote": "The Cherry Barb, native to Sri Lanka, inhabits the Kelani and Nilwala basins.",
-        "country": "LK",
+        "quote": "The cherry barb, Puntius titteya, is a small cyprinid endemic to the Kelani and Nilwala river basins in the southwestern 'wet zone' of Sri Lanka.",
         "ok": true
       }
     ],

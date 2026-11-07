@@ -42,7 +42,14 @@
     "equipment:planetcatfish": "<p>Bạn nên bày đá hoặc lũa để chắn bớt dòng chảy và cho cá có chỗ trốn. Có thêm ít cây hoặc một lớp lá khô dưới đáy thì càng lý tưởng.</p>",
     "behaviour:planetcatfish": "<p>Bạn cùng bể lý tưởng là các loài cá bám đá họ balitorine như Homaloptera, các loài cá họ chép bơi nhanh như Danio hay Barilius, và các loài chạch gai (mastacembelid) cỡ nhỏ.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 15 (no. 3), pp 194, Figs. 1-3, 5.</p>"
+    "references:planetcatfish": "<p>Ichthyological Exploration of Freshwaters v. 15 (no. 3), pp 194, Figs. 1-3, 5.</p>",
+    "quickFacts:glaser": "<ul><li>Xuất xứ: Myanmar (Miến Điện)</li><li>Kích thước thường bán: 3–4 cm</li></ul>",
+    "beforeYouBuy:glaser": "<p>Trong nhóm cá da trơn có vài loài biết \"trả đũa\" khi bị bắt bằng một nhát châm có độc. Với phần lớn mọi người, nọc chỉ gây hậu quả nhẹ như rát, sưng tại chỗ và đau. Nhưng với người bị dị ứng, nó thậm chí có thể gây chết người. Bạn nên nhớ rằng ong mật mới là loài vật gây ra nhiều ca tử vong ở người nhất trong số các loài vật.</p><p>Cái khó của cá có độc nằm ở chỗ bạn không thể biết cơ thể mình sẽ phản ứng ra sao cho tới khi bị châm lần đầu. Vì thế, khi chơi Akysis vespa thì cẩn thận vẫn hơn.</p><p>Chỉ riêng cái tên khoa học \"vespa\" (ong bắp cày) đã nói lên khá nhiều. Cái tên này ám chỉ bộ màu vàng đen, và cả cú châm rất đau mà loài cá này có thể gây ra. Tin vui là Akysis vespa rất hợp để nuôi bể, thậm chí bạn có thể cho chúng sinh sản ngay trong bể nhà.</p>",
+    "distribution:glaser": "<p>Akysis vespa có nguồn gốc từ Myanmar. Đến nay, người ta mới chỉ ghi nhận loài này ở thượng nguồn sông Ataran, phía bắc Myanmar. Sông Ataran bắt nguồn từ Thái Lan rồi đổ ra biển Andaman.</p>",
+    "habitat:glaser": "<p>Akysis sống ở những con suối nhỏ, nước trong và chảy xiết, đáy là sỏi cuội.</p>",
+    "equipment:glaser": "<p>Trong bể, cá hoạt động sôi nổi hơn hẳn khi có dòng chảy mạnh.</p>",
+    "dimorphism:glaser": "<p>Cách dễ nhất để phân biệt trống mái là nhìn dáng cơ thể. Con cái tròn mình hơn. Khi con cái sắp đẻ, bạn có thể thấy trứng màu xanh lục qua lớp bụng.</p>",
+    "reproduction:glaser": "<p>Trứng có đường kính khoảng 1,5 mm.</p><p>Giống nhiều loài cá khác, A. vespa vào mùa sinh sản khi mùa mưa tới. Muốn kích cho cá đẻ, bạn làm giống như với cá chuột: thay một lượng nước lớn, khoảng 80%, bằng nước mát và mềm. Nhiệt độ nước nhờ vậy sẽ hạ từ khoảng 30°C xuống còn khoảng 23°C. Cá đực sẽ rượt đuổi cá cái rất hăng. Thực tế cho thấy ghép một nhóm cá đực với cá cái sẽ cho kết quả tốt hơn. Lúc đẻ, con đực thắng thế sẽ quấn thân quanh con cái. Trứng mất khoảng 4 ngày thì nở.</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -57,7 +64,8 @@
     "bySource": {
       "seriouslyfish": 0.82,
       "scotcat": 0.9,
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "glaser": 0.88
     }
   }
 }

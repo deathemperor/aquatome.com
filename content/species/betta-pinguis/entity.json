@@ -10,6 +10,40 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta pinguis is a paternal mouthbrooding labyrinth fish known only from the middle and upper Kapuas watershed in West Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393981,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

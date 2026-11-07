@@ -1,21 +1,22 @@
 {
   "slug": "bucephalandra-dark-leaf",
-  "name": "Bucephalandra Dark Leaf",
+  "name": "Bucephalandra sp. 'Dark Leaf'",
   "altNames": [
     "Buce Dark Leaf",
-    "Bucephalandra sp. Dark Leaf",
-    "Buce daun gelap",
-    "Bucephalandra sp."
+    "Bucep Dark Leaf",
+    "Bucephalandra Dark Leaf"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Bucephalandra adalah genus tumbuhan berbunga yang di habitat aslinya kadang tumbuh terendam (submersed) dan kadang tumbuh di atas permukaan air (emersed). Tanaman ini bahkan bisa berbunga di bawah air.</p>",
-    "notes:bwaquatics": "<p>Tanaman ini sangat cocok untuk semua akuarium tanaman, dan tentu ideal untuk akuarium dengan cahaya rendah serta perawatan ringan, seperti akuarium cupang sederhana.</p>"
+    "quickFacts:bwaquatics": "<p>Bucephalandra adalah genus tumbuhan berbunga yang di habitat aslinya kadang tumbuh terendam (submersed) dan kadang di atas permukaan air (emersed). Tanaman ini bahkan bisa berbunga di bawah air.</p>",
+    "maintenance:aquatome": "<p>Bucephalandra adalah tanaman epifit, jadi tanaman ini ditempelkan pada kayu (driftwood) dan batu, tidak ditanam di substrat seperti tanaman dasar. Rumpun yang besar dan batangnya tebal sebaiknya diselipkan dalam-dalam ke celah di pangkal kayu, sedangkan rumpun kecil disebar merata di bagian lain supaya komposisinya seimbang. Kalau tanaman dibeli dalam bentuk pot, sebaiknya bersihkan rockwool dari akarnya pakai pinset sebelum ditempel ke kayu, karena rockwool yang menempel di kayu kelihatan sangat mencolok. Bucep tumbuhnya lambat, jadi akuarium baru yang isinya cuma Bucep, walaupun ditanam banyak, tetap gampang kena alga di tahap awal. Kalau ditanam bersama beberapa tanaman yang cepat tumbuh untuk menyerap kelebihan nutrisi, alga lebih susah meledak.</p>",
+    "notes:bwaquatics": "<p>Tanaman ini bagus untuk semua akuarium tanaman air, dan jelas cocok untuk akuarium dengan cahaya rendah dan perawatan ringan, seperti akuarium cupang sederhana.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.85
+      "bwaquatics": 0.95,
+      "aquatome": 0.95
     }
   }
 }

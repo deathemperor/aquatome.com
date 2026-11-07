@@ -13,6 +13,99 @@
     "indonesia",
     "bangka-island"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Bangka Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is '55 miles north of Singapore, freshwater ditches, Mawai District, Johore, Malaysia', and this species has been recorded throughout much of Peninsular Malaysia and southern Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also been recorded on Bangka Island, Indonesia, but we've been unable to confirm if it occurs on neighbouring Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bangka Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377148,
+      "total": 12,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          7
+        ],
+        [
+          "ID",
+          4
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          7,
+          7
+        ],
+        [
+          106.875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

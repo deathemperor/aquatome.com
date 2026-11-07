@@ -3,19 +3,21 @@
   "name": "Bucephalandra Dark Skeleton King",
   "altNames": [
     "Buce Dark Skeleton King",
-    "Bucephalandra sp. Dark Skeleton King",
-    "Buce Skeleton King",
-    "Bucephalandra Dark Achilles"
+    "Bucep Dark Skeleton King",
+    "Bucephalandra Dark Achilles",
+    "Buce Dark Achilles"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Dikenal juga sebagai Dark Achilles. Bucephalandra adalah genus tumbuhan berbunga yang tumbuh terendam (submersed) dan, kadang-kadang, tumbuh di atas permukaan air / emers (emersed) di habitatnya. Tanaman ini bahkan bisa berbunga di dalam air.</p>",
-    "maintenance:bwaquatics": "<p>Tanaman ini sangat cocok untuk semua aquascape/akuarium bertanaman dan ideal untuk akuarium dengan cahaya rendah dan perawatan minim, seperti akuarium cupang sederhana.</p>"
+    "quickFacts:bwaquatics": "<p>Dikenal juga sebagai Dark Achilles. Bucephalandra adalah genus tumbuhan berbunga yang di habitatnya tumbuh terendam (submersed) dan kadang muncul ke permukaan/emers (emersed). Tanaman ini bahkan bisa berbunga di dalam air.</p>",
+    "maintenance:aquatome": "<ul><li>Bucephalandra Dark Skeleton King adalah tanaman epifit. Tempatnya di kayu atau batu, bukan di substrat. Rumpun yang besar dan berbatang tebal diselipkan dalam-dalam ke celah-celah di pangkal kayu. Rumpun kecil disebar merata di bagian lain supaya komposisinya seimbang.</li><li>Tanaman pot yang baru dibeli biasanya masih ada rockwool menempel di akarnya. Sebaiknya bersihkan sampai tuntas dengan pinset sebelum tanaman ditempel ke kayu, karena rockwool yang menempel di kayu kelihatan sangat mencolok. Tahap ini makan waktu, tapi layak dikerjakan.</li><li>Kalau tanamannya datang dalam beberapa gelombang, lepaskan saja dari pot lalu rendam terpisah di air supaya tanaman terbiasa dengan air. Setelah jumlahnya cukup, baru tanam sekaligus.</li><li>Bucep tumbuhnya lambat. Akuarium baru yang hanya diisi tanaman lambat tumbuh, walaupun ditanam banyak, tetap mudah kena alga di beberapa minggu pertama. Sebaiknya tanam juga tanaman yang cepat tumbuh atau tambahkan tanaman apung supaya kelebihan nutrisi ikut terserap.</li></ul>",
+    "maintenance:bwaquatics": "<p>Tanaman ini sangat cocok untuk semua akuarium tanaman dan ideal untuk akuarium dengan cahaya rendah yang perawatannya mudah, misalnya akuarium cupang sederhana.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.85
+      "bwaquatics": 0.85,
+      "aquatome": 0.85
     }
   }
 }

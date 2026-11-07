@@ -1,0 +1,24 @@
+{
+  "slug": "ca-twig",
+  "name": "Cá twig",
+  "altNames": [
+    "Cá da trơn cành cây",
+    "Twig Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Farlowella amazonum (Günther, 1864)</li><li>Tên thường gọi: Twig Catfish</li><li>Sinh sản: chưa có ghi nhận</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này phân bố ở Nam Mỹ, trong các lưu vực sông Amazon, Tocantins và La Plata. Mẫu chuẩn được thu trên sông Amazon, đoạn chảy qua Santarém, bang Pará, Brazil.</p>",
+    "behaviour:planetcatfish": "<p>Các loài tetra hay rasbora cỡ nhỏ có tính nết hợp để nuôi chung. Hợp nhất có lẽ là cá hatchetfish. Bạn nên tránh những loài bơi nhanh hoặc hay rỉa vây như danio hay barb. Cá sống chung tốt với cá chuột Corydoras, nhưng không nên thả chung với các loài cá da trơn lớn hơn hay cichlid.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
+    "notes:planetcatfish": "<p>Tên loài này đôi khi bị viết sai thành Farlowella amazona. Tên giống đặt theo W. G. Farlow của Đại học Harvard. Còn tên loài lấy từ sông Amazon, nơi người ta tìm thấy loài cá này.</p>",
+    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 261.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

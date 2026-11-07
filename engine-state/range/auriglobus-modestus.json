@@ -1,23 +1,10 @@
 {
   "id": "auriglobus-modestus",
   "native": {
-    "input": "2bae77232412e0fc",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "5db899d4636211f6",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [],
-    "regions": [
-      {
-        "name": "Indragiri River",
-        "source": "glaser",
-        "quote": "A shipment of Golden Puffers was received from Sumatra, more specifically from the Indragiri River.",
-        "ok": true
-      },
-      {
-        "name": "Sumatra",
-        "source": "glaser",
-        "quote": "A shipment of Golden Puffers was received from Sumatra, more specifically from the Indragiri River.",
-        "ok": true
-      }
-    ],
+    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {

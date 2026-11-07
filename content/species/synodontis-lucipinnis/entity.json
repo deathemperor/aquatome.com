@@ -33,6 +33,10 @@
       {
         "source": "planetcatfish",
         "value": 7.9
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ]
   },
@@ -44,10 +48,22 @@
       "html": "<p>Synodontis lucipinnis Wright &amp; Page, 2006. Common names: Dwarf Lake Syno, Dværggøgemalle (Denmark), False Cuckoo Catfish, Petricola Dwarf Syno, Pink Dwarf Lake Syno.</p><p>Size: 79 mm SL.</p><p>Type locality: Musende Rocks, Zambia, Lake Tanganyika, 8°46'00''S, 31°07'00''E.</p><p>IUCN Red List: Not Evaluated.</p><p>Etymology: According to Cuvier, Synodontis is an \"ancient name for an undetermined fish from the Nile\". It is not derived, as often reported, from syn-, together and odous, tooth. That is the presumed etymology of the lizardfish genus Synodus and refers to the closely-spaced lower jaw teeth of both genera.</p><p>Pronunciation: sin oh don tiss.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_lucipinna_dwarf_petricola__en/",
+      "html": "<p>This beautiful Synodontis is a real dwarf compared with its numerous congeners: it reaches only 8-10 cm (very old specimens in extremely spacious aquaria may reach 15 cm). In the hobby it became popular under the name \"dwarf petricola\".</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=103",
       "html": "<p>Africa: African waters, Western Rift Valley Lakes, Lake Tanganyika.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_lucipinna_dwarf_petricola__en/",
+      "html": "<p>Synodontis lucipinnis is an endemic species of Lake Tanganyika.</p>"
     },
     {
       "key": "waterConditions",
@@ -56,16 +72,34 @@
       "html": "<p>pH: 6.5 - 8.5.</p><p>Temperature: 22.0-24.0°C (71.6-75.2°F).</p><p>Surprisingly, this species reproduces in less than neutral pH water conditions, much removed from those found in its native habitat.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_lucipinna_dwarf_petricola__en/",
+      "html": "<p>This Synodontis is a perfect tankmate for any cichlid in a Lake Tanganyika tank. The species should be kept in groups (five specimens upwards) for they have a very specialized social behaviour. Specimens kept solitary may become a plague to tankmates. They try to get in contact with them and biting is a common way of communication in Synodontis.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=103",
       "html": "<p>First lay the fish in your hand with its head toward your palm and the tail toward your fingers. Hold the dorsal spine between your middle and ring finger so the fish is belly up and you won't get punctured by the sharp fin spines (which hurts - be careful).</p><p>The genital pore is in a small furrow of tissue (in healthy fish) and will be obstructed by the pelvic fins. Pull down on the tail gently to arch the fish's spine and the pelvic fins will stand and the furrow open to display the genital pore and the anus of the fish.</p><p>The male has a somewhat ridged genital papillae on which the spermatoduct is on the back side, facing the tail fin. A gravid female will also show an extended papillae but the oviduct is on the ventral side of the papillae. It may also show a little redness if gravid. A thin or emaciated female will have just two pink pores, the oviduct and the anus.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_lucipinna_dwarf_petricola__en/",
+      "html": "<p>Some species of Synodontis occurring in Lake Tanganyika have a cuckoo breeding behaviour: they spawn together with spawning, mouthbrooding cichlids. Their eggs hatch together with the cichlid's eggs in the mouth of the mother, where the young Synodontis feed on eggs and fry of the cichlids.</p><p>Breeding behaviour of the \"dwarf petricola\" is totally different. They are regular open brooders and egg scatterers that produce a lot more eggs than their cuckoo relatives. The \"dwarf petricola\" is probably identical with the species described by Wright &amp; Page as Synodontis lucipinnis, and is available as German bred.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=103",
       "html": "<p>All species in the genus Synodontis have a hardened head cap that has attached a process (humeral process) which is situated behind the gill opening and pointed towards the posterior. The dorsal fin and pectoral fins have a hardened first ray which is serrated. Caudal fin is always forked. There is one pair of maxillary barbels, sometimes having membranes and occasionally branched. The two pairs of mandibular barbels are often branched and can have nodes attached. The cone-shaped teeth in the upper jaw are short. S-shaped and movable in the lower jaw. These fish produce audible sounds when disturbed rubbing the base of the pectoral spine against the pectoral girdle.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_lucipinna_dwarf_petricola__en/",
+      "html": "<p>Etymology: Synodontis: an old name for an undetermined fish from the Nile. petricola: from ancient Greek, meaning \"rock dweller\". lucipinnis: from Latin \"lucidus\" = bright, clear and \"pinna\" = fin, referring to the clear window at the base of each dark triangle on the fins (exception: the caudal fin), which is species-specific for S. lucipinnis. Endemic: a species found only there and nowhere else in the world.</p>"
     },
     {
       "key": "references",
@@ -131,5 +165,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-06"
 }
