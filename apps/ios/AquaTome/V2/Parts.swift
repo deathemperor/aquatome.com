@@ -10,6 +10,9 @@ import UIKit
 /// 480 px, so a shelf's squares and tiles never fetch it.
 struct V2Photo: View {
   let src: String?
+  /// What its colour is known by, if not `src`: a fish's page looks it up by the index's photo, which a tank-mate's tile may
+  /// show in another size.
+  var colourKey: String?
   var colour: ((Color) -> Void)?
   @State private var picture: (src: String, image: UIImage)?
   @State private var pixels = CGSize.zero
@@ -35,14 +38,14 @@ struct V2Photo: View {
           if picture?.src != src, let quick = PageImages.cached(src) {
             picture = (src, quick)
             // Its colour now, not once the full photo has come.
-            if let colour { colour(await PhotoColour.of(quick, key: src)) }
+            if let colour { colour(await PhotoColour.of(quick, key: colourKey ?? src)) }
           }
           image = await PageImages.image(full, size)
         }
         if image == nil { image = await PageImages.image(src, size) }
         guard let image, !Task.isCancelled else { return }
         withAnimation(.easeOut(duration: 0.2)) { picture = (src, image) }
-        if let colour { colour(await PhotoColour.of(image, key: src)) }
+        if let colour { colour(await PhotoColour.of(image, key: colourKey ?? src)) }
       }
   }
 

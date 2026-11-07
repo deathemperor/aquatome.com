@@ -441,20 +441,23 @@ private struct MatesCredits: View {
       VStack(alignment: .leading, spacing: 0) {
         ForEach(rows.indices, id: \.self) { i in
           let row = rows[i]
-          if row.urls.count == 1 && row.profile == nil {
+          let links = row.urls.compactMap { $0.flatMap(URL.init(string:)) }
+          if links.count <= 1 && row.profile == nil {
             Text(row.line)
           } else {
-            Text(row.line) + Text(verbatim: " · ").font(.caption2) + Text("\(row.urls.count) ảnh").font(.caption2)
+            Text(row.line) + Text(verbatim: " · ").font(.caption2) + Text("\(links.count) ảnh").font(.caption2)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: number), spacing: 0, alignment: .leading)], alignment: .leading, spacing: 0) {
-              ForEach(Array(row.urls.compactMap { $0.flatMap(URL.init(string:)) }.enumerated()), id: \.offset) { j, url in
+              ForEach(Array(links.enumerated()), id: \.offset) { j, url in
                 Link(destination: url) {
-                  Text(verbatim: String(j + 1)).font(.caption2).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
+                  Text(verbatim: String(j + 1)).font(.caption2).underline().frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
                 }
                 .accessibilityLabel(Text("\(row.who), ảnh \(j + 1)"))
                 .accessibilityRemoveTraits(.isButton)
                 .accessibilityAddTraits(.isLink)
               }
             }
+            // 44 points to the finger, not 44 of blank between the lines.
+            .padding(.vertical, -12)
           }
         }
       }
@@ -502,7 +505,8 @@ private struct MatesRow: View {
     return NavigationLink(value: item) {
       VStack(alignment: .leading, spacing: 6) {
         let src = m.img?.src ?? item?.img
-        V2Photo(src: src)
+        // Its colour known before its page opens, so that opens in it, not in green first.
+        V2Photo(src: src, colourKey: item?.img, colour: item?.kind == .fish ? { _ in } : nil)
           .frame(width: lines == nil ? photo * 1.5 : nil, height: photo)
           .clipShape(.rect(cornerRadius: 14, style: .continuous))
           // A third of the fish have no photo: the tile says what it is, not an empty box.
