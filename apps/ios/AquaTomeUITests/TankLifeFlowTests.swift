@@ -97,6 +97,48 @@ final class TankLifeFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
   }
 
+  /// The owner's phone, as near as a flow gets to it: signed in to the owner's account (a sync follows the put), Tuya
+  /// keys and a tank with a plug (the plugs' section on every tank), and the site's whole handbook, not the fixed one.
+  func testOnTheOwnersSetupAFishPutOnANewTankFromItsPageIsSeenOnTheTankItOpens() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fake-accounts", "on",
+                           "-reset-fake-server", "-fake-owner", "ui-apple", "-seed-tanks", "plug", "-seed-tuya-keys"]
+    app.launch()
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.closeAccount()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 10), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 30), "no Cá neon in the site's handbook")
+    row.tap()
+    let put = app.buttons["put-on-tank"]
+    XCTAssertTrue(put.waitForExistence(timeout: 15), "no way to put it on a tank")
+    put.tap()
+    let name = app.textFields["put-name"]
+    if !name.waitForExistence(timeout: 3) {
+      app.buttons["put-tank"].tap()
+      let new = app.buttons["Bể mới"].firstMatch
+      XCTAssertTrue(new.waitForExistence(timeout: 5), "no Bể mới among the tanks")
+      new.tap()
+    }
+    XCTAssertTrue(name.waitForExistence(timeout: 5), "no new tank offered")
+    name.tap()
+    name.typeText("Blackwater")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.buttons["put-open"].waitForExistence(timeout: 5), "no way to the tank")
+    app.buttons["put-open"].tap()
+    XCTAssertTrue(app.navigationBars["Blackwater"].waitForExistence(timeout: 5), "the tank didn't open")
+    let neon = life(app, "Cá neon")
+    XCTAssertTrue(neon.waitForExistence(timeout: 10), "the fish isn't on the tank")
+    shoot("owner")
+    XCTAssertTrue(neon.isHittable, "the fish is there but not shown")
+    XCTAssertTrue(app.buttons["edit"].isHittable, "the tank's Sửa isn't shown")
+    XCTAssertTrue(app.descendants(matching: .any)["plugs-header"].firstMatch.waitForExistence(timeout: 10), "no plugs on the tank")
+  }
+
   /// A link to a tank opened while on the Tìm tab, its tanks tab never opened: the tab changes and the tank is pushed
   /// at once, with no sheet closing.
   func testALinkToATankOpensItShownFromAnotherTab() {
