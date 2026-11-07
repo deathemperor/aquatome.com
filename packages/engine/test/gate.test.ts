@@ -113,8 +113,9 @@ test('a held page that changed and passes is let out; a kit holds a page the cyc
   expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['kit'], at: '2026-11-09' })
 })
 
-test('with the accounts out, a new page waits held and a live one goes on as the cycle made it', async () => {
+test('with the accounts out, a new page waits held and a live one keeps its committed text; over the limit too', async () => {
   const root = await repo()
+  const before = await readFile(join(root, GUIDE), 'utf8')
   const dir = 'content/guides/youtube-r53ZQW0m8VM'
   await cp(join(root, dir), join(root, 'content/guides/new-one'), { recursive: true })
   await edit(root, 'content/guides/new-one/entity.json', e => { e.id = 'new-one' })
@@ -124,11 +125,17 @@ test('with the accounts out, a new page waits held and a live one goes on as the
   const { report } = await gate(root, { llm: out, now })
   expect(report.stopped).toContain('limit')
   expect((await readJson(root, 'content/guides/new-one/vi.json')).held).toEqual({ checks: [], at: '2026-11-09' })
-  expect(report.unread).toHaveLength(1)
-  expect((await readJson(root, GUIDE)).body).toBe('<p>Đã sửa.</p>')
+  expect(report.unread).toHaveLength(2)
+  expect(report.hold).toEqual([])
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(before)
   // Read next time, though the cycle didn't change it again.
   await gate(root, { llm: reader(), now })
   expect((await readJson(root, 'content/guides/new-one/vi.json')).held).toBeUndefined()
+
+  // A limit of none reads nothing: the same.
+  await edit(root, GUIDE, t => { t.body = '<p>Đã sửa lần nữa.</p>' })
+  expect((await gate(root, { llm: reader(), now, limit: 0 })).report.unread).toHaveLength(1)
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(before)
 })
 
 test('several pages put back in one run, read three at a time', async () => {

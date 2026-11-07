@@ -14,7 +14,9 @@ import { loadPages, pageUrl, type Page } from './pages'
  * - a new page that fails any check but words is held: kept in the repository with `held`, which the build leaves out;
  * - a live page whose new text fails a check its old text passed gets its committed text back;
  * - a page with a fault no rewording fixes (HOLD_ALWAYS) is held, new or old, changed or not;
- * - a held page whose text changed and passes is let out.
+ * - a held page whose text changed and passes is let out;
+ * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
+ *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
  * "Passed before" counts the old text's saved read and, when the new text looks worse, a fresh one: a model reading the
  * same text twice doesn't always find the same things, and a page isn't put back for that.
  */
@@ -142,6 +144,14 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     if (call.action === 'revert') reverts.push(f)
   }
 
+  // A page the gate can't read (the accounts out, over the limit) stays as readers have it: a live page keeps its committed
+  // text, and a new or held one waits, held. The run still publishes the rest; only a crash in the gate stops it.
+  const unread = (f: string, p: Page, held: boolean) => {
+    report.unread.push(p.path)
+    if (held) pending.push(f)
+    else reverts.push(f)
+  }
+  const pending: string[] = []
   let next = 0
   const order = fitOrder(files.map(f => byFile.get(f)!), 'gate').map(fileOf)
   await Promise.all(Array.from({ length: d.jobs ?? 3 }, async () => {
@@ -154,9 +164,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
       try {
         const entry = saved(p) ?? await read(p)
         if (!entry) {
-          // Not read: a page readers don't have yet waits, held; a live one stays as the cycle made it, due for the next read.
-          if (isNew || wasHeld) await apply(f, { action: 'hold', checks: [] })
-          else report.unread.push(p.path)
+          unread(f, p, isNew || wasHeld)
           continue
         }
         state[fitKey(p)] = entry
@@ -165,7 +173,13 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         if (call.action === 'revert' && old) {
           // Worse than its old text's saved read, or the old text was never read: read the old text now, and compare with both.
           const fresh = await read(old)
-          if (!fresh) { report.unread.push(p.path); continue }
+          if (!fresh) {
+            // Looks worse and can't be told: the old text stays, its saved read with it.
+            if (oldSaved) state[fitKey(p)] = oldSaved
+            else delete state[fitKey(p)]
+            unread(f, p, false)
+            continue
+          }
           const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh)])
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
@@ -177,14 +191,15 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         }
         await apply(f, call)
       } catch (e) {
-        // One page's failure costs the others nothing; a page readers don't have yet waits, held.
+        // One page's failure costs the others nothing: it stays as readers have it.
         report.failed.push(`${fitKey(p)}: ${(e as Error).message.slice(0, 200)}`)
-        if (isNew || wasHeld) await apply(f, { action: 'hold', checks: [] }).catch(() => {})
+        unread(f, p, isNew || wasHeld)
       }
     }
   }))
   // One checkout for all of them, after the reads.
   if (reverts.length) git(root, ['checkout', 'HEAD', '--', ...reverts])
+  for (const f of pending) if (!held.has(f)) { const h = { checks: [], at: day }; await setHeld(root, f, h); held.set(f, h) }
   for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }
   // A fault no rewording fixes holds a page whether or not this cycle changed it.
   for (const p of pages) {
