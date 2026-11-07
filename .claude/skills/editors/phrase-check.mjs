@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // How often a phrase appears on the site and in the language's hobbyists' own writing, per million words (per million
 // characters for languages written without spaces: Thai, Chinese), with examples.
-// usage: node .claude/skills/content-council/phrase-check.mjs [--lang vi] [--examples 3] "phrase" ["phrase"…]
+// usage: node .claude/skills/editors/phrase-check.mjs [--lang vi] [--examples 3] "phrase" ["phrase"…]
 // A phrase may be a regular expression ("một cách (hiệu quả|dễ dàng)"). The reference corpus is local, never committed:
 // ~/.cache/aquatome/corpus/<lang>/ (manifest.jsonl: one line per file, {file, url, site, type: forum|blog|shop-blog|wiki,
 // year, words}), or CORPUS=<dir>.

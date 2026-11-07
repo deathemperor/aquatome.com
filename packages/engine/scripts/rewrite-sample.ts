@@ -1,5 +1,5 @@
 /**
- * The content council's scratch rewrite (.claude/skills/content-council/SKILL.md): copies a few pages from content/ to a
+ * The editors' scratch rewrite (.claude/skills/editors/SKILL.md): copies a few pages from content/ to a
  * scratch content root, rewrites their Vietnamese there with the engine's style rewrite as it is now (rewrite-vi, every
  * part, reviewer-gated as on the site), and leaves content/ alone. Each run starts again from the site's text, so two
  * rounds compare the writer's rules, not two rewrites stacked.
@@ -7,7 +7,7 @@
  *   CLAUDE_CODE_OAUTH_TOKENS="$(cat ~/.config/aquatome/claude-oauth-tokens)" \
  *     pnpm --filter @aq/engine exec tsx scripts/rewrite-sample.ts [--out <dir>] species/poecilia-reticulata guides/<slug>…
  *
- * Then: CONTENT_ROOT=<out>/content node .claude/skills/content-council/packet.mjs page vi/<kind>/<slug> --out <round dir>
+ * Then: CONTENT_ROOT=<out>/content node .claude/skills/editors/packet.mjs page vi/<kind>/<slug> --out <round dir>
  */
 import { cp, mkdir, rm } from 'node:fs/promises'
 import { homedir } from 'node:os'

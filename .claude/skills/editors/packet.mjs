@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Reader-facing text, and what it was written from, as one Markdown file a council member reads.
-//   node .claude/skills/content-council/packet.mjs page <lang>/<kind>/<slug>      a page (species, plants, guides, breeds, glossary, products)
-//   node .claude/skills/content-council/packet.mjs strings <lang> site|app [--match <regex>]   the site's or the app's buttons and labels
-//   node .claude/skills/content-council/packet.mjs file <lang> <path> [--source <path>]       anything else: chat answers, an email
+//   node .claude/skills/editors/packet.mjs page <lang>/<kind>/<slug>      a page (species, plants, guides, breeds, glossary, products)
+//   node .claude/skills/editors/packet.mjs strings <lang> site|app [--match <regex>]   the site's or the app's buttons and labels
+//   node .claude/skills/editors/packet.mjs file <lang> <path> [--source <path>]       anything else: chat answers, an email
 // Writes the packet under --out <dir> (default ~/.cache/aquatome/council) and prints its path.
 // CONTENT_ROOT=<dir>: read pages from a scratch copy (packages/engine/scripts/rewrite-sample.ts) instead of content/.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'

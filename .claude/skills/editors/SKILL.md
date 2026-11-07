@@ -1,13 +1,13 @@
 ---
-name: content-council
-description: Use when the owner asks for the content council, or for several models to read and score text readers see (pages, the site's or the app's buttons and labels, chat answers, emails) in any language the site writes, for how natural it sounds, how clear it is, whether it keeps to its sources, or its tone; or to keep rewriting until the content council reaches a score.
+name: editors
+description: Use when the owner says "editors", or asks for writing, wording or translation to be reviewed or scored: any text readers see (pages, the site's or the app's buttons and labels, chat answers, emails) in any language the site writes; or to keep rewriting until the editors reach a score.
 ---
 
-# The content council
+# The editors
 
 Models read the same text, in one language, with what it was written from, and each scores it out of 10 as a native
 reader of that language. Every finding quotes the exact words and gives the words that language's hobbyists would
-write instead. Asked to "go until the council agrees", fix at the source, rewrite and read again, round after round,
+write instead. Asked to "go until the editors agree", fix at the source, rewrite and read again, round after round,
 until every seated member scores each piece at or above the bar (the owner's bar is 9.5).
 
 It reads words, not layout: how things look goes to the design council (`.claude/skills/council/SKILL.md`).
@@ -18,7 +18,7 @@ step 4) before anyone acts on it.
 
 ## What it reads
 
-| Text | Packet (`node .claude/skills/content-council/packet.mjs …`) | Fixed at the source in |
+| Text | Packet (`node .claude/skills/editors/packet.mjs …`) | Fixed at the source in |
 |---|---|---|
 | Pages: species, plants, guides, breeds, glossary | `page <lang>/<kind>/<slug>` | the engine's prompts and `packages/engine/src/phrases.ts`; never `content/` (AGENTS.md "Content") |
 | The site's buttons and labels | `strings <lang> site [--match <regex>]` | Vietnamese in `apps/site/src`; the others in `apps/site/src/i18n/<lang>.json` (AGENTS.md "Strings") |
@@ -71,7 +71,7 @@ seated, a score is one model's reading: say so in the record.
    for every answer.
 4. **Check each finding before acting.**
    - The quote is in the packet. A quote that isn't there is dropped.
-   - Wording: `node .claude/skills/content-council/phrase-check.mjs --lang <lang> "<flagged words>" "<replacement>"`.
+   - Wording: `node .claude/skills/editors/phrase-check.mjs --lang <lang> "<flagged words>" "<replacement>"`.
      It counts each per million words (per million characters for Thai and Chinese) on the site and in the
      language's hobbyist corpus (`ref:forum`, `ref:blog`, `ref:wiki`), with examples. Keep the finding when hobbyists
      use the replacement and use the flagged words far less than the site. Drop it when they use the flagged words as
@@ -100,7 +100,7 @@ crawlers are in `~/.cache/aquatome/corpus-tools/`. Build one before a language's
 
 ## The record
 
-In the PR's description, under `## Content council`: one row per round, one column per packet, each cell the seated
+In the PR's description, under `## Editors`: one row per round, one column per packet, each cell the seated
 members' scores (the lowest of their four). Name the seats that sat out and why. The jester has no column.
 
 ## The jester
