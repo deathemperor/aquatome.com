@@ -78,16 +78,16 @@ export const MAX_TOKENS = 4096
 /** The forced last call's word (runAgent's lastWord): told nothing, Claude sometimes answered with no text. */
 export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as your instructions say, from what you have read, what they told you and your own knowledge of fishkeeping where the pages stop: for a problem, the likely cause, the steps in order and what to watch. When the handbook doesn\'t answer the question, say so plainly, set covered to false and still give safe first steps.'
 /**
- * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
- * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
- * app mid-answer), and the handler still writes the turn and settles after it.
- */
-/**
  * The chat's pace (loop.ts `pace`), from its calls' times on the hard questions (chat-vs-plain.ts `--answers-only`):
  * the call that writes the answer took 5.1 times the run's average call at the median and 6.7 at the 90th percentile at
  * medium effort, 4.0 and 5.7 at low, at normal speed; a little less at 1.75 times slower.
  */
 export const CHAT_PACE = { answer: 7, quick: 5.5 }
+/**
+ * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
+ * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
+ * app mid-answer), and the handler still writes the turn and settles after it.
+ */
 export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000 }
 
 export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[] }

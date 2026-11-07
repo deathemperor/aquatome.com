@@ -582,6 +582,25 @@ test('the chat\'s forced last call is told to answer from what it read and its o
   expect(LAST_WORD).toContain('your own knowledge of fishkeeping')
 })
 
+test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time from its own pace', async () => {
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  let now = 0
+  const final = { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [], suggestions: [] }
+  const out = await answerQuestion({
+    send: async body => {
+      bodies.push(body)
+      now += 4_000
+      return bodies.length < 3
+        ? message([{ type: 'tool_use', id: `t${bodies.length}`, name: 'search_handbook', input: { query: 'neon' } }], 'tool_use')
+        : message([{ type: 'text', text: JSON.stringify(final) }])
+    },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => now,
+  })
+  // Calls of 4 s: a third reading call would leave 27 - 8 - 4 = 15 s, under 5.5 × 4 = 22 s.
+  expect(out.stopped).toBe('time')
+  expect(bodies.map(b => [b.tool_choice!.type, b.output_config!.effort])).toEqual([['auto', 'medium'], ['auto', 'medium'], ['none', 'low']])
+})
+
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {
   expect(CHAT_LIMITS.ms).toBeLessThanOrEqual(27_000)
   const said = (text: string) => readAnswer(message([{ type: 'text', text: JSON.stringify({ text, covered: true, blocks: [], suggestions: [] }) }]))
