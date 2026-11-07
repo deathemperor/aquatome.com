@@ -131,7 +131,8 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
         if (Object.keys(bySource).length) {
           const min = Math.min(...Object.values(bySource))
           // The depth verdict stays (a rewrite changes no section): a thin page stays out of search (@aq/schema depth.ts).
-          vi.quality = judgeQuality({ score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
+          // The rest of it stays too: a video guide held out of the chat (video-hold.ts) is still held.
+          vi.quality = judgeQuality({ ...vi.quality, score: min, indexable: min >= QUALITY_THRESHOLD, bySource }, min >= QUALITY_THRESHOLD, vi.quality.reason !== 'thin')
         }
       }
     } catch (e) {

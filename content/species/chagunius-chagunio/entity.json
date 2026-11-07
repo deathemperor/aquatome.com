@@ -13,6 +13,187 @@
     "bangladesh",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP",
+        "BD"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Yamuna River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Ganges and Brahmaputra river basins and thus occurs in northern India, Nepal and Bangladesh.",
+          "countries": [
+            "IN",
+            "NP",
+            "BD"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'the Yamuna River, and northern rivers of Behar and Bengal'.",
+          "countries": [],
+          "regions": [
+            "Yamuna River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360207,
+      "total": 58,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          28
+        ],
+        [
+          "NP",
+          26
+        ],
+        [
+          "BD",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          77.34375,
+          29.53125,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          22.5,
+          9,
+          9
+        ],
+        [
+          80.15625,
+          28.125,
+          4,
+          4
+        ],
+        [
+          81.5625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          5,
+          5
+        ],
+        [
+          82.96875,
+          28.125,
+          3,
+          3
+        ],
+        [
+          84.375,
+          26.71875,
+          10,
+          10
+        ],
+        [
+          85.78125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          25.3125,
+          5,
+          5
+        ],
+        [
+          88.59375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          26.71875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

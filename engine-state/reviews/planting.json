@@ -102,6 +102,22 @@
       "kept": true
     }
   ],
+  "vi/plants/eleocharis-acicularis": [
+    {
+      "at": "2026-11-07T06:37:38Z",
+      "model": "opus",
+      "score": 0.6,
+      "notes": [
+        "\"Mấy tuần đầu\" heading gives a timeframe the INPUT doesn't give, and it clashes with the \"2–3 tháng\" in the same bullet.",
+        "\"Cây cần phân nền hoặc nền có dinh dưỡng, sỏi trơn thì không hợp\" comes from the dwarf hair grass guide, not this plant. Tropica says E. acicularis \"sống khỏe trong gần như mọi điều kiện bể\", so the two conflict.",
+        "\"thường mất khoảng 2–3 tháng mới phủ kín\" is the dwarf variety's carpeting time from the guide, given here as this plant's.",
+        "\"Cắm trên nền khô rồi mới châm nước thì nền đỡ bẩn và không bị nhão\" is taken from the 90 cm tank-setup video and given as general planting advice.",
+        "The whole splitting and grid-planting method is copied from the dwarf hair grass guide and applied to the parent species without saying so."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/eleocharis-parvula": [
     {
       "at": "2026-11-06T21:35:09Z",
@@ -111,6 +127,49 @@
         "\"Thảm thường mất khoảng 2–3 tháng mới kín\": the hairgrass guide gives 2–3 months for growing without CO2, and the CO2 video says about three months. The passage drops that condition while also advising stable CO2.",
         "\"cỏ lên chậm hơn hẳn\": the source only says \"lên chậm hơn\". Adding \"hẳn\" makes the slowdown sound much bigger than the INPUT does.",
         "\"thành một thảm thấp\": the Tropica text says \"thảm dày\". Changing it to \"thấp\" shifts the meaning a little."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/eriocaulon-sp-vietnam": [
+    {
+      "at": "2026-11-07T06:38:28Z",
+      "model": "opus",
+      "score": 0.68,
+      "notes": [
+        "\"vì cây thiếu chất là yếu đi ngay\" overstates the INPUT. It only says to fertilise so the plant doesn't run short of nutrients; it never says the plant weakens right away (\"ngay\").",
+        "\"Bạn trồng cây xuống nền\" reads like a planting instruction. The INPUT only implies it, through \"mọc khỏe trong nền giàu dinh dưỡng\", and gives no actual planting method.",
+        "\"mọc khỏe nhất khi nền giàu dinh dưỡng\" turns the INPUT's \"mọc khỏe\" into a superlative (\"nhất\") that the source doesn't use."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/marsilea-minuta": [
+    {
+      "at": "2026-11-07T06:37:51Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"chia cây thành từng cụm nhỏ rồi cắm xuống nền\": the INPUT only says to plant in small clumps (\"trồng thành từng cụm nhỏ\"). Splitting the plant and pushing it into the substrate are small added method details.",
+        "\"nước hơi nóng\" softens the INPUT's \"nhiệt độ cao\" (high temperature) to \"slightly warm water\", which changes the claim a little.",
+        "\"Có điều bể càng ổn thì thảm lên càng đẹp\": \"bể càng ổn\" is vague next to the INPUT's \"điều kiện bể tốt hơn\" (better tank conditions). The fact holds, but the wording is loose."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/micranthemum-tweediei-monte-carlo": [
+    {
+      "at": "2026-11-07T09:38:52Z",
+      "model": "opus",
+      "score": 0.88,
+      "notes": [
+        "'Phải khoảng ba tuần cây mới bắt đầu bám rễ' drops the guide's hedge 'thường', so it reads as a firm timeline rather than the usual case",
+        "'Nếu bên dưới đang ra nhiều chồi xanh mới thì cây không chết' turns the guide's 'không phải dấu hiệu cây chết' (not a sign of dying) into a flat claim that the plant isn't dying",
+        "'Lá cũ ngả vàng' drops 'hơi' (slightly) from the guide's 'hơi ngả vàng'",
+        "'nên chỗ của nó là tiền cảnh' says carpeting is the reason for foreground placement; the input gives foreground as the position but never states this causal link"
       ],
       "attempt": "first",
       "kept": true

@@ -8,13 +8,15 @@
   ],
   "sections": {
     "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Tanaman karpet</li><li><strong>Asal:</strong> Amerika Selatan</li><li><strong>Kecepatan tumbuh:</strong> Sedang</li><li><strong>Tinggi:</strong> 3–5+ cm (tinggi rata-rata setelah dua bulan di akuarium)</li><li><strong>Kebutuhan cahaya:</strong> Sedang</li><li><strong>CO2:</strong> Sedang (6–14 mg/L)</li></ul>",
-    "notes:tropica": "<p>Micranthemum tweediei 'Monte Carlo' berasal dari Argentina. Tanaman ini punya daun bulat yang rapat berwarna hijau muda segar pada batang yang menjalar, dan cepat membentuk karpet di bagian depan akuarium. Tanaman ini bisa tumbuh di tempat yang agak teduh, tetapi butuh pencahayaan yang baik serta tambahan CO2 agar bisa tumbuh optimal dan benar-benar rapat.</p>"
+    "maintenance:aquatome": "<p>Monte Carlo adalah tanaman karpet, jadi tempatnya di <strong>latar depan</strong>, rapat dengan permukaan substrat.</p><ul><li><strong>Membagi rumpun:</strong> Monte Carlo tidak ditanam per batang seperti tanaman batang. Keluarkan seluruh gumpalannya dari cup, lalu potong menjadi sekitar 8–12 rumpun. Satu cup dibagi kira-kira 10 rumpun sudah pas. Rumpun yang besar lebih mudah ditanam, sedangkan rumpun yang terlalu kecil sering mengapung.</li><li><strong>Tanam dalam-dalam:</strong> Tekan setiap rumpun dalam-dalam ke substrat. Setengah tanamannya ikut tertimbun pun tidak masalah. Tanah yang menempel di daun nanti bisa dibersihkan, atau tanamannya akan tumbuh menembus ke atas sendiri. Kalau ada rumpun yang terus mengapung, tindih dengan beberapa kerikil kecil supaya tetap rapat ke substrat.</li><li><strong>Biarkan saja di minggu-minggu pertama:</strong> Ini masa paling rawan bagi tanaman. Saat menyifon dasar, jauhkan selang dari area yang baru ditanam, karena selang sangat mudah menyedot rumpun sampai tercabut. Monte Carlo juga tidak suka dicabut lalu ditanam ulang berkali-kali, jadi kurangi memangkas atau membetulkan posisi rumpun.</li><li><strong>Jangan terburu-buru:</strong> Butuh sekitar tiga minggu sampai tanaman mulai berakar dan mengeluarkan runner. Daun lama yang menguning adalah bagian tanaman yang awal. Kalau di bawahnya banyak tunas hijau baru yang tumbuh, tanamannya tidak mati. Awalnya karpet hanya berupa petak-petak yang terpisah, dan ini sepenuhnya normal.</li></ul>",
+    "notes:tropica": "<p>Micranthemum tweediei 'Monte Carlo' berasal dari Argentina. Daunnya kecil, bulat, dan berwarna hijau muda segar, tumbuh pada batang yang menjalar, dan dengan cepat membentuk karpet di bagian depan akuarium. Tanaman ini bisa tumbuh di tempat yang agak teduh, tetapi butuh cahaya yang baik serta tambahan CO2 agar bisa tumbuh optimal dan benar-benar rapat.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "tropica": 0.9
+      "tropica": 0.85,
+      "aquatome": 0.85
     }
   }
 }

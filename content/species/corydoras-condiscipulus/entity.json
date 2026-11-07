@@ -12,6 +12,68 @@
     "brazil",
     "amapa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "BR"
+      ],
+      "regions": [
+        "Oyapock"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Oyapock (Oiapoque) river system in French Guiana and Amapá state, Brazil.",
+          "countries": [
+            "GF",
+            "BR"
+          ],
+          "regions": [
+            "Oyapock"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342659,
+      "total": 45,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "GF",
+          25
+        ],
+        [
+          "BR",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          1.40625,
+          14,
+          14
+        ],
+        [
+          -53.4375,
+          2.8125,
+          30,
+          30
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

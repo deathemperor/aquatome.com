@@ -1,0 +1,199 @@
+{
+  "id": "copella-arnoldi",
+  "native": {
+    "input": "80f958b01cb50bfd",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Demerara",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "ok": true
+      },
+      {
+        "name": "Nickerie",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "ok": true
+      },
+      {
+        "name": "Suriname",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Ilha do Arapiranga",
+        "source": "seriouslyfish",
+        "quote": "Zarske (2011) also designates an alternative 'type locality' of Ilha do Arapiranga which is an island in the Amazon estuary located close to the city of Belém in Pará state, eastern Brazil, from where aquarium specimens are apparently collected.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Copella arnoldi",
+    "status": "ACCEPTED",
+    "taxonKey": 2355707,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        37
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        21
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        20
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        14
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        13
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "68ace562-4acd-4a6e-a1ef-52c73a5018d8",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "97c46b50-34bd-47e9-baa4-7a1709472af2",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "640ae8b7-14b9-4188-894a-a2bc3821c752",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "e42bf2ce-364f-444c-ba0e-c5947cc5f4b3",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY",
+      "SR",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

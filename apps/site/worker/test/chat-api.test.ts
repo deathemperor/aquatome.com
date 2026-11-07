@@ -92,7 +92,7 @@ const CONV = '6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
 const convKey = async (u: { id: string }) => conversationKey(await chatAccount('k', u.id), CONV)
 const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, headers: Record<string, string> = {}) => new Request('https://x.test/api/chat', {
   method: 'POST', headers: { 'content-type': 'application/json', ...auth, ...headers },
-  body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'species', about: 'paracheirodon-innesi', ...body }),
+  body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'fish-id', about: 'paracheirodon-innesi', ...body }),
 })
 const bearer = (token: string) => ({ authorization: `Bearer ${token}` })
 const { answer, streamMisfits, api } = contract('chat.openapi.json')
@@ -347,7 +347,34 @@ test('retries by Idempotency-Key: after the answer, the kept turn with no new co
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })
 
-test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn is kept, the mark clears, the ledger settles', async () => {
+test('a retry while its run still answers waits for it even past the conversation\'s 24 hours: not 410, not a second run', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const t0 = Date.now()
+  let at = t0
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  const c = claude([...NEON, async () => { await held; return reads('/vi/ca/ca-neon-xanh/') }, NEON[1]!])
+  const d = deps(c.fetch, { clock: () => at, pollMs: 5, waitMs: 5000 })
+  await run(ask(bearer(me.token)), e, d)
+  // The conversation's last question, asked in its last seconds, still answering as its 24 hours pass.
+  at = t0 + 24 * 3600_000 - 5_000
+  const key = { 'idempotency-key': 'ad3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
+  const last = run(ask(bearer(me.token), { question: 'Câu cuối' }, key), e, d)
+  while (c.bodies.length < 3) await tick()
+  at = t0 + 24 * 3600_000 + 5_000
+  const retry = run(ask(bearer(me.token), { question: 'Câu cuối' }, key), e, d)
+  // The retry in before the answer lands.
+  for (let i = 0; i < 20; i++) await tick()
+  release()
+  const [a, b] = await Promise.all([last, retry])
+  expect(a.body).toMatchObject({ n: 2 })
+  expect(b.body).toEqual(a.body)
+  expect(c.bodies).toHaveLength(4)
+  expect(Object.values(ledger.day()!.readers)).toEqual([2])
+})
+
+test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn is kept for the conversation\'s life, the mark clears, the ledger settles', async () => {
   const { e, db, store, ledger } = env()
   const me = await signIn(db)
   const key = { 'idempotency-key': '3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
@@ -366,9 +393,17 @@ test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn
   expect(conv.running).toBeUndefined()
   expect(conv.turns).toMatchObject([{ n: 1 }])
   expect(ledger.day()!.runs).toEqual({})
-  // Back in the app, its retry gets the kept turn, counted once.
+  // Back in the app, its retry gets the kept turn, counted once; hours later too (a call, a locked phone), for as long
+  // as the conversation lasts.
   const retry = await run(ask(bearer(me.token), {}, key), e, deps(c.fetch))
   expect(retry.body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
+  const later = await run(ask(bearer(me.token), {}, key), e, deps(c.fetch, { clock: () => Date.now() + 24 * 3600_000 - 60_000 }))
+  expect(later.body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
+  expect(c.bodies).toHaveLength(2)
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  // Past that, the conversation has ended: the retry is refused, not asked and counted again.
+  const gone = await run(ask(bearer(me.token), {}, key), e, deps(c.fetch, { clock: () => Date.now() + 24 * 3600_000 + 60_000 }))
+  expect(gone.body).toEqual({ error: 'ended' })
   expect(c.bodies).toHaveLength(2)
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })
@@ -511,12 +546,19 @@ test('failures: Claude unreachable on every key is unavailable and gives the cou
   expect(store.read<Conversation>(await convKey(me))!.running).toBeUndefined()
   const ok = await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))
   expect(ok.body).toMatchObject({ n: 1 })
+  // Unavailable gave its count back: a resend with its key gets the same answer for a while, then is asked again (not
+  // the 503 for the conversation's whole day).
+  const key = { 'idempotency-key': '9d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
+  const other = { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }
+  expect((await run(ask(bearer(me.token), other, key), e, deps(down.fetch))).body).toEqual({ error: 'unavailable' })
+  expect((await run(ask(bearer(me.token), other, key), e, deps(claude(NEON).fetch, { clock: () => Date.now() + 60_000 }))).body).toEqual({ error: 'unavailable' })
+  expect((await run(ask(bearer(me.token), other, key), e, deps(claude(NEON).fetch, { clock: () => Date.now() + 16 * 60_000 }))).body).toMatchObject({ n: 1 })
   // On a stream, the same error as an event after the stream began.
   const s = await run(ask(bearer(me.token), { conversation: '8f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }, { accept: 'text/event-stream' }), e, deps(bad.fetch))
   expect((await s.res.text()).endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
 })
 
-test('read_tanks reads the account\'s synced tanks, its fish named as the handbook names them', async () => {
+test('read_tanks reads the account\'s synced tanks with their ids, its fish named as the handbook names them', async () => {
   const { e, db } = env()
   const me = await signIn(db)
   const now = new Date()
@@ -526,7 +568,47 @@ test('read_tanks reads the account\'s synced tanks, its fish named as the handbo
   expect(r.body.steps).toEqual([{ kind: 'tanks' }])
   const result = JSON.stringify(c.bodies[1]!.messages)
   expect(result).toContain('Bể phòng khách')
+  expect(result).toContain('\\"id\\":\\"a1b2c3d4-0000-4000-8000-000000000001\\"')
   expect(result).toContain('\\"name\\":\\"Cá neon xanh\\",\\"id\\":\\"paracheirodon-innesi\\",\\"count\\":12')
+})
+
+test('read_tanks reads the whole saved tank: plants, substrate, notes, days since saved, each light\'s active schedule, what its plugs power', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const now = new Date()
+  const ago = (days: number) => new Date(now.getTime() - days * 86_400_000).toISOString()
+  const tankId = 'a1b2c3d4-0000-4000-8000-000000000002'
+  const at = now.toISOString()
+  await syncStore(db, me.id, {
+    v: 1,
+    tanks: [{ id: tankId, name: 'Bể rêu', dims: { l: 60, w: 30, h: 36 }, substrate: 'soil', notes: 'Thay 30% nước mỗi tuần.', species: [], plants: [{ id: 'taxiphyllum-barbieri' }], createdAt: ago(10), updatedAt: at }],
+    devices: [
+      {
+        id: 'b1b2c3d4-0000-4000-8000-000000000001', tankId, kind: 'light', brand: 'chihiros', model: 'WRGB II', activeScheduleId: 'c1b2c3d4-0000-4000-8000-000000000002', createdAt: at, updatedAt: at,
+        schedules: [
+          { id: 'c1b2c3d4-0000-4000-8000-000000000001', on: '08:00', off: '20:00', ramp: 30, levels: [100, 100, 100, 100], savedAt: at },
+          { id: 'c1b2c3d4-0000-4000-8000-000000000002', on: '13:00', off: '21:00', ramp: 30, levels: [80, 70, 60, 50], savedAt: at },
+        ],
+      },
+      { id: 'b1b2c3d4-0000-4000-8000-000000000002', tankId, kind: 'plug', brand: 'tuya', remoteId: 'x1', outlets: [{ code: 'switch_1', role: 'co2' }, { code: 'switch_2', role: 'heater' }, { code: 'switch_3', label: 'Quạt' }], createdAt: at, updatedAt: at },
+      // Another tank's light isn't this tank's.
+      { id: 'b1b2c3d4-0000-4000-8000-000000000003', tankId: 'a1b2c3d4-0000-4000-8000-000000000009', kind: 'light', schedules: [], createdAt: at, updatedAt: at },
+      // A schedule saved but never written to the light is no schedule it runs; its levels set by hand are.
+      {
+        id: 'b1b2c3d4-0000-4000-8000-000000000004', tankId, kind: 'light', nickname: 'Đèn phụ', manual: { levels: [50], at }, createdAt: at, updatedAt: at,
+        schedules: [{ id: 'c1b2c3d4-0000-4000-8000-000000000003', on: '08:00', off: '14:00', ramp: 0, levels: [100], savedAt: ago(1) }],
+      },
+    ],
+  }, now)
+  const c = claude([() => msg([{ type: 'tool_use', id: 't1', name: 'read_tanks', input: {} }], 'tool_use'), () => answers({})])
+  await run(ask(bearer(me.token), { question: 'Bể của tôi bị rêu, sao vậy?' }), e, deps(c.fetch))
+  const told = (JSON.parse(String(((c.bodies[1]!.messages as { content: unknown }[]).at(-1)!.content as { content: string }[])[0]!.content)) as Record<string, unknown>[])[0]!
+  expect(told).toMatchObject({
+    substrate: 'soil', savedDaysAgo: 10, readerNotes: 'Thay 30% nước mỗi tuần.',
+    lights: ['chihiros WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no schedule running, last set by hand to 50%'],
+    plugsPower: ['co2', 'heater', 'Quạt'],
+  })
+  expect((told.plants as string[]).length).toBe(1)
 })
 
 test('the daily cron sweeps retries\' answers a day old, and nothing else of the chat\'s, every page of them', async () => {

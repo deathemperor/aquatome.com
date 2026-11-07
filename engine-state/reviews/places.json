@@ -2417,6 +2417,18 @@
       "kept": true
     }
   ],
+  "ms/places/california": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Malay atlas would typically write California as \"California\" (ok), but \"Old Calabar River → Sungai Old Calabar\" is acceptable; main issues:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/canelos": [
     {
       "at": "2026-11-06T23:05:38Z",
@@ -2447,9 +2459,31 @@
       "kept": true
     }
   ],
+  "ms/places/conchos": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Río Conchos\" → \"Sungai Conchos\" fine, but \"Conchos\" region duplicate is fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/cross": [
     {
       "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/daying-river": [
+    {
+      "at": "2026-11-07T08:26:43Z",
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
@@ -2470,6 +2504,26 @@
   "ms/places/fernando-po": [
     {
       "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/french-broad-river": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/green-river": [
+    {
+      "at": "2026-11-07T08:26:43Z",
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
@@ -2510,6 +2564,16 @@
   "ms/places/jamaica": [
     {
       "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/jorai-river": [
+    {
+      "at": "2026-11-07T08:26:43Z",
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
@@ -2567,6 +2631,28 @@
       "kept": true
     }
   ],
+  "ms/places/malebo-pool": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Malebo Pool\" → \"Kolam Malebo\" is acceptable but the usual atlas form may be \"Kolam Malebo\" (ok)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/mali-hka": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mezquital": [
     {
       "at": "2026-11-06T23:05:38Z",
@@ -2587,9 +2673,61 @@
       "kept": true
     }
   ],
+  "ms/places/nam-leuk": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nhamunda": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nong-bua-lamphu": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/oahu": [
     {
       "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/old-calabar-river": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Malay atlas would typically write California as \"California\" (ok), but \"Old Calabar River → Sungai Old Calabar\" is acceptable; main issues:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/omo": [
+    {
+      "at": "2026-11-07T08:26:43Z",
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
@@ -2607,9 +2745,39 @@
       "kept": true
     }
   ],
+  "ms/places/phang-nga": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/pilcomayo": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/potomac": [
     {
       "at": "2026-11-06T23:05:38Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/pulau-ubin": [
+    {
+      "at": "2026-11-07T08:26:43Z",
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
@@ -2637,6 +2805,18 @@
       "kept": true
     }
   ],
+  "ms/places/rakhine-yoma": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Rakhine Yoma\" – Malay atlas would likely use \"Banjaran Rakhine Yoma\" (it is a mountain range)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-amapari": [
     {
       "at": "2026-11-06T17:18:18Z",
@@ -2644,6 +2824,18 @@
       "score": 0.68,
       "notes": [
         "Amapari (river): the Malay atlas form would normally be \"Sungai Amapari\". The word for river is missing."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-conchos": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Río Conchos\" → \"Sungai Conchos\" fine, but \"Conchos\" region duplicate is fine"
       ],
       "attempt": "first",
       "kept": true
@@ -2685,6 +2877,18 @@
       "kept": true
     }
   ],
+  "ms/places/rio-verde": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Río Verde\" → \"Sungai Verde\" fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rondonia": [
     {
       "at": "2026-11-06T17:18:18Z",
@@ -2700,6 +2904,48 @@
       "at": "2026-11-06T17:18:18Z",
       "model": "sonnet",
       "score": 0.68,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sadong": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/san-salvador-island": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"San Salvador Island\" → \"Pulau San Salvador\" fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sok-river": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/thai-nguyen": [
+    {
+      "at": "2026-11-07T08:26:43Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true

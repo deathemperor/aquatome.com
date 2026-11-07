@@ -66,8 +66,11 @@ final class OwnerFlowTests: XCTestCase {
     let top = columns.frame.minY
     columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6)).press(forDuration: 0.05, thenDragTo: columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: -1.2)))
     XCTAssertLessThan(columns.frame.minY, top - 100, "the page didn't scroll from the chart")
-    repeatUntil(shown(), times: 6) { app.swipeDown(velocity: .slow) }
-    XCTAssertTrue(shown(), "the chart isn't back on screen")
+    // Back where it was, by as much as it went, with a finger below the chart held at the end so the page doesn't coast:
+    // a chart scrolled up but still "on screen" can have its columns under the navigation bar, where a tap misses them.
+    let below = app.windows.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45))
+    below.press(forDuration: 0.05, thenDragTo: below.withOffset(CGVector(dx: 0, dy: top - columns.frame.minY)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    XCTAssertTrue(shown() && abs(columns.frame.minY - top) < 40, "the chart isn't back where it was: \(columns.frame.minY) for \(top)")
     // Untouched: today, the last of its 30 days, not over yet.
     XCTAssertTrue(day.label.hasPrefix("11 có kết quả") && day.label.contains("Thứ Tư 04/11 · chưa hết ngày"), day.label)
     let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.8)) }
@@ -289,6 +292,7 @@ final class OwnerFlowTests: XCTestCase {
     hide(app, "/")
     let said = app.staticTexts["owner-message"]
     XCTAssertTrue(said.waitForExistence(timeout: 10), "nothing said")
+    // The Worker's own words, as the contract's vector has them ("hide the home page"): English since its version 2.
     XCTAssertEqual(said.label, "Only one page of the site can be hidden, and not the home page.")
   }
 
@@ -315,6 +319,7 @@ final class OwnerFlowTests: XCTestCase {
     section(app, "Readers")
     let said = app.staticTexts["owner-message"]
     XCTAssertTrue(said.waitForExistence(timeout: 10), "nothing said")
+    // As the contract's vector "storage down" has it: English since its version 2.
     XCTAssertEqual(said.label, "Couldn't do that just now: the server couldn't read or write its storage. Try again later.")
     app.buttons["owner-again"].tap()
     XCTAssertTrue(app.descendants(matching: .any)["owner-chart"].firstMatch.waitForExistence(timeout: 10), "the section didn't come")
@@ -372,9 +377,9 @@ final class OwnerFlowTests: XCTestCase {
     repeatUntil(row.exists, times: 6) { app.swipeUp() }
     XCTAssertTrue(row.waitForExistence(timeout: 5), "the row went")
     XCTAssertTrue(row.label.contains("đăng nhập lại"), row.label)
-    let message = app.staticTexts["account-message"]
-    XCTAssertTrue(message.waitForExistence(timeout: 5))
-    XCTAssertEqual(message.label, "Phiên đăng nhập đã hết: đăng nhập lại để đồng bộ.")
+    let ended = app.staticTexts["session-ended"]
+    XCTAssertTrue(ended.waitForExistence(timeout: 5))
+    XCTAssertEqual(ended.label, "Phiên đăng nhập đã hết. Lần trước bạn đăng nhập bằng Apple.")
 
     // Signed in again (its button back up the list): the dashboard opens as before.
     repeatUntil(app.descendants(matching: .any)["apple-sign-in"].firstMatch.exists, times: 6) { app.swipeDown() }
@@ -389,13 +394,14 @@ final class OwnerFlowTests: XCTestCase {
 
   // MARK: Helpers
 
-  /// A new phone, the stand-in's accounts empty, `owner` its owner's account (`ui-apple`: the stand-in Apple sign-in's).
+  /// A new phone, the stand-in's accounts empty, `owner` its owner's account (`ui-apple`: the stand-in Apple sign-in's), in
+  /// the Tài khoản sheet.
   private func launch(owner: String = "ui-apple", _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", "on", "-reset-defaults",
                            "-reset-fake-server", "-fake-owner", owner] + args
     app.launch()
-    app.openTab("Bể của tôi")
+    app.openAccount()
     return app
   }
 

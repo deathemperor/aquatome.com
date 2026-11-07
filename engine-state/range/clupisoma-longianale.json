@@ -1,0 +1,56 @@
+{
+  "id": "clupisoma-longianale",
+  "native": {
+    "input": "d397bd2777a2558d",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This is only the third species in the nine Clupisoma genera recorded that is found in China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Puer county, Xiaoganlanba, Yunnan, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong River",
+        "source": "scotcat",
+        "quote": "Asia: Mekong River, Lancangjiang River.",
+        "ok": true
+      },
+      {
+        "name": "Lancangjiang River",
+        "source": "scotcat",
+        "quote": "Asia: Mekong River, Lancangjiang River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clupisoma longianale",
+    "status": "ACCEPTED",
+    "taxonKey": 10076270,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

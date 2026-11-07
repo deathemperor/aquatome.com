@@ -141,7 +141,7 @@ private struct ReaderActions: ViewModifier {
           done()
         }
       } message: { _ in
-        Text("Bình luận và ảnh của người này sẽ ẩn trên máy này. Bỏ chặn trong Bể của tôi, mục Người đã chặn.")
+        Text("Bình luận và ảnh của người này sẽ ẩn trên máy này. Bỏ chặn trong Tài khoản, mục Người đã chặn.")
       }
       .alert(said ?? "", isPresented: Binding(get: { said != nil }, set: { if !$0 { said = nil } })) {
         Button("Đóng") {
@@ -180,7 +180,7 @@ private struct ReaderActions: ViewModifier {
   }
 }
 
-/// The posters the reader blocks, each to unblock: in the tanks tab (Tài khoản) and from a page's readers' part.
+/// The posters the reader blocks, each to unblock: in the Tài khoản sheet and from a page's readers' part.
 struct BlockedList: View {
   @Environment(HandbookModel.self) private var handbook
 
@@ -191,7 +191,9 @@ struct BlockedList: View {
         Spacer()
         // The button alone, not the row: a tap on the name doesn't let them back.
         Button("Bỏ chặn") { handbook.safety.unblock(b.key) }
-          .buttonStyle(.borderless)
+          .buttonStyle(.bordered)
+          .buttonBorderShape(.capsule)
+          .controlSize(.small)
           .accessibilityLabel(Text("Bỏ chặn \(b.name)"))
           .accessibilityIdentifier("unblock")
       }
@@ -199,36 +201,29 @@ struct BlockedList: View {
   }
 }
 
-/// "Người đã chặn" under the tanks tab's empty state (no tanks, signed out), once anyone is blocked.
-struct BlockedPanel: View {
+/// "Người đã chặn", opened from the Tài khoản sheet's privacy section: each poster blocked on this phone, to let back.
+/// After the last, it says nobody is (and the sheet's row goes).
+struct BlockedPage: View {
   @Environment(HandbookModel.self) private var handbook
 
   var body: some View {
-    if !handbook.safety.blocked.isEmpty {
-      VStack(alignment: .leading, spacing: 8) {
-        Text("Người đã chặn").font(.headline).accessibilityAddTraits(.isHeader).accessibilityIdentifier("blocked-header")
-        BlockedList()
-        Text("Bình luận và ảnh của những người này đang ẩn trên máy này.").font(.footnote).foregroundStyle(.secondary)
-      }
-      .frame(maxWidth: 300)
-      .padding(.top, 16)
-    }
-  }
-}
-
-/// "Người đã chặn", in the tanks tab under the account: there with accounts on or off, once anyone is blocked.
-struct BlockedSection: View {
-  @Environment(HandbookModel.self) private var handbook
-
-  var body: some View {
-    if !handbook.safety.blocked.isEmpty {
-      Section {
-        BlockedList()
-      } header: {
-        Text("Người đã chặn").accessibilityIdentifier("blocked-header")
-      } footer: {
-        Text("Bình luận và ảnh của những người này đang ẩn trên máy này.")
+    List {
+      if !handbook.safety.blocked.isEmpty {
+        Section {
+          BlockedList()
+        } footer: {
+          Text("Bình luận và ảnh của những người này đang ẩn trên máy này.")
+        }
       }
     }
+    .overlay {
+      if handbook.safety.blocked.isEmpty {
+        ContentUnavailableView("Bạn chưa chặn ai", systemImage: "hand.raised",
+                               description: Text("Bình luận và ảnh của mọi người đều hiện trên máy này."))
+          .accessibilityIdentifier("blocked-none")
+      }
+    }
+    .navigationTitle("Người đã chặn")
+    .navigationBarTitleDisplayMode(.inline)
   }
 }

@@ -1,0 +1,148 @@
+{
+  "id": "cnidoglanis-macrocephalus",
+  "native": {
+    "input": "6b85c88ca4df1861",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Indo-Pacific: endemic to Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cnidoglanis macrocephalus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341943,
+    "datasets": [
+      [
+        "10710e0f-205f-46d4-b1f3-1a92bd21a4f3",
+        108
+      ],
+      [
+        "764e832b-96ec-49bb-8de2-f8c5ca09afc2",
+        94
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        81
+      ],
+      [
+        "f8f683a8-ab6c-4c4b-a6ec-53b23d5404d0",
+        80
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        56
+      ],
+      [
+        "38f06820-08c5-42b2-94f6-47cc3e83a54a",
+        53
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        53
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        41
+      ],
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        22
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        15
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        7
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        7
+      ],
+      [
+        "d3ef9f19-0b22-4949-b7f5-0a8c030f8525",
+        6
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        5
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7ebef267-9d72-4c21-a276-cc84281a8590",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c1fc2df7-223b-4472-8998-70afb3b749ab",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

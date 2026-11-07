@@ -11,6 +11,69 @@
     "lake-malawi",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the northern end of Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373852,
+      "total": 38,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "MW",
+          30
+        ],
+        [
+          "TZ",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          8
+        ],
+        [
+          33.75,
+          -14.0625,
+          12
+        ],
+        [
+          33.75,
+          -12.65625,
+          11
+        ],
+        [
+          33.75,
+          -11.25,
+          6
+        ],
+        [
+          35.15625,
+          -15.46875,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

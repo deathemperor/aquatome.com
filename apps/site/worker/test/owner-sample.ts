@@ -56,7 +56,7 @@ export const FISH = {
     // Enough for more than one page of the app's table (50 rows a page).
     ...Array.from({ length: 56 }, (_, i) => call(`2026-11-04 07:${String(59 - i).padStart(2, '0')}:00`, { sci: 'Paracheirodon innesi', page: 'paracheirodon-innesi' })),
   ], NOW, TZ),
-  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2 },
+  keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2, cap: 50, spend: [] },
   pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
 }
 
@@ -271,9 +271,12 @@ export const COMMENT_PAGES = new Map<string, PageInfo>([
   ['species:betta-splendens', { path: '/ca/ca-betta/', title: 'Cá betta (cá xiêm)', kind: 'fish', id: 'betta-splendens' }],
 ])
 
-/** The overview's version 2: a key resting and a source waiting on the owner (faults), the held comments (COMMENT_COUNTS) and two photos waiting. */
+/**
+ * The overview's version 2: a key resting and a source waiting on the owner (faults), today's AI spend past 80% of its
+ * cap, the held comments (COMMENT_COUNTS) and two photos waiting.
+ */
 export const TODAY: Today = {
-  ...OVERVIEW, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
+  ...OVERVIEW, keys: { ...FISH.keys, spend: [{ day: '2026-11-04', usd: 42.5 }, { day: '2026-11-03', usd: 18.2 }] }, beacon: BEACON, countingFrom: COUNTING_FROM, held: COMMENT_COUNTS.held, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
   lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
 }
 /** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */

@@ -10,6 +10,66 @@
     "brazil",
     "rio-tiquie"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tiquié",
+        "Amazon",
+        "Uaupés"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Igarapé Castanha, tributary of rio Tiquié, village of Santa Rosa, São Gabriel da Cachoeira, Amazonas, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Known only from upriver in the Igarapé Castanha, a tributary of the rio Tiquié (Amazon, Middle Amazon (Solimões), Negro, Upper Negro, Uaupés, Tiquié).",
+          "countries": [],
+          "regions": [
+            "Rio Tiquié",
+            "Amazon",
+            "Uaupés"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11114839,
+      "total": 6,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

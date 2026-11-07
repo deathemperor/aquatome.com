@@ -89,9 +89,9 @@ private func near(_ a: Double?, _ b: Double?) -> Bool {
   #expect(w.glass?.min == 5 && w.glass?.order == 5)
   #expect(near(w.glassKg, TankVolume.glassKg(l: 60, w: 30, h: 36, mm: 5)))
   #expect(w.save == .dims(l: 60, w: 30, h: 36))
-  #expect(w.heaterPath(lang: "vi") == "/vi/cong-cu/?l=60&w=30&h=36#suoi")
-  #expect(w.heaterPath(lang: "id") == "/id/alat/?l=60&w=30&h=36#suoi")
-  #expect(w.heaterPath(lang: "th") == "/th/tools/?l=60&w=30&h=36#suoi")
+  #expect(w.heaterPath(tools: "/vi/cong-cu/") == "/vi/cong-cu/?l=60&w=30&h=36#suoi")
+  #expect(w.heaterPath(tools: "/id/alat/") == "/id/alat/?l=60&w=30&h=36#suoi")
+  #expect(w.heaterPath(tools: "/th/tools/") == "/th/tools/?l=60&w=30&h=36#suoi")
 }
 
 @Test func aSizeLeftEmptyOrNotANumberIsAskedFor() {
@@ -127,7 +127,7 @@ private func near(_ a: Double?, _ b: Double?) -> Bool {
   let w = try f.outcome.get()
   #expect(w.save == .dims(l: 40, w: 40, h: 40))
   #expect(w.glass?.min == TankVolume.glass(lengthCm: 40, waterCm: 40).min)
-  #expect(w.heaterPath(lang: "vi") == "/vi/cong-cu/?l=40&w=40&h=40#suoi")
+  #expect(w.heaterPath(tools: "/vi/cong-cu/") == "/vi/cong-cu/?l=40&w=40&h=40#suoi")
 }
 
 @Test func anyOtherShapeSavesItsLitresAndHasNoGlass() throws {
@@ -137,7 +137,7 @@ private func near(_ a: Double?, _ b: Double?) -> Bool {
   f.sizes["h"] = "50"
   let w = try f.outcome.get()
   #expect(w.save == .litres(62.8))
-  #expect(w.glass == nil && w.glassKg == nil && w.box == nil && w.heaterPath(lang: "vi") == nil)
+  #expect(w.glass == nil && w.glassKg == nil && w.box == nil && w.heaterPath(tools: "/vi/cong-cu/") == nil)
 }
 
 @Test func aTankNoSavedTankCanHoldIsNotOfferedToSave() throws {
@@ -207,9 +207,9 @@ private func near(_ a: Double?, _ b: Double?) -> Bool {
   var typed = VolumeForm()
   typed.sizes["l"] = "12345678901234567890"
   let w = try typed.outcome.get()
-  #expect(w.heaterPath(lang: "vi") == "/vi/cong-cu/?l=12345678901234567168&w=30&h=36#suoi")
+  #expect(w.heaterPath(tools: "/vi/cong-cu/") == "/vi/cong-cu/?l=12345678901234567168&w=30&h=36#suoi")
   let linked = try VolumeForm(query: "hinh=chu-nhat&l=1e19&w=30&h=36", inches: false).outcome.get()
-  #expect(linked.heaterPath(lang: "vi") == "/vi/cong-cu/?l=10000000000000000000&w=30&h=36#suoi")
+  #expect(linked.heaterPath(tools: "/vi/cong-cu/") == "/vi/cong-cu/?l=10000000000000000000&w=30&h=36#suoi")
 }
 
 @Test func roundingIsJavaScriptsMathRound() {

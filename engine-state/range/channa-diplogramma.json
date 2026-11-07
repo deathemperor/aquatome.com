@@ -1,0 +1,86 @@
+{
+  "id": "channa-diplogramma",
+  "native": {
+    "input": "159ba6a84507572f",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Malabar snakehead, Channa diplogramma, is a large snakehead endemic to the southern Western Ghats in Kerala and Tamil Nadu, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "The Malabar snakehead, Channa diplogramma, is a large snakehead endemic to the southern Western Ghats in Kerala and Tamil Nadu, India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Meenachil",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern parts of the Western Ghats mountains in southern India with records existing from the Meenachil, Manimala, Pampa, Achenkovil and Kallada rivers in Kerala state, as well as the Chittar and Tambraparni drainages in Tamil Nadu state.",
+        "ok": true
+      },
+      {
+        "name": "Manimala",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern parts of the Western Ghats mountains in southern India with records existing from the Meenachil, Manimala, Pampa, Achenkovil and Kallada rivers in Kerala state, as well as the Chittar and Tambraparni drainages in Tamil Nadu state.",
+        "ok": true
+      },
+      {
+        "name": "Pampa",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern parts of the Western Ghats mountains in southern India with records existing from the Meenachil, Manimala, Pampa, Achenkovil and Kallada rivers in Kerala state, as well as the Chittar and Tambraparni drainages in Tamil Nadu state.",
+        "ok": true
+      },
+      {
+        "name": "Kallada",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern parts of the Western Ghats mountains in southern India with records existing from the Meenachil, Manimala, Pampa, Achenkovil and Kallada rivers in Kerala state, as well as the Chittar and Tambraparni drainages in Tamil Nadu state.",
+        "ok": true
+      },
+      {
+        "name": "Tambraparni",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern parts of the Western Ghats mountains in southern India with records existing from the Meenachil, Manimala, Pampa, Achenkovil and Kallada rivers in Kerala state, as well as the Chittar and Tambraparni drainages in Tamil Nadu state.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa diplogramma",
+    "status": "ACCEPTED",
+    "taxonKey": 2391501,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

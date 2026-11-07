@@ -1,0 +1,153 @@
+{
+  "id": "corydoras-acutus",
+  "native": {
+    "input": "841e9698c49931aa",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blacktop cory, Corydoras acutus, is an armoured catfish from the upper Amazon basin in Brazil, Peru, Ecuador and possibly Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blacktop cory, Corydoras acutus, is an armoured catfish from the upper Amazon basin in Brazil, Peru, Ecuador and possibly Bolivia.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blacktop cory, Corydoras acutus, is an armoured catfish from the upper Amazon basin in Brazil, Peru, Ecuador and possibly Bolivia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The blacktop cory, Corydoras acutus, is an armoured catfish from the upper Amazon basin in Brazil, Peru, Ecuador and possibly Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "It's currently understood to occur throughout parts of the upper Amazon basin in Brazil, Peru, Ecuador, and possibly Bolivia, including the rios Yavarí, Abunã (rio Madeira system), Nueva Rocafuerte (Río Napo system), and Huitoyacu (Río Marañón system).",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "It's currently understood to occur throughout parts of the upper Amazon basin in Brazil, Peru, Ecuador, and possibly Bolivia, including the rios Yavarí, Abunã (rio Madeira system), Nueva Rocafuerte (Río Napo system), and Huitoyacu (Río Marañón system).",
+        "ok": true
+      },
+      {
+        "name": "Río Napo",
+        "source": "seriouslyfish",
+        "quote": "It's currently understood to occur throughout parts of the upper Amazon basin in Brazil, Peru, Ecuador, and possibly Bolivia, including the rios Yavarí, Abunã (rio Madeira system), Nueva Rocafuerte (Río Napo system), and Huitoyacu (Río Marañón system).",
+        "ok": true
+      },
+      {
+        "name": "Río Marañón",
+        "source": "seriouslyfish",
+        "quote": "It's currently understood to occur throughout parts of the upper Amazon basin in Brazil, Peru, Ecuador, and possibly Bolivia, including the rios Yavarí, Abunã (rio Madeira system), Nueva Rocafuerte (Río Napo system), and Huitoyacu (Río Marañón system).",
+        "ok": true
+      },
+      {
+        "name": "Yavarí",
+        "source": "seriouslyfish",
+        "quote": "It's currently understood to occur throughout parts of the upper Amazon basin in Brazil, Peru, Ecuador, and possibly Bolivia, including the rios Yavarí, Abunã (rio Madeira system), Nueva Rocafuerte (Río Napo system), and Huitoyacu (Río Marañón system).",
+        "ok": true
+      },
+      {
+        "name": "Abunã",
+        "source": "seriouslyfish",
+        "quote": "It's currently understood to occur throughout parts of the upper Amazon basin in Brazil, Peru, Ecuador, and possibly Bolivia, including the rios Yavarí, Abunã (rio Madeira system), Nueva Rocafuerte (Río Napo system), and Huitoyacu (Río Marañón system).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras acutus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342643,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        16
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        16
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        10
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE",
+      "EC"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

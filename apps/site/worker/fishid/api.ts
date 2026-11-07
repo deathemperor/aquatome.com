@@ -13,7 +13,7 @@ import { factShardOf, factShards, type Facts, type FactsShard } from './facts'
 import { healthyKeys, loadKeys, parseKeys, rotate, type Attempt, type HealthStore, type KeyEntry, type KeyHealth, type KeyProblem } from './keys'
 import { keepPhoto } from './kept'
 import { saveRun, turnsOf, type RunRecord } from './transcript'
-import { emptyDay, ledgerClient, type Counts } from './ledger'
+import { emptyDay, ledgerClient, usdCap, type Counts } from './ledger'
 import { emptyLog, FROM, toFishIdPoint, type CallLog, type From } from './log'
 import { matchGuesses, type Result } from './match'
 import { relayFetch } from './relay'
@@ -77,7 +77,6 @@ export const MAX_IMAGE = 1.5 * 1024 * 1024
 const PER_IP = 10
 const PER_ACCOUNT = 10
 const PER_DAY = 300
-const USD_PER_DAY = 15
 /** A stream's keep-alive while Claude works, so no proxy closes it. */
 const PING_MS = 10_000
 /** How sure Claude must be of a guess with no page for it to count as a reader's request. */
@@ -94,7 +93,7 @@ const json = (data: unknown, status = 200) => Response.json(data, { status, head
 /** On with at least one readable key (a file of comments only is none), Turnstile, the rate-limit key, the accounts' database and the ledger. */
 const live = (env: FishIdEnv): env is Live => Boolean(parseKeys(env.ANTHROPIC_KEYS).entries.length && env.TURNSTILE_SECRET && env.TURNSTILE_SITEKEY && env.COMMENT_HMAC_KEY && env.DB && env.FISHID_LEDGER)
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
-const usdLimit = (env: FishIdEnv) => (Number(env.FISH_ID_USD_PER_DAY) > 0 ? Number(env.FISH_ID_USD_PER_DAY) : USD_PER_DAY)
+const usdLimit = (env: FishIdEnv) => usdCap(env.FISH_ID_USD_PER_DAY)
 
 /**
  * Each key's problem in KV (fishid:key:<hash>), gone by itself once it no longer applies (KV's TTL, and `until`): a key
@@ -474,20 +473,27 @@ const slim = (a: Attempt) => ({ key: a.hash, ms: a.ms, ...(a.status ? { status: 
 
 /** The owner's dashboard: each key by number and hash, whether it is in use or set aside (until when), today's calls with it and the answers among them. */
 export type KeyRow = { n: number; hash: string; workspace: boolean; state: 'ok' | KeyProblem; until?: string; calls: number; answered: number }
-/** `counts`: today's fallbacks, runs the call limit ended, later calls refused (400), unreadable facts and refunds; `mostRefunds`: the most one reader had. */
-export type FishIdStatus = { rows: KeyRow[]; bad: number; today: number; model: string; counts: Counts; mostRefunds: number }
+/**
+ * `counts`: today's fallbacks, runs the call limit ended, later calls refused (400), unreadable facts and refunds;
+ * `mostRefunds`: the most one reader had. `spend`: the AI spend (fish ID's and chat's) of today and yesterday, UTC days,
+ * newest first, against `cap`, the day's limit.
+ */
+export type FishIdStatus = { rows: KeyRow[]; bad: number; today: number; model: string; counts: Counts; mostRefunds: number; cap: number; spend: { day: string; usd: number }[] }
 export async function fishIdStatus(env: FishIdEnv, now: Date): Promise<FishIdStatus | undefined> {
   const text = env.ANTHROPIC_KEYS
   if (!text || !parseKeys(text).entries.length) return undefined
   const { keys, bad } = await keysOf(text)
   const store = kvHealth(env.AB)
   // The ledger's day; none (no binding, or it can't be read) reads as an empty one, as the dashboard reads a quiet day.
-  const day = (env.FISHID_LEDGER ? await ledgerClient(env.FISHID_LEDGER).read(dayOf(now)).catch(e => { console.error('fish-id ledger:', e); return undefined }) : undefined)
-    ?? { ...emptyDay(), mostRefunds: 0 }
+  const read = (d: string) => (env.FISHID_LEDGER ? ledgerClient(env.FISHID_LEDGER).read(d).catch(e => { console.error('fish-id ledger:', e); return undefined }) : undefined)
+  const days = [dayOf(now), dayOf(new Date(now.getTime() - 86_400_000))]
+  const [today, yesterday] = await Promise.all(days.map(read))
+  const day = today ?? { ...emptyDay(), mostRefunds: 0 }
   const rows = await Promise.all(keys.map(async (k, i): Promise<KeyRow> => {
     const h = await store.get(k.hash).catch(() => null)
     const off = h && h.until > now.getTime() ? h : null
     return { n: i + 1, hash: k.hash, workspace: Boolean(k.workspace), state: off ? off.why : 'ok', ...(off ? { until: new Date(off.until).toISOString() } : {}), calls: day.keys[k.hash] ?? 0, answered: day.ok[k.hash] ?? 0 }
   }))
-  return { rows, bad, today: day.calls, model: env.FISH_ID_MODEL || DEFAULT_MODEL, counts: day.counts, mostRefunds: day.mostRefunds }
+  const spend = [today, yesterday].flatMap((v, i) => (v ? [{ day: days[i]!, usd: v.usd }] : []))
+  return { rows, bad, today: day.calls, model: env.FISH_ID_MODEL || DEFAULT_MODEL, counts: day.counts, mostRefunds: day.mostRefunds, cap: usdLimit(env), spend }
 }

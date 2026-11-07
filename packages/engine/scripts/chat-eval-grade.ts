@@ -11,6 +11,21 @@ export const numbersIn = (s: string): number[] =>
     : /^[1-9]\d{0,2}(\.\d{3})+,\d+$/.test(n) ? Number(n.replace(/\./g, '').replace(',', '.'))
     : Number(n.replace(',', '.')))
 
+/**
+ * Where a Vietnamese answer's text points to its blocks ("xem thẻ bên dưới", "bảng dưới đây", "mục bên dưới"), which
+ * the reader sees under it anyway (the prompt: never refer to them): a block's name with where it is, "dưới đây", or
+ * "below" ending a clause. A flag for a look, not a count: it misses other wordings, and can flag "below" as a place
+ * that ends a clause ("lót phân nền bên dưới,"), though not one before what's below ("ở dưới đáy bể") or a figure
+ * ("dưới 20 °C").
+ */
+const POINTS = [
+  /(?<!\p{L})(thẻ|bảng|khối|mục|phần|công cụ)( (ở|bên|phía))? (dưới|trên|này|kèm)(?!\p{L})/giu,
+  /(?<!\p{L})xem (thẻ|bảng|khối|mục|công cụ)(?!\p{L})/giu,
+  /(?<!\p{L})dưới đây(?!\p{L})/giu,
+  /(?<!\p{L})(ở|bên|phía) dưới(?= *([.,:;!?)]|$| (là|có|để|cho|nhé)(?!\p{L})))/giu,
+]
+export const pointsAt = (text: string): string[] => [...new Set(POINTS.flatMap(r => [...text.matchAll(r)].map(m => m[0].toLowerCase())))]
+
 type Sent = { role: string; content: unknown }
 
 /**

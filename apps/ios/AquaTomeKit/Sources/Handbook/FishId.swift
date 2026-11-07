@@ -161,7 +161,7 @@ public enum FishId {
   private static func linked(_ v: Any?) -> Linked? {
     guard let o = v as? [String: Any], let id = o["id"] as? String, let name = o["name"] as? String else { return nil }
     // Only this site's own pages and our media host's photos, whatever the answer holds.
-    let path = (o["url"] as? String).flatMap { ["/vi/", "/id/", "/th/"].contains(String($0.prefix(4))) ? $0 : nil }
+    let path = (o["url"] as? String).flatMap { SiteLanguage.of(path: $0) != nil ? $0 : nil }
     let img = (o["img"] as? String).flatMap { $0.hasPrefix("https://") ? URL(string: $0) : nil }
     return Linked(id: id, name: name, sci: o["sci"] as? String, path: path, img: img)
   }

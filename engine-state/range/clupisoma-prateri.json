@@ -1,0 +1,101 @@
+{
+  "id": "clupisoma-prateri",
+  "native": {
+    "input": "9d27c8307850f887",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the lower and middle reaches of the Irrawaddy River, the lower reaches of the Salween River, and the Bago and Sittang rivers of Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Clupisoma prateri is known from the lower and middle reaches of the Irrawaddy River, the Sittang, Bago, and the Salween river drainages in Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy River",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the lower and middle reaches of the Irrawaddy River, the lower reaches of the Salween River, and the Bago and Sittang rivers of Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween River",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the lower and middle reaches of the Irrawaddy River, the lower reaches of the Salween River, and the Bago and Sittang rivers of Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittang",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the lower and middle reaches of the Irrawaddy River, the lower reaches of the Salween River, and the Bago and Sittang rivers of Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Bago",
+        "source": "scotcat",
+        "quote": "Asia: Widely distributed in the lower and middle reaches of the Irrawaddy River, the lower reaches of the Salween River, and the Bago and Sittang rivers of Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clupisoma prateri",
+    "status": "ACCEPTED",
+    "taxonKey": 2341691,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        16
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

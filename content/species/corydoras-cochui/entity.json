@@ -11,6 +11,104 @@
     "brazil",
     "araguaia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Araguaia"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The barredtail cory, Hoplisoma cochui, long known as Corydoras cochui, is a small armoured catfish native to the upper rio Araguaia in central Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the upper rio Araguaia, central Brazil.",
+          "countries": [],
+          "regions": [
+            "Araguaia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342638,
+      "total": 12,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

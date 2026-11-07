@@ -1,0 +1,60 @@
+{
+  "id": "clypeobarbus-congicus",
+  "native": {
+    "input": "587b3851b8305145",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Congo River drainage in both the Republic of Congo and the Democratic Republic of Congo.",
+        "words": "Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Congo River drainage in both the Republic of Congo and the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Congo River drainage in both the Republic of Congo and the Democratic Republic of Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Clypeobarbus congicus",
+    "status": "ACCEPTED",
+    "taxonKey": 2367240,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        28
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CG",
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

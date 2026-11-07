@@ -437,16 +437,16 @@ public enum PageRoute: Equatable, Sendable {
 /// The site's pages about itself: what it is (with its data table), how to reach it, its privacy policy. The app opens
 /// them in the browser, not in its web view (the owner's call, 2026-11-02): they aren't the handbook.
 enum AboutTheSite {
-  /// apps/site/src/lib/i18n.ts: each one's segment in each language.
-  static let sections = ["vi": ["gioi-thieu", "lien-he", "chinh-sach-bao-mat"], "id": ["tentang", "kontak", "kebijakan-privasi"],
-                         "th": ["about", "contact", "privacy"]]
+  /// Their Vietnamese segments; each language's are its words for them (SiteLanguage).
+  static let sections = ["gioi-thieu", "lien-he", "chinh-sach-bao-mat"]
 
   /// `url` is one of them or a page below one ("/th/privacy/", "/vi/gioi-thieu/bang-du-lieu/"), the Vietnamese under
   /// "/vi/" or at the root ("/lien-he/").
   static func `is`(_ url: URL) -> Bool {
     var parts = url.path(percentEncoded: false).split(separator: "/").map(String.init)
-    let lang = ["vi", "id", "th"].contains(parts.first ?? "") ? parts.removeFirst() : "vi"
-    return parts.first.map { sections[lang]?.contains($0) == true } ?? false
+    var lang = SiteLanguage.vietnamese
+    if let l = SiteLanguage.served(parts.first ?? "") { lang = l; parts.removeFirst() }
+    return parts.first.map { first in sections.contains { lang.word($0) == first } } ?? false
   }
 }
 

@@ -11,6 +11,59 @@
     "cross-river",
     "nigeria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [
+        "Cross River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nigeria and Cameroon.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Cross River, Cameroon.",
+          "countries": [],
+          "regions": [
+            "Cross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344234,
+      "total": 8,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "CM",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          5.625,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

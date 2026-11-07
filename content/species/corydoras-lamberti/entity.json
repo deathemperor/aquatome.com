@@ -11,6 +11,52 @@
     "peru",
     "pastaza"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Pastaza",
+        "Río Marañón"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the lower Río Pastaza, a major tributary of the Río Marañón in the upper Amazon basin, Loreto Region, northern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Pastaza",
+            "Río Marañón"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342684,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

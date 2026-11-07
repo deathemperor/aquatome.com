@@ -290,5 +290,118 @@
       "\"Jenis: bebawang (bulb)\": \"umbi\" is the more standard Malay term for plant bulb/tuber; \"bebawang\" sounds like onion-like and is less natural.",
       "\"tahan lasak\" for \"relatively tolerant\" is slightly stronger than the original; consider \"agak toleran\"."
     ]
+  },
+  "bacopa-australis": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa australis",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [
+      "Item 2: \"dasar tangki\" is fine, but \"akuarium\" and \"tangki\" are mixed; consider using \"dasar akuarium\" for consistency (minor)."
+    ]
+  },
+  "bacopa-caroliniana": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa caroliniana",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "\"tangki\" in item 1: Malaysian hobbyists usually say \"akuarium\" (or \"tangki akuarium\"); use that.",
+      "\"tidak banyak kerenah\": \"kerenah\" has a negative sense (fussiness, mischief). Use \"tidak cerewet\" or \"tidak memerlukan penjagaan khusus\".",
+      "\"tidak perlu dijaga sangat\" is colloquial. Use \"tidak memerlukan banyak perhatian\".",
+      "\"tanam di dasar\": use \"tanam di substrat/dasar akuarium\", because \"dasar\" alone is vague.",
+      "\"lebar 3-4 cm\" for stems is a literal carry-over of the English. It most likely means leaf width, but the source is ambiguous. Check the context, and consider \"daun selebar 3-4 cm\" if that is what is meant.",
+      "\"tumbuhan batang\": the usual hobby term is \"tumbuhan berbatang\" (stem plants). It can be kept, with \"(stem plant)\" in brackets."
+    ]
+  },
+  "bacopa-monnieri": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa Monnieri Compact",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" in item 1: Malaysian hobbyists normally say \"akuarium\" for the tank; use \"akuarium\".",
+      "\"Kultivar tumbuhan berbatang\" in item 3: \"culture form\" is rendered as \"kultivar\", which is acceptable, but \"tumbuhan berbatang\" (stem plant) could be \"tumbuhan batang\" as hobbyists say it.",
+      "\"Asal: kultivar\": \"Origin\" is better as \"Asal usul\"."
+    ]
+  },
+  "bacopa-salzmannii": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bacopa salzmannii 'Purple'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: 'tanah lembap' for 'wetlands' is slightly imprecise; 'kawasan tanah bencah/paya' is more natural.",
+      "Item 2: 'penggemar akuarium' for 'aquarists' is fine, but 'pembiakannya pun mudah kerana hanya perlu menggunakan keratan batang' is wordy; could be simplified."
+    ]
+  },
+  "blyxa-aubertii": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "Blyxa aubertii",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 1: \"Minimum tank: 80 litres (20 gallons)\" is rendered as \"80 liter\", which is fine. However, \"Bamboo plant\" and \"Roundfruit blyxa\" are left as English names. This is acceptable as trade names.",
+      "Item 5: \"Removing them may turn the annual plant into a perennial one\" is translated as \"tumbuhan saka\". \"Saka\" means heritage or ancestral and is wrong here. Use \"tumbuhan saka\" → \"tumbuhan saka\" is incorrect, so use \"tumbuhan saka\" → \"tumbuhan perenial/saka\" only with a correct term such as \"tumbuhan saka\" replaced by \"tumbuhan abadi (perenial)\" or \"tumbuhan tahunan berbilang\".",
+      "Item 5: \"melting\" is left in English in two places (\"Daun kuning atau melting\", \"mungkin melting selepas dipindahkan\"). Use \"mereput/luruh\" or \"melting (daun mencair)\" on first use.",
+      "Item 5: \"Inspect it for decaying particles or bad leaves\" is rendered as \"bahagian yang reput atau daun yang rosak\". This is acceptable, but \"Fragile leaves break easily during maintenance\" → \"semasa penjagaan\" should be \"semasa penyelenggaraan akuarium\".",
+      "Item 9: \"berrabung\" is not a Malay word for \"ridged\". Use \"beralur/bergerigi\" instead. \"Genus Blyxa diwujudkan\" should be \"diperkenalkan/ditakrifkan\". \"didokumenkan\" should be \"didokumenkan/direkodkan\".",
+      "Item 3: \"mendebunga sendiri\" should be \"mendebunga sendiri / berdebunga sendiri\", and \"paya bakau yang telah diterokai\" for \"encroached mangrove land\" is a loose rendering. Use \"kawasan paya bakau yang dicerobohi\".",
+      "Item 8: \"Udang krai (crayfish)\" is not the standard term. Use \"udang karang/kerawai air tawar (crayfish)\". \"Gelembung oksigen kecil (pearling)\" is acceptable."
+    ]
+  },
+  "blyxa-japonica": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Blyxa japonica",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 6: 'Ia dianggap sukar untuk dihidupkan dalam jangka masa panjang' is awkward; use 'sukar dikekalkan hidup untuk tempoh yang lama'.",
+      "Item 6, Planting: 'agak bermasalah' for 'It is problematic at first' is vague; say 'pada mulanya sukar tumbuh/bertapak'.",
+      "Item 6, Propagation: 'biji yang boleh bercambah' is fine, but 'Periksa ... bahagian yang reput' changes 'decaying particles' (zarah reput); correct it.",
+      "Item 6: 'goyangkan tumbuhan' with 'naik ke atas ... sedut keluar dengan sifon' is slightly unnatural; 'kocak/gerakkan perlahan' and 'ke permukaan' are better.",
+      "Item 6, Common problems: 'Melt (daun cair/reput)' and item 7 'mudah melt' leave the English term in the sentence. Use one consistent Malay phrase with (melt) in brackets, e.g. 'mudah reput/cair (melt)'.",
+      "Items 1, 4, 7: 'emersed' is left untranslated. Use 'tumbuh timbul (emersed)' or similar.",
+      "Items 6 and 8: 'Soil yang disyorkan' and 'root tab' are left in English. Use 'substrat/tanah yang disyorkan' and 'tablet baja akar (root tab)'.",
+      "Item 8: 'banyak menyerap makanan melalui akar' is clumsy for 'heavy root feeder'; use 'pemakan akar yang rakus (heavy root feeder)'.",
+      "Item 8: 'Untuk CO2 (20-30 mg/l)', 'mg/l' is inconsistent with 'mg/L' used elsewhere; make the unit uniform.",
+      "Item 9: 'Udang kara air tawar (crayfish)' and 'cichlid Afrika' are fine, but 'Digemari haiwan' for 'Palatable' is vague; say 'dimakan haiwan lain'."
+    ]
+  },
+  "bolbitis-heteroclita": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "Bolbitis heteroclita",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 4: '80 litres (20 gallons)' became 'sekurang-kurangnya 80 liter' — the conversion is fine, but 'liter' should be 'liter/L' as used locally (minor).",
+      "Item 5: 'Keep the fern from drying out' — 'Pastikan paku pakis ini tidak kering' is fine, but 'jangan tanam rizom ke dalam substrat' is slightly stronger than 'avoid burying'; use 'elakkan menanam rizom...'.",
+      "Item 8: 'Wilting ... because their leaves are not adapted' — 'tidak biasa dengan keadaan itu' is vague; use 'tidak sesuai/tidak menyesuaikan diri untuk hidup dalam air'.",
+      "Item 8: 'Fertile leaflets' → 'Anak daun subur' is ambiguous; use 'frond subur / daun berspora'.",
+      "Item 8: 'udang karang (crayfish)' — 'udang karang' in Malay often means lobster; use 'udang air tawar (crayfish)' or 'kerang/crayfish'.",
+      "Item 8: 'herba' for 'herbaceous' ('Daunnya nipis dan herba') is awkward; use 'daun nipis dan bersifat herba/tidak berkayu'.",
+      "Item 6: 'daun sering kelihatan hancur' for 'leaf dissolution' — better 'daun sering mereput/larut'.",
+      "Item 1/5: 'Saiz dalam akuarium' for 'Aquarium size' is unclear; 'Ketinggian dalam akuarium' fits better since 10–15 cm is plant size.",
+      "Item 1: 'Creeping Fern' etc. fine, but 'tangki' vs 'akuarium' used inconsistently; standardise."
+    ]
+  },
+  "bolbitis-heudelotii": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bolbitis",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"Order: Polypodiales\" leaves \"Order\" in English. Use the Malay taxonomic rank, e.g. \"Order/Bangsa\", or keep it consistent with the other ranks (Alam, Kelas, Famili).",
+      "\"Berhati-hati lebih dengan tumbuhan ini\" is awkward. Use \"Berhati-hatilah dengan tumbuhan ini\" or \"Kendalikan dengan lebih berhati-hati\".",
+      "\"frond\" is left in English throughout. Consider \"frond (pelepah daun)\" at first mention. Likewise, \"melting\" could be \"melting (daun hancur/reput)\" at first mention."
+    ]
   }
 }

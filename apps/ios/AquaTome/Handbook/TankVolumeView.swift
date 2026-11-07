@@ -157,7 +157,7 @@ struct TankVolumeView: View {
           text += "\n" + line(AttributedString(localized: "Kính cần dày hơn 19 mm (tối thiểu \(number(g.min, 1)) mm): bể cỡ này cần kính dán nhiều lớp hoặc giằng, nên để thợ tính."), Color.warning)
         }
       }
-      if let path = w.heaterPath(lang: handbook.lang) {
+      if let path = w.heaterPath(tools: handbook.language.path("cong-cu")) {
         text += "\n" + link(AttributedString(localized: "Cần sưởi bao nhiêu W cho bể này →"), path)
       }
       return text

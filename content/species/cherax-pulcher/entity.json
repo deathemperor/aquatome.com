@@ -10,6 +10,46 @@
     "indonesia",
     "hoa-creek"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is endemic to Hoa Creek, close to the village of Teminabuan in the south-central part of the Kepala Burung (Vogelkop) Peninsula, West Papua, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9227560,
+      "total": 1,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          130.78125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

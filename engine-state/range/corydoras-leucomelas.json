@@ -1,0 +1,98 @@
+{
+  "id": "corydoras-leucomelas",
+  "native": {
+    "input": "81a180787c1ab77f",
+    "at": "2026-11-07T09:20:22.982Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blackfin cory, Hoplisoma leucomelas, long known as Corydoras leucomelas, is an armoured catfish from the upper Amazon in Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Upper Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Yarinacocha, cutoff lake at right bank of Río Pacaya, near Sarayacu, about 5°15'S, 74°15'W, Upper Amazon, Peru'.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Pacaya",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Yarinacocha, cutoff lake at right bank of Río Pacaya, near Sarayacu, about 5°15'S, 74°15'W, Upper Amazon, Peru'.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO",
+        "EC"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras leucomelas",
+    "status": "ACCEPTED",
+    "taxonKey": 2342599,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T09:20:22.982Z"
+  }
+}

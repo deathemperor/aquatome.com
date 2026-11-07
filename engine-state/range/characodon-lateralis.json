@@ -1,0 +1,108 @@
+{
+  "id": "characodon-lateralis",
+  "native": {
+    "input": "7c5770ab3cf92eda",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The rainbow characodon, Characodon lateralis, is a goodeid putatively restricted to springs below the El Saltito waterfall in Durango, Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Mezquital",
+        "source": "seriouslyfish",
+        "quote": "Putatively restricted to a series of small habitats below the waterfall known as 'El Saltito' in the upper Río Mezquital basin, Durango state, central Mexico.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Characodon lateralis",
+    "status": "ACCEPTED",
+    "taxonKey": 2347671,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        20
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        9
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        6
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "80cdb1cc-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "33dacd55-1c8e-4c95-9a15-b882b4d40eab",
+        1
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        1
+      ],
+      [
+        "7f6b3fe8-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        1
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        1
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

@@ -1,8 +1,8 @@
 /**
  * Where the chat keeps an account's conversations, their transcripts and its retries' answers in R2 (UPLOADS): under
  * the account's own prefix, so deleting the account finds them (accounts/users.ts). Conversations and transcripts are
- * kept with no time limit (the owner's decision, 2026-11-07); a retry's answer is read for 15 minutes and swept within a
- * day (the daily cron).
+ * kept with no time limit (the owner's decision, 2026-11-07); a retry's answer is read for 24 hours, a conversation's
+ * life, and swept by the daily cron after.
  */
 
 /**
@@ -39,7 +39,7 @@ export async function deleteChatOf(bucket: R2Bucket, account: string): Promise<v
   await deleteAll(bucket, keys)
 }
 
-/** The daily cron: retries' answers a day old or more, long past the 15 minutes they're read for. How many. */
+/** The daily cron: retries' answers a day old or more, past the 24 hours they're read for. How many. */
 export async function sweepRetries(bucket: R2Bucket, now: Date): Promise<number> {
   const cutoff = now.getTime() - 86_400_000
   const old = (await listAll(bucket, 'chat-turn/')).filter(o => o.uploaded.getTime() <= cutoff).map(o => o.key)

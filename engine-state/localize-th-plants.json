@@ -1399,12 +1399,17 @@
     ]
   },
   "marsilea-minuta": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "ผักแว่น",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "มาซิเลีย มินูต้า",
     "confidence": "medium",
-    "score": 0.9,
-    "notes": []
+    "score": 0.75,
+    "notes": [
+      "Item 2: The source is Vietnamese, not English. The Thai follows it faithfully, but check that the right source text was supplied.",
+      "Item 2: \"น้ำค่อนข้างอุ่น\" renders \"nước hơi nóng\" (slightly hot water) too mildly. Use \"น้ำค่อนข้างร้อน\" or \"น้ำอุณหภูมิสูงเล็กน้อย\".",
+      "Item 2: \"Cỏ ba lá nhỏ\" (small clover) became the transliterated Latin name \"มาซิเลีย มินูต้า\". The Latin name was added, and it was not in the source. Use a Thai common name such as \"โคลเวอร์เล็ก\", or put the Latin name in brackets.",
+      "Item 2: \"แต่ถ้าตู้ยิ่งเสถียร พรมก็จะยิ่งขึ้นสวย\" is slightly stiff. Something like \"ยิ่งตู้นิ่งเท่าไร พรมก็ยิ่งสวยเท่านั้น\" reads more naturally."
+    ]
   },
   "mayaca-fluviatilis": {
     "at": "2026-11-04",
@@ -1445,18 +1450,12 @@
     ]
   },
   "micranthemum-tweediei-monte-carlo": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
-    "name": "มอนติคาโล",
+    "at": "2026-11-07",
+    "from": "2026-11-07",
+    "name": "มอนติคาร์โล",
     "confidence": "high",
-    "score": 0.75,
-    "notes": [
-      "Item 2: \"ใบกลม เล็ก เรียงกันแน่น\" – English says \"compact, round\" leaves; adding \"เล็ก\" (small) is a minor addition not in the source; consider \"ใบกลมกะทัดรัด\".",
-      "Item 2: \"ต้นไม้ชนิดนี้\" is stiff; \"ไม้น้ำชนิดนี้\" is the usual hobby term.",
-      "Item 2: \"เป็นพุ่มแน่นจริง ๆ\" – \"compact\" for a carpet plant is better as \"ขึ้นเป็นพรมแน่น/หนาแน่น\" than \"พุ่ม\" (bush).",
-      "Item 2: \"ที่ร่มรำไร\" is a bit literary; \"แสงน้อย/แสงรำไร\" is more natural for aquarium use.",
-      "Item 1: \"ปลูกในตู้ได้สองเดือน\" – the source says \"in the tank\" and is slightly looser; fine in meaning but \"ซม.\" could be \"cm\" as hobbyists write it."
-    ]
+    "score": 1,
+    "notes": []
   },
   "micranthemum-umbrosum": {
     "at": "2026-11-04",
@@ -2101,6 +2100,19 @@
     "notes": [
       "\"เคยถูกจัดจำหน่ายโดย\": The English \"has been distributed by\" doesn't say the distribution has stopped. \"เคย\" suggests it did. Use \"ถูกจัดจำหน่ายโดย\" or \"มีการจัดจำหน่ายโดย\".",
       "\"เหมาะที่สุดคือการผูกติด...\": This is slightly clumsy. A smoother version is \"ควรผูกติดกับขอนไม้หรือรากไม้\" or \"เหมาะที่สุดที่จะผูกติด...\"."
+    ]
+  },
+  "vesicularia-montagnei": {
+    "at": "2026-11-07",
+    "from": "2026-10-31",
+    "name": "คริสต์มาสมอส",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"ซึ่งทำให้แยกออกจาก Vesicularia dubyana ธรรมดาได้\" is slightly ambiguous about what \"which\" refers to (the branching structure). Rephrase to make it clear, e.g. \"ลักษณะนี้ช่วยแยกออกจาก...\".",
+      "\"ที่ได้ชื่อว่า ... ก็เพราะ\" is a bit stiff. Consider \"ได้ชื่อว่า 'คริสต์มาสมอส' เพราะ...\".",
+      "\"ทรงยังสวยอยู่\" is colloquial. Consider \"คงทรงที่สวยงามไว้\".",
+      "\"after two months in the tank\" is rendered as \"หลังลงตู้ปลา\". \"ตู้\" or \"ตู้ไม้น้ำ\" would be more natural for a planted tank."
     ]
   }
 }

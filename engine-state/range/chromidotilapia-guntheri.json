@@ -1,0 +1,342 @@
+{
+  "id": "chromidotilapia-guntheri",
+  "native": {
+    "input": "4a199381b5c80451",
+    "at": "2026-11-07T06:20:08.160Z",
+    "claims": [
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chromidotilapia guntheri is a mouthbrooding cichlid from coastal drainages of western Africa between Liberia and Cameroon, plus the Niger and Benue.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chromidotilapia guntheri is a mouthbrooding cichlid from coastal drainages of western Africa between Liberia and Cameroon, plus the Niger and Benue.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Assinie-Mafia in south-eastern Côte d'Ivoire (Ivory Coast), western Africa but currently accepted to be extensively distributed in coastal river drainages of central western Africa from the Saint John River, central Liberia to the Cross River drainage, in southeastern Nigeria and southwestern Cameroon.",
+        "words": "Côte d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Assinie-Mafia in south-eastern Côte d'Ivoire (Ivory Coast), western Africa but currently accepted to be extensively distributed in coastal river drainages of central western Africa from the Saint John River, central Liberia to the Cross River drainage, in southeastern Nigeria and southwestern Cameroon.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Assinie-Mafia in south-eastern Côte d'Ivoire (Ivory Coast), western Africa but currently accepted to be extensively distributed in coastal river drainages of central western Africa from the Saint John River, central Liberia to the Cross River drainage, in southeastern Nigeria and southwestern Cameroon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Assinie-Mafia in south-eastern Côte d'Ivoire (Ivory Coast), western Africa but currently accepted to be extensively distributed in coastal river drainages of central western Africa from the Saint John River, central Liberia to the Cross River drainage, in southeastern Nigeria and southwestern Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "BF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Burkina Faso",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Côte d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "ML",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Mali",
+        "ok": true
+      },
+      {
+        "code": "NE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Niger",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "TG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "words": "Togo",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A putative subspecies, C. g. loennbergi, is endemic to the volcanic crater lake Barombi-ba-Kotto, south-western Cameroon plus some surrounding waters and is currently regarded as 'Critically Endangered' by the IUCN, not only due to its limited range but also deforestation, water abstraction and other human activities in the area.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Given the extent of its range this species unsurprisingly occurs in a number of geographic forms with populations from Cameroon tending to exhibit a number of dark blotches on the dorsal fin, for example.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Benue",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Niger and its major tributary the Benue (Bénoué) and has thus been recorded from Benin, Burkina Faso, Cameroon, Côte d'Ivoire, Equatorial Guinea, Ghana, Guinea, Liberia, Mali, Niger, Nigeria and Togo.",
+        "ok": true
+      },
+      {
+        "name": "Saint John River",
+        "source": "seriouslyfish",
+        "quote": "Described from Assinie-Mafia in south-eastern Côte d'Ivoire (Ivory Coast), western Africa but currently accepted to be extensively distributed in coastal river drainages of central western Africa from the Saint John River, central Liberia to the Cross River drainage, in southeastern Nigeria and southwestern Cameroon.",
+        "country": "LR",
+        "ok": true
+      },
+      {
+        "name": "Cross River",
+        "source": "seriouslyfish",
+        "quote": "Described from Assinie-Mafia in south-eastern Côte d'Ivoire (Ivory Coast), western Africa but currently accepted to be extensively distributed in coastal river drainages of central western Africa from the Saint John River, central Liberia to the Cross River drainage, in southeastern Nigeria and southwestern Cameroon.",
+        "country": "NG",
+        "ok": true
+      },
+      {
+        "name": "Barombi-ba-Kotto",
+        "source": "seriouslyfish",
+        "quote": "A putative subspecies, C. g. loennbergi, is endemic to the volcanic crater lake Barombi-ba-Kotto, south-western Cameroon plus some surrounding waters and is currently regarded as 'Critically Endangered' by the IUCN, not only due to its limited range but also deforestation, water abstraction and other human activities in the area.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chromidotilapia guntheri",
+    "status": "ACCEPTED",
+    "taxonKey": 4285698,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        172
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        19
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        16
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        12
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        4
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "LR",
+      "CM",
+      "CI",
+      "NG",
+      "BJ",
+      "BF",
+      "GQ",
+      "GH",
+      "GN",
+      "ML",
+      "NE",
+      "TG"
+    ],
+    "requests": 13,
+    "at": "2026-11-07T06:20:08.160Z"
+  }
+}

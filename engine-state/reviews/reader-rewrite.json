@@ -1,4 +1,32 @@
 {
+  "vi/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly#body": [
+    {
+      "at": "2026-11-07T06:53:20Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Một đợt tảo lớn chết đi\" → \"Tảo chết hàng loạt\": a single large die-off became a general mass die-off. Minor nuance.",
+        "\"có lẽ hay nhất là do\" → \"nhiều khả năng là do\": the hedge is kept.",
+        "\"tạo oxy\" → \"nhả oxy\": slight shift in meaning, but acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en#body": [
+    {
+      "at": "2026-11-07T06:57:24Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Rõ ràng\" (Apparently/Clearly) hedge dropped; AFTER states breeding seasonality as flat fact.",
+        "\"khá rõ\" (fairly pronounced) seasonality changed to plain \"chỉ sinh sản theo mùa\"; the degree is lost.",
+        "\"hiếm khi có hàng nhập về nhất\" is awkward. It is still close to \"rarest imported\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/loachesonline-care-the-loach-almanac#body": [
     {
       "at": "2026-11-06T12:51:02Z",
@@ -61,6 +89,19 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-0sRRk-LEl9E#body": [
+    {
+      "at": "2026-11-07T06:56:36Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"cá chuột Otocinclus\" → \"cá otto (Otocinclus)\": common name changed to a different nickname, though the scientific name is kept; minor.",
+        "\"Bể mỗi nơi mỗi khác nên tốc độ có thể không giống nhau\" → \"rêu có thể không hết nhanh như vậy\": slight shift in nuance, since the original said speed varies and the rewrite says it may be slower. Minor."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
     {
       "at": "2026-11-06T21:51:26Z",
@@ -69,6 +110,19 @@
       "notes": [
         "Dropped the parenthetical '(đổi ra khoảng 15 cm, chỉ là quy đổi gần đúng)'. It was a redundant, awkward conversion note, so removing it is harmless.",
         "'tính theo' became 'tùy vào', and 'Lượng ống' became 'Số ống'. These are minor wording changes with the same meaning."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-iY8NEK9GGzo#body": [
+    {
+      "at": "2026-11-07T10:03:50Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 3: \"Ở chỗ rêu còn có thể rửa\" reworded as \"để sau này rêu vẫn còn rửa được\". This adds a purpose and a later time (\"sau này\"), but the meaning is close to the original.",
+        "Item 4: \"bạn\" is added, which is a minor stylistic addition."
       ],
       "attempt": "first",
       "kept": true

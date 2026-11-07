@@ -10,6 +10,62 @@
     "myanmar",
     "rakhine"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Channa ornatipinnis is a comparatively small (about 20-25 cm) and very colourful snakehead species, described in 2007 from Rakhine State in Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391446,
+      "total": 19,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "IN",
+          11
+        ],
+        [
+          "MM",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          9,
+          0
+        ],
+        [
+          92.8125,
+          22.5,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          19.6875,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
