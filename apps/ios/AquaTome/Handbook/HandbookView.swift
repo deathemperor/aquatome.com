@@ -40,6 +40,7 @@ struct HandbookView: View {
       .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
       .searchable(text: $handbook.query, prompt: Text("Tìm loài cá, cây, hướng dẫn"))
       .navigationTitle("Tìm")
+      .profileButton()
       .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }

@@ -15,6 +15,8 @@ struct AquaTomeApp: App {
   @State private var tab = Tab.handbook
   @State private var tanksPath = NavigationPath()
   @State private var handbookPath = NavigationPath()
+  /// The profile button's sheet (AccountView), open.
+  @State private var showingAccount = false
   /// A link from outside the app waiting for the handbook's index, to know the pages the app has (AppLink).
   @State private var opening: AppLink?
   @Environment(\.scenePhase) private var phase
@@ -84,6 +86,9 @@ struct AquaTomeApp: App {
           .tabItem { Label("Đèn", systemImage: "lightbulb") }
           .tag(Tab.lights)
       }
+      // The account and the app's settings: a sheet from the profile button on every tab (ProfileButton), as the App
+      // Store's is, not a tab of its own.
+      .sheet(isPresented: $showingAccount) { AccountView() }
       // The tab bar shrinks out of the way while reading down a page, and comes back at the page's top or with a tap on it (iOS 26).
       .minimizingTabBarOnScroll()
       #if DEBUG
@@ -120,8 +125,8 @@ struct AquaTomeApp: App {
       // (which also says the phone is online again); the owner's, this phone's token for the daily report, if it's wanted
       // and not sent with this session yet. Whichever tab is open: the notifications don't wait for the Tanks tab.
       .task(id: "\(account.user?.id ?? "")|\(account.syncs)") {
-        // Not before the launch's first answer: no account yet isn't signed out (which forgets an account that isn't the
-        // owner's, so it would ask again each launch).
+        // Not before the server has answered or an account kept on the phone shows: no account yet isn't signed out
+        // (which forgets an account that isn't the owner's, so it would ask again each launch).
         guard account.state != .unknown else { return }
         await account.owner.check()
         await account.push.send()
@@ -163,8 +168,11 @@ struct AquaTomeApp: App {
 
   /// One of the app's own screens: its tab, and the tank the link names if it's one of the reader's.
   private func open(_ screen: AppScreen) {
+    // Any screen but the sheet itself opens under it: the sheet goes first.
+    if screen != .account { showingAccount = false }
     switch screen {
     case .lights: tab = .lights
+    case .account: showingAccount = true
     case .fishId:
       // A tool of the handbook's: on the Tìm tab, where the pages its guesses lead to open too.
       tab = .handbook
@@ -198,6 +206,8 @@ struct AquaTomeApp: App {
   private func openLink() {
     guard let link = opening else { return }
     opening = nil
+    // Opened from a page in the browser while the Tài khoản sheet was up (its about links): the page, not the sheet.
+    showingAccount = false
     switch link {
     case .home:
       tab = .handbook

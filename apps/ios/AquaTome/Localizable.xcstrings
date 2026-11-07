@@ -833,18 +833,18 @@
         }
       }
     },
-    "Bình luận và ảnh của người này sẽ ẩn trên máy này. Bỏ chặn trong Bể của tôi, mục Người đã chặn.": {
+    "Bình luận và ảnh của người này sẽ ẩn trên máy này. Bỏ chặn trong Tài khoản, mục Người đã chặn.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Komentar dan foto orang ini akan disembunyikan di perangkat ini. Buka blokir di Akuarium Saya, bagian Orang yang diblokir."
+            "value": "Komentar dan foto orang ini akan disembunyikan di perangkat ini. Buka blokir di Akun, bagian Orang yang diblokir."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ความคิดเห็นและรูปของคนนี้จะถูกซ่อนบนเครื่องนี้ เลิกบล็อกได้ที่ ตู้ปลาของฉัน หัวข้อ คนที่บล็อกไว้"
+            "value": "ความคิดเห็นและรูปของคนนี้จะถูกซ่อนบนเครื่องนี้ เลิกบล็อกได้ที่ บัญชี หัวข้อ คนที่บล็อกไว้"
           }
         }
       }
@@ -1661,6 +1661,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งอีเมลไม่สำเร็จ โปรดลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Chưa kết nối được aquatome.com. Các bể vẫn lưu trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum bisa terhubung ke aquatome.com. Akuarium tetap tersimpan di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังเชื่อมต่อ aquatome.com ไม่ได้ ตู้ปลายังคงบันทึกอยู่ในอุปกรณ์นี้"
           }
         }
       }
@@ -2797,6 +2813,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตู้ปลาบันทึกไว้ในเครื่องนี้ ไม่ต้องมีบัญชี"
+          }
+        }
+      }
+    },
+    "Các bể trên máy này chưa đồng bộ được: xem lý do trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akuarium di perangkat ini belum bisa disinkronkan: lihat alasannya di Akuarium saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตู้ปลาในอุปกรณ์นี้ยังซิงค์ไม่ได้: ดูเหตุผลได้ที่ ตู้ของฉัน"
           }
         }
       }
@@ -5105,6 +5137,22 @@
         }
       }
     },
+    "Lúc này chưa đăng nhập được tài khoản aquatome.com. Các bể vẫn lưu trên máy này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat ini belum bisa masuk ke akun aquatome.com. Akuarium tetap tersimpan di perangkat ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ขณะนี้ยังเข้าสู่ระบบบัญชี aquatome.com ไม่ได้ ตู้ปลายังคงบันทึกอยู่ในอุปกรณ์นี้"
+          }
+        }
+      }
+    },
     "Loài đã chọn": {
       "localizations": {
         "id": {
@@ -5441,18 +5489,18 @@
         }
       }
     },
-    "Muốn xem các bể này trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.": {
+    "Muốn xem các bể của bạn trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ingin melihat akuarium ini di aquatome.com atau di perangkat lain? Masuk untuk menyinkronkan. Tidak wajib: tanpa masuk, akuarium tetap tersimpan di perangkat ini."
+            "value": "Ingin melihat akuarium Anda di aquatome.com atau di perangkat lain? Masuk untuk menyinkronkan. Tidak wajib: tanpa masuk, akuarium tetap tersimpan di perangkat ini."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ต้องการดูตู้ปลาเหล่านี้บน aquatome.com หรือบนอุปกรณ์อื่นใช่ไหม เข้าสู่ระบบเพื่อซิงค์ข้อมูล ไม่บังคับ หากไม่เข้าสู่ระบบ ตู้ปลาจะยังคงบันทึกอยู่ในอุปกรณ์นี้"
+            "value": "ต้องการดูตู้ปลาของคุณบน aquatome.com หรือบนอุปกรณ์อื่นใช่ไหม เข้าสู่ระบบเพื่อซิงค์ข้อมูล ไม่บังคับ หากไม่เข้าสู่ระบบ ตู้ปลาจะยังคงบันทึกอยู่ในอุปกรณ์นี้"
           }
         }
       }
@@ -6865,6 +6913,22 @@
         }
       }
     },
+    "Thêm passkey cho máy này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan passkey untuk perangkat ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม passkey สำหรับอุปกรณ์นี้"
+          }
+        }
+      }
+    },
     "Thêm vào bể": {
       "localizations": {
         "id": {
@@ -7313,6 +7377,38 @@
         }
       }
     },
+    "Tài khoản": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บัญชี"
+          }
+        }
+      }
+    },
+    "Tài khoản aquatome.com": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun aquatome.com"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บัญชี aquatome.com"
+          }
+        }
+      }
+    },
     "Tài khoản aquatome.com đang tạm tắt, nên ứng dụng chưa nhận diện được ảnh lúc này.": {
       "localizations": {
         "id": {
@@ -7341,6 +7437,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "บัญชีนี้มีข้อมูลจากแอปเวอร์ชันที่ใหม่กว่า โปรดอัปเดต AquaTome เพื่อซิงค์ข้อมูล"
+          }
+        }
+      }
+    },
+    "Tài khoản đã có passkey: đăng nhập bằng Face ID, vân tay hoặc mã PIN của máy.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun ini sudah memiliki passkey: masuk dengan Face ID, sidik jari, atau PIN perangkat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บัญชีนี้มี passkey แล้ว: เข้าสู่ระบบด้วย Face ID ลายนิ้วมือ หรือรหัส PIN ของอุปกรณ์"
           }
         }
       }
@@ -10593,22 +10705,6 @@
         }
       }
     },
-    "Đồng bộ giữa các thiết bị": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sinkronkan antarperangkat"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ซิงค์ระหว่างอุปกรณ์"
-          }
-        }
-      }
-    },
     "Đồng bộ ngay": {
       "localizations": {
         "id": {
@@ -11261,6 +11357,102 @@
           "stringUnit": {
             "state": "translated",
             "value": "การแจ้งเตือนของ AquaTome ปิดอยู่ในการตั้งค่า"
+          }
+        }
+      }
+    },
+    "Ứng dụng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplikasi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แอป"
+          }
+        }
+      }
+    },
+    "Về AquaTome": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentang AquaTome"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เกี่ยวกับ AquaTome"
+          }
+        }
+      }
+    },
+    "Giới thiệu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tentang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เกี่ยวกับ"
+          }
+        }
+      }
+    },
+    "Có vấn đề cần xem": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ada masalah yang perlu dilihat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "มีปัญหาที่ต้องดู"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/gioi-thieu/": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/tentang/"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/about/"
+          }
+        }
+      }
+    },
+    "https://aquatome.com/chinh-sach-bao-mat/": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/id/kebijakan-privasi/"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "https://aquatome.com/th/privacy/"
           }
         }
       }

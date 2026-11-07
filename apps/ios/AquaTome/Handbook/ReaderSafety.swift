@@ -141,7 +141,7 @@ private struct ReaderActions: ViewModifier {
           done()
         }
       } message: { _ in
-        Text("Bình luận và ảnh của người này sẽ ẩn trên máy này. Bỏ chặn trong Bể của tôi, mục Người đã chặn.")
+        Text("Bình luận và ảnh của người này sẽ ẩn trên máy này. Bỏ chặn trong Tài khoản, mục Người đã chặn.")
       }
       .alert(said ?? "", isPresented: Binding(get: { said != nil }, set: { if !$0 { said = nil } })) {
         Button("Đóng") {
@@ -180,7 +180,7 @@ private struct ReaderActions: ViewModifier {
   }
 }
 
-/// The posters the reader blocks, each to unblock: in the tanks tab (Tài khoản) and from a page's readers' part.
+/// The posters the reader blocks, each to unblock: in the Tài khoản sheet and from a page's readers' part.
 struct BlockedList: View {
   @Environment(HandbookModel.self) private var handbook
 
@@ -199,24 +199,7 @@ struct BlockedList: View {
   }
 }
 
-/// "Người đã chặn" under the tanks tab's empty state (no tanks, signed out), once anyone is blocked.
-struct BlockedPanel: View {
-  @Environment(HandbookModel.self) private var handbook
-
-  var body: some View {
-    if !handbook.safety.blocked.isEmpty {
-      VStack(alignment: .leading, spacing: 8) {
-        Text("Người đã chặn").font(.headline).accessibilityAddTraits(.isHeader).accessibilityIdentifier("blocked-header")
-        BlockedList()
-        Text("Bình luận và ảnh của những người này đang ẩn trên máy này.").font(.footnote).foregroundStyle(.secondary)
-      }
-      .frame(maxWidth: 300)
-      .padding(.top, 16)
-    }
-  }
-}
-
-/// "Người đã chặn", in the tanks tab under the account: there with accounts on or off, once anyone is blocked.
+/// "Người đã chặn", in the Tài khoản sheet under the account: there with accounts on or off, once anyone is blocked.
 struct BlockedSection: View {
   @Environment(HandbookModel.self) private var handbook
 

@@ -1,7 +1,7 @@
 import XCTest
 
-/// The app's icons (AppIconPicker, opened here by `-app-icons` until the Tài khoản tab has its row): every icon listed is
-/// in the app and draws from its own image, and one can be chosen, then the default again.
+/// The app's icons (AppIconPicker, opened here by `-app-icons`; readers open it from the Tài khoản sheet's row): every
+/// icon listed is in the app and draws from its own image, and one can be chosen, then the default again.
 final class AppIconFlowTests: XCTestCase {
   func testEveryIconIsInTheAppAndOneCanBeChosen() {
     let app = XCUIApplication()
