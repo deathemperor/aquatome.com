@@ -6,9 +6,11 @@ import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
+import { sfDifficulty } from './process'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
 import { viWording } from './sanitize'
+import { snapshotName } from './snapshot'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
@@ -29,6 +31,9 @@ import { readVideoRejected } from './videos'
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
  *   summary, checked against the old card, goes back to pending: hidden until the summaries step writes it again
+ * - a species' Seriously Fish difficulty: the word its stored page rates it (process.ts sfDifficulty), or none when the
+ *   page rates nothing, for cards read before the engine read that word; a page in the old layout keeps its figure. Its
+ *   approved summary goes back to pending, as above
  * - a species' or plant's text from a shop (species-sources.ts): a block that speaks as the shop or sells goes, in English
  *   and every language (the whole section when a translation's blocks don't match the English's). A page about one
  *   variety (engine-state/_variety-pages.json) leaves a species page, with its source's card figures and photos, unless
@@ -135,6 +140,20 @@ function hideSlips(card: Partial<Record<DataCardField, Value[]>>, shown: (card: 
   const slips = cardSlips(flat)
   for (const { v, why } of slips) v.ref.hidden = why
   return JSON.stringify(card) === before ? [] : slips.map(({ v, why }) => `${v.field} ${JSON.stringify(v.value)}: ${why}`)
+}
+
+/** A species card's Seriously Fish difficulty set to the word its stored page gives, or taken off; what changed. */
+async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>>, sections: SpeciesEntity['sections']): Promise<string[]> {
+  const sf = card.difficulty?.find(v => v.source === 'seriouslyfish')
+  const urls = [...new Set(sections.filter(s => s.source === 'seriouslyfish').map(s => s.sourceUrl))]
+  if (!sf || urls.length !== 1) return []
+  const d = sfDifficulty(await readFile(join(root, 'sources/seriouslyfish', `${snapshotName(urls[0]!)}.md`), 'utf8').catch(() => ''))
+  if (d === undefined || d === sf.value) return []
+  const was = sf.value
+  if (d) sf.value = d
+  else if (card.difficulty!.length > 1) card.difficulty = card.difficulty!.filter(v => v !== sf)
+  else delete card.difficulty
+  return [`difficulty ${was} → ${d ?? 'none'} (Seriously Fish's word)`]
 }
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
@@ -411,13 +430,14 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       const e = JSON.parse(raw) as { dataCard?: SpeciesEntity['dataCard']; care?: Partial<Record<DataCardField, Value[]>>; sections?: SpeciesEntity['sections'] }
       const card = (kind === 'species' ? e.dataCard : e.care) as Partial<Record<DataCardField, Value[]>> | undefined
       if (!card) continue
+      const fixed = kind === 'species' ? await sfWord(root, card, e.sections ?? []) : []
       const hidden = hideSlips(card, kind === 'species'
         ? c => shownCard(c as SpeciesEntity['dataCard'], e.sections ?? [], s => mayPublish(sources[s], 'text')) as Partial<Record<DataCardField, Value[]>>
         : c => c)
       if (JSON.stringify(e) === JSON.stringify(JSON.parse(raw))) continue
       await write(file, raw, e)
       changed(`${kind}/${id}/entity.json`)
-      report.card.push(`${kind}/${id}${hidden.length ? `: ${hidden.join('; ')}` : ': shown again'}`)
+      report.card.push(`${kind}/${id}: ${[...fixed, ...hidden].join('; ') || 'shown again'}`)
       // Its summary may state the figure the card no longer shows ("bể tối thiểu dài 200 cm" for a 130 cm fish).
       const sfile = join(content, 'summaries', `${id}.json`)
       const sraw = kind === 'species' ? await readFile(sfile, 'utf8').catch(() => null) : null
