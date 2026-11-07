@@ -125,11 +125,11 @@ function sender(healthy: KeyEntry[], store: HealthStore): Send {
 }
 
 /**
- * The questions kept out of tuning: three a problem, fixed by their ids. Changes to the brain are tried on the others
+ * The questions kept out of tuning: three a problem, marked `holdout` in the questions' file (picked once at random). Changes to the brain are tried on the others
  * (`--split dev`); the holdout (`--split holdout`) is read only for a result, so the brain isn't fitted to it.
  */
 let held = new Set<string>()
-const holdout = (qs: HardQuestion[]) => new Set(TOPICS.flatMap(t => qs.filter(q => q.topic === t).map(q => q.id).sort((a, b) => hash('holdout', a).localeCompare(hash('holdout', b))).slice(0, 3)))
+const holdout = (qs: HardQuestion[]) => new Set(qs.filter(q => q.holdout).map(q => q.id))
 
 /** An answer as the judge reads it (`text`); ours keeps what Claude chose and the Worker filled (`turn`), so a change to
  * how a block is shown judges the same answers again. */
@@ -240,7 +240,7 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     '',
     `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-vs-plain.ts\`. ${n} questions (${args.split === 'all' ? 'all of them' : args.split === 'dev' ? 'those tuned on' : 'the holdout, kept out of tuning'}) from public Vietnamese hobby forums, reworded with no names (\`packages/engine/scripts/hard-questions.vi.json\`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and ${LIMITS ? `limits but these, \`${JSON.stringify(LIMITS)}\`,` : 'limits'} at commit \`${commit}\`, ${MODEL}, over ${args.site}'s handbook. Plain: ${MODEL}, the same effort, no system prompt, no tools, no handbook. Judge: ${JUDGE} through the Claude CLI, rubric version ${RUBRIC_VERSION} (\`chat-vs-plain-lib.ts\`).`,
     '',
-    '- **post:** both answer the whole forum post. **tank:** both get a short question; ours reads the reader\'s saved tank as the chat reads it today (size, fish and counts; not plants, light, CO₂ or notes), plain Claude only the question. The judge is told everything the post said about the tank.',
+    '- **post:** both answer the whole forum post. **tank:** both get a short question; ours reads the reader\'s saved tank (size, fish, plants, substrate, age; the light, CO₂ and fertiliser the post gave as the tank\'s notes) as far as the chat\'s code reads a tank, plain Claude only the question. The judge is told everything the post said about the tank.',
     '- **Blind, as far as it goes:** the judge isn\'t told which answer is ours, and both lose the site\'s name and links. Ours still looks different (short text with excerpts, cards and tools under it), so the blinding is partial.',
     '- **Both orders:** each pair is judged twice, the answers swapped. A side wins only when both orders pick it; a split counts as a tie. The same for each count.',
     '- **Failed:** when ours failed (the limits ran out, a call timed out) and plain answered, the reader got an error: plain wins it on every count, with no score.',

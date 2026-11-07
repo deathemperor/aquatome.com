@@ -57,11 +57,15 @@ describe("the tank condition's saved tank is what the chat reads of a tank today
     l: 60, w: 30, h: 36, litres: null, fish: [{ name: 'neon', count: 12 }, { name: 'cá lạ', count: null }, { name: 'betta', count: 1, id: 'betta-splendens' }],
     plants: ['rêu java'], light: '10h', co2: null, ferts: null, substrate: null, ageWeeks: 3, notes: null,
   }
-  it('fish pinned to the handbook by id, the others unlisted, and its size; no plants or light', () => {
+  it('fish pinned to the handbook by id, the others unlisted, plants by name, its size and age, the light in its notes', () => {
     expect(savedTank(tank)).toEqual({
       id: 'eval-tank', name: 'Bể của tôi', dims: { l: 60, w: 30, h: 36 },
       species: [{ id: 'betta-splendens', count: 1 }],
-      unlisted: [{ name: 'neon', kind: 'fish', count: 12 }, { name: 'cá lạ', kind: 'fish' }],
+      unlisted: [{ name: 'neon', kind: 'fish', count: 12 }, { name: 'cá lạ', kind: 'fish' }, { name: 'rêu java', kind: 'plant' }],
+      days: 21, notes: 'Đèn: 10h',
+    })
+    expect(savedTank({ ...tank, co2: 'bình 1 giọt/giây', ferts: 'phân nước', notes: 'Thay 30% mỗi tuần', substrate: 'soil' })).toMatchObject({
+      substrate: 'soil', notes: 'Đèn: 10h. CO2: bình 1 giọt/giây. Phân: phân nước. Thay 30% mỗi tuần',
     })
   })
   it('no size without all three sides', () => {

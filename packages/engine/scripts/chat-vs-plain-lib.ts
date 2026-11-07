@@ -29,7 +29,7 @@ export type PostTank = {
  * One hard question from a public forum post, reworded with no names. `post`: the whole post, as a reader would type it
  * to a chatbot. `short`: the same question asked in an app that already holds their tank.
  */
-export type HardQuestion = { id: string; topic: Topic; post: string; short: string; tank: PostTank | null; source: string; date?: string | null }
+export type HardQuestion = { id: string; topic: Topic; post: string; short: string; tank: PostTank | null; source: string; date?: string | null; holdout?: boolean }
 
 /**
  * The two conditions, reported apart:
@@ -40,7 +40,12 @@ export type HardQuestion = { id: string; topic: Topic; post: string; short: stri
 export const CONDITIONS = ['post', 'tank'] as const
 export type Condition = (typeof CONDITIONS)[number]
 
-/** The saved tank the `tank` condition gives the chat: what the chat reads of a tank today (api.ts `tanksOf`). */
+/**
+ * The saved tank the `tank` condition gives the chat, as api.ts `tanksOf` would read it: its size, fish (pinned to the
+ * handbook or without a page), plants without a page, substrate and age; the light, CO₂ and fertiliser the post told go in
+ * its notes, as a reader might type them (a real tank's light schedules and plugs come from the app, which a post can't
+ * give). A chat that reads less of a tank leaves the rest out.
+ */
 export function savedTank(t: PostTank): Tank {
   const species: Tank['species'] = []
   const unlisted: Tank['unlisted'] = []
@@ -48,12 +53,18 @@ export function savedTank(t: PostTank): Tank {
     if (f.id) species.push({ id: f.id, ...(f.count ? { count: f.count } : {}) })
     else unlisted.push({ name: f.name, kind: 'fish', ...(f.count ? { count: f.count } : {}) })
   }
-  return {
+  const notes = [t.light ? `Đèn: ${t.light}` : null, t.co2 ? `CO2: ${t.co2}` : null, t.ferts ? `Phân: ${t.ferts}` : null, t.notes].filter(Boolean).join('. ')
+  // Built apart, then returned: a chat whose Tank has no such fields still takes it (a run of an older brain).
+  const tank = {
     id: 'eval-tank', name: 'Bể của tôi',
     ...(t.l && t.w && t.h ? { dims: { l: t.l, w: t.w, h: t.h } } : {}),
     ...(t.litres ? { litres: t.litres } : {}),
-    species, unlisted,
+    species, unlisted: [...unlisted, ...t.plants.map(name => ({ name, kind: 'plant' }))],
+    ...(t.substrate ? { substrate: t.substrate } : {}),
+    ...(t.ageWeeks !== null ? { days: t.ageWeeks * 7 } : {}),
+    ...(notes ? { notes } : {}),
   }
+  return tank
 }
 
 /** The tank as the judge reads it in the `tank` condition: everything the post said, whether or not the chat reads it. */
