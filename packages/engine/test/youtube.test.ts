@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, parseTranscript, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, parseTranscript, recheckedGuides, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -224,6 +224,106 @@ test('--only limits a run to the videos named', async () => {
   await videoGuides(deps(root, { videos: { a1: {}, a2: {} } }).d, { playlists: ['PL1'] })
   const r = await videoGuides(deps(root, { videos: { a1: {}, a2: {} } }).d, { playlists: ['PL1'], redo: true, only: ['a2'] })
   expect(r.written).toEqual(['youtube-a2 (0.90)'])
+})
+
+const SINCE = '2026-11-07T12:00:00Z'
+const recheck = (root: string, vid: string, score: number, notes: string[], at = '2026-11-07T13:00:00Z') => { const r = { score, notes }; return logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r], r, { now: new Date(at), recheck: true }) }
+/** The redo runs after the rechecks. */
+const later = (root: string, o: Parameters<typeof deps>[1] = {}) => { const x = deps(root, o); return { ...x, d: { ...x.d, now: () => new Date('2026-11-08T00:00:00Z') } } }
+
+test('a redo after a recheck: the guides it left under the bar with notes, the owner\'s first, then the lowest, --limit a run, each once', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const videos = { a1: {}, a2: {}, a3: {}, a4: {}, a5: {} }
+  await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
+  await recheck(root, 'a1', 0.6, ['Says many people do it; the speaker says only he does'])
+  await recheck(root, 'a2', 0.9, ['A small slip']) // above the bar
+  await recheck(root, 'a3', 0.6, []) // nothing for the writer to go on
+  await recheck(root, 'a4', 0.5, ['Adds a dose the video never gives'], '2026-11-07T11:00:00Z') // before the cutoff
+  await recheck(root, 'a5', 0.5, ['Adds a step the video never gives'])
+  await writeFile(join(root, 'engine-state/youtube-videos.json'), JSON.stringify([{ id: 'a1', by: 'owner' }]))
+  expect(await recheckedGuides(root, SINCE)).toEqual([{ id: 'a1', series: 'PL1' }, { id: 'a5', series: 'PL1' }])
+
+  const first = later(root, { videos })
+  expect((await videoGuides(first.d, { redo: true, rechecked: SINCE, limit: 1 })).written).toEqual(['youtube-a1 (0.90)'])
+  expect(first.calls.prompts.find(p => p.includes('Bản ghi:'))).toContain('- Says many people do it; the speaker says only he does')
+  // Still under the bar after its redo: its own review counts now, and it is left alone.
+  const second = later(root, { videos, scores: [0.6, 0.6] })
+  expect((await videoGuides(second.d, { redo: true, rechecked: SINCE, limit: 1 })).written).toEqual(['youtube-a5 (0.60)'])
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-a5']![0]).toMatchObject({ attempt: 'rewrite', kept: true, at: '2026-11-08T00:00:00Z' })
+
+  // None left: no playlist fetched, no transcript, no model call.
+  const third = later(root, { videos })
+  let fetched = 0
+  const yt: YouTube = { ...third.d.yt, playlist: async id => { fetched++; return third.d.yt.playlist(id) } }
+  expect(await videoGuides({ ...third.d, yt }, { redo: true, rechecked: SINCE, limit: 5 })).toMatchObject({ written: [], skipped: [], errors: [] })
+  expect([fetched, third.calls.transcripts, third.calls.prompts.length]).toEqual([0, 0, 0])
+})
+
+test('a redo that scores under the recheck of the guide on the site keeps the guide, and isn\'t tried again', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const videos = { a1: {} }
+  await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
+  const was = await readFile(join(root, 'content/guides/youtube-a1/vi.json'), 'utf8')
+  await recheck(root, 'a1', 0.7, ['Says many people do it; the speaker says only he does'])
+  const worse = later(root, { videos, scores: [0.6, 0.65], drafts: [draft('Bản mới'), draft('Bản sửa')] })
+  expect(await videoGuides(worse.d, { redo: true, rechecked: SINCE, limit: 1 })).toMatchObject({ written: [], skipped: ['a1: the new version scored 0.65, under the guide\'s 0.70: kept the guide'] })
+  expect(await readFile(join(root, 'content/guides/youtube-a1/vi.json'), 'utf8')).toBe(was)
+  const traces = (await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']!
+  expect(traces.slice(0, 3).map(t => [t.attempt, t.kept])).toEqual([['rewrite', false], ['first', false], ['recheck', true]])
+  expect(await recheckedGuides(root, SINCE)).toEqual([])
+})
+
+test('a redo after a recheck that is skipped leaves the guide alone; a model failure leaves it for the next run', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  await recheck(root, 'a1', 0.6, ['Ranks it "the best"; the speaker never does'])
+  expect((await videoGuides(later(root, { llmFails: true }).d, { redo: true, rechecked: SINCE })).stoppedEarly).toBe(true)
+  expect(await recheckedGuides(root, SINCE)).toEqual([{ id: 'a1', series: 'PL1' }])
+  expect((await videoGuides(later(root, { relevant: false }).d, { redo: true, rechecked: SINCE })).skipped).toEqual(['a1: not a guide'])
+  // No new review, but the video's state says it was tried after the recheck.
+  expect(await recheckedGuides(root, SINCE)).toEqual([])
+  expect((await read(root, 'content/guides/youtube-a1/vi.json')).quality.score).toBe(0.9)
+})
+
+test('a redo after a recheck writes `parallel` guides at once, in the rank given; the state and the changelog keep every one', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const videos = { a1: {}, a2: {}, a3: {}, a4: {} }
+  await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
+  for (const v of Object.keys(videos)) await recheck(root, v, 0.6, ['Adds a step the video never gives'])
+  expect((await recheckedGuides(root, SINCE, id => [id === 'youtube-a3' ? 0 : 1])).map(g => g.id)).toEqual(['a3', 'a1', 'a2', 'a4'])
+  // A model failure starts no more, and marks none tried.
+  const down = later(root, { videos, llmFails: true })
+  expect((await videoGuides(down.d, { redo: true, rechecked: SINCE, parallel: 2 })).stoppedEarly).toBe(true)
+  expect(down.calls.prompts).toHaveLength(2)
+  expect(await recheckedGuides(root, SINCE)).toHaveLength(4)
+
+  const x = later(root, { videos })
+  let busy = 0
+  let peak = 0
+  const llm = async <T,>(a: { prompt: string; schema: object }): Promise<T> => { peak = Math.max(peak, ++busy); await new Promise(r => setTimeout(r, 5)); busy--; return x.d.llm<T>(a) }
+  const r = await videoGuides({ ...x.d, llm }, { redo: true, rechecked: SINCE, limit: 4, parallel: 2 })
+  expect(r.written.sort()).toEqual(['a1', 'a2', 'a3', 'a4'].map(v => `youtube-${v} (0.90)`))
+  expect(peak).toBe(2)
+  expect(Object.values(await read(root, 'engine-state/youtube.json')).map(s => (s as { updatedAt: string }).updatedAt)).toEqual(Array(4).fill('2026-11-08T00:00:00.000Z'))
+  expect((await read(root, 'content/changelog.json') as { id: string; action: string }[]).filter(e => e.action === 'updated').map(e => e.id).sort()).toEqual(['a1', 'a2', 'a3', 'a4'].map(v => `youtube-${v}`))
+  expect(await recheckedGuides(root, SINCE)).toEqual([])
+})
+
+test('a guide held out of the chat stays held when its redo is still under the bar, and goes back in when it passes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const videos = { a1: {}, a2: {} }
+  await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
+  for (const v of ['a1', 'a2']) {
+    const file = join(root, `content/guides/youtube-${v}/vi.json`)
+    const vi = await read(root, `content/guides/youtube-${v}/vi.json`)
+    await writeFile(file, JSON.stringify({ ...vi, quality: { ...vi.quality, chat: false } }))
+    await recheck(root, v, 0.6, ['Says "nhiều người" for one creator\'s habit'])
+  }
+  // a1's new version scores 0.6, then 0.6 after its edit; a2's 0.9.
+  await videoGuides(later(root, { videos, scores: [0.6, 0.6] }).d, { redo: true, rechecked: SINCE, limit: 1 })
+  await videoGuides(later(root, { videos }).d, { redo: true, rechecked: SINCE, limit: 1 })
+  expect((await read(root, 'content/guides/youtube-a1/vi.json')).quality).toEqual({ score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false })
+  expect((await read(root, 'content/guides/youtube-a2/vi.json')).quality).toEqual({ score: 0.9, indexable: true, bySource: { youtube: 0.9 } })
 })
 
 test('redo rewrites only guides already written: a video not done yet waits for an ordinary run', async () => {

@@ -382,11 +382,29 @@ The layers above still check the result.
     noindex, each of the engine's review kinds to scoring a page or not, and the page and its app blocks to each other
     (`apps/site/test/content-stats.test.ts`, `worker/test/dashboard.test.ts`, `owner-api.test.ts`).
   - **Pages reviewed before traces were kept** get theirs from `pnpm engine review-backfill`: a recheck of the page as
-    it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (video guides in the video job, the
-    owner's videos first; Vietnamese translations per source, Indonesian and Thai pages and place names in the rewrite
-    part). A guide translated from a source keeps no English to check against: it gets its notes when it is next
-    translated. Found by the owner (2026-11-06): their video guide scored 0.60 and nobody could say why; 175 of 471
-    video guides were in the same state.
+    it is, nothing rewritten, `REVIEW_BACKFILL_LIMIT` model calls a kind a cycle (Vietnamese translations per source,
+    Indonesian and Thai pages and place names in the rewrite part). A guide translated from a source keeps no English
+    to check against: it gets its notes when it is next translated. Found by the owner (2026-11-06): their video guide
+    scored 0.60 and nobody could say why; 175 of 471 video guides were in the same state.
+  - **Video guides scored before the stricter reviewer** (2026-11-07: nothing the video doesn't say, one creator's
+    habit kept one person's, no overstating) are checked again by their own hourly job on the Mac,
+    `scripts/video-recheck.sh` (its own clone, `install-video-recheck-schedule.sh`; the video job checks none again, so
+    the two never check one guide at once). From `VIDEO_RECHECK_SINCE`: `review-backfill --kind video-guide
+    --reviewed-before` rechecks every guide with no review from that time on, whatever its score (and the ones never
+    reviewed), `VIDEO_REREVIEW_LIMIT` a run (60); then `videos --redo --rechecked-since` writes again, from the
+    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (30). Both `VIDEO_PARALLEL` (4) at
+    once, on the engine's Claude accounts, stopping when every account is at its limit. The riskiest guides first:
+    `RECHECK_FIRST` (a guide the chat quotes), then medicine, doses, chemicals and treatments, then water, then the rest,
+    each the most read first (the guide's most popular species; `packages/engine/src/video-order.ts`). Each guide once:
+    after its redo its own review counts, under the bar or not; a guide the redo skips is left as it is, and one it
+    fails on goes to the video job's retries, which write from the transcript alone. A recheck changes only the review,
+    not the page's score: a guide keeps its old score, and its place in search, until its redo.
+  - **Held out of the chat meanwhile:** `quality.chat: false` in each of a video guide's language files keeps it out of
+    the chat's search and read_page (the site reads it); absent, the guide is fine. `pnpm engine video-hold --class
+    risk1|risk2|risk3|all [--clear]` sets it on a risk group (`video-order.ts`); the medicine group got it on
+    2026-11-07. It goes when the version on the site gets a review at or above the bar: its recheck, or the review of a
+    version the video writer wrote (the redo, or the video job's retry of a failed one). A new version still under the
+    bar keeps it, as does every other writer of these files (`video-hold.test.ts` and the writers' tests hold that).
 - **Page depth.** A species page made only from a shop listing, a dealer's note or a stub is thin. It is published but
   kept out of search (`quality.indexable` false, `quality.reason: "thin"`) until it is deep (`packages/schema/src/depth.ts`):
   - **deep** means it has an in-depth source, or it reaches the bar on its own:
