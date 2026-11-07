@@ -51,6 +51,10 @@ test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no produ
   expect(t.localNote).toBeUndefined()
   expect(t.body).toContain('oxy già 3%')
   expect(t.body).toContain('3 ml cho mỗi 4 lít')
+  // The dose says what it's for and carries its caution, so it can't be read against another guide's 0.4 ml for a whole tank.
+  const dose = t.body!.match(/<li>[^<]*3 ml cho mỗi 4 lít[^<]*<\/li>/)?.[0]
+  expect(dose).toContain('liều bơm tại chỗ, không phải liều châm đều cả bể')
+  expect(dose).toMatch(/bỏng mang.*tép/)
   // No writer carries a guide's refs over a source read again (merge.ts writeGuide): this says so when one is lost.
   expect(t.refs?.map(r => r.url)).toEqual(expect.arrayContaining(cited))
 })
