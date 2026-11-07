@@ -449,15 +449,31 @@ test.each([
   'Cá cờ lùn (dwarf flag cichlid) rất hiền.',
   'Cá cờ (Mesonauta) khác cá cờ (Laetacara).',
   'Cá cờ (Jordanella) khác cá cờ (Mesonauta).',
-  // The old name is another fish's name now, and may be that fish's here.
-  'Cá cờ (Macropodus opercularis) khác flagfish (Jordanella floridae).',
-  'Cá bút chì (Crossocheilus) ăn rêu, còn Nannostomus thì không.',
-  // The new name is there too, so the old one is another fish.
-  'Cá chì (Nannostomus) sống hòa thuận với cá bút chì.',
-  'Cá flagfish (Jordanella floridae) nuôi được với cá cờ.',
 ])('the sweep leaves it for the rule to list: %s', text => {
   expect(swappedNames(text)).not.toEqual([])
   expect(renameSwapped(text)).toBe(text)
+})
+// The Writing Lead, 2026-11-08: a sentence that's right under the new names shouldn't stop a publish.
+test.each([
+  // The new name is there too, so the old one is another fish's.
+  'Cá chì (Nannostomus) sống hòa thuận với cá bút chì.',
+  'Cá flagfish (Jordanella floridae) nuôi được với cá cờ.',
+])('a sentence that also has the new name is neither listed nor renamed: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+test.each([
+  'Cá bút chì (Crossocheilus) ăn rêu, còn Nannostomus thì không.',
+  'Nuôi cá bút chì (Siamese algae eater) chung với pencilfish được.',
+  'Cá cờ (Macropodus opercularis) khác flagfish (Jordanella floridae).',
+  'Cá cờ (paradise fish) không hợp với Mesonauta.',
+])('a sentence that names the fish the old name is now is neither listed nor renamed: %s', text => {
+  expect(swappedNames(text)).toEqual([])
+  expect(renameSwapped(text)).toBe(text)
+})
+test('an old name with neither the new name nor its own fish in the sentence is still listed', () => {
+  expect(swappedNames('Cá bút chì (Nannostomus) sống hòa thuận với cá neon.')).toEqual(['should be "cá chì": Cá bút chì (Nannostomus) sống hòa thuận với cá neon.'])
+  expect(swappedNames('Cá cờ (Jordanella floridae) ăn rêu.')).toEqual(['should be "cá flagfish": Cá cờ (Jordanella floridae) ăn rêu.'])
 })
 test('the sweep leaves what the rule never lists, and text it has no name to change as it was written', () => {
   const clean = 'Cá bút chì (Crossocheilus) ăn rêu. Cá chì (Nannostomus) bơi tầng mặt. Cá cờ (Macropodus) đẹp. Cá chình (Nannostomus) không phải cá chì.'

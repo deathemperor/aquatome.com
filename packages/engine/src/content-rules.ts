@@ -605,7 +605,7 @@ export const RULES: Rule[] = [
   },
   {
     id: 'swapped-name', title: 'A fish called by the name it no longer has',
-    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
+    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. A sentence that also has the new name, or names the fish the old name is now ("cá bút chì (Crossocheilus)"), may be right and isn\'t listed. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
     check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
   },
   {
@@ -696,7 +696,7 @@ export type SwappedName = {
   brackets?: true
   /** `fish` is a group, and `now` its genera's names: the words don't say which one, so the sweep leaves it. */
   group?: true
-  /** The fish the old name belongs to now: in a sentence naming them it may be right, so the sweep leaves it. */
+  /** The fish the old name belongs to now: a sentence naming them may be right, so it is neither listed nor renamed. */
   stillFor?: readonly string[]
 }
 const SIAMESE = ['Crossocheilus', 'algae eater']
@@ -722,22 +722,23 @@ const SWAPS = SWAPPED.map(r => {
   const again = `(?:\\s+${word(r.now.split(' ').at(-1)!)})?`
   return { ...r, old: new RegExp(word(r.was) + again + inBrackets, 'giu'), named: new RegExp(fish, 'iu'), nowSaid: new RegExp(word(r.now), 'iu'), stays: r.stillFor && new RegExp(r.stillFor.join('|'), 'iu') }
 })
-const swapsIn = (sentence: string) => SWAPS.filter(r => sentence.search(r.old) >= 0 && r.named.test(sentence))
+// A sentence that has the new name too, or names the fish the old name is now, may be right under the new names (the
+// Writing Lead, 2026-11-08: "a sentence that's right under the new names shouldn't stop a publish").
+const swapsIn = (sentence: string) => SWAPS.filter(r => sentence.search(r.old) >= 0 && r.named.test(sentence) && !r.nowSaid.test(sentence) && !r.stays?.test(sentence))
 /** Each sentence that gives a fish a name it no longer has, with the name it has now. */
 export const swappedNames = (text: string) => text.normalize('NFC').split(SENTENCE_END).flatMap(s =>
   swapsIn(s).map(r => `should be "${r.now}": ${clip(s)}`))
 
 /**
  * Text (plain or HTML) with a fish's old name written as its name, in each sentence that says which fish it is. Left for
- * the swapped-name rule to list, when the sentence doesn't: one old name for two fish named, a group, or a sentence that
- * also has the new name or the fish the old name is now, where the old name may be right.
+ * the swapped-name rule to list, when the sentence doesn't: one old name for two fish named, or a group.
  */
 export function renameSwapped(text: string) {
   const nfc = text.normalize('NFC')
   const inSentence = (raw: string) => {
     const s = raw.replace(TAG, ' ')
     const swaps = swapsIn(s).filter(r => !r.group)
-    return swaps.reduce((out, r) => (swaps.some(o => o !== r && o.was === r.was) || r.nowSaid.test(s) || r.stays?.test(s) ? out
+    return swaps.reduce((out, r) => (swaps.some(o => o !== r && o.was === r.was) ? out
       : out.replace(r.old, m => (m[0] === m[0]!.toLowerCase() ? r.now : r.now[0]!.toUpperCase() + r.now.slice(1)))), raw)
   }
   // Tags blanked, so the sentences end where the rule's do and at the same offsets as in the text.
