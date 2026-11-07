@@ -92,7 +92,7 @@
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/duringlanis-perugiae",
-      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: Has been caught in water with wildly varying pH over a range of 4.9–8.0 in nature. In aquaria it's probably best to aim for somewhere around neutral, although clearly this is a very adaptable species.</li><li>Hardness: 1–25 dGH</li></ul>"
+      "html": "<p>Temperature: 24–30°C.</p><p>pH: Has been caught in water with wildly varying pH over a range of 4.9–8.0 in nature. In aquaria it's probably best to aim for somewhere around neutral, although clearly this is a very adaptable species.</p><p>Hardness: 1–25 dGH.</p>"
     },
     {
       "key": "diet",
@@ -174,14 +174,19 @@
       "category": "loc",
       "keywords": [
         "máy lọc tạo dòng chảy mạnh",
-        "lọc bọt biển cho cá bột"
+        "lọc bọt biển cho cá bột",
+        "máy bơm tạo dòng",
+        "lọc bể cá dòng mạnh",
+        "lọc bọt biển"
       ]
     },
     {
       "category": "phan-nen",
       "keywords": [
         "cát nền hồ cá",
-        "cát thủy sinh mịn"
+        "cát thủy sinh mịn",
+        "cát nền bể cá",
+        "cát sông mịn"
       ]
     },
     {
@@ -189,6 +194,12 @@
       "keywords": [
         "trùng huyết đông lạnh",
         "thức ăn chìm cho cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
       ]
     }
   ],

@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/devario-sp-giraffe
 title: Devario sp. 'giraffe' · Seriously Fish
-fetchedAt: 2026-11-07T04:50:28.463Z
+fetchedAt: 2026-11-07T19:31:36.623Z
 hash: 46a4f7db9ec85bb15e8e8f9f63ea35dbdec1b40b8dc5c7c43dbf99166e5acf1f
 ---
 

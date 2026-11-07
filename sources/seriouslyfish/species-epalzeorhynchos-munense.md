@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/epalzeorhynchos-munense
 title: Epalzeorhynchos munense · Seriously Fish
-fetchedAt: 2026-11-07T05:37:58.107Z
+fetchedAt: 2026-11-07T20:27:03.094Z
 hash: af018f901a4c7bc9b1663dcb456a84239de311fc44280610082c7eea4b7c3bd7
 ---
 

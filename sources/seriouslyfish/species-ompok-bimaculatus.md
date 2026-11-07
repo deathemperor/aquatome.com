@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/ompok-bimaculatus
 title: Ompok bimaculatus (Butter Catfish) · Seriously Fish
-fetchedAt: 2026-11-07T04:08:42.321Z
+fetchedAt: 2026-11-07T18:39:26.220Z
 hash: a69328281c94b246afec96ba519d21ee3cef6313e93b9df087fb8044ede8a991
 ---
 

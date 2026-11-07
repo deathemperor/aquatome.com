@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/distichodus-lusosso
 title: Distichodus lusosso (Long-nosed Distichodus) · Seriously Fish
-fetchedAt: 2026-11-07T05:06:53.132Z
+fetchedAt: 2026-11-07T19:47:48.981Z
 hash: 7d8006651bd662730cb7b57a3024ee258b4b29942238214153e7bb12c533d4b2
 ---
 

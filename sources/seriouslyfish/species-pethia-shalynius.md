@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/pethia-shalynius
 title: Pethia shalynius (Shalyni Barb) · Seriously Fish
-fetchedAt: 2026-11-07T04:11:35.889Z
+fetchedAt: 2026-11-07T18:41:07.082Z
 hash: 07c3dd4825b057a7f780d8b6b48ab7ba3a25ef11d6a5d6d15558eea215380d52
 ---
 

@@ -64,7 +64,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/discherodontus-halei",
-      "html": "<p>Discherodontus halei is a cyprinid with an apparently disjunct range: Pahang in Peninsular Malaysia, and the Mae Klong and Chao Phraya in Thailand. It inhabits clear, fast-flowing minor rivers and forest streams, and orange pigmentation in the dorsal and caudal fins helps separate it from congeners. Like others in the genus it is notoriously delicate and difficult to ship, losing scales very easily when removed from the water.</p>"
+      "html": "<p><em>Discherodontus halei</em> is a cyprinid with an apparently disjunct range: Pahang in Peninsular Malaysia, and the Mae Klong and Chao Phraya in Thailand. It inhabits clear, fast-flowing minor rivers and forest streams, and orange pigmentation in the dorsal and caudal fins helps separate it from congeners. Like others in the genus it is notoriously delicate and difficult to ship, losing scales very easily when removed from the water.</p>"
     },
     {
       "key": "distribution",
@@ -82,7 +82,7 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/discherodontus-halei",
-      "html": "<p>Standard length: 100 mm SL (10 cm). Aquarium base: 120 × 45 cm. Volume: ~243 litres.</p><p>An aquarium with base dimensions of 120 × 45 cm or equivalent should be the smallest considered.</p>"
+      "html": "<p>An aquarium with base dimensions of 120 × 45 cm or equivalent should be the smallest considered (about 243 litres).</p>"
     },
     {
       "key": "maintenance",
@@ -134,7 +134,14 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "NSFJ7qs7V8w",
+      "title": "Discherodontus halei @ Beacon Barb/Ikan Mesir (Malaysia)",
+      "durationSec": 106,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -153,14 +160,17 @@
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá cảnh dạng hạt",
-        "trùng huyết đông lạnh"
+        "trùng huyết đông lạnh",
+        "thức ăn cá dạng vảy",
+        "artemia đông lạnh"
       ]
     },
     {
       "category": "phan-nen",
       "keywords": [
         "sỏi nền bể cá",
-        "đá cuội trang trí bể cá"
+        "đá cuội trang trí bể cá",
+        "sỏi sông bể cá"
       ]
     }
   ],
