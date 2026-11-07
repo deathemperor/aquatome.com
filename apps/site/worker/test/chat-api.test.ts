@@ -347,7 +347,7 @@ test('retries by Idempotency-Key: after the answer, the kept turn with no new co
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })
 
-test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn is kept, the mark clears, the ledger settles', async () => {
+test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn is kept for the conversation\'s life, the mark clears, the ledger settles', async () => {
   const { e, db, store, ledger } = env()
   const me = await signIn(db)
   const key = { 'idempotency-key': '3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' }
@@ -366,9 +366,17 @@ test('a reader who leaves mid-answer: the run goes on (handed to wait), its turn
   expect(conv.running).toBeUndefined()
   expect(conv.turns).toMatchObject([{ n: 1 }])
   expect(ledger.day()!.runs).toEqual({})
-  // Back in the app, its retry gets the kept turn, counted once.
+  // Back in the app, its retry gets the kept turn, counted once; hours later too (a call, a locked phone), for as long
+  // as the conversation lasts.
   const retry = await run(ask(bearer(me.token), {}, key), e, deps(c.fetch))
   expect(retry.body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
+  const later = await run(ask(bearer(me.token), {}, key), e, deps(c.fetch, { clock: () => Date.now() + 24 * 3600_000 - 60_000 }))
+  expect(later.body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
+  expect(c.bodies).toHaveLength(2)
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  // Past that, the conversation has ended: the retry is refused, not asked and counted again.
+  const gone = await run(ask(bearer(me.token), {}, key), e, deps(c.fetch, { clock: () => Date.now() + 24 * 3600_000 + 60_000 }))
+  expect(gone.body).toEqual({ error: 'ended' })
   expect(c.bodies).toHaveLength(2)
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })

@@ -26,7 +26,7 @@ export const ANSWER_SCHEMA = {
   additionalProperties: false,
   required: ['text', 'covered', 'blocks', 'suggestions'],
   properties: {
-    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer, pointing to the blocks below for the figures.' },
+    text: { type: 'string', description: 'Two or three sentences in the reader\'s language, plain text: the answer. The figures are in the blocks; never refer to the blocks.' },
     covered: { type: 'boolean', description: 'false when the handbook doesn\'t answer the question: say so in the text, and show the nearest page.' },
     blocks: {
       type: 'array',

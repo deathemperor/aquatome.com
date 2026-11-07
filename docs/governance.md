@@ -144,8 +144,9 @@ that would have caught it).
     within 100 characters; a question answered, its blocks filled, the conversation keeping the turn under the account's
     HMAC and chat's own day counting it under the shared dollar cap; the next question reading the turns before it;
     another account's conversation 404, one past a day or its turns 410; the stream's order, `done` sent once the turn is
-    saved; a retry by `Idempotency-Key` answered from the kept turn, or, while its run answers, waiting for that run,
-    counted once, and another question meanwhile 409; the kept answer written before the conversation loses its mark;
+    saved; a retry by `Idempotency-Key` answered from the kept turn for the conversation's 24 hours and refused after, never
+    counted twice, or, while its run answers, waiting for that run, counted once, and another question meanwhile 409; the
+    kept answer written before the conversation loses its mark;
     two first questions at once in a new conversation, one run (a create-only write); a reader who leaves mid-answer or
     while the handbook loads, the run going on to its end; an R2 error marking the question 503; the account's day and
     the spend; Claude unreachable giving the count back and an unreadable answer keeping it; the account's synced tanks

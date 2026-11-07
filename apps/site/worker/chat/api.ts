@@ -29,7 +29,7 @@ import { transcriptKey, type ChatRunRecord } from './transcript'
  *   conversation. The question being answered is marked in it, written only over the version read (an etag match), or
  *   only where none is yet, so two questions at once can't both run: the second is 409 answering, or with the first's
  *   key waits for its answer.
- * - Retries (`Idempotency-Key`): the turn, or its error, read for 15 minutes under the account and key
+ * - Retries (`Idempotency-Key`): the turn, or its error, read for 24 hours (a conversation's life) under the account and key
  *   (`chat-turn/<account>/<key>.json`), swept within a day by the daily cron. A retry while the first run still answers waits for it and gets its answer,
  *   counted once.
  *
@@ -66,7 +66,9 @@ const MAX_TURNS = 20
 const MAX_CHARS = 500
 const USD_PER_DAY = 15
 const CONVERSATION_MS = 24 * 3600_000
-const RETRY_MS = 15 * 60_000
+/** A kept turn answers retries for a conversation's life: a reader back hours later (a call, a locked phone) gets the
+ * answer that landed, not a second run. Past it, the conversation has ended too: a retry is 410, never counted again. */
+const RETRY_MS = CONVERSATION_MS
 /** A question marked as answering longer than this was cut off: the conversation takes another. */
 const RUNNING_MS = 2 * 60_000
 const PING_MS = 10_000

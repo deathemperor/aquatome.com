@@ -1,5 +1,5 @@
 import { describe, expect, it, test } from 'vitest'
-import { faqFound, matesChecks, numbersIn, readPages, sentText } from '../scripts/chat-eval-grade'
+import { faqFound, matesChecks, numbersIn, pointsAt, readPages, sentText } from '../scripts/chat-eval-grade'
 
 describe('the chat eval reads numbers as Vietnamese writes them', () => {
   it('decimals, thousands and ranges', () => {
@@ -79,4 +79,16 @@ test('the tank-mates checks a run read: each check\'s fish as a link names them,
   ]
   expect(matesChecks(history)).toEqual([{ fish: 'ca-betta:1,ca-neon-xanh:10', level: 'no', text: 'Không nên nuôi chung: x.', head: 'Không nên nuôi chung' }])
   expect(matesChecks([])).toEqual([])
+})
+
+test('an answer that points to its blocks is caught, not one that says "below" as a place or a figure', () => {
+  expect(pointsAt('Cá neon sống theo đàn. Xem thẻ bên dưới để biết nhiệt độ.')).toEqual(['thẻ bên dưới', 'xem thẻ', 'bên dưới'])
+  expect(pointsAt('Như bảng dưới đây cho thấy, hai loài hợp nước.')).toEqual(['bảng dưới', 'dưới đây'])
+  expect(pointsAt('Thử công cụ nuôi chung ở dưới nhé.')).toEqual(['ở dưới'])
+  expect(pointsAt('Các con số có ở bên dưới.')).toEqual(['bên dưới'])
+  expect(pointsAt('Dùng công cụ này để tính số lít.')).toEqual(['công cụ này'])
+  // Below as a place, a figure, or a word that only starts the same.
+  expect(pointsAt('Cá chuột sống ở dưới đáy bể, nhiệt độ dưới 26 °C là vừa.')).toEqual([])
+  expect(pointsAt('Lớp nền bên dưới cây nên dày 5 cm.')).toEqual([])
+  expect(pointsAt('Bảng màu của cá đĩa rất đa dạng; thẻ nhớ không liên quan.')).toEqual([])
 })
