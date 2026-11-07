@@ -1,4 +1,3 @@
-import { readFile } from 'node:fs/promises'
 import { readdirSync, readFileSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -78,4 +77,12 @@ test('no Vietnamese place name keeps River, Island, Lake, Basin, Province, Mount
   const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
   const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
   expect(names.filter(n => ENGLISH_PLACE_WORD.test(n))).toEqual([])
+})
+
+// Alone, these read as a province or as nothing: "Bắc Giang" on a Chinese fish, "Mã" on a Vietnamese one.
+test('no river a Vietnamese reader knows by name goes without its "sông"', () => {
+  const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
+  const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
+  const known = ['Bắc Giang', 'Đông Giang', 'Tây Giang', 'Châu Giang', 'Mân Giang', 'Tùng Hoa', 'Nin', 'Dương Tử', 'Mê Kông', 'Sê Kông', 'Hoàng Hà', 'Lam', 'Mã', 'Vệ', 'Thu Bồn', 'Trà Khúc', 'Bến Hải']
+  expect(names.filter(n => known.includes(n))).toEqual([])
 })
