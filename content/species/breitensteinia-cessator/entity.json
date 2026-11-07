@@ -10,6 +10,67 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Kapuas River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Indonesia (Sumatra and Borneo, Greater Sunda Island rivers).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Kapuas River near Sebruang, Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Kapuas River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340927,
+      "total": 4,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

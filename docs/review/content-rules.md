@@ -5,7 +5,7 @@ Indonesian and Thai (`packages/engine/src/content-rules.ts`, docs/governance.md)
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 4469 (Vietnamese 2734, Indonesian 871, Thai 864). Imperial units
+Pages checked: 4542 (Vietnamese 2777, Indonesian 886, Thai 879). Imperial units
 beside a metric figure: feet 2, gallon 8.
 
 ## Numbered headings broken or miscounted (1)

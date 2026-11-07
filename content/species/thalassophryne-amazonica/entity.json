@@ -7,13 +7,53 @@
   "group": "other",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "ecuador",
+    "amazon",
+    "brazil"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
       }
     ]
   },
@@ -25,10 +65,28 @@
       "html": "<p>The toadfishes comprise about 73 species in around 22 genera and three subfamilies. One subfamily, the Thalassophryninae, is known as the \"venomous toadfishes\". Thalassophryne amazonica, one of the very few freshwater species of the family, belongs to it.</p><p>The Amazon Toadfish can easily be told apart from all other toadfishes in South and Central America: it is the only species in which the dorsal, caudal and anal fins are connected with each other. Although a few other Thalassophryninae occasionally enter brackish and fresh water, Thalassophryne amazonica is the only species of the subfamily that lives exclusively in fresh water.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>Thalassophryne amazonica is a freshwater toadfish from Amazon tributaries in Ecuador, Peru and Brazil. The only freshwater member of its genus, it spends most of its time buried in sand and is an obligate piscivore that needs a constant supply of live fish. Like other Thalassophryne, it is venomous, with hollow spines on each opercle and the dorsal fin, though its venom is not known to be very potent.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/16-toadfishes/thalassophryne-amazonica-4/",
       "html": "<p>The specimens offered originate from Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>Inhabits tributaries of the Amazon in Ecuador, Peru and Brazil. Museum specimens have been collected from the Rio Conambo, Rio Shiona, Rio Ataya and Rio Corriantes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>Probably inhabits sandy parts of rivers.</p>"
     },
     {
       "key": "aquariumSize",
@@ -37,10 +95,34 @@
       "html": "<p>They need a sandy bottom in which they can burrow. Maximum length is about 8-10 cm.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>As it's almost entirely sedentary you could keep a couple of these in a 75 × 30 × 30 cm (~68 litres) tank.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>This species spends the majority of its time concealed within the substrate, meaning a fairly deep (5–7.5 cm) layer of soft sand is an absolute necessity. Other decor is not essential, but some pieces of driftwood with live plants such as Microsorium or Anubias attached would make the set-up more pleasing to the eye. Plants rooted into the substrate would probably not do so well given the burrowing activity of the fish and sandy substrate. Dim lighting is best, and you could also add some floating plants to give a more natural, diffused effect. Unlike other members of the genus and most other batrachoidids this is a true freshwater species and does not need any salt adding to its water. It has been recorded from flowing waters so decent aeration could be beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: Has been maintained successfully in both soft, acidic and harder, more alkaline conditions. It's probably best to avoid extremes though. Aim for somewhere within the range 6.0–7.5.</li><li>Hardness: To 15°H.</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/16-toadfishes/thalassophryne-amazonica-4/",
       "html": "<p>The fish are fed with small feeder fishes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>It's an obligate piscivore, and a constant supply of healthy, smaller fish is required to keep it alive. Some sources suggest offering river shrimp as an alternative but it has never been seen accepting anything other than live fish. Feeding shrimp could also prove quite expensive long-term. The best approach is probably to set up a second tank and establish a colony of an easily-bred cichlid such as the convict, Amatitlania nigrofasciata. The fry of these are primarily benthic feeders and therefore ideal prey for this substrate-dwelling ambush predator. All of the commonly-available livebearers spend most of their time in the upper regions of the water column and thus are not as suitable.</p><p>The feeding response is quite amazing, and one of the main reasons that enthusiasts enjoy keeping this fish. It lurks in the substrate with only its frog-like eyes protruding. When a fish of suitable size swims close enough, it lurches upwards with incredible speed, engulfing its quarry within its capacious mouth. In the aquarium this is usually the only time you will see it moving.</p>"
     },
     {
       "key": "behaviour",
@@ -49,16 +131,40 @@
       "html": "<p>Against each other and any other fish that does not serve as food, Thalassophryne amazonica are very peaceful. Because toadfish do not move unnecessarily, they can be kept in comparatively small aquaria.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>Really deserves to be kept in its own tank, with the only exceptions being feeder fish as discussed above. It can swallow surprisingly large prey items so smaller tankmates would simply end up on the menu, whilst larger species would easily outcompete it for food. It seems to get on ok with conspecifics though so you could keep a pair or small group in a suitably-sized tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>Apparently females are significantly larger than males when adult.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/16-toadfishes/thalassophryne-amazonica-4/",
       "html": "<p>Toadfish are said to care for the brood, but no details have been published so far.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>There is at least one case of eggs being laid in captivity, but no account of successful hatching and raising fry is known. This incident was covered by Practical Fishkeeping magazine and the fish in question had actually produced eggs on two separate occasions. These were large (~7 mm in diameter), amber-coloured and each possessed a single sticky white filament. Presumably the latter adaptation helps the eggs to remain in place in the flowing rivers and tributaries that the species inhabits in nature. They were laid over a period of several days, and some were buried in the sand, others directly onto the substrate. Unfortunately neither batch of eggs proved to be fertile and other than these being laid, no courtship or other spawning activity was witnessed.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/16-toadfishes/thalassophryne-amazonica-4/",
       "html": "<p>The Thalassophryninae are thought to have the most highly developed venomous apparatus of all fishes. The venom glands are located at the base of two hollow spines (derived from dorsal fin spines) on the back and two additional spines on the operculum.</p><p>There are no reports of accidents with Thalassophryne amazonica, but each year several cases occur with the closely related marine and brackish species Thalassophryne nattereri, which is very abundant in Brazil. The sting causes strong pain, inflammation and sometimes necrosis, but the venom apparently has no systemic components. There are no reports of fatalities.</p><p>Etymology: Thalassophryne means \"sea-toad\"; amazonica means \"coming from the Amazon\"; nattereri honours the naturalist Johann Natterer (1787-1843).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/thalassophryne-amazonica",
+      "html": "<p>There are currently six described species in the genus Thalassophryne, of which T. amazonica is the only freshwater representative. The others (T. nattereri, T. maculosa, T. megalops, T. montevidensis and T. punctata) are all estuarine animals distributed along the western Atlantic coastlines of Central and South America and inhabit brackish-to-marine waters. They are members of the family Batrachoididae or toadfishes, of which most are exclusively marine species. All batrachoidids are ambush predators and exhibit cryptic colouration and patterning. Only T. amazonica and Daector quadrizonatus are known to inhabit freshwater environments. Both hail from northern South America but can easily be distinguished as in D. quadrizonatus the dorsal, anal and caudal fins are separate, whereas in T. amazonica they are confluent (connected or joined).</p><p>Thalassophryne species are venomous, possessing a hollow spine on each opercle and two on the dorsal fin. These are connected to venom-producing glands at their base, and pressure exerted on the spines causes the poison to be pumped out of the spine and into the flesh of the victim. Thankfully the venom of T. amazonica is not known to be very potent, but care should still be exercised when moving the fish or performing tank maintenance.</p>"
     }
   ],
   "photos": [],
@@ -79,5 +185,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

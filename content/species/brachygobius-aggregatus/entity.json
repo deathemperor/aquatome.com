@@ -11,6 +11,110 @@
     "vietnam",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The schooling bumblebee goby, Brachygobius aggregatus, is a small goby described from the Philippines and recorded from the lower Mekong in Vietnam.",
+          "countries": [
+            "PH",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Dumaguete, Oriental Negros, Philippines', and Rainboth (1996) recorded it from the lower Mekong, Vietnam.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2377143,
+      "total": 19,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          9
+        ],
+        [
+          "PH",
+          5
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          5.625,
+          4,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          5,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          116.71875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          122.34375,
+          8.4375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

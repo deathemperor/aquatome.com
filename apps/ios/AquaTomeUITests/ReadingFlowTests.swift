@@ -16,6 +16,13 @@ final class ReadingFlowTests: XCTestCase {
     app = launch(reset: false)
     let saved = row(app, in: "Đã lưu để đọc sau")
     XCTAssertTrue(saved.waitForExistence(timeout: 5), "not kept")
+    // Under Tìm's tools it can start under the tab bar, where a swipe would land on the bar: half a screen up first.
+    let bar = app.tabBars.firstMatch
+    repeatUntil(saved.isHittable && (!bar.exists || saved.frame.maxY < bar.frame.minY), times: 4) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow,
+               thenHoldForDuration: 0.1)
+    }
     saved.swipeLeft()
     app.buttons["Bỏ lưu"].tap()
     XCTAssertTrue(app.staticTexts["Đã lưu để đọc sau"].waitForNonExistence(timeout: 5), "still saved")

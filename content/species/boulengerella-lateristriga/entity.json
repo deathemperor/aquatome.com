@@ -13,6 +13,166 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Manaus, Brazil' and modern records suggest this species is restricted to the rio Negro basin in Brazil and Colombia plus parts of the upper Río Orinoco in Venezuela.",
+          "countries": [
+            "BR",
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355963,
+      "total": 87,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "VE",
+          43
+        ],
+        [
+          "BR",
+          36
+        ],
+        [
+          "CO",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -68.90625,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          0,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          -67.5,
+          2.8125,
+          14,
+          14
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          12,
+          12
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

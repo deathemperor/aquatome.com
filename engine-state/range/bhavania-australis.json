@@ -1,0 +1,107 @@
+{
+  "id": "bhavania-australis",
+  "native": {
+    "input": "d1f1fade14cbef4f",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Bhavania australis is a balitorid loach endemic to the Western Ghats mountains of southern India, recorded from Kerala, Tamil Nadu and Karnataka.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kaveri",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Chalakudy",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Tamiraparani",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Bhadra",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats mountains in southern India with records existing from the states of Kerala (Chalakudy/Chalakkudy, Periyar, Muvattapuzha, Achankovil, Pamba, Chandragiri, Bharathapuzha, Kallar, Uruttipuzha, Bhavani, Chinkannipuzha, and Chaliyar river systems), Tamil Nadu (Kaveri, Tamiraparani, Aliyar, Chittar, and Kothayar rivers) and Karnataka (Kaveri and Bhadra rivers).",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bhavania australis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358767,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        41
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        36
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

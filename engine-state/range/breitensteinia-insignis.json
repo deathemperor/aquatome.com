@@ -1,0 +1,39 @@
+{
+  "id": "breitensteinia-insignis",
+  "native": {
+    "input": "f4acff6d33c70386",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Barito River",
+        "source": "scotcat",
+        "quote": "This species is known only from a limited number of collections taken in the Barito River drainage in southern Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "scotcat",
+        "quote": "This species is known only from a limited number of collections taken in the Barito River drainage in southern Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Breitensteinia insignis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340926,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "brachygobius-xanthomelas",
+  "native": {
+    "input": "7d99ec81e9719fc8",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is '55 miles north of Singapore, freshwater ditches, Mawai District, Johore, Malaysia', and this species has been recorded throughout much of Peninsular Malaysia and southern Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is '55 miles north of Singapore, freshwater ditches, Mawai District, Johore, Malaysia', and this species has been recorded throughout much of Peninsular Malaysia and southern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded on Bangka Island, Indonesia, but we've been unable to confirm if it occurs on neighbouring Sumatra.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Kapuas River in Indonesia (Borneo), Cambodia, and Singapore appear to be in error, although it may have been extirpated from the latter, and as with most members of the genus a degree of confusion surrounds its identity (see 'Notes').",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from the Kapuas River in Indonesia (Borneo), Cambodia, and Singapore appear to be in error, although it may have been extirpated from the latter, and as with most members of the genus a degree of confusion surrounds its identity (see 'Notes').",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bangka Island",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded on Bangka Island, Indonesia, but we've been unable to confirm if it occurs on neighbouring Sumatra.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachygobius xanthomelas",
+    "status": "ACCEPTED",
+    "taxonKey": 2377148,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}
