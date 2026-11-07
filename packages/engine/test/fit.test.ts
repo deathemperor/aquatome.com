@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { doseGroups, fitCounts, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
+import { CHECKLIST, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, productOf, readFit, runFit, type FitCheck, type FitDose } from '../src/fit'
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
 import { mkdtemp, readFile } from 'node:fs/promises'
@@ -105,6 +105,13 @@ test('a run reads what\'s due in a random order, saves, keeps its place, and sto
   const other = await runFit([page('<p>e</p>', { id: 'e' }), page('<p>f</p>', { id: 'f' })], join(dir, 'other.json'), { llm: out, jobs: 1 })
   expect(other.report.stopped).toContain('limit')
   expect(other.report.left).toBe(2)
+})
+
+test('a guide read with an older checklist is read again; another page is not, until its text changes', () => {
+  const g = page('<p>g</p>'), s = page('<p>s</p>', { kind: 'species', id: 's' })
+  const old = (p: Page) => ({ at: '2026-11-07', hash: fitText(p).hash, model: 'opus', findings: [], products: [] })
+  expect(fitDue([g, s], { [fitKey(g)]: old(g), [fitKey(s)]: old(s) }).map(p => p.id)).toEqual(['g'])
+  expect(fitDue([g], { [fitKey(g)]: { ...old(g), checklist: CHECKLIST } })).toEqual([])
 })
 
 test('the report counts and never lists a page', () => {

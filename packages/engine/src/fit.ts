@@ -18,7 +18,7 @@ import { snapshotName } from './snapshot'
  * (prompts/fit.md). A model's finding counts only with a quote that is on the page. Whether a product is sold in a market
  * is never the model's call: it names the products, and the market table (market.ts) says.
  */
-export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'dose-purpose', 'dose-conflict', 'dose-caution'] as const
+export const FIT_CHECKS = ['product', 'shop', 'price', 'dose', 'source', 'units', 'words', 'elsewhere', 'kit', 'dose-purpose', 'dose-conflict', 'dose-caution'] as const
 export type FitCheck = (typeof FIT_CHECKS)[number]
 /** What each check came from, so a new complaint about one page has a place to go: a check run over all of them. */
 export const FIT_TITLE: Record<FitCheck, string> = {
@@ -30,6 +30,7 @@ export const FIT_TITLE: Record<FitCheck, string> = {
   units: 'Imperial units, or a volume that shows it was converted',
   words: 'Words keepers here don\'t use',
   elsewhere: 'Written for a reader who lives elsewhere',
+  kit: 'A shop abroad\'s kit or catalogue, which no rewording fixes',
   'dose-purpose': 'A dose that doesn\'t say what it\'s for',
   'dose-conflict': 'The same treatment, for the same thing, dosed differently on another page',
   'dose-caution': 'A dose without the caution its source gives for shrimp or other sensitive animals',
@@ -41,7 +42,11 @@ export type FitEntry = {
   at: string; hash: string; model: string; findings: FitFinding[]; products: string[]; doses?: FitDose[]
   /** Doses were read against the page's source: false when it has none kept, so a missing caution can't be told. */
   sourceRead?: boolean
+  /** The checklist it was read with (CHECKLIST); absent: the first. */
+  checklist?: number
 }
+/** 2: `kit` added, a check guides read before it lack, so they're read again. */
+export const CHECKLIST = 2
 export type FitState = Record<string, FitEntry>
 
 const COUNTRY: Record<Lang, string> = { vi: 'Vietnam', id: 'Indonesia', th: 'Thailand', ms: 'Malaysia' }
@@ -188,7 +193,7 @@ export async function readFit(llm: Llm, p: Page, model: string | undefined, now:
   const { text, hash } = fitText(p)
   const r = await llm<{ findings: Found[]; products: string[]; doses?: FitDose[] }>({ system: fitPrompt(p.lang), prompt: text, schema: SCHEMA, ...(model ? { model } : {}) })
   const doses = keepDoses(r.doses ?? [], text)
-  const entry: FitEntry = { at: now.toISOString().slice(0, 10), hash, model: model ?? 'default', findings: keepFit(r.findings ?? [], text, p.lang), products: [...new Set((r.products ?? []).map(x => x.trim()).filter(Boolean))], ...(doses.length ? { doses } : {}) }
+  const entry: FitEntry = { at: now.toISOString().slice(0, 10), hash, model: model ?? 'default', checklist: CHECKLIST, findings: keepFit(r.findings ?? [], text, p.lang), products: [...new Set((r.products ?? []).map(x => x.trim()).filter(Boolean))], ...(doses.length ? { doses } : {}) }
   if (!doses.length) return entry
   if (!source?.trim()) return { ...entry, sourceRead: false }
   const c = await llm<{ cautions: Parameters<typeof keepCautions>[0] }>({
@@ -280,7 +285,10 @@ export const FIT_KINDS: readonly PageKind[] = ['guides', 'species', 'plants', 'b
 export const fitKey = (p: Page) => `${p.lang}/${p.kind}/${p.id}`
 /** A stable order that isn't the alphabet: a run stopped part way has read a random sample, and its counts can be scaled. */
 export const fitOrder = (pages: Page[], seed = 'fit') => [...pages].map(p => [createHash('sha1').update(`${seed}:${fitKey(p)}`).digest('hex'), p] as const).sort((a, b) => a[0].localeCompare(b[0])).map(x => x[1])
-export const fitDue = (pages: Page[], state: FitState) => pages.filter(p => state[fitKey(p)]?.hash !== fitText(p).hash)
+export const fitDue = (pages: Page[], state: FitState) => pages.filter(p => {
+  const e = state[fitKey(p)]
+  return e?.hash !== fitText(p).hash || (p.kind === 'guides' && (e.checklist ?? 1) < CHECKLIST)
+})
 
 /** Reads the pages due, a few at a time, saving as it goes. Stops, with what it has, when the accounts are out of their limit. */
 export async function runFit(pages: Page[], statePath: string, d: { llm: Llm; model?: string; jobs?: number; limit?: number; now?: () => Date; root?: string }) {
