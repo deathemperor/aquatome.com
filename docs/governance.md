@@ -686,6 +686,8 @@ The layers above still check the result.
     gives its pages names and its translation order; it joins the others' orders when served.
 - **Merging parallel work.** The four engine jobs run at once. Pages two jobs both write are merged by source
   (`scripts/merge-entity.mjs`), not by whole file: whole-file merging once dropped Seriously Fish's data from 32 species.
+  Species, plants and places merge that way, and a fixed name (`nameFixed`) stays whichever job has it: a job that
+  started before the place-names step once wrote "Lam" over "sông Lam".
 - **Sane numbers.** Figures outside plausible bounds (°F given as °C) are dropped, and so is a minimum tank length that
   its source gives only as a volume (its "75 gallons (about 284 litres)" once made Cá đĩa's card say 284 cm; The Spruce
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
