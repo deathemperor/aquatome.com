@@ -40,8 +40,6 @@ export type AccountsEnv = {
   /** Readers' photos (worker/photos.ts): deleting an account deletes the files of the photos it sent. */
   UPLOADS?: R2Bucket
   MEDIA?: R2Bucket
-  /** Names an account in the chat's storage (chat/store.ts): deleting an account deletes its conversations. */
-  COMMENT_HMAC_KEY?: string
 }
 type Siteverify = (secret: string, token: string, ip: string | null, host: string) => Promise<boolean>
 export type AccountDeps = { verifyIdToken: VerifyIdToken; siteverify: Siteverify; sendMail?: SendMail; revokeApple?: RevokeApple }

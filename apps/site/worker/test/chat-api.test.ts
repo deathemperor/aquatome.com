@@ -11,6 +11,7 @@ import { handle } from '../index'
 import { contract } from './contract'
 import { testD1 } from './d1'
 import { memoryLedger } from './ledger'
+import { memoryR2 } from './r2'
 
 // The fixture build's app index and page copies (pnpm test builds the site first), served as the Worker's assets.
 const DIST = fileURLToPath(new URL('../../dist', import.meta.url).href)
@@ -59,7 +60,7 @@ function env(extra: Partial<ChatEnv> = {}, page?: number) {
   const db = testD1()
   const store = r2(page)
   const ledger = memoryLedger()
-  const e: ChatEnv = { CHAT: '1', ANTHROPIC_KEYS: `${A}\n${B}\n`, COMMENT_HMAC_KEY: 'h', AB: kv(), ASSETS: ASSETS as unknown as Fetcher, DB: db, UPLOADS: store.bucket, FISHID_LEDGER: ledger.ns, ...extra }
+  const e: ChatEnv = { CHAT: '1', ANTHROPIC_KEYS: `${A}\n${B}\n`, COMMENT_HMAC_KEY: 'h', ACCOUNT_HMAC_KEY: 'k', AB: kv(), ASSETS: ASSETS as unknown as Fetcher, DB: db, UPLOADS: store.bucket, FISHID_LEDGER: ledger.ns, ...extra }
   return { e, db, store, ledger }
 }
 async function signIn(db: D1Database, client: Client = 'app') {
@@ -86,8 +87,8 @@ function claude(replies: (() => Response | Promise<Response>)[]) {
 const NEON = [() => reads('/vi/ca/ca-neon-xanh/'), () => answers({ blocks: [pick({ ids: ['paracheirodon-innesi'] }), pick({ t: 'tool', tool: 'tank-mates', fish: [{ id: 'paracheirodon-innesi', count: 8 }] })] })]
 
 const CONV = '6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
-/** Where the Worker keeps CONV for a reader: under the account's HMAC (the test's key is 'h'). */
-const convKey = async (u: { id: string }) => conversationKey(await chatAccount('h', u.id), CONV)
+/** Where the Worker keeps CONV for a reader: under the account's HMAC (the test's ACCOUNT_HMAC_KEY is 'k'). */
+const convKey = async (u: { id: string }) => conversationKey(await chatAccount('k', u.id), CONV)
 const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, headers: Record<string, string> = {}) => new Request('https://x.test/api/chat', {
   method: 'POST', headers: { 'content-type': 'application/json', ...auth, ...headers },
   body: JSON.stringify({ conversation: CONV, question: 'Nuôi cá này thế nào?', lang: 'vi', from: 'species', about: 'paracheirodon-innesi', ...body }),
@@ -106,7 +107,7 @@ async function run(req: Request, e: ChatEnv, d: ChatDeps, now = new Date()) {
 }
 
 test('GET: off without the flag or what it needs; on, its limits; through the Worker too', async () => {
-  for (const extra of [{ CHAT: undefined }, { CHAT: '0' }, { UPLOADS: undefined }, { FISHID_LEDGER: undefined }, { ANTHROPIC_KEYS: '' }]) {
+  for (const extra of [{ CHAT: undefined }, { CHAT: '0' }, { UPLOADS: undefined }, { FISHID_LEDGER: undefined }, { ANTHROPIC_KEYS: '' }, { ACCOUNT_HMAC_KEY: undefined }]) {
     const { e } = env(extra as Partial<ChatEnv>)
     expect((await run(new Request('https://x.test/api/chat'), e, {})).body).toEqual({ on: false })
   }
@@ -156,9 +157,9 @@ test('a question: Claude reads the handbook and answers; the blocks are filled f
   expect(body.blocks).toMatchObject([{ t: 'species', page: { id: 'paracheirodon-innesi' }, facts: { schoolMin: 6 } }, { t: 'tool', tool: 'tank-mates', url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:8' }])
   // The first question says where it started.
   expect(JSON.stringify(c.bodies[0]!.messages)).toContain('The chat is about Cá neon xanh')
-  // Under the account's HMAC, never its id.
+  // Under the account's HMAC, never its id, in a key or what it holds.
   const conv = store.read<Conversation>(await convKey(me))!
-  expect([...store.m.keys()].join(' ')).not.toContain(me.id)
+  expect([...store.m.keys(), ...[...store.m.values()].map(v => v.body)].join(' ')).not.toContain(me.id)
   expect(conv.turns).toMatchObject([{ n: 1, question: 'Nuôi cá này thế nào?', text: 'Cá neon xanh sống theo đàn.' }])
   expect(conv.running).toBeUndefined()
   const day = ledger.day()!
@@ -209,13 +210,55 @@ test('deleting an account deletes its conversations and retries\' answers, every
   const other = await signIn(db)
   for (const [who, conversation, key] of [[me, CONV, '1d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13'], [me, '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913', '2d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13'], [other, CONV, '3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13']] as const)
     expect((await run(ask(bearer(who.token), { conversation }, { 'idempotency-key': key }), e, deps(claude(NEON).fetch))).res.status).toBe(200)
-  const mine = `/${await chatAccount('h', me.id)}/`
+  const mine = `/${await chatAccount('k', me.id)}/`
   expect([...store.m.keys()].filter(k => k.includes(mine))).toHaveLength(4)
   // Through the Worker, as the app deletes an account.
-  const res = await handle(new Request('https://x.test/api/v1/account', { method: 'DELETE', headers: { authorization: `Bearer ${me.token}` } }), { ...e, ACCOUNTS: 'on', ACCOUNT_HMAC_KEY: 'k' } as never)
+  const res = await handle(new Request('https://x.test/api/v1/account', { method: 'DELETE', headers: { authorization: `Bearer ${me.token}` } }), { ...e, ACCOUNTS: 'on' } as never)
   expect(res.status).toBe(204)
   expect([...store.m.keys()].filter(k => k.includes(mine))).toEqual([])
-  expect([...store.m.keys()].sort()).toEqual([await convKey(other), `chat-turn/${await chatAccount('h', other.id)}/3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13.json`])
+  expect([...store.m.keys()].sort()).toEqual([await convKey(other), `chat-turn/${await chatAccount('k', other.id)}/3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13.json`])
+})
+
+/** The account deleted through the Worker, as the app deletes it. */
+const deleteAccount = async (e: ChatEnv, token: string) =>
+  (await handle(new Request('https://x.test/api/v1/account', { method: 'DELETE', headers: { authorization: `Bearer ${token}` } }), { ...e, ACCOUNTS: 'on' } as never)).status
+
+test('an account deleted while its question is answered: the run deletes what it wrote after', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  const c = claude([async () => { await held; return NEON[0]!() }, NEON[1]!])
+  const waits: Promise<unknown>[] = []
+  const req = ask(bearer(me.token), {}, { 'idempotency-key': '6d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13' })
+  void chat(req, new URL(req.url), e, new Date(), deps(c.fetch), p => { waits.push(p) })
+  while (!c.bodies.length) await tick()
+  // The reader left mid-answer and deleted the account; the run goes on.
+  expect(await deleteAccount(e, me.token)).toBe(204)
+  release()
+  await Promise.all(waits)
+  const mine = `/${await chatAccount('k', me.id)}/`
+  expect([...store.m.keys()].filter(k => k.includes(mine))).toEqual([])
+})
+
+test('deleting an account deletes its chat again after its rows: what a run wrote meanwhile goes too', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const mine = `chat-conv/${await chatAccount('k', me.id)}/`
+  // A run past its check that the account is there writes its conversation as the first pass lists the account's.
+  let wrote = false
+  e.UPLOADS = new Proxy(store.bucket, {
+    get: (b, k) => k === 'list'
+      ? async (o: { prefix?: string }) => {
+        const listed = await b.list(o)
+        if (!wrote && o.prefix === mine) { wrote = true; await b.put(`${mine}${CONV}.json`, '{"created":0,"turns":[]}') }
+        return listed
+      }
+      : (b as unknown as Record<string | symbol, unknown>)[k],
+  })
+  expect(await deleteAccount(e, me.token)).toBe(204)
+  expect(wrote).toBe(true)
+  expect([...store.m.keys()].filter(k => k.startsWith(mine))).toEqual([])
 })
 
 test('the stream: steps as they happen, the text, each block, then done holding the same turn; the contract\'s order', async () => {
@@ -439,4 +482,17 @@ test('read_tanks reads the account\'s synced tanks, its fish named as the handbo
   const result = JSON.stringify(c.bodies[1]!.messages)
   expect(result).toContain('Bể phòng khách')
   expect(result).toContain('\\"name\\":\\"Cá neon xanh\\",\\"id\\":\\"paracheirodon-innesi\\",\\"count\\":12')
+})
+
+test('the daily cron sweeps retries\' answers a day old, and nothing else of the chat\'s, every page of them', async () => {
+  const r2 = memoryR2(1)
+  const now = Date.now()
+  const put = async (key: string, ago: number) => { r2.setNow(() => new Date(now - ago)); await r2.bucket.put(key, new Uint8Array([123, 125])) }
+  await put('chat-turn/a/old.json', 86_400_000 + 1)
+  await put('chat-turn/b/older.json', 3 * 86_400_000)
+  await put('chat-turn/a/new.json', 3_600_000)
+  await put('chat-conv/a/c.json', 30 * 86_400_000)
+  const worker = (await import('../index')).default
+  await worker.scheduled({} as ScheduledController, { AB: kv(), ASSETS, UPLOADS: r2.bucket } as never)
+  expect([...r2.m.keys()].sort()).toEqual(['chat-conv/a/c.json', 'chat-turn/a/new.json'])
 })
