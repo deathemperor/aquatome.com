@@ -605,7 +605,7 @@ export const RULES: Rule[] = [
   },
   {
     id: 'swapped-name', title: 'A fish called by the name it no longer has',
-    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. Listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
+    about: 'A sentence that gives a fish\'s old name beside its genus or its English name ("cá bút chì (Nannostomus)"). Since 2026-11-07 "cá bút chì" is the Siamese algae eater and the pencilfish "cá chì", the flat hillstream loaches "cá tỳ bà bướm", and Jordanella floridae has no "cá cờ" in its name. A sentence that also has the new name, or names the fish the old name is now ("cá bút chì (Crossocheilus)"), may be right and isn\'t listed. The sweep writes the name when the sentence says which fish it is (renameSwapped); what it leaves is listed, and the real-content test holds it at zero: the page is written again with the name in process.md\'s list.',
     check: p => (p.lang !== 'vi' ? [] : [...new Set([p.title, ...prose(p).map(f => f.html.replace(/<[^>]+>/g, ' ')), ...p.lines.map(l => l.text)].flatMap(swappedNames))]),
   },
   {
@@ -687,17 +687,85 @@ export const gluedSyllables = (text: string) => [...new Set((text.normalize('NFC
   return false
 }))]
 
-// "Cá bám đá" still names the family, so only a name with one of the flat genera in its brackets counts.
-const SWAPPED: readonly (readonly [wrong: RegExp, now: string])[] = [
-  [/cá bút chì.*(?:Nannostomus|pencil ?fish)|(?:Nannostomus|pencil ?fish).*cá bút chì/i, 'cá chì'],
-  [/cá bám đá[^.,;:()]{0,24}\(\s*(?:Beaufortia|Sewellia|Gastromyzon|Pseudogastromyzon|Sinogastromyzon)\b/i, 'cá tỳ bà bướm'],
-  [/cá cờ.*(?:Jordanella|flagfish)|(?:Jordanella|flagfish).*cá cờ/i, 'cá flagfish'],
-  [/cá cờ.*(?:Mesonauta|Laetacara|flag cichlid)|(?:Mesonauta|Laetacara|flag cichlid).*cá cờ/i, 'cá Mesonauta, cá Laetacara'],
-  [/cá thiên đường.*Macropodus opercularis|Macropodus opercularis.*cá thiên đường/i, 'cá cờ'],
+/** A fish's old name: in a sentence that names one of `fish`, `was` is its old name and `now` its name. */
+export type SwappedName = {
+  was: string
+  fish: readonly string[]
+  now: string
+  /** Only in the name's own brackets: "cá bám đá" still names the family. */
+  brackets?: true
+  /** `fish` is a group, and `now` its genera's names: the words don't say which one, so the sweep leaves it. */
+  group?: true
+  /** The fish the old name belongs to now: a sentence naming them may be right, so it is neither listed nor renamed. */
+  stillFor?: readonly string[]
+}
+const SIAMESE = ['Crossocheilus', 'algae eater']
+const PARADISE = ['Macropodus', 'paradise fish']
+/** The owner's names of 2026-11-07. The writers' prompts read this list, the sweep writes it, and the swapped-name rule holds it. */
+export const SWAPPED: readonly SwappedName[] = [
+  { was: 'cá bút chì', fish: ['Nannostomus', 'pencilfish', 'pencil fish'], now: 'cá chì', stillFor: SIAMESE },
+  { was: 'cá bám đá', fish: ['Beaufortia', 'Sewellia', 'Gastromyzon', 'Pseudogastromyzon', 'Sinogastromyzon'], now: 'cá tỳ bà bướm', brackets: true },
+  { was: 'cá cờ', fish: ['Jordanella', 'flagfish'], now: 'cá flagfish', stillFor: PARADISE },
+  { was: 'cá cờ', fish: ['Mesonauta'], now: 'cá Mesonauta', stillFor: PARADISE },
+  { was: 'cá cờ', fish: ['Laetacara'], now: 'cá Laetacara', stillFor: PARADISE },
+  { was: 'cá cờ', fish: ['flag cichlid'], now: 'cá Mesonauta, cá Laetacara', group: true },
+  { was: 'cá thiên đường', fish: ['Macropodus opercularis'], now: 'cá cờ' },
 ]
+const word = (w: string) => `(?<!\\p{L})${w}(?!\\p{L})`
+const TAG = /<[^>]+>/g
+const SENTENCE_END = /(?<=[.!?])\s+|\n/
+const SWAPS = SWAPPED.map(r => {
+  const fish = `(?:${r.fish.join('|')})`
+  // Tags may stand in the way: the sweep reads this in HTML, the rule in plain text.
+  const inBrackets = r.brackets ? `(?=(?:[^.,;:()<]|<[^>]+>){0,24}\\((?:\\s|<[^>]+>)*${fish}\\b)` : ''
+  // The new name's last word after the old name goes with it: "cá bám đá bướm" is "cá tỳ bà bướm", not "… bướm bướm".
+  const again = `(?:\\s+${word(r.now.split(' ').at(-1)!)})?`
+  return { ...r, old: new RegExp(word(r.was) + again + inBrackets, 'giu'), named: new RegExp(fish, 'iu'), nowSaid: new RegExp(word(r.now), 'iu'), stays: r.stillFor && new RegExp(r.stillFor.join('|'), 'iu') }
+})
+// A sentence that has the new name too, or names the fish the old name is now, may be right under the new names (the
+// Writing Lead, 2026-11-08: "a sentence that's right under the new names shouldn't stop a publish").
+const swapsIn = (sentence: string) => SWAPS.filter(r => sentence.search(r.old) >= 0 && r.named.test(sentence) && !r.nowSaid.test(sentence) && !r.stays?.test(sentence))
 /** Each sentence that gives a fish a name it no longer has, with the name it has now. */
-export const swappedNames = (text: string) => text.normalize('NFC').split(/(?<=[.!?])\s+|\n/).flatMap(s =>
-  SWAPPED.filter(([wrong]) => wrong.test(s)).map(([, now]) => `should be "${now}": ${clip(s)}`))
+export const swappedNames = (text: string) => text.normalize('NFC').split(SENTENCE_END).flatMap(s =>
+  swapsIn(s).map(r => `should be "${r.now}": ${clip(s)}`))
+
+/**
+ * Text (plain or HTML) with a fish's old name written as its name, in each sentence that says which fish it is. Left for
+ * the swapped-name rule to list, when the sentence doesn't: one old name for two fish named, or a group.
+ */
+export function renameSwapped(text: string) {
+  const nfc = text.normalize('NFC')
+  const inSentence = (raw: string) => {
+    const s = raw.replace(TAG, ' ')
+    const swaps = swapsIn(s).filter(r => !r.group)
+    return swaps.reduce((out, r) => (swaps.some(o => o !== r && o.was === r.was) ? out
+      : out.replace(r.old, m => (m[0] === m[0]!.toLowerCase() ? r.now : r.now[0]!.toUpperCase() + r.now.slice(1)))), raw)
+  }
+  // Tags blanked, so the sentences end where the rule's do and at the same offsets as in the text.
+  let at = 0
+  const out = nfc.replace(TAG, tag => ' '.repeat(tag.length)).split(new RegExp(`(${SENTENCE_END.source})`)).map(part => inSentence(nfc.slice(at, at += part.length))).join('')
+  return out === nfc ? text : out
+}
+
+/** The same, on every string in a value. */
+export const renameSwappedIn = <V>(v: V): V => (typeof v === 'string' ? renameSwapped(v) as V
+  : Array.isArray(v) ? v.map(renameSwappedIn) as V
+    : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, renameSwappedIn(x)])) as V : v)
+
+/**
+ * A stored Vietnamese page with old names renamed in what its reader reads and the rule checks: its name (one a person
+ * fixed stays), text, summary, FAQ, and a product's reviews and tests. Its other names (searches find it by them) and the
+ * sources' references stay. The same object when nothing changes.
+ */
+export function renameStored<T extends { name?: string; nameFixed?: boolean; sections?: Record<string, string> }>(t: T): T {
+  const next = {
+    ...t,
+    ...(t.name !== undefined && !t.nameFixed ? { name: renameSwapped(t.name) } : {}),
+    ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, k.startsWith('references') ? v : renameSwapped(v)])) } : {}),
+    ...Object.fromEntries(['body', 'definition', 'summary', 'faq', 'reviews', 'tested'].flatMap(k => (k in t ? [[k, renameSwappedIn((t as Record<string, unknown>)[k])]] : []))),
+  }
+  return JSON.stringify(next) === JSON.stringify(t) ? t : next
+}
 
 /** The genera and species the site has pages for. */
 export const ctxOf = (pages: Page[]): Ctx => ({
