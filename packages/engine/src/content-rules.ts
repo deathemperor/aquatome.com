@@ -692,6 +692,8 @@ const SWAPPED: readonly (readonly [wrong: RegExp, now: string])[] = [
   [/cá bút chì.*(?:Nannostomus|pencil ?fish)|(?:Nannostomus|pencil ?fish).*cá bút chì/i, 'cá chì'],
   [/cá bám đá[^.,;:()]{0,24}\(\s*(?:Beaufortia|Sewellia|Gastromyzon|Pseudogastromyzon|Sinogastromyzon)\b/i, 'cá tỳ bà bướm'],
   [/cá cờ.*(?:Jordanella|flagfish)|(?:Jordanella|flagfish).*cá cờ/i, 'cá flagfish'],
+  [/cá cờ.*(?:Mesonauta|Laetacara|flag cichlid)|(?:Mesonauta|Laetacara|flag cichlid).*cá cờ/i, 'cá Mesonauta, cá Laetacara'],
+  [/cá thiên đường.*Macropodus opercularis|Macropodus opercularis.*cá thiên đường/i, 'cá cờ'],
 ]
 /** Each sentence that gives a fish a name it no longer has, with the name it has now. */
 export const swappedNames = (text: string) => text.normalize('NFC').split(/(?<=[.!?])\s+|\n/).flatMap(s =>

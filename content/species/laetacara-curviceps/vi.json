@@ -1,6 +1,6 @@
 {
-  "slug": "ca-co-lun",
-  "name": "Cá cờ lùn",
+  "slug": "ca-laetacara",
+  "name": "Cá Laetacara",
   "altNames": [
     "Cá acara cười",
     "Cá acara cờ",
@@ -11,7 +11,7 @@
     "Blunt-headed cichlid"
   ],
   "sections": {
-    "quickFacts:seriouslyfish": "<p>Cá cờ lùn (dwarf flag cichlid), Laetacara curviceps, là một loài cichlid nhỏ sống ở vùng hạ lưu sông Amazon, Brazil. Dân chơi cá đã chuộng loài này từ lâu. Nó còn có các tên 'flag acara', 'smiling acara', 'sheepshead acara' và 'blunt-headed cichlid'. Mỗi quần thể có lượng màu đỏ và xanh trên thân và vây đậm nhạt khác nhau. Cá thích nước trong, chảy chậm, đáy phủ lớp lá rụng. Đây là loài đẻ trứng trên nền, cả bố lẫn mẹ cùng chăm sóc.</p>",
+    "quickFacts:seriouslyfish": "<p>Cá Laetacara (dwarf flag cichlid), Laetacara curviceps, là một loài cichlid nhỏ sống ở vùng hạ lưu sông Amazon, Brazil. Dân chơi cá đã chuộng loài này từ lâu. Nó còn có các tên 'flag acara', 'smiling acara', 'sheepshead acara' và 'blunt-headed cichlid'. Mỗi quần thể có lượng màu đỏ và xanh trên thân và vây đậm nhạt khác nhau. Cá thích nước trong, chảy chậm, đáy phủ lớp lá rụng. Đây là loài đẻ trứng trên nền, cả bố lẫn mẹ cùng chăm sóc.</p>",
     "distribution:seriouslyfish": "<p>Loài này sống tự nhiên ở vùng hạ lưu sông Amazon, Brazil. Một số quần thể có kiểu màu khác nhau, rõ nhất là ở lượng sắc tố đỏ và xanh trên thân và vây.</p><p>Nơi thu mẫu chuẩn chỉ ghi đơn giản là 'sông Amazon, Brazil'.</p>",
     "habitat:seriouslyfish": "<p>Các quan sát ngoài tự nhiên cho thấy loài này có vẻ ưa những nơi nước trong vắt, dòng chảy yếu và ít phù sa lơ lửng.</p><p>Ở vùng Amazon, những nơi như vậy là các nhánh sông nhỏ, hồ móng ngựa (khúc sông cũ bị tách rời khỏi dòng chính) và hồ ven sông. Nền đáy ở đây thường là một lớp lá rụng, xen với các loài thực vật thủy sinh lớn như Cabomba, Myriophylum và Eichhornia spp.</p>",
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–28°C</li><li>pH: 4,5–7,5</li><li>Độ cứng: 1–15 dGH</li></ul>",
@@ -26,5 +26,12 @@
     "bySource": {
       "seriouslyfish": 0.8
     }
-  }
+  },
+  "nameFixed": true,
+  "redirectFrom": [
+    {
+      "slug": "ca-co-lun",
+      "name": "Cá cờ lùn"
+    }
+  ]
 }
