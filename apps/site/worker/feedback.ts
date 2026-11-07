@@ -50,18 +50,24 @@ const CHOICES: Record<string, readonly string[]> = {
   theme: ['light', 'dark'],
 }
 
+/** A query's part that can't hold a sentence: a short word for a short word, as a filter or a one-word search has. */
+const QUERY_PART = /^[A-Za-z0-9_-]{1,24}=[A-Za-z0-9.,_-]{0,24}$/
+
 /**
- * An address on this site, https, one line, with whatever could read as words or break out of its quoting percent-encoded.
- * Its fragment goes; null for anything else.
+ * An address on this site, kept to what an address needs: anyone can send the owner a link, and what it holds reaches the
+ * thread that takes instructions. So a path of plain characters and no more than 200 of them, and a query only when every
+ * part is a short word (a search of several words goes, and the screenshot shows it). Its fragment goes; null for anything
+ * else. What a hyphenated path can still spell reaches the thread in code quotes, over a line saying it's no instruction.
  */
 function ownAddress(value: unknown, host: string): string | null {
   if (typeof value !== 'string' || value.length > 2000) return null
   let u: URL
   try { u = new URL(value) } catch { return null }
   if (u.protocol !== 'https:' || u.host !== host || u.username || u.password) return null
-  const path = `${u.pathname}${u.search}`.replace(/[^A-Za-z0-9\-._~:/?[\]@!$&'()*+,;=%]/g, c => encodeURIComponent(c).replace(/[!'()*]/g, x => `%${x.charCodeAt(0).toString(16).toUpperCase()}`))
-  const out = `https://${host}${path}`
-  return out.length <= 600 ? out : null
+  if (u.pathname.length > 200 || !/^[A-Za-z0-9/_.~-]+$/.test(u.pathname)) return null
+  const query = u.search.slice(1).split('&').filter(Boolean)
+  const kept = query.length <= 6 && query.every(p => QUERY_PART.test(p)) ? query : []
+  return `https://${host}${u.pathname}${kept.length ? `?${kept.join('&')}` : ''}`
 }
 
 function cleanWhere(raw: unknown, host: string): Record<string, string> {

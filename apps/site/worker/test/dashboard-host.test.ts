@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
@@ -14,7 +15,7 @@ import { memoryR2 } from './r2'
 
 /** A fish-ID run's id, for its page's address. */
 /** The owner bar's words, from its source (the script in every page only loads it). */
-const ownerBar = () => readFileSync(new URL('../../src/owner/bar.ts', import.meta.url), 'utf8')
+const ownerBar = () => readFileSync(fileURLToPath(new URL('../../src/owner/bar.ts', import.meta.url).href), 'utf8')
 const RUN = '00000000-0000-4000-8000-000000000001'
 
 /**

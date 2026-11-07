@@ -108,7 +108,7 @@
         "description": "What they were looking at, each field checked by the Worker.",
         "properties": {
           "source": { "enum": ["web", "app"] },
-          "url": { "type": "string", "maxLength": 600, "pattern": "^https://[^\\s`]+$", "description": "An address on this site." },
+          "url": { "type": "string", "maxLength": 600, "pattern": "^https://[^\\s`]+$", "description": "An address on this site, kept to what an address needs: a plain path, and a query only when every part is a short word. Anyone can send the owner a link." },
           "screen": { "type": "string", "pattern": "^[A-Za-z0-9 _./-]{1,80}$", "description": "The app's screen." },
           "kind": { "type": "string", "pattern": "^[a-z-]{1,20}$", "description": "What the item is: fish, plant, guide, section…" },
           "item": { "type": "string", "pattern": "^[A-Za-z0-9_.:-]{1,120}$", "description": "The item's id." },

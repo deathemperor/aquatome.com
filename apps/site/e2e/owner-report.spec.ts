@@ -98,6 +98,27 @@ test('a picture they pick replaces the one taken, and neither the bar nor the sh
   await expect(page.locator('[data-owner-report] textarea')).toHaveValue('')
 })
 
+test('closing the sheet while it waits for the screenshot takes the report back', async ({ page, context, baseURL }) => {
+  await flag(context, baseURL!)
+  const posts: string[] = []
+  let release = () => {}
+  const held = new Promise<void>(ok => { release = ok })
+  await page.route(url => url.pathname === '/api/feedback', route => { posts.push('sent'); return route.fulfill({ status: 201, json: { id: 'x', waiting: 1 } }) })
+  // The screenshot's file, held until the sheet is closed, then a screenshot that comes at once: a send it set off would follow it.
+  await page.route(url => /^\/_owner\/capture-/.test(url.pathname), async route => { await held; await route.fulfill({ contentType: 'text/javascript', body: 'export const captureViewport = async () => null' }) })
+  await page.goto(pageOf())
+  await page.locator('[data-owner-report-open]').click()
+  const sheet = page.locator('[data-owner-report]')
+  await sheet.locator('textarea').fill('Thôi')
+  await sheet.getByRole('button', { name: 'Gửi' }).click()
+  await expect(sheet.getByRole('button', { name: 'Đang chụp…' })).toBeVisible()
+  await sheet.getByRole('button', { name: 'Đóng' }).click()
+  await expect(sheet).toHaveCount(0)
+  release()
+  await page.waitForTimeout(1500)
+  expect(posts).toEqual([])
+})
+
 test('the bar still hides a page, and has its links, from its own file', async ({ page, context, baseURL }) => {
   await flag(context, baseURL!)
   const hides: string[] = []

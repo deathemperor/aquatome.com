@@ -207,7 +207,7 @@ that would have caught it).
     `protocols/owner-feedback.openapi.json`. They feed the thread that runs the project, so: only the owner's signed-in
     account sends one (no session, an ended one, the owner bar's flag, the dashboard token or another account stores
     nothing), the owner's cookie only from the site's own pages, 30 an hour, and only the words are free text: each other
-    field passes its own check or is left out, an address only on this site and percent-encoded. The queue opens to the
+    field passes its own check or is left out, an address only on this site, as a plain path and a query of short words at most. The queue opens to the
     dashboard token alone, and a delivered report and its image are deleted (`worker/test/feedback.test.ts`). The Mac's job:
     an empty queue is one request, a failed send keeps the report, a run that died after sending doesn't send twice, the
     owner's words quoted apart from everything recorded with them, no report's words in its log

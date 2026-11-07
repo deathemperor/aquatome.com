@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { OWNER_HOME, OWNER_PAGE, OWNER_SCRIPT } from '../owner'
 
@@ -28,7 +29,7 @@ test("the bar's page check: every language's pages, not the admin or other paths
 })
 
 test('the bar reads the page check it is held to', () => {
-  const bar = readFileSync(new URL('../../src/owner/bar.ts', import.meta.url), 'utf8')
+  const bar = readFileSync(fileURLToPath(new URL('../../src/owner/bar.ts', import.meta.url).href), 'utf8')
   expect(bar).toContain('new RegExp(OWNER_PAGE)')
   expect(bar).toContain('new RegExp(OWNER_HOME)')
 })

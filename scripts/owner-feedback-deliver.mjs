@@ -64,12 +64,15 @@ export async function deliverAll({ site = SITE, token, threadId, send = sendToTh
     // Sent by a run that died before it could delete: not sent twice.
     if (!(await delivered(report.id))) {
       const images = []
+      let message = composeMessage(report)
       if (report.image) {
         const r = await http(`${site}/_ab/feedback/${report.id}/image`, { headers: asOwner })
-        if (!r.ok) throw new Error(`${report.id}: its image: HTTP ${r.status}`)
-        images.push({ name: `screenshot.${EXTENSION[report.image.type] ?? 'jpg'}`, mimeType: report.image.type, bytes: Buffer.from(await r.arrayBuffer()) })
+        if (r.ok) images.push({ name: `screenshot.${EXTENSION[report.image.type] ?? 'jpg'}`, mimeType: report.image.type, bytes: Buffer.from(await r.arrayBuffer()) })
+        // Gone for good: it mustn't hold up this report's words or the reports behind it. Anything else, the next run tries again.
+        else if (r.status === 404) message += '\n\nIts screenshot was lost before it could be delivered.'
+        else throw new Error(`${report.id}: its image: HTTP ${r.status}`)
       }
-      await send({ threadId, message: composeMessage(report), images })
+      await send({ threadId, message, images })
       await remember(report.id)
       sent++
       log(`${new Date().toISOString()} delivered ${report.id}`)

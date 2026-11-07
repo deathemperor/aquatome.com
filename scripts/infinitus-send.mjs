@@ -35,8 +35,9 @@ export async function serverOrigin() {
 }
 
 async function signIn(origin) {
-  const { credential: code } = JSON.parse(await t3('auth', 'pairing', 'create', '--ttl', '2m', '--json', '--label', CLIENT, ...SCOPES.flatMap(s => ['--scope', s])))
+  // The server first: with Infinitus closed, this fails here and the t3 CLI, a whole app to start, is never run.
   const { client_id } = await okJson(await postJson(`${origin}/oauth/mcp/register`, { client_name: CLIENT, redirect_uris: [REDIRECT] }), 'register')
+  const { credential: code } = JSON.parse(await t3('auth', 'pairing', 'create', '--ttl', '2m', '--json', '--label', CLIENT, ...SCOPES.flatMap(s => ['--scope', s])))
   const verifier = b64url(randomBytes(32))
   const authorization = {
     response_type: 'code',

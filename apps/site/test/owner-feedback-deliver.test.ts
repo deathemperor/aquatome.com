@@ -84,11 +84,24 @@ test('a run that died after sending doesn\'t send twice: the next one only delet
   expect(again.calls.at(-1)!.method).toBe('DELETE')
 })
 
-test('a refused queue or image is an error and sends nothing', async () => {
+test('a refused queue, or an image that can\'t be read just now, is an error and sends nothing', async () => {
   await expect(run(site([], { queue: 404 }), ledger()).go).rejects.toThrow('HTTP 404')
-  const missing = run(site([REPORT], { image: 404 }), ledger())
-  await expect(missing.go).rejects.toThrow('HTTP 404')
-  expect(missing.send).not.toHaveBeenCalled()
+  const busy = run(site([REPORT], { image: 503 }), ledger())
+  await expect(busy.go).rejects.toThrow('HTTP 503')
+  expect(busy.send).not.toHaveBeenCalled()
+})
+
+test('an image gone for good holds up nothing: the words go, saying so, and so do the reports behind it', async () => {
+  const second = { ...REPORT, id: REPORT.id.replace(/1$/, '2'), image: null, words: 'hai' }
+  const s = site([REPORT, second], { image: 404 })
+  const { send, go } = run(s, ledger())
+  expect(await go).toBe(2)
+  const first = send.mock.calls[0]![0] as { message: string; images: unknown[] }
+  expect(first.images).toEqual([])
+  expect(first.message).toContain('> Ảnh bị lệch')
+  expect(first.message).toContain('Its screenshot was lost')
+  expect((send.mock.calls[1]![0] as { message: string }).message).toContain('> hai')
+  expect(s.calls.filter(c => c.method === 'DELETE')).toHaveLength(2)
 })
 
 test('the message keeps what the owner said apart from everything recorded with it', () => {

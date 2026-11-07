@@ -93,7 +93,9 @@ export function openReport() {
   sheet.showModal()
   words.focus()
 
+  let closed = false
   const close = () => {
+    closed = true
     open = false
     sheet.close()
     sheet.remove()
@@ -141,6 +143,7 @@ export function openReport() {
     if (!image && capturing) {
       send.textContent = 'Đang chụp…'
       await capturing
+      if (closed) return // closed while it waited: they took it back
     }
     if (!words.value.trim() && !image) {
       note.textContent = 'Nói vài chữ hoặc chọn một ảnh đã.'
