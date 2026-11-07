@@ -5,6 +5,7 @@ import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
 import { chatAccount, conversationKey } from '../chat/store'
+import type { ChatRunRecord } from '../chat/transcript'
 import { priceOf } from '../fishid/claude'
 import type { Source } from '../chat/handbook'
 import { handle } from '../index'
@@ -203,7 +204,7 @@ test('the chat\'s model in wrangler.jsonc is Haiku 5.5, with its own price; unse
   expect(chatWorstCost(model!)).toBeLessThan(chatWorstCost('claude-opus-5-5'))
 })
 
-test('deleting an account deletes its conversations and retries\' answers, every page of them, and no one else\'s', async () => {
+test('deleting an account deletes its conversations, their transcripts and retries\' answers, every page of them, and no one else\'s', async () => {
   // Listed a key at a time: deletion follows the list's cursor to its end.
   const { e, db, store } = env({}, 1)
   const me = await signIn(db)
@@ -211,12 +212,45 @@ test('deleting an account deletes its conversations and retries\' answers, every
   for (const [who, conversation, key] of [[me, CONV, '1d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13'], [me, '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913', '2d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13'], [other, CONV, '3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13']] as const)
     expect((await run(ask(bearer(who.token), { conversation }, { 'idempotency-key': key }), e, deps(claude(NEON).fetch))).res.status).toBe(200)
   const mine = `/${await chatAccount('k', me.id)}/`
-  expect([...store.m.keys()].filter(k => k.includes(mine))).toHaveLength(4)
+  expect([...store.m.keys()].filter(k => k.includes(mine)).map(k => k.split('/')[0]).sort()).toEqual(['chat-conv', 'chat-conv', 'chat-run', 'chat-run', 'chat-turn', 'chat-turn'])
   // Through the Worker, as the app deletes an account.
   const res = await handle(new Request('https://x.test/api/v1/account', { method: 'DELETE', headers: { authorization: `Bearer ${me.token}` } }), { ...e, ACCOUNTS: 'on' } as never)
   expect(res.status).toBe(204)
   expect([...store.m.keys()].filter(k => k.includes(mine))).toEqual([])
-  expect([...store.m.keys()].sort()).toEqual([await convKey(other), `chat-turn/${await chatAccount('k', other.id)}/3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13.json`])
+  const theirs = await chatAccount('k', other.id)
+  expect([...store.m.keys()].sort()).toEqual([await convKey(other), expect.stringMatching(new RegExp(`^chat-run/${theirs}/${CONV}/001-[0-9a-f-]{36}\\.json$`)), `chat-turn/${theirs}/3d3a9c0e-5b7f-4e21-8a6d-0c9b2f4e7a13.json`])
+})
+
+test('each question\'s transcript is kept under its account and conversation: what was asked, read and answered, a failed one too, never who asked', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const account = await chatAccount('k', me.id)
+  const runs = () => [...store.m.keys()].filter(k => k.startsWith(`chat-run/${account}/${CONV}/`)).sort()
+  const record = (k: string) => store.read<ChatRunRecord>(k)!
+  expect((await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))).body).toMatchObject({ n: 1 })
+  expect(runs()).toHaveLength(1)
+  const first = record(runs()[0]!)
+  expect(first).toMatchObject({
+    v: 1, conversation: CONV, n: 1, lang: 'vi', model: 'claude-opus-5-5', question: 'Nuôi cá này thế nào?', outcome: 'ok',
+    tokens: { input: 4000, output: 600 }, agent: { calls: 2, tools: 1, stopped: 'answer' },
+    answer: { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: 2, dropped: [] },
+  })
+  expect(first.cost).toBeGreaterThan(0)
+  // What Claude asked of the tools and what they answered, then its answer; not the first message (the handbook's map).
+  expect(first.turns).toHaveLength(2)
+  expect(first.turns[0]!.tools).toMatchObject([{ name: 'read_page', input: { path: '/vi/ca/ca-neon-xanh/', heading: null } }])
+  expect(first.turns[0]!.tools![0]!.result).toContain('neon')
+  expect(first.turns[1]!.text).toContain('Cá neon xanh sống theo đàn.')
+  // Never who asked: not the account, its id, its session or a key.
+  const raw = JSON.stringify(first)
+  for (const secret of [me.id, me.token, account, A, B]) expect(raw).not.toContain(secret)
+  // A failed question has one too, with the number the next question takes.
+  const bad = claude([() => msg([{ type: 'text', text: 'not json' }])])
+  expect((await run(ask(bearer(me.token)), e, deps(bad.fetch))).body).toEqual({ error: 'failed' })
+  expect((await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))).body).toMatchObject({ n: 2 })
+  const [, ...seconds] = runs()
+  expect(seconds.map(k => record(k)).map(r => [r.n, r.outcome, r.answer?.text ?? null]).sort()).toEqual([[2, 'failed', null], [2, 'ok', 'Cá neon xanh sống theo đàn.']])
+  expect(seconds.every(k => k.includes('/002-'))).toBe(true)
 })
 
 /** The account deleted through the Worker, as the app deletes it. */

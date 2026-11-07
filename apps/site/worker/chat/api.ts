@@ -8,11 +8,13 @@ import { clientFor, costOf, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { failed, healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
 import { ledgerClient } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
-import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type Earlier, type Start } from './agent'
+import { turnsOf } from '../fishid/transcript'
+import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey } from './store'
 import type { Step, Tank } from './tools'
+import { transcriptKey, type ChatRunRecord } from './transcript'
 
 /**
  * The chat (protocols/chat.openapi.json): GET /api/chat says whether it's on; POST asks one question in a conversation,
@@ -31,7 +33,8 @@ import type { Step, Tank } from './tools'
  *   (`chat-turn/<account>/<key>.json`), swept within a day by the daily cron. A retry while the first run still answers waits for it and gets its answer,
  *   counted once.
  *
- * The transcripts (kept as the conversation is, and deleted with it) come in their own pull request.
+ * - The transcript: what each question said and did (transcript.ts), under the account and conversation
+ *   (`chat-run/<account>/<conversation>/<n>-<run>.json`), kept as the conversation is and deleted with the account.
  */
 export type ChatEnv = {
   /** "1": chat is on. */
@@ -249,6 +252,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const spends: Promise<unknown>[] = []
   const tally: Record<string, number> = {}
   const attempts: Attempt[] = []
+  const began = clock()
+  /** The run as the agent ran it, for its transcript: none when it never started (the handbook unread). */
+  let trail: ChatRun | undefined
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
   const work = async (onStep?: (s: Step) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
@@ -291,6 +297,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         tanks: () => tanksOf(env.DB, session.userId, hb).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
       })
+      trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
       // No key answered the first call: resting or unavailable (ours), or our request refused (failed). A later call
       // that failed or ran out of time: unavailable, unless the API refused our request (400). An answer we can't read
@@ -323,15 +330,33 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
-    await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
+    // The transcript beside the conversation: never in the reader's way, so one that can't be saved is only logged.
+    const runKey = trail ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
+    await Promise.all([
+      env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e)),
+      trail && env.UPLOADS.put(runKey, JSON.stringify(transcript(done, trail))).catch(e => console.error('chat transcript:', e)),
+    ])
     // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
     // second pass, after the account's rows, comes after these writes and deletes them.
     const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
-    if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : [])]).catch(e => console.error('chat deleted account:', e))
+    if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
     await Promise.all(spends)
     // Our side failed (503: no key, Claude unreachable): the reader's count goes back. A failed answer (502) still counts.
     const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
     await ledger.settle({ day, run, refund: done.status === 503, keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+  }
+
+  /** What the question said and did (transcript.ts): what the reader asked and got, never who they are. */
+  const transcript = (done: { status: number; body: Record<string, unknown> }, t: ChatRun): ChatRunRecord => {
+    const s = t.spent
+    return {
+      v: 1, conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, at: now.toISOString(), lang: q.lang, model,
+      question: q.question, outcome: done.status === 200 ? 'ok' : String(done.body.error), ms: clock() - began,
+      cost: costOf(model, s), tokens: { input: s.input + s.cacheRead + s.cacheWrite, output: s.output },
+      agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
+      ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, blocks: t.blocks.length, dropped: t.dropped } } : {}),
+      turns: turnsOf(t.history, t.message),
+    }
   }
 
   if (!stream) {

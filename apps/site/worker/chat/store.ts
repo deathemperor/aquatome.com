@@ -1,7 +1,8 @@
 /**
- * Where the chat keeps an account's conversations and its retries' answers in R2 (UPLOADS): under the account's own
- * prefix, so deleting the account finds them (accounts/users.ts). Conversations are kept with no time limit (the
- * owner's decision, 2026-11-07); a retry's answer is read for 15 minutes and swept within a day (the daily cron).
+ * Where the chat keeps an account's conversations, their transcripts and its retries' answers in R2 (UPLOADS): under
+ * the account's own prefix, so deleting the account finds them (accounts/users.ts). Conversations and transcripts are
+ * kept with no time limit (the owner's decision, 2026-11-07); a retry's answer is read for 15 minutes and swept within a
+ * day (the daily cron).
  */
 
 /**
@@ -34,7 +35,7 @@ async function deleteAll(bucket: R2Bucket, keys: string[]): Promise<void> {
 /** Everything the chat keeps for an account, when the account is deleted. Listed whole first, then deleted: a cursor isn't promised to hold across deletes. */
 export async function deleteChatOf(bucket: R2Bucket, account: string): Promise<void> {
   const keys: string[] = []
-  for (const prefix of [`chat-conv/${account}/`, `chat-turn/${account}/`]) keys.push(...(await listAll(bucket, prefix)).map(o => o.key))
+  for (const prefix of [`chat-conv/${account}/`, `chat-run/${account}/`, `chat-turn/${account}/`]) keys.push(...(await listAll(bucket, prefix)).map(o => o.key))
   await deleteAll(bucket, keys)
 }
 
