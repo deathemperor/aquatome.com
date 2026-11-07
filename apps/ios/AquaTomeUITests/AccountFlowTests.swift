@@ -206,12 +206,15 @@ final class AccountFlowTests: XCTestCase {
     let status = app.staticTexts["account-status"]
     XCTAssertTrue(status.waitForExistence(timeout: 5), "signed in on this phone, not shown offline")
     XCTAssertTrue(status.label.contains("Apple"), status.label)
-    XCTAssertTrue(element(app, "sign-out").exists && element(app, "delete-account").exists, "the account's buttons gone offline")
     XCTAssertFalse(element(app, "account-off").exists, "offline read as accounts off")
     let sync = element(app, "sync-status")
     XCTAssertTrue(sync.waitForExistence(timeout: 10), "no sync row")
     XCTAssertTrue(sync.label.contains("Chưa có mạng") && sync.label.contains("Đồng bộ lần cuối lúc"), sync.label)
     XCTAssertTrue(element(app, "sync-retry").exists, "no Thử lại offline")
+    // At the sheet's end.
+    let out = element(app, "sign-out")
+    repeatUntil(out.exists, times: 6) { app.swipeUp() }
+    XCTAssertTrue(out.exists && element(app, "delete-account").exists, "the account's buttons gone offline")
     // Seen from the tanks tab, where the change is made.
     add(app, "Bể tép", first: true)
     XCTAssertEqual(profile(app), "đã đăng nhập", "a dot for no network")
@@ -245,6 +248,7 @@ final class AccountFlowTests: XCTestCase {
     tap(app, "sync-retry")
     XCTAssertTrue(waitForSyncs(app, 1), "Thử lại didn't sync")
     XCTAssertTrue(element(app, "sync-status").label.contains("Đã đồng bộ"), element(app, "sync-status").label)
+    app.buttons["account-done"].tap()
     XCTAssertEqual(profile(app), "đã đăng nhập", "the dot stayed after the sync went through")
   }
 

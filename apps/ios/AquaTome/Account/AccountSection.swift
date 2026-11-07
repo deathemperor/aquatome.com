@@ -214,8 +214,9 @@ private struct SyncRow: View {
     }
   }
 
+  /// A cloud in its colour, the mark inside it (a check, an exclamation point) white.
   private func symbol(_ name: String, _ style: some ShapeStyle) -> some View {
-    Image(systemName: name).font(.title3).symbolRenderingMode(.hierarchical).foregroundStyle(style)
+    Image(systemName: name).font(.title3).symbolRenderingMode(.palette).foregroundStyle(.white, style)
   }
 
   /// AquaTome where this copy came from: TestFlight for a TestFlight build (its receipt is the sandbox's), else the App

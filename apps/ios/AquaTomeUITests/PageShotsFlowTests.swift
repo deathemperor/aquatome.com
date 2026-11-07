@@ -108,9 +108,11 @@ final class PageShotsFlowTests: XCTestCase {
   private func shootAccount(_ name: String, dark: Bool = false, size: String? = nil) {
     let app = launch(dark: dark, size: size, XCUIApplication.standInOwner)
     app.openAccount()
-    app.signInWithStandInApple()
-    let top = app.descendants(matching: .any)["account-status"].firstMatch
-    repeatUntil(top.isHittable, times: 8) { app.swipeDown() }
+    // Signed in, back at the sheet's top: at the largest text the button is a few screens down.
+    app.scrollToAndTap("apple-sign-in")
+    let top = app.staticTexts["account-status"]
+    repeatUntil(top.exists && top.isHittable, times: 12) { app.swipeDown() }
+    XCTAssertTrue(top.waitForExistence(timeout: 10), "not signed in")
     XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].firstMatch.waitForExistence(timeout: 10), "not the owner's account")
     capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 12)
   }

@@ -26,7 +26,7 @@ struct OwnerEntry: View {
                 ? Text("Bảng điều khiển") + Text(verbatim: "\n") + Text("Phiên đăng nhập đã hết: đăng nhập lại để xem bảng điều khiển.").font(.footnote).foregroundStyle(.red)
                 : Text("Bảng điều khiển")
             } icon: {
-              Tile(symbol: "chart.bar.xaxis", color: .accentColor)
+              Tile(symbol: "chart.bar.xaxis", color: Tile.green)
             }
           }
         }

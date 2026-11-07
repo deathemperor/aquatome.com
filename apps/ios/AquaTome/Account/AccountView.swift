@@ -46,6 +46,9 @@ struct AccountView: View {
 
 /// A settings row's symbol: white on a rounded square of its colour, as iOS's settings draw them.
 struct Tile: View {
+  /// The app's green as its light appearance has it, in the dark too: the dark one's mint is too light under white.
+  static let green = Color(red: 0x2F / 255, green: 0x6B / 255, blue: 0x4F / 255)
+
   let symbol: String
   let color: Color
 
@@ -146,11 +149,13 @@ private struct AboutSection: View {
   private func out(_ name: LocalizedStringKey, _ url: URL, id: String) -> some View {
     Link(destination: url) {
       HStack {
-        Text(name).foregroundStyle(.primary)
+        Text(name)
         Spacer()
         Image(systemName: "arrow.up.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
       }
     }
+    // The page's name in the text's colour, as a settings row: the arrow says it leaves the app.
+    .tint(.primary)
     .accessibilityIdentifier(id)
   }
 }
