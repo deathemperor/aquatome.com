@@ -20,7 +20,8 @@ stocking all depend on the particular tank and take weeks to fix. That is where 
 
 **Fishkeeping only.** The owner's condition for general knowledge: "just don't let them ask about football." Anything
 that isn't fish, shrimp, snails, plants, their tanks, ponds, water or gear gets one fixed line in the reader's language.
-It costs about $0.0006 and doesn't count toward the reader's 30.
+It costs about $0.0006 and doesn't count toward the reader's 30, for up to 30 such questions a day, so one account
+can't use up the site's daily count.
 
 **Today's limit on hard problems.** An answer to a problem is its likely cause, the steps one a line, then what to watch,
 within 5 model calls, 8 tool calls and 27 seconds. Most hard questions use up that budget before the chat has read all

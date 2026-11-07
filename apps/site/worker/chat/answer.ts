@@ -96,23 +96,26 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
 }
 
 const SPACE = new Set([' ', '\t', '\n', '\r'])
-/** What comes before the text's first character, JSON's whitespace aside: an off-topic answer (offTopic true) never streams. */
-const HEADS = ['{"text":"', '{"offTopic":false,"text":"']
+/**
+ * What comes before the text's first character: each of these in turn, with JSON's whitespace before each. Only an answer
+ * that has said it is on topic streams: an off-topic one never does, whatever the order of its keys.
+ */
+const HEAD = ['{', '"offTopic"', ':', 'false', ',', '"text"', ':', '"']
 const ESCAPES: Record<string, string> = { n: '\n', t: '\t', r: '\r', b: '\b', f: '\f', '"': '"', '\\': '\\', '/': '/' }
 
 /**
  * The answer's text as Claude writes it, for one call: fed the call's raw text as it comes, it gives back what each part
  * adds to the top-level `text` string, decoded ('' for nothing yet). An escape or a surrogate pair cut between parts
  * waits for the rest, so no piece holds half of one; joined, the pieces are the string JSON.parse reads. A call whose
- * JSON doesn't open with `text`, or with `offTopic` false then `text` (an off-topic answer, or not JSON: words before a
- * tool call), gives nothing, and nothing after the string's closing quote is read.
+ * JSON doesn't open with `offTopic` false then `text` (an off-topic answer, or not JSON: words before a tool call) gives
+ * nothing, and nothing after the string's closing quote is read.
  */
 export function textReader(): (part: string) => string {
   let raw = ''
   let at = 0
-  /** What came before the text so far, whitespace aside; the text has begun once it is one of HEADS. */
-  let head = ''
-  let begun = false
+  /** How far into HEAD: its item, and the characters of it matched. */
+  let item = 0
+  let got = 0
   let off = false
   let closed = false
   let text = ''
@@ -120,14 +123,13 @@ export function textReader(): (part: string) => string {
   return part => {
     if (off || closed) return ''
     raw += part
-    while (!begun) {
+    while (item < HEAD.length) {
       const c = raw[at]
       if (c === undefined) return ''
       at++
-      if (SPACE.has(c)) continue
-      head += c
-      if (HEADS.includes(head)) begun = true
-      else if (!HEADS.some(h => h.startsWith(head))) { off = true; return '' }
+      if (got === 0 && SPACE.has(c)) continue
+      if (c !== HEAD[item]![got]) { off = true; return '' }
+      if (++got === HEAD[item]!.length) { item++; got = 0 }
     }
     while (at < raw.length) {
       const c = raw[at]!
