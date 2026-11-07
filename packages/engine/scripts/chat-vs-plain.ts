@@ -121,7 +121,7 @@ const asked = (q: HardQuestion, c: Condition) => (c === 'post' ? q.post : q.shor
 async function main() {
   const questions = (JSON.parse(await readFile(args.questions!, 'utf8')) as HardQuestion[])
     .filter(q => !args.only || args.only.split(',').includes(q.id))
-    .filter(q => WANTED.length && (TOPICS as readonly string[]).includes(q.topic))
+    .filter(q => (TOPICS as readonly string[]).includes(q.topic))
   const indexText = await (await fetch(new URL('/app/vi.json', args.site))).text()
   siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText)}`)
   cacheDir = join(args.cache!, 'runs')
@@ -206,7 +206,7 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     return `| ${label} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${ps.length} | ${avg(ps.map(p => p.result!.ours))} · ${avg(ps.map(p => p.result!.plain))} | ${CRITERIA.map(c => `${ps.filter(p => p.result!.criteria[c] === 'ours').length}–${ps.filter(p => p.result!.criteria[c] === 'plain').length}`).join(' | ')} | ${pct(ps.filter(p => p.result!.consistent).length, ps.length)} |`
   }
   const head = `| | Ours / plain / tie or split | Score: ours · plain | ${CRITERIA.join(' | ')} | Orders agree |\n| --- | --- | ---: | ${CRITERIA.map(() => '---:').join(' | ')} | ---: |`
-  const usd = (k: 'ours' | 'plain') => avg(pairs.map(p => p[k].usd * 1000))
+  const usd = (k: 'ours' | 'plain') => (pairs.reduce((t, p) => t + p[k].usd, 0) / Math.max(1, pairs.length)).toFixed(4)
   const lines = [
     '# The chat against plain Claude, on hard problems',
     '',
@@ -216,7 +216,7 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     '- **Blind, as far as it goes:** the judge isn\'t told which answer is ours, and both lose the site\'s name and links. Ours still looks different (short text with excerpts, cards and tools under it), so the blinding is partial.',
     '- **Both orders:** each pair is judged twice, the answers swapped. A side wins only when both orders pick it; a split counts as a tie. The same for each count.',
     '- **Counts** (ours–plain wins): correct (right and safe), fits (uses this tank), actionable (what to do now, in order), grounded (no made-up precision), local (Vietnamese and Vietnam).',
-    `- **Cost:** ours $${usd('ours')} and plain $${usd('plain')} per thousand questions… per question ×1000, list price; the judge runs on the owner's accounts.`,
+    `- **Cost** per question, at list price: ours $${usd('ours')}, plain $${usd('plain')}. The judge runs on the owner's Claude accounts.`,
     '',
     head,
     ...WANTED.map(c => row(c, done.filter(p => p.c === c))),
@@ -224,7 +224,7 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     '## By problem',
     '',
     head,
-    ...WANTED.flatMap(c => TOPICS.map(t => row(`${c} · ${t}`, done.filter(p => p.c === c && p.q.topic === t)))),
+    ...WANTED.flatMap(c => TOPICS.flatMap(t => { const ps = done.filter(p => p.c === c && p.q.topic === t); return ps.length ? [row(`${c} · ${t}`, ps)] : [] })),
     '',
     '## What each lacks, as the judge tagged it',
     '',
