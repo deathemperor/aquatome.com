@@ -713,6 +713,12 @@
             "value": "1 jam, sampai %@"
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 jam, hingga %@"
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -749,6 +755,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "2 jam, sampai %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 jam, hingga %@"
           }
         },
         "th": {
@@ -1625,6 +1637,12 @@
             "value": "Nyalakan sekarang dengan warna jadwal sampai %@, lalu kembali mengikuti jadwal."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan sekarang dengan warna jadual hingga %@, kemudian kembali mengikut jadual."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -1683,6 +1701,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Nyalakan dengan warna jadwal"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan dengan warna jadual"
           }
         },
         "th": {
@@ -2535,6 +2559,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lampu belum terhubung."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu belum disambungkan."
           }
         },
         "th": {
@@ -9307,6 +9337,12 @@
             "value": "Setelah jam mati jadwal, lampu hanya bisa dinyalakan 1 atau 2 jam lagi: lampu yang menyala semalaman mudah memicu alga."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selepas waktu padam dalam jadual, lampu hanya boleh dihidupkan 1 atau 2 jam lagi: lampu yang menyala semalaman mudah menyebabkan alga tumbuh."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -10509,6 +10545,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sebelum jam nyala jadwal, lampu hanya bisa dinyalakan sampai jam mati jadwal."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebelum waktu hidup dalam jadual, lampu hanya boleh dihidupkan hingga waktu padam dalam jadual."
           }
         },
         "th": {
@@ -13849,6 +13891,12 @@
             "value": "Sudah pukul 23:59: hari ini tidak ada waktu lagi untuk menyalakan lampu."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah pukul 23:59: tiada masa lagi untuk menghidupkan lampu hari ini."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -14789,6 +14837,12 @@
             "value": "Lampu ini hanya menyimpan satu jadwal untuk semua hari, jadi tidak bisa dinyalakan khusus untuk hari ini."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini hanya menyimpan satu jadual untuk semua hari, jadi tidak boleh dihidupkan khas untuk hari ini."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -14849,6 +14903,12 @@
             "value": "Lampu menyala dari sekarang sampai %1$@ (jam mati jadwal), %2$@ jam."
           }
         },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala dari sekarang hingga %@ (waktu padam dalam jadual), %@ jam."
+          }
+        },
         "th": {
           "stringUnit": {
             "state": "translated",
@@ -14863,6 +14923,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lampu menyala dengan warna jadwal sampai %@, lalu kembali mengikuti jadwal dengan sendirinya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala dengan warna jadual hingga %@, kemudian kembali mengikut jadual secara automatik."
           }
         },
         "th": {
@@ -14989,6 +15055,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lampu sudah menyala sesuai jadwal."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu sudah menyala mengikut jadual."
           }
         },
         "th": {
