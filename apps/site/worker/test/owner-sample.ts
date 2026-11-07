@@ -4,6 +4,9 @@ import type { ContentReads, ContentStats, KindClicks, LowScores, Snapshot, Talk,
 import { summariseFishId, type CallRow, type DayRow } from '../admin/fishid'
 import type { Overview } from '../admin/pages'
 import type { ReportsData } from '../daily/page'
+import type { Change } from '../daily/github'
+import { summariseScoreboard, type BeaconRow } from '../admin/scoreboard'
+import type { Today } from '../admin/today'
 import type { Wanted } from '../wanted'
 
 /**
@@ -49,6 +52,8 @@ export const FISH = {
     call('2026-11-04 08:40:00', { sci: 'Betta macrostoma' }),
     call('2026-11-04 08:30:00', { sci: 'Trigonostigma heteromorpha', page: 'gone-page' }),
     call('2026-11-04 08:00:00', { outcome: 'rate', verdict: '', kh: '', tin: 0, tout: 0, usd: 0, guesses: 0, conf: 0, src: 'tank' }),
+    // Enough for more than one page of the app's table (50 rows a page).
+    ...Array.from({ length: 56 }, (_, i) => call(`2026-11-04 07:${String(59 - i).padStart(2, '0')}:00`, { sci: 'Paracheirodon innesi', page: 'paracheirodon-innesi' })),
   ], NOW, TZ),
   keys: { rows: [{ n: 1, hash: 'aaaa1111', workspace: false, state: 'credit' as const, until: '2026-11-05T02:00:00.000Z', calls: 3, answered: 0 }, { n: 2, hash: 'bbbb2222', workspace: true, state: 'ok' as const, calls: 40, answered: 39 }], bad: 0, today: 42, model: 'claude-x', counts: { fallback: 2, callLimit: 5, later400: 1, facts: 0, refunds: 3 }, mostRefunds: 2 },
   pages: new Map([['paracheirodon-axelrodi', '/vi/ca/ca-neon-vua/']]),
@@ -195,4 +200,45 @@ export const REPORTS: ReportsData = {
     { id: '1002', when: '2026-11-03T00:00:00.000Z', subject: 'AquaTome daily · 3 Nov · nothing needs care', sent: false, why: 'E_RATE_LIMIT_EXCEEDED', push: { sent: 0, why: 'no_device' }, care: 0 },
     { id: '1001', when: '2026-11-02T00:00:00.000Z', subject: 'AquaTome daily · 2 Nov · 1 needs care', sent: true, care: 1 },
   ],
+}
+
+/**
+ * The readers' beacon from last week's Monday (26 Oct) to now (Wednesday 4 Nov, 16:00 in Vietnam): each day, readers from
+ * search who stayed on the page they landed on (answers), readers who came straight in, and visits from search that left
+ * at once; a shop click every other day. The scoreboard and the overview read the same rows.
+ */
+export const BEACON: BeaconRow[] = lastDays(NOW, 10, TZ).flatMap((day, i) => {
+  const at = (k: number) => `${day} ${day === '2026-11-04' ? '05' : '02'}:${String(k).padStart(2, '0')}:00`
+  const row = (sid: string, t: string, k: number, v = 1, o: Partial<BeaconRow> = {}): BeaconRow => ({ sid, t, p: '/ca/ca-neon-vua/', ref: '', cc: i % 5 ? 'VN' : 'ID', first: at(k), v, n: 1, ...o })
+  const google = { ref: 'www.google.com' }
+  return [
+    ...Array.from({ length: 3 + (i % 4) }, (_, k) => [row(`a${i}-${k}`, 'view', k, 1, google), row(`a${i}-${k}`, 'time', k, 45), ...(k === 0 && i % 2 ? [row(`a${i}-${k}`, 'aff', k)] : [])]).flat(),
+    ...Array.from({ length: 2 + (i % 3) }, (_, k) => [row(`d${i}-${k}`, 'view', 10 + k), row(`d${i}-${k}`, 'time', 10 + k, 60)]).flat(),
+    ...Array.from({ length: 4 }, (_, k) => row(`b${i}-${k}`, 'view', 20 + k, 1, google)),
+  ]
+})
+/** Before the readers were counted (READERS_FROM): the sample counts them from October. */
+export const COUNTING_FROM = '2026-10-01T00:00:00Z'
+/** The product changes kept: three in the last 24 hours, one site, one app, one engine, and an older one. */
+export const CHANGES: Change[] = [
+  { area: 'Site', text: 'Comments held for review now show on the owner\'s dashboard.', at: '2026-11-04T01:00:00Z' },
+  { area: 'App', text: 'The tank list loads faster on older phones.', at: '2026-11-03T20:00:00Z' },
+  { area: 'Engine', text: 'Species pages no longer show photos of dead fish.', at: '2026-11-03T12:00:00Z' },
+  { area: 'Site', text: 'The tank volume calculator fits a phone.', at: '2026-11-01T08:00:00Z' },
+]
+export const SCOREBOARD_INPUT = {
+  now: NOW, owners: ['owner-1'], beacon: BEACON, community: { tanks: [], comments: [{ at: '2026-11-03T02:00:00Z' }], photos: [] }, clicks: { days: days31, clicks: wave(31, i => (i * 7) % 5) },
+  app: { sessions: [{ at: '2026-11-03T02:00:00Z' }], actions: [], crashes: [] }, content: STATS, snapshots: SNAPSHOTS, checks: [],
+}
+export const SCOREBOARD = summariseScoreboard(SCOREBOARD_INPUT)
+
+/** The overview's version 2: a key resting and a source waiting on the owner (faults), two comments held and two photos waiting. */
+export const TODAY: Today = {
+  ...OVERVIEW, beacon: BEACON, countingFrom: COUNTING_FROM, held: 2, waitingPhotos: WAITING.map(w => ({ id: w.id })), kept: KEPT.length, crashes: 3,
+  lastReport: (REPORTS.xs as Exclude<ReportsData['xs'], { failed: string }>)[0]!, changes: CHANGES,
+}
+/** Nothing needs the owner: every key working, nothing held or waiting, no source waiting on a browser check. */
+export const CALM: Today = {
+  ...TODAY, keys: { ...FISH.keys, rows: FISH.keys.rows.map(({ until: _u, ...r }) => ({ ...r, state: 'ok' as const })) }, held: 0, waitingPhotos: [],
+  waiting: { comments: 0, photos: 0, oldest: null }, content: { ...STATS, engine: STATS.engine && { ...STATS.engine, needsHuman: [] } }, crashes: 0,
 }

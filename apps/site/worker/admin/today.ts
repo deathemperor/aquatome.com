@@ -16,8 +16,9 @@ import { HOME_TZ, hourMinute, localDay } from './time'
 
 /** The overview's parts, and what version 2 reads besides. */
 export type Today = Overview & {
-  /** The readers' beacon from last week's Monday (Vietnam's), as the scoreboard reads it. */
+  /** The readers' beacon from last week's Monday (Vietnam's), as the scoreboard reads it, and when it began counting (READERS_FROM). */
   beacon: Soft<BeaconRow[]>
+  countingFrom: string
   /** Comments held: they wait on the owner. */
   held: Soft<number>
   /** Readers' photos waiting, newest first; undefined where readers' photos are off. */
@@ -71,7 +72,7 @@ export const PAGE_GROUPS: readonly (readonly [string, readonly (readonly [string
 /** This week's fish ID calls and cost, Monday (Vietnam's) to now, from the stats' days. */
 function fishWeek(t: Today): { calls: number; usd: number } | undefined {
   if (isFailed(t.fish)) return undefined
-  const monday = weekByDay(t.now, []).days[0]!
+  const monday = weekByDay(t.now, [], t.countingFrom).days[0]!
   const { days, perDay } = t.fish
   let calls = 0
   let usd = 0
@@ -192,7 +193,7 @@ function figureOf(key: string, t: Today, w: WeekByDay | undefined): { text: stri
     case 'bao-cao': {
       if (isFailed(t.lastReport)) return failed
       if (!t.lastReport) return { text: 'None yet', tone: 'muted' }
-      return t.lastReport.sent ? plain(`sent ${hourMinute(t.lastReport.when, tz)}`) : { text: 'not sent', tone: 'bad' }
+      return t.lastReport.sent ? plain(`sent ${hourMinute(t.lastReport.when, tz).replace(/^0(?=\d:)/, '')}`) : { text: 'not sent', tone: 'bad' }
     }
     case 'thay-doi': return isFailed(t.changes) ? failed : plain(`${fmtEn(shippedLines(t).length)} in 24 h`)
     default: return plain('')
@@ -200,7 +201,7 @@ function figureOf(key: string, t: Today, w: WeekByDay | undefined): { text: stri
 }
 
 export function todayJson(t: Today): TodayJson {
-  const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon)
+  const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon, t.countingFrom)
   const needs = needsOf(t)
   const review = toReview(t)
   const fix = needs.filter(x => x.tone === 'bad').length

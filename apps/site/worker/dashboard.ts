@@ -26,6 +26,7 @@ import {
   photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection, type AffSummary, type Overview, type RecentPhoto, type WaitingPhoto,
 } from './admin/pages'
 import { hostPath, isFailed, loginPage, NAV, REPORT_PATH, soft, unset, type AdminPath, type Soft, type WebPath } from './admin/shell'
+import { READERS_FROM } from './admin/ae'
 import { HOME_TZ, localDay, viewerZone } from './admin/time'
 import { changelogPage, changelogSection, loadChangelog } from './daily/changelog'
 import { loadReports, reportPage, reportsPage, reportsSection, SETTINGS_FORM } from './daily/page'
@@ -215,7 +216,7 @@ export const loadToday: Load<Today> = async (env, url, now, tz) => {
     soft('reports', listReports(env.AB).then(xs => xs[0] ?? null)),
     soft('change log', readChanges(env.AB)),
   ])
-  return { ...o, beacon, held, waitingPhotos: waiting, kept, crashes, lastReport, changes }
+  return { ...o, beacon, countingFrom: READERS_FROM, held, waitingPhotos: waiting, kept, crashes, lastReport, changes }
 }
 
 /**
@@ -290,7 +291,7 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
     ])
     // A guess's page by its id, from the catalog the tool links with; never an address from the log itself.
     const pages = new Map((catalog?.entries ?? []).map(e => [e.id, e.url.vi]))
-    return { now, tz, stats, keys, pages }
+    return { now, tz, stats, keys, pages, period: url.searchParams.get('period') }
   }, fishIdPage, fishIdSection),
   '/_ab/anh-nhan-dien/': view(async (env, _url, now, tz) => ({ now, tz, xs: env.UPLOADS ? await soft('kept', recentKept(env.UPLOADS)) : undefined }),
     d => keptPage(d.xs, d.now, d.tz), d => keptSection(d.xs, d.now, d.tz)),

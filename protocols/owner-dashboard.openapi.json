@@ -1690,6 +1690,13 @@
             "type": "integer",
             "minimum": 0,
             "description": "Today's bar, drawn lighter (the day isn't over), when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). A chart whose last day is today says so with `partialLast` and this too."
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "week"
+            ],
+            "description": "week: each of `days` is a week's Monday (the scoreboard's weeks), and each bar a week."
           }
         }
       },

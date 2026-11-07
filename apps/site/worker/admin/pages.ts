@@ -335,7 +335,17 @@ const FROM: Record<string, string> = { page: 'trang nhận diện', tank: 'Bể 
 const KEY_STATE: Record<FishIdStatus['rows'][number]['state'], string> = { ok: 'đang dùng', credit: 'hết credit', auth: 'key bị từ chối', rate: 'bị giới hạn tốc độ' }
 const KEY_STATE_EN: typeof KEY_STATE = { ok: 'in use', credit: 'out of credit', auth: 'key refused', rate: 'rate limited' }
 
-export type FishPage = { now: Date; stats: Soft<FishIdStats>; keys: Soft<FishIdStatus | undefined>; pages: Map<string, string>; /** The viewer's time zone (admin/time.ts). */ tz?: string }
+export type FishPage = { now: Date; stats: Soft<FishIdStats>; keys: Soft<FishIdStatus | undefined>; pages: Map<string, string>; /** The viewer's time zone (admin/time.ts). */ tz?: string; /** The period's key (?period=); the first when none or another. */ period?: string | null }
+
+/** The periods the section's top figures can be for, the first by default (the request's ?period=). */
+export const FISH_PERIODS = [{ key: 'd7', label: '7 ngày', at: 1 }, { key: 'today', label: 'Hôm nay', at: 0 }, { key: 'd30', label: '30 ngày', at: 2 }, { key: 'month', label: 'Tháng này', at: 3 }] as const
+const fishPeriod = (f: FishPage) => FISH_PERIODS.find(p => p.key === f.period) ?? FISH_PERIODS[0]
+/** The period's calls, cost and cost per call, each against the period before (today: yesterday). */
+function periodTiles(s: FishIdStats, key: (typeof FISH_PERIODS)[number]): Tile[] {
+  const p = PERIODS(s)[key.at]!
+  const t = (label: string, pick: (x: Totals) => number, f: (n: number) => string, good?: 'up'): Tile => ({ label: `${label} · ${p.label.toLowerCase()}`, value: f(pick(p.cur)), sub: p.note, delta: { now: pick(p.cur), before: pick(p.prev), vs: p.vs, ...(good ? { good } : {}) } })
+  return [t('Lượt gọi Claude', x => x.calls, n => fmt(n), 'up'), t('Chi phí', x => x.usd, usd), t('Mỗi lượt', each, usd)]
+}
 
 const fishLede = (tz: string, now: Date) => `Mỗi lượt gửi ảnh tới công cụ ghi một dòng vào Analytics Engine: kết quả, token, chi phí theo giá niêm yết, không có ảnh, IP hay key. Analytics Engine giữ khoảng 3 tháng. ${zoneNote(tz, now)}`
 const FISH_TOTALS_NOTE = '% là thay đổi so với kỳ trước: 7 hay 30 ngày trước đó, cùng kỳ tháng trước. Lượt gọi Claude: những lượt đã gọi tới API (có kết quả, hoặc không: Claude từ chối, câu trả lời hỏng, API lỗi). Chặn trước khi gọi: hết lượt, không qua Turnstile, ảnh hỏng… không tốn tiền.'
@@ -360,7 +370,7 @@ export function fishIdPage(f: FishPage): string {
   if (isFailed(f.stats)) body += failedBox('nhật ký nhận diện cá', f.stats)
   else {
     const s = f.stats
-    body += `<h2>Tổng</h2>${periodTable(s, false)}<details><summary>${PERIOD_FOLDED}</summary>${periodTable(s, true)}</details><p class="note">${FISH_TOTALS_NOTE}</p>
+    body += `${tiles(periodTiles(s, fishPeriod(f)))}<h2>Tổng</h2>${periodTable(s, false)}<details><summary>${PERIOD_FOLDED}</summary>${periodTable(s, true)}</details><p class="note">${FISH_TOTALS_NOTE}</p>
 <div class="charts">
 ${fishCharts(s).map(dayChart).join('\n')}
 </div>
@@ -378,7 +388,7 @@ export function fishIdSection(f: FishPage): Section {
   if (isFailed(f.stats)) blocks.push(failedNote('nhật ký nhận diện cá', f.stats))
   else {
     const s = f.stats
-    blocks.push(heading('Tổng'), periodBlock(s, false), periodBlock(s, true), note(FISH_TOTALS_NOTE), ...fishCharts(s).map(c => chart(c)),
+    blocks.push(figures(periodTiles(s, fishPeriod(f))), heading('Tổng'), periodBlock(s, false), periodBlock(s, true), note(FISH_TOTALS_NOTE), ...fishCharts(s).map(c => chart(c)),
       heading('Có trang trong cẩm nang'), figures(fishShare(s)), heading('Đoán nhiều mà chưa có trang · 30 ngày'), rankBlock(unmatchedRows(s), UNMATCHED_HEAD))
   }
   blocks.push(heading('Key Anthropic', 2, 'key'))
@@ -389,7 +399,7 @@ export function fishIdSection(f: FishPage): Section {
     blocks.push(note(textOf(k.lead)), table(k.head, k.rows, { empty: 'Chưa có key nào.' }), note(KEYS_NOTE), figures(runTiles(f.keys)), note(RUNS_NOTE))
   }
   if (!isFailed(f.stats)) blocks.push(heading('100 lượt gần nhất'), table(RECENT_HEAD, f.stats.recent.map(c => recentCells(c, f.pages, f.now, tz)), { empty: RECENT_NONE }))
-  return { title: 'Nhận diện cá', blocks }
+  return { title: 'Nhận diện cá', blocks, periods: FISH_PERIODS.map(({ key, label }) => ({ key, label })), period: fishPeriod(f).key }
 }
 
 /** Today's runs that went another way than plain (the ledger's counts, fishid/ledger.ts), from the same UTC midnight as the keys. */

@@ -128,12 +128,12 @@ export type WeekByDay = { days: string[]; today: number; answered: (number | nul
  * The scoreboard's this week and same point last week (flow), and this week's days, from the beacon's rows since last
  * week's Monday: the overview's "Found an answer" says what the scoreboard says. Days before the readers were counted are null.
  */
-export function weekByDay(now: Date, rows: BeaconRow[]): WeekByDay {
+export function weekByDay(now: Date, rows: BeaconRow[], countingFrom = READERS_FROM): WeekByDay {
   const visits = visitsOf(rows)
   const monday = mondayOf(localDay(now, HOME_TZ))
   const days = Array.from({ length: 7 }, (_, i) => plusDays(monday, i))
   const today = days.indexOf(localDay(now, HOME_TZ))
-  const since = Date.parse(READERS_FROM)
+  const since = Date.parse(countingFrom)
   const per = days.map((d, i) => (i > today || Date.parse(dayStart(plusDays(d, 1), HOME_TZ)) <= since ? null : counts(visits.filter(v => localDay(v.at, HOME_TZ) === d))))
   const week = (m: string) => visits.filter(v => mondayOf(localDay(v.at, HOME_TZ)) === m)
   const sameMoment = now.getTime() - 7 * DAY
@@ -384,7 +384,7 @@ const GROUP_PARTS: Partial<Record<Group, Part[]>> = { reach: ['beacon'], act: ['
 const row = (mondays: string[]) => (m: Metric) => {
   const was = before(m)
   const chip = m.unit === 'count' && m.now !== null && was ? chipHtml(chipOf(m.now, was.v, was.vs, m.good)) : ''
-  return `<tr><th scope="row">${esc(m.name)}${m.note ? `<small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}" aria-hidden="true">${spark(m.weeks, 1, { labels: mondays.map(d => `Tuần ${dayLabel(d)}`), format: v => shown(v, m.unit) })}</td></tr>`
+  return `<tr><th scope="row">${esc(m.name)}${m.note ? ` <small>${esc(m.note)}</small>` : ''}</th><td class="now" data-l="${COLUMNS[0]}"><b>${esc(shown(m.now, m.unit))}</b> ${chip}</td><td data-l="${COLUMNS[1]}">${esc(shown(m.lastSoFar, m.unit))}</td><td data-l="${COLUMNS[2]}">${esc(shown(m.last, m.unit))}</td><td class="trend" data-l="${COLUMNS[3]}" aria-hidden="true">${spark(m.weeks, 1, { labels: mondays.map(d => `Tuần ${dayLabel(d)}`), format: v => shown(v, m.unit) })}</td></tr>`
 }
 const COLUMNS = ['Tuần này', 'Cùng lúc tuần trước', 'Cả tuần trước', '12 tuần'] as const
 // The 12 weeks are drawn only (the spark is for the eye; the charts and the JSON's own weeks carry the numbers).

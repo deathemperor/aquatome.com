@@ -4,7 +4,11 @@ import { parse, type HTMLElement } from 'node-html-parser'
 import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
-import type { Action, Block, FormField, Section } from '../admin/blocks'
+import { paged, tablePage, type Action, type Block, type FormField, type Section } from '../admin/blocks'
+import { scoreboardPage, scoreboardSection, summariseScoreboard } from '../admin/scoreboard'
+import { todayJson, PAGE_GROUPS } from '../admin/today'
+import { CHANGE_COLUMN, changelogPage, changelogSection } from '../daily/changelog'
+import { dashboardJson } from '../owner-api'
 import { contentPage, contentSection, type ContentPage } from '../admin/content-page'
 import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewJson,
@@ -59,8 +63,21 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['test builds, none', () => appPage(S.NOW, true, summariseApp({ views: [], actions: [], errors: [], shops: [], health: [], perf: [] }, true), S.TZ), () => appSection(true, summariseApp({ views: [], actions: [], errors: [], shops: [], health: [], perf: [] }, true))],
     ['failed', () => appPage(S.NOW, false, F, S.TZ), () => appSection(false, F)],
   ],
+  'thanh-cong': [
+    ['sample', () => scoreboardPage(S.SCOREBOARD, S.TZ), () => scoreboardSection(S.SCOREBOARD)],
+    ...(() => {
+      const s = summariseScoreboard({ ...S.SCOREBOARD_INPUT, beacon: F, community: F, clicks: F, app: F, content: F, checks: F })
+      return [['parts failed', () => scoreboardPage(s, S.TZ), () => scoreboardSection(s)] as [string, () => string, () => Section]]
+    })(),
+  ],
+  'thay-doi': [
+    ['sample', () => changelogPage({ now: S.NOW, tz: S.TZ, xs: S.CHANGES }), () => changelogSection({ now: S.NOW, tz: S.TZ, xs: S.CHANGES })],
+    ['none, elsewhere', () => changelogPage({ now: S.NOW, tz: 'America/New_York', xs: [] }), () => changelogSection({ now: S.NOW, tz: 'America/New_York', xs: [] })],
+    ['failed', () => changelogPage({ now: S.NOW, tz: S.TZ, xs: F }), () => changelogSection({ now: S.NOW, tz: S.TZ, xs: F })],
+  ],
   'nhan-dien-ca': [
     ['sample', () => fishIdPage(S.FISH), () => fishIdSection(S.FISH)],
+    ['30 days', () => fishIdPage({ ...S.FISH, period: 'd30' }), () => fishIdSection({ ...S.FISH, period: 'd30' })],
     ['failed', () => fishIdPage({ ...S.FISH, stats: F, keys: F }), () => fishIdSection({ ...S.FISH, stats: F, keys: F })],
     ['no keys', () => fishIdPage({ ...S.FISH, keys: undefined }), () => fishIdSection({ ...S.FISH, keys: undefined })],
     ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0 }, mostRefunds: 0 } })],
@@ -204,12 +221,16 @@ function fromHtml(html: string) {
       } else if (tag === 'DIV' && n.classList.contains('kpi')) {
         out.figures.push({ label: txt(n.querySelector('dt')), value: txt(n.querySelector('dd.v')), ...(n.querySelector('dd.sub') ? { sub: txt(n.querySelector('dd.sub')) } : {}), ...(n.querySelector('.delta') ? { delta: txt(n.querySelector('.delta')) } : {}) })
         continue
-      } else if (tag === 'LI' && (n.parentNode as HTMLElement).classList.contains('gaps')) {
+      } else if (tag === 'LI' && (n.parentNode as HTMLElement).classList.contains('gaps') && n.querySelector('p span.muted')) {
         const p = n.querySelector('p')!
         const value = txt(p.querySelector('b'))
         const sub = txt(p.querySelectorAll('span.muted').at(-1))
         const all = txt(p)
         out.figures.push({ label: norm(all.slice(value.length, all.length - sub.length)), value, sub })
+      } else if (tag === 'OL' && (n.parentNode?.parentNode as HTMLElement | null)?.classList.contains('log')) {
+        // A day of the change log: each line and its area under it.
+        out.tables.push({ rows: n.querySelectorAll('li').map(li => [{ text: norm(`${txt(li.querySelector('p'))} ${txt(li.querySelector('small'))}`) }]) })
+        continue
       } else if (tag === 'OL' && n.classList.contains('pages')) {
         out.tables.push({ rows: n.querySelectorAll('li').map(li => [cell(li)]), folded: folded(n) })
         continue
@@ -265,8 +286,8 @@ for (const [key, variants] of Object.entries(VARIANTS)) {
   test(`${key}: the blocks say what the page shows, from the same data`, () => {
     for (const [name, html, json] of variants) {
       const h = fromHtml(html())
-      // A page's list of pages, and the report log's list of reports, have no column heads; their tables do.
-      const j = fromJson(json(), t => (t.folded ? t.columns?.[0] !== 'Trang' : t.columns?.[0] !== 'Báo cáo'))
+      // A page's list of pages, the report log's list of reports and the change log's days have no column heads; their tables do.
+      const j = fromJson(json(), t => (t.folded ? t.columns?.[0] !== 'Trang' : !['Báo cáo', CHANGE_COLUMN].includes(t.columns?.[0] ?? '')))
       const at = `${key}, ${name}`
       expect(j.title, at).toBe(h.title)
       expect(j.headings, at).toEqual(h.headings)
@@ -326,6 +347,45 @@ test('the overview: its to-dos, areas, their note and the last days are the page
   expect(j.todos.map(t => t.action)).toEqual([{ label: 'Xem key', section: 'nhan-dien-ca', anchor: 'key' }, { label: 'Xem engine', section: 'noi-dung', anchor: 'engine' }])
   expect(j.areas.find(a => a.name === 'Engine')).toMatchObject({ section: 'noi-dung', anchor: 'engine' })
   expect(j.log.entries.filter(e => e.section).length).toBeGreaterThan(2)
+})
+
+test('the overview\'s version 2: the tiles add up to their parts, found an answer is the scoreboard\'s, and each place it opens is a section', () => {
+  const anchors = (key: string) => VARIANTS[key]![0]![2]().blocks.flatMap(b => (b.kind === 'heading' && b.anchor ? [b.anchor] : []))
+  const t = todayJson(S.TODAY)
+  // Found an answer: the scoreboard's star this week, never more than the day's readers; the tile's bars are the chart's.
+  const star = S.SCOREBOARD.metrics.find(m => m.key === S.SCOREBOARD.northStar)!
+  const ch = t.answers.chart as Extract<Block, { kind: 'chart' }>
+  expect(t.tiles.map(x => x.key)).toEqual(['needs', 'answers', 'shipped', 'cost'])
+  expect(t.tiles[1]).toMatchObject({ value: String(star.now), bars: { days: ch.days, values: ch.series[0]!.values, readouts: ch.readouts, today: ch.today } })
+  expect(ch.series[0]!.values.reduce<number>((a, v) => a + (v ?? 0), 0)).toBe(star.now)
+  ch.series[0]!.values.forEach((v, i) => expect(v ?? 0).toBeLessThanOrEqual(ch.whole!.values[i] ?? 0))
+  expect(ch.today).toBe(2) // Wednesday: Thursday to Sunday still to come
+  expect(ch.series[0]!.values.slice(3)).toEqual([null, null, null, null])
+  // Needs: faults first, then what waits on the owner; the tile counts the items.
+  expect(t.needs.map(x => [x.kind, x.tone, x.section])).toEqual([['key', 'bad', 'nhan-dien-ca'], ['engine', 'bad', 'noi-dung'], ['comments', 'wait', 'binh-luan'], ['photos', 'wait', 'anh-ban-doc']])
+  expect(t.needs.find(x => x.kind === 'photos')!.photos).toEqual(S.WAITING.map(w => w.id))
+  expect(t.tiles[0]).toMatchObject({ value: '6', sub: '4 to review · 2 to fix', tone: 'bad' })
+  // Shipped: the change log's last 24 hours; the costs, fish ID's.
+  expect(t.tiles[2]).toMatchObject({ value: '3', sub: '1 site · 1 app · 1 engine' })
+  expect(t.shipped).toMatchObject({ section: 'thay-doi', link: 'Changelog · 3 in 24 h' })
+  expect(t.costs.keys).toMatchObject({ text: '1 of 2 resting', tone: 'bad', section: 'nhan-dien-ca', anchor: 'key' })
+  // Every section once, in NAV's order; every place a section, an anchor one of its headings.
+  expect(t.pages.flatMap(g => g.pages.map(p => p.key))).toEqual(KEYS)
+  expect(PAGE_GROUPS.flatMap(([, ps]) => ps.map(([k]) => k))).toEqual(KEYS)
+  for (const x of [...t.needs, t.shipped, t.costs.keys, ...t.days]) {
+    if (!x.section) continue
+    expect(KEYS).toContain(x.section)
+    if ('anchor' in x && x.anchor) expect(anchors(x.section), `${x.section}#${x.anchor}`).toContain(x.anchor)
+  }
+  expect(t.days.map(d => d.title)).toEqual(['Today so far', 'Yesterday', 'Monday 2 Nov'])
+  // Nothing needs the owner.
+  const calm = todayJson(S.CALM)
+  expect(calm.needs).toEqual([])
+  expect(calm.tiles[0]).toMatchObject({ value: 'All clear', sub: 'Nothing to review or fix', tone: 'plain' })
+  // The beacon down: the answers say so, the rest comes.
+  const down = todayJson({ ...S.TODAY, beacon: F })
+  expect(down.answers).toEqual({ title: 'Readers who found an answer', note: { kind: 'note', text: `Couldn't load the readers' beacon: ${F.failed}`, tone: 'bad' } })
+  expect(down.needs.map(x => x.kind)).toContain('failed')
 })
 
 // ——— The Worker: who opens it, and the replies ———
@@ -464,8 +524,8 @@ test('a part that throws (D1, KV, R2) is 503 unavailable, as JSON, never stored 
 
 test('every section through the Worker: the contract\'s shape, as its page says it, from the Worker\'s own loaders', async () => {
   const w = await worker({ AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' })
-  // Analytics Engine answers every query with no rows.
-  vi.spyOn(globalThis, 'fetch').mockImplementation(async () => Response.json({ data: [] }))
+  // Analytics Engine answers every query with no rows; GitHub has no issues.
+  vi.spyOn(globalThis, 'fetch').mockImplementation(async (u: string | URL | Request) => Response.json(String(u instanceof Request ? u.url : u).startsWith('https://api.github.com/') ? [] : { data: [] }))
   for (const key of KEYS) {
     for (const q of key === 'ung-dung' ? ['', '?test=1'] : ['']) {
       const r = await call(w.e, 'GET', `/api/owner/sections/${key}${q}`, bearer(w.ownerApp))
@@ -759,9 +819,20 @@ async function replies(): Promise<Reply[]> {
   const tz = { 'Time-Zone': S.TZ }
   const json = (x: unknown) => JSON.parse(JSON.stringify(x)) as unknown
   const out: Reply[] = [
-    { name: 'dashboard', request: { method: 'GET', path: '/api/owner/dashboard', headers: tz }, status: 200, body: json({ tz: S.TZ, ...overviewJson(S.OVERVIEW), sections: SECTIONS.map(({ key, name }) => ({ key, name })) }) },
-    ...KEYS.map(key => ({ name: `section ${key}`, request: { method: 'GET', path: `/api/owner/sections/${key}`, headers: tz }, status: 200, body: json({ tz: S.TZ, ...VARIANTS[key]![0]![2]() }) })),
+    ...([['dashboard', S.TODAY], ['dashboard: nothing needs you', S.CALM], ['dashboard: the readers\' beacon down', { ...S.TODAY, beacon: F }]] as const).map(([name, t]) => (
+      { name, request: { method: 'GET', path: '/api/owner/dashboard', headers: tz }, status: 200, body: json({ tz: S.TZ, ...dashboardJson(t), sections: SECTIONS.map(({ key, name }) => ({ key, name })) }) })),
+    ...KEYS.map(key => ({ name: `section ${key}`, request: { method: 'GET', path: `/api/owner/sections/${key}`, headers: tz }, status: 200, body: json({ tz: S.TZ, ...paged(VARIANTS[key]![0]![2]()) }) })),
   ]
+  // A period, a folded table opened, and a long table's last page, as the Worker reads them (owner-api.ts).
+  const fish30 = fishIdSection({ ...S.FISH, period: 'd30' })
+  out.push({ name: 'period: fish ID, 30 days', request: { method: 'GET', path: '/api/owner/sections/nhan-dien-ca?period=d30', headers: tz }, status: 200, body: json({ tz: S.TZ, ...paged(fish30) }) })
+  const fish = fishIdSection(S.FISH)
+  for (const b of paged(fish).blocks) {
+    if (b.kind !== 'table' || !b.id) continue
+    const name = b.folded ? `table: fish ID's folded "${b.folded}"` : 'table: fish ID\'s recent calls, the last page'
+    const path = `/api/owner/sections/nhan-dien-ca/tables/${b.id}${b.next ? `?cursor=${b.next}` : ''}`
+    out.push({ name, request: { method: 'GET', path, headers: tz }, status: 200, body: json({ tz: S.TZ, ...(tablePage(fish, b.id, b.next ?? null) as object) }) })
+  }
   const w = await worker()
   const actions: [string, string, string, unknown][] = [
     ['approve a waiting photo', 'POST', `/api/owner/photos/${S.PHOTO_WAITING}`, { action: 'approve' }],
@@ -788,6 +859,11 @@ async function replies(): Promise<Reply[]> {
     ['turn the report\'s notification on', 'POST', '/api/owner/report-settings', { push: true }],
     ['a report setting that isn\'t true or false', 'POST', '/api/owner/report-settings', { push: 'yes' }],
     ['report settings that change neither', 'POST', '/api/owner/report-settings', {}],
+    // Periods and tables the section doesn't have.
+    ['a period the section doesn\'t offer', 'GET', '/api/owner/sections/nhan-dien-ca?period=week', undefined],
+    ['a period on a section with none', 'GET', '/api/owner/sections/an-trang?period=d7', undefined],
+    ['a table that isn\'t one', 'GET', '/api/owner/sections/an-trang/tables/t9', undefined],
+    ['a table\'s cursor that isn\'t one', 'GET', '/api/owner/sections/affiliate/tables/t1?cursor=x', undefined],
   ]
   const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
   for (const [name, method, path, body] of actions) {

@@ -601,7 +601,7 @@ test('the change log page: a key that can\'t be read says so in its place', asyn
   log.mockRestore()
 })
 
-test('the change log page: the owner\'s alone; on the web dashboard\'s rail, outside NAV and the app\'s sections', async () => {
+test('the change log page: the owner\'s alone; on the web dashboard\'s rail, and one of the app\'s sections', async () => {
   const w = world()
   const { owner: c, reader } = await owner(w)
   w.ab.m.set(CHANGELOG_KEY, { value: JSON.stringify([change('Site', 'secret change', '2026-11-05T10:00:00Z')]) })
@@ -615,9 +615,9 @@ test('the change log page: the owner\'s alone; on the web dashboard\'s rail, out
   // The dashboard token opens no page.
   expect(await (await handle(new Request('https://x.test/_ab/thay-doi/', { headers: { ...browser, authorization: `Bearer ${TOKEN}` } }), w.e)).text()).not.toContain('secret')
   expect(await (await open(w.e, '/_ab/thay-doi/', c)).text()).toContain('secret change')
-  // NAV and SECTIONS are the iOS app's contract (protocols/owner-dashboard.openapi.json): the page is the web's alone.
-  expect(NAV.map(([p]) => p)).not.toContain('/_ab/thay-doi/')
-  expect(SECTIONS.map(s => s.key)).not.toContain('thay-doi')
+  // NAV and SECTIONS are the iOS app's contract (protocols/owner-dashboard.openapi.json): the change log is in it (docs/design/dashboard.md).
+  expect(NAV.map(([p]) => p)).toContain('/_ab/thay-doi/')
+  expect(SECTIONS.map(s => s.key)).toContain('thay-doi')
   expect(WEB_PAGES).toContain('/_ab/thay-doi/')
   expect(await (await open(w.e, '/_ab/', c)).text()).toContain('<li><a href="/_ab/thay-doi/">Thay đổi sản phẩm</a></li>')
 })
