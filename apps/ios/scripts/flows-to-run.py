@@ -60,7 +60,7 @@ LIGHT_FIRST = [
 # the light flows (WITH_LIGHTS), 1,845 s left.
 APP_FIRST = ['ReaderPostFlowTests', 'AccountFlowTests', 'AppIconFlowTests', 'TanksFlowTests']
 # Classes a full run on GitHub's Macs puts beside each half of the light flows (832 s and 1,114 s in #677's run), out of
-# the others' jobs: about 1,900 s of flows in each of the six, under 45 minutes a job with its build. A pull request's
+# the others' jobs: about 1,900 s of flows in each of the six, 40 to 52 minutes a job with its build (#746's run on GitHub's Macs). A pull request's
 # light flows run without them, and so does the own Mac's full run: its light jobs run one simulator, and its light
 # flows there already take 17 and 29 minutes of tests, 1.25 to 1.5 times GitHub's (main's runs of 2026-11-07).
 WITH_LIGHTS = {'1': ['TankVolumeFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests'],
