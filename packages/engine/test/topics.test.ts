@@ -68,6 +68,17 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   expect(JSON.parse(await readFile(file, 'utf8')).photos).toEqual([drawing])
 })
 
+test('a rewrite from the kept research keeps a body fixed by hand', async () => {
+  const root = await site()
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.92, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['Mắt cá lồi ra.'], body: '<p>viết lại</p>', faq: [] }) as never
+  const topic = { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' } as const
+  await makeTopic(root, { research: async () => facts as never, llm }, topic, { now: () => new Date('2026-10-31T00:00:00Z') })
+  const file = join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/vi.json')
+  await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), body: '<p>người sửa</p>', bodyFixed: true }))
+  await makeTopic(root, { research: async () => { throw new Error('not asked') }, llm }, topic, { reuse: true })
+  expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ body: '<p>người sửa</p>', bodyFixed: true })
+})
+
 test('nothing reliable found: nothing written', async () => {
   const root = await site()
   const r = await makeTopic(root, { research: async () => ({ ...facts, found: false }) as never, llm: async () => { throw new Error('no') } }, { topic: 'x', kind: 'care' })
