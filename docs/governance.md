@@ -134,7 +134,8 @@ that would have caught it).
     breed in a tank-mates link as its species), a tank-mates block of two fish or more only with the check Claude ran on
     the same fish, counts and tank (`check_tank_mates`: the tool's own code, in the reader's language; an id that isn't a
     fish refused by name; in the reader's saved tank by its id, its fish and size added as the app's tank page adds them)
-    and carrying it whole, a tank's block naming it and linking every kind up to the six the tool's page reads, a pick
+    and carrying it whole, a tank's block naming it and linking every kind up to the six the tool's page reads, a card or
+    section shown earlier in the conversation (or twice in one answer) not shown again, a pick
     the handbook doesn't have dropped with its reason while the rest go
     out, an answer with no text none, the run within 27 s, the forced last call told to answer from what it read (the
     loop's `lastWord`, which fish ID doesn't use), and a turn's steps, request and filled blocks on a fake
