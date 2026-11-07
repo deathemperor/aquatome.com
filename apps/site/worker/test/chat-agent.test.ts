@@ -213,6 +213,8 @@ test('a turn: Claude reads the handbook, then answers; the steps are shown as th
   expect(out.blocks.map(b => b.t)).toEqual(['species'])
   expect(out.dropped).toEqual(['species: no fish or plant "nope"'])
   expect(bodies[0]!.system).toBe(SYSTEM)
+  // The handbook by the site's own word for it in each language (its title: "Cẩm nang cá cảnh & thủy sinh").
+  for (const word of ['cẩm nang', 'panduan', 'คู่มือ']) expect(SYSTEM).toContain(word)
   expect(bodies[0]!.output_config).toEqual({ effort: 'medium', format: { type: 'json_schema', schema: ANSWER_SCHEMA } })
   expect(bodies[0]!.tools!.map(t => (t as Anthropic.Tool).name)).toEqual(['search_handbook', 'read_page', 'read_tanks'])
   // A refusal, or an answer cut short, is no answer: no blocks.
