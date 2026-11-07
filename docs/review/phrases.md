@@ -60,9 +60,22 @@ Per million words, site | forum | videos:
 | muối bể cá | 4 | 0 | 0 | muối hột (63 in the forum) |
 | dân chơi | 170 | 24 | 7 | usually nothing ("gọi là…"); người chơi when it matters who. The list used to offer it for "giới chơi" |
 | được chuộng | 20 | 0 | 0 | nhiều người nuôi, dễ kiếm, or why |
-| cây thân đứng | 20 | 0 | 0 | cây cắt cắm (59 in the videos) |
-| lọc sponge | 10 | 0 | 0 | lọc bio (22 in the videos) |
+| cây thân đứng, cây có thân | 20 | 0 | 0 | cây cắt cắm (59 in the videos). The rewrite swapped the first for the second |
+| lọc sponge | 10 | 0 | 0 | lọc mút, lọc bio (22 in the videos) |
 | sản xuất hàng loạt | 3 | 0 | 0 | nuôi đại trà, nuôi hàng loạt |
+| lọc bọt biển, lọc mút xốp | guides 142 | 0.7 | 0 | lọc mút (15 in the forum), lọc bio. The rewrite glossed a page's "lọc mút" with it |
+| bể cộng đồng, cá cộng đồng | species 521, guides 226 | 4 | 15 | nuôi chung (86 in the forum), thả chung (25) |
+| được xem là | species 184, guides 44 | 7 | 4 | the plain verb; not "được coi là" |
+| ghi nhận | species 1,021, guides 104 | 12 | 4 | có ở, gặp ở, thấy ở |
+| không xương sống | species 242, guides 176 | 0.7 | 0 | the animals' names: tép, ốc |
+| cá mê cung | species 263, guides 37 | 0.7 | 0 | the fish's names: cá sặc, cá betta |
+| bơi tự do | species 194, guides 59 | 7 | 0 | tự bơi được |
+| khẩu phần | species 153, guides 117 | 14 | 0 | thức ăn, cho ăn |
+| cột nước | guides 23 | 0.7 | 0 | trong nước |
+| dưới đèn | guides 42 | 0 | 4 | đèn mạnh thì…, đèn yếu thì… |
+| thành phần thực vật | species 38 | 0 | 0 | có rau, có tảo |
+| nuôi thương mại | species 15 | 0 | 0 | cá nuôi, cá trại |
+| nhắm tới | guides 22 | 3 | 0 | để…, dành cho… (seven times the forum's) |
 
 In the sweep instead: **và/hoặc** → hoặc (102 pages; never in either reference).
 
@@ -92,6 +105,14 @@ Hobbyists call the Siamese algae eater "cá bút chì" (15 in the forum, 41 in t
 while the site names its Nannostomus pencilfish "Cá bút chì …". The style guide writes it "cá bút chì" with "SAE" the
 first time; the translator's name table leaves it out, so no page is renamed by it. Which fish keeps the name is for
 the names step.
+
+The editors' fifth round (rows from "lọc bọt biển" on) added to the style guide: one name for one thing, the hobbyists',
+with no dictionary name in brackets; the names cá otto (Otocinclus; 47 in the shop blogs, 0 for "otocinclus"), cá killi
+(4 in the forum, 0 for "killifish"), cá hường (kissing gourami), bo bo (Daphnia; 345 in the forum, "bobo" included),
+bình CO2 (125 in the videos), cây cắt cắm; no pointer to the source's own chart, link or product; and one hedge a clause
+("thường nên", "có thể hay"). Checked and dropped: "trùn huyết" or "sâu đỏ" for "trùng huyết" (the forum writes all three
+about as often), "cá hồng đào" for the cherry barb (1.3 in the forum), "cây đứng" for a plant that stops growing (0),
+"yếm khí", "bị ảnh hưởng", "tác dụng phụ" and "vì vậy nên" (the references write them as often as the site).
 
 Left out on purpose:
 - Topic words the references don't cover (lưu vực, mẫu chuẩn, quần thể, thông số nước): a species profile needs them.

@@ -12,11 +12,12 @@ Viết như một người chơi thủy sinh lâu năm giải thích cho bạn m
 - Có chính kiến khi video có: "cách này tốn công nhưng đáng", "hầu hết trường hợp chỉ cần…". Không trung tính đến mức nhạt.
 - Giữ đúng mức chắc chắn của nguồn. Nguồn nói "may", "likely", "I guess", "hard to believe" thì viết "có thể", "chắc là" hoặc "có lẽ", "chuyện này khó xảy ra"; "hopefully" là "hy vọng là", không phải "thường". Không biến ý kiến thành khẳng định, không thêm "nhiều", "rất", "cực kỳ" khi nguồn không nói, không thêm chi tiết nguồn không nói.
 - Ý riêng của người viết nguồn ("tôi thích", "tôi luôn làm", "theo tôi biết") là ý của một người. Viết nó thành một cách làm ("có thể…", "chẳng hạn…"), không thành "nhiều người chơi…", "cách được ưa dùng nhất" hay "theo những gì người chơi biết".
-- Không nhắc tác giả, người làm video, kênh hay bài gốc: không viết "theo tác giả", "tác giả cho rằng", "trong video này", "bài gốc". Trang đã ghi nguồn, nên cứ viết thẳng ý. Bỏ dòng tên tác giả và phần giới thiệu tác giả. Người mô tả loài trong phân loại học ("Knaack, 1962", "các tác giả xếp loài này vào…") thì giữ.
+- Không nhắc tác giả, người làm video, kênh hay bài gốc: không viết "theo tác giả", "tác giả cho rằng", "trong video này", "bài gốc". Trang đã ghi nguồn, nên cứ viết thẳng ý. Bỏ dòng tên tác giả và phần giới thiệu tác giả. Cũng đừng trỏ tới sơ đồ, đường link hay sản phẩm riêng của nguồn mà trang không có ("thay nước theo sơ đồ thay nước", "phân có hai cỡ chai, kèm đầu bơm"): nói thẳng việc cần làm, bỏ phần chào hàng. Người mô tả loài trong phân loại học ("Knaack, 1962", "các tác giả xếp loài này vào…") thì giữ.
 - Nói như người nuôi, không như sách: "đủ lớn để đẻ" chứ không "trưởng thành sinh dục", "trồng và chăm như nhau" chứ không "có cùng nhu cầu chăm sóc", "dính vào" chứ không "tiếp xúc với".
-- Dùng từ dân chơi Việt quen dùng: set bể, thay nước, châm phân, châm CO2, rêu bám, cây lên, lũa, nền, lọc. Từ tiếng Anh chỉ giữ khi dân chơi Việt vẫn nói vậy (drop checker, dark start, BBA), lần đầu giải thích ngắn.
+- Dùng từ dân chơi Việt quen dùng: set bể, thay nước, châm phân, châm CO2, bình CO2, rêu bám, cây lên, cây cắt cắm (stem plant), lũa, nền, lọc, lọc mút hoặc lọc bio (sponge filter), nuôi chung, bo bo (Daphnia). Từ tiếng Anh chỉ giữ khi dân chơi Việt vẫn nói vậy (drop checker, dark start, BBA), lần đầu giải thích ngắn.
 - Algae trong bể là "rêu": rêu hại, rêu tóc, rêu chùm đen (BBA), rêu đốm xanh, "cá ăn rêu". "Tảo" chỉ dùng cho tảo nâu (tảo silic), tảo lam, tảo làm thức ăn (spirulina) và tảo ngoài tự nhiên.
-- Tên người chơi Việt gọi, dùng thay cho tên dịch: cá bút chì (Siamese algae eater; lần đầu ghi kèm "SAE", vì trên site "cá bút chì" còn là Nannostomus), cá tỳ bà bướm hoặc cá bám đá (hillstream loach), cá lau kiếng hoặc cá tỳ bà (pleco), cá xiêm hoặc cá chọi (betta), cá kim tơ (white cloud), cá chuột (Corydoras, không phải Otocinclus), tôm hùm đất (crayfish; tôm càng là con khác), muối hột (aquarium salt).
+- Tên người chơi Việt gọi, dùng thay cho tên dịch: cá bút chì (Siamese algae eater; lần đầu ghi kèm "SAE", vì trên site "cá bút chì" còn là Nannostomus), cá tỳ bà bướm hoặc cá bám đá (hillstream loach), cá lau kiếng hoặc cá tỳ bà (pleco), cá xiêm hoặc cá chọi (betta), cá kim tơ (white cloud), cá chuột (Corydoras, không phải Otocinclus), cá otto (Otocinclus), cá killi (killifish), cá hường (kissing gourami), tôm hùm đất (crayfish; tôm càng là con khác), muối hột (aquarium salt).
+- Một thứ chỉ một tên tiếng Việt, tên người chơi gọi. Đừng kèm thêm tên từ điển trong ngoặc: viết "lọc mút", không viết "lọc bọt biển (lọc mút)".
 - Tên châu lục viết như người Việt viết: châu Phi, châu Á, châu Âu, châu Mỹ, Nam Mỹ. Không viết "Phi châu".
 
 Ví dụ, câu máy viết và câu người viết:
@@ -42,7 +43,7 @@ Gặp chữ trong danh sách cuối bài thì viết lại cả câu như ngư�
   Thay chữ (sai): "Sưởi: Hầu hết trường hợp bạn cần một cây sưởi để cá bảy màu khỏe."
   Viết lại (đúng): "Sưởi: muốn cá bảy màu khỏe thì thường phải có sưởi."
 
-Chữ gợi ý bên phải dùng một lần thì được; dùng ở mọi chỗ thì lại thành một tật mới (phần lớn → hầu hết → đa số). Ý "bao nhiêu" thường nằm gọn trong động từ ("thường", "chủ yếu"), hoặc bỏ được. Và một câu chỉ một chữ "nên":
+Chữ gợi ý bên phải dùng một lần thì được; dùng ở mọi chỗ thì lại thành một tật mới (phần lớn → hầu hết → đa số). Ý "bao nhiêu" thường nằm gọn trong động từ ("thường", "chủ yếu"), hoặc bỏ được. Nguồn nói "most…" về cả một nhóm mà câu sau đã nói ngoại lệ thì gọi thẳng tên nhóm, đừng gắn "thường" vào mọi câu. Một câu chỉ một chữ rào ("thường nên", "có thể hay" là thừa một chữ), và chỉ một chữ "nên":
 
 - Gốc: "Phần lớn cá bán ngoài tiệm là cá nuôi công nghiệp ở Viễn Đông và Đông Âu."
   Thay chữ (sai): "Đa số cá bán ngoài tiệm là cá nuôi công nghiệp ở Viễn Đông và Đông Âu."
