@@ -5,7 +5,7 @@ import { contract, type Op } from './contract'
 
 const { api, fixtures, misfits, streamMisfits } = contract('chat.openapi.json')
 const sse = (api.paths['/api/chat'].post as Op).responses['200']!.content['text/event-stream']!
-const recorded = ['chat-rate.json', 'chat-stream-failed.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
+const recorded = ['chat-cancel-cancelled.json', 'chat-cancel-late.json', 'chat-cancelled.json', 'chat-conversation.json', 'chat-conversations.json', 'chat-hidden.json', 'chat-rate.json', 'chat-stream-cancelled.sse', 'chat-stream-failed.sse', 'chat-stream-species.sse', 'chat-stream-uncovered.sse']
 
 test('the recorded answers in protocols/ a fake server replays follow the chat contract, and the contract names each of them', () => {
   const checked = fixtures()
@@ -17,7 +17,7 @@ test('the recorded answers in protocols/ a fake server replays follow the chat c
 })
 
 test('a stream\'s order, as the contract has it (x-order, x-whole): steps, then the text, then the blocks; done holds the same text, blocks and steps', () => {
-  for (const f of ['chat-stream-species.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse']) {
+  for (const f of ['chat-stream-species.sse', 'chat-stream-uncovered.sse', 'chat-stream-failed.sse', 'chat-stream-cancelled.sse']) {
     expect(streamMisfits(readFileSync(fileURLToPath(new URL(`../../../../protocols/${f}`, import.meta.url).href), 'utf8'), sse), f).toEqual([])
   }
   const ev = (name: string, v: object) => `event: ${name}\ndata: ${JSON.stringify(v)}\n\n`
