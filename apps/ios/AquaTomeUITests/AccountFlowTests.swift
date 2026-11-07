@@ -226,7 +226,7 @@ final class AccountFlowTests: XCTestCase {
     for _ in 0..<4 { repo.deleteLastPathComponent() }
     let vectors = try JSONSerialization.jsonObject(with: Data(contentsOf: repo.appending(path: "protocols/owner-dashboard-vectors.json"))) as? [String: Any]
     let overview = (vectors?["replies"] as? [[String: Any]])?.first { $0["name"] as? String == "dashboard" }?["body"] as? [String: Any]
-    let todos = try XCTUnwrap((overview?["todos"] as? [Any])?.count, "no overview in the vectors")
+    let todos = try XCTUnwrap((overview?["needs"] as? [Any])?.count, "no overview in the vectors")
     XCTAssertGreaterThan(todos, 0, "the overview has no to-dos to count")
     let app = launch(resetServer: true, "-fake-owner", "ui-apple")
     signIn(app)
