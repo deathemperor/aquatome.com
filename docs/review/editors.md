@@ -16,12 +16,12 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 
 | Seat | Rounds | Findings | Held | Dropped | Open | Judges it well |
 |---|---|---|---|---|---|---|
-| Anthropic (`claude-opus-5-5`) | 3–7 | 53 | 38 | 8 | 7 | yes, but check every name it offers |
-| OpenAI (`gpt-5.6-sol`) | 3–7 | 33 | 27 | 1 | 5 | yes: one dropped |
-| Google (`gemini-4-argon`) | 3–7 | 65 | 52 | 8 | 5 | yes, but check every name it offers |
-| xAI (`grok-4.7`) | 3–7 | 54 | 37 | 9 | 8 | yes, but check every name it offers |
+| Anthropic (`claude-opus-5-5`) | 3–8 | 66 | 49 | 10 | 7 | yes, but check every name it offers |
+| OpenAI (`gpt-5.6-sol`) | 3–8 | 41 | 31 | 4 | 6 | yes |
+| Google (`gemini-4-argon`) | 3–8 | 72 | 58 | 9 | 5 | yes, but check every name it offers |
+| xAI (`grok-4.7`) | 3–8 | 62 | 43 | 9 | 10 | yes, but check every name it offers |
 
-Of the findings the check settled, every seat's held three times in four or better over five rounds. Where Anthropic,
+Of the findings the check settled, every seat's held three times in four or better over six rounds. Where Anthropic,
 Google and xAI went wrong, it was mostly a name: a fish or a term they offered that no hobbyist writes. A name a seat
 offers is checked in the references before it goes anywhere.
 
@@ -66,3 +66,13 @@ Round 7 (2026-11-08), the same three guides written again, the packets now with 
 - Google: "Vẫn nên có." as a robotic fragment (Anthropic and xAI both quote it as the human part of the guide).
 
 Open: "Để thuốc nằm yên", "thuốc không ngấm vào được" (xAI); "nước an toàn" (OpenAI); a table's sentence on melting plants (Anthropic).
+
+Round 8 (2026-11-08), the mending writer. Scores, lowest of four: blue-green algae 8, 7.5, 9, 7; quarantine 7, 6.5, 8, 7;
+shopping list 8, 7, 8, 7 (Anthropic, OpenAI, Google, xAI). What was dropped:
+- Anthropic: "tép đỏ" for "tép cherry" (15 in the references, against 0); "X thì Y" again.
+- OpenAI: "rất sợ" (16 in the references); "cục sủi" for "đầu sủi" (33 against 6); "miếng mút" (Anthropic and xAI quote
+  that sentence as the human part).
+- Google: rounding the salt doses' 7,6 and 11,4 lít, which a dose may not be.
+
+Held by the references: "gom cặn" (0), "ổ cắm nối" (0), "trị phòng" (3, against "phòng bệnh" 64). Open: "xáo mặt nước"
+(xAI), "mùi rất riêng" (OpenAI), the bracketed "(Vallisneria)".
