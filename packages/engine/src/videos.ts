@@ -27,6 +27,7 @@ export async function findVideos(names: string[], llm: Llm, http: (url: string) 
   const ids = (search.items ?? []).map(i => i.id.videoId)
   if (!ids.length) return []
   const details = (((await http(`${api}/videos?${new URLSearchParams({ part: 'snippet,contentDetails', id: ids.join(','), key: apiKey })}`)) as { items?: Item[] }).items ?? []).filter(v => !o.skip?.[v.id])
+  if (!details.length) return []
   const list = details.map(v => `${v.id}: ${v.snippet.title} — ${v.snippet.description.slice(0, 200)}`).join('\n')
   const { keep } = await llm<{ keep: string[] }>({
     system: 'You vet aquarium videos. Reply only with JSON.',
