@@ -740,6 +740,11 @@ The layers above still check the result.
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card
       (`hidden` with why, kept in the file; worked out again each run), and the species' approved summary sent back to be
       written again against the new card
+    - a fish's approved summary that states a card figure (temperature, pH, hardness, size, minimum tank, difficulty)
+      the card, as the build shows it, doesn't: back to pending, hidden until the summaries step writes it again. Its
+      own check runs once, when it is written, and a card changes without its page changing. Found in a design lab
+      (2026-11-07): Cá neon vua's summary said 23–27 °C beside a card of 23–29 °C, as the card had taken Seriously
+      Fish's range that day; 54 of 505 approved summaries were off their card. A real-content test holds them at zero
     - a guide's title promising a count its text lacks (a breed's or product's title is its name: listed): rewritten by
       the model, kept when its reviewer passes it, else the number dropped from the title; the address stays
     - imperial figures: `pnpm engine metric`, as before; the audit uses the metric test's own detector
