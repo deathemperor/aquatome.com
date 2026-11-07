@@ -95,14 +95,17 @@ private struct CantSync: View {
 private struct Who: View {
   let user: AccountUser
   @Environment(AccountModel.self) private var account
+  @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
-    HStack(spacing: 14) {
+    // At the accessibility text sizes the avatar goes above the lines, which keep the row's width.
+    let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(spacing: 14))
+    layout {
       Image(systemName: "person.fill")
         .font(.title2)
-        .foregroundStyle(.tint)
+        .foregroundStyle(Color(.systemGray))
         .frame(width: 56, height: 56)
-        .background(Color.accentColor.opacity(0.15), in: .circle)
+        .background(Color(.systemGray5), in: .circle)
         .accessibilityHidden(true)
       VStack(alignment: .leading, spacing: 2) {
         Text("Đã đăng nhập").font(.title3.weight(.semibold))
@@ -116,7 +119,7 @@ private struct Who: View {
 
   private var since: String {
     guard let made = Self.date(user.createdAt) else { return String(localized: "bằng \(account.ways)") }
-    return String(localized: "bằng \(account.ways) · từ \(made.formatted(.dateTime.month(.wide).year()))")
+    return String(localized: "bằng \(account.ways) · từ tháng \(made.formatted(.dateTime.month(.defaultDigits).year()))")
   }
 
   /// The server's time (`2026-11-01T00:00:00.000Z`, or without the fraction).
@@ -251,6 +254,7 @@ private struct Status<Symbol: View, Detail: View, Action: View>: View {
   let symbol: Symbol
   let detail: Detail
   let button: Action
+  @Environment(\.dynamicTypeSize) private var size
 
   init(alignment: VerticalAlignment, title: Text, @ViewBuilder symbol: () -> Symbol, @ViewBuilder detail: () -> Detail,
        @ViewBuilder button: () -> Action = { EmptyView() }) {
@@ -262,8 +266,10 @@ private struct Status<Symbol: View, Detail: View, Action: View>: View {
   }
 
   var body: some View {
-    HStack(alignment: alignment, spacing: 14) {
-      symbol.frame(width: 28).accessibilityHidden(true)
+    // At the accessibility text sizes the symbol goes above the lines, as the header's avatar does, at its own size.
+    let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(alignment: alignment, spacing: 14))
+    layout {
+      symbol.frame(minWidth: 28).accessibilityHidden(true)
       ViewThatFits(in: .horizontal) {
         HStack(alignment: alignment, spacing: 8) {
           lines.frame(minWidth: 0, idealWidth: 150, maxWidth: .infinity, alignment: .leading)

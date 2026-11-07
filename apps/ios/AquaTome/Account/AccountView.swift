@@ -3,8 +3,8 @@ import SwiftUI
 import UIKit
 
 /// "Tài khoản", the profile button's sheet (ProfileButton), laid out as iOS's settings are: the aquatome.com account
-/// (signing in, the sync, a passkey) and, for the owner's account, the dashboard; the app (its icon, the pages kept to
-/// read offline); privacy (the anonymous statistics, the posters the reader blocks on this phone); the site's pages
+/// (signing in, the sync, a passkey) and, for the owner's account, the dashboard; the app (its icon, its appearance, the
+/// pages kept to read offline); privacy (the anonymous statistics, the posters the reader blocks on this phone); the site's pages
 /// about itself, in the browser; signing out and deleting the account; the app's version.
 struct AccountView: View {
   @Environment(AccountModel.self) private var account
@@ -34,6 +34,9 @@ struct AccountView: View {
       // Not reached at launch (no network then): asked again each time the sheet opens.
       .task { if account.state == .unknown { await account.refresh() } }
       .onAppear { account.sheetOpened() }
+      #if DEBUG
+      .background { AppearanceProbe(id: "appearance-sheet") }
+      #endif
     }
   }
 
@@ -62,8 +65,8 @@ struct Tile: View {
   }
 }
 
-/// "Ứng dụng": the app's icon (the current one beside it), and the pages kept to read offline, how many, which opens
-/// their shelf on the Tìm tab, where pages open.
+/// "Ứng dụng": the app's icon (the current one beside it), its appearance, and the pages kept to read offline, how many,
+/// which opens their shelf on the Tìm tab, where pages open.
 private struct AppSection: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
@@ -74,6 +77,7 @@ private struct AppSection: View {
         Label { Text("Biểu tượng ứng dụng") } icon: { CurrentIcon() }
       }
       .accessibilityIdentifier("app-icon-row")
+      AppearanceRow()
       let kept = handbook.keptItems.count
       if kept > 0 {
         Button { openScreen(.kept) } label: {

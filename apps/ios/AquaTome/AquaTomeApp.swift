@@ -17,6 +17,8 @@ struct AquaTomeApp: App {
   @State private var handbookPath = NavigationPath()
   /// The profile button's sheet (AccountView), open.
   @State private var showingAccount = false
+  /// "Giao diện", set in the sheet (AppearanceRow): the phone's, or light or dark.
+  @AppStorage(Appearance.key) private var appearance = Appearance.system
   /// A link from outside the app waiting for the handbook's index, to know the pages the app has (AppLink).
   @State private var opening: AppLink?
   @Environment(\.scenePhase) private var phase
@@ -139,9 +141,12 @@ struct AquaTomeApp: App {
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
       .onChange(of: phase) {
         if phase == .background { lights.leave(); telemetry.leave() } else if phase == .active { lights.returned() }
+        // At launch the window may come after the first apply below.
+        if phase == .active { Appearance.apply(Self.testScheme ?? appearance.scheme) }
       }
-      // The page shots' dark run (PageShotsFlowTests): the runner's own appearance setting doesn't reach the app.
-      .preferredColorScheme(Self.testScheme)
+      // "Giao diện", app-wide at once; the page shots' dark run (PageShotsFlowTests) over it: the runner's own appearance
+      // setting doesn't reach the app.
+      .onChange(of: appearance, initial: true) { Appearance.apply(Self.testScheme ?? appearance.scheme) }
       .appIconsForTests()
       #if DEBUG
       .background {
@@ -150,6 +155,7 @@ struct AquaTomeApp: App {
         VStack {
           Text(verbatim: telemetry.received.isEmpty ? "none" : telemetry.received.joined(separator: " | ")).accessibilityIdentifier("telemetry-received")
           Text(verbatim: telemetry.queueKept ? "kept" : "none").accessibilityIdentifier("telemetry-queue")
+          AppearanceProbe(id: "appearance-app")
         }
         .font(.system(size: 1)).opacity(0.01)
       }

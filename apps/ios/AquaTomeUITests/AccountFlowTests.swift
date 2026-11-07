@@ -172,6 +172,26 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertFalse(element(app, "account-header").exists)
   }
 
+  /// "Giao diện": the app light or dark whatever the phone is, at once (the sheet, and the tabs under it), the same after
+  /// a relaunch, and as the phone is again on "Theo máy".
+  func testTheAppearanceChosenInTheSheetTurnsTheWholeAppAtOnceAndIsKept() {
+    var app = launch(accounts: "off")
+    let phone = app.staticTexts["appearance-sheet"]
+    XCTAssertTrue(phone.waitForExistence(timeout: 5), "no sheet")
+    let (other, target) = phone.label == "dark" ? ("Sáng", "light") : ("Tối", "dark")
+    let was = phone.label
+    choose(app, other)
+    XCTAssertTrue(drawn(app, "appearance-sheet", target), "the sheet isn't \(target)")
+    XCTAssertTrue(drawn(app, "appearance-app", target), "the tabs under the sheet aren't \(target)")
+    app.terminate()
+    app = launch(newPhone: false, accounts: "off", open: false)
+    XCTAssertTrue(drawn(app, "appearance-app", target), "not kept after a relaunch")
+    accountTab(app)
+    choose(app, "Theo máy")
+    XCTAssertTrue(drawn(app, "appearance-sheet", was), "the sheet isn't as the phone is again")
+    XCTAssertTrue(drawn(app, "appearance-app", was), "the tabs aren't as the phone is again")
+  }
+
   func testAStoreFromANewerAppIsNotOfferedForSync() {
     let app = launch(resetServer: true, "-seed-tanks", "newer")
     // The Tài khoản sheet says why there's no sign-in.
@@ -415,6 +435,25 @@ final class AccountFlowTests: XCTestCase {
     XCTAssertTrue(e.waitForExistence(timeout: 5), "no \(id)")
     repeatUntil(e.isHittable, times: 5) { app.swipeUp() }
     e.tap()
+  }
+
+  /// "Giao diện" set from its menu in the sheet.
+  private func choose(_ app: XCUIApplication, _ name: String) {
+    tap(app, "appearance")
+    let item = app.buttons[name].firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(name) in the menu")
+    item.tap()
+  }
+
+  /// The app (`appearance-app`) or the sheet (`appearance-sheet`) is drawn light or dark, within 5 s.
+  private func drawn(_ app: XCUIApplication, _ id: String, _ scheme: String) -> Bool {
+    let probe = app.staticTexts[id]
+    let until = Date().addingTimeInterval(5)
+    while Date() < until {
+      if probe.exists && probe.label == scheme { return true }
+      RunLoop.current.run(until: Date().addingTimeInterval(0.25))
+    }
+    return false
   }
 
   /// Signs in from the Tài khoản sheet, and waits for the sync that follows.

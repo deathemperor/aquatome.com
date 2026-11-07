@@ -3953,6 +3953,22 @@
         }
       }
     },
+    "Giao diện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tampilan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลักษณะที่ปรากฏ"
+          }
+        }
+      }
+    },
     "Giáng sinh": {
       "localizations": {
         "id": {
@@ -6721,6 +6737,22 @@
         }
       }
     },
+    "Sáng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สว่าง"
+          }
+        }
+      }
+    },
     "Sáng dần, tối dần": {
       "localizations": {
         "id": {
@@ -6957,6 +6989,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตามตารางเวลา"
+          }
+        }
+      }
+    },
+    "Theo máy": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikuti perangkat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตามอุปกรณ์"
           }
         }
       }
@@ -8289,6 +8337,22 @@
         }
       }
     },
+    "Tối": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gelap"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "มืด"
+          }
+        }
+      }
+    },
     "Tới mực nước: **%@ lít**.": {
       "localizations": {
         "id": {
@@ -9057,7 +9121,7 @@
         }
       }
     },
-    "bằng %@ · từ %@": {
+    "bằng %@ · từ tháng %@": {
       "localizations": {
         "id": {
           "stringUnit": {

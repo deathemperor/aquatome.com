@@ -112,10 +112,21 @@ final class PageShotsFlowTests: XCTestCase {
     app.openAccount()
     // Signed in, back at the sheet's top: at the largest text the button is a few screens down.
     app.scrollToAndTap("apple-sign-in")
-    let top = app.staticTexts["account-status"]
+    let top = app.staticTexts["account-status"], owner = app.descendants(matching: .any)["owner-dashboard"].firstMatch
     repeatUntil(top.exists && top.isHittable, times: 12) { app.swipeDown() }
     XCTAssertTrue(top.waitForExistence(timeout: 10), "not signed in")
-    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].firstMatch.waitForExistence(timeout: 10), "not the owner's account")
+    // At the largest text the dashboard's row is screens under the account's: down to it, and back up.
+    repeatUntil(owner.exists, times: 6) { app.swipeUp() }
+    XCTAssertTrue(owner.waitForExistence(timeout: 10), "not the owner's account")
+    // Back to the sheet's top, its first line under the bar (and the avatar, above it at the largest text): short slow
+    // drags, held before letting go, so none flings or pulls the sheet away.
+    let first = app.staticTexts["Đã đăng nhập"], bar = app.navigationBars.firstMatch
+    let middle = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4))
+    let clear: CGFloat = size == nil ? 0 : 70
+    repeatUntil(first.exists && first.frame.minY > bar.frame.maxY + clear, times: 20) {
+      middle.press(forDuration: 0.1, thenDragTo: middle.withOffset(CGVector(dx: 0, dy: 160)), withVelocity: .slow, thenHoldForDuration: 0.2)
+    }
+    XCTAssertGreaterThan(first.frame.minY, bar.frame.maxY + clear, "not at the sheet's top")
     capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 12)
   }
 

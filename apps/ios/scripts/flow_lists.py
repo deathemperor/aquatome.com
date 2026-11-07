@@ -137,7 +137,7 @@ REACH = {
     # Apple and Google buttons too.
     APP + 'Account/AccountView.swift': ACCOUNT_SHEET, APP + 'Account/ProfileButton.swift': ACCOUNT_SHEET,
     APP + 'Account/AccountSection.swift': ACCOUNT_SHEET, APP + 'Account/AppleSignIn.swift': ACCOUNT_SHEET,
-    APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET,
+    APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET, APP + 'Account/Appearance.swift': ACCOUNT_SHEET,
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
@@ -241,7 +241,7 @@ def check(runs, left, reached):
     assert 'PageShotsFlowTests' in reached([APP + 'Tanks/TanksView.swift'])
     assert 'OwnerFlowTests' not in reached([APP + 'Tanks/TanksView.swift'])
     for screen in ('Account/AccountView.swift', 'Account/AccountSection.swift', 'Account/ProfileButton.swift',
-                   'Account/AppleSignIn.swift', 'Telemetry/TelemetrySwitch.swift'):
+                   'Account/AppleSignIn.swift', 'Account/Appearance.swift', 'Telemetry/TelemetrySwitch.swift'):
         assert reached([APP + screen]) == set(ACCOUNT_SHEET), screen
     assert 'PageShotsFlowTests' not in reached([APP + 'Account/AccountModel.swift'])
     # The rows of the sheet from other folders: the statistics' switch takes the sheet's flows; the owner's row and the
