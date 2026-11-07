@@ -10,6 +10,72 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Ucayali",
+        "Río Carahuayte",
+        "Río Yavarí"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known in the trade as the 'panda dwarf cichlid', Apistogramma nijsseni is from tributaries of the Río Ucayali in Loreto Region, northern Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
+          "countries": [],
+          "regions": [
+            "Río Ucayali",
+            "Río Carahuayte",
+            "Río Yavarí"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371246,
+      "total": 17,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -74.53125,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -154,8 +220,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá mini 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

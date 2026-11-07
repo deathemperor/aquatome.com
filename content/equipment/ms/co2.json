@@ -1,0 +1,59 @@
+{
+  "category": "co2",
+  "name": "CO2",
+  "lead": "CO2 ialah \"makanan\" bagi tumbuhan akuatik. Ia tidak wajib, tetapi CO2 yang membezakan tangki yang tumbuhannya sekadar hidup dengan tangki yang tumbuhannya lebat dan cantik warnanya.",
+  "intro": "<p>Tumbuhan akuatik mendapat karbon daripada CO2 yang terlarut dalam air. Secara semula jadi, air akuarium mengandungi sangat sedikit CO2, jadi tumbuhan lambat membesar. Tambahan CO2 membantu tumbuhan batang (stem plant) tumbuh dengan cepat, tumbuhan merah lebih terserlah warnanya dan tumbuhan latar depan merebak menjadi carpet.</p><p>Tangki dengan tumbuhan yang mudah dijaga (moss, paku-pakis, anubias) dan lampu yang malap tidak memerlukan CO2. Apabila lampu sudah kuat, kekurangan CO2 ialah punca utama lumut (alga) membiak.</p>",
+  "hero": {
+    "url": "https://media.aquatome.com/aquariumcoop/5982720117a7f264.webp",
+    "thumb": "https://media.aquatome.com/aquariumcoop/5982720117a7f264-480.webp",
+    "width": 1000,
+    "height": 667,
+    "licence": "dùng với sự cho phép",
+    "author": "Aquarium Co-op",
+    "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/which-aquatic-fertilizer-is-right-for-you",
+    "caption": "Which Planted Tank Fertilizer Is Right for You? - Aquarium Co-Op",
+    "source": "aquariumcoop"
+  },
+  "types": [
+    {
+      "id": "mini",
+      "name": "CO2 mini, CO2 DIY",
+      "match": "mini",
+      "desc": "<p>Botol kecil yang menggunakan yis, atau asid sitrik dan baking soda, atau tabung CO2 pakai buang. Murah untuk dicuba.</p>",
+      "pick": "Sesuai untuk tangki di bawah 60 liter. Aliran gasnya tidak stabil, jadi perlu kerap diganti atau diisi semula.",
+      "buy": "bình co2 mini thủy sinh"
+    },
+    {
+      "id": "binh",
+      "name": "Set CO2 tong (isi semula)",
+      "match": "bình|bộ|co2",
+      "desc": "<p>Terdiri daripada tong bertekanan yang boleh diisi semula, regulator (injap penurun tekanan), injap solenoid (dimatikan mengikut waktu lampu), bubble counter dan diffuser. Stabil dan paling jimat untuk jangka panjang.</p>",
+      "pick": "Tong 2–4 kg tahan beberapa bulan untuk tangki 60–120 cm. Sambungkan injap solenoid pada pemasa: hidupkan CO2 1 jam sebelum lampu menyala dan matikan serentak dengan lampu.",
+      "buy": "bộ co2 thủy sinh"
+    }
+  ],
+  "choose": [
+    "<p>Mulakan dengan 1 gelembung/saat untuk tangki 60 liter, kemudian naikkan sedikit demi sedikit dalam beberapa hari sambil memerhati ikan.</p>",
+    "<p>Gunakan drop checker: hijau bermaksud cukup, biru bermaksud kurang, kuning bermaksud berlebihan.</p>",
+    "<p>Biarkan permukaan air beralun sedikit supaya ikan mendapat cukup oksigen, tetapi jangan kacau air terlalu kuat sehingga CO2 terlepas.</p>"
+  ],
+  "mistakes": [
+    "<p>Membiarkan CO2 masuk sepanjang malam: tumbuhan tidak menggunakannya dan ikan boleh lemas pada awal pagi.</p>",
+    "<p>Menaikkan CO2 terlalu cepat: ikan yang tercungap-cungap di permukaan air ialah tanda CO2 perlu dikurangkan dengan segera.</p>",
+    "<p>Menambah CO2 tanpa menambah cahaya dan baja: tumbuhan tidak dapat menggunakan semuanya, jadi tiada manfaatnya.</p>"
+  ],
+  "faq": [
+    {
+      "q": "Adakah tangki tumbuhan akuatik wajib menggunakan CO2?",
+      "a": "<p>Tidak. Tangki berlampu malap yang ditanam dengan moss, paku-pakis, anubias dan bucephalandra boleh tumbuh dengan baik tanpa CO2.</p>"
+    },
+    {
+      "q": "Adakah CO2 berbahaya kepada ikan dan udang?",
+      "a": "<p>Tidak, jika dosnya betul (drop checker berwarna hijau). Dos berlebihan boleh menyebabkan ikan lemas, jadi matikan CO2 apabila lampu dimatikan.</p>"
+    }
+  ],
+  "quality": {
+    "score": 0.9,
+    "indexable": true
+  }
+}

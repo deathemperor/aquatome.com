@@ -1,0 +1,60 @@
+{
+  "id": "betta-chloropharynx",
+  "native": {
+    "input": "31b94948327aef1c",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The green throat mouthbrooder, Betta chloropharynx, is a labyrinth fish described from Bangka, an island off the east coast of Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species was described from Bangka, a small island just off the east coast of Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bangka",
+        "source": "seriouslyfish",
+        "quote": "This species was described from Bangka, a small island just off the east coast of Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta chloropharynx",
+    "status": "ACCEPTED",
+    "taxonKey": 2394045,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

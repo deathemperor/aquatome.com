@@ -15,6 +15,30 @@ export async function gbifMatch(name: string, http: (url: string) => Promise<unk
   return t
 }
 
+type Usage = { canonicalName?: string; rank?: string; taxonomicStatus?: string; order?: string; family?: string; genus?: string; parentKey?: number }
+/**
+ * A species too new for GBIF's backbone (Nanosphronemus gemma, described in 2026: the match is NONE) from the checklists
+ * GBIF indexes (ZooBank, WoRMS…): its ACCEPTED SPECIES records whose canonical name is exactly this name, as one species.
+ * Family and order from a record that gives both, else from its genus's record. Null when there is none, when no record
+ * places it, or when records place it in different families. Never a fuzzy or partial name, a synonym or another rank.
+ * Not kept in _gbif-names.json, whose readers take its answers as the backbone's.
+ */
+export async function gbifSearchTaxon(name: string, http: (url: string) => Promise<unknown>): Promise<Taxon | null> {
+  const r = (await http(`https://api.gbif.org/v1/species/search?q=${encodeURIComponent(name)}&rank=SPECIES&status=ACCEPTED&limit=50`)) as { results?: Usage[] }
+  const same = (r.results ?? []).filter(u => u.canonicalName === name && u.rank === 'SPECIES' && u.taxonomicStatus === 'ACCEPTED')
+  if (!same.length) return null
+  const placed = same.filter(u => u.order && u.family)
+  if (new Set(placed.map(u => u.family)).size > 1) return null
+  let at = placed[0]
+  for (const u of same) {
+    if (at || !u.parentKey) break
+    const g = (await http(`https://api.gbif.org/v1/species/${u.parentKey}`)) as Usage
+    if (g.order && g.family) at = g
+  }
+  if (!at) return null
+  return { canonicalName: name, order: at.order, family: at.family, genus: same.find(u => u.genus)?.genus ?? name.split(' ')[0], matchType: 'SEARCH' }
+}
+
 /** iNaturalist's research-grade observations as a GBIF dataset: read from iNaturalist itself instead. */
 export const INAT_DATASET = '50c9509d-22c7-4a22-a47d-8c48425ef4a7'
 

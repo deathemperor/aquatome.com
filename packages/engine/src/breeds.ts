@@ -3,6 +3,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Range, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
+import { lastKept, logReviews } from './review-log'
 import { commonsCandidates, screen, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
@@ -17,8 +18,8 @@ const STYLE = readFileSync(new URL('./prompts/vi-style.md', import.meta.url), 'u
 const INTL = readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8')
 
 type Sourced = { fact: string; source: number }
-const CARE_FIELDS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'] as const
-type CareField = (typeof CARE_FIELDS)[number]
+export const CARE_FIELDS = ['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'] as const
+export type CareField = (typeof CARE_FIELDS)[number]
 type SourceKind = BreedEntity['sources'][number]['kind']
 /** What research found about one man-made fish: facts in the researcher's own words, each with the index of its source. */
 export type BreedFacts = {
@@ -57,8 +58,8 @@ const FACTS_SCHEMA = {
 export type BreedAsk = { name: string; kind?: BreedEntity['kind']; basedOn?: string }
 
 /** Difficulty and lifespan in a species' words (prompts/process.md), for what a breed's own sources say of it. */
-const DIFFICULTY = 'difficulty (1 = very easy … 8 = expert; convert the source\'s scale: a rating out of 10 or 5 as its share of 8, rounded (8/10 is 6, 3/5 is 5); its words so: very easy 1, easy or beginner 2, easy to moderate 3, moderate or intermediate 4, moderate to difficult 5, difficult or advanced 6, very difficult 7, expert only 8), one whole number (min = max)'
-const LIFE_YEARS = 'lifeYears in years (how long the fish lives in an aquarium, as the source states it: "4 years" is min = max = 4, "up to 5 years" is min = max = 5, "3 to 5 years" is 3–5; months as a fraction of a year; never inferred from anything else)'
+export const DIFFICULTY = 'difficulty (1 = very easy … 8 = expert; convert the source\'s scale: a rating out of 10 or 5 as its share of 8, rounded (8/10 is 6, 3/5 is 5); its words so: very easy 1, easy or beginner 2, easy to moderate 3, moderate or intermediate 4, moderate to difficult 5, difficult or advanced 6, very difficult 7, expert only 8), one whole number (min = max)'
+export const LIFE_YEARS = 'lifeYears in years (how long the fish lives in an aquarium, as the source states it: "4 years" is min = max = 4, "up to 5 years" is min = max = 5, "3 to 5 years" is 3–5; months as a fraction of a year; never inferred from anything else)'
 const ITS_OWN = 'Only a figure from a page about this fish (its care sheet, a breeder\'s, hobbyist\'s or shop\'s page on it): its rating of how hard this fish is to keep counts even when worded for its kind. Never a figure from a page about its species or a parent species (a species profile, the species\' encyclopedia article).'
 
 const researchPrompt = (a: BreedAsk) => `Research the aquarium fish "${a.name}" for a Vietnamese aquarium handbook. It is a man-made fish without a scientific name of its own: a hybrid, a line or colour form bred within one species, or a transgenic fish${a.kind ? ` (expected: ${a.kind})` : ''}. Use WebSearch and WebFetch. Search in English and in Vietnamese (the names Vietnamese hobbyists and shops use, Vietnamese forums and articles), and in the languages of the countries where it was developed when that helps.
@@ -97,7 +98,7 @@ notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Em
  * (process.ts), or a difficulty that isn't one figure. Temperature and difficulty in whole numbers (from °F, 18.3–22.2);
  * a lifespan always a range, as a species' (months as tenths of a year).
  */
-function careValue(c: { field: CareField; min: number; max: number }): Range | number | undefined {
+export function careValue(c: { field: CareField; min: number; max: number }): Range | number | undefined {
   const [lo, hi] = BOUNDS[c.field] ?? [NaN, NaN]
   const round = (v: number) => (c.field === 'tempC' || c.field === 'difficulty' ? Math.round(v) : c.field === 'lifeYears' ? Math.round(v * 10) / 10 : v)
   const min = round(Math.min(c.min, c.max))
@@ -212,12 +213,16 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the page on the site found, as the rewrite below does.
+  const before = kept ? await lastKept(root, { id: `breeds/${id}`, lang: 'vi' }, ['breed']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   // Any claim beyond the facts: one rewrite with the checker's notes; the better-grounded page is kept.
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
 
@@ -266,6 +271,7 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   await mkdir(dir, { recursive: true })
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
+  await logReviews(root, 'breed', { id: `breeds/${id}`, lang: 'vi' }, tries, review, { now: d.gallery.now() })
   if (photos.length > 4) {
     await mkdir(join(content, 'gallery'), { recursive: true })
     await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: photos.slice(4), seen, updatedAt: today }), null, 2)}\n`)
@@ -293,11 +299,15 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a page against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese PAGE', `${T.lang} PAGE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nPAGE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
     return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
   }
-  let w = await write()
+  // A redo starts from what the last review of the page on the site found.
+  const before = o.redo ? await lastKept(root, { id: `breeds/${id}`, lang }, ['breed']) : undefined
+  let w = await write(before?.notes)
   let review = await check(w)
+  const tries = [review]
   if (review.score < QUALITY_THRESHOLD || review.notes.length) {
     const again = await write(review.notes)
     const r = await check(again)
+    tries.push(r)
     if (r.score > review.score) { w = again; review = r }
   }
   // Breeds share /ca/ with the species: an address and a name neither has in this language.
@@ -325,6 +335,7 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
     ...(prev?.nameFixed ? { nameFixed: true } : {}),
   }, lang))
   await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
+  await logReviews(root, 'breed', { id: `breeds/${id}`, lang }, tries, review)
   return { id, slug, score: review.score, notes: review.notes }
 }
 

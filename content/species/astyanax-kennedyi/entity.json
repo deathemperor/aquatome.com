@@ -10,6 +10,44 @@
     "peru",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Kennedy's tetra, Astyanax kennedyi, is a small characid endemic to the upper Amazon basin in Peru, around the city of Iquitos.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the upper Amazon basin in Peru, around the city of Iquitos.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204398,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -125,8 +163,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể thủy sinh 80x30"
+        "bể cá 80cm"
       ]
     },
     {

@@ -1,11 +1,12 @@
 ---
 import type { Summary } from '@aq/schema'
 import { i18n } from '../lib/i18n'
-interface Props { summary: Summary }
-const { summary } = Astro.props
+/** `inside`: in the page's top, beside the photo on a computer (pages/ca/[slug].astro): inside its margins already. */
+interface Props { summary: Summary; inside?: boolean }
+const { summary, inside } = Astro.props
 const { t } = i18n(Astro.url)
 ---
-<section class="wrap qs" aria-labelledby="qs-h">
+<section class:list={['qs', !inside && 'wrap']} aria-labelledby="qs-h">
   <div class="box">
     <h2 id="qs-h">{t('Tóm tắt nhanh')}</h2>
     <p>{summary.summary}</p>

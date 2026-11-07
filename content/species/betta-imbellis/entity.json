@@ -16,6 +16,155 @@
     "hau-giang",
     "kuala-lumpur"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The crescent betta, Betta imbellis, is a labyrinth fish thought to be native to southern Thailand, Peninsular Malaysia and northern Sumatra.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Thought to occur naturally in southern (peninsular) Thailand, Peninsular Malaysia, and northern Sumatra, but has been introduced to other areas with feral populations now established in Singapore, for example.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394051,
+      "total": 78,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          65
+        ],
+        [
+          "MY",
+          8
+        ],
+        [
+          "VN",
+          3
+        ],
+        [
+          "KH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          7.03125,
+          9,
+          9
+        ],
+        [
+          98.4375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          5.625,
+          15,
+          15
+        ],
+        [
+          99.84375,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          99.84375,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          12.65625,
+          12,
+          12
+        ],
+        [
+          101.25,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          101.25,
+          5.625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          12.65625,
+          13,
+          13
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          19.6875,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -98,7 +247,7 @@
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/imbellis-4xyd2-mz7hr",
-      "html": "<p>These fish are caught from the province of Hau Giang. Wild caught Betta imbellis from Vietnam. They are not line-bred and do not contain any hybridization like most Imbellis you have seen from farms, although they might contain some hybridization from the historical release of fighter-type splendens.</p><p>Only healthy, high-quality fish are selected for shipping; old fish or fish with any signs of disease or weakness are not sold. All fish go through 2 or more weeks of quarantine before being sold, including medication to remove parasites such as velvet and ich. All males come from the same lineage and are generally similar.</p><p>Be sure to have the habitat ready before purchase.</p>"
+      "html": "<p>These fish are caught from the province of Hau Giang. Wild caught Betta imbellis from Vietnam. They are not line-bred and do not contain any hybridization like most Imbellis you have seen from farms, although they might contain some hybridization from the historical release of fighter-type splendens.</p>"
     },
     {
       "key": "distribution",
@@ -248,8 +397,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá betta 20 lít",
-        "bể cá mini"
+        "bể cá 50cm"
       ]
     },
     {

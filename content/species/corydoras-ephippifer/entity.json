@@ -1,0 +1,148 @@
+{
+  "id": "corydoras-ephippifer",
+  "scientificName": "Corydoras ephippifer",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-amapari"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<p>The saddle cory, Brochis ephippifera, long known as Corydoras ephippifer, is an armoured catfish native to Amapá state in northeastern Brazil. It resembles several congeners, including B. agassizii, Hoplisoma brevirostre, B. delphax and H. melanistium, but seems unique among them in having all fins except the dorsal transparent and unmarked. Detailed observations from the wild are scarce.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<p>Native to the state of Amapá, northeastern Brazil, although detailed observations are scarce to non-existent.</p><p>Type locality is 'Cachoera Creek at right bank of Rio Amapari, 4 kilometers downstream of Casa do 7, Amapa State, Brazil'.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<p>This species appears superficially similar to a number of congeners including Brochis ambiacus, B. agassizii, Hoplisoma brevirostre, B. delphax, and H. melanistium. Among these B. ephippifera seems to be unique in that all fins except the dorsal are transparent and lack markings.</p><p>More precise diagnostic characters cannot currently be provided, as the type description could not be obtained and little seems to have been written about this species since it was published.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium they are occasionally seen rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
+      "html": "<ul><li>Nijssen, H. (1972). Records of the catfish genus Corydoras from Brazil and French Guiana with descriptions of eight new species (Pisces, Siluriformes, Callichthyidae). Netherlands Journal of Zoology 21(4), 412-433</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "f8hd1hVHrw0",
+      "title": "Corydora Brochis ephippifer #aquarismo #pescaria #animal",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá chuột",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chuột",
+        "viên chìm cá đáy"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

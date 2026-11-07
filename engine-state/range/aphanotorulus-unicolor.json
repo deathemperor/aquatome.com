@@ -1,0 +1,157 @@
+{
+  "id": "aphanotorulus-unicolor",
+  "native": {
+    "input": "ffa23ec69621cc1e",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Aphanotorulus unicolor (Steindachner, 1908). Type locality: Rio Purus, Brazil. Etymology: Greek aphanes = hidden + Latin torulus = muscle, little string.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil; Upper Amazon River basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "However, aquarists are by far more splitting in this respect and distinguish at least four different species, among them A. frankei from Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Amazon River basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Brazil; Upper Amazon River basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The genus Aphanotorulus contains only two species, following some scientists: A. ammophilus from the Orinoco basin and A. unicolor from the complete upper Amazon basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Purus",
+        "source": "planetcatfish",
+        "quote": "Aphanotorulus unicolor (Steindachner, 1908). Type locality: Rio Purus, Brazil. Etymology: Greek aphanes = hidden + Latin torulus = muscle, little string.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphanotorulus unicolor",
+    "status": "ACCEPTED",
+    "taxonKey": 2339458,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        28
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        25
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        24
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

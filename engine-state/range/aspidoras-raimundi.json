@@ -1,0 +1,71 @@
+{
+  "id": "aspidoras-raimundi",
+  "native": {
+    "input": "179be8c2ddafe4dd",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Aspidoras raimundi (C125) is a small armoured catfish from coastal river drainages in north and northeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Coastal river drainages in north and northeastern Brazil, including the rio Parnaíba basin and coastal rivers in Ceará state.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Parnaíba",
+        "source": "seriouslyfish",
+        "quote": "Coastal river drainages in north and northeastern Brazil, including the rio Parnaíba basin and coastal rivers in Ceará state.",
+        "ok": true
+      },
+      {
+        "name": "Rio Acaráu",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'At mouth of brook emptying into Rio Parnahyba near Victoria, Maranhão State, Brazil'. The type locality of A. spilotus, now a synonym, is 'Riacho dos Macacos, tributary of River Acaráu, Ceará State, Brazil'.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aspidoras raimundi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342559,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        25
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        23
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "melanotaenia-boesemani",
   "native": {
-    "input": "60c2ef6e2fdb2ab9",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "8265bcb7956fed35",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "ID",
@@ -20,15 +20,23 @@
         "words": "Indonesia",
         "ok": false,
         "why": "no sentence"
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This species is found in mountain lakes and tributaries in West Papua, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Ajamaru lakes",
         "source": "seriouslyfish",
-        "quote": "Boeseman's rainbowfish, Melanotaenia boesemani, is a rainbowfish from Indonesia, known only from the Ajamaru lakes and nearby Lakes Hain and Aitinjo.",
-        "country": "ID",
-        "ok": true
+        "quote": "Has a very limited natural range, being known only from an area of three lakes known as Ajamaru, in the remote Vogelkop Peninsula of Irian Jaya, and from nearby Lakes Hain and Aitinjo.",
+        "ok": false,
+        "why": "its name is not in the quote"
       },
       {
         "name": "Lake Hain",
@@ -46,6 +54,12 @@
       },
       {
         "name": "Vogelkop Peninsula",
+        "source": "seriouslyfish",
+        "quote": "Has a very limited natural range, being known only from an area of three lakes known as Ajamaru, in the remote Vogelkop Peninsula of Irian Jaya, and from nearby Lakes Hain and Aitinjo.",
+        "ok": true
+      },
+      {
+        "name": "Irian Jaya",
         "source": "seriouslyfish",
         "quote": "Has a very limited natural range, being known only from an area of three lakes known as Ajamaru, in the remote Vogelkop Peninsula of Irian Jaya, and from nearby Lakes Hain and Aitinjo.",
         "ok": true

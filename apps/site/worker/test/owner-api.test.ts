@@ -5,7 +5,7 @@ import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
 import type { Action, Block, FormField, Section } from '../admin/blocks'
-import { contentPage, contentSection } from '../admin/content-page'
+import { contentPage, contentSection, type ContentPage } from '../admin/content-page'
 import {
   accountsPage, accountsSection, affiliatePage, affiliateSection, fishIdPage, fishIdSection, hiddenPage, hiddenSection, keptPage, keptSection, overviewJson,
   overviewPage, photosPage, photosSection, readersPage, readersSection, wantedPage, wantedSection,
@@ -31,6 +31,15 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ...(() => {
       const c = { ...S.CONTENT, tz: 'America/New_York', snapshots: [S.SNAPSHOTS[0]!], stats: { ...S.STATS, engine: null, sources: {}, gaps: {} }, reads: { ...S.READS, byKind: [], top: [], unread: { n: 0, byKind: {}, pages: [] }, elsewhere: { views: 0, paths: 0 } } }
       return [['empty, elsewhere', () => contentPage(c), () => contentSection(c)] as [string, () => string, () => Section]]
+    })(),
+    ...(() => {
+      const v = (name: string, c: ContentPage): [string, () => string, () => Section] => [name, () => contentPage(c), () => contentSection(c)]
+      return [
+        v('out of search', S.LOW_CONTENT),
+        v('out of search, no readers, elsewhere', { ...S.LOW_CONTENT, reads: F, tz: 'America/New_York' }),
+        v('out of search, none', { ...S.LOW_CONTENT, low: { v: 1, bar: 0.75, pages: [] } }),
+        v('out of search failed', { ...S.LOW_CONTENT, low: F }),
+      ]
     })(),
   ],
   'doc-gia': [
@@ -321,8 +330,8 @@ test('the overview: its to-dos, areas, their note and the last days are the page
 
 // ——— The Worker: who opens it, and the replies ———
 
-/** The fixture build's content.json (pnpm test builds the site first), as the Worker reads it through ASSETS. */
-const contentJson = () => readFileSync(fileURLToPath(new URL('../../dist/_ab/content.json', import.meta.url).href), 'utf8')
+/** The fixture build's content.json and reviews.json (pnpm test builds the site first), as the Worker reads them through ASSETS. */
+const builtFile = (name: string) => readFileSync(fileURLToPath(new URL(`../../dist/_ab/${name}`, import.meta.url).href), 'utf8')
 const DASH_TOKEN = 'dashtoken-0123456789abcdefABCDEF'
 function kv() {
   const m = new Map<string, { value: string; metadata?: unknown }>()
@@ -366,8 +375,8 @@ async function worker(over: Partial<Record<string, unknown>> = {}) {
   await uploads.bucket.put(`fish-id/anon/${S.KEPT_ANON}`, new Uint8Array([0xff, 0xd8, 2]), meta('other', new Date(now.getTime() - 7_200_000).toISOString()))
   const ab = kv()
   await ab.ns.put('hidden', JSON.stringify({ '/ca/ca-x/': { at: '2026-11-03T03:00:00.000Z', note: 'ảnh nhầm loài' } }))
-  const body = contentJson()
-  const assets = { fetch: async (r: Request) => (new URL(r.url).pathname === '/_ab/content.json' ? new Response(body, { headers: { 'content-type': 'application/json' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } })) }
+  const files: Record<string, string> = { '/_ab/content.json': builtFile('content.json'), '/_ab/reviews.json': builtFile('reviews.json') }
+  const assets = { fetch: async (r: Request) => { const body = files[new URL(r.url).pathname]; return body ? new Response(body, { headers: { 'content-type': 'application/json' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } }
   const e = {
     ASSETS: assets, AB: ab.ns, DB: db, UPLOADS: uploads.bucket, MEDIA: media.bucket, EVENTS: { writeDataPoint: () => {} },
     TURNSTILE_SECRET: 's', TURNSTILE_SITEKEY: 'k', COMMENT_HMAC_KEY: 'h', AB_DASH_TOKEN: DASH_TOKEN, OWNER_ACCOUNTS: 'owner-1', ...over,
@@ -474,6 +483,16 @@ test('every section through the Worker: the contract\'s shape, as its page says 
       }
     }
   }
+  // The content page's pages out of search for their score, from the build's reviews.json: the fixture's four, lowest
+  // first (Analytics Engine has no readers), none with a review (no engine state beside the fixture's content).
+  const content = (await (await call(w.e, 'GET', '/api/owner/sections/noi-dung', bearer(w.ownerApp))).json()) as Section
+  const at = content.blocks.findIndex(b => b.kind === 'heading' && b.text === 'Ẩn khỏi tìm kiếm vì điểm thấp')
+  const low = content.blocks.slice(at).find(b => b.kind === 'table')
+  const none = 'Chưa lưu lần đánh giá nào.'
+  expect(low?.kind === 'table' && low.rows.map(r => r.map(c => c.href ?? c.text))).toEqual([
+    ['/ca/ca-la-han/', 'Giống cá', '0,60', '0', none], ['/huong-dan/thay-nuoc-dung-cach/', 'Bài viết', '0,60', '0', none],
+    ['/thuat-ngu/gh/', 'Thuật ngữ', '0,60', '0', none], ['/ca/ca-boraras-do/', 'Cá', '0,61', '0', none],
+  ])
   const photos = (await (await call(w.e, 'GET', '/api/owner/sections/anh-ban-doc', bearer(w.ownerApp))).json()) as Section
   const items = photos.blocks.filter(b => b.kind === 'photos').flatMap(b => (b.kind === 'photos' ? b.items : []))
   expect(items.map(p => [p.id, p.src, p.actions.map(a => a.label)])).toEqual([[S.PHOTO_WAITING, `/_ab/anh/${S.PHOTO_WAITING}`, ['Duyệt', 'Gỡ']], [S.PHOTO_LIVE, 'https://media.aquatome.com/readers/x-480.webp', ['Gỡ']]])
@@ -606,7 +625,7 @@ test('the two private images take the owner\'s app session too, never stored or 
   expect(w.uploads.m.size).toBe(3)
 })
 
-// ——— The daily report's delivery: docs/contracts/owner-push.md until the contract has its two paths ———
+// ——— The daily report's delivery: /api/owner/report-settings and /api/owner/push-token ———
 
 test('bao-cao: every block its section sends, in each of its states, is one the contract describes', () => {
   for (const [name, , json] of VARIANTS['bao-cao']!) {
@@ -668,7 +687,7 @@ test('the report\'s delivery from the app: the section\'s buttons set it as the 
   expect(JSON.parse(w.ab.m.get('report-settings')!.value)).toEqual({ email: false, push: true })
   // Push on with no phone registered, and no APNs key: said, with what to do; the buttons turn them back.
   expect(how(await section())).toEqual([
-    { kind: 'note', text: 'Email: đang tắt. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được. Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo trên máy này”.', tone: 'bad' },
+    { kind: 'note', text: 'Email: đang tắt. Thông báo trên điện thoại: đang bật, nhưng chưa có điện thoại nào đăng ký và chưa có khóa APNs nên chưa gửi được. Mở ứng dụng AquaTome trên điện thoại và bật “Nhận thông báo báo cáo trên máy này”.', tone: 'bad' },
     { kind: 'actions', actions: [{ label: 'Bật email', method: 'POST', path: '/api/owner/report-settings', body: { email: true } }, { label: 'Tắt thông báo', method: 'POST', path: '/api/owner/report-settings', body: { push: false } }] },
   ])
   // A phone registered and the key set: where it goes.
@@ -756,7 +775,7 @@ async function replies(): Promise<Reply[]> {
     ['signed out', 'GET', '/api/owner/dashboard', undefined],
     ['not the owner', 'GET', '/api/owner/dashboard', undefined],
     ['storage down', 'GET', '/api/owner/dashboard', undefined],
-    // The daily report's phones and delivery (docs/contracts/owner-push.md until the contract has the two paths).
+    // The daily report's phones and delivery.
     ['register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['register the same phone again', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['register a phone: a token that isn\'t lowercase hex', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN.toUpperCase(), environment: 'production' }],
@@ -765,8 +784,10 @@ async function replies(): Promise<Reply[]> {
     ['signed out: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['not the owner: register a phone', 'POST', '/api/owner/push-token', { token: S.PUSH_TOKEN, environment: 'production' }],
     ['unregister a phone', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN }],
+    ['unregister a phone: a token that isn\'t lowercase hex', 'DELETE', '/api/owner/push-token', { token: S.PUSH_TOKEN.toUpperCase() }],
     ['turn the report\'s notification on', 'POST', '/api/owner/report-settings', { push: true }],
     ['a report setting that isn\'t true or false', 'POST', '/api/owner/report-settings', { push: 'yes' }],
+    ['report settings that change neither', 'POST', '/api/owner/report-settings', {}],
   ]
   const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
   for (const [name, method, path, body] of actions) {
@@ -779,12 +800,10 @@ async function replies(): Promise<Reply[]> {
   return out
 }
 
-/** Paths the app uses before the contract lists them (docs/contracts/owner-push.md): the native lead moves them in. */
-const PENDING = new Set(['/api/owner/push-token', '/api/owner/report-settings'])
 test('the samples the app\'s fake server serves are the Worker\'s replies, and the contract\'s (UPDATE_VECTORS=1 rewrites them)', async () => {
   const now = { replies: await replies() }
   const file = {
-    $comment: 'Generated by apps/site/worker/test/owner-api.test.ts from apps/site/worker/test/owner-sample.ts (UPDATE_VECTORS=1 pnpm test): the owner dashboard\'s replies (protocols/owner-dashboard.openapi.json) at 2026-11-04T09:00:00Z in Asia/Ho_Chi_Minh, for the app\'s fake server and UI tests. Each `request` is what the app sends (with the owner\'s bearer; "signed out" with none, "not the owner" with another account\'s, "storage down" while D1 is down), each `body` what the Worker answers. Photo and page ids are the sample\'s. /api/owner/push-token and /api/owner/report-settings follow docs/contracts/owner-push.md until the contract has them.',
+    $comment: 'Generated by apps/site/worker/test/owner-api.test.ts from apps/site/worker/test/owner-sample.ts (UPDATE_VECTORS=1 pnpm test): the owner dashboard\'s replies (protocols/owner-dashboard.openapi.json) at 2026-11-04T09:00:00Z in Asia/Ho_Chi_Minh, for the app\'s fake server and UI tests. Each `request` is what the app sends (with the owner\'s bearer; "signed out" with none, "not the owner" with another account\'s, "storage down" while D1 is down), each `body` what the Worker answers. Photo and page ids are the sample\'s.',
     ...now,
   }
   if (process.env.UPDATE_VECTORS) writeFileSync(VECTORS, `${JSON.stringify(file, null, 2)}\n`)
@@ -793,16 +812,18 @@ test('the samples the app\'s fake server serves are the Worker\'s replies, and t
   // One reply per section, the overview, and each action; every one the contract's.
   expect(kept.replies.filter(r => r.name.startsWith('section ')).map(r => r.request.path.split('/').at(-1))).toEqual(KEYS)
   for (const r of kept.replies) {
-    if (PENDING.has(r.request.path)) {
-      // Not in the contract yet: held to docs/contracts/owner-push.md, an error as the contract's Error.
-      expect(r.status >= 400 ? misfits(r.body, { $ref: '#/components/schemas/Error' }) : [], r.name).toEqual([])
-      if (r.status === 200) expect(r.body, r.name).toMatchObject({ ok: true, changed: expect.any(Boolean) })
-      continue
-    }
     const op = api.paths[opOf(r.request.path)][r.request.method.toLowerCase()]
     const res = op.responses[String(r.status)]
     expect(res, `${r.name}: ${r.status}`).toBeDefined()
     expect(misfits(r.body, res.content['application/json'].schema), r.name).toEqual([])
-    if (r.request.body !== undefined) expect(misfits(r.request.body, op.requestBody.content['application/json'].schema), r.name).toEqual(r.status === 400 && r.name.includes('neither') ? [expect.any(String)] : [])
+    if (r.request.body !== undefined) {
+      // What's refused as a bad request is what the contract doesn't allow (a token that isn't hex, another field): one
+      // thing, when it's neither of the choices. Anything else fits it, taken or refused for another reason.
+      const m = misfits(r.request.body, op.requestBody.content['application/json'].schema)
+      if (r.status === 400 && (r.body as { error?: string }).error === 'bad_request') {
+        expect(m.length, r.name).toBeGreaterThan(0)
+        if (r.name.includes('neither')) expect(m, r.name).toEqual([expect.any(String)])
+      } else expect(m, r.name).toEqual([])
+    }
   }
 })

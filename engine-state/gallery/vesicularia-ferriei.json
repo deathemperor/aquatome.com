@@ -1,7 +1,24 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "flickr:8730164762",
+  "flickr:9111155798",
+  "flickr:8673554464",
+  "flickr:12444479303",
+  "flickr:12444347285",
+  "flickr:12444482133",
+  "flickr:12444348805",
+  "flickr:8673554518",
+  "flickr:8672453009"
+ ],
+ "hashes": {
+  "https://live.staticflickr.com/7322/8730164762_7c9d7dd9f7_b.jpg": "61496f74d0f0f8f0",
+  "https://live.staticflickr.com/3787/9111155798_e61deeaa41_b.jpg": "4f7f7f7f6f7dfe63",
+  "https://live.staticflickr.com/7313/12444479303_3af5214460_b.jpg": "7dc7675ed9c7cbb8",
+  "https://live.staticflickr.com/3729/12444347285_36a9bd913a_b.jpg": "3b2c1eb36b151507",
+  "https://live.staticflickr.com/7419/12444482133_0895915b4e_b.jpg": "0b43676561696d4f",
+  "https://live.staticflickr.com/3793/12444348805_0bd87e130d_b.jpg": "2151d919555c7978"
+ },
  "inat": {
   "taxon": 900694,
   "pass": "done",
@@ -14,5 +31,9 @@
  "gbif": {
   "key": 5283635,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-06"
 }

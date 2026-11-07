@@ -1,0 +1,76 @@
+{
+  "id": "betta-hendra",
+  "native": {
+    "input": "096d44479684c98d",
+    "at": "2026-11-06T18:08:44.169Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Betta hendra is a rare member of the Betta coccina complex, native to the peat-swamp forests of Central Kalimantan, Borneo (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Indonesia, Borneo, Kalimantan Tengah, about 3 km south-east of Palangkaraya in direction of Berengbengkel; 02° 16.5 S, 113° 56.6 E'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta hendra is a rare member of the Betta coccina complex, native to the peat-swamp forests of Central Kalimantan, Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Central Kalimantan",
+        "source": "bwaquatics",
+        "quote": "Betta hendra is a rare member of the Betta coccina complex, native to the peat-swamp forests of Central Kalimantan, Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sabangau",
+        "source": "seriouslyfish",
+        "quote": "Palangkaraya is the capital city of Kalimantan Tengah (Central Kalimantan) province, Indonesian Borneo, and B. hendra is known only from the Sabangau peat swamp forest, home to the world's largest Orang Utan population and located to the immediate south and west of the city.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Indonesia, Borneo, Kalimantan Tengah, about 3 km south-east of Palangkaraya in direction of Berengbengkel; 02° 16.5 S, 113° 56.6 E'.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta hendra",
+    "status": "ACCEPTED",
+    "taxonKey": 7365203,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        3
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T18:08:44.169Z"
+  }
+}

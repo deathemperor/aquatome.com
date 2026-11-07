@@ -357,6 +357,24 @@ test('a page from a shop listing alone is recorded out of search (thin); an in-d
   expect((await vi()).quality).toEqual({ score: 0.9, indexable: true, bySource: { bwaquatics: 0.9, seriouslyfish: 0.9 } })
 })
 
+test('a page about one variety stays off the species page, now and on every later run', async () => {
+  // BW Aquatics' Copper Alien product page gave the betta's page the hybrid's facts (design critique 2026-11-06).
+  const root = await fresh()
+  const BW = 'https://bwaquatics.com/products/'
+  const shop = deps(root, { page: { ...species, variety: 'Albino' } })
+  shop.d.fetcher.text = async () => `<urlset><url><loc>${BW}albino-cardinal</loc></url></urlset>`
+  const r = await runEngine(shop.d, { sources: ['bwaquatics'] })
+  expect(r.perSource.bwaquatics).toMatchObject({ processed: 0, skipped: 1 })
+  await expect(readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).rejects.toThrow()
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_variety-pages.json'), 'utf8'))).toEqual({ [`${BW}albino-cardinal`]: { species: 'paracheirodon-axelrodi', variety: 'Albino', at: '2026-10-28' } })
+  // Translated again with no variety named, it is still that variety's page.
+  const again = deps(root)
+  again.d.fetcher.text = shop.d.fetcher.text
+  await runEngine(again.d, { sources: ['bwaquatics'], force: true, only: /albino/ })
+  expect(again.calls.process).toBe(1)
+  await expect(readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).rejects.toThrow()
+})
+
 test('a usage limit during the style pass stops the run; nothing publishes unpolished', async () => {
   const root = await fresh()
   const { d } = deps(root, { urls: ['paracheirodon-axelrodi'] })

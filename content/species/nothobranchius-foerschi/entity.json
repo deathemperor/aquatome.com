@@ -7,7 +7,8 @@
   "group": "killifish",
   "places": [
     "africa",
-    "tanzania"
+    "tanzania",
+    "ruvu"
   ],
   "dataCard": {
     "tempC": [
@@ -17,12 +18,62 @@
           "min": 18,
           "max": 30
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 2
+        }
       }
     ]
   },
@@ -34,10 +85,46 @@
       "html": "<p>Nothobranchs (genus Nothobranchius) belong to the most colorful species of freshwater fish. This is true at least for the males, as female nothobranchs are all more or less unicolored.</p><p>Nothobranchs are typical seasonal fish. They outlive the desiccation of their habitat with eggs that can survive without water almost unlimited. Nothobranchius furzeri is world famous as the fish with the shortest lifespan of all: between hatching from the egg and natural death are only 3 months! This is the reason why N. furzeri is in focus of science: medics and biologists study the fish as a model organism to understand the mechanisms of aging.</p><p>Most species of Nothobranchius, however, live much longer and usually they can reach at least an age of 9 months in aquaria. Nothobranchius foerschi is a very beautiful species that originates from Tanzania. Males can reach around 5 cm in length, females stay smaller.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>Nothobranchius foerschi is an annual killifish from eastern Tanzania that may be restricted to a small area of the Ruvu River catchment. All confirmed records come from the Ruvu and its delta, between Soga and the coast at Bagamoyo. It inhabits ephemeral pools and swamps on lowland floodplains, mostly heavily overgrown with terrestrial vegetation, and an aquarium strain appears more yellowish than the wild form.</p><ul><li>Max size: males 55 mm SL, females 40 mm SL</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>Described from Soga, a small settlement located west of Dar es Salaam city, eastern Tanzania, and may be restricted to a relatively small area within the Ruvu River catchment, between Soga and the coastal town of Bagamoyo. In 1891 it was also recorded in the Selous Game reserve, within the Rufiji River watershed, but this information has been called into question since the species has never been found there since and there exists no photographic evidence or preserved material from the Rufiji with all confirmed records pertaining to the Ruvu and its delta.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>Inhabits ephemeral, water-filled depressions, pools and swamps mostly located in lowland floodplains. Water levels in these seasonally-variable habitats typically decrease during the dry season and eventually become completely dessicated for several months each year. Near Bagamoyo it's been collected from pools of a flat, grassy floodplain alongside the congeners N. annectens, N. janpapi and N. melanospilus, while at Soga it occus together with N. janpapi and N. ocellatus. Most habitats appear to be heavily overgrown with terrestrial vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>Unless isolated temporarily for spawning purposes even a single pair should be offered an aquarium with base dimensions of 45 × 30 cm or more. Volume: about 41 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>This species does not require peat although peat moss is often used as a spawning medium.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
       "html": "<p>Regarding water temperature there are differing philosophies among killifish enthusiasts. In nature, temperatures can change very quickly, so the fish are adapted to a wide range of temperatures: 18 – 30°C. However, when kept at the upper or the lower end of this range for longer times they become susceptible to diseases. On the other hand, the fish can have a longer life when kept relatively cool. Nothobranchs are basically undemanding regarding the other water parameters, but it is best to keep them in medium hard, slightly alkaline water, otherwise they are very susceptible to Piscinoodinium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.5–7.5</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -46,16 +133,40 @@
       "html": "<p>Due to their strong metabolism nothobranchs need extra strong food. The different types of frozen and live food are very suitable. Plants are ignored.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>A natural micropredator meaning small live or frozen foods such as Daphnia, Artemia and chopped bloodworm should form the basis of the diet.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
       "html": "<p>Naturally fish that are as specialized as nothobranchs do not fit in usual community tanks. The most beautiful picture is to see several males together in a one-species tank. Nothobranchs are solitary fish and so the males are displaying every now and then.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>Males grow larger and are far more colourful than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_foerschi_en/",
       "html": "<p>Males and females should be kept together only for spawning. They are bottom spawners. The eggs need only around 6-10 weeks after drying out to hatch. So it is possible to have these nice fish in your home aquarium the whole year through.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>When its natural habitats become dessicated during the dry season the adult fish die, leaving fertilised eggs encased within the substrate. These are resistant to dessication and remain there until the rains return some 5-6 months later at which point the fry hatch and grow very quickly with sexual maturity reached at around 3 weeks of age. Typical lifespan in the aquarium is 12-24 months and eggs should be stored at a temperature of 21–25°C for around 3 months before being wetted. Some aquarists add a little marine salt to the water in order to reduce the risk of Oödinium, to which the fry are particularly susceptible.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-foerschi",
+      "html": "<p>Wild collections are generally labelled with some form of code in order that they can be told apart, thus limiting the possibility of hybridisation, for example 'Ruvu River TZ 91-103' in which 'TZ' is 'Tanzania', '91' the year of collection (1991), and '103' collection locality. There also exists an aquarium strain which appears more yellowish than the wild form.</p>"
     }
   ],
   "photos": [],
@@ -64,8 +175,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nhỏ 40cm",
-        "bể cá killi"
+        "bể cá 50cm"
       ]
     },
     {
@@ -83,5 +193,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-06"
 }

@@ -1,0 +1,73 @@
+{
+  "id": "aphyosemion-cognatum",
+  "native": {
+    "input": "55ba7a0a95ceff00",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-spotted lyretail, Aphyosemion cognatum, is a killifish from the Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type material was derived from a commercial shipment of fishes from Leopoldville, now Kinshasa, Democratic Republic of Congo, and presumed to have been collected in the vicinity.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "The precise extent of its distribution unknown but appears extensive in the middle and lower Congo regions, with specimen collected from Lac Fwa (Sankuru River drainage, a Congo River tributary), many hundreds of kilometres east of Kinshasa, identified as belonging to this species.",
+        "ok": true
+      },
+      {
+        "name": "Sankuru River",
+        "source": "seriouslyfish",
+        "quote": "The precise extent of its distribution unknown but appears extensive in the middle and lower Congo regions, with specimen collected from Lac Fwa (Sankuru River drainage, a Congo River tributary), many hundreds of kilometres east of Kinshasa, identified as belonging to this species.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion cognatum",
+    "status": "ACCEPTED",
+    "taxonKey": 2348247,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        37
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

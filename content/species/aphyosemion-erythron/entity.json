@@ -10,6 +10,72 @@
     "equatorial-guinea",
     "rio-muni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GQ"
+      ],
+      "regions": [
+        "Río Muni",
+        "Río Aye",
+        "Río Ecucu",
+        "Río Benito"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The reddish lyretail, Aphyosemion erythron, is a small killifish that appears endemic to southwestern Equatorial Guinea.",
+          "countries": [
+            "GQ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Río Muni, Equatorial Guinea and appears endemic to south-western parts of the country, with additional collections having occurred in the Río Aye, Río Ecucu and lower Río Benito drainages.",
+          "countries": [],
+          "regions": [
+            "Río Muni",
+            "Río Aye",
+            "Río Ecucu",
+            "Río Benito"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962389,
+      "total": 6,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GQ",
+          5
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          50.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

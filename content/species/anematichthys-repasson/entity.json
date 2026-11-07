@@ -1,0 +1,537 @@
+{
+  "id": "anematichthys-repasson",
+  "scientificName": "Anematichthys repasson",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Anematichthys",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "cambodia",
+    "mekong",
+    "indonesia",
+    "sumatra",
+    "laos",
+    "malaysia",
+    "endau",
+    "thailand",
+    "chao-phraya",
+    "vietnam",
+    "myanmar"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 28
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Cyclocheilichthys repasson is a cyprinid with an enormous range, from the Mekong region and Myanmar through Peninsular Malaysia to Borneo and Sumatra. It grows to around 280 mm SL and favours slower-moving or still water, grazing the biofilm on submerged roots and branches. It is not often seen in the hobby. Most populations have a dark caudal peduncle spot, stripes formed by dark markings on the scales, and two pairs of barbels.</p><ul><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Currently understood to have an enormous natural range extending southwestwards from the Mekong region in Thailand, Laos, Cambodia, and Vietnam through Thailand, Myanmar, Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.</p><p>It thus occurs throughout the Mekong, Mae Klong and Chao Phraya river drainages as well as a host of smaller river basins, lakes and reservoirs. It is used as a food fish in some countries and may vary a little in colouration and patterning depending on collection locality.</p><p>Type locality is 'Pangabuang, Lampong Province, Sumatra, Indonesia' corresponding to what is now more commonly referred to as Lampung province.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Primarily a riverine fish showing a preference for slower-moving or still zones including swamps, lakes, canals and ditches (Rainboth, 1996)[2] although it has also been recorded in faster-flowing, rocky stretches. Submerged tree roots, branches and plants are favoured habitats as it grazes the rich biofilm that forms on such surfaces.</p><p>It is now also found inhabiting many permanent bodies of water as a result of human interference; some populations have been deliberately introduced into new waters for aquaculture or angling purposes while others have had their habitat altered dramatically due to damming or agriculture. During the wet season it's known to move into inundated floodplains and forested areas.</p><p>In the species-rich Endau River drainage, Peninsular Malaysia, sympatric species include Scleropages formosus, Barbonymus schwanenfeldii, Crossocheilus langei, Cyclocheilichthys apogon, C. armatus, Hampala macrolepidota, Mystacoleucus obtusirostris, Osteochilus vittatus, O. microcephalus, Rasbora bankanensis, R. caudimaculata, R. cephalotaenia, R. dorsiocellata, R. einthovenii, R. elegans, R. trilineata, Striuntius lateristriga, Desmopuntius johorensis, Puntigrus partipentazona, Trigonostigma heteromorpha, Hemirhamphodon pogonognathus, Xenentodon canciloides, Nandus nebulosus, Pristolepis grootii, Anabas testudineus, Betta pugnax, Luciocephalus pulcher, Osphronemus goramy, Trichopsis vittata, Belodontichthys dinema, Hemibagrus nemurus and Chaca bankanensis plus various members of Channa, Akysis, Homaloptera, and Pangio.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Standard length: 280 mm SL. Aquarium base: 180 × 45 cm. Volume: ~365 litres.</p><p>If the data regarding its maximum size is to be believed then collection details may be useful here. Certainly this is not a suitable species for smaller aquaria and an aquarium with base measurements of at least 180 × 45 cm will be required for long-term care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Prefers a dimly-lit environment and a soft, sandy substrate is recommended. The addition of some good-sized pieces of driftwood will provide shady patches that will be appreciated.</p><p>While many aquatic plants will fail to thrive in such conditions species such as Microsorum, Taxiphyllum or perhaps some potted Cryptocorynes spp. should survive. The broad-leaved species are ideal as this fish likes to graze them for food. A few patches of floating vegetation would also help to further diffuse the light entering the tank and provide a more natural feel.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–8.0</li><li>Hardness: 1–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>In nature this species is chiefly predatory feeding insects, crustaceans and molluscs along with some algae and other plant material. For it to develop the best condition in the aquarium offer regular meals of small live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes and granules. Larger specimens will relish meaty items such as chopped prawn and small earthworms.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>An ideal resident of the larger, well-furnished community set-up though it might upset slow-moving or timid companions simply by its size.</p><p>There are plenty of suitable tankmates including many cyprinids, loaches, cichlids, catfish and characins, but as always when selecting a compatible community of fish proper research is essential. A community based around one of its native countries or river basins would also make a worthwhile project with some interesting alternatives (see 'Habitat' for examples).</p><p>It is a gregarious species by nature and ideally should be kept in a group of at least six. The fish show better colours in the presence of conspecifics, are less nervous and the display on the whole will appear more natural-looking.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Sexually mature females are likely to be thicker-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Not thought to have been bred in aquaria to date. In nature it spawns in flooded zones towards the end of the wet season.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<p>Etymology: Cyclocheilichthys: from the Ancient Greek κύκλος (kýklos), meaning 'circle', χείλος (cheílos), meaning 'lip', and ἰχθύς (ikhthús), meaning 'fish', possibly in reference to the continuous lips in this genus. repasson: from a local vernacular name from the fish in Lampung Province, Sumatra.</p><p>C. repasson is not often seen in the aquarium hobby and as with others in the genus little has been written regarding its captive care. The best way of obtaining it may be to keep an eye on shipments of wild fish from Indochina and the Greater Sunda Islands as it is rarely imported in large numbers.</p><p>Most populations possess a dark spot on the caudal peduncle and longitudinal stripes formed by dark markings on individual scales, plus two pairs of barbels.</p><p>Members of Cyclocheilichthys are characterised by possessing a serrated dorsal fin spine, 9 branched pelvic fin rays, a conical snout, small, subterminal mouth and parallel rows of sensory folds on the snout and cheeks. The latter feature is lacking in most other cyprinids but present in a few genera including Eirmotus, Oreichthys, and Neobarynotus.</p><p>There have been some nomenclatural issues in recent years, ostensibly because Cyclocheilichthys and the now synonymous Anematichthys were used simultaneously by Bleeker (1859) in reference to the same fish, C. apogon. The issue was addressed by Kottelat (1999) but later misinterpreted by Pasco-Viel, Veran and Variot, 2012, who concluded that Cyclocheilichthys represents a paraphyletic grouping and split the genus into two groups: Cyclocheilichthys (comprising C. enoplos) and Anematichthys (comprising C. apogon, C. armatus and C. repasson).</p><p>This was corrected by Kottelat (2013), and Cyclocheilichthys currently comprises seven species with the revalidated genus Cyclocheilos including the former members C. enoplos and C. furcatus. C. heteronema differs considerably from other Cyclocheilichthys species and may eventually be separated with the generic name Oxybarbus available for it.</p><p>Given the extremely wide range exhibited by C. apogon, and taking into account patterns observed in other Southeast Asian fishes, it seems logical that this species may also turn out to represent a group of closely-related taxa.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "html": "<ul><li>Ng, H. H. and H.-H. Tan (1999). The fishes of the Endau drainage, Peninsular Malaysia with descriptions of two new species of catfishes (Teleostei: Akysidae, Bagridae). Zoological Studies 38(3), 350-366</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Bleeker, P. (1853). Diagnostische beschrijvingen van nieuwe of weinig bekende vischsoorten van Sumatra. Tiental V-X. Natuurkundig Tijdschrift voor Nederlandsch Indië v. 4, 243-3</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600</li><li>Pasco-Viel, E., M. Veran and L. Variot (2012). Bleeker was right: Revision of the genus Cyclocheilichthys (Bleeker 1859) and resurrection of the genus Anematichthys (Bleeker 1859), based on morphological and molecular data of Southeast Asian Cyprininae (Teleostei, Cypriniformes). Zootaxa 3586, 41-54</li><li>Kottelat, M. (2013). The valid generic names for the fish species usually placed in Cyclocheilichthys (Pisces: Cyprinidae). Zootaxa 3640(4), 479-482</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Pasco-Viel, E., M. Veran and L. Variot (2013). Comments on 'The valid generic names for the fish species usually placed in Cyclocheilichthys' (KOTTELAT 2013) and a correction of Pasco-viel et al. (2012). Zootaxa 3640(3), 483-484</li><li>Cervancia, M. and M. Kottelat (2007). Cyclocheilichthys schoppeae, a new species of freshwater fish (Teleostei: Cyprinidae) from northern Palawan, Philippines. Raffles Bulletin of Zoology 55(1), 141-145</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0e18f678751e102d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0e18f678751e102d-480.webp",
+      "width": 600,
+      "height": 363,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-repasson",
+      "caption": "Subadult specimen from Thailand.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "vgtg3dFYbl8",
+      "title": "Cyclocheilichthys repasson @ Elongated Beardless Barb/Temperas Putih (Malaysia)",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "lDygMDjIGYI",
+      "title": "Koleksi: Temperas tirus",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá 180cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cảnh dạng hạt",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06",
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN",
+        "MM",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Borneo",
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently understood to have an enormous natural range extending southwestwards from the Mekong region in Thailand, Laos, Cambodia, and Vietnam through Thailand, Myanmar, Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH",
+            "VN",
+            "MM",
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Pangabuang, Lampong Province, Sumatra, Indonesia' corresponding to what is now more commonly referred to as Lampung province.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It thus occurs throughout the Mekong, Mae Klong and Chao Phraya river drainages as well as a host of smaller river basins, lakes and reservoirs.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7564873,
+      "total": 247,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          103
+        ],
+        [
+          "TH",
+          74
+        ],
+        [
+          "MY",
+          54
+        ],
+        [
+          "ID",
+          10
+        ],
+        [
+          "VN",
+          4
+        ],
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          6,
+          6
+        ],
+        [
+          98.4375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          99.84375,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          0,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          101.25,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          101.25,
+          5.625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          101.25,
+          16.875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          84,
+          84
+        ],
+        [
+          102.65625,
+          15.46875,
+          10,
+          10
+        ],
+        [
+          102.65625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          7,
+          7
+        ],
+        [
+          104.0625,
+          14.0625,
+          10,
+          10
+        ],
+        [
+          104.0625,
+          15.46875,
+          8,
+          8
+        ],
+        [
+          104.0625,
+          16.875,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          12.65625,
+          11,
+          11
+        ],
+        [
+          105.46875,
+          14.0625,
+          10,
+          10
+        ],
+        [
+          106.875,
+          11.25,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          9,
+          9
+        ],
+        [
+          113.90625,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          113.90625,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          113.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          0,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          16,
+          16
+        ],
+        [
+          118.125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
+}

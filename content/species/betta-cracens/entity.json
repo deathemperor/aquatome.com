@@ -10,6 +10,47 @@
     "indonesia",
     "jambi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Bangka"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta cracens is a mouthbrooding labyrinth fish from the Jambi area of Sumatra, Indonesia, and it may also occur on nearby Bangka island.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens were collected from the area of Bertam south of Jambi City, Jambi province, Sumatra, Indonesia and it may also occur on Pulau Bangka (Bangka island).",
+          "countries": [],
+          "regions": [
+            "Bangka"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394001,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +178,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể thủy sinh 72 lít"
+        "bể cá 80cm"
       ]
     },
     {

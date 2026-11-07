@@ -1,0 +1,200 @@
+{
+  "id": "nanosphronemus-gemma",
+  "scientificName": "Nanosphronemus gemma",
+  "order": "Anabantiformes",
+  "family": "Osphronemidae",
+  "genus": "Nanosphronemus",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "vietnam",
+    "hue"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 22,
+          "max": 26
+        },
+        "ref": 0
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": 5.5,
+        "ref": 0
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquatome",
+        "value": 2,
+        "ref": 3
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 1.5,
+          "max": 1.9
+        },
+        "ref": 0
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá đã có mặt trong giới chơi từ trước khi được mô tả chính thức. Có lô cá đến tay người chơi qua một nhà bán sỉ ở Đức. Số cá trên thị trường còn rất ít, và nhà nhập khẩu xếp nó vào loại cá dành cho người chơi chuyên sâu.</p>",
+      "refs": [
+        0,
+        3
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Hiện người ta chỉ biết loài này ở vùng đất ngập nước tại một địa điểm gần Huế, miền Trung Việt Nam. Vị trí cụ thể được giữ kín. Một nhóm người Việt mê thiên nhiên tìm thấy cá lần đầu vào tháng 9 năm 2025.</p>",
+      "refs": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>N. gemma</em> là cá nước ngọt. Nơi nó sống là một khu đất trống dưới chân một dãy núi. Nước đo được ở vùng đất ngập nước này rất mềm và chua, pH khoảng 5,5, nhiệt độ 22–26 °C.</p>",
+      "refs": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một bể yên tĩnh khoảng 30 lít trở lên là đủ cho một cặp hoặc một nhóm nhỏ. Bể nên trồng cây dày, thả cây nổi, rải một lớp lá và có những chỗ trốn nhỏ như gáo dừa, ống đất nung hay rễ cây.</p><p>Chiều dài bể tối thiểu, độ khó và tuổi thọ của loài này hiện chưa có nguồn nào công bố.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này cần nước rất mềm, ví dụ nước RO, làm chua nhẹ bằng lá cây, quả alder (alder cone) hoặc dịch chiết than bùn (peat). Bảng dữ liệu ghi độ cứng 2 dGH. Đèn nên để mờ. Bạn cũng cần tránh để thông số nước thay đổi đột ngột.</p><p>Về cách nuôi, loài này gần với <em>Parosphromenus ornaticauda</em> nhất, cũng là một loài rất nhỏ.</p>",
+      "refs": [
+        0,
+        3
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá ăn chủ yếu thức ăn sống cỡ nhỏ. Trong bể, artemia mới nở là thức ăn chính. Ngoài ra cá còn ăn:</p><ul><li>các loại ấu trùng nauplii</li><li>cyclops</li><li>trùn grindal</li><li>trùn vi sinh (microworm)</li><li>daphnia cỡ nhỏ</li></ul><p>Lăng quăng đỏ (bloodworm) cỡ lớn thì quá to so với miệng cá. Cá thường không chịu ăn thức ăn khô. Cho ăn vài bữa nhỏ mỗi ngày là tốt nhất.</p>",
+      "refs": [
+        0,
+        3
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là một loài cá nano hiền lành, hợp với bể yên tĩnh.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Hiện chưa có cách nào phân biệt đực cái thật chắc chắn. Trong đàn của một người nuôi, cá cái có vẻ lớn hơn cá đực một chút. Những con được đoán là đực có vảy ánh xanh dọc dải giữa thân.</p>",
+      "refs": [
+        0,
+        3
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Giống các loài họ hàng, <em>N. gemma</em> đẻ trong hang. Cá làm tổ bọt để sinh sản. Người chơi đã cho loài này sinh sản trong bể. Mỗi lứa trứng ít, và có một lứa chỉ có 12 cá bột.</p>",
+      "refs": [
+        0,
+        3
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Nanosphronemus gemma</em> là một loài cá sặc tí hon thuộc họ Osphronemidae, bộ Anabantiformes. Ralf Britz, Heok Hui Tan và Lukas Rüber mô tả loài này vào tháng 7 năm 2026. Các nhà khoa học công bố cùng lúc một chi mới và một loài mới, và <em>N. gemma</em> là loài chuẩn của chi <em>Nanosphronemus</em>. Ngày mô tả chính thức là 24/7/2026, và loài hiện được công nhận là hợp lệ. Mẫu chuẩn (holotype) mang số ZRC 70244. Có thêm 14 mẫu phụ (paratype) lưu dưới số ZRC 70070.</p><p>Tên chi ghép từ chữ Hy Lạp <em>nanos</em> (\"lùn\") với <em>Osphronemus</em>, chi chuẩn của họ, để chỉ kích thước rất nhỏ của cá. Tên loài <em>gemma</em> trong tiếng Latin nghĩa là \"viên ngọc\". Cái tên này nói về màu sắc của cá đực trưởng thành. Trong tiếng Anh, loài này có các tên Jewel Gourami, Minigourami \"Vietnam\" và Pho Xua Gourami.</p><p>Chi mới khác mọi chi cá rô, cá sặc khác ở số tia vây, kiểu hoa văn và một số đặc điểm bộ xương khá lạ. Vây lưng có XIX–XXI tia cứng cộng 2–3 tia mềm. Vây hậu môn có XX–XXIV tia cứng cộng 4–5 tia mềm. Phân tích di truyền xếp chi này làm nhóm chị em với <em>Trichopsis</em>, nhóm cá sặc kêu (croaking gouramis). Trước khi loài được mô tả, một nhà nhập khẩu cá cảnh lại cho rằng nó gần nhất với <em>Parosphromenus</em> (licorice gouramis). Trong giới buôn bán, cá từng lưu hành dưới tên \"Microsphromenus sp. Vietnam\" và \"M. sp. XD 11\".</p><p>Cá chỉ dài 1,5–1,9 cm, thuộc hàng nhỏ nhất trong các loài cá sặc đã biết. Lúc bình thường, thân cá màu be nhạt với hai sọc đen chạy dọc. Khi tán tỉnh, sọc đen phía trên chuyển thành sọc đỏ gạch, và dọc giữa thân lấp lánh những vảy xanh dương. Lúc chăm con, bụng cá chuyển sang xanh dương rực. Cá bị bắt lên thì mất màu.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "VZAtb7U71hw",
+      "title": "Breeding Nanosphronemus Gemma #aquascape #gouramis #aquarium #jewelgourami",
+      "durationSec": 87,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FeXLNbPhYh0",
+      "title": "Nanosphronemus Gemma - Jewel Gourami catching eggs from his bubble nest",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QmH0ImayCMU",
+      "title": "New Species Of Gourami Fish: Breeding Nanosphronemus Gemma The Jewel Gourami",
+      "durationSec": 675,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YgMhBq4FX-g",
+      "title": "Spawning the little Jewel Gourami Nanosphronemus gemma",
+      "durationSec": 197,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-06",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=iV3tUG5Vd4I",
+      "title": "Meet the Jewel Gourami! A Newly Discovered Miniature Fish from Vietnam!"
+    },
+    {
+      "url": "http://novataxa.blogspot.com/2026/07/nanosphronemus.html",
+      "title": "Species New to Science: [Ichthyology • 2026] Nanosphronemus gemma • A remarkable New Genus and Species of miniature osphronemid (Anabantoidei: Osphronemidae) from Vietnam"
+    },
+    {
+      "url": "https://research.calacademy.org/Research/Ichthyology/Catalog/fishcatget.asp?spid=78610",
+      "title": "CAS - Eschmeyer's Catalog of Fishes"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/minigourami-vietnam/",
+      "title": "Minigourami „Vietnam“"
+    }
+  ]
+}

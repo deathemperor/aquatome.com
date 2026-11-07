@@ -13,6 +13,82 @@
     "salween",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known with certainty from the Irrawaddy River system in Manipur state, India, and Myanmar, and the Salween watershed in eastern Myanmar and northwestern Thailand.",
+          "countries": [
+            "IN",
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2361289,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          8
+        ],
+        [
+          "IN",
+          4
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          95.625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          25.3125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -138,8 +138,9 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
     if (h.authorization !== 'Bearer tok') expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(404)
     for (const p of ['/_ab/photos', '/_ab/hidden', '/_ab/bao-cao/cai-dat']) expect((await handle(new Request(`https://x.test${p}`, { method: 'POST', body: new URLSearchParams({ id: 'x', url: '/ca/x/', action: 'hide', push: '1' }), headers: h }), e)).status, p).toBe(404)
     expect((await handle(get('/_ab/something-else/', h), e)).status).toBe(404)
-    // The build's content stats (scripts/content-stats.ts) are a file in /_ab/: the Worker answers first, and never with it.
-    expect((await handle(get('/_ab/content.json', h), e)).status).toBe(404)
+    // The build's content stats and its pages out of search (scripts/content-stats.ts) are files in /_ab/: the Worker
+    // answers first, and never with them.
+    for (const f of ['/_ab/content.json', '/_ab/reviews.json']) expect((await handle(get(f, h), e)).status, f).toBe(404)
   }
   // The owner signed in on the web: a page, noindex, never stored; the owner flag set and the old token cookie cleared.
   const ok = await handle(get('/_ab/an-trang/', { ...browser, cookie: owner }), e)
@@ -148,7 +149,7 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
   expect(await ok.text()).toContain('aria-current="page">Ẩn trang<')
   expect(ok.headers.getSetCookie()).toEqual([expect.stringMatching(/^aq_owner=1;/), expect.stringMatching(/^ab_token=; Path=\/_ab; Max-Age=0/)])
   // Not to the owner either: the dashboard reads the file itself, through ASSETS (admin/content.ts).
-  expect((await handle(get('/_ab/content.json', { ...browser, cookie: owner }), e)).status).toBe(404)
+  for (const f of ['/_ab/content.json', '/_ab/reviews.json']) expect((await handle(get(f, { ...browser, cookie: owner }), e)).status, f).toBe(404)
   // The hidden list: the owner's session, or the dashboard token as a bearer (the build and the scripts).
   for (const h of [{ cookie: owner }, { authorization: 'Bearer tok' }] as Record<string, string>[]) expect((await handle(get('/_ab/hidden.json', h), e)).status).toBe(200)
   // No owner named: nobody is.

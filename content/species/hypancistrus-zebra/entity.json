@@ -8,9 +8,74 @@
   "lNumber": "L 46",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "xingu"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 8
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 5
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -19,10 +84,130 @@
       "html": "<ul><li>Origin: Brazil</li><li>Name: Hypancistrus zebra</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<ul><li>Common names: Zebra Pleco, L046</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>There are different views on whether L173 is a valid, different species that looks similar. It is not uncommon for some L173 to go through a developmental stage where they look like zebras to the untrained eye, but for those who know and work with both fish, there is a clear difference. L173 all have gold-rimmed eyes, whereas zebras never do, and L173 also gets much bigger than the zebra.</p><p>Since December 2004 the exportation of H. zebra has been forbidden.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Brazil: downstream of the Volta Grande (Big Bend) of the Xingu.</p><p>Hypancistrus zebra is endemic to Brazil, occurring in the Volta Grande region of the Xingu River, in the state of Pará. The main threat was excessive harvesting for the international ornamental fish trade, which led to the species being classified as Vulnerable in 2004. With the ban on the capture of this species, there has been an apparent recovery of the population, with specimens frequently observed in their natural environment, despite illegal fishing of specimens smuggled to Colombia, from where they are regularly exported. Currently, the main threat to the species is the construction of the Belo Monte Hydroelectric Power Plant. The known area of occurrence of the species is 392 km² and is entirely included in the area directly affected by this plant, which covers 407 km². Considering the construction of the Belo Monte plant, in a 10-year projection, given that the estimated generation time for the species is 2.5 years, a population reduction of over 80% can be inferred, with a very high risk of extinction, categorizing Hypancistrus zebra as Critically Endangered (CR) under criterion A3c (IUCN 2023).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>They are quite tolerant of water conditions as long as the water is kept clean and warm and water changes are kept up. A good tip when first buying them is to acclimatise them in a smaller tank before transferring them to the main aquarium; this way you can make sure that they are feeding well and are happy in the water conditions. You can decorate this tank with cave-like structures akin to the home where it will eventually reside.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Temperature: 26-28°C. pH: 6.0-7.0. The water should be well oxygenated owing to the higher temperatures that are best given to them.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Keeping the Zebra Pleco in the aquarium is not too much of a problem as long as you give them plenty of hiding places: caves, rounded boulders, plant pots and pipework. You could also add some wood to their tank, but according to some aquarists who have kept this species, it isn't totally necessary.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Not a true vegetarian, so more meaty foods need to be fed. This includes live bloodworm, frozen foods such as mussel, tubifex and bloodworm, and the usual tablet foods.</p>"
+    },
+    {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypancistrus_zebra_l_46_double_tailfin_en/",
-      "html": "<p>November 2006: At present we can offer, beside normal German-bred zebras (surely the most in-demand of all L-numbers), an individual with a doubled lower caudal fin. This change of the fin is probably due to a disturbance in the embryonic development. If someone hopes to breed a strain of \"veil-tailed zebras\" with this fish, it will probably end in disappointment. Nevertheless: absolutely unusual, a rarity among the L-numbers.</p><p>(Photo F. Schäfer, Text K. Diehl)</p>"
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Etymology: the specific name zebra refers to the stripes.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypancistrus zebra. The IUCN Red List of Threatened Species 2022. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. ScotCat Factsheet no. 56. Feb. 2001. twotankamin: per comm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>The zebra plec, Hypancistrus zebra (L046), is a small loricariid catfish from the Rio Xingú basin in Brazil, named for its zebra pattern. Brazil banned its export in 2004 and captive-bred fish are expensive. Shy and easily outcompeted for food, it needs warm water of 26 to 30 °C, high oxygen levels and pristine conditions, and does not suit the general community tank.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>Rio Xingú basin, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>It inhabits flowing, highly oxygenated waters running over sandy substrates that are scattered with rocks and stones. The fish are found in deep water, in crevices among the rubble.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>Standard length: 80 mm SL. Aquarium base: 60 × 30 cm. Volume: ~54 litres (60 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>To appreciate it at its best, it really should be kept in a biotope setup, consisting of a sandy substrate over which is scattered lots of smooth pebbles and rocks of varying sizes. A few driftwood branches would add to the effect, and a powerhead or two at one end of the tank will provide the necessary water movement and oxygenation. Plants don't tend to do so well under these conditions, but you could try the hardier species such as Anubias and java fern, and these may survive for a while. It can also be kept in a planted tank if you wish, provided its oxygen demands are met.</p><p>Individuals appreciate places of refuge such as chunks of wood with tunnels or crevices.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<ul><li>Temperature: 26–30°C. Needs warm water; it will fail to thrive in cooler conditions.</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>Except when juvenile, these prefer a meaty diet. This can consist of live and frozen foods such as bloodworm, chopped mussel and prawn and sinking dried foods. Algae and other vegetable matter is not often taken, but the occasional slice of cucumber or courgette might be nibbled at.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>In terms of temperament it's a decent match for many other fish, as it has a peaceful enough nature. In truth though, it's not really a good species for the general community tank. It needs high temperatures and oxygen levels, pristine water conditions, and is shy and easily outcompeted for food by more vigorous feeders. Some success has been had keeping it with both discus and some dwarf cichlid species due to their similar temperature requirements, but ideally it should be maintained alone in a biotope setup as described above. If you must have tankmates, choose species that appreciate similar conditions and don't feed from the bottom. Possibilities include some small characins (rummy-nose tetras, phantom tetras etc.), cyprinids (harlequin rasboras are particularly good), Otocinclus and in a planted tank, red cherry shrimp (Neocaridina denticulata sinensis).</p><p>It's territorial with conspecifics and other similar species, so it should certainly be the only bottom dweller in the tank. If you're keeping a group ensure there are plenty of hiding places.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>Mature males develop odontodes on their first pectoral ray, which females lack. The same ray is also thicker in males. When viewed from above the head of the male is also broader than that of the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>Quite often bred in the hobby. It will sometimes spawn in the community tank if conditions are to its liking. If you want to raise a full brood of these, and exercise a degree of control over the situation, it's best to set up a separate spawning tank. The best way to obtain a pair is to buy a group of at least 6 fish and grow them on together, so something around 90 × 30 × 30 cm will be needed (along with a lot of cash!). If the fish are sexable, try to achieve a ratio of 2-3 females per male.</p><p>Furnish the tank with plenty of caves and refuges to act as potential spawning sites. These can be formed from rock piles, small flowerpots with a piece chipped from the rim, lengths of pvc piping etc. What is important, is that the entrances must be only slightly larger than the fish and that some degree of water flow should pass by them. Provide well-oxygenated water, with lots of movement, a pH of 6.5-7.5, and a temperature of 28–30 °C. There's no need to use a substrate.</p><p>Condition the fish with plenty of live or frozen foods. When in spawning condition the males will choose caves and defend them against other males, whilst trying to entice females inside. A successful male may spend several days inside the cave with a female before the eggs are laid and fertilised. The female plays no further part in broodcare after this and is forced out of the cave by the male. He then assumes sole responsibility for defending the cave against intruders and for tending to the eggs, which usually number between 7 and 15. This he does diligently, fanning them vigorously with his fins and guarding the cave entrance against all comers. Some breeders prefer to remove the eggs at this point and rear them in a container hung inside the main tank, with an airstone providing the necessary aeration.</p><p>The eggs hatch in around a week, and the fry will feed from their enormous yolk sacs for a further 2 or 3 days. After this they need heavy feedings of microworm or brine shrimp nauplii. They will also graze on sinking dried foods. It's important that food is available at all times, as the fry are voracious feeders and can easily starve if not provided with a constant supply of food. They can be left in the spawning tank if you wish, as the adults will not harm them, or moved to a separate rearing tank containing identical water.</p><p>If you're having trouble spawning it, try conducting a large (50-70%) water change with cool water, simulating the influx of colder water the rainy season brings in nature. Repeat this every 2 or 3 days and you may be rewarded with a spawn.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<p>One of the most enigmatic species in the hobby, this incredible little catfish must rank amongst the most stunning freshwater species known. In the late 1990s and the early part of this century you could buy one of these for as little as twenty pounds. However in 2004, the Brazilian government banned the exportation of the species amid apparent concerns over the exploitation of wild stocks. As yet, the conservation status of the fish has not been confirmed by any scientific proof with the only environmental organisation recognising it as endangered being IBAMA (the Brazilian Institute of the Environment and Natural Resources).</p><p>It seems that the ban is actually in place until the Brazilians work out how best to tax exports of fish to the aquarium hobby. As the tax department of the government has no power regarding export of live fish, it was necessary that the announcement came from IBAMA. It's not yet known if or when the situation will be resolved and with no more specimens being imported to the hobby, the price has inevitably risen. A captive bred fish can now set you back in excess of £100, with proven breeders costing substantially more.</p><p>When first imported it was referred to as L046, but was often sold as the imperial or emperor peckoltia. Following its description (and the erection of a new genus for it) in 1991, the common name of zebra plec was adopted. The other two L numbers currently assigned to it refer to a couple of differently patterned forms that are now known to be the same species.</p><p>As of January 2016, there are now eight described species in the genus: the subject species (type species), H. inspector Armbruster 2002, H. contradens Armbruster et al. 2007, H. debiliterra Armbruster et al. 2007, H. furunculus Armbruster et al. 2007, H. lunaorum Armbruster et al. 2007, H. margaritatus Tan &amp; Armbruster 2016 and H. phantasma Tan &amp; Armbruster 2016.</p><p>Finally, when buying Loricariids such as this, always check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens. Care should also be taken when netting the fish, as the pectoral odontodes of males can easily become caught in the mesh of aquarium nets.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "html": "<ul><li>Isbrücker I.J.H. and H. Nijssen (1991). Hypancistrus zebra, a new genus and species of uniquely pigmented ancistrine loricariid fish from the Rio Xingu, Brazil (Pisces: Siluriformes: Loricariidae) Ichthyological Explorations of Freshwaters 1, 345-350</li><li>Armbruster, J. W. (2002). Hypancistrus inspector: a new species of suckermouth armored catfish (Loricariidae: Ancistrinae). Copeia 2002(1), 86-92</li><li>Armbruster, J. W., N. K. Lujan and D. C. Taphorn (2007). Four new Hypancistrus (Siluriformes: Loricariidae) from Amazonas, Venezuela. Copeia 2007(1), 62-79</li><li>Tan, M. and J. Armbruster (2016). Two new species of spotted Hypancistrus from the Rio Negro drainage (Loricariidae, Hypostominae) ZooKeys 552, 123-135</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li></ul>"
     }
   ],
   "photos": [
@@ -60,6 +245,37 @@
       "source": "scotcat"
     },
     {
+      "url": "https://media.aquatome.com/commons/c5a4aaa7cc784c54.webp",
+      "thumb": "https://media.aquatome.com/commons/c5a4aaa7cc784c54-480.webp",
+      "width": 960,
+      "height": 708,
+      "licence": "CC BY-SA 3.0",
+      "author": "Birger A",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypancistrus_zebra4305.jpg",
+      "caption": "Ungfisk av L-046 (Hypancistrus zebra) - Juvenile L-046 (Hypancistrus zebra)"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5389c4a80616531b.webp",
+      "thumb": "https://media.aquatome.com/commons/5389c4a80616531b-480.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Peaceinpianos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypancistrus_Zebra_Pleco_Juvenile.jpg",
+      "caption": "Captive bred juvenile Hypancistrus Zebra"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/969cdf21fda65c58.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/969cdf21fda65c58-480.webp",
+      "width": 640,
+      "height": 252,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypancistrus-zebra",
+      "caption": "Zebra Plec, L046, L098, L173 (Hypancistrus zebra)",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/4cb0332851e1a973.webp",
       "thumb": "https://media.aquatome.com/scotcat/4cb0332851e1a973-480.webp",
       "width": 500,
@@ -69,29 +285,71 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypancistrus_zebra.htm",
       "caption": "Hypancistrus zebra",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c5a4aaa7cc784c54.webp",
-      "width": 960,
-      "height": 708,
-      "licence": "CC BY-SA 3.0",
-      "author": "Birger A",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypancistrus_zebra4305.jpg",
-      "caption": "Ungfisk av L-046 (Hypancistrus zebra) - Juvenile L-046 (Hypancistrus zebra)",
-      "thumb": "https://media.aquatome.com/commons/c5a4aaa7cc784c54-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5389c4a80616531b.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Peaceinpianos",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypancistrus_Zebra_Pleco_Juvenile.jpg",
-      "caption": "Captive bred juvenile Hypancistrus Zebra",
-      "thumb": "https://media.aquatome.com/commons/5389c4a80616531b-480.webp"
     }
   ],
-  "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-05"
+  "videos": [
+    {
+      "youtubeId": "t6xLJXz3uYc",
+      "title": "How to Breed Zebra Plecos | L046 Zebra Pleco Breeding & Caring Guide | Serendib Aquatics",
+      "durationSec": 935,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8zdEP8CjfWE",
+      "title": "Zebra Plecos are easy to keep.. so I'm getting more! 🤭 - Update on Max the Zebra Pleco & Final Setup",
+      "durationSec": 1207,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "-ZoEzmJ9sDg",
+      "title": "Zebra Pleco - Hypancistrus Zebra - Freshwater Plecostomus Aquarium Fish Profile & Care Guide",
+      "durationSec": 329,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YKs8AUSzCBw",
+      "title": "Habitat natural e aquário biótopo de Hypancistrus zebra (L46)",
+      "durationSec": 245,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qYh2tx1Q-gE",
+      "title": "ZEBRA PLECO FISH!!! (Hypancistrus Zebra)",
+      "durationSec": 368,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá pleco",
+        "trùng huyết đông lạnh",
+        "thức ăn chìm cho cá lau kính"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W",
+        "máy sưởi có thermostat"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí bể cá",
+        "máy bơm tạo dòng",
+        "lọc thùng cho bể 60cm"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
 }

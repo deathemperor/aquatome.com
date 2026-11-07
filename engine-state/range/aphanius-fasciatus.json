@@ -1,0 +1,393 @@
+{
+  "id": "aphanius-fasciatus",
+  "native": {
+    "input": "5b97f5949dae924c",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "FR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "France",
+        "ok": true
+      },
+      {
+        "code": "IT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Italy",
+        "ok": true
+      },
+      {
+        "code": "SI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Slovenia",
+        "ok": true
+      },
+      {
+        "code": "HR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Croatia",
+        "ok": true
+      },
+      {
+        "code": "BA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Bosnia and Herzegovina",
+        "ok": true
+      },
+      {
+        "code": "ME",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Montenegro",
+        "ok": true
+      },
+      {
+        "code": "AL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Albania",
+        "ok": true
+      },
+      {
+        "code": "GR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Greece",
+        "ok": true
+      },
+      {
+        "code": "TR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Turkey",
+        "ok": true
+      },
+      {
+        "code": "SY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Syria",
+        "ok": true
+      },
+      {
+        "code": "LB",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Lebanon",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "LY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Libya",
+        "ok": true
+      },
+      {
+        "code": "TN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Tunisia",
+        "ok": true
+      },
+      {
+        "code": "MT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "words": "Malta",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Bafa",
+        "source": "seriouslyfish",
+        "quote": "There are also a handful of inland freshwater populations, most notably in Lake Bafa, Turkey (although this is gradually becoming saline) and some oases of western north Africa.",
+        "country": "TR",
+        "ok": true
+      },
+      {
+        "name": "Sardinia",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "ok": true
+      },
+      {
+        "name": "Corsica",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "ok": true
+      },
+      {
+        "name": "Sicily",
+        "source": "seriouslyfish",
+        "quote": "This specie is well-distributed around the Mediterranean coastline, including the Adriatic Sea, and has been recorded from the countries of France, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia and around the islands of Sardinia, Corsica, Sicily and Malta.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphanius fasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2348104,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        391
+      ],
+      [
+        "59af8c53-b22b-40d1-8db5-9e7421d3936c",
+        86
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        43
+      ],
+      [
+        "c7521912-d688-4863-857b-6d78fe4f80e1",
+        26
+      ],
+      [
+        "60fda6dc-5581-46e9-822f-1db6d639c14d",
+        25
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        23
+      ],
+      [
+        "685a47f1-95b5-4bc0-b105-3ed0128defbf",
+        16
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        16
+      ],
+      [
+        "6ec2600f-768a-4240-9575-0972fef6c76f",
+        14
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        14
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        12
+      ],
+      [
+        "8256af7b-37fc-4fe7-99bc-d4454c379374",
+        12
+      ],
+      [
+        "6cbf7d4d-13cb-4604-8668-db68fe753349",
+        11
+      ],
+      [
+        "dc8e7b6c-1158-4872-96b9-e899b95a4973",
+        11
+      ],
+      [
+        "33572c56-7266-4705-83df-614a94b37606",
+        10
+      ],
+      [
+        "96a521af-58d0-4913-8b14-8a5d900c3c0d",
+        10
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        9
+      ],
+      [
+        "12f7588e-f812-4da0-85e9-05f655fa538a",
+        8
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        8
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "b9e8d4f9-7ca5-4990-9e89-c4582cd73572",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        7
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        6
+      ],
+      [
+        "207b73bc-b799-49f1-9e94-fd1afc175170",
+        5
+      ],
+      [
+        "e7d9b8bb-5ada-4219-81c5-0cabd78a9f86",
+        5
+      ],
+      [
+        "23bab45d-e5c8-43fd-8fc5-6a8668becd16",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "20a393ec-4d46-43bb-a609-3853a61abad4",
+        3
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        3
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        3
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        3
+      ],
+      [
+        "dd537fbd-539b-45b2-8d4a-a524a8ac8132",
+        3
+      ],
+      [
+        "10ad7c8b-39c5-4f91-8921-d7f6c3db7f30",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "9b72b0f3-f1aa-4eb9-80e0-dac19e8f923b",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "041f7924-1071-4aea-9b93-bc2b5c0d4a52",
+        1
+      ],
+      [
+        "31fd4785-7ed4-422f-91fa-03b3833937a0",
+        1
+      ],
+      [
+        "55347db9-46a3-449d-8e55-ba6ed02e4820",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "9c4e36c1-d3f9-49ce-8ec1-8c434fa9e6eb",
+        1
+      ],
+      [
+        "b30a3f6f-8408-4443-86b9-38e1323773b8",
+        1
+      ],
+      [
+        "c4bd0284-6f76-4af1-a638-e5f6c4594201",
+        1
+      ],
+      [
+        "c70aea6f-22a5-4fe0-8e86-b6d644b3ad12",
+        1
+      ],
+      [
+        "e0fd2329-1b9c-4194-9a18-5482bcd05dca",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "fc77b814-5596-4959-a779-30027a6507de",
+        1
+      ]
+    ],
+    "native": [
+      "FR",
+      "IT",
+      "SI",
+      "HR",
+      "BA",
+      "ME",
+      "AL",
+      "GR",
+      "TR",
+      "SY",
+      "LB",
+      "IL",
+      "EG",
+      "LY",
+      "TN",
+      "MT"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

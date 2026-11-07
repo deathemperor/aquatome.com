@@ -12,6 +12,107 @@
     "equatorial-guinea",
     "gabon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "NG",
+        "GQ",
+        "GA"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "No type locality details were provided in the original description but Meinken (1930) lists the town of Tiko, southwestern Cameroon, in his redescription.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's currently considered to occur in lowland, coastal areas from the southeastern tip of Nigeria, throughout western Cameroon and Equatorial Guinea and into northwestern Gabon.",
+          "countries": [
+            "NG",
+            "GQ",
+            "GA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348228,
+      "total": 61,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "CM",
+          52
+        ],
+        [
+          "DE",
+          4
+        ],
+        [
+          "GQ",
+          4
+        ],
+        [
+          "NG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          7.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          8.4375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          1.40625,
+          31,
+          31
+        ],
+        [
+          9.84375,
+          2.8125,
+          12,
+          12
+        ],
+        [
+          9.84375,
+          50.625,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -154,8 +255,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45cm",
-        "bể cá mini 30 lít"
+        "bể cá 50cm"
       ]
     },
     {

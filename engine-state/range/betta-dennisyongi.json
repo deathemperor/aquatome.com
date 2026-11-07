@@ -1,0 +1,43 @@
+{
+  "id": "betta-dennisyongi",
+  "native": {
+    "input": "7fcfb76c26e97335",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently known only from the western coast of central Aceh province, northwestern Sumatra, Indonesia, between the city of Meulaboh and lowland hill streams north of the town of Singkil.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Currently known only from the western coast of central Aceh province, northwestern Sumatra, Indonesia, between the city of Meulaboh and lowland hill streams north of the town of Singkil.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta dennisyongi",
+    "status": "ACCEPTED",
+    "taxonKey": 8183613,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

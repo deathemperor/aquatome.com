@@ -1,8 +1,8 @@
 {
   "id": "acheilognathus-macropterus",
   "native": {
-    "input": "2b187babe0900828",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "2b24a754f8edc010",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "CN",
@@ -39,12 +39,6 @@
     ],
     "regions": [
       {
-        "name": "Korean peninsula",
-        "source": "seriouslyfish",
-        "quote": "Native to China, the Korean peninsula, northern Vietnam, and southeastern Russia.",
-        "ok": true
-      },
-      {
         "name": "Yangtze River",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Chang Jiang [Yangtze River], China'.",
@@ -53,6 +47,13 @@
       },
       {
         "name": "Amur",
+        "source": "seriouslyfish",
+        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Songhua",
         "source": "seriouslyfish",
         "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
         "country": "CN",
@@ -73,17 +74,9 @@
         "ok": true
       },
       {
-        "name": "Dongting Lake",
+        "name": "Korean peninsula",
         "source": "seriouslyfish",
-        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
-        "country": "CN",
-        "ok": true
-      },
-      {
-        "name": "Tai Lake",
-        "source": "seriouslyfish",
-        "quote": "In China it's known from the provinces of Guangdong (Dong and Bei rivers), Hainan Island, Yunnan (Red River) Guangdong (Lianzhou and Yangshan), Jiangxi (Fanyang Lake), Shanghai City, Jiangsu (Tai Lake), Anhui (Linghuaiguan), Hubei (Dong Lake, Liangzi Lake, Hong Lake, Shashi), Hunan (Dongting Lake), Shanxi (Zhouzhi nature reserve), and Heilongjiang (Songhua and Amur rivers).",
-        "country": "CN",
+        "quote": "Native to China, the Korean peninsula, northern Vietnam, and southeastern Russia.",
         "ok": true
       }
     ],

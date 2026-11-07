@@ -12,7 +12,7 @@ import { queryReaderDays, queryReaders } from './readers'
 import { queryAsks } from './lang-ask'
 import { accountStats, clicksByDay, listWanted, livePhotos, moderationWaiting } from './admin/data'
 import { queryAppWeeks, queryBeacon, queryChecks, queryCommunity, scoreboardPage, summariseScoreboard, weeksTo, windowStart, type Scoreboard } from './admin/scoreboard'
-import { clicksByKind, listSnapshots, loadContentStats, pagesByRef, queryContentReads, talkByPage } from './admin/content'
+import { clicksByKind, listSnapshots, loadContentStats, loadLowScores, pagesByRef, queryContentReads, talkByPage } from './admin/content'
 import { commentPages } from './comments/photo'
 import { contentPage, contentSection } from './admin/content-page'
 import { queryFishId, queryFishIdDays } from './admin/fishid'
@@ -241,14 +241,14 @@ const changelogHtml: Load<string> = async (env, _url, now, tz) => changelogPage(
 const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   '/_ab/noi-dung/': view(async (env, url, now, tz) => {
     const a = ae(env)
-    const [stats, snapshots] = await Promise.all([contentOf(env, url.origin), soft('snapshots', listSnapshots(env.AB))])
+    const [stats, low, snapshots] = await Promise.all([contentOf(env, url.origin), env.ASSETS ? soft('reviews', loadLowScores(env.ASSETS, url.origin)) : undefined, soft('snapshots', listSnapshots(env.AB))])
     const off = (what: string): Soft<never> => (isFailed(stats) ? { failed: 'Không có content.json.' } : unset(what))
     const [reads, talk, clicks] = await Promise.all([
       a && !isFailed(stats) ? soft('content reads', queryContentReads(a.account, a.token, stats, 30)) : off(NO_AE),
       env.DB && !isFailed(stats) ? soft('content talk', talkByPage(env.DB, stats)) : off('D1'),
       env.DB && !isFailed(stats) ? soft('content clicks', clicksByKind(env.DB, stats, now)) : off('D1'),
     ])
-    return { now, tz, stats, reads, talk, clicks, snapshots }
+    return { now, tz, stats, low, reads, talk, clicks, snapshots }
   }, contentPage, contentSection),
   '/_ab/doc-gia/': view(async (env, _url, now, tz) => {
     const a = ae(env)

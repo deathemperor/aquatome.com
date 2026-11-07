@@ -12,6 +12,114 @@
     "bangladesh",
     "ganges"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra",
+        "Mahananda River",
+        "Garo-Khasi hill range",
+        "Padma",
+        "Surma-Meghna"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "B. rostrata Günther, 1868 - Native to the lower Ganges and middle to lower Brahmaputra river basins in northern India and Bangladesh; apparent occurrences in Myanmar and China almost certainly refer to misidentified B. histrionica.",
+          "countries": [
+            "IN",
+            "BD"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its precise distribution has always been questionable though, with type locality given simply as 'Bengal, India', and current knowledge suggesting that in India it occurs in the Mahananda River, West Bengal and Bihar states plus the Garo-Khasi hill range, Meghalaya state (likely including the Simsang, aka Someshwari, and Shella river drainages).",
+          "countries": [],
+          "regions": [
+            "Mahananda River",
+            "Garo-Khasi hill range"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Bangladesh it probably inhabits tributaries of the Padma (Ganges) and the Surma-Meghna river systems although Grant (2007) notes that some or all of these different populations may turn out to represent distinct species with further work.",
+          "countries": [],
+          "regions": [
+            "Padma",
+            "Surma-Meghna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368025,
+      "total": 22,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "IN",
+          13
+        ],
+        [
+          "BD",
+          7
+        ],
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          25.3125,
+          5,
+          5
+        ],
+        [
+          90,
+          22.5,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          7,
+          7
+        ],
+        [
+          92.8125,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          26.71875,
+          5,
+          5
+        ],
+        [
+          98.4375,
+          23.90625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -179,8 +287,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

@@ -10,6 +10,47 @@
     "indonesia",
     "musi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Musi",
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta pardalotos is a large paternal mouthbrooding labyrinth fish from the Musi drainage near Palembang, South Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Musi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the Galem River, a tributary within the larger Musi drainage, close to the city of Palembang, Sumatera Selatan (South Sumatra) province, Sumatra, Indonesia, and the species is possibly endemic to the lower Musi basin.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393996,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +178,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá betta"
+        "bể cá 80cm"
       ]
     },
     {

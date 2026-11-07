@@ -1,0 +1,121 @@
+{
+  "id": "brachyplatystoma-platynemum",
+  "native": {
+    "input": "f135ead462dbb4cd",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Pará, Brazil' but this species is widely-distributed throughout much of the Amazon and Orinoco basins, including many tributary drainages.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Pará, Brazil' but this species is widely-distributed throughout much of the Amazon and Orinoco basins, including many tributary drainages.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Pará, Brazil' but this species is widely-distributed throughout much of the Amazon and Orinoco basins, including many tributary drainages.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Sexually-mature adults of B. platynema have been observed in the upper rio Madeira basin, some 3000 km from the estuary.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO",
+        "CO",
+        "EC",
+        "PE",
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyplatystoma platynemum",
+    "status": "ACCEPTED",
+    "taxonKey": 2338818,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        68
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        19
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        17
+      ],
+      [
+        "00d324d6-5211-47a1-a84d-82175f84e678",
+        16
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

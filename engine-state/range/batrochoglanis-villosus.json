@@ -1,0 +1,163 @@
+{
+  "id": "batrochoglanis-villosus",
+  "native": {
+    "input": "20c1fa06d5b122ea",
+    "at": "2026-11-06T15:17:52.851Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Photographed in the Rio Nanay near Iquitos, Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Potaro Landing, British Guiana.",
+        "words": "British Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "Amazon, Upper Amazon, Nanay.",
+        "ok": true
+      },
+      {
+        "name": "Rio Nanay",
+        "source": "planetcatfish",
+        "quote": "Photographed in the Rio Nanay near Iquitos, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins.",
+        "ok": true
+      },
+      {
+        "name": "Demerara River",
+        "source": "scotcat",
+        "quote": "South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Batrochoglanis villosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344095,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        45
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        16
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        16
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        11
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "75bc7fe5-2259-4997-a97c-4ad231e317ce",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "967a00a1-297b-478c-8c86-cf801e93a6af",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T15:17:52.851Z"
+  }
+}

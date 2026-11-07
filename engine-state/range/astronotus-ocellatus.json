@@ -1,8 +1,8 @@
 {
   "id": "astronotus-ocellatus",
   "native": {
-    "input": "0f27dc9f5458d0e5",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "b60432beaebc4325",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "CO",
@@ -123,15 +123,9 @@
         "ok": true
       },
       {
-        "name": "Amazon",
-        "source": "sprucepets",
-        "quote": "Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins.",
-        "ok": true
-      },
-      {
-        "name": "Orinoco",
-        "source": "sprucepets",
-        "quote": "Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins.",
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
         "ok": true
       },
       {
@@ -142,6 +136,12 @@
       },
       {
         "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
         "source": "seriouslyfish",
         "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
         "ok": true
@@ -346,9 +346,5 @@
     ],
     "requests": 15,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

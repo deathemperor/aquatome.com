@@ -12,6 +12,59 @@
     "kalimantan",
     "mahakam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Mahakam",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The snakehead betta, Betta channoides, is a small mouthbrooding labyrinth fish from the Mahakam basin in East Kalimantan, Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Mahakam river basin in the province of Kalimantan Timur (eastern Kalimantan) on the island of Borneo, Indonesia, with type locality 'unnamed blackwater stream entering Mahakam River on the northern side near Mujub, 0°01'S, 115°43'E, Kalimantan Timur, Indonesia'.",
+          "countries": [],
+          "regions": [
+            "Mahakam",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394056,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          115.3125,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -86,12 +139,6 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
       "html": "<p>Betta channoides, often called the \"Snakehead Betta\" because its large mouth and head resemble the Channa fish, is a small but vibrant freshwater fish. It belongs to the Betta albimarginata complex. IUCN Red List: Endangered.</p><ul><li>Temperament: peaceful, can be kept in pairs or small groups</li><li>Breeding: mouthbrooder</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-channoides-melak-f1-wild-type-bettas",
-      "html": "<p>The fish offered are captive-bred F1 (from wild-caught Betta channoides from Melak), approximately 6 months old. Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -277,8 +324,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 20 lít",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

@@ -10,6 +10,59 @@
     "indonesia",
     "kalimantan-selatan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Pulau Laut"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Wild-caught Betta ideii from Indonesia, from the Betta unimaculata complex.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Pulau Laut"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394014,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -203,8 +256,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40cm",
-        "bể nuôi cá betta"
+        "bể cá 90cm"
       ]
     },
     {

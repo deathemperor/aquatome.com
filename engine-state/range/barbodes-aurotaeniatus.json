@@ -1,0 +1,113 @@
+{
+  "id": "barbodes-aurotaeniatus",
+  "native": {
+    "input": "8b63a05531c91f9f",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barbodes aurotaeniatus is a small cyprinid from the middle and lower Mekong basin in Laos, Vietnam, Cambodia and Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barbodes aurotaeniatus is a small cyprinid from the middle and lower Mekong basin in Laos, Vietnam, Cambodia and Thailand.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barbodes aurotaeniatus is a small cyprinid from the middle and lower Mekong basin in Laos, Vietnam, Cambodia and Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Barbodes aurotaeniatus is a small cyprinid from the middle and lower Mekong basin in Laos, Vietnam, Cambodia and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Barbodes aurotaeniatus is a small cyprinid from the middle and lower Mekong basin in Laos, Vietnam, Cambodia and Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Xe Kaman",
+        "source": "seriouslyfish",
+        "quote": "It occurs alongside numerous other fish species, and was recorded alongside Channa gachua, Devario gibber, Mastacembelus armatus, Monopterus albus, Rasbora paviana, and Rhinogobius taenigena at one locality in the Xe Kaman river system, Laos, for example.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barbodes aurotaeniatus",
+    "status": "ACCEPTED",
+    "taxonKey": 9552418,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        42
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        30
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "VN",
+      "KH",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

@@ -10,6 +10,58 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo",
+        "Sekayan",
+        "Melawi"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Wild-caught, from Indonesia (\"LB\" location).",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be endemic to the lower Kapuas river basin in the Indonesian province of West Kalimantan (Kalimantan Barat), Borneo.",
+          "countries": [],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Separate populations were collected from the Sekayan and Melawi rivers (both Kapuas tributaries) close to the townships of Sanggau and Nanga Pinoh, respectively.",
+          "countries": [],
+          "regions": [
+            "Sekayan",
+            "Melawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394007,
+      "total": 0,
+      "fetched": "2026-11-06",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -209,8 +261,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá betta hoang dã"
+        "bể cá 60cm"
       ]
     },
     {

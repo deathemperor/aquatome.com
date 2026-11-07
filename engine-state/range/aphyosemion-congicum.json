@@ -1,0 +1,69 @@
+{
+  "id": "aphyosemion-congicum",
+  "native": {
+    "input": "6bc11b18e983289d",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Congo lyretail, Aphyosemion congicum, is a killifish from western Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It may be restricted to the area between the Kwango and Gamba rivers, the latter a tributary of the former, in western Democratic Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kwango",
+        "source": "seriouslyfish",
+        "quote": "It may be restricted to the area between the Kwango and Gamba rivers, the latter a tributary of the former, in western Democratic Republic of Congo.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Gamba",
+        "source": "seriouslyfish",
+        "quote": "It may be restricted to the area between the Kwango and Gamba rivers, the latter a tributary of the former, in western Democratic Republic of Congo.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Kasai",
+        "source": "seriouslyfish",
+        "quote": "The Kwango is itself a tributary of the Kasai, an affluent of the Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aphyosemion congicum",
+    "status": "ACCEPTED",
+    "taxonKey": 2348291,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

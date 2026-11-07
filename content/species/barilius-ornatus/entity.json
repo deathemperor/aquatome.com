@@ -10,6 +10,61 @@
     "thailand",
     "tha-sae"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Isthmus of Kra",
+        "Tha Sae",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Possibly restricted to a handful of small systems in Chumphon Province on the eastern side of the Isthmus of Kra, southern Thailand, with the majority of records deriving from the Tha Sae basin (Tejavej, 2012).",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Isthmus of Kra",
+            "Tha Sae"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mé-Nam River, Thailand', with 'Mé-Nam' having been considered an older name for the Chao Phraya river in central and western Thailand prior to this species' redescription.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363273,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +192,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá dài 150x60"
+        "bể cá 150cm"
       ]
     },
     {

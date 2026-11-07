@@ -14,6 +14,252 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Java",
+        "Sumatra",
+        "Tioman",
+        "Anambas archipelago"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The spanner barb or 'T-barb', Striuntius lateristriga, is a cyprinid from peninsular Thailand, Peninsular Malaysia, Singapore, Sumatra and Java.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Java, Indonesia', but this species is currently considered to be distributed throughout southern (peninsular) Thailand, Peninsular Malaysia, Sumatra, and Java, plus some smaller islands in the South China Sea such as Tioman and the Anambas archipelago.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java",
+            "Tioman",
+            "Anambas archipelago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364073,
+      "total": 115,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          41
+        ],
+        [
+          "MY",
+          36
+        ],
+        [
+          "ID",
+          18
+        ],
+        [
+          "SG",
+          18
+        ],
+        [
+          "DE",
+          1
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          97.03125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          7.03125,
+          10,
+          10
+        ],
+        [
+          98.4375,
+          8.4375,
+          23,
+          23
+        ],
+        [
+          98.4375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          101.25,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          102.65625,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          102.65625,
+          0,
+          17,
+          17
+        ],
+        [
+          102.65625,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          104.0625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          108.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          112.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -182,8 +428,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 150cm",
-        "bể cá 300 lít"
+        "bể cá 150cm"
       ]
     },
     {

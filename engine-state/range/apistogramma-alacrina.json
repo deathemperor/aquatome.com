@@ -1,0 +1,106 @@
+{
+  "id": "apistogramma-alacrina",
+  "native": {
+    "input": "0c5248896f1662e1",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The redspot dwarf cichlid, Apistogramma alacrina, is from the Río Guaviare (Orinoco) and Río Orteguaza (Amazon) drainages in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Río Ariari within the Río Guaviare drainage, Meta Department, central Colombia, the Guaviare forming part of the much larger Río Orinoco system.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Guaviare",
+        "source": "seriouslyfish",
+        "quote": "The redspot dwarf cichlid, Apistogramma alacrina, is from the Río Guaviare (Orinoco) and Río Orteguaza (Amazon) drainages in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Orteguaza",
+        "source": "seriouslyfish",
+        "quote": "The redspot dwarf cichlid, Apistogramma alacrina, is from the Río Guaviare (Orinoco) and Río Orteguaza (Amazon) drainages in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The redspot dwarf cichlid, Apistogramma alacrina, is from the Río Guaviare (Orinoco) and Río Orteguaza (Amazon) drainages in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The redspot dwarf cichlid, Apistogramma alacrina, is from the Río Guaviare (Orinoco) and Río Orteguaza (Amazon) drainages in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Ariari",
+        "source": "seriouslyfish",
+        "quote": "Described from the Río Ariari within the Río Guaviare drainage, Meta Department, central Colombia, the Guaviare forming part of the much larger Río Orinoco system.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Caquetá",
+        "source": "seriouslyfish",
+        "quote": "It's also known from the Río Orteguaza in neighbouring Caquetá Department, an affluent of the Río Caquetá in the Amazon basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma alacrina",
+    "status": "ACCEPTED",
+    "taxonKey": 2371238,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

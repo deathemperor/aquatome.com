@@ -1,0 +1,94 @@
+{
+  "id": "ancistrus-claro",
+  "native": {
+    "input": "edf9b84f83a3c32d",
+    "at": "2026-11-06T06:16:32.822Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ancistrus claro, the gold marble bristlenose catfish (LDA 008), is a suckermouth catfish from the rios Claro and Coxipó in Mato Grosso, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Claro, above the bridge, in the direction of Chappada dos Guimaraes, Mato Grosso State, Brazil'.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Claro",
+        "source": "seriouslyfish",
+        "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Coxipó",
+        "source": "seriouslyfish",
+        "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Cuiabá",
+        "source": "seriouslyfish",
+        "quote": "Collected from the rios Claro and Coxipó within the upper rio Cuiabá drainage in Mato Grosso state, central Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraguay",
+        "source": "seriouslyfish",
+        "quote": "The Cuiabá is itself a tributary of the rio Paraguay and its lower reaches flow through the Pantanal wetlands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus claro",
+    "status": "ACCEPTED",
+    "taxonKey": 5961379,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T06:16:32.822Z"
+  }
+}

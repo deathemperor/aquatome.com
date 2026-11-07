@@ -10,6 +10,75 @@
     "myanmar",
     "ayeyarwady"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Ayeyarwady",
+        "Chindwin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Ayeyarwady River drainage in Myanmar although the full extent of its distribution remains unclear.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Ayeyarwady"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Kalaymyo lies on the Chindwin River, a major tributary of the Ayeyarwady, and the fish are reported to be found in the Myittha drainage which feeds it.",
+          "countries": [],
+          "regions": [
+            "Chindwin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2389476,
+      "total": 31,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MM",
+          29
+        ],
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          20,
+          20
+        ],
+        [
+          92.8125,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          94.21875,
+          23.90625,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,8 +206,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60x30 cm",
-        "bể cá 54 lít"
+        "bể cá 60cm"
       ]
     },
     {

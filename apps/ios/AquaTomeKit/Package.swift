@@ -16,6 +16,8 @@ let package = Package(
     .library(name: "AccountSync", targets: ["AccountSync"]),
     .library(name: "Plugs", targets: ["Plugs"]),
     .library(name: "TankCheck", targets: ["TankCheck"]),
+    .library(name: "Telemetry", targets: ["Telemetry"]),
+    .library(name: "FishLamp", targets: ["FishLamp"]),
   ],
   targets: [
     // Chihiros lights: the frames and replies (pure), no Bluetooth.
@@ -44,5 +46,14 @@ let package = Package(
     // apps/site/scripts/app-tank-check.mjs, run in JavaScriptCore.
     .target(name: "TankCheck", dependencies: ["Handbook"], resources: [.copy("tank-check.js")], swiftSettings: small),
     .testTarget(name: "TankCheckTests", dependencies: ["TankCheck", "Handbook"]),
+    // Anonymous usage events and iOS's crash and performance reports, sent to aquatome.com's own Worker as the privacy
+    // policy lists them (a queue on the phone, batches, the site's and the reader's switches), and a stand-in Worker for
+    // tests and the simulator.
+    .target(name: "Telemetry", swiftSettings: small),
+    .testTarget(name: "TelemetryTests", dependencies: ["Telemetry"]),
+    // The Love Ecology light the Fish lamp app drives by broadcast: the owner's recorded commands, played back. Pure:
+    // the app advertises them.
+    .target(name: "FishLamp", resources: [.copy("love-ecology.json")], swiftSettings: small),
+    .testTarget(name: "FishLampTests", dependencies: ["FishLamp"]),
   ]
 )

@@ -1,4 +1,4 @@
-import { expect, test } from './fixtures'
+import { expect, openCard, test } from './fixtures'
 
 // A species' data card explains itself: each label leads to its section of the explainer page (a computer's click; on a
 // touch screen the first tap shows what the figure is, with a link), and the difficulty cell opens "Vì sao?", the needs
@@ -8,6 +8,7 @@ const FISH = '/ca/ca-neon-vua/'
 
 test('a data card label opens its section of the explainer page', async ({ page, errors }, info) => {
   await page.goto(FISH)
+  await openCard(page)
   const label = page.locator('.facts .card [data-field="difficulty"] dt a')
   const name = (await label.textContent())!.trim()
   const href = (await label.getAttribute('href'))!
@@ -36,6 +37,7 @@ test('a data card label opens its section of the explainer page', async ({ page,
 
 test('the difficulty cell opens "Vì sao?": each need with its level and the figure it comes from', async ({ page, errors }, info) => {
   await page.goto(FISH)
+  await openCard(page)
   const cell = page.locator('.facts .card [data-field="difficulty"]')
   const summary = cell.locator('details.why > summary')
   const panel = cell.locator('.needs')

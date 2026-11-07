@@ -11,6 +11,70 @@
     "peru",
     "loreto"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Itaya",
+        "Amazon River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Apistogramma paulmuelleri (A52) is a dwarf cichlid apparently endemic to Loreto, Peru, described from a forest stream near the Iquitos to Nauta road.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The authors also state that the species is 'apparently endemic to the Loreto' and that all localities are 'east of the rio Itaya and west of the Amazon River north of Nauta'.",
+          "countries": [],
+          "regions": [
+            "Rio Itaya",
+            "Amazon River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7579623,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "PE",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -183,8 +247,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30",
-        "bể cá mini 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

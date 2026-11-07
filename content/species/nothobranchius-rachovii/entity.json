@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "mozambique",
-    "zambezi"
+    "zambezi",
+    "pungwe"
   ],
   "dataCard": {
     "tempC": [
@@ -17,6 +18,13 @@
         "value": {
           "min": 20,
           "max": 22
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
         }
       }
     ],
@@ -27,6 +35,13 @@
           "min": 5.5,
           "max": 7
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "gh": [
@@ -36,18 +51,33 @@
           "min": 1,
           "max": 10
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 3,
+          "max": 10
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "aquariumbreeder",
         "value": 4.5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5.5
       }
     ],
     "difficulty": [
       {
         "source": "aquariumbreeder",
         "value": 2
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 5
       }
     ],
     "lifeYears": [
@@ -57,6 +87,19 @@
           "min": 1,
           "max": 1
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0.5,
+          "max": 1
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
       }
     ]
   },
@@ -66,6 +109,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "html": "<ul><li>Other names: Bluefin nothos, African annual killifish, Annual Killifish, Blueband killifish, Rainbow killifish</li><li>Tank size: 10 gallons (~40 litres)</li><li>Keeping: easy; breeding: difficult</li><li>Dwellers: middle and bottom</li><li>Nitrate: less than 100</li><li>Diet: omnivore</li><li>Temperament: peaceful (with caution)</li><li>Life span: up to 1 year</li><li>Colour form: blue-orange</li></ul><p>Nothobranchius rachovii is an annual species that has become a well-established model for aging studies. The genus Nothobranchius consists of about 100 species, typically 4–7.5 cm standard length, with striking sexual dichromatism: males are brightly coloured while females are mostly dull.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>The bluefin nothobranch, Nothobranchius rachovii, is a killifish of seasonal pools and swamps in eastern Mozambique. Its habitats dry out for several months each year and the adults die, while the eggs survive in the substrate and hatch when the rains return. Northern and southern populations once included in it are now described as N. krysanovi and N. pienaari, and N. rachovii sensu stricto is restricted to the lower Pungwe and Zambezi basins.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -80,10 +129,22 @@
       "html": "<p>This species is endemic to Mozambique. It inhabits the lower Zambezi and lower Pungwe River systems in Mozambique.</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>Described from close to the city of Beira, Mozambique and for many years thought widely-distributed between the Kruger National Park, South Africa to the Kwa-Kwa River north of the Zambezi delta. Populations from the south and north of this range exhibiting differences in colour pattern and morphology have now been described as N. pienaari and N. krysanovi, respectively, meaning N. rachovii sensu stricto is restricted to the area between the lower Pungwe and Zambezi river basins in eastern Mozambique.</p>"
+    },
+    {
       "key": "habitat",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "html": "<p>The natural habitats of Nothobranchius rachovii are seasonal pools and temporary water bodies where the water dries up annually.</p><p>Its life cycle is closely tied to the availability of water in these habitats produced by seasonal rains, and its rapid and short active life commences when rains fill the pool.</p><p>In the wild, the temperature is around 20–24°C, but it can rise up to 30°C during the dry season. These fish inhabit shallow waters where the current is absent or very slow-moving.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>Inhabits ephemeral, water-filled depressions, pools and swamps mostly located in lowland floodplains. Water levels in these seasonally-variable habitats typically decrease during the dry season and eventually become completely desiccated for several months each year. pH values are typically 6.0–7.0. Aquatic plant species include Nymphea, Ottelia, Lagarosiphon and Utricularia species with common sympatric fishes including the congeners N. kadleci and N. orthonotus plus Clarias gariepinus, Ctenopoma multispine, Protopterus annectens and unidentified 'Barbus' spp. Some habitats are apparently used for low intensity, subsistence rice cultivation.</p>"
     },
     {
       "key": "aquariumSize",
@@ -92,16 +153,34 @@
       "html": "<p>The recommended tank size is 10 gallons (40 litres) for 1 male and 2–3 females. For two breeding groups (2 males and 6 females), a 15-gallon (about 57 litres) aquarium is necessary as the males will establish and defend territories.</p><p>Nothobranchius rachovii are good jumpers. To prevent this: use a lid, lower the water level, keep floating plants and avoid stressing the fish.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>Unless isolated temporarily for spawning purposes even a single pair should be offered an aquarium with base dimensions of 45 × 30 cm or more (about 41 litres).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Although these fish are resilient, their specific requirements must be met for optimal health and breeding. Ensure the tank is properly cycled before introducing them, and test water quality regularly with a kit.</p><p><strong>Substrate:</strong> No special requirements, but a dark substrate makes the fish look more contrasting.</p><p><strong>Plants and decorations:</strong> They need plenty of dark hiding spots using plants, rocks, stones, driftwood, coconuts, cork bark pieces, leaves, PVC pipes and other decorations. These provide shelter and reduce stress, especially if there are several males. Some aquarists place items such as coconuts in various locations so males can use them as shelters and establish a central point from which to control their territory.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>This species does not require peat although peat moss is often used as a spawning medium.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "html": "<p><strong>Temperature:</strong> because high temperatures significantly shorten lifespan, keep them at 20–22°C.</p><p><strong>pH:</strong> 5.5–7.0.</p><p><strong>Hardness:</strong> GH 1–10, KH 1–8. The species can adapt to harder water, but this will also shorten its lifespan.</p><p><strong>Water flow:</strong> stagnant water or very slow currents are recommended. Experiments showed that Nothobranchius rachovii ages faster under stress due to continuous water recirculation.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 3–10 dGH</li></ul>"
     },
     {
       "key": "equipment",
@@ -116,6 +195,12 @@
       "html": "<p>Stomach content analysis showed that Nothobranchius rachovii is a generalist, mainly eating aquatic invertebrates (such as Cladocera, Copepoda, Ostracoda and Conchostraca) and mosquito larvae.</p><p>In aquariums they are not picky. They can be given a diverse range of frozen or live foods, including brine shrimp, Artemia nauplii, daphnia, fruit flies, moina, vinegar eels, mosquito larvae, cyclops, detritus worms, grindal worms, bloodworms, blackworms and tubifex worms. Large worms should be chopped into small pieces and flake food crumbled.</p><ul><li>They are diurnal, so feed during the day.</li><li>The diet should be mostly protein-based.</li><li>They are prone to overeating (follow a 5-minute rule).</li><li>Feed twice per day, morning and evening.</li></ul><p>They are plant safe and do not eat live plants. Planted tanks are highly recommended since they help reduce aggression.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>A natural micropredator meaning small live or frozen foods such as Daphnia, Artemia and chopped bloodworm should form the basis of the diet.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
@@ -128,10 +213,22 @@
       "html": "<p>Adult males are larger and much more colourful than the drab females.</p><p>Males show alternating light blue and orange-red stripes on the body and fins, an orange-red head, and an orange subterminal and black terminal band in the caudal fin. Colour, particularly on the head, may vary with aquarium conditions and water quality.</p><p>Females are olive grey-brown. The frontal scales on the flanks are iridescent light blue to silvery. All fins are colourless.</p><p>Scientists noticed that removing males from a population leads to larger females that produce fewer eggs.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>Males grow larger and are far more colourful than females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Breeding is linked to the annual life cycle. In nature the water bodies dry up completely and all the fish die, so the fish lay eggs in mud for the next generation to survive drought until the rainy season. In aquariums this process must be replicated.</p><p><strong>Maturity:</strong> 3 weeks to 2 months, depending on temperature.</p><p><strong>Spawning:</strong> spawning is portioned and prolonged, with several small batches of eggs laid daily. During courtship the male tries to press the female to the bottom, adopting a vertical posture with head upward, making sudden movements, often lowering his lower lip and holding his head at about 45°.</p><p><strong>Fecundity:</strong> females can lay 20–30 eggs per clutch per day, but the average is 4–10.</p><p><strong>Eggs:</strong> adhesive, spherical, yellowish, demersal, with a large oil droplet that serves as a food source. Size about 0.97±0.03 mm. The egg envelope has two distinct layers that allow survival through dry periods.</p><p><strong>Embryos:</strong> enter diapause for 6–9 months. Eggs will not survive if fully submerged in water for more than a few weeks. Eggs never develop all at once, a defence against false rains, so fry hatch in batches.</p><p><strong>Fry:</strong> grow and mature extremely fast. In nature nearly 90% of embryos and fry reach adulthood. Average male length: 2.3 ± 0.15 cm at 1 month, 3.7 ± 0.22 cm at 4 months, 4.3 ± 0.35 cm at 7 months.</p><p><strong>Breeding method:</strong></p><ol><li>Put a male and a female in the breeding tank. Provide peat or coconut fibre as substrate, condition them with plenty of live food, raise the temperature to 25–26°C and lower the water level a bit.</li><li>Instead of adding substrate directly, you can fill a small plastic jar with substrate (layer up to 2.5 cm). Some aquarists boil peat for 3–5 minutes before use, which cleans it while preserving its acidic reaction; boiling too long breaks down almost all acids, and the peat loses its ability to kill harmful bacteria that can destroy the eggs. The female deposits eggs in the substrate and the male fertilises them.</li><li>After a few days of egg laying, return the breeders to the main tank, because females often eat eggs due to their fast metabolism.</li><li>If a container was used, take it out of the water; otherwise completely dry out the aquarium to collect the substrate with eggs.</li><li>Press the substrate slightly to remove excess water and let it dry until it easily crumbles in your hands while still slightly moist. Overdrying dehydrates the eggs and hinders development; insufficient drying can cause developmental delays.</li><li>Place it in a plastic bag, sealed so that 3/4 is filled with air.</li><li>Incubation usually lasts 6–9 months. Store the substrate at 21–25°C in a dark place, ventilate it once a month and check the eggs. If the peat is too dry, moisten it.</li><li>Monitor the development of the embryos' eyes; once formed, it is time to add water.</li><li>Put the substrate back into the water and keep it soft (4–8 GH) and acidic (pH 6.0–6.5).</li><li>Once fry hatch, feed them infusoria and make sure they always have food.</li></ol><p>Maintain water quality by regularly removing waste and leftovers. A few snails can be added as a clean-up crew.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>When its natural habitats become desiccated during the dry season the adult fish die, leaving fertilised eggs encased within the substrate. These are resistant to desiccation and remain there until the rains return some 5–6 months later at which point the fry hatch and grow very quickly with sexual maturity reached at around 3 weeks of age. Typical lifespan in the aquarium is 6–12 months and eggs should be stored at a temperature of 21–25°C for 5–7 months before being wetted.</p>"
     },
     {
       "key": "notes",
@@ -140,10 +237,22 @@
       "html": "<p>Tankmates: ideally keep a species-only tank, given their relatively peaceful yet territorial nature. In community tanks, tankmates should be small fish that are not big enough to eat or harass them and that prefer or tolerate soft, slightly acidic water, such as neon tetras, Hemigrammus rhodostomus (brilliant rummynose tetra), least killifish, pencilfish, harlequin rasboras and pygmy corydoras.</p><p>Shrimp: possible to some degree. They are no threat to adult or juvenile shrimp, but newly hatched shrimp (about 2 mm) fit in their mouths and will be eaten from time to time. They are compatible with any freshwater snail.</p><p>Avoid: large and/or aggressive and/or boisterous fish, all types of crayfish and most freshwater crabs.</p><p>Etymology: the genus name Nothobranchius derives from the Greek \"nothos\" (false) and \"branchia\" (gill). The species name honours the German aquarist Arthur Rachow (1884–1960), who donated fish specimens to the Museum für Naturkunde. Described by Ahl, 1926.</p><p>Lifespan: in the wild, about 6–8 months on average; in aquariums around 1 year; maximum survival about 15 months. Aged fish show spine curvature, loss of body colour and deterioration of fins, especially the caudal fin. Survival of 4-month-old fish: 90 days at 20°C, 60 days at 25°C, 33 days at 30°C.</p><p>Description: adult size typically 2.5–4.5 cm; some reports of up to 8 cm. The body is long and laterally compressed. 15–17 soft dorsal fin rays and 15–18 soft anal fin rays; 26–28 scales.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<p>There exists an aquarium strain which is apparently derived from an import made by Roloff in 1958 while other collections are generally labelled with some form of code in order that they can be told apart, thus limiting the possibility of hybridisation. Examples include 'Beira 1998' in reference to a commercial collection made in that area during 1998 and MOZ 99/1, MOZ 99/2, MOX 99/3, etc. in which 'MOZ' represents 'Mozambique', '99' the year of collection (1999) and the latter figure collection locality. The putative subgenus Zononothobranchius, to which N. rachovii has been assigned in the past, currently contains only the single species known as Nothobranchius rubroreticulatus according to the mtDNA analyses of Shidlovskiy et al. (2010).</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/",
       "html": "<ul><li>Shidlovskiy, K.M., B.R. Watters and R.H. Wildekamp, 2010. Notes on the annual killifish species Nothobranchius rachovii(Cyprinodontiformes; Nothobranchiidae) with the description of two new species. Zootaxa 2724:37-57</li><li>Hsu, Chin‐Yuan, and Ya‐Chi Chiu. “Ambient temperature influences aging in an annual fish (Nothobranchius rachovii).” Aging Cell8, no. 6 (2009): 726-737.</li><li>Kwon, Ohyun, Joon Hyung Sohn, Dong Yong Chung, Eun Jin Kim, and Dong Heui Kim. “Comparative ultrastructures of the fertilized egg envelopes in Nothobranchius foerschi and Nothobranchius rachovii, Nothobranchiidae, teleostei.” (2017): 70-74.</li><li>Lucas-Sánchez, Alejandro, Pedro F. Almaida-Pagán, Douglas R. Tocher, Pilar Mendiola, and Jorge de Costa. “Age-related changes in mitochondrial membrane composition of Nothobranchius rachovii.” Journals of Gerontology Series A: Biomedical Sciences and Medical Sciences69, no. 2 (2014): 142-151.</li><li>Polačik, M., and M. Reichard. “Diet overlap among three sympatric African annual killifish species Nothobranchius spp. from Mozambique.” Journal of Fish Biology77, no. 3 (2010): 754-768.</li><li>Radkhah, Ali Reza, Soheil Eagderi, and Esmaeil Sadeghinejad Masouleh. “Investigation of biological and ecological characteristics of Bluefin Notho Nothobranchius rachovii Ahl, 1926 (Cyprinodontiformes: Nothobranchiidae) as one of the freshwater aquarium fish: A review.” Journal of Ornamental Aquatics9, no. 3 (2022): 21-30.</li><li>Herrera, Michael, and Pudur Jagadeeswaran. “Annual fish as a genetic model for aging.” The Journals of Gerontology Series A: Biological Sciences and Medical Sciences59, no. 2 (2004): B101-B107.</li><li>Lucas-Sánchez, Alejandro, Antonio Martinez-Nicolas, Juan Antonio Madrid, Pedro Francisco Almaida-Pagán, Pilar Mendiola, and Jorge de Costa. “Circadian activity rhythms during the last days of Nothobranchius rachovii’s life: a descriptive model of circadian system breakdown.” Chronobiology international32, no. 3 (2015): 395-404.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-rachovii",
+      "html": "<ul><li>Shidlovskiy, K. M., B. R. Watters, and R. H. Wildekamp (2010). Notes on the annual killifish species Nothobranchus rachovii (Cyprinodontiformes: Nothobranchiidae) with the description of two new species. Zootaxa 2724, 37-57</li><li>Dorn, A., E. Ng'oma , K. Janko , K. Reichwald, M. Polačik, M. Platzer, A. Cellerino, and M. Reichard (2011). Phylogeny, genetic variability and colour polymorphism of an emerging animal model: The short-lived annual Nothobranchius fishes from southern Mozambique. Molecular Phylogenetics and Evolution 61(3), 739-749</li></ul>"
     }
   ],
   "photos": [
@@ -163,8 +272,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40 lít",
-        "bể cá nhỏ có nắp"
+        "bể cá 50cm"
       ]
     },
     {
@@ -190,5 +298,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-06"
 }

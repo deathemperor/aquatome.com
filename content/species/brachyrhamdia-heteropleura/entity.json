@@ -14,6 +14,127 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Essequibo",
+        "Corantijn",
+        "Negro"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rupununi Pan, Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Amazon",
+            "Essequibo",
+            "Corantijn",
+            "Negro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Corantijn, Essequibo and Negro River basins (Guyana, Suriname and northern Brazil).",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343639,
+      "total": 33,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "GY",
+          22
+        ],
+        [
+          "BR",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          22,
+          22
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -141,8 +262,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 60cm"
       ]
     },
     {

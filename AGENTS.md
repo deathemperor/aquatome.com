@@ -69,7 +69,8 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
 ## Guardrails
 
 - The repository is public. Secrets stay in `~/.config/aquatome/` and GitHub secrets, out of commits and logs. Device
-  addresses, personal emails and personal names stay out too.
+  addresses, personal emails and personal names stay out too. One exception, with the owner's OK: the Love Ecology
+  light's recorded commands (`apps/ios/AquaTomeKit/Sources/FishLamp/love-ecology.json`).
 - A challenge page (Cloudflare, Turnstile) marks a source `needs-human`, and the owner passes it by hand in the engine's
   Chrome profile. Marketplaces (Shopee, Lazada, Tiki, Tokopedia) are reached only through their affiliate APIs.
 - Ask the owner first before App Store Connect or TestFlight uploads, review submissions, and production D1 migrations.
@@ -81,6 +82,9 @@ or `protocols/**` runs its iOS jobs (ios.yml) only once it's marked ready, so ma
 checked locally, then merge after those jobs pass (or the scoping skips them), never straight after marking it ready.
 Commit subjects read
 `type(scope): what changes`, as in `fix(tank volume): the ready-made tank table fits a phone`; the body says why.
+
+The council (`.claude/skills/council/SKILL.md`) has one model from each of three providers review a PR, a design or
+screenshots and score it out of 10, round after round. Run it when the owner asks for it.
 
 A PR's body has a `## Changelog` section, which the owner's daily report and change log (`/_ab/thay-doi/`) show: a
 line for each product change, `- Site:`, `- App:` or `- Engine:` (the content engine) and one plain sentence for the

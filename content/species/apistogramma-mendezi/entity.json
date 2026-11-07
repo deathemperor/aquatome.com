@@ -11,6 +11,71 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Jaú"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the lower rio Negro basin in northwestern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "One population displays an orange colouration on the belly and is sometimes referred to as A. mendezi 'orange' (A222) while another known as A. sp. 'fork-band' or 'gabelband' and collected in the rio Jaú may also be conspecific.",
+          "countries": [],
+          "regions": [
+            "Rio Jaú"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371254,
+      "total": 15,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          15
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -132,8 +197,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 45x30 cm",
-        "bể cá nhỏ 40 lít"
+        "bể cá 50cm"
       ]
     },
     {

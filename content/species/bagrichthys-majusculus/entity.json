@@ -13,6 +13,99 @@
     "mekong",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Mun River, Ubon Ratchathani Province, eastern Thailand, a tributary of the Mekong River, and is known only from the Mekong and Chao Phraya systems.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded from Mekong tributaries in Laos and presumably occurs in Cambodia as well.",
+          "countries": [
+            "LA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338051,
+      "total": 11,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "KH",
+          4
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "LA",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -185,8 +278,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 120cm",
-        "bể cá 240 lít"
+        "bể cá 120cm"
       ]
     },
     {

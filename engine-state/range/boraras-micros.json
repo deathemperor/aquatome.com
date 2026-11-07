@@ -1,0 +1,59 @@
+{
+  "id": "boraras-micros",
+  "native": {
+    "input": "ee19317567242efc",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Boraras micros is a tiny cyprinid from the Mekong basin in northeastern Thailand, recorded in Nong Khai, Udon Thani and Sakon Nakhon provinces.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mostly restricted to parts of the Mekong basin in northeastern Thailand where it's been collected in the provinces of Nong Khai, Udon Thani and Sakon Nakhon.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's also said to occur in Laos but we've been unable to obtain any definitive information.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Mostly restricted to parts of the Mekong basin in northeastern Thailand where it's been collected in the provinces of Nong Khai, Udon Thani and Sakon Nakhon.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Boraras micros",
+    "status": "ACCEPTED",
+    "taxonKey": 2366586,
+    "datasets": [],
+    "native": [
+      "TH"
+    ],
+    "requests": 2,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

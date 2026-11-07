@@ -1,0 +1,327 @@
+{
+  "id": "ageneiosus-vittatus",
+  "scientificName": "Ageneiosus vittatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Ageneiosus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344539,
+      "total": 54,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "BR",
+          24
+        ],
+        [
+          "VE",
+          18
+        ],
+        [
+          "PE",
+          5
+        ],
+        [
+          "EC",
+          4
+        ],
+        [
+          "BO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          9,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          -68.90625,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          5,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -46.40625,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_vittatus_en/",
+      "html": "<p>Slopehead catfish of the genus Ageneiosus are particularly noticeable for their strongly flattened head. These predators can reach an overall length of 30 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_vittatus_en/",
+      "html": "<p>Origin: Peru. Ageneiosus vittatus was imported from Peru for the first time in July 2002.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_vittatus_en/",
+      "html": "<p>Large tanks are necessary for keeping this species.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_vittatus_en/",
+      "html": "<p>A dark bottom, some stones and bogwood should be used for the tank layout. A large filtration unit is important for water quality, which is the most basic point for the successful keeping of this species.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_vittatus_en/",
+      "html": "<p>In their habitat they are pure carnivores, which should be considered before acquiring them. It is best to give them live food; after habituation they will eat fish meat, earthworms or shrimps.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ageneiosus_vittatus_en/",
+      "html": "<p>With sufficient feeding and good water quality breeding is possible, but usually not very productive due to the fragility of the larvae.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "M9-YmaiWZNA",
+      "title": "Ageneiosus vittatus",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EMDrE0l2jX4",
+      "title": "Ageneiosus SP 3 catfish hammerhead shark",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "F_GnSVbbRvw",
+      "title": "2011-09-23 虎鯨們(Ageneiosus spp.)晚上游得好嗨啊~~~",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hqPZIfGk3S8",
+      "title": "Hammer Head Cat",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát đen",
+        "sỏi nền tối màu"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-06"
+}

@@ -1,8 +1,8 @@
 {
   "id": "symphysodon-aequifasciatus",
   "native": {
-    "input": "9137637258fe7600",
-    "at": "2026-11-04T21:41:08.860Z",
+    "input": "84a507d55bc6f005",
+    "at": "2026-11-06T18:08:44.169Z",
     "claims": [
       {
         "code": "CO",
@@ -140,9 +140,5 @@
     ],
     "requests": 11,
     "at": "2026-11-04T21:41:08.860Z"
-  },
-  "nativeFailed": {
-    "at": "2026-11-05T03:39:17.391Z",
-    "error": "claude failed (1): You've hit your weekly limit · resets 6am (UTC)"
   }
 }

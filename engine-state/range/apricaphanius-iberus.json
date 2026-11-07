@@ -1,0 +1,61 @@
+{
+  "id": "apricaphanius-iberus",
+  "native": {
+    "input": "673a063afdf90d26",
+    "at": "2026-11-06T09:17:06.855Z",
+    "claims": [
+      {
+        "code": "ES",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Spanish toothcarp, or fartet, Apricaphanius iberus, is restricted to a few small areas of Spain's Mediterranean coast.",
+        "words": "Spain",
+        "ok": true
+      },
+      {
+        "code": "ES",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Now restricted to a few small areas of the Spanish Mediterranean coastline in the autonomous communities of Catalonia, Valencia and Murcia.",
+        "words": "Spanish",
+        "ok": false,
+        "why": "\"Spanish\" is not ES"
+      },
+      {
+        "code": "FR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Most of the remaining populations are under threat and the species has already disappeared from southern France (although occurences there may represent misidentifications of A. fasciatus).",
+        "words": "France",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apricaphanius iberus",
+    "status": "ACCEPTED",
+    "taxonKey": 10799761,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ]
+    ],
+    "native": [
+      "ES"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T09:17:06.855Z"
+  }
+}

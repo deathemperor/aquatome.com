@@ -1,0 +1,84 @@
+{
+  "id": "botia-striata",
+  "native": {
+    "input": "1c8f9052579c4be4",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tunga River in Karnataka (previously Mysore) state, southern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "B. striata has been recorded at other localities within the Krishna drainage, including the Koyna and Panchganga rivers in Maharashtra.",
+        "ok": true
+      },
+      {
+        "name": "Tunga",
+        "source": "seriouslyfish",
+        "quote": "Described from the Tunga River in Karnataka (previously Mysore) state, southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Tungabhadra",
+        "source": "seriouslyfish",
+        "quote": "The Tunga rises in the Western Ghats mountain range and is a tributary of the Tungabhadra River, itself a tributary of the Krishna.",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "The Tunga rises in the Western Ghats mountain range and is a tributary of the Tungabhadra River, itself a tributary of the Krishna.",
+        "ok": true
+      },
+      {
+        "name": "Bhadra",
+        "source": "seriouslyfish",
+        "quote": "In a survey of fish diversity in the Bhadra River (which joins the Tunga to form the Tungabhadra) it was recorded alongside numerous other species including Puntius chola, Balitora mysorensis, and Mystus armatus.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Botia striata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368019,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

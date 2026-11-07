@@ -11,6 +11,74 @@
     "mahakam",
     "tarakan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kayan",
+        "Mahakam",
+        "Borneo",
+        "Tarakan"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta unimaculata is a large mouthbrooding labyrinth fish from the upper Kayan and Mahakam river drainages in East Kalimantan, Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kayan",
+            "Mahakam",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Wild-caught Betta unimaculata from the island of Tarakan.",
+          "countries": [],
+          "regions": [
+            "Tarakan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393992,
+      "total": 14,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          8
+        ],
+        [
+          "MY",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          1.40625,
+          8,
+          8
+        ],
+        [
+          116.71875,
+          4.21875,
+          6,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -208,8 +276,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá betta"
+        "bể cá 80cm"
       ]
     },
     {

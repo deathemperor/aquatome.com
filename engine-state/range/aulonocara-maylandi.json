@@ -1,0 +1,39 @@
+{
+  "id": "aulonocara-maylandi",
+  "native": {
+    "input": "5716ff9b7cc27c9c",
+    "at": "2026-11-06T12:17:30.771Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi where there exist two principal colour forms.",
+        "ok": true
+      },
+      {
+        "name": "Kande Island",
+        "source": "seriouslyfish",
+        "quote": "The 'sulphur head' variant inhabits West Reef and Eccles Reef, close to Makanjila Point in the southeastern part of the lake, while the form often referred to by the subspecific name A. m. kandeensis is known only from Kande Island, just off the central-western shoreline.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aulonocara maylandi",
+    "status": "ACCEPTED",
+    "taxonKey": 4285669,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-06T12:17:30.771Z"
+  }
+}

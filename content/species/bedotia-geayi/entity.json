@@ -9,6 +9,36 @@
     "africa",
     "madagascar"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2412025,
+      "total": 3,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MG",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          46.40625,
+          -22.5,
+          1
+        ],
+        [
+          47.8125,
+          -19.6875,
+          1
+        ],
+        [
+          47.8125,
+          -18.28125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

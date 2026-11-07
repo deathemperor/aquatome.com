@@ -1,21 +1,34 @@
 {
+  "ancistrus-dolichopterus": {
+    "at": "2026-11-06",
+    "from": "2026-11-04",
+    "name": "Starlight Bristlenose",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Items 1 and 8: \"territorial\" is left as an English loanword. Use \"mempertahankan wilayah\" or \"bersifat wilayah\" for more natural Malay.",
+      "Item 7: \"bahan yang lebih berprotein\" is looser than \"meatier ingredients\". \"bahan berasaskan daging\" is closer."
+    ]
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-06",
-    "from": "2026-10-30",
+    "from": "2026-11-06",
     "name": "Oscar",
     "confidence": "high",
-    "score": 0.55,
+    "score": 0.93,
     "notes": [
-      "Item 2: 'Minimum tank size: 65 gallons (about 250 litres)' – 65 US gal ≈ 246 L, so this is fine; but 'Tank level: Top, mid-dweller' is rendered 'Bahagian atas dan tengah', which is acceptable. No fix needed here.",
-      "Item 14: the English contains stray Vietnamese '(cá Jack Dempsey)', '(cá Convict)', '(cá đô la bạc)'. The Malay drops them but adds 'ikan dolar perak'. Use the trade name 'Silver Dollar' alone or add the Malay gloss consistently.",
-      "Item 14: 'tumbuhan akuatik hidup yang berakar' is fine, but 'kebanyakannya cepat membesar' changes 'many' into 'most of them'. Use 'ramai'/'banyak yang'.",
-      "Item 17: 'akuarium awam serta kedai ikan hiasan sering ditawarkan lebih banyak ikan' is garbled. Say 'akuarium awam dan kedai kerap ditawarkan ikan lebih banyak daripada yang mampu ditampung'.",
-      "Item 17: 'induk' for parents and 'substrate-spawner' translated as 'bertelur di atas permukaan' is OK. But 'mempunyai nilai komersial yang rendah' is fine; 'dijaga dan diberi makan dengan betul' adds 'dijaga'. Use 'dikondisikan' (conditioned) instead.",
-      "Item 11: 'ikan bilis/anak ikan' for whitebait is imprecise. Use 'ikan bilis' only or 'whitebait'. 'makanan hidup atau sejuk beku' is OK.",
-      "Item 12: 'cacing darah' is fine, but 'karnivor tulen' for 'serious carnivores' is slightly changed. Use 'karnivor tegar'.",
-      "Item 7: 'heaterstat' is rendered 'pemanas (termostat pemanas)', which is confusing. Use 'pemanas bertermostat' or 'heater'.",
-      "Item 2: 'Care: Advanced' rendered 'Lanjutan (sukar)' adds 'sukar' and is unnatural. Use 'Mahir/Lanjutan'.",
-      "Item 6: the Malay omits the volume note '(~143 US gal)', which is fine as an imperial figure. No fix needed."
+      "Item 19: \"mengelakkan tangki berkemungkinan menjadi terlalu ramai ikan\" is awkward for \"potentially overpopulating your tank\". Use something like \"dan mengelakkan tangki menjadi terlalu sesak dengan ikan\"."
+    ]
+  },
+  "balantiocheilos-melanopterus": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Bala shark",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 6: \"tangki yang langsung kosong\" is awkward; use \"tangki tanpa sebarang hiasan\" or \"tangki yang kosong sepenuhnya\".",
+      "Item 9: \"secara longgar\" is added to \"shoaling\", which the English does not say. Use plain \"berkawan/berkelompok (shoaling)\"."
     ]
   },
   "betta-splendens": {
@@ -37,6 +50,215 @@
       "Item 29: 'turquoise' rendered 'biru firus' fine; 'oren' fine. Item 21/22: 'Species with body shapes ... ' in 22 omits 'similar' mismatch: English says 'body shapes or trailing finnage' (to avoid), MS adds 'serupa' – an added qualifier that is not in the source."
     ]
   },
+  "corydoras-aeneus": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Bronze Cory",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 12: the 'sting' that 'can be very painful' is rendered as \"'sengatan'nya boleh menjadi sangat sakit\". It reads awkwardly. Use \"'sengatan'nya amat menyakitkan\".",
+      "Item 12: \"ikan keli 'berperisai'\" drops the English 'armoured' or 'mailed' pairing. This is minor. 'Mailed' is not translated separately.",
+      "Item 11: spawning mop, alder cone, methylene blue and microworm are left in English. Add a Malay gloss or use a local term, e.g. 'kon alder' and 'cacing mikro'.",
+      "Item 12: \"Taksonomi kumpulan ini boleh mengelirukan\" is fine. However \"hasil line-breeding\" and \"secara line-breeding\" leave English in place. Consider 'pembiakan baka sejalur' or a bracketed English term.",
+      "Item 4: \"sepanjang tahun\" for 'over the years' is imprecise. Use 'selama bertahun-tahun'.",
+      "Item 5: 'liter' should be 'liter' or 'L' in Malaysian usage. This is acceptable but 'liter' is common. Check that 80 × 30 cm with 72 litres is consistent with the source's unstated depth.",
+      "Item 10: \"membesar lebih besar\" is repetitive. Use 'tumbuh lebih besar'.",
+      "Item 12: 'rising to the surface to take in gulps of air' is rendered with 'anda'. Use a neutral form such as 'kadangkala ikan ini kelihatan naik ke permukaan'."
+    ]
+  },
+  "corydoras-paleatus": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Peppered Cory",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 6: \"boleh mudah dijangkiti\" is awkward. Use \"mudah dijangkiti\" or \"cenderung mengalami jangkitan\".",
+      "Item 6: \"sisa makanan\" for \"morsels of food\" suggests leftovers. Use \"cebisan makanan\" or \"serpihan makanan\".",
+      "Item 11: \"di mana telur itu kemudian disenyawakan\" is an English calque. Use \"yang kemudian mensenyawakannya\" or \"lalu telur disenyawakan di situ\".",
+      "Item 11: \"posisi berbentuk T\" is better as \"kedudukan berbentuk T\". \"mod bertelur\" is better as \"keadaan hendak bertelur\"."
+    ]
+  },
+  "corydoras-panda": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Corydoras Panda",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 13: 'Menapis air melalui gambut adalah berguna' is OK, but 'Sediakan tangki pembiakan ... sama ada tanpa substrat' fine; main issue: 'Musim ini berlaku pada masa yang sama dengan musim sejuk di UK' keeps UK-specific framing, which is unhelpful for Malaysian readers (no winter); adapt neutrally (e.g. 'musim sejuk di hemisfera utara') and rewrite 'musim panas/sejuk' advice.",
+      "Item 4: 'Kebanyakan yang dijual di UK' keeps UK-specific market reference; use neutral phrasing such as 'di pasaran Eropah' or 'kebanyakannya berasal dari Eropah Timur atau Timur Jauh'.",
+      "Item 7: 'tumbuhan akuatik bukan ciri perairan semula jadi spesies ini' is awkward; use 'Tumbuhan akuatik tidak terdapat di perairan semula jadi spesies ini'. 'kayu beech' and 'daun oak' are hard to source in Malaysia; consider adding 'seperti daun ketapang' only if allowed, otherwise keep.",
+      "Item 14: 'Cory tergolong dalam kumpulan ikan keli \"berperisai\", dan bukannya bersisik, ia mempunyai...' is a garbled sentence; rewrite as 'Cory tergolong dalam kumpulan ikan keli \"berperisai\"; sebagai ganti sisik, ia mempunyai dua barisan plat bertulang...'.",
+      "Item 14: 'dalam kurungan' for 'captivity' and 'penghirup udara fakultatif' are stiff; use 'dalam akuarium' / 'bernafas udara secara fakultatif'. 'pemakan sisa' for scavengers is fine; 'seperti yang disangka' adds a nuance not in the source.",
+      "Item 10: 'separuh dewasa' for half-grown is acceptable but 'tingkah laku berkawan (swarm)' is awkward; prefer 'tingkah laku berkelompok'.",
+      "Item 1: 'Ini berlaku kepada penggemar' is a calque; use 'Ini benar bagi penggemar'."
+    ]
+  },
+  "corydoras-sterbai": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Corydoras Sterbai",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 13: \"Menapis air melalui peat adalah berguna\" is stiff, and \"Kondisikan kumpulan ini\" is awkward. Use \"Beri makanan pelbagai untuk menyediakan kumpulan ikan\" or similar.",
+      "Item 13: \"it can take several years for certain species\" became \"sesetengah spesies\", which is fine. However, \"mensenyawakan\" should be \"menyenyawakan\" (standard form).",
+      "Item 13: \"tangki pembiakan ... tanpa substrat\" is acceptable. \"Di mana pun telur ditetaskan\" is awkward and should be \"Walau di mana telur ditetaskan\".",
+      "Item 14: \"Kepelbagaian yang luar biasa inilah ... antara sebab cory menjadi antara ikan paling popular\" repeats \"antara\" and reads awkwardly. Rephrase it.",
+      "Item 14: \"boleh dikatakan tidak pernah didengar\" is a literal translation of \"unheard of\". Use \"hampir tidak pernah berlaku\".",
+      "Item 14: \"Aquatic plants are not a feature of this species' natural waters\" in item 8 became \"Tumbuhan akuatik tidak terdapat\", which is too absolute. Use \"bukan ciri\" or \"tidak menjadi ciri\".",
+      "Item 14: \"Cory\" is said to mean helmet and doras skin. Loanword usage is fine, but \"Greek cory\" should be written as the Greek word \"kôrys\" in the original form. Keep the source wording consistent.",
+      "Item 1: \"ia memang sentiasa ada dalam pasaran\" slightly changes \"belongs to the standard offer\". It is acceptable but could be \"sentiasa terdapat dalam stok kedai\".",
+      "Item 2: \"yang lama dikenali sebagai\" is awkward. Use \"yang sejak dahulu dikenali sebagai\".",
+      "Item 7: \"liter\" should be \"liter/litre\" in Malaysian usage, so use \"~41 L\" or \"liter\". Both are acceptable; keep it consistent with the other items."
+    ]
+  },
+  "cyprinus-rubrofuscus": {
+    "at": "2026-11-06",
+    "from": "2026-10-31",
+    "name": "Ikan Koi",
+    "confidence": "high",
+    "score": 0.55,
+    "notes": [
+      "Item 1: 'Temperature: 1 to 29 °C' is fine, but 'Saiz kolam minimum: kira-kira 950 liter' etc. OK. Main issue is elsewhere.",
+      "Item 3: 'tangki itu sekurang-kurangnya kira-kira 1,900 liter' and 'sekurang-kurangnya kira-kira 950 liter' – 'sekurang-kurangnya kira-kira' is contradictory; use 'sekurang-kurangnya 950 liter'.",
+      "Item 2: 'dengan harga beribu-ribu ringgit seekor' changes 'thousands of dollars' to ringgit – currency changed, altering the fact; use 'beribu-ribu dolar'.",
+      "Item 2: 'ikan paling cantik' for 'most ornate'; also 'high-status markets' rendered 'pasaran berprestij tinggi' is acceptable but 'domestic-bred' rendered 'ternakan tempatan' implies local Malaysia; use 'ternakan dalam negara/bukan import'.",
+      "Item 7: 'ikan bandaraya (plecostomus)' – 'ikan bandaraya' is a common local name, fine, but 'Hi-fin shark ... lebih gemarkan pelet koi' is awkward; use 'lebih menggemari'.",
+      "Item 7: 'Koi ialah ikan yang suka hidup berkumpulan' fine; 'Naughty turtles' rendered 'nakal' ok. 'Breeding female koi ... menghasilkan telurnya' loses 'rear their egg masses' nuance; use 'membawa/membentuk jisim telur'.",
+      "Item 9: 'sebesar kepala pin' – use 'sebesar kepala jarum peniti'; 'benih' for fry should be 'anak ikan/fry'.",
+      "Item 6: 'Koi ... ialah omnivor yang mencari makan di dasar' fine; 'harga tidak menentukan' weakens 'no correlation' slightly; use 'harga tiada kaitan dengan kualiti makanan'.",
+      "Item 8: 'belum matang untuk membiak' repeats 'belum matang'; reword to 'belum matang secara pembiakan'."
+    ]
+  },
+  "danio-margaritatus": {
+    "at": "2026-11-06",
+    "from": "2026-11-04",
+    "name": "Celestial Pearl Danio",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2/26: \"antara ikan yang paling digembar-gemburkan pernah dikenali dalam hobi ini\" reads awkwardly. Try \"antara ikan yang paling hangat diperkatakan dalam hobi ini\".",
+      "Item 19: \"jantan-jantan yang bersaing kerap bertarung\" is too strong for \"sparring\". \"Berlawan\" or \"bergaduh kecil\" fits better, because the fish only spar.",
+      "Item 26: \"dibekalkan\" for \"supplied\" and \"pengkaji itu\" for \"the authors\" are slightly stiff. The English term \"truncate\" is left in brackets after \"rata di hujung\", and it would read more smoothly if the Malay term stood alone."
+    ]
+  },
+  "danio-rerio": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Zebra danio",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 27: 'lebih gelap dan lebih terang warnanya' reads as contradictory for 'darker and more intensely coloured'. Use 'lebih gelap dan warnanya lebih pekat/ketara'.",
+      "Item 13: '10-gallon (40-litre)' became '38 liter', but the later '40-litre tank' stays 40. Use one figure for the same tank size across the text.",
+      "Item 31: 'ikan keli' for 'catfishes' normally means Clarias to a Malaysian reader. Use 'ikan berkumis (catfish)' or just 'catfish'.",
+      "Item 33: the 'cross-reared' sentence is clumsy ('ikan yang dibesarkan bersama ikan bercorak lain (cross-reared) lebih menyukai corak ikan yang membesar bersamanya'). Rephrase so it says fish prefer the pattern of the fish they were raised with.",
+      "Item 24: 'larva' sits beside 'anak ikan' for the same life stage. Use one term consistently."
+    ]
+  },
+  "epalzeorhynchos-bicolor": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Red Tail Shark",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 4: '243 liter' is wrong spelling in Malaysian Malay; use 'liter' is acceptable but check conversion: 120×45 cm base is stated as around 243 litres in source, kept as is, fine. Main issue elsewhere.",
+      "Item 11: 'Terdapat juga mutasi anerythristic (tiada pigmen merah)' leaves English 'anerythristic' untranslated; use e.g. 'mutasi anerithristik' or 'tanpa pigmen merah'.",
+      "Item 11: 'flake' left in English in item 7 ('bersama flake, granul kering'); use 'serpihan' or 'makanan kepingan'.",
+      "Item 7: 'kutu air' for Daphnia is acceptable but 'aufwuchs' is left untranslated; add explanation e.g. 'biofilem dan alga berlekat (aufwuchs)'.",
+      "Item 7: 'Kacang pis yang dikupas' - peas should be shelled/'dikeluarkan kulitnya'; fine, but 'meragut aufwuchs, iaitu memakan alga...' mis-structures the sentence: aufwuchs grazer feeding on algae etc.; rephrase.",
+      "Item 8: 'sifat wilayah' awkward; use 'bersifat teritorial/mempertahankan kawasan'. Also 'loach' left in English; use 'ikan loach' with local term 'ikan pasir/loceng' or consistently bracket.",
+      "Item 8: 'tangki komuniti' vs 'akuarium komuniti' inconsistent; 'berkemungkinan hidup bersendirian' changes 'probably' fine but 'iaitu semasa musim mengawan' reads as only mating season restriction - OK.",
+      "Item 8: 'ikan segenus' for congenerics fine; 'lebih suka bergaduh' ok.",
+      "Item 11: 'berkacuk' for hybridised is non-standard in fish context; use 'kacukan/hibrid'. 'Genetic sport' translated as 'variasi genetik spontan' is acceptable.",
+      "Item 1/6: 'Kekerasan air (GH): 2–15 dGH' adds 'GH' label not in source; minor."
+    ]
+  },
+  "gymnocorymbus-ternetzi": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Black Skirt Tetra",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "#10: \"semalap yang boleh\" is non-standard and awkward. Use \"semalap mungkin\" or \"sesuram yang boleh\"."
+    ]
+  },
+  "hemigrammus-bleheri": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Rummy Nose Tetra",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 1: 'warna merah itu menjadi pudar pada ikan yang kurang sihat' – source says 'poor condition'; acceptable, but 'Of the three look-alikes...' fine. No major issue.",
+      "Item 10: 'It can be spawned in a group, with half a dozen specimens of each sex' – fine; but 'Kondisikan ikan' is awkward; use 'Beri makanan berkhasiat untuk mematangkan ikan' instead.",
+      "Item 12: 'Faktor ketiga ... Dengan menggabungkan faktor-faktor ini, ikan anda sepatutnya boleh dikenal pasti' ok; but 'margin posterodorsal rawan etmoid dan etmoid lateral berjauhan dari etmoid lateral' repeats source oddity; fine.",
+      "Item 12: 'Rekonstruksi filogenetik ... sampel kajian tersebut dari Sungai Purus' – source says 'our samples'; fine.",
+      "Item 11: 'justeru pada satu spesies tetra' is awkward and 'hanya beberapa ekor ... terkesan dengan fenomena ini, iaitu guanin...' garbles the sentence structure; rephrase: 'fenomena ini ialah apabila guanin ... dirembeskan pada kadar jauh lebih tinggi'.",
+      "Item 11: 'bukan jangkitan parasit' – fine; 'kilauan emas ini tidak boleh ditetapkan dalam baka ternakan' – use 'tidak dapat diwarisi/dikekalkan dalam baka'.",
+      "Item 8: 'tidak akan sihat jika jumlahnya tidak mencukupi' – better 'tidak akan membesar dengan baik/akan tertekan'; 'sangat aman' – use 'sangat cenderung aman/tidak agresif'.",
+      "Item 5: 'tukar air separa setiap minggu adalah wajib' – OK; 'kayu beech ... selamat digunakan asalkan dikeringkan sepenuhnya' fine."
+    ]
+  },
+  "hemigrammus-erythrozonus": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Glowlight Tetra",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 10: 'GH 1–5' is fine, but 'pH 5.5–6.5' etc. OK; main issue: 'Siapkan mereka dengan banyak makanan hidup' – 'condition' mistranslated as 'siapkan'; use 'matangkan/berikan makanan penggalak pembiakan'.",
+      "Item 10: 'Menapis air melalui peat memang berguna' – 'memang' adds emphasis not in source; and 'gelembung yang sangat perlahan' is awkward; use 'gelembung udara yang sangat perlahan'.",
+      "Item 8: 'ikan angelfish' redundant; use 'ikan angelfish' or 'angelfish' without 'ikan' and keep consistent; 'hidup berkawan (shoaling)' is awkward, use 'hidup berkumpulan'.",
+      "Item 8: 'akan jauh lebih sihat' is slightly different from 'fare much better' but acceptable; 'Sentiasa beli' should be 'Sentiasa beli' → 'Belilah sentiasa sekumpulan'.",
+      "Item 2: 'jangan harap untuk jumpa spesimen liar' is colloquial and 'UK' retained; use 'jangan mengharapkan spesimen liar dijual' and clarify 'di UK' as local context.",
+      "Item 5: 'kayu beech', 'peat', 'tangki yang terlalu kosong' (spartan) – use 'tangki yang minimalis/kurang hiasan'; 'tumbuhan akuatik' should be 'tumbuhan akuarium/air'.",
+      "Item 5: 'Kalau tak jumpa' and 'Kalau anda' are too colloquial for a handbook; use 'jika tidak'.",
+      "Item 1: 'Max size ... SL' omitted imperial is fine, but 'jadi ia antara pilihan terbaik' reads slightly awkward."
+    ]
+  },
+  "hyphessobrycon-eques": {
+    "at": "2026-11-06",
+    "from": "2026-11-03",
+    "name": "Serpae Tetra",
+    "confidence": "high",
+    "score": 0.72,
+    "notes": [
+      "Item 13: 'diisi dengan air matang' for 'mature water' is wrong. In Malay 'air matang' means boiled water. Use 'air akuarium yang telah matang/dikitar' or 'air daripada akuarium matang'.",
+      "Item 10: 'mencarikkan sedikit sirip' adds 'sedikit', which the English does not have. 'Ruffle' is also better rendered as 'mengoyak/mencabik sirip'.",
+      "Item 13: 'dimatangkan untuk pembiakan' / 'dimatangkan dengan baik' is a loose rendering of 'conditioned'. 'Dikondisikan' or 'disediakan untuk membiak' reads more naturally.",
+      "Item 11: 'lasak dan kasar' for 'boisterous' and 'Ikan yang tegap' for 'robust' are slightly awkward. Use 'lasak/lincah' and 'ikan yang tahan lasak'."
+    ]
+  },
+  "hyphessobrycon-herbertaxelrodi": {
+    "at": "2026-11-06",
+    "from": "2026-11-04",
+    "name": "Black Neon Tetra",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 4: \"Taman Negara Noel Kempff Mercado\" – in Malaysia \"Taman Negara\" is a specific proper name; use \"Taman Negara\" with care or \"Taman Kebangsaan Noel Kempff Mercado\".",
+      "Item 11: \"berlatarbelakangkan\" is non-standard; write \"berlatar belakangkan\" or rephrase (e.g. \"dengan latar warna hijau tumbuhan\").",
+      "Item 15: \"lebih banyak lebih bagus\" is slightly literal; \"lebih ramai lebih meriah\" or \"semakin banyak semakin baik\" is more natural.",
+      "Item 2: \"tangki\" used for aquarium inconsistently with \"akuarium\"; keep one term for consistency."
+    ]
+  },
+  "mikrogeophagus-ramirezi": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Ram",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 3: \"dataran yang dinaiki air secara bermusim\" is slightly awkward; \"dataran yang dilanda banjir bermusim\" reads more naturally.",
+      "Item 11: \"diatributkan kepada\" is awkward; use \"dikaitkan dengan\" or \"dikreditkan kepada\"."
+    ]
+  },
   "neocaridina-davidi": {
     "at": "2026-11-06",
     "from": "2026-10-28",
@@ -46,6 +268,16 @@
     "notes": [
       "\"bersalin kulit (molting)\": \"bersalin\" usually means giving birth. Hobbyists more commonly write \"menyalin kulit\" or \"tukar kulit\". Minor.",
       "\"zukini\": the usual Malaysian spelling is \"zucchini\" or \"zuchini\". Minor."
+    ]
+  },
+  "osteoglossum-bicirrhosum": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Silver Arowana",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 8: \"kekacang\" for \"fallen nuts\" is imprecise. It means legumes. Use \"kacang\" or \"buah keras\", e.g. \"kacang dan buah-buahan yang gugur\"."
     ]
   },
   "paracheirodon-axelrodi": {
@@ -77,6 +309,33 @@
       "Item 3: \"Neon tetra pada umumnya semuanya hasil ternakan\" is redundant and awkward. Use \"Neon tetra yang dijual pada umumnya hasil ternakan\"."
     ]
   },
+  "pethia-conchonius": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Rosy barb",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 16: \"well-researched community aquarium\" is rendered as \"dirancang dengan teliti\" (carefully planned). Use \"yang dikaji dengan baik\" or \"yang dirancang berdasarkan kajian\". This is minor.",
+      "Item 4/5: \"feral\" is left as \"populasi feral\". Item 3 gives a gloss, but \"populasi liar yang terlepas\" would read more naturally."
+    ]
+  },
+  "poecilia-latipinna": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Sailfin molly",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"sejauh Kenya dan New Zealand\" is awkward; use \"hingga ke Kenya dan New Zealand\".",
+      "Item 2: \"kebanyakan besar ikan yang dijual\" is awkward; use \"sebahagian besar ikan yang dijual\".",
+      "Item 7: \"Ikan ternakan tangki\" is clumsy; use \"ikan hasil ternakan akuarium\".",
+      "Item 7: \"sayur-sayuran tidak mencukupi\" loses the sense of 'greenstuff'; use \"bahan hijau/sayuran\".",
+      "Item 5: \"jangkitan kulat\" for 'fungus' is fine, but \"sirip menguncup\" (clamped fins) could be \"sirip dikepit rapat\".",
+      "Item 10: \"bersungguh-sungguh mengejar pasangan\" is slightly stiff; use \"agresif mengejar betina\".",
+      "Item 10: \"Anak-anaknya agak besar\" – 'relatively large' is OK, but \"nauplii artemia\" should read \"nauplii udang brine (Artemia)\"."
+    ]
+  },
   "poecilia-reticulata": {
     "at": "2026-11-06",
     "from": "2026-11-01",
@@ -89,6 +348,23 @@
       "#10: \"tangki bertumbuhan dengan tumbuhan terapung\" is awkward. Use \"tangki bertumbuhan dengan tumbuhan terapung\" or \"tangki yang ditanam dengan tumbuhan akuatik termasuk tumbuhan terapung\".",
       "#20: \"agresif\" for \"vigorous\" shifts the meaning towards aggression. Use \"bertenaga/gigih\" for the males' pursuit.",
       "#13: \"flake\" is left in English. Use \"serpihan\" or \"makanan kepingan (flake)\"."
+    ]
+  },
+  "poecilia-sphenops": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Molly",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 9: \"supaya gangguan ini tidak tertumpu pada seekor betina sahaja\" is an interpretive addition; \"dissipate this\" should be rendered more plainly, e.g. \"supaya gangguan itu berkurang/terbahagi\".",
+      "Item 3: \"Ukuran dasar akuarium: 90 × 30 cm\" is fine, but \"Isi padu: ~81 liter\" with \"90 × 30 × 30 cm\" left as a stray fragment is okay; no issue. (Ignore if no change is needed.)",
+      "Item 1 and 10: \"tidak keras dan tidak beralkali\" is correct, but \"lebih sihat\" for \"do better\" is acceptable; \"bentuk warna\" for \"colour morphs\" is stiff; use \"varian warna\" or \"morf warna\".",
+      "Item 9: \"Kawasan yang ditanam tumbuhan dengan padat\" is awkward; use \"Kawasan yang ditanam padat dengan tumbuhan\".",
+      "Item 4: \"badan bergoyang-goyang di tempat (shimmying)\" and \"dijangkiti kulat\" are acceptable, but \"sirip menguncup\" should be \"sirip terkatup (clamped fins)\".",
+      "Item 6: \"flake sayuran\" leaves English untranslated; use \"serpihan (flake) sayuran\".",
+      "Item 7: \"hanya\" placement is awkward: \"patut dipelihara bersama ikan yang boleh tahan keadaan air yang sama sahaja\"; use \"hanya bersama ikan yang boleh menerima keadaan air yang sama\".",
+      "Item 10: \"Dalmatian\" corrects the English typo \"Dalmation\", which is fine; \"kitaran nitrogen (cycling)\" is acceptable."
     ]
   },
   "pterophyllum-scalare": {
@@ -107,6 +383,34 @@
       "Item 13: \"induk yang baik\" for \"good parents\" is fine, but \"ditukar kepada makanan anak ikan komersial\" is awkward. Use \"beralih kepada makanan anak ikan yang dijual di pasaran\"."
     ]
   },
+  "pterygoplichthys-pardalis": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Ikan bandaraya",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 4: the source says 'Liposarcus pardalis' but item 11 says the genus is now Pterygoplichthys. The translation keeps the source's Liposarcus, which is fine. Consider no change.",
+      "Item 3: 'Kerana itulah lebih seronok lagi' is slightly informal and loosely renders 'All the more beautiful'. Consider 'Oleh itu, lebih menarik lagi untuk memperoleh...'.",
+      "Item 11: 'tersalah dijual' is awkward for 'miss sold'. Use 'sering dijual secara salah sebagai' or 'sering tersilap dilabel sebagai'.",
+      "Item 11: 'tahun sembilan puluhan' is slightly clumsy. Use 'awal tahun 1990-an'.",
+      "Item 7: 'membesar terlalu besar' is repetitive. Use 'tumbuh terlalu besar'. 'tangki' is fine, but 'akuarium' is more common in Malaysia.",
+      "Item 10: the English term 'flake' is left in the Malay text. Use 'makanan kepingan (flake)' or similar."
+    ]
+  },
+  "puntigrus-tetrazona": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Tiger barb",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 17: \"diisi dengan air matang\" – in Malay \"air matang\" usually means boiled water. Use \"air akuarium yang sudah matang (mature)\" or similar.",
+      "Item 17: \"Kumpulan dewasa boleh dirangsang (conditioning)\" is awkward. Use \"dikondisikan\" or \"diberi makanan penyubur\" instead.",
+      "Item 13: \"ikan rainbow\" is acceptable, but \"ikan pelangi (rainbowfish)\" would be clearer for readers. \"Bersaiz sama\" is better than \"sama saiz\".",
+      "Item 12: \"roughage\" is rendered as \"makanan berserat\", but daphnia and brine shrimp are not fibre sources. Keep the sense of \"roughage\" and check the wording."
+    ]
+  },
   "puntius-titteya": {
     "at": "2026-11-06",
     "from": "2026-11-01",
@@ -114,6 +418,24 @@
     "confidence": "high",
     "score": 0.95,
     "notes": []
+  },
+  "scleropages-formosus": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Kelisa",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Item 9: 'Banjar Red' is a cross between 'super red' and 'yellowtail silver' — fine; but 'grey tail silver'/'yellow tail silver' region sentence: English 'between west and central Kalimantan provinces, and central and south Kalimantan provinces' is rendered correctly; no change needed here.",
+      "Item 5: 'Ia paling elok jika kandungan oksigen terlarut tinggi' is awkward; use 'Ia paling sesuai jika paras oksigen terlarut tinggi'.",
+      "Item 5: 'dalam persediaan yang kosong sepenuhnya' is awkward; better 'dalam akuarium tanpa hiasan/substrat sama sekali' (bare set-up).",
+      "Item 1/2/3: 'pupus setempat' for 'extirpated' is acceptable but 'pupus di sesetengah kawasan' is clearer; 'hutan yang ditenggelami air' better as 'hutan banjir'.",
+      "Item 7: 'dikondisikan dengan makanan berkualiti' adds detail ('berkualiti') not in source and is awkward; use 'diberi makanan khas/dikondisikan terlebih dahulu'.",
+      "Item 7: 'jantung lembu atau ayam' — 'ayam' is ambiguous as 'jantung ayam'; should be 'jantung lembu atau daging ayam'.",
+      "Item 7: 'larva chironomid (cacing darah)' fine, but 'pemendapan lemak' for fat deposits and 'kemerosotan organ' for organ degeneration are stiff; use 'pengumpulan lemak berlebihan' and 'degenerasi organ'.",
+      "Item 2: type locality quote left in English with a typo copied; acceptable as quotation, but the 'Lokaliti jenis' sentence leaves English text unglossed.",
+      "Item 6: temperature °F omitted per instructions; no issue."
+    ]
   },
   "symphysodon-aequifasciatus": {
     "at": "2026-11-06",
@@ -123,6 +445,67 @@
     "score": 0.95,
     "notes": [
       "Item 8: 'terkenal sebagai yang paling cantik' weakens 'legendarily most beautiful'. Consider 'dikatakan legenda sebagai yang paling cantik' or 'terkenal secara legenda sebagai yang paling cantik'."
+    ]
+  },
+  "symphysodon-discus": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Ikan Discus",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "#10: 'sirip dubur' for 'anal fin' is fine, but 'Jalur biru ... meliputi sirip dorsal dan sirip dubur' is OK; however 'sirip dorsal, sirip ventral dan sirip dubur' mixes English loan and Malay terms — use consistent 'sirip belakang/dorsal', 'sirip perut/ventral', 'sirip dubur'.",
+      "#4: 'ditanam dengan baik' is awkward/ambiguous for 'well planted' (tank with many plants); use 'ditanam dengan banyak tumbuhan' or 'berpenanaman tumbuhan yang baik'. Also 'tangki' vs 'akuarium' inconsistent, and 'penapisan yang baik' repeats 'baik'.",
+      "#4: 'Discus tidak suka perubahan ... semakin perlahan perubahan itu berlaku' is acceptable; but 'liter' should be 'liter/L' consistently (fine).",
+      "#6: 'flake' left in English; use 'makanan serpai kering (flake)'. 'Jika diberi makan flake kering sahaja' adds 'sahaja' (only), which slightly shifts 'On a diet of dry flake' - acceptable but 'makan daripada badan induk' should be 'makan daripada sisi badan induk'.",
+      "#5: 'akuarium bertumbuhan yang sudah lama stabil' is awkward for 'well-established planted aquarium'; use 'akuarium berumput/tumbuhan yang sudah matang (established)'.",
+      "#7: 'pada musim bertelur' for 'at spawning time' — 'semasa waktu bertelur' is more natural; 'Sangat aman' should be 'Sangat jinak/tidak agresif'.",
+      "#8: 'Pada musim bertelur' similarly; 'papila genital ... tirus' fine. 'roe (eggs)' simplified to 'telur' - fine.",
+      "#1: 'kekal sebagai tambahan yang cantik' is literal; 'remain a beautiful addition' better as 'tetap menjadi pilihan yang menarik'."
+    ]
+  },
+  "trichogaster-lalius": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Dwarf gourami",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 3: 'Minimum tank size: 15 gallons (~60 litres)' – 15 gallons is about 57 L, so ~60 L is fine, but item 10 is the real issue below.",
+      "Item 10: 'Tangki 60 cm x 30 cm x 30 cm (56 liter)' – 60x30x30 is 54 L and the original '56 litre' is kept; fine. However, item 11 '10-gallon (40-litre)' and '20–30 gallons (80–120 litres)' were kept as the source gave them; OK.",
+      "Item 14: 'ikan mas koki' for goldfish is fine, but 'Jauhkan ikan ini daripada crayfish' leaves 'crayfish' untranslated; use 'udang karang (crayfish)'.",
+      "Item 21: 'Harlequin Trigonostigma heteromorpha' leaves the English common name without a Malay hobby form; use 'rasbora harlequin'.",
+      "Item 27: 'segenggam dua serat gambut' and 'plastik pembalut makanan' are acceptable; but 'Jantan langsung tidak dapat menerima kehadiran pasangannya lagi' is awkward; use 'Jantan tidak lagi bertoleransi terhadap pasangannya'.",
+      "Item 27: 'ia akan bertelur bila-bila masa ia mahu' is too colloquial for a handbook; use 'ia akan bertelur dengan sendirinya'.",
+      "Item 20: 'Kutu air' for daphnia is non-standard hobby usage; Malaysian hobbyists say 'kutu air' for daphnia commonly, but also use 'daphnia'; consider adding the term.",
+      "Item 21: 'ikan pelangi (rainbowfish)' is fine, but 'Aras dalam tangki' in items 2 and 3 for 'Tank level/Dwellers' is stiff; consider 'Lapisan tangki'.",
+      "Item 19: 'Dalam kurungan' for 'in captivity' sounds like confinement; use 'Dalam akuarium' or 'Dalam penjagaan'."
+    ]
+  },
+  "trichopodus-leerii": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Sepat mutiara",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 4: \"dibiakkan dalam kurungan\" is awkward for \"in captivity\". Use \"dalam penangkaran\" or \"dibiakkan secara terkawal\".",
+      "Item 9: \"Susunan tangki bertumbuhan\" reads unnaturally. Use \"Tangki bertanaman\" or \"Susunan tangki yang ditanam tumbuhan\".",
+      "Item 20: \"tingkah laku mengurat\" is too colloquial. Use \"tingkah laku memikat\" or \"tingkah laku pemikatan\".",
+      "Item 19: \"pelukan yang biasa bagi anabantoid\" is a little stiff. Use \"pelukan pembiakan anabantoid yang lazim\"."
+    ]
+  },
+  "trichopodus-trichopterus": {
+    "at": "2026-11-06",
+    "from": "2026-10-30",
+    "name": "Sepat Ronggeng",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 9: \"sirip dorsalnya menjadi tajam\" is a little unnatural for \"pointed dorsal fin\". \"runcing\" is the more usual word.",
+      "Item 10: \"menayangkan diri\" for \"display\" is awkward. \"mempamerkan diri\" or \"berlagak/menunjuk-nunjuk\" is more natural courtship wording.",
+      "Items 1, 8: \"sangat garang\" for \"spiteful\" is acceptable but loses the sense of malice. \"berdendam/jahat\" or \"nakal dan agresif\" is closer.",
+      "Item 10: \"flake yang dihancurkan menjadi serbuk\" is wordy. \"serpihan (flake) yang dihancurkan\" would read better."
     ]
   },
   "trigonostigma-heteromorpha": {
@@ -142,6 +525,33 @@
       "Item 18: 'ikan keli' for 'catfishes' is misleading in Malaysia (keli means Clarias); use 'ikan duri/catfish' or 'ikan keli kecil (catfish)'.",
       "Item 23: 'kekerasan 1–5 °H' is awkward; use dGH. 'mengurat' for male courtship is colloquial; use 'mengurat' or 'pamer pasangan' more neutrally.",
       "Item 6: 'Rasbora ialah famili ikan air tawar sejati' – rasboras are not a family in the source's sense, but it follows the source, so no fix is needed."
+    ]
+  },
+  "xiphophorus-hellerii": {
+    "at": "2026-11-06",
+    "from": "2026-11-02",
+    "name": "Swordtail",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"dari aras laut hingga kira-kira 1500 m dari aras laut\" is repetitive. Use \"dari aras laut hingga kira-kira 1500 m\".",
+      "Item 23: \"asid lemak perlu\" and \"asid amino perlu\" are non-standard. Use \"asid lemak/amino penting (esensial)\".",
+      "Item 3: \"Perangai: aman\" and \"Aras dalam tangki\" are acceptable but a little stiff. \"Sifat/Tingkah laku\" and \"Aras renang\" are more natural."
+    ]
+  },
+  "xiphophorus-maculatus": {
+    "at": "2026-11-06",
+    "from": "2026-11-01",
+    "name": "Platy",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "#25: \"copulation usually takes place\" is rendered \"persenyawaan biasanya berlaku\" (fertilization). Use \"persetubuhan\" or \"kawin/mengawan\". Fertilization is a separate step, covered under \"Persenyawaan\".",
+      "#25: \"Mengurat\" for courtship is colloquial and sounds odd in a handbook. Use \"pertunangan/pemikatan\" or \"tingkah laku pemikat\".",
+      "#18: \"flake\" is left in English. Use \"makanan serpihan\" or \"flake (makanan serpihan)\". The same applies in #20 for \"Medaka ricefish\", which should be \"ikan medaka\".",
+      "#27: \"Famili: Poeciliidae; order: Cyprinodontiformes\" mixes English and Malay. Use \"Order\" consistently, or \"Famili ... ; Order ...\" in the same style.",
+      "#20: \"pameran sisi\" for \"lateral displays\" is stiff. Use \"paparan sisi\" or \"menunjuk-nunjuk dari sisi\".",
+      "#18: \"Ikan ini aktif pada waktu siang\" is fine. However, \"makanan ikan komersial\" and \"mengutip makanan\" are slightly awkward. Use \"makanan komersial\" and \"mengambil makanan\"."
     ]
   }
 }

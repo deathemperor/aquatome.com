@@ -14,6 +14,149 @@
     "johor",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Bintan"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan.",
+          "countries": [
+            "MY",
+            "TH",
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Bandar Maharani, now more often referred to as Muar, district in Johor state, southern Peninsular Malaysia and distributed throughout the country with range extending into southern (peninsular) Thailand, eastern Sumatra, Singapore and the island of Bintan in Riau Islands province, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Bintan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366590,
+      "total": 21,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "MY",
+          14
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "SG",
+          2
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "DE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          49.21875,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          104.0625,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -102,12 +245,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-maculatus",
       "html": "<p>The dwarf rasbora, Boraras maculatus, is a miniature cyprinid from Peninsular Malaysia, southern Thailand, eastern Sumatra, Singapore and Bintan. It inhabits blackwater streams and rivers associated with forest peat swamps, where the water is very soft and acidic. Colour pattern varies between populations, some forms showing more intense red than others. It is most similar to B. naevus, in which the red body colouration does not extend into the head.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>Difficulty: intermediate. They are easy to keep once the aquarium is stable, but due to their small, delicate nature and their need for soft water to really thrive, they are not recommended for beginners. Be sure to have the habitat ready before purchase.</p>"
     },
     {
       "key": "distribution",
@@ -288,8 +425,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể nano 30cm",
-        "bể thủy sinh mini"
+        "bể cá 50cm"
       ]
     },
     {

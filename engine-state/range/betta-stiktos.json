@@ -1,0 +1,48 @@
+{
+  "id": "betta-stiktos",
+  "native": {
+    "input": "52c808f753d37e37",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "The rarest of all the splendens complex, found only in the Mekong River basin in Cambodia, from the locality of Stung Streng.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "bwaquatics",
+        "quote": "The rarest of all the splendens complex, found only in the Mekong River basin in Cambodia, from the locality of Stung Streng.",
+        "country": "KH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta stiktos",
+    "status": "ACCEPTED",
+    "taxonKey": 2394017,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ]
+    ],
+    "native": [
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -1,10 +1,24 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:471209888",
+  "inat:566735098",
+  "inat:584371307"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/d97f19c71fc3e197.webp": "17376fc7b3d13737",
   "https://media.aquatome.com/scotcat/8a38e4b3d70c0858.webp": "32e442a70e84842d",
-  "https://media.aquatome.com/scotcat/cfdb286ecbbdc7c6.webp": "060c242520343d3d"
+  "https://media.aquatome.com/scotcat/cfdb286ecbbdc7c6.webp": "060c242520343d3d",
+  "https://media.aquatome.com/inaturalist/584371307.webp": "997bedf8f0a61fbf",
+  "https://media.aquatome.com/inaturalist/471209888.webp": "0000981c2b180000"
  },
- "commons": "2026-11-04"
+ "commons": "2026-11-04",
+ "inat": {
+  "taxon": 616115,
+  "pass": "done",
+  "after": {
+   "research": 322987009,
+   "agree": 356608803
+  }
+ }
 }

@@ -1,8 +1,9 @@
 import Handbook
 import SwiftUI
+import Telemetry
 
 /// One shelf of the handbook: a fish group, a placement, a guide subject (nil: the whole kind), the video guides, the
-/// glossary, the pages kept for reading offline, or what's new on the site.
+/// glossary, the pages kept for reading offline, what's new on the site, or the whole of a page's long list of pages.
 enum Browse: Hashable {
   case fish(String?)
   case plants(String?)
@@ -11,6 +12,7 @@ enum Browse: Hashable {
   case glossary
   case kept
   case latest
+  case pages(String, [String])
 }
 
 /// A shelf's pages: fish and plants as photo cards in the site's order, filtered as the site's lists are; guides and
@@ -18,8 +20,13 @@ enum Browse: Hashable {
 struct BrowseView: View {
   let browse: Browse
   @Environment(HandbookModel.self) private var handbook
+  @Environment(TelemetryModel.self) private var telemetry
 
   var body: some View {
+    shelf.onAppear { telemetry.telemetry.record(.view(.shelf)) }
+  }
+
+  @ViewBuilder private var shelf: some View {
     let s = handbook.shelves
     switch browse {
     case .fish(let group):
@@ -33,6 +40,12 @@ struct BrowseView: View {
       List(guides) { Row(item: $0) }
         .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn"))
         .toolbar { KeepOffline(items: guides) }
+        #if DEBUG
+        .background {
+          // For the UI tests (debug builds only): how many keeps are still at work.
+          Text(verbatim: "\(handbook.keepsWorking)").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("keeps-working")
+        }
+        #endif
     case .videos:
       List(s.videoGuides) { Row(item: $0) }
         .navigationTitle("Video")
@@ -57,6 +70,9 @@ struct BrowseView: View {
       }
     case .latest:
       LatestList()
+    case let .pages(title, paths):
+      List(paths.compactMap(handbook.item(at:))) { Row(item: $0) }
+        .navigationTitle(title)
     case .glossary:
       List {
         ForEach(s.glossary(), id: \.letter) { group in
