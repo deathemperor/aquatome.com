@@ -33,7 +33,7 @@ export type Today = Overview & {
 }
 
 export type Need = {
-  kind: 'comments' | 'photos' | 'key' | 'engine' | 'moderation' | 'failed'; text: string; sub?: string; label: string; tone: 'wait' | 'bad'
+  kind: 'comments' | 'photos' | 'key' | 'spend' | 'engine' | 'moderation' | 'failed'; text: string; sub?: string; label: string; tone: 'wait' | 'bad'
   section?: string; anchor?: string; url?: string; photos?: string[]
 }
 type Bars = { days: string[]; values: (number | null)[]; readouts: Readout[]; today?: number }
@@ -88,7 +88,7 @@ function fishWeek(t: Today): { calls: number; usd: number } | undefined {
 export function needsOf(t: Today): Need[] {
   const out: Need[] = todos(t).map(x => {
     const place = x.href.startsWith('/_ab/') ? (([p, a]) => ({ section: p!.slice('/_ab/'.length, -1), ...(a ? { anchor: a } : {}) }))(x.href.split('#')) : { url: x.href }
-    return { kind: x.kind, text: x.en.title, sub: x.en.text, label: x.en.action, tone: 'bad' as const, ...place }
+    return { kind: x.kind, text: x.en.title, sub: x.en.text, label: x.en.action, tone: x.kind === 'spend' ? 'wait' as const : 'bad' as const, ...place }
   })
   for (const [what, part, section] of [['the readers\' beacon', t.beacon, 'thanh-cong'], ['the held comments', t.held, 'binh-luan'], ['the waiting photos', t.waitingPhotos, 'anh-ban-doc'], ['the kept photos', t.kept, 'anh-nhan-dien'], ['the app\'s crashes', t.crashes, 'ung-dung'], ['the daily reports', t.lastReport, 'bao-cao'], ['the changelog', t.changes, 'thay-doi']] as const) {
     if (isFailed(part)) out.push({ kind: 'failed', text: failedText(what), sub: 'Its dashboard page has the error.', label: 'Open', tone: 'bad', section })
@@ -203,7 +203,8 @@ function figureOf(key: string, t: Today, w: WeekByDay | undefined): { text: stri
 export function todayJson(t: Today): TodayJson {
   const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon, t.countingFrom)
   const needs = needsOf(t)
-  const review = toReview(t)
+  // Held comments and waiting photos one by one, and a day's AI spend near its cap: what waits on the owner.
+  const review = toReview(t) + needs.filter(x => x.kind === 'spend').length
   const fix = needs.filter(x => x.tone === 'bad').length
   const lines = shippedLines(t)
   const week = fishWeek(t)
@@ -227,7 +228,7 @@ export function todayJson(t: Today): TodayJson {
   return {
     asOf: t.now.toISOString(),
     tiles: [
-      { key: 'needs', label: 'Needs you', value: needs.length ? fmtEn(review + fix) : 'All clear', sub: needs.length ? [review ? `${fmtEn(review)} to review` : '', fix ? `${fmtEn(fix)} to fix` : ''].filter(Boolean).join(' · ') : 'Nothing to review or fix', tone: fix ? 'bad' : review ? 'wait' : 'plain' },
+      { key: 'needs', label: 'Needs you', value: needs.length ? fmtEn(review + fix) : 'All clear', sub: needs.length ? [review ? `${fmtEn(review)} to review` : '', fix ? `${fmtEn(fix)} to fix` : ''].filter(Boolean).join(' · ') : 'Nothing to review or fix', tone: fix ? 'bad' : review ? 'wait' : 'good' },
       w && a && bars
         ? { key: 'answers', label: 'Found an answer', value: fmtEn(w.now.answered), sub: 'This week so far', ...(last ? { delta: fig('', w.now.answered, last.answered, { good: 'up' }).delta } : {}), bars: { days: w.days, values: w.answered, readouts: bars.readouts, today: w.today } }
         : { key: 'answers', label: 'Found an answer', value: '—', sub: failedText('the readers\' beacon'), tone: 'bad' },
