@@ -26,6 +26,14 @@ test('the Vietnamese list: each entry finds its own words, and the writers\' sty
   expect(phraseSlips('Cách cách ly cá mới hoặc cá bệnh một cách đơn giản', 'vi')).toEqual(['"một cách + tính từ" → bỏ "một cách": "làm cẩn thận", "cho đơn giản"'])
   // "Một cách khác là…" (another way) is not the calque.
   expect(phraseSlips('Một cách khác là dùng keo 502.', 'vi')).toEqual([])
+  // The editors' fifth round: the rewrite glossed the hobby's word with the dictionary's, and swapped a listed word for
+  // another calque.
+  expect(phraseSlips('Nếu dùng lọc thì lọc bọt biển (lọc mút) chạy bằng sủi là hợp nhất.', 'vi').map(s => s.split(' → ')[0])).toEqual(['"lọc bọt biển"'])
+  expect(phraseSlips('Bể đẻ dùng lọc mút xốp là tốt.', 'vi').map(s => s.split(' → ')[0])).toEqual(['"lọc bọt biển"'])
+  expect(phraseSlips('Nó là cây có thân.', 'vi').map(s => s.split(' → ')[0])).toEqual(['"cây thân đứng"'])
+  expect(phraseSlips('Cá cộng đồng nhỏ, hiền như cá neon, cá sặc và các loài cá mê cung khác.', 'vi').map(s => s.split(' → ')[0])).toEqual(['"bể cộng đồng"', '"cá mê cung"'])
+  // A maze of rocks is not the labyrinth fish.
+  expect(phraseSlips('Xếp đá thành một mê cung cho cá trốn.', 'vi')).toEqual([])
 })
 
 test('a tic: one kind of word three times in a text (the listed one swapped for its neighbours), or "nên" stacked', () => {

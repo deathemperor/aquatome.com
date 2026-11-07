@@ -16,12 +16,12 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 
 | Seat | Rounds | Findings | Held | Dropped | Open | Judges it well |
 |---|---|---|---|---|---|---|
-| Anthropic (`claude-opus-5-5`) | 3, 4 | 18 | 12 | 3 | 3 | yes, but check every name it offers |
-| OpenAI (`gpt-5.6-sol`) | 3, 4 | 13 | 10 | 0 | 3 | yes: none dropped |
-| Google (`gemini-4-argon`) | 3, 4 | 24 | 17 | 4 | 3 | yes, but check every name it offers |
-| xAI (`grok-4.7`) | 3, 4 | 19 | 13 | 4 | 2 | yes, but check every name it offers |
+| Anthropic (`claude-opus-5-5`) | 3–5 | 37 | 26 | 6 | 5 | yes, but check every name it offers |
+| OpenAI (`gpt-5.6-sol`) | 3–5 | 21 | 17 | 0 | 4 | yes: none dropped |
+| Google (`gemini-4-argon`) | 3–5 | 41 | 30 | 6 | 5 | yes, but check every name it offers |
+| xAI (`grok-4.7`) | 3–5 | 41 | 27 | 8 | 6 | yes, but check every name it offers |
 
-Of the findings the check settled, every seat's held three times in four or better over two rounds. Where Anthropic,
+Of the findings the check settled, every seat's held three times in four or better over three rounds. Where Anthropic,
 Google and xAI went wrong, it was mostly a name: a fish or a term they offered that no hobbyist writes. A name a seat
 offers is checked in the references before it goes anywhere.
 
@@ -37,3 +37,11 @@ Round 4 (2026-11-07), what was dropped:
   owner locked "cá kim tơ", and the references' "bạch vân" is a street and a disease).
 - Google: "rễ gió" for the roots on a stem (in neither reference).
 - xAI: "cá bạch vân" for the white cloud, as Anthropic, first counted as held.
+
+Round 5 (2026-11-07), what was dropped:
+- Anthropic: "cây đứng" for a plant that stops growing (in neither reference); "giữ con" and "hồ sơ" (the forum writes them
+  as often as the site).
+- Google: "trùn huyết" or "sâu đỏ" for "trùng huyết" (the forum writes all three about as often); "cá hồng đào" for the
+  cherry barb (1.3 in the forum, 0 in the videos).
+- xAI: "yếm khí" (78 in the shop blogs), "bị ảnh hưởng", "tác dụng phụ", "vì vậy nên" (the references write them as
+  often as the site, or more).
