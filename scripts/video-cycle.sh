@@ -7,8 +7,12 @@ set -euo pipefail
 export PATH="${PATH:+$PATH:}$HOME/.local/bin:$HOME/Library/pnpm:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 cd "$(dirname "$0")/.."
 log() { echo "$(date -u +%FT%TZ) $*"; }
-# Test runs take turns with the engine parts' builds and tests on this machine (engine-cycle.sh).
-checks() { lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; }
+# The checks as the engine parts run them (cycle-checks.sh): they take turns with the parts' builds and tests, wait for
+# the Mac's load to fall, and run once more when tests ran out of time. Without the wait, the tests at a load of 667 on
+# 16 cores (2026-11-07) ran out of their 30 s twice in a row and held back the videos.
+TEST_LOG=/tmp/aquatome-videos-test.log
+# shellcheck disable=SC1091
+source scripts/cycle-checks.sh
 # The GitHub engine's clock (it also runs hourly on its own, when installed): a cycle when none started for 2 h 50 min.
 scripts/engine-due.sh || log "engine: the due check failed"
 # Shared with manual engine runs in this clone, so the two never touch the tree at once.
@@ -53,7 +57,7 @@ pnpm engine watermarks --limit 20 || log "watermarks: failed"
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
 pnpm engine sweep || log "sweep: failed"
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
-if ! checks 'pnpm test' >/tmp/aquatome-videos-test.log 2>&1; then log "tests failed, not publishing (see /tmp/aquatome-videos-test.log)"; exit 1; fi
+if ! verify 'pnpm test'; then log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 git add content engine-state docs/review
 git commit -q -m "content: videos $(date -u +%F)"
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
@@ -63,7 +67,7 @@ for _ in 1 2 3; do
     log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
-      checks 'pnpm test' >/tmp/aquatome-videos-test.log 2>&1 || { log "tests failed after that merge, not publishing"; exit 1; }
+      verify 'pnpm test' || { log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi
