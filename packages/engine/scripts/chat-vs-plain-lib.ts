@@ -83,12 +83,20 @@ function card(c: Extract<ChatBlock, { t: 'species' }> | Extract<ChatBlock, { t: 
   return `${name}: ${[range(f.tempC) ? `nhiệt độ ${range(f.tempC)} °C` : null, range(f.ph) ? `pH ${range(f.ph)}` : null, range(f.gh) ? `GH ${range(f.gh)}` : null, f.sizeCm ? `dài ${f.sizeCm} cm` : null, f.tankCm ? `bể từ ${f.tankCm} cm` : null, f.schoolMin ? `đàn từ ${f.schoolMin} con` : null, f.temperament ? `tính ${f.temperament}` : null, f.difficulty ? `độ khó ${f.difficulty}/8` : null].filter(Boolean).join('; ')}`
 }
 
+/** How much of a section the app shows before the reader taps (apps/ios chat screen: five lines, the fifth fading). */
+export const FOLDED = 220
+
 /** What a block shows the reader, as text: a card's figures, a section's words, a tool's check or what it's filled with. */
 export function blockText(b: ChatBlock): string {
   switch (b.t) {
     case 'species': return `[Thẻ loài] ${card(b)}`
     case 'compare': return `[So sánh]\n${b.items.map(c => `- ${card(c)}`).join('\n')}`
-    case 'section': return `[Trích: ${b.page.title}${b.heading ? ` › ${b.heading.text}` : ''}]\n${textOf(b.blocks)}`
+    case 'section': {
+      // Folded, as the app draws it: about five lines of a phone's width, the rest a tap away.
+      const all = textOf(b.blocks)
+      const shown = all.length <= FOLDED ? all : `${all.slice(0, all.lastIndexOf(' ', FOLDED) > 0 ? all.lastIndexOf(' ', FOLDED) : FOLDED)}… [chạm để đọc tiếp]`
+      return `[Trích: ${b.page.title}${b.heading ? ` › ${b.heading.text}` : ''}]\n${shown}`
+    }
     case 'tool': {
       const c = b.check
       const lines = c
@@ -128,7 +136,7 @@ export type Verdict = {
 }
 
 /** The rubric's version: a judge's verdict is cached under it, so a changed rubric judges again. */
-export const RUBRIC_VERSION = 1
+export const RUBRIC_VERSION = 2
 export const JUDGE_SYSTEM = 'You are an experienced Vietnamese aquarium and planted-tank hobbyist judging two answers to a fellow hobbyist. Reply only with JSON.'
 export function judgePrompt(question: string, tank: string | null, x: string, y: string): string {
   return `A Vietnamese hobbyist asked an AI assistant for help. Two assistants answered (X and Y). Judge which answer would help this hobbyist more, as an experienced keeper who knows what actually fixes these problems in tanks in Vietnam.
@@ -138,7 +146,7 @@ The question, as the hobbyist typed it:
 ${question}
 """
 ${tank ? `\nWhat is true about their tank (their app holds it; they didn't type it, and an assistant may or may not have been able to read it):\n${tank}\n` : ''}
-An answer may show content under its text: a guide's excerpt, a fish's card, a tool's result, suggested next questions, each marked in [brackets]. The reader sees it on screen under the text: judge it as part of the answer.
+An answer may show content under its text: a guide's excerpt, a fish's card, a tool's result, suggested next questions, each marked in [brackets]. The reader sees it on screen under the text: judge it as part of the answer. An excerpt shows its first few lines; "[chạm để đọc tiếp]" means the reader can tap to read the rest of that guide's section.
 
 Judge on each count, X, Y or tie:
 - correct: the facts are right and the advice is safe for the fish and plants. A wrong cause, a harmful step or a wrong dose loses.

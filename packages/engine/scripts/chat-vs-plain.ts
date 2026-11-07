@@ -31,6 +31,7 @@ import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import type { PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type ChatRun } from '../../../apps/site/worker/chat/agent'
+import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
 import { handbookOf, type Index, type Source } from '../../../apps/site/worker/chat/handbook'
 import type { Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
@@ -53,6 +54,7 @@ const { values: args } = parseArgs({
     judge: { type: 'string', default: 'claude-opus-5-5' },
     conditions: { type: 'string', default: CONDITIONS.join(',') },
     only: { type: 'string' },
+    split: { type: 'string', default: 'all' },
     concurrency: { type: 'string', default: '4' },
     judges: { type: 'string', default: '3' },
     keys: { type: 'string', default: join(homedir(), '.config/aquatome/anthropic-keys') },
@@ -114,13 +116,27 @@ function sender(healthy: KeyEntry[], store: HealthStore): Send {
   }
 }
 
-type Answered = { text: string; usd: number; ms: number; failed?: string; read?: string[]; stopped?: string }
+/**
+ * The questions kept out of tuning: three a problem, fixed by their ids. Changes to the brain are tried on the others
+ * (`--split dev`); the holdout (`--split holdout`) is read only for a result, so the brain isn't fitted to it.
+ */
+let held = new Set<string>()
+const holdout = (qs: HardQuestion[]) => new Set(TOPICS.flatMap(t => qs.filter(q => q.topic === t).map(q => q.id).sort((a, b) => hash('holdout', a).localeCompare(hash('holdout', b))).slice(0, 3)))
+
+/** An answer as the judge reads it (`text`); ours keeps what Claude chose and the Worker filled (`turn`), so a change to
+ * how a block is shown judges the same answers again. */
+type Answered = { text: string; usd: number; ms: number; failed?: string; read?: string[]; stopped?: string; turn?: { text: string; blocks: ChatBlock[]; suggestions: string[] } }
 const asked = (q: HardQuestion, c: Condition) => (c === 'post' ? q.post : q.short)
+/** Our turn as the reader sees it now (chat-vs-plain-lib.ts `seenOurs`). */
+const seen = (a: Answered): Answered => (a.turn ? { ...a, text: seenOurs(a.turn.text, a.turn.blocks, a.turn.suggestions) } : a)
 
 async function main() {
-  const questions = (JSON.parse(await readFile(args.questions!, 'utf8')) as HardQuestion[])
+  const all = JSON.parse(await readFile(args.questions!, 'utf8')) as HardQuestion[]
+  held = holdout(all)
+  const questions = all
     .filter(q => !args.only || args.only.split(',').includes(q.id))
     .filter(q => (TOPICS as readonly string[]).includes(q.topic))
+    .filter(q => args.split === 'all' || (args.split === 'holdout') === held.has(q.id))
   const indexText = await (await fetch(new URL('/app/vi.json', args.site))).text()
   siteDir = join(args.cache!, `site-${new URL(args.site!).host}-${hash(indexText)}`)
   cacheDir = join(args.cache!, 'runs')
@@ -136,7 +152,7 @@ async function main() {
   const gone = questions.flatMap(q => (q.tank?.fish ?? []).flatMap(f => (f.id && hb.byId(f.id)?.kind !== 'fish' ? [`${q.id}: ${f.id}`] : [])))
   if (gone.length) throw new Error(`Pinned fish the handbook doesn't have: ${gone.join(', ')}`)
 
-  const ours = (q: HardQuestion, c: Condition) => cachedFile<Answered>(`ours-${MODEL}-${brain}-${c}-${q.id}-${hash(asked(q, c), q.tank)}.json`, async () => {
+  const ours = async (q: HardQuestion, c: Condition) => seen(await cachedFile<Answered>(`ours-v2-${MODEL}-${brain}-${c}-${q.id}-${hash(asked(q, c), q.tank)}.json`, async () => {
     const t = Date.now()
     try {
       const tanks = c === 'tank' && q.tank ? [savedTank(q.tank)] : []
@@ -144,11 +160,11 @@ async function main() {
       const read = run.steps.flatMap(s => (s.kind === 'read' ? [s.page.url] : []))
       const usd = costOf(MODEL, run.spent)
       if (!run.answer) return { text: '', usd, ms: Date.now() - t, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})`, read, stopped: run.stopped }
-      return { text: seenOurs(run.answer.text, run.blocks, run.answer.suggestions), usd, ms: Date.now() - t, read, stopped: run.stopped }
+      return { text: '', turn: { text: run.answer.text, blocks: run.blocks, suggestions: run.answer.suggestions }, usd, ms: Date.now() - t, read, stopped: run.stopped }
     } catch (e) {
       return { text: '', usd: 0, ms: Date.now() - t, failed: String((e as Error).message ?? e).slice(0, 160) }
     }
-  })
+  }))
   const plain = (q: HardQuestion, c: Condition) => cachedFile<Answered>(`plain-${MODEL}-${c}-${q.id}-${hash(asked(q, c))}.json`, async () => {
     const t = Date.now()
     try {
@@ -205,14 +221,16 @@ function report(pairs: { q: HardQuestion; c: Condition; ours: Answered; plain: A
     const ps = all.filter(p => p.result)
     const failed = all.filter(lost).length
     const w = (o: 'ours' | 'plain' | 'tie') => ps.filter(p => p.result!.better === o).length + (o === 'plain' ? failed : 0)
-    return `| ${label} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${ps.length + failed}${failed ? `, ours failed ${failed}` : ''} | ${avg(ps.map(p => p.result!.ours))} · ${avg(ps.map(p => p.result!.plain))} | ${CRITERIA.map(c => `${ps.filter(p => p.result!.criteria[c] === 'ours').length}–${ps.filter(p => p.result!.criteria[c] === 'plain').length + failed}`).join(' | ')} | ${pct(ps.filter(p => p.result!.consistent).length, ps.length)} |`
+    return `| ${label} | ${w('ours')} / ${w('plain')} / ${w('tie')} of ${ps.length + failed}${failed ? `, ours failed ${failed}` : ''} | ${avg(ps.map(p => p.result!.ours))} · ${avg(ps.map(p => p.result!.plain))} | ${CRITERIA.map(c => `${ps.filter(p => p.result!.criteria[c] === 'ours').length}–${ps.filter(p => p.result!.criteria[c] === 'plain').length + failed}`).join(' | ')} | ${pct(ps.filter(p => p.result!.consistent).length, ps.length)} | ${stops(all)} |`
   }
-  const head = `| | Ours / plain / tie or split | Score: ours · plain | ${CRITERIA.join(' | ')} | Orders agree |\n| --- | --- | ---: | ${CRITERIA.map(() => '---:').join(' | ')} | ---: |`
+  // How ours ended: Claude answered when it chose, a limit forced the last call, or no answer at all.
+  const stops = (ps: typeof pairs) => `${ps.filter(p => !p.ours.failed && p.ours.stopped === 'answer').length} / ${ps.filter(p => !p.ours.failed && p.ours.stopped && p.ours.stopped !== 'answer').length} / ${ps.filter(p => p.ours.failed).length}`
+  const head = `| | Ours / plain / tie or split | Score: ours · plain | ${CRITERIA.join(' | ')} | Orders agree | Ours stopped: answered / at a limit / failed |\n| --- | --- | ---: | ${CRITERIA.map(() => '---:').join(' | ')} | ---: | ---: |`
   const usd = (k: 'ours' | 'plain') => (pairs.reduce((t, p) => t + p[k].usd, 0) / Math.max(1, pairs.length)).toFixed(4)
   const lines = [
     '# The chat against plain Claude, on hard problems',
     '',
-    `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-vs-plain.ts\`. ${n} questions from public Vietnamese hobby forums, reworded with no names (\`packages/engine/scripts/hard-questions.vi.json\`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and limits at commit \`${commit}\`, ${MODEL}, over ${args.site}'s handbook. Plain: ${MODEL}, the same effort, no system prompt, no tools, no handbook. Judge: ${JUDGE} through the Claude CLI, rubric version ${RUBRIC_VERSION} (\`chat-vs-plain-lib.ts\`).`,
+    `${new Date().toISOString().slice(0, 10)}, \`packages/engine/scripts/chat-vs-plain.ts\`. ${n} questions (${args.split === 'all' ? 'all of them' : args.split === 'dev' ? 'those tuned on' : 'the holdout, kept out of tuning'}) from public Vietnamese hobby forums, reworded with no names (\`packages/engine/scripts/hard-questions.vi.json\`), in two conditions. Ours: the Worker's own agent, prompt, schema, effort and limits at commit \`${commit}\`, ${MODEL}, over ${args.site}'s handbook. Plain: ${MODEL}, the same effort, no system prompt, no tools, no handbook. Judge: ${JUDGE} through the Claude CLI, rubric version ${RUBRIC_VERSION} (\`chat-vs-plain-lib.ts\`).`,
     '',
     '- **post:** both answer the whole forum post. **tank:** both get a short question; ours reads the reader\'s saved tank as the chat reads it today (size, fish and counts; not plants, light, CO₂ or notes), plain Claude only the question. The judge is told everything the post said about the tank.',
     '- **Blind, as far as it goes:** the judge isn\'t told which answer is ours, and both lose the site\'s name and links. Ours still looks different (short text with excerpts, cards and tools under it), so the blinding is partial.',

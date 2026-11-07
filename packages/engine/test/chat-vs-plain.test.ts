@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import { agreed, blockText, outcome, savedTank, seenOurs, unbrand, type PostTank, type Verdict } from '../scripts/chat-vs-plain-lib'
+import { agreed, blockText, FOLDED, outcome, savedTank, seenOurs, unbrand, type PostTank, type Verdict } from '../scripts/chat-vs-plain-lib'
 
 const verdict = (v: Partial<Verdict>): Verdict => ({
   criteria: { correct: 'tie', fits: 'tie', actionable: 'tie', grounded: 'tie', local: 'tie' },
@@ -77,6 +77,13 @@ describe("our answer as the reader sees it", () => {
   } as ChatBlock
   it("a section's words under its title and heading", () => {
     expect(blockText(section)).toBe('[Trích: Rêu tóc › Cách xử lý]\nGiảm đèn còn 6 giờ.\n1. Hút rêu\n2. Thay 50% nước')
+  })
+  it('a long section folded as the app draws it, cut at a word, the rest a tap away', () => {
+    const long = { ...section, blocks: [{ t: 'p', c: [`${'rêu '.repeat(80)}cuối`] }] } as ChatBlock
+    const text = blockText(long).split('\n')[1]!
+    expect(text.endsWith('… [chạm để đọc tiếp]')).toBe(true)
+    expect(text.length).toBeLessThanOrEqual(FOLDED + '… [chạm để đọc tiếp]'.length)
+    expect(text).not.toContain('cuối')
   })
   it("a card's figures", () => {
     const card = { t: 'species', page: { id: 'paracheirodon-innesi', kind: 'species', name: 'Cá neon', sci: 'Paracheirodon innesi' }, facts: { tempC: { min: 20, max: 26 }, sizeCm: 4, schoolMin: 6 } } as ChatBlock
