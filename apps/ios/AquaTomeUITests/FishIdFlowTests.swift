@@ -32,6 +32,21 @@ final class FishIdFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Chưa có trong cẩm nang."].exists, "a guess the handbook has no page for isn't said so")
   }
 
+  /// The privacy policy opens the site's page in the browser, as the site's pages about itself do (PageRoute), and the
+  /// screen stays as it was: no screen pushed in the app, which that page would leave blank.
+  func testThePrivacyPolicyOpensInTheBrowserAndTheScreenStays() {
+    let app = launch()
+    openTool(app)
+    let policy = app.buttons["Chính sách bảo mật"]
+    repeatUntil(policy.exists && policy.isHittable, times: 6) { app.swipeUp() }
+    policy.tap()
+    let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+    XCTAssertTrue(safari.wait(for: .runningForeground, timeout: 15), "not the browser")
+    app.activate()
+    XCTAssertTrue(app.navigationBars["Đây là cá gì?"].waitForExistence(timeout: 5), "a screen pushed over the tool")
+    XCTAssertFalse(app.descendants(matching: .any)["page"].exists, "a web screen in the app")
+  }
+
   /// A fish boxed on the photo: only that part goes, cut from the photo at full size: about half of its 1600 × 1200 each
   /// way, not the whole photo shrunk (1024 × 768), nor a part of that (about 512 wide).
   func testAFishBoxedSendsOnlyThatPart() {

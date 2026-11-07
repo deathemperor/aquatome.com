@@ -1,0 +1,117 @@
+{
+  "id": "brachygobius-kabiliensis",
+  "native": {
+    "input": "88dde7798364c788",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "BN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "words": "Brunei Darussalam",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "ok": true
+      },
+      {
+        "name": "Kabili River",
+        "source": "seriouslyfish",
+        "quote": "The distribution of B. kabiliensis as currently reported is somewhat disjunct since the type locality is the Kabili River in Sandakan Division, Sabah state, Malaysia (northeastern Borneo), and it's also been collected in Brunei Darussalam, Singapore, and the lower Mekong River basin in Vietnam and Cambodia.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachygobius kabiliensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2377132,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        12
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "BN",
+      "SG",
+      "VN",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "id": "brachyrhamdia-heteropleura",
+  "native": {
+    "input": "b0b66c5a179388a6",
+    "at": "2026-11-06T21:19:39.004Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rupununi Pan, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Corantijn, Essequibo and Negro River basins (Guyana, Suriname and northern Brazil).",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Corantijn, Essequibo and Negro River basins (Guyana, Suriname and northern Brazil).",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Corantijn, Essequibo and Negro River basins (Guyana, Suriname and northern Brazil).",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.",
+        "ok": true
+      },
+      {
+        "name": "Corantijn",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Guyana waters, coastal rivers of the Guianas (Corantijn in Suriname, Essequibo), and the Amazon basin: Middle Amazon (Solimões), Negro, Lower Negro, Branco (Roraima), Cauamé.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "South America: Corantijn, Essequibo and Negro River basins (Guyana, Suriname and northern Brazil).",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "scotcat",
+        "quote": "South America: Corantijn, Essequibo and Negro River basins (Guyana, Suriname and northern Brazil).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Brachyrhamdia heteropleura",
+    "status": "ACCEPTED",
+    "taxonKey": 2343639,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-06T21:19:39.004Z"
+  }
+}

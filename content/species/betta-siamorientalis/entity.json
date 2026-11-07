@@ -15,6 +15,57 @@
     "banteay-meanchey",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+          "countries": [
+            "TH",
+            "KH",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8147096,
+      "total": 16,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "TH",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          13,
+          13
+        ],
+        [
+          101.25,
+          12.65625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

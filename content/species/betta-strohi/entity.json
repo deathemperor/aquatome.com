@@ -6,6 +6,31 @@
   "genus": "Betta",
   "group": "labyrinth",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2394048,
+      "total": 7,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          -4.21875,
+          3
+        ],
+        [
+          111.09375,
+          -2.8125,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

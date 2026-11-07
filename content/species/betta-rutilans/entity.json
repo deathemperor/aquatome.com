@@ -10,6 +10,60 @@
     "indonesia",
     "kalimantan-barat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Mempawah",
+        "Kepayang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Betta rutilans is a small, deep red labyrinth fish from peat swamps near Anjungan in West Kalimantan, Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The species has been collected from localities connected with the rivers Mempawah and Kepayang close to the town of Anjungan in Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Mempawah",
+            "Kepayang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394058,
+      "total": 1,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

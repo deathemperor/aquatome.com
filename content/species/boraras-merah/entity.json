@@ -11,6 +11,86 @@
     "borneo",
     "jelai-bila"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Jelai Bila"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Boraras merah is a miniature cyprinid from southern Borneo, described from the Jelai Bila river basin near Sukamara in Central Kalimantan, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Jelai Bila"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366584,
+      "total": 18,
+      "fetched": "2026-11-06",
+      "countries": [
+        [
+          "ID",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          108.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          112.5,
+          -2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
