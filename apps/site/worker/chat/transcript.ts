@@ -4,7 +4,7 @@ import type { Turn } from '../fishid/transcript'
  * What each question in the chat said and did, for the owner's evals and checks: kept as its conversation is, with no
  * time limit, and deleted with the account (the owner's decision, 2026-11-07). In the private UPLOADS bucket under the
  * account's own prefix, chat-run/<account>/<conversation>/<n>-<run>.json (the account as its HMAC, store.ts), so
- * deleting the account finds them (deleteChatOf); one a question the agent took up, a failed one too.
+ * deleting the account finds them (deleteChatOf); one object a question the agent took up, a failed one too.
  *
  * Text only, as fish ID's (fishid/transcript.ts): the question, what Claude thought (its summarised thinking), wrote and
  * asked of the tools, what the tools answered (cut short; the reader's tanks too, when it read them), and the answer

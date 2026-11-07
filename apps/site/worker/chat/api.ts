@@ -330,11 +330,12 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
-    // The transcript beside the conversation: never in the reader's way, so one that can't be saved is only logged.
-    const runKey = trail ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
+    // The transcript beside the conversation: never in the reader's way, so one that can't be made or saved is only logged.
+    const record = (() => { try { return trail && JSON.stringify(transcript(done, trail)) } catch (e) { console.error('chat transcript:', e) } })()
+    const runKey = record ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
     await Promise.all([
       env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e)),
-      trail && env.UPLOADS.put(runKey, JSON.stringify(transcript(done, trail))).catch(e => console.error('chat transcript:', e)),
+      record && env.UPLOADS.put(runKey, record).catch(e => console.error('chat transcript:', e)),
     ])
     // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
     // second pass, after the account's rows, comes after these writes and deletes them.

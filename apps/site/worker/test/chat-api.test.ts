@@ -253,6 +253,17 @@ test('each question\'s transcript is kept under its account and conversation: wh
   expect(seconds.every(k => k.includes('/002-'))).toBe(true)
 })
 
+test('a transcript R2 won\'t take is only logged: the reader gets the answer, the conversation the turn, the run settles', async () => {
+  const { e, db, store, ledger } = env()
+  const me = await signIn(db)
+  e.UPLOADS = hooked(store.bucket, { put: k => { if (k.startsWith('chat-run/')) throw new Error('R2 down') } })
+  const r = await run(ask(bearer(me.token)), e, deps(claude(NEON).fetch))
+  expect([r.res.status, r.body]).toMatchObject([200, { n: 1, text: 'Cá neon xanh sống theo đàn.' }])
+  expect(store.read<Conversation>(await convKey(me))!.turns).toHaveLength(1)
+  expect([...store.m.keys()].filter(k => k.startsWith('chat-run/'))).toEqual([])
+  expect(ledger.day()!.runs).toEqual({})
+})
+
 /** The account deleted through the Worker, as the app deletes it. */
 const deleteAccount = async (e: ChatEnv, token: string) =>
   (await handle(new Request('https://x.test/api/v1/account', { method: 'DELETE', headers: { authorization: `Bearer ${token}` } }), { ...e, ACCOUNTS: 'on' } as never)).status
