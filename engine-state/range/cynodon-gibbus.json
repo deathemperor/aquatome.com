@@ -1,0 +1,198 @@
+{
+  "id": "cynodon-gibbus",
+  "native": {
+    "input": "9642decdacb59a32",
+    "at": "2026-11-07T13:20:47.766Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed, known from much of the Amazon basin from the Ríos Marañon and Ucayali in the west (Peru) to the rios Purus, Madeira, Branco, Amazonas, Trombetas, Xingu, and Tocantins in the east (Brazil).",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed, known from much of the Amazon basin from the Ríos Marañon and Ucayali in the west (Peru) to the rios Purus, Madeira, Branco, Amazonas, Trombetas, Xingu, and Tocantins in the east (Brazil).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in middle and lower portions of the Río Orinoco basin, Venezuela and the Rupununi River in the upper Essequibo basin, Guyana.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in middle and lower portions of the Río Orinoco basin, Venezuela and the Rupununi River in the upper Essequibo basin, Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "This species is widely distributed, known from much of the Amazon basin from the Ríos Marañon and Ucayali in the west (Peru) to the rios Purus, Madeira, Branco, Amazonas, Trombetas, Xingu, and Tocantins in the east (Brazil).",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in middle and lower portions of the Río Orinoco basin, Venezuela and the Rupununi River in the upper Essequibo basin, Guyana.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in middle and lower portions of the Río Orinoco basin, Venezuela and the Rupununi River in the upper Essequibo basin, Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rio Pindaré",
+        "source": "seriouslyfish",
+        "quote": "Three specimens collected in the rio Pindaré, Maranhão state, Brazil represent the only known record of a cynodontid species in northeastern Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Uatumã",
+        "source": "seriouslyfish",
+        "quote": "It occurs sympatrically with the congener C. septenarius in the rio Uatumã, Brazil and the two also occur in proximity in the rio Branco and rio Trombetas systems.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO",
+        "CO",
+        "EC"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cynodon gibbus",
+    "status": "ACCEPTED",
+    "taxonKey": 5204135,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        65
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        61
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        35
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        29
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        21
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        19
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        9
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        7
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BR",
+      "VE",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-07T13:20:47.766Z"
+  }
+}

@@ -147,5 +147,39 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/equipment/thuc-an": [
+    {
+      "at": "2026-11-07T15:29:55Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"ikan bandaraya (pleco)\" is a non-standard term; Malaysian hobbyists say \"ikan pleco\" or \"ikan pembersih kaca\". Use \"pleco\" alone.",
+        "\"cacing tanah\" for \"giun\" is acceptable but may mislead; \"cacing\" or \"cacing tanah (earthworm)\" is clearer. Check this is the intended meaning.",
+        "\"kutu air\" for \"bo bo\" (water fleas/Daphnia) is acceptable. Malaysian shops often say \"daphnia\" or \"kutu air\"; consider adding \"daphnia\".",
+        "\"jentik-jentik nyamuk\" for \"lăng quăng\" is more Indonesian; \"larva nyamuk\" or \"lauk-lauk\" is more natural in Malaysia.",
+        "\"cacing tubifex\" for \"trùn chỉ\" is fine, but \"cacing darah\" would be a different product. Keep it consistent.",
+        "\"ikan yang memilih makanan\" for \"cá kén ăn\" is fine; \"ikan cerewet makan\" is more natural.",
+        "\"tangki\" and \"akuarium\" are used inconsistently; \"air tangki\" is acceptable but \"air akuarium\" is more common in Malaysia.",
+        "\"Tidak memberi makan sehari dalam seminggu tidak menjadi masalah\" is clumsy; use \"Berpuasa sehari seminggu tidak mengapa\".",
+        "\"ikan omnivor\" should be \"ikan omnivor/pemakan segala\"; \"flake\" is left in English, so use \"serpihan\" or keep the English term consistently.",
+        "\"ikan aras permukaan\" and \"aras tengah\" are understandable, but \"ikan permukaan/ikan lapisan tengah\" is more natural."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-07T15:29:55Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"jentik-jentik\" for lăng quăng is fine but could be clarified as \"jentik-jentik nyamuk\" so readers know it means mosquito larvae.",
+        "\"Anak ikan\" is used for both cá bột (fry) and cá con (juveniles); consider \"benih ikan/ikan baru menetas\" for fry to keep the distinction.",
+        "\"ikan bandaraya (pleco)\" is acceptable, but the gloss \"ikan pembersih kaca\" is not used, so the cá lau kính image is lost; this is minor.",
+        "\"Cacing tubifex\" for trùn chỉ is fine, but \"cacing\" alone for giun is vague; consider \"cacing tanah/cacing darah\" depending on the intended meaning."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

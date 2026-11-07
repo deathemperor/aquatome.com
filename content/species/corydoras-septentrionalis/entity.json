@@ -12,6 +12,193 @@
     "orinoco",
     "guyana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "GY"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras septentrionalis occurs in Venezuela and Colombia.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "According to the IUCN Red List, it is a common species found throughout the lowlands of the Orinoco River Basin in Colombia, Venezuela and the north of Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Orinoco in Venezuela and possibly Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342626,
+      "total": 168,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "VE",
+          158
+        ],
+        [
+          "CO",
+          8
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -71.71875,
+          7.03125,
+          9,
+          9
+        ],
+        [
+          -70.3125,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          45,
+          45
+        ],
+        [
+          -70.3125,
+          8.4375,
+          47,
+          47
+        ],
+        [
+          -68.90625,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          8.4375,
+          12,
+          12
+        ],
+        [
+          -68.90625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          7.03125,
+          17,
+          17
+        ],
+        [
+          -67.5,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          8.4375,
+          10,
+          10
+        ],
+        [
+          -63.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

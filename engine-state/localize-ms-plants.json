@@ -403,5 +403,55 @@
       "\"Berhati-hati lebih dengan tumbuhan ini\" is awkward. Use \"Berhati-hatilah dengan tumbuhan ini\" or \"Kendalikan dengan lebih berhati-hati\".",
       "\"frond\" is left in English throughout. Consider \"frond (pelepah daun)\" at first mention. Likewise, \"melting\" could be \"melting (daun hancur/reput)\" at first mention."
     ]
+  },
+  "bucephalandra": {
+    "at": "2026-11-07",
+    "from": "2026-11-04",
+    "name": "Bucephalandra",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Melting\" heading left in English while the text gives \"cair (melting)\"; use \"Daun Mereput/Cair (melting)\" for consistency.",
+      "\"emersed\"/\"submersed\" are left as English in running text; use \"emers\"/\"tenggelam\" or put the English in brackets after the Malay term.",
+      "\"all-in-one\", \"root tab\" and \"moss\" are left in English; consider \"baja cecair serba guna\", \"tab akar\" and \"lumut\", with the English in brackets.",
+      "\"pokok kedua\" is fine, but \"Tumbesarannya sangat perlahan\" is repeated across the sections; consider \"pertumbuhan\" for variety. This is a minor point."
+    ]
+  },
+  "bucephalandra-diabolica": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bucephalandra Kedagang",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"varian Red Bucephalandra\": the English is \"the Red variety of Bucephalandra\", so the word order is wrong. Use \"varian Red bagi Bucephalandra\" or \"Bucephalandra varian Red\".",
+      "\"Apabila tenggelam di dalam air\" is slightly awkward for \"When immersed\". Use \"Apabila ditanam secara terendam\" (emersed vs submersed growth), or \"Apabila terendam sepenuhnya\".",
+      "\"keluarga Bucephalandra\": Bucephalandra is a genus, but the source says \"family\". Keep it as is, or use \"genus\" if you correct it. This is a minor point."
+    ]
+  },
+  "bucephalandra-pygmaea": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bucephalandra pygmaea 'Wavy Green'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"tangki\": the usual hobby term in Malaysia is \"akuarium\", which the text itself uses elsewhere. Use \"dalam akuarium\".",
+      "\"Keperluan CO2: rendah\": this is fine as written. Consider \"Keperluan CO2\" to match the \"Keperluan cahaya\" pattern if you want to be consistent. It is minor.",
+      "\"tidak boleh ditimbus\": \"ditimbus\" is understandable. A more natural hobby phrasing is \"tidak boleh dikambus/ditanam dalam substrat\". It is minor.",
+      "\"tenggelam dalam air\" for \"immersed leaves\": the usual hobby sense is leaves grown underwater. \"daun yang tumbuh di bawah air (submersed)\" would be clearer. It is minor."
+    ]
+  },
+  "bucephalandra-sordidula": {
+    "at": "2026-11-07",
+    "from": "2026-10-30",
+    "name": "Bucephalandra sp. 'Blue'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Bahagian tengah atau depan tangki\": 'midground or foreground' is more naturally 'tengah atau latar depan'. Minor.",
+      "\"yang sudah berpengalaman\" is slightly awkward. Consider 'pemain hobi berpengalaman'. Minor.",
+      "\"Bentuknya kekal kemas walaupun jarang dipangkas\" slightly changes 'minimal trimming'. Consider 'dengan pemangkasan yang minimum'. Minor."
+    ]
   }
 }

@@ -10,6 +10,83 @@
     "brazil",
     "itapecuru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Itapecuru",
+        "Parnaíba"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish originates from Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Corydoras vittatus occurs in the Itapecuru and Parnaíba river basins, in the states of Maranhão and Piauí.",
+          "countries": [],
+          "regions": [
+            "Itapecuru",
+            "Parnaíba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342784,
+      "total": 7,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -47.8125,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -46.40625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -45,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

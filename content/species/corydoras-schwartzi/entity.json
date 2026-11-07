@@ -10,6 +10,69 @@
     "brazil",
     "rio-purus"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Purus"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from the Rio Purus system in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Rio Purus drainage, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Purus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342755,
+      "total": 5,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "BR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
