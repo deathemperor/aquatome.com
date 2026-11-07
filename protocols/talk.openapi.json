@@ -489,7 +489,7 @@
         "description": "The page's comments key (`talk.comments`).",
         "schema": {
           "type": "string",
-          "pattern": "^(?:(?:id|th):)?(species|breed|plant|guide):[A-Za-z0-9_-]{1,140}$"
+          "pattern": "^(?:(?:id|th|ms):)?(species|breed|plant|guide):[A-Za-z0-9_-]{1,140}$"
         }
       },
       "PhotosKey": {

@@ -1,0 +1,77 @@
+{
+  "id": "datnioides-campbelli",
+  "native": {
+    "input": "c535c144b8749eb3",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to the southern portion of New Guinea, between the Lorentz River in Papua province, Indonesia, and Kikori River in Gulf province, Papua New Guinea.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to the southern portion of New Guinea, between the Lorentz River in Papua province, Indonesia, and Kikori River in Gulf province, Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Fly River",
+        "source": "seriouslyfish",
+        "quote": "The majority of records pertain to the lower Fly River basin in Western province, southwestern Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to the southern portion of New Guinea, between the Lorentz River in Papua province, Indonesia, and Kikori River in Gulf province, Papua New Guinea.",
+        "ok": true
+      },
+      {
+        "name": "Lorentz River",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to the southern portion of New Guinea, between the Lorentz River in Papua province, Indonesia, and Kikori River in Gulf province, Papua New Guinea.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kikori River",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to the southern portion of New Guinea, between the Lorentz River in Papua province, Indonesia, and Kikori River in Gulf province, Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Datnioides campbelli",
+    "status": "ACCEPTED",
+    "taxonKey": 5210839,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}

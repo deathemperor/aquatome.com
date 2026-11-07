@@ -77,7 +77,7 @@
         "required": ["file"],
         "properties": {
           "file": { "type": "string", "contentMediaType": "image/jpeg", "description": "The photo, shrunk and without its metadata." },
-          "lang": { "type": "string", "enum": ["vi", "id", "th"], "description": "The reader's language: the reasons' language and the pages' addresses. vi when missing." },
+          "lang": { "type": "string", "enum": ["vi", "id", "th", "ms"], "description": "The reader's language: the reasons' language and the pages' addresses. vi when missing." },
           "from": { "type": "string", "enum": ["page", "tank"], "description": "Where the reader started: the tool's page, or a tank's \"identify by photo\" button. For the owner's log only." },
           "token": { "type": "string", "description": "Turnstile's token: the page's way only." },
           "keep": { "type": "string", "enum": ["1", "true", "on"], "description": "The reader ticked the opt-in for this photo: keep it with its result for 6 months. Leave it out otherwise." }
@@ -88,7 +88,7 @@
         "required": ["image"],
         "properties": {
           "image": { "type": "string", "description": "The photo as base64 (a data: URL's prefix is ignored)." },
-          "lang": { "type": "string", "enum": ["vi", "id", "th"] },
+          "lang": { "type": "string", "enum": ["vi", "id", "th", "ms"] },
           "from": { "type": "string", "enum": ["page", "tank"] },
           "token": { "type": "string" },
           "keep": { "type": "boolean", "description": "true: the reader ticked the opt-in for this photo. Leave it out otherwise." }

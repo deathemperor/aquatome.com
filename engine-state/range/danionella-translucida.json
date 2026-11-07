@@ -1,0 +1,75 @@
+{
+  "id": "danionella-translucida",
+  "native": {
+    "input": "abf915e5ee2d57a6",
+    "at": "2026-11-07T16:21:07.852Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They originate from Myanmar, the former Burma.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from a handful of streams draining the south and eastern slopes of the Bago Yoma mountain range, southern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bago Yoma",
+        "source": "seriouslyfish",
+        "quote": "Known from a handful of streams draining the south and eastern slopes of the Bago Yoma mountain range, southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittang River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sittang River basin, Pegu Division, Myanmar, Dayama Chaung 1.6 km north of Daik-u'.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Danionella translucida",
+    "status": "ACCEPTED",
+    "taxonKey": 2359134,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-07T16:21:07.852Z"
+  }
+}
