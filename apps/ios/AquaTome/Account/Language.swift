@@ -1,40 +1,42 @@
+import Handbook
 import SwiftUI
 
-/// "Ngôn ngữ": the app's language, as the phone gives it ("Theo máy", the default) or one of the three it ships. Kept
-/// where iOS's own Settings → AquaTome → Language keeps it, the app's `AppleLanguages`, so the two never disagree; iOS
-/// reads it when the app opens, so a choice applies from the next time (an app can't relaunch itself). Kept on this phone
-/// only, not in the account.
-enum AppLanguage: String, CaseIterable, Identifiable {
-  case system, vi, id, th
+/// "Ngôn ngữ": the app's language, as the phone gives it ("Theo máy", the default) or one the app offers (SiteLanguage's
+/// served, Vietnamese first). Kept where iOS's own Settings → AquaTome → Language keeps it, the app's `AppleLanguages`,
+/// so the two never disagree; iOS reads it when the app opens, so a choice applies from the next time (an app can't
+/// relaunch itself). Kept on this phone only, not in the account.
+struct AppLanguage: Hashable, Identifiable {
+  /// The language; nil for "Theo máy".
+  let site: SiteLanguage?
 
   static let key = "AppleLanguages"
-  static let languages: [AppLanguage] = [.vi, .id, .th]
+  static let system = AppLanguage(site: nil)
+  /// The languages offered, Vietnamese first.
+  static var languages: [AppLanguage] { SiteLanguage.served.map { AppLanguage(site: $0) } }
 
-  var id: Self { self }
+  var id: String { site?.code ?? "" }
 
   /// Its name in its own language, as iOS's own lists write a language.
-  var name: String {
-    switch self {
-    case .system: ""
-    case .vi: "Tiếng Việt"
-    case .id: "Bahasa Indonesia"
-    case .th: "ภาษาไทย"
-    }
-  }
+  var name: String { site?.name ?? "" }
 
   /// The line under the section once it's chosen, in its own language (the catalog's string as that language's .lproj
   /// has it, not the one the app runs in): from the next time the app opens.
   var fromNextOpen: String {
-    let own = Bundle.main.path(forResource: rawValue, ofType: "lproj").flatMap(Bundle.init(path:))
+    let own = site.flatMap { Bundle.main.path(forResource: $0.code, ofType: "lproj") }.flatMap(Bundle.init(path:))
     return String(localized: "Ứng dụng sẽ dùng \(name) từ lần mở sau.", bundle: own ?? .main)
   }
 
   /// Text in its own language, so VoiceOver reads it in that language's voice (and it's set as that language's text).
   func spoken(_ s: String) -> AttributedString {
     var a = AttributedString(s)
-    a.languageIdentifier = rawValue
-    a.accessibilitySpeechLanguage = rawValue
+    a.languageIdentifier = site?.code
+    a.accessibilitySpeechLanguage = site?.code
     return a
+  }
+
+  /// An offered language by an iOS language code ("id", "id-ID"); nil for any other.
+  private static func offered(_ code: String) -> AppLanguage? {
+    (SiteLanguage.served(code) ?? SiteLanguage.served(String(code.prefix { $0 != "-" && $0 != "_" }))).map { AppLanguage(site: $0) }
   }
 
   /// The choice as kept: the app's own `AppleLanguages`, not the lookup UserDefaults does, which falls through to the
@@ -43,26 +45,28 @@ enum AppLanguage: String, CaseIterable, Identifiable {
   static var stored: AppLanguage {
     guard let id = Bundle.main.bundleIdentifier,
           let list = UserDefaults.standard.persistentDomain(forName: id)?[key] as? [String] else { return .system }
-    return list.first.flatMap { AppLanguage(rawValue: String($0.prefix(2))) } ?? .system
+    return list.first.flatMap(offered) ?? .system
   }
 
   /// Kept for the next launch: the language alone, or, for "Theo máy", nothing (the phone's list again).
   static func store(_ choice: AppLanguage) {
-    if choice == .system { UserDefaults.standard.removeObject(forKey: key) } else { UserDefaults.standard.set([choice.rawValue], forKey: key) }
+    if let code = choice.site?.code { UserDefaults.standard.set([code], forKey: key) } else { UserDefaults.standard.removeObject(forKey: key) }
   }
 
-  /// The language the app opened in (iOS's pick among the three, Vietnamese when the phone has none of them), read once.
-  static let atLaunch: AppLanguage = AppLanguage(rawValue: Bundle.main.preferredLocalizations.first.map { String($0.prefix(2)) } ?? "vi") ?? .vi
+  /// The language the app opened in (iOS's pick among those it has, Vietnamese when the phone has none of them), read
+  /// once.
+  static let atLaunch = AppLanguage(site: SiteLanguage.of(Bundle.main.preferredLocalizations))
 
-  /// What "Theo máy" gives: the first of the three in the phone's languages, else Vietnamese, as iOS opens the app. An app
-  /// with a language of its own is shown only that one (`Locale.preferredLanguages`, and the phone's global list reads
-  /// empty from the app), so the phone's is taken when the app opens without one and kept for when it has one. Read
-  /// as the app starts (AquaTomeApp), before the choice can change, so it's of how the app opened.
+  /// What "Theo máy" gives: the first offered language in the phone's, else Vietnamese, as iOS opens the app. An app with
+  /// a language of its own is shown only that one (`Locale.preferredLanguages`, and the phone's global list reads empty
+  /// from the app), so the phone's is taken when the app opens without one and kept for when it has one. Read as the app
+  /// starts (AquaTomeApp), before the choice can change, so it's of how the app opened.
   static let phone: AppLanguage = {
     let kept = "phoneLanguage"
-    guard stored == .system else { return UserDefaults.standard.string(forKey: kept).flatMap(AppLanguage.init(rawValue:)) ?? .vi }
-    let p = Locale.preferredLanguages.lazy.compactMap { AppLanguage(rawValue: String($0.prefix(2))) }.first { $0 != .system } ?? .vi
-    UserDefaults.standard.set(p.rawValue, forKey: kept)
+    let vi = AppLanguage(site: .vietnamese)
+    guard stored == .system else { return UserDefaults.standard.string(forKey: kept).flatMap(offered) ?? vi }
+    let p = Locale.preferredLanguages.lazy.compactMap(offered).first ?? vi
+    UserDefaults.standard.set(p.id, forKey: kept)
     return p
   }()
 
