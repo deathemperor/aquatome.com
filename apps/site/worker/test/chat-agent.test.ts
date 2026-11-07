@@ -100,13 +100,20 @@ test('read_tanks reads the reader\'s tanks with their ids, says when there are n
   // was saved, each light's schedule in a line, what its plugs power, and the notes as their own words, cut.
   const full: Tank = {
     ...tank, plants: ['taxiphyllum-barbieri'], substrate: 'soil', days: 12, notes: `Thay 30% nước mỗi tuần. ${'x'.repeat(NOTES_CHARS)}`,
-    lights: [{ name: 'WRGB II', schedule: { on: '13:00', off: '21:30', ramp: 30, levels: [80, 70, 60, 50] } }, { name: 'Đèn phụ', manual: [40] }],
+    lights: [
+      { name: 'WRGB II', schedule: { on: '13:00', off: '21:30', ramp: 30, levels: [80, 70, 60, 50] } }, { name: 'Đèn phụ', manual: [40] },
+      // A schedule that ends at midnight, then set by hand since.
+      { name: 'Đèn tối', schedule: { on: '16:00', off: '00:00', ramp: 0, levels: [60] }, manual: [100] },
+    ],
     power: ['co2', 'heater'],
   }
   const read = JSON.parse(await tool(async () => [full]).run({}, { photosLeft: 0 }) as string)[0]
   expect(read).toMatchObject({
     plants: [h.byId('taxiphyllum-barbieri')?.name ?? 'taxiphyllum-barbieri', 'Rong lạ'], substrate: 'soil', savedDaysAgo: 12,
-    lights: ['WRGB II: 13:00–21:30, 8.5 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no saved schedule, last set by hand to 40%'],
+    lights: [
+      'WRGB II: 13:00–21:30, 8.5 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no schedule running, last set by hand to 40%',
+      'Đèn tối: 16:00–00:00, 8 h lit, ramp 0 min, levels 60%; since then set by hand to 100%',
+    ],
     plugsPower: ['co2', 'heater'],
   })
   expect(read.readerNotes.startsWith('Thay 30% nước mỗi tuần.')).toBe(true)
@@ -507,7 +514,7 @@ test('a card or section shown earlier in the conversation, or twice in one answe
   expect(out.blocks.map(b => b.t)).toEqual(['compare'])
 })
 
-test("the card of the fish whose page the chat was opened from counts as shown; from fish ID it doesn't, and another fish's card goes out", async () => {
+test("the card of the fish whose page the chat was opened from counts as shown; from fish ID or search it doesn't, and another fish's card goes out", async () => {
   const h = await hb()
   const turn = (start: Start) => answerQuestion({
     send: async () => message([{ type: 'text', text: JSON.stringify(answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] }), pick({ t: 'species', ids: ['paracheirodon-axelrodi'] })], { text: 'Cá neon xanh dễ nuôi.' })) }]),
@@ -517,9 +524,11 @@ test("the card of the fish whose page the chat was opened from counts as shown; 
   expect(onPage.blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-axelrodi'])
   expect(onPage.dropped).toEqual(['species: paracheirodon-innesi shown before'])
   expect((await turn({ from: 'fish-id', about: 'paracheirodon-innesi' })).blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
+  expect((await turn({ from: 'search', about: 'paracheirodon-innesi' })).blocks.map(b => b.t === 'species' && b.page.id)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
   const told = (start: Start) => (firstMessage('vi', 'Có dễ nuôi không?', [], start, h).content as Anthropic.TextBlockParam[])[0]!.text
   expect(told({ from: 'species', about: 'paracheirodon-innesi' })).toContain('They opened it from that page, so they have seen its card')
   expect(told({ from: 'fish-id', about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
+  expect(told({ about: 'paracheirodon-innesi' })).not.toContain('They opened it from that page')
 })
 
 test('the chat\'s forced last call is told to answer from what it read', async () => {

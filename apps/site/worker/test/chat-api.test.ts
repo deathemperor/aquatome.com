@@ -593,6 +593,11 @@ test('read_tanks reads the whole saved tank: plants, substrate, notes, days sinc
       { id: 'b1b2c3d4-0000-4000-8000-000000000002', tankId, kind: 'plug', brand: 'tuya', remoteId: 'x1', outlets: [{ code: 'switch_1', role: 'co2' }, { code: 'switch_2', role: 'heater' }, { code: 'switch_3', label: 'Quạt' }], createdAt: at, updatedAt: at },
       // Another tank's light isn't this tank's.
       { id: 'b1b2c3d4-0000-4000-8000-000000000003', tankId: 'a1b2c3d4-0000-4000-8000-000000000009', kind: 'light', schedules: [], createdAt: at, updatedAt: at },
+      // A schedule saved but never written to the light is no schedule it runs; its levels set by hand are.
+      {
+        id: 'b1b2c3d4-0000-4000-8000-000000000004', tankId, kind: 'light', nickname: 'Đèn phụ', manual: { levels: [50], at }, createdAt: at, updatedAt: at,
+        schedules: [{ id: 'c1b2c3d4-0000-4000-8000-000000000003', on: '08:00', off: '14:00', ramp: 0, levels: [100], savedAt: ago(1) }],
+      },
     ],
   }, now)
   const c = claude([() => msg([{ type: 'tool_use', id: 't1', name: 'read_tanks', input: {} }], 'tool_use'), () => answers({})])
@@ -600,7 +605,7 @@ test('read_tanks reads the whole saved tank: plants, substrate, notes, days sinc
   const told = (JSON.parse(String(((c.bodies[1]!.messages as { content: unknown }[]).at(-1)!.content as { content: string }[])[0]!.content)) as Record<string, unknown>[])[0]!
   expect(told).toMatchObject({
     substrate: 'soil', savedDaysAgo: 10, readerNotes: 'Thay 30% nước mỗi tuần.',
-    lights: ['chihiros WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/70/60/50%'],
+    lights: ['chihiros WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/70/60/50%', 'Đèn phụ: no schedule running, last set by hand to 50%'],
     plugsPower: ['co2', 'heater', 'Quạt'],
   })
   expect((told.plants as string[]).length).toBe(1)

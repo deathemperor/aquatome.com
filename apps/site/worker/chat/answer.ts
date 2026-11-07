@@ -194,8 +194,8 @@ const r1 = (n: number) => String(Math.round(n * 10) / 10)
  * `shownBefore`: the blocks of the conversation's earlier turns. A species card or a page's section shown already (or
  * twice in this answer) isn't shown again: the reader has it above, and a chat from a fish's page would carry its card
  * under nearly every answer.
- * `startedOn`: the fish or plant whose page the chat was opened from. The reader has just left its card, so it counts
- * as shown (from fish ID they haven't seen the page, and there is none).
+ * `startedOn`: the fish or plant whose page the chat was opened from (`from: 'species'`). The reader has just left its
+ * card, so it counts as shown (from fish ID or search they haven't seen the page, and there is none).
  */
 export async function fill(answer: Answer, hb: Handbook, checks: readonly MatesCheck[] = [], shownBefore: readonly ChatBlock[] = [], startedOn?: string): Promise<{ blocks: ChatBlock[]; dropped: string[] }> {
   const dropped: string[] = []

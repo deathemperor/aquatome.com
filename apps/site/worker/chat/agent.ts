@@ -65,7 +65,7 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
     const guesses = start.identified.results.map(r => `${r.scientificName}${r.id ? ` (id ${r.id})` : ''}, ${Math.round(r.confidence * 100)}%`).join('; ')
     parts.push(`They come from AquaTome's fish ID, which named their photo (${start.identified.verdict}): ${guesses || 'nothing it could name'}.`)
   }
-  if (about) parts.push(`The chat is about ${about.name}${about.sub ? ` (${about.sub})` : ''}, id ${about.id}, page ${about.path}.${start.from === 'fish-id' ? '' : ' They opened it from that page, so they have seen its card: it counts as shown.'}`)
+  if (about) parts.push(`The chat is about ${about.name}${about.sub ? ` (${about.sub})` : ''}, id ${about.id}, page ${about.path}.${start.from === 'species' ? ' They opened it from that page, so they have seen its card: it counts as shown.' : ''}`)
   if (earlier.length) {
     parts.push('Earlier in this conversation:')
     earlier.forEach((t, i) => parts.push(`${i + 1}. Reader: ${t.question}\nYou: ${t.text}${t.blocks.length ? `\nShown: ${t.blocks.map(shown).join('; ')}` : ''}`))
@@ -141,7 +141,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     clock: o.clock,
   })
   const answer = run.message ? readAnswer(run.message) : undefined
-  const startedOn = o.start.from === 'fish-id' ? undefined : o.start.about
+  const startedOn = o.start.from === 'species' ? o.start.about : undefined
   const filled = answer ? await fill(answer, o.handbook, checks, o.earlier.flatMap(t => t.blocks), startedOn) : { blocks: [], dropped: [] }
   return { ...run, ...(answer ? { answer } : {}), ...filled }
 }

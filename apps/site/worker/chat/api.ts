@@ -1,5 +1,5 @@
 import type Anthropic from '@anthropic-ai/sdk'
-import { isTombstone } from '@aq/schema/tanks'
+import { isTombstone, type Device, type Tank as SavedTank } from '@aq/schema/tanks'
 import { sameSiteOk, sessionOf, tokenOf } from '../accounts/session'
 import { loadStore } from '../accounts/tanks'
 import { accountDayKey } from '../comments/api'
@@ -148,25 +148,17 @@ export function assetSource(env: Pick<ChatEnv, 'ASSETS'>, origin: string): Sourc
 /** The account's saved tanks as the chat reads them (tools.ts `Tank`): what read_tanks tells Claude and a check is of. */
 export async function tanksOf(db: D1Database, account: string, now = new Date()): Promise<Tank[]> {
   const store = await loadStore(db, account)
-  type Rec = {
-    id: string; name: string; dims?: { l: number; w: number; h: number }; litres?: number; substrate?: string; notes?: string; createdAt?: string
-    species?: { id: string; count?: number }[]; plants?: { id: string }[]; unlisted?: { name: string; kind: string; sci?: string; count?: number }[]
-  }
-  type Dev = {
-    tankId: string; kind: string; brand?: string; model?: string; nickname?: string
-    schedules?: { id: string; on: string; off: string; ramp: number; levels: number[] }[]; activeScheduleId?: string; manual?: { levels: number[] }
-    outlets?: { role?: string; label?: string }[]
-  }
-  const devices = store.devices.filter(d => !isTombstone(d)) as unknown as Dev[]
-  return store.tanks.filter(t => !isTombstone(t)).map(t => {
-    const r = t as Rec
+  const devices = store.devices.filter(d => !isTombstone(d)) as Device[]
+  return (store.tanks.filter(t => !isTombstone(t)) as SavedTank[]).map(r => {
     const mine = devices.filter(d => d.tankId === r.id)
     const lights: TankLight[] = mine.filter(d => d.kind === 'light').map(d => {
-      const s = d.schedules?.find(x => x.id === d.activeScheduleId) ?? (d.schedules?.length === 1 ? d.schedules[0] : undefined)
+      // The schedule last written to the light, and levels set by hand after it, which the light runs until it's written again.
+      const s = d.schedules?.find(x => x.id === d.activeScheduleId)
+      const hand = d.manual && (!s || d.manual.at > s.savedAt) ? d.manual.levels : undefined
       return {
         name: d.nickname ?? ([d.brand, d.model].filter(Boolean).join(' ') || 'light'),
         ...(s ? { schedule: { on: s.on, off: s.off, ramp: s.ramp, levels: s.levels } } : {}),
-        ...(d.manual ? { manual: d.manual.levels } : {}),
+        ...(hand ? { manual: hand } : {}),
       }
     })
     const power = mine.filter(d => d.kind === 'plug').flatMap(d => (d.outlets ?? []).flatMap(o => (o.role && o.role !== 'other' ? [o.role] : o.label ? [o.label] : [])))

@@ -1,3 +1,4 @@
+import { minutesLit } from '@aq/schema/tank-rules'
 import type { Block, Inline, PageDoc } from '@aq/schema/app-page'
 import type { Tool } from '../agent/tools'
 import { notFish } from './answer'
@@ -40,14 +41,15 @@ export type Tank = {
 
 /** Notes are the reader's free text: a tank's are cut to this many characters (the run's input tokens are limited). */
 export const NOTES_CHARS = 1500
-const hm = (t: string) => { const [h, m] = t.split(':').map(Number); return h! * 60 + m! }
-/** A light in a line: "WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/80/80/80%". */
+/**
+ * A light in a line: "WRGB II: 13:00–21:00, 8 h lit, ramp 30 min, levels 80/80/80/80%", then its levels set by hand
+ * since, which it runs at until its schedule is written again.
+ */
 const lit = (l: TankLight) => {
-  if (l.schedule) {
-    const mins = hm(l.schedule.off) - hm(l.schedule.on)
-    return `${l.name}: ${l.schedule.on}–${l.schedule.off}, ${Math.round(mins / 6) / 10} h lit, ramp ${l.schedule.ramp} min, levels ${l.schedule.levels.join('/')}%`
-  }
-  return `${l.name}: no saved schedule${l.manual ? `, last set by hand to ${l.manual.join('/')}%` : ''}`
+  const hand = l.manual ? `set by hand to ${l.manual.join('/')}%` : ''
+  if (!l.schedule) return `${l.name}: no schedule running${hand ? `, last ${hand}` : ''}`
+  const s = l.schedule
+  return `${l.name}: ${s.on}–${s.off}, ${Math.round(minutesLit(s.on, s.off) / 6) / 10} h lit, ramp ${s.ramp} min, levels ${s.levels.join('/')}%${hand ? `; since then ${hand}` : ''}`
 }
 /**
  * A tank as Claude reads it: its id, size and fish named as the handbook names them (one without a page by the reader's),
@@ -213,7 +215,7 @@ export function chatTools(d: ToolDeps): Tool<Step>[] {
     },
     {
       name: 'read_tanks',
-      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size, fish with how many, plants, substrate, how many days since it was saved, its lights\' schedules (hours lit, ramp, levels), what its smart plugs power (CO₂, filter, heater, air, fan, light), and the reader\'s own notes. Use it when the reader talks about their tank or fish they keep.',
+      description: 'Read the reader\'s saved tanks ("Bể của tôi"): each one\'s name, size, fish with how many, plants, substrate, how many days since it was saved in the app (not since the tank was set up: a tank may be saved years in), the schedule each light runs (hours lit, ramp, levels) or its levels set by hand, what its smart plugs power (CO₂, filter, heater, air, fan, light), and the reader\'s own notes. Use it when the reader talks about their tank or fish they keep.',
       input_schema: strict({}),
       step: () => ({ kind: 'tanks' }),
       run: async () => {
